@@ -50,17 +50,17 @@
       </children>
       <children xmi:id="_tXpZgDQ_Edun4NCFPwZksA" targetEdges="_tZSYQDQ_Edun4NCFPwZksA">
         <children xmi:id="_tXpZgzQ_Edun4NCFPwZksA" type="ImageCompartment">
-          <element xmi:type="uml:Model" href="identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
+          <element xmi:type="uml:Model" href="platform:/resource/RSA-Models/identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
           <layoutConstraint xmi:type="notation:Size" xmi:id="_tXpZhDQ_Edun4NCFPwZksA" width="1320" height="1320"/>
         </children>
         <children xmi:id="_tXpZhTQ_Edun4NCFPwZksA" type="Stereotype">
-          <element xmi:type="uml:Model" href="identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
+          <element xmi:type="uml:Model" href="platform:/resource/RSA-Models/identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
         </children>
         <children xmi:id="_tXpZhjQ_Edun4NCFPwZksA" type="Name">
-          <element xmi:type="uml:Model" href="identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
+          <element xmi:type="uml:Model" href="platform:/resource/RSA-Models/identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_tXpZgTQ_Edun4NCFPwZksA" fillColor="8454143" lineColor="33023" showStereotype="Label"/>
-        <element xmi:type="uml:Model" href="identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
+        <element xmi:type="uml:Model" href="platform:/resource/RSA-Models/identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tXpZgjQ_Edun4NCFPwZksA" x="8586" y="1272"/>
       </children>
       <children xmi:id="_yU5WoDQ_Edun4NCFPwZksA" targetEdges="_yVMRkzQ_Edun4NCFPwZksA" element="_7h8GkOJREdqxcra4qpeplw">
@@ -297,40 +297,40 @@
       <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_EfRZoK86EdieaYgxtVWN8Q"/>
     </packageImport>
     <packageImport xmi:id="_C5BGAOS8Edq49qz7R-l1Hg">
-      <importedPackage xmi:type="uml:Model" href="identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
+      <importedPackage xmi:type="uml:Model" href="platform:/resource/RSA-Models/identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier"/>
     </packageImport>
     <ownedMember xmi:type="uml:Package" xmi:id="_qLB6kOJQEdqxcra4qpeplw" name="entity">
       <eAnnotations xmi:id="_qLB6keJQEdqxcra4qpeplw" source="uml2.diagrams">
         <contents xmi:type="notation:Diagram" xmi:id="_QGrl0HDEEdur9cZft9T4NQ" type="Class" name="Entities">
           <children xmi:id="_UrMS0HDEEdur9cZft9T4NQ" targetEdges="_Xcq78HDEEdur9cZft9T4NQ">
             <children xmi:id="_UrWD0HDEEdur9cZft9T4NQ" type="ImageCompartment">
-              <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+              <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
               <layoutConstraint xmi:type="notation:Size" xmi:id="_UrWD0XDEEdur9cZft9T4NQ" width="1320" height="1320"/>
             </children>
             <children xmi:id="_UrWD0nDEEdur9cZft9T4NQ" type="Stereotype">
-              <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+              <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             </children>
             <children xmi:id="_UrWD03DEEdur9cZft9T4NQ" type="Name">
-              <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+              <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             </children>
             <children xmi:id="_UrWD1HDEEdur9cZft9T4NQ" type="AttributeCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_UrWD1XDEEdur9cZft9T4NQ"/>
-              <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+              <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             </children>
             <children xmi:id="_UrWD1nDEEdur9cZft9T4NQ" type="OperationCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_UrWD13DEEdur9cZft9T4NQ"/>
-              <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+              <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             </children>
             <children xmi:id="_UrWD2HDEEdur9cZft9T4NQ" visible="false" type="SignalCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_UrWD2XDEEdur9cZft9T4NQ"/>
-              <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+              <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             </children>
             <children xmi:id="_UssHoHDEEdur9cZft9T4NQ" visible="false" type="StructureCompartment">
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_UssHoXDEEdur9cZft9T4NQ"/>
-              <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+              <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_UrMS0XDEEdur9cZft9T4NQ" showStereotype="Label"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UrMS0nDEEdur9cZft9T4NQ" x="2226" y="2226"/>
           </children>
           <children xmi:id="_XcOQAHDEEdur9cZft9T4NQ" sourceEdges="_Xcq78HDEEdur9cZft9T4NQ _a90ugHDEEdur9cZft9T4NQ" element="_au_WlWA_EdqdHZdhXRxKVg">
@@ -728,7 +728,7 @@
       </eAnnotations>
       <ownedMember xmi:type="uml:Class" xmi:id="_au_WlWA_EdqdHZdhXRxKVg" name="Entity" isAbstract="true">
         <generalization xmi:id="_03llUK6GEdqR97hrnpMlhg">
-          <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+          <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
         </generalization>
         <generalization xmi:id="_a9q9gHDEEdur9cZft9T4NQ" general="_X0NSMHDEEdur9cZft9T4NQ"/>
       </ownedMember>
@@ -4960,7 +4960,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_Cpo0ZU-zEduuPYQnFiBybA"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_CpoNUU-zEduuPYQnFiBybA" fontName="Sans" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CpoNUk-zEduuPYQnFiBybA" x="8904" y="13038"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CpoNUk-zEduuPYQnFiBybA" x="7950" y="13038"/>
         </children>
         <children xmi:id="_CpwwME-zEduuPYQnFiBybA" sourceEdges="_CqSUoE-zEduuPYQnFiBybA" targetEdges="_CqVX8E-zEduuPYQnFiBybA _Cqa3gE-zEduuPYQnFiBybA _CqhlME-zEduuPYQnFiBybA _Np4OsE-zEduuPYQnFiBybA" element="_qdz5sOD9Edq8ysXH3gTiEg">
           <children xmi:id="_CpxXQE-zEduuPYQnFiBybA" type="ImageCompartment" element="_qdz5sOD9Edq8ysXH3gTiEg">
@@ -5166,38 +5166,7 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_ONi8cU-zEduuPYQnFiBybA" fontName="Sans" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ONi8ck-zEduuPYQnFiBybA" x="1316" y="30268"/>
         </children>
-        <children xmi:id="_EztvQBmmEdyaJvvdhGgDYg" targetEdges="_QIcg8BmoEdyaJvvdhGgDYg">
-          <children xmi:id="_EztvQxmmEdyaJvvdhGgDYg" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-            <layoutConstraint xmi:type="notation:Size" xmi:id="_EztvRBmmEdyaJvvdhGgDYg" width="1320" height="1320"/>
-          </children>
-          <children xmi:id="_EzuWUBmmEdyaJvvdhGgDYg" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_EzuWURmmEdyaJvvdhGgDYg" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_EzuWUhmmEdyaJvvdhGgDYg" type="AttributeCompartment">
-            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_EzuWUxmmEdyaJvvdhGgDYg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_EzuWVBmmEdyaJvvdhGgDYg" type="OperationCompartment">
-            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_EzuWVRmmEdyaJvvdhGgDYg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_EzuWVhmmEdyaJvvdhGgDYg" visible="false" type="SignalCompartment">
-            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_EzuWVxmmEdyaJvvdhGgDYg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_Ezu9YBmmEdyaJvvdhGgDYg" visible="false" type="StructureCompartment">
-            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_Ezu9YRmmEdyaJvvdhGgDYg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_EztvQRmmEdyaJvvdhGgDYg" fontName="Segoe UI" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EztvQhmmEdyaJvvdhGgDYg" x="25122" y="10812"/>
-        </children>
-        <children xmi:id="_Mj3m8BmoEdyaJvvdhGgDYg" sourceEdges="_QIcg8BmoEdyaJvvdhGgDYg" targetEdges="_O0GkMBmoEdyaJvvdhGgDYg" element="_MjX3sBmoEdyaJvvdhGgDYg">
+        <children xmi:id="_Mj3m8BmoEdyaJvvdhGgDYg" targetEdges="_O0GkMBmoEdyaJvvdhGgDYg" element="_MjX3sBmoEdyaJvvdhGgDYg">
           <children xmi:id="_Mj3m8xmoEdyaJvvdhGgDYg" type="ImageCompartment" element="_MjX3sBmoEdyaJvvdhGgDYg">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_Mj3m9BmoEdyaJvvdhGgDYg" width="1320" height="1320"/>
           </children>
@@ -5965,14 +5934,457 @@
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_O0GkMRmoEdyaJvvdhGgDYg" fontName="Segoe UI" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_O0GkMhmoEdyaJvvdhGgDYg" points="[142, -7, -95, -9]$[280, -7, 43, -9]"/>
         </edges>
-        <edges xmi:id="_QIcg8BmoEdyaJvvdhGgDYg" element="_QIaEsBmoEdyaJvvdhGgDYg" source="_Mj3m8BmoEdyaJvvdhGgDYg" target="_EztvQBmmEdyaJvvdhGgDYg">
-          <children xmi:id="_QIcg8xmoEdyaJvvdhGgDYg" type="NameLabel" element="_QIaEsBmoEdyaJvvdhGgDYg">
-            <children xmi:id="_QIdIABmoEdyaJvvdhGgDYg" type="Stereotype" element="_QIaEsBmoEdyaJvvdhGgDYg"/>
-            <children xmi:id="_QIdIARmoEdyaJvvdhGgDYg" type="Name" element="_QIaEsBmoEdyaJvvdhGgDYg"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_QIcg9BmoEdyaJvvdhGgDYg" y="-185"/>
+      </contents>
+      <contents xmi:type="notation:Diagram" xmi:id="_XRuRYDafEdypU_bkgRAm2w" type="Class" element="_LaA6ICh9Edue7oeC4NTCGg" name="UnitsAndRates">
+        <children xmi:id="_bFgFADafEdypU_bkgRAm2w" sourceEdges="_HWXLcDagEdypU_bkgRAm2w" element="_wru2gODnEdq8ysXH3gTiEg">
+          <children xmi:id="_bFgFAzafEdypU_bkgRAm2w" type="ImageCompartment" element="_wru2gODnEdq8ysXH3gTiEg">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_bFgFBDafEdypU_bkgRAm2w" width="1320" height="1320"/>
           </children>
-          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_QIcg8RmoEdyaJvvdhGgDYg" fontName="Segoe UI" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QIcg8hmoEdyaJvvdhGgDYg" points="[-3, -24, 18, 94]$[-16, -144, 5, -26]"/>
+          <children xmi:id="_bFgFBTafEdypU_bkgRAm2w" type="Stereotype" element="_wru2gODnEdq8ysXH3gTiEg"/>
+          <children xmi:id="_bFgFBjafEdypU_bkgRAm2w" type="Name" element="_wru2gODnEdq8ysXH3gTiEg"/>
+          <children xmi:id="_bFgFBzafEdypU_bkgRAm2w" type="AttributeCompartment" element="_wru2gODnEdq8ysXH3gTiEg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_bFgFCDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_bFgFCTafEdypU_bkgRAm2w" type="OperationCompartment" element="_wru2gODnEdq8ysXH3gTiEg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_bFgFCjafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_bFgFCzafEdypU_bkgRAm2w" visible="false" type="SignalCompartment" element="_wru2gODnEdq8ysXH3gTiEg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_bFgFDDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_bFgFDTafEdypU_bkgRAm2w" visible="false" type="StructureCompartment" element="_wru2gODnEdq8ysXH3gTiEg">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_bFgFDjafEdypU_bkgRAm2w"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_bFgFATafEdypU_bkgRAm2w" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bFgFAjafEdypU_bkgRAm2w" x="1272" y="8904"/>
+        </children>
+        <children xmi:id="_dSKw4DafEdypU_bkgRAm2w" sourceEdges="_z4CKgDafEdypU_bkgRAm2w _8Esp8DafEdypU_bkgRAm2w" element="_OSNYgOMfEdqaQsPH3rPnBQ">
+          <children xmi:id="_dSKw4zafEdypU_bkgRAm2w" type="ImageCompartment" element="_OSNYgOMfEdqaQsPH3rPnBQ">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_dSKw5DafEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_dSKw5TafEdypU_bkgRAm2w" type="Stereotype" element="_OSNYgOMfEdqaQsPH3rPnBQ"/>
+          <children xmi:id="_dSKw5jafEdypU_bkgRAm2w" type="Name" element="_OSNYgOMfEdqaQsPH3rPnBQ"/>
+          <children xmi:id="_dSKw5zafEdypU_bkgRAm2w" type="AttributeCompartment" element="_OSNYgOMfEdqaQsPH3rPnBQ">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dSKw6DafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_dSKw6TafEdypU_bkgRAm2w" type="OperationCompartment" element="_OSNYgOMfEdqaQsPH3rPnBQ">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dSKw6jafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_dSKw6zafEdypU_bkgRAm2w" visible="false" type="SignalCompartment" element="_OSNYgOMfEdqaQsPH3rPnBQ">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dSKw7DafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_dSKw7TafEdypU_bkgRAm2w" visible="false" type="StructureCompartment" element="_OSNYgOMfEdqaQsPH3rPnBQ">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_dSKw7jafEdypU_bkgRAm2w"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_dSKw4TafEdypU_bkgRAm2w" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dSKw4jafEdypU_bkgRAm2w" x="13674" y="8904"/>
+        </children>
+        <children xmi:id="_eqsDADafEdypU_bkgRAm2w" sourceEdges="_dwAG8DagEdypU_bkgRAm2w" element="_9APFUOD4Edq8ysXH3gTiEg">
+          <children xmi:id="_eqsDAzafEdypU_bkgRAm2w" type="ImageCompartment" element="_9APFUOD4Edq8ysXH3gTiEg">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_eqsDBDafEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_eqsDBTafEdypU_bkgRAm2w" type="Stereotype" element="_9APFUOD4Edq8ysXH3gTiEg"/>
+          <children xmi:id="_eqsDBjafEdypU_bkgRAm2w" type="Name" element="_9APFUOD4Edq8ysXH3gTiEg"/>
+          <children xmi:id="_eqsDBzafEdypU_bkgRAm2w" type="AttributeCompartment" element="_9APFUOD4Edq8ysXH3gTiEg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_eqsDCDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_eqsDCTafEdypU_bkgRAm2w" type="OperationCompartment" element="_9APFUOD4Edq8ysXH3gTiEg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_eqsDCjafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_eqsDCzafEdypU_bkgRAm2w" visible="false" type="SignalCompartment" element="_9APFUOD4Edq8ysXH3gTiEg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_eqsDDDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_eqsDDTafEdypU_bkgRAm2w" visible="false" type="StructureCompartment" element="_9APFUOD4Edq8ysXH3gTiEg">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_eqsDDjafEdypU_bkgRAm2w"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_eqsDATafEdypU_bkgRAm2w" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eqsDAjafEdypU_bkgRAm2w" x="-6996" y="8904"/>
+        </children>
+        <children xmi:id="_koTQ8DafEdypU_bkgRAm2w" targetEdges="_tFEB4DafEdypU_bkgRAm2w _ttmBgDafEdypU_bkgRAm2w _1dgTgDafEdypU_bkgRAm2w">
+          <children xmi:id="_koTQ8zafEdypU_bkgRAm2w" type="ImageCompartment">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_koTQ9DafEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_koTQ9TafEdypU_bkgRAm2w" type="Stereotype">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+          </children>
+          <children xmi:id="_koTQ9jafEdypU_bkgRAm2w" type="Name">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+          </children>
+          <children xmi:id="_koTQ9zafEdypU_bkgRAm2w" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_koTQ-DafEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+          </children>
+          <children xmi:id="_koTQ-TafEdypU_bkgRAm2w" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_koTQ-jafEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+          </children>
+          <children xmi:id="_koTQ-zafEdypU_bkgRAm2w" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_koTQ_DafEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+          </children>
+          <children xmi:id="_koTQ_TafEdypU_bkgRAm2w" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_koTQ_jafEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_koTQ8TafEdypU_bkgRAm2w" showStereotype="Label"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_koTQ8jafEdypU_bkgRAm2w" x="6678" y="318"/>
+        </children>
+        <children xmi:id="_qj_MQDafEdypU_bkgRAm2w" sourceEdges="_tFEB4DafEdypU_bkgRAm2w" targetEdges="_HWXLcDagEdypU_bkgRAm2w" element="_qjigUDafEdypU_bkgRAm2w">
+          <children xmi:id="_qj_MQzafEdypU_bkgRAm2w" type="ImageCompartment" element="_qjigUDafEdypU_bkgRAm2w">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_qj_MRDafEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_qj_MRTafEdypU_bkgRAm2w" type="Stereotype" element="_qjigUDafEdypU_bkgRAm2w"/>
+          <children xmi:id="_qj_MRjafEdypU_bkgRAm2w" type="Name" element="_qjigUDafEdypU_bkgRAm2w"/>
+          <children xmi:id="_qj_MRzafEdypU_bkgRAm2w" type="AttributeCompartment" element="_qjigUDafEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_qj_MSDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_qj_MSTafEdypU_bkgRAm2w" type="OperationCompartment" element="_qjigUDafEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_qj_MSjafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_qj_MSzafEdypU_bkgRAm2w" visible="false" type="SignalCompartment" element="_qjigUDafEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_qj_MTDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_qj_MTTafEdypU_bkgRAm2w" visible="false" type="StructureCompartment" element="_qjigUDafEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_qj_MTjafEdypU_bkgRAm2w"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_qj_MQTafEdypU_bkgRAm2w" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qj_MQjafEdypU_bkgRAm2w" x="2862" y="5455"/>
+        </children>
+        <children xmi:id="_r2_FMDafEdypU_bkgRAm2w" sourceEdges="_ttmBgDafEdypU_bkgRAm2w" targetEdges="_8Esp8DafEdypU_bkgRAm2w" element="_r2iZQDafEdypU_bkgRAm2w">
+          <children xmi:id="_r2_FMzafEdypU_bkgRAm2w" type="ImageCompartment" element="_r2iZQDafEdypU_bkgRAm2w">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_r2_FNDafEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_r2_FNTafEdypU_bkgRAm2w" type="Stereotype" element="_r2iZQDafEdypU_bkgRAm2w"/>
+          <children xmi:id="_r2_FNjafEdypU_bkgRAm2w" type="Name" element="_r2iZQDafEdypU_bkgRAm2w"/>
+          <children xmi:id="_r2_FNzafEdypU_bkgRAm2w" type="AttributeCompartment" element="_r2iZQDafEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_r2_FODafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_r2_FOTafEdypU_bkgRAm2w" type="OperationCompartment" element="_r2iZQDafEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_r2_FOjafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_r2_FOzafEdypU_bkgRAm2w" visible="false" type="SignalCompartment" element="_r2iZQDafEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_r2_FPDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_r2_FPTafEdypU_bkgRAm2w" visible="false" type="StructureCompartment" element="_r2iZQDafEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_r2_FPjafEdypU_bkgRAm2w"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_r2_FMTafEdypU_bkgRAm2w" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r2_FMjafEdypU_bkgRAm2w" x="12084" y="5406"/>
+        </children>
+        <children xmi:id="_z34ZgDafEdypU_bkgRAm2w" sourceEdges="_1dgTgDafEdypU_bkgRAm2w" targetEdges="_z4CKgDafEdypU_bkgRAm2w" element="_MjX3sBmoEdyaJvvdhGgDYg">
+          <children xmi:id="_z34ZgzafEdypU_bkgRAm2w" type="ImageCompartment" element="_MjX3sBmoEdyaJvvdhGgDYg">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_z34ZhDafEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_z34ZhTafEdypU_bkgRAm2w" type="Stereotype" element="_MjX3sBmoEdyaJvvdhGgDYg"/>
+          <children xmi:id="_z34ZhjafEdypU_bkgRAm2w" type="Name" element="_MjX3sBmoEdyaJvvdhGgDYg"/>
+          <children xmi:id="_z34ZhzafEdypU_bkgRAm2w" type="AttributeCompartment" element="_MjX3sBmoEdyaJvvdhGgDYg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_z34ZiDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_z34ZiTafEdypU_bkgRAm2w" type="OperationCompartment" element="_MjX3sBmoEdyaJvvdhGgDYg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_z34ZijafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_z34ZizafEdypU_bkgRAm2w" visible="false" type="SignalCompartment" element="_MjX3sBmoEdyaJvvdhGgDYg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_z34ZjDafEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_z34ZjTafEdypU_bkgRAm2w" visible="false" type="StructureCompartment" element="_MjX3sBmoEdyaJvvdhGgDYg">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_z34ZjjafEdypU_bkgRAm2w"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_z34ZgTafEdypU_bkgRAm2w" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z34ZgjafEdypU_bkgRAm2w" x="19398" y="636"/>
+        </children>
+        <children xmi:id="_VCGisDagEdypU_bkgRAm2w" targetEdges="_cYrusDagEdypU_bkgRAm2w">
+          <children xmi:id="_VCGiszagEdypU_bkgRAm2w" type="ImageCompartment">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_VCGitDagEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_VCGitTagEdypU_bkgRAm2w" type="Stereotype">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_VCGitjagEdypU_bkgRAm2w" type="Name">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_VCGitzagEdypU_bkgRAm2w" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_VCGiuDagEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_VCGiuTagEdypU_bkgRAm2w" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_VCGiujagEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_VCGiuzagEdypU_bkgRAm2w" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_VCGivDagEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_VCGivTagEdypU_bkgRAm2w" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_VCGivjagEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_VCGisTagEdypU_bkgRAm2w" showStereotype="Label"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VCGisjagEdypU_bkgRAm2w" x="-6360" y="954"/>
+        </children>
+        <children xmi:id="_XiJdkDagEdypU_bkgRAm2w" sourceEdges="_cYrusDagEdypU_bkgRAm2w" targetEdges="_dwAG8DagEdypU_bkgRAm2w" element="_Xh17kDagEdypU_bkgRAm2w">
+          <children xmi:id="_XiJdkzagEdypU_bkgRAm2w" type="ImageCompartment" element="_Xh17kDagEdypU_bkgRAm2w">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_XiJdlDagEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_XiJdlTagEdypU_bkgRAm2w" type="Stereotype" element="_Xh17kDagEdypU_bkgRAm2w"/>
+          <children xmi:id="_XiJdljagEdypU_bkgRAm2w" type="Name" element="_Xh17kDagEdypU_bkgRAm2w"/>
+          <children xmi:id="_XiJdlzagEdypU_bkgRAm2w" type="AttributeCompartment" element="_Xh17kDagEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_XiJdmDagEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_XiJdmTagEdypU_bkgRAm2w" type="OperationCompartment" element="_Xh17kDagEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_XiJdmjagEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_XiJdmzagEdypU_bkgRAm2w" visible="false" type="SignalCompartment" element="_Xh17kDagEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_XiJdnDagEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_XiJdnTagEdypU_bkgRAm2w" visible="false" type="StructureCompartment" element="_Xh17kDagEdypU_bkgRAm2w">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_XiJdnjagEdypU_bkgRAm2w"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_XiJdkTagEdypU_bkgRAm2w" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XiJdkjagEdypU_bkgRAm2w" x="-5724" y="5406"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_XRuRYTafEdypU_bkgRAm2w"/>
+        <edges xmi:id="_tFEB4DafEdypU_bkgRAm2w" element="_tE638DafEdypU_bkgRAm2w" source="_qj_MQDafEdypU_bkgRAm2w" target="_koTQ8DafEdypU_bkgRAm2w">
+          <children xmi:id="_tFEB4zafEdypU_bkgRAm2w" type="NameLabel" element="_tE638DafEdypU_bkgRAm2w">
+            <children xmi:id="_tFEB5TafEdypU_bkgRAm2w" type="Stereotype" element="_tE638DafEdypU_bkgRAm2w"/>
+            <children xmi:id="_tFEB5jafEdypU_bkgRAm2w" type="Name" element="_tE638DafEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tFEB5DafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_tFEB4TafEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tFEB4jafEdypU_bkgRAm2w" points="[50, -24, -260, 119]$[253, -123, -57, 20]"/>
+        </edges>
+        <edges xmi:id="_ttmBgDafEdypU_bkgRAm2w" element="_ttTGkDafEdypU_bkgRAm2w" source="_r2_FMDafEdypU_bkgRAm2w" target="_koTQ8DafEdypU_bkgRAm2w">
+          <children xmi:id="_ttmBgzafEdypU_bkgRAm2w" type="NameLabel" element="_ttTGkDafEdypU_bkgRAm2w">
+            <children xmi:id="_ttmBhTafEdypU_bkgRAm2w" type="Stereotype" element="_ttTGkDafEdypU_bkgRAm2w"/>
+            <children xmi:id="_ttmBhjafEdypU_bkgRAm2w" type="Name" element="_ttTGkDafEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ttmBhDafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_ttmBgTafEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ttmBgjafEdypU_bkgRAm2w" points="[-43, -24, 280, 138]$[-251, -157, 72, 5]"/>
+        </edges>
+        <edges xmi:id="_z4CKgDafEdypU_bkgRAm2w" element="_Oy4cMBmoEdyaJvvdhGgDYg" source="_dSKw4DafEdypU_bkgRAm2w" target="_z34ZgDafEdypU_bkgRAm2w">
+          <children xmi:id="_z4CKgzafEdypU_bkgRAm2w" type="NameLabel" element="_Oy4cMBmoEdyaJvvdhGgDYg">
+            <children xmi:id="_z4CKhTafEdypU_bkgRAm2w" type="Stereotype" element="_Oy4cMBmoEdyaJvvdhGgDYg"/>
+            <children xmi:id="_z4CKhjafEdypU_bkgRAm2w" type="Name" element="_Oy4cMBmoEdyaJvvdhGgDYg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z4CKhDafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_z4CKhzafEdypU_bkgRAm2w" visible="false" type="ToMultiplicityLabel" element="_Oy4cMhmoEdyaJvvdhGgDYg">
+            <children xmi:id="_z4CKiTafEdypU_bkgRAm2w" type="ToMultiplicity" element="_Oy4cMhmoEdyaJvvdhGgDYg"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_z4CKiDafEdypU_bkgRAm2w" y="397"/>
+          </children>
+          <children xmi:id="_z4CKijafEdypU_bkgRAm2w" type="ToRoleLabel" element="_Oy4cMhmoEdyaJvvdhGgDYg">
+            <children xmi:id="_z4CKjDafEdypU_bkgRAm2w" type="ToRole" element="_Oy4cMhmoEdyaJvvdhGgDYg"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_z4CKizafEdypU_bkgRAm2w" y="-397"/>
+          </children>
+          <children xmi:id="_z4CKjTafEdypU_bkgRAm2w" type="FromMultiplicityLabel" element="_Oy4cMRmoEdyaJvvdhGgDYg">
+            <children xmi:id="_z4CKjzafEdypU_bkgRAm2w" type="FromMultiplicity" element="_Oy4cMRmoEdyaJvvdhGgDYg"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_z4CKjjafEdypU_bkgRAm2w" x="914" y="550"/>
+          </children>
+          <children xmi:id="_z4CKkDafEdypU_bkgRAm2w" type="FromRoleLabel" element="_Oy4cMRmoEdyaJvvdhGgDYg">
+            <children xmi:id="_z4CKkjafEdypU_bkgRAm2w" type="FromRole" element="_Oy4cMRmoEdyaJvvdhGgDYg"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_z4CKkTafEdypU_bkgRAm2w" x="-8" y="-1577"/>
+          </children>
+          <children xmi:id="_z4CKkzafEdypU_bkgRAm2w" type="ToQualifierLabel" element="_Oy4cMhmoEdyaJvvdhGgDYg">
+            <children xmi:id="_z4CKlTafEdypU_bkgRAm2w" type="QualifierCompartment" element="_Oy4cMhmoEdyaJvvdhGgDYg">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_z4CKljafEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_z4CKlDafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_z4CKlzafEdypU_bkgRAm2w" type="FromQualifierLabel" element="_Oy4cMRmoEdyaJvvdhGgDYg">
+            <children xmi:id="_z4CKmTafEdypU_bkgRAm2w" type="QualifierCompartment" element="_Oy4cMRmoEdyaJvvdhGgDYg">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_z4CKmjafEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_z4CKmDafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_z4CKmzafEdypU_bkgRAm2w" type="ToRoleLabel" element="_Oy4cMhmoEdyaJvvdhGgDYg">
+            <eAnnotations xmi:id="_z4CKnTafEdypU_bkgRAm2w" source="ToConstraintLabel"/>
+            <children xmi:id="_z4CKnjafEdypU_bkgRAm2w" visible="false" type="ToConstraintCompartment" element="_Oy4cMhmoEdyaJvvdhGgDYg">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_z4CKnzafEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_z4CKnDafEdypU_bkgRAm2w" y="1058"/>
+          </children>
+          <children xmi:id="_z4CKoDafEdypU_bkgRAm2w" type="FromRoleLabel" element="_Oy4cMRmoEdyaJvvdhGgDYg">
+            <eAnnotations xmi:id="_z4CKojafEdypU_bkgRAm2w" source="FromConstraintLabel"/>
+            <children xmi:id="_z4CKozafEdypU_bkgRAm2w" visible="false" type="FromConstraintCompartment" element="_Oy4cMRmoEdyaJvvdhGgDYg">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_z4CKpDafEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_z4CKoTafEdypU_bkgRAm2w" y="1058"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_z4CKgTafEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z4CKgjafEdypU_bkgRAm2w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+        </edges>
+        <edges xmi:id="_1dgTgDafEdypU_bkgRAm2w" element="_QIaEsBmoEdyaJvvdhGgDYg" source="_z34ZgDafEdypU_bkgRAm2w" target="_koTQ8DafEdypU_bkgRAm2w">
+          <children xmi:id="_1dgTgzafEdypU_bkgRAm2w" type="NameLabel" element="_QIaEsBmoEdyaJvvdhGgDYg">
+            <children xmi:id="_1dgThTafEdypU_bkgRAm2w" type="Stereotype" element="_QIaEsBmoEdyaJvvdhGgDYg"/>
+            <children xmi:id="_1dgThjafEdypU_bkgRAm2w" type="Name" element="_QIaEsBmoEdyaJvvdhGgDYg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1dgThDafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_1dgTgTafEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1dgTgjafEdypU_bkgRAm2w" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+        </edges>
+        <edges xmi:id="_8Esp8DafEdypU_bkgRAm2w" element="_8Dz5IDafEdypU_bkgRAm2w" source="_dSKw4DafEdypU_bkgRAm2w" target="_r2_FMDafEdypU_bkgRAm2w">
+          <children xmi:id="_8Esp8zafEdypU_bkgRAm2w" type="NameLabel" element="_8Dz5IDafEdypU_bkgRAm2w">
+            <children xmi:id="_8Esp9TafEdypU_bkgRAm2w" type="Stereotype" element="_8Dz5IDafEdypU_bkgRAm2w"/>
+            <children xmi:id="_8Esp9jafEdypU_bkgRAm2w" type="Name" element="_8Dz5IDafEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Esp9DafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_8Esp9zafEdypU_bkgRAm2w" visible="false" type="ToMultiplicityLabel" element="_8Dz5IjafEdypU_bkgRAm2w">
+            <children xmi:id="_8Esp-TafEdypU_bkgRAm2w" type="ToMultiplicity" element="_8Dz5IjafEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8Esp-DafEdypU_bkgRAm2w" y="397"/>
+          </children>
+          <children xmi:id="_8Esp-jafEdypU_bkgRAm2w" type="ToRoleLabel" element="_8Dz5IjafEdypU_bkgRAm2w">
+            <children xmi:id="_8Esp_DafEdypU_bkgRAm2w" type="ToRole" element="_8Dz5IjafEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8Esp-zafEdypU_bkgRAm2w" y="-397"/>
+          </children>
+          <children xmi:id="_8Esp_TafEdypU_bkgRAm2w" type="FromMultiplicityLabel" element="_8Dz5ITafEdypU_bkgRAm2w">
+            <children xmi:id="_8Esp_zafEdypU_bkgRAm2w" type="FromMultiplicity" element="_8Dz5ITafEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8Esp_jafEdypU_bkgRAm2w" x="-474" y="528"/>
+          </children>
+          <children xmi:id="_8EsqADafEdypU_bkgRAm2w" type="FromRoleLabel" element="_8Dz5ITafEdypU_bkgRAm2w">
+            <children xmi:id="_8EsqAjafEdypU_bkgRAm2w" type="FromRole" element="_8Dz5ITafEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8EsqATafEdypU_bkgRAm2w" x="1246" y="-964"/>
+          </children>
+          <children xmi:id="_8EsqAzafEdypU_bkgRAm2w" type="ToQualifierLabel" element="_8Dz5IjafEdypU_bkgRAm2w">
+            <children xmi:id="_8EsqBTafEdypU_bkgRAm2w" type="QualifierCompartment" element="_8Dz5IjafEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8EsqBjafEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8EsqBDafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_8EsqBzafEdypU_bkgRAm2w" type="FromQualifierLabel" element="_8Dz5ITafEdypU_bkgRAm2w">
+            <children xmi:id="_8EsqCTafEdypU_bkgRAm2w" type="QualifierCompartment" element="_8Dz5ITafEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8EsqCjafEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8EsqCDafEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_8EsqCzafEdypU_bkgRAm2w" type="ToRoleLabel" element="_8Dz5IjafEdypU_bkgRAm2w">
+            <eAnnotations xmi:id="_8EsqDTafEdypU_bkgRAm2w" source="ToConstraintLabel"/>
+            <children xmi:id="_8EsqDjafEdypU_bkgRAm2w" visible="false" type="ToConstraintCompartment" element="_8Dz5IjafEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8EsqDzafEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8EsqDDafEdypU_bkgRAm2w" y="1058"/>
+          </children>
+          <children xmi:id="_8EsqEDafEdypU_bkgRAm2w" type="FromRoleLabel" element="_8Dz5ITafEdypU_bkgRAm2w">
+            <eAnnotations xmi:id="_8EsqEjafEdypU_bkgRAm2w" source="FromConstraintLabel"/>
+            <children xmi:id="_8EsqEzafEdypU_bkgRAm2w" visible="false" type="FromConstraintCompartment" element="_8Dz5ITafEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8EsqFDafEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8EsqETafEdypU_bkgRAm2w" y="1058"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_8Esp8TafEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8Esp8jafEdypU_bkgRAm2w" points="[-33, -26, 117, 97]$[-141, -99, 9, 24]"/>
+        </edges>
+        <edges xmi:id="_HWXLcDagEdypU_bkgRAm2w" element="_HVnkkDagEdypU_bkgRAm2w" source="_bFgFADafEdypU_bkgRAm2w" target="_qj_MQDafEdypU_bkgRAm2w">
+          <children xmi:id="_HWg8cDagEdypU_bkgRAm2w" type="NameLabel" element="_HVnkkDagEdypU_bkgRAm2w">
+            <children xmi:id="_HWg8cjagEdypU_bkgRAm2w" type="Stereotype" element="_HVnkkDagEdypU_bkgRAm2w"/>
+            <children xmi:id="_HWg8czagEdypU_bkgRAm2w" type="Name" element="_HVnkkDagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HWg8cTagEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_HWg8dDagEdypU_bkgRAm2w" visible="false" type="ToMultiplicityLabel" element="_HVnkkjagEdypU_bkgRAm2w">
+            <children xmi:id="_HWg8djagEdypU_bkgRAm2w" type="ToMultiplicity" element="_HVnkkjagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HWg8dTagEdypU_bkgRAm2w" y="397"/>
+          </children>
+          <children xmi:id="_HWg8dzagEdypU_bkgRAm2w" type="ToRoleLabel" element="_HVnkkjagEdypU_bkgRAm2w">
+            <children xmi:id="_HWg8eTagEdypU_bkgRAm2w" type="ToRole" element="_HVnkkjagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HWg8eDagEdypU_bkgRAm2w" y="-397"/>
+          </children>
+          <children xmi:id="_HWg8ejagEdypU_bkgRAm2w" type="FromMultiplicityLabel" element="_HVnkkTagEdypU_bkgRAm2w">
+            <children xmi:id="_HWg8fDagEdypU_bkgRAm2w" type="FromMultiplicity" element="_HVnkkTagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HWg8ezagEdypU_bkgRAm2w" y="397"/>
+          </children>
+          <children xmi:id="_HWg8fTagEdypU_bkgRAm2w" type="FromRoleLabel" element="_HVnkkTagEdypU_bkgRAm2w">
+            <children xmi:id="_HWg8fzagEdypU_bkgRAm2w" type="FromRole" element="_HVnkkTagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HWg8fjagEdypU_bkgRAm2w" x="-185" y="-1479"/>
+          </children>
+          <children xmi:id="_HWg8gDagEdypU_bkgRAm2w" type="ToQualifierLabel" element="_HVnkkjagEdypU_bkgRAm2w">
+            <children xmi:id="_HWg8gjagEdypU_bkgRAm2w" type="QualifierCompartment" element="_HVnkkjagEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_HWg8gzagEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HWg8gTagEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_HWg8hDagEdypU_bkgRAm2w" type="FromQualifierLabel" element="_HVnkkTagEdypU_bkgRAm2w">
+            <children xmi:id="_HWg8hjagEdypU_bkgRAm2w" type="QualifierCompartment" element="_HVnkkTagEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_HWg8hzagEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HWg8hTagEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_HWg8iDagEdypU_bkgRAm2w" type="ToRoleLabel" element="_HVnkkjagEdypU_bkgRAm2w">
+            <eAnnotations xmi:id="_HWg8ijagEdypU_bkgRAm2w" source="ToConstraintLabel"/>
+            <children xmi:id="_HWg8izagEdypU_bkgRAm2w" visible="false" type="ToConstraintCompartment" element="_HVnkkjagEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_HWg8jDagEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HWg8iTagEdypU_bkgRAm2w" y="1058"/>
+          </children>
+          <children xmi:id="_HWg8jTagEdypU_bkgRAm2w" type="FromRoleLabel" element="_HVnkkTagEdypU_bkgRAm2w">
+            <eAnnotations xmi:id="_HWg8jzagEdypU_bkgRAm2w" source="FromConstraintLabel"/>
+            <children xmi:id="_HWg8kDagEdypU_bkgRAm2w" visible="false" type="FromConstraintCompartment" element="_HVnkkTagEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_HWg8kTagEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_HWg8jjagEdypU_bkgRAm2w" y="1058"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_HWXLcTagEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HWXLcjagEdypU_bkgRAm2w" points="[-54, -26, 205, 113]$[-327, -143, -68, -4]"/>
+        </edges>
+        <edges xmi:id="_cYrusDagEdypU_bkgRAm2w" element="_cYh9sDagEdypU_bkgRAm2w" source="_XiJdkDagEdypU_bkgRAm2w" target="_VCGisDagEdypU_bkgRAm2w">
+          <children xmi:id="_cYruszagEdypU_bkgRAm2w" type="NameLabel" element="_cYh9sDagEdypU_bkgRAm2w">
+            <children xmi:id="_cYrutTagEdypU_bkgRAm2w" type="Stereotype" element="_cYh9sDagEdypU_bkgRAm2w"/>
+            <children xmi:id="_cYrutjagEdypU_bkgRAm2w" type="Name" element="_cYh9sDagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cYrutDagEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_cYrusTagEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cYrusjagEdypU_bkgRAm2w" points="[-1, -26, -4, 73]$[-20, -75, -23, 24]"/>
+        </edges>
+        <edges xmi:id="_dwAG8DagEdypU_bkgRAm2w" element="_dvHWIDagEdypU_bkgRAm2w" source="_eqsDADafEdypU_bkgRAm2w" target="_XiJdkDagEdypU_bkgRAm2w">
+          <children xmi:id="_dwAG8zagEdypU_bkgRAm2w" type="NameLabel" element="_dvHWIDagEdypU_bkgRAm2w">
+            <children xmi:id="_dwAG9TagEdypU_bkgRAm2w" type="Stereotype" element="_dvHWIDagEdypU_bkgRAm2w"/>
+            <children xmi:id="_dwAG9jagEdypU_bkgRAm2w" type="Name" element="_dvHWIDagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dwAG9DagEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_dwAG9zagEdypU_bkgRAm2w" visible="false" type="ToMultiplicityLabel" element="_dvHWIjagEdypU_bkgRAm2w">
+            <children xmi:id="_dwAG-TagEdypU_bkgRAm2w" type="ToMultiplicity" element="_dvHWIjagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dwAG-DagEdypU_bkgRAm2w" y="397"/>
+          </children>
+          <children xmi:id="_dwAG-jagEdypU_bkgRAm2w" type="ToRoleLabel" element="_dvHWIjagEdypU_bkgRAm2w">
+            <children xmi:id="_dwAG_DagEdypU_bkgRAm2w" type="ToRole" element="_dvHWIjagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dwAG-zagEdypU_bkgRAm2w" y="-397"/>
+          </children>
+          <children xmi:id="_dwAG_TagEdypU_bkgRAm2w" type="FromMultiplicityLabel" element="_dvHWITagEdypU_bkgRAm2w">
+            <children xmi:id="_dwAG_zagEdypU_bkgRAm2w" type="FromMultiplicity" element="_dvHWITagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dwAG_jagEdypU_bkgRAm2w" y="397"/>
+          </children>
+          <children xmi:id="_dwAHADagEdypU_bkgRAm2w" type="FromRoleLabel" element="_dvHWITagEdypU_bkgRAm2w">
+            <children xmi:id="_dwAHAjagEdypU_bkgRAm2w" type="FromRole" element="_dvHWITagEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dwAHATagEdypU_bkgRAm2w" x="56" y="1825"/>
+          </children>
+          <children xmi:id="_dwAHAzagEdypU_bkgRAm2w" type="ToQualifierLabel" element="_dvHWIjagEdypU_bkgRAm2w">
+            <children xmi:id="_dwAHBTagEdypU_bkgRAm2w" type="QualifierCompartment" element="_dvHWIjagEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dwAHBjagEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dwAHBDagEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_dwAHBzagEdypU_bkgRAm2w" type="FromQualifierLabel" element="_dvHWITagEdypU_bkgRAm2w">
+            <children xmi:id="_dwAHCTagEdypU_bkgRAm2w" type="QualifierCompartment" element="_dvHWITagEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dwAHCjagEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dwAHCDagEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <children xmi:id="_dwAHCzagEdypU_bkgRAm2w" type="ToRoleLabel" element="_dvHWIjagEdypU_bkgRAm2w">
+            <eAnnotations xmi:id="_dwAHDTagEdypU_bkgRAm2w" source="ToConstraintLabel"/>
+            <children xmi:id="_dwAHDjagEdypU_bkgRAm2w" visible="false" type="ToConstraintCompartment" element="_dvHWIjagEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dwAHDzagEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dwAHDDagEdypU_bkgRAm2w" y="1058"/>
+          </children>
+          <children xmi:id="_dwAHEDagEdypU_bkgRAm2w" type="FromRoleLabel" element="_dvHWITagEdypU_bkgRAm2w">
+            <eAnnotations xmi:id="_dwAHEjagEdypU_bkgRAm2w" source="FromConstraintLabel"/>
+            <children xmi:id="_dwAHEzagEdypU_bkgRAm2w" visible="false" type="FromConstraintCompartment" element="_dvHWITagEdypU_bkgRAm2w">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dwAHFDagEdypU_bkgRAm2w"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dwAHETagEdypU_bkgRAm2w" y="1058"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_dwAG8TagEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dwAG8jagEdypU_bkgRAm2w" points="[-3, -24, 2, 70]$[-3, -68, 2, 26]"/>
         </edges>
       </contents>
     </eAnnotations>
@@ -6009,12 +6421,6 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lbQGIeD6Edq8ysXH3gTiEg" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lbQGIOD6Edq8ysXH3gTiEg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_H7dsgODoEdq8ysXH3gTiEg" name="processingRate" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654K86EdieaYgxtVWN8Q"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_LQ2T8ODoEdq8ysXH3gTiEg" name="units" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
-      </ownedAttribute>
       <ownedAttribute xmi:id="_Q2ppoRs7EdyKQLH0lrT94A" name="schedulingpolicy" type="_wuNVYBmsEdyaJvvdhGgDYg" association="_Q2ppoBs7EdyKQLH0lrT94A" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q2pppBs7EdyKQLH0lrT94A" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q2ppoxs7EdyKQLH0lrT94A" value="1"/>
@@ -6022,14 +6428,19 @@
       <ownedAttribute xmi:id="_mCtkcBtLEdyKQLH0lrT94A" name="schedulingPolicy" visibility="private" type="_wuNVYBmsEdyaJvvdhGgDYg" isUnique="false">
         <defaultValue xmi:type="uml:InstanceValue" xmi:id="_yLgiQBtLEdyKQLH0lrT94A" type="_wuNVYBmsEdyaJvvdhGgDYg" instance="_7q7hoBmsEdyaJvvdhGgDYg"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_HVnkkTagEdypU_bkgRAm2w" name="processingRate" type="_qjigUDafEdypU_bkgRAm2w" association="_HVnkkDagEdypU_bkgRAm2w" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HVnklDagEdypU_bkgRAm2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HVnkkzagEdypU_bkgRAm2w" value="1"/>
+      </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_9APFUOD4Edq8ysXH3gTiEg" name="PassiveResourceSpecification">
-      <ownedAttribute xmi:id="_VsWZwOD5Edq8ysXH3gTiEg" name="capacity" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8K86EdieaYgxtVWN8Q"/>
-      </ownedAttribute>
       <ownedAttribute xmi:id="_VIxWIeD6Edq8ysXH3gTiEg" name="passiveResourceType_PassiveResourceSpecification" type="_sJZEAOD4Edq8ysXH3gTiEg" association="_VIxWIOD6Edq8ysXH3gTiEg">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZgwqEeD6Edq8ysXH3gTiEg" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZgwqEOD6Edq8ysXH3gTiEg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_dvHWITagEdypU_bkgRAm2w" name="capacity" type="_Xh17kDagEdypU_bkgRAm2w" association="_dvHWIDagEdypU_bkgRAm2w" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dvHWJDagEdypU_bkgRAm2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dvHWIzagEdypU_bkgRAm2w" value="1"/>
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_X5vv8OMeEdqaQsPH3rPnBQ" name="LinkingResource">
@@ -6052,15 +6463,13 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rQP_seMgEdqaQsPH3rPnBQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rQP_sOMgEdqaQsPH3rPnBQ" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_e4z-YOMfEdqaQsPH3rPnBQ" name="throughput" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654K86EdieaYgxtVWN8Q"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_hm25AOMfEdqaQsPH3rPnBQ" name="units" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
-      </ownedAttribute>
       <ownedAttribute xmi:id="_Oy4cMRmoEdyaJvvdhGgDYg" name="linkLatency" type="_MjX3sBmoEdyaJvvdhGgDYg" association="_Oy4cMBmoEdyaJvvdhGgDYg" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Oy5DQRmoEdyaJvvdhGgDYg" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Oy5DQBmoEdyaJvvdhGgDYg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8Dz5ITafEdypU_bkgRAm2w" name="throughput" type="_r2iZQDafEdypU_bkgRAm2w" association="_8Dz5IDafEdypU_bkgRAm2w" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8Dz5JDafEdypU_bkgRAm2w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8Dz5IzafEdypU_bkgRAm2w" value="1"/>
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_TBcu0OMfEdqaQsPH3rPnBQ" memberEnd="_TBcu0eMfEdqaQsPH3rPnBQ _TBcu0uMfEdqaQsPH3rPnBQ">
@@ -6101,7 +6510,7 @@
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_MjX3sBmoEdyaJvvdhGgDYg" name="Latency">
       <generalization xmi:id="_QIaEsBmoEdyaJvvdhGgDYg">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
       </generalization>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_Oy4cMBmoEdyaJvvdhGgDYg" memberEnd="_Oy4cMRmoEdyaJvvdhGgDYg _Oy4cMhmoEdyaJvvdhGgDYg">
@@ -6115,7 +6524,33 @@
     <ownedMember xmi:type="uml:Association" xmi:id="_Q2ppoBs7EdyKQLH0lrT94A" memberEnd="_Q2ppoRs7EdyKQLH0lrT94A _Q2ppohs7EdyKQLH0lrT94A">
       <ownedEnd xmi:id="_Q2ppohs7EdyKQLH0lrT94A" visibility="private" type="_wru2gODnEdq8ysXH3gTiEg" association="_Q2ppoBs7EdyKQLH0lrT94A"/>
     </ownedMember>
-    <ownedMember xmi:type="uml:Artifact" xmi:id="_wyjLQBtLEdyKQLH0lrT94A" name="Artifact1"/>
+    <ownedMember xmi:type="uml:Class" xmi:id="_qjigUDafEdypU_bkgRAm2w" name="ProcessingRate">
+      <generalization xmi:id="_tE638DafEdypU_bkgRAm2w">
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+      </generalization>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_r2iZQDafEdypU_bkgRAm2w" name="Throughput">
+      <generalization xmi:id="_ttTGkDafEdypU_bkgRAm2w">
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+      </generalization>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_8Dz5IDafEdypU_bkgRAm2w" memberEnd="_8Dz5ITafEdypU_bkgRAm2w _8Dz5IjafEdypU_bkgRAm2w">
+      <ownedEnd xmi:id="_8Dz5IjafEdypU_bkgRAm2w" visibility="private" type="_OSNYgOMfEdqaQsPH3rPnBQ" association="_8Dz5IDafEdypU_bkgRAm2w"/>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_HVnkkDagEdypU_bkgRAm2w" memberEnd="_HVnkkTagEdypU_bkgRAm2w _HVnkkjagEdypU_bkgRAm2w">
+      <ownedEnd xmi:id="_HVnkkjagEdypU_bkgRAm2w" visibility="private" type="_wru2gODnEdq8ysXH3gTiEg" association="_HVnkkDagEdypU_bkgRAm2w"/>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_Xh17kDagEdypU_bkgRAm2w" name="Capacity">
+      <generalization xmi:id="_cYh9sDagEdypU_bkgRAm2w">
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+      </generalization>
+      <ownedAttribute xmi:id="_VsWZwOD5Edq8ysXH3gTiEg" name="value" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8K86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_dvHWIDagEdypU_bkgRAm2w" memberEnd="_dvHWITagEdypU_bkgRAm2w _dvHWIjagEdypU_bkgRAm2w">
+      <ownedEnd xmi:id="_dvHWIjagEdypU_bkgRAm2w" visibility="private" type="_9APFUOD4Edq8ysXH3gTiEg" association="_dvHWIDagEdypU_bkgRAm2w"/>
+    </ownedMember>
   </ownedMember>
   <ownedMember xmi:type="uml:Package" xmi:id="_V8vSACh9Edue7oeC4NTCGg" name="usagemodel">
     <eAnnotations xmi:id="_V8vSASh9Edue7oeC4NTCGg" source="uml2.diagrams">
@@ -6383,35 +6818,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_59D84YnpEducPr8SMhBkpQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_59D84onpEducPr8SMhBkpQ" x="-4134" y="10494" width="3492" height="1589"/>
         </children>
-        <children xmi:id="_84OGcInpEducPr8SMhBkpQ" targetEdges="_9erCcYnpEducPr8SMhBkpQ">
-          <children xmi:id="_84OGc4npEducPr8SMhBkpQ" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_84OGcInpEducPr8SMhBkpQ" targetEdges="_9erCcYnpEducPr8SMhBkpQ" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_84OGc4npEducPr8SMhBkpQ" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_84OGdInpEducPr8SMhBkpQ" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_84OGdYnpEducPr8SMhBkpQ" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_84OGdonpEducPr8SMhBkpQ" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_84OGd4npEducPr8SMhBkpQ" type="AttributeCompartment">
+          <children xmi:id="_84OGdYnpEducPr8SMhBkpQ" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_84OGdonpEducPr8SMhBkpQ" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_84OGd4npEducPr8SMhBkpQ" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_84OGeInpEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_84OGeYnpEducPr8SMhBkpQ" type="OperationCompartment">
+          <children xmi:id="_84OGeYnpEducPr8SMhBkpQ" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_84OGeonpEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_84OGe4npEducPr8SMhBkpQ" visible="false" type="SignalCompartment">
+          <children xmi:id="_84OGe4npEducPr8SMhBkpQ" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_84OGfInpEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_84OGfYnpEducPr8SMhBkpQ" visible="false" type="StructureCompartment">
+          <children xmi:id="_84OGfYnpEducPr8SMhBkpQ" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_84OGfonpEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_84OGcYnpEducPr8SMhBkpQ" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_84OGconpEducPr8SMhBkpQ" x="-4134" y="6996"/>
         </children>
         <children xmi:id="_aLPUkInqEducPr8SMhBkpQ" sourceEdges="_eMlDEYnqEducPr8SMhBkpQ" targetEdges="_fkWHQInqEducPr8SMhBkpQ" element="_aKyooInqEducPr8SMhBkpQ">
@@ -6435,66 +6860,56 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_aLPUkYnqEducPr8SMhBkpQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aLPUkonqEducPr8SMhBkpQ" x="13992" y="10494"/>
         </children>
-        <children xmi:id="_dIVX0InqEducPr8SMhBkpQ" targetEdges="_eMlDEYnqEducPr8SMhBkpQ">
-          <children xmi:id="_dIVX04nqEducPr8SMhBkpQ" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_dIVX0InqEducPr8SMhBkpQ" targetEdges="_eMlDEYnqEducPr8SMhBkpQ" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_dIVX04nqEducPr8SMhBkpQ" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_dIVX1InqEducPr8SMhBkpQ" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_dIVX1YnqEducPr8SMhBkpQ" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_dIVX1onqEducPr8SMhBkpQ" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_dIVX14nqEducPr8SMhBkpQ" type="AttributeCompartment">
+          <children xmi:id="_dIVX1YnqEducPr8SMhBkpQ" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_dIVX1onqEducPr8SMhBkpQ" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_dIVX14nqEducPr8SMhBkpQ" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dIVX2InqEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_dIVX2YnqEducPr8SMhBkpQ" type="OperationCompartment">
+          <children xmi:id="_dIVX2YnqEducPr8SMhBkpQ" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dIVX2onqEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_dIVX24nqEducPr8SMhBkpQ" visible="false" type="SignalCompartment">
+          <children xmi:id="_dIVX24nqEducPr8SMhBkpQ" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dIVX3InqEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_dIVX3YnqEducPr8SMhBkpQ" visible="false" type="StructureCompartment">
+          <children xmi:id="_dIVX3YnqEducPr8SMhBkpQ" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_dIVX3onqEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_dIVX0YnqEducPr8SMhBkpQ" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dIVX0onqEducPr8SMhBkpQ" x="13678" y="7699"/>
         </children>
         <children xmi:id="_2UZKwJBEEduoRsekQFNE6A" targetEdges="_3ks8EJBEEduoRsekQFNE6A">
           <children xmi:id="_2UZKw5BEEduoRsekQFNE6A" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_2UZKxJBEEduoRsekQFNE6A" width="1320" height="1320"/>
           </children>
           <children xmi:id="_2UZKxZBEEduoRsekQFNE6A" type="Stereotype">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_2UZKxpBEEduoRsekQFNE6A" type="Name">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_2UiUsJBEEduoRsekQFNE6A" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2UiUsZBEEduoRsekQFNE6A"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_2UiUspBEEduoRsekQFNE6A" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2UiUs5BEEduoRsekQFNE6A"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_2UiUtJBEEduoRsekQFNE6A" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2UiUtZBEEduoRsekQFNE6A"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_2UiUtpBEEduoRsekQFNE6A" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_2UiUt5BEEduoRsekQFNE6A"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_2UZKwZBEEduoRsekQFNE6A" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2UZKwpBEEduoRsekQFNE6A" x="15900" y="-318"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_-brS0TyxEduB5pxz2UpKVQ"/>
@@ -6957,35 +7372,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_TrTGoXDFEdur9cZft9T4NQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TrTGonDFEdur9cZft9T4NQ" x="7950" y="6678"/>
         </children>
-        <children xmi:id="_sXt9EHDFEdur9cZft9T4NQ" targetEdges="_zxbVkHDFEdur9cZft9T4NQ _I165EBmpEdyaJvvdhGgDYg">
-          <children xmi:id="_sXt9E3DFEdur9cZft9T4NQ" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_sXt9EHDFEdur9cZft9T4NQ" targetEdges="_zxbVkHDFEdur9cZft9T4NQ _I165EBmpEdyaJvvdhGgDYg" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_sXt9E3DFEdur9cZft9T4NQ" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_sXt9FHDFEdur9cZft9T4NQ" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_sXt9FXDFEdur9cZft9T4NQ" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_sXt9FnDFEdur9cZft9T4NQ" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_sXt9F3DFEdur9cZft9T4NQ" type="AttributeCompartment">
+          <children xmi:id="_sXt9FXDFEdur9cZft9T4NQ" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_sXt9FnDFEdur9cZft9T4NQ" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_sXt9F3DFEdur9cZft9T4NQ" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_sXt9GHDFEdur9cZft9T4NQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_sXt9GXDFEdur9cZft9T4NQ" type="OperationCompartment">
+          <children xmi:id="_sXt9GXDFEdur9cZft9T4NQ" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_sXt9GnDFEdur9cZft9T4NQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_sXt9G3DFEdur9cZft9T4NQ" visible="false" type="SignalCompartment">
+          <children xmi:id="_sXt9G3DFEdur9cZft9T4NQ" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_sXt9HHDFEdur9cZft9T4NQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_sXt9HXDFEdur9cZft9T4NQ" visible="false" type="StructureCompartment">
+          <children xmi:id="_sXt9HXDFEdur9cZft9T4NQ" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_sXt9HnDFEdur9cZft9T4NQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_sXt9EXDFEdur9cZft9T4NQ" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sXt9EnDFEdur9cZft9T4NQ" x="12402" y="9540"/>
         </children>
         <children xmi:id="_KYgasHDHEdur9cZft9T4NQ" sourceEdges="_Fs_rMBmnEdyaJvvdhGgDYg" targetEdges="_nuNJYHDHEdur9cZft9T4NQ" element="_KYXQwHDHEdur9cZft9T4NQ">
@@ -8022,35 +8427,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_jICKoZGkEduVgYSffmI32A" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jICKopGkEduVgYSffmI32A" x="3816" y="6042"/>
         </children>
-        <children xmi:id="_0vdUUJGkEduVgYSffmI32A" targetEdges="_0vnFUZGkEduVgYSffmI32A _0vnFWJGkEduVgYSffmI32A">
-          <children xmi:id="_0vdUU5GkEduVgYSffmI32A" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_0vdUUJGkEduVgYSffmI32A" targetEdges="_0vnFUZGkEduVgYSffmI32A _0vnFWJGkEduVgYSffmI32A" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_0vdUU5GkEduVgYSffmI32A" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_0vdUVJGkEduVgYSffmI32A" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_0vdUVZGkEduVgYSffmI32A" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_0vdUVpGkEduVgYSffmI32A" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_0vdUV5GkEduVgYSffmI32A" type="AttributeCompartment">
+          <children xmi:id="_0vdUVZGkEduVgYSffmI32A" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_0vdUVpGkEduVgYSffmI32A" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_0vdUV5GkEduVgYSffmI32A" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_0vdUWJGkEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_0vdUWZGkEduVgYSffmI32A" type="OperationCompartment">
+          <children xmi:id="_0vdUWZGkEduVgYSffmI32A" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_0vdUWpGkEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_0vdUW5GkEduVgYSffmI32A" visible="false" type="SignalCompartment">
+          <children xmi:id="_0vdUW5GkEduVgYSffmI32A" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_0vdUXJGkEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_0vdUXZGkEduVgYSffmI32A" visible="false" type="StructureCompartment">
+          <children xmi:id="_0vdUXZGkEduVgYSffmI32A" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_0vdUXpGkEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_0vdUUZGkEduVgYSffmI32A" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0vdUUpGkEduVgYSffmI32A" x="17808" y="3498"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_djTWwZGkEduVgYSffmI32A"/>
@@ -8577,35 +8972,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_GmtNQZGmEduVgYSffmI32A" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GmtNQpGmEduVgYSffmI32A" x="7950" y="10494"/>
         </children>
-        <children xmi:id="_UudyIJGmEduVgYSffmI32A" targetEdges="_Uum8EJGmEduVgYSffmI32A">
-          <children xmi:id="_UudyI5GmEduVgYSffmI32A" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_UudyIJGmEduVgYSffmI32A" targetEdges="_Uum8EJGmEduVgYSffmI32A" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_UudyI5GmEduVgYSffmI32A" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_UudyJJGmEduVgYSffmI32A" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_UudyJZGmEduVgYSffmI32A" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_UudyJpGmEduVgYSffmI32A" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_UudyJ5GmEduVgYSffmI32A" type="AttributeCompartment">
+          <children xmi:id="_UudyJZGmEduVgYSffmI32A" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_UudyJpGmEduVgYSffmI32A" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_UudyJ5GmEduVgYSffmI32A" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_UudyKJGmEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_UudyKZGmEduVgYSffmI32A" type="OperationCompartment">
+          <children xmi:id="_UudyKZGmEduVgYSffmI32A" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_UudyKpGmEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_UudyK5GmEduVgYSffmI32A" visible="false" type="SignalCompartment">
+          <children xmi:id="_UudyK5GmEduVgYSffmI32A" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_UudyLJGmEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_UudyLZGmEduVgYSffmI32A" visible="false" type="StructureCompartment">
+          <children xmi:id="_UudyLZGmEduVgYSffmI32A" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_UudyLpGmEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_UudyIZGmEduVgYSffmI32A" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UudyIpGmEduVgYSffmI32A" x="14628" y="10176"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_7xzgQZGlEduVgYSffmI32A"/>
@@ -9146,9 +9531,7 @@
       <ownedEnd xmi:id="_JPQGAuQREdqeH_WIC9QRew" name="usagescenario" visibility="private" type="_Y4SF0OQQEdqeH_WIC9QRew" association="_JPQGAOQREdqeH_WIC9QRew"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_TrALsHDFEdur9cZft9T4NQ" name="LoopIterations">
-      <generalization xmi:id="_zxRkkHDFEdur9cZft9T4NQ">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_zxRkkHDFEdur9cZft9T4NQ" general="_GIDLsPdxEdqB_7dkOscBPA"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_tWvxIHDFEdur9cZft9T4NQ" memberEnd="_tWvxIXDFEdur9cZft9T4NQ _tWvxInDFEdur9cZft9T4NQ">
       <ownedEnd xmi:id="_tWvxInDFEdur9cZft9T4NQ" visibility="private" type="_55vfIOQREdqeH_WIC9QRew" association="_tWvxIHDFEdur9cZft9T4NQ"/>
@@ -9169,17 +9552,13 @@
       <ownedEnd xmi:id="_e6KCwnh7Edugjru7Zo1JWg" name="entrylevelsystemcall" visibility="private" type="_h0hLkOQREdqeH_WIC9QRew" association="_e6KCwHh7Edugjru7Zo1JWg"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_58eHAInpEducPr8SMhBkpQ" name="ThinkTime">
-      <generalization xmi:id="_9erCcInpEducPr8SMhBkpQ">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_9erCcInpEducPr8SMhBkpQ" general="_GIDLsPdxEdqB_7dkOscBPA"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_DX0AEInqEducPr8SMhBkpQ" memberEnd="_DX0AEYnqEducPr8SMhBkpQ _DX0AEonqEducPr8SMhBkpQ">
       <ownedEnd xmi:id="_DX0AEonqEducPr8SMhBkpQ" visibility="private" type="_ffBwUOQQEdqeH_WIC9QRew" association="_DX0AEInqEducPr8SMhBkpQ"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_aKyooInqEducPr8SMhBkpQ" name="InterArrivalTime">
-      <generalization xmi:id="_eMlDEInqEducPr8SMhBkpQ">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_eMlDEInqEducPr8SMhBkpQ" general="_GIDLsPdxEdqB_7dkOscBPA"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_fjmgYInqEducPr8SMhBkpQ" memberEnd="_fjmgYYnqEducPr8SMhBkpQ _fjmgYonqEducPr8SMhBkpQ">
       <ownedEnd xmi:id="_fjmgYonqEducPr8SMhBkpQ" visibility="private" type="_fJ3YoOQQEdqeH_WIC9QRew" association="_fjmgYInqEducPr8SMhBkpQ"/>
@@ -9192,9 +9571,7 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_EBhV8BmpEdyaJvvdhGgDYg" name="DelayTime">
-      <generalization xmi:id="_I131wBmpEdyaJvvdhGgDYg">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_I131wBmpEdyaJvvdhGgDYg" general="_GIDLsPdxEdqB_7dkOscBPA"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_Jk3pwBmpEdyaJvvdhGgDYg" memberEnd="_Jk3pwRmpEdyaJvvdhGgDYg _Jk3pwhmpEdyaJvvdhGgDYg">
       <ownedEnd xmi:id="_Jk3pwhmpEdyaJvvdhGgDYg" visibility="private" type="_Da-IwBmoEdyaJvvdhGgDYg" association="_Jk3pwBmpEdyaJvvdhGgDYg"/>
@@ -9287,35 +9664,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_uX2sQSldEducDpub6jrfng" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uX2sQildEducDpub6jrfng" x="15900" y="636"/>
         </children>
-        <children xmi:id="_iUM6MDuSEduKtOWw2f6nDA" targetEdges="_uOr0wFQ0EduxCJWtva2FAg">
-          <children xmi:id="_iUM6MzuSEduKtOWw2f6nDA" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_iUM6MDuSEduKtOWw2f6nDA" targetEdges="_uOr0wFQ0EduxCJWtva2FAg" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_iUM6MzuSEduKtOWw2f6nDA" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_iUM6NDuSEduKtOWw2f6nDA" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_iUM6NTuSEduKtOWw2f6nDA" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_iUM6NjuSEduKtOWw2f6nDA" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_iUM6NzuSEduKtOWw2f6nDA" type="AttributeCompartment">
+          <children xmi:id="_iUM6NTuSEduKtOWw2f6nDA" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_iUM6NjuSEduKtOWw2f6nDA" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_iUM6NzuSEduKtOWw2f6nDA" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_iUM6ODuSEduKtOWw2f6nDA"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_iUM6OTuSEduKtOWw2f6nDA" type="OperationCompartment">
+          <children xmi:id="_iUM6OTuSEduKtOWw2f6nDA" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_iUM6OjuSEduKtOWw2f6nDA"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_iUM6OzuSEduKtOWw2f6nDA" visible="false" type="SignalCompartment">
+          <children xmi:id="_iUM6OzuSEduKtOWw2f6nDA" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_iUM6PDuSEduKtOWw2f6nDA"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_iUM6PTuSEduKtOWw2f6nDA" visible="false" type="StructureCompartment">
+          <children xmi:id="_iUM6PTuSEduKtOWw2f6nDA" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_iUM6PjuSEduKtOWw2f6nDA"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_iUM6MTuSEduKtOWw2f6nDA" fillColor="65535" lineColor="0" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iUM6MjuSEduKtOWw2f6nDA" x="15582" y="8268" width="5817" height="1618"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_Pgsx4SldEducDpub6jrfng"/>
@@ -10136,33 +10503,33 @@
         </children>
         <children xmi:id="_SQZzYJApEdu_YZDnbUekcg" targetEdges="_TzMb0JApEdu_YZDnbUekcg">
           <children xmi:id="_SQZzY5ApEdu_YZDnbUekcg" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_SQZzZJApEdu_YZDnbUekcg" width="1320" height="1320"/>
           </children>
           <children xmi:id="_SQZzZZApEdu_YZDnbUekcg" type="Stereotype">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_SQZzZpApEdu_YZDnbUekcg" type="Name">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_SQZzZ5ApEdu_YZDnbUekcg" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_SQZzaJApEdu_YZDnbUekcg"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_SQZzaZApEdu_YZDnbUekcg" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_SQZzapApEdu_YZDnbUekcg"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_SQZza5ApEdu_YZDnbUekcg" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_SQZzbJApEdu_YZDnbUekcg"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_SQZzbZApEdu_YZDnbUekcg" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_SQZzbpApEdu_YZDnbUekcg"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_SQZzYZApEdu_YZDnbUekcg" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SQZzYpApEdu_YZDnbUekcg" x="-4134" y="7632"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_Tn25gTyuEduB5pxz2UpKVQ"/>
@@ -10330,35 +10697,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_IgNaMTyvEduB5pxz2UpKVQ" lineColor="0" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IgNaMjyvEduB5pxz2UpKVQ"/>
         </children>
-        <children xmi:id="_YKsFcGc1EduCGaQAxkcIwA" targetEdges="_emSacGc2EduCGaQAxkcIwA">
-          <children xmi:id="_YKsFc2c1EduCGaQAxkcIwA" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_YKsFcGc1EduCGaQAxkcIwA" targetEdges="_emSacGc2EduCGaQAxkcIwA" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_YKsFc2c1EduCGaQAxkcIwA" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_YKsFdGc1EduCGaQAxkcIwA" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_YKsFdWc1EduCGaQAxkcIwA" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_YKsFdmc1EduCGaQAxkcIwA" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_YKsFd2c1EduCGaQAxkcIwA" type="AttributeCompartment">
+          <children xmi:id="_YKsFdWc1EduCGaQAxkcIwA" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_YKsFdmc1EduCGaQAxkcIwA" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_YKsFd2c1EduCGaQAxkcIwA" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_YKsFeGc1EduCGaQAxkcIwA"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_YKsFeWc1EduCGaQAxkcIwA" type="OperationCompartment">
+          <children xmi:id="_YKsFeWc1EduCGaQAxkcIwA" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_YKsFemc1EduCGaQAxkcIwA"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_YKsFe2c1EduCGaQAxkcIwA" visible="false" type="SignalCompartment">
+          <children xmi:id="_YKsFe2c1EduCGaQAxkcIwA" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_YKsFfGc1EduCGaQAxkcIwA"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_YKsFfWc1EduCGaQAxkcIwA" visible="false" type="StructureCompartment">
+          <children xmi:id="_YKsFfWc1EduCGaQAxkcIwA" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_YKsFfmc1EduCGaQAxkcIwA"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_YKsFcWc1EduCGaQAxkcIwA" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YKsFcmc1EduCGaQAxkcIwA" x="11448" y="636"/>
         </children>
         <children xmi:id="_dT4XYGc2EduCGaQAxkcIwA" sourceEdges="_emSacGc2EduCGaQAxkcIwA" targetEdges="_aKPiYGc1EduCGaQAxkcIwA" element="_dTlccGc2EduCGaQAxkcIwA">
@@ -11072,35 +11429,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_DkvSwXDFEdur9cZft9T4NQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DkvSwnDFEdur9cZft9T4NQ" x="-8586" y="5724"/>
         </children>
-        <children xmi:id="_F5mRUHDFEdur9cZft9T4NQ" targetEdges="_GRvEgHDFEdur9cZft9T4NQ">
-          <children xmi:id="_F5mRU3DFEdur9cZft9T4NQ" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_F5mRUHDFEdur9cZft9T4NQ" targetEdges="_GRvEgHDFEdur9cZft9T4NQ" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_F5mRU3DFEdur9cZft9T4NQ" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_F5mRVHDFEdur9cZft9T4NQ" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_F5mRVXDFEdur9cZft9T4NQ" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_F5mRVnDFEdur9cZft9T4NQ" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_F5mRV3DFEdur9cZft9T4NQ" type="AttributeCompartment">
+          <children xmi:id="_F5mRVXDFEdur9cZft9T4NQ" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_F5mRVnDFEdur9cZft9T4NQ" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_F5mRV3DFEdur9cZft9T4NQ" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_F5mRWHDFEdur9cZft9T4NQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_F5mRWXDFEdur9cZft9T4NQ" type="OperationCompartment">
+          <children xmi:id="_F5mRWXDFEdur9cZft9T4NQ" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_F5mRWnDFEdur9cZft9T4NQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_F5mRW3DFEdur9cZft9T4NQ" visible="false" type="SignalCompartment">
+          <children xmi:id="_F5mRW3DFEdur9cZft9T4NQ" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_F5mRXHDFEdur9cZft9T4NQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_F5mRXXDFEdur9cZft9T4NQ" visible="false" type="StructureCompartment">
+          <children xmi:id="_F5mRXXDFEdur9cZft9T4NQ" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_F5mRXnDFEdur9cZft9T4NQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_F5mRUXDFEdur9cZft9T4NQ" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F5mRUnDFEdur9cZft9T4NQ" x="-8268" y="3816"/>
         </children>
         <children xmi:id="_eX_TwInoEducPr8SMhBkpQ" sourceEdges="_dQ5-AGp6EduKlZePhPePrw _KZvf0InsEducPr8SMhBkpQ" targetEdges="_dRDIAGp6EduKlZePhPePrw _ktmK8InoEducPr8SMhBkpQ _rzfPkYnoEducPr8SMhBkpQ" element="_eX2J0InoEducPr8SMhBkpQ">
@@ -11154,33 +11501,33 @@
         </children>
         <children xmi:id="_JaHO0InsEducPr8SMhBkpQ" targetEdges="_KZvf0InsEducPr8SMhBkpQ">
           <children xmi:id="_JaHO04nsEducPr8SMhBkpQ" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_JaHO1InsEducPr8SMhBkpQ" width="1320" height="1320"/>
           </children>
           <children xmi:id="_JaHO1YnsEducPr8SMhBkpQ" type="Stereotype">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_JaHO1onsEducPr8SMhBkpQ" type="Name">
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_JaHO14nsEducPr8SMhBkpQ" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JaHO2InsEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_JaHO2YnsEducPr8SMhBkpQ" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JaHO2onsEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_JaHO24nsEducPr8SMhBkpQ" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JaHO3InsEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <children xmi:id="_JaHO3YnsEducPr8SMhBkpQ" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_JaHO3onsEducPr8SMhBkpQ"/>
-            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_JaHO0YnsEducPr8SMhBkpQ" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JaHO0onsEducPr8SMhBkpQ" x="-5088" y="7950"/>
         </children>
         <children xmi:id="_BCOokBnQEdyaJvvdhGgDYg" sourceEdges="_BCUIIBnQEdyaJvvdhGgDYg" element="_2UE5QBnOEdyaJvvdhGgDYg">
@@ -12308,35 +12655,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_BPxiUZpNEduFT4ke5RobQg" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BPxiUppNEduFT4ke5RobQg" x="14310" y="6042"/>
         </children>
-        <children xmi:id="_G3Md0JpNEduFT4ke5RobQg" targetEdges="_G3oisJpNEduFT4ke5RobQg">
-          <children xmi:id="_G3Md05pNEduFT4ke5RobQg" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_G3Md0JpNEduFT4ke5RobQg" targetEdges="_G3oisJpNEduFT4ke5RobQg" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_G3Md05pNEduFT4ke5RobQg" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_G3Md1JpNEduFT4ke5RobQg" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_G3Md1ZpNEduFT4ke5RobQg" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_G3Md1ppNEduFT4ke5RobQg" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_G3Md15pNEduFT4ke5RobQg" type="AttributeCompartment">
+          <children xmi:id="_G3Md1ZpNEduFT4ke5RobQg" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_G3Md1ppNEduFT4ke5RobQg" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_G3Md15pNEduFT4ke5RobQg" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_G3Md2JpNEduFT4ke5RobQg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_G3Md2ZpNEduFT4ke5RobQg" type="OperationCompartment">
+          <children xmi:id="_G3Md2ZpNEduFT4ke5RobQg" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_G3Md2ppNEduFT4ke5RobQg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_G3Md25pNEduFT4ke5RobQg" visible="false" type="SignalCompartment">
+          <children xmi:id="_G3Md25pNEduFT4ke5RobQg" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_G3Md3JpNEduFT4ke5RobQg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_G3Md3ZpNEduFT4ke5RobQg" visible="false" type="StructureCompartment">
+          <children xmi:id="_G3Md3ZpNEduFT4ke5RobQg" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_G3Md3ppNEduFT4ke5RobQg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_G3Md0ZpNEduFT4ke5RobQg" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_G3Md0ppNEduFT4ke5RobQg" x="15264" y="4134"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_aMAGAZDvEdu1yp0uU5FcVQ"/>
@@ -12651,35 +12988,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_d5jgYZDwEdu1yp0uU5FcVQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d5jgYpDwEdu1yp0uU5FcVQ" x="4134" y="8586"/>
         </children>
-        <children xmi:id="_pa3ncJDwEdu1yp0uU5FcVQ" targetEdges="_pbAxYZDwEdu1yp0uU5FcVQ">
-          <children xmi:id="_pa3nc5DwEdu1yp0uU5FcVQ" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_pa3ncJDwEdu1yp0uU5FcVQ" targetEdges="_pbAxYZDwEdu1yp0uU5FcVQ" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_pa3nc5DwEdu1yp0uU5FcVQ" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_pa3ndJDwEdu1yp0uU5FcVQ" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_pa3ndZDwEdu1yp0uU5FcVQ" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_pa3ndpDwEdu1yp0uU5FcVQ" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_pa3nd5DwEdu1yp0uU5FcVQ" type="AttributeCompartment">
+          <children xmi:id="_pa3ndZDwEdu1yp0uU5FcVQ" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_pa3ndpDwEdu1yp0uU5FcVQ" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_pa3nd5DwEdu1yp0uU5FcVQ" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_pa3neJDwEdu1yp0uU5FcVQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_pa3neZDwEdu1yp0uU5FcVQ" type="OperationCompartment">
+          <children xmi:id="_pa3neZDwEdu1yp0uU5FcVQ" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_pa3nepDwEdu1yp0uU5FcVQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_pa3ne5DwEdu1yp0uU5FcVQ" visible="false" type="SignalCompartment">
+          <children xmi:id="_pa3ne5DwEdu1yp0uU5FcVQ" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_pa3nfJDwEdu1yp0uU5FcVQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_pa3nfZDwEdu1yp0uU5FcVQ" visible="false" type="StructureCompartment">
+          <children xmi:id="_pa3nfZDwEdu1yp0uU5FcVQ" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_pa3nfpDwEdu1yp0uU5FcVQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_pa3ncZDwEdu1yp0uU5FcVQ" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pa3ncpDwEdu1yp0uU5FcVQ" x="11448" y="1590"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_Hs4C0ZDwEdu1yp0uU5FcVQ"/>
@@ -12970,35 +13297,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_FKVYIZDxEdu1yp0uU5FcVQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FKVYIpDxEdu1yp0uU5FcVQ" x="6678" y="4452"/>
         </children>
-        <children xmi:id="_KRRcwJDxEdu1yp0uU5FcVQ" targetEdges="_KRRc0JDxEdu1yp0uU5FcVQ">
-          <children xmi:id="_KRRcw5DxEdu1yp0uU5FcVQ" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_KRRcwJDxEdu1yp0uU5FcVQ" targetEdges="_KRRc0JDxEdu1yp0uU5FcVQ" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_KRRcw5DxEdu1yp0uU5FcVQ" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_KRRcxJDxEdu1yp0uU5FcVQ" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_KRRcxZDxEdu1yp0uU5FcVQ" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_KRRcxpDxEdu1yp0uU5FcVQ" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_KRRcx5DxEdu1yp0uU5FcVQ" type="AttributeCompartment">
+          <children xmi:id="_KRRcxZDxEdu1yp0uU5FcVQ" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_KRRcxpDxEdu1yp0uU5FcVQ" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_KRRcx5DxEdu1yp0uU5FcVQ" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_KRRcyJDxEdu1yp0uU5FcVQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_KRRcyZDxEdu1yp0uU5FcVQ" type="OperationCompartment">
+          <children xmi:id="_KRRcyZDxEdu1yp0uU5FcVQ" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_KRRcypDxEdu1yp0uU5FcVQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_KRRcy5DxEdu1yp0uU5FcVQ" visible="false" type="SignalCompartment">
+          <children xmi:id="_KRRcy5DxEdu1yp0uU5FcVQ" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_KRRczJDxEdu1yp0uU5FcVQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_KRRczZDxEdu1yp0uU5FcVQ" visible="false" type="StructureCompartment">
+          <children xmi:id="_KRRczZDxEdu1yp0uU5FcVQ" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_KRRczpDxEdu1yp0uU5FcVQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_KRRcwZDxEdu1yp0uU5FcVQ" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KRRcwpDxEdu1yp0uU5FcVQ" x="7950" y="6360"/>
         </children>
         <children xmi:id="_MpjiwJDxEdu1yp0uU5FcVQ" targetEdges="_MptTyJDxEdu1yp0uU5FcVQ" element="_8b84gJJUEdqSSImFLKDkSg">
@@ -13621,7 +13938,7 @@
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_pAHS0BG0EdukS8Awn8hWLA" name="ResourceDemandingSEFF">
       <generalization xmi:id="_ThBGsJApEdu_YZDnbUekcg">
-        <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
       </generalization>
       <generalization xmi:id="_scghMBG0EdukS8Awn8hWLA" general="_1qN_0JJxEdqSSImFLKDkSg"/>
       <generalization xmi:id="_s_FCwBG0EdukS8Awn8hWLA" general="_-kKR4OKHEdq6IvzVMFpuzg"/>
@@ -13649,13 +13966,8 @@
       <ownedRule xmi:id="_H-mdcBnTEdyaJvvdhGgDYg" name="Parametric Resource Demand Specification must not be NULL" constrainedElement="_Y8AekOD3Edq8ysXH3gTiEg">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_H-nEgBnTEdyaJvvdhGgDYg" body="self.specification&lt;>'' and not self.specification.oclIsUndefined()&#xD;&#xA;" language="OCL"/>
       </ownedRule>
-      <generalization xmi:id="_uOiDwFQ0EduxCJWtva2FAg">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_uOiDwFQ0EduxCJWtva2FAg" general="_GIDLsPdxEdqB_7dkOscBPA"/>
       <ownedAttribute xmi:id="_fT2xcuD3Edq8ysXH3gTiEg" name="action_ParametricResourceDemand" type="_kmntkODhEdq8ysXH3gTiEg" association="_fT2xcOD3Edq8ysXH3gTiEg"/>
-      <ownedAttribute xmi:id="_sZACwOD3Edq8ysXH3gTiEg" name="unit" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
-      </ownedAttribute>
       <ownedAttribute xmi:id="_LyYC0eKMEdq6IvzVMFpuzg" name="requiredResource_ParametricResourceDemand" type="_n2nAMOD4Edq8ysXH3gTiEg" association="_LyYC0OKMEdq6IvzVMFpuzg"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_1szycODhEdq8ysXH3gTiEg" name="LoopAction">
@@ -13778,14 +14090,10 @@
       </ownedEnd>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_dTlccGc2EduCGaQAxkcIwA" name="IterationCount">
-      <generalization xmi:id="_emIpcGc2EduCGaQAxkcIwA">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_emIpcGc2EduCGaQAxkcIwA" general="_GIDLsPdxEdqB_7dkOscBPA"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_DkSm0HDFEdur9cZft9T4NQ" name="BranchCondition">
-      <generalization xmi:id="_GRl6kHDFEdur9cZft9T4NQ">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_GRl6kHDFEdur9cZft9T4NQ" general="_GIDLsPdxEdqB_7dkOscBPA"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_HjiqoHDFEdur9cZft9T4NQ" memberEnd="_HjiqoXDFEdur9cZft9T4NQ _HjiqonDFEdur9cZft9T4NQ">
       <ownedEnd xmi:id="_HjiqonDFEdur9cZft9T4NQ" visibility="private" type="_oVdpgInoEducPr8SMhBkpQ" association="_HjiqoHDFEdur9cZft9T4NQ"/>
@@ -13806,7 +14114,7 @@
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_eX2J0InoEducPr8SMhBkpQ" name="AbstractBranchTransition" isAbstract="true">
       <generalization xmi:id="_KZmV4InsEducPr8SMhBkpQ">
-        <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
       </generalization>
       <ownedAttribute xmi:id="_YSp44eTDEdq49qz7R-l1Hg" name="branchBehaviour_BranchTransition" type="_-kKR4OKHEdq6IvzVMFpuzg" association="_YSp44OTDEdq49qz7R-l1Hg" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YSp45OTDEdq49qz7R-l1Hg" value="1"/>
@@ -14281,6 +14589,70 @@
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bzLYxzZtEdu96sQyPBeXAg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
         </edges>
       </contents>
+      <contents xmi:type="notation:Diagram" xmi:id="_AAhK0DaWEdypU_bkgRAm2w" type="Class" element="_bpEisCh9Edue7oeC4NTCGg" name="Units">
+        <children xmi:id="_A-DxIDaWEdypU_bkgRAm2w" sourceEdges="_CLi38DaWEdypU_bkgRAm2w" element="_F3SCEJMnEdqSSImFLKDkSg">
+          <children xmi:id="_A-DxIzaWEdypU_bkgRAm2w" type="ImageCompartment" element="_F3SCEJMnEdqSSImFLKDkSg">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_A-DxJDaWEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_A-DxJTaWEdypU_bkgRAm2w" type="Stereotype" element="_F3SCEJMnEdqSSImFLKDkSg"/>
+          <children xmi:id="_A-DxJjaWEdypU_bkgRAm2w" type="Name" element="_F3SCEJMnEdqSSImFLKDkSg"/>
+          <children xmi:id="_A-DxJzaWEdypU_bkgRAm2w" type="AttributeCompartment" element="_F3SCEJMnEdqSSImFLKDkSg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_A-DxKDaWEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_A-DxKTaWEdypU_bkgRAm2w" type="OperationCompartment" element="_F3SCEJMnEdqSSImFLKDkSg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_A-DxKjaWEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_A-DxKzaWEdypU_bkgRAm2w" visible="false" type="SignalCompartment" element="_F3SCEJMnEdqSSImFLKDkSg">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_A-DxLDaWEdypU_bkgRAm2w"/>
+          </children>
+          <children xmi:id="_A-DxLTaWEdypU_bkgRAm2w" visible="false" type="StructureCompartment" element="_F3SCEJMnEdqSSImFLKDkSg">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_A-DxLjaWEdypU_bkgRAm2w"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_A-DxITaWEdypU_bkgRAm2w" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A-DxIjaWEdypU_bkgRAm2w" x="12084" y="6042"/>
+        </children>
+        <children xmi:id="_BiHgcDaWEdypU_bkgRAm2w" targetEdges="_CLi38DaWEdypU_bkgRAm2w">
+          <children xmi:id="_BiHgczaWEdypU_bkgRAm2w" type="ImageCompartment">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_BiHgdDaWEdypU_bkgRAm2w" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_BiHgdTaWEdypU_bkgRAm2w" type="Stereotype">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_BiHgdjaWEdypU_bkgRAm2w" type="Name">
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_BiHgdzaWEdypU_bkgRAm2w" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_BiHgeDaWEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_BiHgeTaWEdypU_bkgRAm2w" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_BiHgejaWEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_BiHgezaWEdypU_bkgRAm2w" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_BiHgfDaWEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <children xmi:id="_BiHgfTaWEdypU_bkgRAm2w" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_BiHgfjaWEdypU_bkgRAm2w"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_BiHgcTaWEdypU_bkgRAm2w" showStereotype="Label"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BiHgcjaWEdypU_bkgRAm2w" x="11448" y="2226"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_AAhK0TaWEdypU_bkgRAm2w"/>
+        <edges xmi:id="_CLi38DaWEdypU_bkgRAm2w" element="_CLP9ADaWEdypU_bkgRAm2w" source="_A-DxIDaWEdypU_bkgRAm2w" target="_BiHgcDaWEdypU_bkgRAm2w">
+          <children xmi:id="_CLi38zaWEdypU_bkgRAm2w" type="NameLabel" element="_CLP9ADaWEdypU_bkgRAm2w">
+            <children xmi:id="_CLi39TaWEdypU_bkgRAm2w" type="Stereotype" element="_CLP9ADaWEdypU_bkgRAm2w"/>
+            <children xmi:id="_CLi39jaWEdypU_bkgRAm2w" type="Name" element="_CLP9ADaWEdypU_bkgRAm2w"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CLi39DaWEdypU_bkgRAm2w" y="-185"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_CLi38TaWEdypU_bkgRAm2w" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CLi38jaWEdypU_bkgRAm2w" points="[2, -23, 1, 119]$[78, -116, 77, 26]"/>
+        </edges>
+      </contents>
     </eAnnotations>
     <eAnnotations xmi:id="_vqbSwCkuEduWPLsEEctz1g" source="appliedStereotypes">
       <contents xmi:type="Ecore_0:Ecore__EPackage" xmi:id="_vqbSwSkuEduWPLsEEctz1g" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"/>
@@ -14290,6 +14662,9 @@
     </packageImport>
     <ownedMember xmi:type="uml:Class" xmi:id="_F3SCEJMnEdqSSImFLKDkSg" name="ResourceType" isAbstract="true">
       <generalization xmi:id="_JO1nIJQAEdqSSImFLKDkSg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
+      <generalization xmi:id="_CLP9ADaWEdypU_bkgRAm2w">
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/Units.emx#_4AyJkDaUEdypU_bkgRAm2w?units/UnitCarryingElement"/>
+      </generalization>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_diSaIOKMEdq6IvzVMFpuzg" name="ResourceRepository">
       <ownedAttribute xmi:id="_gISMAeKMEdq6IvzVMFpuzg" name="availableResourceTypes_ResourceRepository" type="_F3SCEJMnEdqSSImFLKDkSg" association="_gISMAOKMEdq6IvzVMFpuzg" aggregation="composite">
@@ -14592,35 +14967,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_RPfCAzywEduB5pxz2UpKVQ" fillColor="65535" lineColor="0" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RPfCBDywEduB5pxz2UpKVQ" x="2544" y="636"/>
         </children>
-        <children xmi:id="_Y4eQsHPnEduxXfd-1j79QQ" targetEdges="_8DKAEXlpEduf8pXqmhjnpw">
-          <children xmi:id="_Y4eQs3PnEduxXfd-1j79QQ" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_Y4eQsHPnEduxXfd-1j79QQ" targetEdges="_8DKAEXlpEduf8pXqmhjnpw" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_Y4eQs3PnEduxXfd-1j79QQ" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_Y4eQtHPnEduxXfd-1j79QQ" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_Y4eQtXPnEduxXfd-1j79QQ" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_Y4eQtnPnEduxXfd-1j79QQ" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_Y4eQt3PnEduxXfd-1j79QQ" type="AttributeCompartment">
+          <children xmi:id="_Y4eQtXPnEduxXfd-1j79QQ" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_Y4eQtnPnEduxXfd-1j79QQ" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_Y4eQt3PnEduxXfd-1j79QQ" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Y4eQuHPnEduxXfd-1j79QQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_Y4eQuXPnEduxXfd-1j79QQ" type="OperationCompartment">
+          <children xmi:id="_Y4eQuXPnEduxXfd-1j79QQ" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Y4eQunPnEduxXfd-1j79QQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_Y4eQu3PnEduxXfd-1j79QQ" visible="false" type="SignalCompartment">
+          <children xmi:id="_Y4eQu3PnEduxXfd-1j79QQ" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Y4eQvHPnEduxXfd-1j79QQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_Y4eQvXPnEduxXfd-1j79QQ" visible="false" type="StructureCompartment">
+          <children xmi:id="_Y4eQvXPnEduxXfd-1j79QQ" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_Y4eQvnPnEduxXfd-1j79QQ"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Y4eQsXPnEduxXfd-1j79QQ" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Y4eQsnPnEduxXfd-1j79QQ" x="4452" y="9540"/>
         </children>
         <children xmi:id="_wW-FwHlpEduf8pXqmhjnpw" sourceEdges="_8DKAEXlpEduf8pXqmhjnpw" targetEdges="_ViikgHlqEduf8pXqmhjnpw" element="_wW070HlpEduf8pXqmhjnpw">
@@ -14646,126 +15011,126 @@
         </children>
         <children xmi:id="_d6r7MXlqEduf8pXqmhjnpw" targetEdges="_to0A8XlqEduf8pXqmhjnpw _t-RTkXlqEduf8pXqmhjnpw _ufysQHlqEduf8pXqmhjnpw _-c0wsHlqEduf8pXqmhjnpw">
           <children xmi:id="_d61FIHlqEduf8pXqmhjnpw" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_d61FIXlqEduf8pXqmhjnpw" width="1320" height="1320"/>
           </children>
           <children xmi:id="_d61FInlqEduf8pXqmhjnpw" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_d61FI3lqEduf8pXqmhjnpw" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_d61FJHlqEduf8pXqmhjnpw" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_d61FJXlqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_d61FJnlqEduf8pXqmhjnpw" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_d61FJ3lqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_d61FKHlqEduf8pXqmhjnpw" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_d61FKXlqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_d61FKnlqEduf8pXqmhjnpw" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_d61FK3lqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_d6r7MnlqEduf8pXqmhjnpw" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d6r7M3lqEduf8pXqmhjnpw" x="14628" y="6678"/>
         </children>
         <children xmi:id="_oDL1MXlqEduf8pXqmhjnpw" sourceEdges="_to0A8XlqEduf8pXqmhjnpw _ufysQHlqEduf8pXqmhjnpw">
           <children xmi:id="_oDL1NHlqEduf8pXqmhjnpw" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_oDL1NXlqEduf8pXqmhjnpw" width="1320" height="1320"/>
           </children>
           <children xmi:id="_oDL1NnlqEduf8pXqmhjnpw" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_oDL1N3lqEduf8pXqmhjnpw" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_oDL1OHlqEduf8pXqmhjnpw" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_oDL1OXlqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_oDL1OnlqEduf8pXqmhjnpw" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_oDL1O3lqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_oDL1PHlqEduf8pXqmhjnpw" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_oDL1PXlqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_oDL1PnlqEduf8pXqmhjnpw" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_oDL1P3lqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_oDL1MnlqEduf8pXqmhjnpw" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oDL1M3lqEduf8pXqmhjnpw" x="13992" y="10176"/>
         </children>
         <children xmi:id="_p9qk4XlqEduf8pXqmhjnpw" sourceEdges="_t-RTkXlqEduf8pXqmhjnpw">
           <children xmi:id="_p9qk5HlqEduf8pXqmhjnpw" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_p9qk5XlqEduf8pXqmhjnpw" width="1320" height="1320"/>
           </children>
           <children xmi:id="_p9qk5nlqEduf8pXqmhjnpw" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_p9qk53lqEduf8pXqmhjnpw" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_p9qk6HlqEduf8pXqmhjnpw" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_p9qk6XlqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_p9qk6nlqEduf8pXqmhjnpw" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_p9qk63lqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_p9qk7HlqEduf8pXqmhjnpw" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_p9qk7XlqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_p9qk7nlqEduf8pXqmhjnpw" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_p9qk73lqEduf8pXqmhjnpw"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_p9qk4nlqEduf8pXqmhjnpw" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_p9qk43lqEduf8pXqmhjnpw" x="19716" y="10176"/>
         </children>
         <children xmi:id="_486xEH4NEduxavwLjLThgg" targetEdges="_HHzicH4OEduxavwLjLThgg">
           <children xmi:id="_486xE34NEduxavwLjLThgg" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_486xFH4NEduxavwLjLThgg" width="1320" height="1320"/>
           </children>
           <children xmi:id="_486xFX4NEduxavwLjLThgg" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
           </children>
           <children xmi:id="_486xFn4NEduxavwLjLThgg" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
           </children>
           <children xmi:id="_486xF34NEduxavwLjLThgg" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_486xGH4NEduxavwLjLThgg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
           </children>
           <children xmi:id="_486xGX4NEduxavwLjLThgg" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_486xGn4NEduxavwLjLThgg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
           </children>
           <children xmi:id="_486xG34NEduxavwLjLThgg" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_486xHH4NEduxavwLjLThgg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
           </children>
           <children xmi:id="_486xHX4NEduxavwLjLThgg" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_486xHn4NEduxavwLjLThgg"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_486xEX4NEduxavwLjLThgg" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_486xEn4NEduxavwLjLThgg" x="1272" y="12720"/>
         </children>
         <children xmi:id="_-Kj6oH4NEduxavwLjLThgg" sourceEdges="_HHzicH4OEduxavwLjLThgg" element="_-J9dsH4NEduxavwLjLThgg">
@@ -14853,108 +15218,108 @@
         <edges xmi:id="_to0A8XlqEduf8pXqmhjnpw" source="_oDL1MXlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
           <children xmi:id="_to0A9HlqEduf8pXqmhjnpw" type="NameLabel">
             <children xmi:id="_to0A9nlqEduf8pXqmhjnpw" type="Stereotype">
-              <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
             </children>
             <children xmi:id="_to0A93lqEduf8pXqmhjnpw" type="Name">
-              <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
             </children>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
+            <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_to0A9XlqEduf8pXqmhjnpw" y="-185"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_to0A8nlqEduf8pXqmhjnpw" showStereotype="Text"/>
-          <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
+          <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_to0A83lqEduf8pXqmhjnpw" points="[3, -22, -34, 107]$[23, -155, -14, -26]"/>
         </edges>
         <edges xmi:id="_t-RTkXlqEduf8pXqmhjnpw" source="_p9qk4XlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
           <children xmi:id="_t-RTlHlqEduf8pXqmhjnpw" type="NameLabel">
             <children xmi:id="_t-RTlnlqEduf8pXqmhjnpw" type="Stereotype">
-              <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
             </children>
             <children xmi:id="_t-RTl3lqEduf8pXqmhjnpw" type="Name">
-              <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
             </children>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
+            <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t-RTlXlqEduf8pXqmhjnpw" y="-185"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_t-RTknlqEduf8pXqmhjnpw" showStereotype="Text"/>
-          <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
+          <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t-RTk3lqEduf8pXqmhjnpw" points="[-27, -23, 142, 106]$[-169, -155, 0, -26]"/>
         </edges>
         <edges xmi:id="_ufysQHlqEduf8pXqmhjnpw" source="_oDL1MXlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
           <children xmi:id="_ufysQ3lqEduf8pXqmhjnpw" type="NameLabel">
             <children xmi:id="_ufysRXlqEduf8pXqmhjnpw" type="Stereotype">
-              <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
+              <element xmi:type="uml:Association" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
             </children>
             <children xmi:id="_ufysRnlqEduf8pXqmhjnpw" type="Name">
-              <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
+              <element xmi:type="uml:Association" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
             </children>
-            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
+            <element xmi:type="uml:Association" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ufysRHlqEduf8pXqmhjnpw" y="-185"/>
           </children>
           <children xmi:id="_ufysR3lqEduf8pXqmhjnpw" type="ToMultiplicityLabel">
             <children xmi:id="_ufysSXlqEduf8pXqmhjnpw" type="ToMultiplicity">
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysSHlqEduf8pXqmhjnpw" y="397"/>
           </children>
           <children xmi:id="_ufysSnlqEduf8pXqmhjnpw" type="ToRoleLabel">
             <children xmi:id="_ufysTHlqEduf8pXqmhjnpw" type="ToRole">
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysS3lqEduf8pXqmhjnpw" y="-397"/>
           </children>
           <children xmi:id="_ufysTXlqEduf8pXqmhjnpw" type="FromMultiplicityLabel">
             <children xmi:id="_ufysT3lqEduf8pXqmhjnpw" type="FromMultiplicity">
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysTnlqEduf8pXqmhjnpw" y="397"/>
           </children>
           <children xmi:id="_ufysUHlqEduf8pXqmhjnpw" type="FromRoleLabel">
             <children xmi:id="_ufysUnlqEduf8pXqmhjnpw" type="FromRole">
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysUXlqEduf8pXqmhjnpw" x="-658" y="1813"/>
           </children>
           <children xmi:id="_ufysU3lqEduf8pXqmhjnpw" type="ToQualifierLabel">
             <children xmi:id="_ufysVXlqEduf8pXqmhjnpw" type="QualifierCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysVnlqEduf8pXqmhjnpw"/>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysVHlqEduf8pXqmhjnpw" y="-185"/>
           </children>
           <children xmi:id="_ufysV3lqEduf8pXqmhjnpw" type="FromQualifierLabel">
             <children xmi:id="_ufysWXlqEduf8pXqmhjnpw" type="QualifierCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysWnlqEduf8pXqmhjnpw"/>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysWHlqEduf8pXqmhjnpw" y="-185"/>
           </children>
           <children xmi:id="_ufysW3lqEduf8pXqmhjnpw" type="ToRoleLabel">
             <eAnnotations xmi:id="_ufysXXlqEduf8pXqmhjnpw" source="ToConstraintLabel"/>
             <children xmi:id="_ufysXnlqEduf8pXqmhjnpw" visible="false" type="ToConstraintCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysX3lqEduf8pXqmhjnpw"/>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysXHlqEduf8pXqmhjnpw" y="1058"/>
           </children>
           <children xmi:id="_ufysYHlqEduf8pXqmhjnpw" type="FromRoleLabel">
             <eAnnotations xmi:id="_ufysYnlqEduf8pXqmhjnpw" source="FromConstraintLabel"/>
             <children xmi:id="_ufysY3lqEduf8pXqmhjnpw" visible="false" type="FromConstraintCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysZHlqEduf8pXqmhjnpw"/>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysYXlqEduf8pXqmhjnpw" y="1058"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_ufysQXlqEduf8pXqmhjnpw" showStereotype="Text"/>
-          <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
+          <element xmi:type="uml:Association" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ufysQnlqEduf8pXqmhjnpw" points="[-2248, -344, -3227, 3069]$[-3227, -344, -4206, 3069]$[-3227, -3439, -4206, -26]$[-1587, -3439, -2566, -26]"/>
         </edges>
         <edges xmi:id="_-c0wsHlqEduf8pXqmhjnpw" element="_-cq_sHlqEduf8pXqmhjnpw" source="_ROlqJTywEduB5pxz2UpKVQ" target="_d6r7MXlqEduf8pXqmhjnpw">
@@ -15073,95 +15438,95 @@
         </children>
         <children xmi:id="_8VOqgJGyEduVgYSffmI32A" targetEdges="_8VOqkJGyEduVgYSffmI32A _9eFwBZGyEduVgYSffmI32A _9eFwKpGyEduVgYSffmI32A _-SZh35GyEduVgYSffmI32A">
           <children xmi:id="_8VOqg5GyEduVgYSffmI32A" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_8VOqhJGyEduVgYSffmI32A" width="1320" height="1320"/>
           </children>
           <children xmi:id="_8VOqhZGyEduVgYSffmI32A" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_8VOqhpGyEduVgYSffmI32A" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_8VOqh5GyEduVgYSffmI32A" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8VOqiJGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_8VOqiZGyEduVgYSffmI32A" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8VOqipGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_8VOqi5GyEduVgYSffmI32A" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_8VOqjJGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <children xmi:id="_8VOqjZGyEduVgYSffmI32A" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_8VOqjpGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_8VOqgZGyEduVgYSffmI32A" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8VOqgpGyEduVgYSffmI32A" x="1908" y="2862"/>
         </children>
         <children xmi:id="_9d8mEJGyEduVgYSffmI32A" sourceEdges="_9eFwBZGyEduVgYSffmI32A _9eFwKpGyEduVgYSffmI32A">
           <children xmi:id="_9d8mE5GyEduVgYSffmI32A" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_9d8mFJGyEduVgYSffmI32A" width="1320" height="1320"/>
           </children>
           <children xmi:id="_9d8mFZGyEduVgYSffmI32A" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_9d8mFpGyEduVgYSffmI32A" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_9d8mF5GyEduVgYSffmI32A" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9d8mGJGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_9d8mGZGyEduVgYSffmI32A" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9d8mGpGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_9d8mG5GyEduVgYSffmI32A" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9d8mHJGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <children xmi:id="_9d8mHZGyEduVgYSffmI32A" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_9d8mHpGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_9d8mEZGyEduVgYSffmI32A" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_oDL1MHlqEduf8pXqmhjnpw?stoex/NamespaceReference"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9d8mEpGyEduVgYSffmI32A" x="-954" y="5088"/>
         </children>
         <children xmi:id="_-SZh0JGyEduVgYSffmI32A" sourceEdges="_-SZh35GyEduVgYSffmI32A">
           <children xmi:id="_-SZh05GyEduVgYSffmI32A" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_-SZh1JGyEduVgYSffmI32A" width="1320" height="1320"/>
           </children>
           <children xmi:id="_-SZh1ZGyEduVgYSffmI32A" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_-SZh1pGyEduVgYSffmI32A" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_-SZh15GyEduVgYSffmI32A" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_-SZh2JGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_-SZh2ZGyEduVgYSffmI32A" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_-SZh2pGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_-SZh25GyEduVgYSffmI32A" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_-SZh3JGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <children xmi:id="_-SZh3ZGyEduVgYSffmI32A" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_-SZh3pGyEduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+            <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_-SZh0ZGyEduVgYSffmI32A" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
+          <element xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_p9qk4HlqEduf8pXqmhjnpw?stoex/VariableReference"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-SZh0pGyEduVgYSffmI32A" x="5406" y="5088"/>
         </children>
         <children xmi:id="_BCrREJGzEduVgYSffmI32A" element="_Tuq2APIZEdqqVosRZMrxNA">
@@ -15183,35 +15548,25 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_BCrREZGzEduVgYSffmI32A" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BCrREpGzEduVgYSffmI32A" x="14310" y="4770"/>
         </children>
-        <children xmi:id="_iR2WQJG0EduVgYSffmI32A" targetEdges="_iSJRMJG0EduVgYSffmI32A">
-          <children xmi:id="_iR2WQ5G0EduVgYSffmI32A" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
+        <children xmi:id="_iR2WQJG0EduVgYSffmI32A" targetEdges="_iSJRMJG0EduVgYSffmI32A" element="_GIDLsPdxEdqB_7dkOscBPA">
+          <children xmi:id="_iR2WQ5G0EduVgYSffmI32A" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_iR2WRJG0EduVgYSffmI32A" width="1320" height="1320"/>
           </children>
-          <children xmi:id="_iR2WRZG0EduVgYSffmI32A" type="Stereotype">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_iR2WRpG0EduVgYSffmI32A" type="Name">
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-          </children>
-          <children xmi:id="_iR2WR5G0EduVgYSffmI32A" type="AttributeCompartment">
+          <children xmi:id="_iR2WRZG0EduVgYSffmI32A" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_iR2WRpG0EduVgYSffmI32A" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
+          <children xmi:id="_iR2WR5G0EduVgYSffmI32A" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_iR2WSJG0EduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_iR2WSZG0EduVgYSffmI32A" type="OperationCompartment">
+          <children xmi:id="_iR2WSZG0EduVgYSffmI32A" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_iR2WSpG0EduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_iR2WS5G0EduVgYSffmI32A" visible="false" type="SignalCompartment">
+          <children xmi:id="_iR2WS5G0EduVgYSffmI32A" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_iR2WTJG0EduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
-          <children xmi:id="_iR2WTZG0EduVgYSffmI32A" visible="false" type="StructureCompartment">
+          <children xmi:id="_iR2WTZG0EduVgYSffmI32A" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_iR2WTpG0EduVgYSffmI32A"/>
-            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_iR2WQZG0EduVgYSffmI32A" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iR2WQpG0EduVgYSffmI32A" x="15264" y="954"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_vG19oZGyEduVgYSffmI32A"/>
@@ -15320,108 +15675,108 @@
         <edges xmi:id="_9eFwBZGyEduVgYSffmI32A" source="_9d8mEJGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
           <children xmi:id="_9eFwCJGyEduVgYSffmI32A" type="NameLabel">
             <children xmi:id="_9eFwCpGyEduVgYSffmI32A" type="Stereotype">
-              <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
+              <element xmi:type="uml:Association" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
             </children>
             <children xmi:id="_9eFwC5GyEduVgYSffmI32A" type="Name">
-              <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
+              <element xmi:type="uml:Association" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
             </children>
-            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
+            <element xmi:type="uml:Association" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9eFwCZGyEduVgYSffmI32A" y="-185"/>
           </children>
           <children xmi:id="_9eFwDJGyEduVgYSffmI32A" type="ToMultiplicityLabel">
             <children xmi:id="_9eFwDpGyEduVgYSffmI32A" type="ToMultiplicity">
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwDZGyEduVgYSffmI32A" x="79" y="-206"/>
           </children>
           <children xmi:id="_9eFwD5GyEduVgYSffmI32A" type="ToRoleLabel">
             <children xmi:id="_9eFwEZGyEduVgYSffmI32A" type="ToRole">
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwEJGyEduVgYSffmI32A" y="-397"/>
           </children>
           <children xmi:id="_9eFwEpGyEduVgYSffmI32A" type="FromMultiplicityLabel">
             <children xmi:id="_9eFwFJGyEduVgYSffmI32A" type="FromMultiplicity">
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwE5GyEduVgYSffmI32A" x="-4" y="-229"/>
           </children>
           <children xmi:id="_9eFwFZGyEduVgYSffmI32A" visible="false" type="FromRoleLabel">
             <children xmi:id="_9eFwF5GyEduVgYSffmI32A" type="FromRole">
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwFpGyEduVgYSffmI32A" y="-397"/>
           </children>
           <children xmi:id="_9eFwGJGyEduVgYSffmI32A" type="ToQualifierLabel">
             <children xmi:id="_9eFwGpGyEduVgYSffmI32A" type="QualifierCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwG5GyEduVgYSffmI32A"/>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwGZGyEduVgYSffmI32A" y="-185"/>
           </children>
           <children xmi:id="_9eFwHJGyEduVgYSffmI32A" type="FromQualifierLabel">
             <children xmi:id="_9eFwHpGyEduVgYSffmI32A" type="QualifierCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwH5GyEduVgYSffmI32A"/>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwHZGyEduVgYSffmI32A" y="-185"/>
           </children>
           <children xmi:id="_9eFwIJGyEduVgYSffmI32A" type="ToRoleLabel">
             <eAnnotations xmi:id="_9eFwIpGyEduVgYSffmI32A" source="ToConstraintLabel"/>
             <children xmi:id="_9eFwI5GyEduVgYSffmI32A" visible="false" type="ToConstraintCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwJJGyEduVgYSffmI32A"/>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwIZGyEduVgYSffmI32A" y="1058"/>
           </children>
           <children xmi:id="_9eFwJZGyEduVgYSffmI32A" type="FromRoleLabel">
             <eAnnotations xmi:id="_9eFwJ5GyEduVgYSffmI32A" source="FromConstraintLabel"/>
             <children xmi:id="_9eFwKJGyEduVgYSffmI32A" visible="false" type="FromConstraintCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwKZGyEduVgYSffmI32A"/>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+              <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             </children>
-            <element xmi:type="uml:Property" href="stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
+            <element xmi:type="uml:Property" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUXlqEduf8pXqmhjnpw?stoex/NamespaceReference/innerReference_NamespaceReference"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwJpGyEduVgYSffmI32A" y="1058"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9eFwBpGyEduVgYSffmI32A" showStereotype="Text"/>
-          <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
+          <element xmi:type="uml:Association" href="platform:/resource/RSA-Models/stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9eFwB5GyEduVgYSffmI32A" points="[-317, -582, -3360, 1403]$[-317, -2117, -3360, -132]$[450, -2117, -2593, -132]"/>
         </edges>
         <edges xmi:id="_9eFwKpGyEduVgYSffmI32A" source="_9d8mEJGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
           <children xmi:id="_9eFwLZGyEduVgYSffmI32A" type="NameLabel">
             <children xmi:id="_9eFwL5GyEduVgYSffmI32A" type="Stereotype">
-              <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
             </children>
             <children xmi:id="_9eFwMJGyEduVgYSffmI32A" type="Name">
-              <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
             </children>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
+            <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9eFwLpGyEduVgYSffmI32A" y="-185"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9eFwK5GyEduVgYSffmI32A" showStereotype="Text"/>
-          <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
+          <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9eFwLJGyEduVgYSffmI32A" points="[979, -635, -3334, 2011]$[3149, -1958, -1164, 688]"/>
         </edges>
         <edges xmi:id="_-SZh35GyEduVgYSffmI32A" source="_-SZh0JGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
           <children xmi:id="_-SZh4pGyEduVgYSffmI32A" type="NameLabel">
             <children xmi:id="_-SZh5JGyEduVgYSffmI32A" type="Stereotype">
-              <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
             </children>
             <children xmi:id="_-SZh5ZGyEduVgYSffmI32A" type="Name">
-              <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
             </children>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
+            <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-SZh45GyEduVgYSffmI32A" y="-185"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_-SZh4JGyEduVgYSffmI32A" showStereotype="Text"/>
-          <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
+          <element xmi:type="uml:Generalization" href="platform:/resource/RSA-Models/stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-SZh4ZGyEduVgYSffmI32A" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
         </edges>
         <edges xmi:id="_iSJRMJG0EduVgYSffmI32A" element="_8DKAEHlpEduf8pXqmhjnpw" source="_xBLjYJGyEduVgYSffmI32A" target="_iR2WQJG0EduVgYSffmI32A">
@@ -15441,6 +15796,11 @@
     <packageImport xmi:id="_zJZmU_ITEdqqVosRZMrxNA">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_EfRZoK86EdieaYgxtVWN8Q"/>
     </packageImport>
+    <ownedMember xmi:type="uml:Class" xmi:id="_GIDLsPdxEdqB_7dkOscBPA" name="PCMRandomVariable">
+      <generalization xmi:id="_l-jHoDaeEdypU_bkgRAm2w">
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_f1T4gDaeEdypU_bkgRAm2w?stoex/RandomVariable"/>
+      </generalization>
+    </ownedMember>
     <ownedMember xmi:type="uml:Enumeration" xmi:id="_Tuq2APIZEdqqVosRZMrxNA" name="VariableCharacterisationType">
       <ownedLiteral xmi:id="_PfjuYHlqEduf8pXqmhjnpw" name="STRUCTURE"/>
       <ownedLiteral xmi:id="_NX9IsHlqEduf8pXqmhjnpw" name="NUMBER_OF_ELEMENTS"/>
@@ -15460,15 +15820,13 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ViYzg3lqEduf8pXqmhjnpw"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_-cq_sXlqEduf8pXqmhjnpw" name="namedReference_VariableUsage" association="_-cq_sHlqEduf8pXqmhjnpw" aggregation="composite">
-        <type xmi:type="uml:Class" href="stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
+        <type xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_d6r7MHlqEduf8pXqmhjnpw?stoex/AbstractNamedReference"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-cq_tHlqEduf8pXqmhjnpw" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-cq_s3lqEduf8pXqmhjnpw" value="1"/>
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_wW070HlpEduf8pXqmhjnpw" name="VariableCharacterisation">
-      <generalization xmi:id="_8DKAEHlpEduf8pXqmhjnpw">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_8DKAEHlpEduf8pXqmhjnpw" general="_GIDLsPdxEdqB_7dkOscBPA"/>
       <ownedAttribute xmi:id="_-YxMkHlpEduf8pXqmhjnpw" name="type" visibility="private" type="_Tuq2APIZEdqqVosRZMrxNA"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_ViYzgHlqEduf8pXqmhjnpw" memberEnd="_ViYzgXlqEduf8pXqmhjnpw _ViYzgnlqEduf8pXqmhjnpw">
@@ -15479,7 +15837,7 @@
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_-J9dsH4NEduxavwLjLThgg" name="CharacterisedVariable">
       <generalization xmi:id="_HHqYgH4OEduxavwLjLThgg">
-        <general xmi:type="uml:Class" href="stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
+        <general xmi:type="uml:Class" href="platform:/resource/RSA-Models/stoex.emx#_Pw2boDpREduKtOWw2f6nDA?stoex/Variable"/>
       </generalization>
       <ownedAttribute xmi:id="_-h7O8HviEdu44vtaHAHjTA" name="characterisationType" visibility="private" type="_Tuq2APIZEdqqVosRZMrxNA"/>
     </ownedMember>
@@ -16169,9 +16527,7 @@
       <contents xmi:type="Ecore_0:Ecore__EPackage" xmi:id="_XKk2oXDVEdur9cZft9T4NQ" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0"/>
     </eAnnotations>
     <ownedMember xmi:type="uml:Class" xmi:id="_3HyqgPF7EdqBtpnwLNXcbw" name="SpecifiedExecutionTime" isAbstract="true">
-      <generalization xmi:id="_z5WUsPdyEdqB_7dkOscBPA">
-        <general xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
-      </generalization>
+      <generalization xmi:id="_z5WUsPdyEdqB_7dkOscBPA" general="_GIDLsPdxEdqB_7dkOscBPA"/>
       <ownedAttribute xmi:id="_JFQ8sfF8EdqBtpnwLNXcbw" name="signature_SpecifiedTimeConsumption" type="_hh0OUJJJEdqSSImFLKDkSg" association="_JFQ8sPF8EdqBtpnwLNXcbw"/>
       <ownedAttribute xmi:id="_fIC68XMvEduqAZ6idiaTjw" name="role_SpecifiedExecutionTime" type="_9CubEJJIEdqSSImFLKDkSg" association="_fIC68HMvEduqAZ6idiaTjw">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fIC69HMvEduqAZ6idiaTjw" value="1"/>

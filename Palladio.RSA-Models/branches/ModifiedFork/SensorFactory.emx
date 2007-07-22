@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--xtools2_universal_type_manager-->
-<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persistence_0="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xsi:schemaLocation="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2 file:/C:/coding/code/PalladioCM.CodeGen/my.hibernate.project/model/Persistence.profile.uml2#_CpkoRYRuEdu0HNZg8bM6sQ" xmi:id="__vMF8KM3EdueS_3nHTLlag" name="SensorFactory" appliedProfile="__vMF9KM3EdueS_3nHTLlag __vMF96M3EdueS_3nHTLlag __vMF-qM3EdueS_3nHTLlag __vMF_aM3EdueS_3nHTLlag __vMGAKM3EdueS_3nHTLlag _H6hIoKM4EdueS_3nHTLlag">
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persistence_0="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xsi:schemaLocation="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2 file:/C:/coding/code/PalladioCM.CodeGen/my.hibernate.project/model/Persistence.profile.uml2" xmi:id="__vMF8KM3EdueS_3nHTLlag" name="SensorFactory" appliedProfile="__vMF9KM3EdueS_3nHTLlag __vMF96M3EdueS_3nHTLlag __vMF-qM3EdueS_3nHTLlag __vMF_aM3EdueS_3nHTLlag __vMGAKM3EdueS_3nHTLlag _H6hIoKM4EdueS_3nHTLlag">
   <eAnnotations xmi:id="__vMF8aM3EdueS_3nHTLlag" source="uml2.diagrams">
     <contents xmi:type="notation:Diagram" xmi:id="_zeDToKUoEdu67aH61_l2Wg" type="Class" name="Sensor">
       <children xmi:id="_05jBQKUoEdu67aH61_l2Wg" element="_05ZQQKUoEdu67aH61_l2Wg">
@@ -119,7 +119,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_UAVq_qM4EdueS_3nHTLlag"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_UAVq8aM4EdueS_3nHTLlag" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UAVq8qM4EdueS_3nHTLlag" x="12084" y="2226"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UAVq8qM4EdueS_3nHTLlag" x="12402" y="2226"/>
         </children>
         <children xmi:id="_sw_eYaUrEdu67aH61_l2Wg" sourceEdges="_uGOzAKUrEdu67aH61_l2Wg _ZzFFoKM4EdueS_3nHTLlag" element="_sw_eYKUrEdu67aH61_l2Wg">
           <children xmi:id="_sxJPYqUrEdu67aH61_l2Wg" type="ImageCompartment" element="_sw_eYKUrEdu67aH61_l2Wg">
