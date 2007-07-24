@@ -1,5 +1,9 @@
 package de.uka.ipd.sdq.prototype.framework.tests;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -17,11 +21,14 @@ public class PrototypePlatformTests {
 
 	@Before
 	public void initialise() {
-		/*This is done by the Strategy Register itself at the moment, but will be needed later.
-		IConsumerStrategy cpuStrategy = new FibonacciCPUStrategy();
-		cpuStrategy.initialiseStrategy(CPU_PROCESSING_RATE);
-		StrategiesRegistry.singleton().registerStrategyFor(
-				ResourceTypeEnum.CPU, cpuStrategy);*/
+		/*
+		 * This is done by the Strategy Register itself at the moment, but will
+		 * be needed later. IConsumerStrategy cpuStrategy = new
+		 * FibonacciCPUStrategy();
+		 * cpuStrategy.initialiseStrategy(CPU_PROCESSING_RATE);
+		 * StrategiesRegistry.singleton().registerStrategyFor(
+		 * ResourceTypeEnum.CPU, cpuStrategy);
+		 */
 	}
 
 	@Test
@@ -67,28 +74,24 @@ public class PrototypePlatformTests {
 			if (timeConsumptionInSeconds < lowerAcceptanceBound
 					|| timeConsumptionInSeconds > upperAcceptanceBound) {
 				countOutliers++;
-				/*if (timeConsumptionInSeconds < lowerAcceptanceBound)
-					System.out
-							.println("Lower acceptance level not reached in run "
-									+ i
-									+ ": Time is "
-									+ timeConsumptionInSeconds
-									+ " and must be higher than "
-									+ lowerAcceptanceBound);
-				if (timeConsumptionInSeconds > upperAcceptanceBound)
-					System.out
-							.println("Upper acceptance level not reached in run "
-									+ i
-									+ ": Time is "
-									+ timeConsumptionInSeconds
-									+ " and must be lower than "
-									+ upperAcceptanceBound);*/
+				/*
+				 * if (timeConsumptionInSeconds < lowerAcceptanceBound)
+				 * System.out .println("Lower acceptance level not reached in
+				 * run " + i + ": Time is " + timeConsumptionInSeconds + " and
+				 * must be higher than " + lowerAcceptanceBound); if
+				 * (timeConsumptionInSeconds > upperAcceptanceBound) System.out
+				 * .println("Upper acceptance level not reached in run " + i + ":
+				 * Time is " + timeConsumptionInSeconds + " and must be lower
+				 * than " + upperAcceptanceBound);
+				 */
 			}
 		}
 
-		/*System.out.println("There have been " + countOutliers
-				+ " outliers out of " + TEST_ITERATIONS + " values for "
-				+ unitsToConsume + " work units.");*/
+		/*
+		 * System.out.println("There have been " + countOutliers + " outliers
+		 * out of " + TEST_ITERATIONS + " values for " + unitsToConsume + " work
+		 * units.");
+		 */
 		Assert.assertTrue("There have been more than " + TEST_ITERATIONS
 				* OUTLIER_RATIO + " outliers for " + unitsToConsume
 				+ " work units: " + countOutliers,
@@ -96,25 +99,54 @@ public class PrototypePlatformTests {
 	}
 
 	@Test
-	public void testConsumeHDD() {
+	public void testConsumeHDD() throws IOException {
 		IConsumerStrategy hddStrategy = StrategiesRegistry.singleton()
 				.getStrategyFor(ResourceTypeEnum.HDD);
 
 		Assert.assertEquals(hddStrategy.getClass(),
 				ReadLargeChunksHDDStrategy.class);
+		
+
+		BufferedWriter bw =  new BufferedWriter(new FileWriter("testConsumeHDDResults.csv"));
+		bw.write("SizeRead;Time");
+		bw.newLine();
 
 		hddStrategy.initialiseStrategy(0.0);
 
-		for (int i = 0; i < 510; i++) {
-			long startTime = System.nanoTime();
-			hddStrategy.consume(1000000);
-			long endTime = System.nanoTime();
+		long sum = 0;
+		int iterations = 300;
+		long[] startTimes = new long[iterations];
+		long[] endTimes = new long[iterations];
+		double demand = 1000000;
+		
+		//warmup
+		for (int i = 0; i < 3*300; i++) {
+			hddStrategy.consume(demand);
+		}		
 
-			System.out.println(i+": Reading 1000000 bytes took "
-					+ (endTime - startTime)+" ns.");
+		for (int j = 1000000; j < 10000000; j += 1000000) {
+			demand = j;
+
+			for (int i = 0; i < iterations; i++) {
+				startTimes[i] = System.nanoTime();
+				hddStrategy.consume(demand);
+				endTimes[i] = System.nanoTime();
+			}
+			for (int i = 0; i < iterations; i++) {
+
+				sum += endTimes[i] - startTimes[i];
+				System.out.println(i + ": Reading "+demand+" B took "
+						+ (endTimes[i] - startTimes[i]) + " ns.");
+				bw.write(demand+";"+(endTimes[i] - startTimes[i]));
+				bw.newLine();
+				bw.flush();
+			}
+			double mean = sum / (double) iterations;
+			System.out.println("Mean is " + mean + " nanoseconds, that is "
+					+ (mean / 1000000000) + " seconds.");
 		}
 
-		//TODO: Noch mehr Tests. 
+		// TODO: Noch mehr Tests.
 	}
 
 }

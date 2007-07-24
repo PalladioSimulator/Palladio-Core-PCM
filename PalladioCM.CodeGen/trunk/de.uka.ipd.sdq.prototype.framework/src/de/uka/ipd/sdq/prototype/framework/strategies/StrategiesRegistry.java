@@ -16,6 +16,7 @@ public class StrategiesRegistry {
 		registerStrategyFor(ResourceTypeEnum.CPU, stratCPU);
 		
 		IConsumerStrategy stratHDD = new ReadLargeChunksHDDStrategy();
+		stratHDD.initialiseStrategy(0);
 		registerStrategyFor(ResourceTypeEnum.HDD, stratHDD);
 
 		

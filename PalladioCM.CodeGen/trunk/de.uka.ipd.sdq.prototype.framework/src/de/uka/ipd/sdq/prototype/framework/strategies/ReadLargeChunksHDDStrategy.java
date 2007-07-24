@@ -29,15 +29,19 @@ import org.apache.log4j.Logger;
  */
 public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 
+	public long time = 0;
+	
 	/* Configuration */
-	private int maxFileSize = 8000000;
+	private int maxFileSize = 8*1024*1024;
 
-	private File fileDirectory = new File("C:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
-	private int numberOfFiles = 100;
+	private File fileDirectory = new File("F:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
+	private int numberOfFiles = 1000;
 
 	/** Stores some files sorted by size for fast access */
 	private List<File> files = new LinkedList<File>();
 	private Iterator<File> iterator = null;
+	
+	//byte[] byteArray = new byte[1000000];
 	
 	/** Or just store lots of files that are large enough in a linked list.*/
 
@@ -46,13 +50,24 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 	
 	@Override
 	public void consume(double demand) {
+		logger.debug("Consume HDD demand of: "+demand);
 		try {
 			FileInputStream fis = new FileInputStream(nextFile());
 			
 			//TODO: So oder doch lieber in ein Array einlesen dass groß genug ist?
 			// müsste aber auch erst angelegt werden, da Demand im Voraus unbekannt. 
-			for (int i = 0; i < demand; i++)
-				fis.read();
+			//for (int i = 0; i < demand; i++)
+			//	fis.read();
+			
+			/* 
+			 * Measurements here only lead to slightly shorter times as if the whole consume method is measured.
+			 * The difference averages to 1 % (reading 1 to 8 MB of data). 
+			 * Thus, the overhead of the method invocation is negligible. 
+			 */ 
+			byte[] byteArray = new byte[(int)(demand)];
+			fis.read(byteArray);
+			
+			logger.debug("Demand consumed");
 			
 		} catch (FileNotFoundException e) {
 			logger.error(e);
@@ -99,10 +114,14 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 		if (this.files.size() < 1){
 			logger.error("The strategy could not be initialised as there are no files to read.");
 		} else {
-			this.iterator = this.files.iterator(); 
+			this.iterator = this.files.iterator();
+			/*for (int i= 0; i < 100; i++){
+				iterator.next();
+			}*/
 			logger.debug("Strategy initialised with "+files.size() + " files.");
 		}
 		
+	
 	}
 
 	private boolean writeTestFiles() throws IOException {

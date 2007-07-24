@@ -17,9 +17,16 @@
       try {
 		//Thread.sleep((long) (demand * 1000));
 		//TODO: Erstmal nur CPU, sonst hier unterscheiden!
-		de.uka.ipd.sdq.prototype.framework.strategies.StrategiesRegistry.singleton()
-		  .getStrategyFor(de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum.CPU).consume(demand);
+		String neededResource = "«this.requiredResource_ParametricResourceDemand.entityName»";
 		
+		if (neededResource.equals("cpu")){
+		  de.uka.ipd.sdq.prototype.framework.strategies.StrategiesRegistry.singleton()
+		    .getStrategyFor(de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum.CPU).consume(demand);
+		} else
+		{
+		  de.uka.ipd.sdq.prototype.framework.strategies.StrategiesRegistry.singleton()
+		    .getStrategyFor(de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum.HDD).consume(demand);
+		}
 	  } catch (Exception e) {
 		e.printStackTrace();
 		System.exit(-1);

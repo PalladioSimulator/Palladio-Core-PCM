@@ -155,7 +155,13 @@
 	«EXPAND m2t_transforms::pojo::usage::UsageScenario(a) FOR this»
 «ENDAROUND»
 
+«AROUND m2t_transforms::user_actions::UserAction FOR Loop»
+	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
+«ENDAROUND»
 
+«AROUND m2t_transforms::user_actions::UserAction FOR Branch»
+	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
+«ENDAROUND»
 
 //----------------------------
 // Method override: Add a context to the scenario runner
