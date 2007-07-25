@@ -30,7 +30,7 @@ import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.UserCanceledException;
@@ -185,15 +185,15 @@ public class CheckOAWConstraintsJob implements IJob {
 		ArrayList<String> result = new ArrayList<String>();
 		try {
 			result.add ( myConfiguration
-					.getAttribute(ResourceManagerTab.REPOSITORY_FILE, ""));
+					.getAttribute(ConstantsContainer.REPOSITORY_FILE, ""));
 			result.add ( myConfiguration
-					.getAttribute(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE, ""));
+					.getAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, ""));
 			result.add ( myConfiguration
-					.getAttribute(ResourceManagerTab.SYSTEM_FILE, ""));
+					.getAttribute(ConstantsContainer.SYSTEM_FILE, ""));
 			result.add ( myConfiguration
-					.getAttribute(ResourceManagerTab.ALLOCATION_FILE, ""));
+					.getAttribute(ConstantsContainer.ALLOCATION_FILE, ""));
 			result.add ( myConfiguration
-					.getAttribute(ResourceManagerTab.USAGE_FILE, ""));
+					.getAttribute(ConstantsContainer.USAGE_FILE, ""));
 			return result;
 		} catch (Exception e) {
 			throw new Exception("Unable to read file names from configuration", e);

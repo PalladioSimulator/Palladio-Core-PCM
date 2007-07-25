@@ -4,10 +4,9 @@ import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
-/**
- * @author roman
- *
- */
+import de.uka.ipd.sdq.codegen.runconfig.tabs.*;
+
+/** @author roman */
 public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 	/* (non-Javadoc)
@@ -15,13 +14,12 @@ public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 	 */
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new ModelsFileNameInputTab(),
+				new FileNamesInputTab(), // Default tab
 				new SimuComConfigurationTab(),
-				new oAWConfigurationTab(),
+				new SimuConfigurationTab(),
 				new FeatureOptionsTab()
 		};
 		setTabs(tabs);
-
 	}
 
 }

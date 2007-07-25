@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 import de.uka.ipd.sdq.dialogs.dataset.DataSetLabelProvider;
 import de.uka.ipd.sdq.dialogs.dataset.SensorDataSetDialog;
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
@@ -33,6 +34,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Text nameField;
 	private Text timeField;
 	private Text dataField;
+	private Button checkLoggingButton;
 
 	protected int selectedDataSourceID;
 
@@ -120,6 +122,24 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				}
 			}
 		});
+		
+		/** Logging group*/
+		final Group loggingGroup = new Group(container, SWT.NONE);
+		loggingGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
+		loggingGroup.setText("Logging");
+		loggingGroup.setLayout(new GridLayout());
+		checkLoggingButton = new Button(loggingGroup, SWT.CHECK);
+		checkLoggingButton.setText("Enable verbose logging");
+		checkLoggingButton.addSelectionListener(new SelectionAdapter() {
+			
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
+			}
+		});
+		checkLoggingButton.setSelection(false);
 	}
 
 	/* (non-Javadoc)
@@ -161,6 +181,13 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			selectedDataSourceID = -1;
 			dataField.setText("");
 		}
+		
+		try {
+			checkLoggingButton.setSelection(configuration.getAttribute(
+					SimuComConfig.VERBOSE_LOGGING, false));
+		} catch (CoreException e) {
+			checkLoggingButton.setSelection(false);
+		}
 	}
 
 	/* (non-Javadoc)
@@ -173,6 +200,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				timeField.getText());
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
 				selectedDataSourceID);
+		configuration.setAttribute(SimuComConfig.VERBOSE_LOGGING,
+				checkLoggingButton.getSelection());
 	}
 
 	/* (non-Javadoc)
@@ -192,7 +221,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public Image getImage() {
-		return ResourceManagerTab.getSimuComConfImage();
+		return SimuControllerImages.imageRegistry
+				.get(SimuControllerImages.SIMUCOM_CONF);
 	}
 
 	/* (non-Javadoc)

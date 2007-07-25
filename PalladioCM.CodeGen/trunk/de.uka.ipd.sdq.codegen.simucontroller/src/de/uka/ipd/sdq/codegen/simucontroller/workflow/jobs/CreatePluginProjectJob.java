@@ -11,7 +11,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.RollbackFailedException;
@@ -26,7 +26,7 @@ public class CreatePluginProjectJob implements IJob {
 	public CreatePluginProjectJob(ILaunchConfiguration configuration) {
 		myProject = null;
 		try {
-			deleteProject = configuration.getAttribute(ResourceManagerTab.DELETE_PLUGIN, true);
+			deleteProject = configuration.getAttribute(ConstantsContainer.DELETE_PLUGIN, true);
 		} catch (CoreException e) {
 			deleteProject = true;
 		}

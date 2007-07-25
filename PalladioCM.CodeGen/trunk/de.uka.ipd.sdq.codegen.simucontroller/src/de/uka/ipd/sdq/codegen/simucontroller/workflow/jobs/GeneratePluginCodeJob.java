@@ -9,9 +9,8 @@ import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ComponentLookupEnum;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.FeatureOptionsTab;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ComponentLookupEnum;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
 
@@ -53,22 +52,22 @@ public class GeneratePluginCodeJob implements IJob {
 			properties.put("aop_templates", TEMPLATE_METHODS);
 			properties.put("workspace_loc", workspaceLocation);
 
-			properties.put(ResourceManagerTab.REPOSITORY_FILE, myConfiguration
-					.getAttribute(ResourceManagerTab.REPOSITORY_FILE, ""));
-			properties.put(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE, myConfiguration
-					.getAttribute(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE, ""));
-			properties.put(ResourceManagerTab.SYSTEM_FILE, myConfiguration
-					.getAttribute(ResourceManagerTab.SYSTEM_FILE, ""));
-			properties.put(ResourceManagerTab.ALLOCATION_FILE, myConfiguration
-					.getAttribute(ResourceManagerTab.ALLOCATION_FILE, ""));
-			properties.put(ResourceManagerTab.USAGE_FILE, myConfiguration
-					.getAttribute(ResourceManagerTab.USAGE_FILE, ""));
-			properties.put(ResourceManagerTab.OUTPUT_PATH, myConfiguration
-					.getAttribute(ResourceManagerTab.OUTPUT_PATH, ""));
+			properties.put(ConstantsContainer.REPOSITORY_FILE, myConfiguration
+					.getAttribute(ConstantsContainer.REPOSITORY_FILE, ""));
+			properties.put(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, myConfiguration
+					.getAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, ""));
+			properties.put(ConstantsContainer.SYSTEM_FILE, myConfiguration
+					.getAttribute(ConstantsContainer.SYSTEM_FILE, ""));
+			properties.put(ConstantsContainer.ALLOCATION_FILE, myConfiguration
+					.getAttribute(ConstantsContainer.ALLOCATION_FILE, ""));
+			properties.put(ConstantsContainer.USAGE_FILE, myConfiguration
+					.getAttribute(ConstantsContainer.USAGE_FILE, ""));
+			properties.put(ConstantsContainer.OUTPUT_PATH, myConfiguration
+					.getAttribute(ConstantsContainer.OUTPUT_PATH, ""));
 			properties.put("respectLinkingResources", myConfiguration
-					.getAttribute(FeatureOptionsTab.SIMULATE_LINKING_RESOURCES, true) ? "true" : "false");
+					.getAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES, true) ? "true" : "false");
 			properties.put("brokerLookup", myConfiguration
-					.getAttribute(FeatureOptionsTab.COMPONENT_LOOKUP, ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal()) == ComponentLookupEnum.BROKER.ordinal() ?
+					.getAttribute(ConstantsContainer.COMPONENT_LOOKUP, ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal()) == ComponentLookupEnum.BROKER.ordinal() ?
 							"true" :
 							"false");
 
