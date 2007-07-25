@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_VgMesP__Edu5_5tCZjPAAA" entityName="SetVariableSystem">
+  <childComponentContexts_ComposedStructure id="_YRik8P__Edu5_5tCZjPAAA" entityName="assemblyOne">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_V3B8QP_9Edu5_5tCZjPAAA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_Y-P58P__Edu5_5tCZjPAAA" entityName="assemblyTwo">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_YSvJsP_9Edu5_5tCZjPAAA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_cT2oQAasEdyQormb4HpLeA" entityName="Assembly_Client &lt;Client>">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_V3B8QP_9Edu5_5tCZjPAAA"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_gQweQP__Edu5_5tCZjPAAA" entityName="ProvDel" outerProvidedRole_ProvidedDelegationConnector="_fW7TQP__Edu5_5tCZjPAAA" childComponentContext_ProvidedDelegationConnector="_YRik8P__Edu5_5tCZjPAAA">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_XfHUYP_9Edu5_5tCZjPAAA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_9NOnIAauEdywPIi5Iy_UsA" entityName="ReqDelegation Required_IProvidedServer_Client -> Required_IProvidedServer" childComponentContext_RequiredDelegationConnector="_cT2oQAasEdyQormb4HpLeA">
+    <innerRequiredRole_RequiredDelegationConnector href="default.repository#_X8oW0P_9Edu5_5tCZjPAAA"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_eLjsUP__Edu5_5tCZjPAAA" entityName="AssemblyCon" requiringChildComponentContext_CompositeAssemblyConnector="_YRik8P__Edu5_5tCZjPAAA" providingChildComponentContext_CompositeAssemblyConnector="_Y-P58P__Edu5_5tCZjPAAA">
+    <providedRole_CompositeAssemblyConnector href="default.repository#_ZJr_0P_9Edu5_5tCZjPAAA"/>
+    <requiredRole_CompositeAssemblyConnector href="default.repository#_X8oW0P_9Edu5_5tCZjPAAA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_fW7TQP__Edu5_5tCZjPAAA" entityName="SysProv">
+    <providedInterface__ProvidedRole href="default.repository#_3YdhAP_8Edu5_5tCZjPAAA"/>
+  </providedRoles_InterfaceProvidingEntity>
+</pcm.system:System>

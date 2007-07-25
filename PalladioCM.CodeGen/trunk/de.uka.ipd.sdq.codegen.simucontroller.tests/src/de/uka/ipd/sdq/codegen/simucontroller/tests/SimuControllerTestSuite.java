@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 public class SimuControllerTestSuite {
 
 	public static final String ID_SIMUCOM_LAUNCH = "de.uka.ipd.sdq.simucontroller.SimuLaunching";
-
+	
 	/**
 	 * A test of all SimuCom Launch Configs in the workspace. We are not
 	 * expecting any exceptions during the execution
@@ -46,7 +46,7 @@ public class SimuControllerTestSuite {
 			try {
 				ILaunchConfigurationWorkingCopy copy = config
 						.copy("Test Suite Launcher");
-				copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, true);
+				copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
 				copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
 			} catch (CoreException ex) {
 				StringWriter sw = new StringWriter();
@@ -59,14 +59,43 @@ public class SimuControllerTestSuite {
 	}
 	
 	
+	/** A test of example SimuCom LaunchConfigs -> QoSA2007_MediaStore */ 
+	@Test
+	public void RunSimuComLaunch_QoSA2007_MediaStore() throws CoreException {
+		runSimuComLaunch("QoSA2007_MediaStore");
+	}
+	
+	/** A test of example SimuCom LaunchConfigs -> QoSA2006_WebAudioStore */ 
+	@Test
+	public void RunSimuComLaunch_QoSA2006_WebAudioStore() throws CoreException {
+		runSimuComLaunch("QoSA2006_WebAudioStore");
+	}
+	
+	/** A test of example SimuCom LaunchConfigs -> ModelExample_QoSA06 */ 
+	@Test
+	public void RunSimuComLaunch_ModelExample_QoSA06() throws CoreException {
+		runSimuComLaunch("ModelExample_QoSA06");
+	}
+	
+	/** A test of example SimuCom LaunchConfigs -> PCMForkExample */ 
+	@Test
+	public void RunSimuComLaunch_PCMForkExample() throws CoreException {
+		runSimuComLaunch("PCMForkExample");
+	}
+	
+	/** A test of example SimuCom LaunchConfigs -> PCMSetVariableExample */ 
+	@Test
+	public void RunSimuComLaunch_PCMSetVariableExample() throws CoreException {
+		runSimuComLaunch("PCMSetVariableExample");
+	}
+	
 	/**
 	 * A test of example SimuCom LaunchConfigs in the workspace. We are not
 	 * expecting any exceptions during the execution
+	 * 
+	 * @param dir/model name
 	 */
-	@Test
-	public void RunSimuComLaunch_QoSA2007_MediaStore() throws CoreException {
-
-		String DIR_NAME = "QoSA2007_MediaStore";
+	private void runSimuComLaunch(String modelName) throws CoreException {
 
 		ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
 		ILaunchConfigurationType type = manager
@@ -74,36 +103,43 @@ public class SimuControllerTestSuite {
 
 		IContainer container = ResourcesPlugin.getWorkspace().getRoot();
 
-		ILaunchConfigurationWorkingCopy copy = type.newInstance(container,
-				DIR_NAME);
-		
-		copy.setAttribute(ResourceManagerTab.ALLOCATION_FILE,
-				getModelsFilePath(DIR_NAME,
-						ModelsFileNameInputTab.ALLOCATION_EXTENSION[0]));
-		
-		copy.setAttribute(ResourceManagerTab.REPOSITORY_FILE,
-				getModelsFilePath(DIR_NAME,
-						ModelsFileNameInputTab.REPOSITORY_EXTENSION[0]));
-		
-		copy.setAttribute(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE,
-				getModelsFilePath(DIR_NAME,
-						ModelsFileNameInputTab.RESOURCETYPE_EXTENSION[0]));
-		
-		copy.setAttribute(ResourceManagerTab.USAGE_FILE, getModelsFilePath(
-				DIR_NAME, ModelsFileNameInputTab.USAGEMODEL_EXTENSION[0]));
-		
-		copy.setAttribute(ResourceManagerTab.SYSTEM_FILE, getModelsFilePath(
-				DIR_NAME, ModelsFileNameInputTab.SYSTEM_EXTENSION[0]));
-		
-		copy.setAttribute(SimuComConfig.DATASOURCE_ID, 1);
-		copy.setAttribute(SimuComConfig.SIMULATION_TIME, "1500");
-		copy.setAttribute(SimuComConfig.EXPERIMENT_RUN, "MyRun");
-		copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, true);
-		copy.setAttribute(SimuComConfig.VERBOSE_LOGGING, false);
-		copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
+		try {
+			ILaunchConfigurationWorkingCopy copy = type.newInstance(container,
+					modelName);
 
+			copy.setAttribute(ResourceManagerTab.ALLOCATION_FILE,
+					getModelsFilePath(modelName,
+							ModelsFileNameInputTab.ALLOCATION_EXTENSION[0]));
+
+			copy.setAttribute(ResourceManagerTab.REPOSITORY_FILE,
+					getModelsFilePath(modelName,
+							ModelsFileNameInputTab.REPOSITORY_EXTENSION[0]));
+
+			copy.setAttribute(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE,
+					getModelsFilePath(modelName,
+							ModelsFileNameInputTab.RESOURCETYPE_EXTENSION[0]));
+
+			copy.setAttribute(ResourceManagerTab.USAGE_FILE, getModelsFilePath(
+					modelName, ModelsFileNameInputTab.USAGEMODEL_EXTENSION[0]));
+
+			copy.setAttribute(ResourceManagerTab.SYSTEM_FILE,
+					getModelsFilePath(modelName,
+							ModelsFileNameInputTab.SYSTEM_EXTENSION[0]));
+
+			copy.setAttribute(SimuComConfig.DATASOURCE_ID, 1);
+			copy.setAttribute(SimuComConfig.SIMULATION_TIME, "1500");
+			copy.setAttribute(SimuComConfig.EXPERIMENT_RUN, "MyRun");
+			copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, true);
+			copy.setAttribute(SimuComConfig.VERBOSE_LOGGING, false);
+			copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
+		} catch (CoreException ex) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			ex.printStackTrace(pw);
+			Assert.fail("Created config failed: " + ex.getMessage() + "\n"
+					+ sw.toString());
+		}
 	}
-	
 	
 	private String getModelsFilePath(String dirName, String extension) {
 		String dirPath = "";

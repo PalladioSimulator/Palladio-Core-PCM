@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_K3zuEP_bEduaJLTMDGKSdg" entityName="ForkRepository">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_QeC90P_bEduaJLTMDGKSdg" entityName="CFork">
+    <providedRoles_InterfaceProvidingEntity id="_RzDB4P_bEduaJLTMDGKSdg" entityName="Provided_IFork_CFork" providedInterface__ProvidedRole="_NBjBwP_bEduaJLTMDGKSdg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_RzGFMP_bEduaJLTMDGKSdg" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Rzd4oP_bEduaJLTMDGKSdg" successor_AbstractAction="_bj_-kP_bEduaJLTMDGKSdg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_RzixIP_bEduaJLTMDGKSdg" predecessor_AbstractAction="_QTNGIf_jEdupw_dMH7kvgw"/>
+      <steps_Behaviour xsi:type="pcm.seff:ForkAction" id="_bj_-kP_bEduaJLTMDGKSdg" predecessor_AbstractAction="_Rzd4oP_bEduaJLTMDGKSdg" successor_AbstractAction="_QTNGIf_jEdupw_dMH7kvgw">
+        <forkedBehaviours_Fork>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_dUHRUf_bEduaJLTMDGKSdg" successor_AbstractAction="_nphl9P_bEduaJLTMDGKSdg"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_eeGYMP_bEduaJLTMDGKSdg" predecessor_AbstractAction="_nphl9P_bEduaJLTMDGKSdg"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_nphl9P_bEduaJLTMDGKSdg" predecessor_AbstractAction="_dUHRUf_bEduaJLTMDGKSdg" successor_AbstractAction="_eeGYMP_bEduaJLTMDGKSdg">
+            <resourceDemand_Action specification="100 * a.VALUE">
+              <requiredResource_ParametricResourceDemand href="fork.resourcetype#_FckX8P_cEduaJLTMDGKSdg"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </forkedBehaviours_Fork>
+        <forkedBehaviours_Fork>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_f27zYf_bEduaJLTMDGKSdg" successor_AbstractAction="_6Rxu8f_lEdus1J6OhOALgQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_gosngP_bEduaJLTMDGKSdg" predecessor_AbstractAction="_6Rxu8f_lEdus1J6OhOALgQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_6Rxu8f_lEdus1J6OhOALgQ" predecessor_AbstractAction="_f27zYf_bEduaJLTMDGKSdg" successor_AbstractAction="_gosngP_bEduaJLTMDGKSdg">
+            <resourceDemand_Action specification="300 * a.VALUE">
+              <requiredResource_ParametricResourceDemand href="fork.resourcetype#_FckX8P_cEduaJLTMDGKSdg"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </forkedBehaviours_Fork>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_QTNGIf_jEdupw_dMH7kvgw" predecessor_AbstractAction="_bj_-kP_bEduaJLTMDGKSdg" successor_AbstractAction="_RzixIP_bEduaJLTMDGKSdg">
+        <resourceDemand_Action specification="20">
+          <requiredResource_ParametricResourceDemand href="fork.resourcetype#_FckX8P_cEduaJLTMDGKSdg"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_NBjBwP_bEduaJLTMDGKSdg" entityName="IFork">
+    <signatures__Interface serviceName="fork">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.0" parameterName="a"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType"/>
+</pcm.repository:Repository>
