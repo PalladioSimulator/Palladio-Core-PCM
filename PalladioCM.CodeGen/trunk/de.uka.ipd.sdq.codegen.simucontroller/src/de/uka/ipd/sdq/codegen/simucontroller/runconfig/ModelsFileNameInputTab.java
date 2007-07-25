@@ -43,11 +43,11 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	 * Set the file extensions which the dialog will use to filter the files it
 	 * shows to the argument.
 	 */
-	private final String[] RESOURCETYPE_EXTENSION = new String[] { "*.resourcetype" };
-	private final String[] REPOSITORY_EXTENSION = new String[] { "*.repository" };
-	private final String[] SYSTEM_EXTENSION = new String[] { "*.system" };
-	private final String[] ALLOCATION_EXTENSION = new String[] { "*.allocation" };
-	private final String[] USAGEMODEL_EXTENSION = new String[] { "*.usagemodel" };
+	public static final String[] RESOURCETYPE_EXTENSION = new String[] { "*.resourcetype" };
+	public static final String[] REPOSITORY_EXTENSION = new String[] { "*.repository" };
+	public static final String[] SYSTEM_EXTENSION = new String[] { "*.system" };
+	public static final String[] ALLOCATION_EXTENSION = new String[] { "*.allocation" };
+	public static final String[] USAGEMODEL_EXTENSION = new String[] { "*.usagemodel" };
 
 	private Text textResourceType;
 	private Text textRepository;

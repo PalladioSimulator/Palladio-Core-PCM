@@ -4,10 +4,8 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
-import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 
 /**
  * Implementation of a workflow.

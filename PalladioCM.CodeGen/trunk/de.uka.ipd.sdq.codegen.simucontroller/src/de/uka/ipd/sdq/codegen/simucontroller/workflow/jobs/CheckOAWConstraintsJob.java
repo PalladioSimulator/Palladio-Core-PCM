@@ -8,14 +8,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -49,6 +47,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
 
@@ -125,12 +124,31 @@ public class CheckOAWConstraintsJob implements IJob {
 		}
 	}
 
-	private void displayValidationErrors(ArrayList<SeverityAndIssue> overallResult) throws UserCanceledException {
-		ErrorDisplayRunner runner = new ErrorDisplayRunner(overallResult);
-		PlatformUI.getWorkbench().getDisplay().syncExec(runner);
-		if (!runner.shouldProceedAfterErrorDialog()) {
-			throw new UserCanceledException();
+	private void displayValidationErrors(
+			ArrayList<SeverityAndIssue> overallResult)
+			throws UserCanceledException {
+
+		boolean shouldThrowException;
+
+		try {
+			shouldThrowException = config.getAttribute(
+					SimuComConfig.SHOULD_THROW_EXCEPTION, false);
+		} catch (CoreException e) {
+			shouldThrowException = false;
 		}
+
+		ErrorDisplayRunner runner = new ErrorDisplayRunner(overallResult);
+		
+		/**
+		 * Disable the IssuesDialog, if SimuComConfig.SHOULD_THROW_EXCEPTION
+		 * set of false
+		 */
+		if (!shouldThrowException){
+			PlatformUI.getWorkbench().getDisplay().syncExec(runner);
+			if (!runner.shouldProceedAfterErrorDialog())
+				throw new UserCanceledException();
+		}
+			
 	}
 
 	private ArrayList<SeverityAndIssue> getSeverityAndIssues(

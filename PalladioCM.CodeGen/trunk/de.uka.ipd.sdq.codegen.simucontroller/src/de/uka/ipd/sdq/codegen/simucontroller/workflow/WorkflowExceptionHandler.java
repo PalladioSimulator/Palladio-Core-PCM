@@ -7,6 +7,7 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
  * Implementation of a work flow exception handler.
@@ -44,11 +45,17 @@ public class WorkflowExceptionHandler  {
 	 */
 	private void handleCriticalException(Exception e) throws CoreException {
 		logException(e);
-		
-		if (myShouldThrowException) {
-			throw new CoreException(new Status(IStatus.ERROR,SimuControllerPlugin.PLUGIN_ID,"Simulation failed",e));
-		}
-		PlatformUI.getWorkbench().getDisplay().syncExec(new ErrorDisplayRunner(e));
+
+		/**
+		 * Enable the ErrorDialog, if SimuComConfig.SHOULD_THROW_EXCEPTION
+		 * set of false
+		 */
+		if (myShouldThrowException)
+			throw new CoreException(new Status(IStatus.ERROR,
+					SimuControllerPlugin.PLUGIN_ID, "Simulation failed", e));
+		else
+			PlatformUI.getWorkbench().getDisplay().syncExec(
+					new ErrorDisplayRunner(e));
 	}
 
 	/**
