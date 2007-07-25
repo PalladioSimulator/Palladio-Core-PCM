@@ -22,8 +22,7 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
 import org.junit.Test;
 
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ModelsFileNameInputTab;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 public class SimuControllerTestSuite {
@@ -107,24 +106,24 @@ public class SimuControllerTestSuite {
 			ILaunchConfigurationWorkingCopy copy = type.newInstance(container,
 					modelName);
 
-			copy.setAttribute(ResourceManagerTab.ALLOCATION_FILE,
+			copy.setAttribute(ConstantsContainer.ALLOCATION_FILE,
 					getModelsFilePath(modelName,
-							ModelsFileNameInputTab.ALLOCATION_EXTENSION[0]));
+							ConstantsContainer.ALLOCATION_EXTENSION[0]));
 
-			copy.setAttribute(ResourceManagerTab.REPOSITORY_FILE,
+			copy.setAttribute(ConstantsContainer.REPOSITORY_FILE,
 					getModelsFilePath(modelName,
-							ModelsFileNameInputTab.REPOSITORY_EXTENSION[0]));
+							ConstantsContainer.REPOSITORY_EXTENSION[0]));
 
-			copy.setAttribute(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE,
+			copy.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
 					getModelsFilePath(modelName,
-							ModelsFileNameInputTab.RESOURCETYPE_EXTENSION[0]));
+							ConstantsContainer.RESOURCETYPE_EXTENSION[0]));
 
-			copy.setAttribute(ResourceManagerTab.USAGE_FILE, getModelsFilePath(
-					modelName, ModelsFileNameInputTab.USAGEMODEL_EXTENSION[0]));
+			copy.setAttribute(ConstantsContainer.USAGE_FILE, getModelsFilePath(
+					modelName, ConstantsContainer.USAGEMODEL_EXTENSION[0]));
 
-			copy.setAttribute(ResourceManagerTab.SYSTEM_FILE,
+			copy.setAttribute(ConstantsContainer.SYSTEM_FILE,
 					getModelsFilePath(modelName,
-							ModelsFileNameInputTab.SYSTEM_EXTENSION[0]));
+							ConstantsContainer.SYSTEM_EXTENSION[0]));
 
 			copy.setAttribute(SimuComConfig.DATASOURCE_ID, 1);
 			copy.setAttribute(SimuComConfig.SIMULATION_TIME, "1500");
