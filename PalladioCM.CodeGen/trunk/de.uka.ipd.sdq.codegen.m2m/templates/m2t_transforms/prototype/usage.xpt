@@ -9,6 +9,10 @@
 
 «DEFINE Main FOR UsageModel»
 	«FILE "Main.java"»
+	import java.io.BufferedWriter;
+	import java.io.FileWriter;
+	import java.io.IOException;
+	
 		«FOREACH this.usageScenario_UsageModel AS us»
 			«EXPAND WorkloadDriverClass(us) FOR us.workload_UsageScenario»
 		«ENDFOREACH»
@@ -105,11 +109,21 @@ class «u.javaName()»Thread extends Thread implements IStopable {
     de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun experimentRun = null;
     boolean shouldContinue = true;
     
+	BufferedWriter bw =  null;    
+    
     public «u.javaName()»Thread(de.uka.ipd.sdq.sensorfactory.entities.Experiment exp,
     	de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun expRun) {
     	tss = exp.addTimeSpanSensor("Scenario overall «u.entityName»");
 		us = new «u.fqn()»();
 		experimentRun = expRun;
+		
+		try {
+			bw =  new BufferedWriter(new FileWriter("responseTime-«u.entityName».csv"));
+			bw.write("Time");
+			bw.newLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
     
     public void requestStop() {
@@ -117,6 +131,11 @@ class «u.javaName()»Thread extends Thread implements IStopable {
     }
     
     public void run() {
+		
+		//warmup a little
+		logger.debug("Warmup once");
+		us.run();    
+    
 	    while (shouldContinue) {
 			logger.debug("Starting my scenario");
         	long start = System.nanoTime();
@@ -125,13 +144,22 @@ class «u.javaName()»Thread extends Thread implements IStopable {
             experimentRun.addTimeSpanMeasurement(tss, System.nanoTime(),measuredTimeSpan);
 			logger.debug("Finished my scenario");
 			logger.info("Execution of scenario took: "+measuredTimeSpan+" seconds");
-            try {
+			
+			try {
+				bw.write(""+measuredTimeSpan);
+				bw.newLine();
+				bw.flush();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+						
+            /*try {
             	// TODO: Wait for think time of the model instance
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
         }
     }
 }

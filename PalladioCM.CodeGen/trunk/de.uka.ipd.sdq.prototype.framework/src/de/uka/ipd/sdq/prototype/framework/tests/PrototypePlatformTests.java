@@ -100,31 +100,68 @@ public class PrototypePlatformTests {
 
 	@Test
 	public void testConsumeHDD() throws IOException {
-		IConsumerStrategy hddStrategy = StrategiesRegistry.singleton()
-				.getStrategyFor(ResourceTypeEnum.HDD);
+
+
+		ReadLargeChunksHDDStrategy hddStrategy = (ReadLargeChunksHDDStrategy) StrategiesRegistry
+				.singleton().getStrategyFor(ResourceTypeEnum.HDD);
 
 		Assert.assertEquals(hddStrategy.getClass(),
 				ReadLargeChunksHDDStrategy.class);
-		
 
-		BufferedWriter bw =  new BufferedWriter(new FileWriter("testConsumeHDDResults.csv"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(
+				"testConsumeHDDResults.csv"));
 		bw.write("SizeRead;Time");
 		bw.newLine();
 
 		hddStrategy.initialiseStrategy(0.0);
 
-		long sum = 0;
-		int iterations = 300;
+		boolean random = true;
+		
+		int iterations = 1000;
+
+		
+		double demand = 1000000;
+		//warmup
+		for (int i = 0; i < 100; i++) {
+			hddStrategy.consume(demand);
+		}
+
+		if (!random) {
+			consumeDecreasingHDDDemand(hddStrategy, bw, iterations);
+		} else {
+			consumeRandomHDDDemand(hddStrategy, bw, iterations);
+		}
+
+		// TODO: Noch mehr Tests.
+	}
+
+	private void consumeRandomHDDDemand(ReadLargeChunksHDDStrategy hddStrategy,
+			BufferedWriter bw, int iterations) throws IOException {
+		double demand;
+		long startTime;
+		long endTime;
+		for (int i = 0; i < iterations; i++){
+			demand = Math.random()*hddStrategy.getMaxFileSize();
+			startTime = System.nanoTime();
+			hddStrategy.consume(demand);
+			endTime = System.nanoTime();
+			writeHDDResultToFile(bw, startTime, endTime, demand, i);
+		}
+
+	}
+
+	private void consumeDecreasingHDDDemand(
+			ReadLargeChunksHDDStrategy hddStrategy, BufferedWriter bw,
+			int iterations)
+			throws IOException {
+		
+		long sum;
+		double demand;
+		
 		long[] startTimes = new long[iterations];
 		long[] endTimes = new long[iterations];
-		double demand = 1000000;
 		
-		//warmup
-		for (int i = 0; i < 3*300; i++) {
-			hddStrategy.consume(demand);
-		}		
-
-		for (int j = 1000000; j < 10000000; j += 1000000) {
+		for (int j = hddStrategy.getMaxFileSize(); j > 0; j -= 1000000) {
 			demand = j;
 
 			for (int i = 0; i < iterations; i++) {
@@ -132,21 +169,30 @@ public class PrototypePlatformTests {
 				hddStrategy.consume(demand);
 				endTimes[i] = System.nanoTime();
 			}
+			sum = 0;
 			for (int i = 0; i < iterations; i++) {
 
 				sum += endTimes[i] - startTimes[i];
-				System.out.println(i + ": Reading "+demand+" B took "
-						+ (endTimes[i] - startTimes[i]) + " ns.");
-				bw.write(demand+";"+(endTimes[i] - startTimes[i]));
-				bw.newLine();
-				bw.flush();
+				writeHDDResultToFile(bw, startTimes[i], endTimes[i], demand, i);
 			}
 			double mean = sum / (double) iterations;
 			System.out.println("Mean is " + mean + " nanoseconds, that is "
 					+ (mean / 1000000000) + " seconds.");
 		}
+	}
 
-		// TODO: Noch mehr Tests.
+	private void writeHDDResultToFile(BufferedWriter bw, long startTime,
+			long endTime, double demand, int i) throws IOException {
+		System.out.println(i + ": Reading " + demand + " B took "
+				+ (endTime - startTime) + " ns.");
+		bw.write(demand + ";" + (endTime - startTime));
+		bw.newLine();
+		bw.flush();
+	}
+
+	@Test
+	public void testConsumeHDDRandomDemand() throws IOException {
+
 	}
 
 }

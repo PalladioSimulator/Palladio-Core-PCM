@@ -32,9 +32,10 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 	public long time = 0;
 	
 	/* Configuration */
-	private int maxFileSize = 8*1024*1024;
+	private int maxFileSize = 5*1000*1000;
 
-	private File fileDirectory = new File("F:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
+	private File fileDirectory = new File("F:/multimedia/mp3-fuer-exp");
+	//private File fileDirectory = new File("F:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
 	private int numberOfFiles = 1000;
 
 	/** Stores some files sorted by size for fast access */
@@ -97,15 +98,17 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 
 	@Override
 	public void initialiseStrategy(double processingRate) {
-		logger.debug("Initialising strategy writing to "+this.fileDirectory);
+		logger.debug("Initialising strategy reading from "+this.fileDirectory);
 		if (!fileDirectory.exists()) {
 			try {
 				writeTestFiles();
+				logger.debug("Wrote files to be read.");
 			} catch (IOException e) {
 				logger.error(e);
 				e.printStackTrace();
 			}
 		} else if (fileDirectory.isDirectory()){
+			logger.debug("Reading in file list.");
 			initialiseFileList(fileDirectory); 
 		} else {
 			logger.error("There already is a file at "+fileDirectory.getAbsolutePath());
@@ -151,15 +154,22 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 
 	private void initialiseFileList(File files) {
 		File[] childFiles = files.listFiles();
+		logger.debug("Found "+childFiles.length+" files in the first directory.");
 		for (File file : childFiles){
 			if (file.isDirectory()){
 				initialiseFileList(file);
 			} else {
 				if (file.length() >= this.maxFileSize){
 					this.files.add(file);
+				} else {
+					logger.debug("File is too small");
 				}
 			}
 		}
+	}
+
+	public int getMaxFileSize() {
+		return maxFileSize;
 	}
 
 }
