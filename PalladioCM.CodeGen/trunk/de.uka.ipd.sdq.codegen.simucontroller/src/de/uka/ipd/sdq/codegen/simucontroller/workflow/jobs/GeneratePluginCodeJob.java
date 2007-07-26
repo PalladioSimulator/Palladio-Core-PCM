@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.issues.Issue;
@@ -11,8 +10,8 @@ import org.openarchitectureware.workflow.issues.IssuesImpl;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ComponentLookupEnum;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 
 /**
  * Start the Workflow-Engine of oAW - Generator
@@ -22,7 +21,6 @@ public class GeneratePluginCodeJob implements IJob {
 	private final static String REPOSITORY_FILE = "codegen_repository.oaw";
 	private final static String SYSTEM_FILE = "codegen_system.oaw";
 	private final static String USAGE_FILE = "codegen_usage.oaw";
-	private final static String TEMPLATE_METHODS = "simulation_template_methods";
 
 	private final String[] myWorkflowFiles = { REPOSITORY_FILE, SYSTEM_FILE,
 			USAGE_FILE };
@@ -39,19 +37,11 @@ public class GeneratePluginCodeJob implements IJob {
 		Map<String, String> properties = new HashMap<String, String>();
 		Map<String, Object> slotContents = new HashMap<String, Object>();
 
-		String workspaceLocation = null;
-
 		try {
-			workspaceLocation = ResourcesPlugin.getWorkspace().getRoot()
-					.getRawLocationURI().getPath();
-		} catch (Exception e) {
-			throw new JobFailedException("Getting workspace location failed", e);
-		}
-
-		try {
-			properties.put("aop_templates", TEMPLATE_METHODS);
-			properties.put("workspace_loc", workspaceLocation);
-
+			properties.put(ConstantsContainer.AOP_TEMPLATE, myConfiguration
+					.getAttribute(ConstantsContainer.AOP_TEMPLATE, ""));
+			properties.put(ConstantsContainer.REPOSITORY_FILE, myConfiguration
+					.getAttribute(ConstantsContainer.REPOSITORY_FILE, ""));
 			properties.put(ConstantsContainer.REPOSITORY_FILE, myConfiguration
 					.getAttribute(ConstantsContainer.REPOSITORY_FILE, ""));
 			properties.put(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, myConfiguration
@@ -67,10 +57,9 @@ public class GeneratePluginCodeJob implements IJob {
 			properties.put("respectLinkingResources", myConfiguration
 					.getAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES, true) ? "true" : "false");
 			properties.put("brokerLookup", myConfiguration
-					.getAttribute(ConstantsContainer.COMPONENT_LOOKUP, ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal()) == ComponentLookupEnum.BROKER.ordinal() ?
-							"true" :
-							"false");
-
+					.getAttribute(ConstantsContainer.COMPONENT_LOOKUP,
+							ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal()) 
+												== ComponentLookupEnum.BROKER.ordinal() ? "true" : "false");
 		} catch (Exception e) {
 			throw new JobFailedException("Setting up properties failed", e);
 		}
@@ -80,18 +69,21 @@ public class GeneratePluginCodeJob implements IJob {
 				IssuesImpl issues = new IssuesImpl();
 				WorkflowRunner runner = new WorkflowRunner();
 				runner.prepare(workflowFile, null, properties);
-				
+
 				if (!runner.executeWorkflow(slotContents, issues)) {
 					String message = "";
-					for (Issue i : issues.getErrors()){
+					for (Issue i : issues.getErrors()) {
 						message += i.getMessage() + " [" + i.getElement() + "]";
 					}
-					throw new OawFailedException("Generator failed, given model is most likely invalid in "
-							+ workflowFile + ". Issues given: "+message);
+					throw new OawFailedException(
+							"Generator failed, given model is most likely invalid in "
+									+ workflowFile + ". Issues given: "
+									+ message);
 				}
 			} catch (Exception e) {
 				throw new JobFailedException("Running oAW workflow failed: "
-						+ workflowFile+"\n Errors: "+e.getMessage()+". Please see the oAW console output for details!", e);
+						+ workflowFile + "\n Errors: " + e.getMessage()
+						+ ". Please see the oAW console output for details!", e);
 			}
 		}
 	}

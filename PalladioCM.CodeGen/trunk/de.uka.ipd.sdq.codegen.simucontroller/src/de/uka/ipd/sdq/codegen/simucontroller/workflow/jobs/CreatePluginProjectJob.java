@@ -12,10 +12,10 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
 
 
 public class CreatePluginProjectJob implements IJob {

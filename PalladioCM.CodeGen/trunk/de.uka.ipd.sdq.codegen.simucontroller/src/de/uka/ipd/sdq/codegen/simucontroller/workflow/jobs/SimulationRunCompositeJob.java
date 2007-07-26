@@ -3,10 +3,10 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**

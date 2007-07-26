@@ -7,8 +7,8 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 
 
 public class CompilePluginCodeJob implements IJob {

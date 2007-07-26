@@ -6,9 +6,9 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
 
 /**
  * Installs a Plug-In from the specified location string with use a bundeles
