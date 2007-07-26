@@ -10,7 +10,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.core,
  org.eclipse.emf.common.ui,
  org.eclipse.ui.views,
- org.eclipse.ui.ide
+ org.eclipse.ui.ide,
+ org.eclipse.ui.console,
+ de.uka.ipd.sdq.codegen.workflow
 Eclipse-LazyStart: true
 Bundle-Vendor: sdq.ipd.uka.de
-Export-Package: de.uka.ipd.sdq.codegen.runconfig.tabs
+Export-Package: de.uka.ipd.sdq.codegen.runconfig,
+ de.uka.ipd.sdq.codegen.runconfig.tabs

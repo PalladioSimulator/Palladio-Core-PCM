@@ -18,6 +18,9 @@ public class ConstantsContainer {
 	public static final String ALLOCATION_FILE = "allocationFile";
 	public static final String USAGE_FILE = "usageFile";
 	
+	/** Template method value*/
+	public static final String AOP_TEMPLATE  = "aop_templates";
+	
 	/**
 	 * Set the file extensions which the dialog will use to filter the files it
 	 * shows to the argument.
