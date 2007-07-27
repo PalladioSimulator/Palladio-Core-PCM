@@ -1,11 +1,10 @@
 package de.uka.ipd.sdq.pcm.stochasticexpressions.tests;
 
 import junit.framework.Assert;
-
+import junit.framework.TestCase;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
-import org.junit.Test;
 
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
@@ -15,9 +14,9 @@ import de.uka.ipd.sdq.stoex.IfElseExpression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
-public class TypeInferTests {
+public class TypeInferTests extends TestCase {
 
-	@Test public void testEnums() throws RecognitionException{
+	public void testEnums() throws RecognitionException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("\"blah\"");
 		infer(expression,visitor);
@@ -28,14 +27,14 @@ public class TypeInferTests {
 		Assert.assertEquals(TypeEnum.ENUM_PMF, visitor.getType(expression));
 	}
 
-	@Test public void testDoubleAnyCompare() throws RecognitionException{
+	public void testDoubleAnyCompare() throws RecognitionException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("192.0 / file.STRUCTURE < 1");
 		infer(expression,visitor);
 		Assert.assertEquals(TypeEnum.BOOL_PMF, visitor.getType(expression));
 	}
 
-	@Test public void testDoubleAnyCompareIfElse() throws RecognitionException{
+	public void testDoubleAnyCompareIfElse() throws RecognitionException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		IfElseExpression expression = (IfElseExpression) parser("192.0 / file.STRUCTURE < 1 ? 5 : 5");
 		infer(expression,visitor);
@@ -43,7 +42,7 @@ public class TypeInferTests {
 		Assert.assertEquals(TypeEnum.BOOL_PMF, visitor.getType(expression.getConditionExpression()));
 	}
 
-	@Test public void testTypeInfererBool() throws RecognitionException {
+	public void testTypeInfererBool() throws RecognitionException {
 		Assert.assertTrue(infer("true AND false") == TypeEnum.BOOL);
 		Assert.assertTrue(infer("true OR false") == TypeEnum.BOOL);
 		Assert.assertTrue(infer("128.0 < 192 OR false") == TypeEnum.BOOL);
@@ -51,7 +50,7 @@ public class TypeInferTests {
 		Assert.assertTrue(infer("true ? 1 : 5") == TypeEnum.ANY);
 	}
 	
-	@Test public void subInferTest() throws RecognitionException {
+	public void testsubInfer() throws RecognitionException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		IfElseExpression expression = (IfElseExpression) parser("true ? 1 : 5.5");
 		infer(expression,visitor);
@@ -60,7 +59,7 @@ public class TypeInferTests {
 		Assert.assertEquals(TypeEnum.DOUBLE,visitor.getType(expression.getElseExpression()));
 	}
 
-	@Test public void subFuncInferTest() throws RecognitionException {
+	public void testSubFuncInfer() throws RecognitionException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		FunctionLiteral expression = (FunctionLiteral) parser("Trunc(2.5)");
 		infer(expression,visitor);
@@ -68,21 +67,21 @@ public class TypeInferTests {
 		Assert.assertEquals(TypeEnum.DOUBLE,visitor.getType(expression.getParameters_FunctionLiteral().get(0)));
 	}	
 
-	@Test public void variableTest() throws RecognitionException {
+	public void testVariables() throws RecognitionException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("file.TYPE");
 		infer(expression,visitor);
 		Assert.assertEquals(TypeEnum.ANY_PMF,visitor.getType(expression));
 	}
 
-	@Test public void parenthesisTest() throws RecognitionException {
+	public void testParenthesis() throws RecognitionException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("file.BYTESIZE * ( file.TYPE / 192 )");
 		infer(expression,visitor);
 		Assert.assertEquals(TypeEnum.ANY_PMF,visitor.getType(expression));
 	}
 	
-	@Test public void tenaryOpTest() throws RecognitionException {
+	public void testTenaryOp() throws RecognitionException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		IfElseExpression expression = (IfElseExpression) parser("file.TYPE > 192 ? file.BYTESIZE * ( file.TYPE / 192 ) : file.BYTESIZE");
 		infer(expression,visitor);
