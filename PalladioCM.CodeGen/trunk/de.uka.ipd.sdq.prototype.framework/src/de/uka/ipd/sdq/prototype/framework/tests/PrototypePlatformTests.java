@@ -11,24 +11,27 @@ import org.junit.Before;
 
 import de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum;
 import de.uka.ipd.sdq.prototype.framework.strategies.FibonacciCPUStrategy;
-import de.uka.ipd.sdq.prototype.framework.strategies.IConsumerStrategy;
+import de.uka.ipd.sdq.prototype.framework.strategies.IDemandConsumerStrategy;
 import de.uka.ipd.sdq.prototype.framework.strategies.ReadLargeChunksHDDStrategy;
-import de.uka.ipd.sdq.prototype.framework.strategies.StrategiesRegistry;
+import de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry;
 
 public class PrototypePlatformTests {
 
 	private static final double CPU_PROCESSING_RATE = 1000.0;
+	private static final double HDD_PROCESSING_RATE = 1000.0;
 
 	@Before
 	public void initialise() {
 		/*
 		 * This is done by the Strategy Register itself at the moment, but will
-		 * be needed later. IConsumerStrategy cpuStrategy = new
-		 * FibonacciCPUStrategy();
-		 * cpuStrategy.initialiseStrategy(CPU_PROCESSING_RATE);
-		 * StrategiesRegistry.singleton().registerStrategyFor(
-		 * ResourceTypeEnum.CPU, cpuStrategy);
-		 */
+		 * be needed later. */
+		 IDemandConsumerStrategy cpuStrategy = new FibonacciCPUStrategy(CPU_PROCESSING_RATE);
+		 DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
+		 
+		 IDemandConsumerStrategy hddStrategy = new ReadLargeChunksHDDStrategy(HDD_PROCESSING_RATE);
+		 DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
+		 
+
 	}
 
 	@Test
@@ -59,7 +62,7 @@ public class PrototypePlatformTests {
 				* ERROR_LEVEL / 2))
 				/ CPU_PROCESSING_RATE;
 
-		IConsumerStrategy cpuStrategy = StrategiesRegistry.singleton()
+		IDemandConsumerStrategy cpuStrategy = DemandConsumerStrategiesRegistry.singleton()
 				.getStrategyFor(ResourceTypeEnum.CPU);
 
 		int countOutliers = 0;
@@ -102,7 +105,7 @@ public class PrototypePlatformTests {
 	public void testConsumeHDD() throws IOException {
 
 
-		ReadLargeChunksHDDStrategy hddStrategy = (ReadLargeChunksHDDStrategy) StrategiesRegistry
+		ReadLargeChunksHDDStrategy hddStrategy = (ReadLargeChunksHDDStrategy) DemandConsumerStrategiesRegistry
 				.singleton().getStrategyFor(ResourceTypeEnum.HDD);
 
 		Assert.assertEquals(hddStrategy.getClass(),

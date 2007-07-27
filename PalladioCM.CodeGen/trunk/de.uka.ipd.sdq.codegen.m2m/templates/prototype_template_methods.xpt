@@ -35,6 +35,10 @@
 	«ENDIF»
 «ENDAROUND»
 
+«AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»
+	«EXPAND m2t_transforms::prototype::resources::ResourceEnvironmentRoot FOR this.targetResourceEnvironment_Allocation»
+«ENDAROUND»
+
 //-------------------------
 // Sensors TM
 //-------------------------

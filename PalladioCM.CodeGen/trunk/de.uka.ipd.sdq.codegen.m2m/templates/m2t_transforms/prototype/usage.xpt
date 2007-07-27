@@ -26,6 +26,9 @@
 			public static void main(String[] args) {
 				de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory datasource = new de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory("C:/temp.db");
 				exp = datasource.createExperimentDAO().addExperiment("test");
+				
+				ResourceEnvironmentFactory.setUpResources();
+				
 				java.util.ArrayList<Thread> threads = new java.util.ArrayList<Thread>();
 				«FOREACH this.usageScenario_UsageModel AS us»
 					«EXPAND WorkloadDriver(us) FOR us.workload_UsageScenario»

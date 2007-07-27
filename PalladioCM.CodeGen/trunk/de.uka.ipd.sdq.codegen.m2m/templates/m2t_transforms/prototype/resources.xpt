@@ -20,11 +20,11 @@
 		String neededResource = "«this.requiredResource_ParametricResourceDemand.entityName»";
 		
 		if (neededResource.equals("cpu")){
-		  de.uka.ipd.sdq.prototype.framework.strategies.StrategiesRegistry.singleton()
+		  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
 		    .getStrategyFor(de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum.CPU).consume(demand);
 		} else
 		{
-		  de.uka.ipd.sdq.prototype.framework.strategies.StrategiesRegistry.singleton()
+		  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
 		    .getStrategyFor(de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum.HDD).consume(demand);
 		}
 	  } catch (Exception e) {
@@ -32,4 +32,52 @@
 		System.exit(-1);
 	  }
    }
+«ENDDEFINE»
+
+// ----------------------------
+// Templates for setup of the resource environment
+// Generate a class which contains the model information
+// and sets up the resource strategies accordingly
+// ----------------------------
+«DEFINE ResourceEnvironmentRoot FOR resourceenvironment::ResourceEnvironment»
+	«FILE "ResourceEnvironmentFactory.java"»
+		public class ResourceEnvironmentFactory {
+		
+			/* All resources are located on this machine, regardless of their resource container
+			 * in the model */
+			public static void setUpResources(){
+		   		«EXPAND ResourceContainerInit FOREACH this.resourceContainer_ResourceEnvironment SEPARATOR " "»
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ResourceContainerInit FOR ResourceContainer»
+
+		//active Resources of container «this.id»		
+		«EXPAND ActiveResourceAdd FOREACH this.activeResourceSpecifications_ResourceContainer»
+
+		//passive Resources	of container «this.id»
+		«EXPAND PassiveResourceAdd FOREACH this.passiveResourceSpecifications_ResourceContainer»
+
+«ENDDEFINE»
+
+«DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
+
+	if ("«this.activeResourceType_ActiveResourceSpecification.entityName»".equals("cpu")) {
+	  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
+	    .registerStrategyFor(de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum.CPU, new de.uka.ipd.sdq.prototype.framework.strategies.FibonacciCPUStrategy(«this.processingRate»));
+	} else { 
+	  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
+	    .registerStrategyFor(de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum.HDD, new de.uka.ipd.sdq.prototype.framework.strategies.ReadLargeChunksHDDStrategy(«this.processingRate»));
+	}
+	
+«ENDDEFINE»
+
+«DEFINE PassiveResourceAdd FOR PassiveResourceSpecification»
+		de.uka.ipd.sdq.prototype.framework.strategies.PassiveResourceRegistry.singleton()
+		  .addPassiveResource(new de.uka.ipd.sdq.prototype.framework.strategies.PassiveResource(
+		    «this.capacity»,
+		    "«this.passiveResourceType_PassiveResourceSpecification.entityName»"));
+
 «ENDDEFINE»

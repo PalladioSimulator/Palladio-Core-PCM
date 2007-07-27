@@ -7,7 +7,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,15 +26,15 @@ import org.apache.log4j.Logger;
  * @author Anne
  *
  */
-public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
+public class ReadLargeChunksHDDStrategy implements IDemandConsumerStrategy {
 
 	public long time = 0;
 	
 	/* Configuration */
 	private int maxFileSize = 5*1000*1000;
 
-	private File fileDirectory = new File("F:/multimedia/mp3-fuer-exp");
-	//private File fileDirectory = new File("F:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
+	//private File fileDirectory = new File("F:/multimedia/mp3-fuer-exp");
+	private File fileDirectory = new File("C:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
 	private int numberOfFiles = 1000;
 
 	/** Stores some files sorted by size for fast access */
@@ -49,6 +48,10 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 	private static Logger logger = Logger
 			.getLogger(ReadLargeChunksHDDStrategy.class.getName());
 	
+	public ReadLargeChunksHDDStrategy(double processingRate) {
+		this.initialiseStrategy(processingRate);
+	}
+
 	@Override
 	public void consume(double demand) {
 		logger.debug("Consume HDD demand of: "+demand);
@@ -118,9 +121,6 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 			logger.error("The strategy could not be initialised as there are no files to read.");
 		} else {
 			this.iterator = this.files.iterator();
-			/*for (int i= 0; i < 100; i++){
-				iterator.next();
-			}*/
 			logger.debug("Strategy initialised with "+files.size() + " files.");
 		}
 		
@@ -156,6 +156,7 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 		File[] childFiles = files.listFiles();
 		logger.debug("Found "+childFiles.length+" files in the first directory.");
 		for (File file : childFiles){
+			
 			if (file.isDirectory()){
 				initialiseFileList(file);
 			} else {

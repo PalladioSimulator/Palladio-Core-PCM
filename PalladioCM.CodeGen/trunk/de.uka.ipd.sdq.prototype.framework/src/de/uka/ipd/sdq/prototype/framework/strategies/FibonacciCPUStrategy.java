@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum;
 
-public class FibonacciCPUStrategy implements IConsumerStrategy {
+public class FibonacciCPUStrategy implements IDemandConsumerStrategy {
 
 	private static Logger logger = 
 		Logger.getLogger(FibonacciCPUStrategy.class.getName());
@@ -21,6 +21,10 @@ public class FibonacciCPUStrategy implements IConsumerStrategy {
 	private long lastResult;
 	private double otherLastResult;
 	private double iterationsPerUnit;
+
+	public FibonacciCPUStrategy(double processingRate) {
+		this.initialiseStrategy(processingRate);
+	}
 
 	public long getLastResult() {
 		return lastResult;

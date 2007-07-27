@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.prototype.framework.strategies;
 
 import de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum;
 
-public interface IConsumerStrategy {
+public interface IDemandConsumerStrategy {
 	
 	/**
 	 * Initialise the strategy to the passed processing rate in units/sec
