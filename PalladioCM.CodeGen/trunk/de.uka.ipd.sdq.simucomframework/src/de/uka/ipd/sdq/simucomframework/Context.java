@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import desmoj.core.simulator.SimProcess;
 
 /**
- * Context of each simulation thread. This contexts inherits a stack context
+ * Context of each simulation thread. This context inherits a stack context
  * and enriches it with information on the simulated execution environment.
  * @author Steffen Becker
  *

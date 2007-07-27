@@ -35,7 +35,7 @@ public interface ISchedulingStrategy {
 	 * it finished execution
 	 * @return The job which is done now
 	 */
-	JobAndDemandStruct removeFinshedJob();
+	JobAndDemandStruct removeFinishedJob();
 
 	/**
 	 * @return True if this strategy's scheduler has more jobs in its

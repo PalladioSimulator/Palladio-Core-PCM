@@ -31,7 +31,7 @@ public class RoundRobinStrategy implements ISchedulingStrategy {
 		}
 	}
 
-	public JobAndDemandStruct removeFinshedJob() {
+	public JobAndDemandStruct removeFinishedJob() {
 		JobAndDemandStruct currentMin = runQueue.get(0);
 		
 		for(JobAndDemandStruct job : runQueue){

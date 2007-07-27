@@ -19,10 +19,10 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 		super(myModel,containerID);
 	}
 
-	public void aquirePassiveResource(SimProcess requestingProcess, String typeID) {
-		logger.info(typeID + " aquire request");
+	public void acquirePassiveResource(SimProcess requestingProcess, String typeID) {
+		logger.info(typeID + " acquire request");
 		SimulatedPassiveResource resource = passiveResources.get(typeID);
-		resource.aquire(requestingProcess);
+		resource.acquire(requestingProcess);
 	}
 	
 	public void releasePassiveResource(String typeID) {

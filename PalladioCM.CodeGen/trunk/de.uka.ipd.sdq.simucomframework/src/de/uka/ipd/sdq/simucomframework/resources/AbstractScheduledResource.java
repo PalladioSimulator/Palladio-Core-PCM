@@ -163,12 +163,12 @@ public abstract class AbstractScheduledResource extends Entity {
 	}
 
 	/**
-	 * Removes the job from the processing queue which signalled that it is finished
+	 * Removes the job from the processing queue which signaled that it is finished
 	 * via an event. Report the waiting time to a sensor
 	 * @return The job and its demand which just finished execution
 	 */
 	public JobAndDemandStruct removeFinishedJob() {
-		JobAndDemandStruct job = myStrategy.removeFinshedJob();
+		JobAndDemandStruct job = myStrategy.removeFinishedJob();
 		experimentRun.addTimeSpanMeasurement(waitTimeSensor, this.getModel().currentTime().getTimeValue(), 
 				job.getWaitTime(this.getModel().currentTime().getTimeValue()));
 		return job;
@@ -211,7 +211,7 @@ public abstract class AbstractScheduledResource extends Entity {
 	}
 	
 	/**
-	 * Template method. Implemententers have to use the given demand and return
+	 * Template method. Implementers have to use the given demand and return
 	 * the time span needed to process the demand on this resource.
 	 * @param demand The demand issued to this resource in units understood by 
 	 * the resource

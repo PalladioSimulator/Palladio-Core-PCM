@@ -37,7 +37,7 @@ public class DelayStrategy implements ISchedulingStrategy {
 			jds.reduceDemand(timePassed);
 	}
 
-	public JobAndDemandStruct removeFinshedJob() {
+	public JobAndDemandStruct removeFinishedJob() {
 		JobAndDemandStruct currentMin = jobs.get(0);
 		
 		for(JobAndDemandStruct job : jobs){

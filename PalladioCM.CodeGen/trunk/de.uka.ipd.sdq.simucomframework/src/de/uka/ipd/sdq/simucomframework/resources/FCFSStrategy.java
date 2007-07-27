@@ -31,7 +31,7 @@ public class FCFSStrategy implements ISchedulingStrategy {
 		return ((JobAndDemandStruct)runQueue.first()).getDemand();
 	}
 
-	public JobAndDemandStruct removeFinshedJob() {
+	public JobAndDemandStruct removeFinishedJob() {
 		JobAndDemandStruct job = (JobAndDemandStruct) runQueue.first();
 		if (Math.abs(job.getDemand()) > Math.pow(10, -3))
 			throw new RuntimeException("Job finished, but demand > 0");

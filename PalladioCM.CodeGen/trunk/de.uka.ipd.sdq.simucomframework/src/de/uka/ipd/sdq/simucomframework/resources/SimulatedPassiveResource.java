@@ -21,7 +21,7 @@ public class SimulatedPassiveResource extends SimProcess {
 		available = capacity;
 	}
 	
-	public void aquire(SimProcess thread)
+	public void acquire(SimProcess thread)
 	{
 		associatedQueue.insert(thread);
 		this.activateAfter(thread);

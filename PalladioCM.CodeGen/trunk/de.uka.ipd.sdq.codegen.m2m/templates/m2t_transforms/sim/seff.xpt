@@ -67,7 +67,7 @@
 «DEFINE Action FOR AquireAction»
 	// Aquire «this.resourceType_Aquire.entityName»
 	((de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer)ctx.findResource(this.assemblyContextID))
-		.aquirePassiveResource(ctx.getThread(),"«this.resourceType_Aquire.entityName»");
+		.acquirePassiveResource(ctx.getThread(),"«this.resourceType_Aquire.entityName»");
 «ENDDEFINE»
 
 «DEFINE Action FOR ReleaseAction»

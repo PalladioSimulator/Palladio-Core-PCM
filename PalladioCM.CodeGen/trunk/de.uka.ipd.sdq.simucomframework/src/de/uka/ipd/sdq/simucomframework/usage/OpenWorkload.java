@@ -17,7 +17,7 @@ import desmoj.core.simulator.SimTime;
  */
 public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 
-	private static final int USER_THRESHHOLD = 1000;
+	private static final int USER_THRESHOLD = 1000;
 	private String interArrivalTime;
 	private IUserFactory userFactory;
 
@@ -47,7 +47,7 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 			while(true) {
 				generateUser();
 				waitForNextUser();
-				if (Thread.activeCount() > USER_THRESHHOLD) {
+				if (Thread.activeCount() > USER_THRESHOLD) {
 					logger.error("Too many users spawned! Check your workload settings!");
 					throw new RuntimeException("Too many users spawned");
 				}
