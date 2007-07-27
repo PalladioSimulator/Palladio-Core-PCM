@@ -195,7 +195,7 @@ public class PrototypePlatformTests {
 
 	@Test
 	public void testConsumeHDDRandomDemand() throws IOException {
-
+		//TODO
 	}
 
 }
