@@ -9,6 +9,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -22,7 +23,12 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	private Button simulateLinkingResourcesButton;
 	private Combo lookupOptions;
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
+	 */
+	@Override
 	public void createControl(Composite parent) {
+		
 		final ModifyListener modifyListener = new ModifyListener(){
 
 			public void modifyText(ModifyEvent e) {
@@ -77,10 +83,26 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 			lookupOptions.add(value.name());
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
+	 */
+	@Override
 	public String getName() {
 		return "Feature Settings";
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
+	 */
+	@Override
+	public Image getImage() {
+		return ConstantsContainer.getFeaturTabImage();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
+	 */
+	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
 			simulateLinkingResourcesButton.setSelection(configuration.getAttribute(
@@ -98,6 +120,10 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 */
+	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES,
 				this.simulateLinkingResourcesButton.getSelection());
@@ -105,10 +131,16 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				lookupOptions.getSelectionIndex());
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 */
+	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES,
 				true);
 		configuration.setAttribute(ConstantsContainer.COMPONENT_LOOKUP,
 				ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal());
 	}
+	
+	
 }

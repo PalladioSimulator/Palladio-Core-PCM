@@ -33,7 +33,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	public Image getImage() {
-		return ConstantsContainer.getModelsListImage();
+		return ConstantsContainer.getFileNamesTabImage();
 	}
 
 	private Text textResourceType;
@@ -443,5 +443,14 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		public void widgetSelected(SelectionEvent e) {
 			field.setText(openResourceDialog(extension));
 		}
+	}
+
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getId()
+	 */
+	@Override
+	public String getId() {
+		return "de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab";
 	}
 }

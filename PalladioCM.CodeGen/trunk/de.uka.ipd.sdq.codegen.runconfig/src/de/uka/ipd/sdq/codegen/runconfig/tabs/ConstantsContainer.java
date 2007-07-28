@@ -42,13 +42,23 @@ public class ConstantsContainer {
 	public static String WORKSPACE_LOCATION = ResourcesPlugin.getWorkspace()
 			.getRoot().getLocation().toString();
 
-	public static Image getConfigurationImage() {
+	public static Image getConfigurationTabImage() {
 		return RunConfigImages.imageRegistry
-				.get(RunConfigImages.CONFIGURATION);
+				.get(RunConfigImages.CONFIGURATION_TAB);
 	}
 
-	public static Image getModelsListImage() {
+	public static Image getFileNamesTabImage() {
 		return RunConfigImages.imageRegistry
-				.get(RunConfigImages.FILE_NAMES);
+				.get(RunConfigImages.FILENAMES_TAB);
+	}
+	
+	public static Image getFeaturTabImage() {
+		return RunConfigImages.imageRegistry
+				.get(RunConfigImages.FEATURE_TAB);
+	}
+	
+	public static Image getMainTabImage() {
+		return RunConfigImages.imageRegistry
+				.get(RunConfigImages.MAIN_TAB);
 	}
 }

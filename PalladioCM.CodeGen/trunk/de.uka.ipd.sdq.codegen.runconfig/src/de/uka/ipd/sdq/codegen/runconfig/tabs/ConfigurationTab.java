@@ -34,7 +34,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	public Image getImage() {
-		return ConstantsContainer.getConfigurationImage();
+		return ConstantsContainer.getConfigurationTabImage();
 	}
 
 	/* (non-Javadoc)

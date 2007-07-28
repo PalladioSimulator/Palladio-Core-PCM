@@ -9,8 +9,10 @@ public class RunConfigImages {
 	/**
 	 * Names of images used to represent actions in ToolBar
 	 */
-	public static final String CONFIGURATION 	= "configuration";
-	public static final String FILE_NAMES  		= "file_names";
+	public static final String CONFIGURATION_TAB 	= "configuration_tab";
+	public static final String FILENAMES_TAB  		= "filenames_tab";
+	public static final String FEATURE_TAB  		= "feature_tab";
+	public static final String MAIN_TAB  			= "main_tab";
 	
 	/** For the toolbar images */
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -23,12 +25,20 @@ public class RunConfigImages {
 	static {
 		String iconPath = "icons/";
 		
-		imageRegistry.put(CONFIGURATION,
-				 getImageDescriptor(iconPath + CONFIGURATION + ".gif")
+		imageRegistry.put(CONFIGURATION_TAB,
+				 getImageDescriptor(iconPath + CONFIGURATION_TAB + ".gif")
 		);
 		
-		imageRegistry.put(FILE_NAMES,
-				 getImageDescriptor(iconPath + FILE_NAMES + ".gif")
+		imageRegistry.put(FILENAMES_TAB,
+				 getImageDescriptor(iconPath + FILENAMES_TAB + ".gif")
+				);
+		
+		imageRegistry.put(MAIN_TAB,
+				 getImageDescriptor(iconPath + MAIN_TAB + ".gif")
+		);
+		
+		imageRegistry.put(FEATURE_TAB,
+				 getImageDescriptor(iconPath + FEATURE_TAB + ".gif")
 				);
 	}
 
