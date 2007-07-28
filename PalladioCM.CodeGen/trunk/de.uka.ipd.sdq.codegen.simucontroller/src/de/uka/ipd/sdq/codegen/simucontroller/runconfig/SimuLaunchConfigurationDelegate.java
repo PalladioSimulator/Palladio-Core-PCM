@@ -21,7 +21,6 @@ public class SimuLaunchConfigurationDelegate extends
 		return new SimulationRunCompositeJob(configuration);
 	}
 
-
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#getTemplateMethod()
 	 */
