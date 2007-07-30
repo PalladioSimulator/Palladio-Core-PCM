@@ -62,6 +62,24 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.stoex"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.stoex"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.StoEx/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.stoex.analyser"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.stoex.analyser"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.StoEx/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.stoex.edit"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.stoex.edit"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.StoEx/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.errorhandling"/>
       <param name="project.name" value="/de.uka.ipd.sdq.errorhandling"/>
       <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.CoreServices/trunk"/>
@@ -101,6 +119,12 @@
       <param name="element.id" value="de.uka.ipd.sdq.probfunction.math"/>
       <param name="project.name" value="/de.uka.ipd.sdq.probfunction.math"/>
       <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.EMFProbfunctionModel/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.stoex"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.stoex"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.StoEx/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="features"/>
