@@ -8,11 +8,11 @@
 	<target name="norcpbuild" unless="build.container.feature">
 		<ant antfile="${genericTargets}" target="${target}">
 			<property name="type" value="feature" />
-			<property name="id" value="de.uka.ipd.sdq.pcm.feature" />
+			<property name="id" value="de.uka.ipd.sdq.probfunction.feature" />
 		</ant>
 		<ant antfile="${genericTargets}" target="${target}">
 			<property name="type" value="feature" />
-			<property name="id" value="de.uka.ipd.sdq.probfunction.feature" />
+			<property name="id" value="de.uka.ipd.sdq.pcm.feature" />
 		</ant>
 		<ant antfile="${genericTargets}" target="${target}">
 			<property name="type" value="feature" />
