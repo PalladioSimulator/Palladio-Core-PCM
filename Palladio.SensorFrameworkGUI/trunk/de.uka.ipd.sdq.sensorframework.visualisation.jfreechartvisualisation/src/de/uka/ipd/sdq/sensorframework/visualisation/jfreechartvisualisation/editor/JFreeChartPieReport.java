@@ -31,7 +31,6 @@ public class JFreeChartPieReport extends AbstractReportView implements
 	public void deleteInput(Collection<?> c) {
 	}
 
-	@Override
 	public void setInput(Collection<?> c) {
 		if (!c.isEmpty()) {
 			IAdapter adapter = AdapterRegistry.singleton().getAdapter(
