@@ -171,7 +171,6 @@ public class ExceptionsDialog extends TitleAreaDialog {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
 			 */
-			@Override
 			public void modifyText(ModifyEvent e) {
 				setExceptionTypeMessage(messageField.getText());
 			}
@@ -216,7 +215,6 @@ public class ExceptionsDialog extends TitleAreaDialog {
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))));
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				IStructuredSelection sel = (IStructuredSelection) event
 						.getSelection();
