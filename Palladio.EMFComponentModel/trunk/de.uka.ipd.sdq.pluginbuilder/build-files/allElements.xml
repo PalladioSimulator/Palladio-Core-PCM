@@ -22,6 +22,14 @@
 			<property name="type" value="feature" />
 			<property name="id" value="de.uka.ipd.sdq.pcm.diagram.feature" />
 		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.sensorframework.feature" />
+		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="de.uka.ipd.sdq.sensorframework.visualisation.feature" />
+		</ant>
 		
 	</target>
 
@@ -49,6 +57,16 @@
 		</ant>
 	</target>
 	<target name="assemble.de.uka.ipd.sdq.pcm.diagram.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.sensorframework.feature">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.de.uka.ipd.sdq.sensorframework.visualisation.feature">
 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
 			<property name="zipargs" value="" />
 		</ant>
