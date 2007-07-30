@@ -26,7 +26,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
-	@Override
 	public void createControl(Composite parent) {
 		
 		final ModifyListener modifyListener = new ModifyListener(){
@@ -86,7 +85,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
-	@Override
 	public String getName() {
 		return "Feature Settings";
 	}
@@ -102,7 +100,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
-	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
 			simulateLinkingResourcesButton.setSelection(configuration.getAttribute(
@@ -123,7 +120,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
-	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES,
 				this.simulateLinkingResourcesButton.getSelection());
@@ -134,7 +130,6 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
-	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES,
 				true);
