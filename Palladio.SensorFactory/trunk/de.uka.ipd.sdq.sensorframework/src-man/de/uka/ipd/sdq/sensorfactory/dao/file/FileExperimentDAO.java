@@ -22,60 +22,56 @@ import de.uka.ipd.sdq.sensorfactory.entities.dao.IExperimentDAO;
  */
 public class FileExperimentDAO implements IExperimentDAO {
 
-	private FileDAOFactory factory;
+    private FileDAOFactory factory;
+    private IDGenerator idGen;
 
-	private IDGenerator idGen;
+    public FileExperimentDAO(IDAOFactory factory, IDGenerator idGen) {
+	this.factory = (FileDAOFactory) factory;
+	this.idGen = idGen;
+    }
 
-	public FileExperimentDAO(IDAOFactory factory, IDGenerator idGen) {
-		this.factory = (FileDAOFactory) factory;
-		this.idGen = idGen;
+    public Experiment addExperiment(String p_experimentname) {
+	ExperimentImpl exp = new ExperimentImpl(factory);
+	exp.setExperimentID(idGen.getNextExperimentID());
+	exp.setExperimentName(p_experimentname);
+
+	return exp;
+    }
+
+    public Collection<Experiment> findByExperimentName(String searchKey) {
+	List<Experiment> result = new ArrayList<Experiment>();
+	File[] files = factory.listFiles(searchKey);
+	for (File file : files)
+	    result.add((Experiment) factory.deserializeFromFile(file));
+	return Collections.unmodifiableCollection(result);
+    }
+
+    public Experiment get(long id) {
+	File[] files = factory.listFiles("experiment" + id);
+	Experiment exp = null;
+	if (files.length == 0)
+	    return null;
+	else {
+	    for (File file : files) {
+		exp = (Experiment) factory.deserializeFromFile(file);
+		((ExperimentImpl) exp).setFactory(factory);
+	    }
 	}
+	return exp;
+    }
 
-	public Experiment addExperiment(String p_experimentname) {
-		ExperimentImpl exp = new ExperimentImpl(factory);
-		exp.setExperimentID(idGen.getNextExperimentID());
-		exp.setExperimentName(p_experimentname);
+    public Collection<Experiment> getExperiments() {
+	return findByExperimentName("experiment");
+    }
 
-		return exp;
-	}
+    public void removeExperiment(Experiment experiment, boolean doCascade) {
+	factory.removeFile("experiment" + experiment.getExperimentID());
+    }
 
-	public Collection<Experiment> findByExperimentName(String searchKey) {
-		List<Experiment> result = new ArrayList<Experiment>();
-		File[] files = factory.listFiles(searchKey);
-		for (File file : files)
-			result.add((Experiment) factory.deserializeFromFile(file));
-		return Collections.unmodifiableCollection(result);
-	}
-
-	public Experiment get(long id) {
-		File[] files = factory.listFiles("" + id);
-		Experiment exp = null;
-		if (files.length == 0)
-			return null;
-		else {
-			for (File file : files)
-				if (factory.deserializeFromFile(file) instanceof Experiment) {
-					exp = (Experiment) factory.deserializeFromFile(file);
-					((ExperimentImpl) exp).setFactory(factory);
-					break;
-				}
-		}
-		return exp;
-	}
-
-	public Collection<Experiment> getExperiments() {
-		return findByExperimentName("");
-	}
-
-	public void removeExperiment(Experiment experiment, boolean doCascade) {
-		factory.removeFile(experiment.getExperimentName()
-				+ experiment.getExperimentID());
-	}
-
-	public void store(Experiment e) {
-		factory.serializeToFile(e.getExperimentName() + e.getExperimentID(), e);
-		for (ExperimentRun er : e.getExperimentRuns())
-			factory.createExperimentRunDAO().store(er);
-	}
+    public void store(Experiment e) {
+	factory.serializeToFile("experiment" + e.getExperimentID(), e);
+	for (ExperimentRun er : e.getExperimentRuns())
+	    factory.createExperimentRunDAO().store(er);
+    }
 
 }
