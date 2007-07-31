@@ -32,15 +32,12 @@ public class ExperimentImpl implements Experiment, Serializable {
 
 	private Collection<Sensor> sensors;
 
-	private transient Collection<ExperimentRun> experimentRuns;
-
-	private Collection<Long> experimentRunsIDs;
+	private Collection<ExperimentRun> experimentRuns;
 
 	public ExperimentImpl(IDAOFactory factory) {
 		this.factory = factory;
 		sensors = new ArrayList<Sensor>();
 		experimentRuns = new ArrayList<ExperimentRun>();
-		experimentRunsIDs = new ArrayList<Long>();
 	}
 
 	public long getExperimentID() {
@@ -90,13 +87,11 @@ public class ExperimentImpl implements Experiment, Serializable {
 		ExperimentRun expRun = factory.createExperimentRunDAO()
 				.addExperimentRun(experimentdatetime);
 		experimentRuns.add(expRun);
-		experimentRunsIDs.add(expRun.getExperimentRunID());
 		return expRun;
 	}
 
 	public void addExperimentRun(ExperimentRun experimentRun) {
 		experimentRuns.add(experimentRun);
-		experimentRunsIDs.add(experimentRun.getExperimentRunID());
 	}
 
 	public void addSensor(Sensor value) {

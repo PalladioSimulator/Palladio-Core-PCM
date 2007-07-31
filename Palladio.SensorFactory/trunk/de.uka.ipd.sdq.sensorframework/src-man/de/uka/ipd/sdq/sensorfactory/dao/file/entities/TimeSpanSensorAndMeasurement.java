@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.sensorfactory.dao.file.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
 /**
@@ -30,4 +31,15 @@ public class TimeSpanSensorAndMeasurement extends SensorAndMeasurementsImpl {
 	public void addTimeSpan(double ts) {
 		timeSpan.add(ts);
 	}
+
+	@Override
+	public List<Measurement> getMeasurements() {
+		ArrayList<Measurement> m = new ArrayList<Measurement>();
+		for (int i = 0; i < timeSpan.size(); i++) {
+			m.add(new TimeSpanMeasurementImpl(i, eventTimes.get(i), timeSpan
+					.get(i)));
+		}
+		return m;
+	}
+
 }

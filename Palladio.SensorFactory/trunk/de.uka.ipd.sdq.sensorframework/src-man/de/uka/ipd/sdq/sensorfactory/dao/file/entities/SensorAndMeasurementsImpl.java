@@ -7,19 +7,20 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
 /**
  * @author ihssane
  * 
  */
-public abstract class SensorAndMeasurementsImpl implements Serializable{
+public abstract class SensorAndMeasurementsImpl implements Serializable {
 
-	private long sensorAndMeasurementsID;
+	protected long sensorAndMeasurementsID;
 
-	private Sensor sensor;
+	protected Sensor sensor;
 
-	private List<Double> eventTimes;
+	protected List<Double> eventTimes;
 
 	public SensorAndMeasurementsImpl(Sensor sensor) {
 		this.sensor = sensor;
@@ -49,5 +50,7 @@ public abstract class SensorAndMeasurementsImpl implements Serializable{
 	public void addEventTime(double et) {
 		eventTimes.add(et);
 	}
+
+	public abstract List<Measurement> getMeasurements();
 
 }
