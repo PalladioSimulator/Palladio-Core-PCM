@@ -1,6 +1,10 @@
 package de.uka.ipd.sdq.sensorfactory.dao.db4o;
 
-public class IDGenerator {
+import java.io.Serializable;
+
+public class IDGenerator implements Serializable {
+
+	private static final long serialVersionUID = -4845947012172760482L;
 
 	private long nextExperimentID = 0;
 	private long nextExperimentRunID = 0;
@@ -9,7 +13,7 @@ public class IDGenerator {
 	private long nextStateID = 0;
 
 	public long getNextExperimentID() {
-		return nextExperimentID ++;
+		return nextExperimentID++;
 	}
 
 	public long getNextExperimentRunID() {
@@ -17,15 +21,15 @@ public class IDGenerator {
 	}
 
 	public long getNextMeasurementID() {
-		return nextMeasurementID ++;
+		return nextMeasurementID++;
 	}
 
 	public long getNextSensorID() {
-		return nextSensorID ++;
+		return nextSensorID++;
 	}
 
 	public long getNextStateID() {
-		return nextStateID ++;
+		return nextStateID++;
 	}
 
 }
