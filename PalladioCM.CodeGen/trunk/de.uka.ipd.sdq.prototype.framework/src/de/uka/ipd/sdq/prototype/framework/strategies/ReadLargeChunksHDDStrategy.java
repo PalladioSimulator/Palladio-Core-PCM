@@ -31,11 +31,13 @@ public class ReadLargeChunksHDDStrategy implements IDemandConsumerStrategy {
 	public long time = 0;
 	
 	/* Configuration */
-	private int maxFileSize = 5*1000*1000;
+	private int maxFileSize = 8*1000*1000;
 
 	//private File fileDirectory = new File("F:/multimedia/mp3-fuer-exp");
-	private File fileDirectory = new File("C:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
+	private File fileDirectory = new File("F:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
 	private int numberOfFiles = 1000;
+	
+	private double factor = 0.692;
 
 	/** Stores some files sorted by size for fast access */
 	private List<File> files = new LinkedList<File>();
@@ -58,8 +60,7 @@ public class ReadLargeChunksHDDStrategy implements IDemandConsumerStrategy {
 		try {
 			FileInputStream fis = new FileInputStream(nextFile());
 			
-			//TODO: So oder doch lieber in ein Array einlesen dass groß genug ist?
-			// müsste aber auch erst angelegt werden, da Demand im Voraus unbekannt. 
+			//This is much slower 
 			//for (int i = 0; i < demand; i++)
 			//	fis.read();
 			
@@ -68,10 +69,10 @@ public class ReadLargeChunksHDDStrategy implements IDemandConsumerStrategy {
 			 * The difference averages to 1 % (reading 1 to 8 MB of data). 
 			 * Thus, the overhead of the method invocation is negligible. 
 			 */ 
-			byte[] byteArray = new byte[(int)(demand)];
-			fis.read(byteArray);
+			byte[] byteArray = new byte[(int)(demand*factor)];
+			int success = fis.read(byteArray);
 			
-			logger.debug("Demand consumed");
+			logger.debug("Adjusted demand consumed: "+success);
 			
 		} catch (FileNotFoundException e) {
 			logger.error(e);

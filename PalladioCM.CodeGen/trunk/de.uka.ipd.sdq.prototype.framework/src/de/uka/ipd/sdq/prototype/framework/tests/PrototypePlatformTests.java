@@ -140,16 +140,20 @@ public class PrototypePlatformTests {
 
 	private void consumeRandomHDDDemand(ReadLargeChunksHDDStrategy hddStrategy,
 			BufferedWriter bw, int iterations) throws IOException {
-		double demand;
-		long startTime;
-		long endTime;
+		double[] demand = new double[iterations];
+		long[] startTime = new long[iterations];
+		long[] endTime = new long[iterations];
 		for (int i = 0; i < iterations; i++){
-			demand = Math.random()*hddStrategy.getMaxFileSize();
-			startTime = System.nanoTime();
-			hddStrategy.consume(demand);
-			endTime = System.nanoTime();
-			writeHDDResultToFile(bw, startTime, endTime, demand, i);
+			demand[i] = Math.random()*hddStrategy.getMaxFileSize();
+			startTime[i] = System.nanoTime();
+			hddStrategy.consume(demand[i]);
+			endTime[i] = System.nanoTime();
 		}
+		for (int i = 0; i < iterations; i++){
+			writeHDDResultToFile(bw, startTime[i], endTime[i], demand[i], i);
+		}
+
+
 
 	}
 
@@ -193,9 +197,5 @@ public class PrototypePlatformTests {
 		bw.flush();
 	}
 
-	@Test
-	public void testConsumeHDDRandomDemand() throws IOException {
-		//TODO
-	}
 
 }
