@@ -27,139 +27,145 @@ import de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO;
  */
 public class FileDAOFactory implements IDAOFactory {
 
-    private IExperimentDAO experimentDAO;
-    private IExperimentRunDAO experimentRunDAO;
-    private IMeasurementDAO measurementDAO;
-    private ISensorDAO sensorDAO;
-    private IDGenerator idGen;
-    private long factoryID;
-    private String root;
+	private IExperimentDAO experimentDAO;
+	private IExperimentRunDAO experimentRunDAO;
+	private IMeasurementDAO measurementDAO;
+	private ISensorDAO sensorDAO;
+	private IDGenerator idGen;
+	private long factoryID;
+	private String root;
 
-    public FileDAOFactory(long id, String path) {
-	this.factoryID = id;
-	this.root = path;
-	idGen = new IDGenerator();
-    }
-
-    public String getPath() {
-	return root;
-    }
-
-    public File[] listFiles(String filename) {
-	File path = new File(root);
-	final String fn = filename;
-	return path.listFiles(new FilenameFilter() {
-
-	    public boolean accept(File dir, String name) {
-		return name.toLowerCase().endsWith(".ser")
-			&& name.toLowerCase().contains(fn);
-	    }
-
-	});
-    }
-
-    public IExperimentDAO createExperimentDAO() {
-	if (this.experimentDAO == null)
-	    this.experimentDAO = new FileExperimentDAO(this, idGen);
-	return this.experimentDAO;
-    }
-
-    public IExperimentRunDAO createExperimentRunDAO() {
-	if (this.experimentRunDAO == null)
-	    this.experimentRunDAO = new FileExperimentRunDAO(this, idGen);
-	return this.experimentRunDAO;
-    }
-
-    public IMeasurementDAO createMeasurementDAO() {
-	if (this.measurementDAO == null)
-	    this.measurementDAO = new FileMeasurementDAO(this, idGen);
-	return this.measurementDAO;
-    }
-
-    public ISensorDAO createSensorDAO() {
-	if (this.sensorDAO == null)
-	    this.sensorDAO = new FileSensorDAO(this, idGen);
-	return this.sensorDAO;
-    }
-
-    public IStateDAO createStateDAO() {
-	// TODO Auto-generated method stub
-	return null;
-    }
-
-    public boolean removeFile(String fileName) {
-	File path = new File(new File(this.root), fileName + ".ser");
-	return path.delete();
-    }
-
-    public void serializeToFile(String fileName, Object ser) {
-	OutputStream fos = null;
-	File path = new File(new File(this.root), fileName + ".ser");
-	try {
-	    fos = new FileOutputStream(path);
-	    ObjectOutputStream o = new ObjectOutputStream(fos);
-	    o.writeObject(ser);
-	} catch (IOException e) {
-	    System.err.println(e);
-	} finally {
-	    try {
-		fos.close();
-	    } catch (Exception e) {
-	    }
-	}
-    }
-
-    public Object deserializeFromFile(String fileName) {
-	File path = new File(new File(this.root), fileName + ".ser");
-	return deserializeFromFile(path);
-    }
-
-    public Object deserializeFromFile(File file) {
-	InputStream fis = null;
-	Object result = null;
-	try {
-	    fis = new FileInputStream(file);
-	    ObjectInputStream o = new ObjectInputStream(fis);
-	    result = o.readObject();
+	public FileDAOFactory(long id, String directory) {
+		this.factoryID = id;
+		checkPath(directory);
+		this.root = directory;
+		idGen = new IDGenerator();
 	}
 
-	catch (IOException e) {
-	    System.err.println(e);
-	} catch (ClassNotFoundException e) {
-	    System.err.println(e);
-	} finally {
-	    try {
-		fis.close();
-	    } catch (Exception e) {
-	    }
+	public String getPath() {
+		return root;
 	}
-	return result;
-    }
 
-    public void finalizeAndClose() {
-	// TODO Auto-generated method stub
+	private void checkPath(String path) {
+		File f = new File(path);
+		if (f.isDirectory())
+			throw new IllegalArgumentException("Error: " + path
+					+ " is not a directory!");
+	}
 
-    }
+	public File[] listFiles(String filename) {
+		File path = new File(root);
+		final String fn = filename;
+		return path.listFiles(new FilenameFilter() {
 
-    public String getDescription() {
-	return "";
-    }
+			public boolean accept(File dir, String name) {
+				return name.toLowerCase().endsWith(".ser")
+						&& name.toLowerCase().contains(fn);
+			}
 
-    public long getID() {
-	return factoryID;
-    }
+		});
+	}
 
-    public String getName() {
-	return "File datasource";
-    }
+	public IExperimentDAO createExperimentDAO() {
+		if (this.experimentDAO == null)
+			this.experimentDAO = new FileExperimentDAO(this, idGen);
+		return this.experimentDAO;
+	}
 
-    public String getPersistendInfo() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+	public IExperimentRunDAO createExperimentRunDAO() {
+		if (this.experimentRunDAO == null)
+			this.experimentRunDAO = new FileExperimentRunDAO(this, idGen);
+		return this.experimentRunDAO;
+	}
 
-    public void setID(int i) {
-	factoryID = i;
-    }
+	public IMeasurementDAO createMeasurementDAO() {
+		if (this.measurementDAO == null)
+			this.measurementDAO = new FileMeasurementDAO(this, idGen);
+		return this.measurementDAO;
+	}
+
+	public ISensorDAO createSensorDAO() {
+		if (this.sensorDAO == null)
+			this.sensorDAO = new FileSensorDAO(this, idGen);
+		return this.sensorDAO;
+	}
+
+	public IStateDAO createStateDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean removeFile(String fileName) {
+		File path = new File(new File(this.root), fileName + ".ser");
+		return path.delete();
+	}
+
+	public void serializeToFile(String fileName, Object ser) {
+		OutputStream fos = null;
+		File path = new File(new File(this.root), fileName + ".ser");
+		try {
+			fos = new FileOutputStream(path);
+			ObjectOutputStream o = new ObjectOutputStream(fos);
+			o.writeObject(ser);
+		} catch (IOException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				fos.close();
+			} catch (Exception e) {
+			}
+		}
+	}
+
+	public Object deserializeFromFile(String fileName) {
+		File path = new File(new File(this.root), fileName + ".ser");
+		return deserializeFromFile(path);
+	}
+
+	public Object deserializeFromFile(File file) {
+		InputStream fis = null;
+		Object result = null;
+		try {
+			fis = new FileInputStream(file);
+			ObjectInputStream o = new ObjectInputStream(fis);
+			result = o.readObject();
+		} catch (IOException e) {
+			System.err.println(e);
+		} catch (ClassNotFoundException e) {
+			System.err.println(e);
+		} finally {
+			try {
+				fis.close();
+			} catch (Exception e) {
+			}
+		}
+		return result;
+	}
+
+	public void finalizeAndClose() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public String getDescription() {
+		return "";
+	}
+
+	public long getID() {
+		return factoryID;
+	}
+
+	public String getName() {
+		return "File datasource";
+	}
+
+	public String getPersistendInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setID(int i) {
+		factoryID = i;
+	}
 
 }

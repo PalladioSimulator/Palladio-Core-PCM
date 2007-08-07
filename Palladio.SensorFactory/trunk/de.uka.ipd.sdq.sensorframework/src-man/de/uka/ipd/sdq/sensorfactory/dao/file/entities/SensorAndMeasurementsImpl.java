@@ -4,9 +4,9 @@
 package de.uka.ipd.sdq.sensorfactory.dao.file.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
+import cern.colt.list.DoubleArrayList;
 import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
@@ -17,18 +17,17 @@ import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 public abstract class SensorAndMeasurementsImpl implements Serializable {
 
 	protected long sensorAndMeasurementsID;
-
 	protected Sensor sensor;
-
-	protected List<Double> eventTimes;
+	protected DoubleArrayList eventTimes;
 
 	public SensorAndMeasurementsImpl(Sensor sensor) {
 		this.sensor = sensor;
-		eventTimes = new ArrayList<Double>();
+		eventTimes = new DoubleArrayList();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Double> getEventTimes() {
-		return eventTimes;
+		return eventTimes.toList();
 	}
 
 	public long getSensorAndMeasurementsID() {

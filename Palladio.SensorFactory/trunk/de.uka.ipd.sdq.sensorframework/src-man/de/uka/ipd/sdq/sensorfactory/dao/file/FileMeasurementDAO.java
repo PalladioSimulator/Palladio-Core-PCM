@@ -22,41 +22,41 @@ import de.uka.ipd.sdq.sensorfactory.entities.dao.IMeasurementDAO;
  */
 public class FileMeasurementDAO implements IMeasurementDAO {
 
-    private FileDAOFactory factory;
-    private IDGenerator idGen;
+	private FileDAOFactory factory;
+	private IDGenerator idGen;
 
-    public FileMeasurementDAO(FileDAOFactory factory, IDGenerator idGen) {
-	this.factory = (FileDAOFactory) factory;
-	this.idGen = idGen;
-    }
+	public FileMeasurementDAO(FileDAOFactory factory, IDGenerator idGen) {
+		this.factory = (FileDAOFactory) factory;
+		this.idGen = idGen;
+	}
 
-    public StateMeasurement addStateMeasurement(StateSensor p_sensor,
-	    State p_sensorstate, double p_eventtime) {
-	// TODO Auto-generated method stub
-	return null;
-    }
+	public StateMeasurement addStateMeasurement(StateSensor p_sensor,
+			State p_sensorstate, double p_eventtime) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    public TimeSpanMeasurement addTimeSpanMeasurement(TimeSpanSensor p_sensor,
-	    double p_eventtime, double p_timespan) {
-	TimeSpanMeasurement tsm = new TimeSpanMeasurementImpl(idGen
-		.getNextMeasurementID(), p_eventtime, p_timespan);
-	tsm.setSensor(p_sensor);
-	return tsm;
-    }
+	public TimeSpanMeasurement addTimeSpanMeasurement(TimeSpanSensor p_sensor,
+			double p_eventtime, double p_timespan) {
+		TimeSpanMeasurement tsm = new TimeSpanMeasurementImpl(idGen
+				.getNextMeasurementID(), p_eventtime, p_timespan);
+		tsm.setSensor(p_sensor);
+		return tsm;
+	}
 
-    public Measurement get(long id) {
-	// TODO Auto-generated method stub
-	return null;
-    }
+	public Measurement get(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    public Collection<Measurement> getMeasurements() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+	public Collection<Measurement> getMeasurements() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    public void removeMeasurement(Measurement measurement, boolean doCascade) {
-	// TODO Auto-generated method stub
+	public void removeMeasurement(Measurement measurement, boolean doCascade) {
+		// TODO Auto-generated method stub
 
-    }
+	}
 
 }

@@ -66,6 +66,8 @@ public class ExperimentImpl implements Experiment, Serializable {
 
 	public void setFactory(FileDAOFactory factory) {
 		this.factory = factory;
+		for (ExperimentRun er : experimentRuns)
+			((ExperimentRunImpl) er).setFactory(factory);
 	}
 
 	public Collection<ExperimentRun> getExperimentRuns() {

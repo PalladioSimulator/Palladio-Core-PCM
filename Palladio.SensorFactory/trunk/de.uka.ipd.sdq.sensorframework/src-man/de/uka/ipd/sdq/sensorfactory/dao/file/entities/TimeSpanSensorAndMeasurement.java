@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.sensorfactory.dao.file.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import cern.colt.list.DoubleArrayList;
 import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
@@ -17,15 +18,16 @@ public class TimeSpanSensorAndMeasurement extends SensorAndMeasurementsImpl {
 
 	private static final long serialVersionUID = 3516448762554779531L;
 
-	private List<Double> timeSpan;
+	private DoubleArrayList timeSpan;
 
 	public TimeSpanSensorAndMeasurement(Sensor sensor) {
 		super(sensor);
-		timeSpan = new ArrayList<Double>();
+		timeSpan = new DoubleArrayList();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Double> getTimeSpan() {
-		return timeSpan;
+		return timeSpan.toList();
 	}
 
 	public void addTimeSpan(double ts) {
