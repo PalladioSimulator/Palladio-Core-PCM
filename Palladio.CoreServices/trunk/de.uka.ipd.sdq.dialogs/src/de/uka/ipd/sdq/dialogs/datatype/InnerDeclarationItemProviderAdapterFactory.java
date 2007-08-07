@@ -9,9 +9,7 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 
 
 /**
- * TODO Refactoring !!!!!!!!
  * @author admin
- *
  */
 public class InnerDeclarationItemProviderAdapterFactory extends
 		DecoratorAdapterFactory {
