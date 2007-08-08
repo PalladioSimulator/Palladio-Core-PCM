@@ -48,7 +48,7 @@ public class FileDAOFactory implements IDAOFactory {
 
 	private void checkPath(String path) {
 		File f = new File(path);
-		if (f.isDirectory())
+		if (!f.isDirectory())
 			throw new IllegalArgumentException("Error: " + path
 					+ " is not a directory!");
 	}
