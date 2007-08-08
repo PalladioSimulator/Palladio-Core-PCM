@@ -8,7 +8,8 @@ Bundle-Activator: Activator
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.logging,
- de.uka.ipd.sdq.hibernatewrapper
+ de.uka.ipd.sdq.hibernatewrapper,
+ org.junit4
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.sensorfactory,
  de.uka.ipd.sdq.sensorfactory.dao.db4o,
@@ -20,4 +21,5 @@ Export-Package: de.uka.ipd.sdq.sensorfactory,
 Bundle-ClassPath: src/,
  .,
  lib/cglib-2.2_beta1.jar,
- lib/db4o-6.1-java5.jar
+ lib/db4o-6.1-java5.jar,
+ lib/colt.jar
