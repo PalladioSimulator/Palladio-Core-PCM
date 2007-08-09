@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="libs/ssj/lib/Blas.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/ssj/lib/colt.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/ssj/lib/event-1.6.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/ssj/lib/interpreter-1.6.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/ssj/lib/language-1.6.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/ssj/lib/logger-1.6.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/ssj/lib/optimization.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/ssj/lib/ssj.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
