@@ -7,5 +7,6 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="lib/cglib-2.2_beta1.jar"/>
 	<classpathentry kind="lib" path="lib/db4o-6.1-java5.jar"/>
+	<classpathentry kind="lib" path="lib/colt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

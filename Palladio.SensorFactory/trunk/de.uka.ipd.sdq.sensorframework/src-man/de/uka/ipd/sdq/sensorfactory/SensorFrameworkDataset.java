@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 public class SensorFrameworkDataset {
 	private static SensorFrameworkDataset singleton = new SensorFrameworkDataset();
 	private ArrayList<IDAOFactory> datasources = new ArrayList<IDAOFactory>();
-	private int nextID = 1;
+	private long nextID = 1;
 	
 	private SensorFrameworkDataset() {
 		//datasources.add(new MemoryDAOFactory(0));
@@ -39,7 +39,11 @@ public class SensorFrameworkDataset {
 
 	public void addDataSource(IDAOFactory factory) {
 		datasources.add(factory);
-		factory.setID(nextID ++);
+		if (factory.getID() <= 0)
+			factory.setID(nextID ++);
+		else
+			if(factory.getID() > nextID)
+				nextID = factory.getID() + 1;
 	}
 
 	public void removeDataSource(IDAOFactory factory) {

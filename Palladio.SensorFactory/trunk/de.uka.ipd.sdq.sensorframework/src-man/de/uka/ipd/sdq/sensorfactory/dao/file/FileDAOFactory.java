@@ -164,7 +164,7 @@ public class FileDAOFactory implements IDAOFactory {
 		return null;
 	}
 
-	public void setID(int i) {
+	public void setID(long i) {
 		factoryID = i;
 	}
 

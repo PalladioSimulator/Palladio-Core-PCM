@@ -91,7 +91,7 @@ public class MemoryDAOFactory implements IDAOFactory {
 		return this.id;
 	}
 
-	public void setID(int i) {
+	public void setID(long i) {
 		this.id = i;
 	}
 

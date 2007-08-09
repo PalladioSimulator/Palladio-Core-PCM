@@ -19,7 +19,7 @@ public interface IDAOFactory {
 
 	de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO createSensorDAO();
 
-	void setID(int i);
+	void setID(long l);
 
 	String getPersistendInfo();
 
