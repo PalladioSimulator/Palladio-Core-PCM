@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,6 +8,7 @@ package de.uka.ipd.sdq.pcm.qosannotations;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -87,7 +87,16 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int SPECIFIED_EXECUTION_TIME__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIED_EXECUTION_TIME__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
@@ -96,7 +105,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Role Specified Execution Time</b></em>' reference.
@@ -105,7 +114,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Specified Execution Time</em>' class.
@@ -114,7 +123,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 2;
+	int SPECIFIED_EXECUTION_TIME_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedFailureProbabilityImpl <em>Specified Failure Probability</em>}' class.
@@ -153,6 +162,15 @@ public interface QosannotationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SYSTEM_SPECIFIED_EXECUTION_TIME__SPECIFICATION = SPECIFIED_EXECUTION_TIME__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SPECIFIED_EXECUTION_TIME__EXPRESSION = SPECIFIED_EXECUTION_TIME__EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
@@ -199,6 +217,15 @@ public interface QosannotationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPONENT_SPECIFIED_EXECUTION_TIME__SPECIFICATION = SPECIFIED_EXECUTION_TIME__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_SPECIFIED_EXECUTION_TIME__EXPRESSION = SPECIFIED_EXECUTION_TIME__EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.

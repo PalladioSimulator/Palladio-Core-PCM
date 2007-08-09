@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -30,7 +28,6 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 
 	/**
 	 * <!-- begin-user-doc -->

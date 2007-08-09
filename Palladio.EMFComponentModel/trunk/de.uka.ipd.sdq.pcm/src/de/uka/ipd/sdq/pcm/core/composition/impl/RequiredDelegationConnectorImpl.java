@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -102,7 +100,6 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 */
 	protected AssemblyContext childComponentContext_RequiredDelegationConnector;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure <em>Required Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -111,7 +108,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 */
 	private static OCLExpression RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame <em>Component Of Child Component Context And Inner Role Requiring Component Need To Be The Same</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -120,7 +117,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 */
 	private static OCLExpression ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSameInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -296,7 +293,6 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR, newParentStructure_RequiredDelegationConnector, newParentStructure_RequiredDelegationConnector));
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -68,6 +67,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case RepositoryPackage.PASSIVE_RESOURCE: return createPassiveResource();
 			case RepositoryPackage.SIGNATURE: return createSignature();
 			case RepositoryPackage.PARAMETER: return createParameter();
 			case RepositoryPackage.REPOSITORY: return createRepository();
@@ -120,6 +120,16 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PassiveResource createPassiveResource() {
+		PassiveResourceImpl passiveResource = new PassiveResourceImpl();
+		return passiveResource;
 	}
 
 	/**

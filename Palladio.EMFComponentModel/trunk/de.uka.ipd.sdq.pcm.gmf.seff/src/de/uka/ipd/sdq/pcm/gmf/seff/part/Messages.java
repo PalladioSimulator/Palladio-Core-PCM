@@ -541,7 +541,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResourceDemandingBehaviourBehaviourCompartmentEditPart_title;
+	public static String ForkedBehaviourBehaviourCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -631,17 +631,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_AcquireAction_2012_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AcquireAction_2012_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SetVariableAction_2008_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_AquireAction_2009_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_AquireAction_2009_incominglinks;
 
 	/**
 	 * @generated
@@ -721,17 +721,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_AcquireAction_3026_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AcquireAction_3026_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_ExternalCallAction_3012_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_AquireAction_3019_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_AquireAction_3019_incominglinks;
 
 	/**
 	 * @generated

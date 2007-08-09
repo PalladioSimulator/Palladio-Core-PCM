@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -24,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getImplementationComponentType <em>Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +80,21 @@ public interface BasicComponent extends ImplementationComponentType {
 	 */
 	EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent();
 
+	/**
+	 * Returns the value of the '<em><b>Passive Resource Basic Component</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Passive Resource Basic Component</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Passive Resource Basic Component</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_PassiveResource_BasicComponent()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<PassiveResource> getPassiveResource_BasicComponent();
 
 	/**
 	 * <!-- begin-user-doc -->

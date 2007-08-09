@@ -1,19 +1,27 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourcetype.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -22,11 +30,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository} object.
@@ -155,11 +158,6 @@ public class ResourceRepositoryItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
-				 ResourcetypeFactory.eINSTANCE.createPassiveResourceType()));
 
 		newChildDescriptors.add
 			(createChildParameter

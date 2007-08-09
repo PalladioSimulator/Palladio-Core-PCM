@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -69,6 +68,15 @@ public interface ResourceenvironmentFactory extends EFactory {
 	Latency createLatency();
 
 	/**
+	 * Returns a new object of class '<em>Throughput</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Throughput</em>'.
+	 * @generated
+	 */
+	Throughput createThroughput();
+
+	/**
 	 * Returns a new object of class '<em>Processing Resource Specification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,13 +86,13 @@ public interface ResourceenvironmentFactory extends EFactory {
 	ProcessingResourceSpecification createProcessingResourceSpecification();
 
 	/**
-	 * Returns a new object of class '<em>Passive Resource Specification</em>'.
+	 * Returns a new object of class '<em>Processing Rate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Passive Resource Specification</em>'.
+	 * @return a new object of class '<em>Processing Rate</em>'.
 	 * @generated
 	 */
-	PassiveResourceSpecification createPassiveResourceSpecification();
+	ProcessingRate createProcessingRate();
 
 	/**
 	 * Returns a new object of class '<em>Resource Container</em>'.

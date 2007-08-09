@@ -1,12 +1,9 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
-
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
@@ -430,7 +427,16 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTER_ARRIVAL_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int INTER_ARRIVAL_TIME__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTER_ARRIVAL_TIME__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>Inter Arrival Time</em>' class.
@@ -439,7 +445,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTER_ARRIVAL_TIME_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int INTER_ARRIVAL_TIME_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl <em>Loop</em>}' class.
@@ -531,7 +537,16 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ITERATIONS__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int LOOP_ITERATIONS__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_ITERATIONS__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>Loop Iterations</em>' class.
@@ -540,7 +555,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ITERATIONS_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int LOOP_ITERATIONS_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl <em>Entry Level System Call</em>}' class.
@@ -687,7 +702,16 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THINK_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int THINK_TIME__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THINK_TIME__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>Think Time</em>' class.
@@ -696,7 +720,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THINK_TIME_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int THINK_TIME_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl <em>Branch</em>}' class.
@@ -799,7 +823,6 @@ public interface UsagemodelPackage extends EPackage {
 	 */
 	int BRANCH_TRANSITION_FEATURE_COUNT = 2;
 
-
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl <em>Delay</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -881,7 +904,16 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAY_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int DELAY_TIME__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY_TIME__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
 
 	/**
 	 * The number of structural features of the '<em>Delay Time</em>' class.
@@ -890,7 +922,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAY_TIME_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int DELAY_TIME_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 
 	/**

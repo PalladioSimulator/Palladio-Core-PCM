@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -40,15 +39,6 @@ public interface ResourcetypeFactory extends EFactory {
 	 * @generated
 	 */
 	ResourceRepository createResourceRepository();
-
-	/**
-	 * Returns a new object of class '<em>Passive Resource Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Passive Resource Type</em>'.
-	 * @generated
-	 */
-	PassiveResourceType createPassiveResourceType();
 
 	/**
 	 * Returns a new object of class '<em>Communication Link Resource Type</em>'.

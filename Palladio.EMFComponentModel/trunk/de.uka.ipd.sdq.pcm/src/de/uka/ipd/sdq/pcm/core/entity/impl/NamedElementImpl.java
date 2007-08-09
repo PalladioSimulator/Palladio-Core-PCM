@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -57,7 +55,6 @@ public abstract class NamedElementImpl extends EObjectImpl implements NamedEleme
 	 * @ordered
 	 */
 	protected String entityName = ENTITY_NAME_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

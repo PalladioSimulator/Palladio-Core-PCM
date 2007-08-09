@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -137,7 +135,6 @@ public interface Interface extends Entity {
 	 * @generated
 	 */
 	void setRepository_Interface(Repository value);
-
 
 	/**
 	 * <!-- begin-user-doc -->

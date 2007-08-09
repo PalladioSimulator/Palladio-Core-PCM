@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -63,7 +61,6 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 	 * @ordered
 	 */
 	protected ScenarioBehaviour scenarioBehaviour_UsageScenario;
-
 
 	/**
 	 * <!-- begin-user-doc -->

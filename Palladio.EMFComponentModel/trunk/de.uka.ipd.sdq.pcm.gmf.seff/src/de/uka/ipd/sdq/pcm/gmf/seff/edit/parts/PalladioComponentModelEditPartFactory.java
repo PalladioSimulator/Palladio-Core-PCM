@@ -83,11 +83,11 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case SetVariableActionEntityName2EditPart.VISUAL_ID:
 				return new SetVariableActionEntityName2EditPart(view);
 
-			case AquireAction2EditPart.VISUAL_ID:
-				return new AquireAction2EditPart(view);
+			case AcquireActionEditPart.VISUAL_ID:
+				return new AcquireActionEditPart(view);
 
-			case AquireActionEntityName2EditPart.VISUAL_ID:
-				return new AquireActionEntityName2EditPart(view);
+			case AcquireActionEntityNameEditPart.VISUAL_ID:
+				return new AcquireActionEntityNameEditPart(view);
 
 			case ReleaseAction2EditPart.VISUAL_ID:
 				return new ReleaseAction2EditPart(view);
@@ -168,11 +168,11 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 				return new ExternalCallActionEntityName2EditPart(view);
 
-			case AquireActionEditPart.VISUAL_ID:
-				return new AquireActionEditPart(view);
+			case AcquireAction2EditPart.VISUAL_ID:
+				return new AcquireAction2EditPart(view);
 
-			case AquireActionEntityNameEditPart.VISUAL_ID:
-				return new AquireActionEntityNameEditPart(view);
+			case AcquireActionEntityName2EditPart.VISUAL_ID:
+				return new AcquireActionEntityName2EditPart(view);
 
 			case ReleaseActionEditPart.VISUAL_ID:
 				return new ReleaseActionEditPart(view);
@@ -186,8 +186,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ForkActionEntityNameEditPart.VISUAL_ID:
 				return new ForkActionEntityNameEditPart(view);
 
-			case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-				return new ResourceDemandingBehaviour3EditPart(view);
+			case ForkedBehaviourEditPart.VISUAL_ID:
+				return new ForkedBehaviourEditPart(view);
 
 			case CollectionIteratorActionEditPart.VISUAL_ID:
 				return new CollectionIteratorActionEditPart(view);
@@ -260,9 +260,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ForkActionForkedBehavioursEditPart.VISUAL_ID:
 				return new ForkActionForkedBehavioursEditPart(view);
 
-			case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
-				return new ResourceDemandingBehaviourBehaviourCompartmentEditPart(
-						view);
+			case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+				return new ForkedBehaviourBehaviourCompartmentEditPart(view);
 
 			case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviourLoopCompartment2EditPart(

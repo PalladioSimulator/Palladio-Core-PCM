@@ -4,11 +4,10 @@ import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
-import de.uka.ipd.sdq.pcm.seff.AquireAction;
+import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
@@ -70,13 +69,14 @@ public class ContextWrapper {
 		return null;
 	}
 
-	public PassiveResourceSpecification getConcretePassiveResource(AquireAction aa){
-		return null;
-	}
-	
-	public PassiveResourceSpecification getConcretePassiveResource(ReleaseAction ra){
-		return null;
-	}
+	// TODO: Removed due to changed PCM (StB)
+//	public PassiveResourceSpecification getConcretePassiveResource(AcquireAction aa){
+//		return null;
+//	}
+//	
+//	public PassiveResourceSpecification getConcretePassiveResource(ReleaseAction ra){
+//		return null;
+//	}
 	
 	public CommunicationLinkResourceSpecification getConcreteLinkingResource(ExternalCallAction eca){
 		return null;

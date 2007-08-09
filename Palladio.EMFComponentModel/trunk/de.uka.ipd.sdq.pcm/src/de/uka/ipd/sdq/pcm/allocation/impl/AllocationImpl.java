@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,13 +10,14 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.util.AllocationValidator;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 import java.util.Collection;
-
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -33,14 +32,19 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
@@ -97,7 +101,6 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 */
 	protected de.uka.ipd.sdq.pcm.system.System system_Allocation;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -106,10 +109,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @generated
 	 */
 	private static OCLExpression EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnceInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

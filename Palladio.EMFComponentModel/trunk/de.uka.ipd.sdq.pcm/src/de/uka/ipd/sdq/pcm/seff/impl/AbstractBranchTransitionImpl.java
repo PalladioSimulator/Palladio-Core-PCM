@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -51,7 +49,6 @@ public abstract class AbstractBranchTransitionImpl extends IdentifierImpl implem
 	 * @ordered
 	 */
 	protected ResourceDemandingBehaviour branchBehaviour_BranchTransition;
-
 
 	/**
 	 * <!-- begin-user-doc -->

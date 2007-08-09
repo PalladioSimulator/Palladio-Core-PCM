@@ -1,13 +1,11 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +15,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getResourceType_Release <em>Resource Type Release</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction <em>Passive Resource Release Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,29 +32,29 @@ public interface ReleaseAction extends AbstractResourceDemandingAction {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Resource Type Release</b></em>' reference.
+	 * Returns the value of the '<em><b>Passive Resource Release Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resource Type Release</em>' reference isn't clear,
+	 * If the meaning of the '<em>Passive Resource Release Action</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource Type Release</em>' reference.
-	 * @see #setResourceType_Release(PassiveResourceType)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getReleaseAction_ResourceType_Release()
+	 * @return the value of the '<em>Passive Resource Release Action</em>' reference.
+	 * @see #setPassiveResource_ReleaseAction(PassiveResource)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getReleaseAction_PassiveResource_ReleaseAction()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	PassiveResourceType getResourceType_Release();
+	PassiveResource getPassiveResource_ReleaseAction();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getResourceType_Release <em>Resource Type Release</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction <em>Passive Resource Release Action</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource Type Release</em>' reference.
-	 * @see #getResourceType_Release()
+	 * @param value the new value of the '<em>Passive Resource Release Action</em>' reference.
+	 * @see #getPassiveResource_ReleaseAction()
 	 * @generated
 	 */
-	void setResourceType_Release(PassiveResourceType value);
+	void setPassiveResource_ReleaseAction(PassiveResource value);
 
 } // ReleaseAction

@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -56,7 +54,6 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 	 * @ordered
 	 */
 	protected double branchProbability = BRANCH_PROBABILITY_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

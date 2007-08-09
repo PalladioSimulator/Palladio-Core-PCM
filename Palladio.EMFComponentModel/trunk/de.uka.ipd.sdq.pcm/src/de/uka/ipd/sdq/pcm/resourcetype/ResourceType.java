@@ -1,13 +1,13 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourcetype;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
+
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * @model abstract="true"
  * @generated
  */
-public interface ResourceType extends Entity {
+public interface ResourceType extends Entity, UnitCarryingElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

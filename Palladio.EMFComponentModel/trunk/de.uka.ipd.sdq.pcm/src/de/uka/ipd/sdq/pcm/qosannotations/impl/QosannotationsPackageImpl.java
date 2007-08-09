@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -68,6 +67,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -191,14 +192,15 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		IdentifierPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
+		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
 		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
@@ -212,8 +214,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
-		theProtocolPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
+		theProtocolPackage.createPackageContents();
 		theSeffPackage.createPackageContents();
 		theResourcetypePackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
@@ -227,8 +229,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
-		theProtocolPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
+		theProtocolPackage.initializePackageContents();
 		theSeffPackage.initializePackageContents();
 		theResourcetypePackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
@@ -442,7 +444,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		specifiedExecutionTimeEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+		specifiedExecutionTimeEClass.getESuperTypes().add(theStoexPackage.getPCMRandomVariable());
 		systemSpecifiedExecutionTimeEClass.getESuperTypes().add(this.getSpecifiedExecutionTime());
 		componentSpecifiedExecutionTimeEClass.getESuperTypes().add(this.getSpecifiedExecutionTime());
 		specifiedOutputParameterAbstractionEClass.getESuperTypes().add(theParameterPackage.getVariableUsage());

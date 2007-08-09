@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,7 +8,7 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 import de.uka.ipd.sdq.pcm.seff.IterationCount;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
-import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+import de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -23,14 +21,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class IterationCountImpl extends RandomVariableImpl implements IterationCount {
+public class IterationCountImpl extends PCMRandomVariableImpl implements IterationCount {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 
 	/**
 	 * <!-- begin-user-doc -->

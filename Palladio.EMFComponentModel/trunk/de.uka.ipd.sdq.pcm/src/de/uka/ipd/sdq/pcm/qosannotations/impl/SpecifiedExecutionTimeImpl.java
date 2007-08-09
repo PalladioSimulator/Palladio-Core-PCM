@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,7 +11,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+import de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -36,7 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class SpecifiedExecutionTimeImpl extends RandomVariableImpl implements SpecifiedExecutionTime {
+public abstract class SpecifiedExecutionTimeImpl extends PCMRandomVariableImpl implements SpecifiedExecutionTime {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,7 +61,6 @@ public abstract class SpecifiedExecutionTimeImpl extends RandomVariableImpl impl
 	 * @ordered
 	 */
 	protected Role role_SpecifiedExecutionTime;
-
 
 	/**
 	 * <!-- begin-user-doc -->

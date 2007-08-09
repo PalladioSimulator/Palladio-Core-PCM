@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -57,7 +55,6 @@ public abstract class ProtocolImpl extends EObjectImpl implements Protocol {
 	 * @ordered
 	 */
 	protected String protocolTypeID = PROTOCOL_TYPE_ID_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

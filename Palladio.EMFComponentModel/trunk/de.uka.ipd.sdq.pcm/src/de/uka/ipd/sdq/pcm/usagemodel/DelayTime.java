@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * @model
  * @generated
  */
-public interface DelayTime extends RandomVariable {
+public interface DelayTime extends PCMRandomVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

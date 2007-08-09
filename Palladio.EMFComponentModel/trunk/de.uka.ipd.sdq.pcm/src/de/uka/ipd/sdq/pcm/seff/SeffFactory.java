@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -123,6 +122,33 @@ public interface SeffFactory extends EFactory {
 	ForkAction createForkAction();
 
 	/**
+	 * Returns a new object of class '<em>Forked Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Forked Behaviour</em>'.
+	 * @generated
+	 */
+	ForkedBehaviour createForkedBehaviour();
+
+	/**
+	 * Returns a new object of class '<em>Number Of Replicas</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Of Replicas</em>'.
+	 * @generated
+	 */
+	NumberOfReplicas createNumberOfReplicas();
+
+	/**
+	 * Returns a new object of class '<em>Synchronisation Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Synchronisation Point</em>'.
+	 * @generated
+	 */
+	SynchronisationPoint createSynchronisationPoint();
+
+	/**
 	 * Returns a new object of class '<em>External Call Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,13 +176,13 @@ public interface SeffFactory extends EFactory {
 	BranchAction createBranchAction();
 
 	/**
-	 * Returns a new object of class '<em>Aquire Action</em>'.
+	 * Returns a new object of class '<em>Acquire Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Aquire Action</em>'.
+	 * @return a new object of class '<em>Acquire Action</em>'.
 	 * @generated
 	 */
-	AquireAction createAquireAction();
+	AcquireAction createAcquireAction();
 
 	/**
 	 * Returns a new object of class '<em>Branch Condition</em>'.

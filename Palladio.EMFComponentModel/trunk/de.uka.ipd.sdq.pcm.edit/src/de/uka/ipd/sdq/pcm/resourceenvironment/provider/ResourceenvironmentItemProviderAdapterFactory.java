@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -175,6 +174,29 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.Throughput} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ThroughputItemProvider throughputItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.Throughput}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createThroughputAdapter() {
+		if (throughputItemProvider == null) {
+			throughputItemProvider = new ThroughputItemProvider(this);
+		}
+
+		return throughputItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,26 +220,26 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PassiveResourceSpecificationItemProvider passiveResourceSpecificationItemProvider;
+	protected ProcessingRateItemProvider processingRateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPassiveResourceSpecificationAdapter() {
-		if (passiveResourceSpecificationItemProvider == null) {
-			passiveResourceSpecificationItemProvider = new PassiveResourceSpecificationItemProvider(this);
+	public Adapter createProcessingRateAdapter() {
+		if (processingRateItemProvider == null) {
+			processingRateItemProvider = new ProcessingRateItemProvider(this);
 		}
 
-		return passiveResourceSpecificationItemProvider;
+		return processingRateItemProvider;
 	}
 
 	/**
@@ -346,8 +368,9 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 		if (linkingResourceItemProvider != null) linkingResourceItemProvider.dispose();
 		if (communicationLinkResourceSpecificationItemProvider != null) communicationLinkResourceSpecificationItemProvider.dispose();
 		if (latencyItemProvider != null) latencyItemProvider.dispose();
+		if (throughputItemProvider != null) throughputItemProvider.dispose();
 		if (processingResourceSpecificationItemProvider != null) processingResourceSpecificationItemProvider.dispose();
-		if (passiveResourceSpecificationItemProvider != null) passiveResourceSpecificationItemProvider.dispose();
+		if (processingRateItemProvider != null) processingRateItemProvider.dispose();
 		if (resourceContainerItemProvider != null) resourceContainerItemProvider.dispose();
 	}
 

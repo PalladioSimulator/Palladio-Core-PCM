@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity.util;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+
 import de.uka.ipd.sdq.pcm.core.entity.*;
 
 import org.eclipse.emf.common.notify.Adapter;

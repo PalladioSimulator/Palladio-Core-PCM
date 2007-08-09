@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -14,28 +12,36 @@ import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
-import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+
+import de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
@@ -46,7 +52,6 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
@@ -54,33 +59,13 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  *
  * @generated
  */
-public class ParametricResourceDemandImpl extends RandomVariableImpl implements ParametricResourceDemand {
+public class ParametricResourceDemandImpl extends PCMRandomVariableImpl implements ParametricResourceDemand {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnit()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String UNIT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnit()
-	 * @generated
-	 * @ordered
-	 */
-	protected String unit = UNIT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRequiredResource_ParametricResourceDemand() <em>Required Resource Parametric Resource Demand</em>}' reference.
@@ -92,7 +77,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 */
 	protected ProcessingResourceType requiredResource_ParametricResourceDemand;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ParametricResourceDemandSpecificationMustNotBeNULL <em>Parametric Resource Demand Specification Must Not Be NULL</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -101,10 +85,9 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @generated
 	 */
 	private static OCLExpression ParametricResourceDemandSpecificationMustNotBeNULLInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,27 +105,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getUnit() {
-		return unit;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUnit(String newUnit) {
-		String oldUnit = unit;
-		unit = newUnit;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT, oldUnit, unit));
 	}
 
 	/**
@@ -315,8 +277,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
-				return getUnit();
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				if (resolve) return getRequiredResource_ParametricResourceDemand();
 				return basicGetRequiredResource_ParametricResourceDemand();
@@ -334,9 +294,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
-				setUnit((String)newValue);
-				return;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				setRequiredResource_ParametricResourceDemand((ProcessingResourceType)newValue);
 				return;
@@ -355,9 +312,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
-				setUnit(UNIT_EDEFAULT);
-				return;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				setRequiredResource_ParametricResourceDemand((ProcessingResourceType)null);
 				return;
@@ -376,30 +330,12 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
-				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				return requiredResource_ParametricResourceDemand != null;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return getAction_ParametricResourceDemand() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (unit: ");
-		result.append(unit);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ParametricResourceDemandImpl

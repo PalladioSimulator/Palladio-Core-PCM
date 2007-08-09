@@ -1,18 +1,26 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.qosannotations.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
+
+import de.uka.ipd.sdq.stoex.provider.PCMRandomVariableItemProvider;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,11 +29,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
-import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
-
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime} object.
  * <!-- begin-user-doc -->
@@ -33,7 +36,7 @@ import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
  * @generated
  */
 public class SpecifiedExecutionTimeItemProvider
-	extends RandomVariableItemProvider
+	extends PCMRandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

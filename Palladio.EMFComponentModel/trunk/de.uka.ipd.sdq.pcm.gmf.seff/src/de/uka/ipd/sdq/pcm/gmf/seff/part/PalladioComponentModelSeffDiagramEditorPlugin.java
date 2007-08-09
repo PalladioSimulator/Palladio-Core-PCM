@@ -56,6 +56,7 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
+import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -149,8 +150,8 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
-		factories.add(new ProtocolItemProviderAdapterFactory());
 		factories.add(new ParameterItemProviderAdapterFactory());
+		factories.add(new ProtocolItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
@@ -161,6 +162,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 		factories.add(new IdentifierItemProviderAdapterFactory());
 		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new StoexItemProviderAdapterFactory());
+		factories.add(new UnitsItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

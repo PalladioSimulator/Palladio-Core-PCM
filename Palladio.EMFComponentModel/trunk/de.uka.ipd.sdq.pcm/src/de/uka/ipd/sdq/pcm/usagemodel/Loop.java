@@ -1,13 +1,10 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,7 +61,7 @@ public interface Loop extends AbstractUserAction {
 	 * Returns the value of the '<em><b>Iterations Loop</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Iterations Loop</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Iterations Loop</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

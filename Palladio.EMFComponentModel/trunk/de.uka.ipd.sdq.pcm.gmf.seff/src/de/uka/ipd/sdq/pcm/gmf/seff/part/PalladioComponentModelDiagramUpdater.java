@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
@@ -33,6 +33,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehaviours2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
@@ -45,10 +47,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -77,11 +77,12 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.AquireAction;
+import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
+import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
@@ -139,8 +140,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getExternalCallActionOutputVariableUsage_7023SemanticChildren(view);
 		case ForkActionForkedBehavioursEditPart.VISUAL_ID:
 			return getForkActionForkedBehaviours_7024SemanticChildren(view);
-		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
-			return getResourceDemandingBehaviourBehaviourCompartment_7020SemanticChildren(view);
+		case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+			return getForkedBehaviourBehaviourCompartment_7026SemanticChildren(view);
 		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviourLoopCompartment_7014SemanticChildren(view);
 		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
@@ -476,7 +477,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == AquireActionEditPart.VISUAL_ID) {
+			if (visualID == AcquireAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -614,7 +615,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == AquireActionEditPart.VISUAL_ID) {
+			if (visualID == AcquireAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -716,13 +717,13 @@ public class PalladioComponentModelDiagramUpdater {
 		}
 		ForkAction modelElement = (ForkAction) containerView.getElement();
 		List result = new LinkedList();
-		for (Iterator it = modelElement.getForkedBehaviours_Fork().iterator(); it
+		for (Iterator it = modelElement
+				.getAsynchronousForkedBehaviours_ForkAction().iterator(); it
 				.hasNext();) {
-			ResourceDemandingBehaviour childElement = (ResourceDemandingBehaviour) it
-					.next();
+			ForkedBehaviour childElement = (ForkedBehaviour) it.next();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == ResourceDemandingBehaviour3EditPart.VISUAL_ID) {
+			if (visualID == ForkedBehaviourEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -734,7 +735,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceDemandingBehaviourBehaviourCompartment_7020SemanticChildren(
+	public static List getForkedBehaviourBehaviourCompartment_7026SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -743,7 +744,7 @@ public class PalladioComponentModelDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView
+		ForkedBehaviour modelElement = (ForkedBehaviour) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getSteps_Behaviour().iterator(); it
@@ -786,7 +787,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == AquireActionEditPart.VISUAL_ID) {
+			if (visualID == AcquireAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -860,7 +861,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == AquireActionEditPart.VISUAL_ID) {
+			if (visualID == AcquireAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -987,7 +988,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == AquireActionEditPart.VISUAL_ID) {
+			if (visualID == AcquireAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1122,13 +1123,13 @@ public class PalladioComponentModelDiagramUpdater {
 		}
 		ForkAction modelElement = (ForkAction) containerView.getElement();
 		List result = new LinkedList();
-		for (Iterator it = modelElement.getForkedBehaviours_Fork().iterator(); it
+		for (Iterator it = modelElement
+				.getAsynchronousForkedBehaviours_ForkAction().iterator(); it
 				.hasNext();) {
-			ResourceDemandingBehaviour childElement = (ResourceDemandingBehaviour) it
-					.next();
+			ForkedBehaviour childElement = (ForkedBehaviour) it.next();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == ResourceDemandingBehaviour3EditPart.VISUAL_ID) {
+			if (visualID == ForkedBehaviourEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1192,7 +1193,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == AquireAction2EditPart.VISUAL_ID) {
+			if (visualID == AcquireActionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1234,8 +1235,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCollectionIteratorAction_2007ContainedLinks(view);
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_2008ContainedLinks(view);
-		case AquireAction2EditPart.VISUAL_ID:
-			return getAquireAction_2009ContainedLinks(view);
+		case AcquireActionEditPart.VISUAL_ID:
+			return getAcquireAction_2012ContainedLinks(view);
 		case ReleaseAction2EditPart.VISUAL_ID:
 			return getReleaseAction_2010ContainedLinks(view);
 		case ForkAction2EditPart.VISUAL_ID:
@@ -1268,14 +1269,14 @@ public class PalladioComponentModelDiagramUpdater {
 			return getResourceDemandingBehaviour_3011ContainedLinks(view);
 		case ExternalCallAction2EditPart.VISUAL_ID:
 			return getExternalCallAction_3012ContainedLinks(view);
-		case AquireActionEditPart.VISUAL_ID:
-			return getAquireAction_3019ContainedLinks(view);
+		case AcquireAction2EditPart.VISUAL_ID:
+			return getAcquireAction_3026ContainedLinks(view);
 		case ReleaseActionEditPart.VISUAL_ID:
 			return getReleaseAction_3020ContainedLinks(view);
 		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_3023ContainedLinks(view);
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-			return getResourceDemandingBehaviour_3021ContainedLinks(view);
+		case ForkedBehaviourEditPart.VISUAL_ID:
+			return getForkedBehaviour_3027ContainedLinks(view);
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013ContainedLinks(view);
 		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
@@ -1315,8 +1316,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCollectionIteratorAction_2007IncomingLinks(view);
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_2008IncomingLinks(view);
-		case AquireAction2EditPart.VISUAL_ID:
-			return getAquireAction_2009IncomingLinks(view);
+		case AcquireActionEditPart.VISUAL_ID:
+			return getAcquireAction_2012IncomingLinks(view);
 		case ReleaseAction2EditPart.VISUAL_ID:
 			return getReleaseAction_2010IncomingLinks(view);
 		case ForkAction2EditPart.VISUAL_ID:
@@ -1349,14 +1350,14 @@ public class PalladioComponentModelDiagramUpdater {
 			return getResourceDemandingBehaviour_3011IncomingLinks(view);
 		case ExternalCallAction2EditPart.VISUAL_ID:
 			return getExternalCallAction_3012IncomingLinks(view);
-		case AquireActionEditPart.VISUAL_ID:
-			return getAquireAction_3019IncomingLinks(view);
+		case AcquireAction2EditPart.VISUAL_ID:
+			return getAcquireAction_3026IncomingLinks(view);
 		case ReleaseActionEditPart.VISUAL_ID:
 			return getReleaseAction_3020IncomingLinks(view);
 		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_3023IncomingLinks(view);
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-			return getResourceDemandingBehaviour_3021IncomingLinks(view);
+		case ForkedBehaviourEditPart.VISUAL_ID:
+			return getForkedBehaviour_3027IncomingLinks(view);
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013IncomingLinks(view);
 		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
@@ -1396,8 +1397,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCollectionIteratorAction_2007OutgoingLinks(view);
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_2008OutgoingLinks(view);
-		case AquireAction2EditPart.VISUAL_ID:
-			return getAquireAction_2009OutgoingLinks(view);
+		case AcquireActionEditPart.VISUAL_ID:
+			return getAcquireAction_2012OutgoingLinks(view);
 		case ReleaseAction2EditPart.VISUAL_ID:
 			return getReleaseAction_2010OutgoingLinks(view);
 		case ForkAction2EditPart.VISUAL_ID:
@@ -1430,14 +1431,14 @@ public class PalladioComponentModelDiagramUpdater {
 			return getResourceDemandingBehaviour_3011OutgoingLinks(view);
 		case ExternalCallAction2EditPart.VISUAL_ID:
 			return getExternalCallAction_3012OutgoingLinks(view);
-		case AquireActionEditPart.VISUAL_ID:
-			return getAquireAction_3019OutgoingLinks(view);
+		case AcquireAction2EditPart.VISUAL_ID:
+			return getAcquireAction_3026OutgoingLinks(view);
 		case ReleaseActionEditPart.VISUAL_ID:
 			return getReleaseAction_3020OutgoingLinks(view);
 		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_3023OutgoingLinks(view);
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-			return getResourceDemandingBehaviour_3021OutgoingLinks(view);
+		case ForkedBehaviourEditPart.VISUAL_ID:
+			return getForkedBehaviour_3027OutgoingLinks(view);
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013OutgoingLinks(view);
 		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
@@ -1556,8 +1557,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAquireAction_2009ContainedLinks(View view) {
-		AquireAction modelElement = (AquireAction) view.getElement();
+	public static List getAcquireAction_2012ContainedLinks(View view) {
+		AcquireAction modelElement = (AcquireAction) view.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
@@ -1715,8 +1716,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAquireAction_3019ContainedLinks(View view) {
-		AquireAction modelElement = (AquireAction) view.getElement();
+	public static List getAcquireAction_3026ContainedLinks(View view) {
+		AcquireAction modelElement = (AcquireAction) view.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
@@ -1748,8 +1749,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceDemandingBehaviour_3021ContainedLinks(
-			View view) {
+	public static List getForkedBehaviour_3027ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1930,8 +1930,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAquireAction_2009IncomingLinks(View view) {
-		AquireAction modelElement = (AquireAction) view.getElement();
+	public static List getAcquireAction_2012IncomingLinks(View view) {
+		AcquireAction modelElement = (AcquireAction) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
@@ -2114,8 +2114,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAquireAction_3019IncomingLinks(View view) {
-		AquireAction modelElement = (AquireAction) view.getElement();
+	public static List getAcquireAction_3026IncomingLinks(View view) {
+		AcquireAction modelElement = (AcquireAction) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
@@ -2156,7 +2156,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceDemandingBehaviour_3021IncomingLinks(View view) {
+	public static List getForkedBehaviour_3027IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -2317,8 +2317,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAquireAction_2009OutgoingLinks(View view) {
-		AquireAction modelElement = (AquireAction) view.getElement();
+	public static List getAcquireAction_2012OutgoingLinks(View view) {
+		AcquireAction modelElement = (AcquireAction) view.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
@@ -2474,8 +2474,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getAquireAction_3019OutgoingLinks(View view) {
-		AquireAction modelElement = (AquireAction) view.getElement();
+	public static List getAcquireAction_3026OutgoingLinks(View view) {
+		AcquireAction modelElement = (AcquireAction) view.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
@@ -2507,7 +2507,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceDemandingBehaviour_3021OutgoingLinks(View view) {
+	public static List getForkedBehaviour_3027OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

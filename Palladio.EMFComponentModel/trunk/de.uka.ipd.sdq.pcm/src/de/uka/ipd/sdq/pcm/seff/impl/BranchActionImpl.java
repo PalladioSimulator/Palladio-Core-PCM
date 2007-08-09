@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,9 +10,10 @@ import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
-import java.util.Collection;
 
+import java.util.Collection;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -26,14 +25,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
@@ -68,7 +72,6 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	 */
 	protected EList<AbstractBranchTransition> branches_Branch;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #EitherGuardedBranchesOrProbabilisiticBranchTransitions <em>Either Guarded Branches Or Probabilisitic Branch Transitions</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -77,7 +80,7 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	 * @generated
 	 */
 	private static OCLExpression EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #AllProbabilisticBranchProbabilitiesMustSumUpTo1 <em>All Probabilistic Branch Probabilities Must Sum Up To1</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -86,10 +89,9 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	 * @generated
 	 */
 	private static OCLExpression AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

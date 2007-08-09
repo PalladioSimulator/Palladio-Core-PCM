@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -103,7 +101,6 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @ordered
 	 */
 	protected EList<DataType> datatypes_Repository;
-
 
 	/**
 	 * <!-- begin-user-doc -->

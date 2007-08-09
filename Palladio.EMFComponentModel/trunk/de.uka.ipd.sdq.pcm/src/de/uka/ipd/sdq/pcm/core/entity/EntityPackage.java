@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity;
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -280,7 +280,6 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
-
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl <em>Composed Providing Requiring Entity</em>}' class.

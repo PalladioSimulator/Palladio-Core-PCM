@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -72,6 +71,34 @@ public interface RepositoryPackage extends EPackage {
 	RepositoryPackage eINSTANCE = de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl <em>Passive Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPassiveResource()
+	 * @generated
+	 */
+	int PASSIVE_RESOURCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Capacity Passive Resource</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Passive Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_RESOURCE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl <em>Signature</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,7 +106,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getSignature()
 	 * @generated
 	 */
-	int SIGNATURE = 0;
+	int SIGNATURE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Service Name</b></em>' attribute.
@@ -143,7 +170,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 1;
+	int PARAMETER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Datatype Parameter</b></em>' reference.
@@ -198,7 +225,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 2;
+	int DATA_TYPE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Repository Data Type</b></em>' container reference.
@@ -226,7 +253,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRepository()
 	 * @generated
 	 */
-	int REPOSITORY = 3;
+	int REPOSITORY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -299,7 +326,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
 	 * @generated
 	 */
-	int PROVIDES_COMPONENT_TYPE = 4;
+	int PROVIDES_COMPONENT_TYPE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -363,7 +390,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 6;
+	int ROLE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -400,7 +427,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
 	 * @generated
 	 */
-	int REQUIRED_ROLE = 5;
+	int REQUIRED_ROLE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -455,7 +482,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 7;
+	int INTERFACE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -537,7 +564,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
 	 * @generated
 	 */
-	int EXCEPTION_TYPE = 8;
+	int EXCEPTION_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Exception Name</b></em>' attribute.
@@ -574,7 +601,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
 	 * @generated
 	 */
-	int COMPLETE_COMPONENT_TYPE = 10;
+	int COMPLETE_COMPONENT_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -647,7 +674,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getImplementationComponentType()
 	 * @generated
 	 */
-	int IMPLEMENTATION_COMPONENT_TYPE = 9;
+	int IMPLEMENTATION_COMPONENT_TYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -729,7 +756,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
 	 * @generated
 	 */
-	int DELEGATION_CONNECTOR = 11;
+	int DELEGATION_CONNECTOR = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -766,7 +793,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeComponent()
 	 * @generated
 	 */
-	int COMPOSITE_COMPONENT = 12;
+	int COMPOSITE_COMPONENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -893,7 +920,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
 	 * @generated
 	 */
-	int BASIC_COMPONENT = 13;
+	int BASIC_COMPONENT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -977,13 +1004,22 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Passive Resource Basic Component</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Basic Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
+	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data Type</em>}' class.
@@ -993,7 +1029,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveDataType()
 	 * @generated
 	 */
-	int PRIMITIVE_DATA_TYPE = 14;
+	int PRIMITIVE_DATA_TYPE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Repository Data Type</b></em>' container reference.
@@ -1030,7 +1066,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCollectionDataType()
 	 * @generated
 	 */
-	int COLLECTION_DATA_TYPE = 15;
+	int COLLECTION_DATA_TYPE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1085,7 +1121,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeDataType()
 	 * @generated
 	 */
-	int COMPOSITE_DATA_TYPE = 16;
+	int COMPOSITE_DATA_TYPE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1149,7 +1185,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInnerDeclaration()
 	 * @generated
 	 */
-	int INNER_DECLARATION = 17;
+	int INNER_DECLARATION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -1186,7 +1222,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
 	 * @generated
 	 */
-	int PROVIDED_ROLE = 18;
+	int PROVIDED_ROLE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1241,7 +1277,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameterModifier()
 	 * @generated
 	 */
-	int PARAMETER_MODIFIER = 19;
+	int PARAMETER_MODIFIER = 20;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.
@@ -1251,8 +1287,29 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveTypeEnum()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPE_ENUM = 20;
+	int PRIMITIVE_TYPE_ENUM = 21;
 
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource <em>Passive Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Passive Resource</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.PassiveResource
+	 * @generated
+	 */
+	EClass getPassiveResource();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource <em>Capacity Passive Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Capacity Passive Resource</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource()
+	 * @see #getPassiveResource()
+	 * @generated
+	 */
+	EReference getPassiveResource_Capacity_PassiveResource();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Signature <em>Signature</em>}'.
@@ -1714,6 +1771,17 @@ public interface RepositoryPackage extends EPackage {
 	EReference getBasicComponent_ServiceEffectSpecifications__BasicComponent();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Passive Resource Basic Component</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent()
+	 * @see #getBasicComponent()
+	 * @generated
+	 */
+	EReference getBasicComponent_PassiveResource_BasicComponent();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType <em>Primitive Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1882,6 +1950,24 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl <em>Passive Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPassiveResource()
+		 * @generated
+		 */
+		EClass PASSIVE_RESOURCE = eINSTANCE.getPassiveResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Capacity Passive Resource</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE = eINSTANCE.getPassiveResource_Capacity_PassiveResource();
+
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl <em>Signature</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -2253,6 +2339,14 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = eINSTANCE.getBasicComponent_ServiceEffectSpecifications__BasicComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Passive Resource Basic Component</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT = eINSTANCE.getBasicComponent_PassiveResource_BasicComponent();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data Type</em>}' class.

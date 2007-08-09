@@ -1,14 +1,11 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.repository;
 
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
 import java.util.Map;
 
@@ -64,7 +61,6 @@ public interface CompositeComponent extends ImplementationComponentType, Compose
 	 */
 	void setImplementationComponentType(ImplementationComponentType value);
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,7 +85,6 @@ public interface CompositeComponent extends ImplementationComponentType, Compose
 	 * @generated
 	 */
 	boolean ProvideSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context);
-
 
 	/**
 	 * <!-- begin-user-doc -->

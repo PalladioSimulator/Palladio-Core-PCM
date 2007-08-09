@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.usagemodel.DelayTime;
 
-import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
+import de.uka.ipd.sdq.stoex.provider.PCMRandomVariableItemProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,7 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class DelayTimeItemProvider
-	extends RandomVariableItemProvider
+	extends PCMRandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

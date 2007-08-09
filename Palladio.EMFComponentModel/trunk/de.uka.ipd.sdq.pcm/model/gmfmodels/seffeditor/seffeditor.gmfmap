@@ -638,14 +638,12 @@
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
               readOnly="true"
-              viewPattern="{0} {1}"
+              viewPattern="{0}"
               editPattern="{0}">
             <diagramLabel
                 href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>
             <features
                 href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
-            <features
-                href="../../pcm.ecore#//seff/ParametricResourceDemand/unit"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -878,7 +876,7 @@
         href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
     <ownedChild>
       <domainMetaElement
-          href="../../pcm.ecore#//seff/AquireAction"/>
+          href="../../pcm.ecore#//seff/AcquireAction"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping"
           editPattern="">
@@ -940,12 +938,12 @@
       <children
           compartment="//@nodes.10/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../pcm.ecore#//seff/ForkAction/forkedBehaviours_Fork"/>
+            href="../../pcm.ecore#//seff/ForkAction/asynchronousForkedBehaviours_ForkAction"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/ForkAction/forkedBehaviours_Fork"/>
+            href="../../pcm.ecore#//seff/ForkAction/asynchronousForkedBehaviours_ForkAction"/>
         <ownedChild>
           <domainMetaElement
-              href="../../pcm.ecore#//seff/ResourceDemandingBehaviour"/>
+              href="../../pcm.ecore#//seff/ForkedBehaviour"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="seffeditor.gmftool#//@palette/@tools.2/@tools.0"/>

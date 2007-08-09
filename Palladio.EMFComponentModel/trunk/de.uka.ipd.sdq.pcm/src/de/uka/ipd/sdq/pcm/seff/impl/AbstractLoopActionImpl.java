@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -49,7 +47,6 @@ public abstract class AbstractLoopActionImpl extends AbstractResourceDemandingAc
 	 * @ordered
 	 */
 	protected ResourceDemandingBehaviour bodyBehaviour_Loop;
-
 
 	/**
 	 * <!-- begin-user-doc -->

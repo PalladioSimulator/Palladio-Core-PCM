@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -68,7 +67,6 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY: return createResourceRepository();
-			case ResourcetypePackage.PASSIVE_RESOURCE_TYPE: return createPassiveResourceType();
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: return createCommunicationLinkResourceType();
 			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
 			default:
@@ -84,16 +82,6 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	public ResourceRepository createResourceRepository() {
 		ResourceRepositoryImpl resourceRepository = new ResourceRepositoryImpl();
 		return resourceRepository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PassiveResourceType createPassiveResourceType() {
-		PassiveResourceTypeImpl passiveResourceType = new PassiveResourceTypeImpl();
-		return passiveResourceType;
 	}
 
 	/**

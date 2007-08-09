@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -64,7 +62,6 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 	 * @ordered
 	 */
 	protected AssemblyContext assemblyContext_AllocationContext;
-
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -70,7 +68,6 @@ public abstract class ImplementationComponentTypeImpl extends CompleteComponentT
 	 */
 	protected EList<CompleteComponentType> parentCompleteComponentTypes;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #RequiredInterfacesHaveToConformToCompleteType <em>Required Interfaces Have To Conform To Complete Type</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -122,7 +119,6 @@ public abstract class ImplementationComponentTypeImpl extends CompleteComponentT
 		return parentCompleteComponentTypes;
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,7 +157,6 @@ public abstract class ImplementationComponentTypeImpl extends CompleteComponentT
 		return true;
 		
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

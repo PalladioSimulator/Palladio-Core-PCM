@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,7 +8,9 @@ package de.uka.ipd.sdq.pcm.resourceenvironment;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getUnits <em>Units</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,56 +95,30 @@ public interface ProcessingResourceSpecification extends EObject {
 	void setActiveResourceType_ActiveResourceSpecification(ProcessingResourceType value);
 
 	/**
-	 * Returns the value of the '<em><b>Processing Rate</b></em>' attribute.
+	 * Returns the value of the '<em><b>Processing Rate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Processing Rate</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Processing Rate</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Processing Rate</em>' attribute.
-	 * @see #setProcessingRate(double)
+	 * @return the value of the '<em>Processing Rate</em>' containment reference.
+	 * @see #setProcessingRate(ProcessingRate)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ProcessingRate()
-	 * @model required="true" ordered="false"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	double getProcessingRate();
+	ProcessingRate getProcessingRate();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Processing Rate</em>' attribute.
+	 * @param value the new value of the '<em>Processing Rate</em>' containment reference.
 	 * @see #getProcessingRate()
 	 * @generated
 	 */
-	void setProcessingRate(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Units</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Units</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Units</em>' attribute.
-	 * @see #setUnits(String)
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_Units()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	String getUnits();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getUnits <em>Units</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Units</em>' attribute.
-	 * @see #getUnits()
-	 * @generated
-	 */
-	void setUnits(String value);
+	void setProcessingRate(ProcessingRate value);
 
 	/**
 	 * <!-- begin-user-doc -->

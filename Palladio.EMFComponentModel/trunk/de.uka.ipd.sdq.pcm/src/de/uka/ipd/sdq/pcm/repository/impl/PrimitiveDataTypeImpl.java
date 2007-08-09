@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -57,7 +55,6 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 	 * @ordered
 	 */
 	protected PrimitiveTypeEnum type = TYPE_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

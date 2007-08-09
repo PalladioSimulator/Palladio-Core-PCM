@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -59,7 +57,6 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
 	 * @ordered
 	 */
 	protected String entityName = ENTITY_NAME_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

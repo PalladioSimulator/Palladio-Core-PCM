@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -91,6 +90,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected RepositorySwitch<Adapter> modelSwitch =
 		new RepositorySwitch<Adapter>() {
+			@Override
+			public Adapter casePassiveResource(PassiveResource object) {
+				return createPassiveResourceAdapter();
+			}
 			@Override
 			public Adapter caseSignature(Signature object) {
 				return createSignatureAdapter();
@@ -222,6 +225,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource <em>Passive Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.PassiveResource
+	 * @generated
+	 */
+	public Adapter createPassiveResourceAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Signature <em>Signature</em>}'.

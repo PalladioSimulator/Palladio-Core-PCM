@@ -25,8 +25,8 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
@@ -43,6 +43,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehaviours2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
@@ -55,10 +57,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -310,7 +310,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
-					AquireAction2EditPart.VISUAL_ID);
+					AcquireActionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
@@ -598,13 +598,13 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case AquireAction2EditPart.VISUAL_ID: {
+		case AcquireActionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_AquireAction_2009_incominglinks,
+					Messages.NavigatorGroupName_AcquireAction_2012_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_AquireAction_2009_outgoinglinks,
+					Messages.NavigatorGroupName_AcquireAction_2012_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(Collections
 					.singleton(view),
@@ -664,7 +664,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					.singleton(view),
 					ForkActionForkedBehaviours2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+					ForkedBehaviourEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
@@ -758,7 +758,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(Collections.singleton(view),
 					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					AquireActionEditPart.VISUAL_ID);
+					AcquireAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
@@ -1000,7 +1000,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Collections.singleton(view),
 					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					AquireActionEditPart.VISUAL_ID);
+					AcquireAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -1074,13 +1074,13 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case AquireActionEditPart.VISUAL_ID: {
+		case AcquireAction2EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_AquireAction_3019_incominglinks,
+					Messages.NavigatorGroupName_AcquireAction_3026_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_AquireAction_3019_outgoinglinks,
+					Messages.NavigatorGroupName_AcquireAction_3026_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getIncomingLinksByType(Collections
 					.singleton(view),
@@ -1140,7 +1140,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					.singleton(view),
 					ForkActionForkedBehavioursEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+					ForkedBehaviourEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
@@ -1162,74 +1162,65 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID: {
+		case ForkedBehaviourEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
-			Collection connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(Collections
+					.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					StartAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					StopAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					LoopAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					InternalActionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchActionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ExternalCallAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					CollectionIteratorActionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					AquireActionEditPart.VISUAL_ID);
+					AcquireAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ReleaseActionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ForkActionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -1324,7 +1315,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Collections.singleton(view),
 					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					AquireActionEditPart.VISUAL_ID);
+					AcquireAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -1448,7 +1439,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Collections.singleton(view),
 					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					AquireActionEditPart.VISUAL_ID);
+					AcquireAction2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(
@@ -1523,7 +1514,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					AquireAction2EditPart.VISUAL_ID);
+					AcquireActionEditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
@@ -1559,7 +1550,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					AquireActionEditPart.VISUAL_ID);
+					AcquireAction2EditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
@@ -1611,7 +1602,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					AquireAction2EditPart.VISUAL_ID);
+					AcquireActionEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
@@ -1647,7 +1638,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					AquireActionEditPart.VISUAL_ID);
+					AcquireAction2EditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),

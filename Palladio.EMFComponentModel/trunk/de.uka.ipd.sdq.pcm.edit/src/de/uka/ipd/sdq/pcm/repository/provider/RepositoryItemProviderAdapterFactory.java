@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -80,6 +79,29 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.PassiveResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PassiveResourceItemProvider passiveResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPassiveResourceAdapter() {
+		if (passiveResourceItemProvider == null) {
+			passiveResourceItemProvider = new PassiveResourceItemProvider(this);
+		}
+
+		return passiveResourceItemProvider;
 	}
 
 	/**
@@ -526,6 +548,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
+		if (passiveResourceItemProvider != null) passiveResourceItemProvider.dispose();
 		if (signatureItemProvider != null) signatureItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();

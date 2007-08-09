@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -42,7 +40,6 @@ public abstract class DataTypeImpl extends EObjectImpl implements DataType {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 
 	/**
 	 * <!-- begin-user-doc -->

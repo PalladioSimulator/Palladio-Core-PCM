@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -107,6 +106,12 @@ public class RepositorySwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case RepositoryPackage.PASSIVE_RESOURCE: {
+				PassiveResource passiveResource = (PassiveResource)theEObject;
+				T result = casePassiveResource(passiveResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RepositoryPackage.SIGNATURE: {
 				Signature signature = (Signature)theEObject;
 				T result = caseSignature(signature);
@@ -295,6 +300,21 @@ public class RepositorySwitch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePassiveResource(PassiveResource object) {
+		return null;
 	}
 
 	/**

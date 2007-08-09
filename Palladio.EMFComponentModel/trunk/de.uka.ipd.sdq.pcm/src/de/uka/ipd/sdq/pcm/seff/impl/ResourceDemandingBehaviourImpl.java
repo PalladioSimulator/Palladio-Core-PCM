@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,9 +10,10 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
-import java.util.Collection;
 
+import java.util.Collection;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -28,14 +27,19 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
@@ -70,7 +74,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 */
 	protected EList<AbstractAction> steps_Behaviour;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStopAction <em>Exactly One Stop Action</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -79,7 +82,7 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * @generated
 	 */
 	private static OCLExpression ExactlyOneStopActionInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStartAction <em>Exactly One Start Action</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -88,7 +91,7 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * @generated
 	 */
 	private static OCLExpression ExactlyOneStartActionInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -97,10 +100,9 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * @generated
 	 */
 	private static OCLExpression EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

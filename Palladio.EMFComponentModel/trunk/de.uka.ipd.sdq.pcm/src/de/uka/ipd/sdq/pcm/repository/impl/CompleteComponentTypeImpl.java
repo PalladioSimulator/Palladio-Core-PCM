@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -70,7 +68,6 @@ public class CompleteComponentTypeImpl extends ProvidesComponentTypeImpl impleme
 	 */
 	protected EList<ProvidesComponentType> parentProvidesComponentTypes;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -122,7 +119,6 @@ public class CompleteComponentTypeImpl extends ProvidesComponentTypeImpl impleme
 		return parentProvidesComponentTypes;
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,7 +157,6 @@ public class CompleteComponentTypeImpl extends ProvidesComponentTypeImpl impleme
 		return true;
 		
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

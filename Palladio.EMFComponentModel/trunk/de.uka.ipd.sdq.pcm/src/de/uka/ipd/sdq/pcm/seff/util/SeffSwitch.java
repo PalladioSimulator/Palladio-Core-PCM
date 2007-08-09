@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,6 +12,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.seff.*;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 import java.util.List;
@@ -134,6 +134,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND: {
 				ParametricResourceDemand parametricResourceDemand = (ParametricResourceDemand)theEObject;
 				T result = caseParametricResourceDemand(parametricResourceDemand);
+				if (result == null) result = casePCMRandomVariable(parametricResourceDemand);
 				if (result == null) result = caseRandomVariable(parametricResourceDemand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -201,6 +202,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.ITERATION_COUNT: {
 				IterationCount iterationCount = (IterationCount)theEObject;
 				T result = caseIterationCount(iterationCount);
+				if (result == null) result = casePCMRandomVariable(iterationCount);
 				if (result == null) result = caseRandomVariable(iterationCount);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -224,6 +226,27 @@ public class SeffSwitch<T> {
 				if (result == null) result = caseEntity(forkAction);
 				if (result == null) result = caseIdentifier(forkAction);
 				if (result == null) result = caseNamedElement(forkAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.FORKED_BEHAVIOUR: {
+				ForkedBehaviour forkedBehaviour = (ForkedBehaviour)theEObject;
+				T result = caseForkedBehaviour(forkedBehaviour);
+				if (result == null) result = caseResourceDemandingBehaviour(forkedBehaviour);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.NUMBER_OF_REPLICAS: {
+				NumberOfReplicas numberOfReplicas = (NumberOfReplicas)theEObject;
+				T result = caseNumberOfReplicas(numberOfReplicas);
+				if (result == null) result = casePCMRandomVariable(numberOfReplicas);
+				if (result == null) result = caseRandomVariable(numberOfReplicas);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.SYNCHRONISATION_POINT: {
+				SynchronisationPoint synchronisationPoint = (SynchronisationPoint)theEObject;
+				T result = caseSynchronisationPoint(synchronisationPoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -263,20 +286,21 @@ public class SeffSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SeffPackage.AQUIRE_ACTION: {
-				AquireAction aquireAction = (AquireAction)theEObject;
-				T result = caseAquireAction(aquireAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(aquireAction);
-				if (result == null) result = caseAbstractAction(aquireAction);
-				if (result == null) result = caseEntity(aquireAction);
-				if (result == null) result = caseIdentifier(aquireAction);
-				if (result == null) result = caseNamedElement(aquireAction);
+			case SeffPackage.ACQUIRE_ACTION: {
+				AcquireAction acquireAction = (AcquireAction)theEObject;
+				T result = caseAcquireAction(acquireAction);
+				if (result == null) result = caseAbstractResourceDemandingAction(acquireAction);
+				if (result == null) result = caseAbstractAction(acquireAction);
+				if (result == null) result = caseEntity(acquireAction);
+				if (result == null) result = caseIdentifier(acquireAction);
+				if (result == null) result = caseNamedElement(acquireAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SeffPackage.BRANCH_CONDITION: {
 				BranchCondition branchCondition = (BranchCondition)theEObject;
 				T result = caseBranchCondition(branchCondition);
+				if (result == null) result = casePCMRandomVariable(branchCondition);
 				if (result == null) result = caseRandomVariable(branchCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -518,6 +542,51 @@ public class SeffSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Forked Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Forked Behaviour</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseForkedBehaviour(ForkedBehaviour object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Of Replicas</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Of Replicas</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberOfReplicas(NumberOfReplicas object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Synchronisation Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Synchronisation Point</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSynchronisationPoint(SynchronisationPoint object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>External Call Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -578,17 +647,17 @@ public class SeffSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aquire Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Acquire Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aquire Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Acquire Action</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAquireAction(AquireAction object) {
+	public T caseAcquireAction(AcquireAction object) {
 		return null;
 	}
 
@@ -724,6 +793,21 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseRandomVariable(RandomVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMRandomVariable(PCMRandomVariable object) {
 		return null;
 	}
 

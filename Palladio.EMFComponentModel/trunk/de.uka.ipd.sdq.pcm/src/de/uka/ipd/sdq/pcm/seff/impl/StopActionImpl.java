@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,18 +9,27 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
+
 import java.util.Map;
+
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
@@ -43,7 +50,6 @@ public class StopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #StopActionSuccessorMustNotBeDefined <em>Stop Action Successor Must Not Be Defined</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -52,11 +58,9 @@ public class StopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 * @generated
 	 */
 	private static OCLExpression StopActionSuccessorMustNotBeDefinedInvOCL;
-
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

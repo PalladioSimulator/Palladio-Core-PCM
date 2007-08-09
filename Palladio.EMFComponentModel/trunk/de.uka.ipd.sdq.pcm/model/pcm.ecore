@@ -179,6 +179,10 @@
   </eSubpackages>
   <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
       nsPrefix="pcm.repository">
+    <eClassifiers xsi:type="ecore:EClass" name="PassiveResource">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capacity_PassiveResource"
+          ordered="false" lowerBound="1" eType="#//parameter/VariableUsage" containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ParameterModifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Parameter modifiers like known from C#."/>
@@ -544,6 +548,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecifications__BasicComponent"
           ordered="false" upperBound="-1" eType="#//seff/ServiceEffectSpecification"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource_BasicComponent"
+          ordered="false" upperBound="-1" eType="#//repository/PassiveResource" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//repository/DataType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
@@ -580,17 +586,6 @@
           eOpposite="#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"
-      nsPrefix="pcm.protocol">
-    <eClassifiers xsi:type="ecore:EClass" name="ServiceCall" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature__ServiceCall"
-          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Protocol" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolTypeID" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-  </eSubpackages>
   <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
       nsPrefix="pcm.parameter">
     <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
@@ -600,7 +595,7 @@
       <eLiterals name="BYTESIZE" value="3"/>
       <eLiterals name="TYPE" value="4"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
           lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
     </eClassifiers>
@@ -615,6 +610,17 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference_VariableUsage"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
           containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"
+      nsPrefix="pcm.protocol">
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceCall" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature__ServiceCall"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Protocol" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolTypeID" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
@@ -652,7 +658,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="successor_AbstractAction"
           ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/predecessor_AbstractAction"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+    <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable">
       <eOperations name="ParametricResourceDemandSpecificationMustNotBeNULL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.specification&lt;>'' and not self.specification.oclIsUndefined()&#xD;&#xA;"/>
@@ -672,8 +678,6 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" ordered="false"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource_ParametricResourceDemand"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
@@ -765,8 +769,8 @@
           upperBound="-1" eType="#//seff/AbstractAction" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReleaseAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Release"
-          ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource_ReleaseAction"
+          ordered="false" lowerBound="1" eType="#//repository/PassiveResource"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LoopAction" eSuperTypes="#//seff/AbstractLoopAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_LoopAction"
@@ -777,16 +781,28 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IterationCount" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IterationCount" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ForkAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="forkedBehaviours_Fork"
-          ordered="false" upperBound="-1" eType="#//seff/ResourceDemandingBehaviour"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="asynchronousForkedBehaviours_ForkAction"
+          ordered="false" upperBound="-1" eType="#//seff/ForkedBehaviour" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="synchronisingBehaviours_ForkAction"
+          ordered="false" lowerBound="1" eType="#//seff/SynchronisationPoint" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ForkedBehaviour" eSuperTypes="#//seff/ResourceDemandingBehaviour">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfReplicas_ForkedBehaviour"
+          ordered="false" lowerBound="1" eType="#//seff/NumberOfReplicas" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberOfReplicas" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SynchronisationPoint">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="synchronousForkedBehaviours_SynchronisationPoint"
+          ordered="false" upperBound="-1" eType="#//seff/ForkedBehaviour" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableUsage_SynchronisationPoint"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExternalCallAction" eSuperTypes="#//seff/AbstractAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
@@ -795,6 +811,8 @@
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableUsage_ExternalCallAction"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role_ExternalService"
+          ordered="false" lowerBound="1" eType="#//repository/Role"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
@@ -848,11 +866,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="branches_Branch" ordered="false"
           upperBound="-1" eType="#//seff/AbstractBranchTransition" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AquireAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Aquire"
-          ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AcquireAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="passiveresource_AcquireAction"
+          ordered="false" lowerBound="1" eType="#//repository/PassiveResource"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BranchCondition" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchCondition" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="CollectionIteratorAction" eSuperTypes="#//seff/AbstractLoopAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_CollectionIteratorAction"
           ordered="false" lowerBound="1" eType="#//repository/Parameter"/>
@@ -875,12 +893,11 @@
   </eSubpackages>
   <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"
       nsPrefix="pcm.resourcetype">
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity ../../de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
       <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
           ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
   </eSubpackages>
@@ -943,14 +960,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceSpecification">
       <eStructuralFeatures xsi:type="ecore:EReference" name="communicationLinkResourceType_CommunicationLinkResourceSpecification"
           ordered="false" lowerBound="1" eType="#//resourcetype/CommunicationLinkResourceType"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="throughput" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" ordered="false"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkLatency" ordered="false"
           lowerBound="1" eType="#//resourceenvironment/Latency" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="throughput" ordered="false"
+          lowerBound="1" eType="#//resourceenvironment/Throughput" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Latency" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Throughput" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification">
       <eOperations name="ProcessingRatemustbelargerthanzero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -975,28 +991,18 @@
           lowerBound="1" eType="#//resourceenvironment/SchedulingPolicy"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingRate" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" ordered="false"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processingRate" ordered="false"
+          lowerBound="1" eType="#//resourceenvironment/ProcessingRate" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="SchedulingPolicy">
       <eLiterals name="DELAY"/>
       <eLiterals name="PROCESSOR_SHARING" value="1"/>
       <eLiterals name="FCFS" value="2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResourceType_PassiveResourceSpecification"
-          ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingRate" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceContainer" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"
           ordered="false" upperBound="-1" eType="#//resourceenvironment/ProcessingResourceSpecification"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResourceSpecifications_ResourceContainer"
-          ordered="false" upperBound="-1" eType="#//resourceenvironment/PassiveResourceSpecification"
           containment="true"/>
     </eClassifiers>
   </eSubpackages>
@@ -1011,7 +1017,7 @@
   <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0"
       nsPrefix="pcm.qosannotations">
     <eClassifiers xsi:type="ecore:EClass" name="SpecifiedExecutionTime" abstract="true"
-        eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+        eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature_SpecifiedTimeConsumption"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="role_SpecifiedExecutionTime"
@@ -1187,14 +1193,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="interArrivalTime_OpenWorkload"
           ordered="false" lowerBound="1" eType="#//usagemodel/InterArrivalTime" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InterArrivalTime" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InterArrivalTime" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//usagemodel/AbstractUserAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_Loop" ordered="false"
           lowerBound="1" eType="#//usagemodel/LoopIterations" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LoopIterations" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LoopIterations" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="EntryLevelSystemCall" eSuperTypes="#//usagemodel/AbstractUserAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="actualParameterUsage_EntryLevelSystemCall"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
@@ -1249,7 +1255,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="thinkTime_ClosedWorkload"
           ordered="false" lowerBound="1" eType="#//usagemodel/ThinkTime" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ThinkTime" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ThinkTime" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//usagemodel/AbstractUserAction">
       <eOperations name="AllBranchProbabilitiesMustSumUpTo1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1283,6 +1289,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="time" ordered="false"
           lowerBound="1" eType="#//usagemodel/DelayTime" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DelayTime" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DelayTime" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//PCMRandomVariable"/>
   </eSubpackages>
 </ecore:EPackage>

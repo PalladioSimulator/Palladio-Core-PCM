@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -65,7 +63,6 @@ public interface ProvidesComponentType extends Entity, InterfaceProvidingRequiri
 	 * @generated
 	 */
 	void setRepository_ProvidesComponentType(Repository value);
-
 
 	/**
 	 * <!-- begin-user-doc -->

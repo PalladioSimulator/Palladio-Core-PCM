@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -66,6 +65,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -177,6 +178,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		IdentifierPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
@@ -373,7 +375,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		variableCharacterisationEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+		variableCharacterisationEClass.getESuperTypes().add(theStoexPackage.getPCMRandomVariable());
 		characterisedVariableEClass.getESuperTypes().add(theStoexPackage.getVariable());
 
 		// Initialize classes and features; add operations and parameters

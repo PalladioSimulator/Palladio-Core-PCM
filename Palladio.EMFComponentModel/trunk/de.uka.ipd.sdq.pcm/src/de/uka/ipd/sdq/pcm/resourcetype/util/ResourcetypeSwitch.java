@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,6 +11,8 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.resourcetype.*;
+
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 
 import java.util.List;
 
@@ -103,6 +104,7 @@ public class ResourcetypeSwitch<T> {
 				ResourceType resourceType = (ResourceType)theEObject;
 				T result = caseResourceType(resourceType);
 				if (result == null) result = caseEntity(resourceType);
+				if (result == null) result = caseUnitCarryingElement(resourceType);
 				if (result == null) result = caseIdentifier(resourceType);
 				if (result == null) result = caseNamedElement(resourceType);
 				if (result == null) result = defaultCase(theEObject);
@@ -114,22 +116,13 @@ public class ResourcetypeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourcetypePackage.PASSIVE_RESOURCE_TYPE: {
-				PassiveResourceType passiveResourceType = (PassiveResourceType)theEObject;
-				T result = casePassiveResourceType(passiveResourceType);
-				if (result == null) result = caseResourceType(passiveResourceType);
-				if (result == null) result = caseEntity(passiveResourceType);
-				if (result == null) result = caseIdentifier(passiveResourceType);
-				if (result == null) result = caseNamedElement(passiveResourceType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: {
 				CommunicationLinkResourceType communicationLinkResourceType = (CommunicationLinkResourceType)theEObject;
 				T result = caseCommunicationLinkResourceType(communicationLinkResourceType);
 				if (result == null) result = caseProcessingResourceType(communicationLinkResourceType);
 				if (result == null) result = caseResourceType(communicationLinkResourceType);
 				if (result == null) result = caseEntity(communicationLinkResourceType);
+				if (result == null) result = caseUnitCarryingElement(communicationLinkResourceType);
 				if (result == null) result = caseIdentifier(communicationLinkResourceType);
 				if (result == null) result = caseNamedElement(communicationLinkResourceType);
 				if (result == null) result = defaultCase(theEObject);
@@ -140,6 +133,7 @@ public class ResourcetypeSwitch<T> {
 				T result = caseProcessingResourceType(processingResourceType);
 				if (result == null) result = caseResourceType(processingResourceType);
 				if (result == null) result = caseEntity(processingResourceType);
+				if (result == null) result = caseUnitCarryingElement(processingResourceType);
 				if (result == null) result = caseIdentifier(processingResourceType);
 				if (result == null) result = caseNamedElement(processingResourceType);
 				if (result == null) result = defaultCase(theEObject);
@@ -176,21 +170,6 @@ public class ResourcetypeSwitch<T> {
 	 * @generated
 	 */
 	public T caseResourceRepository(ResourceRepository object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Passive Resource Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Passive Resource Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePassiveResourceType(PassiveResourceType object) {
 		return null;
 	}
 
@@ -266,6 +245,21 @@ public class ResourcetypeSwitch<T> {
 	 * @generated
 	 */
 	public T caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitCarryingElement(UnitCarryingElement object) {
 		return null;
 	}
 

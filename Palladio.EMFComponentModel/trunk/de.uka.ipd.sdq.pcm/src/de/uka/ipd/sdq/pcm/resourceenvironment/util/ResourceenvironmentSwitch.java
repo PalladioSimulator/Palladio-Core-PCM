@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -14,6 +13,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -128,15 +128,23 @@ public class ResourceenvironmentSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ResourceenvironmentPackage.THROUGHPUT: {
+				Throughput throughput = (Throughput)theEObject;
+				T result = caseThroughput(throughput);
+				if (result == null) result = caseRandomVariable(throughput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: {
 				ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification)theEObject;
 				T result = caseProcessingResourceSpecification(processingResourceSpecification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceenvironmentPackage.PASSIVE_RESOURCE_SPECIFICATION: {
-				PassiveResourceSpecification passiveResourceSpecification = (PassiveResourceSpecification)theEObject;
-				T result = casePassiveResourceSpecification(passiveResourceSpecification);
+			case ResourceenvironmentPackage.PROCESSING_RATE: {
+				ProcessingRate processingRate = (ProcessingRate)theEObject;
+				T result = caseProcessingRate(processingRate);
+				if (result == null) result = caseRandomVariable(processingRate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -214,6 +222,21 @@ public class ResourceenvironmentSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Throughput</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Throughput</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseThroughput(Throughput object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Processing Resource Specification</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -229,17 +252,17 @@ public class ResourceenvironmentSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Passive Resource Specification</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Processing Rate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Passive Resource Specification</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Processing Rate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePassiveResourceSpecification(PassiveResourceSpecification object) {
+	public T caseProcessingRate(ProcessingRate object) {
 		return null;
 	}
 

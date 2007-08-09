@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,7 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import de.uka.ipd.sdq.pcm.usagemodel.ThinkTime;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
-import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+import de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -23,14 +21,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ThinkTimeImpl extends RandomVariableImpl implements ThinkTime {
+public class ThinkTimeImpl extends PCMRandomVariableImpl implements ThinkTime {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 
 	/**
 	 * <!-- begin-user-doc -->

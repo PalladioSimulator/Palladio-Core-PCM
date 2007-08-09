@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -50,7 +48,6 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 	 * @ordered
 	 */
 	protected DataType datatype_InnerDeclaration;
-
 
 	/**
 	 * <!-- begin-user-doc -->

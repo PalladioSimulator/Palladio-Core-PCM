@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -155,7 +153,6 @@ public interface Signature extends EObject {
 	 * @generated
 	 */
 	EList<ExceptionType> getExceptions__Signature();
-
 
 	/**
 	 * <!-- begin-user-doc -->

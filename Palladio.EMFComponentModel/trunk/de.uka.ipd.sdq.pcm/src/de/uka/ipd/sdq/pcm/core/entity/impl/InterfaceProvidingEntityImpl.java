@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -55,7 +53,6 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 	 * @ordered
 	 */
 	protected EList<ProvidedRole> providedRoles_InterfaceProvidingEntity;
-
 
 	/**
 	 * <!-- begin-user-doc -->

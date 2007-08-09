@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,6 +10,8 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
 
 import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
+
+import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
 
@@ -58,6 +59,7 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 		     IdentifierEditPlugin.INSTANCE,
 		     ProbabilityFunctionEditPlugin.INSTANCE,
 		     StoexEditPlugin.INSTANCE,
+		     UnitsEditPlugin.INSTANCE,
 		   });
 	}
 

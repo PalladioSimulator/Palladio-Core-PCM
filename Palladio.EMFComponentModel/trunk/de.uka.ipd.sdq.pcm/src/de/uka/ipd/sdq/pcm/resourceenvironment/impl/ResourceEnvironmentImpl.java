@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -67,7 +65,6 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	 * @ordered
 	 */
 	protected EList<ResourceContainer> resourceContainer_ResourceEnvironment;
-
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -5,23 +5,19 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import java.util.Collection;
 import java.util.HashSet;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
-import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramUpdater;
-import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelNodeDescriptor;
-import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-
-import de.uka.ipd.sdq.pcm.seff.ForkAction;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
 import java.util.Set;
-import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramUpdater;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelNodeDescriptor;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
@@ -55,7 +51,7 @@ public class ForkActionForkedBehaviours2CanonicalEditPolicy extends
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+		case ForkedBehaviourEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != PalladioComponentModelVisualIDRegistry
 							.getNodeVisualID((View) getHost().getModel(), view
@@ -78,7 +74,7 @@ public class ForkActionForkedBehaviours2CanonicalEditPolicy extends
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(SeffPackage.eINSTANCE
-					.getForkAction_ForkedBehaviours_Fork());
+					.getForkAction_AsynchronousForkedBehaviours_ForkAction());
 		}
 		return myFeaturesToSynchronize;
 	}

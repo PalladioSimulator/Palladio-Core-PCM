@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -313,6 +312,75 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ForkedBehaviourItemProvider forkedBehaviourItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createForkedBehaviourAdapter() {
+		if (forkedBehaviourItemProvider == null) {
+			forkedBehaviourItemProvider = new ForkedBehaviourItemProvider(this);
+		}
+
+		return forkedBehaviourItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.NumberOfReplicas} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberOfReplicasItemProvider numberOfReplicasItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.NumberOfReplicas}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberOfReplicasAdapter() {
+		if (numberOfReplicasItemProvider == null) {
+			numberOfReplicasItemProvider = new NumberOfReplicasItemProvider(this);
+		}
+
+		return numberOfReplicasItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SynchronisationPointItemProvider synchronisationPointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSynchronisationPointAdapter() {
+		if (synchronisationPointItemProvider == null) {
+			synchronisationPointItemProvider = new SynchronisationPointItemProvider(this);
+		}
+
+		return synchronisationPointItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -382,26 +450,26 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.AquireAction} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.AcquireAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AquireActionItemProvider aquireActionItemProvider;
+	protected AcquireActionItemProvider acquireActionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.AquireAction}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.AcquireAction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAquireActionAdapter() {
-		if (aquireActionItemProvider == null) {
-			aquireActionItemProvider = new AquireActionItemProvider(this);
+	public Adapter createAcquireActionAdapter() {
+		if (acquireActionItemProvider == null) {
+			acquireActionItemProvider = new AcquireActionItemProvider(this);
 		}
 
-		return aquireActionItemProvider;
+		return acquireActionItemProvider;
 	}
 
 	/**
@@ -605,10 +673,13 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (iterationCountItemProvider != null) iterationCountItemProvider.dispose();
 		if (internalActionItemProvider != null) internalActionItemProvider.dispose();
 		if (forkActionItemProvider != null) forkActionItemProvider.dispose();
+		if (forkedBehaviourItemProvider != null) forkedBehaviourItemProvider.dispose();
+		if (numberOfReplicasItemProvider != null) numberOfReplicasItemProvider.dispose();
+		if (synchronisationPointItemProvider != null) synchronisationPointItemProvider.dispose();
 		if (externalCallActionItemProvider != null) externalCallActionItemProvider.dispose();
 		if (probabilisticBranchTransitionItemProvider != null) probabilisticBranchTransitionItemProvider.dispose();
 		if (branchActionItemProvider != null) branchActionItemProvider.dispose();
-		if (aquireActionItemProvider != null) aquireActionItemProvider.dispose();
+		if (acquireActionItemProvider != null) acquireActionItemProvider.dispose();
 		if (branchConditionItemProvider != null) branchConditionItemProvider.dispose();
 		if (collectionIteratorActionItemProvider != null) collectionIteratorActionItemProvider.dispose();
 		if (guardedBranchTransitionItemProvider != null) guardedBranchTransitionItemProvider.dispose();

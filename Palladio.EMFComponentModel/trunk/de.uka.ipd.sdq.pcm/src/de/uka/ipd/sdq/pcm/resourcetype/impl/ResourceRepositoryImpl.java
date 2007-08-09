@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -55,7 +53,6 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 	 * @ordered
 	 */
 	protected EList<ResourceType> availableResourceTypes_ResourceRepository;
-
 
 	/**
 	 * <!-- begin-user-doc -->

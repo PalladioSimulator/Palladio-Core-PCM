@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,8 +7,10 @@ package de.uka.ipd.sdq.pcm.seff;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
-import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getUnit <em>Unit</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
@@ -31,39 +30,13 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * @model
  * @generated
  */
-public interface ParametricResourceDemand extends RandomVariable {
+public interface ParametricResourceDemand extends PCMRandomVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Unit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Unit</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unit</em>' attribute.
-	 * @see #setUnit(String)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getParametricResourceDemand_Unit()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	String getUnit();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getUnit <em>Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unit</em>' attribute.
-	 * @see #getUnit()
-	 * @generated
-	 */
-	void setUnit(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference.

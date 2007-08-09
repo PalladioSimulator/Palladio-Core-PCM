@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -97,7 +95,6 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * @ordered
 	 */
 	protected ParameterModifier modifier__Parameter = MODIFIER_PARAMETER_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

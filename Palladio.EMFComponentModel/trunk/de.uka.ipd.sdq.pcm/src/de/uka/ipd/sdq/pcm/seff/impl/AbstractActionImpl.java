@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -61,7 +59,6 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 	 * @ordered
 	 */
 	protected AbstractAction successor_AbstractAction;
-
 
 	/**
 	 * <!-- begin-user-doc -->

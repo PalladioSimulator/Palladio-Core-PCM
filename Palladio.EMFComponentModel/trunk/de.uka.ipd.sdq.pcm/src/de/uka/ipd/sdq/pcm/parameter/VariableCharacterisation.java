@@ -1,13 +1,11 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
-import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +23,7 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * @model
  * @generated
  */
-public interface VariableCharacterisation extends RandomVariable {
+public interface VariableCharacterisation extends PCMRandomVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

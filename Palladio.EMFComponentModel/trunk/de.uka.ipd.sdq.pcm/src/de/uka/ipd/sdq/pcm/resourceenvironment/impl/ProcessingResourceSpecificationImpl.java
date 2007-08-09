@@ -1,37 +1,46 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentValidator;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
@@ -45,7 +54,6 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getProcessingRate <em>Processing Rate</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getUnits <em>Units</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,45 +98,14 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	protected ProcessingResourceType activeResourceType_ActiveResourceSpecification;
 
 	/**
-	 * The default value of the '{@link #getProcessingRate() <em>Processing Rate</em>}' attribute.
+	 * The cached value of the '{@link #getProcessingRate() <em>Processing Rate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProcessingRate()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double PROCESSING_RATE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getProcessingRate() <em>Processing Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProcessingRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double processingRate = PROCESSING_RATE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getUnits() <em>Units</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnits()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String UNITS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnits()
-	 * @generated
-	 * @ordered
-	 */
-	protected String units = UNITS_EDEFAULT;
-
+	protected ProcessingRate processingRate;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ProcessingRatemustbelargerthanzero <em>Processing Ratemustbelargerthanzero</em>}' invariant constraint.
@@ -138,10 +115,9 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	private static OCLExpression ProcessingRatemustbelargerthanzeroInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,7 +201,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getProcessingRate() {
+	public ProcessingRate getProcessingRate() {
 		return processingRate;
 	}
 
@@ -234,11 +210,14 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProcessingRate(double newProcessingRate) {
-		double oldProcessingRate = processingRate;
+	public NotificationChain basicSetProcessingRate(ProcessingRate newProcessingRate, NotificationChain msgs) {
+		ProcessingRate oldProcessingRate = processingRate;
 		processingRate = newProcessingRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, oldProcessingRate, processingRate));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, oldProcessingRate, newProcessingRate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -246,20 +225,18 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUnits() {
-		return units;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUnits(String newUnits) {
-		String oldUnits = units;
-		units = newUnits;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS, oldUnits, units));
+	public void setProcessingRate(ProcessingRate newProcessingRate) {
+		if (newProcessingRate != processingRate) {
+			NotificationChain msgs = null;
+			if (processingRate != null)
+				msgs = ((InternalEObject)processingRate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, null, msgs);
+			if (newProcessingRate != null)
+				msgs = ((InternalEObject)newProcessingRate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, null, msgs);
+			msgs = basicSetProcessingRate(newProcessingRate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, newProcessingRate, newProcessingRate));
 	}
 
 	/**
@@ -307,6 +284,20 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
+				return basicSetProcessingRate(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
@@ -315,9 +306,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				if (resolve) return getActiveResourceType_ActiveResourceSpecification();
 				return basicGetActiveResourceType_ActiveResourceSpecification();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				return new Double(getProcessingRate());
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS:
-				return getUnits();
+				return getProcessingRate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -337,10 +326,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				setActiveResourceType_ActiveResourceSpecification((ProcessingResourceType)newValue);
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				setProcessingRate(((Double)newValue).doubleValue());
-				return;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS:
-				setUnits((String)newValue);
+				setProcessingRate((ProcessingRate)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -361,10 +347,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				setActiveResourceType_ActiveResourceSpecification((ProcessingResourceType)null);
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				setProcessingRate(PROCESSING_RATE_EDEFAULT);
-				return;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS:
-				setUnits(UNITS_EDEFAULT);
+				setProcessingRate((ProcessingRate)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -383,9 +366,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				return activeResourceType_ActiveResourceSpecification != null;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				return processingRate != PROCESSING_RATE_EDEFAULT;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS:
-				return UNITS_EDEFAULT == null ? units != null : !UNITS_EDEFAULT.equals(units);
+				return processingRate != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -402,10 +383,6 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (schedulingPolicy: ");
 		result.append(schedulingPolicy);
-		result.append(", processingRate: ");
-		result.append(processingRate);
-		result.append(", units: ");
-		result.append(units);
 		result.append(')');
 		return result.toString();
 	}

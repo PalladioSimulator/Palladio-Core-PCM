@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -49,7 +47,6 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
 	 * @ordered
 	 */
 	protected IterationCount iterations_LoopAction;
-
 
 	/**
 	 * <!-- begin-user-doc -->

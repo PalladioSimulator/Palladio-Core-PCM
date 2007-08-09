@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -50,7 +48,6 @@ public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl i
 	 * @ordered
 	 */
 	protected VariableUsage variableUsage_SetVariableAction;
-
 
 	/**
 	 * <!-- begin-user-doc -->

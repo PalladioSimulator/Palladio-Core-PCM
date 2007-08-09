@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,24 +10,33 @@ import de.uka.ipd.sdq.pcm.usagemodel.ThinkTime;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
+
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
@@ -85,7 +92,6 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 */
 	protected ThinkTime thinkTime_ClosedWorkload;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #PopulationInClosedWorkloadNeedsToBeSpecified <em>Population In Closed Workload Needs To Be Specified</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -94,7 +100,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * @generated
 	 */
 	private static OCLExpression PopulationInClosedWorkloadNeedsToBeSpecifiedInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ThinkTimeInClosedWorkloadNeedsToBeSpecified <em>Think Time In Closed Workload Needs To Be Specified</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -103,10 +109,9 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * @generated
 	 */
 	private static OCLExpression ThinkTimeInClosedWorkloadNeedsToBeSpecifiedInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -14,6 +13,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -101,12 +101,16 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 				return createLatencyAdapter();
 			}
 			@Override
+			public Adapter caseThroughput(Throughput object) {
+				return createThroughputAdapter();
+			}
+			@Override
 			public Adapter caseProcessingResourceSpecification(ProcessingResourceSpecification object) {
 				return createProcessingResourceSpecificationAdapter();
 			}
 			@Override
-			public Adapter casePassiveResourceSpecification(PassiveResourceSpecification object) {
-				return createPassiveResourceSpecificationAdapter();
+			public Adapter caseProcessingRate(ProcessingRate object) {
+				return createProcessingRateAdapter();
 			}
 			@Override
 			public Adapter caseResourceContainer(ResourceContainer object) {
@@ -205,6 +209,20 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Throughput <em>Throughput</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Throughput
+	 * @generated
+	 */
+	public Adapter createThroughputAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification <em>Processing Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -219,16 +237,16 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification <em>Passive Resource Specification</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate <em>Processing Rate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate
 	 * @generated
 	 */
-	public Adapter createPassiveResourceSpecificationAdapter() {
+	public Adapter createProcessingRateAdapter() {
 		return null;
 	}
 

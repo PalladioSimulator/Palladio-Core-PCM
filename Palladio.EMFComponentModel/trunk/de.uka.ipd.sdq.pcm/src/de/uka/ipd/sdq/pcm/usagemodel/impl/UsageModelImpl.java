@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -55,7 +53,6 @@ public class UsageModelImpl extends EObjectImpl implements UsageModel {
 	 * @ordered
 	 */
 	protected EList<UsageScenario> usageScenario_UsageModel;
-
 
 	/**
 	 * <!-- begin-user-doc -->

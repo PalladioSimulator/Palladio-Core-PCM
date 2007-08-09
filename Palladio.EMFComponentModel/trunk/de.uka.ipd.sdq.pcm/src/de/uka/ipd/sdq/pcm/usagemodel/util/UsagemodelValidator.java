@@ -9,6 +9,8 @@ import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 
 import de.uka.ipd.sdq.pcm.usagemodel.*;
 
+import de.uka.ipd.sdq.stoex.util.StoexValidator;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -147,6 +149,14 @@ public class UsagemodelValidator extends EObjectValidator {
 	protected IdentifierValidator identifierValidator;
 
 	/**
+	 * The cached base package validator.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StoexValidator stoexValidator;
+
+	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +165,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	public UsagemodelValidator() {
 		super();
 		identifierValidator = IdentifierValidator.INSTANCE;
+		stoexValidator = StoexValidator.INSTANCE;
 	}
 
 	/**
@@ -409,7 +420,15 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInterArrivalTime(InterArrivalTime interArrivalTime, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(interArrivalTime, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(interArrivalTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(interArrivalTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(interArrivalTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(interArrivalTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(interArrivalTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(interArrivalTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(interArrivalTime, diagnostics, context);
+		if (result || diagnostics != null) result &= stoexValidator.validatePCMRandomVariable_SpecificationMustNotBeNULL(interArrivalTime, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -435,7 +454,15 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateLoopIterations(LoopIterations loopIterations, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(loopIterations, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(loopIterations, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(loopIterations, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(loopIterations, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(loopIterations, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(loopIterations, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(loopIterations, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(loopIterations, diagnostics, context);
+		if (result || diagnostics != null) result &= stoexValidator.validatePCMRandomVariable_SpecificationMustNotBeNULL(loopIterations, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -499,7 +526,15 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateThinkTime(ThinkTime thinkTime, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(thinkTime, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(thinkTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(thinkTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(thinkTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(thinkTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(thinkTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(thinkTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(thinkTime, diagnostics, context);
+		if (result || diagnostics != null) result &= stoexValidator.validatePCMRandomVariable_SpecificationMustNotBeNULL(thinkTime, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -562,7 +597,15 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDelayTime(DelayTime delayTime, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(delayTime, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(delayTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(delayTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(delayTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(delayTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(delayTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(delayTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(delayTime, diagnostics, context);
+		if (result || diagnostics != null) result &= stoexValidator.validatePCMRandomVariable_SpecificationMustNotBeNULL(delayTime, diagnostics, context);
+		return result;
 	}
 
 } //UsagemodelValidator

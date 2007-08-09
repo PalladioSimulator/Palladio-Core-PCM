@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -56,7 +54,6 @@ public abstract class InterfaceProvidingRequiringEntityImpl extends InterfacePro
 	 * @ordered
 	 */
 	protected EList<RequiredRole> requiredRoles_InterfaceRequiringEntity;
-
 
 	/**
 	 * <!-- begin-user-doc -->

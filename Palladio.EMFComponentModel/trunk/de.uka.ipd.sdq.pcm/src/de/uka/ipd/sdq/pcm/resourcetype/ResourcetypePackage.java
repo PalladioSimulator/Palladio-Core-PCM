@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -96,13 +95,31 @@ public interface ResourcetypePackage extends EPackage {
 	int RESOURCE_TYPE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_TYPE__UNIT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_TYPE__UNIT_SPECIFICATION = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Resource Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+	int RESOURCE_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl <em>Resource Repository</em>}' class.
@@ -133,16 +150,6 @@ public interface ResourcetypePackage extends EPackage {
 	int RESOURCE_REPOSITORY_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.PassiveResourceTypeImpl <em>Passive Resource Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.PassiveResourceTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getPassiveResourceType()
-	 * @generated
-	 */
-	int PASSIVE_RESOURCE_TYPE = 2;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl <em>Processing Resource Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,34 +157,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getProcessingResourceType()
 	 * @generated
 	 */
-	int PROCESSING_RESOURCE_TYPE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PASSIVE_RESOURCE_TYPE__ID = RESOURCE_TYPE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PASSIVE_RESOURCE_TYPE__ENTITY_NAME = RESOURCE_TYPE__ENTITY_NAME;
-
-	/**
-	 * The number of structural features of the '<em>Passive Resource Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PASSIVE_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 0;
+	int PROCESSING_RESOURCE_TYPE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -198,6 +178,24 @@ public interface ResourcetypePackage extends EPackage {
 	int PROCESSING_RESOURCE_TYPE__ENTITY_NAME = RESOURCE_TYPE__ENTITY_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_TYPE__UNIT = RESOURCE_TYPE__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION = RESOURCE_TYPE__UNIT_SPECIFICATION;
+
+	/**
 	 * The number of structural features of the '<em>Processing Resource Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,7 +212,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getCommunicationLinkResourceType()
 	 * @generated
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE = 3;
+	int COMMUNICATION_LINK_RESOURCE_TYPE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -233,6 +231,24 @@ public interface ResourcetypePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMUNICATION_LINK_RESOURCE_TYPE__ENTITY_NAME = PROCESSING_RESOURCE_TYPE__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT = PROCESSING_RESOURCE_TYPE__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT_SPECIFICATION = PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Type</em>' class.
@@ -274,16 +290,6 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResourceRepository_AvailableResourceTypes_ResourceRepository();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType <em>Passive Resource Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Passive Resource Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType
-	 * @generated
-	 */
-	EClass getPassiveResourceType();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType <em>Communication Link Resource Type</em>}'.
@@ -354,16 +360,6 @@ public interface ResourcetypePackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY = eINSTANCE.getResourceRepository_AvailableResourceTypes_ResourceRepository();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.PassiveResourceTypeImpl <em>Passive Resource Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.PassiveResourceTypeImpl
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getPassiveResourceType()
-		 * @generated
-		 */
-		EClass PASSIVE_RESOURCE_TYPE = eINSTANCE.getPassiveResourceType();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl <em>Communication Link Resource Type</em>}' class.

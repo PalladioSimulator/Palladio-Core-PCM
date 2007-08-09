@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -146,7 +144,6 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * @generated
 	 */
 	void setParentStructure_RequiredDelegationConnector(ComposedStructure value);
-
 
 	/**
 	 * <!-- begin-user-doc -->

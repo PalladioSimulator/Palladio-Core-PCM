@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,15 +11,15 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -139,7 +137,6 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * @ordered
 	 */
 	protected EList<QoSAnnotations> qosAnnotations_System;
-
 
 	/**
 	 * <!-- begin-user-doc -->

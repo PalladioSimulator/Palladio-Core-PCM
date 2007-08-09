@@ -4,17 +4,17 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.providers;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
-import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityName2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityNameEditPart;
+import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
@@ -41,6 +41,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehaviours2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -63,10 +65,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -95,14 +95,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AbstractActionSuccessor_AbstractActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AquireAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AquireActionEntityName2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AquireActionEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AquireActionViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireAction2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireActionEntityName2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireActionEntityNameViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionBranchTransitionCompartment2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionBranchTransitionCompartmentViewFactory;
@@ -129,6 +127,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionEntityNameViewFactor
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionForkedBehaviours2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionForkedBehavioursViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkedBehaviourBehaviourCompartmentViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkedBehaviourViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionIdViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalAction2ViewFactory;
@@ -151,10 +151,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionEntityName2ViewFa
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour3ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour4ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour5ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartment2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartment2ViewFactory;
@@ -268,9 +266,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case ParametricResourceDemandEditPart.VISUAL_ID:
 				case BranchActionEditPart.VISUAL_ID:
 				case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
-				case AquireActionEditPart.VISUAL_ID:
+				case AcquireAction2EditPart.VISUAL_ID:
 				case ReleaseActionEditPart.VISUAL_ID:
 				case ForkActionEditPart.VISUAL_ID:
+				case ForkedBehaviourEditPart.VISUAL_ID:
 				case CollectionIteratorActionEditPart.VISUAL_ID:
 				case SetVariableActionEditPart.VISUAL_ID:
 				case GuardedBranchTransitionEditPart.VISUAL_ID:
@@ -278,7 +277,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case InternalAction2EditPart.VISUAL_ID:
 				case CollectionIteratorAction2EditPart.VISUAL_ID:
 				case SetVariableAction2EditPart.VISUAL_ID:
-				case AquireAction2EditPart.VISUAL_ID:
+				case AcquireActionEditPart.VISUAL_ID:
 				case ReleaseAction2EditPart.VISUAL_ID:
 				case ForkAction2EditPart.VISUAL_ID:
 				case VariableUsage2EditPart.VISUAL_ID:
@@ -288,7 +287,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case LoopAction2EditPart.VISUAL_ID:
 				case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 				case ExternalCallAction2EditPart.VISUAL_ID:
-				case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 				case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 				case VariableUsage3EditPart.VISUAL_ID:
 				case VariableCharacterisation3EditPart.VISUAL_ID:
@@ -349,8 +347,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case AquireActionEntityName2EditPart.VISUAL_ID:
-					if (AquireAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case AcquireActionEntityNameEditPart.VISUAL_ID:
+					if (AcquireActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -441,8 +439,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case AquireActionEntityNameEditPart.VISUAL_ID:
-					if (AquireActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case AcquireActionEntityName2EditPart.VISUAL_ID:
+					if (AcquireAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -463,8 +461,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
-					if (ResourceDemandingBehaviour3EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+				case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+					if (ForkedBehaviourEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -565,10 +563,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return SetVariableAction2ViewFactory.class;
 		case SetVariableActionEntityName2EditPart.VISUAL_ID:
 			return SetVariableActionEntityName2ViewFactory.class;
-		case AquireAction2EditPart.VISUAL_ID:
-			return AquireAction2ViewFactory.class;
-		case AquireActionEntityName2EditPart.VISUAL_ID:
-			return AquireActionEntityName2ViewFactory.class;
+		case AcquireActionEditPart.VISUAL_ID:
+			return AcquireActionViewFactory.class;
+		case AcquireActionEntityNameEditPart.VISUAL_ID:
+			return AcquireActionEntityNameViewFactory.class;
 		case ReleaseAction2EditPart.VISUAL_ID:
 			return ReleaseAction2ViewFactory.class;
 		case ReleaseActionEntityName2EditPart.VISUAL_ID:
@@ -621,10 +619,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ExternalCallAction2ViewFactory.class;
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 			return ExternalCallActionEntityName2ViewFactory.class;
-		case AquireActionEditPart.VISUAL_ID:
-			return AquireActionViewFactory.class;
-		case AquireActionEntityNameEditPart.VISUAL_ID:
-			return AquireActionEntityNameViewFactory.class;
+		case AcquireAction2EditPart.VISUAL_ID:
+			return AcquireAction2ViewFactory.class;
+		case AcquireActionEntityName2EditPart.VISUAL_ID:
+			return AcquireActionEntityName2ViewFactory.class;
 		case ReleaseActionEditPart.VISUAL_ID:
 			return ReleaseActionViewFactory.class;
 		case ReleaseActionEntityNameEditPart.VISUAL_ID:
@@ -633,8 +631,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ForkActionViewFactory.class;
 		case ForkActionEntityNameEditPart.VISUAL_ID:
 			return ForkActionEntityNameViewFactory.class;
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviour3ViewFactory.class;
+		case ForkedBehaviourEditPart.VISUAL_ID:
+			return ForkedBehaviourViewFactory.class;
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return CollectionIteratorActionViewFactory.class;
 		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
@@ -681,8 +679,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ExternalCallActionOutputVariableUsage2ViewFactory.class;
 		case ForkActionForkedBehavioursEditPart.VISUAL_ID:
 			return ForkActionForkedBehavioursViewFactory.class;
-		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
-			return ResourceDemandingBehaviourBehaviourCompartmentViewFactory.class;
+		case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+			return ForkedBehaviourBehaviourCompartmentViewFactory.class;
 		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
 			return ResourceDemandingBehaviourLoopCompartment2ViewFactory.class;
 		case SetVariableActionVariableSetterEditPart.VISUAL_ID:

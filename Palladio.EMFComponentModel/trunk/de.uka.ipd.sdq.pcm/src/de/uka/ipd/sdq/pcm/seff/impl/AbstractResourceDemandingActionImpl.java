@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -53,7 +51,6 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	 * @ordered
 	 */
 	protected EList<ParametricResourceDemand> resourceDemand_Action;
-
 
 	/**
 	 * <!-- begin-user-doc -->

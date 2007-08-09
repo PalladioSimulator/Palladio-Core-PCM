@@ -3,7 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AquireActionCreateCommand;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AcquireAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.BranchActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.CollectionIteratorActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ExternalCallAction2CreateCommand;
@@ -14,14 +17,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ReleaseActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.SetVariableActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StartAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StopAction2CreateCommand;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import org.eclipse.gef.commands.Command;
-
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 /**
  * @generated
@@ -81,13 +78,13 @@ public class ResourceDemandingBehaviourBranchCompartment2ItemSemanticEditPolicy
 			}
 			return getGEFWrapper(new ExternalCallAction2CreateCommand(req));
 		}
-		if (PalladioComponentModelElementTypes.AquireAction_3019 == req
+		if (PalladioComponentModelElementTypes.AcquireAction_3026 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getGEFWrapper(new AquireActionCreateCommand(req));
+			return getGEFWrapper(new AcquireAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ReleaseAction_3020 == req
 				.getElementType()) {

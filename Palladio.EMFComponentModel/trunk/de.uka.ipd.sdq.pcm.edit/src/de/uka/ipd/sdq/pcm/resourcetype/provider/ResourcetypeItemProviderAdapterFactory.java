@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -103,29 +102,6 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 		}
 
 		return resourceRepositoryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PassiveResourceTypeItemProvider passiveResourceTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPassiveResourceTypeAdapter() {
-		if (passiveResourceTypeItemProvider == null) {
-			passiveResourceTypeItemProvider = new PassiveResourceTypeItemProvider(this);
-		}
-
-		return passiveResourceTypeItemProvider;
 	}
 
 	/**
@@ -274,7 +250,6 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 	 */
 	public void dispose() {
 		if (resourceRepositoryItemProvider != null) resourceRepositoryItemProvider.dispose();
-		if (passiveResourceTypeItemProvider != null) passiveResourceTypeItemProvider.dispose();
 		if (communicationLinkResourceTypeItemProvider != null) communicationLinkResourceTypeItemProvider.dispose();
 		if (processingResourceTypeItemProvider != null) processingResourceTypeItemProvider.dispose();
 	}

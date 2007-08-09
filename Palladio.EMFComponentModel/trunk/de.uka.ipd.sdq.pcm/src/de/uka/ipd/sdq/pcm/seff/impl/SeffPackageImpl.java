@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -52,16 +51,18 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
-import de.uka.ipd.sdq.pcm.seff.AquireAction;
+import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchCondition;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
+import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.IterationCount;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
+import de.uka.ipd.sdq.pcm.seff.NumberOfReplicas;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
@@ -73,8 +74,10 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
+import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
@@ -87,14 +90,16 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
+import de.uka.ipd.sdq.units.UnitsPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EValidator;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -207,6 +212,27 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass forkedBehaviourEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numberOfReplicasEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass synchronisationPointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass externalCallActionEClass = null;
 
 	/**
@@ -235,7 +261,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass aquireActionEClass = null;
+	private EClass acquireActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -332,14 +358,15 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		IdentifierPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
+		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
@@ -353,8 +380,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
-		theProtocolPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
+		theProtocolPackage.createPackageContents();
 		theResourcetypePackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
@@ -368,8 +395,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
-		theProtocolPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
+		theProtocolPackage.initializePackageContents();
 		theResourcetypePackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
@@ -460,17 +487,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParametricResourceDemand_Unit() {
-		return (EAttribute)parametricResourceDemandEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getParametricResourceDemand_RequiredResource_ParametricResourceDemand() {
-		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(1);
+		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -479,7 +497,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * @generated
 	 */
 	public EReference getParametricResourceDemand_Action_ParametricResourceDemand() {
-		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(2);
+		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -532,7 +550,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReleaseAction_ResourceType_Release() {
+	public EReference getReleaseAction_PassiveResource_ReleaseAction() {
 		return (EReference)releaseActionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -613,8 +631,71 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getForkAction_ForkedBehaviours_Fork() {
+	public EReference getForkAction_AsynchronousForkedBehaviours_ForkAction() {
 		return (EReference)forkActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getForkAction_SynchronisingBehaviours_ForkAction() {
+		return (EReference)forkActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getForkedBehaviour() {
+		return forkedBehaviourEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getForkedBehaviour_NumberOfReplicas_ForkedBehaviour() {
+		return (EReference)forkedBehaviourEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNumberOfReplicas() {
+		return numberOfReplicasEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSynchronisationPoint() {
+		return synchronisationPointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint() {
+		return (EReference)synchronisationPointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSynchronisationPoint_OutputVariableUsage_SynchronisationPoint() {
+		return (EReference)synchronisationPointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -651,6 +732,15 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 */
 	public EReference getExternalCallAction_OutputVariableUsage_ExternalCallAction() {
 		return (EReference)externalCallActionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExternalCallAction_Role_ExternalService() {
+		return (EReference)externalCallActionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -712,8 +802,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAquireAction() {
-		return aquireActionEClass;
+	public EClass getAcquireAction() {
+		return acquireActionEClass;
 	}
 
 	/**
@@ -721,8 +811,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAquireAction_ResourceType_Aquire() {
-		return (EReference)aquireActionEClass.getEStructuralFeatures().get(0);
+	public EReference getAcquireAction_Passiveresource_AcquireAction() {
+		return (EReference)acquireActionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -853,7 +943,6 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEReference(abstractActionEClass, ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION);
 
 		parametricResourceDemandEClass = createEClass(PARAMETRIC_RESOURCE_DEMAND);
-		createEAttribute(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__UNIT);
 		createEReference(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND);
 		createEReference(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
 
@@ -865,7 +954,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEReference(resourceDemandingBehaviourEClass, RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR);
 
 		releaseActionEClass = createEClass(RELEASE_ACTION);
-		createEReference(releaseActionEClass, RELEASE_ACTION__RESOURCE_TYPE_RELEASE);
+		createEReference(releaseActionEClass, RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION);
 
 		loopActionEClass = createEClass(LOOP_ACTION);
 		createEReference(loopActionEClass, LOOP_ACTION__ITERATIONS_LOOP_ACTION);
@@ -879,12 +968,23 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEAttribute(internalActionEClass, INTERNAL_ACTION__FAILURE_PROBABILITY);
 
 		forkActionEClass = createEClass(FORK_ACTION);
-		createEReference(forkActionEClass, FORK_ACTION__FORKED_BEHAVIOURS_FORK);
+		createEReference(forkActionEClass, FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION);
+		createEReference(forkActionEClass, FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION);
+
+		forkedBehaviourEClass = createEClass(FORKED_BEHAVIOUR);
+		createEReference(forkedBehaviourEClass, FORKED_BEHAVIOUR__NUMBER_OF_REPLICAS_FORKED_BEHAVIOUR);
+
+		numberOfReplicasEClass = createEClass(NUMBER_OF_REPLICAS);
+
+		synchronisationPointEClass = createEClass(SYNCHRONISATION_POINT);
+		createEReference(synchronisationPointEClass, SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT);
+		createEReference(synchronisationPointEClass, SYNCHRONISATION_POINT__OUTPUT_VARIABLE_USAGE_SYNCHRONISATION_POINT);
 
 		externalCallActionEClass = createEClass(EXTERNAL_CALL_ACTION);
 		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE);
 		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
 		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION);
+		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE);
 
 		probabilisticBranchTransitionEClass = createEClass(PROBABILISTIC_BRANCH_TRANSITION);
 		createEAttribute(probabilisticBranchTransitionEClass, PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY);
@@ -895,8 +995,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		branchActionEClass = createEClass(BRANCH_ACTION);
 		createEReference(branchActionEClass, BRANCH_ACTION__BRANCHES_BRANCH);
 
-		aquireActionEClass = createEClass(AQUIRE_ACTION);
-		createEReference(aquireActionEClass, AQUIRE_ACTION__RESOURCE_TYPE_AQUIRE);
+		acquireActionEClass = createEClass(ACQUIRE_ACTION);
+		createEReference(acquireActionEClass, ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION);
 
 		branchConditionEClass = createEClass(BRANCH_CONDITION);
 
@@ -953,7 +1053,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		stopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		abstractResourceDemandingActionEClass.getESuperTypes().add(this.getAbstractAction());
 		abstractActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		parametricResourceDemandEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+		parametricResourceDemandEClass.getESuperTypes().add(theStoexPackage.getPCMRandomVariable());
 		startActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		resourceDemandingSEFFEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getServiceEffectSpecification());
@@ -961,15 +1061,17 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		releaseActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		loopActionEClass.getESuperTypes().add(this.getAbstractLoopAction());
 		abstractLoopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
-		iterationCountEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+		iterationCountEClass.getESuperTypes().add(theStoexPackage.getPCMRandomVariable());
 		internalActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		forkActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
+		forkedBehaviourEClass.getESuperTypes().add(this.getResourceDemandingBehaviour());
+		numberOfReplicasEClass.getESuperTypes().add(theStoexPackage.getPCMRandomVariable());
 		externalCallActionEClass.getESuperTypes().add(this.getAbstractAction());
 		probabilisticBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
 		abstractBranchTransitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		branchActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
-		aquireActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
-		branchConditionEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+		acquireActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
+		branchConditionEClass.getESuperTypes().add(theStoexPackage.getPCMRandomVariable());
 		collectionIteratorActionEClass.getESuperTypes().add(this.getAbstractLoopAction());
 		guardedBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
 		setVariableActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
@@ -994,7 +1096,6 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEReference(getAbstractAction_Successor_AbstractAction(), this.getAbstractAction(), this.getAbstractAction_Predecessor_AbstractAction(), "successor_AbstractAction", null, 0, 1, AbstractAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(parametricResourceDemandEClass, ParametricResourceDemand.class, "ParametricResourceDemand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParametricResourceDemand_Unit(), ecorePackage.getEString(), "unit", null, 0, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParametricResourceDemand_RequiredResource_ParametricResourceDemand(), theResourcetypePackage.getProcessingResourceType(), null, "requiredResource_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParametricResourceDemand_Action_ParametricResourceDemand(), this.getAbstractResourceDemandingAction(), this.getAbstractResourceDemandingAction_ResourceDemand_Action(), "action_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -1051,7 +1152,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(releaseActionEClass, ReleaseAction.class, "ReleaseAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReleaseAction_ResourceType_Release(), theResourcetypePackage.getPassiveResourceType(), null, "resourceType_Release", null, 1, 1, ReleaseAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getReleaseAction_PassiveResource_ReleaseAction(), theRepositoryPackage.getPassiveResource(), null, "passiveResource_ReleaseAction", null, 1, 1, ReleaseAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(loopActionEClass, LoopAction.class, "LoopAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLoopAction_Iterations_LoopAction(), this.getIterationCount(), null, "iterations_LoopAction", null, 1, 1, LoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1065,12 +1166,23 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEAttribute(getInternalAction_FailureProbability(), ecorePackage.getEString(), "failureProbability", "0", 1, 1, InternalAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(forkActionEClass, ForkAction.class, "ForkAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getForkAction_ForkedBehaviours_Fork(), this.getResourceDemandingBehaviour(), null, "forkedBehaviours_Fork", null, 0, -1, ForkAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getForkAction_AsynchronousForkedBehaviours_ForkAction(), this.getForkedBehaviour(), null, "asynchronousForkedBehaviours_ForkAction", null, 0, -1, ForkAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getForkAction_SynchronisingBehaviours_ForkAction(), this.getSynchronisationPoint(), null, "synchronisingBehaviours_ForkAction", null, 1, 1, ForkAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(forkedBehaviourEClass, ForkedBehaviour.class, "ForkedBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getForkedBehaviour_NumberOfReplicas_ForkedBehaviour(), this.getNumberOfReplicas(), null, "numberOfReplicas_ForkedBehaviour", null, 1, 1, ForkedBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(numberOfReplicasEClass, NumberOfReplicas.class, "NumberOfReplicas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(synchronisationPointEClass, SynchronisationPoint.class, "SynchronisationPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint(), this.getForkedBehaviour(), null, "synchronousForkedBehaviours_SynchronisationPoint", null, 0, -1, SynchronisationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSynchronisationPoint_OutputVariableUsage_SynchronisationPoint(), theParameterPackage.getVariableUsage(), null, "outputVariableUsage_SynchronisationPoint", null, 0, -1, SynchronisationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(externalCallActionEClass, ExternalCallAction.class, "ExternalCallAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExternalCallAction_CalledService_ExternalService(), theRepositoryPackage.getSignature(), null, "calledService_ExternalService", null, 1, 1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExternalCallAction_ParameterUsage_ExternalCallAction(), theParameterPackage.getVariableUsage(), null, "parameterUsage_ExternalCallAction", null, 0, -1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExternalCallAction_OutputVariableUsage_ExternalCallAction(), theParameterPackage.getVariableUsage(), null, "outputVariableUsage_ExternalCallAction", null, 0, -1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getExternalCallAction_Role_ExternalService(), theRepositoryPackage.getRole(), null, "role_ExternalService", null, 1, 1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(probabilisticBranchTransitionEClass, ProbabilisticBranchTransition.class, "ProbabilisticBranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProbabilisticBranchTransition_BranchProbability(), ecorePackage.getEDouble(), "branchProbability", null, 1, 1, ProbabilisticBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1099,8 +1211,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(aquireActionEClass, AquireAction.class, "AquireAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAquireAction_ResourceType_Aquire(), theResourcetypePackage.getPassiveResourceType(), null, "resourceType_Aquire", null, 1, 1, AquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(acquireActionEClass, AcquireAction.class, "AcquireAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAcquireAction_Passiveresource_AcquireAction(), theRepositoryPackage.getPassiveResource(), null, "passiveresource_AcquireAction", null, 1, 1, AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(branchConditionEClass, BranchCondition.class, "BranchCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

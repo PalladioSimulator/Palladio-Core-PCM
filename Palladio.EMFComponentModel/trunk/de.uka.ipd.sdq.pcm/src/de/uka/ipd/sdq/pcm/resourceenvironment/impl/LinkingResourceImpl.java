@@ -1,13 +1,12 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
@@ -24,7 +23,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
@@ -80,7 +78,6 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	 * @ordered
 	 */
 	protected CommunicationLinkResourceSpecification communicationLinkResourceSpecifications_LinkingResource;
-
 
 	/**
 	 * <!-- begin-user-doc -->

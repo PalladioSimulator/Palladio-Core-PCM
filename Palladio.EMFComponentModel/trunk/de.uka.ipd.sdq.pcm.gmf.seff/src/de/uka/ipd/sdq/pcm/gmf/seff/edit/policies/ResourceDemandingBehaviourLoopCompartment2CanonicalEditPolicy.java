@@ -5,9 +5,15 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEditPart;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
@@ -17,20 +23,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
-import java.util.Set;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * @generated
@@ -71,7 +67,7 @@ public class ResourceDemandingBehaviourLoopCompartment2CanonicalEditPolicy
 		case BranchActionEditPart.VISUAL_ID:
 		case ExternalCallAction2EditPart.VISUAL_ID:
 		case CollectionIteratorActionEditPart.VISUAL_ID:
-		case AquireActionEditPart.VISUAL_ID:
+		case AcquireAction2EditPart.VISUAL_ID:
 		case ReleaseActionEditPart.VISUAL_ID:
 		case ForkActionEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())

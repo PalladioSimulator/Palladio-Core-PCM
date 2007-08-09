@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -59,7 +57,6 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
 	 * @ordered
 	 */
 	protected VariableCharacterisationType characterisationType = CHARACTERISATION_TYPE_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

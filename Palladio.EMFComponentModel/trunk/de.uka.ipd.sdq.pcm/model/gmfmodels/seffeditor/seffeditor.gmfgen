@@ -479,12 +479,10 @@
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"
-          viewPattern="{0} {1}"
+          viewPattern="{0}"
           editPattern="{0}">
         <metaFeatures
             href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
-        <metaFeatures
-            href="../../pcm.genmodel#//pcm/seff/ParametricResourceDemand/unit"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
@@ -671,19 +669,19 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3019"
-        editPartClassName="AquireActionEditPart"
-        itemSemanticEditPolicyClassName="AquireActionItemSemanticEditPolicy"
-        notationViewFactoryClassName="AquireActionViewFactory"
-        canonicalEditPolicyClassName="AquireActionCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="AquireActionGraphicalNodeEditPolicy"
-        createCommandClassName="AquireActionCreateCommand"
+        visualID="3026"
+        editPartClassName="AcquireAction2EditPart"
+        itemSemanticEditPolicyClassName="AcquireAction2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="AcquireAction2ViewFactory"
+        canonicalEditPolicyClassName="AcquireAction2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="AcquireAction2GraphicalNodeEditPolicy"
+        createCommandClassName="AcquireAction2CreateCommand"
         containers="//@diagram/@compartments.7 //@diagram/@compartments.12 //@diagram/@compartments.11 //@diagram/@compartments.15 //@diagram/@compartments.4">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="AquireActionEditHelper"/>
+          editHelperClassName="AcquireActionEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="AquireFigure"
@@ -693,17 +691,17 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/seff/AquireAction"/>
+            href="../../pcm.genmodel#//pcm/seff/AcquireAction"/>
         <containmentMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
         <childMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
       </modelFacet>
       <labels
-          visualID="5019"
-          editPartClassName="AquireActionEntityNameEditPart"
-          itemSemanticEditPolicyClassName="AquireActionEntityNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="AquireActionEntityNameViewFactory"
+          visualID="5028"
+          editPartClassName="AcquireActionEntityName2EditPart"
+          itemSemanticEditPolicyClassName="AcquireActionEntityName2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="AcquireActionEntityName2ViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -818,21 +816,20 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3021"
-        editPartClassName="ResourceDemandingBehaviour3EditPart"
-        itemSemanticEditPolicyClassName="ResourceDemandingBehaviour3ItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResourceDemandingBehaviour3ViewFactory"
-        canonicalEditPolicyClassName="ResourceDemandingBehaviour3CanonicalEditPolicy"
+        visualID="3027"
+        editPartClassName="ForkedBehaviourEditPart"
+        itemSemanticEditPolicyClassName="ForkedBehaviourItemSemanticEditPolicy"
+        notationViewFactoryClassName="ForkedBehaviourViewFactory"
+        canonicalEditPolicyClassName="ForkedBehaviourCanonicalEditPolicy"
         compartments="//@diagram/@compartments.11"
-        graphicalNodeEditPolicyClassName="ResourceDemandingBehaviour3GraphicalNodeEditPolicy"
-        createCommandClassName="ResourceDemandingBehaviour3CreateCommand"
+        graphicalNodeEditPolicyClassName="ForkedBehaviourGraphicalNodeEditPolicy"
+        createCommandClassName="ForkedBehaviourCreateCommand"
         containers="//@diagram/@compartments.10 //@diagram/@compartments.19">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.4/@elementType"
-          editHelperAdviceClassName="ResourceDemandingBehaviour2EditHelperAdvice"/>
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ForkedBehaviourEditHelper"/>
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure">
@@ -841,11 +838,11 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour"/>
+            href="../../pcm.genmodel#//pcm/seff/ForkedBehaviour"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/ForkAction/forkedBehaviours_Fork"/>
+            href="../../pcm.genmodel#//pcm/seff/ForkAction/asynchronousForkedBehaviours_ForkAction"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/ForkAction/forkedBehaviours_Fork"/>
+            href="../../pcm.genmodel#//pcm/seff/ForkAction/asynchronousForkedBehaviours_ForkAction"/>
       </modelFacet>
     </childNodes>
     <childNodes
@@ -1578,19 +1575,18 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2009"
-        editPartClassName="AquireAction2EditPart"
-        itemSemanticEditPolicyClassName="AquireAction2ItemSemanticEditPolicy"
-        notationViewFactoryClassName="AquireAction2ViewFactory"
-        canonicalEditPolicyClassName="AquireAction2CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="AquireAction2GraphicalNodeEditPolicy"
-        createCommandClassName="AquireAction2CreateCommand">
+        visualID="2012"
+        editPartClassName="AcquireActionEditPart"
+        itemSemanticEditPolicyClassName="AcquireActionItemSemanticEditPolicy"
+        notationViewFactoryClassName="AcquireActionViewFactory"
+        canonicalEditPolicyClassName="AcquireActionCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="AcquireActionGraphicalNodeEditPolicy"
+        createCommandClassName="AcquireActionCreateCommand">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.14/@elementType"
-          editHelperAdviceClassName="AquireActionEditHelperAdvice"/>
+          metamodelType="//@diagram/@childNodes.14/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="AquireFigure"
@@ -1600,17 +1596,17 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/seff/AquireAction"/>
+            href="../../pcm.genmodel#//pcm/seff/AcquireAction"/>
         <containmentMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
         <childMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
       </modelFacet>
       <labels
-          visualID="5021"
-          editPartClassName="AquireActionEntityName2EditPart"
-          itemSemanticEditPolicyClassName="AquireActionEntityName2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="AquireActionEntityName2ViewFactory"
+          visualID="5029"
+          editPartClassName="AcquireActionEntityNameEditPart"
+          itemSemanticEditPolicyClassName="AcquireActionEntityNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="AcquireActionEntityNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -1763,7 +1759,8 @@
         canonicalEditPolicyClassName="ExternalCallActionInputVariableUsageCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="InputVariableUsage"
-        node="//@diagram/@topLevelNodes.2">
+        node="//@diagram/@topLevelNodes.2"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1782,7 +1779,8 @@
         canonicalEditPolicyClassName="ExternalCallActionOutputVariableUsageCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2"
         title="OutputVariableUsage"
-        node="//@diagram/@topLevelNodes.2">
+        node="//@diagram/@topLevelNodes.2"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1930,7 +1928,8 @@
         canonicalEditPolicyClassName="ExternalCallActionInputVariableUsage2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="InputVariableUsage"
-        node="//@diagram/@childNodes.13">
+        node="//@diagram/@childNodes.13"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1949,7 +1948,8 @@
         canonicalEditPolicyClassName="ExternalCallActionOutputVariableUsage2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2"
         title="OutputVariableUsage"
-        node="//@diagram/@childNodes.13">
+        node="//@diagram/@childNodes.13"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1981,11 +1981,11 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7020"
-        editPartClassName="ResourceDemandingBehaviourBehaviourCompartmentEditPart"
-        itemSemanticEditPolicyClassName="ResourceDemandingBehaviourBehaviourCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="ResourceDemandingBehaviourBehaviourCompartmentViewFactory"
-        canonicalEditPolicyClassName="ResourceDemandingBehaviourBehaviourCompartmentCanonicalEditPolicy"
+        visualID="7026"
+        editPartClassName="ForkedBehaviourBehaviourCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ForkedBehaviourBehaviourCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="ForkedBehaviourBehaviourCompartmentViewFactory"
+        canonicalEditPolicyClassName="ForkedBehaviourBehaviourCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7 //@diagram/@childNodes.8 //@diagram/@childNodes.10 //@diagram/@childNodes.13 //@diagram/@childNodes.18 //@diagram/@childNodes.14 //@diagram/@childNodes.15 //@diagram/@childNodes.16"
         title="BehaviourCompartment"
         canCollapse="false"
@@ -2031,7 +2031,8 @@
         canonicalEditPolicyClassName="SetVariableActionVariableSetterCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.21"
         title="VariableSetter"
-        node="//@diagram/@childNodes.20">
+        node="//@diagram/@childNodes.20"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2135,7 +2136,8 @@
         canonicalEditPolicyClassName="SetVariableActionVariableSetter2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.21"
         title="VariableSetter"
-        node="//@diagram/@topLevelNodes.7">
+        node="//@diagram/@topLevelNodes.7"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap

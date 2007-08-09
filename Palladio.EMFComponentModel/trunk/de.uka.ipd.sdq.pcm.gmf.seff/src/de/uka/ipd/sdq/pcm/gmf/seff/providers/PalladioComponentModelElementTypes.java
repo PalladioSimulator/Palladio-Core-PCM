@@ -90,7 +90,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType AquireAction_2009 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_2009"); //$NON-NLS-1$
+	public static final IElementType AcquireAction_2012 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_2012"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -158,7 +158,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType AquireAction_3019 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_3019"); //$NON-NLS-1$
+	public static final IElementType AcquireAction_3026 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_3026"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -169,6 +169,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType ForkAction_3023 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ForkedBehaviour_3027 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3027"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -209,11 +214,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType VariableCharacterisation_3016 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3016"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType ResourceDemandingBehaviour_3021 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -358,8 +358,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(SetVariableAction_2008, SeffPackage.eINSTANCE
 					.getSetVariableAction());
 
-			elements.put(AquireAction_2009, SeffPackage.eINSTANCE
-					.getAquireAction());
+			elements.put(AcquireAction_2012, SeffPackage.eINSTANCE
+					.getAcquireAction());
 
 			elements.put(ReleaseAction_2010, SeffPackage.eINSTANCE
 					.getReleaseAction());
@@ -409,8 +409,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(ExternalCallAction_3012, SeffPackage.eINSTANCE
 					.getExternalCallAction());
 
-			elements.put(AquireAction_3019, SeffPackage.eINSTANCE
-					.getAquireAction());
+			elements.put(AcquireAction_3026, SeffPackage.eINSTANCE
+					.getAcquireAction());
 
 			elements.put(ReleaseAction_3020, SeffPackage.eINSTANCE
 					.getReleaseAction());
@@ -418,8 +418,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements
 					.put(ForkAction_3023, SeffPackage.eINSTANCE.getForkAction());
 
-			elements.put(ResourceDemandingBehaviour_3021, SeffPackage.eINSTANCE
-					.getResourceDemandingBehaviour());
+			elements.put(ForkedBehaviour_3027, SeffPackage.eINSTANCE
+					.getForkedBehaviour());
 
 			elements.put(CollectionIteratorAction_3013, SeffPackage.eINSTANCE
 					.getCollectionIteratorAction());
@@ -471,7 +471,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(InternalAction_2006);
 			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_2007);
 			KNOWN_ELEMENT_TYPES.add(SetVariableAction_2008);
-			KNOWN_ELEMENT_TYPES.add(AquireAction_2009);
+			KNOWN_ELEMENT_TYPES.add(AcquireAction_2012);
 			KNOWN_ELEMENT_TYPES.add(ReleaseAction_2010);
 			KNOWN_ELEMENT_TYPES.add(ForkAction_2011);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3001);
@@ -488,10 +488,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ProbabilisticBranchTransition_3010);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3011);
 			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_3012);
-			KNOWN_ELEMENT_TYPES.add(AquireAction_3019);
+			KNOWN_ELEMENT_TYPES.add(AcquireAction_3026);
 			KNOWN_ELEMENT_TYPES.add(ReleaseAction_3020);
 			KNOWN_ELEMENT_TYPES.add(ForkAction_3023);
-			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3021);
+			KNOWN_ELEMENT_TYPES.add(ForkedBehaviour_3027);
 			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_3013);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3014);
 			KNOWN_ELEMENT_TYPES.add(SetVariableAction_3024);

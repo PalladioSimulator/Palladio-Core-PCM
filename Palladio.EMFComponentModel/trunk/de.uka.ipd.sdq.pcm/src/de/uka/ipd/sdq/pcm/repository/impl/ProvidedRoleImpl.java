@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -55,7 +53,6 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @ordered
 	 */
 	protected Interface providedInterface__ProvidedRole;
-
 
 	/**
 	 * <!-- begin-user-doc -->

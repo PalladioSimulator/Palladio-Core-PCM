@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -14,13 +12,16 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -63,7 +64,6 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 */
 	protected ProvidesComponentType encapsulatedComponent_ChildComponentContext;
 
-
 	/**
 	 * The cached value of the '{@link #getComponentParameterUsage_AssemblyContext() <em>Component Parameter Usage Assembly Context</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -73,7 +73,6 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * @ordered
 	 */
 	protected EList<VariableUsage> componentParameterUsage_AssemblyContext;
-
 
 	/**
 	 * <!-- begin-user-doc -->

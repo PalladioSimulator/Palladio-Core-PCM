@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -91,7 +89,6 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @ordered
 	 */
 	protected RequiredRole requiredRole_CompositeAssemblyConnector;
-
 
 	/**
 	 * <!-- begin-user-doc -->

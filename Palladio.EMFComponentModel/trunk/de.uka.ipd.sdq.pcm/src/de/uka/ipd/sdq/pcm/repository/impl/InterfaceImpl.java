@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -119,7 +117,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	protected EList<Signature> signatures__Interface;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #NoProtocolTypeIDUsedTwice <em>No Protocol Type ID Used Twice</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -128,7 +125,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 */
 	private static OCLExpression NoProtocolTypeIDUsedTwiceInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #SignaturesHaveToBeUniqueForAnInterface <em>Signatures Have To Be Unique For An Interface</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -247,7 +244,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE, newRepository_Interface, newRepository_Interface));
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

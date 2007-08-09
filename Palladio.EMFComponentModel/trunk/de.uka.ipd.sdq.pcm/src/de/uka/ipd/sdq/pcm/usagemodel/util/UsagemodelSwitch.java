@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,6 +12,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.usagemodel.*;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 import java.util.List;
@@ -170,6 +170,7 @@ public class UsagemodelSwitch<T> {
 			case UsagemodelPackage.INTER_ARRIVAL_TIME: {
 				InterArrivalTime interArrivalTime = (InterArrivalTime)theEObject;
 				T result = caseInterArrivalTime(interArrivalTime);
+				if (result == null) result = casePCMRandomVariable(interArrivalTime);
 				if (result == null) result = caseRandomVariable(interArrivalTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -187,6 +188,7 @@ public class UsagemodelSwitch<T> {
 			case UsagemodelPackage.LOOP_ITERATIONS: {
 				LoopIterations loopIterations = (LoopIterations)theEObject;
 				T result = caseLoopIterations(loopIterations);
+				if (result == null) result = casePCMRandomVariable(loopIterations);
 				if (result == null) result = caseRandomVariable(loopIterations);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -211,6 +213,7 @@ public class UsagemodelSwitch<T> {
 			case UsagemodelPackage.THINK_TIME: {
 				ThinkTime thinkTime = (ThinkTime)theEObject;
 				T result = caseThinkTime(thinkTime);
+				if (result == null) result = casePCMRandomVariable(thinkTime);
 				if (result == null) result = caseRandomVariable(thinkTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -244,6 +247,7 @@ public class UsagemodelSwitch<T> {
 			case UsagemodelPackage.DELAY_TIME: {
 				DelayTime delayTime = (DelayTime)theEObject;
 				T result = caseDelayTime(delayTime);
+				if (result == null) result = casePCMRandomVariable(delayTime);
 				if (result == null) result = caseRandomVariable(delayTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -579,6 +583,21 @@ public class UsagemodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseRandomVariable(RandomVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMRandomVariable(PCMRandomVariable object) {
 		return null;
 	}
 

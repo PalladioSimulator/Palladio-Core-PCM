@@ -223,14 +223,14 @@ public class PalladioComponentModelPaletteFactory {
 	 */
 	private ToolEntry createAquireAction9CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
-		types.add(PalladioComponentModelElementTypes.AquireAction_3019);
-		types.add(PalladioComponentModelElementTypes.AquireAction_2009);
+		types.add(PalladioComponentModelElementTypes.AcquireAction_3026);
+		types.add(PalladioComponentModelElementTypes.AcquireAction_2012);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.AquireAction9CreationTool_title,
 				Messages.AquireAction9CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.AquireAction_3019));
+						.getImageDescriptor(PalladioComponentModelElementTypes.AcquireAction_3026));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -351,8 +351,7 @@ public class PalladioComponentModelPaletteFactory {
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
-		types
-				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3021);
+		types.add(PalladioComponentModelElementTypes.ForkedBehaviour_3027);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 		types

@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,7 +7,6 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -34,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl#getPassiveResourceSpecifications_ResourceContainer <em>Passive Resource Specifications Resource Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,17 +53,6 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @ordered
 	 */
 	protected EList<ProcessingResourceSpecification> activeResourceSpecifications_ResourceContainer;
-
-	/**
-	 * The cached value of the '{@link #getPassiveResourceSpecifications_ResourceContainer() <em>Passive Resource Specifications Resource Container</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPassiveResourceSpecifications_ResourceContainer()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PassiveResourceSpecification> passiveResourceSpecifications_ResourceContainer;
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,25 +90,11 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PassiveResourceSpecification> getPassiveResourceSpecifications_ResourceContainer() {
-		if (passiveResourceSpecifications_ResourceContainer == null) {
-			passiveResourceSpecifications_ResourceContainer = new EObjectContainmentEList<PassiveResourceSpecification>(PassiveResourceSpecification.class, this, ResourceenvironmentPackage.RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
-		}
-		return passiveResourceSpecifications_ResourceContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				return ((InternalEList<?>)getActiveResourceSpecifications_ResourceContainer()).basicRemove(otherEnd, msgs);
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-				return ((InternalEList<?>)getPassiveResourceSpecifications_ResourceContainer()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -138,8 +109,6 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 		switch (featureID) {
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				return getActiveResourceSpecifications_ResourceContainer();
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-				return getPassiveResourceSpecifications_ResourceContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,10 +126,6 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 				getActiveResourceSpecifications_ResourceContainer().clear();
 				getActiveResourceSpecifications_ResourceContainer().addAll((Collection<? extends ProcessingResourceSpecification>)newValue);
 				return;
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-				getPassiveResourceSpecifications_ResourceContainer().clear();
-				getPassiveResourceSpecifications_ResourceContainer().addAll((Collection<? extends PassiveResourceSpecification>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -176,9 +141,6 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				getActiveResourceSpecifications_ResourceContainer().clear();
 				return;
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-				getPassiveResourceSpecifications_ResourceContainer().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,8 +155,6 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 		switch (featureID) {
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 				return activeResourceSpecifications_ResourceContainer != null && !activeResourceSpecifications_ResourceContainer.isEmpty();
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-				return passiveResourceSpecifications_ResourceContainer != null && !passiveResourceSpecifications_ResourceContainer.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

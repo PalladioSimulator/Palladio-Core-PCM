@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,6 +11,8 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.resourcetype.*;
+
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -92,10 +93,6 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createResourceRepositoryAdapter();
 			}
 			@Override
-			public Adapter casePassiveResourceType(PassiveResourceType object) {
-				return createPassiveResourceTypeAdapter();
-			}
-			@Override
 			public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
 				return createCommunicationLinkResourceTypeAdapter();
 			}
@@ -114,6 +111,10 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
+			}
+			@Override
+			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
+				return createUnitCarryingElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -160,20 +161,6 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceRepositoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType <em>Passive Resource Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType
-	 * @generated
-	 */
-	public Adapter createPassiveResourceTypeAdapter() {
 		return null;
 	}
 
@@ -244,6 +231,20 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.units.UnitCarryingElement <em>Unit Carrying Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.units.UnitCarryingElement
+	 * @generated
+	 */
+	public Adapter createUnitCarryingElementAdapter() {
 		return null;
 	}
 

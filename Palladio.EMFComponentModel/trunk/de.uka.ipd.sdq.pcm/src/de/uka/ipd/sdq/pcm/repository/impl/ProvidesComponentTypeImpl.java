@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,15 +9,15 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 
 import java.util.Collection;
@@ -31,8 +29,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -43,8 +41,8 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
 
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
@@ -79,7 +77,6 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
-
 	/**
 	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -90,7 +87,6 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 */
 	protected EList<ProvidedRole> providedRoles_InterfaceProvidingEntity;
 
-
 	/**
 	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -100,7 +96,6 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 * @ordered
 	 */
 	protected EList<RequiredRole> requiredRoles_InterfaceRequiringEntity;
-
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}' invariant constraint.
@@ -196,7 +191,6 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE, newRepository_ProvidesComponentType, newRepository_ProvidesComponentType));
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

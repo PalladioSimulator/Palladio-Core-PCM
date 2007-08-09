@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,6 +7,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
@@ -57,6 +56,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getImplementationComponentType <em>Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,6 +90,15 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 */
 	protected EList<ServiceEffectSpecification> serviceEffectSpecifications__BasicComponent;
 
+	/**
+	 * The cached value of the '{@link #getPassiveResource_BasicComponent() <em>Passive Resource Basic Component</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPassiveResource_BasicComponent()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PassiveResource> passiveResource_BasicComponent;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #NoSeffTypeUsedTwice <em>No Seff Type Used Twice</em>}' invariant constraint.
@@ -99,7 +108,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 */
 	private static OCLExpression NoSeffTypeUsedTwiceInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ProvideSameInterfacesAsImplementationType <em>Provide Same Interfaces As Implementation Type</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -108,7 +117,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 */
 	private static OCLExpression ProvideSameInterfacesAsImplementationTypeInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #RequireSameInterfacesAsImplementationType <em>Require Same Interfaces As Implementation Type</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -117,7 +126,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 */
 	private static OCLExpression RequireSameInterfacesAsImplementationTypeInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -189,6 +198,17 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 		return serviceEffectSpecifications__BasicComponent;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<PassiveResource> getPassiveResource_BasicComponent() {
+		if (passiveResource_BasicComponent == null) {
+			passiveResource_BasicComponent = new EObjectContainmentEList<PassiveResource>(PassiveResource.class, this, RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT);
+		}
+		return passiveResource_BasicComponent;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -317,6 +337,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 		switch (featureID) {
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				return ((InternalEList<?>)getServiceEffectSpecifications__BasicComponent()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
+				return ((InternalEList<?>)getPassiveResource_BasicComponent()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -334,6 +356,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				return basicGetImplementationComponentType();
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				return getServiceEffectSpecifications__BasicComponent();
+			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
+				return getPassiveResource_BasicComponent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -354,6 +378,10 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				getServiceEffectSpecifications__BasicComponent().clear();
 				getServiceEffectSpecifications__BasicComponent().addAll((Collection<? extends ServiceEffectSpecification>)newValue);
 				return;
+			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
+				getPassiveResource_BasicComponent().clear();
+				getPassiveResource_BasicComponent().addAll((Collection<? extends PassiveResource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -372,6 +400,9 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				getServiceEffectSpecifications__BasicComponent().clear();
 				return;
+			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
+				getPassiveResource_BasicComponent().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -388,6 +419,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				return implementationComponentType != null;
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				return serviceEffectSpecifications__BasicComponent != null && !serviceEffectSpecifications__BasicComponent.isEmpty();
+			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
+				return passiveResource_BasicComponent != null && !passiveResource_BasicComponent.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

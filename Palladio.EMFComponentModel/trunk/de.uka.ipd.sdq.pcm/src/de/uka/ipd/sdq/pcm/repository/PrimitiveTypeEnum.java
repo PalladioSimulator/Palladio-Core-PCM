@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -80,7 +79,9 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BYTE(5, "BYTE", "BYTE"), /**
+	BYTE(5, "BYTE", "BYTE"),
+
+	/**
 	 * The '<em><b>LONG</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

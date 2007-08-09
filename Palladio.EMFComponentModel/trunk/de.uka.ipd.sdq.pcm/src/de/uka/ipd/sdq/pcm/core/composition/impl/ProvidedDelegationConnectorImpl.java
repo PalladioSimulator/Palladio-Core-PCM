@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -102,7 +100,6 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 */
 	protected AssemblyContext childComponentContext_ProvidedDelegationConnector;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -120,7 +117,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 */
 	private static OCLExpression ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -296,7 +293,6 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR, newParentStructure_ProvidedDelegationConnector, newParentStructure_ProvidedDelegationConnector));
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

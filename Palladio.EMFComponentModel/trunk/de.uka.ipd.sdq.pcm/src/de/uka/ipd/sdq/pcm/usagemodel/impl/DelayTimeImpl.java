@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import de.uka.ipd.sdq.pcm.usagemodel.DelayTime;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
-import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+import de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DelayTimeImpl extends RandomVariableImpl implements DelayTime {
+public class DelayTimeImpl extends PCMRandomVariableImpl implements DelayTime {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

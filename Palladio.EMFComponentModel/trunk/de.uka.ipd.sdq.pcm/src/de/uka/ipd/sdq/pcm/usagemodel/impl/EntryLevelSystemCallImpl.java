@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -84,7 +82,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 */
 	protected Signature signature_EntryLevelSystemCall;
 
-
 	/**
 	 * The cached value of the '{@link #getOutputParameterUsage_EntryLevelSystemCall() <em>Output Parameter Usage Entry Level System Call</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -94,7 +91,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @ordered
 	 */
 	protected EList<VariableUsage> outputParameterUsage_EntryLevelSystemCall;
-
 
 	/**
 	 * <!-- begin-user-doc -->

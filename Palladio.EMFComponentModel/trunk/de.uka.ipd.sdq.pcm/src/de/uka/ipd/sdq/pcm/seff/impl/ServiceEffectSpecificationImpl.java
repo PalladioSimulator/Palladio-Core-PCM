@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -71,7 +69,6 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * @ordered
 	 */
 	protected Signature describedService__SEFF;
-
 
 	/**
 	 * <!-- begin-user-doc -->

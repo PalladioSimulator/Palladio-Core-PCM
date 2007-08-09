@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -210,6 +209,8 @@ public class RepositoryValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
+			case RepositoryPackage.PASSIVE_RESOURCE:
+				return validatePassiveResource((PassiveResource)value, diagnostics, context);
 			case RepositoryPackage.SIGNATURE:
 				return validateSignature((Signature)value, diagnostics, context);
 			case RepositoryPackage.PARAMETER:
@@ -255,6 +256,15 @@ public class RepositoryValidator extends EObjectValidator {
 			default: 
 				return true;
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePassiveResource(PassiveResource passiveResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(passiveResource, diagnostics, context);
 	}
 
 	/**

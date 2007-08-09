@@ -3,8 +3,6 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.providers;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 
 /**

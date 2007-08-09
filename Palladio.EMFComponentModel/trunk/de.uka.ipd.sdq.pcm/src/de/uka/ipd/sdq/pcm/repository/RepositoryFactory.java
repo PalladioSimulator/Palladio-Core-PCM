@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -31,6 +30,15 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	RepositoryFactory eINSTANCE = de.uka.ipd.sdq.pcm.repository.impl.RepositoryFactoryImpl.init();
+
+	/**
+	 * Returns a new object of class '<em>Passive Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Passive Resource</em>'.
+	 * @generated
+	 */
+	PassiveResource createPassiveResource();
 
 	/**
 	 * Returns a new object of class '<em>Signature</em>'.

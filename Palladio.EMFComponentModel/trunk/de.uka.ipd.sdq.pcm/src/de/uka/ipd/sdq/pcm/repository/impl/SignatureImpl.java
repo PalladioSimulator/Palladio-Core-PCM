@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -126,7 +124,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @ordered
 	 */
 	protected EList<ExceptionType> exceptions__Signature;
-
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ParameterNamesHaveToBeUniqueForASignature <em>Parameter Names Have To Be Unique For ASignature</em>}' invariant constraint.
@@ -281,7 +278,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 		}
 		return exceptions__Signature;
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

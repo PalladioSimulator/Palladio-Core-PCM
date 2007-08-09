@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -56,7 +54,6 @@ public class InternalActionImpl extends AbstractResourceDemandingActionImpl impl
 	 * @ordered
 	 */
 	protected String failureProbability = FAILURE_PROBABILITY_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

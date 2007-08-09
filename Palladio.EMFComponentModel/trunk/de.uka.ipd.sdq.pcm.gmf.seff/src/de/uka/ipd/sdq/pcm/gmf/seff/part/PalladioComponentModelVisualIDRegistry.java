@@ -3,10 +3,16 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.part;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityName2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityNameEditPart;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
@@ -33,6 +39,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehaviours2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -55,10 +63,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -87,38 +93,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelAbstractExpression;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-
-import de.uka.ipd.sdq.pcm.seff.AquireAction;
-import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.ForkAction;
-import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
-import de.uka.ipd.sdq.pcm.seff.StartAction;
-import de.uka.ipd.sdq.pcm.seff.StopAction;
-
-import org.eclipse.core.runtime.Platform;
-
-import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -307,9 +285,9 @@ public class PalladioComponentModelVisualIDRegistry {
 					.isSuperTypeOf(domainElement.eClass())) {
 				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
-			if (SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
+			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return AquireActionEditPart.VISUAL_ID;
+				return AcquireAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -365,9 +343,9 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
-			if (SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
+			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return AquireActionEditPart.VISUAL_ID;
+				return AcquireAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -399,12 +377,12 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case ForkActionForkedBehavioursEditPart.VISUAL_ID:
-			if (SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
+			if (SeffPackage.eINSTANCE.getForkedBehaviour().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ForkedBehaviourEditPart.VISUAL_ID;
 			}
 			break;
-		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+		case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
 					domainElement.eClass())) {
 				return StartAction2EditPart.VISUAL_ID;
@@ -433,9 +411,9 @@ public class PalladioComponentModelVisualIDRegistry {
 					.isSuperTypeOf(domainElement.eClass())) {
 				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
-			if (SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
+			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return AquireActionEditPart.VISUAL_ID;
+				return AcquireAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -475,9 +453,9 @@ public class PalladioComponentModelVisualIDRegistry {
 					.isSuperTypeOf(domainElement.eClass())) {
 				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
-			if (SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
+			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return AquireActionEditPart.VISUAL_ID;
+				return AcquireAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -525,9 +503,9 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
-			if (SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
+			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return AquireActionEditPart.VISUAL_ID;
+				return AcquireAction2EditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -569,9 +547,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
-			if (SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
+			if (SeffPackage.eINSTANCE.getForkedBehaviour().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ForkedBehaviourEditPart.VISUAL_ID;
 			}
 			break;
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
@@ -607,9 +585,9 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return SetVariableAction2EditPart.VISUAL_ID;
 			}
-			if (SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
+			if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(
 					domainElement.eClass())) {
-				return AquireAction2EditPart.VISUAL_ID;
+				return AcquireActionEditPart.VISUAL_ID;
 			}
 			if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -702,8 +680,8 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case AquireAction2EditPart.VISUAL_ID:
-			if (AquireActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+		case AcquireActionEditPart.VISUAL_ID:
+			if (AcquireActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -792,8 +770,8 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case AquireActionEditPart.VISUAL_ID:
-			if (AquireActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+		case AcquireAction2EditPart.VISUAL_ID:
+			if (AcquireActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -810,8 +788,8 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-			if (ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+		case ForkedBehaviourEditPart.VISUAL_ID:
+			if (ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -902,7 +880,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (AquireActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
@@ -947,7 +925,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (AquireActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
@@ -974,11 +952,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case ForkActionForkedBehavioursEditPart.VISUAL_ID:
-			if (ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ForkedBehaviourEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+		case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			if (StartAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -1000,7 +978,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (AquireActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
@@ -1032,7 +1010,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (AquireActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
@@ -1071,7 +1049,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (AquireActionEditPart.VISUAL_ID == nodeVisualID) {
+			if (AcquireAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
@@ -1106,7 +1084,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
-			if (ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID) {
+			if (ForkedBehaviourEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -1135,7 +1113,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (SetVariableAction2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (AquireAction2EditPart.VISUAL_ID == nodeVisualID) {
+			if (AcquireActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ReleaseAction2EditPart.VISUAL_ID == nodeVisualID) {

@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,7 +9,7 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 
-import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+import de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -32,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class VariableCharacterisationImpl extends RandomVariableImpl implements VariableCharacterisation {
+public class VariableCharacterisationImpl extends PCMRandomVariableImpl implements VariableCharacterisation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,7 +57,6 @@ public class VariableCharacterisationImpl extends RandomVariableImpl implements 
 	 * @ordered
 	 */
 	protected VariableCharacterisationType type = TYPE_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -15,6 +13,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
+
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -128,7 +127,6 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 * @ordered
 	 */
 	protected ImplementationComponentType implementationComponentType;
-
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ProvideSameInterfaces <em>Provide Same Interfaces</em>}' invariant constraint.
@@ -255,7 +253,6 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE, oldImplementationComponentType, implementationComponentType));
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,7 +291,6 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 		return true;
 		
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

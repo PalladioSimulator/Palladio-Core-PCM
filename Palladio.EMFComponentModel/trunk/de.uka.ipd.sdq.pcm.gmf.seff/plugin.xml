@@ -377,12 +377,11 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_2009"
-               name="%metatype.name.AquireAction_2009"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.AquireActionEditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_3019"/>
-            <param name="semanticHint" value="2009"/>
+               id="de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_2012"
+               name="%metatype.name.AcquireAction_2012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_3026"/>
+            <param name="semanticHint" value="2012"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
@@ -547,12 +546,12 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_3019"
-               name="%metatype.name.AquireAction_3019"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_3026"
+               name="%metatype.name.AcquireAction_3026"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="AquireAction"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.AquireActionEditHelper">
-            <param name="semanticHint" value="3019"/>
+               eclass="AcquireAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.AcquireActionEditHelper">
+            <param name="semanticHint" value="3026"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
@@ -576,14 +575,14 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
-         <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"
-               name="%metatype.name.ResourceDemandingBehaviour_3021"
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3027"
+               name="%metatype.name.ForkedBehaviour_3027"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviour2EditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3003"/>
-            <param name="semanticHint" value="3021"/>
-         </specializationType>
+               eclass="ForkedBehaviour"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ForkedBehaviourEditHelper">
+            <param name="semanticHint" value="3027"/>
+         </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
@@ -686,7 +685,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2006"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_2007"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_2008"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_2009"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_2012"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_2010"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_2011"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3001"/>
@@ -703,10 +702,10 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_3010"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3011"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_3012"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_3019"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_3026"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_3020"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3027"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3014"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_3024"/>

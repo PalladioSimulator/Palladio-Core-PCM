@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -86,7 +85,16 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_CHARACTERISATION__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int VARIABLE_CHARACTERISATION__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CHARACTERISATION__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -95,7 +103,7 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_CHARACTERISATION__TYPE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int VARIABLE_CHARACTERISATION__TYPE = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Variable Characterisation</em>' class.
@@ -104,7 +112,7 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.

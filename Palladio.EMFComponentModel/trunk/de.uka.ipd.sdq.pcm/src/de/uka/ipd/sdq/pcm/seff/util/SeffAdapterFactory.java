@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,6 +12,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.seff.*;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -138,6 +138,18 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createForkActionAdapter();
 			}
 			@Override
+			public Adapter caseForkedBehaviour(ForkedBehaviour object) {
+				return createForkedBehaviourAdapter();
+			}
+			@Override
+			public Adapter caseNumberOfReplicas(NumberOfReplicas object) {
+				return createNumberOfReplicasAdapter();
+			}
+			@Override
+			public Adapter caseSynchronisationPoint(SynchronisationPoint object) {
+				return createSynchronisationPointAdapter();
+			}
+			@Override
 			public Adapter caseExternalCallAction(ExternalCallAction object) {
 				return createExternalCallActionAdapter();
 			}
@@ -154,8 +166,8 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createBranchActionAdapter();
 			}
 			@Override
-			public Adapter caseAquireAction(AquireAction object) {
-				return createAquireActionAdapter();
+			public Adapter caseAcquireAction(AcquireAction object) {
+				return createAcquireActionAdapter();
 			}
 			@Override
 			public Adapter caseBranchCondition(BranchCondition object) {
@@ -192,6 +204,10 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRandomVariable(RandomVariable object) {
 				return createRandomVariableAdapter();
+			}
+			@Override
+			public Adapter casePCMRandomVariable(PCMRandomVariable object) {
+				return createPCMRandomVariableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -396,6 +412,48 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour <em>Forked Behaviour</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.ForkedBehaviour
+	 * @generated
+	 */
+	public Adapter createForkedBehaviourAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.NumberOfReplicas <em>Number Of Replicas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.NumberOfReplicas
+	 * @generated
+	 */
+	public Adapter createNumberOfReplicasAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint <em>Synchronisation Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint
+	 * @generated
+	 */
+	public Adapter createSynchronisationPointAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction <em>External Call Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -452,16 +510,16 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.AquireAction <em>Aquire Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.AcquireAction <em>Acquire Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.AquireAction
+	 * @see de.uka.ipd.sdq.pcm.seff.AcquireAction
 	 * @generated
 	 */
-	public Adapter createAquireActionAdapter() {
+	public Adapter createAcquireActionAdapter() {
 		return null;
 	}
 
@@ -588,6 +646,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRandomVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.PCMRandomVariable <em>PCM Random Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.PCMRandomVariable
+	 * @generated
+	 */
+	public Adapter createPCMRandomVariableAdapter() {
 		return null;
 	}
 

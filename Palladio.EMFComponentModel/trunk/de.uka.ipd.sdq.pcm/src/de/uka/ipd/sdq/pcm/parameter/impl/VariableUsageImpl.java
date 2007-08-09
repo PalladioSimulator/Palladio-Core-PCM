@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -70,7 +68,6 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 * @ordered
 	 */
 	protected AbstractNamedReference namedReference_VariableUsage;
-
 
 	/**
 	 * <!-- begin-user-doc -->

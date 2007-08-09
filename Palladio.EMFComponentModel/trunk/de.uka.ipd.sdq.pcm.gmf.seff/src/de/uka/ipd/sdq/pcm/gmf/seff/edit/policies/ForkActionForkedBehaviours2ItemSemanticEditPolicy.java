@@ -3,15 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour3CreateCommand;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ForkedBehaviourCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
@@ -23,14 +20,14 @@ public class ForkActionForkedBehaviours2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3021 == req
+		if (PalladioComponentModelElementTypes.ForkedBehaviour_3027 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(SeffPackage.eINSTANCE
-						.getForkAction_ForkedBehaviours_Fork());
+				req
+						.setContainmentFeature(SeffPackage.eINSTANCE
+								.getForkAction_AsynchronousForkedBehaviours_ForkAction());
 			}
-			return getGEFWrapper(new ResourceDemandingBehaviour3CreateCommand(
-					req));
+			return getGEFWrapper(new ForkedBehaviourCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

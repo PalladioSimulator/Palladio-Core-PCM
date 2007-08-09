@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -52,7 +50,6 @@ public interface CompleteComponentType extends ProvidesComponentType {
 	 */
 	EList<ProvidesComponentType> getParentProvidesComponentTypes();
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,7 +74,6 @@ public interface CompleteComponentType extends ProvidesComponentType {
 	 * @generated
 	 */
 	boolean AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(DiagnosticChain diagnostics, Map<Object, Object> context);
-
 
 	/**
 	 * <!-- begin-user-doc -->

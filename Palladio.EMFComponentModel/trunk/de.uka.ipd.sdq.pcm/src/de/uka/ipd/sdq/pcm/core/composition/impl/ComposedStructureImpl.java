@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -91,7 +89,6 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * @ordered
 	 */
 	protected EList<AssemblyConnector> compositeAssemblyConnectors_ComposedStructure;
-
 
 	/**
 	 * <!-- begin-user-doc -->

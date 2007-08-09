@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -78,7 +76,6 @@ public class ExceptionTypeImpl extends EObjectImpl implements ExceptionType {
 	 * @ordered
 	 */
 	protected String exceptionMessage = EXCEPTION_MESSAGE_EDEFAULT;
-
 
 	/**
 	 * <!-- begin-user-doc -->

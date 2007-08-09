@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,9 +10,10 @@ import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
-import java.util.Collection;
 
+import java.util.Collection;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -26,14 +25,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
@@ -68,7 +72,6 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 */
 	protected EList<BranchTransition> branchTransitions_Branch;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #AllBranchProbabilitiesMustSumUpTo1 <em>All Branch Probabilities Must Sum Up To1</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -77,10 +80,9 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 * @generated
 	 */
 	private static OCLExpression AllBranchProbabilitiesMustSumUpTo1InvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

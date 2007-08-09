@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,6 +8,7 @@ package de.uka.ipd.sdq.pcm.resourceenvironment;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -191,31 +191,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Throughput</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Units</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS = 2;
-
-	/**
 	 * The feature id for the '<em><b>Link Latency</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY = 3;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Throughput</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Specification</em>' class.
@@ -224,7 +215,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LatencyImpl <em>Latency</em>}' class.
@@ -246,6 +237,15 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int LATENCY__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LATENCY__EXPRESSION = StoexPackage.RANDOM_VARIABLE__EXPRESSION;
+
+	/**
 	 * The number of structural features of the '<em>Latency</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,6 +255,43 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int LATENCY_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ThroughputImpl <em>Throughput</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ThroughputImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getThroughput()
+	 * @generated
+	 */
+	int THROUGHPUT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROUGHPUT__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROUGHPUT__EXPRESSION = StoexPackage.RANDOM_VARIABLE__EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Throughput</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROUGHPUT_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -262,7 +299,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getProcessingResourceSpecification()
 	 * @generated
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION = 4;
+	int PROCESSING_RESOURCE_SPECIFICATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Scheduling Policy</b></em>' attribute.
@@ -283,7 +320,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Processing Rate</b></em>' attribute.
+	 * The feature id for the '<em><b>Processing Rate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -292,59 +329,50 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Units</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__UNITS = 3;
-
-	/**
 	 * The number of structural features of the '<em>Processing Resource Specification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
+	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.PassiveResourceSpecificationImpl <em>Passive Resource Specification</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingRateImpl <em>Processing Rate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.PassiveResourceSpecificationImpl
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getPassiveResourceSpecification()
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingRateImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getProcessingRate()
 	 * @generated
 	 */
-	int PASSIVE_RESOURCE_SPECIFICATION = 5;
+	int PROCESSING_RATE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Capacity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PASSIVE_RESOURCE_SPECIFICATION__CAPACITY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Passive Resource Type Passive Resource Specification</b></em>' reference.
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PASSIVE_RESOURCE_SPECIFICATION__PASSIVE_RESOURCE_TYPE_PASSIVE_RESOURCE_SPECIFICATION = 1;
+	int PROCESSING_RATE__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The number of structural features of the '<em>Passive Resource Specification</em>' class.
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PASSIVE_RESOURCE_SPECIFICATION_FEATURE_COUNT = 2;
+	int PROCESSING_RATE__EXPRESSION = StoexPackage.RANDOM_VARIABLE__EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Processing Rate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RATE_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
@@ -354,7 +382,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceContainer()
 	 * @generated
 	 */
-	int RESOURCE_CONTAINER = 6;
+	int RESOURCE_CONTAINER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -384,23 +412,13 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Passive Resource Specifications Resource Container</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Resource Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
-
+	int RESOURCE_CONTAINER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
@@ -410,7 +428,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
 	 * @generated
 	 */
-	int SCHEDULING_POLICY = 7;
+	int SCHEDULING_POLICY = 8;
 
 
 	/**
@@ -510,28 +528,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput <em>Throughput</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Throughput</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput()
-	 * @see #getCommunicationLinkResourceSpecification()
-	 * @generated
-	 */
-	EAttribute getCommunicationLinkResourceSpecification_Throughput();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getUnits <em>Units</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Units</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getUnits()
-	 * @see #getCommunicationLinkResourceSpecification()
-	 * @generated
-	 */
-	EAttribute getCommunicationLinkResourceSpecification_Units();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkLatency <em>Link Latency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,6 +539,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getCommunicationLinkResourceSpecification_LinkLatency();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput <em>Throughput</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Throughput</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput()
+	 * @see #getCommunicationLinkResourceSpecification()
+	 * @generated
+	 */
+	EReference getCommunicationLinkResourceSpecification_Throughput();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Latency <em>Latency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -551,6 +558,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLatency();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Throughput <em>Throughput</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Throughput</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Throughput
+	 * @generated
+	 */
+	EClass getThroughput();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification <em>Processing Resource Specification</em>}'.
@@ -585,58 +602,25 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Processing Rate</em>'.
+	 * @return the meta object for the containment reference '<em>Processing Rate</em>'.
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate()
 	 * @see #getProcessingResourceSpecification()
 	 * @generated
 	 */
-	EAttribute getProcessingResourceSpecification_ProcessingRate();
+	EReference getProcessingResourceSpecification_ProcessingRate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getUnits <em>Units</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate <em>Processing Rate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Units</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getUnits()
-	 * @see #getProcessingResourceSpecification()
+	 * @return the meta object for class '<em>Processing Rate</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate
 	 * @generated
 	 */
-	EAttribute getProcessingResourceSpecification_Units();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification <em>Passive Resource Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Passive Resource Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification
-	 * @generated
-	 */
-	EClass getPassiveResourceSpecification();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification#getCapacity <em>Capacity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Capacity</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification#getCapacity()
-	 * @see #getPassiveResourceSpecification()
-	 * @generated
-	 */
-	EAttribute getPassiveResourceSpecification_Capacity();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification#getPassiveResourceType_PassiveResourceSpecification <em>Passive Resource Type Passive Resource Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Passive Resource Type Passive Resource Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification#getPassiveResourceType_PassiveResourceSpecification()
-	 * @see #getPassiveResourceSpecification()
-	 * @generated
-	 */
-	EReference getPassiveResourceSpecification_PassiveResourceType_PassiveResourceSpecification();
+	EClass getProcessingRate();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer <em>Resource Container</em>}'.
@@ -658,17 +642,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getPassiveResourceSpecifications_ResourceContainer <em>Passive Resource Specifications Resource Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Passive Resource Specifications Resource Container</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getPassiveResourceSpecifications_ResourceContainer()
-	 * @see #getResourceContainer()
-	 * @generated
-	 */
-	EReference getResourceContainer_PassiveResourceSpecifications_ResourceContainer();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}'.
@@ -781,28 +754,20 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 
 		/**
-		 * The meta object literal for the '<em><b>Throughput</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT = eINSTANCE.getCommunicationLinkResourceSpecification_Throughput();
-
-		/**
-		 * The meta object literal for the '<em><b>Units</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS = eINSTANCE.getCommunicationLinkResourceSpecification_Units();
-
-		/**
 		 * The meta object literal for the '<em><b>Link Latency</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY = eINSTANCE.getCommunicationLinkResourceSpecification_LinkLatency();
+
+		/**
+		 * The meta object literal for the '<em><b>Throughput</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT = eINSTANCE.getCommunicationLinkResourceSpecification_Throughput();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LatencyImpl <em>Latency</em>}' class.
@@ -813,6 +778,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LATENCY = eINSTANCE.getLatency();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ThroughputImpl <em>Throughput</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ThroughputImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getThroughput()
+		 * @generated
+		 */
+		EClass THROUGHPUT = eINSTANCE.getThroughput();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
@@ -841,46 +816,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EReference PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification();
 
 		/**
-		 * The meta object literal for the '<em><b>Processing Rate</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Processing Rate</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE = eINSTANCE.getProcessingResourceSpecification_ProcessingRate();
+		EReference PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE = eINSTANCE.getProcessingResourceSpecification_ProcessingRate();
 
 		/**
-		 * The meta object literal for the '<em><b>Units</b></em>' attribute feature.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingRateImpl <em>Processing Rate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingRateImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getProcessingRate()
 		 * @generated
 		 */
-		EAttribute PROCESSING_RESOURCE_SPECIFICATION__UNITS = eINSTANCE.getProcessingResourceSpecification_Units();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.PassiveResourceSpecificationImpl <em>Passive Resource Specification</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.PassiveResourceSpecificationImpl
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getPassiveResourceSpecification()
-		 * @generated
-		 */
-		EClass PASSIVE_RESOURCE_SPECIFICATION = eINSTANCE.getPassiveResourceSpecification();
-
-		/**
-		 * The meta object literal for the '<em><b>Capacity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PASSIVE_RESOURCE_SPECIFICATION__CAPACITY = eINSTANCE.getPassiveResourceSpecification_Capacity();
-
-		/**
-		 * The meta object literal for the '<em><b>Passive Resource Type Passive Resource Specification</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PASSIVE_RESOURCE_SPECIFICATION__PASSIVE_RESOURCE_TYPE_PASSIVE_RESOURCE_SPECIFICATION = eINSTANCE.getPassiveResourceSpecification_PassiveResourceType_PassiveResourceSpecification();
+		EClass PROCESSING_RATE = eINSTANCE.getProcessingRate();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
@@ -899,14 +850,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Passive Resource Specifications Resource Container</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_PassiveResourceSpecifications_ResourceContainer();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.

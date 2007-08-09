@@ -14,11 +14,11 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityName2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityName2EditPart;
@@ -41,18 +41,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEntityNameEditPar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @generated
@@ -216,22 +209,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser aquireActionEntityName_5021Parser;
+	private IParser acquireActionEntityName_5029Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAquireActionEntityName_5021Parser() {
-		if (aquireActionEntityName_5021Parser == null) {
-			aquireActionEntityName_5021Parser = createAquireActionEntityName_5021Parser();
+	private IParser getAcquireActionEntityName_5029Parser() {
+		if (acquireActionEntityName_5029Parser == null) {
+			acquireActionEntityName_5029Parser = createAcquireActionEntityName_5029Parser();
 		}
-		return aquireActionEntityName_5021Parser;
+		return acquireActionEntityName_5029Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createAquireActionEntityName_5021Parser() {
+	protected IParser createAcquireActionEntityName_5029Parser() {
 		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -415,12 +408,11 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createParametricResourceDemand_3008Parser() {
-		EAttribute[] features = new EAttribute[] {
-				StoexPackage.eINSTANCE.getRandomVariable_Specification(),
-				SeffPackage.eINSTANCE.getParametricResourceDemand_Unit(), };
+		EAttribute[] features = new EAttribute[] { StoexPackage.eINSTANCE
+				.getRandomVariable_Specification(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
-		parser.setViewPattern("{0} {1}");
-		parser.setEditorPattern("{0} {1}");
+		parser.setViewPattern("{0}");
+		parser.setEditorPattern("{0}");
 		parser.setEditPattern("{0}");
 		return parser;
 	}
@@ -506,22 +498,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser aquireActionEntityName_5019Parser;
+	private IParser acquireActionEntityName_5028Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAquireActionEntityName_5019Parser() {
-		if (aquireActionEntityName_5019Parser == null) {
-			aquireActionEntityName_5019Parser = createAquireActionEntityName_5019Parser();
+	private IParser getAcquireActionEntityName_5028Parser() {
+		if (acquireActionEntityName_5028Parser == null) {
+			acquireActionEntityName_5028Parser = createAcquireActionEntityName_5028Parser();
 		}
-		return aquireActionEntityName_5019Parser;
+		return acquireActionEntityName_5028Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createAquireActionEntityName_5019Parser() {
+	protected IParser createAcquireActionEntityName_5028Parser() {
 		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -702,8 +694,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getCollectionIteratorActionEntityName_5015Parser();
 		case SetVariableActionEntityName2EditPart.VISUAL_ID:
 			return getSetVariableActionEntityName_5023Parser();
-		case AquireActionEntityName2EditPart.VISUAL_ID:
-			return getAquireActionEntityName_5021Parser();
+		case AcquireActionEntityNameEditPart.VISUAL_ID:
+			return getAcquireActionEntityName_5029Parser();
 		case ReleaseActionEntityName2EditPart.VISUAL_ID:
 			return getReleaseActionEntityName_5022Parser();
 		case ForkActionEntityName2EditPart.VISUAL_ID:
@@ -724,8 +716,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getProbabilisticBranchTransitionBranchProbability_5007Parser();
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 			return getExternalCallActionEntityName_5006Parser();
-		case AquireActionEntityNameEditPart.VISUAL_ID:
-			return getAquireActionEntityName_5019Parser();
+		case AcquireActionEntityName2EditPart.VISUAL_ID:
+			return getAcquireActionEntityName_5028Parser();
 		case ReleaseActionEntityNameEditPart.VISUAL_ID:
 			return getReleaseActionEntityName_5020Parser();
 		case ForkActionEntityNameEditPart.VISUAL_ID:

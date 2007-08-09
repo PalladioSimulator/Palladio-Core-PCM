@@ -111,7 +111,6 @@ public class SeffBuilder {
 		ParametricResourceDemand d = SeffFactory.eINSTANCE.createParametricResourceDemand();
 		d.setRequiredResource_ParametricResourceDemand(type);
 		d.setSpecification(getSaveResourceDemand(resourceDemandSpec));
-		d.setUnit("");
 		action.getResourceDemand_Action().add(d);
 		
 		return action;

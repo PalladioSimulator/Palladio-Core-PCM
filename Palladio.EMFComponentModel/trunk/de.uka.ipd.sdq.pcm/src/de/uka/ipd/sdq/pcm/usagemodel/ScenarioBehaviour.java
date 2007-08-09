@@ -1,17 +1,15 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import de.uka.ipd.sdq.identifier.Identifier;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**

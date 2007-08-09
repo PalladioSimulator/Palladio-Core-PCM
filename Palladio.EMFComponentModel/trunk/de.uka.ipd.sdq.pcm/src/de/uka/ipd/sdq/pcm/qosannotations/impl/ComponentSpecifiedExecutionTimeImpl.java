@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -49,7 +47,6 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 	 * @ordered
 	 */
 	protected AssemblyContext assemblyContext_ComponentSpecifiedExecutionTime;
-
 
 	/**
 	 * <!-- begin-user-doc -->

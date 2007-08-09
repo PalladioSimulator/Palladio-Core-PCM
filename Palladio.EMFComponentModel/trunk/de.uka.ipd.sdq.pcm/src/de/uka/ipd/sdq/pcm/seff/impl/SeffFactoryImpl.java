@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -77,10 +76,13 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.ITERATION_COUNT: return createIterationCount();
 			case SeffPackage.INTERNAL_ACTION: return createInternalAction();
 			case SeffPackage.FORK_ACTION: return createForkAction();
+			case SeffPackage.FORKED_BEHAVIOUR: return createForkedBehaviour();
+			case SeffPackage.NUMBER_OF_REPLICAS: return createNumberOfReplicas();
+			case SeffPackage.SYNCHRONISATION_POINT: return createSynchronisationPoint();
 			case SeffPackage.EXTERNAL_CALL_ACTION: return createExternalCallAction();
 			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION: return createProbabilisticBranchTransition();
 			case SeffPackage.BRANCH_ACTION: return createBranchAction();
-			case SeffPackage.AQUIRE_ACTION: return createAquireAction();
+			case SeffPackage.ACQUIRE_ACTION: return createAcquireAction();
 			case SeffPackage.BRANCH_CONDITION: return createBranchCondition();
 			case SeffPackage.COLLECTION_ITERATOR_ACTION: return createCollectionIteratorAction();
 			case SeffPackage.GUARDED_BRANCH_TRANSITION: return createGuardedBranchTransition();
@@ -195,6 +197,36 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ForkedBehaviour createForkedBehaviour() {
+		ForkedBehaviourImpl forkedBehaviour = new ForkedBehaviourImpl();
+		return forkedBehaviour;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NumberOfReplicas createNumberOfReplicas() {
+		NumberOfReplicasImpl numberOfReplicas = new NumberOfReplicasImpl();
+		return numberOfReplicas;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SynchronisationPoint createSynchronisationPoint() {
+		SynchronisationPointImpl synchronisationPoint = new SynchronisationPointImpl();
+		return synchronisationPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExternalCallAction createExternalCallAction() {
 		ExternalCallActionImpl externalCallAction = new ExternalCallActionImpl();
 		return externalCallAction;
@@ -225,9 +257,9 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AquireAction createAquireAction() {
-		AquireActionImpl aquireAction = new AquireActionImpl();
-		return aquireAction;
+	public AcquireAction createAcquireAction() {
+		AcquireActionImpl acquireAction = new AcquireActionImpl();
+		return acquireAction;
 	}
 
 	/**

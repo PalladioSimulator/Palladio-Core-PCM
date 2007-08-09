@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -50,7 +48,6 @@ public abstract class ServiceCallImpl extends EObjectImpl implements ServiceCall
 	 * @ordered
 	 */
 	protected Signature signature__ServiceCall;
-
 
 	/**
 	 * <!-- begin-user-doc -->

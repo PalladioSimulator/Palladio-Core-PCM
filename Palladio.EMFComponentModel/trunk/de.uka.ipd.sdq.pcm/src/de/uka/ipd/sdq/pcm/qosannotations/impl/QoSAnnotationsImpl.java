@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,8 +10,8 @@ import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
-
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -58,7 +56,6 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 */
 	protected EList<SpecifiedExecutionTime> specifiedExecutionTimes_QoSAnnotations;
 
-
 	/**
 	 * The cached value of the '{@link #getSpecifiedOutputParameterAbstractions_QoSAnnotations() <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -68,7 +65,6 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 * @ordered
 	 */
 	protected EList<SpecifiedOutputParameterAbstraction> specifiedOutputParameterAbstractions_QoSAnnotations;
-
 
 	/**
 	 * <!-- begin-user-doc -->

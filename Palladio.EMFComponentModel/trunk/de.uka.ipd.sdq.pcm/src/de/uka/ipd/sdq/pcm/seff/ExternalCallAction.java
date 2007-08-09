@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,6 +7,7 @@ package de.uka.ipd.sdq.pcm.seff;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
+import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 import org.eclipse.emf.common.util.EList;
@@ -24,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getCalledService_ExternalService <em>Called Service External Service</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getParameterUsage_ExternalCallAction <em>Parameter Usage External Call Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsage_ExternalCallAction <em>Output Variable Usage External Call Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,5 +96,31 @@ public interface ExternalCallAction extends AbstractAction {
 	 * @generated
 	 */
 	EList<VariableUsage> getOutputVariableUsage_ExternalCallAction();
+
+	/**
+	 * Returns the value of the '<em><b>Role External Service</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Role External Service</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Role External Service</em>' reference.
+	 * @see #setRole_ExternalService(Role)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_Role_ExternalService()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	Role getRole_ExternalService();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Role External Service</em>' reference.
+	 * @see #getRole_ExternalService()
+	 * @generated
+	 */
+	void setRole_ExternalService(Role value);
 
 } // ExternalCallAction

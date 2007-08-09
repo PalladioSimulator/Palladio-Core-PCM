@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
@@ -90,7 +91,6 @@ public class ExternalCallActionHandler {
 	private void createInternalAction(String timeSpecification, ExternalCallAction call) {
 		ParametricResourceDemand demand = seffFactory.createParametricResourceDemand();
 		demand.setSpecification(timeSpecification);
-		demand.setUnit("");
 		demand.setRequiredResource_ParametricResourceDemand(getProcessingResourceType());
 		
 		InternalAction action = seffFactory.createInternalAction();
@@ -121,8 +121,9 @@ public class ExternalCallActionHandler {
 		
 		ProcessingResourceSpecification res = ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification();
 		res.setActiveResourceType_ActiveResourceSpecification(resType);
-		res.setProcessingRate(1.0);
-		res.setUnits("seconds");
+		ProcessingRate rate = ResourceenvironmentFactory.eINSTANCE.createProcessingRate();
+		rate.setSpecification("1.0");
+		res.setProcessingRate(rate);
 			
 		ResourceContainer resCon = ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
 		resCon.setEntityName("SystemExternalResourceContainer");

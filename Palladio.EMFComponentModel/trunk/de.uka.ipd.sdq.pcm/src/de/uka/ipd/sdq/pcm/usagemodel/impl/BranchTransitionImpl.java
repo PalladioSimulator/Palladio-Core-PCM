@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -71,7 +69,6 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 * @ordered
 	 */
 	protected ScenarioBehaviour branchedBehaviour_BranchTransition;
-
 
 	/**
 	 * <!-- begin-user-doc -->

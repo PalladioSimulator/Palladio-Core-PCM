@@ -1,26 +1,22 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
-import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
+
 import java.util.Collection;
 import java.util.Map;
 
@@ -117,7 +113,6 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 */
 	protected EList<AbstractAction> steps_Behaviour;
 
-
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStopAction <em>Exactly One Stop Action</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -126,7 +121,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * @generated
 	 */
 	private static OCLExpression ExactlyOneStopActionInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStartAction <em>Exactly One Start Action</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -135,7 +130,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * @generated
 	 */
 	private static OCLExpression ExactlyOneStartActionInvOCL;
-
+	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -144,7 +139,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * @generated
 	 */
 	private static OCLExpression EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL;
-
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -236,7 +231,6 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 		}
 		return steps_Behaviour;
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

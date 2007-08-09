@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -12,8 +11,10 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+
 import de.uka.ipd.sdq.pcm.qosannotations.*;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 import java.util.List;
@@ -105,6 +106,7 @@ public class QosannotationsSwitch<T> {
 			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME: {
 				SpecifiedExecutionTime specifiedExecutionTime = (SpecifiedExecutionTime)theEObject;
 				T result = caseSpecifiedExecutionTime(specifiedExecutionTime);
+				if (result == null) result = casePCMRandomVariable(specifiedExecutionTime);
 				if (result == null) result = caseRandomVariable(specifiedExecutionTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -119,6 +121,7 @@ public class QosannotationsSwitch<T> {
 				SystemSpecifiedExecutionTime systemSpecifiedExecutionTime = (SystemSpecifiedExecutionTime)theEObject;
 				T result = caseSystemSpecifiedExecutionTime(systemSpecifiedExecutionTime);
 				if (result == null) result = caseSpecifiedExecutionTime(systemSpecifiedExecutionTime);
+				if (result == null) result = casePCMRandomVariable(systemSpecifiedExecutionTime);
 				if (result == null) result = caseRandomVariable(systemSpecifiedExecutionTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -127,6 +130,7 @@ public class QosannotationsSwitch<T> {
 				ComponentSpecifiedExecutionTime componentSpecifiedExecutionTime = (ComponentSpecifiedExecutionTime)theEObject;
 				T result = caseComponentSpecifiedExecutionTime(componentSpecifiedExecutionTime);
 				if (result == null) result = caseSpecifiedExecutionTime(componentSpecifiedExecutionTime);
+				if (result == null) result = casePCMRandomVariable(componentSpecifiedExecutionTime);
 				if (result == null) result = caseRandomVariable(componentSpecifiedExecutionTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -253,6 +257,21 @@ public class QosannotationsSwitch<T> {
 	 * @generated
 	 */
 	public T caseRandomVariable(RandomVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMRandomVariable(PCMRandomVariable object) {
 		return null;
 	}
 

@@ -1,7 +1,5 @@
-
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -74,7 +72,6 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 	 * @ordered
 	 */
 	protected EList<InnerDeclaration> innerDeclaration_CompositeDataType;
-
 
 	/**
 	 * <!-- begin-user-doc -->
