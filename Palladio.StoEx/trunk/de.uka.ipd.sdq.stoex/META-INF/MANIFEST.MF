@@ -22,6 +22,7 @@ Export-Package: de.uka.ipd.sdq.stoex,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
- org.antlr;bundle-version="[3.0.0,3.0.0]",
- org.junit
+ org.junit4,
+ de.uka.ipd.sdq.units,
+ de.uka.ipd.sdq.wrapper.antlr
 Eclipse-LazyStart: true

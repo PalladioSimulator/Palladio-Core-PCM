@@ -1,12 +1,11 @@
+// $ANTLR 3.0 C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g 2007-08-08 17:14:04
 package de.uka.ipd.sdq.stoex.parser;
-
-// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g 2007-06-14 08:31:48
 
 import org.antlr.runtime.*;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
- 
+
 public class StochasticExpressionsLexer extends Lexer {
     public static final int MOD=14;
     public static final int GREATEREQUAL=8;
@@ -62,14 +61,14 @@ public class StochasticExpressionsLexer extends Lexer {
     public StochasticExpressionsLexer(CharStream input) {
         super(input);
     }
-    public String getGrammarFileName() { return "C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g"; }
+    public String getGrammarFileName() { return "C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g"; }
 
     // $ANTLR start T33
     public final void mT33() throws RecognitionException {
         try {
             int _type = T33;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:3:7: ( 'OR' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:3:7: 'OR'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:3:5: ( 'OR' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:3:7: 'OR'
             {
             match("OR"); 
 
@@ -87,8 +86,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT34() throws RecognitionException {
         try {
             int _type = T34;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:4:7: ( 'XOR' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:4:7: 'XOR'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:4:5: ( 'XOR' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:4:7: 'XOR'
             {
             match("XOR"); 
 
@@ -106,8 +105,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT35() throws RecognitionException {
         try {
             int _type = T35;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:5:7: ( 'AND' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:5:7: 'AND'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:5:5: ( 'AND' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:5:7: 'AND'
             {
             match("AND"); 
 
@@ -125,8 +124,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT36() throws RecognitionException {
         try {
             int _type = T36;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:6:7: ( 'NOT' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:6:7: 'NOT'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:6:5: ( 'NOT' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:6:7: 'NOT'
             {
             match("NOT"); 
 
@@ -144,8 +143,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT37() throws RecognitionException {
         try {
             int _type = T37;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:7:7: ( 'IntPMF' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:7:7: 'IntPMF'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:7:5: ( 'IntPMF' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:7:7: 'IntPMF'
             {
             match("IntPMF"); 
 
@@ -163,8 +162,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT38() throws RecognitionException {
         try {
             int _type = T38;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:8:7: ( 'DoublePMF' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:8:7: 'DoublePMF'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:8:5: ( 'DoublePMF' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:8:7: 'DoublePMF'
             {
             match("DoublePMF"); 
 
@@ -182,8 +181,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT39() throws RecognitionException {
         try {
             int _type = T39;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:9:7: ( 'EnumPMF' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:9:7: 'EnumPMF'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:9:5: ( 'EnumPMF' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:9:7: 'EnumPMF'
             {
             match("EnumPMF"); 
 
@@ -201,8 +200,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT40() throws RecognitionException {
         try {
             int _type = T40;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:10:7: ( 'DoublePDF' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:10:7: 'DoublePDF'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:10:5: ( 'DoublePDF' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:10:7: 'DoublePDF'
             {
             match("DoublePDF"); 
 
@@ -220,8 +219,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT41() throws RecognitionException {
         try {
             int _type = T41;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:11:7: ( 'BoolPMF' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:11:7: 'BoolPMF'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:11:5: ( 'BoolPMF' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:11:7: 'BoolPMF'
             {
             match("BoolPMF"); 
 
@@ -239,8 +238,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT42() throws RecognitionException {
         try {
             int _type = T42;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:12:7: ( 'unit' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:12:7: 'unit'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:12:5: ( 'unit' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:12:7: 'unit'
             {
             match("unit"); 
 
@@ -258,8 +257,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT43() throws RecognitionException {
         try {
             int _type = T43;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:13:7: ( '\"bool\"' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:13:7: '\"bool\"'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:13:5: ( '\"bool\"' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:13:7: '\"bool\"'
             {
             match("\"bool\""); 
 
@@ -277,8 +276,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT44() throws RecognitionException {
         try {
             int _type = T44;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:7: ( 'false' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:7: 'false'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:5: ( 'false' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:7: 'false'
             {
             match("false"); 
 
@@ -296,8 +295,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT45() throws RecognitionException {
         try {
             int _type = T45;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:15:7: ( 'true' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:15:7: 'true'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:15:5: ( 'true' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:15:7: 'true'
             {
             match("true"); 
 
@@ -315,8 +314,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT46() throws RecognitionException {
         try {
             int _type = T46;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:16:7: ( 'BYTESIZE' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:16:7: 'BYTESIZE'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:16:5: ( 'BYTESIZE' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:16:7: 'BYTESIZE'
             {
             match("BYTESIZE"); 
 
@@ -334,8 +333,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT47() throws RecognitionException {
         try {
             int _type = T47;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:17:7: ( 'STRUCTURE' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:17:7: 'STRUCTURE'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:17:5: ( 'STRUCTURE' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:17:7: 'STRUCTURE'
             {
             match("STRUCTURE"); 
 
@@ -353,8 +352,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT48() throws RecognitionException {
         try {
             int _type = T48;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:18:7: ( 'NUMBER_OF_ELEMENTS' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:18:7: 'NUMBER_OF_ELEMENTS'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:18:5: ( 'NUMBER_OF_ELEMENTS' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:18:7: 'NUMBER_OF_ELEMENTS'
             {
             match("NUMBER_OF_ELEMENTS"); 
 
@@ -372,8 +371,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT49() throws RecognitionException {
         try {
             int _type = T49;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:7: ( 'TYPE' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:7: 'TYPE'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:5: ( 'TYPE' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:7: 'TYPE'
             {
             match("TYPE"); 
 
@@ -391,8 +390,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT50() throws RecognitionException {
         try {
             int _type = T50;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:7: ( 'VALUE' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:7: 'VALUE'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:5: ( 'VALUE' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:7: 'VALUE'
             {
             match("VALUE"); 
 
@@ -410,8 +409,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mT51() throws RecognitionException {
         try {
             int _type = T51;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:21:7: ( 'INNER' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:21:7: 'INNER'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:21:5: ( 'INNER' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:21:7: 'INNER'
             {
             match("INNER"); 
 
@@ -429,8 +428,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mPLUS() throws RecognitionException {
         try {
             int _type = PLUS;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:364:9: ( '+' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:364:9: '+'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:362:7: ( '+' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:362:9: '+'
             {
             match('+'); 
 
@@ -447,8 +446,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mMINUS() throws RecognitionException {
         try {
             int _type = MINUS;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:365:9: ( '-' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:365:9: '-'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:363:7: ( '-' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:363:9: '-'
             {
             match('-'); 
 
@@ -465,8 +464,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mMUL() throws RecognitionException {
         try {
             int _type = MUL;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:366:9: ( '*' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:366:9: '*'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:364:7: ( '*' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:364:9: '*'
             {
             match('*'); 
 
@@ -483,8 +482,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mDIV() throws RecognitionException {
         try {
             int _type = DIV;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:367:9: ( '/' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:367:9: '/'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:365:7: ( '/' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:365:9: '/'
             {
             match('/'); 
 
@@ -501,8 +500,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mMOD() throws RecognitionException {
         try {
             int _type = MOD;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:368:9: ( '%' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:368:9: '%'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:366:7: ( '%' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:366:9: '%'
             {
             match('%'); 
 
@@ -519,8 +518,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mPOW() throws RecognitionException {
         try {
             int _type = POW;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:369:9: ( '^' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:369:9: '^'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:367:7: ( '^' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:367:9: '^'
             {
             match('^'); 
 
@@ -537,8 +536,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mLPAREN() throws RecognitionException {
         try {
             int _type = LPAREN;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:370:9: ( '(' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:370:9: '('
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:368:7: ( '(' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:368:9: '('
             {
             match('('); 
 
@@ -555,8 +554,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mRPAREN() throws RecognitionException {
         try {
             int _type = RPAREN;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:371:9: ( ')' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:371:9: ')'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:369:7: ( ')' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:369:9: ')'
             {
             match(')'); 
 
@@ -573,8 +572,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mSEMI() throws RecognitionException {
         try {
             int _type = SEMI;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:372:9: ( ';' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:372:9: ';'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:370:7: ( ';' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:370:9: ';'
             {
             match(';'); 
 
@@ -591,8 +590,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mDEFINITION() throws RecognitionException {
         try {
             int _type = DEFINITION;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:373:14: ( '=' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:373:14: '='
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:371:12: ( '=' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:371:14: '='
             {
             match('='); 
 
@@ -609,8 +608,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mORDERED_DEF() throws RecognitionException {
         try {
             int _type = ORDERED_DEF;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:375:4: ( 'ordered' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:375:4: 'ordered'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:373:2: ( 'ordered' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:373:4: 'ordered'
             {
             match("ordered"); 
 
@@ -628,8 +627,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mEQUAL() throws RecognitionException {
         try {
             int _type = EQUAL;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:376:9: ( '==' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:376:9: '=='
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:374:7: ( '==' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:374:9: '=='
             {
             match("=="); 
 
@@ -647,8 +646,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mSQUARE_PAREN_L() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_L;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:377:18: ( '[' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:377:18: '['
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:375:16: ( '[' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:375:18: '['
             {
             match('['); 
 
@@ -665,8 +664,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mSQUARE_PAREN_R() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_R;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:18: ( ']' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:18: ']'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:376:16: ( ']' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:376:18: ']'
             {
             match(']'); 
 
@@ -682,8 +681,8 @@ public class StochasticExpressionsLexer extends Lexer {
     // $ANTLR start DIGIT
     public final void mDIGIT() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:379:18: ( '0' .. '9' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:379:18: '0' .. '9'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:377:16: ( '0' .. '9' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:377:18: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -699,10 +698,10 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mNUMBER() throws RecognitionException {
         try {
             int _type = NUMBER;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:10: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:8: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
             {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:10: ( DIGIT )+
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:10: ( DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -716,7 +715,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:11: DIGIT
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:11: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -732,7 +731,7 @@ public class StochasticExpressionsLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:19: ( '.' ( DIGIT )+ )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:19: ( '.' ( DIGIT )+ )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -741,10 +740,10 @@ public class StochasticExpressionsLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:20: '.' ( DIGIT )+
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:20: '.' ( DIGIT )+
                     {
                     match('.'); 
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:24: ( DIGIT )+
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:24: ( DIGIT )+
                     int cnt2=0;
                     loop2:
                     do {
@@ -758,7 +757,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:25: DIGIT
+                    	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:25: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -780,7 +779,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
             }
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:35: ( Exponent )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:35: ( Exponent )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -789,7 +788,7 @@ public class StochasticExpressionsLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:35: Exponent
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:35: Exponent
                     {
                     mExponent(); 
 
@@ -811,8 +810,8 @@ public class StochasticExpressionsLexer extends Lexer {
     // $ANTLR start Exponent
     public final void mExponent() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:12: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -824,7 +823,7 @@ public class StochasticExpressionsLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:22: ( '+' | '-' )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:22: ( '+' | '-' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -833,7 +832,7 @@ public class StochasticExpressionsLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -851,7 +850,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
             }
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:33: ( '0' .. '9' )+
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:33: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -865,7 +864,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:34: '0' .. '9'
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -893,8 +892,8 @@ public class StochasticExpressionsLexer extends Lexer {
     // $ANTLR start ALPHA
     public final void mALPHA() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:383:18: ( 'a' .. 'z' | 'A' .. 'Z' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:381:16: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -919,8 +918,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mNOTEQUAL() throws RecognitionException {
         try {
             int _type = NOTEQUAL;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:384:12: ( '<>' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:384:12: '<>'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:10: ( '<>' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:12: '<>'
             {
             match("<>"); 
 
@@ -938,8 +937,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mGREATER() throws RecognitionException {
         try {
             int _type = GREATER;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:385:11: ( '>' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:385:11: '>'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:383:9: ( '>' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:383:11: '>'
             {
             match('>'); 
 
@@ -956,8 +955,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mLESS() throws RecognitionException {
         try {
             int _type = LESS;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:386:8: ( '<' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:386:8: '<'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:384:6: ( '<' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:384:8: '<'
             {
             match('<'); 
 
@@ -974,8 +973,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mGREATEREQUAL() throws RecognitionException {
         try {
             int _type = GREATEREQUAL;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:387:16: ( '>=' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:387:16: '>='
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:385:14: ( '>=' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:385:16: '>='
             {
             match(">="); 
 
@@ -993,8 +992,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mLESSEQUAL() throws RecognitionException {
         try {
             int _type = LESSEQUAL;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:388:13: ( '<=' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:388:13: '<='
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:386:11: ( '<=' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:386:13: '<='
             {
             match("<="); 
 
@@ -1012,11 +1011,11 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mSTRING_LITERAL() throws RecognitionException {
         try {
             int _type = STRING_LITERAL;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:18: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:387:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:387:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
             {
             match('\"'); 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:23: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:387:23: ( ALPHA | '_' )+
             int cnt7=0;
             loop7:
             do {
@@ -1030,7 +1029,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1070,8 +1069,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mDOT() throws RecognitionException {
         try {
             int _type = DOT;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:390:6: ( '.' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:390:6: '.'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:388:4: ( '.' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:388:6: '.'
             {
             match('.'); 
 
@@ -1088,10 +1087,10 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mID() throws RecognitionException {
         try {
             int _type = ID;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:391:38: ( ( ALPHA | '_' )+ )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:391:38: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:36: ( ( ALPHA | '_' )+ )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:38: ( ALPHA | '_' )+
             {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:391:38: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:38: ( ALPHA | '_' )+
             int cnt8=0;
             loop8:
             do {
@@ -1105,7 +1104,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1144,8 +1143,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mWS() throws RecognitionException {
         try {
             int _type = WS;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:394:8: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:394:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:392:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:392:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -1172,12 +1171,12 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mCOMMENT() throws RecognitionException {
         try {
             int _type = COMMENT;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:398:9: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:398:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:398:14: ( options {greedy=false; } : . )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:14: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -1202,7 +1201,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:398:42: .
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:42: .
             	    {
             	    matchAny(); 
 
@@ -1231,12 +1230,12 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mLINE_COMMENT() throws RecognitionException {
         try {
             int _type = LINE_COMMENT;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:402:7: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:402:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:402:12: (~ ( '\\n' | '\\r' ) )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:12: (~ ( '\\n' | '\\r' ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1249,7 +1248,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:402:12: ~ ( '\\n' | '\\r' )
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1270,7 +1269,7 @@ public class StochasticExpressionsLexer extends Lexer {
                 }
             } while (true);
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:402:26: ( '\\r' )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:26: ( '\\r' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1279,7 +1278,7 @@ public class StochasticExpressionsLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:402:26: '\\r'
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:26: '\\r'
                     {
                     match('\r'); 
 
@@ -1301,7 +1300,7 @@ public class StochasticExpressionsLexer extends Lexer {
     // $ANTLR end LINE_COMMENT
 
     public void mTokens() throws RecognitionException {
-        // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:10: ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
+        // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:8: ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
         int alt12=45;
         switch ( input.LA(1) ) {
         case 'O':
@@ -2312,315 +2311,315 @@ public class StochasticExpressionsLexer extends Lexer {
 
         switch (alt12) {
             case 1 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:10: T33
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:10: T33
                 {
                 mT33(); 
 
                 }
                 break;
             case 2 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:14: T34
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:14: T34
                 {
                 mT34(); 
 
                 }
                 break;
             case 3 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:18: T35
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:18: T35
                 {
                 mT35(); 
 
                 }
                 break;
             case 4 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:22: T36
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:22: T36
                 {
                 mT36(); 
 
                 }
                 break;
             case 5 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:26: T37
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:26: T37
                 {
                 mT37(); 
 
                 }
                 break;
             case 6 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:30: T38
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:30: T38
                 {
                 mT38(); 
 
                 }
                 break;
             case 7 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:34: T39
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:34: T39
                 {
                 mT39(); 
 
                 }
                 break;
             case 8 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:38: T40
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:38: T40
                 {
                 mT40(); 
 
                 }
                 break;
             case 9 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:42: T41
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:42: T41
                 {
                 mT41(); 
 
                 }
                 break;
             case 10 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:46: T42
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:46: T42
                 {
                 mT42(); 
 
                 }
                 break;
             case 11 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:50: T43
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:50: T43
                 {
                 mT43(); 
 
                 }
                 break;
             case 12 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:54: T44
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:54: T44
                 {
                 mT44(); 
 
                 }
                 break;
             case 13 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:58: T45
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:58: T45
                 {
                 mT45(); 
 
                 }
                 break;
             case 14 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:62: T46
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:62: T46
                 {
                 mT46(); 
 
                 }
                 break;
             case 15 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:66: T47
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:66: T47
                 {
                 mT47(); 
 
                 }
                 break;
             case 16 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:70: T48
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:70: T48
                 {
                 mT48(); 
 
                 }
                 break;
             case 17 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:74: T49
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:74: T49
                 {
                 mT49(); 
 
                 }
                 break;
             case 18 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:78: T50
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:78: T50
                 {
                 mT50(); 
 
                 }
                 break;
             case 19 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:82: T51
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:82: T51
                 {
                 mT51(); 
 
                 }
                 break;
             case 20 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:86: PLUS
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:86: PLUS
                 {
                 mPLUS(); 
 
                 }
                 break;
             case 21 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:91: MINUS
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:91: MINUS
                 {
                 mMINUS(); 
 
                 }
                 break;
             case 22 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:97: MUL
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:97: MUL
                 {
                 mMUL(); 
 
                 }
                 break;
             case 23 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:101: DIV
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:101: DIV
                 {
                 mDIV(); 
 
                 }
                 break;
             case 24 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:105: MOD
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:105: MOD
                 {
                 mMOD(); 
 
                 }
                 break;
             case 25 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:109: POW
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:109: POW
                 {
                 mPOW(); 
 
                 }
                 break;
             case 26 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:113: LPAREN
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:113: LPAREN
                 {
                 mLPAREN(); 
 
                 }
                 break;
             case 27 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:120: RPAREN
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:120: RPAREN
                 {
                 mRPAREN(); 
 
                 }
                 break;
             case 28 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:127: SEMI
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:127: SEMI
                 {
                 mSEMI(); 
 
                 }
                 break;
             case 29 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:132: DEFINITION
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:132: DEFINITION
                 {
                 mDEFINITION(); 
 
                 }
                 break;
             case 30 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:143: ORDERED_DEF
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:143: ORDERED_DEF
                 {
                 mORDERED_DEF(); 
 
                 }
                 break;
             case 31 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:155: EQUAL
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:155: EQUAL
                 {
                 mEQUAL(); 
 
                 }
                 break;
             case 32 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:161: SQUARE_PAREN_L
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:161: SQUARE_PAREN_L
                 {
                 mSQUARE_PAREN_L(); 
 
                 }
                 break;
             case 33 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:176: SQUARE_PAREN_R
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:176: SQUARE_PAREN_R
                 {
                 mSQUARE_PAREN_R(); 
 
                 }
                 break;
             case 34 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:191: NUMBER
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:191: NUMBER
                 {
                 mNUMBER(); 
 
                 }
                 break;
             case 35 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:198: NOTEQUAL
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:198: NOTEQUAL
                 {
                 mNOTEQUAL(); 
 
                 }
                 break;
             case 36 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:207: GREATER
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:207: GREATER
                 {
                 mGREATER(); 
 
                 }
                 break;
             case 37 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:215: LESS
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:215: LESS
                 {
                 mLESS(); 
 
                 }
                 break;
             case 38 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:220: GREATEREQUAL
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:220: GREATEREQUAL
                 {
                 mGREATEREQUAL(); 
 
                 }
                 break;
             case 39 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:233: LESSEQUAL
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:233: LESSEQUAL
                 {
                 mLESSEQUAL(); 
 
                 }
                 break;
             case 40 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:243: STRING_LITERAL
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:243: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
             case 41 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:258: DOT
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:258: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
             case 42 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:262: ID
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:262: ID
                 {
                 mID(); 
 
                 }
                 break;
             case 43 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:265: WS
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:265: WS
                 {
                 mWS(); 
 
                 }
                 break;
             case 44 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:268: COMMENT
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:268: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
             case 45 :
-                // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:276: LINE_COMMENT
+                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:276: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 

@@ -156,8 +156,8 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 			(LPAREN
 			  (
-			  uunit = unit 
-			  {probFunction.setUnit(uunit);})
+			  unitSpec = unit 
+			  {probFunction.setUnitSpecification(unitSpec);})
 			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
@@ -170,8 +170,8 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 			(LPAREN
 			  (
-			  uunit = unit 
-			  {probFunction.setUnit(uunit);})
+			  unitSpec = unit 
+			  {probFunction.setUnitSpecification(unitSpec);})
 			RPAREN)?
 		 	SQUARE_PAREN_L 
 				( 
@@ -187,8 +187,8 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   }
 			(LPAREN
 			  (
-			  uunit = unit 
-			  {probFunction.setUnit(uunit);})
+			  unitSpec = unit 
+			  {probFunction.setUnitSpecification(unitSpec);})
 			  (SEMI
 			  ORDERED_DEF
 			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
@@ -205,8 +205,8 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 			(LPAREN
 			  (
-			  uunit = unit 
-			  {probFunction.setUnit(uunit);})
+			  unitSpec = unit 
+			  {probFunction.setUnitSpecification(unitSpec);})
 			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
@@ -221,8 +221,8 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   }
 			(LPAREN
 			  (
-			  uunit = bool_unit 
-			  {probFunction.setUnit(uunit);})
+			  unitSpec = bool_unit 
+			  {probFunction.setUnitSpecification(unitSpec);})
 			  (SEMI
 			  ORDERED_DEF
 			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
@@ -236,21 +236,19 @@ definition returns [ProbabilityFunctionLiteral pfl]
 ;	 		
 			
 
-unit returns [Unit u]
+unit returns [String u]
 	:
 		'unit'
-			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
 			DEFINITION
 			str=STRING_LITERAL 
-			{u.setUnitName(str.getText().replace("\"",""));} ;
+			{u = str.getText().replace("\"","");} ;
 
-bool_unit returns [Unit u]
+bool_unit returns [String u]
 	:
 		'unit'
-			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
 			EQUAL
 			'"bool"'
-			{u.setUnitName("bool");} ;
+			{u = "bool";} ;
 
 
 numeric_int_sample returns [Sample s]

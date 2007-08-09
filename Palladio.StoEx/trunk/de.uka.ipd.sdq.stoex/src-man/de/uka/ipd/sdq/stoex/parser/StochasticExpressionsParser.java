@@ -1,4 +1,4 @@
-// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g 2007-06-14 08:31:47
+// $ANTLR 3.0 C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g 2007-08-08 17:14:04
   
 	package de.uka.ipd.sdq.stoex.parser;
 	import de.uka.ipd.sdq.stoex.*;
@@ -52,12 +52,12 @@ public class StochasticExpressionsParser extends Parser {
         
 
     public String[] getTokenNames() { return tokenNames; }
-    public String getGrammarFileName() { return "C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g"; }
+    public String getGrammarFileName() { return "C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g"; }
 
 
 
     // $ANTLR start expression
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:12:1: expression returns [Expression exp] : c= boolOrExpr ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:12:1: expression returns [Expression exp] : c= boolOrExpr ;
     public final Expression expression() throws RecognitionException {
         Expression exp = null;
 
@@ -65,8 +65,8 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:4: (c= boolOrExpr )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:4: c= boolOrExpr
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:13:3: (c= boolOrExpr )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:4: c= boolOrExpr
             {
             pushFollow(FOLLOW_boolOrExpr_in_expression33);
             c=boolOrExpr();
@@ -89,7 +89,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start boolOrExpr
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:17:1: boolOrExpr returns [BooleanExpression boolExp] : b1= boolAndExpr ( ( 'OR' | 'XOR' ) boolAndExpr )* ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:17:1: boolOrExpr returns [BooleanExpression boolExp] : b1= boolAndExpr ( ( 'OR' | 'XOR' ) boolAndExpr )* ;
     public final BooleanExpression boolOrExpr() throws RecognitionException {
         BooleanExpression boolExp = null;
 
@@ -97,14 +97,14 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:2: (b1= boolAndExpr ( ( 'OR' | 'XOR' ) boolAndExpr )* )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:2: b1= boolAndExpr ( ( 'OR' | 'XOR' ) boolAndExpr )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:18:2: (b1= boolAndExpr ( ( 'OR' | 'XOR' ) boolAndExpr )* )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:2: b1= boolAndExpr ( ( 'OR' | 'XOR' ) boolAndExpr )*
             {
             pushFollow(FOLLOW_boolAndExpr_in_boolOrExpr57);
             b1=boolAndExpr();
             _fsp--;
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:3: ( ( 'OR' | 'XOR' ) boolAndExpr )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:3: ( ( 'OR' | 'XOR' ) boolAndExpr )*
             loop1:
             do {
                 int alt1=2;
@@ -117,7 +117,7 @@ public class StochasticExpressionsParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:4: ( 'OR' | 'XOR' ) boolAndExpr
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:4: ( 'OR' | 'XOR' ) boolAndExpr
             	    {
             	    if ( (input.LA(1)>=33 && input.LA(1)<=34) ) {
             	        input.consume();
@@ -158,7 +158,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start boolAndExpr
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:26:1: boolAndExpr returns [BooleanExpression boolExp] : b1= compareExpr ( 'AND' compareExpr )* ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:26:1: boolAndExpr returns [BooleanExpression boolExp] : b1= compareExpr ( 'AND' compareExpr )* ;
     public final BooleanExpression boolAndExpr() throws RecognitionException {
         BooleanExpression boolExp = null;
 
@@ -166,14 +166,14 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:28:2: (b1= compareExpr ( 'AND' compareExpr )* )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:28:2: b1= compareExpr ( 'AND' compareExpr )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:27:2: (b1= compareExpr ( 'AND' compareExpr )* )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:28:2: b1= compareExpr ( 'AND' compareExpr )*
             {
             pushFollow(FOLLOW_compareExpr_in_boolAndExpr105);
             b1=compareExpr();
             _fsp--;
 
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:29:3: ( 'AND' compareExpr )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:29:3: ( 'AND' compareExpr )*
             loop2:
             do {
                 int alt2=2;
@@ -186,7 +186,7 @@ public class StochasticExpressionsParser extends Parser {
 
                 switch (alt2) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:29:4: 'AND' compareExpr
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:29:4: 'AND' compareExpr
             	    {
             	    match(input,35,FOLLOW_35_in_boolAndExpr111); 
             	    pushFollow(FOLLOW_compareExpr_in_boolAndExpr117);
@@ -218,7 +218,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start compareExpr
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:35:1: compareExpr returns [Comparison comp] : t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:35:1: compareExpr returns [Comparison comp] : t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? ;
     public final Comparison compareExpr() throws RecognitionException {
         Comparison comp = null;
 
@@ -228,15 +228,15 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:37:4: (t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:37:4: t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:36:3: (t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:37:4: t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
             {
             pushFollow(FOLLOW_sumExpr_in_compareExpr146);
             t1=sumExpr();
             _fsp--;
 
             comp = t1;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:37:30: ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:37:30: ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -245,10 +245,10 @@ public class StochasticExpressionsParser extends Parser {
             }
             switch (alt4) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:38:5: ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:38:5: ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr
                     {
                     CompareExpression compExp = StoexFactory.eINSTANCE.createCompareExpression();
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:39:5: ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL )
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:39:5: ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL )
                     int alt3=6;
                     switch ( input.LA(1) ) {
                     case GREATER:
@@ -290,7 +290,7 @@ public class StochasticExpressionsParser extends Parser {
 
                     switch (alt3) {
                         case 1 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:39:6: GREATER
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:39:6: GREATER
                             {
                             match(input,GREATER,FOLLOW_GREATER_in_compareExpr163); 
                             compExp.setOperation(CompareOperations.GREATER);
@@ -298,7 +298,7 @@ public class StochasticExpressionsParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:40:6: LESS
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:40:6: LESS
                             {
                             match(input,LESS,FOLLOW_LESS_in_compareExpr173); 
                             compExp.setOperation(CompareOperations.LESS);
@@ -306,7 +306,7 @@ public class StochasticExpressionsParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:41:6: EQUAL
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:41:6: EQUAL
                             {
                             match(input,EQUAL,FOLLOW_EQUAL_in_compareExpr183); 
                             compExp.setOperation(CompareOperations.EQUALS);
@@ -314,7 +314,7 @@ public class StochasticExpressionsParser extends Parser {
                             }
                             break;
                         case 4 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:42:6: NOTEQUAL
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:42:6: NOTEQUAL
                             {
                             match(input,NOTEQUAL,FOLLOW_NOTEQUAL_in_compareExpr193); 
                             compExp.setOperation(CompareOperations.NOTEQUAL);
@@ -322,7 +322,7 @@ public class StochasticExpressionsParser extends Parser {
                             }
                             break;
                         case 5 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:43:6: GREATEREQUAL
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:43:6: GREATEREQUAL
                             {
                             match(input,GREATEREQUAL,FOLLOW_GREATEREQUAL_in_compareExpr203); 
                             compExp.setOperation(CompareOperations.GREATEREQUAL);
@@ -330,7 +330,7 @@ public class StochasticExpressionsParser extends Parser {
                             }
                             break;
                         case 6 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:44:6: LESSEQUAL
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:44:6: LESSEQUAL
                             {
                             match(input,LESSEQUAL,FOLLOW_LESSEQUAL_in_compareExpr213); 
                             compExp.setOperation(CompareOperations.LESSEQUAL);
@@ -367,7 +367,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start sumExpr
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:48:1: sumExpr returns [Term t] : p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:48:1: sumExpr returns [Term t] : p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* ;
     public final Term sumExpr() throws RecognitionException {
         Term t = null;
 
@@ -377,15 +377,15 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:50:2: (p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:50:2: p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:49:3: (p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:50:2: p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )*
             {
             pushFollow(FOLLOW_prodExpr_in_sumExpr260);
             p1=prodExpr();
             _fsp--;
 
             t = p1;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:50:26: ( ( PLUS | MINUS ) p2= prodExpr )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:50:26: ( ( PLUS | MINUS ) p2= prodExpr )*
             loop6:
             do {
                 int alt6=2;
@@ -398,10 +398,10 @@ public class StochasticExpressionsParser extends Parser {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:51:4: ( PLUS | MINUS ) p2= prodExpr
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:51:4: ( PLUS | MINUS ) p2= prodExpr
             	    {
             	    TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:52:4: ( PLUS | MINUS )
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:52:4: ( PLUS | MINUS )
             	    int alt5=2;
             	    int LA5_0 = input.LA(1);
 
@@ -419,7 +419,7 @@ public class StochasticExpressionsParser extends Parser {
             	    }
             	    switch (alt5) {
             	        case 1 :
-            	            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:52:5: PLUS
+            	            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:52:5: PLUS
             	            {
             	            match(input,PLUS,FOLLOW_PLUS_in_sumExpr278); 
             	            termExp.setOperation(TermOperations.ADD);
@@ -427,7 +427,7 @@ public class StochasticExpressionsParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:53:4: MINUS
+            	            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:53:4: MINUS
             	            {
             	            match(input,MINUS,FOLLOW_MINUS_in_sumExpr286); 
             	            termExp.setOperation(TermOperations.SUB);
@@ -467,7 +467,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start prodExpr
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:59:1: prodExpr returns [Product p] : pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:59:1: prodExpr returns [Product p] : pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* ;
     public final Product prodExpr() throws RecognitionException {
         Product p = null;
 
@@ -477,15 +477,15 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:61:3: (pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:61:3: pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:60:3: (pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:61:3: pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )*
             {
             pushFollow(FOLLOW_powExpr_in_prodExpr338);
             pw1=powExpr();
             _fsp--;
 
             p = pw1;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:62:4: ( ( MUL | DIV | MOD ) pw2= powExpr )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:62:4: ( ( MUL | DIV | MOD ) pw2= powExpr )*
             loop8:
             do {
                 int alt8=2;
@@ -498,10 +498,10 @@ public class StochasticExpressionsParser extends Parser {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:63:4: ( MUL | DIV | MOD ) pw2= powExpr
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:63:4: ( MUL | DIV | MOD ) pw2= powExpr
             	    {
             	    ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:64:5: ( MUL | DIV | MOD )
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:64:5: ( MUL | DIV | MOD )
             	    int alt7=3;
             	    switch ( input.LA(1) ) {
             	    case MUL:
@@ -528,7 +528,7 @@ public class StochasticExpressionsParser extends Parser {
 
             	    switch (alt7) {
             	        case 1 :
-            	            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:64:6: MUL
+            	            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:64:6: MUL
             	            {
             	            match(input,MUL,FOLLOW_MUL_in_prodExpr358); 
             	            prodExp.setOperation(ProductOperations.MULT);
@@ -536,7 +536,7 @@ public class StochasticExpressionsParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:65:6: DIV
+            	            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:65:6: DIV
             	            {
             	            match(input,DIV,FOLLOW_DIV_in_prodExpr369); 
             	            prodExp.setOperation(ProductOperations.DIV);
@@ -544,7 +544,7 @@ public class StochasticExpressionsParser extends Parser {
             	            }
             	            break;
             	        case 3 :
-            	            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:66:6: MOD
+            	            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:66:6: MOD
             	            {
             	            match(input,MOD,FOLLOW_MOD_in_prodExpr380); 
             	            prodExp.setOperation(ProductOperations.MOD);
@@ -584,7 +584,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start powExpr
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:72:1: powExpr returns [Power pw] : a1= unaryExpr ( POW a2= unaryExpr )? ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:72:1: powExpr returns [Power pw] : a1= unaryExpr ( POW a2= unaryExpr )? ;
     public final Power powExpr() throws RecognitionException {
         Power pw = null;
 
@@ -594,15 +594,15 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:74:3: (a1= unaryExpr ( POW a2= unaryExpr )? )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:74:3: a1= unaryExpr ( POW a2= unaryExpr )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:73:3: (a1= unaryExpr ( POW a2= unaryExpr )? )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:74:3: a1= unaryExpr ( POW a2= unaryExpr )?
             {
             pushFollow(FOLLOW_unaryExpr_in_powExpr437);
             a1=unaryExpr();
             _fsp--;
 
             pw = a1;
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:75:4: ( POW a2= unaryExpr )?
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:75:4: ( POW a2= unaryExpr )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -611,7 +611,7 @@ public class StochasticExpressionsParser extends Parser {
             }
             switch (alt9) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:75:5: POW a2= unaryExpr
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:75:5: POW a2= unaryExpr
                     {
                     match(input,POW,FOLLOW_POW_in_powExpr446); 
                     pushFollow(FOLLOW_unaryExpr_in_powExpr452);
@@ -643,7 +643,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start unaryExpr
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:81:1: unaryExpr returns [Atom a] : ( MINUS uminus= unaryExpr | 'NOT' unot= unaryExpr | atom );
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:81:1: unaryExpr returns [Atom a] : ( MINUS uminus= unaryExpr | 'NOT' unot= unaryExpr | atom );
     public final Atom unaryExpr() throws RecognitionException {
         Atom a = null;
 
@@ -653,7 +653,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:83:5: ( MINUS uminus= unaryExpr | 'NOT' unot= unaryExpr | atom )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:81:28: ( MINUS uminus= unaryExpr | 'NOT' unot= unaryExpr | atom )
             int alt10=3;
             switch ( input.LA(1) ) {
             case MINUS:
@@ -690,7 +690,7 @@ public class StochasticExpressionsParser extends Parser {
 
             switch (alt10) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:83:5: MINUS uminus= unaryExpr
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:83:5: MINUS uminus= unaryExpr
                     {
                     match(input,MINUS,FOLLOW_MINUS_in_unaryExpr488); 
                     pushFollow(FOLLOW_unaryExpr_in_unaryExpr494);
@@ -701,7 +701,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:86:5: 'NOT' unot= unaryExpr
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:86:5: 'NOT' unot= unaryExpr
                     {
                     match(input,36,FOLLOW_36_in_unaryExpr511); 
                     pushFollow(FOLLOW_unaryExpr_in_unaryExpr517);
@@ -712,7 +712,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:88:5: atom
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:88:5: atom
                     {
                     pushFollow(FOLLOW_atom_in_unaryExpr529);
                     atom();
@@ -736,7 +736,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start atom
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:91:1: atom returns [Atom a] : (number= NUMBER | id= scoped_id | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | LPAREN inner= compareExpr RPAREN ) ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:91:1: atom returns [Atom a] : (number= NUMBER | id= scoped_id | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | LPAREN inner= compareExpr RPAREN ) ;
     public final Atom atom() throws RecognitionException {
         Atom a = null;
 
@@ -752,10 +752,10 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:93:3: ( (number= NUMBER | id= scoped_id | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | LPAREN inner= compareExpr RPAREN ) )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:93:3: (number= NUMBER | id= scoped_id | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | LPAREN inner= compareExpr RPAREN )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:92:3: ( (number= NUMBER | id= scoped_id | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | LPAREN inner= compareExpr RPAREN ) )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:93:3: (number= NUMBER | id= scoped_id | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | LPAREN inner= compareExpr RPAREN )
             {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:93:3: (number= NUMBER | id= scoped_id | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | LPAREN inner= compareExpr RPAREN )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:93:3: (number= NUMBER | id= scoped_id | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | LPAREN inner= compareExpr RPAREN )
             int alt11=6;
             switch ( input.LA(1) ) {
             case NUMBER:
@@ -802,7 +802,7 @@ public class StochasticExpressionsParser extends Parser {
 
             switch (alt11) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:95:5: number= NUMBER
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:95:5: number= NUMBER
                     {
                     number=(Token)input.LT(1);
                     match(input,NUMBER,FOLLOW_NUMBER_in_atom563); 
@@ -825,7 +825,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:113:5: id= scoped_id
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:113:5: id= scoped_id
                     {
                     pushFollow(FOLLOW_scoped_id_in_atom590);
                     id=scoped_id();
@@ -838,7 +838,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:119:5: def= definition
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:119:5: def= definition
                     {
                     pushFollow(FOLLOW_definition_in_atom619);
                     def=definition();
@@ -849,7 +849,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:123:5: sl= STRING_LITERAL
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:123:5: sl= STRING_LITERAL
                     {
                     sl=(Token)input.LT(1);
                     match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_atom644); 
@@ -861,7 +861,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:130:5: bl= boolean_keywords
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:130:5: bl= boolean_keywords
                     {
                     pushFollow(FOLLOW_boolean_keywords_in_atom671);
                     bl=boolean_keywords();
@@ -875,7 +875,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:137:5: LPAREN inner= compareExpr RPAREN
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:137:5: LPAREN inner= compareExpr RPAREN
                     {
                     match(input,LPAREN,FOLLOW_LPAREN_in_atom695); 
                     pushFollow(FOLLOW_compareExpr_in_atom705);
@@ -910,11 +910,11 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start definition
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:148:1: definition returns [ProbabilityFunctionLiteral pfl] : ( 'IntPMF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | 'DoublePMF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | 'EnumPMF' ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | 'DoublePDF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | 'BoolPMF' ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:148:1: definition returns [ProbabilityFunctionLiteral pfl] : ( 'IntPMF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | 'DoublePMF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | 'EnumPMF' ( LPAREN (unitSpec= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | 'DoublePDF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | 'BoolPMF' ( LPAREN (unitSpec= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );
     public final ProbabilityFunctionLiteral definition() throws RecognitionException {
         ProbabilityFunctionLiteral pfl = null;
 
-        Unit uunit = null;
+        String unitSpec = null;
 
         Sample isample = null;
 
@@ -928,7 +928,7 @@ public class StochasticExpressionsParser extends Parser {
         pfl = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
         	 ProbabilityFunction probFunction = null; 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:154:4: ( 'IntPMF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | 'DoublePMF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | 'EnumPMF' ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | 'DoublePDF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | 'BoolPMF' ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:150:46: ( 'IntPMF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | 'DoublePMF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | 'EnumPMF' ( LPAREN (unitSpec= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | 'DoublePDF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | 'BoolPMF' ( LPAREN (unitSpec= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R )
             int alt23=5;
             switch ( input.LA(1) ) {
             case 37:
@@ -958,19 +958,19 @@ public class StochasticExpressionsParser extends Parser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("148:1: definition returns [ProbabilityFunctionLiteral pfl] : ( 'IntPMF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | 'DoublePMF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | 'EnumPMF' ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | 'DoublePDF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | 'BoolPMF' ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );", 23, 0, input);
+                    new NoViableAltException("148:1: definition returns [ProbabilityFunctionLiteral pfl] : ( 'IntPMF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | 'DoublePMF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | 'EnumPMF' ( LPAREN (unitSpec= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | 'DoublePDF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | 'BoolPMF' ( LPAREN (unitSpec= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );", 23, 0, input);
 
                 throw nvae;
             }
 
             switch (alt23) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:154:4: 'IntPMF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:154:4: 'IntPMF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R
                     {
                     match(input,37,FOLLOW_37_in_definition760); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:157:4: ( LPAREN (uunit= unit ) RPAREN )?
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:157:4: ( LPAREN (unitSpec= unit ) RPAREN )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -979,17 +979,17 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     switch (alt12) {
                         case 1 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:157:5: LPAREN (uunit= unit ) RPAREN
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:157:5: LPAREN (unitSpec= unit ) RPAREN
                             {
                             match(input,LPAREN,FOLLOW_LPAREN_in_definition772); 
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:158:6: (uunit= unit )
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:159:6: uunit= unit
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:158:6: (unitSpec= unit )
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:159:6: unitSpec= unit
                             {
                             pushFollow(FOLLOW_unit_in_definition790);
-                            uunit=unit();
+                            unitSpec=unit();
                             _fsp--;
 
-                            probFunction.setUnit(uunit);
+                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
@@ -1001,7 +1001,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
 
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition811); 
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:163:5: (isample= numeric_int_sample )+
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:163:5: (isample= numeric_int_sample )+
                     int cnt13=0;
                     loop13:
                     do {
@@ -1015,7 +1015,7 @@ public class StochasticExpressionsParser extends Parser {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:164:7: isample= numeric_int_sample
+                    	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:164:7: isample= numeric_int_sample
                     	    {
                     	    pushFollow(FOLLOW_numeric_int_sample_in_definition831);
                     	    isample=numeric_int_sample();
@@ -1040,12 +1040,12 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:168:5: 'DoublePMF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:168:5: 'DoublePMF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R
                     {
                     match(input,38,FOLLOW_38_in_definition861); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:171:4: ( LPAREN (uunit= unit ) RPAREN )?
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:171:4: ( LPAREN (unitSpec= unit ) RPAREN )?
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -1054,17 +1054,17 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     switch (alt14) {
                         case 1 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:171:5: LPAREN (uunit= unit ) RPAREN
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:171:5: LPAREN (unitSpec= unit ) RPAREN
                             {
                             match(input,LPAREN,FOLLOW_LPAREN_in_definition874); 
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:172:6: (uunit= unit )
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:173:6: uunit= unit
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:172:6: (unitSpec= unit )
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:173:6: unitSpec= unit
                             {
                             pushFollow(FOLLOW_unit_in_definition892);
-                            uunit=unit();
+                            unitSpec=unit();
                             _fsp--;
 
-                            probFunction.setUnit(uunit);
+                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
@@ -1076,7 +1076,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
 
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition914); 
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:177:5: (rsample= numeric_real_sample )+
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:177:5: (rsample= numeric_real_sample )+
                     int cnt15=0;
                     loop15:
                     do {
@@ -1090,7 +1090,7 @@ public class StochasticExpressionsParser extends Parser {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:178:5: rsample= numeric_real_sample
+                    	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:178:5: rsample= numeric_real_sample
                     	    {
                     	    pushFollow(FOLLOW_numeric_real_sample_in_definition932);
                     	    rsample=numeric_real_sample();
@@ -1115,14 +1115,14 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:183:4: 'EnumPMF' ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:183:4: 'EnumPMF' ( LPAREN (unitSpec= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R
                     {
                     match(input,39,FOLLOW_39_in_definition963); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
                     				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
                     				   
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:188:4: ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )?
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:188:4: ( LPAREN (unitSpec= unit ) ( SEMI ORDERED_DEF ) RPAREN )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -1131,22 +1131,22 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     switch (alt16) {
                         case 1 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:188:5: LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:188:5: LPAREN (unitSpec= unit ) ( SEMI ORDERED_DEF ) RPAREN
                             {
                             match(input,LPAREN,FOLLOW_LPAREN_in_definition976); 
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:189:6: (uunit= unit )
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:190:6: uunit= unit
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:189:6: (unitSpec= unit )
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:190:6: unitSpec= unit
                             {
                             pushFollow(FOLLOW_unit_in_definition994);
-                            uunit=unit();
+                            unitSpec=unit();
                             _fsp--;
 
-                            probFunction.setUnit(uunit);
+                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:192:6: ( SEMI ORDERED_DEF )
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:192:7: SEMI ORDERED_DEF
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:192:6: ( SEMI ORDERED_DEF )
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:192:7: SEMI ORDERED_DEF
                             {
                             match(input,SEMI,FOLLOW_SEMI_in_definition1011); 
                             match(input,ORDERED_DEF,FOLLOW_ORDERED_DEF_in_definition1018); 
@@ -1162,7 +1162,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
 
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1044); 
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:198:5: (ssample= stringsample )+
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:198:5: (ssample= stringsample )+
                     int cnt17=0;
                     loop17:
                     do {
@@ -1176,7 +1176,7 @@ public class StochasticExpressionsParser extends Parser {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:199:5: ssample= stringsample
+                    	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:199:5: ssample= stringsample
                     	    {
                     	    pushFollow(FOLLOW_stringsample_in_definition1062);
                     	    ssample=stringsample();
@@ -1201,12 +1201,12 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:203:4: 'DoublePDF' ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:203:4: 'DoublePDF' ( LPAREN (unitSpec= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R
                     {
                     match(input,40,FOLLOW_40_in_definition1089); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:206:4: ( LPAREN (uunit= unit ) RPAREN )?
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:206:4: ( LPAREN (unitSpec= unit ) RPAREN )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -1215,17 +1215,17 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     switch (alt18) {
                         case 1 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:206:5: LPAREN (uunit= unit ) RPAREN
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:206:5: LPAREN (unitSpec= unit ) RPAREN
                             {
                             match(input,LPAREN,FOLLOW_LPAREN_in_definition1101); 
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:207:6: (uunit= unit )
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:208:6: uunit= unit
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:207:6: (unitSpec= unit )
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:208:6: unitSpec= unit
                             {
                             pushFollow(FOLLOW_unit_in_definition1119);
-                            uunit=unit();
+                            unitSpec=unit();
                             _fsp--;
 
-                            probFunction.setUnit(uunit);
+                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
@@ -1237,7 +1237,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
 
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1140); 
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:212:5: (pdf_sample= real_pdf_sample )+
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:212:5: (pdf_sample= real_pdf_sample )+
                     int cnt19=0;
                     loop19:
                     do {
@@ -1251,7 +1251,7 @@ public class StochasticExpressionsParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:213:7: pdf_sample= real_pdf_sample
+                    	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:213:7: pdf_sample= real_pdf_sample
                     	    {
                     	    pushFollow(FOLLOW_real_pdf_sample_in_definition1160);
                     	    pdf_sample=real_pdf_sample();
@@ -1276,14 +1276,14 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:217:4: 'BoolPMF' ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:217:4: 'BoolPMF' ( LPAREN (unitSpec= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R
                     {
                     match(input,41,FOLLOW_41_in_definition1188); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
                     				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
                     				   
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:222:4: ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )?
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:222:4: ( LPAREN (unitSpec= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )?
                     int alt21=2;
                     int LA21_0 = input.LA(1);
 
@@ -1292,21 +1292,21 @@ public class StochasticExpressionsParser extends Parser {
                     }
                     switch (alt21) {
                         case 1 :
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:222:5: LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:222:5: LPAREN (unitSpec= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN
                             {
                             match(input,LPAREN,FOLLOW_LPAREN_in_definition1201); 
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:223:6: (uunit= bool_unit )
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:224:6: uunit= bool_unit
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:223:6: (unitSpec= bool_unit )
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:224:6: unitSpec= bool_unit
                             {
                             pushFollow(FOLLOW_bool_unit_in_definition1219);
-                            uunit=bool_unit();
+                            unitSpec=bool_unit();
                             _fsp--;
 
-                            probFunction.setUnit(uunit);
+                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
-                            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:226:6: ( SEMI ORDERED_DEF )?
+                            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:226:6: ( SEMI ORDERED_DEF )?
                             int alt20=2;
                             int LA20_0 = input.LA(1);
 
@@ -1315,7 +1315,7 @@ public class StochasticExpressionsParser extends Parser {
                             }
                             switch (alt20) {
                                 case 1 :
-                                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:226:7: SEMI ORDERED_DEF
+                                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:226:7: SEMI ORDERED_DEF
                                     {
                                     match(input,SEMI,FOLLOW_SEMI_in_definition1236); 
                                     match(input,ORDERED_DEF,FOLLOW_ORDERED_DEF_in_definition1243); 
@@ -1334,7 +1334,7 @@ public class StochasticExpressionsParser extends Parser {
                     }
 
                     match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1270); 
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:232:5: (ssample= boolsample )+
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:232:5: (ssample= boolsample )+
                     int cnt22=0;
                     loop22:
                     do {
@@ -1348,7 +1348,7 @@ public class StochasticExpressionsParser extends Parser {
 
                         switch (alt22) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:233:5: ssample= boolsample
+                    	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:233:5: ssample= boolsample
                     	    {
                     	    pushFollow(FOLLOW_boolsample_in_definition1288);
                     	    ssample=boolsample();
@@ -1387,22 +1387,21 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start unit
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:239:1: unit returns [Unit u] : 'unit' DEFINITION str= STRING_LITERAL ;
-    public final Unit unit() throws RecognitionException {
-        Unit u = null;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:239:1: unit returns [String u] : 'unit' DEFINITION str= STRING_LITERAL ;
+    public final String unit() throws RecognitionException {
+        String u = null;
 
         Token str=null;
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:241:3: ( 'unit' DEFINITION str= STRING_LITERAL )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:241:3: 'unit' DEFINITION str= STRING_LITERAL
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:240:2: ( 'unit' DEFINITION str= STRING_LITERAL )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:241:3: 'unit' DEFINITION str= STRING_LITERAL
             {
             match(input,42,FOLLOW_42_in_unit1329); 
-             u = ProbfunctionFactory.eINSTANCE.createUnit(); 
-            match(input,DEFINITION,FOLLOW_DEFINITION_in_unit1339); 
+            match(input,DEFINITION,FOLLOW_DEFINITION_in_unit1334); 
             str=(Token)input.LT(1);
-            match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_unit1346); 
-            u.setUnitName(str.getText().replace("\"",""));
+            match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_unit1341); 
+            u = str.getText().replace("\"","");
 
             }
 
@@ -1419,19 +1418,18 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start bool_unit
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:247:1: bool_unit returns [Unit u] : 'unit' EQUAL '\"bool\"' ;
-    public final Unit bool_unit() throws RecognitionException {
-        Unit u = null;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:246:1: bool_unit returns [String u] : 'unit' EQUAL '\"bool\"' ;
+    public final String bool_unit() throws RecognitionException {
+        String u = null;
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:249:3: ( 'unit' EQUAL '\"bool\"' )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:249:3: 'unit' EQUAL '\"bool\"'
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:247:2: ( 'unit' EQUAL '\"bool\"' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:248:3: 'unit' EQUAL '\"bool\"'
             {
-            match(input,42,FOLLOW_42_in_bool_unit1368); 
-             u = ProbfunctionFactory.eINSTANCE.createUnit(); 
-            match(input,EQUAL,FOLLOW_EQUAL_in_bool_unit1378); 
-            match(input,43,FOLLOW_43_in_bool_unit1383); 
-            u.setUnitName("bool");
+            match(input,42,FOLLOW_42_in_bool_unit1363); 
+            match(input,EQUAL,FOLLOW_EQUAL_in_bool_unit1368); 
+            match(input,43,FOLLOW_43_in_bool_unit1373); 
+            u = "bool";
 
             }
 
@@ -1448,7 +1446,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start numeric_int_sample
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:256:1: numeric_int_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:254:1: numeric_int_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final Sample numeric_int_sample() throws RecognitionException {
         Sample s = null;
 
@@ -1457,19 +1455,19 @@ public class StochasticExpressionsParser extends Parser {
 
         s = null;
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:258:3: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:258:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:255:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:256:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_numeric_int_sample1411); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_numeric_int_sample1401); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_int_sample1424); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_int_sample1414); 
             s.setValue(Integer.parseInt(n.getText()));
-            match(input,SEMI,FOLLOW_SEMI_in_numeric_int_sample1435); 
+            match(input,SEMI,FOLLOW_SEMI_in_numeric_int_sample1425); 
             n2=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_int_sample1443); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_int_sample1433); 
             s.setProbability(Double.parseDouble(n2.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_numeric_int_sample1455); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_numeric_int_sample1445); 
 
             }
 
@@ -1486,7 +1484,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start numeric_real_sample
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:267:1: numeric_real_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:265:1: numeric_real_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final Sample numeric_real_sample() throws RecognitionException {
         Sample s = null;
 
@@ -1495,19 +1493,19 @@ public class StochasticExpressionsParser extends Parser {
 
         s = null;
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:269:3: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:269:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:266:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:267:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_numeric_real_sample1478); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_numeric_real_sample1468); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_real_sample1491); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_real_sample1481); 
             s.setValue(Double.parseDouble(n.getText()));
-            match(input,SEMI,FOLLOW_SEMI_in_numeric_real_sample1502); 
+            match(input,SEMI,FOLLOW_SEMI_in_numeric_real_sample1492); 
             n2=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_real_sample1510); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_real_sample1500); 
             s.setProbability(Double.parseDouble(n2.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_numeric_real_sample1522); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_numeric_real_sample1512); 
 
             }
 
@@ -1524,7 +1522,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start real_pdf_sample
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:278:1: real_pdf_sample returns [ContinuousSample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:276:1: real_pdf_sample returns [ContinuousSample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final ContinuousSample real_pdf_sample() throws RecognitionException {
         ContinuousSample s = null;
 
@@ -1533,19 +1531,19 @@ public class StochasticExpressionsParser extends Parser {
 
         s = null;
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:280:3: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:280:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:277:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:278:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_real_pdf_sample1546); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_real_pdf_sample1536); 
             s = ProbfunctionFactory.eINSTANCE.createContinuousSample();
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_real_pdf_sample1559); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_real_pdf_sample1549); 
             s.setValue(Double.parseDouble(n.getText()));
-            match(input,SEMI,FOLLOW_SEMI_in_real_pdf_sample1570); 
+            match(input,SEMI,FOLLOW_SEMI_in_real_pdf_sample1560); 
             n2=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_real_pdf_sample1578); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_real_pdf_sample1568); 
             s.setProbability(Double.parseDouble(n2.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_real_pdf_sample1590); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_real_pdf_sample1580); 
 
             }
 
@@ -1562,7 +1560,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start stringsample
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:289:1: stringsample returns [Sample s] : LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:287:1: stringsample returns [Sample s] : LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN ;
     public final Sample stringsample() throws RecognitionException {
         Sample s = null;
 
@@ -1570,19 +1568,19 @@ public class StochasticExpressionsParser extends Parser {
         Token n=null;
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:291:3: ( LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:291:3: LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:288:3: ( LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:289:3: LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_stringsample1611); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_stringsample1601); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
             str=(Token)input.LT(1);
-            match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_stringsample1623); 
+            match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_stringsample1613); 
             s.setValue(str.getText().replace("\"",""));
-            match(input,SEMI,FOLLOW_SEMI_in_stringsample1634); 
+            match(input,SEMI,FOLLOW_SEMI_in_stringsample1624); 
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_stringsample1640); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_stringsample1630); 
             s.setProbability(Double.parseDouble(n.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_stringsample1651); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_stringsample1641); 
 
             }
 
@@ -1599,7 +1597,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start boolsample
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:300:1: boolsample returns [Sample s] : LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:298:1: boolsample returns [Sample s] : LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN ;
     public final Sample boolsample() throws RecognitionException {
         Sample s = null;
 
@@ -1608,21 +1606,21 @@ public class StochasticExpressionsParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:302:3: ( LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:302:3: LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:299:3: ( LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:300:3: LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_boolsample1669); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_boolsample1659); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
-            pushFollow(FOLLOW_boolean_keywords_in_boolsample1683);
+            pushFollow(FOLLOW_boolean_keywords_in_boolsample1673);
             str=boolean_keywords();
             _fsp--;
 
             s.setValue(str);
-            match(input,SEMI,FOLLOW_SEMI_in_boolsample1691); 
+            match(input,SEMI,FOLLOW_SEMI_in_boolsample1681); 
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_boolsample1697); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_boolsample1687); 
             s.setProbability(Double.parseDouble(n.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_boolsample1708); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_boolsample1698); 
 
             }
 
@@ -1639,15 +1637,15 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start boolean_keywords
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:311:1: boolean_keywords returns [String keyword] : ( 'false' | 'true' ) ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:309:1: boolean_keywords returns [String keyword] : ( 'false' | 'true' ) ;
     public final String boolean_keywords() throws RecognitionException {
         String keyword = null;
 
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:313:3: ( ( 'false' | 'true' ) )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:313:3: ( 'false' | 'true' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:310:2: ( ( 'false' | 'true' ) )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:311:3: ( 'false' | 'true' )
             {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:313:3: ( 'false' | 'true' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:311:3: ( 'false' | 'true' )
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -1659,23 +1657,23 @@ public class StochasticExpressionsParser extends Parser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("313:3: ( 'false' | 'true' )", 24, 0, input);
+                    new NoViableAltException("311:3: ( 'false' | 'true' )", 24, 0, input);
 
                 throw nvae;
             }
             switch (alt24) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:314:3: 'false'
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:312:3: 'false'
                     {
-                    match(input,44,FOLLOW_44_in_boolean_keywords1727); 
+                    match(input,44,FOLLOW_44_in_boolean_keywords1717); 
                     keyword = "false";
 
                     }
                     break;
                 case 2 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:317:3: 'true'
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:315:3: 'true'
                     {
-                    match(input,45,FOLLOW_45_in_boolean_keywords1741); 
+                    match(input,45,FOLLOW_45_in_boolean_keywords1731); 
                     keyword = "true"; 
 
                     }
@@ -1699,16 +1697,16 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start characterisation_keywords
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:321:1: characterisation_keywords returns [String keyword] : ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' ) ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:319:1: characterisation_keywords returns [String keyword] : ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' ) ;
     public final String characterisation_keywords() throws RecognitionException {
         String keyword = null;
 
         keyword = null;
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:323:2: ( ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' ) )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:323:2: ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:320:24: ( ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' ) )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:321:2: ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' )
             {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:323:2: ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:321:2: ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' )
             int alt25=5;
             switch ( input.LA(1) ) {
             case 46:
@@ -1738,48 +1736,48 @@ public class StochasticExpressionsParser extends Parser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("323:2: ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' )", 25, 0, input);
+                    new NoViableAltException("321:2: ( 'BYTESIZE' | 'STRUCTURE' | 'NUMBER_OF_ELEMENTS' | 'TYPE' | 'VALUE' )", 25, 0, input);
 
                 throw nvae;
             }
 
             switch (alt25) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:323:3: 'BYTESIZE'
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:321:3: 'BYTESIZE'
                     {
-                    match(input,46,FOLLOW_46_in_characterisation_keywords1769); 
+                    match(input,46,FOLLOW_46_in_characterisation_keywords1759); 
                     keyword="BYTESIZE";
 
                     }
                     break;
                 case 2 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:324:4: 'STRUCTURE'
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:322:4: 'STRUCTURE'
                     {
-                    match(input,47,FOLLOW_47_in_characterisation_keywords1776); 
+                    match(input,47,FOLLOW_47_in_characterisation_keywords1766); 
                     keyword="STRUCTURE";
 
                     }
                     break;
                 case 3 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:325:4: 'NUMBER_OF_ELEMENTS'
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:323:4: 'NUMBER_OF_ELEMENTS'
                     {
-                    match(input,48,FOLLOW_48_in_characterisation_keywords1783); 
+                    match(input,48,FOLLOW_48_in_characterisation_keywords1773); 
                     keyword="NUMBER_OF_ELEMENTS";
 
                     }
                     break;
                 case 4 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:326:4: 'TYPE'
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:324:4: 'TYPE'
                     {
-                    match(input,49,FOLLOW_49_in_characterisation_keywords1790); 
+                    match(input,49,FOLLOW_49_in_characterisation_keywords1780); 
                     keyword="TYPE";
 
                     }
                     break;
                 case 5 :
-                    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:327:4: 'VALUE'
+                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:325:4: 'VALUE'
                     {
-                    match(input,50,FOLLOW_50_in_characterisation_keywords1797); 
+                    match(input,50,FOLLOW_50_in_characterisation_keywords1787); 
                     keyword="VALUE";
 
                     }
@@ -1803,7 +1801,7 @@ public class StochasticExpressionsParser extends Parser {
 
 
     // $ANTLR start scoped_id
-    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:330:1: scoped_id returns [AbstractNamedReference ref] : id1= ID ( DOT (id2= ID | 'INNER' ) )* ;
+    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:328:1: scoped_id returns [AbstractNamedReference ref] : id1= ID ( DOT (id2= ID | 'INNER' ) )* ;
     public final AbstractNamedReference scoped_id() throws RecognitionException {
         AbstractNamedReference ref = null;
 
@@ -1813,13 +1811,13 @@ public class StochasticExpressionsParser extends Parser {
         ref = null;
         		ArrayList<String> nameParts = new ArrayList<String>();
         try {
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:334:2: (id1= ID ( DOT (id2= ID | 'INNER' ) )* )
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:334:2: id1= ID ( DOT (id2= ID | 'INNER' ) )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:330:59: (id1= ID ( DOT (id2= ID | 'INNER' ) )* )
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:332:2: id1= ID ( DOT (id2= ID | 'INNER' ) )*
             {
             id1=(Token)input.LT(1);
-            match(input,ID,FOLLOW_ID_in_scoped_id1827); 
+            match(input,ID,FOLLOW_ID_in_scoped_id1817); 
             nameParts.add(id1.getText());
-            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:335:6: ( DOT (id2= ID | 'INNER' ) )*
+            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:333:6: ( DOT (id2= ID | 'INNER' ) )*
             loop27:
             do {
                 int alt27=2;
@@ -1832,10 +1830,10 @@ public class StochasticExpressionsParser extends Parser {
 
                 switch (alt27) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:335:7: DOT (id2= ID | 'INNER' )
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:333:7: DOT (id2= ID | 'INNER' )
             	    {
-            	    match(input,DOT,FOLLOW_DOT_in_scoped_id1838); 
-            	    // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:335:11: (id2= ID | 'INNER' )
+            	    match(input,DOT,FOLLOW_DOT_in_scoped_id1828); 
+            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:333:11: (id2= ID | 'INNER' )
             	    int alt26=2;
             	    int LA26_0 = input.LA(1);
 
@@ -1847,24 +1845,24 @@ public class StochasticExpressionsParser extends Parser {
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("335:11: (id2= ID | 'INNER' )", 26, 0, input);
+            	            new NoViableAltException("333:11: (id2= ID | 'INNER' )", 26, 0, input);
 
             	        throw nvae;
             	    }
             	    switch (alt26) {
             	        case 1 :
-            	            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:335:12: id2= ID
+            	            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:333:12: id2= ID
             	            {
             	            id2=(Token)input.LT(1);
-            	            match(input,ID,FOLLOW_ID_in_scoped_id1843); 
+            	            match(input,ID,FOLLOW_ID_in_scoped_id1833); 
             	            nameParts.add(id2.getText());
 
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\coding\\gmf2\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:335:53: 'INNER'
+            	            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:333:53: 'INNER'
             	            {
-            	            match(input,51,FOLLOW_51_in_scoped_id1849); 
+            	            match(input,51,FOLLOW_51_in_scoped_id1839); 
             	            nameParts.add("INNER");
 
             	            }
@@ -2000,46 +1998,46 @@ public class StochasticExpressionsParser extends Parser {
     public static final BitSet FOLLOW_boolsample_in_definition1288 = new BitSet(new long[]{0x0000000000240000L});
     public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1305 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_42_in_unit1329 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_DEFINITION_in_unit1339 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_unit1346 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_bool_unit1368 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_EQUAL_in_bool_unit1378 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_bool_unit1383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_numeric_int_sample1411 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_NUMBER_in_numeric_int_sample1424 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_SEMI_in_numeric_int_sample1435 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_NUMBER_in_numeric_int_sample1443 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_RPAREN_in_numeric_int_sample1455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_numeric_real_sample1478 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_NUMBER_in_numeric_real_sample1491 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_SEMI_in_numeric_real_sample1502 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_NUMBER_in_numeric_real_sample1510 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_RPAREN_in_numeric_real_sample1522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_real_pdf_sample1546 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_NUMBER_in_real_pdf_sample1559 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_SEMI_in_real_pdf_sample1570 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_NUMBER_in_real_pdf_sample1578 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_RPAREN_in_real_pdf_sample1590 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_stringsample1611 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_stringsample1623 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_SEMI_in_stringsample1634 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_NUMBER_in_stringsample1640 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_RPAREN_in_stringsample1651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_boolsample1669 = new BitSet(new long[]{0x0000300000000000L});
-    public static final BitSet FOLLOW_boolean_keywords_in_boolsample1683 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_SEMI_in_boolsample1691 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_NUMBER_in_boolsample1697 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_RPAREN_in_boolsample1708 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_boolean_keywords1727 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_boolean_keywords1741 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_characterisation_keywords1769 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_characterisation_keywords1776 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_characterisation_keywords1783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_characterisation_keywords1790 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_characterisation_keywords1797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_scoped_id1827 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_DOT_in_scoped_id1838 = new BitSet(new long[]{0x0008000002000000L});
-    public static final BitSet FOLLOW_ID_in_scoped_id1843 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_51_in_scoped_id1849 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_DEFINITION_in_unit1334 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_unit1341 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_bool_unit1363 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_EQUAL_in_bool_unit1368 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_bool_unit1373 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_numeric_int_sample1401 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_NUMBER_in_numeric_int_sample1414 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_SEMI_in_numeric_int_sample1425 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_NUMBER_in_numeric_int_sample1433 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_RPAREN_in_numeric_int_sample1445 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_numeric_real_sample1468 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_NUMBER_in_numeric_real_sample1481 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_SEMI_in_numeric_real_sample1492 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_NUMBER_in_numeric_real_sample1500 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_RPAREN_in_numeric_real_sample1512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_real_pdf_sample1536 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_NUMBER_in_real_pdf_sample1549 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_SEMI_in_real_pdf_sample1560 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_NUMBER_in_real_pdf_sample1568 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_RPAREN_in_real_pdf_sample1580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_stringsample1601 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_stringsample1613 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_SEMI_in_stringsample1624 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_NUMBER_in_stringsample1630 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_RPAREN_in_stringsample1641 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_boolsample1659 = new BitSet(new long[]{0x0000300000000000L});
+    public static final BitSet FOLLOW_boolean_keywords_in_boolsample1673 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_SEMI_in_boolsample1681 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_NUMBER_in_boolsample1687 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_RPAREN_in_boolsample1698 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_boolean_keywords1717 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_boolean_keywords1731 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_characterisation_keywords1759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_characterisation_keywords1766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_characterisation_keywords1773 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_characterisation_keywords1780 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_characterisation_keywords1787 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_scoped_id1817 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_DOT_in_scoped_id1828 = new BitSet(new long[]{0x0008000002000000L});
+    public static final BitSet FOLLOW_ID_in_scoped_id1833 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_51_in_scoped_id1839 = new BitSet(new long[]{0x0000000004000002L});
 
 }

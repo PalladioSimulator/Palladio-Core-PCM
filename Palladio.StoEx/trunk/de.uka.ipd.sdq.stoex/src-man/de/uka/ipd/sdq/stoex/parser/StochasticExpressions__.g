@@ -20,72 +20,72 @@ T49 : 'TYPE' ;
 T50 : 'VALUE' ;
 T51 : 'INNER' ;
 
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 364
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 362
 PLUS  : '+' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 365
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 363
 MINUS : '-' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 366
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 364
 MUL   : '*' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 367
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 365
 DIV   : '/' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 368
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 366
 MOD   : '%' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 369
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 367
 POW   : '^' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 370
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 368
 LPAREN: '(' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 371
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 369
 RPAREN: ')' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 372
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 370
 SEMI  : ';' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 373
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 371
 DEFINITION : '=' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 374
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 372
 ORDERED_DEF
 	:	'ordered';
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 376
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 374
 EQUAL : '==' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 377
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 375
 SQUARE_PAREN_L : '[' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 378
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 376
 SQUARE_PAREN_R : ']' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 379
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 377
 fragment DIGIT : '0'..'9' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 380
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 378
 NUMBER : (DIGIT)+ ('.' (DIGIT)+)? Exponent?;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 381
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 379
 fragment
 Exponent : ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 383
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 381
 fragment ALPHA : 'a'..'z' | 'A'..'Z' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 384
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 382
 NOTEQUAL : '<>' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 385
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 383
 GREATER : '>' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 386
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 384
 LESS : '<' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 387
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 385
 GREATEREQUAL : '>=' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 388
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 386
 LESSEQUAL : '<=' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 389
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 387
 STRING_LITERAL : '\"' (ALPHA|'_')+ '\"' ;
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 390
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 388
 DOT: '.';
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 391
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 389
 ID /*options {testLiterals=true;}*/: (ALPHA|'_')+;
 
 
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 394
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 392
 WS  :  (' '|'\r'|'\t'|'\u000C'|'\n') {$channel=HIDDEN;}
     ;
 
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 397
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 395
 COMMENT
     :   '/*' ( options {greedy=false;} : . )* '*/' {$channel=HIDDEN;}
     ;
 
-// $ANTLR src "C:\coding\gmf2\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 401
+// $ANTLR src "C:\Dokumente und Einstellungen\jens.happe\Desktop\dev\code\Palladio.StoEx\trunk\de.uka.ipd.sdq.stoex\src-man\de\uka\ipd\sdq\stoex\parser\StochasticExpressions.g" 399
 LINE_COMMENT
     : '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
     ;
