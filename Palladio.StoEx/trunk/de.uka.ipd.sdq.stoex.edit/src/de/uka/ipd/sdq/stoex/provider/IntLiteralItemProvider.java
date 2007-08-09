@@ -107,8 +107,10 @@ public class IntLiteralItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		IntLiteral intLiteral = (IntLiteral)object;
-		return getString("_UI_IntLiteral_type") + " " + intLiteral.getValue();
+		String label = ((IntLiteral)object).getUnitSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_IntLiteral_type") :
+			getString("_UI_IntLiteral_type") + " " + label;
 	}
 
 	/**

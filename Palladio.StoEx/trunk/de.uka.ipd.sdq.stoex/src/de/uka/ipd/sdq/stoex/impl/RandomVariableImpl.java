@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.stoex.impl;
 
+import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -31,6 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.stoex.impl.RandomVariableImpl#getSpecification <em>Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.stoex.impl.RandomVariableImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,24 +105,32 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean SpecificationMustNotBeNULL(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
+	public Expression getExpression() {
+		Expression expression = basicGetExpression();
+		return expression != null && expression.eIsProxy() ? (Expression)eResolveProxy((InternalEObject)expression) : expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Expression basicGetExpression() {
+		// TODO: implement this method to return the 'Expression' reference
+		// -> do not perform proxy resolution
 		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 StoexValidator.DIAGNOSTIC_SOURCE,
-						 StoexValidator.RANDOM_VARIABLE__SPECIFICATION_MUST_NOT_BE_NULL,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "SpecificationMustNotBeNULL", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpression(Expression newExpression) {
+		// TODO: implement this method to set the 'Expression' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -132,6 +143,9 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 		switch (featureID) {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				return getSpecification();
+			case StoexPackage.RANDOM_VARIABLE__EXPRESSION:
+				if (resolve) return getExpression();
+				return basicGetExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +160,9 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 		switch (featureID) {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				setSpecification((String)newValue);
+				return;
+			case StoexPackage.RANDOM_VARIABLE__EXPRESSION:
+				setExpression((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,6 +179,9 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				setSpecification(SPECIFICATION_EDEFAULT);
 				return;
+			case StoexPackage.RANDOM_VARIABLE__EXPRESSION:
+				setExpression((Expression)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -176,6 +196,8 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 		switch (featureID) {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				return SPECIFICATION_EDEFAULT == null ? specification != null : !SPECIFICATION_EDEFAULT.equals(specification);
+			case StoexPackage.RANDOM_VARIABLE__EXPRESSION:
+				return basicGetExpression() != null;
 		}
 		return super.eIsSet(featureID);
 	}

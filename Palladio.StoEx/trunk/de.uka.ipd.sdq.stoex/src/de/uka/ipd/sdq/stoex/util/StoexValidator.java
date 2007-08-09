@@ -43,12 +43,12 @@ public class StoexValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.stoex";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Specification Must Not Be NULL' of 'Random Variable'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Specification Must Not Be NULL' of 'PCM Random Variable'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RANDOM_VARIABLE__SPECIFICATION_MUST_NOT_BE_NULL = 1;
+	public static final int PCM_RANDOM_VARIABLE__SPECIFICATION_MUST_NOT_BE_NULL = 1;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -124,6 +124,8 @@ public class StoexValidator extends EObjectValidator {
 				return validateExpression((Expression)value, diagnostics, context);
 			case StoexPackage.TERM_EXPRESSION:
 				return validateTermExpression((TermExpression)value, diagnostics, context);
+			case StoexPackage.PCM_RANDOM_VARIABLE:
+				return validatePCMRandomVariable((PCMRandomVariable)value, diagnostics, context);
 			case StoexPackage.RANDOM_VARIABLE:
 				return validateRandomVariable((RandomVariable)value, diagnostics, context);
 			case StoexPackage.PRODUCT_EXPRESSION:
@@ -300,26 +302,35 @@ public class StoexValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRandomVariable(RandomVariable randomVariable, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(randomVariable, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(randomVariable, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(randomVariable, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(randomVariable, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(randomVariable, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(randomVariable, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(randomVariable, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRandomVariable_SpecificationMustNotBeNULL(randomVariable, diagnostics, context);
+	public boolean validatePCMRandomVariable(PCMRandomVariable pcmRandomVariable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmRandomVariable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmRandomVariable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmRandomVariable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmRandomVariable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmRandomVariable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmRandomVariable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmRandomVariable, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRandomVariable_SpecificationMustNotBeNULL(pcmRandomVariable, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the SpecificationMustNotBeNULL constraint of '<em>Random Variable</em>'.
+	 * Validates the SpecificationMustNotBeNULL constraint of '<em>PCM Random Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRandomVariable_SpecificationMustNotBeNULL(RandomVariable randomVariable, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return randomVariable.SpecificationMustNotBeNULL(diagnostics, context);
+	public boolean validatePCMRandomVariable_SpecificationMustNotBeNULL(PCMRandomVariable pcmRandomVariable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmRandomVariable.SpecificationMustNotBeNULL(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRandomVariable(RandomVariable randomVariable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(randomVariable, diagnostics, context);
 	}
 
 	/**

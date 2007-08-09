@@ -7,6 +7,8 @@
 package de.uka.ipd.sdq.stoex.provider;
 
 
+import de.uka.ipd.sdq.stoex.NumericLiteral;
+import de.uka.ipd.sdq.units.provider.UnitCarryingElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -27,7 +29,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class NumericLiteralItemProvider
-	extends AtomItemProvider
+	extends UnitCarryingElementItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -67,7 +69,10 @@ public class NumericLiteralItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NumericLiteral_type");
+		String label = ((NumericLiteral)object).getUnitSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NumericLiteral_type") :
+			getString("_UI_NumericLiteral_type") + " " + label;
 	}
 
 	/**

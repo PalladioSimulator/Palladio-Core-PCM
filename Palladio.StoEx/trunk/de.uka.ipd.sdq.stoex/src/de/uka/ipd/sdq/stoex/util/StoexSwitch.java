@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.stoex.util;
 
 import de.uka.ipd.sdq.stoex.*;
 
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -223,6 +224,13 @@ public class StoexSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StoexPackage.PCM_RANDOM_VARIABLE: {
+				PCMRandomVariable pcmRandomVariable = (PCMRandomVariable)theEObject;
+				T result = casePCMRandomVariable(pcmRandomVariable);
+				if (result == null) result = caseRandomVariable(pcmRandomVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case StoexPackage.RANDOM_VARIABLE: {
 				RandomVariable randomVariable = (RandomVariable)theEObject;
 				T result = caseRandomVariable(randomVariable);
@@ -274,6 +282,7 @@ public class StoexSwitch<T> {
 			case StoexPackage.NUMERIC_LITERAL: {
 				NumericLiteral numericLiteral = (NumericLiteral)theEObject;
 				T result = caseNumericLiteral(numericLiteral);
+				if (result == null) result = caseUnitCarryingElement(numericLiteral);
 				if (result == null) result = caseAtom(numericLiteral);
 				if (result == null) result = caseUnary(numericLiteral);
 				if (result == null) result = casePower(numericLiteral);
@@ -290,6 +299,7 @@ public class StoexSwitch<T> {
 				IntLiteral intLiteral = (IntLiteral)theEObject;
 				T result = caseIntLiteral(intLiteral);
 				if (result == null) result = caseNumericLiteral(intLiteral);
+				if (result == null) result = caseUnitCarryingElement(intLiteral);
 				if (result == null) result = caseAtom(intLiteral);
 				if (result == null) result = caseUnary(intLiteral);
 				if (result == null) result = casePower(intLiteral);
@@ -306,6 +316,7 @@ public class StoexSwitch<T> {
 				DoubleLiteral doubleLiteral = (DoubleLiteral)theEObject;
 				T result = caseDoubleLiteral(doubleLiteral);
 				if (result == null) result = caseNumericLiteral(doubleLiteral);
+				if (result == null) result = caseUnitCarryingElement(doubleLiteral);
 				if (result == null) result = caseAtom(doubleLiteral);
 				if (result == null) result = caseUnary(doubleLiteral);
 				if (result == null) result = casePower(doubleLiteral);
@@ -646,6 +657,21 @@ public class StoexSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMRandomVariable(PCMRandomVariable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Random Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -882,6 +908,21 @@ public class StoexSwitch<T> {
 	 * @generated
 	 */
 	public T caseIfElseExpression(IfElseExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitCarryingElement(UnitCarryingElement object) {
 		return null;
 	}
 

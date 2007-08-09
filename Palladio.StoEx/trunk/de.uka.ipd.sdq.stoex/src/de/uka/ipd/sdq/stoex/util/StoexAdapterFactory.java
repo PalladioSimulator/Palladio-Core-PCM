@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.stoex.util;
 
 import de.uka.ipd.sdq.stoex.*;
 
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -128,6 +129,10 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 				return createTermExpressionAdapter();
 			}
 			@Override
+			public Adapter casePCMRandomVariable(PCMRandomVariable object) {
+				return createPCMRandomVariableAdapter();
+			}
+			@Override
 			public Adapter caseRandomVariable(RandomVariable object) {
 				return createRandomVariableAdapter();
 			}
@@ -190,6 +195,10 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIfElseExpression(IfElseExpression object) {
 				return createIfElseExpressionAdapter();
+			}
+			@Override
+			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
+				return createUnitCarryingElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -404,6 +413,20 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTermExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.PCMRandomVariable <em>PCM Random Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.PCMRandomVariable
+	 * @generated
+	 */
+	public Adapter createPCMRandomVariableAdapter() {
 		return null;
 	}
 
@@ -628,6 +651,20 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIfElseExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.units.UnitCarryingElement <em>Unit Carrying Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.units.UnitCarryingElement
+	 * @generated
+	 */
+	public Adapter createUnitCarryingElementAdapter() {
 		return null;
 	}
 

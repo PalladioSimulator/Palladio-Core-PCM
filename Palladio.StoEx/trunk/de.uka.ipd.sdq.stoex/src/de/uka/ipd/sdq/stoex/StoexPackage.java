@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.stoex;
 
+import de.uka.ipd.sdq.units.UnitsPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -406,7 +407,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getRandomVariable()
 	 * @generated
 	 */
-	int RANDOM_VARIABLE = 14;
+	int RANDOM_VARIABLE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -418,13 +419,59 @@ public interface StoexPackage extends EPackage {
 	int RANDOM_VARIABLE__SPECIFICATION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANDOM_VARIABLE__EXPRESSION = 1;
+
+	/**
 	 * The number of structural features of the '<em>Random Variable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RANDOM_VARIABLE_FEATURE_COUNT = 1;
+	int RANDOM_VARIABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl <em>PCM Random Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getPCMRandomVariable()
+	 * @generated
+	 */
+	int PCM_RANDOM_VARIABLE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_RANDOM_VARIABLE__SPECIFICATION = RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_RANDOM_VARIABLE__EXPRESSION = RANDOM_VARIABLE__EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>PCM Random Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_RANDOM_VARIABLE_FEATURE_COUNT = RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.ProductExpressionImpl <em>Product Expression</em>}' class.
@@ -434,7 +481,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProductExpression()
 	 * @generated
 	 */
-	int PRODUCT_EXPRESSION = 15;
+	int PRODUCT_EXPRESSION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -480,7 +527,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProbabilityFunctionLiteral()
 	 * @generated
 	 */
-	int PROBABILITY_FUNCTION_LITERAL = 16;
+	int PROBABILITY_FUNCTION_LITERAL = 17;
 
 	/**
 	 * The feature id for the '<em><b>Function Probability Function Literal</b></em>' containment reference.
@@ -508,7 +555,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getParenthesis()
 	 * @generated
 	 */
-	int PARENTHESIS = 17;
+	int PARENTHESIS = 18;
 
 	/**
 	 * The feature id for the '<em><b>Inner Expression</b></em>' containment reference.
@@ -536,7 +583,25 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNumericLiteral()
 	 * @generated
 	 */
-	int NUMERIC_LITERAL = 18;
+	int NUMERIC_LITERAL = 19;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERIC_LITERAL__UNIT = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERIC_LITERAL__UNIT_SPECIFICATION = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT_SPECIFICATION;
 
 	/**
 	 * The number of structural features of the '<em>Numeric Literal</em>' class.
@@ -545,7 +610,7 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMERIC_LITERAL_FEATURE_COUNT = ATOM_FEATURE_COUNT + 0;
+	int NUMERIC_LITERAL_FEATURE_COUNT = UnitsPackage.UNIT_CARRYING_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.IntLiteralImpl <em>Int Literal</em>}' class.
@@ -555,7 +620,25 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getIntLiteral()
 	 * @generated
 	 */
-	int INT_LITERAL = 19;
+	int INT_LITERAL = 20;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_LITERAL__UNIT = NUMERIC_LITERAL__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_LITERAL__UNIT_SPECIFICATION = NUMERIC_LITERAL__UNIT_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -583,7 +666,25 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getDoubleLiteral()
 	 * @generated
 	 */
-	int DOUBLE_LITERAL = 20;
+	int DOUBLE_LITERAL = 21;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_LITERAL__UNIT = NUMERIC_LITERAL__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_LITERAL__UNIT_SPECIFICATION = NUMERIC_LITERAL__UNIT_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -611,7 +712,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getCompareExpression()
 	 * @generated
 	 */
-	int COMPARE_EXPRESSION = 21;
+	int COMPARE_EXPRESSION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -657,7 +758,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBoolLiteral()
 	 * @generated
 	 */
-	int BOOL_LITERAL = 22;
+	int BOOL_LITERAL = 23;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -685,7 +786,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getStringLiteral()
 	 * @generated
 	 */
-	int STRING_LITERAL = 23;
+	int STRING_LITERAL = 24;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -713,7 +814,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getPowerExpression()
 	 * @generated
 	 */
-	int POWER_EXPRESSION = 24;
+	int POWER_EXPRESSION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Base</b></em>' containment reference.
@@ -750,7 +851,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperatorExpression()
 	 * @generated
 	 */
-	int BOOLEAN_OPERATOR_EXPRESSION = 25;
+	int BOOLEAN_OPERATOR_EXPRESSION = 26;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -796,7 +897,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNotExpression()
 	 * @generated
 	 */
-	int NOT_EXPRESSION = 26;
+	int NOT_EXPRESSION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Inner</b></em>' containment reference.
@@ -824,7 +925,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNegativeExpression()
 	 * @generated
 	 */
-	int NEGATIVE_EXPRESSION = 27;
+	int NEGATIVE_EXPRESSION = 28;
 
 	/**
 	 * The feature id for the '<em><b>Inner</b></em>' containment reference.
@@ -852,7 +953,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getFunctionLiteral()
 	 * @generated
 	 */
-	int FUNCTION_LITERAL = 28;
+	int FUNCTION_LITERAL = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -889,7 +990,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getIfElseExpression()
 	 * @generated
 	 */
-	int IF_ELSE_EXPRESSION = 29;
+	int IF_ELSE_EXPRESSION = 30;
 
 	/**
 	 * The feature id for the '<em><b>If Expression</b></em>' containment reference.
@@ -935,7 +1036,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getTermOperations()
 	 * @generated
 	 */
-	int TERM_OPERATIONS = 30;
+	int TERM_OPERATIONS = 31;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.ProductOperations <em>Product Operations</em>}' enum.
@@ -945,7 +1046,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProductOperations()
 	 * @generated
 	 */
-	int PRODUCT_OPERATIONS = 31;
+	int PRODUCT_OPERATIONS = 32;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.CompareOperations <em>Compare Operations</em>}' enum.
@@ -955,7 +1056,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getCompareOperations()
 	 * @generated
 	 */
-	int COMPARE_OPERATIONS = 32;
+	int COMPARE_OPERATIONS = 33;
 
 
 	/**
@@ -966,7 +1067,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperations()
 	 * @generated
 	 */
-	int BOOLEAN_OPERATIONS = 33;
+	int BOOLEAN_OPERATIONS = 34;
 
 
 	/**
@@ -1176,6 +1277,16 @@ public interface StoexPackage extends EPackage {
 	EAttribute getTermExpression_Operation();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.PCMRandomVariable <em>PCM Random Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCM Random Variable</em>'.
+	 * @see de.uka.ipd.sdq.stoex.PCMRandomVariable
+	 * @generated
+	 */
+	EClass getPCMRandomVariable();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1195,6 +1306,17 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRandomVariable_Specification();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.stoex.RandomVariable#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.RandomVariable#getExpression()
+	 * @see #getRandomVariable()
+	 * @generated
+	 */
+	EReference getRandomVariable_Expression();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.ProductExpression <em>Product Expression</em>}'.
@@ -1861,6 +1983,16 @@ public interface StoexPackage extends EPackage {
 		EAttribute TERM_EXPRESSION__OPERATION = eINSTANCE.getTermExpression_Operation();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl <em>PCM Random Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getPCMRandomVariable()
+		 * @generated
+		 */
+		EClass PCM_RANDOM_VARIABLE = eINSTANCE.getPCMRandomVariable();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.RandomVariableImpl <em>Random Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1877,6 +2009,14 @@ public interface StoexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RANDOM_VARIABLE__SPECIFICATION = eINSTANCE.getRandomVariable_Specification();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RANDOM_VARIABLE__EXPRESSION = eINSTANCE.getRandomVariable_Expression();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.ProductExpressionImpl <em>Product Expression</em>}' class.

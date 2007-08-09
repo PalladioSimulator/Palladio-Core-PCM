@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.stoex.RandomVariable#getSpecification <em>Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.stoex.RandomVariable#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,16 +55,29 @@ public interface RandomVariable extends EObject {
 	void setSpecification(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Expression</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Expression</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * not self.specification.oclIsUndefined() and self.specification <> ''
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model
+	 * @return the value of the '<em>Expression</em>' reference.
+	 * @see #setExpression(Expression)
+	 * @see de.uka.ipd.sdq.stoex.StoexPackage#getRandomVariable_Expression()
+	 * @model required="true" transient="true" volatile="true" ordered="false"
 	 * @generated
 	 */
-	boolean SpecificationMustNotBeNULL(DiagnosticChain diagnostics, Map<Object, Object> context);
+	Expression getExpression();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.stoex.RandomVariable#getExpression <em>Expression</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression</em>' reference.
+	 * @see #getExpression()
+	 * @generated
+	 */
+	void setExpression(Expression value);
 
 } // RandomVariable

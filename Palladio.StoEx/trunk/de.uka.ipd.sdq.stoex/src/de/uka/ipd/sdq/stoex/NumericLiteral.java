@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.stoex;
 
+import de.uka.ipd.sdq.units.UnitCarryingElement;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -17,5 +19,5 @@ package de.uka.ipd.sdq.stoex;
  * @model abstract="true"
  * @generated
  */
-public interface NumericLiteral extends Atom {
+public interface NumericLiteral extends UnitCarryingElement, Atom {
 } // NumericLiteral

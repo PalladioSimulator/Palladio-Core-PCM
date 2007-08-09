@@ -7,12 +7,16 @@
 package de.uka.ipd.sdq.stoex.provider;
 
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -20,16 +24,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.stoex.VariableReference;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.stoex.VariableReference} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.stoex.PCMRandomVariable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableReferenceItemProvider
-	extends AbstractNamedReferenceItemProvider
+public class PCMRandomVariableItemProvider
+	extends RandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -42,7 +44,7 @@ public class VariableReferenceItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableReferenceItemProvider(AdapterFactory adapterFactory) {
+	public PCMRandomVariableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,14 +64,14 @@ public class VariableReferenceItemProvider
 	}
 
 	/**
-	 * This returns VariableReference.gif.
+	 * This returns PCMRandomVariable.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableReference"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PCMRandomVariable"));
 	}
 
 	/**
@@ -80,10 +82,10 @@ public class VariableReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((VariableReference)object).getReferenceName();
+		String label = ((PCMRandomVariable)object).getSpecification();
 		return label == null || label.length() == 0 ?
-			getString("_UI_VariableReference_type") :
-			getString("_UI_VariableReference_type") + " " + label;
+			getString("_UI_PCMRandomVariable_type") :
+			getString("_UI_PCMRandomVariable_type") + " " + label;
 	}
 
 	/**

@@ -107,8 +107,10 @@ public class DoubleLiteralItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		DoubleLiteral doubleLiteral = (DoubleLiteral)object;
-		return getString("_UI_DoubleLiteral_type") + " " + doubleLiteral.getValue();
+		String label = ((DoubleLiteral)object).getUnitSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DoubleLiteral_type") :
+			getString("_UI_DoubleLiteral_type") + " " + label;
 	}
 
 	/**

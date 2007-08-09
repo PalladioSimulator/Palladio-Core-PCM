@@ -50,7 +50,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" ordered="false"
         lowerBound="1" eType="#//TermOperations"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RandomVariable">
+  <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="#//RandomVariable">
     <eOperations name="SpecificationMustNotBeNULL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="not self.specification.oclIsUndefined() and self.specification &lt;> ''"/>
@@ -70,8 +70,12 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RandomVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="specification" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" ordered="false"
+        lowerBound="1" eType="#//Expression" volatile="true" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProductExpression" eSuperTypes="#//Product">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false" lowerBound="1"
@@ -83,14 +87,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunctionLiteral" eSuperTypes="#//Atom">
     <eStructuralFeatures xsi:type="ecore:EReference" name="function_ProbabilityFunctionLiteral"
-        ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/probfunction.ecore#//ProbabilityFunction"
+        ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityFunction"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parenthesis" eSuperTypes="#//Atom">
     <eStructuralFeatures xsi:type="ecore:EReference" name="innerExpression" ordered="false"
         lowerBound="1" eType="#//Expression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" abstract="true" eSuperTypes="#//Atom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement #//Atom"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//NumericLiteral">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

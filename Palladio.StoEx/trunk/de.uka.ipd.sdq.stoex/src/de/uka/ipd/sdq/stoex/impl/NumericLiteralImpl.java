@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.stoex.impl;
 import de.uka.ipd.sdq.stoex.NumericLiteral;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
+import de.uka.ipd.sdq.units.impl.UnitCarryingElementImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -20,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class NumericLiteralImpl extends AtomImpl implements NumericLiteral {
+public abstract class NumericLiteralImpl extends UnitCarryingElementImpl implements NumericLiteral {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
