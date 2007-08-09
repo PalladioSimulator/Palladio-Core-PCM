@@ -85,13 +85,14 @@ public abstract class UnitCarryingElementImpl extends EObjectImpl implements Uni
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public Unit basicGetUnit() {
 		// TODO: implement this method to return the 'Unit' reference
 		// -> do not perform proxy resolution
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+
+		return null;
 	}
 
 	/**
