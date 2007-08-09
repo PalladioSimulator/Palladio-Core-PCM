@@ -7,7 +7,6 @@ import usagemodel;
 import parameter;
 import stoex;
 import completions;
-import ecore;
 
 findStart(List[AbstractAction] actions) :
    actions.typeSelect(StartAction).first();
@@ -116,7 +115,8 @@ List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[ProvidedRole] 
 		: {};	
 
 //-----------------------------------------------------------------------------------------
-//TODO: This is a workaround to not break old model instances in seff.xpt in main templates		
+// TODO: This is needed by a workaround to not break old model instances in seff.xpt in main templates
+// Should be removed as soon as most of the instances are migrated		
 getComponent(Object o):
 	BasicComponent.isInstance(o) ? ((BasicComponent)o) : getComponent(o.eContainer);
 	

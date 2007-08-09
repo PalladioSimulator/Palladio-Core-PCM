@@ -2,18 +2,19 @@ package de.uka.ipd.sdq.stoex.parser.test;
 
 import java.io.StringReader;
 import java.util.ArrayList;
+
+import junit.framework.TestCase;
  
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
-import org.junit.Test;
 
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
-public class StoExParserTests {
+public class StoExParserTests extends TestCase {
 	
-	@Test public void stoExParserTests() throws RecognitionException {
+	public void stoExParserTest() throws RecognitionException {
 		parse("true");
 		parse("5 > 4");
 		parse("IntPMF[(1;0.2)(2;0.4)]");
@@ -23,7 +24,7 @@ public class StoExParserTests {
 		parse("NOT true");
 	}
 
-	@Test(expected=RecognitionException.class) public void stoExParserNegativeTests() throws RecognitionException {
+	public void stoExParserNegativeTest() throws RecognitionException {
 		parse("+6***6");
 		parse("§$JFf§RKrp23r32#");
 	}
