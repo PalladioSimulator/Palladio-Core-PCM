@@ -98,12 +98,13 @@ public class CapraExpressionTransformer {
 		SimActiveResource resource = resourceManager.getActiveResource(resourceName);
 		ManagedPDF mPDF = new ManagedPDF(demandAction.getResourceUsage()
 				.getUsageTime());
-		DiscreteDistribution distribution = transformPDF(mPDF);
-		return factory.createDemandAction(name, distribution, resource);
+		ISamplePDF sPDF = mPDF.getSamplePdfTimeDomain();
+		DiscreteDistribution distribution = transformPDF(sPDF);
+		double sampleWidth = sPDF.getDistance();
+		return factory.createDemandAction(name, distribution, sampleWidth, resource);
 	}
 
-	public DiscreteDistribution transformPDF(ManagedPDF pdf) {
-		ISamplePDF sPDF = pdf.getSamplePdfTimeDomain();
+	public DiscreteDistribution transformPDF(ISamplePDF sPDF) {
 		double pos = 0;
 		double distance = sPDF.getDistance();
 		List<Double> probList = sPDF.getValuesAsDouble();

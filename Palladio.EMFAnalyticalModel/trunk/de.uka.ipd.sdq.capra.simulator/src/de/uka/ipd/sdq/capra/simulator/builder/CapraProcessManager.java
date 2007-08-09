@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Hashtable;
 
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimReplicatedProcess;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 
@@ -38,5 +39,9 @@ public class CapraProcessManager {
 		for (SimReplicatedProcess rp : simProcesses.values()) {
 			rp.schedule(0);
 		}
+	}
+
+	public Collection<SimReplicatedProcess> getProcesses() {
+		return simProcesses.values();
 	}
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/log4j-1.2.14.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/ssj/lib/Blas.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/ssj/lib/colt.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/ssj/lib/event-1.6.5.jar"/>

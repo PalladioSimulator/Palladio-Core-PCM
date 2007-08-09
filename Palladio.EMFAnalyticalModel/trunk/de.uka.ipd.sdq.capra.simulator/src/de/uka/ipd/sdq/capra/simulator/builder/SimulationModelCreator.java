@@ -13,7 +13,7 @@ public class SimulationModelCreator {
 	public static SimulationModel createFrom(CapraModel capraModel){
 		SimulationModel model = new SimulationModel();
 
-		transformResoruces(capraModel, model);
+		transformResources(capraModel, model);
 		transformSensors(capraModel, model);
 		transformProcesses(capraModel, model);
 		
@@ -44,7 +44,7 @@ public class SimulationModelCreator {
 		}
 	}
 
-	private static void transformResoruces(CapraModel capraModel,
+	private static void transformResources(CapraModel capraModel,
 			SimulationModel model) {
 		ResourceTransformer resourceTransformer = new ResourceTransformer(model.getResources());
 		for(Resource r : capraModel.getResources()){

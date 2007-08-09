@@ -26,9 +26,7 @@ public class SimFullTimeSpanRecorder implements SimTimeSpanRecorder {
 
 	@Override
 	public void storeData(ExperimentManager expManager) {
-		
 		expManager.storeTimeSpans(store.getName(), store.getArray().elements(),store.getArray().size());		
-		System.out.println(store.reportAndConfidenceIntervalStudent(0.9,3));
 	}
 	
 	public SimFullTimeSpanRecorder clone(){

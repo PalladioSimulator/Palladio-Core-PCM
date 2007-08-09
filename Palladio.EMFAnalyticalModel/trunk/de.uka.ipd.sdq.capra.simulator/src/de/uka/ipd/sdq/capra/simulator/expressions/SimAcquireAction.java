@@ -2,6 +2,9 @@ package de.uka.ipd.sdq.capra.simulator.expressions;
 
 import java.util.Hashtable;
 
+import umontreal.iro.lecuyer.simevents.Sim;
+
+import de.uka.ipd.sdq.capra.simulator.CapraSim;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 import de.uka.ipd.sdq.capra.simulator.resources.SimPassiveResource;
 

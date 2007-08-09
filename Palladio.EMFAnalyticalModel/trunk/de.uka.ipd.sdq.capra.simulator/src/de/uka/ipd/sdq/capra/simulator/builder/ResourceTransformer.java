@@ -30,7 +30,7 @@ public class ResourceTransformer {
 		if (capacity > 1){
 			System.out.println("Capacity "+ capacity + " for resource " + name + " is being ignored.");
 		}
-		resourceManager.addRoundRobinResource(name,15.0);
+		resourceManager.addRoundRobinResource(name,30.0);
 //		SelectionPolicy policy = processingResource.getScheduler().getSelectionpolicy();
 //		Assignment assignment = processingResource.getScheduler().getAssignment();
 //		if ((assignment.eClass().getClassifierID() == SchedulersPackage.PREEMPTIVE)){

@@ -7,8 +7,12 @@ import umontreal.iro.lecuyer.simevents.Event;
 public class SimCapraProcess {
 
 	SimCapraExpression behaviour;
+	
 	String name;
+	
 	Stack<SimCapraExpression> executionStack = new Stack<SimCapraExpression>();
+
+	private boolean ready = false;
 	
 	public SimCapraProcess(SimCapraExpression capraExpression, String name) {
 		super();
@@ -73,5 +77,32 @@ public class SimCapraProcess {
 
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public boolean equals(Object arg0) {
+		if (arg0 instanceof SimCapraProcess) {
+			SimCapraProcess process = (SimCapraProcess) arg0;
+			return this.name.equals(process.name);
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+	public boolean isReady() {
+		return ready;
+	}
+	
+	public void setReady(boolean ready){
+		this.ready = ready;
 	}
 }

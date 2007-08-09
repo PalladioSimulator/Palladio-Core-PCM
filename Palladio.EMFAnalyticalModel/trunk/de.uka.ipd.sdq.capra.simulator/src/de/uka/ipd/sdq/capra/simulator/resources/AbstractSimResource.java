@@ -11,8 +11,6 @@ public abstract class AbstractSimResource {
 		this.name = name;
 	}
 	
-	public abstract void init();
-	
 	public String getName() {
 		return name;
 	}

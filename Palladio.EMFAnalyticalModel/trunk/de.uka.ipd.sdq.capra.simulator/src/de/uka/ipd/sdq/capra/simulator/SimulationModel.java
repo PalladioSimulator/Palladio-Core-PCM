@@ -37,6 +37,7 @@ public class SimulationModel {
 		SimProcess.init();
 		resources.init();
 		processes.initialSchedule();
+		resources.register(processes);
 		sensors.init();
 	}
 	
@@ -56,5 +57,10 @@ public class SimulationModel {
 		public void actions() {
 			Sim.stop();
 		}
+	}
+
+	public String getDescription() {
+		int number = getProcesses().getProcesses().iterator().next().getProcesses().length;
+		return "#Threads=" + number;
 	};
 }

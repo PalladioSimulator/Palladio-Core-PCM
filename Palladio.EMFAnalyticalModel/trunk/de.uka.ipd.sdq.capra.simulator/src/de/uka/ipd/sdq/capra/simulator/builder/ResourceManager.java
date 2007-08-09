@@ -1,15 +1,16 @@
 package de.uka.ipd.sdq.capra.simulator.builder;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
+import de.uka.ipd.sdq.capra.simulator.expressions.SimReplicatedProcess;
 import de.uka.ipd.sdq.capra.simulator.resources.AbstractSimResource;
 import de.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;
 import de.uka.ipd.sdq.capra.simulator.resources.SimPassiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.DelayStrategy;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.FCFSStrategy;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.ISchedulingStrategy;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.ProcessorSharingStrategy;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.RoundRobinStrategy;
+import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveSchedulingStrategy;
+import de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl.PreemptiveStrategy;
 
 /**
  * Manages a set of resource. It follows the builder pattern.
@@ -40,32 +41,68 @@ public class ResourceManager {
 	public void addPassiveResource(String name, int capacity){
 		SimPassiveResource resource = new SimPassiveResource(name, capacity);
 		addResource(resource);
+		
+		
 	}
 	
-	public void addActiveResource(String name, ISchedulingStrategy strategy) {
+	public void addActiveResource(String name, IPreemptiveSchedulingStrategy strategy) {
 		SimActiveResource resource = new SimActiveResource(strategy,name);
 		addResource(resource);
 	}
 
 	public void addDelayResource(String name){
-		addActiveResource(name,new DelayStrategy());
+		//TODO: addActiveResource(name,new DelayStrategy());
 	}
 	
 	public void addFCFSProcessingResource(String name){
-		addActiveResource(name,new FCFSStrategy());
+		//TODO: addActiveResource(name,new FCFSStrategy());
 	}
 	
 	public void addProcessorSharingResource(String name){
-		addActiveResource(name,new ProcessorSharingStrategy());
+		//TODO: addActiveResource(name,new ProcessorSharingStrategy());
 	}	
 
 	public void addRoundRobinResource(String name, double timeSlice) {
-		addActiveResource(name, new RoundRobinStrategy(timeSlice));
+		PreemptiveStrategy strategy = new PreemptiveStrategy(timeSlice);
+		SimActiveResource resource = new SimActiveResource(strategy,name);
+		strategy.setActiveResource(resource);
+		addResource(resource);
 	}
 	
 	public void init(){
+		List<SimActiveResource> activeResourceList = new ArrayList<SimActiveResource>();
+		List<SimPassiveResource> passiveResourceList = new ArrayList<SimPassiveResource>();
 		for (AbstractSimResource r : simResources.values()) {
-			r.init();
+			if (r instanceof SimActiveResource) {
+				SimActiveResource activeResource = (SimActiveResource) r;
+				activeResourceList.add(activeResource);
+			} else if (r instanceof SimPassiveResource) {
+				SimPassiveResource passiveResource = (SimPassiveResource) r;
+				passiveResourceList.add(passiveResource);
+			}
+		}
+		for (SimPassiveResource simPassiveResource : passiveResourceList) {
+			for (SimActiveResource simActiveResource : activeResourceList) {
+				simPassiveResource.addFavouredResource(simActiveResource);
+			}
+		}
+	}
+
+	public void register(CapraProcessManager processes) {
+		for (AbstractSimResource r : simResources.values()) {
+			if (r instanceof SimActiveResource) {
+				SimActiveResource activeResource = (SimActiveResource) r;
+				registerProcesses(activeResource,processes);
+			}
+		}
+	}
+
+	private void registerProcesses(SimActiveResource activeResource,
+			CapraProcessManager processes) {
+		for (SimReplicatedProcess repProcess : processes.getProcesses()) {
+			for (SimCapraProcess process : repProcess.getProcesses()) {
+				activeResource.getRegistry().registerProcess(process);
+			} 
 		}
 	}
 }

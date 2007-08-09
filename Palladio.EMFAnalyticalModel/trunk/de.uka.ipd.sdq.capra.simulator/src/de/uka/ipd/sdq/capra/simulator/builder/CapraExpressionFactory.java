@@ -21,8 +21,8 @@ public class CapraExpressionFactory {
 	public CapraExpressionFactory(){
 	}
 		
-	public SimDemandAction createDemandAction(String name, DiscreteDistribution distribution, SimActiveResource resource){
-		return new SimDemandAction(name,resource,distribution);
+	public SimDemandAction createDemandAction(String name, DiscreteDistribution distribution, double samplingWidth, SimActiveResource resource){
+		return new SimDemandAction(name,resource,distribution,samplingWidth);
 	}
 	
 	public SimProbabilisticPrefix createSimProbabilisticPrefix(SimAction action,
