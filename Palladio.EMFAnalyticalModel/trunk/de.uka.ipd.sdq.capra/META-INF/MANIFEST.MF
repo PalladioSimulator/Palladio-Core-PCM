@@ -27,5 +27,6 @@ Export-Package: de.uka.ipd.sdq.capra,
  de.uka.ipd.sdq.capra.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- de.uka.ipd.sdq.probfunction;visibility:=reexport
+ de.uka.ipd.sdq.probfunction;visibility:=reexport,
+ de.uka.ipd.sdq.units;visibility:=reexport
 Eclipse-LazyStart: true
