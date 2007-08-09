@@ -20,6 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.units,
- de.uka.ipd.sdq.wrapper.flanagan,
+ de.uka.ipd.sdq.wrapper.flanagan;visibility:=reexport,
  de.uka.ipd.sdq.wrapper.antlr
 Eclipse-LazyStart: true

@@ -8,7 +8,9 @@ Require-Bundle: de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.units,
- de.uka.ipd.sdq.errorhandling
+ de.uka.ipd.sdq.errorhandling,
+ org.apache.log4j,
+ de.uka.ipd.sdq.pcm
 Export-Package: de.uka.ipd.sdq.stoex.analyser.exceptions,
  de.uka.ipd.sdq.stoex.analyser.operations,
  de.uka.ipd.sdq.stoex.analyser.visitors

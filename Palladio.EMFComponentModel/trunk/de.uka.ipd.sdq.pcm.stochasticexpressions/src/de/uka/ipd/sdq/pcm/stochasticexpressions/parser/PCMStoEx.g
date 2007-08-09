@@ -211,11 +211,6 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			INTPMF
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			(LPAREN
-			  (
-			  uunit = unit 
-			  {probFunction.setUnit(uunit);})
-			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
 				  isample = numeric_int_sample
@@ -225,11 +220,6 @@ definition returns [ProbabilityFunctionLiteral pfl]
 		 	DOUBLEPMF 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			(LPAREN
-			  (
-			  uunit = unit 
-			  {probFunction.setUnit(uunit);})
-			RPAREN)?
 		 	SQUARE_PAREN_L 
 				( 
 				rsample = numeric_real_sample
@@ -243,13 +233,8 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
 				   }
 			(LPAREN
-			  (
-			  uunit = unit 
-			  {probFunction.setUnit(uunit);})
-			  (SEMI
 			  ORDERED_DEF
 			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
-			  )
 			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
@@ -260,11 +245,6 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			DOUBLEPDF
 				{probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			(LPAREN
-			  (
-			  uunit = unit 
-			  {probFunction.setUnit(uunit);})
-			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
 				  pdf_sample = real_pdf_sample
@@ -277,13 +257,8 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
 				   }
 			(LPAREN
-			  (
-			  uunit = bool_unit 
-			  {probFunction.setUnit(uunit);})
-			  (SEMI
 			  ORDERED_DEF
 			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
-			  )?
 			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
@@ -291,24 +266,6 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			   	{((ProbabilityMassFunction)probFunction).getSamples().add(ssample);})+ 
 			SQUARE_PAREN_R
 ;	 		
-			
-
-unit returns [Unit u]
-	:
-		UNIT
-			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
-			DEFINITION
-			str=STRING_LITERAL 
-			{u.setUnitName(str.getText().replace("\"",""));} ;
-
-bool_unit returns [Unit u]
-	:
-		UNIT
-			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
-			EQUAL
-			BOOL
-			{u.setUnitName("bool");} ;
-
 
 numeric_int_sample returns [Sample s]
 	@init {s = null;} : 

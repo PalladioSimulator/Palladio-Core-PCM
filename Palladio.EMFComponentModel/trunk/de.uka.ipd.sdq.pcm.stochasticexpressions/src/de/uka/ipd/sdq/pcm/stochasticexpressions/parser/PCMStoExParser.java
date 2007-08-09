@@ -1,4 +1,4 @@
-// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-07-04 22:40:41
+// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-08-09 17:44:00
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.stoex.*;
@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 public class PCMStoExParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "OR", "XOR", "GREATER", "LESS", "EQUAL", "NOTEQUAL", "GREATEREQUAL", "LESSEQUAL", "PLUS", "MINUS", "MUL", "DIV", "MOD", "POW", "NOT", "NUMBER", "STRING_LITERAL", "DOT", "ID", "LPAREN", "RPAREN", "COLON", "INTPMF", "SQUARE_PAREN_L", "SQUARE_PAREN_R", "DOUBLEPMF", "ENUMPMF", "SEMI", "ORDERED_DEF", "DOUBLEPDF", "BOOLPMF", "UNIT", "DEFINITION", "BOOL", "FALSE", "TRUE", "BYTESIZE", "STRUCTURE", "NUMBER_OF_ELEMENTS", "TYPE", "VALUE", "INNER", "DIGIT", "Exponent", "ALPHA", "WS", "COMMENT", "LINE_COMMENT", "'?'", "':'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "OR", "XOR", "GREATER", "LESS", "EQUAL", "NOTEQUAL", "GREATEREQUAL", "LESSEQUAL", "PLUS", "MINUS", "MUL", "DIV", "MOD", "POW", "NOT", "NUMBER", "STRING_LITERAL", "DOT", "ID", "LPAREN", "RPAREN", "COLON", "INTPMF", "SQUARE_PAREN_L", "SQUARE_PAREN_R", "DOUBLEPMF", "ENUMPMF", "ORDERED_DEF", "DOUBLEPDF", "BOOLPMF", "SEMI", "FALSE", "TRUE", "BYTESIZE", "STRUCTURE", "NUMBER_OF_ELEMENTS", "TYPE", "VALUE", "INNER", "UNIT", "BOOL", "DEFINITION", "DIGIT", "Exponent", "ALPHA", "WS", "COMMENT", "LINE_COMMENT", "'?'", "':'"
     };
-    public static final int INNER=46;
+    public static final int INNER=43;
     public static final int MOD=17;
-    public static final int BOOLPMF=35;
+    public static final int BOOLPMF=34;
     public static final int Exponent=48;
     public static final int GREATEREQUAL=11;
     public static final int ENUMPMF=31;
@@ -28,9 +28,9 @@ public class PCMStoExParser extends Parser {
     public static final int AND=4;
     public static final int ID=23;
     public static final int EOF=-1;
-    public static final int STRUCTURE=42;
+    public static final int STRUCTURE=39;
     public static final int LPAREN=24;
-    public static final int TYPE=44;
+    public static final int TYPE=41;
     public static final int NOTEQUAL=10;
     public static final int RPAREN=25;
     public static final int GREATER=7;
@@ -38,35 +38,35 @@ public class PCMStoExParser extends Parser {
     public static final int POW=18;
     public static final int EQUAL=9;
     public static final int LESS=8;
-    public static final int DEFINITION=37;
+    public static final int DEFINITION=46;
     public static final int PLUS=13;
     public static final int DIGIT=47;
     public static final int COMMENT=51;
     public static final int DOT=22;
-    public static final int DOUBLEPDF=34;
+    public static final int DOUBLEPDF=33;
     public static final int XOR=6;
     public static final int INTPMF=27;
     public static final int LINE_COMMENT=52;
     public static final int DOUBLEPMF=30;
+    public static final int BOOL=45;
     public static final int NUMBER=20;
-    public static final int BOOL=38;
-    public static final int NUMBER_OF_ELEMENTS=43;
-    public static final int VALUE=45;
+    public static final int NUMBER_OF_ELEMENTS=40;
     public static final int MINUS=14;
+    public static final int VALUE=42;
     public static final int MUL=15;
-    public static final int SEMI=32;
-    public static final int TRUE=40;
+    public static final int SEMI=35;
+    public static final int TRUE=37;
     public static final int ALPHA=49;
     public static final int COLON=26;
     public static final int SQUARE_PAREN_R=29;
-    public static final int UNIT=36;
+    public static final int UNIT=44;
     public static final int WS=50;
     public static final int SQUARE_PAREN_L=28;
     public static final int OR=5;
-    public static final int BYTESIZE=41;
+    public static final int BYTESIZE=38;
     public static final int DIV=16;
-    public static final int ORDERED_DEF=33;
-    public static final int FALSE=39;
+    public static final int ORDERED_DEF=32;
+    public static final int FALSE=36;
     public static final int LESSEQUAL=12;
 
         public PCMStoExParser(TokenStream input) {
@@ -88,7 +88,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:17:3: (c= ifelseExpr EOF )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:16:3: (c= ifelseExpr EOF )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:17:3: c= ifelseExpr EOF
             {
             pushFollow(FOLLOW_ifelseExpr_in_expression32);
@@ -125,7 +125,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:22:2: (cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )? )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:21:2: (cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )? )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:22:2: cond= boolAndExpr ( '?' ifEx= boolAndExpr ':' elseEx= boolAndExpr )?
             {
             pushFollow(FOLLOW_boolAndExpr_in_ifelseExpr57);
@@ -191,7 +191,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:31:2: (b1= boolOrExpr ( AND b2= boolOrExpr )* )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:30:2: (b1= boolOrExpr ( AND b2= boolOrExpr )* )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:31:2: b1= boolOrExpr ( AND b2= boolOrExpr )*
             {
             pushFollow(FOLLOW_boolOrExpr_in_boolAndExpr111);
@@ -257,7 +257,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:39:2: (b1= compareExpr ( ( OR | XOR ) b2= compareExpr )* )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:38:2: (b1= compareExpr ( ( OR | XOR ) b2= compareExpr )* )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:39:2: b1= compareExpr ( ( OR | XOR ) b2= compareExpr )*
             {
             pushFollow(FOLLOW_compareExpr_in_boolOrExpr160);
@@ -357,7 +357,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:52:4: (t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:51:3: (t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )? )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:52:4: t1= sumExpr ( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL ) t2= sumExpr )?
             {
             pushFollow(FOLLOW_sumExpr_in_compareExpr231);
@@ -506,7 +506,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:65:2: (p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:64:3: (p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )* )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:65:2: p1= prodExpr ( ( PLUS | MINUS ) p2= prodExpr )*
             {
             pushFollow(FOLLOW_prodExpr_in_sumExpr345);
@@ -606,7 +606,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:76:3: (pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:75:3: (pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )* )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:76:3: pw1= powExpr ( ( MUL | DIV | MOD ) pw2= powExpr )*
             {
             pushFollow(FOLLOW_powExpr_in_prodExpr423);
@@ -723,7 +723,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:89:3: (a1= unaryExpr ( POW a2= unaryExpr )? )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:88:3: (a1= unaryExpr ( POW a2= unaryExpr )? )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:89:3: a1= unaryExpr ( POW a2= unaryExpr )?
             {
             pushFollow(FOLLOW_unaryExpr_in_powExpr522);
@@ -784,7 +784,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:98:5: ( MINUS uminus= unaryExpr | NOT unot= unaryExpr | a= atom )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:96:29: ( MINUS uminus= unaryExpr | NOT unot= unaryExpr | a= atom )
             int alt12=3;
             switch ( input.LA(1) ) {
             case MINUS:
@@ -895,7 +895,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: ( (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN ) )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:111:3: ( (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN ) )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )
             {
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )
@@ -930,11 +930,11 @@ public class PCMStoExParser extends Parser {
                 {
                 int LA13_5 = input.LA(2);
 
-                if ( (LA13_5==DOT) ) {
-                    alt13=5;
-                }
-                else if ( (LA13_5==LPAREN) ) {
+                if ( (LA13_5==LPAREN) ) {
                     alt13=6;
+                }
+                else if ( (LA13_5==DOT) ) {
+                    alt13=5;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1099,7 +1099,7 @@ public class PCMStoExParser extends Parser {
 
         parameters = new ArrayList<Expression>();
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:180:2: ( LPAREN (paramList= expressionList )? RPAREN )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:179:2: ( LPAREN (paramList= expressionList )? RPAREN )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:180:2: LPAREN (paramList= expressionList )? RPAREN
             {
             match(input,LPAREN,FOLLOW_LPAREN_in_arguments902); 
@@ -1153,7 +1153,7 @@ public class PCMStoExParser extends Parser {
 
         parameters = new ArrayList<Expression>();
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:186:7: (p1= boolAndExpr ( COLON p2= boolAndExpr )* )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:185:2: (p1= boolAndExpr ( COLON p2= boolAndExpr )* )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:186:7: p1= boolAndExpr ( COLON p2= boolAndExpr )*
             {
             pushFollow(FOLLOW_boolAndExpr_in_expressionList951);
@@ -1215,7 +1215,7 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:191:2: (type= characterisation_keywords )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:190:3: (type= characterisation_keywords )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:191:2: type= characterisation_keywords
             {
             pushFollow(FOLLOW_characterisation_keywords_in_characterisation995);
@@ -1249,11 +1249,9 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start definition
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:205:1: definition returns [ProbabilityFunctionLiteral pfl] : ( INTPMF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:205:1: definition returns [ProbabilityFunctionLiteral pfl] : ( INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );
     public final ProbabilityFunctionLiteral definition() throws RecognitionException {
         ProbabilityFunctionLiteral pfl = null;
-
-        Unit uunit = null;
 
         Sample isample = null;
 
@@ -1267,80 +1265,95 @@ public class PCMStoExParser extends Parser {
         pfl = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
         	 ProbabilityFunction probFunction = null; 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:211:4: ( INTPMF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R )
-            int alt27=5;
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:207:46: ( INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R )
+            int alt23=5;
             switch ( input.LA(1) ) {
             case INTPMF:
                 {
-                alt27=1;
+                alt23=1;
                 }
                 break;
             case DOUBLEPMF:
                 {
-                alt27=2;
+                alt23=2;
                 }
                 break;
             case ENUMPMF:
                 {
-                alt27=3;
+                alt23=3;
                 }
                 break;
             case DOUBLEPDF:
                 {
-                alt27=4;
+                alt23=4;
                 }
                 break;
             case BOOLPMF:
                 {
-                alt27=5;
+                alt23=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("205:1: definition returns [ProbabilityFunctionLiteral pfl] : ( INTPMF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );", 27, 0, input);
+                    new NoViableAltException("205:1: definition returns [ProbabilityFunctionLiteral pfl] : ( INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R | DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R | ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R | DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R | BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R );", 23, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt27) {
+            switch (alt23) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:211:4: INTPMF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:211:4: INTPMF SQUARE_PAREN_L (isample= numeric_int_sample )+ SQUARE_PAREN_R
                     {
                     match(input,INTPMF,FOLLOW_INTPMF_in_definition1032); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:214:4: ( LPAREN (uunit= unit ) RPAREN )?
-                    int alt16=2;
-                    int LA16_0 = input.LA(1);
+                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1043); 
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:215:5: (isample= numeric_int_sample )+
+                    int cnt16=0;
+                    loop16:
+                    do {
+                        int alt16=2;
+                        int LA16_0 = input.LA(1);
 
-                    if ( (LA16_0==LPAREN) ) {
-                        alt16=1;
+                        if ( (LA16_0==LPAREN) ) {
+                            alt16=1;
+                        }
+
+
+                        switch (alt16) {
+                    	case 1 :
+                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:216:7: isample= numeric_int_sample
+                    	    {
+                    	    pushFollow(FOLLOW_numeric_int_sample_in_definition1063);
+                    	    isample=numeric_int_sample();
+                    	    _fsp--;
+
+                    	    ((ProbabilityMassFunction)probFunction).getSamples().add(isample);
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt16 >= 1 ) break loop16;
+                                EarlyExitException eee =
+                                    new EarlyExitException(16, input);
+                                throw eee;
+                        }
+                        cnt16++;
+                    } while (true);
+
+                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1080); 
+
                     }
-                    switch (alt16) {
-                        case 1 :
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:214:5: LPAREN (uunit= unit ) RPAREN
-                            {
-                            match(input,LPAREN,FOLLOW_LPAREN_in_definition1044); 
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:215:6: (uunit= unit )
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:216:6: uunit= unit
-                            {
-                            pushFollow(FOLLOW_unit_in_definition1062);
-                            uunit=unit();
-                            _fsp--;
-
-                            probFunction.setUnit(uunit);
-
-                            }
-
-                            match(input,RPAREN,FOLLOW_RPAREN_in_definition1076); 
-
-                            }
-                            break;
-
-                    }
-
-                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1083); 
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:220:5: (isample= numeric_int_sample )+
+                    break;
+                case 2 :
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:220:5: DOUBLEPMF SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R
+                    {
+                    match(input,DOUBLEPMF,FOLLOW_DOUBLEPMF_in_definition1093); 
+                    probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+                    				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
+                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1106); 
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:224:5: (rsample= numeric_real_sample )+
                     int cnt17=0;
                     loop17:
                     do {
@@ -1354,13 +1367,13 @@ public class PCMStoExParser extends Parser {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:221:7: isample= numeric_int_sample
+                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:225:5: rsample= numeric_real_sample
                     	    {
-                    	    pushFollow(FOLLOW_numeric_int_sample_in_definition1103);
-                    	    isample=numeric_int_sample();
+                    	    pushFollow(FOLLOW_numeric_real_sample_in_definition1124);
+                    	    rsample=numeric_real_sample();
                     	    _fsp--;
 
-                    	    ((ProbabilityMassFunction)probFunction).getSamples().add(isample);
+                    	    ((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 
                     	    }
                     	    break;
@@ -1374,17 +1387,19 @@ public class PCMStoExParser extends Parser {
                         cnt17++;
                     } while (true);
 
-                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1120); 
+                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1141); 
 
                     }
                     break;
-                case 2 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:225:5: DOUBLEPMF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (rsample= numeric_real_sample )+ SQUARE_PAREN_R
+                case 3 :
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:230:4: ENUMPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R
                     {
-                    match(input,DOUBLEPMF,FOLLOW_DOUBLEPMF_in_definition1133); 
+                    match(input,ENUMPMF,FOLLOW_ENUMPMF_in_definition1155); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:228:4: ( LPAREN (uunit= unit ) RPAREN )?
+                    				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
+                    				   
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:235:4: ( LPAREN ORDERED_DEF RPAREN )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -1393,29 +1408,20 @@ public class PCMStoExParser extends Parser {
                     }
                     switch (alt18) {
                         case 1 :
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:228:5: LPAREN (uunit= unit ) RPAREN
+                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:235:5: LPAREN ORDERED_DEF RPAREN
                             {
-                            match(input,LPAREN,FOLLOW_LPAREN_in_definition1146); 
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:229:6: (uunit= unit )
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:230:6: uunit= unit
-                            {
-                            pushFollow(FOLLOW_unit_in_definition1164);
-                            uunit=unit();
-                            _fsp--;
-
-                            probFunction.setUnit(uunit);
-
-                            }
-
-                            match(input,RPAREN,FOLLOW_RPAREN_in_definition1178); 
+                            match(input,LPAREN,FOLLOW_LPAREN_in_definition1168); 
+                            match(input,ORDERED_DEF,FOLLOW_ORDERED_DEF_in_definition1175); 
+                            ((ProbabilityMassFunction)probFunction).setOrderedDomain(true);
+                            match(input,RPAREN,FOLLOW_RPAREN_in_definition1187); 
 
                             }
                             break;
 
                     }
 
-                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1186); 
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:234:5: (rsample= numeric_real_sample )+
+                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1194); 
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:240:5: (ssample= stringsample )+
                     int cnt19=0;
                     loop19:
                     do {
@@ -1429,13 +1435,13 @@ public class PCMStoExParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:235:5: rsample= numeric_real_sample
+                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:241:5: ssample= stringsample
                     	    {
-                    	    pushFollow(FOLLOW_numeric_real_sample_in_definition1204);
-                    	    rsample=numeric_real_sample();
+                    	    pushFollow(FOLLOW_stringsample_in_definition1212);
+                    	    ssample=stringsample();
                     	    _fsp--;
 
-                    	    ((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
+                    	    ((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 
                     	    }
                     	    break;
@@ -1449,150 +1455,34 @@ public class PCMStoExParser extends Parser {
                         cnt19++;
                     } while (true);
 
-                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1221); 
-
-                    }
-                    break;
-                case 3 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:240:4: ENUMPMF ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )? SQUARE_PAREN_L (ssample= stringsample )+ SQUARE_PAREN_R
-                    {
-                    match(input,ENUMPMF,FOLLOW_ENUMPMF_in_definition1235); 
-                    probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
-                    				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
-                    				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
-                    				   
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:245:4: ( LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN )?
-                    int alt20=2;
-                    int LA20_0 = input.LA(1);
-
-                    if ( (LA20_0==LPAREN) ) {
-                        alt20=1;
-                    }
-                    switch (alt20) {
-                        case 1 :
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:245:5: LPAREN (uunit= unit ) ( SEMI ORDERED_DEF ) RPAREN
-                            {
-                            match(input,LPAREN,FOLLOW_LPAREN_in_definition1248); 
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:246:6: (uunit= unit )
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:247:6: uunit= unit
-                            {
-                            pushFollow(FOLLOW_unit_in_definition1266);
-                            uunit=unit();
-                            _fsp--;
-
-                            probFunction.setUnit(uunit);
-
-                            }
-
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:249:6: ( SEMI ORDERED_DEF )
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:249:7: SEMI ORDERED_DEF
-                            {
-                            match(input,SEMI,FOLLOW_SEMI_in_definition1283); 
-                            match(input,ORDERED_DEF,FOLLOW_ORDERED_DEF_in_definition1290); 
-                            ((ProbabilityMassFunction)probFunction).setOrderedDomain(true);
-
-                            }
-
-                            match(input,RPAREN,FOLLOW_RPAREN_in_definition1309); 
-
-                            }
-                            break;
-
-                    }
-
-                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1316); 
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:255:5: (ssample= stringsample )+
-                    int cnt21=0;
-                    loop21:
-                    do {
-                        int alt21=2;
-                        int LA21_0 = input.LA(1);
-
-                        if ( (LA21_0==LPAREN) ) {
-                            alt21=1;
-                        }
-
-
-                        switch (alt21) {
-                    	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:256:5: ssample= stringsample
-                    	    {
-                    	    pushFollow(FOLLOW_stringsample_in_definition1334);
-                    	    ssample=stringsample();
-                    	    _fsp--;
-
-                    	    ((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt21 >= 1 ) break loop21;
-                                EarlyExitException eee =
-                                    new EarlyExitException(21, input);
-                                throw eee;
-                        }
-                        cnt21++;
-                    } while (true);
-
-                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1351); 
+                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1229); 
 
                     }
                     break;
                 case 4 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:260:4: DOUBLEPDF ( LPAREN (uunit= unit ) RPAREN )? SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:245:4: DOUBLEPDF SQUARE_PAREN_L (pdf_sample= real_pdf_sample )+ SQUARE_PAREN_R
                     {
-                    match(input,DOUBLEPDF,FOLLOW_DOUBLEPDF_in_definition1361); 
+                    match(input,DOUBLEPDF,FOLLOW_DOUBLEPDF_in_definition1239); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:263:4: ( LPAREN (uunit= unit ) RPAREN )?
-                    int alt22=2;
-                    int LA22_0 = input.LA(1);
-
-                    if ( (LA22_0==LPAREN) ) {
-                        alt22=1;
-                    }
-                    switch (alt22) {
-                        case 1 :
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:263:5: LPAREN (uunit= unit ) RPAREN
-                            {
-                            match(input,LPAREN,FOLLOW_LPAREN_in_definition1373); 
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:264:6: (uunit= unit )
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:265:6: uunit= unit
-                            {
-                            pushFollow(FOLLOW_unit_in_definition1391);
-                            uunit=unit();
-                            _fsp--;
-
-                            probFunction.setUnit(uunit);
-
-                            }
-
-                            match(input,RPAREN,FOLLOW_RPAREN_in_definition1405); 
-
-                            }
-                            break;
-
-                    }
-
-                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1412); 
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:269:5: (pdf_sample= real_pdf_sample )+
-                    int cnt23=0;
-                    loop23:
+                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1250); 
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:249:5: (pdf_sample= real_pdf_sample )+
+                    int cnt20=0;
+                    loop20:
                     do {
-                        int alt23=2;
-                        int LA23_0 = input.LA(1);
+                        int alt20=2;
+                        int LA20_0 = input.LA(1);
 
-                        if ( (LA23_0==LPAREN) ) {
-                            alt23=1;
+                        if ( (LA20_0==LPAREN) ) {
+                            alt20=1;
                         }
 
 
-                        switch (alt23) {
+                        switch (alt20) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:270:7: pdf_sample= real_pdf_sample
+                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:250:7: pdf_sample= real_pdf_sample
                     	    {
-                    	    pushFollow(FOLLOW_real_pdf_sample_in_definition1432);
+                    	    pushFollow(FOLLOW_real_pdf_sample_in_definition1270);
                     	    pdf_sample=real_pdf_sample();
                     	    _fsp--;
 
@@ -1602,94 +1492,65 @@ public class PCMStoExParser extends Parser {
                     	    break;
 
                     	default :
-                    	    if ( cnt23 >= 1 ) break loop23;
+                    	    if ( cnt20 >= 1 ) break loop20;
                                 EarlyExitException eee =
-                                    new EarlyExitException(23, input);
+                                    new EarlyExitException(20, input);
                                 throw eee;
                         }
-                        cnt23++;
+                        cnt20++;
                     } while (true);
 
-                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1449); 
+                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1287); 
 
                     }
                     break;
                 case 5 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:274:4: BOOLPMF ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:254:4: BOOLPMF ( LPAREN ORDERED_DEF RPAREN )? SQUARE_PAREN_L (ssample= boolsample )+ SQUARE_PAREN_R
                     {
-                    match(input,BOOLPMF,FOLLOW_BOOLPMF_in_definition1460); 
+                    match(input,BOOLPMF,FOLLOW_BOOLPMF_in_definition1298); 
                     probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
                     				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
                     				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
                     				   
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:279:4: ( LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN )?
-                    int alt25=2;
-                    int LA25_0 = input.LA(1);
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:259:4: ( LPAREN ORDERED_DEF RPAREN )?
+                    int alt21=2;
+                    int LA21_0 = input.LA(1);
 
-                    if ( (LA25_0==LPAREN) ) {
-                        alt25=1;
+                    if ( (LA21_0==LPAREN) ) {
+                        alt21=1;
                     }
-                    switch (alt25) {
+                    switch (alt21) {
                         case 1 :
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:279:5: LPAREN (uunit= bool_unit ) ( SEMI ORDERED_DEF )? RPAREN
+                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:259:5: LPAREN ORDERED_DEF RPAREN
                             {
-                            match(input,LPAREN,FOLLOW_LPAREN_in_definition1473); 
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:280:6: (uunit= bool_unit )
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:281:6: uunit= bool_unit
-                            {
-                            pushFollow(FOLLOW_bool_unit_in_definition1491);
-                            uunit=bool_unit();
-                            _fsp--;
-
-                            probFunction.setUnit(uunit);
-
-                            }
-
-                            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:283:6: ( SEMI ORDERED_DEF )?
-                            int alt24=2;
-                            int LA24_0 = input.LA(1);
-
-                            if ( (LA24_0==SEMI) ) {
-                                alt24=1;
-                            }
-                            switch (alt24) {
-                                case 1 :
-                                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:283:7: SEMI ORDERED_DEF
-                                    {
-                                    match(input,SEMI,FOLLOW_SEMI_in_definition1508); 
-                                    match(input,ORDERED_DEF,FOLLOW_ORDERED_DEF_in_definition1515); 
-                                    ((ProbabilityMassFunction)probFunction).setOrderedDomain(true);
-
-                                    }
-                                    break;
-
-                            }
-
-                            match(input,RPAREN,FOLLOW_RPAREN_in_definition1535); 
+                            match(input,LPAREN,FOLLOW_LPAREN_in_definition1311); 
+                            match(input,ORDERED_DEF,FOLLOW_ORDERED_DEF_in_definition1318); 
+                            ((ProbabilityMassFunction)probFunction).setOrderedDomain(true);
+                            match(input,RPAREN,FOLLOW_RPAREN_in_definition1330); 
 
                             }
                             break;
 
                     }
 
-                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1542); 
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:289:5: (ssample= boolsample )+
-                    int cnt26=0;
-                    loop26:
+                    match(input,SQUARE_PAREN_L,FOLLOW_SQUARE_PAREN_L_in_definition1337); 
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:264:5: (ssample= boolsample )+
+                    int cnt22=0;
+                    loop22:
                     do {
-                        int alt26=2;
-                        int LA26_0 = input.LA(1);
+                        int alt22=2;
+                        int LA22_0 = input.LA(1);
 
-                        if ( (LA26_0==LPAREN) ) {
-                            alt26=1;
+                        if ( (LA22_0==LPAREN) ) {
+                            alt22=1;
                         }
 
 
-                        switch (alt26) {
+                        switch (alt22) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:290:5: ssample= boolsample
+                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:265:5: ssample= boolsample
                     	    {
-                    	    pushFollow(FOLLOW_boolsample_in_definition1560);
+                    	    pushFollow(FOLLOW_boolsample_in_definition1355);
                     	    ssample=boolsample();
                     	    _fsp--;
 
@@ -1699,15 +1560,15 @@ public class PCMStoExParser extends Parser {
                     	    break;
 
                     	default :
-                    	    if ( cnt26 >= 1 ) break loop26;
+                    	    if ( cnt22 >= 1 ) break loop22;
                                 EarlyExitException eee =
-                                    new EarlyExitException(26, input);
+                                    new EarlyExitException(22, input);
                                 throw eee;
                         }
-                        cnt26++;
+                        cnt22++;
                     } while (true);
 
-                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1577); 
+                    match(input,SQUARE_PAREN_R,FOLLOW_SQUARE_PAREN_R_in_definition1372); 
 
                     }
                     break;
@@ -1725,69 +1586,8 @@ public class PCMStoExParser extends Parser {
     // $ANTLR end definition
 
 
-    // $ANTLR start unit
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:296:1: unit returns [Unit u] : UNIT DEFINITION str= STRING_LITERAL ;
-    public final Unit unit() throws RecognitionException {
-        Unit u = null;
-
-        Token str=null;
-
-        try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:298:3: ( UNIT DEFINITION str= STRING_LITERAL )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:298:3: UNIT DEFINITION str= STRING_LITERAL
-            {
-            match(input,UNIT,FOLLOW_UNIT_in_unit1601); 
-             u = ProbfunctionFactory.eINSTANCE.createUnit(); 
-            match(input,DEFINITION,FOLLOW_DEFINITION_in_unit1611); 
-            str=(Token)input.LT(1);
-            match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_unit1618); 
-            u.setUnitName(str.getText().replace("\"",""));
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return u;
-    }
-    // $ANTLR end unit
-
-
-    // $ANTLR start bool_unit
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:304:1: bool_unit returns [Unit u] : UNIT EQUAL BOOL ;
-    public final Unit bool_unit() throws RecognitionException {
-        Unit u = null;
-
-        try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:306:3: ( UNIT EQUAL BOOL )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:306:3: UNIT EQUAL BOOL
-            {
-            match(input,UNIT,FOLLOW_UNIT_in_bool_unit1640); 
-             u = ProbfunctionFactory.eINSTANCE.createUnit(); 
-            match(input,EQUAL,FOLLOW_EQUAL_in_bool_unit1650); 
-            match(input,BOOL,FOLLOW_BOOL_in_bool_unit1655); 
-            u.setUnitName("bool");
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return u;
-    }
-    // $ANTLR end bool_unit
-
-
     // $ANTLR start numeric_int_sample
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:313:1: numeric_int_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:270:1: numeric_int_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final Sample numeric_int_sample() throws RecognitionException {
         Sample s = null;
 
@@ -1796,19 +1596,19 @@ public class PCMStoExParser extends Parser {
 
         s = null;
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:315:3: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:315:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:271:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:272:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_numeric_int_sample1683); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_numeric_int_sample1398); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_int_sample1696); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_int_sample1411); 
             s.setValue(Integer.parseInt(n.getText()));
-            match(input,SEMI,FOLLOW_SEMI_in_numeric_int_sample1707); 
+            match(input,SEMI,FOLLOW_SEMI_in_numeric_int_sample1422); 
             n2=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_int_sample1715); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_int_sample1430); 
             s.setProbability(Double.parseDouble(n2.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_numeric_int_sample1727); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_numeric_int_sample1442); 
 
             }
 
@@ -1825,7 +1625,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start numeric_real_sample
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:324:1: numeric_real_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:281:1: numeric_real_sample returns [Sample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final Sample numeric_real_sample() throws RecognitionException {
         Sample s = null;
 
@@ -1834,19 +1634,19 @@ public class PCMStoExParser extends Parser {
 
         s = null;
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:326:3: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:326:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:282:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:283:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_numeric_real_sample1750); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_numeric_real_sample1465); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_real_sample1763); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_real_sample1478); 
             s.setValue(Double.parseDouble(n.getText()));
-            match(input,SEMI,FOLLOW_SEMI_in_numeric_real_sample1774); 
+            match(input,SEMI,FOLLOW_SEMI_in_numeric_real_sample1489); 
             n2=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_real_sample1782); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_numeric_real_sample1497); 
             s.setProbability(Double.parseDouble(n2.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_numeric_real_sample1794); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_numeric_real_sample1509); 
 
             }
 
@@ -1863,7 +1663,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start real_pdf_sample
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:335:1: real_pdf_sample returns [ContinuousSample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:292:1: real_pdf_sample returns [ContinuousSample s] : LPAREN n= NUMBER SEMI n2= NUMBER RPAREN ;
     public final ContinuousSample real_pdf_sample() throws RecognitionException {
         ContinuousSample s = null;
 
@@ -1872,19 +1672,19 @@ public class PCMStoExParser extends Parser {
 
         s = null;
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:337:3: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:337:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:293:20: ( LPAREN n= NUMBER SEMI n2= NUMBER RPAREN )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:294:3: LPAREN n= NUMBER SEMI n2= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_real_pdf_sample1818); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_real_pdf_sample1533); 
             s = ProbfunctionFactory.eINSTANCE.createContinuousSample();
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_real_pdf_sample1831); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_real_pdf_sample1546); 
             s.setValue(Double.parseDouble(n.getText()));
-            match(input,SEMI,FOLLOW_SEMI_in_real_pdf_sample1842); 
+            match(input,SEMI,FOLLOW_SEMI_in_real_pdf_sample1557); 
             n2=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_real_pdf_sample1850); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_real_pdf_sample1565); 
             s.setProbability(Double.parseDouble(n2.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_real_pdf_sample1862); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_real_pdf_sample1577); 
 
             }
 
@@ -1901,7 +1701,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start stringsample
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:346:1: stringsample returns [Sample s] : LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:303:1: stringsample returns [Sample s] : LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN ;
     public final Sample stringsample() throws RecognitionException {
         Sample s = null;
 
@@ -1909,19 +1709,19 @@ public class PCMStoExParser extends Parser {
         Token n=null;
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:348:3: ( LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:348:3: LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:304:3: ( LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:305:3: LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_stringsample1883); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_stringsample1598); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
             str=(Token)input.LT(1);
-            match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_stringsample1895); 
+            match(input,STRING_LITERAL,FOLLOW_STRING_LITERAL_in_stringsample1610); 
             s.setValue(str.getText().replace("\"",""));
-            match(input,SEMI,FOLLOW_SEMI_in_stringsample1906); 
+            match(input,SEMI,FOLLOW_SEMI_in_stringsample1621); 
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_stringsample1912); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_stringsample1627); 
             s.setProbability(Double.parseDouble(n.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_stringsample1923); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_stringsample1638); 
 
             }
 
@@ -1938,7 +1738,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start boolsample
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:357:1: boolsample returns [Sample s] : LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:314:1: boolsample returns [Sample s] : LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN ;
     public final Sample boolsample() throws RecognitionException {
         Sample s = null;
 
@@ -1947,21 +1747,21 @@ public class PCMStoExParser extends Parser {
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:359:3: ( LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:359:3: LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:315:3: ( LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:316:3: LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN
             {
-            match(input,LPAREN,FOLLOW_LPAREN_in_boolsample1941); 
+            match(input,LPAREN,FOLLOW_LPAREN_in_boolsample1656); 
             s = ProbfunctionFactory.eINSTANCE.createSample();
-            pushFollow(FOLLOW_boolean_keywords_in_boolsample1955);
+            pushFollow(FOLLOW_boolean_keywords_in_boolsample1670);
             str=boolean_keywords();
             _fsp--;
 
             s.setValue(str.equals("true"));
-            match(input,SEMI,FOLLOW_SEMI_in_boolsample1963); 
+            match(input,SEMI,FOLLOW_SEMI_in_boolsample1678); 
             n=(Token)input.LT(1);
-            match(input,NUMBER,FOLLOW_NUMBER_in_boolsample1969); 
+            match(input,NUMBER,FOLLOW_NUMBER_in_boolsample1684); 
             s.setProbability(Double.parseDouble(n.getText()));
-            match(input,RPAREN,FOLLOW_RPAREN_in_boolsample1980); 
+            match(input,RPAREN,FOLLOW_RPAREN_in_boolsample1695); 
 
             }
 
@@ -1978,43 +1778,43 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start boolean_keywords
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:368:1: boolean_keywords returns [String keyword] : ( FALSE | TRUE ) ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:325:1: boolean_keywords returns [String keyword] : ( FALSE | TRUE ) ;
     public final String boolean_keywords() throws RecognitionException {
         String keyword = null;
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:370:3: ( ( FALSE | TRUE ) )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:370:3: ( FALSE | TRUE )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:326:2: ( ( FALSE | TRUE ) )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:327:3: ( FALSE | TRUE )
             {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:370:3: ( FALSE | TRUE )
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:327:3: ( FALSE | TRUE )
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA28_0==FALSE) ) {
-                alt28=1;
+            if ( (LA24_0==FALSE) ) {
+                alt24=1;
             }
-            else if ( (LA28_0==TRUE) ) {
-                alt28=2;
+            else if ( (LA24_0==TRUE) ) {
+                alt24=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("370:3: ( FALSE | TRUE )", 28, 0, input);
+                    new NoViableAltException("327:3: ( FALSE | TRUE )", 24, 0, input);
 
                 throw nvae;
             }
-            switch (alt28) {
+            switch (alt24) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:371:3: FALSE
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:328:3: FALSE
                     {
-                    match(input,FALSE,FOLLOW_FALSE_in_boolean_keywords1999); 
+                    match(input,FALSE,FOLLOW_FALSE_in_boolean_keywords1714); 
                     keyword = "false";
 
                     }
                     break;
                 case 2 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:374:3: TRUE
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:331:3: TRUE
                     {
-                    match(input,TRUE,FOLLOW_TRUE_in_boolean_keywords2013); 
+                    match(input,TRUE,FOLLOW_TRUE_in_boolean_keywords1728); 
                     keyword = "true"; 
 
                     }
@@ -2038,87 +1838,87 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start characterisation_keywords
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:378:1: characterisation_keywords returns [String keyword] : ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE ) ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:335:1: characterisation_keywords returns [String keyword] : ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE ) ;
     public final String characterisation_keywords() throws RecognitionException {
         String keyword = null;
 
         keyword = null;
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:380:2: ( ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE ) )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:380:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:336:24: ( ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE ) )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:337:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )
             {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:380:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )
-            int alt29=5;
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:337:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )
+            int alt25=5;
             switch ( input.LA(1) ) {
             case BYTESIZE:
                 {
-                alt29=1;
+                alt25=1;
                 }
                 break;
             case STRUCTURE:
                 {
-                alt29=2;
+                alt25=2;
                 }
                 break;
             case NUMBER_OF_ELEMENTS:
                 {
-                alt29=3;
+                alt25=3;
                 }
                 break;
             case TYPE:
                 {
-                alt29=4;
+                alt25=4;
                 }
                 break;
             case VALUE:
                 {
-                alt29=5;
+                alt25=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("380:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )", 29, 0, input);
+                    new NoViableAltException("337:2: ( BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE )", 25, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt29) {
+            switch (alt25) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:380:3: BYTESIZE
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:337:3: BYTESIZE
                     {
-                    match(input,BYTESIZE,FOLLOW_BYTESIZE_in_characterisation_keywords2041); 
+                    match(input,BYTESIZE,FOLLOW_BYTESIZE_in_characterisation_keywords1756); 
                     keyword="BYTESIZE";
 
                     }
                     break;
                 case 2 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:381:4: STRUCTURE
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:338:4: STRUCTURE
                     {
-                    match(input,STRUCTURE,FOLLOW_STRUCTURE_in_characterisation_keywords2048); 
+                    match(input,STRUCTURE,FOLLOW_STRUCTURE_in_characterisation_keywords1763); 
                     keyword="STRUCTURE";
 
                     }
                     break;
                 case 3 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:382:4: NUMBER_OF_ELEMENTS
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:339:4: NUMBER_OF_ELEMENTS
                     {
-                    match(input,NUMBER_OF_ELEMENTS,FOLLOW_NUMBER_OF_ELEMENTS_in_characterisation_keywords2055); 
+                    match(input,NUMBER_OF_ELEMENTS,FOLLOW_NUMBER_OF_ELEMENTS_in_characterisation_keywords1770); 
                     keyword="NUMBER_OF_ELEMENTS";
 
                     }
                     break;
                 case 4 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:383:4: TYPE
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:340:4: TYPE
                     {
-                    match(input,TYPE,FOLLOW_TYPE_in_characterisation_keywords2062); 
+                    match(input,TYPE,FOLLOW_TYPE_in_characterisation_keywords1777); 
                     keyword="TYPE";
 
                     }
                     break;
                 case 5 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:384:4: VALUE
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:341:4: VALUE
                     {
-                    match(input,VALUE,FOLLOW_VALUE_in_characterisation_keywords2069); 
+                    match(input,VALUE,FOLLOW_VALUE_in_characterisation_keywords1784); 
                     keyword="VALUE";
 
                     }
@@ -2142,7 +1942,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start scoped_id
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:387:1: scoped_id returns [AbstractNamedReference ref] : id1= ID ( DOT (id2= ID | INNER ) )* ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:344:1: scoped_id returns [AbstractNamedReference ref] : id1= ID ( DOT (id2= ID | INNER ) )* ;
     public final AbstractNamedReference scoped_id() throws RecognitionException {
         AbstractNamedReference ref = null;
 
@@ -2152,64 +1952,64 @@ public class PCMStoExParser extends Parser {
         ref = null;
         		ArrayList<String> nameParts = new ArrayList<String>();
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:391:2: (id1= ID ( DOT (id2= ID | INNER ) )* )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:391:2: id1= ID ( DOT (id2= ID | INNER ) )*
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:346:59: (id1= ID ( DOT (id2= ID | INNER ) )* )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:348:2: id1= ID ( DOT (id2= ID | INNER ) )*
             {
             id1=(Token)input.LT(1);
-            match(input,ID,FOLLOW_ID_in_scoped_id2099); 
+            match(input,ID,FOLLOW_ID_in_scoped_id1814); 
             nameParts.add(id1.getText());
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:392:6: ( DOT (id2= ID | INNER ) )*
-            loop31:
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:6: ( DOT (id2= ID | INNER ) )*
+            loop27:
             do {
-                int alt31=2;
-                int LA31_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( (LA31_0==DOT) ) {
-                    int LA31_1 = input.LA(2);
+                if ( (LA27_0==DOT) ) {
+                    int LA27_1 = input.LA(2);
 
-                    if ( (LA31_1==ID||LA31_1==INNER) ) {
-                        alt31=1;
+                    if ( (LA27_1==ID||LA27_1==INNER) ) {
+                        alt27=1;
                     }
 
 
                 }
 
 
-                switch (alt31) {
+                switch (alt27) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:392:7: DOT (id2= ID | INNER )
+            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:7: DOT (id2= ID | INNER )
             	    {
-            	    match(input,DOT,FOLLOW_DOT_in_scoped_id2110); 
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:392:11: (id2= ID | INNER )
-            	    int alt30=2;
-            	    int LA30_0 = input.LA(1);
+            	    match(input,DOT,FOLLOW_DOT_in_scoped_id1825); 
+            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:11: (id2= ID | INNER )
+            	    int alt26=2;
+            	    int LA26_0 = input.LA(1);
 
-            	    if ( (LA30_0==ID) ) {
-            	        alt30=1;
+            	    if ( (LA26_0==ID) ) {
+            	        alt26=1;
             	    }
-            	    else if ( (LA30_0==INNER) ) {
-            	        alt30=2;
+            	    else if ( (LA26_0==INNER) ) {
+            	        alt26=2;
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("392:11: (id2= ID | INNER )", 30, 0, input);
+            	            new NoViableAltException("349:11: (id2= ID | INNER )", 26, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt30) {
+            	    switch (alt26) {
             	        case 1 :
-            	            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:392:12: id2= ID
+            	            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:12: id2= ID
             	            {
             	            id2=(Token)input.LT(1);
-            	            match(input,ID,FOLLOW_ID_in_scoped_id2115); 
+            	            match(input,ID,FOLLOW_ID_in_scoped_id1830); 
             	            nameParts.add(id2.getText());
 
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:392:53: INNER
+            	            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:349:53: INNER
             	            {
-            	            match(input,INNER,FOLLOW_INNER_in_scoped_id2121); 
+            	            match(input,INNER,FOLLOW_INNER_in_scoped_id1836); 
             	            nameParts.add("INNER");
 
             	            }
@@ -2222,7 +2022,7 @@ public class PCMStoExParser extends Parser {
             	    break;
 
             	default :
-            	    break loop31;
+            	    break loop27;
                 }
             } while (true);
 
@@ -2268,40 +2068,40 @@ public class PCMStoExParser extends Parser {
     public static final BitSet FOLLOW_ifelseExpr_in_expression32 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_expression34 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_boolAndExpr_in_ifelseExpr57 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_53_in_ifelseExpr70 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_53_in_ifelseExpr70 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_boolAndExpr_in_ifelseExpr76 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_54_in_ifelseExpr80 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_54_in_ifelseExpr80 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_boolAndExpr_in_ifelseExpr86 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_boolOrExpr_in_boolAndExpr111 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_AND_in_boolAndExpr122 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_AND_in_boolAndExpr122 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_boolOrExpr_in_boolAndExpr133 = new BitSet(new long[]{0x0000000000000012L});
     public static final BitSet FOLLOW_compareExpr_in_boolOrExpr160 = new BitSet(new long[]{0x0000000000000062L});
-    public static final BitSet FOLLOW_OR_in_boolOrExpr173 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_XOR_in_boolOrExpr181 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_OR_in_boolOrExpr173 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_XOR_in_boolOrExpr181 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_compareExpr_in_boolOrExpr193 = new BitSet(new long[]{0x0000000000000062L});
     public static final BitSet FOLLOW_sumExpr_in_compareExpr231 = new BitSet(new long[]{0x0000000000001F82L});
-    public static final BitSet FOLLOW_GREATER_in_compareExpr248 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_LESS_in_compareExpr258 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_EQUAL_in_compareExpr268 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_NOTEQUAL_in_compareExpr278 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_GREATEREQUAL_in_compareExpr288 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_LESSEQUAL_in_compareExpr298 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_GREATER_in_compareExpr248 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_LESS_in_compareExpr258 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_EQUAL_in_compareExpr268 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_NOTEQUAL_in_compareExpr278 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_GREATEREQUAL_in_compareExpr288 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_LESSEQUAL_in_compareExpr298 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_sumExpr_in_compareExpr313 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_prodExpr_in_sumExpr345 = new BitSet(new long[]{0x0000000000006002L});
-    public static final BitSet FOLLOW_PLUS_in_sumExpr363 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_MINUS_in_sumExpr371 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_PLUS_in_sumExpr363 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_MINUS_in_sumExpr371 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_prodExpr_in_sumExpr385 = new BitSet(new long[]{0x0000000000006002L});
     public static final BitSet FOLLOW_powExpr_in_prodExpr423 = new BitSet(new long[]{0x0000000000038002L});
-    public static final BitSet FOLLOW_MUL_in_prodExpr443 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_DIV_in_prodExpr454 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_MOD_in_prodExpr465 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_MUL_in_prodExpr443 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_DIV_in_prodExpr454 = new BitSet(new long[]{0x00000036C9B84000L});
+    public static final BitSet FOLLOW_MOD_in_prodExpr465 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_powExpr_in_prodExpr481 = new BitSet(new long[]{0x0000000000038002L});
     public static final BitSet FOLLOW_unaryExpr_in_powExpr522 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_POW_in_powExpr531 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_POW_in_powExpr531 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_unaryExpr_in_powExpr537 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_in_unaryExpr573 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_MINUS_in_unaryExpr573 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_unaryExpr_in_unaryExpr579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NOT_in_unaryExpr597 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_NOT_in_unaryExpr597 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_unaryExpr_in_unaryExpr603 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_atom_in_unaryExpr625 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_NUMBER_in_atom660 = new BitSet(new long[]{0x0000000000000002L});
@@ -2309,100 +2109,81 @@ public class PCMStoExParser extends Parser {
     public static final BitSet FOLLOW_STRING_LITERAL_in_atom712 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_boolean_keywords_in_atom739 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_scoped_id_in_atom767 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_DOT_in_atom769 = new BitSet(new long[]{0x00003E0000000000L});
+    public static final BitSet FOLLOW_DOT_in_atom769 = new BitSet(new long[]{0x000007C000000000L});
     public static final BitSet FOLLOW_characterisation_in_atom775 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ID_in_atom802 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_arguments_in_atom815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_atom840 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_LPAREN_in_atom840 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_ifelseExpr_in_atom850 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_RPAREN_in_atom856 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_arguments902 = new BitSet(new long[]{0x0000018CCBB84000L});
+    public static final BitSet FOLLOW_LPAREN_in_arguments902 = new BitSet(new long[]{0x00000036CBB84000L});
     public static final BitSet FOLLOW_expressionList_in_arguments908 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_RPAREN_in_arguments913 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_boolAndExpr_in_expressionList951 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_COLON_in_expressionList956 = new BitSet(new long[]{0x0000018CC9B84000L});
+    public static final BitSet FOLLOW_COLON_in_expressionList956 = new BitSet(new long[]{0x00000036C9B84000L});
     public static final BitSet FOLLOW_boolAndExpr_in_expressionList962 = new BitSet(new long[]{0x0000000004000002L});
     public static final BitSet FOLLOW_characterisation_keywords_in_characterisation995 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INTPMF_in_definition1032 = new BitSet(new long[]{0x0000000011000000L});
-    public static final BitSet FOLLOW_LPAREN_in_definition1044 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_unit_in_definition1062 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_definition1076 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1083 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_numeric_int_sample_in_definition1103 = new BitSet(new long[]{0x0000000021000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1120 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOUBLEPMF_in_definition1133 = new BitSet(new long[]{0x0000000011000000L});
-    public static final BitSet FOLLOW_LPAREN_in_definition1146 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_unit_in_definition1164 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_definition1178 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1186 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_numeric_real_sample_in_definition1204 = new BitSet(new long[]{0x0000000021000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ENUMPMF_in_definition1235 = new BitSet(new long[]{0x0000000011000000L});
-    public static final BitSet FOLLOW_LPAREN_in_definition1248 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_unit_in_definition1266 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_SEMI_in_definition1283 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_ORDERED_DEF_in_definition1290 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_definition1309 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1316 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_stringsample_in_definition1334 = new BitSet(new long[]{0x0000000021000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1351 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOUBLEPDF_in_definition1361 = new BitSet(new long[]{0x0000000011000000L});
-    public static final BitSet FOLLOW_LPAREN_in_definition1373 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_unit_in_definition1391 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_definition1405 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1412 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_real_pdf_sample_in_definition1432 = new BitSet(new long[]{0x0000000021000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BOOLPMF_in_definition1460 = new BitSet(new long[]{0x0000000011000000L});
-    public static final BitSet FOLLOW_LPAREN_in_definition1473 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_bool_unit_in_definition1491 = new BitSet(new long[]{0x0000000102000000L});
-    public static final BitSet FOLLOW_SEMI_in_definition1508 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_ORDERED_DEF_in_definition1515 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_definition1535 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1542 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_boolsample_in_definition1560 = new BitSet(new long[]{0x0000000021000000L});
-    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_UNIT_in_unit1601 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_DEFINITION_in_unit1611 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_unit1618 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_UNIT_in_bool_unit1640 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_EQUAL_in_bool_unit1650 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_BOOL_in_bool_unit1655 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_numeric_int_sample1683 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_NUMBER_in_numeric_int_sample1696 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_SEMI_in_numeric_int_sample1707 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_NUMBER_in_numeric_int_sample1715 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_numeric_int_sample1727 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_numeric_real_sample1750 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_NUMBER_in_numeric_real_sample1763 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_SEMI_in_numeric_real_sample1774 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_NUMBER_in_numeric_real_sample1782 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_numeric_real_sample1794 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_real_pdf_sample1818 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_NUMBER_in_real_pdf_sample1831 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_SEMI_in_real_pdf_sample1842 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_NUMBER_in_real_pdf_sample1850 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_real_pdf_sample1862 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_stringsample1883 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_STRING_LITERAL_in_stringsample1895 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_SEMI_in_stringsample1906 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_NUMBER_in_stringsample1912 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_stringsample1923 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_boolsample1941 = new BitSet(new long[]{0x0000018000000000L});
-    public static final BitSet FOLLOW_boolean_keywords_in_boolsample1955 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_SEMI_in_boolsample1963 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_NUMBER_in_boolsample1969 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_RPAREN_in_boolsample1980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FALSE_in_boolean_keywords1999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TRUE_in_boolean_keywords2013 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BYTESIZE_in_characterisation_keywords2041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRUCTURE_in_characterisation_keywords2048 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NUMBER_OF_ELEMENTS_in_characterisation_keywords2055 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_TYPE_in_characterisation_keywords2062 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VALUE_in_characterisation_keywords2069 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_scoped_id2099 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_DOT_in_scoped_id2110 = new BitSet(new long[]{0x0000400000800000L});
-    public static final BitSet FOLLOW_ID_in_scoped_id2115 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_INNER_in_scoped_id2121 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_INTPMF_in_definition1032 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1043 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_numeric_int_sample_in_definition1063 = new BitSet(new long[]{0x0000000021000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1080 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOUBLEPMF_in_definition1093 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1106 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_numeric_real_sample_in_definition1124 = new BitSet(new long[]{0x0000000021000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ENUMPMF_in_definition1155 = new BitSet(new long[]{0x0000000011000000L});
+    public static final BitSet FOLLOW_LPAREN_in_definition1168 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_ORDERED_DEF_in_definition1175 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_RPAREN_in_definition1187 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1194 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_stringsample_in_definition1212 = new BitSet(new long[]{0x0000000021000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOUBLEPDF_in_definition1239 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1250 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_real_pdf_sample_in_definition1270 = new BitSet(new long[]{0x0000000021000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1287 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BOOLPMF_in_definition1298 = new BitSet(new long[]{0x0000000011000000L});
+    public static final BitSet FOLLOW_LPAREN_in_definition1311 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_ORDERED_DEF_in_definition1318 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_RPAREN_in_definition1330 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_L_in_definition1337 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_boolsample_in_definition1355 = new BitSet(new long[]{0x0000000021000000L});
+    public static final BitSet FOLLOW_SQUARE_PAREN_R_in_definition1372 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_numeric_int_sample1398 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_NUMBER_in_numeric_int_sample1411 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_SEMI_in_numeric_int_sample1422 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_NUMBER_in_numeric_int_sample1430 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_RPAREN_in_numeric_int_sample1442 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_numeric_real_sample1465 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_NUMBER_in_numeric_real_sample1478 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_SEMI_in_numeric_real_sample1489 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_NUMBER_in_numeric_real_sample1497 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_RPAREN_in_numeric_real_sample1509 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_real_pdf_sample1533 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_NUMBER_in_real_pdf_sample1546 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_SEMI_in_real_pdf_sample1557 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_NUMBER_in_real_pdf_sample1565 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_RPAREN_in_real_pdf_sample1577 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_stringsample1598 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_STRING_LITERAL_in_stringsample1610 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_SEMI_in_stringsample1621 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_NUMBER_in_stringsample1627 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_RPAREN_in_stringsample1638 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_boolsample1656 = new BitSet(new long[]{0x0000003000000000L});
+    public static final BitSet FOLLOW_boolean_keywords_in_boolsample1670 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_SEMI_in_boolsample1678 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_NUMBER_in_boolsample1684 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_RPAREN_in_boolsample1695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FALSE_in_boolean_keywords1714 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TRUE_in_boolean_keywords1728 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BYTESIZE_in_characterisation_keywords1756 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRUCTURE_in_characterisation_keywords1763 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NUMBER_OF_ELEMENTS_in_characterisation_keywords1770 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_TYPE_in_characterisation_keywords1777 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VALUE_in_characterisation_keywords1784 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_scoped_id1814 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_DOT_in_scoped_id1825 = new BitSet(new long[]{0x0000080000800000L});
+    public static final BitSet FOLLOW_ID_in_scoped_id1830 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_INNER_in_scoped_id1836 = new BitSet(new long[]{0x0000000000400002L});
 
 }
