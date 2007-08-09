@@ -9,15 +9,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProbabilityDensityFunction" abstract="true"
       eSuperTypes="#//ProbabilityFunction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunction" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1" eType="#//Unit"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Unit">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitName" unique="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunction" abstract="true"
+      eSuperTypes="Units.ecore#//UnitCarryingElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContinuousSample">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" unique="false"

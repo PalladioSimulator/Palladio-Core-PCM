@@ -19,11 +19,13 @@
         eType="#//measurement/Sensor" containment="true"/>
   </eClassifiers>
   <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/Capra/Core/1.0" nsPrefix="capra.core">
+    <eClassifiers xsi:type="ecore:EClass" name="InstantaneousAction" abstract="true"
+        eSuperTypes="#//core/Action"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="CapraExpression" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Terminal" abstract="true" eSuperTypes="#//core/CapraExpression"/>
     <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//core/CapraExpression"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="EventAction" abstract="true" eSuperTypes="#//core/Action">
+    <eClassifiers xsi:type="ecore:EClass" name="EventAction" abstract="true" eSuperTypes="#//core/InstantaneousAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="identifier" lowerBound="1"
           eType="#//core/CommunicationIdentifier"/>
     </eClassifiers>
@@ -41,11 +43,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DemandIdentifier" eSuperTypes="#//core/Identifier"/>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceUsage">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="usageTime" lowerBound="1"
-          eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/probfunction.ecore#//ProbabilityDensityFunction"
-          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
           eType="#//resources/ProcessingResource"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usageTime" lowerBound="1"
+          eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SuccessfulTermination" eSuperTypes="#//core/Terminal"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticPrefix" eSuperTypes="#//core/Operator">
@@ -80,7 +82,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetProcess" lowerBound="1"
           eType="#//core/CapraExpression" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfIterations" lowerBound="1"
-          eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/probfunction.ecore#//ProbabilityMassFunction"
+          eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityMassFunction"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParallelComposition" eSuperTypes="#//core/Operator">
@@ -269,13 +271,13 @@
   <eSubpackages name="extension" nsURI="http://sdq.ipd.uka.de/Capra/Extensions/1.0"
       nsPrefix="capra.extension">
     <eClassifiers xsi:type="ecore:EClass" name="PassiveResource" abstract="true" eSuperTypes="#//resources/ContentionResource"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AcquireAction" eSuperTypes="#//core/EventAction">
+    <eClassifiers xsi:type="ecore:EClass" name="AcquireAction" eSuperTypes="#//core/InstantaneousAction">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" unique="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
           eType="#//extension/PassiveResource"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ReleaseAction" eSuperTypes="#//core/EventAction">
+    <eClassifiers xsi:type="ecore:EClass" name="ReleaseAction" eSuperTypes="#//core/InstantaneousAction">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
