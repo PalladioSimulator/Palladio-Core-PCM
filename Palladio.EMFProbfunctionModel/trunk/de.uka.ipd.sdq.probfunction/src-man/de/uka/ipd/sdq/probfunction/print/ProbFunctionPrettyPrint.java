@@ -34,9 +34,9 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch<String> {
 					+ ")";
 		}
 		
-		if (object.getUnit() != null && 
-		  !(object.getUnit().getUnitName().equals(""))){
-			return "DoublePDF"+ "(unit=\""+object.getUnit().getUnitName() + "\")[" + sampleString + " ]";
+		if (object.getUnitSpecification() != null && 
+		  !(object.getUnitSpecification().equals(""))){
+			return "DoublePDF"+ "(unit=\""+object.getUnitSpecification() + "\")[" + sampleString + " ]";
 		} else {
 			return "DoublePDF[" + sampleString + " ]";
 		}
@@ -61,9 +61,9 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch<String> {
 			rightSeparator = "\";";
 		}
 		
-		if (object.getUnit() != null && 
-		  !(object.getUnit().getUnitName().equals(""))){
-			pmfType += "(unit=\""+object.getUnit().getUnitName() + "\"";
+		if (object.getUnitSpecification() != null && 
+		  !(object.getUnitSpecification().equals(""))){
+			pmfType += "(unit=\""+object.getUnitSpecification() + "\"";
 			
 			if (object.isOrderedDomain()){
 				pmfType += "; ordered";

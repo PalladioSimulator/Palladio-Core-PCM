@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.probfunction.math;
 
-import java.util.Comparator;
 import java.util.Iterator;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -9,7 +8,6 @@ import org.antlr.runtime.RecognitionException;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
-import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;

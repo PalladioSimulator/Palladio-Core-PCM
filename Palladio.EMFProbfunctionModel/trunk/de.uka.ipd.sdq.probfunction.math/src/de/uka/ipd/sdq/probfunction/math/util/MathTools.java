@@ -22,7 +22,7 @@ public class MathTools {
 	/**
 	 * Difference up to which two values are considered as equal.
 	 */
-	public static final double EPSILON_ERROR = 1e-10;
+	public static final double EPSILON_ERROR = 1e-5;
 
 	/**
 	 * Computes the greatest common divisor (GDC) of a set of numbers.
@@ -314,5 +314,9 @@ public class MathTools {
 		value *= 1 / precision;
 		long temp = Math.round(value);
 		return temp * precision;
+	}
+
+	public static boolean lessOrEqual(double d1, double d2) {
+		return d1 <= d2 + EPSILON_ERROR;
 	}
 }

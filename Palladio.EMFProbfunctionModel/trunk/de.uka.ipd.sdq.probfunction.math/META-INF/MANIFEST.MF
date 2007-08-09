@@ -3,14 +3,13 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.probfunction.math;singleton:=true
 Bundle-Version: 2.0.0.qualifier
-Bundle-ClassPath: .,
- lib/flanagan.jar
+Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.probfunction.math.exception,
- de.uka.ipd.sdq.probfunction.math.util,
- flanagan.complex
+ de.uka.ipd.sdq.probfunction.math.impl,
+ de.uka.ipd.sdq.probfunction.math.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.swt,
@@ -19,6 +18,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction,
  org.junit4,
  org.eclipse.emf.ecore.xmi,
- org.antlr;bundle-version="[3.0.0,3.0.0]",
- de.uka.ipd.sdq.stoex
+ de.uka.ipd.sdq.stoex,
+ de.uka.ipd.sdq.units,
+ de.uka.ipd.sdq.wrapper.flanagan,
+ de.uka.ipd.sdq.wrapper.antlr
 Eclipse-LazyStart: true

@@ -8,12 +8,12 @@ import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
-import de.uka.ipd.sdq.probfunction.Unit;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.units.Unit;
 import flanagan.complex.Complex;
 
 /**
@@ -116,7 +116,7 @@ public interface IProbabilityFunctionFactory {
 	 *            Object to transform.
 	 * @return New Unit instance.
 	 */
-	Unit transformToModelUnit(IUnit unit);
+	String transformToModelUnitSpecification(IUnit unit);
 
 	/**
 	 * Converts a model object to a function object with the same attributes.
@@ -125,7 +125,7 @@ public interface IProbabilityFunctionFactory {
 	 *            Object to transform.
 	 * @return New Unit instance.
 	 */
-	IUnit transformToUnit(Unit eUnit);
+	IUnit transformToUnit(String unitSpecification);
 
 	/**
 	 * Creates a new SamplePDF instace whose distance is set to 'distance' and
