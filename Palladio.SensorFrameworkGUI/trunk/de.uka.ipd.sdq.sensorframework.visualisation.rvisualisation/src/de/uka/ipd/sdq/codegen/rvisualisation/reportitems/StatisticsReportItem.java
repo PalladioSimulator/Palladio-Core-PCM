@@ -20,6 +20,8 @@ public class StatisticsReportItem implements IReportItem {
 			return "" + x.asInt();
 		else if (x.rtype == REXP.REALSXP)
 			return "" + x.asDouble();
+		else if (x.rtype == REXP.STRSXP)
+			return "" + x.asString();
 		else
 			return "N/A";
 	}

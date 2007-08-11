@@ -13,9 +13,9 @@ import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
 
 /**
- * This Klass offers the methods, which it for validating possible a 
- * Sensor->View makes. Sensor->View - that only Views for sensors should be
- * selectable, which can also represent the sensor
+ * This class offers the methods, which it for validating possible a 
+ * Sensor->View makes. Sensor->View - that only Views for sensors can be
+ * selected that can represent this sensor
  * 
  * @author roman
  * 

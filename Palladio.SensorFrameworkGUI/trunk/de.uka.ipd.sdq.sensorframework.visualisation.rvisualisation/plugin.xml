@@ -11,7 +11,7 @@
                editorID="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView">
          </Visualisation>
       </extension>
-
+      
       <extension
             point="org.eclipse.ui.editors">
          <editor
@@ -19,6 +19,27 @@
                icon="icons/sample.gif"
                id="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView"
                name="R Report">
+         </editor>
+      </extension>
+      
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDistributionComparisonView"
+               displayName="R Distribution Comparison"
+               editorID="de.uka.ipd.sdq.codegen.rvisualization.views.RDistributionComparison">
+         </Visualisation>
+      </extension>
+      
+      <extension
+            point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDistributionComparisonView"
+               icon="icons/sample.gif"
+               id="de.uka.ipd.sdq.codegen.rvisualization.views.RDistributionComparison"
+               name="R Distribution Comparison">
          </editor>
       </extension>
 
