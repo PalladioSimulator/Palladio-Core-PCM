@@ -65,23 +65,23 @@ public class RDistributionComparisonView extends AbstractRReportView {
 					+ sm[1].getSensor().getSensorName(), false));
 			
 			items.add(pos++, new StaticReportItem("KS test.", true));
-			t.execute("ks <- ks.test(sensor0,sensor1)\n ");
+			//t.execute("ks <- ks.test(sensor0,sensor1)\n ");
 						
-			items.add(pos++, new StatisticsReportItem("ks$method", "The applied test for the sensors"));
-			items.add(pos++, new StatisticsReportItem("ks$statistic", "The value of the test statistics"));
-			items.add(pos++, new StatisticsReportItem("ks$p.value", "The p-value of the test"));
+			items.add(pos++, new StatisticsReportItem("ks.test(sensor0,sensor1)$method", "The applied test for the sensors"));
+			items.add(pos++, new StatisticsReportItem("ks.test(sensor0,sensor1)$statistic", "The value of the test statistics"));
+			items.add(pos++, new StatisticsReportItem("ks.test(sensor0,sensor1)$p.value", "The p-value of the test"));
 			
 			items.add(pos++, new StaticReportItem("Chi^2 test.", true));
-			t.execute("chisq <- chisq.test(sensor0,sensor1)\n ");
+			//t.execute("chisq <- chisq.test(sensor0,sensor1)\n ");
 
 			//TODO: The RDistributionComparisonView behaves strangely if this is removed.
 			//The values for the chi square test are all set to the last KS test value.
 			//Maybe the results are not properly stored?
 			//System.out.println("Last result for StatItem with description was "+getResult());
 			
-			items.add(pos++, new StatisticsReportItem("chisq$method", "The applied test for the sensors"));
-			items.add(pos++, new StatisticsReportItem("chisq$statistic", "The value of the test statistics"));
-			items.add(pos++, new StatisticsReportItem("chisq$p.value", "The p-value of the test"));
+			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0,sensor1)$method", "The applied test for the sensors"));
+			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0,sensor1)$statistic", "The value of the test statistics"));
+			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0,sensor1)$p.value", "The p-value of the test"));
 
 			return items;
 		}

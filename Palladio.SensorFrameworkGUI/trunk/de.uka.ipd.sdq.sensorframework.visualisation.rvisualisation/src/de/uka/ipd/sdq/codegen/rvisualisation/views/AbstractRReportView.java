@@ -75,7 +75,8 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 				result.append(tsm.getTimeSpan());
 				result.append(" ");
 			}
-			if (result.charAt(result.length()-1) == ',')
+			//TODO throw an error if result.length is 0? (Happened to Anne once, she doesn't know why)
+			if (result.length() != 0 && result.charAt(result.length()-1) == ',')
 				result = result.delete(result.length()-1, result.length()-1);
 			// result.append(")");
 			fw.write(result.toString());
