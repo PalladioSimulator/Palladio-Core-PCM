@@ -28,7 +28,7 @@ public class RDistributionComparisonView extends AbstractRReportView {
 			items.add(new StaticReportItem(
 					"You need to add two sensors to this report. You added "
 							+ c.size() + (c.size()==1 ? " sensor." : " sensors.")
-							+ "Use the property sheet to add or delete sensors.", false));
+							+ " Use the property sheet to add or delete sensors.", false));
 			return items;
 		} else {
 			// c.size = 2
@@ -58,7 +58,7 @@ public class RDistributionComparisonView extends AbstractRReportView {
 			}
 			items.add(1, new PlotReportItem(data.toArray(new String[0]),
 					"Combined Plot"));
-
+			
 			int pos = 1;
 			items.add(pos++, new StaticReportItem("Comparing sensors "
 					+ sm[0].getSensor().getSensorName() + " and "
@@ -74,14 +74,21 @@ public class RDistributionComparisonView extends AbstractRReportView {
 			items.add(pos++, new StaticReportItem("Chi^2 test.", true));
 			//t.execute("chisq <- chisq.test(sensor0,sensor1)\n ");
 
-			//TODO: The RDistributionComparisonView behaves strangely if this is removed.
-			//The values for the chi square test are all set to the last KS test value.
-			//Maybe the results are not properly stored?
-			//System.out.println("Last result for StatItem with description was "+getResult());
+			/*
+			 * The vectors must have the same length for the chi square test, so use
+			 * the shorter vector's length. 
+			 * Additionally, Chi square test cannot handle lots of data. Thus, only compare the first 2500
+			 * values or less if the sensor contains less data.
+			 */
+			int max = (sm[0].getMeasurements().size() < sm[1].getMeasurements()
+					.size() ? sm[0].getMeasurements().size() : sm[1]
+					.getMeasurements().size());
+			max = max > 2500 ? 2500 : max; 
 			
-			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0,sensor1)$method", "The applied test for the sensors"));
-			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0,sensor1)$statistic", "The value of the test statistics"));
-			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0,sensor1)$p.value", "The p-value of the test"));
+			
+			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0[1:"+max+"],sensor1[1:"+max+"])$method", "The applied test for the sensors"));
+			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0[1:"+max+"],sensor1[1:"+max+"])$statistic", "The value of the test statistics"));
+			items.add(pos++, new StatisticsReportItem("chisq.test(sensor0[1:"+max+"],sensor1[1:"+max+"])$p.value", "The p-value of the test"));
 
 			return items;
 		}
