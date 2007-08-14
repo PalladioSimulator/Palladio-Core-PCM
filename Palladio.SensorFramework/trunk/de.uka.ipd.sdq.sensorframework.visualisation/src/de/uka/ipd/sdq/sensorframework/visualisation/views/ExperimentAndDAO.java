@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
-import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 public class ExperimentAndDAO {
 	private IDAOFactory datasource;

@@ -7,11 +7,11 @@ import java.util.List;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
-import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IExperimentDAO;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
+import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.ExperimentAndDAO;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 

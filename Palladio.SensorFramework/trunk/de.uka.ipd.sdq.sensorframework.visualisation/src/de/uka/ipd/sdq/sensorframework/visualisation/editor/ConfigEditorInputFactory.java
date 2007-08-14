@@ -4,11 +4,11 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
 
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
-import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
+import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
  * @author roman

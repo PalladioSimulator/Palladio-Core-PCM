@@ -7,8 +7,8 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
+import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
 

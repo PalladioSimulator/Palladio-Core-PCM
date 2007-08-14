@@ -6,7 +6,7 @@ package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
 
 import org.eclipse.jface.viewers.ICellModifier;
 
-import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 
 /**
