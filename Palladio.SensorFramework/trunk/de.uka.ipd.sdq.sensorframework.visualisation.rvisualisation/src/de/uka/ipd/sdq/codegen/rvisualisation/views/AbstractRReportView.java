@@ -14,9 +14,9 @@ import org.eclipse.swt.widgets.Composite;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RInterface;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.visitor.HTMLVisitor;
-import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
-import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.Measurement;
+import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 

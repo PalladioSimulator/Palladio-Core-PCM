@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.PlotReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StatisticsReportItem;
-import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
 public class RReportView extends AbstractRReportView {
 
