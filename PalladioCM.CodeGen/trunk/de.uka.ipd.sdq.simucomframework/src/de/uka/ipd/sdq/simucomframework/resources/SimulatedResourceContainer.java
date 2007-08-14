@@ -3,9 +3,6 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Collection;
 import java.util.HashMap;
 
-import org.apache.log4j.Logger;
-
-import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.SimProcess;
 

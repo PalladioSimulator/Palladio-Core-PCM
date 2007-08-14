@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-//import umontreal.iro.lecuyer.probdist.EmpiricalDist;
-//import umontreal.iro.lecuyer.probdist.StudentDist;
-
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.ISensorObserver;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorAddedEvent;
-import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
 import desmoj.core.simulator.Condition;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Model;
