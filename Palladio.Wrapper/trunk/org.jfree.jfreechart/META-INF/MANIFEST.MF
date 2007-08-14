@@ -64,5 +64,4 @@ Export-Package: com.keypoint,
  org.jfree.ui.action,
  org.jfree.ui.tabbedui,
  org.jfree.util
-Require-Bundle: com.soyatec.additional,
- javax.servlet
+Require-Bundle: javax.servlet
