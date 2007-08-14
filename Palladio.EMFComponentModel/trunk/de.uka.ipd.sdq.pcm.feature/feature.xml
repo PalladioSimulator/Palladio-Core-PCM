@@ -111,35 +111,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
          id="de.uka.ipd.sdq.pcm.feature.source"
          version="0.0.0"/>
 
-   <requires>
-      <import feature="de.uka.ipd.sdq.probfunction.feature" version="2.0.0.qualifier"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="de.uka.ipd.sdq.probfunction"/>
-      <import plugin="org.eclipse.emf.ocl"/>
-      <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.emf"/>
-      <import plugin="org.antlr" version="3.0.0" match="perfect"/>
-      <import plugin="org.eclipse.jface.text"/>
-      <import plugin="org.eclipse.emf.transaction"/>
-      <import plugin="org.openarchitectureware.core.workflow"/>
-      <import plugin="org.junit4"/>
-      <import plugin="org.eclipse.help"/>
-      <import plugin="org.eclipse.help.ui"/>
-      <import plugin="org.eclipse.ui.intro"/>
-      <import plugin="org.eclipse.help.webapp"/>
-      <import plugin="org.eclipse.ui.intro.universal"/>
-      <import plugin="de.uka.ipd.sdq.probfunction.math"/>
-      <import plugin="org.apache.log4j"/>
-      <import plugin="org.apache.commons.logging"/>
-   </requires>
-
    <plugin
          id="de.uka.ipd.sdq.identifier"
          download-size="0"
