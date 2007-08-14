@@ -7,15 +7,12 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IViewActionDelegate;
 import org.eclipse.ui.IViewPart;
 
-import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
-import de.uka.ipd.sdq.codegen.simucontroller.views.SimuView;
 
 /**
  * @author admin

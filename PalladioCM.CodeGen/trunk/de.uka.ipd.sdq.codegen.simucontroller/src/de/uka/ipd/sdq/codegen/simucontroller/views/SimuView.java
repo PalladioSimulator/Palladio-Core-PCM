@@ -1,12 +1,12 @@
 package de.uka.ipd.sdq.codegen.simucontroller.views;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.ProgressBar;
-import org.eclipse.ui.part.*;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.ui.part.ViewPart;
 
 
 /**

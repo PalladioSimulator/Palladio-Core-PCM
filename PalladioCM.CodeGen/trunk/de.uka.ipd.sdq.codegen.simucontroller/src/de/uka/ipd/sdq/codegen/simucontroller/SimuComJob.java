@@ -1,8 +1,5 @@
 package de.uka.ipd.sdq.codegen.simucontroller;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
