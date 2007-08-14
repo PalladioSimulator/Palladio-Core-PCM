@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.sensorframework,
  org.eclipse.core.expressions,
  org.eclipse.debug.ui,
- de.uka.ipd.sdq.dialogs
+ de.uka.ipd.sdq.sensorframework.dialogs
 Eclipse-RegisterBudd: de.uka.ipd.sdq.sensorframework
 Eclipse-BuddyPolicy: dependent
 Eclipse-LazyStart: true

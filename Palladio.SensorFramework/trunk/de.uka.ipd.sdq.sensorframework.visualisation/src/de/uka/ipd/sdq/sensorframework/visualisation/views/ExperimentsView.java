@@ -19,7 +19,7 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
-import de.uka.ipd.sdq.dialogs.dataset.SensorDataSetDialog;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.SensorDataSetDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 
 /**

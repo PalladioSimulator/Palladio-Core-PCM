@@ -16,7 +16,6 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IExperimentDAO;
 
