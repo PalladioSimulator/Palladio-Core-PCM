@@ -1,16 +1,12 @@
 import java.util.Date;
 
-import com.db4o.Db4o;
-import com.db4o.ObjectContainer;
-
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
-import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorfactory.entities.State;
-import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
-import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
+import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.State;
+import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
+import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 public class TestHibernateMain {
 

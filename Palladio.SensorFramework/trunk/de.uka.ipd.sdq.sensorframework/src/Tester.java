@@ -1,9 +1,6 @@
 import com.db4o.Db4o;
 import com.db4o.ObjectContainer;
 
-import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
-import de.uka.ipd.sdq.sensorfactory.entities.impl.TimeSpanMeasurementImpl;
-
 
 public class Tester {
 	private static final int PAGE_COUNT = 1000;

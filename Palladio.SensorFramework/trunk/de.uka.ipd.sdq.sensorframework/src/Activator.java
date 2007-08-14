@@ -12,11 +12,11 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorfactory.dao.memory.MemoryDAOFactory;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
+import de.uka.ipd.sdq.sensorframework.dao.memory.MemoryDAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
  * The activator class controls the plug-in life cycle

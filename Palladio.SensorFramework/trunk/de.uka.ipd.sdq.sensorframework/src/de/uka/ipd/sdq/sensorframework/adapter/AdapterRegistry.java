@@ -2,8 +2,6 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
-
 public class AdapterRegistry {
 
 	private static AdapterRegistry singletonInstance = new AdapterRegistry();
