@@ -225,8 +225,11 @@ litigation.
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.core.expressions"/>
       <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.navigator"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
@@ -237,6 +240,7 @@ litigation.
       <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.printing.render"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.printing"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.properties"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.providers"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.providers.ide"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.render"/>
@@ -247,23 +251,24 @@ litigation.
       <import plugin="de.uka.ipd.sdq.pcm.edit"/>
       <import plugin="de.uka.ipd.sdq.identifier"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit"/>
-      <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
-      <import plugin="org.eclipse.draw2d"/>
-      <import plugin="org.eclipse.ui.workbench"/>
-      <import plugin="org.eclipse.ui.workbench.texteditor"/>
-      <import plugin="org.eclipse.ui.navigator"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui.properties"/>
       <import plugin="de.uka.ipd.sdq.probfunction"/>
       <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
       <import plugin="de.uka.ipd.sdq.stoex"/>
       <import plugin="de.uka.ipd.sdq.stoex.edit"/>
+      <import plugin="org.eclipse.emf.validation"/>
+      <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
+      <import plugin="org.eclipse.draw2d"/>
+      <import plugin="de.uka.ipd.sdq.pcmbench.ui"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.ui"/>
+      <import plugin="de.uka.ipd.sdq.pcmbench.propertytabs"/>
+      <import plugin="org.eclipse.ocl.ecore"/>
+      <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import plugin="de.uka.ipd.sdq.units"/>
+      <import plugin="de.uka.ipd.sdq.units.edit"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.emf"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.antlr"/>
       <import plugin="org.eclipse.jface.text"/>
       <import plugin="org.eclipse.emf.transaction"/>
       <import plugin="org.eclipse.ui.views.properties.tabbed"/>
@@ -281,16 +286,13 @@ litigation.
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.actions"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.dnd"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.geoshapes"/>
-      <import plugin="org.eclipse.ui.navigator.resources"/>
-      <import plugin="org.eclipse.ui.intro"/>
-      <import plugin="org.eclipse.help"/>
       <import plugin="org.eclipse.pde.runtime"/>
-      <import plugin="org.eclipse.help.webapp"/>
-      <import plugin="org.eclipse.tomcat"/>
-      <import plugin="org.eclipse.help.ui"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="de.uka.ipd.sdq.pcmbench.help"/>
       <import plugin="org.eclipse.gmf.runtime.common.core"/>
       <import plugin="org.eclipse.gmf.runtime.emf.type.core"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.help"/>
+      <import plugin="org.antlr"/>
+      <import plugin="de.uka.ipd.sdq.errorhandling"/>
    </requires>
 
    <plugin
@@ -385,14 +387,14 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.sensorframework"
+         id="de.uka.ipd.sdq.branding"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.branding"
+         id="de.uka.ipd.sdq.pcm.dialogs"
          download-size="0"
          install-size="0"
          version="0.0.0"
