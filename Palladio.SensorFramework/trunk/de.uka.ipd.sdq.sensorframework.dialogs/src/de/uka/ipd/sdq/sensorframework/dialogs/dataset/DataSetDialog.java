@@ -23,9 +23,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 
-import de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory;
-import de.uka.ipd.sdq.sensorfactory.dao.memory.MemoryDAOFactory;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.dao.db4o.DB4ODAOFactory;
+import de.uka.ipd.sdq.sensorframework.dao.memory.MemoryDAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 public class DataSetDialog extends TitleAreaDialog {
 

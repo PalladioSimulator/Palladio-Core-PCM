@@ -7,7 +7,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.sensorframework.dialogs.DialogsImages;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
  * @author roman

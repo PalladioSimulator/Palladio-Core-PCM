@@ -9,9 +9,9 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dao.db4o.DB4ODAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /** @author roman */
 public class SensorDataSetDialog extends DataSetDialog {

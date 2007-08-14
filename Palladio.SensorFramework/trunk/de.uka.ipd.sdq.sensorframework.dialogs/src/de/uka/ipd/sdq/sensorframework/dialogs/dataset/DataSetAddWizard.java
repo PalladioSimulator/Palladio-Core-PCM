@@ -8,9 +8,9 @@ import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory;
-import de.uka.ipd.sdq.sensorfactory.dao.memory.MemoryDAOFactory;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dao.db4o.DB4ODAOFactory;
+import de.uka.ipd.sdq.sensorframework.dao.memory.MemoryDAOFactory;
 
 public class DataSetAddWizard extends Wizard {
 
