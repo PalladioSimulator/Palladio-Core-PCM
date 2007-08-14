@@ -20,7 +20,7 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-import de.uka.ipd.sdq.dialogs.parameters.ParametersDialog;
+import de.uka.ipd.sdq.pcm.dialogs.parameters.ParametersDialog;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsImages;
 
