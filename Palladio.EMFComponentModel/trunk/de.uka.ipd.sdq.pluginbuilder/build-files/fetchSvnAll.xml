@@ -304,7 +304,7 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
       <param name="project.name" value="/de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
-      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.SensorFactory/trunk"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -322,7 +322,7 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
       <param name="project.name" value="/de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
-      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.SensorFactory/trunk"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -454,7 +454,7 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
       <param name="project.name" value="/de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"/>
-      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.SensorFactory/trunk"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.SensorFramework/trunk"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
