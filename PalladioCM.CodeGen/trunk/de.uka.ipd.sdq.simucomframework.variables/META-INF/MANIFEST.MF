@@ -6,6 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Export-Package: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.simucomframework.variables.cache,
  de.uka.ipd.sdq.simucomframework.variables.converter,
+ de.uka.ipd.sdq.simucomframework.variables.exceptions,
  de.uka.ipd.sdq.simucomframework.variables.functions,
  de.uka.ipd.sdq.simucomframework.variables.stackframe,
  de.uka.ipd.sdq.simucomframework.variables.stoexvisitor
@@ -17,7 +18,6 @@ Require-Bundle: de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.stoex.analyser,
  org.antlr;bundle-version="[3.0.0,3.0.0]",
- org.junit4,
  org.apache.log4j,
  ca.umontreal.iro.lecuyer.ssj
 Bundle-Vendor: sdq.ipd.uka.de
