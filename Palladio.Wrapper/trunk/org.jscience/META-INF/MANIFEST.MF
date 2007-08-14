@@ -38,4 +38,3 @@ Export-Package: javax.measure,
  org.opengis.spatialschema.geometry,
  org.opengis.spatialschema.geometry.geometry,
  org.opengis.util
-Require-Bundle: com.soyatec.additional
