@@ -226,12 +226,7 @@ litigation.
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.eclipse.swt"/>
-      <import plugin="com.ibm.icu"/>
-      <import plugin="org.eclipse.ui"/>
       <import plugin="org.junit4"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="org.antlr"/>
    </requires>
 
    <plugin
@@ -257,6 +252,38 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.stoex"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="uc.ac.ucl.ee.flanagan"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="ca.umontreal.iro.lecuyer.ssj"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.antlr"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.units"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.units.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
