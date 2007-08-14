@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Eclipse-BuddyPolicy: dependent
 Bundle-ManifestVersion: 2
 Bundle-Name: Hibernate Wrapper Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.hibernatewrapper
+Bundle-SymbolicName: org.hibernate
 Bundle-Version: 3.2.2.qualifier
 Bundle-ClassPath: hibernate3.jar,
  antlr-2.7.6.jar,
@@ -120,6 +120,6 @@ Export-Package: antlr,
  org.hibernate.usertype,
  org.hibernate.util
 Require-Bundle: org.apache.commons.logging,
- de.uka.ipd.sdq.wrapper.log4j
-Bundle-Vendor: sdq.ipd.uka.de
+ org.apache.log4j
+Bundle-Vendor: hibernate.org
 Eclipse-LazyStart: true

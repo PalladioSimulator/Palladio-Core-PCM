@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Flanagan
-Bundle-SymbolicName: de.uka.ipd.sdq.wrapper.flanagan
-Bundle-Version: 1.0.0
+Bundle-SymbolicName: uc.ac.ucl.ee.flanagan
+Bundle-Version: 1.0.0.20060218
 Bundle-ClassPath: libs/flanagan.jar
 Export-Package: flanagan.analysis,
  flanagan.complex,
@@ -16,3 +16,4 @@ Export-Package: flanagan.analysis,
  flanagan.physprop,
  flanagan.plot,
  flanagan.roots
+Bundle-Vendor: Michael Thomas Flanagan

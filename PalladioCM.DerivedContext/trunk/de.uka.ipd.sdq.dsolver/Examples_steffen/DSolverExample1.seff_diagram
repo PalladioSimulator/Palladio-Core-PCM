@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_cARSYIqAEdudFfbuPXjU9w" type="Pcm" measurementUnit="Pixel">
-  <styles xmi:type="notation:PageStyle" xmi:id="_cARSYYqAEdudFfbuPXjU9w"/>
-  <styles xmi:type="notation:GuideStyle" xmi:id="_cARSYoqAEdudFfbuPXjU9w"/>
-  <styles xmi:type="notation:DescriptionStyle" xmi:id="_cARSY4qAEdudFfbuPXjU9w"/>
-  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0"/>
-</notation:Diagram>
