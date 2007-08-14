@@ -253,9 +253,9 @@ litigation.
       <import plugin="de.uka.ipd.sdq.probfunction.math"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
       <import plugin="org.antlr" version="3.0.0" match="perfect"/>
+      <import plugin="ca.umontreal.iro.lecuyer.ssj"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.eclipse.ui.console"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.eclipse.debug.core"/>
       <import plugin="org.eclipse.jdt.launching"/>
@@ -264,6 +264,7 @@ litigation.
       <import plugin="org.eclipse.emf.common.ui"/>
       <import plugin="org.openarchitectureware.core.expressions"/>
       <import plugin="de.uka.ipd.sdq.errorhandling"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework.dialogs"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit"/>
@@ -271,12 +272,11 @@ litigation.
       <import plugin="de.uka.ipd.sdq.stoex.edit"/>
       <import plugin="de.uka.ipd.sdq.pcm.edit"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.ui"/>
       <import plugin="org.eclipse.emf.transaction"/>
-      <import plugin="de.uka.ipd.sdq.hibernatewrapper"/>
-      <import feature="org.openarchitectureware.core.feature" version="4.2.0.200707070801"/>
-      <import feature="org.openarchitectureware.plugins.feature" version="4.2.0.200707070801"/>
-      <import feature="org.openarchitectureware.util.stdlib.feature" version="4.2.0.200707070801"/>
+      <import plugin="com.db4o"/>
+      <import plugin="org.hibernate"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.console"/>
    </requires>
 
    <plugin
