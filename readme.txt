@@ -14,6 +14,6 @@ PalladioCM.Builder 			Eclipse RelEng build scripts to build the complete PCMBenc
 PalladioCM.CodeGen 			oAW based M2C Transformations to SimuCom, EJB, and Prototype. Example EJB Skeleton-Project
 PalladioCM.Completions			Performance Completions Meta-Model
 PalladioCM.PCMBench 			RCP-Application and associated plugins
-PalladioCM.PCMSolver			TODO
+PalladioCM.PCMSolver			Includes the dependency solver, pcm2regex, pcm2capra and the context models.
 Palladio.Wrapper			Wrapper-Plugins for external libraries.
 RSA-EMX-UML2 				RSA-Export fix tool
