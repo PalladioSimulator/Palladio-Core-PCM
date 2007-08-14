@@ -21,4 +21,3 @@ Export-Package: desmoj.core.advancedModellingFeatures,
  desmoj.extensions.experimentation.util,
  desmoj.extensions.xml.report,
  desmoj.extensions.xml.util
-Require-Bundle: com.soyatec.additional
