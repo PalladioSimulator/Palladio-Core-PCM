@@ -9,6 +9,9 @@ import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 import de.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;
 import de.uka.ipd.sdq.capra.simulator.tools.RandomStreamProvider;
 
+/**
+ * @author     jens.happe
+ */
 public class SimDemandAction implements SimAction {
 
 	private SimActiveResource resource;

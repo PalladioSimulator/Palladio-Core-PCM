@@ -7,6 +7,9 @@ import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveScheduling
 import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
 import de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl.ProcessRegistry;
 
+/**
+ * @author     jens.happe
+ */
 public class SimActiveResource extends AbstractSimResource {
 
 	private IPreemptiveSchedulingStrategy strategy;
@@ -39,6 +42,10 @@ public class SimActiveResource extends AbstractSimResource {
 		}
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="registry"
+	 */
 	public ProcessRegistry getRegistry() {
 		return registry;
 	}

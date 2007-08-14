@@ -40,6 +40,9 @@ import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 
+/**
+ * @author     jens.happe
+ */
 public class CapraExpressionTransformer {
 
 	private CapraExpressionFactory factory;

@@ -16,6 +16,9 @@ import de.uka.ipd.sdq.capra.simulator.measurement.recorders.SimTimeSpanRecorder;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
 
+/**
+ * @author     jens.happe
+ */
 public class SensorTransformer {
 	SensorVisitor visitor;
 	SensorFactory factory;

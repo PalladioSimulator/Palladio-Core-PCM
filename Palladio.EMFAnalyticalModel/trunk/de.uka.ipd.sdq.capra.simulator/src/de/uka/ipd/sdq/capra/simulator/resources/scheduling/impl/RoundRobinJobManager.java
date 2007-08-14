@@ -6,6 +6,9 @@ import java.util.Deque;
 import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveJobManager;
 import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
 
+/**
+ * @author     jens.happe
+ */
 public class RoundRobinJobManager implements IPreemptiveJobManager {
 	
 	private Deque<IScheduledJob> jobQueue;

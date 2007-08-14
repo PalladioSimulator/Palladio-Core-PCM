@@ -8,14 +8,24 @@ import umontreal.iro.lecuyer.rng.MRG32k3a;
 import umontreal.iro.lecuyer.rng.RandomStream;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 
+/**
+ * @author     jens.happe
+ */
 public class SimProbabilisticPrefix implements SimCapraExpression {
 
 	private SimAction action;
+	/**
+	 * @uml.property  name="targetOptions"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
 	private SimInternalSelector[] targetOptions;
 	private RandomStream stream;
 	
 	private SimCapraExpression selectedExpression = null;
 	
+	/**
+	 * @uml.property  name="next"
+	 */
 	private int next = 0;
 	
 	
@@ -63,6 +73,10 @@ public class SimProbabilisticPrefix implements SimCapraExpression {
 		next = 1;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="next"
+	 */
 	@Override
 	public SimCapraExpression getNext() {
 		SimCapraExpression result = null;

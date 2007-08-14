@@ -8,6 +8,9 @@ import de.uka.ipd.sdq.capra.schedulers.Assignment;
 import de.uka.ipd.sdq.capra.schedulers.SchedulersPackage;
 import de.uka.ipd.sdq.capra.schedulers.SelectionPolicy;
 
+/**
+ * @author     jens.happe
+ */
 public class ResourceTransformer {
 	ResourceManager resourceManager;
 	ResourceVisitor visitor;

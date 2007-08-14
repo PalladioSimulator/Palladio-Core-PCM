@@ -19,7 +19,7 @@
     </genClasses>
     <nestedGenPackages prefix="Core" basePackage="de.uka.ipd.sdq.capra" disposableProviderFactory="true"
         ecorePackage="Capra.ecore#//core">
-      <genClasses image="false" ecoreClass="Capra.ecore#//core/InstantaneousAction"/>
+      <genClasses image="false" ecoreClass="Capra.ecore#//core/ImmediateAction"/>
       <genClasses image="false" ecoreClass="Capra.ecore#//core/Action"/>
       <genClasses image="false" ecoreClass="Capra.ecore#//core/CapraExpression"/>
       <genClasses image="false" ecoreClass="Capra.ecore#//core/Terminal"/>
@@ -210,6 +210,7 @@
       <genClasses ecoreClass="Capra.ecore#//measurement/SteadyStateRecorder"/>
       <genClasses ecoreClass="Capra.ecore#//measurement/FullStateRecorder"/>
       <genClasses ecoreClass="Capra.ecore#//measurement/FinalValueRecorder"/>
+      <genClasses image="false" ecoreClass="Capra.ecore#//measurement/PassiveResourceAction"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Extension" basePackage="de.uka.ipd.sdq.capra" disposableProviderFactory="true"
         ecorePackage="Capra.ecore#//extension">

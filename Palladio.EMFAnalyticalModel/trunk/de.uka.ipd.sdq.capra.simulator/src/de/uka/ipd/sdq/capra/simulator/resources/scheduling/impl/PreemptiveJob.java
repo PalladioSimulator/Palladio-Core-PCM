@@ -7,10 +7,16 @@ import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 
+/**
+ * @author     jens.happe
+ */
 public class PreemptiveJob implements IScheduledJob {
 	
 	protected PreemptiveProcess process;
 	
+	/**
+	 * @uml.property  name="remainingDemand"
+	 */
 	protected double remainingDemand;
 	
 	protected double timeToFinish;
@@ -22,10 +28,18 @@ public class PreemptiveJob implements IScheduledJob {
 		this.timeToFinish = -1;
 	}
 	
+	/**
+	 * @return
+	 * @uml.property  name="process"
+	 */
 	public PreemptiveProcess getProcess() {
 		return process;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="remainingDemand"
+	 */
 	public double getRemainingDemand() {
 		return remainingDemand;
 	}

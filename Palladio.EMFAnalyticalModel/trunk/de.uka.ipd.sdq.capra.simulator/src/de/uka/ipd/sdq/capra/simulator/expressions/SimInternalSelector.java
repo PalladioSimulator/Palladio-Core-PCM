@@ -1,7 +1,13 @@
 package de.uka.ipd.sdq.capra.simulator.expressions;
 
+/**
+ * @author     jens.happe
+ */
 public class SimInternalSelector implements Cloneable{
 	
+	/**
+	 * @uml.property  name="probability"
+	 */
 	private double probability;
 	private SimCapraExpression expression;
 	
@@ -11,6 +17,10 @@ public class SimInternalSelector implements Cloneable{
 		this.expression = expression;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="probability"
+	 */
 	public double getProbability() {
 		return probability;
 	}

@@ -19,6 +19,9 @@ import de.uka.ipd.sdq.capra.measurement.VisitProbe;
 import de.uka.ipd.sdq.capra.measurement.util.MeasurementSwitch;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 
+/**
+ * @author     jens.happe
+ */
 public class CapraExpressionVisitor {
 	
 	CapraExpressionTransformer expressionTransformer;
@@ -43,6 +46,10 @@ public class CapraExpressionVisitor {
 	}
 	
 	
+	/**
+	 * @uml.property  name="cSwitch"
+	 * @uml.associationEnd  
+	 */
 	private CoreSwitch<SimCapraExpression> cSwitch = new CoreSwitch<SimCapraExpression>(){
 		@Override
 		public SimCapraExpression caseDemandAction(DemandAction object) {
@@ -88,6 +95,10 @@ public class CapraExpressionVisitor {
 		}
 	};
 	
+	/**
+	 * @uml.property  name="mSwitch"
+	 * @uml.associationEnd  
+	 */
 	private MeasurementSwitch<SimCapraExpression> mSwitch = new MeasurementSwitch<SimCapraExpression>(){
 		@Override
 		public SimCapraExpression caseTimeProbe(TimeProbe object) {
@@ -100,6 +111,10 @@ public class CapraExpressionVisitor {
 		}
 	};
 	
+	/**
+	 * @uml.property  name="eSwitch"
+	 * @uml.associationEnd  
+	 */
 	private ExtensionSwitch<SimCapraExpression> eSwitch = new ExtensionSwitch<SimCapraExpression>(){
 		@Override
 		public SimCapraExpression caseAcquireAction(AcquireAction object) {

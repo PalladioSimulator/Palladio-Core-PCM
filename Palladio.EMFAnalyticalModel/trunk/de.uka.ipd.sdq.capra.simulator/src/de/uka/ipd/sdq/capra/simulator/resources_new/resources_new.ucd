@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="resources_new" size="2518,1467" id="de.uka.ipd.sdq.capra.simulator.resources_new" metadata="uml2-1.0" initialized="true" scrolledX="42" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E63617072612E73696D756C61746F722F6A656E732E6861707065">
+  <children xsi:type="editmodel:ClassEditModel" name="SimActiveResource" location="315,180" size="165,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/SimActiveResource" runTimeClassModel="process(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;Z)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractSimResource&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/SimActiveResource" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="20,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="155,93"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IScheduler@scheduler+de.uka.ipd.sdq.capra.simulator.resources_new/SimActiveResource@simActiveResource" source="//@children.0" target="//@children.3" targetEnd="//@children.0/@sourceConnections.1/@children.1" label="//@children.0/@sourceConnections.1/@children.2" sourceEnd="//@children.0/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="simActiveResource" location="165,14" id="de.uka.ipd.sdq.capra.simulator.resources_new/IScheduler@scheduler+de.uka.ipd.sdq.capra.simulator.resources_new/SimActiveResource@simActiveResource|de.uka.ipd.sdq.capra.simulator.resources_new/SimActiveResource#simActiveResource" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="scheduler" location="0,21" id="de.uka.ipd.sdq.capra.simulator.resources_new/IScheduler@scheduler+de.uka.ipd.sdq.capra.simulator.resources_new/SimActiveResource@simActiveResource|de.uka.ipd.sdq.capra.simulator.resources_new/IScheduler#scheduler" multiplicityLabel="//@children.0/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.0/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - scheduler" location="650,173" size="58,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="690,201" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IActiveResource&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/SimActiveResource" source="//@children.0" target="//@children.38" targetEnd="//@children.0/@sourceConnections.2/@children.1" sourceEnd="//@children.0/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="127,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="37,81"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SimPassiveResource" location="75,180" size="174,85" id="de.uka.ipd.sdq.capra.simulator.resources_new/SimPassiveResource" runTimeClassModel="acquire(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;I),release(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="66,36">
+      <children xsi:type="editmodel:MethodEditModel" name="acquire" id="de.uka.ipd.sdq.capra.simulator.resources_new/SimPassiveResource#acquire(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="release" id="de.uka.ipd.sdq.capra.simulator.resources_new/SimPassiveResource#release(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractSimResource&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/SimPassiveResource" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="139,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="34,93"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPassiveResource&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/SimPassiveResource" source="//@children.1" target="//@children.39" targetEnd="//@children.1/@sourceConnections.1/@children.1" sourceEnd="//@children.1/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="31,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="121,99"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0 //@children.1/@sourceConnections.0" name="AbstractSimResource" location="180,0" size="177,93" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractSimResource" runTimeClassModel="id,name,capacity">
+    <children xsi:type="editmodel:CompartmentEditModel" size="79,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="capacity" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractSimResource#capacity"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="name" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractSimResource#name"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="id" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractSimResource#id"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.18/@sourceConnections.0 //@children.19/@sourceConnections.0 //@children.0/@sourceConnections.1" name="IScheduler" location="715,173" size="111,43" id="de.uka.ipd.sdq.capra.simulator.resources_new/IScheduler" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.0 //@children.12/@sourceConnections.2 //@children.12/@sourceConnections.1" name="PriorityArray" location="828,705" size="122,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray" runTimeClassModel="maxPriority,minPriority">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue@processArray+de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray" source="//@children.4" target="//@children.20" targetEnd="//@children.4/@sourceConnections.0/@children.1" label="//@children.4/@sourceConnections.0/@children.2" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="priorityArray" location="122,14" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue@processArray+de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray|de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray#priorityArray" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="processArray" location="0,59" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue@processArray+de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray|de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue#processArray" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true" orderingKind="1">
+        <children xsi:type="editmodel:LabelEditModel" name=" - processArray" location="1036,698" size="78,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="1110,726" size="4,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager@priorityManager+de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray" source="//@children.4" target="//@children.14" targetEnd="//@children.4/@sourceConnections.1/@children.2" label="//@children.4/@sourceConnections.1/@children.0" sourceEnd="//@children.4/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="priorityArray" location="53,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager@priorityManager+de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray|de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray#priorityArray" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="priorityManager" location="78,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager@priorityManager+de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray|de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#priorityManager" multiplicityLabel="//@children.4/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.4/@sourceConnections.1/@children.2/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - priorityManager" location="885,780" size="85,14" automaticRelocationAllowed="false" locationOnWireFromSource="-4.0" distanceFromWire="47.0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="887,789" size="18,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.7/@sourceConnections.1 //@children.10/@sourceConnections.0 //@children.37/@sourceConnections.0 //@children.36/@sourceConnections.1" name="ITimeSlice" location="1545,1095" size="186,135" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice" runTimeClassModel="isFinished(),getTimeUntilNextInterruption(),reset(),passTime(D)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="163,72">
+      <children xsi:type="editmodel:MethodEditModel" name="getTimeUntilNextInterruption" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice#getTimeUntilNextInterruption()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reset" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice#reset()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="passTime" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice#passTime(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isFinished" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice#isFinished()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.19/@sourceConnections.2 //@children.30/@sourceConnections.0" name="ILoadBalancer" location="1538,131" size="135,43" id="de.uka.ipd.sdq.capra.simulator.resources_new/ILoadBalancer" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="PreemptiveProcess" location="1545,990" size="164,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/PreemptiveProcess" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/PreemptiveProcess" source="//@children.7" target="//@children.23" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="81,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="94,85"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice@timeSlice+de.uka.ipd.sdq.capra.simulator.resources_new/PreemptiveProcess@preemptiveProcess" source="//@children.7" target="//@children.5" targetEnd="//@children.7/@sourceConnections.1/@children.1" label="//@children.7/@sourceConnections.1/@children.2" sourceEnd="//@children.7/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="preemptiveProcess" location="81,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice@timeSlice+de.uka.ipd.sdq.capra.simulator.resources_new/PreemptiveProcess@preemptiveProcess|de.uka.ipd.sdq.capra.simulator.resources_new/PreemptiveProcess#preemptiveProcess" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="timeSlice" location="81,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice@timeSlice+de.uka.ipd.sdq.capra.simulator.resources_new/PreemptiveProcess@preemptiveProcess|de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice#timeSlice" multiplicityLabel="//@children.7/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.7/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - timeSlice" location="1634,1073" size="52,14" automaticRelocationAllowed="false" locationOnWireFromSource="23.0" distanceFromWire="34.0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1601,1074" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ProcessPriority" location="1845,860" size="138,75" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessPriority" runTimeClassModel="dynamic_priority,static_priority">
+    <children xsi:type="editmodel:CompartmentEditModel" size="115,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="static_priority" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessPriority#static_priority"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dynamic_priority" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessPriority#dynamic_priority"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDecoratedProcess&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/ProcessPriority" source="//@children.8" target="//@children.21" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="34,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="171,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DiscretePriorityDependentTimeSlice" location="1770,1380" size="272,67" id="de.uka.ipd.sdq.capra.simulator.resources_new/DiscretePriorityDependentTimeSlice" runTimeClassModel="reset()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="55,18">
+      <children xsi:type="editmodel:MethodEditModel" name="reset" id="de.uka.ipd.sdq.capra.simulator.resources_new/DiscretePriorityDependentTimeSlice#reset()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDiscreteTimeSlice&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/DiscretePriorityDependentTimeSlice" source="//@children.9" target="//@children.37" targetEnd="//@children.9/@sourceConnections.0/@children.1" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="36,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="171,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ContinuousTimeSlice" location="1274,1318" size="186,121" id="de.uka.ipd.sdq.capra.simulator.resources_new/ContinuousTimeSlice" runTimeClassModel="isFinished(),getTimeUntilNextInterruption(),reset(),passTime(D)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="163,72">
+      <children xsi:type="editmodel:MethodEditModel" name="getTimeUntilNextInterruption" id="de.uka.ipd.sdq.capra.simulator.resources_new/ContinuousTimeSlice#getTimeUntilNextInterruption()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reset" id="de.uka.ipd.sdq.capra.simulator.resources_new/ContinuousTimeSlice#reset()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isFinished" id="de.uka.ipd.sdq.capra.simulator.resources_new/ContinuousTimeSlice#isFinished()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="passTime" id="de.uka.ipd.sdq.capra.simulator.resources_new/ContinuousTimeSlice#passTime(D)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/ContinuousTimeSlice" source="//@children.10" target="//@children.5" targetEnd="//@children.10/@sourceConnections.0/@children.1" sourceEnd="//@children.10/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="168,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="8,135"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SinglePriorityArrayRunQueue" location="525,527" size="230,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/SinglePriorityArrayRunQueue" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/SinglePriorityArrayRunQueue@singlePriorityArrayRunQueue" source="//@children.11" target="//@children.4" targetEnd="//@children.11/@sourceConnections.0/@children.1" label="//@children.11/@sourceConnections.0/@children.2" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="singlePriorityArrayRunQueue" location="109,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/SinglePriorityArrayRunQueue@singlePriorityArrayRunQueue|de.uka.ipd.sdq.capra.simulator.resources_new/SinglePriorityArrayRunQueue#singlePriorityArrayRunQueue" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="priorityArray" location="0,15" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@priorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/SinglePriorityArrayRunQueue@singlePriorityArrayRunQueue|de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray#priorityArray" multiplicityLabel="//@children.11/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.11/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - priorityArray" location="651,733" size="71,14" automaticRelocationAllowed="false" locationOnWireFromSource="-45.0" distanceFromWire="-20.0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="815,699" size="6,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/SinglePriorityArrayRunQueue" source="//@children.11" target="//@children.13" targetEnd="//@children.11/@sourceConnections.1/@children.1" sourceEnd="//@children.11/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="147,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="5,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DoublePriorityArrayRunQueue" location="795,527" size="234,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue" source="//@children.12" target="//@children.13" targetEnd="//@children.12/@sourceConnections.0/@children.1" sourceEnd="//@children.12/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="146,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="56,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@activePriorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue@doublePriorityArrayRunQueue" source="//@children.12" target="//@children.4" targetEnd="//@children.12/@sourceConnections.1/@children.1" label="//@children.12/@sourceConnections.1/@children.2" sourceEnd="//@children.12/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="doublePriorityArrayRunQueue" location="90,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@activePriorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue@doublePriorityArrayRunQueue|de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue#doublePriorityArrayRunQueue" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="activePriorityArray" location="31,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@activePriorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue@doublePriorityArrayRunQueue|de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray#activePriorityArray" multiplicityLabel="//@children.12/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.12/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - activePriorityArray" location="752,669" size="100,14" automaticRelocationAllowed="false" locationOnWireFromSource="9.0" distanceFromWire="-56.00000000000001" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="866,684" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@expiredPriorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue@doublePriorityArrayRunQueue" source="//@children.12" target="//@children.4" targetEnd="//@children.12/@sourceConnections.2/@children.1" label="//@children.12/@sourceConnections.2/@children.2" sourceEnd="//@children.12/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="doublePriorityArrayRunQueue" location="182,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@expiredPriorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue@doublePriorityArrayRunQueue|de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue#doublePriorityArrayRunQueue" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="expiredPriorityArray" location="102,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray@expiredPriorityArray+de.uka.ipd.sdq.capra.simulator.resources_new/DoublePriorityArrayRunQueue@doublePriorityArrayRunQueue|de.uka.ipd.sdq.capra.simulator.resources_new/PriorityArray#expiredPriorityArray" multiplicityLabel="//@children.12/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.12/@sourceConnections.2/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - expiredPriorityArray" location="944,669" size="107,14" automaticRelocationAllowed="false" locationOnWireFromSource="9.000000000000002" distanceFromWire="67.0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="937,684" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.12/@sourceConnections.0 //@children.18/@sourceConnections.1 //@children.19/@sourceConnections.1 //@children.11/@sourceConnections.1 //@children.17/@sourceConnections.1" name="IRunQueue" location="885,390" size="113,43" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@sourceConnections.1 //@children.27/@sourceConnections.0" name="IPriorityManager" location="802,810" size="148,279" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager" runTimeClassModel="getNumPriorities(),min,isHigher(II),max,nextHigher(II),outOfBounds(I),nextLower(I),isLower(II),increase(II),isSame(II),decrease(II),getPosition(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="56,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="min" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#min"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="max" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#max"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,180">
+      <children xsi:type="editmodel:MethodEditModel" name="isHigher" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#isHigher(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isLower" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#isLower(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isSame" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#isSame(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="nextHigher" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#nextHigher(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="nextLower" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#nextLower(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="outOfBounds" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#outOfBounds(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumPriorities" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#getNumPriorities()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPosition" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#getPosition(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="increase" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#increase(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="decrease" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager#decrease(II)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DecreasingPriorityManager" location="285,979" size="215,193" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager" runTimeClassModel="isHigher(II),nextHigher(II),outOfBounds(I),increase(II),nextLower(I),isLower(II),decrease(II),getPosition(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="94,144">
+      <children xsi:type="editmodel:MethodEditModel" name="nextLower" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager#nextLower(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="nextHigher" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager#nextHigher(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="outOfBounds" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager#outOfBounds(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isLower" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager#isLower(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isHigher" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager#isHigher(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="increase" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager#increase(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPosition" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager#getPosition(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="decrease" id="de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager#decrease(II)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/DecreasingPriorityManager" source="//@children.15" target="//@children.27" targetEnd="//@children.15/@sourceConnections.0/@children.1" sourceEnd="//@children.15/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="167,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="47,75"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="IncreasingPriorityManager" location="535,979" size="210,193" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager" runTimeClassModel="isHigher(II),nextHigher(II),outOfBounds(I),increase(II),isLower(II),nextLower(I),decrease(II),getPosition(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="94,144">
+      <children xsi:type="editmodel:MethodEditModel" name="nextLower" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager#nextLower(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="nextHigher" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager#nextHigher(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isHigher" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager#isHigher(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPosition" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager#getPosition(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="decrease" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager#decrease(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isLower" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager#isLower(II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="outOfBounds" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager#outOfBounds(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="increase" id="de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager#increase(II)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/IncreasingPriorityManager" source="//@children.16" target="//@children.27" targetEnd="//@children.16/@sourceConnections.0/@children.1" sourceEnd="//@children.16/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="32,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="162,75"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SimpleRunQueue" location="1121,527" size="154,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/SimpleRunQueue" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue@processQueue+de.uka.ipd.sdq.capra.simulator.resources_new/SimpleRunQueue@simpleRunQueue" source="//@children.17" target="//@children.20" targetEnd="//@children.17/@sourceConnections.0/@children.1" label="//@children.17/@sourceConnections.0/@children.2" sourceEnd="//@children.17/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="simpleRunQueue" location="68,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue@processQueue+de.uka.ipd.sdq.capra.simulator.resources_new/SimpleRunQueue@simpleRunQueue|de.uka.ipd.sdq.capra.simulator.resources_new/SimpleRunQueue#simpleRunQueue" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="processQueue" location="68,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue@processQueue+de.uka.ipd.sdq.capra.simulator.resources_new/SimpleRunQueue@simpleRunQueue|de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue#processQueue" multiplicityLabel="//@children.17/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.17/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - processQueue" location="1196,639" size="82,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1164,639" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/SimpleRunQueue" source="//@children.17" target="//@children.13" targetEnd="//@children.17/@sourceConnections.1/@children.1" sourceEnd="//@children.17/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="49,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SingleRunQueueScheduler" location="525,265" size="215,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/SingleRunQueueScheduler" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IScheduler&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/SingleRunQueueScheduler" source="//@children.18" target="//@children.3" targetEnd="//@children.18/@sourceConnections.0/@children.1" sourceEnd="//@children.18/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="202,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="12,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue@runQueue+de.uka.ipd.sdq.capra.simulator.resources_new/SingleRunQueueScheduler@singleRunQueueScheduler" source="//@children.18" target="//@children.13" targetEnd="//@children.18/@sourceConnections.1/@children.1" label="//@children.18/@sourceConnections.1/@children.2" sourceEnd="//@children.18/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="singleRunQueueScheduler" location="90,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue@runQueue+de.uka.ipd.sdq.capra.simulator.resources_new/SingleRunQueueScheduler@singleRunQueueScheduler|de.uka.ipd.sdq.capra.simulator.resources_new/SingleRunQueueScheduler#singleRunQueueScheduler" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="runQueue" location="0,22" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue@runQueue+de.uka.ipd.sdq.capra.simulator.resources_new/SingleRunQueueScheduler@singleRunQueueScheduler|de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue#runQueue" multiplicityLabel="//@children.18/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.18/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - runQueue" location="820,419" size="58,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="860,391" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MultipleRunQueueScheduler" location="825,265" size="225,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IScheduler&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler" source="//@children.19" target="//@children.3" targetEnd="//@children.19/@sourceConnections.0/@children.1" sourceEnd="//@children.19/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="110,43"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue@runQueueList+de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler@multipleRunQueueScheduler" source="//@children.19" target="//@children.13" targetEnd="//@children.19/@sourceConnections.1/@children.1" label="//@children.19/@sourceConnections.1/@children.2" sourceEnd="//@children.19/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="multipleRunQueueScheduler" location="116,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue@runQueueList+de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler@multipleRunQueueScheduler|de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler#multipleRunQueueScheduler" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="runQueueList" location="56,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue@runQueueList+de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler@multipleRunQueueScheduler|de.uka.ipd.sdq.capra.simulator.resources_new/IRunQueue#runQueueList" multiplicityLabel="//@children.19/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.19/@sourceConnections.1/@children.1/@children.0" navigable="true" orderingKind="1">
+        <children xsi:type="editmodel:LabelEditModel" name=" - runQueueList" location="948,369" size="75,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="930,369" size="4,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/ILoadBalancer@loadBalancer+de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler@multipleRunQueueScheduler" source="//@children.19" target="//@children.6" targetEnd="//@children.19/@sourceConnections.2/@children.1" label="//@children.19/@sourceConnections.2/@children.2" sourceEnd="//@children.19/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="multipleRunQueueScheduler" location="215,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/ILoadBalancer@loadBalancer+de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler@multipleRunQueueScheduler|de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler#multipleRunQueueScheduler" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="loadBalancer" location="0,33" id="de.uka.ipd.sdq.capra.simulator.resources_new/ILoadBalancer@loadBalancer+de.uka.ipd.sdq.capra.simulator.resources_new/MultipleRunQueueScheduler@multipleRunQueueScheduler|de.uka.ipd.sdq.capra.simulator.resources_new/ILoadBalancer#loadBalancer" multiplicityLabel="//@children.19/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.19/@sourceConnections.2/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - loadBalancer" location="1458,143" size="73,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1513,171" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@sourceConnections.0 //@children.17/@sourceConnections.0 //@children.24/@sourceConnections.0" name="IProcessQueue" location="1121,660" size="137,135" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue" runTimeClassModel="poll(),addLast(Lde.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess;),addFirst(Lde.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess;),peek()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,72">
+      <children xsi:type="editmodel:MethodEditModel" name="addFirst" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue#addFirst(Lde.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addLast" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue#addLast(Lde.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="poll" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue#poll()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="peek" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue#peek()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0 //@children.23/@sourceConnections.0" name="AbstractDecoratedProcess" location="1708,766" size="207,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDecoratedProcess" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess@capraProcess+de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDecoratedProcess@abstractDecoratedProcess" source="//@children.21" target="//@children.22" targetEnd="//@children.21/@sourceConnections.0/@children.1" label="//@children.21/@sourceConnections.0/@children.2" sourceEnd="//@children.21/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="abstractDecoratedProcess" location="207,13" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess@capraProcess+de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDecoratedProcess@abstractDecoratedProcess|de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDecoratedProcess#abstractDecoratedProcess" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="capraProcess" location="0,43" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess@capraProcess+de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDecoratedProcess@abstractDecoratedProcess|de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#capraProcess" multiplicityLabel="//@children.21/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.21/@sourceConnections.0/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - capraProcess" location="2060,672" size="78,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="2120,700" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.21/@sourceConnections.0" name="SimCapraProcess" location="2145,650" size="353,261" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess" runTimeClassModel="start(D),proceed(),behaviour,name,equals(Ljava.lang.Object;),hashCode(),getNextAction(),executionStack,SimCapraProcess(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;Ljava.lang.String;),ready,toString()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="330,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="behaviour" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#behaviour"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="executionStack" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#executionStack"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="name" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#name"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="ready" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#ready"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="116,126">
+      <children xsi:type="editmodel:MethodEditModel" name="SimCapraProcess" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#SimCapraProcess(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="equals" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#equals(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNextAction" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#getNextAction()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="hashCode" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#hashCode()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="proceed" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#proceed()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="start" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#start(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="de.uka.ipd.sdq.capra.simulator.expressions/SimCapraProcess#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.24/@sourceConnections.1" name="RunningProcess" location="1532,855" size="212,85" id="de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess" runTimeClassModel="getTimeUntilNextSchedulingEvent(),currentDemand">
+    <children xsi:type="editmodel:CompartmentEditModel" size="131,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="currentDemand" id="de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess#currentDemand"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="189,18">
+      <children xsi:type="editmodel:MethodEditModel" name="getTimeUntilNextSchedulingEvent" id="de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess#getTimeUntilNextSchedulingEvent()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDecoratedProcess&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess" source="//@children.23" target="//@children.21" targetEnd="//@children.23/@sourceConnections.0/@children.1" sourceEnd="//@children.23/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="193,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="17,29"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints@processorSelectionCriteria+de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@runningProcess" source="//@children.23" target="//@children.29" targetEnd="//@children.23/@sourceConnections.1/@children.1" label="//@children.23/@sourceConnections.1/@children.2" sourceEnd="//@children.23/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="runningProcess" location="106,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints@processorSelectionCriteria+de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@runningProcess|de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess#runningProcess" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="processorSelectionCriteria" location="119,99" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints@processorSelectionCriteria+de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@runningProcess|de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints#processorSelectionCriteria" multiplicityLabel="//@children.23/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.23/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - processorSelectionCriteria" location="1645,633" size="138,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1613,633" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE@state+de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@runningProcess" source="//@children.23" target="//@children.26" targetEnd="//@children.23/@sourceConnections.2/@children.1" label="//@children.23/@sourceConnections.2/@children.2" sourceEnd="//@children.23/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="runningProcess" location="57,0" id="de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE@state+de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@runningProcess|de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess#runningProcess" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="state" location="154,68" id="de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE@state+de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@runningProcess|de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE#state" multiplicityLabel="//@children.23/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.23/@sourceConnections.2/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - state" location="1496,704" size="34,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1496,732" size="6,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ProcessQueue" location="1121,882" size="133,121" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue" runTimeClassModel="poll(),addLast(Lde.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess;),addFirst(Lde.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess;),peek()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,72">
+      <children xsi:type="editmodel:MethodEditModel" name="addLast" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue#addLast(Lde.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="poll" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue#poll()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="peek" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue#peek()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addFirst" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue#addFirst(Lde.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessQueue&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue" source="//@children.24" target="//@children.20" targetEnd="//@children.24/@sourceConnections.0/@children.1" sourceEnd="//@children.24/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="66,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="66,135"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@processQueue+de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue@abstractFCFSQueue" source="//@children.24" target="//@children.23" targetEnd="//@children.24/@sourceConnections.1/@children.2" label="//@children.24/@sourceConnections.1/@children.0" sourceEnd="//@children.24/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="abstractFCFSQueue" location="133,28" id="de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@processQueue+de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue@abstractFCFSQueue|de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue#abstractFCFSQueue" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="processQueue" location="0,55" id="de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess@processQueue+de.uka.ipd.sdq.capra.simulator.resources_new/ProcessQueue@abstractFCFSQueue|de.uka.ipd.sdq.capra.simulator.resources_new/RunningProcess#processQueue" multiplicityLabel="//@children.24/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.24/@sourceConnections.1/@children.2/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - processQueue" location="1443,889" size="82,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="1521,917" size="4,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.27/@sourceConnections.1" name="ProcessRegistry" location="77,794" size="170,103" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessRegistry" runTimeClassModel="lookUp(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;),registerProcess(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;),unregister(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,54">
+      <children xsi:type="editmodel:MethodEditModel" name="lookUp" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessRegistry#lookUp(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="registerProcess" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessRegistry#registerProcess(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="unregister" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessRegistry#unregister(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:EnumerationEditModel" targetConnections="//@children.23/@sourceConnections.2" name="PROCESS_STATE" location="1335,657" size="154,125" id="de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE" runTimeClassModel="READY%,RUNNING%,WAITING%,STANDBY%">
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,72">
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="STANDBY" id="de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE#STANDBY%"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="READY" id="de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE#READY%"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="RUNNING" id="de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE#RUNNING%"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="WAITING" id="de.uka.ipd.sdq.capra.simulator.resources_new/PROCESS_STATE#WAITING%"/>
+    </children>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.16/@sourceConnections.0 //@children.15/@sourceConnections.0" name="AbstractPriorityManager" location="405,808" size="195,75" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager" runTimeClassModel="getNumPriorities(),min,setMin(I),max,nextHigher(II),getMax(),nextLower(I),setMax(I),decrease(II),getPosition(I),isHigher(II),outOfBounds(I),getMin(),increase(II),isLower(II),isSame(II)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="56,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="max" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager#max"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="min" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager#min"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityManager&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager" source="//@children.27" target="//@children.14" targetEnd="//@children.27/@sourceConnections.0/@children.1" sourceEnd="//@children.27/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="195,38" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,36"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessRegistry@priorityRegistry+de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager@abstractPriorityManager" source="//@children.27" target="//@children.25" targetEnd="//@children.27/@sourceConnections.1/@children.1" label="//@children.27/@sourceConnections.1/@children.2" sourceEnd="//@children.27/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="abstractPriorityManager" location="0,37" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessRegistry@priorityRegistry+de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager@abstractPriorityManager|de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager#abstractPriorityManager" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="priorityRegistry" location="170,51" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessRegistry@priorityRegistry+de.uka.ipd.sdq.capra.simulator.resources_new/AbstractPriorityManager@abstractPriorityManager|de.uka.ipd.sdq.capra.simulator.resources_new/ProcessRegistry#priorityRegistry" multiplicityLabel="//@children.27/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.27/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - priorityRegistry" location="254,824" size="83,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="254,852" size="18,14" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" name="IPriorityBoost" location="1920,527" size="127,43" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPriorityBoost" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.23/@sourceConnections.1 //@children.31/@sourceConnections.0 //@children.32/@sourceConnections.0 //@children.35/@sourceConnections.0" name="IProcessorSelectionConstraints" location="1519,527" size="238,99" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints" runTimeClassModel="penality(),check(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,36">
+      <children xsi:type="editmodel:MethodEditModel" name="check" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints#check(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="penality" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints#penality()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.33/@sourceConnections.0 //@children.34/@sourceConnections.0" name="AbstractLoadBalancer" location="1515,240" size="182,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractLoadBalancer" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/ILoadBalancer&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/AbstractLoadBalancer" source="//@children.30" target="//@children.6" targetEnd="//@children.30/@sourceConnections.0/@children.1" sourceEnd="//@children.30/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="90,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="67,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ProcessorAffinityConstraint" location="1296,410" size="212,85" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessorAffinityConstraint" runTimeClassModel="penality(),check(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,36">
+      <children xsi:type="editmodel:MethodEditModel" name="check" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessorAffinityConstraint#check(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="penality" id="de.uka.ipd.sdq.capra.simulator.resources_new/ProcessorAffinityConstraint#penality()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/ProcessorAffinityConstraint" source="//@children.31" target="//@children.29" targetEnd="//@children.31/@sourceConnections.0/@children.1" sourceEnd="//@children.31/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="188,85" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="26,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="IdealProcessorConstraint" location="1545,410" size="200,85" id="de.uka.ipd.sdq.capra.simulator.resources_new/IdealProcessorConstraint" runTimeClassModel="penality(),check(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,36">
+      <children xsi:type="editmodel:MethodEditModel" name="check" id="de.uka.ipd.sdq.capra.simulator.resources_new/IdealProcessorConstraint#check(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="penality" id="de.uka.ipd.sdq.capra.simulator.resources_new/IdealProcessorConstraint#penality()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/IdealProcessorConstraint" source="//@children.32" target="//@children.29" targetEnd="//@children.32/@sourceConnections.0/@children.1" sourceEnd="//@children.32/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,85" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="125,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="LinuxLoadBalancer" location="1349,293" size="167,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/LinuxLoadBalancer" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractLoadBalancer&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/LinuxLoadBalancer" source="//@children.33" target="//@children.30" targetEnd="//@children.33/@sourceConnections.0/@children.1" sourceEnd="//@children.33/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="166,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="WindowsLoadBalancer" location="1635,330" size="189,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/WindowsLoadBalancer" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractLoadBalancer&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/WindowsLoadBalancer" source="//@children.34" target="//@children.30" targetEnd="//@children.34/@sourceConnections.0/@children.1" sourceEnd="//@children.34/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="30,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="150,29"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="LastProcessorConstraint" location="1785,410" size="194,85" id="de.uka.ipd.sdq.capra.simulator.resources_new/LastProcessorConstraint" runTimeClassModel="penality(),check(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="67,36">
+      <children xsi:type="editmodel:MethodEditModel" name="check" id="de.uka.ipd.sdq.capra.simulator.resources_new/LastProcessorConstraint#check(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="penality" id="de.uka.ipd.sdq.capra.simulator.resources_new/LastProcessorConstraint#penality()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/IProcessorSelectionConstraints&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/LastProcessorConstraint" source="//@children.35" target="//@children.29" targetEnd="//@children.35/@sourceConnections.0/@children.1" sourceEnd="//@children.35/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="12,85" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="215,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DiscreteTimeSlice" location="1507,1380" size="157,67" id="de.uka.ipd.sdq.capra.simulator.resources_new/DiscreteTimeSlice" runTimeClassModel="reset()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="55,18">
+      <children xsi:type="editmodel:MethodEditModel" name="reset" id="de.uka.ipd.sdq.capra.simulator.resources_new/DiscreteTimeSlice#reset()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDiscreteTimeSlice&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/DiscreteTimeSlice" source="//@children.36" target="//@children.37" targetEnd="//@children.36/@sourceConnections.0/@children.1" sourceEnd="//@children.36/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="142,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="14,29"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/DiscreteTimeSlice" source="//@children.36" target="//@children.5" targetEnd="//@children.36/@sourceConnections.1/@children.1" sourceEnd="//@children.36/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="97,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="59,135"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.36/@sourceConnections.0 //@children.9/@sourceConnections.0" name="AbstractDiscreteTimeSlice" location="1635,1290" size="208,29" id="de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDiscreteTimeSlice" runTimeClassModel="isFinished(),getTimeUntilNextInterruption(),reset(),passTime(D)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_new/ITimeSlice&lt;-de.uka.ipd.sdq.capra.simulator.resources_new/AbstractDiscreteTimeSlice" source="//@children.37" target="//@children.5" targetEnd="//@children.37/@sourceConnections.0/@children.1" sourceEnd="//@children.37/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="47,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="137,135"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.0/@sourceConnections.2" name="IActiveResource" location="405,40" size="144,81" id="de.uka.ipd.sdq.capra.simulator.resources_new/IActiveResource" runTimeClassModel="process(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;Z)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="70,18">
+      <children xsi:type="editmodel:MethodEditModel" name="process" id="de.uka.ipd.sdq.capra.simulator.resources_new/IActiveResource#process(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;Z)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.1" name="IPassiveResource" location="-15,12" size="153,99" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPassiveResource" runTimeClassModel="acquire(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;I),release(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="66,36">
+      <children xsi:type="editmodel:MethodEditModel" name="acquire" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPassiveResource#acquire(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="release" id="de.uka.ipd.sdq.capra.simulator.resources_new/IPassiveResource#release(Lde.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=3;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler>
+      <guides position="101"/>
+    </topRuler>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

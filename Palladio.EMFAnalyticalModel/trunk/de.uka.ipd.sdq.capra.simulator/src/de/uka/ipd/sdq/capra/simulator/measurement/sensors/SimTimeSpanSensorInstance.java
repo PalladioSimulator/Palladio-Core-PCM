@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.capra.simulator.measurement.sensors;
 
+/**
+ * @author     jens.happe
+ */
 public class SimTimeSpanSensorInstance implements SimSensorInstance {
 	
 	private double startTime = -1;

@@ -9,6 +9,9 @@ import de.uka.ipd.sdq.capra.simulator.builder.SensorManager;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
 
+/**
+ * @author     jens.happe
+ */
 public class SimulationModel {
 	private ResourceManager resources;
 	private CapraProcessManager processes;
@@ -21,14 +24,26 @@ public class SimulationModel {
 		processes = new CapraProcessManager(sensors.getSensors());
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="resources"
+	 */
 	public ResourceManager getResources() {
 		return resources;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="processes"
+	 */
 	public CapraProcessManager getProcesses() {
 		return processes;
 	}
 	
+	/**
+	 * @return
+	 * @uml.property  name="sensors"
+	 */
 	public SensorManager getSensors(){
 		return sensors;
 	}

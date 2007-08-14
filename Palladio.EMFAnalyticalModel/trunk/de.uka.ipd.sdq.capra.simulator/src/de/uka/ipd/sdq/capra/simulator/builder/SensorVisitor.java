@@ -16,6 +16,9 @@ import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 
 
 
+/**
+ * @author     jens.happe
+ */
 public class SensorVisitor {
 	private SensorTransformer sensorTransformer;
 	
@@ -39,6 +42,10 @@ public class SensorVisitor {
 		return result;
 	}
 	
+	/**
+	 * @uml.property  name="rSwitch"
+	 * @uml.associationEnd  
+	 */
 	private MeasurementSwitch<SimRecorder> rSwitch = new MeasurementSwitch<SimRecorder>(){
 		@Override
 		public SimRecorder caseFullTimeSpanRecorder(FullTimeSpanRecorder object) {
@@ -66,6 +73,10 @@ public class SensorVisitor {
 		}
 	};
 
+	/**
+	 * @uml.property  name="sSwitch"
+	 * @uml.associationEnd  
+	 */
 	private MeasurementSwitch<SimSensor> sSwitch = new MeasurementSwitch<SimSensor>(){
 		@Override
 		public SimSensor caseTimeSpanSensor(TimeSpanSensor object) {

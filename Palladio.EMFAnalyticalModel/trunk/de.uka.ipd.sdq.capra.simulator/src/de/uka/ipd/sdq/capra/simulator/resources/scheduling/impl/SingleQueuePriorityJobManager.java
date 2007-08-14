@@ -6,6 +6,9 @@ import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveJobManager
 import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
+/**
+ * @author     jens.happe
+ */
 public class SingleQueuePriorityJobManager implements IPreemptiveJobManager {
 
 	private static final int MAX_PRIORITY = 2;

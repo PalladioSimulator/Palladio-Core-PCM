@@ -5,12 +5,18 @@ import java.util.Deque;
 
 import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
 
+/**
+ * @author  jens.happe
+ */
 public class JobQueue {
 
 	int maxPriority;
 	
 	Deque<IScheduledJob>[] queue;
 	
+	/**
+	 * @uml.property  name="numJobs"
+	 */
 	int numJobs = 0;
 	
 	public JobQueue(int maxPriority){
@@ -48,10 +54,18 @@ public class JobQueue {
 		return getQueueWithHighestPriority().peek();
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="numJobs"
+	 */
 	public int getNumJobs() {
 		return numJobs;
 	}
 
+	/**
+	 * @param numJobs
+	 * @uml.property  name="numJobs"
+	 */
 	public void setNumJobs(int numJobs) {
 		this.numJobs = numJobs;
 	}

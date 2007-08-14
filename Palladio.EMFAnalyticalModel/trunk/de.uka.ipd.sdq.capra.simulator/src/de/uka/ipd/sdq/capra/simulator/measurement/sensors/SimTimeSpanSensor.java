@@ -6,10 +6,16 @@ import java.util.List;
 import de.uka.ipd.sdq.capra.simulator.measurement.recorders.SimTimeSpanRecorder;
 import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
 
+/**
+ * @author  jens.happe
+ */
 public class SimTimeSpanSensor implements SimSensor {
 	
 	private List<SimTimeSpanRecorder> recorderList = new ArrayList<SimTimeSpanRecorder>();
 	
+	/**
+	 * @uml.property  name="name"
+	 */
 	private String name;
 	
 
@@ -38,10 +44,18 @@ public class SimTimeSpanSensor implements SimSensor {
 		}
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="name"
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name
+	 * @uml.property  name="name"
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}

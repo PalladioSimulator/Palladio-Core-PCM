@@ -5,6 +5,9 @@ import java.util.Hashtable;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 import de.uka.ipd.sdq.capra.simulator.resources.SimPassiveResource;
 
+/**
+ * @author     jens.happe
+ */
 public class SimReleaseAction implements SimAction {
 
 	private SimPassiveResource resource;

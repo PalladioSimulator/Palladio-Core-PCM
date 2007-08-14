@@ -8,6 +8,9 @@ import de.uka.ipd.sdq.capra.simulator.CapraSim;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 import de.uka.ipd.sdq.capra.simulator.resources.SimPassiveResource;
 
+/**
+ * @author     jens.happe
+ */
 public class SimAcquireAction implements SimAction {
 
 	private SimPassiveResource resource;

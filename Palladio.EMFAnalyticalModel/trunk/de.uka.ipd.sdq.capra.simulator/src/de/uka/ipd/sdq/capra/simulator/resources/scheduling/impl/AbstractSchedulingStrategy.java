@@ -7,6 +7,9 @@ import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveScheduling
 import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
+/**
+ * @author     jens.happe
+ */
 public abstract class AbstractSchedulingStrategy implements IPreemptiveSchedulingStrategy {
 
 	protected IJobManager jobManager;
@@ -42,6 +45,10 @@ public abstract class AbstractSchedulingStrategy implements IPreemptiveSchedulin
 
 	protected abstract void progressTimeBy(double passedTime);
 
+	/**
+	 * @return
+	 * @uml.property  name="registry"
+	 */
 	public ProcessRegistry getRegistry() {
 		return registry;
 	}

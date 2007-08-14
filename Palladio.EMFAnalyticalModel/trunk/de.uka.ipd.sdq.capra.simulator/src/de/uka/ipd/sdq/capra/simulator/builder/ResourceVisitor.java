@@ -9,6 +9,9 @@ import de.uka.ipd.sdq.capra.resources.util.ResourcesSwitch;
 
 
 
+/**
+ * @author     jens.happe
+ */
 public class ResourceVisitor {
 	private ResourceTransformer resTransformer;
 	
@@ -25,6 +28,10 @@ public class ResourceVisitor {
 	}
 	
 	
+	/**
+	 * @uml.property  name="rSwitch"
+	 * @uml.associationEnd  
+	 */
 	ResourcesSwitch<Boolean> rSwitch = new ResourcesSwitch<Boolean>() {
 		@Override
 		public Boolean caseDelayResource(DelayResource object) {
@@ -39,6 +46,10 @@ public class ResourceVisitor {
 		}		
 	};
 	
+	/**
+	 * @uml.property  name="eSwitch"
+	 * @uml.associationEnd  
+	 */
 	ExtensionSwitch<Boolean> eSwitch = new ExtensionSwitch<Boolean>() {
 		@Override
 		public Boolean casePassiveResource(PassiveResource object) {

@@ -14,6 +14,9 @@ import de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl.PreemptiveProces
 
 public class SimPassiveResource extends AbstractSimResource{
 	
+	/**
+	 * @author     jens.happe
+	 */
 	private class WaitingFor {
 		public SimCapraProcess process;
 		public int num;

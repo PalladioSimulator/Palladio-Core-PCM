@@ -4,14 +4,23 @@ import java.util.Stack;
 
 import umontreal.iro.lecuyer.simevents.Event;
 
+/**
+ * @author     jens.happe
+ */
 public class SimCapraProcess {
 
 	SimCapraExpression behaviour;
 	
+	/**
+	 * @uml.property  name="name"
+	 */
 	String name;
 	
 	Stack<SimCapraExpression> executionStack = new Stack<SimCapraExpression>();
 
+	/**
+	 * @uml.property  name="ready"
+	 */
 	private boolean ready = false;
 	
 	public SimCapraProcess(SimCapraExpression capraExpression, String name) {
@@ -59,6 +68,9 @@ public class SimCapraProcess {
 		nextAction.execute(this);
 	}
 	
+	/**
+	 * @author     jens.happe
+	 */
 	private class StartProcessEvent extends Event {
 		
 		private SimCapraProcess process;
@@ -75,6 +87,10 @@ public class SimCapraProcess {
 		}
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="name"
+	 */
 	public String getName() {
 		return name;
 	}
@@ -98,10 +114,18 @@ public class SimCapraProcess {
 		return name;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="ready"
+	 */
 	public boolean isReady() {
 		return ready;
 	}
 	
+	/**
+	 * @param ready
+	 * @uml.property  name="ready"
+	 */
 	public void setReady(boolean ready){
 		this.ready = ready;
 	}

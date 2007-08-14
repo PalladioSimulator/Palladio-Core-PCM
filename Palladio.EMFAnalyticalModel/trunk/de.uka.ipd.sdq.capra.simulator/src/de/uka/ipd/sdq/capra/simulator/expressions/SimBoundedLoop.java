@@ -9,6 +9,9 @@ import umontreal.iro.lecuyer.randvar.RandomVariateGenInt;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 import de.uka.ipd.sdq.capra.simulator.tools.RandomStreamProvider;
 
+/**
+ * @author     jens.happe
+ */
 public class SimBoundedLoop implements SimCapraExpression {
 
 	private RandomVariateGen numIterationsGen;

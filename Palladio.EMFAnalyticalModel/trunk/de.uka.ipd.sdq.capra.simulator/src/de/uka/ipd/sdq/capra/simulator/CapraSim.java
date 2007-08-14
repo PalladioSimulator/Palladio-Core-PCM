@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
 
 public class CapraSim {
 
-	private static final String path = "G:/jens/Diss/dev/runtime-EclipseApplication/CapraProject/";
+	private static final String path = "C:/Dokumente und Einstellungen/jens.happe/Desktop/dev/runtime-EclipseApplication/CapraProject/";
 
 	public static volatile boolean done = false;
 
