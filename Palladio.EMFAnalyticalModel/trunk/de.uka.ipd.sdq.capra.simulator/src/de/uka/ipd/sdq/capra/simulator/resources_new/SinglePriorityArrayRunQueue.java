@@ -27,4 +27,10 @@ public class SinglePriorityArrayRunQueue implements IRunQueue {
 		this.priorityArray = priorityArray;
 	}
 
+	@Override
+	public int getCurrentLoad() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -47,4 +47,31 @@ public class SimPassiveResource extends AbstractSimResource implements IPassiveR
 				
 			}
 
+
+			/**
+			 * @uml.property  name="priorityBoost"
+			 * @uml.associationEnd  aggregation="composite" inverse="simPassiveResource:de.uka.ipd.sdq.capra.simulator.resources_new.IPriorityBoost"
+			 */
+			private IPriorityBoost priorityBoost;
+
+
+			/**
+			 * Getter of the property <tt>priorityBoost</tt>
+			 * @return  Returns the priorityBoost.
+			 * @uml.property  name="priorityBoost"
+			 */
+			public IPriorityBoost getPriorityBoost() {
+				return priorityBoost;
+			}
+
+
+			/**
+			 * Setter of the property <tt>priorityBoost</tt>
+			 * @param priorityBoost  The priorityBoost to set.
+			 * @uml.property  name="priorityBoost"
+			 */
+			public void setPriorityBoost(IPriorityBoost priorityBoost) {
+				this.priorityBoost = priorityBoost;
+			}
+
 }

@@ -5,13 +5,13 @@ import java.util.List;
 
 public class MultipleRunQueueScheduler implements IScheduler {
 
-	/**
-	 * @uml.property   name="runQueueList"
-	 * @uml.associationEnd   multiplicity="(0 -1)" ordering="true" inverse="multipleRunQueueScheduler:de.uka.ipd.sdq.capra.simulator.resources_new.IRunQueue"
+	/** 
+	 * @uml.property name="runQueueList"
+	 * @uml.associationEnd multiplicity="(0 -1)" ordering="true" aggregation="composite" inverse="multipleRunQueueScheduler:de.uka.ipd.sdq.capra.simulator.resources_new.IRunQueue"
 	 */
 	private List<IRunQueue> runQueue;
 
-	/**
+	/** 
 	 * Getter of the property <tt>runQueueList</tt>
 	 * @return  Returns the runQueue.
 	 * @uml.property  name="runQueueList"
@@ -20,7 +20,7 @@ public class MultipleRunQueueScheduler implements IScheduler {
 		return runQueue;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>runQueueList</tt>
 	 * @param runQueueList  The runQueue to set.
 	 * @uml.property  name="runQueueList"
@@ -31,7 +31,7 @@ public class MultipleRunQueueScheduler implements IScheduler {
 
 	/** 
 	 * @uml.property name="loadBalancer"
-	 * @uml.associationEnd aggregation="composite" inverse="multipleRunQueueScheduler:de.uka.ipd.sdq.capra.simulator.resources_new.ILoadBalancer"
+	 * @uml.associationEnd aggregation="composite" inverse="scheduler:de.uka.ipd.sdq.capra.simulator.resources_new.ILoadBalancer"
 	 */
 	private ILoadBalancer loadBalancer;
 
@@ -51,6 +51,12 @@ public class MultipleRunQueueScheduler implements IScheduler {
 	 */
 	public void setLoadBalancer(ILoadBalancer loadBalancer) {
 		this.loadBalancer = loadBalancer;
+	}
+
+	@Override
+	public void schedule() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

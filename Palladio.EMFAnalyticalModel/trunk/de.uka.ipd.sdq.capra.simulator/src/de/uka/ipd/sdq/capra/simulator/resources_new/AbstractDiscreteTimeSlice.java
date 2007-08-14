@@ -3,15 +3,13 @@ package de.uka.ipd.sdq.capra.simulator.resources_new;
 
 public abstract class AbstractDiscreteTimeSlice implements ITimeSlice {
 	
-	protected int remainingTime;
-
 	@Override
 	public void getTimeUntilNextInterruption() {
 	}
 
 	@Override
 	public boolean isFinished() {
-		return remainingTime == 0;
+		return remainingTicks == 0;
 	}
 
 	@Override
@@ -20,4 +18,27 @@ public abstract class AbstractDiscreteTimeSlice implements ITimeSlice {
 
 	@Override
 	public abstract void reset();
+
+	/**
+	 * @uml.property  name="remainingTicks"
+	 */
+	private int remainingTicks;
+
+	/**
+	 * Getter of the property <tt>remainingTicks</tt>
+	 * @return  Returns the remainingTicks.
+	 * @uml.property  name="remainingTicks"
+	 */
+	public int getRemainingTicks() {
+		return remainingTicks;
+	}
+
+	/**
+	 * Setter of the property <tt>remainingTicks</tt>
+	 * @param remainingTicks  The remainingTicks to set.
+	 * @uml.property  name="remainingTicks"
+	 */
+	public void setRemainingTicks(int remainingTicks) {
+		this.remainingTicks = remainingTicks;
+	}
 }

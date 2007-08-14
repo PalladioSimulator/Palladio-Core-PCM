@@ -1,58 +1,69 @@
 package de.uka.ipd.sdq.capra.simulator.resources_new;
 
-
 public abstract class AbstractWaitingPolicy {
 
-	/** 
+	/**
 	 * @uml.property name="waitingQueue"
-	 * @uml.associationEnd aggregation="composite" inverse="abstractWaitingPolicy:de.uka.ipd.sdq.capra.simulator.resources_new.IProcessQueue"
+	 * @uml.associationEnd aggregation="composite"
+	 *                     inverse="abstractWaitingPolicy:de.uka.ipd.sdq.capra.simulator.resources_new.ProcessQueue"
 	 */
-	private IProcessQueue waitingQueue;
+	private ProcessQueue<WaitingProcess> waitingQueue;
 
-	/** 
+	/**
 	 * Getter of the property <tt>waitingQueue</tt>
-	 * @return  Returns the waitingQueue.
-	 * @uml.property  name="waitingQueue"
+	 * 
+	 * @return Returns the waitingQueue.
+	 * @uml.property name="waitingQueue"
 	 */
-	public IProcessQueue getWaitingQueue() {
+	public ProcessQueue<WaitingProcess> getWaitingQueue() {
 		return waitingQueue;
 	}
 
-	/** 
+	/**
 	 * Setter of the property <tt>waitingQueue</tt>
-	 * @param waitingQueue  The waitingQueue to set.
-	 * @uml.property  name="waitingQueue"
+	 * 
+	 * @param waitingQueue
+	 *            The waitingQueue to set.
+	 * @uml.property name="waitingQueue"
 	 */
-	public void setWaitingQueue(IProcessQueue waitingQueue) {
+	public void setWaitingQueue(ProcessQueue<WaitingProcess> waitingQueue) {
 		this.waitingQueue = waitingQueue;
 	}
-	
-	public abstract boolean canProceed(RunningProcess currentProcess);
-	
+
+	public abstract boolean canProceed(ActiveProcess currentProcess);
+
 	public abstract void notifyWaiting();
 
-	/** 
+	/**
 	 * @uml.property name="passiveResource"
 	 * @uml.associationEnd inverse="waitingPolicy:de.uka.ipd.sdq.capra.simulator.resources_new.SimPassiveResource"
 	 */
 	private SimPassiveResource passiveResource;
 
-	/** 
+	/**
 	 * Getter of the property <tt>passiveResource</tt>
-	 * @return  Returns the passiveResource.
-	 * @uml.property  name="passiveResource"
+	 * 
+	 * @return Returns the passiveResource.
+	 * @uml.property name="passiveResource"
 	 */
 	public SimPassiveResource getPassiveResource() {
 		return passiveResource;
 	}
 
-	/** 
+	/**
 	 * Setter of the property <tt>passiveResource</tt>
-	 * @param passiveResource  The passiveResource to set.
-	 * @uml.property  name="passiveResource"
+	 * 
+	 * @param passiveResource
+	 *            The passiveResource to set.
+	 * @uml.property name="passiveResource"
 	 */
 	public void setPassiveResource(SimPassiveResource passiveResource) {
 		this.passiveResource = passiveResource;
+	}
+
+	/**
+	 */
+	public void enqueue(ActiveProcess process, int numRequested) {
 	}
 
 }

@@ -51,4 +51,10 @@ public class DoublePriorityArrayRunQueue implements IRunQueue {
 		this.expiredPriorityArray = expiredPriorityArray;
 	}
 
+	@Override
+	public int getCurrentLoad() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

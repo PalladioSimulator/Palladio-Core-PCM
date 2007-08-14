@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.capra.simulator.resources_new;
 
 
-public class PreemptiveProcess extends RunningProcess {
+public class PreemptiveProcess extends ActiveProcess {
 
 	/**
 	 * @uml.property   name="timeSlice"
@@ -26,5 +26,19 @@ public class PreemptiveProcess extends RunningProcess {
 	public void setTimeSlice(ITimeSlice timeSlice) {
 		this.timeSlice = timeSlice;
 	}
+
+		
+		/**
+		 * Process changes back to READY state
+		 */
+		public void notifyPreemption(){
+		}
+
+			
+			/**
+			 * Process changes to RUNNING state
+			 */
+			public void notifyActivation(){
+			}
 
 }

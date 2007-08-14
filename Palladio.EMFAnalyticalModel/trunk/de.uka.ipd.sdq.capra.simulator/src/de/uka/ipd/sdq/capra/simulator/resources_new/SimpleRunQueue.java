@@ -5,16 +5,16 @@ public class SimpleRunQueue implements IRunQueue {
 
 	/** 
 	 * @uml.property name="processQueue"
-	 * @uml.associationEnd aggregation="composite" inverse="simpleRunQueue:de.uka.ipd.sdq.capra.simulator.resources_new.IProcessQueue"
+	 * @uml.associationEnd aggregation="composite" inverse="simpleRunQueue:de.uka.ipd.sdq.capra.simulator.resources_new.ProcessQueue"
 	 */
-	private IProcessQueue processQueue;
+	private ProcessQueue<ActiveProcess> processQueue;
 
 	/** 
 	 * Getter of the property <tt>processQueue</tt>
 	 * @return  Returns the processQueue.
 	 * @uml.property  name="processQueue"
 	 */
-	public IProcessQueue getProcessQueue() {
+	public ProcessQueue<ActiveProcess> getProcessQueue() {
 		return processQueue;
 	}
 
@@ -23,8 +23,14 @@ public class SimpleRunQueue implements IRunQueue {
 	 * @param processQueue  The processQueue to set.
 	 * @uml.property  name="processQueue"
 	 */
-	public void setProcessQueue(IProcessQueue processQueue) {
+	public void setProcessQueue(ProcessQueue<ActiveProcess> processQueue) {
 		this.processQueue = processQueue;
+	}
+
+	@Override
+	public int getCurrentLoad() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

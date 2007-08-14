@@ -1,48 +1,42 @@
 package de.uka.ipd.sdq.capra.simulator.resources_new;
-
 import java.util.Deque;
 
 
+public class ProcessQueue<T> {
 
-public class ProcessQueue implements IProcessQueue {
-
-	@Override
-	public void addLast(RunningProcess process) {
+	public void addLast(T process) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public RunningProcess peek() {
+	public T peek() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public RunningProcess poll() {
+	public T poll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void addFirst(RunningProcess process) {
+	public void addFirst(T process) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	
-	/** 
-	 * @uml.property name="processQueue"
-	 * @uml.associationEnd multiplicity="(0 -1)" aggregation="shared" inverse="abstractFCFSQueue:de.uka.ipd.sdq.capra.simulator.resources_new.RunningProcess"
+	/**
+	 * @uml.property   name="processQueue"
+	 * @uml.associationEnd   multiplicity="(0 -1)" aggregation="shared" inverse="abstractFCFSQueue:de.uka.ipd.sdq.capra.simulator.resources_new.ActiveProcess"
 	 */
-	private Deque<RunningProcess> processQueue;
+	private Deque<T> processQueue;
 
 	/**
 	 * Getter of the property <tt>processQueue</tt>
 	 * @return  Returns the runningProcess.
 	 * @uml.property  name="processQueue"
 	 */
-	public Deque<RunningProcess> getProcessQueue() {
+	public Deque<T> getProcessQueue() {
 		return processQueue;
 	}
 
@@ -51,10 +45,14 @@ public class ProcessQueue implements IProcessQueue {
 	 * @param processQueue  The runningProcess to set.
 	 * @uml.property  name="processQueue"
 	 */
-	public void setProcessQueue(Deque<RunningProcess> processQueue) {
+	public void setProcessQueue(Deque<T> processQueue) {
 		this.processQueue = processQueue;
 	}
 
-
-
+		
+		/**
+		 */
+		public int getNumberOfProcesses(){
+			return 0;
+		}
 }

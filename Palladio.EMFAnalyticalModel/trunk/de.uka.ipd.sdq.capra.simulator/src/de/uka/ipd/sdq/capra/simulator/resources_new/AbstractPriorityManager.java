@@ -56,14 +56,14 @@ public abstract class AbstractPriorityManager implements IPriorityManager {
 	 * @uml.property  name="priorityRegistry"
 	 * @uml.associationEnd  aggregation="composite" inverse="abstractPriorityManager:de.uka.ipd.sdq.capra.simulator.resources_new.ProcessRegistry"
 	 */
-	private ProcessRegistry<ProcessPriority> priorityRegistry;
+	private ProcessRegistry<ProcessWithPriority> priorityRegistry;
 
 	/**
 	 * Getter of the property <tt>priorityRegistry</tt>
 	 * @return  Returns the priorityRegistry.
 	 * @uml.property  name="priorityRegistry"
 	 */
-	public ProcessRegistry<ProcessPriority> getPriorityRegistry() {
+	public ProcessRegistry<ProcessWithPriority> getPriorityRegistry() {
 		return priorityRegistry;
 	}
 
@@ -72,7 +72,7 @@ public abstract class AbstractPriorityManager implements IPriorityManager {
 	 * @param priorityRegistry  The priorityRegistry to set.
 	 * @uml.property  name="priorityRegistry"
 	 */
-	public void setPriorityRegistry(ProcessRegistry<ProcessPriority> priorityRegistry) {
+	public void setPriorityRegistry(ProcessRegistry<ProcessWithPriority> priorityRegistry) {
 		this.priorityRegistry = priorityRegistry;
 	}
 }
