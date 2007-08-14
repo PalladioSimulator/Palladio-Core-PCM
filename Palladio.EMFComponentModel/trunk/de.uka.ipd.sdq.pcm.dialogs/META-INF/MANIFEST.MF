@@ -15,13 +15,13 @@ Require-Bundle: org.antlr,
  org.eclipse.ui,
  de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
- de.uka.ipd.sdq.errorhandling,
  org.eclipse.emf.transaction,
  org.eclipse.jface.text,
  de.uka.ipd.sdq.dialogs,
  de.uka.ipd.sdq.pcm.edit,
  de.uka.ipd.sdq.pcmbench.ui,
- org.eclipse.emf.edit.ui
+ org.eclipse.emf.edit.ui,
+ de.uka.ipd.sdq.errorhandling
 Bundle-Vendor: sdq.ipd.uka.de
 Eclipse-LazyStart: true
 Bundle-Activator: de.uka.ipd.sdq.pcm.dialogs.PCMDialogPluginActivator
