@@ -3,7 +3,7 @@ Eclipse-BuddyPolicy: dependent
 Bundle-ManifestVersion: 2
 Bundle-Name: Hibernate Wrapper Plug-in
 Bundle-SymbolicName: org.hibernate
-Bundle-Version: 3.2.2.qualifier
+Bundle-Version: 3.2.2
 Bundle-ClassPath: hibernate3.jar,
  antlr-2.7.6.jar,
  c3p0-0.9.1.jar,
