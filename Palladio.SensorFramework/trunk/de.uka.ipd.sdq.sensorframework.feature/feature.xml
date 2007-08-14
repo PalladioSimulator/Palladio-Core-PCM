@@ -218,6 +218,13 @@ litigation.
       <update label="Palladio Update Site" url="http://i43pc12.ipd.uka.de/eclipse/PCM/"/>
    </url>
 
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.apache.commons.logging"/>
+      <import plugin="org.junit4"/>
+      <import plugin="org.apache.log4j"/>
+   </requires>
+
    <plugin
          id="de.uka.ipd.sdq.sensorframework"
          download-size="0"
@@ -245,5 +252,30 @@ litigation.
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="com.db4o"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.hibernate"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="ca.umontreal.iro.lecuyer.ssj"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="ca.umontreal.iro.lecuyer.ssj.win32"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
 
 </feature>
