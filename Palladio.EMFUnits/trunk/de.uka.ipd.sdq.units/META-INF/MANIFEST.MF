@@ -11,5 +11,5 @@ Export-Package: de.uka.ipd.sdq.units,
  de.uka.ipd.sdq.units.impl,
  de.uka.ipd.sdq.units.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore
 Eclipse-LazyStart: true
