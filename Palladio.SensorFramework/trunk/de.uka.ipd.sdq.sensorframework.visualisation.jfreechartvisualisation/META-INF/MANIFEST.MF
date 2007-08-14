@@ -16,9 +16,7 @@ Require-Bundle: org.eclipse.ui,
  org.apache.batik.dom,
  org.apache.batik.dom.svg,
  org.apache.batik.svggen,
- org.apache.batik.ext.awt
+ org.apache.batik.ext.awt,
+ org.jfree.jfreechart
 Eclipse-LazyStart: true
-Bundle-ClassPath: .,
- lib/jcommon-1.0.9.jar,
- lib/jfreechart-1.0.5.jar,
- lib/jfreechart-1.0.5-swt.jar
+Bundle-ClassPath: .
