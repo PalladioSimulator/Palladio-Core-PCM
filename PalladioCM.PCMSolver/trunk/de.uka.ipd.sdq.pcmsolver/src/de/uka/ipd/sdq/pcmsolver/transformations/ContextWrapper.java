@@ -1,8 +1,9 @@
 package de.uka.ipd.sdq.pcmsolver.transformations;
 
-import de.uka.ipd.sdq.context.usage.UsageContext;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
@@ -21,18 +22,22 @@ public class ContextWrapper {
 
 	AssemblyContext assCtx;
 	AllocationContext allCtx;
-	UsageContext usgCtx;
+	ComputedUsageContext usgCtx;
 	PCMInstance pcmInstance;
 	
 	
 	public ContextWrapper(EntryLevelSystemCall elsa, 
 						  PCMInstance pcmInstance){
 		this.pcmInstance = pcmInstance;
+		
+		
+		
+		
 	}
 	
 	private ContextWrapper(AssemblyContext assCtx,
 						  AllocationContext allCtx,
-						  UsageContext usgCtx,
+						  ComputedUsageContext usgCtx,
 						  PCMInstance pcmInstance){
 		this.assCtx = assCtx;
 		this.allCtx = allCtx;
@@ -69,14 +74,13 @@ public class ContextWrapper {
 		return null;
 	}
 
-	// TODO: Removed due to changed PCM (StB)
-//	public PassiveResourceSpecification getConcretePassiveResource(AcquireAction aa){
-//		return null;
-//	}
-//	
-//	public PassiveResourceSpecification getConcretePassiveResource(ReleaseAction ra){
-//		return null;
-//	}
+	public PassiveResource getConcretePassiveResource(AcquireAction aa){
+		return null;
+	}
+	
+	public PassiveResource getConcretePassiveResource(ReleaseAction ra){
+		return null;
+	}
 	
 	public CommunicationLinkResourceSpecification getConcreteLinkingResource(ExternalCallAction eca){
 		return null;
@@ -102,12 +106,12 @@ public class ContextWrapper {
 	}
 
 
-	public UsageContext getUsgCtx() {
+	public ComputedUsageContext getUsgCtx() {
 		return usgCtx;
 	}
 
 
-	public void setUsgCtx(UsageContext usgCtx) {
+	public void setUsgCtx(ComputedUsageContext usgCtx) {
 		this.usgCtx = usgCtx;
 	}
 

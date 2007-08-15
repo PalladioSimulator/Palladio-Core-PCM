@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
-import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
-import de.uka.ipd.sdq.context.usage.Usage;
-import de.uka.ipd.sdq.context.usage.UsageFactory;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocation;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsage;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -51,23 +51,23 @@ public class PCMInstance {
 
 	private UsageModel usageModel;
 	
-	private Usage usage;
+	private ComputedUsage usage;
 	
-	private ActualAllocation actualAllocation;
+	private ComputedAllocation actualAllocation;
 	
 	private String storagePath;
 
 	public PCMInstance(Properties config) {
 		this.storagePath = config.getProperty("Storage_Path");
-		this.usage = UsageFactory.eINSTANCE.createUsage();
-		this.actualAllocation = Actual_AllocationFactory.eINSTANCE.createActualAllocation();
+		this.usage = ComputedUsageFactory.eINSTANCE.createComputedUsage();
+		this.actualAllocation = ComputedAllocationFactory.eINSTANCE.createComputedAllocation();
 		loadFromFiles(config);
 	}
 
 	public PCMInstance(ILaunchConfiguration configuration) {
-		this.usage = UsageFactory.eINSTANCE.createUsage();
-		this.actualAllocation = Actual_AllocationFactory.eINSTANCE
-				.createActualAllocation();
+		this.usage = ComputedUsageFactory.eINSTANCE.createComputedUsage();
+		this.actualAllocation = ComputedAllocationFactory.eINSTANCE
+				.createComputedAllocation();
 		try {
 			this.storagePath = configuration.getAttribute("outputPath", ".");
 			
@@ -137,19 +137,19 @@ public class PCMInstance {
 	}
 
 	
-	public ActualAllocation getActualAllocation() {
+	public ComputedAllocation getComputedAllocation() {
 		return actualAllocation;
 	}
 
-	public void setActualAllocation(ActualAllocation actualAllocation) {
+	public void setComputedAllocation(ComputedAllocation actualAllocation) {
 		this.actualAllocation = actualAllocation;
 	}
 
-	public Usage getUsage() {
+	public ComputedUsage getComputedUsage() {
 		return usage;
 	}
 
-	public void setUsage(Usage usage) {
+	public void setComputedUsage(ComputedUsage usage) {
 		this.usage = usage;
 	}
 

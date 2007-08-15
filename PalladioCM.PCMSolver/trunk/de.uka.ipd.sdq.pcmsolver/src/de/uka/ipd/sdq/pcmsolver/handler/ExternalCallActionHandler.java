@@ -5,10 +5,10 @@ import java.util.Iterator;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
-import de.uka.ipd.sdq.context.usage.UsageContext;
-import de.uka.ipd.sdq.context.usage.UsageFactory;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
@@ -21,10 +21,10 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
+import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
@@ -40,6 +40,7 @@ import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
@@ -47,9 +48,9 @@ public class ExternalCallActionHandler {
 	
 	private SeffVisitor visitor;
 	
-	private UsageFactory usageFactory = UsageFactory.eINSTANCE;
+	private ComputedUsageFactory usageFactory = ComputedUsageFactory.eINSTANCE;
 	
-	private Actual_AllocationFactory actualAllocationFactory = Actual_AllocationFactory.eINSTANCE;
+	private ComputedAllocationFactory actualAllocationFactory = ComputedAllocationFactory.eINSTANCE;
 	
 	private ParameterFactory parameterFactory = ParameterFactory.eINSTANCE;
 	
@@ -70,7 +71,7 @@ public class ExternalCallActionHandler {
 				.eContainer();
 		
 		EList<VariableUsage> parametricParameterUsages = 
-			call.getParameterUsage_ExternalCallAction();
+			call.getInputParameterUsages_ExternalCallAction();
 			
 		AssemblyConnector foundAssemblyConnector = 
 			findAssemblyConnector(requiredInterface);
@@ -89,8 +90,11 @@ public class ExternalCallActionHandler {
 	}
 	
 	private void createInternalAction(String timeSpecification, ExternalCallAction call) {
+		PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		rv.setSpecification(timeSpecification);
+		
 		ParametricResourceDemand demand = seffFactory.createParametricResourceDemand();
-		demand.setSpecification(timeSpecification);
+		demand.setSpecification_ParametericResourceDemand(rv);
 		demand.setRequiredResource_ParametricResourceDemand(getProcessingResourceType());
 		
 		InternalAction action = seffFactory.createInternalAction();
@@ -121,10 +125,13 @@ public class ExternalCallActionHandler {
 		
 		ProcessingResourceSpecification res = ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification();
 		res.setActiveResourceType_ActiveResourceSpecification(resType);
-		ProcessingRate rate = ResourceenvironmentFactory.eINSTANCE.createProcessingRate();
-		rate.setSpecification("1.0");
-		res.setProcessingRate(rate);
-			
+		
+		PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		rv.setSpecification("1.0");
+
+		res.setProcessingRate_ProcessingResourceSpecification(rv);
+		res.setSchedulingPolicy(SchedulingPolicy.PROCESSOR_SHARING);
+		
 		ResourceContainer resCon = ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
 		resCon.setEntityName("SystemExternalResourceContainer");
 		resCon.getActiveResourceSpecifications_ResourceContainer().add(res);
@@ -149,7 +156,7 @@ public class ExternalCallActionHandler {
 					if (reqName.equals(reqIntName)){
 						String serviceName = time.getSignature_SpecifiedTimeConsumption().getServiceName();
 						if (serviceToBeCalled.getServiceName().equals(serviceName)){
-							return time.getSpecification();
+							return time.getSpecification_SpecifiedExecutionTime().getSpecification();
 						}
 					}
 				}
@@ -161,10 +168,10 @@ public class ExternalCallActionHandler {
 	}
 
 	private void storeOutputParametersToUsageContext(ExternalCallAction call, SeffVisitor nextVisitor) {
-		UsageContext uc = visitor.getMyContext().getUsageContext();
+		ComputedUsageContext uc = visitor.getMyContext().getUsageContext();
 		String returnName = call.getCalledService_ExternalService().getServiceName() + ".RETURN";
 
-		EList outputParamsProducedByExtCall = nextVisitor.getMyContext().getUsageContext().getActualParameterUsage_UsageContext();
+		EList outputParamsProducedByExtCall = nextVisitor.getMyContext().getUsageContext().getParameterUsages_ComputedUsageContext();
 		for (Object o : outputParamsProducedByExtCall){
 			VariableUsage vu = (VariableUsage)o;
 			String paramName = getFullParameterName(vu.getNamedReference_VariableUsage());
@@ -178,7 +185,7 @@ public class ExternalCallActionHandler {
 			}
 		}
 		
-		EList<VariableUsage> outputParamsDeclaredInSeff = call.getOutputVariableUsage_ExternalCallAction();
+		EList<VariableUsage> outputParamsDeclaredInSeff = call.getOutputVariableUsages_ExternalCallAction();
 		for (VariableUsage vu : outputParamsDeclaredInSeff){
 			copySolvedVariableUsageToUsageContext(uc, vu);
 		}
@@ -257,12 +264,12 @@ public class ExternalCallActionHandler {
 		Context myContext = visitor.getMyContext();
 		Context callContext = getCallContext(foundAssemblyConnector, myContext);
 		
-		UsageContext uc = getUsageContext(foundAssemblyConnector, parametricParameterUsages);
+		ComputedUsageContext uc = getUsageContext(foundAssemblyConnector, parametricParameterUsages);
 		callContext.setUsageContext(uc);
 
-		ActualAllocationContext aac = actualAllocationFactory
-				.createActualAllocationContext();
-		aac.setUsageContext_ActualAllocationContext(uc);
+		ComputedAllocationContext aac = actualAllocationFactory
+				.createComputedAllocationContext();
+		aac.setUsageContext_ComputedAllocationContext(uc);
 		callContext.setActualAllocationContext(aac);
 
 		callContext.setCurrentEvaluatedBranchConditions(myContext
@@ -278,12 +285,12 @@ public class ExternalCallActionHandler {
 	 * @param parametricParameterUsages
 	 * @return
 	 */
-	private UsageContext getUsageContext(AssemblyConnector foundAssemblyConnector, EList<VariableUsage> parametricParameterUsages) {
-		UsageContext uc = usageFactory.createUsageContext();
+	private ComputedUsageContext getUsageContext(AssemblyConnector foundAssemblyConnector, EList<VariableUsage> parametricParameterUsages) {
+		ComputedUsageContext uc = usageFactory.createComputedUsageContext();
 
 		AssemblyContext assCtx = foundAssemblyConnector.getProvidingChildComponentContext_CompositeAssemblyConnector();
 		//BasicComponent bc = (BasicComponent)assCtx.getEncapsulatedComponent_ChildComponentContext();
-		EList<VariableUsage> internalParameterUsages = assCtx.getComponentParameterUsage_AssemblyContext();
+		EList<VariableUsage> internalParameterUsages = assCtx.getConfigParameterUsages_AssemblyContext();
  		parametricParameterUsages.addAll(internalParameterUsages);
  		
  		for (VariableUsage oldUsage : parametricParameterUsages){
@@ -332,7 +339,7 @@ public class ExternalCallActionHandler {
 	 * @param uc
 	 * @param oldUsage
 	 */
-	private void copySolvedVariableUsageToUsageContext(UsageContext uc, VariableUsage oldUsage) {
+	private void copySolvedVariableUsageToUsageContext(ComputedUsageContext uc, VariableUsage oldUsage) {
 		VariableUsage newUsage = parameterFactory.createVariableUsage();
 		
 		newUsage.setNamedReference_VariableUsage(getReferenceCopy(oldUsage.getNamedReference_VariableUsage()));
@@ -340,19 +347,23 @@ public class ExternalCallActionHandler {
 
 		EList<VariableCharacterisation> characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
 		for (VariableCharacterisation oldCharacterisation : characterisations){
-			String specification = oldCharacterisation.getSpecification();
+			String specification = oldCharacterisation.getSpecification_VariableCharacterisation().getSpecification();
 			String solvedSpecification = ExpressionHelper
 					.getSolvedExpressionAsString(specification, visitor.getMyContext()); 
 
 			VariableCharacterisation solvedCharacterisation = parameterFactory
 					.createVariableCharacterisation();
 			solvedCharacterisation.setType(oldCharacterisation.getType());
-			solvedCharacterisation.setSpecification(solvedSpecification);
 			
+			PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+			rv.setSpecification(solvedSpecification);
+			
+			solvedCharacterisation.setSpecification_VariableCharacterisation(rv);
+		
 			newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
 			
 		}
-		uc.getActualParameterUsage_UsageContext().add(newUsage);
+		uc.getParameterUsages_ComputedUsageContext().add(newUsage);
 	}
 
 	/**

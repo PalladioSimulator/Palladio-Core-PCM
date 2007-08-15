@@ -8,11 +8,11 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
-import de.uka.ipd.sdq.context.usage.BranchProbability;
-import de.uka.ipd.sdq.context.usage.LoopIteration;
-import de.uka.ipd.sdq.context.usage.UsageContext;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
+import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
+import de.uka.ipd.sdq.context.computed_usage.BranchProbability;
+import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
@@ -57,6 +57,7 @@ import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 import de.uka.ipd.sdq.stoex.Atom;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 public class TransformSeffVisitor extends SeffSwitch{
 	
@@ -357,13 +358,13 @@ public class TransformSeffVisitor extends SeffSwitch{
 	 */
 	private void readActualAllocationContexts() {
 		resDemands = new HashMap<ParametricResourceDemand, String>();
-		EList aacList = pcmInstance.getActualAllocation().getActualAllocationContexts_ActualAllocation();
+		EList aacList = pcmInstance.getComputedAllocation().getComputedAllocationContexts_ComputedAllocation();
 		for (Object o : aacList){
-			ActualAllocationContext aac = (ActualAllocationContext)o;
-			EList actResDemands = aac.getActualResourceDemands_ActualAllocationContext();
+			ComputedAllocationContext aac = (ComputedAllocationContext)o;
+			EList actResDemands = aac.getResourceDemands_ComputedAllocationContext();
 			for (Object p : actResDemands){
-				ActualResourceDemand actResDemand = (ActualResourceDemand)p;
-				resDemands.put(actResDemand.getParametricResourceDemand_ActualResourceDemand(), actResDemand.getSpecification());
+				ResourceDemand actResDemand = (ResourceDemand)p;
+				resDemands.put(actResDemand.getParametricResourceDemand_ResourceDemand(),  actResDemand.getSpecification_ResourceDemand().getSpecification());
 			}
 		}
 	}
@@ -374,10 +375,10 @@ public class TransformSeffVisitor extends SeffSwitch{
 	private void readUsageContexts() {
 		branchProbs = new HashMap<AbstractBranchTransition, Double>();
 		loopIters = new HashMap<AbstractLoopAction, String>();
-		EList ucList = pcmInstance.getUsage().getUsageContexts_Usage();
+		EList ucList = pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage();
 		for (Object o : ucList){
-			UsageContext uc = (UsageContext)o;
-			EList bProbs = uc.getBranchprobabilities_UsageContext();
+			ComputedUsageContext uc = (ComputedUsageContext)o;
+			EList bProbs = uc.getBranchProbabilities_ComputedUsageContext();
 			for (Object p : bProbs){
 				BranchProbability branchProb = (BranchProbability)p;
 				branchProbs.put(
@@ -385,10 +386,10 @@ public class TransformSeffVisitor extends SeffSwitch{
 						branchProb.getProbability());
 			}
 			
-			EList lIters = uc.getLoopiterations_UsageContext();
+			EList lIters = uc.getLoopiterations_ComputedUsageContext();
 			for (Object q : lIters){
 				LoopIteration loopIter = (LoopIteration)q;
-				loopIters.put(loopIter.getLoopaction_LoopIteration(), loopIter.getSpecification());
+				loopIters.put(loopIter.getLoopaction_LoopIteration(), loopIter.getSpecification_LoopIteration().getSpecification());
 			}
 		}
 	}

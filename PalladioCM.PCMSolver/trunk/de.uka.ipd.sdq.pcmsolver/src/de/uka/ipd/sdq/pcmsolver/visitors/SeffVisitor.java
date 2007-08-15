@@ -6,8 +6,8 @@ package de.uka.ipd.sdq.pcmsolver.visitors;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.usage.UsageContext;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
@@ -185,10 +185,10 @@ public class SeffVisitor extends SeffSwitch {
 	 * Stores the just built usage and actual allocation context to pcminstance
 	 */
 	private void saveContexts() {
-		UsageContext usageContext = myContext.getUsageContext();
-		pcmInstance.getUsage().getUsageContexts_Usage().add(usageContext);
-		ActualAllocationContext actAll = myContext.getActualAllocationContext();
-		pcmInstance.getActualAllocation().getActualAllocationContexts_ActualAllocation().add(actAll);
+		ComputedUsageContext usageContext = myContext.getUsageContext();
+		pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage().add(usageContext);
+		ComputedAllocationContext actAll = myContext.getActualAllocationContext();
+		pcmInstance.getComputedAllocation().getComputedAllocationContexts_ComputedAllocation().add(actAll);
 	}
 
 	/**

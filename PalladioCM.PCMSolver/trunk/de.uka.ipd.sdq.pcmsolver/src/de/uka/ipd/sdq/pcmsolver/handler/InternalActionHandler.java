@@ -8,8 +8,8 @@ import java.util.Iterator;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
-import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
+import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
@@ -21,6 +21,8 @@ import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 /**
  * @author Koziolek
@@ -30,7 +32,7 @@ public class InternalActionHandler{
 	
 	private static Logger logger = Logger.getLogger(InternalActionHandler.class.getName());
 	
-	private Actual_AllocationFactory actualAllocationFactory = Actual_AllocationFactory.eINSTANCE;
+	private ComputedAllocationFactory actualAllocationFactory = ComputedAllocationFactory.eINSTANCE;
 
 	private SeffVisitor visitor; 
 	
@@ -76,24 +78,25 @@ public class InternalActionHandler{
 	 */
 	private void createActualResourceDemand(ParametricResourceDemand prd, ProcessingResourceSpecification prs) {
 		// TODO: include branch conditions and loop iterations
-		String actResDemSpecification = getSolvedSpecification(prd.getSpecification(), prs);
+		String actResDemSpecification = getSolvedSpecification(prd.getSpecification_ParametericResourceDemand().getSpecification(), prs);
 		
-		ActualResourceDemand ard = actualAllocationFactory
-				.createActualResourceDemand();
-		ard.setParametricResourceDemand_ActualResourceDemand(prd);
-		ard.setParametricResourceDemand_ActualResourceDemand(prd);
-
-		ard.setSpecification(actResDemSpecification);
+		ResourceDemand ard = actualAllocationFactory.createResourceDemand();
+		ard.setParametricResourceDemand_ResourceDemand(prd);
+		
+		PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		rv.setSpecification(actResDemSpecification);
+		ard.setSpecification_ResourceDemand(rv);
+		
 		
 		visitor.getMyContext().getActualAllocationContext()
-				.getActualResourceDemands_ActualAllocationContext()
+				.getResourceDemands_ComputedAllocationContext()
 				.add(ard);
 	}
 
 	private String getSolvedSpecification(String specification, ProcessingResourceSpecification prs) {
 
 		// quickly incorporate processing rate
-		specification = "("+ specification+") / "+prs.getProcessingRate();
+		specification = "("+ specification+") / "+prs.getProcessingRate_ProcessingResourceSpecification().getSpecification();
 		logger.info("Actual Resource Demand (Expression): "+specification);
 		
 		Expression solvedExpr = (Expression) ExpressionHelper.getSolvedExpression(specification, visitor.getMyContext());

@@ -70,7 +70,7 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 	@Override
 	public Object caseLoop(Loop object) {
 		de.uka.ipd.sdq.spa.expression.Loop loop = expFactory.createLoop();
-		RandomVariable iterations = (RandomVariable)object.getIterations_Loop();
+		RandomVariable iterations = (RandomVariable)object.getLoopIteration_Loop();
 		loop.setIterationsString(iterations.getSpecification());
 		loop.setRegExp((Expression)doSwitch(object.getBodyBehaviour_Loop()));
 		

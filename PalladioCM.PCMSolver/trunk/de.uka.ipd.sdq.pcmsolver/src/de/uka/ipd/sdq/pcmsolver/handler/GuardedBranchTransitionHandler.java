@@ -50,7 +50,7 @@ public class GuardedBranchTransitionHandler extends AbstractBranchTransitionHand
 	 * @return
 	 */
 	private double getBranchProbFromExpression(GuardedBranchTransition bt) {
-		String specification = bt.getBranchCondition_BranchTransition().getSpecification(); 
+		String specification = bt.getBranchCondition_GuardedBranchTransition().getSpecification(); 
 		Expression solvedExpression = ExpressionHelper.getSolvedExpression(specification,visitor.getMyContext());
 
 		ProbabilityFunctionLiteral pfl = (ProbabilityFunctionLiteral)solvedExpression;

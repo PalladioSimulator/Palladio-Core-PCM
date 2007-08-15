@@ -53,7 +53,7 @@ public class CollectionIteratorActionHandler extends AbstractLoopActionHandler{
 	 * @return
 	 */
 	private String getIterationExpression(String soughtParameterName){
-		EList parList = visitor.getMyContext().getUsageContext().getActualParameterUsage_UsageContext();
+		EList parList = visitor.getMyContext().getUsageContext().getParameterUsages_ComputedUsageContext();
 
 		for (Object o : parList){ // iterate over parameters
 			VariableUsage vu = (VariableUsage)o;
@@ -73,7 +73,7 @@ public class CollectionIteratorActionHandler extends AbstractLoopActionHandler{
 				for (Object p: parChars){ // iterate over a parameter's characterisations
 					VariableCharacterisation vc = (VariableCharacterisation)p;
 					if (vc.getType() == VariableCharacterisationType.NUMBER_OF_ELEMENTS){
-						return vc.getSpecification();
+						return vc.getSpecification_VariableCharacterisation().getSpecification();
 					}
 				}
 				logger.error("Variable Characterisation NUMBER_OF_ELEMENTS missing " +

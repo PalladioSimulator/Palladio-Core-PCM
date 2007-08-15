@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.pcmsolver.handler;
 
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.usage.UsageContext;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
@@ -27,11 +28,11 @@ public class SetVariableActionHandler {
 
 	public void handle(SetVariableAction sva){
 		
-		UsageContext uc = visitor.getMyContext().getUsageContext();
-		VariableUsage vu = sva.getVariableUsage_SetVariableAction();
-		
-		copySolvedVariableUsageToUsageContext(uc, vu);
-		
+		ComputedUsageContext uc = visitor.getMyContext().getUsageContext();
+		EList<VariableUsage> vuList = sva.getLocalVariableUsages_SetVariableAction();
+		for (VariableUsage vu : vuList){
+			copySolvedVariableUsageToUsageContext(uc, vu);	
+		}
 //		AbstractNamedReference anr = vu.getNamedReference_VariableUsage();
 //
 //		EList charList = vu.getVariableCharacterisation_VariableUsage();
@@ -62,7 +63,7 @@ public class SetVariableActionHandler {
 	 * @param uc
 	 * @param oldUsage
 	 */
-	private void copySolvedVariableUsageToUsageContext(UsageContext uc, VariableUsage oldUsage) {
+	private void copySolvedVariableUsageToUsageContext(ComputedUsageContext uc, VariableUsage oldUsage) {
 		VariableUsage newUsage = parameterFactory.createVariableUsage();
 		
 		newUsage.setNamedReference_VariableUsage(getReferenceCopy(oldUsage.getNamedReference_VariableUsage()));
@@ -72,19 +73,22 @@ public class SetVariableActionHandler {
 		for (Object o2 : characterisations){
 			VariableCharacterisation oldCharacterisation = (VariableCharacterisation)o2;
 
-			String specification = oldCharacterisation.getSpecification();
+			String specification = oldCharacterisation.getSpecification_VariableCharacterisation().getSpecification();
 			String solvedSpecification = ExpressionHelper
 					.getSolvedExpressionAsString(specification, visitor.getMyContext()); 
 
 			VariableCharacterisation solvedCharacterisation = parameterFactory
 					.createVariableCharacterisation();
 			solvedCharacterisation.setType(oldCharacterisation.getType());
-			solvedCharacterisation.setSpecification(solvedSpecification);
+
+			PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+			rv.setSpecification(solvedSpecification);
+			solvedCharacterisation.setSpecification_VariableCharacterisation(rv);
 			
 			newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
 			
 		}
-		uc.getActualParameterUsage_UsageContext().add(newUsage);
+		uc.getParameterUsages_ComputedUsageContext().add(newUsage);
 	}
 	
 	private AbstractNamedReference getReferenceCopy(AbstractNamedReference anr){

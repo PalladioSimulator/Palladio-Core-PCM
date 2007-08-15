@@ -22,7 +22,7 @@ public class LoopActionHandler extends AbstractLoopActionHandler {
 	}
 
 	public void handle(LoopAction loop) {
-		String specification = loop.getIterations_LoopAction().getSpecification();
+		String specification = loop.getIterationCount_LoopAction().getSpecification();
 		String solvedSpecification = 
 			ExpressionHelper.getSolvedExpressionAsString(specification, visitor.getMyContext());
 

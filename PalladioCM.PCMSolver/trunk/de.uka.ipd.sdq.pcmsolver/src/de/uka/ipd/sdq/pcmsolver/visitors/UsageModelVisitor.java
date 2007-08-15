@@ -3,12 +3,12 @@ package de.uka.ipd.sdq.pcmsolver.visitors;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
-import de.uka.ipd.sdq.context.usage.Usage;
-import de.uka.ipd.sdq.context.usage.UsageContext;
-import de.uka.ipd.sdq.context.usage.UsageFactory;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocation;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsage;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
@@ -45,9 +46,9 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 
 	private PCMInstance pcmInstance;
 
-	private UsageFactory usageFactory;
+	private ComputedUsageFactory usageFactory;
 
-	private Actual_AllocationFactory actualAllocationFactory;
+	private ComputedAllocationFactory actualAllocationFactory;
 	
 	private ParameterFactory parameterFactory;
 
@@ -57,11 +58,11 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	public UsageModelVisitor(PCMInstance inst) {
 		pcmInstance = inst;
-		usageFactory = UsageFactory.eINSTANCE;
-		actualAllocationFactory = Actual_AllocationFactory.eINSTANCE;
+		usageFactory = ComputedUsageFactory.eINSTANCE;
+		actualAllocationFactory = ComputedAllocationFactory.eINSTANCE;
 		parameterFactory = ParameterFactory.eINSTANCE;
-		ActualAllocation all = actualAllocationFactory.createActualAllocation();
-		Usage usage = usageFactory.createUsage();
+		ComputedAllocation all = actualAllocationFactory.createComputedAllocation();
+		ComputedUsage usage = usageFactory.createComputedUsage();
 	}
 
 	/*
@@ -147,15 +148,25 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	private ProvidedDelegationConnector getDelegationConnector(
 			ProvidedRole role) {
-		ProvidedDelegationConnector delegationConnector = 
-			(ProvidedDelegationConnector) EMFHelper
-				.executeOCLQuery(
-						pcmInstance.getSystem(),
-						"self.providedDelegationConnectors_ComposedStructure->select(dc|dc.outerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole.id = '"
-								+ role.getProvidedInterface__ProvidedRole()
-										.getId()
-								+ "')->asOrderedSet()->first()");
-		return delegationConnector;
+		String id = role.getId();
+		EList<ProvidedDelegationConnector> pdcList = pcmInstance.getSystem()
+				.getProvidedDelegationConnectors_ComposedStructure();
+		for (ProvidedDelegationConnector pdc : pdcList){
+			if (pdc.getOuterProvidedRole_ProvidedDelegationConnector().getId().equals(id)) return pdc;
+		}
+		logger.error("Could not get Delegation Connector from System!");
+		return null;
+	
+		
+//		ProvidedDelegationConnector delegationConnector = 
+//			(ProvidedDelegationConnector) EMFHelper
+//				.executeOCLQuery(
+//						pcmInstance.getSystem(),
+//						"self.providedDelegationConnectors_ComposedStructure->select(dc|dc.outerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole.id = '"
+//								+ role.getProvidedInterface__ProvidedRole()
+//										.getId()
+//								+ "')->asOrderedSet()->first()");
+//		return delegationConnector;
 		
 	}
 
@@ -192,13 +203,23 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	private ServiceEffectSpecification getSeff(Signature method,
 			BasicComponent basicComponent) {
-		ServiceEffectSpecification seff = (ServiceEffectSpecification) EMFHelper
-				.executeOCLQuery(
-						basicComponent,
-						"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"
-								+ method.getServiceName()
-								+ "')->asOrderedSet()->first()");
-		return seff;
+		String serviceName = method.getServiceName();
+		EList<ServiceEffectSpecification> seffList = basicComponent.getServiceEffectSpecifications__BasicComponent();
+		for (ServiceEffectSpecification seff : seffList){
+			if (seff.getDescribedService__SEFF().getServiceName().equals(serviceName)){
+				return seff;
+			}
+		}
+		logger.error("Could not find SEFF for Signature!");
+		return null;
+		
+//		ServiceEffectSpecification seff = (ServiceEffectSpecification) EMFHelper
+//				.executeOCLQuery(
+//						basicComponent,
+//						"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"
+//								+ method.getServiceName()
+//								+ "')->asOrderedSet()->first()");
+//		return seff;
 	}
 
 	/**
@@ -215,8 +236,8 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		callContext.setDerivedAssemblyContext(delegationConnector
 				.getChildComponentContext_ProvidedDelegationConnector());
 
-		UsageContext uc = usageFactory.createUsageContext();
-		EList<VariableUsage> parList = call.getActualParameterUsage_EntryLevelSystemCall();
+		ComputedUsageContext uc = usageFactory.createComputedUsageContext();
+		EList<VariableUsage> parList = call.getInputParameterUsages_EntryLevelSystemCall();
 		for (VariableUsage vu : parList){
 			copySolvedVariableUsageToUsageContext(uc, vu, callContext);
 		}
@@ -224,7 +245,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 
 		AssemblyContext assCtx = delegationConnector.getChildComponentContext_ProvidedDelegationConnector();
 		BasicComponent bc = (BasicComponent)assCtx.getEncapsulatedComponent_ChildComponentContext();
-		EList<VariableUsage> intParList = assCtx.getComponentParameterUsage_AssemblyContext();
+		EList<VariableUsage> intParList = assCtx.getConfigParameterUsages_AssemblyContext();
 		for (VariableUsage vu : intParList){
 			copySolvedVariableUsageToUsageContext(uc, vu, callContext);
 		}
@@ -232,15 +253,15 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		
 		callContext.setUsageContext(uc);
 
-		ActualAllocationContext aac = actualAllocationFactory
-				.createActualAllocationContext();
-		aac.setUsageContext_ActualAllocationContext(uc);
+		ComputedAllocationContext aac = actualAllocationFactory
+				.createComputedAllocationContext();
+		aac.setUsageContext_ComputedAllocationContext(uc);
 		callContext.setActualAllocationContext(aac);
 
 		return callContext;
 	}
 
-	private void copySolvedVariableUsageToUsageContext(UsageContext uc, VariableUsage oldUsage, Context callContext) {
+	private void copySolvedVariableUsageToUsageContext(ComputedUsageContext uc, VariableUsage oldUsage, Context callContext) {
 		VariableUsage newUsage = parameterFactory.createVariableUsage();
 		
 		newUsage.setNamedReference_VariableUsage(getReferenceCopy(oldUsage.getNamedReference_VariableUsage()));
@@ -248,19 +269,22 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 
 		EList<VariableCharacterisation> characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
 		for (VariableCharacterisation oldCharacterisation : characterisations){
-			String specification = oldCharacterisation.getSpecification();
+			String specification = oldCharacterisation.getSpecification_VariableCharacterisation().getSpecification();
 			String solvedSpecification = ExpressionHelper
 					.getSolvedExpressionAsString(specification, callContext); 
 
 			VariableCharacterisation solvedCharacterisation = parameterFactory
 					.createVariableCharacterisation();
 			solvedCharacterisation.setType(oldCharacterisation.getType());
-			solvedCharacterisation.setSpecification(solvedSpecification);
+
+			PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+			rv.setSpecification(solvedSpecification);
+			solvedCharacterisation.setSpecification_VariableCharacterisation(rv);
 			
 			newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
 			
 		}
-		uc.getActualParameterUsage_UsageContext().add(newUsage);
+		uc.getParameterUsages_ComputedUsageContext().add(newUsage);
 	}
 	
 	private AbstractNamedReference getReferenceCopy(AbstractNamedReference anr){

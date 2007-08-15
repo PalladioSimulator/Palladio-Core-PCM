@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.usage.LoopIteration;
-import de.uka.ipd.sdq.context.usage.UsageFactory;
+import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
@@ -15,13 +15,15 @@ import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 public abstract class AbstractLoopActionHandler {
 
 	private static Logger logger = Logger.getLogger(AbstractLoopActionHandler.class.getName());
 
-	protected UsageFactory usageFactory = UsageFactory.eINSTANCE;
+	protected ComputedUsageFactory usageFactory = ComputedUsageFactory.eINSTANCE;
 
 	protected SeffVisitor visitor;
 
@@ -111,9 +113,11 @@ public abstract class AbstractLoopActionHandler {
 	protected void storeToUsageContext(AbstractLoopAction loop, String solvedSpecification) {
 		LoopIteration loopIteration = usageFactory.createLoopIteration();
 		loopIteration.setLoopaction_LoopIteration(loop);
-		loopIteration.setSpecification(solvedSpecification);
+		PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		rv.setSpecification(solvedSpecification);
+		loopIteration.setSpecification_LoopIteration(rv);
 		
-		visitor.getMyContext().getUsageContext().getLoopiterations_UsageContext().add(loopIteration);
+		visitor.getMyContext().getUsageContext().getLoopiterations_ComputedUsageContext().add(loopIteration);
 	}
 
 	

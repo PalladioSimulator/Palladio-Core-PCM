@@ -2,8 +2,8 @@ package de.uka.ipd.sdq.pcmsolver.models;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.usage.UsageContext;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 
@@ -16,8 +16,8 @@ public class Context {
 	private AssemblyContext myAssemblyContext;
 	private Allocation myAllocation;
 	
-	private UsageContext usageContext;
-	private ActualAllocationContext actualAllocationContext;
+	private ComputedUsageContext usageContext;
+	private ComputedAllocationContext actualAllocationContext;
 	
 	private ArrayList currentLoopIterationNumber;
 	private ArrayList currentEvaluatedBranchConditions;
@@ -51,17 +51,17 @@ public class Context {
 	public void setSystem(de.uka.ipd.sdq.pcm.system.System mySystem) {
 		this.mySystem = mySystem;
 	}
-	public ActualAllocationContext getActualAllocationContext() {
+	public ComputedAllocationContext getActualAllocationContext() {
 		return actualAllocationContext;
 	}
 	public void setActualAllocationContext(
-			ActualAllocationContext actualAllocationContext) {
+			ComputedAllocationContext actualAllocationContext) {
 		this.actualAllocationContext = actualAllocationContext;
 	}
-	public UsageContext getUsageContext() {
+	public ComputedUsageContext getUsageContext() {
 		return usageContext;
 	}
-	public void setUsageContext(UsageContext usageContext) {
+	public void setUsageContext(ComputedUsageContext usageContext) {
 		this.usageContext = usageContext;
 	}
 	public ArrayList getCurrentEvaluatedBranchConditions() {

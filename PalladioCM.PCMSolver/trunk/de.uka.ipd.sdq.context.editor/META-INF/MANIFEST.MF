@@ -7,8 +7,8 @@ Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.context.usage.presentation.ContextEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: de.uka.ipd.sdq.context.actual_allocation.presentation,
- de.uka.ipd.sdq.context.usage.presentation
+Export-Package: de.uka.ipd.sdq.context.computed_allocation.presentation,
+ de.uka.ipd.sdq.context.computed_usage.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.uka.ipd.sdq.context.edit;visibility:=reexport,

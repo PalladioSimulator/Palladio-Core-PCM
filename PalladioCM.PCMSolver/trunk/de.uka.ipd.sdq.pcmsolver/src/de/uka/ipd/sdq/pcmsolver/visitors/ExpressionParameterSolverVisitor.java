@@ -39,7 +39,7 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 		AbstractNamedReference anr = var.getId_Variable();
 		CharacterisedVariable chVar = (CharacterisedVariable)var;
 		
-		EList parList = context.getUsageContext().getActualParameterUsage_UsageContext();
+		EList parList = context.getUsageContext().getParameterUsages_ComputedUsageContext();
 
 		String soughtParameterName = getFullParameterName(anr);
 		for (Object o : parList){ // iterate over parameters
@@ -56,7 +56,7 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 				for (Object p: parChars){ // iterate over a parameter's characterisations
 					VariableCharacterisation vc = (VariableCharacterisation)p;
 					if (vc.getType() == chVar.getCharacterisationType()){
-						String specification = vc.getSpecification();
+						String specification = vc.getSpecification_VariableCharacterisation().getSpecification();
 						Expression expr = ExpressionHelper.parseToExpression(specification);
 						return expr;
 					}
