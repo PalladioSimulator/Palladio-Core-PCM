@@ -12,14 +12,14 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://sdq.ipd.uka.de/Context/Usage/1.0" 
-       class = "de.uka.ipd.sdq.context.usage.UsagePackage"
+       class = "de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage"
        genModel = "model/context.genmodel" /> 
   </extension>
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://sdq.ipd.uka.de/Context/Allocation/1.0" 
-       class = "de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage"
+       class = "de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationPackage"
        genModel = "model/context.genmodel" /> 
   </extension>
 
