@@ -80,7 +80,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		final Button workspaceButton = new Button(repositoryTypeGroup, SWT.NONE);
 		workspaceButton.setText("Workspace...");
 		workspaceButton
-				.addSelectionListener(new WorkspaseButtonSelectionListener(
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
 						textResourceType, ConstantsContainer.RESOURCETYPE_EXTENSION));
 
 		final Button buttonResourceTypeRepository = new Button(
@@ -120,7 +120,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		final Button workspaceButton_1 = new Button(repositoryGroup, SWT.NONE);
 		workspaceButton_1.setText("Workspace...");
 		workspaceButton_1
-				.addSelectionListener(new WorkspaseButtonSelectionListener(
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
 						textRepository, ConstantsContainer.REPOSITORY_EXTENSION));
 
 		final Button buttonRepository = new Button(repositoryGroup, SWT.NONE);
@@ -156,7 +156,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		final Button workspaceButton_2 = new Button(systemGroup, SWT.NONE);
 		workspaceButton_2.setText("Workspace...");
 		workspaceButton_2
-				.addSelectionListener(new WorkspaseButtonSelectionListener(
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
 						textSystem, ConstantsContainer.SYSTEM_EXTENSION));
 
 		final Button buttonSystem = new Button(systemGroup, SWT.NONE);
@@ -192,7 +192,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		final Button workspaceButton_3 = new Button(allocationGroup, SWT.NONE);
 		workspaceButton_3.setText("Workspace...");
 		workspaceButton_3
-				.addSelectionListener(new WorkspaseButtonSelectionListener(
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
 						textAllocation, ConstantsContainer.ALLOCATION_EXTENSION));
 
 		final Button buttonAllocation = new Button(allocationGroup, SWT.NONE);
@@ -228,7 +228,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		final Button workspaceButton_4 = new Button(usageGroup, SWT.NONE);
 		workspaceButton_4.setText("Workspace...");
 		workspaceButton_4
-				.addSelectionListener(new WorkspaseButtonSelectionListener(
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
 						textUsage, ConstantsContainer.USAGEMODEL_EXTENSION));
 
 		final Button buttonUsage = new Button(usageGroup, SWT.NONE);
@@ -358,21 +358,21 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		return true;
 	}
 	
-	private boolean validateFilePath(String filePath, String[] extentions){
+	private boolean validateFilePath(String filePath, String[] extensions){
 		if (filePath.equals(""))
 			return false;
-		String extention = getExtentionFromArray(extentions).replace("*", ""); 
-		if (filePath.contains(extention))
+		String extension = getExtensionFromArray(extensions).replace("*", ""); 
+		if (filePath.contains(extension))
 			return true;
 		return false;
 	}
 
-	private String getExtentionFromArray(String[] array){
+	private String getExtensionFromArray(String[] array){
 		return array[0];
 	}
 	
 	/**
-	 * The function calls the FileDialog and give back absolute path on the file
+	 * The function calls the FileDialog and gives back absolute path on the file
 	 * as String
 	 * 
 	 * @param extensions
@@ -395,12 +395,12 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	}
 
 	/**
-	 * The function calls the ContainerSelectionDialog and give back relative to
+	 * The function calls the ContainerSelectionDialog and gives back relative to
 	 * the workspace
 	 * 
 	 * @return relative path to file in workspace
 	 */
-	private String openResourceDialog(String extention) {
+	private String openResourceDialog(String extension) {
 		
 		/** Filter from the redundant files. */
 		List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
@@ -409,7 +409,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		filters.add(filter);
 		
 		/** create the dialog message*/
-		String msg = "Select a file (" + extention + ").";
+		String msg = "Select a file (" + extension + ").";
 
 		IFile file = null;
 
@@ -426,14 +426,14 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	
 
 	/** Button SelectionListener - call a WorkspaceResourceDialog */
-	class WorkspaseButtonSelectionListener extends SelectionAdapter {
+	class WorkspaceButtonSelectionListener extends SelectionAdapter {
 
 		private Text field;
 		private String extension;
 
-		public WorkspaseButtonSelectionListener(Text field, String[] extensions) {
+		public WorkspaceButtonSelectionListener(Text field, String[] extensions) {
 			this.field = field;
-			this.extension = getExtentionFromArray(extensions);
+			this.extension = getExtensionFromArray(extensions);
 		}
 
 		/* (non-Javadoc)
