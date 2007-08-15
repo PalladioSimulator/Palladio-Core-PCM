@@ -1,33 +1,11 @@
 package de.uka.ipd.sdq.capra.simulator.resources_new;
 
+import java.util.Map;
+
 import de.uka.ipd.sdq.capra.simulator.schedinterface.ISchedulableProcess;
 
 
 public class SimActiveResource extends AbstractSimResource implements IActiveResource {
-
-	/**
-	 * @uml.property  name="schedulingStrategy"
-	 * @uml.associationEnd  aggregation="composite" inverse="simActiveResource:de.uka.ipd.sdq.capra.simulator.resources_new.ISchedulingStrategy"
-	 */
-	private IScheduler schedulingStrategy;
-
-	/**
-	 * Getter of the property <tt>schedulingStrategy</tt>
-	 * @return  Returns the schedulingStrategy.
-	 * @uml.property  name="schedulingStrategy"
-	 */
-	public IScheduler getSchedulingStrategy() {
-		return schedulingStrategy;
-	}
-
-	/**
-	 * Setter of the property <tt>schedulingStrategy</tt>
-	 * @param schedulingStrategy  The schedulingStrategy to set.
-	 * @uml.property  name="schedulingStrategy"
-	 */
-	public void setSchedulingStrategy(IScheduler schedulingStrategy) {
-		this.schedulingStrategy = schedulingStrategy;
-	}
 
 	/**
 	 * @uml.property  name="scheduler"
@@ -57,28 +35,41 @@ public class SimActiveResource extends AbstractSimResource implements IActiveRes
 	public void process(ISchedulableProcess process, boolean demand) {
 	}
 
-	/**
-	 * @uml.property  name="priorityManager"
-	 * @uml.associationEnd  aggregation="composite" inverse="simActiveResource:de.uka.ipd.sdq.capra.simulator.resources_new.IPriorityManager"
-	 */
-	private IPriorityManager priorityManager;
-
-	/**
-	 * Getter of the property <tt>priorityManager</tt>
-	 * @return  Returns the priorityManager.
-	 * @uml.property  name="priorityManager"
-	 */
-	public IPriorityManager getPriorityManager() {
-		return priorityManager;
+	@Override
+	public void registerNewProcess(ActiveProcess process) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
-	 * Setter of the property <tt>priorityManager</tt>
-	 * @param priorityManager  The priorityManager to set.
-	 * @uml.property  name="priorityManager"
+	 * @uml.property  name="instances"
+	 * @uml.associationEnd  aggregation="composite" inverse="simActiveResource:de.uka.ipd.sdq.capra.simulator.resources_new.SimResourceInstance" qualifier="key:java.lang.Integer de.uka.ipd.sdq.capra.simulator.resources_new.SimResourceInstance"
 	 */
-	public void setPriorityManager(IPriorityManager priorityManager) {
-		this.priorityManager = priorityManager;
+	private Map<Integer, SimResourceInstance> instancesMap;
+
+	/**
+	 * Getter of the property <tt>instances</tt>
+	 * @return  Returns the instancesMap.
+	 * @uml.property  name="instances"
+	 */
+	public Map<Integer, SimResourceInstance> getInstances() {
+		return instancesMap;
 	}
+
+	/**
+	 * Setter of the property <tt>instances</tt>
+	 * @param instances  The instancesMap to set.
+	 * @uml.property  name="instances"
+	 */
+	public void setInstances(Map<Integer, SimResourceInstance> instances) {
+		instancesMap = instances;
+	}
+
+		
+		/**
+		 */
+		public SimResourceInstance getInstance(int instance_id){
+			return null;
+		}
 
 }

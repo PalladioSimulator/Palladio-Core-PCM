@@ -13,7 +13,7 @@ public class ProcessRegistry<T> {
 		return null;
 	}
 	
-	public void unregister(SimCapraProcess process){
+	public void unregisterProcess(SimCapraProcess process){
 		
 	}
 	

@@ -2,12 +2,13 @@ package de.uka.ipd.sdq.capra.simulator.resources_new;
 
 import java.util.List;
 
-public class ActiveProcess extends AbstractDecoratedProcess {
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
+
+public class ActiveProcess {
 
 	/**
-	 * @uml.property name="state"
-	 * @uml.associationEnd aggregation="composite"
-	 *                     inverse="runningProcess:de.uka.ipd.sdq.capra.simulator.resources_new.PROCESS_STATE"
+	 * @uml.property   name="state"
+	 * @uml.associationEnd   aggregation="composite" inverse="runningProcess:de.uka.ipd.sdq.capra.simulator.resources_new.PROCESS_STATE"
 	 */
 	private PROCESS_STATE state = PROCESS_STATE.READY;
 
@@ -33,7 +34,7 @@ public class ActiveProcess extends AbstractDecoratedProcess {
 	}
 
 	/**
-	 * @uml.property name="currentDemand"
+	 * @uml.property   name="currentDemand"
 	 */
 	private double currentDemand;
 
@@ -58,35 +59,32 @@ public class ActiveProcess extends AbstractDecoratedProcess {
 		this.currentDemand = currentDemand;
 	}
 
-	/** 
-	 * @uml.property name="processorSelectionCriteriaList"
-	 * @uml.associationEnd multiplicity="(0 -1)" ordering="true" aggregation="composite" inverse="runningProcess:de.uka.ipd.sdq.capra.simulator.resources_new.IProcessorSelectionConstraint"
-	 */
-	private List<IProcessorSelectionConstraint> processorAffinity;
-
-	public double getTimeUntilNextSchedulingEvent() {
+	public double getRemainingTimeSlice() {
 		return 0;
 	}
 
-	/** 
-	 * @uml.property name="processStateSensorList"
-	 * @uml.associationEnd multiplicity="(0 -1)" ordering="true" aggregation="shared" inverse="activeProcess:de.uka.ipd.sdq.capra.simulator.resources_new.IProcessStateSensor"
+	/**
+	 * @uml.property   name="processStateSensorList"
+	 * @uml.associationEnd   multiplicity="(0 -1)" ordering="true" aggregation="shared" inverse="activeProcess:de.uka.ipd.sdq.capra.simulator.resources_new.IProcessStateSensor"
 	 */
 	private List<IProcessStateSensor> processStateSensorList;
 
-	/** 
+	/**
 	 * Getter of the property <tt>processStateSensorList</tt>
-	 * @return  Returns the processStateSensorList.
-	 * @uml.property  name="processStateSensorList"
+	 * 
+	 * @return Returns the processStateSensorList.
+	 * @uml.property name="processStateSensorList"
 	 */
 	public List<IProcessStateSensor> getProcessStateSensorList() {
 		return processStateSensorList;
 	}
 
-	/** 
+	/**
 	 * Setter of the property <tt>processStateSensorList</tt>
-	 * @param processStateSensorList  The processStateSensorList to set.
-	 * @uml.property  name="processStateSensorList"
+	 * 
+	 * @param processStateSensorList
+	 *            The processStateSensorList to set.
+	 * @uml.property name="processStateSensorList"
 	 */
 	public void setProcessStateSensorList(
 			List<IProcessStateSensor> processStateSensorList) {
@@ -94,22 +92,131 @@ public class ActiveProcess extends AbstractDecoratedProcess {
 			}
 
 	/**
-	 * Getter of the property <tt>processorSelectionCriteriaList</tt>
-	 * @return  Returns the processorAffinity.
-	 * @uml.property  name="processorSelectionCriteriaList"
+	 * @uml.property   name="capraProcess"
+	 * @uml.associationEnd   aggregation="shared" inverse="abstractDecoratedProcess:de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess"
 	 */
-	public List<IProcessorSelectionConstraint> getProcessorSelectionCriteriaList() {
-		return processorAffinity;
+	private SimCapraProcess capraProcess;
+
+	/**
+	 * Getter of the property <tt>capraProcess</tt>
+	 * 
+	 * @return Returns the capraProcess.
+	 * @uml.property name="capraProcess"
+	 */
+	public SimCapraProcess getCapraProcess() {
+		return capraProcess;
 	}
 
 	/**
-	 * Setter of the property <tt>processorSelectionCriteriaList</tt>
-	 * @param processorSelectionCriteriaList  The processorAffinity to set.
-	 * @uml.property  name="processorSelectionCriteriaList"
+	 * Setter of the property <tt>capraProcess</tt>
+	 * 
+	 * @param capraProcess
+	 *            The capraProcess to set.
+	 * @uml.property name="capraProcess"
 	 */
-	public void setProcessorSelectionCriteriaList(
-			List<IProcessorSelectionConstraint> processorSelectionCriteriaList) {
-		processorAffinity = processorSelectionCriteriaList;
+	public void setCapraProcess(SimCapraProcess capraProcess) {
+		this.capraProcess = capraProcess;
+	}
+
+	/**
+	 */
+	public void getRemainingDemand() {
+	}
+
+	/**
+	 * Proceeds all timeing variables to the current simulation time.
+	 */
+	public void toNow() {
+	}
+
+	public void setStandby() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setRunning() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * @uml.property  name="affinityConstraint"
+	 * @uml.associationEnd  aggregation="composite" inverse="activeProcess:de.uka.ipd.sdq.capra.simulator.resources_new.MultipleResourceInstancesConstraint"
+	 */
+	private MultipleResourceInstancesConstraint affinityConstraint;
+
+	/**
+	 * Getter of the property <tt>affinityConstraint</tt>
+	 * @return  Returns the affinityConstraint.
+	 * @uml.property  name="affinityConstraint"
+	 */
+	public MultipleResourceInstancesConstraint getAffinityConstraint() {
+		return affinityConstraint;
+	}
+
+	/**
+	 * Setter of the property <tt>affinityConstraint</tt>
+	 * @param affinityConstraint  The affinityConstraint to set.
+	 * @uml.property  name="affinityConstraint"
+	 */
+	public void setAffinityConstraint(
+			MultipleResourceInstancesConstraint affinityConstraint) {
+				this.affinityConstraint = affinityConstraint;
+			}
+
+	/** 
+	 * @uml.property name="idealInstanceConstraint"
+	 * @uml.associationEnd aggregation="composite" inverse="activeProcess:de.uka.ipd.sdq.capra.simulator.resources_new.SingleResourceInstanceConstraint"
+	 */
+	private SingleResourceInstanceConstraint idealInstanceConstraint;
+
+	/** 
+	 * Getter of the property <tt>idealInstanceConstraint</tt>
+	 * @return  Returns the idealInstanceConstraint.
+	 * @uml.property  name="idealInstanceConstraint"
+	 */
+	public SingleResourceInstanceConstraint getIdealInstanceConstraint() {
+		return idealInstanceConstraint;
+	}
+
+	/** 
+	 * Setter of the property <tt>idealInstanceConstraint</tt>
+	 * @param idealInstanceConstraint  The idealInstanceConstraint to set.
+	 * @uml.property  name="idealInstanceConstraint"
+	 */
+	public void setIdealInstanceConstraint(
+			SingleResourceInstanceConstraint idealInstanceConstraint) {
+				this.idealInstanceConstraint = idealInstanceConstraint;
+			}
+
+	/**
+	 * @uml.property  name="lastInstanceConstraint"
+	 * @uml.associationEnd  aggregation="composite" inverse="activeProcess:de.uka.ipd.sdq.capra.simulator.resources_new.SingleResourceInstanceConstraint"
+	 */
+	private SingleResourceInstanceConstraint lastInstanceConstraint;
+
+	/**
+	 * Getter of the property <tt>lastInstanceConstraint</tt>
+	 * @return  Returns the lastInstanceConstraint.
+	 * @uml.property  name="lastInstanceConstraint"
+	 */
+	public SingleResourceInstanceConstraint getLastInstanceConstraint() {
+		return lastInstanceConstraint;
+	}
+
+	/**
+	 * Setter of the property <tt>lastInstanceConstraint</tt>
+	 * @param lastInstanceConstraint  The lastInstanceConstraint to set.
+	 * @uml.property  name="lastInstanceConstraint"
+	 */
+	public void setLastInstanceConstraint(
+			SingleResourceInstanceConstraint lastInstanceConstraint) {
+		this.lastInstanceConstraint = lastInstanceConstraint;
 	}
 
 }

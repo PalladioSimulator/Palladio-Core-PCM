@@ -41,4 +41,17 @@ public class PreemptiveProcess extends ActiveProcess {
 			public void notifyActivation(){
 			}
 
+				
+				/**
+				 */
+				public boolean timesliceFinished(){
+					return false;	
+				}
+
+					
+					/**
+					 */
+					public void resetTimeSlice(){
+					}
+
 }

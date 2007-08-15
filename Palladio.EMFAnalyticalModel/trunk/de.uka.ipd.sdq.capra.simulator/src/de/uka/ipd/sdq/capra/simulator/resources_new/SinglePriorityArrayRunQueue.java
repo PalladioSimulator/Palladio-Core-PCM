@@ -1,13 +1,21 @@
 package de.uka.ipd.sdq.capra.simulator.resources_new;
 
 
-public class SinglePriorityArrayRunQueue implements IRunQueue {
+public class SinglePriorityArrayRunQueue extends AbstractRunQueue {
+	
+	private IPriorityManager priorityManager;
+	
+	public SinglePriorityArrayRunQueue(IPriorityManager priorityManager){
+		this.priorityManager = priorityManager;
+		this.priorityArray = new PriorityArray(priorityManager);
+	}
+	
 
 	/** 
 	 * @uml.property name="priorityArray"
 	 * @uml.associationEnd aggregation="composite" inverse="singlePriorityArrayRunQueue:de.uka.ipd.sdq.capra.simulator.resources_new.PriorityArray"
 	 */
-	private PriorityArray priorityArray = new de.uka.ipd.sdq.capra.simulator.resources_new.PriorityArray();
+	private PriorityArray priorityArray;
 
 	/** 
 	 * Getter of the property <tt>priorityArray</tt>
@@ -27,10 +35,51 @@ public class SinglePriorityArrayRunQueue implements IRunQueue {
 		this.priorityArray = priorityArray;
 	}
 
+	/**
+	 * Adds the process to the end of the priority array's queue.
+	 */
 	@Override
-	public int getCurrentLoad() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void addProcess(ActiveProcess process) {
+		priorityArray.addLast(process);
 	}
 
+	@Override
+	protected int numWaitingProcesses() {
+		return priorityArray.getNumberOfProcesses();
+	}
+
+	@Override
+	protected ActiveProcess pollNextRunnableProcess() {
+		if(priorityArray.isEmpty())
+			return null;
+		return priorityArray.getNonEmptyQueueWithHighestPriority().poll();
+	}
+
+	@Override
+	protected void removePendingProcess(ActiveProcess process) {
+		priorityArray.removeProcess(process);
+	}
+
+	@Override
+	public void returnExpiredProcess(ActiveProcess process, boolean inFront) {
+		returnProcess(process,inFront);
+	}
+
+	@Override
+	public void returnActiveProcess(ActiveProcess process, boolean inFront) {
+		returnProcess(process, inFront);
+		
+	}
+	private void returnProcess(ActiveProcess process, boolean inFront) {
+		if(inFront){
+			priorityArray.addFirst(process);
+		} else {
+			priorityArray.addLast(process);
+		}
+	}
+
+	@Override
+	public IRunQueue createNewInstance() {
+		return new SinglePriorityArrayRunQueue(priorityManager);
+	}
 }

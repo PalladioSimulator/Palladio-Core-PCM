@@ -3,11 +3,11 @@ package de.uka.ipd.sdq.capra.simulator.resources_new;
 
 public class DiscretePriorityDependentTimeSlice extends AbstractDiscreteTimeSlice {
 
-	/**
-	 * @uml.property   name="processPriority"
-	 * @uml.associationEnd   aggregation="shared" inverse="priorityDependentTimeSlice:de.uka.ipd.sdq.capra.simulator.resources_new.ProcessWithPriority"
+	/** 
+	 * @uml.property name="processWithPriority"
+	 * @uml.associationEnd aggregation="shared" inverse="priorityDependentTimeSlice:de.uka.ipd.sdq.capra.simulator.resources_new.ProcessWithPriority"
 	 */
-	private ProcessWithPriority processPriority;
+	private ProcessWithPriority processWithPriority;
 
 	@Override
 	public void reset() {
@@ -15,22 +15,22 @@ public class DiscretePriorityDependentTimeSlice extends AbstractDiscreteTimeSlic
 		
 	}
 
-	/**
+	/** 
 	 * Getter of the property <tt>processPriority</tt>
 	 * @return  Returns the priorityProcess.
-	 * @uml.property  name="processPriority"
+	 * @uml.property  name="processWithPriority"
 	 */
-	public ProcessWithPriority getProcessPriority() {
-		return processPriority;
+	public ProcessWithPriority getProcessWithPriority() {
+		return processWithPriority;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>processPriority</tt>
 	 * @param processPriority  The priorityProcess to set.
-	 * @uml.property  name="processPriority"
+	 * @uml.property  name="processWithPriority"
 	 */
-	public void setProcessPriority(ProcessWithPriority processPriority) {
-		this.processPriority = processPriority;
+	public void setProcessWithPriority(ProcessWithPriority processWithPriority) {
+		this.processWithPriority = processWithPriority;
 	}
 
 }

@@ -50,13 +50,13 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	}
 	
 	@Override
-	public MultipleRunQueueScheduler getScheduler() {
+	public MultipleRunQueues getScheduler() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public void setScheduler(MultipleRunQueueScheduler scheduler) {
+	public void setScheduler(MultipleRunQueues scheduler) {
 		// TODO Auto-generated method stub
 		
 	}

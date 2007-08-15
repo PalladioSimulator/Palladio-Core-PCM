@@ -21,7 +21,7 @@ public interface IPriorityManager {
 	 * @return Returns the max.
 	 * @uml.property name="max"
 	 */
-	public int getMax();
+	public int getHighestPriority();
 
 	/**
 	 * Setter of the property <tt>max</tt>
@@ -68,6 +68,4 @@ public interface IPriorityManager {
 	 */
 	public abstract int decrease(int prio, int by);
 	
-	public ProcessRegistry<ProcessWithPriority> getPriorityRegistry();
-
 }

@@ -1,36 +1,64 @@
 package de.uka.ipd.sdq.capra.simulator.resources_new;
 
 
-public class SimpleRunQueue implements IRunQueue {
+public class SimpleRunQueue extends AbstractRunQueue {
 
+	
+	public SimpleRunQueue(){
+		this.queue = new ProcessQueue<ActiveProcess>();
+	}
+	
 	/** 
 	 * @uml.property name="processQueue"
 	 * @uml.associationEnd aggregation="composite" inverse="simpleRunQueue:de.uka.ipd.sdq.capra.simulator.resources_new.ProcessQueue"
 	 */
-	private ProcessQueue<ActiveProcess> processQueue;
+	private ProcessQueue<ActiveProcess> queue;
 
-	/** 
-	 * Getter of the property <tt>processQueue</tt>
-	 * @return  Returns the processQueue.
-	 * @uml.property  name="processQueue"
+	
+	/**
+	 * Adds a process at the end of the run queue.
 	 */
-	public ProcessQueue<ActiveProcess> getProcessQueue() {
-		return processQueue;
-	}
-
-	/** 
-	 * Setter of the property <tt>processQueue</tt>
-	 * @param processQueue  The processQueue to set.
-	 * @uml.property  name="processQueue"
-	 */
-	public void setProcessQueue(ProcessQueue<ActiveProcess> processQueue) {
-		this.processQueue = processQueue;
+	@Override
+	public void addProcess(ActiveProcess process) {
+		queue.addLast(process);
 	}
 
 	@Override
-	public int getCurrentLoad() {
-		// TODO Auto-generated method stub
-		return 0;
+	protected int numWaitingProcesses() {
+		return queue.getNumberOfProcesses();
 	}
 
+	@Override
+	protected ActiveProcess pollNextRunnableProcess() {
+		// TODO: Consider Instances!
+		return queue.poll();
+	}
+
+	@Override
+	protected void removePendingProcess(ActiveProcess process) {
+		queue.remove(process);
+	}
+
+	@Override
+	public void returnActiveProcess(ActiveProcess process, boolean inFront) {
+		returnProcess(process,inFront);
+	}
+
+	@Override
+	public void returnExpiredProcess(ActiveProcess process, boolean inFront) {
+		returnProcess(process,inFront);
+	}
+
+	private void returnProcess(ActiveProcess process, boolean inFront) {
+		if (inFront){
+			queue.addFirst(process);
+		} else {
+			queue.addLast(process);
+		}
+	}
+
+	@Override
+	public IRunQueue createNewInstance() {
+		return new SimpleRunQueue();
+	}
 }

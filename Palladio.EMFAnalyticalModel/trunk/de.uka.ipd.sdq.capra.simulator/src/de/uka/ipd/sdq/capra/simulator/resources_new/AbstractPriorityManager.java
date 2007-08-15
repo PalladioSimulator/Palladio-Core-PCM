@@ -7,7 +7,7 @@ public abstract class AbstractPriorityManager implements IPriorityManager {
 	private int min;
 	
 	@Override
-	public int getMax() {
+	public int getHighestPriority() {
 		return max;
 	}
 
@@ -51,28 +51,4 @@ public abstract class AbstractPriorityManager implements IPriorityManager {
 	public abstract int nextLower(int prio);
 
 	public abstract boolean outOfBounds(int prio);
-
-	/**
-	 * @uml.property  name="priorityRegistry"
-	 * @uml.associationEnd  aggregation="composite" inverse="abstractPriorityManager:de.uka.ipd.sdq.capra.simulator.resources_new.ProcessRegistry"
-	 */
-	private ProcessRegistry<ProcessWithPriority> priorityRegistry;
-
-	/**
-	 * Getter of the property <tt>priorityRegistry</tt>
-	 * @return  Returns the priorityRegistry.
-	 * @uml.property  name="priorityRegistry"
-	 */
-	public ProcessRegistry<ProcessWithPriority> getPriorityRegistry() {
-		return priorityRegistry;
-	}
-
-	/**
-	 * Setter of the property <tt>priorityRegistry</tt>
-	 * @param priorityRegistry  The priorityRegistry to set.
-	 * @uml.property  name="priorityRegistry"
-	 */
-	public void setPriorityRegistry(ProcessRegistry<ProcessWithPriority> priorityRegistry) {
-		this.priorityRegistry = priorityRegistry;
-	}
 }
