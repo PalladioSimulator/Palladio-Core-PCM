@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
+import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleQueuesStrategy;
 
 /**
  * Ensures that the load of two resource instances does not differ more than

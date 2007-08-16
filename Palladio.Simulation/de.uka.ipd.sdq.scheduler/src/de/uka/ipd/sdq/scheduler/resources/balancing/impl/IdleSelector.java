@@ -4,7 +4,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
+import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleQueuesStrategy;
 
 
 public class IdleSelector extends AbstractSelector  {
