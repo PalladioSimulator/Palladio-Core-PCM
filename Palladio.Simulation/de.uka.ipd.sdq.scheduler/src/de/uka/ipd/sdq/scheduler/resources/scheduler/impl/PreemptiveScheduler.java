@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.scheduler;
+package de.uka.ipd.sdq.scheduler.resources.scheduler.impl;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimActiveResource;

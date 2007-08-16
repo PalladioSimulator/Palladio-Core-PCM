@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics.ProcessQueue;
 
 public interface IRunQueue {
 

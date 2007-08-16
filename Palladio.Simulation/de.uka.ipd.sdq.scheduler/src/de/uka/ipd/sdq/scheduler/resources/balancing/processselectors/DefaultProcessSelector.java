@@ -1,9 +1,10 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing;
+package de.uka.ipd.sdq.scheduler.resources.balancing.processselectors;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.balancing.IProcessSelector;
 import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.queueing.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics.ProcessQueue;
 
 
 public class DefaultProcessSelector implements IProcessSelector {

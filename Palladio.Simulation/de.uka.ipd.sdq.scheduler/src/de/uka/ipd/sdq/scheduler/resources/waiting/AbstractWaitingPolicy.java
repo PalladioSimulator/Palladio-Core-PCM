@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.scheduler.resources.waiting;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimPassiveResource;
-import de.uka.ipd.sdq.scheduler.resources.queueing.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics.ProcessQueue;
 
 public abstract class AbstractWaitingPolicy {
 

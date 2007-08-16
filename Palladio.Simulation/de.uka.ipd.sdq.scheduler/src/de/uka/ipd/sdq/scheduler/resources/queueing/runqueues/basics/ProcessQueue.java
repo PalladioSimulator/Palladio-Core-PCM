@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing;
+package de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

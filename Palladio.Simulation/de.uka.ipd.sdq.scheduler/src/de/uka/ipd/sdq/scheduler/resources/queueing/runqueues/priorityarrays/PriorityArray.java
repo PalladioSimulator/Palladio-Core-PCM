@@ -5,7 +5,7 @@ import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics.ProcessQueue;
 
 public class PriorityArray {
 	
