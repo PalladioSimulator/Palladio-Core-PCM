@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl;
 
 import umontreal.iro.lecuyer.simevents.Sim;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.ProcessRegistry;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl.ProcessRegistry;
 import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IJobManager;
 import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IPreemptiveSchedulingStrategy;
 import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IScheduledJob;

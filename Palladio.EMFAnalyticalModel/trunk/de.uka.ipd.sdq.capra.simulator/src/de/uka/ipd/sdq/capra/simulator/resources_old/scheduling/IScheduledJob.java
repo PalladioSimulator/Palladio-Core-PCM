@@ -3,7 +3,7 @@
  */
 package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling;
 
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.PreemptiveProcess;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl.PreemptiveProcess;
 
 
 public interface IScheduledJob {

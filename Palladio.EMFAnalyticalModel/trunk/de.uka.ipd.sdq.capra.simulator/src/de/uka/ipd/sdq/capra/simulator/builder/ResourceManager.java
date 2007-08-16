@@ -6,7 +6,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimReplicatedProcess;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.PreemptiveStrategy;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl.PreemptiveStrategy;
 import de.uka.ipd.sdq.capra.simulator.resources_old.AbstractSimResource;
 import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
 import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;

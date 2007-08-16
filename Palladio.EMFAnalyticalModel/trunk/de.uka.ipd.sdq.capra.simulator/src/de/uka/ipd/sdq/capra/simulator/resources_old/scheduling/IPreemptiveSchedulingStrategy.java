@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling;
 
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.ProcessRegistry;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl.ProcessRegistry;
+
 
 public interface IPreemptiveSchedulingStrategy extends ISchedulingStrategy{
 

@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events;
 
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.PreemptiveJob;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl.PreemptiveJob;
 import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
 import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IScheduledJob;
 import umontreal.iro.lecuyer.simevents.Event;
