@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="timeslice" size="1331,626" id="de.uka.ipd.sdq.scheduler.resources.timeslice" metadata="uml2-1.0" initialized="true" scrolledX="-125" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E7363686564756C65722F6A656E732E6861707065">
+  <children xsi:type="editmodel:ClassEditModel" name="DiscretePriorityDependentTimeSlice" location="-120,525" size="272,117" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscretePriorityDependentTimeSlice" runTimeClassModel="getGranularity(),DiscretePriorityDependentTimeSlice(DIILde.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="130,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="timesliceGranularity" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscretePriorityDependentTimeSlice#timesliceGranularity"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="200,36">
+      <children xsi:type="editmodel:MethodEditModel" name="DiscretePriorityDependentTimeSlice" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscretePriorityDependentTimeSlice#DiscretePriorityDependentTimeSlice(DIILde.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getGranularity" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscretePriorityDependentTimeSlice#getGranularity()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice&lt;-de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscretePriorityDependentTimeSlice" source="//@children.0" target="//@children.4/@sourceConnections.0" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="136,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0" name="AbstractDiscreteTimeSlice" location="50,235" size="208,207" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice" runTimeClassModel="AbstractDiscreteTimeSlice(D),isFinished(),getRemainingTicks(),substractTime(D),setRemainingTicks(I),getRemainingTime(),reset(),remainingTicks">
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="remainingTicks" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice#remainingTicks"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="157,126">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractDiscreteTimeSlice" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice#AbstractDiscreteTimeSlice(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRemainingTicks" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice#getRemainingTicks()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRemainingTime" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice#getRemainingTime()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isFinished" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice#isFinished()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="substractTime" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice#substractTime(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reset" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice#reset()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setRemainingTicks" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice#setRemainingTicks(I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.3/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.scheduler.resources.timeslice/ITimeSlice&lt;-de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="104,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="69,152" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0" name="ITimeSlice" location="210,15" size="139,153" id="de.uka.ipd.sdq.scheduler.resources.timeslice/ITimeSlice" runTimeClassModel="isFinished(),getGranularity(),substractTime(D),getRemainingTime(),reset()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="116,90">
+      <children xsi:type="editmodel:MethodEditModel" name="getGranularity" id="de.uka.ipd.sdq.scheduler.resources.timeslice/ITimeSlice#getGranularity()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRemainingTime" id="de.uka.ipd.sdq.scheduler.resources.timeslice/ITimeSlice#getRemainingTime()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isFinished" id="de.uka.ipd.sdq.scheduler.resources.timeslice/ITimeSlice#isFinished()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reset" id="de.uka.ipd.sdq.scheduler.resources.timeslice/ITimeSlice#reset()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="substractTime" id="de.uka.ipd.sdq.scheduler.resources.timeslice/ITimeSlice#substractTime(D)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ContinuousTimeSlice" location="375,235" size="177,171" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/ContinuousTimeSlice" runTimeClassModel="ContinuousTimeSlice(D),isFinished(),getGranularity(),substractTime(D),getRemainingTime(),reset()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="129,108">
+      <children xsi:type="editmodel:MethodEditModel" name="ContinuousTimeSlice" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/ContinuousTimeSlice#ContinuousTimeSlice(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getGranularity" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/ContinuousTimeSlice#getGranularity()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRemainingTime" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/ContinuousTimeSlice#getRemainingTime()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isFinished" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/ContinuousTimeSlice#isFinished()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reset" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/ContinuousTimeSlice#reset()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="substractTime" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/ContinuousTimeSlice#substractTime(D)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.scheduler.resources.timeslice/ITimeSlice&lt;-de.uka.ipd.sdq.scheduler.resources.timeslice.impl/ContinuousTimeSlice" source="//@children.3" target="//@children.1/@sourceConnections.0" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="88,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DiscreteTimeSlice" location="225,525" size="157,99" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscreteTimeSlice" runTimeClassModel="getGranularity(),DiscreteTimeSlice(DI)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="115,36">
+      <children xsi:type="editmodel:MethodEditModel" name="DiscreteTimeSlice" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscreteTimeSlice#DiscreteTimeSlice(DI)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getGranularity" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscreteTimeSlice#getGranularity()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.0/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.scheduler.resources.timeslice.impl/AbstractDiscreteTimeSlice&lt;-de.uka.ipd.sdq.scheduler.resources.timeslice.impl/DiscreteTimeSlice" source="//@children.4" target="//@children.1" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="77,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="104,205" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
