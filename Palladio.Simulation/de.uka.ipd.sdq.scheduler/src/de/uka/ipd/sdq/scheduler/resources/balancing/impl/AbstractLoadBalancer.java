@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing;
+package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,8 +8,9 @@ import java.util.List;
 import umontreal.iro.lecuyer.simevents.Sim;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.balancing.ILoadBalancer;
 import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleRunQueues;
+import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
 public abstract class AbstractLoadBalancer implements ILoadBalancer {
 
@@ -23,10 +24,10 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 */
 	protected double lastBalanced;
 
-	protected MultipleRunQueues runQueueHolder;
+	protected MultipleQueuesStrategy runQueueHolder;
 
 	public AbstractLoadBalancer(double balanceInterval,
-			MultipleRunQueues runQueueHolder) {
+			MultipleQueuesStrategy runQueueHolder) {
 		super();
 		this.balanceInterval = balanceInterval;
 		this.lastBalanced = 0;
@@ -45,7 +46,7 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 			SimResourceInstance secondInstance);
 
 	@Override
-	public void balance(Collection<IRunQueue> runQueueCollection) {
+	public void balance() {
 		double now = Sim.time();
 		if (now - lastBalanced >= balanceInterval) {
 			doBalance();
@@ -58,7 +59,7 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 * than one task, they steal one.
 	 */
 	protected void doBalance() {
-		Collection<SimResourceInstance> idleInstances = getIdleInstances();
+		Collection<SimResourceInstance> idleInstances = runQueueHolder.getIdleInstances();
 		Collection<SimResourceInstance> busyInstances = getBusyInstances();
 		for (Iterator<SimResourceInstance> iterator = idleInstances.iterator(); iterator
 				.hasNext()
@@ -169,23 +170,4 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 		return busyQueues;
 	}
 
-	/**
-	 * Returns all queues without jobs.
-	 * 
-	 * @param runQueueCollection
-	 * @return
-	 */
-	protected Collection<SimResourceInstance> getIdleInstances() {
-		Collection<SimResourceInstance> idleInstances = new ArrayList<SimResourceInstance>();
-		for (SimResourceInstance instance : runQueueHolder
-				.getResourceInstances()) {
-			if (isIdle(instance))
-				idleInstances.add(instance);
-		}
-		return idleInstances;
-	}
-
-	protected boolean isIdle(SimResourceInstance instance) {
-		return runQueueHolder.getRunQueueFor(instance).isEmpty();
-	}
 }

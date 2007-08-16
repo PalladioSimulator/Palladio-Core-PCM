@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.scheduler.resources.balancing;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 
-public interface IInitialInstanceSelector {
+public interface IInstanceSelector {
 
 	/**
 	 * Selects the initial instance to execute on for a process.

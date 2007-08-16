@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing;
+package de.uka.ipd.sdq.scheduler.resources.queueing.priorityarray;
 
 import java.util.List;
 
@@ -6,13 +6,15 @@ import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.AbstractRunQueue;
 
 public abstract class AbstractPriorityArrayRunQueue extends AbstractRunQueue {
 
 	protected IPriorityManager priorityManager;
 
-	public AbstractPriorityArrayRunQueue() {
+	public AbstractPriorityArrayRunQueue(IPriorityManager priorityManager) {
 		super();
+		this.priorityManager = priorityManager;
 	}
 
 	/**

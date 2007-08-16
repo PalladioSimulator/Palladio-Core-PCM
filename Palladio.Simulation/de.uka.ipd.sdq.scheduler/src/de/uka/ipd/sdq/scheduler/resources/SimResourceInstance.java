@@ -88,4 +88,9 @@ public class SimResourceInstance {
 		return "" + id;
 	}
 
+	public void scheduleSchedulingEvent() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

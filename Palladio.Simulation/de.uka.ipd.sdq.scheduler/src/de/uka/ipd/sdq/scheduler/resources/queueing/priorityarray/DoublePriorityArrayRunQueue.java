@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing;
+package de.uka.ipd.sdq.scheduler.resources.queueing.priorityarray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,11 +6,13 @@ import java.util.List;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.ProcessQueue;
 
 public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 
 	public DoublePriorityArrayRunQueue(IPriorityManager priorityManager) {
-		this.priorityManager = priorityManager;
+		super(priorityManager);
 		this.activePriorityArray = new PriorityArray(priorityManager);
 		this.expiredPriorityArray = new PriorityArray(priorityManager);
 	}
@@ -86,12 +88,12 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	}
 
 	@Override
-	protected ActiveProcess pollNextRunnableProcess() {
+	public ActiveProcess getNextRunnableProcess() {
 		if (activeQueueEmpty())
 			switchActiveAndExpired();
 		if (activePriorityArray.isEmpty()) // no process to be scheduled.
 			return null;
-		return activePriorityArray.getNonEmptyQueueWithHighestPriority().poll();
+		return activePriorityArray.getNonEmptyQueueWithHighestPriority().peek();
 	}
 
 	private void switchActiveAndExpired() {
@@ -137,8 +139,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	 * running and standby processes.
 	 */
 	protected boolean activeQueueEmpty() {
-		return standbyList.isEmpty() && runningList.isEmpty()
-				&& activePriorityArray.isEmpty();
+		return runningList.isEmpty() && activePriorityArray.isEmpty();
 	}
 
 	@Override
@@ -156,6 +157,17 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 		addMovableProcesses(expiredPriorityArray, targetInstance, processList);
 		addMovableProcesses(activePriorityArray, targetInstance, processList);
 		return null;
+	}
+
+	@Override
+	public ProcessQueue<ActiveProcess> getUrgentQueue(
+			SimResourceInstance instance) {
+		ProcessQueue<ActiveProcess> result = activePriorityArray
+				.getUrgentQueue(instance);
+		if (result == null) {
+			result = expiredPriorityArray.getUrgentQueue(instance);
+		}
+		return result;
 	}
 
 }

@@ -1,8 +1,8 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing;
+package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleRunQueues;
+import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
 /**
  * Ensures that the load of two resource instances does not differ more than
@@ -23,7 +23,7 @@ public class OnThresholdBalancer extends AbstractLoadBalancer {
 	private double threshold;
 
 	public OnThresholdBalancer(double balanceInterval,
-			MultipleRunQueues runQueueHolder) {
+			MultipleQueuesStrategy runQueueHolder) {
 		super(balanceInterval, runQueueHolder);
 	}
 

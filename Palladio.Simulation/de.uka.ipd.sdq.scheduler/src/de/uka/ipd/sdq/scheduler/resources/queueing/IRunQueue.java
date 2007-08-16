@@ -62,13 +62,23 @@ public interface IRunQueue {
 	/**
 	 * Composes a list of processes movable to the specified target. The list is
 	 * ordered in terms of what suits best for the target resource instance. The
-	 * first element is better than the second which is better than the third and
-	 * so on.
+	 * first element is better than the second which is better than the third
+	 * and so on.
 	 * 
 	 * @param targetInstance
 	 * @return
 	 */
 	public abstract List<ActiveProcess> identifyMovableProcesses(
 			SimResourceInstance targetInstance);
+
+	/**
+	 * Returns the most urgent queue which contains at least one process which
+	 * can run on the given instance. NULL if no such queue exists.
+	 * 
+	 * @param instance
+	 * @return
+	 */
+	public abstract ProcessQueue<ActiveProcess> getUrgentQueue(
+			SimResourceInstance instance);
 
 }

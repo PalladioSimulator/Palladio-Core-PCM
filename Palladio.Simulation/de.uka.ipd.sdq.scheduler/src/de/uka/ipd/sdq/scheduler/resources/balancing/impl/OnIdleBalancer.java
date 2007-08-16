@@ -1,7 +1,7 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing;
+package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
 
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleRunQueues;
+import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
 
 /**
@@ -12,14 +12,13 @@ import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleRunQueues;
 public class OnIdleBalancer extends AbstractLoadBalancer {
 
 	public OnIdleBalancer(double balanceInterval,
-			MultipleRunQueues runQueueHolder) {
+			MultipleQueuesStrategy runQueueHolder) {
 		super(balanceInterval, runQueueHolder);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected boolean isBalanced(SimResourceInstance firstInstance,
 			SimResourceInstance secondInstance) {
-		return !isIdle(firstInstance) && !isIdle(secondInstance);
+		return !runQueueHolder.isIdle(firstInstance) && !runQueueHolder.isIdle(secondInstance);
 	}
 }

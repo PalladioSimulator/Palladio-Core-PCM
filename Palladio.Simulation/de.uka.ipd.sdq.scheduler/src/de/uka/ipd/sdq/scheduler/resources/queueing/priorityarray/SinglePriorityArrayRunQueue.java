@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing;
+package de.uka.ipd.sdq.scheduler.resources.queueing.priorityarray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,23 +6,22 @@ import java.util.List;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.ProcessQueue;
 
 
 public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  {
 	
-	private IPriorityManager priorityManager;
-	
-	public SinglePriorityArrayRunQueue(IPriorityManager priorityManager){
-		this.priorityManager = priorityManager;
-		this.priorityArray = new PriorityArray(priorityManager);
-	}
-	
-
 	/**
 	 * @uml.property   name="priorityArray"
 	 * @uml.associationEnd   aggregation="composite" inverse="singlePriorityArrayRunQueue:de.uka.ipd.sdq.capra.simulator.resources.PriorityArray"
 	 */
 	private PriorityArray priorityArray;
+
+	public SinglePriorityArrayRunQueue(IPriorityManager priorityManager) {
+		super(priorityManager);
+		this.priorityArray = new PriorityArray(priorityManager);
+	}
 
 	/** 
 	 * Getter of the property <tt>priorityArray</tt>
@@ -56,10 +55,10 @@ public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  
 	}
 
 	@Override
-	protected ActiveProcess pollNextRunnableProcess() {
+	public ActiveProcess getNextRunnableProcess() {
 		if(priorityArray.isEmpty())
 			return null;
-		return priorityArray.getNonEmptyQueueWithHighestPriority().poll();
+		return priorityArray.getNonEmptyQueueWithHighestPriority().peek();
 	}
 
 	@Override
@@ -87,7 +86,7 @@ public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  
 
 	@Override
 	public IRunQueue createNewInstance() {
-		return new SinglePriorityArrayRunQueue(priorityManager);
+		return new SinglePriorityArrayRunQueue(this.priorityManager);
 	}
 
 	@Override
@@ -96,5 +95,11 @@ public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  
 		List<ActiveProcess> processList = new ArrayList<ActiveProcess>();
 		addMovableProcesses(priorityArray, targetInstance, processList);
 		return processList;
+	}
+
+	@Override
+	public ProcessQueue<ActiveProcess> getUrgentQueue(
+			SimResourceInstance instance) {
+		return this.priorityArray.getUrgentQueue(instance);
 	}
 }

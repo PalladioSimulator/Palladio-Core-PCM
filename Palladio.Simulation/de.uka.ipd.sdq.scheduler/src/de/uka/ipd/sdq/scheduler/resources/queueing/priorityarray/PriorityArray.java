@@ -1,9 +1,11 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing;
+package de.uka.ipd.sdq.scheduler.resources.queueing.priorityarray;
 
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.queueing.ProcessQueue;
 
 public class PriorityArray {
 	
@@ -167,5 +169,11 @@ public class PriorityArray {
 		return null;
 		// TODO Auto-generated method stub
 		
+	}
+
+	public ProcessQueue<ActiveProcess> getUrgentQueue(
+			SimResourceInstance instance) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

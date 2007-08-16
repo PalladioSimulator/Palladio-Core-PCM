@@ -4,6 +4,9 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 
+import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+
 public class ProcessQueue<T> implements Iterable<T> {
 
 	private Deque<T> queue;
@@ -47,4 +50,16 @@ public class ProcessQueue<T> implements Iterable<T> {
 	public Iterator<T> iterator() {
 		return queue.iterator();
 	}
+
+	@SuppressWarnings("unchecked")
+	public boolean containsRunnableFor(SimResourceInstance instance) {
+		Iterator iterator = this.queue.iterator();
+		while(iterator.hasNext()){
+			ActiveProcess process = (ActiveProcess)iterator.next();
+			if(process.checkAffinity(instance))
+				return true;
+		}
+		return false;
+	}
+
 }

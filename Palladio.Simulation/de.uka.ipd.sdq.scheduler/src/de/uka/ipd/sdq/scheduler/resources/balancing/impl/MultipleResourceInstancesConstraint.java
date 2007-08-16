@@ -1,8 +1,9 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing;
+package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
 
 import java.util.Map;
 
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.balancing.IResourceInstanceConstraint;
 
 
 public class MultipleResourceInstancesConstraint implements IResourceInstanceConstraint {

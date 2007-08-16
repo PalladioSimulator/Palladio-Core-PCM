@@ -9,6 +9,6 @@ public interface ILoadBalancer {
 	/**
 	 * @param collection
 	 */
-	public abstract void balance(Collection<IRunQueue> collection);
+	public abstract void balance();
 
 }

@@ -13,12 +13,19 @@ public interface IQueueingStrategy {
 	/**
 	 * Adds a new process to the queue(s).
 	 */
-	public abstract void addNewProcess(ActiveProcess process);
+	public abstract void addProcess(ActiveProcess process);
 
 	/**
 	 * Depending on the underlying implementation the load is balanced between
 	 * multiple resource instances.
 	 */
 	public abstract void balance();
+
+	public abstract ActiveProcess getProcessRunningOn(
+			SimResourceInstance instance);
+
+	public abstract void returnExpired(ActiveProcess running, boolean b);
+
+	public abstract void returnActive(ActiveProcess running, boolean b);
 
 }
