@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.AbstractRunQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.AbstractRunQueue;
 
 public abstract class AbstractPriorityArrayRunQueue extends AbstractRunQueue {
 

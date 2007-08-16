@@ -4,8 +4,8 @@ import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.balancing.MultipleResourceInstancesConstraint;
-import de.uka.ipd.sdq.scheduler.resources.balancing.SingleResourceInstanceConstraint;
+import de.uka.ipd.sdq.scheduler.resources.balancing.impl.MultipleResourceInstancesConstraint;
+import de.uka.ipd.sdq.scheduler.resources.balancing.impl.SingleResourceInstanceConstraint;
 
 public class ActiveProcess {
 
@@ -123,7 +123,8 @@ public class ActiveProcess {
 
 	/**
 	 */
-	public void getRemainingDemand() {
+	public double getRemainingDemand() {
+		return 0;
 	}
 
 	/**
@@ -227,6 +228,71 @@ public class ActiveProcess {
 			return affinityConstraint.check(instance);
 		}
 		return true; // if no constraint is defined, every instance is accepted.
+	}
+
+	public void setIdealInstance(SimResourceInstance current) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean idealInstanceNotSet() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void applyAffinityConstraint(List<SimResourceInstance> idleInstances) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean hasIdealInstance() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public SimResourceInstance getIdealInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean hasLastInstance() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public SimResourceInstance getLastInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean isIdealInstance(SimResourceInstance instance) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isLastInstance(SimResourceInstance instance) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setReady() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean timeSliceExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void resetTimeSlice() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void scheduleProceedEvent() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
