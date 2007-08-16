@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>de.uka.ipd.sdq.scheduler</name>
-	<comment></comment>
+	<comment>@key 32303037303533312D313030302064652E756B612E6970642E7364712E7363686564756C65722F6A656E732E6861707065 </comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -20,9 +20,15 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>com.soyatec.additional.Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.soyatec.additional.Nature</nature>
 	</natures>
 </projectDescription>

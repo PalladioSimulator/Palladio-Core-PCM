@@ -11,6 +11,18 @@ import de.uka.ipd.sdq.scheduler.resources.balancing.ILoadBalancer;
 
 public class MultipleRunQueues implements IQueueingStrategy {
 
+	/**
+	 * @uml.property   name="loadBalancer"
+	 * @uml.associationEnd   aggregation="composite" inverse="scheduler:de.uka.ipd.sdq.capra.simulator.resources.ILoadBalancer"
+	 */
+	private ILoadBalancer loadBalancer;
+
+	/**
+	 * @uml.property   name="initialInstanceSelector"
+	 * @uml.associationEnd   aggregation="composite" inverse="multipleRunQueueScheduler:de.uka.ipd.sdq.capra.simulator.resources.IInitialInstanceSelector"
+	 */
+	private IInitialInstanceSelector initialInstanceSelector;
+
 	private Hashtable<SimResourceInstance, IRunQueue> runQueueTable;
 	
 	public MultipleRunQueues(Collection<SimResourceInstance> allInstances, IRunQueue prototypeRunQueue, IInitialInstanceSelector initialInstanceSelector, ILoadBalancer loadBalancer){
@@ -22,61 +34,6 @@ public class MultipleRunQueues implements IQueueingStrategy {
 		}
 	}
 
-
-	/**
-	 * @uml.property   name="loadBalancer"
-	 * @uml.associationEnd   aggregation="composite" inverse="scheduler:de.uka.ipd.sdq.capra.simulator.resources.ILoadBalancer"
-	 */
-	private ILoadBalancer loadBalancer;
-
-	/**
-	 * Getter of the property <tt>loadBalancer</tt>
-	 * 
-	 * @return Returns the loadBalancer.
-	 * @uml.property name="loadBalancer"
-	 */
-	public ILoadBalancer getLoadBalancer() {
-		return loadBalancer;
-	}
-
-	/**
-	 * Setter of the property <tt>loadBalancer</tt>
-	 * 
-	 * @param loadBalancer
-	 *            The loadBalancer to set.
-	 * @uml.property name="loadBalancer"
-	 */
-	public void setLoadBalancer(ILoadBalancer loadBalancer) {
-		this.loadBalancer = loadBalancer;
-	}
-
-	/**
-	 * @uml.property   name="initialInstanceSelector"
-	 * @uml.associationEnd   aggregation="composite" inverse="multipleRunQueueScheduler:de.uka.ipd.sdq.capra.simulator.resources.IInitialInstanceSelector"
-	 */
-	private IInitialInstanceSelector initialInstanceSelector;
-
-	/**
-	 * Getter of the property <tt>initialInstanceSelector</tt>
-	 * 
-	 * @return Returns the initialInstanceSelector.
-	 * @uml.property name="initialInstanceSelector"
-	 */
-	public IInitialInstanceSelector getInitialInstanceSelector() {
-		return initialInstanceSelector;
-	}
-
-	/**
-	 * Setter of the property <tt>initialInstanceSelector</tt>
-	 * 
-	 * @param initialInstanceSelector
-	 *            The initialInstanceSelector to set.
-	 * @uml.property name="initialInstanceSelector"
-	 */
-	public void setInitialInstanceSelector(
-			IInitialInstanceSelector initialInstanceSelector) {
-				this.initialInstanceSelector = initialInstanceSelector;
-			}
 
 	/**
 	 * Returns the RunQueue for a resource instance.
@@ -119,4 +76,13 @@ public class MultipleRunQueues implements IQueueingStrategy {
 		getRunQueueFor(dest).addProcess(process);
 	}
 
+	@Override
+	public void balance() {
+		loadBalancer.balance(runQueueTable.values());
+	}
+
+
+	public Collection<SimResourceInstance> getResourceInstances() {
+		return this.runQueueTable.keySet();
+	}
 }

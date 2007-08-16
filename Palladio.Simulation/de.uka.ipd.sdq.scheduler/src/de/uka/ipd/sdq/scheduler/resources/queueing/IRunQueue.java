@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.scheduler.resources.queueing;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import java.util.List;
 
+import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 
 public interface IRunQueue {
 
@@ -19,14 +21,18 @@ public interface IRunQueue {
 	/**
 	 * Returns a process to the runqueue that was interrupted before it finished
 	 * its timeslice.
-	 * @param inFront TODO
+	 * 
+	 * @param inFront
+	 *            TODO
 	 */
-	public abstract void returnActiveProcess(ActiveProcess process, boolean inFront);
+	public abstract void returnActiveProcess(ActiveProcess process,
+			boolean inFront);
 
 	/**
 	 * Returns a process to the runqueue whose timeslice expired.
 	 */
-	public abstract void returnExpiredProcess(ActiveProcess process, boolean inFront);
+	public abstract void returnExpiredProcess(ActiveProcess process,
+			boolean inFront);
 
 	/**
 	 * @return TODO
@@ -45,11 +51,24 @@ public interface IRunQueue {
 	 * Notifies the queue that the process is currently in running state.
 	 */
 	public abstract void notifyRunning(ActiveProcess process);
-	
+
 	/**
 	 * Creates a new instance of the given runqueue. Prototype Object Pattern.
+	 * 
 	 * @return
 	 */
 	public abstract IRunQueue createNewInstance();
+
+	/**
+	 * Composes a list of processes movable to the specified target. The list is
+	 * ordered in terms of what suits best for the target resource instance. The
+	 * first element is better than the second which is better than the third and
+	 * so on.
+	 * 
+	 * @param targetInstance
+	 * @return
+	 */
+	public abstract List<ActiveProcess> identifyMovableProcesses(
+			SimResourceInstance targetInstance);
 
 }

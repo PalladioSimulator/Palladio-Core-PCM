@@ -1,10 +1,14 @@
 package de.uka.ipd.sdq.scheduler.resources.queueing;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 
 
-public class SinglePriorityArrayRunQueue extends AbstractRunQueue {
+public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  {
 	
 	private IPriorityManager priorityManager;
 	
@@ -84,5 +88,13 @@ public class SinglePriorityArrayRunQueue extends AbstractRunQueue {
 	@Override
 	public IRunQueue createNewInstance() {
 		return new SinglePriorityArrayRunQueue(priorityManager);
+	}
+
+	@Override
+	public List<ActiveProcess> identifyMovableProcesses(
+			SimResourceInstance targetInstance) {
+		List<ActiveProcess> processList = new ArrayList<ActiveProcess>();
+		addMovableProcesses(priorityArray, targetInstance, processList);
+		return processList;
 	}
 }

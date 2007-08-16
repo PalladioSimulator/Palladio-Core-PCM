@@ -2,7 +2,8 @@ package de.uka.ipd.sdq.scheduler.processes;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
+import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.balancing.MultipleResourceInstancesConstraint;
 import de.uka.ipd.sdq.scheduler.resources.balancing.SingleResourceInstanceConstraint;
 
@@ -94,30 +95,30 @@ public class ActiveProcess {
 			}
 
 	/**
-	 * @uml.property   name="capraProcess"
-	 * @uml.associationEnd   aggregation="shared" inverse="abstractDecoratedProcess:de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess"
+	 * @uml.property   name="process"
+	 * @uml.associationEnd   aggregation="shared" inverse="abstractDecoratedProcess:de.uka.ipd.sdq.capra.simulator.expressions.Simprocess"
 	 */
-	private SimCapraProcess capraProcess;
+	private ISchedulableProcess process;
 
 	/**
-	 * Getter of the property <tt>capraProcess</tt>
+	 * Getter of the property <tt>process</tt>
 	 * 
-	 * @return Returns the capraProcess.
-	 * @uml.property name="capraProcess"
+	 * @return Returns the process.
+	 * @uml.property name="process"
 	 */
-	public SimCapraProcess getCapraProcess() {
-		return capraProcess;
+	public ISchedulableProcess getProcess() {
+		return process;
 	}
 
 	/**
-	 * Setter of the property <tt>capraProcess</tt>
+	 * Setter of the property <tt>process</tt>
 	 * 
-	 * @param capraProcess
-	 *            The capraProcess to set.
-	 * @uml.property name="capraProcess"
+	 * @param process
+	 *            The process to set.
+	 * @uml.property name="process"
 	 */
-	public void setCapraProcess(SimCapraProcess capraProcess) {
-		this.capraProcess = capraProcess;
+	public void setProcess(ISchedulableProcess process) {
+		this.process = process;
 	}
 
 	/**
@@ -220,5 +221,12 @@ public class ActiveProcess {
 			SingleResourceInstanceConstraint lastInstanceConstraint) {
 				this.lastInstanceConstraint = lastInstanceConstraint;
 			}
+
+	public boolean checkAffinity(SimResourceInstance instance) {
+		if (affinityConstraint != null){
+			return affinityConstraint.check(instance);
+		}
+		return true; // if no constraint is defined, every instance is accepted.
+	}
 
 }

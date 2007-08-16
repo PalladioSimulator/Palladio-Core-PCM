@@ -2,8 +2,9 @@ package de.uka.ipd.sdq.scheduler.resources.queueing;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Iterator;
 
-public class ProcessQueue<T> {
+public class ProcessQueue<T> implements Iterable<T> {
 
 	private Deque<T> queue;
 	
@@ -40,5 +41,10 @@ public class ProcessQueue<T> {
 
 	public boolean isEmpty() {
 		return queue.isEmpty();
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return queue.iterator();
 	}
 }

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.priority;
 
+
 public interface IPriorityManager {
 
 	/**
@@ -67,5 +68,9 @@ public interface IPriorityManager {
 	 * method ensures that the priority does not exceed its boundaries.
 	 */
 	public abstract int decrease(int prio, int by);
+
+	public IPriority getDefaultPriority();
+
+	public IPriority getMaxPriority();
 	
 }

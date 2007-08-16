@@ -1,6 +1,10 @@
 package de.uka.ipd.sdq.scheduler.resources.queueing;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 
 
 public class SimpleRunQueue extends AbstractRunQueue {
@@ -62,5 +66,17 @@ public class SimpleRunQueue extends AbstractRunQueue {
 	@Override
 	public IRunQueue createNewInstance() {
 		return new SimpleRunQueue();
+	}
+
+	@Override
+	public List<ActiveProcess> identifyMovableProcesses(
+			SimResourceInstance targetInstance) {
+		List<ActiveProcess> processList = new ArrayList<ActiveProcess>();
+		for (ActiveProcess process : this.queue) {
+			if (process.checkAffinity(targetInstance)){
+				processList.add(process);
+			}
+		}
+		return processList;
 	}
 }

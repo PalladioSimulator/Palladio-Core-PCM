@@ -1,21 +1,24 @@
 package de.uka.ipd.sdq.scheduler.resources.queueing;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 
-public class DoublePriorityArrayRunQueue extends AbstractRunQueue {
-	
-	private IPriorityManager priorityManager;
-	
-	public DoublePriorityArrayRunQueue(IPriorityManager priorityManager){
+public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
+
+	public DoublePriorityArrayRunQueue(IPriorityManager priorityManager) {
 		this.priorityManager = priorityManager;
 		this.activePriorityArray = new PriorityArray(priorityManager);
 		this.expiredPriorityArray = new PriorityArray(priorityManager);
 	}
 
 	/**
-	 * @uml.property   name="activePriorityArray"
-	 * @uml.associationEnd   aggregation="composite" inverse="doublePriorityArrayRunQueue:de.uka.ipd.sdq.capra.simulator.resources.PriorityArray"
+	 * @uml.property name="activePriorityArray"
+	 * @uml.associationEnd aggregation="composite"
+	 *                     inverse="doublePriorityArrayRunQueue:de.uka.ipd.sdq.capra.simulator.resources.PriorityArray"
 	 */
 	private PriorityArray activePriorityArray;
 
@@ -41,8 +44,9 @@ public class DoublePriorityArrayRunQueue extends AbstractRunQueue {
 	}
 
 	/**
-	 * @uml.property   name="expiredPriorityArray"
-	 * @uml.associationEnd   aggregation="composite" inverse="doublePriorityArrayRunQueue:de.uka.ipd.sdq.capra.simulator.resources.PriorityArray"
+	 * @uml.property name="expiredPriorityArray"
+	 * @uml.associationEnd aggregation="composite"
+	 *                     inverse="doublePriorityArrayRunQueue:de.uka.ipd.sdq.capra.simulator.resources.PriorityArray"
 	 */
 	private PriorityArray expiredPriorityArray;
 
@@ -108,7 +112,7 @@ public class DoublePriorityArrayRunQueue extends AbstractRunQueue {
 	 */
 	@Override
 	public void returnExpiredProcess(ActiveProcess process, boolean inFront) {
-		if (inFront){
+		if (inFront) {
 			expiredPriorityArray.addFirst(process);
 		} else {
 			expiredPriorityArray.addLast(process);
@@ -116,11 +120,11 @@ public class DoublePriorityArrayRunQueue extends AbstractRunQueue {
 	}
 
 	/**
-	 * An interrupted process is returned to the active queue. 
+	 * An interrupted process is returned to the active queue.
 	 */
 	@Override
 	public void returnActiveProcess(ActiveProcess process, boolean inFront) {
-		if (inFront){
+		if (inFront) {
 			activePriorityArray.addFirst(process);
 		} else {
 			activePriorityArray.addLast(process);
@@ -140,6 +144,18 @@ public class DoublePriorityArrayRunQueue extends AbstractRunQueue {
 	@Override
 	public IRunQueue createNewInstance() {
 		return new DoublePriorityArrayRunQueue(priorityManager);
+	}
+
+	/**
+	 * TODO: allow different strategies for process selection.
+	 */
+	@Override
+	public List<ActiveProcess> identifyMovableProcesses(
+			SimResourceInstance targetInstance) {
+		List<ActiveProcess> processList = new ArrayList<ActiveProcess>();
+		addMovableProcesses(expiredPriorityArray, targetInstance, processList);
+		addMovableProcesses(activePriorityArray, targetInstance, processList);
+		return null;
 	}
 
 }

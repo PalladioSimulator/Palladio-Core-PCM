@@ -1,68 +1,191 @@
 package de.uka.ipd.sdq.scheduler.resources.balancing;
 
-import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleRunQueues;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
+import umontreal.iro.lecuyer.simevents.Sim;
+import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleRunQueues;
 
 public abstract class AbstractLoadBalancer implements ILoadBalancer {
 
-	/** 
-	 * @uml.property name="balance_interval"
+	/**
+	 * @uml.property name="balanceInterval"
 	 */
-	private double balance_interval;
+	protected double balanceInterval;
 
-	/** 
-	 * Getter of the property <tt>balance_interval</tt>
-	 * @return  Returns the balance_interval.
-	 * @uml.property  name="balance_interval"
+	/**
+	 * @uml.property name="lastBalanced"
 	 */
-	public double getBalance_interval() {
-		return balance_interval;
+	protected double lastBalanced;
+
+	protected MultipleRunQueues runQueueHolder;
+
+	public AbstractLoadBalancer(double balanceInterval,
+			MultipleRunQueues runQueueHolder) {
+		super();
+		this.balanceInterval = balanceInterval;
+		this.lastBalanced = 0;
+		this.runQueueHolder = runQueueHolder;
 	}
 
 	/**
-	 * @uml.property  name="last_balanced"
+	 * Checks if both queues are balanced with respect to a given criteria.
+	 * Template Method.
+	 * 
+	 * @param busyQueue
+	 * @param idleQueue
+	 * @return
 	 */
-	private double last_balanced;
+	protected abstract boolean isBalanced(SimResourceInstance firstInstance,
+			SimResourceInstance secondInstance);
+
+	@Override
+	public void balance(Collection<IRunQueue> runQueueCollection) {
+		double now = Sim.time();
+		if (now - lastBalanced >= balanceInterval) {
+			doBalance();
+			lastBalanced = now;
+		}
+	}
 
 	/**
-	 * Getter of the property <tt>last_balanced</tt>
-	 * @return  Returns the last_balanced.
-	 * @uml.property  name="last_balanced"
+	 * Idle Processors look for the busiest runqueue. If the queue contains more
+	 * than one task, they steal one.
 	 */
-	public double getLast_balanced() {
-		return last_balanced;
+	protected void doBalance() {
+		Collection<SimResourceInstance> idleInstances = getIdleInstances();
+		Collection<SimResourceInstance> busyInstances = getBusyInstances();
+		for (Iterator<SimResourceInstance> iterator = idleInstances.iterator(); iterator
+				.hasNext()
+				&& !busyInstances.isEmpty();) {
+			SimResourceInstance idleInstance = iterator.next();
+			SimResourceInstance busiestInstance = getBusiestQueue(busyInstances);
+			balanceTwoInstances(busiestInstance, idleInstance);
+			if (!isBusy(busiestInstance))
+				busyInstances.remove(busiestInstance);
+		}
+
 	}
 
 	/**
-	 * Setter of the property <tt>last_balanced</tt>
-	 * @param last_balanced  The last_balanced to set.
-	 * @uml.property  name="last_balanced"
+	 * True, if the queue contains more than one process.
+	 * 
+	 * @param runQueue
+	 * @return
 	 */
-	public void setLast_balanced(double last_balanced) {
-		this.last_balanced = last_balanced;
+	protected boolean isBusy(SimResourceInstance instance) {
+		return runQueueHolder.getRunQueueFor(instance).getCurrentLoad() > 1;
 	}
 
-	/** 
-	 * Setter of the property <tt>balance_interval</tt>
-	 * @param balance_interval  The balance_interval to set.
-	 * @uml.property  name="balance_interval"
+	/**
+	 * Moves processes from the busy instance to the idle instance until both are balanced.
+	 * @param busyInstance
+	 * @param idleInstance
 	 */
-	public void setBalance_interval(double balance_interval) {
-		this.balance_interval = balance_interval;
+	protected void balanceTwoInstances(SimResourceInstance busyInstance,
+			SimResourceInstance idleInstance) {
+		List<ActiveProcess> movableProcesseList = identifyMovableProcesses(
+				busyInstance, idleInstance);
+		Iterator<ActiveProcess> iterator = movableProcesseList.iterator();
+
+		while (!isBalanced(busyInstance, idleInstance) && iterator.hasNext()) {
+			move(iterator.next(), busyInstance, idleInstance);
+		}
 	}
-	
-	@Override
-	public MultipleRunQueues getScheduler() {
-		// TODO Auto-generated method stub
-		return null;
+
+	/**
+	 * Moves a process from the source to the destination queue.
+	 * 
+	 * @param process
+	 * @param sourceQueue
+	 * @param destinationQueue
+	 */
+	protected void move(ActiveProcess process, SimResourceInstance src,
+			SimResourceInstance dest) {
+		runQueueHolder.move(process, src, dest);
 	}
-	
-	@Override
-	public void setScheduler(MultipleRunQueues scheduler) {
-		// TODO Auto-generated method stub
-		
+
+	/**
+	 * Returns an ordered list of movable processes. The processes are ordered
+	 * with respect to their movability.
+	 * 
+	 * @param busyQueue
+	 * @return Ordered list of movable processes.
+	 */
+	protected List<ActiveProcess> identifyMovableProcesses(
+			SimResourceInstance sourceInstance,
+			SimResourceInstance targetInstance) {
+		return runQueueHolder.getRunQueueFor(sourceInstance).identifyMovableProcesses(targetInstance);
 	}
-	
-	@Override
-	public abstract void balance();
+
+	/**
+	 * Returns the busiest queue in the given collection.
+	 * 
+	 * @param runQueues
+	 * @return
+	 */
+	protected SimResourceInstance getBusiestQueue(
+			Collection<SimResourceInstance> instances) {
+		SimResourceInstance busiestInstance = null;
+		Iterator<SimResourceInstance> iterator = instances.iterator();
+		while (iterator.hasNext()) {
+			SimResourceInstance currentInstance = iterator.next();
+			if (busiestInstance == null
+					|| load(busiestInstance) < load(currentInstance)) {
+				busiestInstance = currentInstance;
+			}
+		}
+		return busiestInstance;
+	}
+
+	/**
+	 * Returns the load of the given instance.
+	 * 
+	 * @param instance
+	 * @return
+	 */
+	protected int load(SimResourceInstance instance) {
+		return runQueueHolder.getRunQueueFor(instance).getCurrentLoad();
+	}
+
+	/**
+	 * Returns all queues with more than one job.
+	 * 
+	 * @param runQueueCollection
+	 * @return
+	 */
+	protected Collection<SimResourceInstance> getBusyInstances() {
+		Collection<SimResourceInstance> busyQueues = new ArrayList<SimResourceInstance>();
+		for (SimResourceInstance instance : runQueueHolder
+				.getResourceInstances()) {
+			if (isBusy(instance))
+				busyQueues.add(instance);
+		}
+		return busyQueues;
+	}
+
+	/**
+	 * Returns all queues without jobs.
+	 * 
+	 * @param runQueueCollection
+	 * @return
+	 */
+	protected Collection<SimResourceInstance> getIdleInstances() {
+		Collection<SimResourceInstance> idleInstances = new ArrayList<SimResourceInstance>();
+		for (SimResourceInstance instance : runQueueHolder
+				.getResourceInstances()) {
+			if (isIdle(instance))
+				idleInstances.add(instance);
+		}
+		return idleInstances;
+	}
+
+	protected boolean isIdle(SimResourceInstance instance) {
+		return runQueueHolder.getRunQueueFor(instance).isEmpty();
+	}
 }

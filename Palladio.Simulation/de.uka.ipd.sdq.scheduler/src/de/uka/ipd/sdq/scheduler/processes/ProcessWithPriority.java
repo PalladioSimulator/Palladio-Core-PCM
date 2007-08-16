@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.processes;
 
+import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.resources.queueing.PriorityArray;
 
@@ -8,7 +9,7 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	/**
 	 * @uml.property   name="staticPriority"
 	 */
-	private int staticPriority;
+	private IPriority staticPriority;
 
 	/**
 	 * Getter of the property <tt>priority</tt>
@@ -16,7 +17,7 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	 * @return Returns the priority.
 	 * @uml.property name="staticPriority"
 	 */
-	public int getStaticPriority() {
+	public IPriority getStaticPriority() {
 		return staticPriority;
 	}
 
@@ -27,7 +28,7 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	 *            The priority to set.
 	 * @uml.property name="staticPriority"
 	 */
-	public void setStaticPriority(int staticPriority) {
+	public void setStaticPriority(IPriority staticPriority) {
 		this.staticPriority = staticPriority;
 	}
 

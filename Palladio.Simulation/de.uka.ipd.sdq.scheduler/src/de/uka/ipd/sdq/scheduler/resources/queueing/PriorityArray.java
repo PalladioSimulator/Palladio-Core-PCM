@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.resources.queueing;
 
+import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
@@ -150,5 +151,21 @@ public class PriorityArray {
 	private ProcessQueue<ProcessWithPriority> getQueue(int prio) {
 		int pos = priorityManager.getPosition(prio);
 		return priorityArray[pos];
+	}
+
+	public IPriority getLowestPriorityWithNonEmptyQueue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public IPriority getHighestPriorityWithNonEmptyQueue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ProcessQueue<ProcessWithPriority> getQueueFor(IPriority prio) {
+		return null;
+		// TODO Auto-generated method stub
+		
 	}
 }
