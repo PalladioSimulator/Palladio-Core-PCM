@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.capra.simulator.expressions;
 import java.util.Hashtable;
 
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
-import de.uka.ipd.sdq.capra.simulator.resources.SimPassiveResource;
+import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;
 
 /**
  * @author     jens.happe

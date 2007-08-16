@@ -6,11 +6,11 @@ import java.util.List;
 
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimReplicatedProcess;
-import de.uka.ipd.sdq.capra.simulator.resources.AbstractSimResource;
-import de.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources.SimPassiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveSchedulingStrategy;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl.PreemptiveStrategy;
+import de.uka.ipd.sdq.capra.simulator.resources.scheduling.PreemptiveStrategy;
+import de.uka.ipd.sdq.capra.simulator.resources_old.AbstractSimResource;
+import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
+import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IPreemptiveSchedulingStrategy;
 
 /**
  * Manages a set of resource. It follows the builder pattern.

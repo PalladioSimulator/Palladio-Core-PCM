@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.capra.simulator.resources.scheduling.events;
+package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events;
 
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
 import umontreal.iro.lecuyer.simevents.Event;

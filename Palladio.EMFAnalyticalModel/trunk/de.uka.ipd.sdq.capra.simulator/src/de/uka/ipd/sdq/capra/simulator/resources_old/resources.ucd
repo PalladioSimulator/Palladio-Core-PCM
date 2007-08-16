@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="resources" size="881,481" id="de.uka.ipd.sdq.capra.simulator.resources_old" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E63617072612E73696D756C61746F722F6A656E732E6861707065">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0 //@children.1/@sourceConnections.2 //@children.2/@sourceConnections.2" name="AbstractSimResource" location="300,30" size="177,121" id="de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource" runTimeClassModel="iNFINITE,name,capacity,AbstractSimResource(Ljava.lang.String;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="79,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="capacity" id="de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource#capacity"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="iNFINITE" id="de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource#iNFINITE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="name" id="de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource#name"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,18">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractSimResource" id="de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource#AbstractSimResource(Ljava.lang.String;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.1" name="SimActiveResource" location="495,300" size="165,121" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimActiveResource" runTimeClassModel="schedulingCallback(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),SimActiveResource(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveSchedulingStrategy;Ljava.lang.String;),process(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;D),registry">
+    <children xsi:type="editmodel:CompartmentEditModel" size="142,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="registry" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimActiveResource#registry"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="125,54">
+      <children xsi:type="editmodel:MethodEditModel" name="SimActiveResource" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimActiveResource#SimActiveResource(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveSchedulingStrategy;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="process" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimActiveResource#process(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="schedulingCallback" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimActiveResource#schedulingCallback(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource&lt;-de.uka.ipd.sdq.capra.simulator.resources_old/SimActiveResource" source="//@children.1" target="//@children.2/@sourceConnections.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="82,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimActiveResource->Standard::Call" source="//@children.1" target="//@children.4" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="165,60" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,74"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimActiveResource-Standard::Derive->de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.2/@children.2" label="//@children.1/@sourceConnections.2/@children.0" sourceEnd="//@children.1/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="40,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="131,121"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SimPassiveResource" location="75,279" size="174,139" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource" runTimeClassModel="init(),release(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;I),SimPassiveResource(Ljava.lang.String;I),addFavouredResource(Lde.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;),acquire(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="141,90">
+      <children xsi:type="editmodel:MethodEditModel" name="SimPassiveResource" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource#SimPassiveResource(Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="acquire" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource#acquire(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addFavouredResource" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource#addFavouredResource(Lde.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="init" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource#init()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="release" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource#release(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.1/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource&lt;-de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource" source="//@children.2" target="//@children.0" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="125,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="27,121" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource->Standard::Call" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Call»" size="64,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="174,80" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,59"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old/SimPassiveResource-Standard::Derive->de.uka.ipd.sdq.capra.simulator.resources_old/AbstractSimResource" source="//@children.2" target="//@children.0" targetEnd="//@children.2/@sourceConnections.2/@children.2" label="//@children.2/@sourceConnections.2/@children.0" sourceEnd="//@children.2/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="147,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="35,121"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@sourceConnections.0 //@children.4/@sourceConnections.1" name="ISchedulingStrategy" location="975,60" size="171,113" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/ISchedulingStrategy" runTimeClassModel="progressInTime(),addJob(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;D)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,36">
+      <children xsi:type="editmodel:MethodEditModel" name="addJob" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/ISchedulingStrategy#addJob(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="progressInTime" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/ISchedulingStrategy#progressInTime()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.1" name="IPreemptiveSchedulingStrategy" location="945,286" size="244,149" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveSchedulingStrategy" runTimeClassModel="getRegistry(),reschedule(),getNumberOfJobs(),finishSchedulingCycle(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,72">
+      <children xsi:type="editmodel:MethodEditModel" name="finishSchedulingCycle" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveSchedulingStrategy#finishSchedulingCycle(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumberOfJobs" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveSchedulingStrategy#getNumberOfJobs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRegistry" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveSchedulingStrategy#getRegistry()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reschedule" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveSchedulingStrategy#reschedule()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/ISchedulingStrategy&lt;-de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveSchedulingStrategy" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="115,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="85,113"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveSchedulingStrategy-Standard::Derive->de.uka.ipd.sdq.capra.simulator.resources.scheduling/ISchedulingStrategy" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.1/@children.2" label="//@children.4/@sourceConnections.1/@children.0" sourceEnd="//@children.4/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="95,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="65,113"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="RoundRobinJobManager" location="809,720" size="199,225" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager" runTimeClassModel="addJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),balanceQueues(),enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),dequeue(),getNumberOfJobs(),requestNewTimeSlice(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),getCurrentJob(),removeFinishedJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),RoundRobinJobManager(D)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="147,162">
+      <children xsi:type="editmodel:MethodEditModel" name="RoundRobinJobManager" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#RoundRobinJobManager(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#addJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="balanceQueues" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#balanceQueues()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dequeue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#dequeue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="enqueue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCurrentJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#getCurrentJob()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumberOfJobs" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#getNumberOfJobs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeFinishedJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#removeFinishedJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="requestNewTimeSlice" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager#requestNewTimeSlice(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager&lt;-de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager" source="//@children.5" target="//@children.7" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="98,167"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/RoundRobinJobManager-Soyatec::Implement->de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager" source="//@children.5" target="//@children.7" targetEnd="//@children.5/@sourceConnections.1/@children.2" label="//@children.5/@sourceConnections.1/@children.0" sourceEnd="//@children.5/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="78,167"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.7/@sourceConnections.1" name="IJobManager" location="836,240" size="146,131" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IJobManager" runTimeClassModel="addJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),getNumberOfJobs(),removeFinishedJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="123,54">
+      <children xsi:type="editmodel:MethodEditModel" name="addJob" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IJobManager#addJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumberOfJobs" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IJobManager#getNumberOfJobs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeFinishedJob" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IJobManager#removeFinishedJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.5/@sourceConnections.0 //@children.8/@sourceConnections.0 //@children.9/@sourceConnections.0 //@children.5/@sourceConnections.1 //@children.8/@sourceConnections.2 //@children.9/@sourceConnections.2" name="IPreemptiveJobManager" location="810,465" size="198,167" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager" runTimeClassModel="balanceQueues(),enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),dequeue(),requestNewTimeSlice(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),getCurrentJob()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="135,90">
+      <children xsi:type="editmodel:MethodEditModel" name="balanceQueues" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager#balanceQueues()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dequeue" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager#dequeue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="enqueue" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager#enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCurrentJob" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager#getCurrentJob()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="requestNewTimeSlice" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager#requestNewTimeSlice(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IJobManager&lt;-de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager" source="//@children.7" target="//@children.6" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="73,131"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager-Standard::Derive->de.uka.ipd.sdq.capra.simulator.resources.scheduling/IJobManager" source="//@children.7" target="//@children.6" targetEnd="//@children.7/@sourceConnections.1/@children.2" label="//@children.7/@sourceConnections.1/@children.0" sourceEnd="//@children.7/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="53,131"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SingleQueuePriorityJobManager" location="476,720" size="250,279" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager" runTimeClassModel="enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),balanceQueues(),addJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),dequeue(),SingleQueuePriorityJobManager(D),requestNewTimeSlice(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),getNumberOfJobs(),getCurrentJob(),removeFinishedJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),notifyPriorityChange(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;II),activeJobQueue,timeslice">
+    <children xsi:type="editmodel:CompartmentEditModel" size="152,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="activeJobQueue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#activeJobQueue"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="timeslice" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#timeslice"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="183,180">
+      <children xsi:type="editmodel:MethodEditModel" name="SingleQueuePriorityJobManager" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#SingleQueuePriorityJobManager(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#addJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="balanceQueues" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#balanceQueues()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dequeue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#dequeue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="enqueue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCurrentJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#getCurrentJob()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumberOfJobs" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#getNumberOfJobs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="notifyPriorityChange" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#notifyPriorityChange(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeFinishedJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#removeFinishedJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="requestNewTimeSlice" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager#requestNewTimeSlice(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager&lt;-de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager" source="//@children.8" target="//@children.7" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="250,13" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="16,167"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager->Standard::Call" source="//@children.8" target="//@children.10" targetEnd="//@children.8/@sourceConnections.1/@children.2" label="//@children.8/@sourceConnections.1/@children.0" sourceEnd="//@children.8/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Instantiate, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="250,274" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,19"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/SingleQueuePriorityJobManager-Soyatec::Implement->de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager" source="//@children.8" target="//@children.7" targetEnd="//@children.8/@sourceConnections.2/@children.2" label="//@children.8/@sourceConnections.2/@children.0" sourceEnd="//@children.8/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="245,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,162"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="DoubleQueuePriorityJobManager" location="1100,720" size="254,297" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager" runTimeClassModel="balanceQueues(),passiveJobQueue,dequeue(),requestNewTimeSlice(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),timeslice,enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),addJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),DoubleQueuePriorityJobManager(D),getNumberOfJobs(),getCurrentJob(),removeFinishedJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),notifyPriorityChange(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;II),activeJobQueue">
+    <children xsi:type="editmodel:CompartmentEditModel" size="161,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="activeJobQueue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#activeJobQueue"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="passiveJobQueue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#passiveJobQueue"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="timeslice" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#timeslice"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="187,180">
+      <children xsi:type="editmodel:MethodEditModel" name="DoubleQueuePriorityJobManager" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#DoubleQueuePriorityJobManager(D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#addJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="balanceQueues" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#balanceQueues()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dequeue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#dequeue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="enqueue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCurrentJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#getCurrentJob()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumberOfJobs" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#getNumberOfJobs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="notifyPriorityChange" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#notifyPriorityChange(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeFinishedJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#removeFinishedJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="requestNewTimeSlice" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager#requestNewTimeSlice(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager&lt;-de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager" source="//@children.9" target="//@children.7" targetEnd="//@children.9/@sourceConnections.0/@children.1" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,20" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="182,167"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager->Standard::Call" source="//@children.9" target="//@children.10" targetEnd="//@children.9/@sourceConnections.1/@children.2" label="//@children.9/@sourceConnections.1/@children.0" sourceEnd="//@children.9/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Instantiate, Call»" size="119,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,287" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="222,18"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/DoubleQueuePriorityJobManager-Soyatec::Implement->de.uka.ipd.sdq.capra.simulator.resources.scheduling/IPreemptiveJobManager" source="//@children.9" target="//@children.7" targetEnd="//@children.9/@sourceConnections.2/@children.2" label="//@children.9/@sourceConnections.2/@children.0" sourceEnd="//@children.9/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="59,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="198,162"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.1 //@children.9/@sourceConnections.1" name="JobQueue" location="809,1065" size="222,279" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue" runTimeClassModel="queue,enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),setActive(),dequeue(),JobQueue(I),isEmpty(),maxPriority,notifyPriorityChange(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;II),numJobs,peek(),removeJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;),enqueueFirst(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="199,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="maxPriority" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#maxPriority"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="numJobs" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#numJobs"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="queue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#queue"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="127,162">
+      <children xsi:type="editmodel:MethodEditModel" name="JobQueue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#JobQueue(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dequeue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#dequeue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="enqueue" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#enqueue(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="enqueueFirst" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#enqueueFirst(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isEmpty" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#isEmpty()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="notifyPriorityChange" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#notifyPriorityChange(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="peek" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#peek()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeJob" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#removeJob(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setActive" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl/JobQueue#setActive()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" showScope="InPackage" properties="wireOptions=7;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

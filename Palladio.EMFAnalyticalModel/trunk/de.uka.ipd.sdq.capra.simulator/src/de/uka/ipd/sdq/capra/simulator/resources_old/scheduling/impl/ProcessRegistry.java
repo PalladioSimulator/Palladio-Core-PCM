@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl;
+package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl;
 
 import java.util.Hashtable;
 

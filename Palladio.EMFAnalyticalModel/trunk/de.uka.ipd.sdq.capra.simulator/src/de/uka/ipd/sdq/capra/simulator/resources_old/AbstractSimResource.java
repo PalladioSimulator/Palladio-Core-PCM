@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.capra.simulator.resources;
+package de.uka.ipd.sdq.capra.simulator.resources_old;
 
 /**
  * @author  jens.happe

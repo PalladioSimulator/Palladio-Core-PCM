@@ -1,10 +1,11 @@
-package de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl;
+package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveJobManager;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
+import de.uka.ipd.sdq.capra.simulator.resources.scheduling.PreemptiveProcess;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IPreemptiveJobManager;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IScheduledJob;
 
 /**
  * @author     jens.happe

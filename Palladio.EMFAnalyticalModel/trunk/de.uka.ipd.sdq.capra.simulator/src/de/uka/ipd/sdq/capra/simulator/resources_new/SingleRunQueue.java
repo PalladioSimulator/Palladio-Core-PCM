@@ -3,6 +3,14 @@ package de.uka.ipd.sdq.capra.simulator.resources_new;
 
 
 public class SingleRunQueue implements IQueueingStrategy  {
+	
+	
+	public SingleRunQueue(IRunQueue runQueue, IProcessSelector processSelector) {
+		super();
+		this.runQueue = runQueue;
+		this.processSelector = processSelector;
+	}
+	
 
 	/** 
 	 * @uml.property name="runQueue"
@@ -30,13 +38,12 @@ public class SingleRunQueue implements IQueueingStrategy  {
 
 	@Override
 	public ActiveProcess getNextProcessFor(SimResourceInstance instance) {
-		return null;
+		return processSelector.select(instance);
 	}
 
 	@Override
 	public void addNewProcess(ActiveProcess process) {
-		// TODO Auto-generated method stub
-		
+		runQueue.addProcess(process);
 	}
 
 	/**
@@ -62,6 +69,5 @@ public class SingleRunQueue implements IQueueingStrategy  {
 	public void setProcessSelector(IProcessSelector processSelector) {
 		this.processSelector = processSelector;
 	}
-
 
 }

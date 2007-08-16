@@ -6,7 +6,7 @@ import umontreal.iro.lecuyer.probdist.Distribution;
 import umontreal.iro.lecuyer.randvar.RandomVariateGen;
 import umontreal.iro.lecuyer.rng.RandomStream;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
-import de.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;
+import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
 import de.uka.ipd.sdq.capra.simulator.tools.RandomStreamProvider;
 
 /**

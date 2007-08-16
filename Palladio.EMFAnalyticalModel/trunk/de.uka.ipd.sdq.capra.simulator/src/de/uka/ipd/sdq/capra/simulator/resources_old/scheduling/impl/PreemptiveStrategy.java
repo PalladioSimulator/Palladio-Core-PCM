@@ -1,10 +1,14 @@
-package de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl;
+package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl;
 
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
-import de.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IPreemptiveJobManager;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.events.SchedulingEvent;
+import de.uka.ipd.sdq.capra.simulator.resources.AbstractSchedulingStrategy;
+import de.uka.ipd.sdq.capra.simulator.resources.DoubleQueuePriorityJobManager;
+import de.uka.ipd.sdq.capra.simulator.resources.PreemptiveJob;
+import de.uka.ipd.sdq.capra.simulator.resources.PreemptiveProcess;
+import de.uka.ipd.sdq.capra.simulator.resources.scheduling.SchedulingEvent;
+import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IPreemptiveJobManager;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IScheduledJob;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 /**

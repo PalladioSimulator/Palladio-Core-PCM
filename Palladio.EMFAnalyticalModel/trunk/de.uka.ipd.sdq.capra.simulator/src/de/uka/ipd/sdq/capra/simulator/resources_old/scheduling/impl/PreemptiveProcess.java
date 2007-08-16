@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl;
+package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl;
 
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;

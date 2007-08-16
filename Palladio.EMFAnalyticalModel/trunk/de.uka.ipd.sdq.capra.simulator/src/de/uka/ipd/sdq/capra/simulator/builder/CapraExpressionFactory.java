@@ -11,8 +11,8 @@ import de.uka.ipd.sdq.capra.simulator.expressions.SimProbabilisticPrefix;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimReleaseAction;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimSuccessfulTermination;
 import de.uka.ipd.sdq.capra.simulator.measurement.probes.SimTimeProbe;
-import de.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources.SimPassiveResource;
+import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
+import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;
 
 
 public class CapraExpressionFactory {

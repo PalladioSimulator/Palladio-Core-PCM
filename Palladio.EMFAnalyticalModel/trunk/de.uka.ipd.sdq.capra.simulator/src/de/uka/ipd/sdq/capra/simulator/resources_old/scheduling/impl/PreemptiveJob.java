@@ -1,9 +1,10 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl;
+package de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl;
 
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.IScheduledJob;
+import de.uka.ipd.sdq.capra.simulator.resources.scheduling.PreemptiveProcess;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IScheduledJob;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.capra.simulator.resources;
+package de.uka.ipd.sdq.capra.simulator.resources_old;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import umontreal.iro.lecuyer.simevents.Sim;
 
 import de.uka.ipd.sdq.capra.simulator.CapraSim;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.events.ContinueProcessEvent;
-import de.uka.ipd.sdq.capra.simulator.resources.scheduling.impl.PreemptiveProcess;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events.ContinueProcessEvent;
+import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl.PreemptiveProcess;
 
 public class SimPassiveResource extends AbstractSimResource{
 	

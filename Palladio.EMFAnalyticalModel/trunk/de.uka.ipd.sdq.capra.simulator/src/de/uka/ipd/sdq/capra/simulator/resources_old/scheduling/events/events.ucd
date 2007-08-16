@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="events" size="815,513" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E63617072612E73696D756C61746F722F6A656E732E6861707065">
-  <children xsi:type="editmodel:ClassEditModel" name="SchedulingEvent" location="555,186" size="149,121" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/SchedulingEvent">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="events" size="815,513" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E63617072612E73696D756C61746F722F6A656E732E6861707065">
+  <children xsi:type="editmodel:ClassEditModel" name="SchedulingEvent" location="555,186" size="149,121" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/SchedulingEvent">
     <children xsi:type="editmodel:CompartmentEditModel" size="109,18">
-      <children xsi:type="editmodel:AttributeEditModel" name="job" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/SchedulingEvent#job"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="job" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/SchedulingEvent#job"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="110,54">
-      <children xsi:type="editmodel:MethodEditModel" name="SchedulingEvent" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/SchedulingEvent#SchedulingEvent(Lde.uka.ipd.sdq.capra.simulator.resources.scheduling.impl.PreemptiveJob;Lde.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="SchedulingEvent" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/SchedulingEvent#SchedulingEvent(Lde.uka.ipd.sdq.capra.simulator.resources.SimActiveResource;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="actions" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/SchedulingEvent#actions()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SchedulingEvent" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/SchedulingEvent#SchedulingEvent(Lde.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl.PreemptiveJob;Lde.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SchedulingEvent" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/SchedulingEvent#SchedulingEvent(Lde.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="actions" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/SchedulingEvent#actions()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
@@ -23,13 +23,13 @@
     <children xsi:type="editmodel:CompartmentEditModel"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="ContinueProcessEvent" location="45,195" size="202,103" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/ContinueProcessEvent">
+  <children xsi:type="editmodel:ClassEditModel" name="ContinueProcessEvent" location="45,195" size="202,103" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/ContinueProcessEvent">
     <children xsi:type="editmodel:CompartmentEditModel" size="179,18">
-      <children xsi:type="editmodel:AttributeEditModel" name="capraProcess" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/ContinueProcessEvent#capraProcess"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="capraProcess" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/ContinueProcessEvent#capraProcess"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel" size="139,36">
-      <children xsi:type="editmodel:MethodEditModel" name="ContinueProcessEvent" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/ContinueProcessEvent#ContinueProcessEvent(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="actions" id="de.uka.ipd.sdq.capra.simulator.resources.scheduling.events/ContinueProcessEvent#actions()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ContinueProcessEvent" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/ContinueProcessEvent#ContinueProcessEvent(Lde.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="actions" id="de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events/ContinueProcessEvent#actions()"/>
     </children>
     <children xsi:type="editmodel:CompartmentEditModel"/>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
