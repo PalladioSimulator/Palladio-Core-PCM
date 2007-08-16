@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.balancing.ILoadBalancer;
 import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleQueuesStrategy;
+import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
 public abstract class AbstractLoadBalancer implements ILoadBalancer {
 

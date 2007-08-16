@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleQueuesStrategy;
+import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
 
 public class RoundRobinSelector extends AbstractSelector {

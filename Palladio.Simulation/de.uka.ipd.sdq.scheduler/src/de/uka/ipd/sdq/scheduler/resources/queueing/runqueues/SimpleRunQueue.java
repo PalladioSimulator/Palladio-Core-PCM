@@ -1,10 +1,12 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing;
+package de.uka.ipd.sdq.scheduler.resources.queueing.runqueues;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.ProcessQueue;
 
 
 public class SimpleRunQueue extends AbstractRunQueue {

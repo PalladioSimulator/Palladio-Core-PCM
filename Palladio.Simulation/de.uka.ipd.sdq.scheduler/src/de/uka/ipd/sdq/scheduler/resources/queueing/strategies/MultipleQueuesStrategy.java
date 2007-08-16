@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing;
+package de.uka.ipd.sdq.scheduler.resources.queueing.strategies;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +9,8 @@ import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.balancing.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.resources.balancing.ILoadBalancer;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IQueueingStrategy;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
 
 
 public class MultipleQueuesStrategy implements IQueueingStrategy {

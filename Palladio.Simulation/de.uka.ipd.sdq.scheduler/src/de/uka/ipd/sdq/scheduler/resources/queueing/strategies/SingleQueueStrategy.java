@@ -1,8 +1,10 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing;
+package de.uka.ipd.sdq.scheduler.resources.queueing.strategies;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.balancing.IProcessSelector;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IQueueingStrategy;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
 
 
 

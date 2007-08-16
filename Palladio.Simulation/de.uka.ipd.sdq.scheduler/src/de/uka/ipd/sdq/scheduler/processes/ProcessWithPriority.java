@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.scheduler.processes;
 
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
-import de.uka.ipd.sdq.scheduler.resources.queueing.priorityarray.PriorityArray;
+import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.priorityarrays.PriorityArray;
 
 public class ProcessWithPriority extends PreemptiveProcess {
 

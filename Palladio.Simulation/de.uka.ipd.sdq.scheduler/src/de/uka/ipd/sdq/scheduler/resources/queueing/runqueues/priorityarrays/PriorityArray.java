@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing.priorityarray;
+package de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.priorityarrays;
 
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;

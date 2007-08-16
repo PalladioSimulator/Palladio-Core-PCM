@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
 
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.MultipleQueuesStrategy;
+import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
 
 /**
