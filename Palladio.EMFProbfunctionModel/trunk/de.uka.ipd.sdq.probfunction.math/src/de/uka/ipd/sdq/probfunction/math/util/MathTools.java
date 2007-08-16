@@ -319,4 +319,8 @@ public class MathTools {
 	public static boolean lessOrEqual(double d1, double d2) {
 		return d1 <= d2 + EPSILON_ERROR;
 	}
+
+	public static boolean less(double d1, double d2) {
+		return d1 < d2 + EPSILON_ERROR;
+	}
 }
