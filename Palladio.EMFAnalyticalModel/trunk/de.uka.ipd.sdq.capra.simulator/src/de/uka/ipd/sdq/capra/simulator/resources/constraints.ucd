@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="constraints" size="634,567" id="de.uka.ipd.sdq.capra.simulator.resources" metadata="uml2-1.0" initialized="true" scrolledY="102" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E63617072612E73696D756C61746F722F6A656E732E6861707065">
+  <children xsi:type="editmodel:ClassEditModel" name="SimResourceInstance" location="238,390" size="195,157" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance" runTimeClassModel="id,assign(Lde.uka.ipd.sdq.capra.simulator.resources_new.ActiveProcess;),runningProcess,pollRunningProcess(),isIdle(),toString()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="172,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="id" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance#id"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="runningProcess" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance#runningProcess"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="125,72">
+      <children xsi:type="editmodel:MethodEditModel" name="assign" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance#assign(Lde.uka.ipd.sdq.capra.simulator.resources.ActiveProcess;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isIdle" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance#isIdle()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="pollRunningProcess" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance#pollRunningProcess()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance@affinityResourceInstanceTable+de.uka.ipd.sdq.capra.simulator.resources/MultipleResourceInstancesConstraint@resourceInstanceAffinityConstraint" source="//@children.0" target="//@children.3" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="affinityResourceInstanceTable" location="43,0" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance@affinityResourceInstanceTable+de.uka.ipd.sdq.capra.simulator.resources/MultipleResourceInstancesConstraint@resourceInstanceAffinityConstraint|de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance#affinityResourceInstanceTable" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.0/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - affinityResourceInstanceTable" location="288,369" size="157,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="256,369" size="18,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="resourceInstanceAffinityConstraint" location="143,67" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance@affinityResourceInstanceTable+de.uka.ipd.sdq.capra.simulator.resources/MultipleResourceInstancesConstraint@resourceInstanceAffinityConstraint|de.uka.ipd.sdq.capra.simulator.resources/MultipleResourceInstancesConstraint#resourceInstanceAffinityConstraint">
+        <children xsi:type="editmodel:QualifierAttributeEditModel" name="key" location="177,244" size="32,23" id=""/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance@idealResourceInstance+de.uka.ipd.sdq.capra.simulator.resources/SingleResourceInstanceConstraint@idealResourceInstanceConstraint" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.1/@children.2" label="//@children.0/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="idealResourceInstance" location="155,0" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance@idealResourceInstance+de.uka.ipd.sdq.capra.simulator.resources/SingleResourceInstanceConstraint@idealResourceInstanceConstraint|de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance#idealResourceInstance" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.0/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - idealResourceInstance" location="266,369" size="120,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="400,369" size="18,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="idealResourceInstanceConstraint" location="142,67" id="de.uka.ipd.sdq.capra.simulator.resources/SimResourceInstance@idealResourceInstance+de.uka.ipd.sdq.capra.simulator.resources/SingleResourceInstanceConstraint@idealResourceInstanceConstraint|de.uka.ipd.sdq.capra.simulator.resources/SingleResourceInstanceConstraint#idealResourceInstanceConstraint"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.3/@sourceConnections.0" name="IResourceInstanceConstraint" location="225,50" size="222,81" id="de.uka.ipd.sdq.capra.simulator.resources/IResourceInstanceConstraint" runTimeClassModel="check(Lde.uka.ipd.sdq.capra.simulator.resources_new.SimResourceInstance;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="59,18">
+      <children xsi:type="editmodel:MethodEditModel" name="check" id="de.uka.ipd.sdq.capra.simulator.resources/IResourceInstanceConstraint#check(Lde.uka.ipd.sdq.capra.simulator.resources.SimResourceInstance;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.1" name="SingleResourceInstanceConstraint" location="355,181" size="259,67" id="de.uka.ipd.sdq.capra.simulator.resources/SingleResourceInstanceConstraint" runTimeClassModel="check(Lde.uka.ipd.sdq.capra.simulator.resources_new.SimResourceInstance;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="59,18">
+      <children xsi:type="editmodel:MethodEditModel" name="check" id="de.uka.ipd.sdq.capra.simulator.resources/SingleResourceInstanceConstraint#check(Lde.uka.ipd.sdq.capra.simulator.resources.SimResourceInstance;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources/IResourceInstanceConstraint&lt;-de.uka.ipd.sdq.capra.simulator.resources/SingleResourceInstanceConstraint" source="//@children.2" target="//@children.3/@sourceConnections.0" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="129,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="MultipleResourceInstancesConstraint" location="50,181" size="275,67" id="de.uka.ipd.sdq.capra.simulator.resources/MultipleResourceInstancesConstraint" runTimeClassModel="check(Lde.uka.ipd.sdq.capra.simulator.resources_new.SimResourceInstance;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="59,18">
+      <children xsi:type="editmodel:MethodEditModel" name="check" id="de.uka.ipd.sdq.capra.simulator.resources/MultipleResourceInstancesConstraint#check(Lde.uka.ipd.sdq.capra.simulator.resources.SimResourceInstance;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.2/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.capra.simulator.resources/IResourceInstanceConstraint&lt;-de.uka.ipd.sdq.capra.simulator.resources/MultipleResourceInstancesConstraint" source="//@children.3" target="//@children.1" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="137,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="111,81" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

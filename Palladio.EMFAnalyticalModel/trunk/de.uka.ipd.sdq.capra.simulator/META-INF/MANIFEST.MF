@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simulator for Capra
+Bundle-SymbolicName: de.uka.ipd.sdq.capra.simulator
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf,
+ org.eclipse.emf.ecore,
+ de.uka.ipd.sdq.capra,
+ de.uka.ipd.sdq.probfunction.math,
+ de.uka.ipd.sdq.sensorframework,
+ org.eclipse.emf.ecore.xmi,
+ org.apache.log4j,
+ ca.umontreal.iro.lecuyer.ssj
+Eclipse-LazyStart: true
