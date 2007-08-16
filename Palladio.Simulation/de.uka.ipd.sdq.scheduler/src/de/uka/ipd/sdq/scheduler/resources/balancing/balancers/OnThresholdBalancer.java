@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
+package de.uka.ipd.sdq.scheduler.resources.balancing.balancers;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;

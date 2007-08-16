@@ -4,8 +4,8 @@ import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.balancing.impl.MultipleResourceInstancesConstraint;
-import de.uka.ipd.sdq.scheduler.resources.balancing.impl.SingleResourceInstanceConstraint;
+import de.uka.ipd.sdq.scheduler.resources.balancing.constraints.MultipleResourceInstancesConstraint;
+import de.uka.ipd.sdq.scheduler.resources.balancing.constraints.SingleResourceInstanceConstraint;
 
 public class ActiveProcess {
 

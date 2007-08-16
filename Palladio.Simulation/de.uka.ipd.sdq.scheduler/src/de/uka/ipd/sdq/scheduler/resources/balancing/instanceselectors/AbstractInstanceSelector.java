@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
+package de.uka.ipd.sdq.scheduler.resources.balancing.instanceselectors;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
@@ -6,11 +6,11 @@ import de.uka.ipd.sdq.scheduler.resources.balancing.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
 
-public class AbstractSelector implements IInstanceSelector {
+public class AbstractInstanceSelector implements IInstanceSelector {
 	
 	protected MultipleQueuesStrategy runQueueHolder;
 	
-	public AbstractSelector(MultipleQueuesStrategy runQueueHolder) {
+	public AbstractInstanceSelector(MultipleQueuesStrategy runQueueHolder) {
 		super();
 		this.runQueueHolder = runQueueHolder;
 	}

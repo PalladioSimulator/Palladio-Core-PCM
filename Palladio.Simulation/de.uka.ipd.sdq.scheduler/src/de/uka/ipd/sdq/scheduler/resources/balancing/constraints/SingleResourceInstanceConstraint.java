@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
+package de.uka.ipd.sdq.scheduler.resources.balancing.constraints;
 
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.balancing.IResourceInstanceConstraint;

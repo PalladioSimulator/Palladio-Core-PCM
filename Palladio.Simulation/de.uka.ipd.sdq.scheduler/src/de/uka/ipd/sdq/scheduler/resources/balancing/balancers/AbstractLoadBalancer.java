@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources.balancing.impl;
+package de.uka.ipd.sdq.scheduler.resources.balancing.balancers;
 
 import java.util.ArrayList;
 import java.util.Collection;
