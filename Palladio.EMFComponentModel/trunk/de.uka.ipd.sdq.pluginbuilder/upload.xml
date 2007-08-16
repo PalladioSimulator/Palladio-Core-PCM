@@ -1,0 +1,31 @@
+<project name="UpdateSite">
+
+	<target name="clean_remote">
+		<sshexec host="i43pc12.ipd.uka.de"
+				username="ccontrol"
+				keyfile="/home/ccontrol/.ssh/id.rsa" 
+				passphrase="" 
+				trust="true" 
+		command="cd /var/www/eclipse/PCM_nightly/; 
+			rm -rf updatesite; 
+			rm -rf testresults; 
+			"/>
+	</target>
+
+
+	<target name="upload" depends="clean_remote">
+		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+				keyfile="/home/ccontrol/.ssh/id.rsa" 
+				passphrase="" 
+				trust="true">
+		    <fileset dir="updateSite"/>
+	  	</scp>	
+		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+				keyfile="/home/ccontrol/.ssh/id.rsa" 
+				passphrase="" 
+				trust="true">
+		    <fileset dir="results/testresults/html/*"/>
+	  	</scp>	
+	</target>
+
+</project>
