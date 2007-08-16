@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.tests"
       label="Tests Feature"
-      version="1.0.0.qualifier"
+      version="3.0.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
    <description url="http://www.example.com/description">
