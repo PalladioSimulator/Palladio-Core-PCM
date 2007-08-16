@@ -24,7 +24,7 @@
 				passphrase="" 
 				trust="true"
 				remoteTofile="testresults.html"
-				file="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html/*.html"/>
+				file="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html/*.html">
 	  	</scp>	
 	</target>
 
