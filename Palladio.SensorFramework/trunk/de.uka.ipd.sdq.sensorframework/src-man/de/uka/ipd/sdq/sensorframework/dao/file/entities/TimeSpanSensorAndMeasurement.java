@@ -17,7 +17,6 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 public class TimeSpanSensorAndMeasurement extends SensorAndMeasurementsImpl {
 
 	private static final long serialVersionUID = 3516448762554779531L;
-
 	private DoubleArrayList timeSpan;
 
 	public TimeSpanSensorAndMeasurement(Sensor sensor) {
@@ -42,6 +41,15 @@ public class TimeSpanSensorAndMeasurement extends SensorAndMeasurementsImpl {
 					.get(i)));
 		}
 		return m;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof TimeSpanSensorAndMeasurement))
+			return false;
+		TimeSpanSensorAndMeasurement sam = (TimeSpanSensorAndMeasurement) obj;
+		return (getEventTimes().equals(sam.getEventTimes()))
+				&& (getTimeSpan().equals(sam.getTimeSpan()));
 	}
 
 }

@@ -18,4 +18,14 @@ public class TimeSpanSensorImpl extends SensorImpl implements TimeSpanSensor {
 		super(factory);
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof TimeSpanSensorImpl))
+			return false;
+		TimeSpanSensorImpl s = (TimeSpanSensorImpl) obj;
+		if (!(sensorID == s.getSensorID() && sensorName.equals(s
+				.getSensorName())))
+			return false;
+		return true;
+	}
 }

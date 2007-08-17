@@ -11,30 +11,30 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
  * 
  */
 public class TimeSpanMeasurementImpl extends MeasurementImpl implements
-	TimeSpanMeasurement {
+		TimeSpanMeasurement {
 
-    private double timeSpan;
-    private TimeSpanSensor sensor;
+	private double timeSpan;
+	private TimeSpanSensor sensor;
 
-    public TimeSpanMeasurementImpl(long id, double eventTime, double timeSpan) {
-	super(id, eventTime);
-	this.timeSpan = timeSpan;
-    }
+	public TimeSpanMeasurementImpl(long id, double eventTime, double timeSpan) {
+		super(id, eventTime);
+		this.timeSpan = timeSpan;
+	}
 
-    public TimeSpanSensor getSensor() {
-	return sensor;
-    }
+	public TimeSpanSensor getSensor() {
+		return sensor;
+	}
 
-    public double getTimeSpan() {
-	return timeSpan;
-    }
+	public double getTimeSpan() {
+		return timeSpan;
+	}
 
-    public void setSensor(TimeSpanSensor value) {
-	this.sensor = value;
-    }
+	public void setSensor(TimeSpanSensor value) {
+		this.sensor = value;
+	}
 
-    public void setTimeSpan(double value) {
-	this.timeSpan = value;
-    }
+	public void setTimeSpan(double value) {
+		this.timeSpan = value;
+	}
 
 }
