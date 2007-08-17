@@ -3,10 +3,14 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanSensorImpl;
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateSensorImpl;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanSensorImpl;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
@@ -20,7 +24,6 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 public class FileSensorDAO implements ISensorDAO {
 
 	private FileDAOFactory factory;
-
 	private IDGenerator idGen;
 
 	public FileSensorDAO(FileDAOFactory factory, IDGenerator idGen) {
@@ -29,8 +32,14 @@ public class FileSensorDAO implements ISensorDAO {
 	}
 
 	public StateSensor addStateSensor(State p_initialstate, String p_sensorname) {
-		// TODO Auto-generated method stub
-		return null;
+		StateSensor stsen = new StateSensorImpl(factory);
+		stsen.setInitialState(p_initialstate);
+		stsen.setSensorName(p_sensorname);
+		stsen.setSensorID(idGen.getNextSensorID());
+
+		factory.serializeToFile("sensor" + stsen.getSensorID(), stsen);
+
+		return stsen;
 	}
 
 	public TimeSpanSensor addTimeSpanSensor(String p_sensorname) {
@@ -38,48 +47,55 @@ public class FileSensorDAO implements ISensorDAO {
 		result.setSensorID(idGen.getNextSensorID());
 		result.setSensorName(p_sensorname);
 
+		factory.serializeToFile("sensor" + result.getSensorID(), result);
 		return result;
 	}
 
 	public Collection<Sensor> findBySensorName(String searchKey) {
-		// TODO Auto-generated method stub
-		return null;
+		Collection<Sensor> result = new ArrayList<Sensor>();
+		File[] files = factory.listFiles("sensor");
+		for (File file : files) {
+			Sensor state = (Sensor) factory.deserializeFromFile(file);
+			if (state.getSensorName().equals(searchKey))
+				result.add(state);
+		}
+		return Collections.unmodifiableCollection(result);
 	}
 
 	public Sensor get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		File[] files = factory.listFiles("sensor" + id);
+		Sensor sensor = null;
+		if (files.length == 0)
+			return null;
+		else {
+			for (File file : files)
+				sensor = (Sensor) factory.deserializeFromFile(file);
+
+		}
+		return sensor;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO#getSensors()
-	 */
 	public Collection<Sensor> getSensors() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO#removeSensor(de.uka.ipd.sdq.sensorfactory.entities.Sensor,
-	 *      boolean)
-	 */
 	public void removeSensor(Sensor sensor, boolean doCascade) {
-		// TODO Auto-generated method stub
+		if (sensor == null)
+			return;
 
+		if (doCascade == true) {
+			if (sensor instanceof StateSensor) {
+				// remove the states
+				for (State state : ((StateSensor) sensor).getSensorStates()) {
+					factory.createStateDAO().removeState(state, true);
+				}
+			}
+		}
+		factory.removeFile("sensor" + sensor.getSensorID());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO#store(de.uka.ipd.sdq.sensorfactory.entities.Sensor)
-	 */
 	public void store(Sensor s) {
-		// TODO Auto-generated method stub
-
+		factory.serializeToFile("sensor" + s.getSensorID(), s);
 	}
 
 }

@@ -31,6 +31,7 @@ public class FileDAOFactory implements IDAOFactory {
 	private IExperimentRunDAO experimentRunDAO;
 	private IMeasurementDAO measurementDAO;
 	private ISensorDAO sensorDAO;
+	private IStateDAO stateDAO;
 	private IDGenerator idGen;
 	private long factoryID;
 	private String root;
@@ -91,8 +92,9 @@ public class FileDAOFactory implements IDAOFactory {
 	}
 
 	public IStateDAO createStateDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.stateDAO == null)
+			this.stateDAO = new FileStateDAO(this, idGen);
+		return this.stateDAO;
 	}
 
 	public boolean removeFile(String fileName) {
@@ -161,7 +163,7 @@ public class FileDAOFactory implements IDAOFactory {
 
 	public String getPersistendInfo() {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	public void setID(long i) {

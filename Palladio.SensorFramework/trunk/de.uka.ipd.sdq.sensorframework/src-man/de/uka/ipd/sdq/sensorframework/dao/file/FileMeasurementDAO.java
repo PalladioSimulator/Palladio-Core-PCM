@@ -5,8 +5,9 @@ package de.uka.ipd.sdq.sensorframework.dao.file;
 
 import java.util.Collection;
 
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanMeasurementImpl;
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateMeasurementImpl;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanMeasurementImpl;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
@@ -31,8 +32,10 @@ public class FileMeasurementDAO implements IMeasurementDAO {
 
 	public StateMeasurement addStateMeasurement(StateSensor p_sensor,
 			State p_sensorstate, double p_eventtime) {
-		// TODO Auto-generated method stub
-		return null;
+		StateMeasurement sm = new StateMeasurementImpl(idGen
+				.getNextMeasurementID(), p_eventtime, p_sensorstate);
+		sm.setSensor(p_sensor);
+		return sm;
 	}
 
 	public TimeSpanMeasurement addTimeSpanMeasurement(TimeSpanSensor p_sensor,

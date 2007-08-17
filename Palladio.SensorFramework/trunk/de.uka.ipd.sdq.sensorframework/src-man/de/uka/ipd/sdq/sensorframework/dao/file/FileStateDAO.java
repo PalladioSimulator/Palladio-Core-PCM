@@ -3,72 +3,77 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
+import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateImpl;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
 
 /**
  * @author ihssane
- *
+ * 
  */
 public class FileStateDAO implements IStateDAO {
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO#addState(java.lang.String)
-	 */
+	private FileDAOFactory factory;
+	private IDGenerator idGen;
+
+	public FileStateDAO(FileDAOFactory factory, IDGenerator idGen) {
+		this.factory = factory;
+		this.idGen = idGen;
+	}
+
 	public State addState(String p_stateliteral) {
-		// TODO Auto-generated method stub
-		return null;
+		State state = new StateImpl(idGen.getNextStateID(), p_stateliteral);
+		factory.serializeToFile("state" + state.getStateID(), state);
+		return state;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO#findByStateLiteral(java.lang.String)
-	 */
 	public Collection<State> findByStateLiteral(String searchKey) {
-		// TODO Auto-generated method stub
-		return null;
+		Collection<State> result = new ArrayList<State>();
+		File[] files = factory.listFiles("state");
+		for (File file : files) {
+			State state = (State) factory.deserializeFromFile(file);
+			if (state.getStateLiteral().equals(searchKey))
+				result.add(state);
+		}
+		return Collections.unmodifiableCollection(result);
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO#get(long)
-	 */
 	public State get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		File[] files = factory.listFiles("state" + id);
+		State state = null;
+		if (files.length == 0)
+			return null;
+		else {
+			for (File file : files)
+				state = (State) factory.deserializeFromFile(file);
+
+		}
+		return state;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO#getStates()
-	 */
 	public Collection<State> getStates() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO#removeState(de.uka.ipd.sdq.sensorfactory.entities.State, boolean)
-	 */
 	public void removeState(State state, boolean doCascade) {
-		// TODO Auto-generated method stub
-
+		if (state == null) {
+			return;
+		}
+		factory.removeFile("state" + state.getStateID());
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO#store(de.uka.ipd.sdq.sensorfactory.entities.StateSensor)
-	 */
 	public void store(StateSensor stateSen) {
-		// TODO Auto-generated method stub
-
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO#store(de.uka.ipd.sdq.sensorfactory.entities.State)
-	 */
 	public void store(State st) {
-		// TODO Auto-generated method stub
-
+		factory.serializeToFile("state" + st.getStateID(), st);
 	}
 
 }
