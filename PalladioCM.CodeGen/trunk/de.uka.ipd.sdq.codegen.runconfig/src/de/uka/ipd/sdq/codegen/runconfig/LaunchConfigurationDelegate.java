@@ -20,10 +20,20 @@ import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
 import de.uka.ipd.sdq.codegen.workflow.Workflow;
 import de.uka.ipd.sdq.codegen.workflow.WorkflowExceptionHandler;
 
-/** 
- * TODO
+/**
+ * The class is defined by the delegate attribute of a launchConfigurationType
+ * extension and performs launching for a SimuBench launch configuration.The
+ * class is abstract and defines the following methods, which must be
+ * implemented by subclasses.
  * 
- * @author roman
+ * defineTemplateMethod() 
+ * 					- value of AOP_TEMPLATE attribute
+ * createRunCompositeJob() 
+ * 					- create the composite job, which had to be added to Workflow 
+ * isShouldThrowException() 
+ * 					- should exception if launching fails
+ * 
+ * @author Roman Andrej
  */
 public abstract class LaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
@@ -100,7 +110,7 @@ public abstract class LaunchConfigurationDelegate implements
 
 		ILaunchConfigurationWorkingCopy copy = configuration.copy(configuration
 				.getName());
-		copy.setAttribute(ConstantsContainer.AOP_TEMPLATE, getTemplateMethod());
+		copy.setAttribute(ConstantsContainer.AOP_TEMPLATE, defineTemplateMethod());
 
 		return copy;
 	}
@@ -108,7 +118,7 @@ public abstract class LaunchConfigurationDelegate implements
 	/**
 	 * @return a value of AOP_TEMPLATE attribute
 	 */
-	protected abstract String getTemplateMethod();
+	protected abstract String defineTemplateMethod();
 
 	/**
 	 * create the composite job, which had to be added to Workflow

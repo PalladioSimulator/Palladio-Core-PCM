@@ -22,7 +22,15 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
-/** @author roman */
+import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
+import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
+
+/**
+ * The class defines a tab, which is responsible for the minimum configuration
+ * of oAW generator.
+ * 
+ * @author Roman Andrej
+ */
 public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 
 	private Text outputPathField;
@@ -34,7 +42,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	public Image getImage() {
-		return ConstantsContainer.getConfigurationTabImage();
+		return RunConfigImages.getConfigurationTabImage();
 	}
 
 	/* (non-Javadoc)
@@ -77,7 +85,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 			 */
 			public void widgetSelected(SelectionEvent e) {
 				setElementsEnabled(false);
-				outputPathField.setText(setDefaultOutputPath());
+				outputPathField.setText(ConstantsContainer.WORKSPACE_LOCATION);
 
 				if (!defaultLocationButton.getSelection()) {
 					setElementsEnabled(true);
@@ -96,7 +104,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 				false);
 		gridData.widthHint = 20;
 		outputPathField.setLayoutData(gridData);
-		outputPathField.setText(setDefaultOutputPath());
+		outputPathField.setText(ConstantsContainer.WORKSPACE_LOCATION);
 		outputPathField.addModifyListener(modifyListener);
 		
 		/** clear button */
@@ -129,15 +137,13 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 			}
 		});
 		
-		// --- setEnabled(false) ---
+		// disabled widget
 		setElementsEnabled(false);
 
 	}
 
 	/**
-	 * TODO
-	 * 
-	 * @param enable
+	 * Those makes enabled/disabled for the input the responsible widget
 	 */
 	private void setElementsEnabled(boolean enable) {
 		locationLabel.setEnabled(enable);
@@ -159,9 +165,9 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
 			outputPathField.setText(configuration.getAttribute(
-					ConstantsContainer.OUTPUT_PATH, setDefaultOutputPath()));
+					ConstantsContainer.OUTPUT_PATH, ConstantsContainer.WORKSPACE_LOCATION));
 		} catch (CoreException e) {
-			outputPathField.setText("CoreException e -> OUTPUT_PATH");
+			RunConfigPlugin.errorLogger(getName(),"Location", e.getMessage());
 		}
 	}
 
@@ -209,11 +215,6 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 		return directoryname;
 	}
 
-	/** TODO */
-	public String setDefaultOutputPath() {
-		return ConstantsContainer.WORKSPACE_LOCATION;
-	}
-	
 	/**
 	 * The function calls the ContainerSelectionDialog and give back relative to
 	 * the workspace

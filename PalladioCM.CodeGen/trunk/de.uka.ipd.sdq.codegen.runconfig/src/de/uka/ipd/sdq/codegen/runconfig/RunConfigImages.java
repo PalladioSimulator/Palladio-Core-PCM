@@ -2,8 +2,13 @@ package de.uka.ipd.sdq.codegen.runconfig;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.swt.graphics.Image;
 
-/** @author roman */
+/**
+ * The class is used for the administration the images stored in the Plug-In.
+ * 
+ * @author Roman Andrej
+ */
 public class RunConfigImages {
 	
 	/**
@@ -21,7 +26,6 @@ public class RunConfigImages {
 	 * Note: An image registry owns all of the image objects registered with it,
 	 * and automatically disposes of them the SWT Display is disposed.
 	 */ 
-
 	static {
 		String iconPath = "icons/";
 		
@@ -44,10 +48,28 @@ public class RunConfigImages {
 
 	
 	/**
-	 *@param imageFilePath the relative to the root of the plug-in; the path must be legal
-     *@return an image descriptor, or null if no image could be found
+	 * @param imageFilePath
+	 *            the relative to the root of the plug-in; the path must be
+	 *            legal
+	 * @return an image descriptor, or null if no image could be found
 	 */
 	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
 		return RunConfigPlugin.imageDescriptorFromPlugin(RunConfigPlugin.PLUGIN_ID, imageFilePath);
+	}
+
+	public static Image getConfigurationTabImage() {
+		return imageRegistry.get(CONFIGURATION_TAB);
+	}
+
+	public static Image getFileNamesTabImage() {
+		return imageRegistry.get(FILENAMES_TAB);
+	}
+
+	public static Image getFeaturTabImage() {
+		return imageRegistry.get(FEATURE_TAB);
+	}
+
+	public static Image getMainTabImage() {
+		return imageRegistry.get(MAIN_TAB);
 	}
 }

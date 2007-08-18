@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.codegen.runconfig;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -14,14 +16,7 @@ public class RunConfigPlugin extends AbstractUIPlugin {
 	// The shared instance
 	private static RunConfigPlugin plugin;
 	
-	/**
-	 * The constructor
-	 */
-	public RunConfigPlugin() {
-	}
-
-	/*
-	 * (non-Javadoc)
+	/* (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
@@ -29,8 +24,7 @@ public class RunConfigPlugin extends AbstractUIPlugin {
 		plugin = this;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/* (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
@@ -40,11 +34,21 @@ public class RunConfigPlugin extends AbstractUIPlugin {
 
 	/**
 	 * Returns the shared instance
-	 *
-	 * @return the shared instance
 	 */
 	public static RunConfigPlugin getDefault() {
 		return plugin;
 	}
 
+	public static void log(int severity, String message){
+		plugin.getLog().log(new Status(severity,PLUGIN_ID,message));
+	}
+	
+	/**
+	 * The method logs the errors with the tab initialization.
+	 * @return 
+	 */
+	public static void errorLogger(String tabName, String fieldName, String msg) {
+		log(IStatus.ERROR, "The field " + fieldName + " in the " + tabName
+				+ " Tab cannot be initialized. " + msg);
+	}
 }

@@ -4,11 +4,13 @@
 package de.uka.ipd.sdq.codegen.runconfig.tabs;
 
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
 
-/** @author roman */
+/**
+ * This class is used as a constant container.
+ * 
+ * @author Roman Andrej
+ */
 public class ConstantsContainer {
 
 	/** Model filenames value */
@@ -40,25 +42,6 @@ public class ConstantsContainer {
 	public static final String COMPONENT_LOOKUP = "componentLookup";
 
 	public static String WORKSPACE_LOCATION = ResourcesPlugin.getWorkspace()
-			.getRoot().getLocation().toString();
-
-	public static Image getConfigurationTabImage() {
-		return RunConfigImages.imageRegistry
-				.get(RunConfigImages.CONFIGURATION_TAB);
-	}
-
-	public static Image getFileNamesTabImage() {
-		return RunConfigImages.imageRegistry
-				.get(RunConfigImages.FILENAMES_TAB);
-	}
-	
-	public static Image getFeaturTabImage() {
-		return RunConfigImages.imageRegistry
-				.get(RunConfigImages.FEATURE_TAB);
-	}
-	
-	public static Image getMainTabImage() {
-		return RunConfigImages.imageRegistry
-				.get(RunConfigImages.MAIN_TAB);
-	}
+			.getRoot().getLocation().toString()
+			+ "/de.uka.ipd.sdq.codegen.simucominstance/src";
 }
