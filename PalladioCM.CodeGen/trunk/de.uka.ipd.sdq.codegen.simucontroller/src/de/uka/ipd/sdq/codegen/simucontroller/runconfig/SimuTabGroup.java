@@ -7,7 +7,11 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.FeatureOptionsTab;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
 
-/** @author roman */
+/**
+ * The class defines tabs for the SimuBench Launch configuration menu.
+ * 
+ * @author Roman Andrej
+ */
 public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 	/* (non-Javadoc)
@@ -22,5 +26,4 @@ public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 		};
 		setTabs(tabs);
 	}
-
 }

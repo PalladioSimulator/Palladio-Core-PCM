@@ -46,12 +46,16 @@ public class SimuView extends ViewPart {
 		progressBar.setSelection(40);
 	}
 
-	/**
-	 * Passing the focus request to the viewer's control.
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
 	 */
+	@Override
 	public void setFocus() {
-		// TODO
+		// TODO Auto-generated method stub
+		
 	}
+
 
 	public void updateProgressBar(int percentDone) {
 		progressBar.setSelection(percentDone);

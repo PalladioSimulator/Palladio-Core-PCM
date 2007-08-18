@@ -28,7 +28,11 @@ import de.uka.ipd.sdq.sensorframework.dialogs.dataset.SensorDataSetDialog;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
-/** @author roman */
+/**
+ * The class defines a tab, which is responsible for the SimuCom configuration.
+ * 
+ * @author Roman Andrej
+ */
 public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 
 	private Text nameField;

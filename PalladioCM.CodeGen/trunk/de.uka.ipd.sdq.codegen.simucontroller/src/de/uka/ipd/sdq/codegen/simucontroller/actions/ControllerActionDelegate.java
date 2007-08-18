@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.codegen.simucontroller.actions;
 
 import org.eclipse.core.runtime.CoreException;
@@ -15,12 +12,10 @@ import org.eclipse.ui.IViewPart;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 
 /**
- * @author admin
- *
+ * action that is contributed into a SimuView local tool bar
+ * 
+ * @author Roman Andrej
  */
-
-
-
 public class ControllerActionDelegate implements IViewActionDelegate {
 
 	public static String STARTACTION_ID = "StartAction";
@@ -28,6 +23,7 @@ public class ControllerActionDelegate implements IViewActionDelegate {
 	
 	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
 	private static final String EPID = "controller";
+	
 	private IViewPart myView;
 	
 	/* (non-Javadoc)
