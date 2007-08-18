@@ -26,21 +26,30 @@ import org.eclipse.ui.views.navigator.ResourcePatternFilter;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 
-/** @author roman */
+import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
+import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
+
+/**
+ * The class defines a tab, which is responsible for the input of an instance of
+ * the Palladio Component Model.
+ * 
+ * @author Roman Andrej
+ */
 public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
-	 */
-	public Image getImage() {
-		return ConstantsContainer.getFileNamesTabImage();
-	}
-
+	/** input fields */
 	private Text textResourceType;
 	private Text textRepository;
 	private Text textSystem;
 	private Text textAllocation;
 	private Text textUsage;
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
+	 */
+	public Image getImage() {
+		return RunConfigImages.getFileNamesTabImage();
+	}
 	
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
@@ -100,7 +109,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 				});
 
 		/**
-		 * Create reposetory section
+		 * Create repository section
 		 */
 		final Group repositoryGroup = new Group(container, SWT.NONE);
 		final GridLayout glReposetoryGroup = new GridLayout();
@@ -260,36 +269,35 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			textAllocation.setText(configuration.getAttribute(
 					ConstantsContainer.ALLOCATION_FILE, ""));
 		} catch (CoreException e) {
-			textAllocation.setText("CoreException e -> ALLOCATION_FILE");
+			RunConfigPlugin.errorLogger(getName(),"Allocation File", e.getMessage());
 		}
 
 		try {
 			textRepository.setText(configuration.getAttribute(
 					ConstantsContainer.REPOSITORY_FILE, ""));
 		} catch (CoreException e) {
-			textRepository.setText("CoreException e -> REPOSITORY_FILE");
+			RunConfigPlugin.errorLogger(getName(),"Repository File", e.getMessage());
 		}
 
 		try {
 			textResourceType.setText(configuration.getAttribute(
 					ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, ""));
 		} catch (CoreException e) {
-			textResourceType
-					.setText("CoreException e -> RESOURCETYPEREPOSITORY_FILE");
+			RunConfigPlugin.errorLogger(getName(),"Resource Type File", e.getMessage());
 		}
 
 		try {
 			textSystem.setText(configuration.getAttribute(
 					ConstantsContainer.SYSTEM_FILE, ""));
 		} catch (CoreException e) {
-			textSystem.setText("CoreException e -> SYSTEM_FILE");
+			RunConfigPlugin.errorLogger(getName(),"System File", e.getMessage());
 		}
 
 		try {
 			textUsage.setText(configuration.getAttribute(
 					ConstantsContainer.USAGE_FILE, ""));
 		} catch (CoreException e) {
-			textUsage.setText("CoreException e -> USAGE_FILE");
+			RunConfigPlugin.errorLogger(getName(),"Usage File", e.getMessage());
 		}
 	}
 

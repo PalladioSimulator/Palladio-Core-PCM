@@ -18,6 +18,14 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 
+import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
+
+/**
+ * The class defines a tab, where the specific characteristics for the
+ * simulation can be set.
+ * 
+ * @author Roman Andrej
+ */
 public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 	private Button simulateLinkingResourcesButton;
@@ -94,7 +102,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public Image getImage() {
-		return ConstantsContainer.getFeaturTabImage();
+		return RunConfigImages.getFeaturTabImage();
 	}
 
 	/* (non-Javadoc)
