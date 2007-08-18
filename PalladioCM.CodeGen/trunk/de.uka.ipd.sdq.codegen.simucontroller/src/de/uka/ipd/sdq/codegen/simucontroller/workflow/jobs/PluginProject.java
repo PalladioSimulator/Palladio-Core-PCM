@@ -26,13 +26,12 @@ import org.eclipse.pde.internal.core.natures.PDE;
 import org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer;
 
 /**
- * @author roman
- * 
  * The Klass is responsible for the generation of a container Plug-In. That
  * means, a project is generated, with that Java-Nature and Plugin-Nature and
- * also a src folder. Thereby all configuration elements are
- * along-generated, Plug in necessarily also (MANIFEST.MF, plugin.xml,
- * build.properties).
+ * also a src folder. Thereby all configuration elements are along-generated,
+ * Plug in necessarily also (MANIFEST.MF, plugin.xml, build.properties).
+ * 
+ * @author Roman Andrej
  */
 public class PluginProject {
 	

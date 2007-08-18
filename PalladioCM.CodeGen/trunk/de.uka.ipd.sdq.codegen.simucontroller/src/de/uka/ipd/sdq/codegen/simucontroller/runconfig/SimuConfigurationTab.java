@@ -13,9 +13,16 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 
-/** @author roman */
+/**
+ * The class extends ConfigurationTab by CheckBox. User can decide whether that
+ * generated instance of Palladio Component Model after simulating must be
+ * deleted.
+ * 
+ * @see de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab
+ * 
+ * @author Roman Andrej
+ */
 public class SimuConfigurationTab extends ConfigurationTab {
 	
 	private Button clearButton;
@@ -47,18 +54,7 @@ public class SimuConfigurationTab extends ConfigurationTab {
 			public void widgetSelected(SelectionEvent e) {
 				SimuConfigurationTab.this.setDirty(true);
 				SimuConfigurationTab.this.updateLaunchConfigurationDialog();
-				// TODO
 			}
 		});
 	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab#setDefaultOutputPath()
-	 */
-	@Override
-	public String setDefaultOutputPath() {
-		return ConstantsContainer.WORKSPACE_LOCATION + "/de.uka.ipd.sdq.codegen.simucominstance/src";
-	}
-	
-	
 }

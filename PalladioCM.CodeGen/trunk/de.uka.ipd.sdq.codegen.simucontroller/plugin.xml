@@ -25,15 +25,6 @@
 	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTabGroup">
 	    </launchConfigurationTabGroup>
 	</extension>
-	<extension point="org.eclipse.debug.ui.launchShortcuts">
-	    <shortcut
-	        id="de.uka.ipd.sdq.simucontroller.SimuShortcut"
-	        class="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuLaunchShortcut"
-	        label="SimuBench"
-	        icon="icons/app_simucim.gif"
-	        modes="run">
-	    </shortcut>
-	</extension>
  <extension
        point="org.eclipse.ui.views">
     <category
@@ -63,15 +54,6 @@
                 name="separator">
           </separator>
        </menu>
-       <action
-             class="de.uka.ipd.sdq.codegen.simucontroller.actions.GeneratePluginAction"
-             icon="icons/new_plugin.gif"
-             id="GeneratePluginAction"
-             label="&amp;Generate Plug-In"
-             menubarPath="Controller Menu"
-             style="push"
-             toolbarPath="SimuCom Controll">
-       </action>
        <action
              class="de.uka.ipd.sdq.codegen.simucontroller.actions.ControllerActionDelegate"
              icon="icons/nav_stop.gif"

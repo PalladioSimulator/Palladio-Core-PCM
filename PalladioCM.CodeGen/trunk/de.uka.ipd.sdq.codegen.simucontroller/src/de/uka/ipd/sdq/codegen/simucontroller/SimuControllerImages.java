@@ -1,14 +1,12 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.codegen.simucontroller;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 
 /**
- * @author admin
- *
+ * The class is used for the administration the images stored in the Plug-In.
+ * 
+ * @author Roman Andrej
  */
 public class SimuControllerImages {
 	
@@ -58,12 +56,14 @@ public class SimuControllerImages {
 				);
 	}
 
-	
 	/**
-	 *@param imageFilePath the relative to the root of the plug-in; the path must be legal
-     *@return an image descriptor, or null if no image could be found
+	 * @param imageFilePath
+	 *            the relative to the root of the plug-in; the path must be
+	 *            legal
+	 * @return an image descriptor, or null if no image could be found
 	 */
 	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
-		return SimuControllerPlugin.imageDescriptorFromPlugin(SimuControllerPlugin.PLUGIN_ID, imageFilePath);
+		return SimuControllerPlugin.imageDescriptorFromPlugin(
+				SimuControllerPlugin.PLUGIN_ID, imageFilePath);
 	}
 }

@@ -8,7 +8,14 @@ import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunComposit
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
-/** @author roman */
+/**
+ * The class adapts defined functionality in the LaunchConfigurationDelegate for
+ * SimuCom Framework.
+ * 
+ * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate
+ * 
+ * @author Roman Andrej
+ */
 public class SimuLaunchConfigurationDelegate extends
 		LaunchConfigurationDelegate {
 
@@ -25,7 +32,7 @@ public class SimuLaunchConfigurationDelegate extends
 	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#getTemplateMethod()
 	 */
 	@Override
-	protected String getTemplateMethod() {
+	protected String defineTemplateMethod() {
 		return "simulation_template_methods";
 	}
 
