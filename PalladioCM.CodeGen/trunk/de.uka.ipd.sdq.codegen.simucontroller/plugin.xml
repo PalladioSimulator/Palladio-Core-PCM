@@ -25,55 +25,6 @@
 	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTabGroup">
 	    </launchConfigurationTabGroup>
 	</extension>
- <extension
-       point="org.eclipse.ui.views">
-    <category
-          id="de.uka.ipd.sdq.codegen.simucontroller"
-          name="SimuController">
-    </category>
-    <view
-          category="de.uka.ipd.sdq.codegen.simucontroller"
-          class="de.uka.ipd.sdq.codegen.simucontroller.views.SimuView"
-          icon="icons/app_simucim.gif"
-          id="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView"
-          name="SimuController View">
-    </view>
- </extension>
- <extension
-       point="org.eclipse.ui.viewActions">
-    <viewContribution
-          id="de.uka.ipd.sdq.codegen.simucontroller.ViewActions"
-          targetID="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView">
-       <menu
-             id="Controller Menu"
-             label="&amp;Controller Menu">
-          <groupMarker
-                name="SimuCom Controll">
-          </groupMarker>
-          <separator
-                name="separator">
-          </separator>
-       </menu>
-       <action
-             class="de.uka.ipd.sdq.codegen.simucontroller.actions.ControllerActionDelegate"
-             icon="icons/nav_stop.gif"
-             id="StopAction"
-             label="&amp;Stop Simulation"
-             menubarPath="Controller Menu"
-             style="push"
-             toolbarPath="SimuCom Controll">
-       </action>
-       <action
-             class="de.uka.ipd.sdq.codegen.simucontroller.actions.ControllerActionDelegate"
-             icon="icons/nav_start.gif"
-             id="StartAction"
-             label="&amp;Start Simulation"
-             menubarPath="Controller Menu"
-             style="push"
-             toolbarPath="SimuCom Controll">
-       </action>
-    </viewContribution>
- </extension>
 
 	
 </plugin>

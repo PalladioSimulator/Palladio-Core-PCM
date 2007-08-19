@@ -42,7 +42,7 @@ public class SimulateJob implements IJob {
 			throw new JobFailedException("Locating simulation plugin failed. Possibly the workspace path is too long.", e);
 		}
 
-		SimuComJob job = new SimuComJob(control, config, null);
+		SimuComJob job = new SimuComJob(control, config);
 		try {
 			job.setUser(true);
 			job.schedule();
