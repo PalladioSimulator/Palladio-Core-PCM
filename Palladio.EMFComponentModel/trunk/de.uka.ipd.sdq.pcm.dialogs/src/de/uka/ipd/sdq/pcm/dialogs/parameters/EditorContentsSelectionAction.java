@@ -6,7 +6,12 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 
 
-/** @author roman */
+/**
+ * The class delegates straight in the active View selected object on the
+ * subclass.
+ * 
+ * @author Roman Andrej
+ */
 public class EditorContentsSelectionAction implements ISelectionChangedListener {
 
 	private EObject selectedDeclaration = null;
@@ -26,5 +31,4 @@ public class EditorContentsSelectionAction implements ISelectionChangedListener 
 	public EObject getSelectedDeclaration() {
 		return selectedDeclaration;
 	}
-
 }

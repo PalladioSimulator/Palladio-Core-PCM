@@ -10,8 +10,14 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
- * @author roman
+ * This class is a decorator for the generated EMF.Edit item providers. It
+ * provides item providers which are used in the operations tab of the tabbed
+ * properties sheet when editing interfaces. It implements
+ * ITableItemLabelProvider to display the given EObject in a tabular form.
+ * Additionally it provided the labels by partcial delegation to the original
+ * IItemLabelProvider.
  * 
+ * @author Roman Andrej
  */
 public class ParametersItemProvider extends ItemProviderDecorator implements
 		ITableItemLabelProvider, IItemLabelProvider {
@@ -60,12 +66,12 @@ public class ParametersItemProvider extends ItemProviderDecorator implements
 				result = "null";
 			break;
 		case CreateEditorContents.TYPE_COLUMN_INDEX:
-			result = ParameterRepresentation.setDataTypeToString(parameter
+			result = ParameterRepresentation.dataTypeToString(parameter
 					.getDatatype__Parameter());
 			break;
 		default:
 			break;
 		}
-		return ParameterRepresentation.isNotNull(result);
+		return result;
 	}
 }

@@ -10,8 +10,9 @@ import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 /**
- * @author roman
+ * The class define an action, which a new InnerDeclaration to the CompositeDateType adds.
  * 
+ * @author Roman Andrej
  */
 public class AddInnerDeclarationAction extends SelectionAdapter {
 
@@ -22,7 +23,7 @@ public class AddInnerDeclarationAction extends SelectionAdapter {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	protected TransactionalEditingDomain editingDomain = null;
+	private TransactionalEditingDomain editingDomain = null;
 
 	/**
 	 * @param compositeDataType
@@ -67,12 +68,11 @@ public class AddInnerDeclarationAction extends SelectionAdapter {
 		recCommand.setDescription("Add new CompositeDataTYpe");
 		editingDomain.getCommandStack().execute(recCommand);
 
-		/*
-		 * TODO
+		/**
+		 * set and validate a new CompositeDataType 
 		 */
 		dialog.setCompositeDataType(compositeDataType);
 		dialog.getEditorContents().setViewerInput(compositeDataType);
-		// Set enabled OK button in dialog
 		dialog.validateInput();
 	}
 }

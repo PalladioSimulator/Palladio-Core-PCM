@@ -14,8 +14,9 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
 /**
- * @author admin
+ * The class define the CellModifire for the ParametersDialog
  * 
+ * @author Roman Andrej
  */
 public class ParametersCellModifier implements ICellModifier {
 
@@ -27,7 +28,7 @@ public class ParametersCellModifier implements ICellModifier {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	protected TransactionalEditingDomain editingDomain = null;
+	private TransactionalEditingDomain editingDomain = null;
 
 	public ParametersCellModifier(TableViewer viewer, TransactionalEditingDomain editingDomain) {
 		this.viewer = viewer;
@@ -46,9 +47,7 @@ public class ParametersCellModifier implements ICellModifier {
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object,
 	 *      java.lang.String)
 	 */
@@ -57,9 +56,7 @@ public class ParametersCellModifier implements ICellModifier {
 				columnNames.indexOf(property));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object,
 	 *      java.lang.String, java.lang.Object)
 	 */
@@ -91,11 +88,7 @@ public class ParametersCellModifier implements ICellModifier {
 		}
 	}
 
-	/**
-	 * TODO
-	 * 
-	 * @param type
-	 */
+	/** set parameter DataType */
 	private void setDataType(final DataType dataType) {
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
@@ -114,9 +107,7 @@ public class ParametersCellModifier implements ICellModifier {
 		reloadParametersViewer();
 	}
 
-	/*
-	 * TODO
-	 */
+	/** set the parameter name */
 	private void setParameterName(String valueString) {
 		final String value = valueString;
 
@@ -131,6 +122,7 @@ public class ParametersCellModifier implements ICellModifier {
 			recCommand.setLabel("Set ParameterName");
 			editingDomain.getCommandStack().execute(recCommand);
 		}
+		reloadParametersViewer();
 	}
 
 	private void reloadParametersViewer() {

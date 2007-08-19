@@ -21,7 +21,8 @@ Require-Bundle: org.antlr,
  de.uka.ipd.sdq.pcm.edit,
  de.uka.ipd.sdq.pcmbench.ui,
  org.eclipse.emf.edit.ui,
- de.uka.ipd.sdq.errorhandling
+ de.uka.ipd.sdq.errorhandling,
+ org.eclipse.osgi.util
 Bundle-Vendor: sdq.ipd.uka.de
 Eclipse-LazyStart: true
 Bundle-Activator: de.uka.ipd.sdq.pcm.dialogs.PCMDialogPluginActivator

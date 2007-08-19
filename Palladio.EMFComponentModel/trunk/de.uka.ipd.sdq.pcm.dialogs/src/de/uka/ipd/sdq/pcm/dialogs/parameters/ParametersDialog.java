@@ -17,13 +17,14 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.selection.FilteredItemsAdapterFactory;
+import de.uka.ipd.sdq.pcm.dialogs.Messages;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
- * @author roman
+ * @author Roman Andrej
  * 
  * The dialogue serves the input of parameter names and types in table cells. It
  * a simple editor implemented for providing and deletion of types.
@@ -31,7 +32,6 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 public class ParametersDialog extends TitleAreaDialog {
 
 	private ComposedAdapterFactory adapterFactory;
-	private final String TITLE_DIALOG = "Create/Edit a Parameter...";
 
 	private Signature signature;
 
@@ -67,7 +67,7 @@ public class ParametersDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
-		setTitle(TITLE_DIALOG);
+		setTitle(Messages.ParametersDialog_Title);
 
 		Composite area = (Composite) super.createDialogArea(parent);
 		Composite container = new Composite(area, SWT.NONE);

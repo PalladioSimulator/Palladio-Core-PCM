@@ -6,7 +6,8 @@ package de.uka.ipd.sdq.pcm.dialogs.datatype;
 import de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl;
 
 /**
- * @author roman
+ * @author Roman Andrej
+ * 
  * Container class for CollectionDataType with parent-object
  */
 public class DataTypeContainer extends  CollectionDataTypeImpl{

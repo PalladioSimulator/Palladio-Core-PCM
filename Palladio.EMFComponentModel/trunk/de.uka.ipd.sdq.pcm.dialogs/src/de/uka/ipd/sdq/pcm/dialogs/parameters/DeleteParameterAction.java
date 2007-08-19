@@ -10,7 +10,11 @@ import org.eclipse.swt.events.SelectionListener;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-/** @author roman */
+/**
+ * The class define an action, which a parameter for the signature delete.
+ * 
+ * @author Roman Andrej
+ */
 public class DeleteParameterAction extends EditorContentsSelectionAction
 		implements SelectionListener {
 
@@ -20,11 +24,8 @@ public class DeleteParameterAction extends EditorContentsSelectionAction
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	protected TransactionalEditingDomain editingDomain = null;
+	private TransactionalEditingDomain editingDomain = null;
 
-	/**
-	 * @param editingDomain
-	 */
 	public DeleteParameterAction(Signature signature) {
 		this.parentSignature = signature;
 		this.editingDomain = TransactionUtil.getEditingDomain(signature);

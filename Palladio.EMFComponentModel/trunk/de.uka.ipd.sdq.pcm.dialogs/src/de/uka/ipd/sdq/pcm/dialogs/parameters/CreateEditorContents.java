@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.pcm.dialogs.DialogsImages;
  * setDownButtonActionListener(SelectionListener listener),
  * setViewerInput(Object input){
  * 
- * @author roman
+ * @author Roman Andrej
  */
 public class CreateEditorContents {
 	// local value

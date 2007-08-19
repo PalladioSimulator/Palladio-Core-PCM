@@ -12,20 +12,20 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
- * @author roman Responsibly for representation different Signature propertys
- *         (ReturnType, Parameters, Exceptions), as string
+ * Responsibly for representation different Signature property (ReturnType,
+ * Parameters, Exceptions), as string
+ * 
+ * @author Roman Andrej
  */
 public class ParameterRepresentation {
 
 	/**
-	 * @param DataType
-	 * @return String
+	 * Represents DataType in accordance with Palladio styles
 	 */
-	public static String setDataTypeToString(DataType returnType) {
+	public static String dataTypeToString(DataType returnType) {
 
 		String result = "";
 
-		// RepositoryItemProviderAdapterFactory
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
@@ -42,8 +42,10 @@ public class ParameterRepresentation {
 		return result;
 	}
 
-	public static String setParametersToString(EList<Parameter> parameters) {
-
+	/**
+	 * The method create the string list of parameter (parameter1, parameter2, ...)
+	 */
+	public static String parametersToString(EList<Parameter> parameters) {
 		String result = "";
 
 		for (Iterator<Parameter> it = parameters.iterator(); it.hasNext();) {
@@ -60,9 +62,5 @@ public class ParameterRepresentation {
 			result = result.substring(0, result.length() - 2);
 		}
 		return result;
-	}
-
-	public static String isNotNull(String string) {
-		return string == null ? "" : string;
 	}
 }

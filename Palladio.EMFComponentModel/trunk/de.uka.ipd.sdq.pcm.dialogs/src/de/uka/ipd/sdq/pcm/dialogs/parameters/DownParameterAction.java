@@ -12,10 +12,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 
  /**
 	 * This adapter class provides default implementations for the methods
-	 * described by the SelectionListener interface to downItem - Button in
-	 * the ParameterDialog.
+	 * described by the SelectionListener interface to downItem - Button in the
+	 * ParameterDialog.
 	 * 
-	 * @author roman
+	 * @author Roman Roman
 	 * 
 	 */
 public class DownParameterAction extends EditorContentsSelectionAction
@@ -27,7 +27,7 @@ public class DownParameterAction extends EditorContentsSelectionAction
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	protected TransactionalEditingDomain editingDomain = null;
+	private TransactionalEditingDomain editingDomain = null;
 
 	public DownParameterAction(Signature signature) {
 		this.parentSignature = signature;

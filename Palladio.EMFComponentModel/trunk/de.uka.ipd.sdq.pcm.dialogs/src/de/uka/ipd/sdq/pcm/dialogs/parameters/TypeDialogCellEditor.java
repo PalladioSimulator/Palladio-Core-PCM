@@ -12,8 +12,10 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 
 /**
- * @author admin
+ * The class defines a CellEditor, for which the call of DataTypeDialog makes
+ * possible.
  * 
+ * @author Roman Andrej
  */
 public class TypeDialogCellEditor extends DialogCellEditor {
 
@@ -22,7 +24,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 	 * alter the model
 	 */
 
-	protected TransactionalEditingDomain editingDomain = null;
+	private TransactionalEditingDomain editingDomain = null;
 
 	/*
 	 * @See org.eclipse.jface.viewers.DialogCellEditor#DialogCellEditor(org.eclipse.swt.widgets.Control

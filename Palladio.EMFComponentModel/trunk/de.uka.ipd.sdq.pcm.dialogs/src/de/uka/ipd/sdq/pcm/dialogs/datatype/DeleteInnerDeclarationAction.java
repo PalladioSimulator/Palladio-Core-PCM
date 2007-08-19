@@ -10,7 +10,12 @@ import de.uka.ipd.sdq.pcm.dialogs.parameters.EditorContentsSelectionAction;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
-/** @author roman */
+/**
+ * The class define an action, which a InnerDeclaration for the
+ * CompositeDataType delete.
+ * 
+ * @author Roman Andrej
+ */
 public class DeleteInnerDeclarationAction extends EditorContentsSelectionAction
 		implements SelectionListener {
 

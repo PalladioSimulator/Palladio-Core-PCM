@@ -11,7 +11,12 @@ import de.uka.ipd.sdq.pcm.dialogs.parameters.UpDownButtonsValidator;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
-/** @author roman */
+/**
+ * This adapter class provides default implementations for the methods described
+ * by the SelectionListener interface to upItem - Button in the ColpositeDataType edit area.
+ * 
+ * @author Roman Andrej
+ */
 public class UpInnerDeclarationAction extends EditorContentsSelectionAction implements
 		SelectionListener {
 

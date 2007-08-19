@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * This adapter class provides default implementations for the methods described
  * by the SelectionListener interface to upItem - Button in the ParameterDialog.
  * 
- * @author roman
+ * @author Roman Andrej
  */
 public class UpParameterAction extends EditorContentsSelectionAction
 		implements SelectionListener {

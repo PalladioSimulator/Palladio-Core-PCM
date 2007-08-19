@@ -10,11 +10,15 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
-/** @author roman */
+/**
+ * The class place the methods for the production of new DataType.
+ * 
+ * @author Roman Andrej
+ */
 public class DataTypeCommand {
 	
 	/** The transactional editing domain which is used to get the commands */
-	TransactionalEditingDomain editingDomain;
+	private TransactionalEditingDomain editingDomain;
 	
 	public DataTypeCommand(TransactionalEditingDomain editingDomain) {
 		this.editingDomain = editingDomain;

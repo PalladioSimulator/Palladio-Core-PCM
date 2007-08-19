@@ -9,8 +9,14 @@ import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
 /**
- * @author admin
+ * This class is a decorator for the generated EMF.Edit item providers. It
+ * provides item providers which are used in the operations tab of the tabbed
+ * properties sheet when editing interfaces. It implements
+ * ITableItemLabelProvider to display the given EObject in a tabular form.
+ * Additionally it provided the labels by partcial delegation to the original
+ * IItemLabelProvider.
  * 
+ * @author Roman Andrej
  */
 public class InnerDeclarationItemProvider extends ItemProviderDecorator implements
 ITableItemLabelProvider, IItemLabelProvider {
@@ -58,12 +64,12 @@ ITableItemLabelProvider, IItemLabelProvider {
 				result = declaration.getEntityName();
 			break;
 		case CreateEditorContents.TYPE_COLUMN_INDEX:
-			result = ParameterRepresentation.setDataTypeToString(declaration
+			result = ParameterRepresentation.dataTypeToString(declaration
 					.getDatatype_InnerDeclaration());
 			break;
 		default:
 			break;
 		}
-		return ParameterRepresentation.isNotNull(result);
+		return result;
 	}
 }

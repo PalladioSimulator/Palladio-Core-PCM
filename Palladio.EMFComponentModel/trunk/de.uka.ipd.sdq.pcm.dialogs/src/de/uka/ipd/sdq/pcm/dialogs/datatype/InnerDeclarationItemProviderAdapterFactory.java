@@ -8,9 +8,6 @@ import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 
 
-/**
- * @author admin
- */
 public class InnerDeclarationItemProviderAdapterFactory extends
 		DecoratorAdapterFactory {
 

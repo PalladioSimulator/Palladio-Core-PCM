@@ -15,6 +15,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
+import de.uka.ipd.sdq.pcm.dialogs.Messages;
 import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
 import de.uka.ipd.sdq.pcm.dialogs.parameters.UpDownButtonsValidator;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
@@ -25,8 +26,15 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
-/** @author roman */
+/**
+ * The class initialize the DataTypeDialog with the Palladio Component Model
+ * specific characteristics.
+ * 
+ * @author Roman Andrej
+ */
 public class PalladioDataTypeDialog extends DataTypeDialog {
+
+	private final String UNNAMED_REPOSITORY = "<Unnamed Repository>";
 
 	private ComposedAdapterFactory adapterFactory;
 
@@ -41,7 +49,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	protected TransactionalEditingDomain editingDomain = null;
+	private TransactionalEditingDomain editingDomain = null;
 
 	public PalladioDataTypeDialog(Shell parentShell,
 			TransactionalEditingDomain editingDomain) {
@@ -75,13 +83,13 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 			 * Palladio look
 			 */
 			entityInnerType = ParameterRepresentation
-					.setDataTypeToString(collectionDataType
+					.dataTypeToString(collectionDataType
 							.getInnerType_CollectionDataType());
 
 			// create DataTypeDialog
 			create();
 			// Call constructor of DataTypeDialog
-			super.init(collectionSignator, repository, entityName,
+			super.init(DataTypeEnum.COLLECTION, repository, entityName,
 					entityInnerType);
 		}
 
@@ -94,7 +102,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 			// create DataTypeDialog
 			create();
 			// Call constructor of DataTypeDialog
-			super.init(compositeSignator, repository, entityName, null);
+			super.init(DataTypeEnum.COMPOSITE, repository, entityName, null);
 		}
 	}
 
@@ -109,11 +117,12 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 
 		for (Resource r : resources) {
 			URI uri = r.getURI();
-			if (hasRepositoryExtension(uri) && !isPrimitiveTypesRepository(uri)
-					&& r.getContents().get(0) instanceof Repository) {
+			if (hasRepositoryExtension(uri)
+					&& !isPrimitiveTypesRepository(uri)
+					&& (!r.getContents().isEmpty() && r.getContents().get(0) instanceof Repository)) {
 				Repository repository = (Repository) r.getContents().get(0);
 				String repositoryName = repository.getEntityName();
-				tList.add(repositoryName == null ? "<Unnamed Repository>"
+				tList.add(repositoryName == null ? UNNAMED_REPOSITORY
 						: repositoryName);
 			}
 		}
@@ -128,7 +137,8 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	}
 
 	private boolean isPrimitiveTypesRepository(URI uri) {
-		if (uri.path().contains("PrimitiveTypes"))
+		String exp = "/PrimitiveTypes.repository";
+		if (uri.path().endsWith(exp))
 			return true;
 		return false;
 	}
@@ -146,7 +156,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 			if (!r.getContents().isEmpty()
 					&& r.getContents().get(0) instanceof Repository) {
 				Repository repository = (Repository) r.getContents().get(0);
-				String entityName = repository.getEntityName() == null ? "<Unnamed Repository>"
+				String entityName = repository.getEntityName() == null ? UNNAMED_REPOSITORY
 						: repository.getEntityName();
 
 				if (entityName.contains(repositoryName))
@@ -208,7 +218,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	@Override
 	public String getSelectedInnerType(SelectionEvent e) {
 
-		String selectedType = "";
+		String selectedType = "null";
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(DataType.class);
@@ -225,7 +235,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 			innerDataType = (DataType) dialog.getResult();
 
 			selectedType = ParameterRepresentation
-					.setDataTypeToString(innerDataType);
+					.dataTypeToString(innerDataType);
 		}
 		return selectedType;
 	}
@@ -240,7 +250,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		if (compositeDataType == null
 				|| compositeDataType.getInnerDeclaration_CompositeDataType()
 						.isEmpty()) {
-			setErrorMessage(ERROR_MSG_INNER);
+			setErrorMessage(Messages.DataTypeDialog_ErrorMsgInner);
 			return false;
 		} else {
 			EList<InnerDeclaration> declarations = compositeDataType

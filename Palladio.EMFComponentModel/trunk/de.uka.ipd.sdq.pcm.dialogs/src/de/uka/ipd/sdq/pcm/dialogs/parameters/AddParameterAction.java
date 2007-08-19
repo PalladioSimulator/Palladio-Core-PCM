@@ -13,27 +13,27 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
- * @author roman
+ * The class define an action, which a new parameter for the signature adds.
+ * 
+ * @author Roman Andrej
  */
 public class AddParameterAction extends SelectionAdapter{
 
-	private Signature parentSignature;
-	private String PARAMETER_NAME = "null";
+	private Signature parentSignature = null;
+	private String parameterName = "null";
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	protected TransactionalEditingDomain editingDomain = null;
+	private TransactionalEditingDomain editingDomain = null;
 
 	public AddParameterAction(Signature parentSignature) {
 		this.parentSignature = parentSignature;
 		this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
@@ -47,7 +47,7 @@ public class AddParameterAction extends SelectionAdapter{
 			protected void doExecute() {
 				Parameter parameter = RepositoryFactory.eINSTANCE
 						.createParameter();
-				parameter.setParameterName(PARAMETER_NAME);
+				parameter.setParameterName(parameterName);
 				parameters.add(parameter);
 			}
 		};

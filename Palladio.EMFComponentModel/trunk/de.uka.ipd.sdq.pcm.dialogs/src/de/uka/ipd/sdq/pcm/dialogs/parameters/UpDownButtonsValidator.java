@@ -1,14 +1,23 @@
 package de.uka.ipd.sdq.pcm.dialogs.parameters;
 
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.dialogs.Messages;
 import de.uka.ipd.sdq.pcm.dialogs.datatype.PalladioDataTypeDialog;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-/** @author roman */
+/**
+ * The Class place the validate methods for CompositeDataType and
+ * Parameters(Signature) editor area. The methods are used for validating of
+ * InnerDeclaration of CompositeDataType and signature parameters. Validating
+ * passes each Action (Delete, Up, Down) with call.
+ * 
+ * @author Roman Andrej
+ */
 public class UpDownButtonsValidator {
 
 	private static UpDownButtonsValidator singelton = null;
@@ -17,23 +26,16 @@ public class UpDownButtonsValidator {
 	private UpDownButtonsValidator() {
 	}
 	
-	public void validate(int elementIndex, int maxIndex) throws Exception{
-		if (contents == null)
-			throw new Exception("CreateEditorContents is not set!");
+	public void validate(int elementIndex, int maxIndex) {
+		Assert.isNotNull(contents); 
 		
-		if (elementIndex > 0 && elementIndex < maxIndex - 1){
-			contents.setUpItemsEnabled(true);
-			contents.setDownItemsEnabled(true);
-		} else if (elementIndex == 0){
+		contents.setDownItemsEnabled(true);
+		contents.setUpItemsEnabled(true);
+		
+		if (elementIndex == 0)
 			contents.setUpItemsEnabled(false);
-			contents.setDownItemsEnabled(true);
-		} else if (elementIndex == maxIndex - 1){
+		if (elementIndex == maxIndex - 1)
 			contents.setDownItemsEnabled(false);
-			contents.setUpItemsEnabled(true);
-		}else {
-			contents.setDownItemsEnabled(true);
-			contents.setUpItemsEnabled(true);
-		}
 	}
 
 	/** Validate selection from table viewer */
@@ -44,24 +46,13 @@ public class UpDownButtonsValidator {
 			contents.setUpItemsEnabled(false);
 		} else if (selection instanceof Parameter) {
 			Parameter parameter = (Parameter) selection;
-			try {
-				UpDownButtonsValidator.getSingelton().validateParameter(
-						parameter);
-				contents.setDeleteItemsEnabled(true);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			UpDownButtonsValidator.getSingelton().validateParameter(parameter);
+			contents.setDeleteItemsEnabled(true);
 		} else if (selection instanceof InnerDeclaration) {
 			InnerDeclaration declaration = (InnerDeclaration) selection;
-			try {
-				UpDownButtonsValidator.getSingelton().validateInnerDeclaration(
-						declaration);
-				contents.setDeleteItemsEnabled(true);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			UpDownButtonsValidator.getSingelton().validateInnerDeclaration(
+					declaration);
+			contents.setDeleteItemsEnabled(true);
 		}
 	}
 	
@@ -69,19 +60,17 @@ public class UpDownButtonsValidator {
 	 * Validate (Enabled/Unenabled) up-, down-button in the ParameterDialog.
 	 * Call if selection instanceof Parameter.
 	 */
-	public void validateParameter(Parameter parameter) throws Exception {
+	public void validateParameter(Parameter parameter) {
 		Signature signature = parameter.getSignature_Parameter();
 		EList<Parameter> parameters = signature.getParameters__Signature();
 		validate(parameters.indexOf(parameter), parameters.size());
-
 	}
 	
 	/**
 	 * Validate (Enabled/Unenabled) up-, down-button in the DataTypeDialog. Call
 	 * if selection instanceof InnerDeclaration.
 	 */
-	public void validateInnerDeclaration(InnerDeclaration declaration)
-			throws Exception {
+	public void validateInnerDeclaration(InnerDeclaration declaration) {
 		if (declaration.eContainer() instanceof CompositeDataType) {
 			CompositeDataType dataType = (CompositeDataType) declaration
 					.eContainer();
@@ -91,17 +80,13 @@ public class UpDownButtonsValidator {
 		}
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
 	public boolean validdateDeclarationInnerDataType(InnerDeclaration declaration, PalladioDataTypeDialog dialog){
 		if (declaration.getDatatype_InnerDeclaration() == null) {
-			dialog.setErrorMessage(dialog.ERROR_MSG_INNER_TYPE);
+			dialog.setErrorMessage(Messages.DataTypeDialog_ErrorMsgInnerName);
 			return false;
 		}
 		if (declaration.getEntityName().equals("")) {
-			dialog.setErrorMessage(dialog.ERROR_MSG_INNER_NAME);
+			dialog.setErrorMessage(Messages.DataTypeDialog_ErrorMsgInnerName);
 			return false;
 		}
 		return true;

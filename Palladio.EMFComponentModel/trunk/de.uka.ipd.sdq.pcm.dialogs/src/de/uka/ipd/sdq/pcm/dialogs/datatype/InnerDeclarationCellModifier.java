@@ -13,7 +13,6 @@ import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
-/** @author roman */
 public class InnerDeclarationCellModifier implements ICellModifier {
 
 	private PalladioDataTypeDialog dialog;
@@ -96,9 +95,7 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 		reloadDeclarationViewer();
 	}
 
-	/**
-	 * @param - name of innerdeclaration
-	 */
+	/** set the name of innerdeclaration */
 	private void setDeclarationName(final String valueString) {
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
@@ -119,5 +116,4 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 	private void reloadDeclarationViewer() {
 		dialog.refresh();
 	}
-
 }

@@ -24,7 +24,12 @@ import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 
-/** @author roman */
+/**
+ * The class sets the actions (add, edit, delete), which
+ * PalladioSelectEObjectDialog were defined in.
+ * 
+ * @author Roman Andrej
+ */
 public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 
 	private DataType selectedDataType = null;
@@ -33,7 +38,7 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	protected TransactionalEditingDomain editingDomain = null;
+	private TransactionalEditingDomain editingDomain = null;
 
 	public CallDataTypeDialog(Shell parent, Collection<Object> filterList,
 			Collection<Object> additionalChildReferences,Object input) {
