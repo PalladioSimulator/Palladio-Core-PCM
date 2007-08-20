@@ -4,7 +4,7 @@ package de.uka.ipd.sdq.codegen.workflow.mocks;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
 
-public class CancellingJob extends MockJob {
+public class CancelingJob extends MockJob {
 
 	public void execute() throws JobFailedException, UserCanceledException {
 		super.execute();
@@ -13,6 +13,6 @@ public class CancellingJob extends MockJob {
 
 	public String getName() {
 		super.getName();
-		return "CancellingJob";
+		return "CancelingJob";
 	}
 }

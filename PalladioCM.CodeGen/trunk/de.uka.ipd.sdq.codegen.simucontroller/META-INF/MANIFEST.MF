@@ -24,11 +24,10 @@ Require-Bundle: org.eclipse.ui,
  org.openarchitectureware.core.emftools,
  org.openarchitectureware.core.expressions,
  org.openarchitectureware.core.workflow,
- de.uka.ipd.sdq.codegen.runconfig,
  de.uka.ipd.sdq.codegen.workflow,
+ de.uka.ipd.sdq.codegen.runconfig,
  de.uka.ipd.sdq.errorhandling,
- de.uka.ipd.sdq.sensorframework.dialogs,
- org.openarchitectureware.core.check
+ de.uka.ipd.sdq.sensorframework.dialogs
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.actions,
  de.uka.ipd.sdq.codegen.simucontroller.runconfig

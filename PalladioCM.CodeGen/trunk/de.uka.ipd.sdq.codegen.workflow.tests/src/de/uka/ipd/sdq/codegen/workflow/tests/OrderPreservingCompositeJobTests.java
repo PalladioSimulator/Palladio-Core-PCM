@@ -7,6 +7,8 @@ import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
 import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.mocks.CancelingJob;
+import de.uka.ipd.sdq.codegen.workflow.mocks.FailingJob;
 import de.uka.ipd.sdq.codegen.workflow.mocks.MockJob;
 import static org.junit.Assert.*;
 
@@ -67,5 +69,29 @@ public class OrderPreservingCompositeJobTests {
 			assertTrue("Job was executed in the wrong order!", job.getExecutionNumber() > executionNumber);
 			executionNumber = job.getExecutionNumber();
 		}	
+	}
+	
+	/**
+	 * test a failed job
+	 * 
+	 * @throws UserCanceledException 
+	 * @throws JobFailedException 
+	 */
+	@Test(expected = JobFailedException.class)
+	public void testFailedJob() throws JobFailedException, UserCanceledException {
+		myCompJob.addJob(new FailingJob());
+		myCompJob.execute();
+	}
+	
+	/**
+	 * test a canceled job
+	 * 
+	 * @throws UserCanceledException 
+	 * @throws JobFailedException 
+	 */
+	@Test(expected = UserCanceledException.class)
+	public void testCanceledJob() throws JobFailedException, UserCanceledException {
+		myCompJob.addJob(new CancelingJob());
+		myCompJob.execute();
 	}
 }
