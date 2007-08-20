@@ -25,6 +25,7 @@ public class SimuLaunchConfigurationDelegate extends
 	@Override
 	protected IJob createRunCompositeJob(ILaunchConfiguration configuration)
 			throws CoreException {
+		
 		return new SimulationRunCompositeJob(configuration);
 	}
 

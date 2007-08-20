@@ -10,8 +10,8 @@ package de.uka.ipd.sdq.codegen.workflow;
  * @author Philipp Meier
  */
 public interface IJob {
+	
 	/**
-	public boolean execute() throws Exception;
 	 * Execute the job. In case of an error throw an exception
 	 * with a meaningful name which can be understood by a user.
 	 * 
