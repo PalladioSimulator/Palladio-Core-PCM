@@ -14,6 +14,7 @@ public abstract class AbstractBranchTransitionHandler {
 
 	protected ComputedUsageFactory usageFactory = ComputedUsageFactory.eINSTANCE;
 
+	
 	protected SeffVisitor visitor;
 
 	/**
@@ -45,7 +46,6 @@ public abstract class AbstractBranchTransitionHandler {
 		prob.setBranchtransition_BranchProbability(bt);
 		prob.setProbability(solvedBranchProb);
 
-		visitor.getMyContext().getUsageContext()
-				.getBranchProbabilities_ComputedUsageContext().add(prob);
+		visitor.getContextWrapper().getCompUsgCtx().getBranchProbabilities_ComputedUsageContext().add(prob);
 	}
 }

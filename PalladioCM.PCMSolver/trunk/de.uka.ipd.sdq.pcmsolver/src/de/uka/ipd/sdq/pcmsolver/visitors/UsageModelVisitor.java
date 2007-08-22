@@ -9,6 +9,8 @@ import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsage;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
+import de.uka.ipd.sdq.context.computed_usage.Input;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
@@ -26,9 +28,12 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
+import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
 import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.PCMRandomVariable;
@@ -45,11 +50,8 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 			.getName());
 
 	private PCMInstance pcmInstance;
-
-	private ComputedUsageFactory usageFactory;
-
-	private ComputedAllocationFactory actualAllocationFactory;
-	
+	private ComputedUsageFactory compUsageFactory;
+	private ComputedAllocationFactory compAllocationFactory;
 	private ParameterFactory parameterFactory;
 
 	/**
@@ -58,11 +60,9 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	public UsageModelVisitor(PCMInstance inst) {
 		pcmInstance = inst;
-		usageFactory = ComputedUsageFactory.eINSTANCE;
-		actualAllocationFactory = ComputedAllocationFactory.eINSTANCE;
+		compUsageFactory = ComputedUsageFactory.eINSTANCE;
+		compAllocationFactory = ComputedAllocationFactory.eINSTANCE;
 		parameterFactory = ParameterFactory.eINSTANCE;
-		ComputedAllocation all = actualAllocationFactory.createComputedAllocation();
-		ComputedUsage usage = usageFactory.createComputedUsage();
 	}
 
 	/*
@@ -100,36 +100,24 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch#caseEntryLevelSystemCall(de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall)
 	 */
 	@Override
-	public Object caseEntryLevelSystemCall(EntryLevelSystemCall call) {
-
+	public Object caseEntryLevelSystemCall(EntryLevelSystemCall elsc) {
 		logger.info("VisitEntryLevelSystemCall");
-		Signature signature = call.getSignature_EntryLevelSystemCall();
-		ProvidedRole role = call.getProvidedRole_EntryLevelSystemCall();
-
 		logger.info("Called System Method "
-				+ role.getProvidedInterface__ProvidedRole().getEntityName() + "/"
-				+ signature.getServiceName());
-
-		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
-	
-		ProvidesComponentType offeringComponent = delegationConnector
-				.getChildComponentContext_ProvidedDelegationConnector()
-				.getEncapsulatedComponent_ChildComponentContext();
-
-		if (offeringComponent.eClass() == RepositoryPackage.eINSTANCE
-				.getBasicComponent()) {
-			handleBasicComponent(call, signature, delegationConnector,
-					offeringComponent);
-		} else {
-			// handleCompositeComponent(call, method, delegationConnector,
-			// offeringComponent);
-			logger.error("Component type not yet supported by visitor.");
-			return null;
+				+ elsc.getSignature_EntryLevelSystemCall().getServiceName());
+		
+		ContextWrapper ctxWrp = createContextWrapper(elsc);
+		ServiceEffectSpecification seff = ctxWrp.getNextSEFF(elsc);
+		SeffVisitor visitor = new SeffVisitor(ctxWrp);
+		try {
+			visitor.doSwitch((ResourceDemandingSEFF) seff);
+		} catch (Exception e) {
+			logger.error("Error while visiting RDSEFF");
+			e.printStackTrace();
 		}
+		
+		doSwitch(elsc.getSuccessor());
 
-		doSwitch(call.getSuccessor());
-
-		return call;
+		return elsc;
 	}
 
 	/**
@@ -143,164 +131,46 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	}
 
 	/**
-	 * @param role
-	 * @return
-	 */
-	private ProvidedDelegationConnector getDelegationConnector(
-			ProvidedRole role) {
-		String id = role.getId();
-		EList<ProvidedDelegationConnector> pdcList = pcmInstance.getSystem()
-				.getProvidedDelegationConnectors_ComposedStructure();
-		for (ProvidedDelegationConnector pdc : pdcList){
-			if (pdc.getOuterProvidedRole_ProvidedDelegationConnector().getId().equals(id)) return pdc;
-		}
-		logger.error("Could not get Delegation Connector from System!");
-		return null;
-	
-		
-//		ProvidedDelegationConnector delegationConnector = 
-//			(ProvidedDelegationConnector) EMFHelper
-//				.executeOCLQuery(
-//						pcmInstance.getSystem(),
-//						"self.providedDelegationConnectors_ComposedStructure->select(dc|dc.outerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole.id = '"
-//								+ role.getProvidedInterface__ProvidedRole()
-//										.getId()
-//								+ "')->asOrderedSet()->first()");
-//		return delegationConnector;
-		
-	}
-
-	/**
 	 * @param call
-	 * @param method
-	 * @param delegationConnector
-	 * @param offeringComponent
-	 */
-	private void handleBasicComponent(EntryLevelSystemCall call,
-			Signature method,
-			ProvidedDelegationConnector delegationConnector,
-			ProvidesComponentType offeringComponent) {
-		BasicComponent basicComponent = (BasicComponent) offeringComponent;
-		// TODO: Über Interfaces suchen...
-		ServiceEffectSpecification seff = getSeff(method, basicComponent);
-		ResourceDemandingBehaviour b = (ResourceDemandingBehaviour) seff;
-
-		Context callContext = createCallContext(call, delegationConnector);
-		
-		SeffVisitor visitor = new SeffVisitor(pcmInstance, callContext);
-		try {
-			visitor.doSwitch((ResourceDemandingSEFF) b);
-		} catch (Exception e) {
-			logger.error("Error while visiting RDSEFF");
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * @param method
-	 * @param basicComponent
 	 * @return
 	 */
-	private ServiceEffectSpecification getSeff(Signature method,
-			BasicComponent basicComponent) {
-		String serviceName = method.getServiceName();
-		EList<ServiceEffectSpecification> seffList = basicComponent.getServiceEffectSpecifications__BasicComponent();
-		for (ServiceEffectSpecification seff : seffList){
-			if (seff.getDescribedService__SEFF().getServiceName().equals(serviceName)){
-				return seff;
+	private ContextWrapper createContextWrapper(EntryLevelSystemCall call) {
+		ComputedUsageContext compUsgCtx = compUsageFactory
+				.createComputedUsageContext();
+		Input input = compUsageFactory.createInput();
+		compUsgCtx.setInput_ComputedUsageContext(input);
+		EList<VariableUsage> parList = call
+				.getInputParameterUsages_EntryLevelSystemCall();
+		for (VariableUsage vu : parList) {
+			VariableUsageHelper.copyVariableUsageToInput(input, vu);
+		}
+		
+		ComputedAllocationContext compAllCtx = compAllocationFactory
+				.createComputedAllocationContext();
+		compAllCtx.setUsageContext_ComputedAllocationContext(compUsgCtx);
+
+		ContextWrapper contextWrapper = new ContextWrapper(call, pcmInstance, compUsgCtx, compAllCtx);
+
+		//TODO: add default component parameters by component developer
+		EList<VariableUsage> confParList = contextWrapper.getAssCtx().getConfigParameterUsages_AssemblyContext();
+		for (VariableUsage vu : confParList) {
+			VariableUsageHelper.copySolvedVariableUsageToInput(input, contextWrapper, vu);
+		}
+		
+		UsageModel um = contextWrapper.getPcmInstance().getUsageModel();
+		EList<UserData> userDataList = um.getUserData_UsageModel();
+		for (UserData ud : userDataList){
+			if (ud.getAssemblyContext_userData().getId().equals(
+					contextWrapper.getAssCtx().getId())) {
+				EList<VariableUsage> userParList = ud.getUserDataParameterUsages_UserData();
+				for (VariableUsage vu : userParList){
+					VariableUsageHelper.copySolvedVariableUsageToInput(input, contextWrapper, vu);
+				}
 			}
 		}
-		logger.error("Could not find SEFF for Signature!");
-		return null;
 		
-//		ServiceEffectSpecification seff = (ServiceEffectSpecification) EMFHelper
-//				.executeOCLQuery(
-//						basicComponent,
-//						"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"
-//								+ method.getServiceName()
-//								+ "')->asOrderedSet()->first()");
-//		return seff;
-	}
-
-	/**
-	 * @param call
-	 * @param delegationConnector
-	 * @return
-	 */
-	private Context createCallContext(EntryLevelSystemCall call,
-			ProvidedDelegationConnector delegationConnector) {
-		Context callContext = new Context();
-
-		callContext.setSystem(pcmInstance.getSystem());
-		callContext.setAllocation(pcmInstance.getAllocation());
-		callContext.setDerivedAssemblyContext(delegationConnector
-				.getChildComponentContext_ProvidedDelegationConnector());
-
-		ComputedUsageContext uc = usageFactory.createComputedUsageContext();
-		EList<VariableUsage> parList = call.getInputParameterUsages_EntryLevelSystemCall();
-		for (VariableUsage vu : parList){
-			copySolvedVariableUsageToUsageContext(uc, vu, callContext);
-		}
-		//uc.getActualParameterUsage_UsageContext().addAll(parList);
-
-		AssemblyContext assCtx = delegationConnector.getChildComponentContext_ProvidedDelegationConnector();
-		BasicComponent bc = (BasicComponent)assCtx.getEncapsulatedComponent_ChildComponentContext();
-		EList<VariableUsage> intParList = assCtx.getConfigParameterUsages_AssemblyContext();
-		for (VariableUsage vu : intParList){
-			copySolvedVariableUsageToUsageContext(uc, vu, callContext);
-		}
-		//uc.getActualParameterUsage_UsageContext().addAll(intParList);
+		return contextWrapper;
 		
-		callContext.setUsageContext(uc);
-
-		ComputedAllocationContext aac = actualAllocationFactory
-				.createComputedAllocationContext();
-		aac.setUsageContext_ComputedAllocationContext(uc);
-		callContext.setActualAllocationContext(aac);
-
-		return callContext;
 	}
 
-	private void copySolvedVariableUsageToUsageContext(ComputedUsageContext uc, VariableUsage oldUsage, Context callContext) {
-		VariableUsage newUsage = parameterFactory.createVariableUsage();
-		
-		newUsage.setNamedReference_VariableUsage(getReferenceCopy(oldUsage.getNamedReference_VariableUsage()));
-		//newUsage.setNamedReference_VariableUsage(oldUsage.getNamedReference_VariableUsage());
-
-		EList<VariableCharacterisation> characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
-		for (VariableCharacterisation oldCharacterisation : characterisations){
-			String specification = oldCharacterisation.getSpecification_VariableCharacterisation().getSpecification();
-			String solvedSpecification = ExpressionHelper
-					.getSolvedExpressionAsString(specification, callContext); 
-
-			VariableCharacterisation solvedCharacterisation = parameterFactory
-					.createVariableCharacterisation();
-			solvedCharacterisation.setType(oldCharacterisation.getType());
-
-			PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
-			rv.setSpecification(solvedSpecification);
-			solvedCharacterisation.setSpecification_VariableCharacterisation(rv);
-			
-			newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
-			
-		}
-		uc.getParameterUsages_ComputedUsageContext().add(newUsage);
-	}
-	
-	private AbstractNamedReference getReferenceCopy(AbstractNamedReference anr){
-		if (anr instanceof NamespaceReference){
-			NamespaceReference nr = (NamespaceReference)anr;
-			NamespaceReference newRef = StoexFactory.eINSTANCE.createNamespaceReference();
-			newRef.setReferenceName(nr.getReferenceName());
-			newRef.setInnerReference_NamespaceReference(getReferenceCopy(nr.getInnerReference_NamespaceReference()));
-			return newRef;
-		} else if (anr instanceof VariableReference){
-			VariableReference vr = (VariableReference)anr;
-			VariableReference varRef = StoexFactory.eINSTANCE.createVariableReference();
-			varRef.setReferenceName(vr.getReferenceName());
-			return varRef;
-		} else 
-			return null;
-	}
-	
 }

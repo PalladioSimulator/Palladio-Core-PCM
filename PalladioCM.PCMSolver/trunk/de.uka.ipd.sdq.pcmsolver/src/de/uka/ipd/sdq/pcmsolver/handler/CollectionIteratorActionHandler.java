@@ -53,11 +53,9 @@ public class CollectionIteratorActionHandler extends AbstractLoopActionHandler{
 	 * @return
 	 */
 	private String getIterationExpression(String soughtParameterName){
-		EList parList = visitor.getMyContext().getUsageContext().getParameterUsages_ComputedUsageContext();
+		EList<VariableUsage> vuList = visitor.getContextWrapper().getCompUsgCtx().getInput_ComputedUsageContext().getParameterChacterisations_Input();
 
-		for (Object o : parList){ // iterate over parameters
-			VariableUsage vu = (VariableUsage)o;
-
+		for (VariableUsage vu : vuList){ // iterate over parameters
 			String currentParameterName = "";
 			AbstractNamedReference ref = vu.getNamedReference_VariableUsage();
 			while (ref instanceof NamespaceReference){
@@ -68,10 +66,8 @@ public class CollectionIteratorActionHandler extends AbstractLoopActionHandler{
 			currentParameterName += ref.getReferenceName();
 			
 			if (currentParameterName.equals(soughtParameterName)){
-				EList parChars = vu.getVariableCharacterisation_VariableUsage();
-
-				for (Object p: parChars){ // iterate over a parameter's characterisations
-					VariableCharacterisation vc = (VariableCharacterisation)p;
+				EList<VariableCharacterisation> varChars = vu.getVariableCharacterisation_VariableUsage();
+				for (VariableCharacterisation vc : varChars){ // iterate over a parameter's characterisations
 					if (vc.getType() == VariableCharacterisationType.NUMBER_OF_ELEMENTS){
 						return vc.getSpecification_VariableCharacterisation().getSpecification();
 					}

@@ -44,28 +44,31 @@ public abstract class AbstractLoopActionHandler {
 		Expression solvedIterationCountExpr = ExpressionHelper
 				.parseToExpression(iterationCountSpecification);
 		
-		int lowerBound = 0;
-		int upperBound = getUpperBound(solvedIterationCountExpr);
+//		int lowerBound = 0;
+//		int upperBound = getUpperBound(solvedIterationCountExpr);
 		
 		ResourceDemandingBehaviour loopBody = loop.getBodyBehaviour_Loop();
 		if (loopBody!=null){
-			visitor.getMyContext().getCurrentLoopIterationNumber().add(lowerBound);
-
-			for (int i=lowerBound; i<upperBound; i++){
-				//logger.debug("Loop Execution Number "+i);
-				ArrayList curLoop = visitor.getMyContext().getCurrentLoopIterationNumber();
-				curLoop.remove(curLoop.size()-1); // delete last element
-				curLoop.add(i); // add current loop iteration number to scope
-				
-				visitor.doSwitch(loopBody); // is this really necessary? (TODO)
-				// The loop body gets visited as many times as the loop count specifies.
-				// This implies that a usage context will be created for each number
-				// of loop iteration (if there's an external call within the loop), 
-				// which might lead to a huge number of contexts 
-				// for large iteration numbers and thus memory problems.
-			}
-			ArrayList curLoop = visitor.getMyContext().getCurrentLoopIterationNumber();
-			curLoop.remove(curLoop.size()-1);
+			visitor.doSwitch(loopBody);
+			
+// TODO: loops adequately modelled?
+//			visitor.getMyContext().getCurrentLoopIterationNumber().add(lowerBound);
+//
+//			for (int i=lowerBound; i<upperBound; i++){
+//				//logger.debug("Loop Execution Number "+i);
+//				ArrayList curLoop = visitor.getMyContext().getCurrentLoopIterationNumber();
+//				curLoop.remove(curLoop.size()-1); // delete last element
+//				curLoop.add(i); // add current loop iteration number to scope
+//				
+//				visitor.doSwitch(loopBody); // is this really necessary? (TODO)
+//				// The loop body gets visited as many times as the loop count specifies.
+//				// This implies that a usage context will be created for each number
+//				// of loop iteration (if there's an external call within the loop), 
+//				// which might lead to a huge number of contexts 
+//				// for large iteration numbers and thus memory problems.
+//			}
+//			ArrayList curLoop = visitor.getMyContext().getCurrentLoopIterationNumber();
+//			curLoop.remove(curLoop.size()-1);
 		}
 	}
 
@@ -117,7 +120,7 @@ public abstract class AbstractLoopActionHandler {
 		rv.setSpecification(solvedSpecification);
 		loopIteration.setSpecification_LoopIteration(rv);
 		
-		visitor.getMyContext().getUsageContext().getLoopiterations_ComputedUsageContext().add(loopIteration);
+		visitor.getContextWrapper().getCompUsgCtx().getLoopiterations_ComputedUsageContext().add(loopIteration);
 	}
 
 	

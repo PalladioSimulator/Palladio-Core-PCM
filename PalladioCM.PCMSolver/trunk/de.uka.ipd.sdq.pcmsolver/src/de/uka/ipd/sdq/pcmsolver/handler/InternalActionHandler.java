@@ -32,7 +32,7 @@ public class InternalActionHandler{
 	
 	private static Logger logger = Logger.getLogger(InternalActionHandler.class.getName());
 	
-	private ComputedAllocationFactory actualAllocationFactory = ComputedAllocationFactory.eINSTANCE;
+	private ComputedAllocationFactory compAllocationFactory = ComputedAllocationFactory.eINSTANCE;
 
 	private SeffVisitor visitor; 
 	
@@ -52,7 +52,7 @@ public class InternalActionHandler{
 			ProcessingResourceType requiredResourceType = prd.getRequiredResource_ParametricResourceDemand();
 
 			if (requiredResourceType.getEntityName().equals("SystemExternalResource")){
-				EList<ResourceContainer> resConList = visitor.getPcmInstance().getResourceEnvironment().getResourceContainer_ResourceEnvironment();
+				EList<ResourceContainer> resConList = visitor.getContextWrapper().getPcmInstance().getResourceEnvironment().getResourceContainer_ResourceEnvironment();
 				for (ResourceContainer resCon : resConList){
 					if(resCon.getEntityName().equals("SystemExternalResourceContainer")){
 						ProcessingResourceSpecification prs = resCon.getActiveResourceSpecifications_ResourceContainer().get(0);
@@ -80,17 +80,15 @@ public class InternalActionHandler{
 		// TODO: include branch conditions and loop iterations
 		String actResDemSpecification = getSolvedSpecification(prd.getSpecification_ParametericResourceDemand().getSpecification(), prs);
 		
-		ResourceDemand ard = actualAllocationFactory.createResourceDemand();
+		ResourceDemand ard = compAllocationFactory.createResourceDemand();
 		ard.setParametricResourceDemand_ResourceDemand(prd);
 		
 		PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification(actResDemSpecification);
 		ard.setSpecification_ResourceDemand(rv);
 		
-		
-		visitor.getMyContext().getActualAllocationContext()
-				.getResourceDemands_ComputedAllocationContext()
-				.add(ard);
+		visitor.getContextWrapper().getCompAllCtx()
+				.getResourceDemands_ComputedAllocationContext().add(ard);
 	}
 
 	private String getSolvedSpecification(String specification, ProcessingResourceSpecification prs) {
@@ -99,13 +97,14 @@ public class InternalActionHandler{
 		specification = "("+ specification+") / "+prs.getProcessingRate_ProcessingResourceSpecification().getSpecification();
 		logger.info("Actual Resource Demand (Expression): "+specification);
 		
-		Expression solvedExpr = (Expression) ExpressionHelper.getSolvedExpression(specification, visitor.getMyContext());
+		Expression solvedExpr = (Expression) ExpressionHelper
+				.getSolvedExpression(specification, visitor.getContextWrapper());
 		
 		
 		
 		String solvedSpecification = ExpressionHelper
 				.getSolvedExpressionAsString(specification,
-						visitor.getMyContext());
+						visitor.getContextWrapper());
 		logger.info("Computed Actual Resource Demand: "+solvedSpecification);
 		return solvedSpecification;
 	}
@@ -114,29 +113,11 @@ public class InternalActionHandler{
 	 * @return
 	 */
 	private EList<ProcessingResourceSpecification> getResourceList() {
-		AllocationContext ac = findAllocationContext(visitor.getMyContext().getDerivedAssemblyContext());
+		AllocationContext ac = visitor.getContextWrapper().getAllCtx();
 		ResourceContainer currentResourceContainer = ac.getResourceContainer_AllocationContext();
 		EList<ProcessingResourceSpecification> resourceList = currentResourceContainer
 				.getActiveResourceSpecifications_ResourceContainer();
-				
 		return resourceList;
 	}
 
-	/**
-	 * @param derivedAssemblyContext
-	 * @return
-	 */
-	private AllocationContext findAllocationContext(
-			AssemblyContext derivedAssemblyContext) {
-		Allocation alloc = visitor.getMyContext().getAllocation();
-		Iterator allocationContexts = alloc.getAllocationContexts_Allocation().iterator();
-		
-		while (allocationContexts.hasNext()) {
-			AllocationContext context = (AllocationContext) allocationContexts
-					.next();
-			if (context.getAssemblyContext_AllocationContext().getId().equals(derivedAssemblyContext.getId()))
-				return context;
-		}
-		return null;
-	}
 }

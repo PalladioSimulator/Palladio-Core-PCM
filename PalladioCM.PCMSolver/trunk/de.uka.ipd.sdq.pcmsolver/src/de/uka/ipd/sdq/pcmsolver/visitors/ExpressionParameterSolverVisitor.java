@@ -1,14 +1,20 @@
 package de.uka.ipd.sdq.pcmsolver.visitors;
 
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput;
+import de.uka.ipd.sdq.context.computed_usage.Input;
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcmsolver.models.Context;
+import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
@@ -21,11 +27,12 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 	private static Logger logger = Logger
 	.getLogger(ExpressionParameterSolverVisitor.class.getName());
 
-	private Context context;
+	//private Context context;
+	private ContextWrapper contextWrapper;
 	
-	public ExpressionParameterSolverVisitor(HashMap<Expression, TypeEnum> typeAnn, Context context){
+	public ExpressionParameterSolverVisitor(HashMap<Expression, TypeEnum> typeAnn, ContextWrapper ctxWrp){
 		super(typeAnn);
-		this.context = context;
+		this.contextWrapper = ctxWrp;
 	}
 
 	/* (non-Javadoc)
@@ -39,22 +46,28 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 		AbstractNamedReference anr = var.getId_Variable();
 		CharacterisedVariable chVar = (CharacterisedVariable)var;
 		
-		EList parList = context.getUsageContext().getParameterUsages_ComputedUsageContext();
-
+		EList<VariableUsage> vuList = new BasicEList<VariableUsage>();
+		Input input = contextWrapper.getCompUsgCtx().getInput_ComputedUsageContext();
+		if (input !=null){
+			vuList.addAll(input.getParameterChacterisations_Input());
+		}
+		
+		EList<ExternalCallOutput> ecoList = contextWrapper.getCompUsgCtx().getExternalCallOutput_ComputedUsageContext();
+		for (ExternalCallOutput eco : ecoList){
+			// TODO: recognise scopes
+			EList<VariableUsage> vuList2 = eco.getParameterCharacterisations_ExternalCallOutput();
+			vuList.addAll(vuList2);
+		}
+		
 		String soughtParameterName = getFullParameterName(anr);
-		for (Object o : parList){ // iterate over parameters
-			VariableUsage vu = (VariableUsage)o;
-
+		for (VariableUsage vu : vuList){ 
 			AbstractNamedReference ref = vu.getNamedReference_VariableUsage();
 			String currentParameterName = getFullParameterName(ref);
-			
-			//String currentParameterName = vu.getNamedReference_VariableUsage().getReferenceName();
 
 			if (currentParameterName.equals(soughtParameterName)){
-				EList parChars = vu.getVariableCharacterisation_VariableUsage();
+				EList<VariableCharacterisation> varCharList = vu.getVariableCharacterisation_VariableUsage();
 
-				for (Object p: parChars){ // iterate over a parameter's characterisations
-					VariableCharacterisation vc = (VariableCharacterisation)p;
+				for (VariableCharacterisation vc : varCharList){ // iterate over a parameter's characterisations
 					if (vc.getType() == chVar.getCharacterisationType()){
 						String specification = vc.getSpecification_VariableCharacterisation().getSpecification();
 						Expression expr = ExpressionHelper.parseToExpression(specification);

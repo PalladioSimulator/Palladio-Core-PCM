@@ -10,6 +10,7 @@ import org.antlr.runtime.RecognitionException;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.pcmsolver.models.Context;
+import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
@@ -35,8 +36,8 @@ public class ExpressionHelper {
 		return expression;
 	}
 	
-	public static String getSolvedExpressionAsString(String specification, Context context){
-		Expression solvedExpression = getSolvedExpression(specification, context);
+	public static String getSolvedExpressionAsString(String specification, ContextWrapper ctxWrp){
+		Expression solvedExpression = getSolvedExpression(specification, ctxWrp);
 		
 		StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
 		String solvedExprString = (String)printer.doSwitch(solvedExpression);
@@ -45,7 +46,7 @@ public class ExpressionHelper {
 	}
 	
 	public static Expression getSolvedExpression(String specification,
-			Context context) {
+			ContextWrapper ctxWrp) {
 		Expression expr = parseToExpression(specification);
 		
 		ExpressionInferTypeVisitor inferTypeVisitor = new ExpressionInferTypeVisitor();
@@ -55,7 +56,7 @@ public class ExpressionHelper {
 				.getTypeAnnotation();
 
 		ExpressionParameterSolverVisitor solveVisitor = new ExpressionParameterSolverVisitor(
-				typeAnnotation, context);
+				typeAnnotation, ctxWrp);
 		
 		return (Expression) solveVisitor.doSwitch(expr);
 	}

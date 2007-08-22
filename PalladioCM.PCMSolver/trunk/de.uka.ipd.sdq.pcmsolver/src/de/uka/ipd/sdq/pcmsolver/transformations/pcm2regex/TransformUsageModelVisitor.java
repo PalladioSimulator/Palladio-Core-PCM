@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.spa.expression.Alternative;
@@ -37,9 +38,68 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 	private IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	
 	private PCMInstance pcmInstance;
+	private ContextWrapper contextWrapper = null;
 	
 	public TransformUsageModelVisitor(PCMInstance pcm){
 		pcmInstance = pcm;
+	}
+
+	@Override
+	public Object caseStart(Start object) {
+		Symbol sym = expFactory.createSymbol();
+		sym.setName("Start");
+	
+		Sequence seq = expFactory.createSequence();
+		seq.setLeftRegExp(sym);
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
+	
+		return seq;
+	}
+
+	@Override
+	public Object caseStop(Stop object) {
+		Symbol sym = expFactory.createSymbol();
+		sym.setName("Stop");
+		return sym;
+	}
+
+	@Override
+	public Object caseEntryLevelSystemCall(EntryLevelSystemCall object) {
+		if (contextWrapper == null)
+			contextWrapper = new ContextWrapper(object, pcmInstance);
+		else
+			contextWrapper = contextWrapper.getContextWrapperFor(object);
+
+		Sequence seq = expFactory.createSequence();
+		seq.setLeftRegExp(getEntryExpression(object));
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
+		
+		return seq;
+	}
+
+	private Expression getEntryExpression(EntryLevelSystemCall object) {
+		Signature signature = object.getSignature_EntryLevelSystemCall();
+		ProvidedRole role = object.getProvidedRole_EntryLevelSystemCall();
+		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
+		ProvidesComponentType offeringComponent = delegationConnector
+				.getChildComponentContext_ProvidedDelegationConnector()
+				.getEncapsulatedComponent_ChildComponentContext();
+	
+		Expression expr = null;
+		if (offeringComponent instanceof BasicComponent){
+			ServiceEffectSpecification seff = getSeff(signature, (BasicComponent)offeringComponent);
+			TransformSeffVisitor seffVisitor = new TransformSeffVisitor(contextWrapper);
+			try {
+				expr = (Expression)seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
+			} catch (Exception e) {
+				logger.error("Error while visiting RDSEFF");
+				e.printStackTrace();
+			}
+		} else {
+			logger.error("Composite Component type not yet supported.");
+			return null;
+		}
+		return expr;
 	}
 
 	@Override
@@ -84,63 +144,6 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 	@Override
 	public Object caseScenarioBehaviour(ScenarioBehaviour object) {
 		return doSwitch(getStartAction(object));
-	}
-
-	@Override
-	public Object caseEntryLevelSystemCall(EntryLevelSystemCall object) {
-		Signature signature = object.getSignature_EntryLevelSystemCall();
-		ProvidedRole role = object.getProvidedRole_EntryLevelSystemCall();
-		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
-		
-		AssemblyContext assCtx = delegationConnector.getChildComponentContext_ProvidedDelegationConnector();
-		
-		
-		
-		ProvidesComponentType offeringComponent = delegationConnector
-				.getChildComponentContext_ProvidedDelegationConnector()
-				.getEncapsulatedComponent_ChildComponentContext();
-
-		Expression expr = null;
-		if (offeringComponent instanceof BasicComponent){
-			ServiceEffectSpecification seff = getSeff(signature, (BasicComponent)offeringComponent);
-
-			TransformSeffVisitor seffVisitor = new TransformSeffVisitor(pcmInstance, assCtx);
-			try {
-				expr = (Expression)seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
-			} catch (Exception e) {
-				logger.error("Error while visiting RDSEFF");
-				e.printStackTrace();
-			}
-		} else {
-			logger.error("Composite Component type not yet supported.");
-			return null;
-		}
-		
-		Sequence seq = expFactory.createSequence();
-		seq.setLeftRegExp(expr);
-		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
-		
-		return seq;
-	}
-
-	@Override
-	public Object caseStart(Start object) {
-		Symbol sym = expFactory.createSymbol();
-		sym.setName("Start");
-
-		Sequence seq = expFactory.createSequence();
-		seq.setLeftRegExp(sym);
-		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
-
-		return seq;
-	}
-
-
-	@Override
-	public Object caseStop(Stop object) {
-		Symbol sym = expFactory.createSymbol();
-		sym.setName("Stop");
-		return sym;
 	}
 
 	private Start getStartAction(ScenarioBehaviour object) {

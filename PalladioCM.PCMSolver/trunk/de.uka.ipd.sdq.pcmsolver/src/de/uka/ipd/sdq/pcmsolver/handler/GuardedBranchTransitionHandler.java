@@ -40,8 +40,9 @@ public class GuardedBranchTransitionHandler extends AbstractBranchTransitionHand
 
 		visitChildBehaviour(bt);
 		
-		int lastElement = visitor.getMyContext().getCurrentEvaluatedBranchConditions().size()-1;
-		visitor.getMyContext().getCurrentEvaluatedBranchConditions().remove(lastElement);
+// TODO: recognise scopes
+//		int lastElement = visitor.getContextWrapper().getCurrentEvaluatedBranchConditions().size()-1;
+//		visitor.getContextWrapper().getCurrentEvaluatedBranchConditions().remove(lastElement);
 	}
 	
 	/**
@@ -51,7 +52,7 @@ public class GuardedBranchTransitionHandler extends AbstractBranchTransitionHand
 	 */
 	private double getBranchProbFromExpression(GuardedBranchTransition bt) {
 		String specification = bt.getBranchCondition_GuardedBranchTransition().getSpecification(); 
-		Expression solvedExpression = ExpressionHelper.getSolvedExpression(specification,visitor.getMyContext());
+		Expression solvedExpression = ExpressionHelper.getSolvedExpression(specification,visitor.getContextWrapper());
 
 		ProbabilityFunctionLiteral pfl = (ProbabilityFunctionLiteral)solvedExpression;
 		ProbabilityMassFunction pmf = (ProbabilityMassFunction)pfl.getFunction_ProbabilityFunctionLiteral();
@@ -68,7 +69,7 @@ public class GuardedBranchTransitionHandler extends AbstractBranchTransitionHand
 		// integrate already evaluated branch conditions
 		solvedBranchProb = adjustToScope(solvedBranchProb);
 
-		visitor.getMyContext().getCurrentEvaluatedBranchConditions().add(solvedBranchProb);
+//		visitor.getContextWrapper().getCurrentEvaluatedBranchConditions().add(solvedBranchProb);
 		return solvedBranchProb;
 	}
 

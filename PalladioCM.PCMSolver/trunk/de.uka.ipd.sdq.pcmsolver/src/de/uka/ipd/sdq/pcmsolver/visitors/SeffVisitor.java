@@ -29,8 +29,7 @@ import de.uka.ipd.sdq.pcmsolver.handler.InternalActionHandler;
 import de.uka.ipd.sdq.pcmsolver.handler.LoopActionHandler;
 import de.uka.ipd.sdq.pcmsolver.handler.ProbabilisticBranchTransitionHandler;
 import de.uka.ipd.sdq.pcmsolver.handler.SetVariableActionHandler;
-import de.uka.ipd.sdq.pcmsolver.models.Context;
-import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 
 /**
  * @author Koziolek
@@ -40,9 +39,7 @@ public class SeffVisitor extends SeffSwitch {
 
 	private static Logger logger = Logger.getLogger(SeffVisitor.class.getName());
 
-	private Context myContext;
-
-	private PCMInstance pcmInstance;
+	private ContextWrapper contextWrapper;
 
 	private ExternalCallActionHandler extCallAH;
 	private InternalActionHandler intAH;
@@ -56,9 +53,8 @@ public class SeffVisitor extends SeffSwitch {
 	 * @param inst
 	 * @param callContext
 	 */
-	public SeffVisitor(PCMInstance inst, Context callContext) {
-		pcmInstance = inst;
-		myContext = callContext;
+	public SeffVisitor(ContextWrapper ctxWrp) {
+		contextWrapper = ctxWrp;
 		
 		extCallAH = new ExternalCallActionHandler(this);
 		intAH = new InternalActionHandler(this);
@@ -128,8 +124,8 @@ public class SeffVisitor extends SeffSwitch {
 	@Override
 	public Object caseBranchAction(BranchAction branch) {
 		logger.info("Visit"+branch.getClass().getSimpleName());
-		EList branchTransitions = branch.getBranches_Branch();
-		for (Object o : branchTransitions) doSwitch((AbstractBranchTransition)o);
+		EList<AbstractBranchTransition> abtList = branch.getBranches_Branch();
+		for (AbstractBranchTransition abt : abtList) doSwitch(abt);
 		doSwitch(branch.getSuccessor_AbstractAction());
 		return branch;
 	}
@@ -185,10 +181,10 @@ public class SeffVisitor extends SeffSwitch {
 	 * Stores the just built usage and actual allocation context to pcminstance
 	 */
 	private void saveContexts() {
-		ComputedUsageContext usageContext = myContext.getUsageContext();
-		pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage().add(usageContext);
-		ComputedAllocationContext actAll = myContext.getActualAllocationContext();
-		pcmInstance.getComputedAllocation().getComputedAllocationContexts_ComputedAllocation().add(actAll);
+		ComputedUsageContext usageContext = contextWrapper.getCompUsgCtx();
+		contextWrapper.getPcmInstance().getComputedUsage().getUsageContexts_ComputedUsage().add(usageContext);
+		ComputedAllocationContext actAll = contextWrapper.getCompAllCtx();
+		contextWrapper.getPcmInstance().getComputedAllocation().getComputedAllocationContexts_ComputedAllocation().add(actAll);
 	}
 
 	/**
@@ -203,20 +199,11 @@ public class SeffVisitor extends SeffSwitch {
 		return startAction;
 	}
 
-	public Context getMyContext() {
-		return myContext;
+	public ContextWrapper getContextWrapper() {
+		return contextWrapper;
 	}
 
-	public void setMyContext(Context myContext) {
-		this.myContext = myContext;
+	public void setContextWrapper(ContextWrapper ctxWrp) {
+		contextWrapper = ctxWrp;
 	}
-
-	public PCMInstance getPcmInstance() {
-		return pcmInstance;
-	}
-
-	public void setPcmInstance(PCMInstance pcmInstance) {
-		this.pcmInstance = pcmInstance;
-	}
-	
 }

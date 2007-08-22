@@ -29,9 +29,12 @@
       <genClasses ecoreClass="context.ecore#//computed_usage/ComputedUsageContext">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/branchProbabilities_ComputedUsageContext"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/loopiterations_ComputedUsageContext"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/parameterUsages_ComputedUsageContext"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/assemblyContext_ComputedUsageContext"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/input_ComputedUsageContext"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/externalCallOutput_ComputedUsageContext"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/externalCallInput_ComputedUsageContext"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/output_ComputedUsageContext"/>
       </genClasses>
       <genClasses ecoreClass="context.ecore#//computed_usage/BranchProbability">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute context.ecore#//computed_usage/BranchProbability/probability"/>
@@ -42,6 +45,22 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference context.ecore#//computed_usage/LoopIteration/loopaction_LoopIteration"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/LoopIteration/specification_LoopIteration"/>
+      </genClasses>
+      <genClasses ecoreClass="context.ecore#//computed_usage/Input">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/Input/parameterChacterisations_Input"/>
+      </genClasses>
+      <genClasses ecoreClass="context.ecore#//computed_usage/ExternalCallOutput">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallOutput/parameterCharacterisations_ExternalCallOutput"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallOutput/externalCallAction_ExternalCallOutput"/>
+      </genClasses>
+      <genClasses ecoreClass="context.ecore#//computed_usage/ExternalCallInput">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallInput/parameterCharacterisations_ExternalCallInput"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference context.ecore#//computed_usage/ExternalCallInput/externalCallAction_ExternalCallInput"/>
+      </genClasses>
+      <genClasses ecoreClass="context.ecore#//computed_usage/Output">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/Output/parameterCharacterisations_Output"/>
       </genClasses>
       <genClasses ecoreClass="context.ecore#//computed_usage/ComputedUsage">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsage/usageContexts_ComputedUsage"/>

@@ -24,7 +24,7 @@ public class LoopActionHandler extends AbstractLoopActionHandler {
 	public void handle(LoopAction loop) {
 		String specification = loop.getIterationCount_LoopAction().getSpecification();
 		String solvedSpecification = 
-			ExpressionHelper.getSolvedExpressionAsString(specification, visitor.getMyContext());
+			ExpressionHelper.getSolvedExpressionAsString(specification, visitor.getContextWrapper());
 
 		if (solvedSpecification == null){
 			logger.error("Could not determine iterations specification. Skipping execution of loop body!");
