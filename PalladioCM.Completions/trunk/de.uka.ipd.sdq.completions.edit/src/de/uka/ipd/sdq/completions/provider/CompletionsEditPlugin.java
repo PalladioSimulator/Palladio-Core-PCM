@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
 
 import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
 
+import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -54,6 +55,7 @@ public final class CompletionsEditPlugin extends EMFPlugin {
 		     PalladioComponentModelEditPlugin.INSTANCE,
 		     ProbabilityFunctionEditPlugin.INSTANCE,
 		     StoexEditPlugin.INSTANCE,
+		     UnitsEditPlugin.INSTANCE,
 		   });
 	}
 

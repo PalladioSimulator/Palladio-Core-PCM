@@ -129,8 +129,8 @@ public class DelegatingExternalCallActionItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION ||
-			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION;
+			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION ||
+			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION;
 
 		if (qualify) {
 			return getString
