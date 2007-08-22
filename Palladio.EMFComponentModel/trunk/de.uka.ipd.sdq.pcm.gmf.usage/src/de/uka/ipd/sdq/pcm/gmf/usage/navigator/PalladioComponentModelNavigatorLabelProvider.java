@@ -41,7 +41,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageReferenceLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
@@ -136,7 +136,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?EntryLevelSystemCall", PalladioComponentModelElementTypes.EntryLevelSystemCall_3003); //$NON-NLS-1$
 		case VariableUsageEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3004); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3011); //$NON-NLS-1$
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3006); //$NON-NLS-1$
@@ -227,7 +227,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 			return getEntryLevelSystemCall_3003Text(view);
 		case VariableUsageEditPart.VISUAL_ID:
-			return getVariableUsage_3004Text(view);
+			return getVariableUsage_3011Text(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return getVariableCharacterisation_3006Text(view);
 		case LoopEditPart.VISUAL_ID:
@@ -376,13 +376,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getVariableUsage_3004Text(View view) {
+	private String getVariableUsage_3011Text(View view) {
 
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableUsage_3004, (view
+				PalladioComponentModelElementTypes.VariableUsage_3011, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(VariableUsageReferenceLabelEditPart.VISUAL_ID));
+						.getType(WrapLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE

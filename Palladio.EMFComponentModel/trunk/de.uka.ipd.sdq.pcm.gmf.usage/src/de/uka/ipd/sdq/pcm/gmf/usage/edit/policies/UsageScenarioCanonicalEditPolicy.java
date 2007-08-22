@@ -281,7 +281,7 @@ public class UsageScenarioCanonicalEditPolicy extends
 		case VariableUsageEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater
-					.getVariableUsage_3004ContainedLinks(view));
+					.getVariableUsage_3011ContainedLinks(view));
 			break;
 		}
 		case VariableCharacterisationEditPart.VISUAL_ID: {

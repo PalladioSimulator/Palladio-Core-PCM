@@ -79,7 +79,7 @@ public class EntryLevelSystemCallParameterUsageCanonicalEditPolicy extends
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize
 					.add(UsagemodelPackage.eINSTANCE
-							.getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall());
+							.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall());
 		}
 		return myFeaturesToSynchronize;
 	}

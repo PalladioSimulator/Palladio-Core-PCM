@@ -14,7 +14,7 @@ public class OpenLoopIterationsDialog extends OpenStoExDialog {
 	@Override
 	protected RandomVariable getRandomVariable(EObject parent) {
 		Loop loop = (Loop) parent;
-		RandomVariable rv = loop.getIterations_Loop();
+		RandomVariable rv = loop.getLoopIteration_Loop();
 		return rv;
 	}
 

@@ -43,8 +43,8 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageReferenceLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageVariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.AbstractUserActionSuccessorViewFactory;
@@ -81,6 +81,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableCharacterisationViewF
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageReferenceLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageVariableCharacterisationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.WrapLabelViewFactory;
 
 /**
  * @generated
@@ -206,7 +207,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case VariableUsageReferenceLabelEditPart.VISUAL_ID:
+				case WrapLabelEditPart.VISUAL_ID:
 				case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -292,8 +293,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ComponentExternalCallNameLabelViewFactory.class;
 		case VariableUsageEditPart.VISUAL_ID:
 			return VariableUsageViewFactory.class;
-		case VariableUsageReferenceLabelEditPart.VISUAL_ID:
-			return VariableUsageReferenceLabelViewFactory.class;
+		case WrapLabelEditPart.VISUAL_ID:
+			return WrapLabelViewFactory.class;
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return VariableCharacterisationViewFactory.class;
 		case LoopEditPart.VISUAL_ID:

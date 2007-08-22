@@ -72,13 +72,13 @@ public class PalladioComponentModelPaletteFactory {
 	 */
 	private ToolEntry createVariableUsage2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.VariableUsage_3004);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3011);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.VariableUsage2CreationTool_title,
 				Messages.VariableUsage2CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3004));
+						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3011));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

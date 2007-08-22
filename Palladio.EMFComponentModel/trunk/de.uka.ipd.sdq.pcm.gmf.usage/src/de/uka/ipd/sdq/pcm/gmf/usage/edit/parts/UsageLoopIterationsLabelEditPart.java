@@ -224,9 +224,9 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	protected String getLabelText() {
 		String text = null;
 		Loop loop = (Loop) resolveSemanticElement();
-		if (loop.getIterations_Loop() != null) {
+		if (loop.getLoopIteration_Loop() != null) {
 			text = "Iterations: "
-					+ loop.getIterations_Loop().getSpecification();
+					+ loop.getLoopIteration_Loop().getSpecification();
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;

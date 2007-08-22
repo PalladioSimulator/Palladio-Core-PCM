@@ -71,8 +71,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
 
-			case VariableUsageReferenceLabelEditPart.VISUAL_ID:
-				return new VariableUsageReferenceLabelEditPart(view);
+			case WrapLabelEditPart.VISUAL_ID:
+				return new WrapLabelEditPart(view);
 
 			case VariableCharacterisationEditPart.VISUAL_ID:
 				return new VariableCharacterisationEditPart(view);

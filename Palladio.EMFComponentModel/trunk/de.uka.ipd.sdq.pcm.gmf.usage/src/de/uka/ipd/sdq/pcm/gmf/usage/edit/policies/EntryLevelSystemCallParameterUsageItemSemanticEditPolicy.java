@@ -23,12 +23,12 @@ public class EntryLevelSystemCallParameterUsageItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableUsage_3004 == req
+		if (PalladioComponentModelElementTypes.VariableUsage_3011 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(UsagemodelPackage.eINSTANCE
-								.getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall());
+								.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall());
 			}
 			return getGEFWrapper(new VariableUsageCreateCommand(req));
 		}

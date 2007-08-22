@@ -86,9 +86,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createVariableCharacterisation_3006Parser() {
-		EAttribute[] features = new EAttribute[] {
-				ParameterPackage.eINSTANCE.getVariableCharacterisation_Type(),
-				StoexPackage.eINSTANCE.getRandomVariable_Specification(), };
+		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
+				.getVariableCharacterisation_Type(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		parser.setViewPattern("{0} = {1}");
 		parser.setEditorPattern("{0} = {1}");
