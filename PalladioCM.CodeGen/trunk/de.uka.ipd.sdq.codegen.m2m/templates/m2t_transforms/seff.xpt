@@ -28,7 +28,7 @@
 «DEFINE Action FOR ExternalCallAction»
     «EXPAND m2t_transforms::calls::Call(this,
        	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
-    	this.parameterUsage_ExternalCallAction, this.outputVariableUsage_ExternalCallAction) FOR this.calledService_ExternalService»
+    	this.inputParameterUsages_ExternalCallAction, this.outputVariableUsages_ExternalCallAction) FOR this.calledService_ExternalService»
 «ENDDEFINE»
 
 «DEFINE Action FOR DelegatingExternalCallAction»

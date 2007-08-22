@@ -12,7 +12,7 @@
 // Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
    {
-      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification.specificationString()»",Double.class));
+      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
       ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
    }
 «ENDDEFINE»
@@ -84,15 +84,15 @@
 	rc.addActiveResource(
 		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
 		"«((LinkingResource)this.eContainer).entityName.specificationString()» [«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«((LinkingResource)this.eContainer).id»>",
-		«this.throughput»,
-		"«this.linkLatency.specification.specificationString()»");
+		"«this.throughput_CommunicationLinkResourceSpecification.specification.specificationString()»",
+		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»");
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
 	rc.addActiveResource(
 		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
 		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
-		«this.processingRate»,
+		"«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
 		"TODO: unit!",
 		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);
 «ENDDEFINE»

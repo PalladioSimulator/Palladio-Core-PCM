@@ -14,7 +14,7 @@ context VariableUsage ERROR 'LHS ID not set':
 	this.namedReference_VariableUsage != null;
 	
 context ExternalCallAction ERROR this.calledService_ExternalService.serviceName + ' Variable Reference not set':
-	!this.parameterUsage_ExternalCallAction.exists(vu|vu.namedReference_VariableUsage == null);
+	!this.inputParameterUsages_ExternalCallAction.exists(vu|vu.namedReference_VariableUsage == null);
 	
 context ResourceDemandingBehaviour ERROR 'SEFF or Behaviour needs exactly one start and one stop action':
 	this.steps_Behaviour.typeSelect(StartAction).size == 1 && this.steps_Behaviour.typeSelect(StopAction).size == 1;
@@ -50,10 +50,10 @@ context ClosedWorkload ERROR 'Closed Workload must have a population > 0':
 	this.population > 0;
 	
 context CommunicationLinkResourceSpecification ERROR 'No latency specified for communication resource' :
-	this.linkLatency != null && this.linkLatency != '';
+	this.latency_CommunicationLinkResourceSpecification != null && this.latency_CommunicationLinkResourceSpecification.specification != '';
 	
 context ProcessingResourceSpecification ERROR 'Processing Rate must be > 0 for ProcessingResourceSpecification':
-	this.processingRate > 0;
+	this.processingRate_ProcessingResourceSpecification != null && this.processingRate_ProcessingResourceSpecification.specification != '';
 	
 context Repository ERROR 'Repository should contain at least one component':
 	this.components__Repository.size > 0;

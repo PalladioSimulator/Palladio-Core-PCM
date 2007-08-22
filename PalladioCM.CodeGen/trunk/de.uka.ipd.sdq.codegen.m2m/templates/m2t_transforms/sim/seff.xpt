@@ -19,7 +19,7 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR LoopAction»
-   for (int iterationCount«id.javaVariableName()» = 0, maxIterationCount«id.javaVariableName()» = (Integer)ctx.evaluate("«this.iterations_LoopAction.specification.specificationString()»",Integer.class); 
+   for (int iterationCount«id.javaVariableName()» = 0, maxIterationCount«id.javaVariableName()» = (Integer)ctx.evaluate("«this.iterationCount_LoopAction.specification.specificationString()»",Integer.class); 
             iterationCount«id.javaVariableName()» < maxIterationCount«id.javaVariableName()»; iterationCount«id.javaVariableName()»++){
        «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
    } 
@@ -50,7 +50,7 @@
 «ENDDEFINE»
 
 «DEFINE BranchTransition(String counterNumber) FOR GuardedBranchTransition»
-	if ((Boolean)ctx.evaluate("«this.branchCondition_BranchTransition.specification.specificationString()»") == true)
+	if ((Boolean)ctx.evaluate("«this.branchCondition_GuardedBranchTransition.specification.specificationString()»") == true)
 	{
 		«EXPAND m2t_transforms::java_core::Actions FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
 	}
@@ -97,17 +97,17 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR SetVariableAction»
-	«LET this.variableUsage_SetVariableAction AS pu»
+	«FOREACH this.localVariableUsages_SetVariableAction AS pu»
 		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 			«IF pu.namedReference_VariableUsage.isInnerReference()»
-				resultStackFrame.addValue("«this.variableUsage_SetVariableAction.parameterUsageLHS()».«vc.type.toString()»",
-				   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification.specificationString()»",methodBodyStackFrame.copyFrame()));
+				resultStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
+				   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",methodBodyStackFrame.copyFrame()));
 			«ELSE»
-				resultStackFrame.addValue("«this.variableUsage_SetVariableAction.parameterUsageLHS()».«vc.type.toString()»",
-					ctx.evaluate("«vc.specification.specificationString()»"));
+				resultStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
+					ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»"));
 			«ENDIF»
 		«ENDFOREACH»
-	«ENDLET»
+	«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE Action FOR ForkAction»

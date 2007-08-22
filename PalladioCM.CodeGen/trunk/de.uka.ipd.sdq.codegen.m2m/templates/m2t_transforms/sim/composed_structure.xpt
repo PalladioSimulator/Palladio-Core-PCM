@@ -9,10 +9,10 @@
 	//Initialise Component Parameters
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> componentStackFrame = 
 		new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
-	«FOREACH this.componentParameterUsage_AssemblyContext AS pu»
+	«FOREACH this.configParameterUsages_AssemblyContext AS pu»
 		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 			componentStackFrame.addValue("«pu.parameterUsageLHS()+'.'+vc.type.toString()»",
-			   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification.specificationString()»",
+			   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",
 			   	new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>()));
 		«ENDFOREACH»
 	«ENDFOREACH»

@@ -29,10 +29,10 @@
 			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 				«IF pu.namedReference_VariableUsage.isInnerReference()»
 					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification.specificationString()»",currentFrame.copyFrame()));
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame.copyFrame()));
 				«ELSE»
 					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	ctx.evaluate("«vc.specification.specificationString()»",currentFrame));
+					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame));
 				«ENDIF»
 			«ENDFOREACH»
 		«ENDLET»
@@ -53,10 +53,10 @@
 			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 				«IF pu.namedReference_VariableUsage.isInnerReference()»
 					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification.specificationString()»",callResult.copyFrame()));
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult.copyFrame()));
 				«ELSE»
 					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	ctx.evaluate("«vc.specification.specificationString()»",callResult));
+					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult));
 				«ENDIF»
 			«ENDFOREACH»
 		«ENDLET»
