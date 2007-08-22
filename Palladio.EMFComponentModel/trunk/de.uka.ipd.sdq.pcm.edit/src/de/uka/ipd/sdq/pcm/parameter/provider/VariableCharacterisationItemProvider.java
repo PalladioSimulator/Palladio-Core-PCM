@@ -10,8 +10,9 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 
-import de.uka.ipd.sdq.stoex.provider.PCMRandomVariableItemProvider;
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,6 +22,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,6 +32,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -38,7 +42,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class VariableCharacterisationItemProvider
-	extends PCMRandomVariableItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -101,6 +105,36 @@ public class VariableCharacterisationItemProvider
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns VariableCharacterisation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,7 +153,8 @@ public class VariableCharacterisationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((VariableCharacterisation)object).getSpecification();
+		VariableCharacterisationType labelValue = ((VariableCharacterisation)object).getType();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_VariableCharacterisation_type") :
 			getString("_UI_VariableCharacterisation_type") + " " + label;
@@ -140,6 +175,9 @@ public class VariableCharacterisationItemProvider
 			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -154,6 +192,11 @@ public class VariableCharacterisationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

@@ -151,6 +151,29 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.UserData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UserDataItemProvider userDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.UserData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUserDataAdapter() {
+		if (userDataItemProvider == null) {
+			userDataItemProvider = new UserDataItemProvider(this);
+		}
+
+		return userDataItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Stop} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -220,29 +243,6 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InterArrivalTimeItemProvider interArrivalTimeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInterArrivalTimeAdapter() {
-		if (interArrivalTimeItemProvider == null) {
-			interArrivalTimeItemProvider = new InterArrivalTimeItemProvider(this);
-		}
-
-		return interArrivalTimeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Loop} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,29 +263,6 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		}
 
 		return loopItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LoopIterationsItemProvider loopIterationsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLoopIterationsAdapter() {
-		if (loopIterationsItemProvider == null) {
-			loopIterationsItemProvider = new LoopIterationsItemProvider(this);
-		}
-
-		return loopIterationsItemProvider;
 	}
 
 	/**
@@ -332,29 +309,6 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		}
 
 		return closedWorkloadItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.ThinkTime} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ThinkTimeItemProvider thinkTimeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.ThinkTime}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createThinkTimeAdapter() {
-		if (thinkTimeItemProvider == null) {
-			thinkTimeItemProvider = new ThinkTimeItemProvider(this);
-		}
-
-		return thinkTimeItemProvider;
 	}
 
 	/**
@@ -424,29 +378,6 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		}
 
 		return delayItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.DelayTime} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DelayTimeItemProvider delayTimeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.DelayTime}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDelayTimeAdapter() {
-		if (delayTimeItemProvider == null) {
-			delayTimeItemProvider = new DelayTimeItemProvider(this);
-		}
-
-		return delayTimeItemProvider;
 	}
 
 	/**
@@ -551,19 +482,16 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		if (usageScenarioItemProvider != null) usageScenarioItemProvider.dispose();
 		if (scenarioBehaviourItemProvider != null) scenarioBehaviourItemProvider.dispose();
 		if (usageModelItemProvider != null) usageModelItemProvider.dispose();
+		if (userDataItemProvider != null) userDataItemProvider.dispose();
 		if (stopItemProvider != null) stopItemProvider.dispose();
 		if (startItemProvider != null) startItemProvider.dispose();
 		if (openWorkloadItemProvider != null) openWorkloadItemProvider.dispose();
-		if (interArrivalTimeItemProvider != null) interArrivalTimeItemProvider.dispose();
 		if (loopItemProvider != null) loopItemProvider.dispose();
-		if (loopIterationsItemProvider != null) loopIterationsItemProvider.dispose();
 		if (entryLevelSystemCallItemProvider != null) entryLevelSystemCallItemProvider.dispose();
 		if (closedWorkloadItemProvider != null) closedWorkloadItemProvider.dispose();
-		if (thinkTimeItemProvider != null) thinkTimeItemProvider.dispose();
 		if (branchItemProvider != null) branchItemProvider.dispose();
 		if (branchTransitionItemProvider != null) branchTransitionItemProvider.dispose();
 		if (delayItemProvider != null) delayItemProvider.dispose();
-		if (delayTimeItemProvider != null) delayTimeItemProvider.dispose();
 	}
 
 }

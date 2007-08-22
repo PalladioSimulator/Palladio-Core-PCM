@@ -9,8 +9,9 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -75,7 +76,6 @@ public class CommunicationLinkResourceSpecificationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCommunicationLinkResourceType_CommunicationLinkResourceSpecificationPropertyDescriptor(object);
-			addThroughputPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -103,28 +103,6 @@ public class CommunicationLinkResourceSpecificationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Throughput feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addThroughputPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CommunicationLinkResourceSpecification_throughput_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CommunicationLinkResourceSpecification_throughput_feature", "_UI_CommunicationLinkResourceSpecification_type"),
-				 ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -136,7 +114,8 @@ public class CommunicationLinkResourceSpecificationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY);
+			childrenFeatures.add(ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
+			childrenFeatures.add(ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
 		}
 		return childrenFeatures;
 	}
@@ -188,10 +167,8 @@ public class CommunicationLinkResourceSpecificationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CommunicationLinkResourceSpecification.class)) {
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY:
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -211,8 +188,36 @@ public class CommunicationLinkResourceSpecificationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY,
-				 ResourceenvironmentFactory.eINSTANCE.createLatency()));
+				(ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION ||
+			childFeature == ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.qosannotations.provider;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
-import de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 
 import java.util.Collection;
@@ -115,10 +114,7 @@ public class ComponentSpecifiedExecutionTimeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ComponentSpecifiedExecutionTime)object).getSpecification();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ComponentSpecifiedExecutionTime_type") :
-			getString("_UI_ComponentSpecifiedExecutionTime_type") + " " + label;
+		return getString("_UI_ComponentSpecifiedExecutionTime_type");
 	}
 
 	/**

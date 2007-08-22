@@ -10,8 +10,6 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
-
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
@@ -94,7 +92,7 @@ public class SynchronisationPointItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SeffPackage.Literals.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT);
-			childrenFeatures.add(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_USAGE_SYNCHRONISATION_POINT);
+			childrenFeatures.add(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT);
 		}
 		return childrenFeatures;
 	}
@@ -147,7 +145,7 @@ public class SynchronisationPointItemProvider
 
 		switch (notification.getFeatureID(SynchronisationPoint.class)) {
 			case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
-			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_USAGE_SYNCHRONISATION_POINT:
+			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -172,13 +170,8 @@ public class SynchronisationPointItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_USAGE_SYNCHRONISATION_POINT,
+				(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_USAGE_SYNCHRONISATION_POINT,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**

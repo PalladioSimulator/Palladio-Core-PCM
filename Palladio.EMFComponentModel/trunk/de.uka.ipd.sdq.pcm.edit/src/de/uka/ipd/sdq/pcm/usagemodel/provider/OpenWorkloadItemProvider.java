@@ -9,8 +9,9 @@ package de.uka.ipd.sdq.pcm.usagemodel.provider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -161,7 +162,7 @@ public class OpenWorkloadItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagemodelPackage.Literals.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD,
-				 UsagemodelFactory.eINSTANCE.createInterArrivalTime()));
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

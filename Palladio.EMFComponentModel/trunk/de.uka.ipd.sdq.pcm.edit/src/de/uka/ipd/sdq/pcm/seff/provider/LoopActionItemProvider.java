@@ -9,8 +9,9 @@ package de.uka.ipd.sdq.pcm.seff.provider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -88,7 +89,7 @@ public class LoopActionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.LOOP_ACTION__ITERATIONS_LOOP_ACTION);
+			childrenFeatures.add(SeffPackage.Literals.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +144,7 @@ public class LoopActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LoopAction.class)) {
-			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
+			case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,8 +164,8 @@ public class LoopActionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.LOOP_ACTION__ITERATIONS_LOOP_ACTION,
-				 SeffFactory.eINSTANCE.createIterationCount()));
+				(SeffPackage.Literals.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION,
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

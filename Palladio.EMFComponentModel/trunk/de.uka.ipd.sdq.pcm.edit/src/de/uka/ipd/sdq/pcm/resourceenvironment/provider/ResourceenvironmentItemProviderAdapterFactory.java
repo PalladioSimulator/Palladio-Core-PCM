@@ -151,52 +151,6 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.Latency} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LatencyItemProvider latencyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.Latency}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLatencyAdapter() {
-		if (latencyItemProvider == null) {
-			latencyItemProvider = new LatencyItemProvider(this);
-		}
-
-		return latencyItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.Throughput} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ThroughputItemProvider throughputItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.Throughput}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createThroughputAdapter() {
-		if (throughputItemProvider == null) {
-			throughputItemProvider = new ThroughputItemProvider(this);
-		}
-
-		return throughputItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -217,29 +171,6 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 		}
 
 		return processingResourceSpecificationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProcessingRateItemProvider processingRateItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProcessingRateAdapter() {
-		if (processingRateItemProvider == null) {
-			processingRateItemProvider = new ProcessingRateItemProvider(this);
-		}
-
-		return processingRateItemProvider;
 	}
 
 	/**
@@ -367,10 +298,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 		if (resourceEnvironmentItemProvider != null) resourceEnvironmentItemProvider.dispose();
 		if (linkingResourceItemProvider != null) linkingResourceItemProvider.dispose();
 		if (communicationLinkResourceSpecificationItemProvider != null) communicationLinkResourceSpecificationItemProvider.dispose();
-		if (latencyItemProvider != null) latencyItemProvider.dispose();
-		if (throughputItemProvider != null) throughputItemProvider.dispose();
 		if (processingResourceSpecificationItemProvider != null) processingResourceSpecificationItemProvider.dispose();
-		if (processingRateItemProvider != null) processingRateItemProvider.dispose();
 		if (resourceContainerItemProvider != null) resourceContainerItemProvider.dispose();
 	}
 

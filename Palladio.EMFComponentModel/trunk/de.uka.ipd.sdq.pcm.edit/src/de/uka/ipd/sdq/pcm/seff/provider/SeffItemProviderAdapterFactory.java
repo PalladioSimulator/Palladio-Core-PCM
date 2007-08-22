@@ -243,29 +243,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.IterationCount} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IterationCountItemProvider iterationCountItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.IterationCount}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIterationCountAdapter() {
-		if (iterationCountItemProvider == null) {
-			iterationCountItemProvider = new IterationCountItemProvider(this);
-		}
-
-		return iterationCountItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.InternalAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,29 +309,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		}
 
 		return forkedBehaviourItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.NumberOfReplicas} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NumberOfReplicasItemProvider numberOfReplicasItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.NumberOfReplicas}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNumberOfReplicasAdapter() {
-		if (numberOfReplicasItemProvider == null) {
-			numberOfReplicasItemProvider = new NumberOfReplicasItemProvider(this);
-		}
-
-		return numberOfReplicasItemProvider;
 	}
 
 	/**
@@ -470,29 +424,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		}
 
 		return acquireActionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.BranchCondition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BranchConditionItemProvider branchConditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.BranchCondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBranchConditionAdapter() {
-		if (branchConditionItemProvider == null) {
-			branchConditionItemProvider = new BranchConditionItemProvider(this);
-		}
-
-		return branchConditionItemProvider;
 	}
 
 	/**
@@ -670,17 +601,14 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (resourceDemandingBehaviourItemProvider != null) resourceDemandingBehaviourItemProvider.dispose();
 		if (releaseActionItemProvider != null) releaseActionItemProvider.dispose();
 		if (loopActionItemProvider != null) loopActionItemProvider.dispose();
-		if (iterationCountItemProvider != null) iterationCountItemProvider.dispose();
 		if (internalActionItemProvider != null) internalActionItemProvider.dispose();
 		if (forkActionItemProvider != null) forkActionItemProvider.dispose();
 		if (forkedBehaviourItemProvider != null) forkedBehaviourItemProvider.dispose();
-		if (numberOfReplicasItemProvider != null) numberOfReplicasItemProvider.dispose();
 		if (synchronisationPointItemProvider != null) synchronisationPointItemProvider.dispose();
 		if (externalCallActionItemProvider != null) externalCallActionItemProvider.dispose();
 		if (probabilisticBranchTransitionItemProvider != null) probabilisticBranchTransitionItemProvider.dispose();
 		if (branchActionItemProvider != null) branchActionItemProvider.dispose();
 		if (acquireActionItemProvider != null) acquireActionItemProvider.dispose();
-		if (branchConditionItemProvider != null) branchConditionItemProvider.dispose();
 		if (collectionIteratorActionItemProvider != null) collectionIteratorActionItemProvider.dispose();
 		if (guardedBranchTransitionItemProvider != null) guardedBranchTransitionItemProvider.dispose();
 		if (setVariableActionItemProvider != null) setVariableActionItemProvider.dispose();

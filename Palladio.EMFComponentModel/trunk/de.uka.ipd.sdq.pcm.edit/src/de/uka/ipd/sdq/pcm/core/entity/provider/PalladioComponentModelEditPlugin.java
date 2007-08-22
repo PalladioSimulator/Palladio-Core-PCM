@@ -57,9 +57,9 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     IdentifierEditPlugin.INSTANCE,
-		     ProbabilityFunctionEditPlugin.INSTANCE,
 		     StoexEditPlugin.INSTANCE,
 		     UnitsEditPlugin.INSTANCE,
+		     ProbabilityFunctionEditPlugin.INSTANCE,
 		   });
 	}
 

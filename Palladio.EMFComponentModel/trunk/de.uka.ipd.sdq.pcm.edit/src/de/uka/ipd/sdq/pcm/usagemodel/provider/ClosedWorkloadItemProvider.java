@@ -9,8 +9,9 @@ package de.uka.ipd.sdq.pcm.usagemodel.provider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -190,7 +191,7 @@ public class ClosedWorkloadItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD,
-				 UsagemodelFactory.eINSTANCE.createThinkTime()));
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

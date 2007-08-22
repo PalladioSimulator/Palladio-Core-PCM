@@ -10,8 +10,6 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
-
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
@@ -138,8 +136,8 @@ public class EntryLevelSystemCallItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
-			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
+			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
+			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
 		}
 		return childrenFeatures;
 	}
@@ -194,8 +192,8 @@ public class EntryLevelSystemCallItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EntryLevelSystemCall.class)) {
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -215,23 +213,13 @@ public class EntryLevelSystemCallItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
+				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
+				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**
@@ -246,8 +234,8 @@ public class EntryLevelSystemCallItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL ||
-			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL;
+			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL ||
+			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL;
 
 		if (qualify) {
 			return getString

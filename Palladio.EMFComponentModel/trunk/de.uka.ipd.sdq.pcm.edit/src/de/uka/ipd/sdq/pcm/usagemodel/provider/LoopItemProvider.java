@@ -12,6 +12,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.Loop;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+import de.uka.ipd.sdq.stoex.StoexFactory;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -89,7 +91,7 @@ public class LoopItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP);
-			childrenFeatures.add(UsagemodelPackage.Literals.LOOP__ITERATIONS_LOOP);
+			childrenFeatures.add(UsagemodelPackage.Literals.LOOP__LOOP_ITERATION_LOOP);
 		}
 		return childrenFeatures;
 	}
@@ -145,7 +147,7 @@ public class LoopItemProvider
 
 		switch (notification.getFeatureID(Loop.class)) {
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
-			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
+			case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -170,8 +172,8 @@ public class LoopItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.LOOP__ITERATIONS_LOOP,
-				 UsagemodelFactory.eINSTANCE.createLoopIterations()));
+				(UsagemodelPackage.Literals.LOOP__LOOP_ITERATION_LOOP,
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

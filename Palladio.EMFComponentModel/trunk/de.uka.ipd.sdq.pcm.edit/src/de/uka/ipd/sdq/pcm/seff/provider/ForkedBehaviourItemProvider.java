@@ -9,8 +9,9 @@ package de.uka.ipd.sdq.pcm.seff.provider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -161,7 +162,7 @@ public class ForkedBehaviourItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.FORKED_BEHAVIOUR__NUMBER_OF_REPLICAS_FORKED_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createNumberOfReplicas()));
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

@@ -8,12 +8,10 @@ package de.uka.ipd.sdq.pcm.repository.provider;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
-
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -165,12 +163,7 @@ public class PassiveResourceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(RepositoryPackage.Literals.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

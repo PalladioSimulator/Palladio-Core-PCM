@@ -10,8 +10,6 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
-
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -138,8 +136,8 @@ public class ExternalCallActionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
-			childrenFeatures.add(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION);
+			childrenFeatures.add(SeffPackage.Literals.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION);
+			childrenFeatures.add(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION);
 		}
 		return childrenFeatures;
 	}
@@ -194,8 +192,8 @@ public class ExternalCallActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExternalCallAction.class)) {
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
-			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION:
+			case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
+			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -215,23 +213,13 @@ public class ExternalCallActionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
+				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION,
+				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**
@@ -246,8 +234,8 @@ public class ExternalCallActionItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION ||
-			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION;
+			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION ||
+			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION;
 
 		if (qualify) {
 			return getString

@@ -90,6 +90,7 @@ public class UsageModelItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UsagemodelPackage.Literals.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL);
+			childrenFeatures.add(UsagemodelPackage.Literals.USAGE_MODEL__USER_DATA_USAGE_MODEL);
 		}
 		return childrenFeatures;
 	}
@@ -142,6 +143,7 @@ public class UsageModelItemProvider
 
 		switch (notification.getFeatureID(UsageModel.class)) {
 			case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
+			case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,6 +165,11 @@ public class UsageModelItemProvider
 			(createChildParameter
 				(UsagemodelPackage.Literals.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL,
 				 UsagemodelFactory.eINSTANCE.createUsageScenario()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagemodelPackage.Literals.USAGE_MODEL__USER_DATA_USAGE_MODEL,
+				 UsagemodelFactory.eINSTANCE.createUserData()));
 	}
 
 	/**

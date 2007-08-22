@@ -14,8 +14,6 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -116,7 +114,7 @@ public class AssemblyContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CompositionPackage.Literals.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT);
+			childrenFeatures.add(CompositionPackage.Literals.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT);
 		}
 		return childrenFeatures;
 	}
@@ -171,7 +169,7 @@ public class AssemblyContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AssemblyContext.class)) {
-			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -191,13 +189,8 @@ public class AssemblyContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CompositionPackage.Literals.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT,
+				(CompositionPackage.Literals.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**

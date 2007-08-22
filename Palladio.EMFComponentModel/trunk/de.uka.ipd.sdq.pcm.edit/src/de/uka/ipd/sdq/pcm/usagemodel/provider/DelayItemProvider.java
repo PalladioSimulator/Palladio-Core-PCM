@@ -9,8 +9,9 @@ package de.uka.ipd.sdq.pcm.usagemodel.provider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Delay;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -88,7 +89,7 @@ public class DelayItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagemodelPackage.Literals.DELAY__TIME);
+			childrenFeatures.add(UsagemodelPackage.Literals.DELAY__TIME_SPECIFICATION_DELAY);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +144,7 @@ public class DelayItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Delay.class)) {
-			case UsagemodelPackage.DELAY__TIME:
+			case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,8 +164,8 @@ public class DelayItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.DELAY__TIME,
-				 UsagemodelFactory.eINSTANCE.createDelayTime()));
+				(UsagemodelPackage.Literals.DELAY__TIME_SPECIFICATION_DELAY,
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

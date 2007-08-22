@@ -10,8 +10,6 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 
@@ -91,7 +89,7 @@ public class SetVariableActionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION);
+			childrenFeatures.add(SeffPackage.Literals.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION);
 		}
 		return childrenFeatures;
 	}
@@ -146,7 +144,7 @@ public class SetVariableActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SetVariableAction.class)) {
-			case SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION:
+			case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,13 +164,8 @@ public class SetVariableActionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION,
+				(SeffPackage.Literals.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**

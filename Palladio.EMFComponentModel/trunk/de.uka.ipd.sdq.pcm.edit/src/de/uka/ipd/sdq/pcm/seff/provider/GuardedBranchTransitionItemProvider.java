@@ -9,8 +9,9 @@ package de.uka.ipd.sdq.pcm.seff.provider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -88,7 +89,7 @@ public class GuardedBranchTransitionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION);
+			childrenFeatures.add(SeffPackage.Literals.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +144,7 @@ public class GuardedBranchTransitionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GuardedBranchTransition.class)) {
-			case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION:
+			case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,8 +164,8 @@ public class GuardedBranchTransitionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION,
-				 SeffFactory.eINSTANCE.createBranchCondition()));
+				(SeffPackage.Literals.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION,
+				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**
