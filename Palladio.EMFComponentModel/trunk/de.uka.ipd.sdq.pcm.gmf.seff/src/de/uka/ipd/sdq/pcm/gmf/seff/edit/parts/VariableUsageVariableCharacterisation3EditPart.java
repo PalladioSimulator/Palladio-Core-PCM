@@ -26,7 +26,7 @@ public class VariableUsageVariableCharacterisation3EditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7017;
+	public static final int VISUAL_ID = 7029;
 
 	/**
 	 * @generated

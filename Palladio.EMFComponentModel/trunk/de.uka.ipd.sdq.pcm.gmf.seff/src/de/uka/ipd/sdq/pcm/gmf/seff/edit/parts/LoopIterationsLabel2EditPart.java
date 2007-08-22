@@ -215,8 +215,8 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	protected String getLabelText() {
 		String text = null;
 		LoopAction loop = (LoopAction) resolveSemanticElement();
-		if (loop.getIterations_LoopAction() != null)
-			text = loop.getIterations_LoopAction().getSpecification();
+		if (loop.getIterationCount_LoopAction() != null)
+			text = loop.getIterationCount_LoopAction().getSpecification();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -476,7 +476,7 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	protected void addSemanticListeners() {
 		LoopAction loop = (LoopAction) resolveSemanticElement();
 		addListenerFilter(
-				"SemanticModel", this, loop.getIterations_LoopAction()); //$NON-NLS-1$
+				"SemanticModel", this, loop.getIterationCount_LoopAction()); //$NON-NLS-1$
 	}
 
 	/**

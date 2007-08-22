@@ -150,8 +150,8 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
-		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
+		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
@@ -160,9 +160,9 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 		factories.add(new QosannotationsItemProviderAdapterFactory());
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
-		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new UnitsItemProviderAdapterFactory());
+		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

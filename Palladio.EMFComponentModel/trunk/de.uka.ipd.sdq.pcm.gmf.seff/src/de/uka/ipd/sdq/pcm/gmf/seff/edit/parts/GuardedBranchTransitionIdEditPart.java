@@ -213,10 +213,10 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart
 	protected String getLabelText() {
 		String text = "Cond: ";
 		GuardedBranchTransition transition = (GuardedBranchTransition) resolveSemanticElement();
-		if (transition.getBranchCondition_BranchTransition() != null
-				&& transition.getBranchCondition_BranchTransition()
+		if (transition.getBranchCondition_GuardedBranchTransition() != null
+				&& transition.getBranchCondition_GuardedBranchTransition()
 						.getSpecification() != null)
-			text += transition.getBranchCondition_BranchTransition()
+			text += transition.getBranchCondition_GuardedBranchTransition()
 					.getSpecification();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -477,7 +477,7 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart
 	protected void addSemanticListeners() {
 		GuardedBranchTransition transition = (GuardedBranchTransition) resolveSemanticElement();
 		addListenerFilter(
-				"SemanticModel", this, transition.getBranchCondition_BranchTransition()); //$NON-NLS-1$
+				"SemanticModel", this, transition.getBranchCondition_GuardedBranchTransition()); //$NON-NLS-1$
 	}
 
 	/**

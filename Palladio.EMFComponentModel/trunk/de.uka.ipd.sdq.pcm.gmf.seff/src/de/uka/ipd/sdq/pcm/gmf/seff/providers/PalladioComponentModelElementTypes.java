@@ -105,7 +105,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableUsage_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3001"); //$NON-NLS-1$
+	public static final IElementType VariableUsage_3028 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3028"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -113,7 +114,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableUsage_3022 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3022"); //$NON-NLS-1$
+	public static final IElementType VariableUsage_3029 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3029"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -203,7 +204,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableUsage_3015 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3015"); //$NON-NLS-1$
+	public static final IElementType VariableUsage_3030 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3030"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -367,13 +368,13 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements
 					.put(ForkAction_2011, SeffPackage.eINSTANCE.getForkAction());
 
-			elements.put(VariableUsage_3001, ParameterPackage.eINSTANCE
+			elements.put(VariableUsage_3028, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
 			elements.put(VariableCharacterisation_3002,
 					ParameterPackage.eINSTANCE.getVariableCharacterisation());
 
-			elements.put(VariableUsage_3022, ParameterPackage.eINSTANCE
+			elements.put(VariableUsage_3029, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
 			elements.put(VariableCharacterisation_3016,
@@ -430,7 +431,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(SetVariableAction_3024, SeffPackage.eINSTANCE
 					.getSetVariableAction());
 
-			elements.put(VariableUsage_3015, ParameterPackage.eINSTANCE
+			elements.put(VariableUsage_3030, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
 			elements.put(VariableCharacterisation_3025,
@@ -474,9 +475,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(AcquireAction_2012);
 			KNOWN_ELEMENT_TYPES.add(ReleaseAction_2010);
 			KNOWN_ELEMENT_TYPES.add(ForkAction_2011);
-			KNOWN_ELEMENT_TYPES.add(VariableUsage_3001);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_3028);
 			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3002);
-			KNOWN_ELEMENT_TYPES.add(VariableUsage_3022);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_3029);
 			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3016);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3003);
 			KNOWN_ELEMENT_TYPES.add(StartAction_3004);
@@ -495,7 +496,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_3013);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3014);
 			KNOWN_ELEMENT_TYPES.add(SetVariableAction_3024);
-			KNOWN_ELEMENT_TYPES.add(VariableUsage_3015);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_3030);
 			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3025);
 			KNOWN_ELEMENT_TYPES.add(GuardedBranchTransition_3017);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3018);

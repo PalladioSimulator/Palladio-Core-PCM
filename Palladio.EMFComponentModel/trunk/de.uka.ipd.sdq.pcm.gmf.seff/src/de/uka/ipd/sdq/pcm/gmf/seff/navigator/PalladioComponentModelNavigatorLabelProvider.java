@@ -78,9 +78,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel3EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
@@ -189,13 +189,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ForkAction", PalladioComponentModelElementTypes.ForkAction_2011); //$NON-NLS-1$
 		case VariableUsageEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3001); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3028); //$NON-NLS-1$
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3002); //$NON-NLS-1$
 		case VariableUsage2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3022); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3029); //$NON-NLS-1$
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3016); //$NON-NLS-1$
@@ -252,7 +252,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?SetVariableAction", PalladioComponentModelElementTypes.SetVariableAction_3024); //$NON-NLS-1$
 		case VariableUsage3EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3015); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3030); //$NON-NLS-1$
 		case VariableCharacterisation3EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3025); //$NON-NLS-1$
@@ -344,11 +344,11 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case ForkAction2EditPart.VISUAL_ID:
 			return getForkAction_2011Text(view);
 		case VariableUsageEditPart.VISUAL_ID:
-			return getVariableUsage_3001Text(view);
+			return getVariableUsage_3028Text(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return getVariableCharacterisation_3002Text(view);
 		case VariableUsage2EditPart.VISUAL_ID:
-			return getVariableUsage_3022Text(view);
+			return getVariableUsage_3029Text(view);
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return getVariableCharacterisation_3016Text(view);
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
@@ -386,7 +386,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case SetVariableActionEditPart.VISUAL_ID:
 			return getSetVariableAction_3024Text(view);
 		case VariableUsage3EditPart.VISUAL_ID:
-			return getVariableUsage_3015Text(view);
+			return getVariableUsage_3030Text(view);
 		case VariableCharacterisation3EditPart.VISUAL_ID:
 			return getVariableCharacterisation_3025Text(view);
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
@@ -649,13 +649,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getVariableUsage_3001Text(View view) {
+	private String getVariableUsage_3028Text(View view) {
 
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableUsage_3001, (view
+				PalladioComponentModelElementTypes.VariableUsage_3028, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(VariableUsageReferenceLabelEditPart.VISUAL_ID));
+						.getType(WrapLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -690,13 +690,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getVariableUsage_3022Text(View view) {
+	private String getVariableUsage_3029Text(View view) {
 
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableUsage_3022,
-				(view.getElement() != null ? view.getElement() : view),
+				PalladioComponentModelElementTypes.VariableUsage_3029, (view
+						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(VariableUsageReferenceLabel2EditPart.VISUAL_ID));
+						.getType(WrapLabel2EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -815,19 +815,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getParametricResourceDemand_3008Text(View view) {
+
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.ParametricResourceDemand_3008,
 				(view.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
 						.getType(ParametricResourceDemandEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
-			PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3008); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -1032,13 +1030,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getVariableUsage_3015Text(View view) {
+	private String getVariableUsage_3030Text(View view) {
 
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableUsage_3015,
-				(view.getElement() != null ? view.getElement() : view),
+				PalladioComponentModelElementTypes.VariableUsage_3030, (view
+						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(VariableUsageReferenceLabel3EditPart.VISUAL_ID));
+						.getType(WrapLabel3EditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE

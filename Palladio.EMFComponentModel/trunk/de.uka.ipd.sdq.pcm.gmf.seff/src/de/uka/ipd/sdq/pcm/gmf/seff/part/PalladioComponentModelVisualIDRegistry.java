@@ -87,12 +87,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel3EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelAbstractExpression;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -699,7 +699,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsageEditPart.VISUAL_ID:
-			if (VariableUsageReferenceLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisationEditPart.VISUAL_ID == nodeVisualID) {
@@ -707,7 +707,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsage2EditPart.VISUAL_ID:
-			if (VariableUsageReferenceLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrapLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisation2EditPart.VISUAL_ID == nodeVisualID) {
@@ -818,7 +818,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsage3EditPart.VISUAL_ID:
-			if (VariableUsageReferenceLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrapLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisation3EditPart.VISUAL_ID == nodeVisualID) {

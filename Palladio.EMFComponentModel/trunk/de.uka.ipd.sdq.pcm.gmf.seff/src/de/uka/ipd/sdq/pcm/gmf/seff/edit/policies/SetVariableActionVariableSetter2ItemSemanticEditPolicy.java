@@ -23,12 +23,12 @@ public class SetVariableActionVariableSetter2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableUsage_3015 == req
+		if (PalladioComponentModelElementTypes.VariableUsage_3030 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(SeffPackage.eINSTANCE
-								.getSetVariableAction_VariableUsage_SetVariableAction());
+								.getSetVariableAction_LocalVariableUsages_SetVariableAction());
 			}
 			return getGEFWrapper(new VariableUsage3CreateCommand(req));
 		}

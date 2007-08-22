@@ -73,8 +73,9 @@ public class ExternalCallActionInputVariableUsage2CanonicalEditPolicy extends
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(SeffPackage.eINSTANCE
-					.getExternalCallAction_ParameterUsage_ExternalCallAction());
+			myFeaturesToSynchronize
+					.add(SeffPackage.eINSTANCE
+							.getExternalCallAction_InputParameterUsages_ExternalCallAction());
 		}
 		return myFeaturesToSynchronize;
 	}

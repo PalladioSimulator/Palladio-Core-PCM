@@ -52,19 +52,17 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
  */
-public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
-		implements ITextAwareEditPart {
+public class WrapLabel3EditPart extends CompartmentEditPart implements
+		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5025;
+	public static final int VISUAL_ID = 5032;
 
 	/**
 	 * @generated
@@ -89,7 +87,7 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public VariableUsageReferenceLabel2EditPart(View view) {
+	public WrapLabel3EditPart(View view) {
 		super(view);
 	}
 
@@ -211,14 +209,15 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected String getLabelText() {
 		String text = null;
-		VariableUsage usage = (VariableUsage) resolveSemanticElement();
-		if (usage.getNamedReference_VariableUsage() != null) {
-			text = new PCMStoExPrettyPrintVisitor().prettyPrint(usage
-					.getNamedReference_VariableUsage());
+		EObject parserElement = getParserElement();
+		if (parserElement != null && getParser() != null) {
+			text = getParser().getPrintString(
+					new EObjectAdapter(parserElement),
+					getParserOptions().intValue());
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -315,7 +314,7 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.VariableUsage_3022,
+					PalladioComponentModelElementTypes.VariableUsage_3030,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

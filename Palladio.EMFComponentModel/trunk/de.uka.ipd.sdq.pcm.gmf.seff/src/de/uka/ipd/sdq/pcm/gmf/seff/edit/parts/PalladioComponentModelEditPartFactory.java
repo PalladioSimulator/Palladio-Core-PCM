@@ -104,8 +104,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
 
-			case VariableUsageReferenceLabelEditPart.VISUAL_ID:
-				return new VariableUsageReferenceLabelEditPart(view);
+			case WrapLabelEditPart.VISUAL_ID:
+				return new WrapLabelEditPart(view);
 
 			case VariableCharacterisationEditPart.VISUAL_ID:
 				return new VariableCharacterisationEditPart(view);
@@ -113,8 +113,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsage2EditPart.VISUAL_ID:
 				return new VariableUsage2EditPart(view);
 
-			case VariableUsageReferenceLabel2EditPart.VISUAL_ID:
-				return new VariableUsageReferenceLabel2EditPart(view);
+			case WrapLabel2EditPart.VISUAL_ID:
+				return new WrapLabel2EditPart(view);
 
 			case VariableCharacterisation2EditPart.VISUAL_ID:
 				return new VariableCharacterisation2EditPart(view);
@@ -210,8 +210,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsage3EditPart.VISUAL_ID:
 				return new VariableUsage3EditPart(view);
 
-			case VariableUsageReferenceLabel3EditPart.VISUAL_ID:
-				return new VariableUsageReferenceLabel3EditPart(view);
+			case WrapLabel3EditPart.VISUAL_ID:
+				return new WrapLabel3EditPart(view);
 
 			case VariableCharacterisation3EditPart.VISUAL_ID:
 				return new VariableCharacterisation3EditPart(view);

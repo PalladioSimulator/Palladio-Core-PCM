@@ -73,8 +73,9 @@ public class SetVariableActionVariableSetter2CanonicalEditPolicy extends
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(SeffPackage.eINSTANCE
-					.getSetVariableAction_VariableUsage_SetVariableAction());
+			myFeaturesToSynchronize
+					.add(SeffPackage.eINSTANCE
+							.getSetVariableAction_LocalVariableUsages_SetVariableAction());
 		}
 		return myFeaturesToSynchronize;
 	}

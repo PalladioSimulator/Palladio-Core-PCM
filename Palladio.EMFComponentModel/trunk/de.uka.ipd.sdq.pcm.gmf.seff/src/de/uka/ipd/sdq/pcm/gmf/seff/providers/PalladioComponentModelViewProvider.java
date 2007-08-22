@@ -89,12 +89,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel3EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AbstractActionSuccessor_AbstractActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AcquireAction2ViewFactory;
@@ -181,6 +181,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacter
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacterisation3ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacterisationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrapLabel2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrapLabel3ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.WrapLabelViewFactory;
 
 /**
  * @generated
@@ -369,7 +372,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case VariableUsageReferenceLabelEditPart.VISUAL_ID:
+				case WrapLabelEditPart.VISUAL_ID:
 				case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -377,7 +380,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case VariableUsageReferenceLabel2EditPart.VISUAL_ID:
+				case WrapLabel2EditPart.VISUAL_ID:
 				case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 					if (VariableUsage2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -491,7 +494,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case VariableUsageReferenceLabel3EditPart.VISUAL_ID:
+				case WrapLabel3EditPart.VISUAL_ID:
 				case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
 					if (VariableUsage3EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -577,14 +580,14 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ForkActionEntityName2ViewFactory.class;
 		case VariableUsageEditPart.VISUAL_ID:
 			return VariableUsageViewFactory.class;
-		case VariableUsageReferenceLabelEditPart.VISUAL_ID:
-			return VariableUsageReferenceLabelViewFactory.class;
+		case WrapLabelEditPart.VISUAL_ID:
+			return WrapLabelViewFactory.class;
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return VariableCharacterisationViewFactory.class;
 		case VariableUsage2EditPart.VISUAL_ID:
 			return VariableUsage2ViewFactory.class;
-		case VariableUsageReferenceLabel2EditPart.VISUAL_ID:
-			return VariableUsageReferenceLabel2ViewFactory.class;
+		case WrapLabel2EditPart.VISUAL_ID:
+			return WrapLabel2ViewFactory.class;
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return VariableCharacterisation2ViewFactory.class;
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
@@ -647,8 +650,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return SetVariableActionEntityNameViewFactory.class;
 		case VariableUsage3EditPart.VISUAL_ID:
 			return VariableUsage3ViewFactory.class;
-		case VariableUsageReferenceLabel3EditPart.VISUAL_ID:
-			return VariableUsageReferenceLabel3ViewFactory.class;
+		case WrapLabel3EditPart.VISUAL_ID:
+			return WrapLabel3ViewFactory.class;
 		case VariableCharacterisation3EditPart.VISUAL_ID:
 			return VariableCharacterisation3ViewFactory.class;
 		case GuardedBranchTransitionEditPart.VISUAL_ID:

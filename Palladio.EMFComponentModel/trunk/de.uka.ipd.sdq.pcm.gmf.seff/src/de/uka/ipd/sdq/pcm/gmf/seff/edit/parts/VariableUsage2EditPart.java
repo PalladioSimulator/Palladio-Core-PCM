@@ -39,7 +39,7 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3022;
+	public static final int VISUAL_ID = 3029;
 
 	/**
 	 * @generated
@@ -139,10 +139,9 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof VariableUsageReferenceLabel2EditPart) {
-			((VariableUsageReferenceLabel2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureVariableUsageReferenceLabelFigure());
+		if (childEditPart instanceof WrapLabel2EditPart) {
+			((WrapLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureVariableUsageReferenceLabelFigure());
 			return true;
 		}
 		return false;
@@ -240,7 +239,7 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(VariableUsageReferenceLabel2EditPart.VISUAL_ID));
+				.getType(WrapLabel2EditPart.VISUAL_ID));
 	}
 
 	/**

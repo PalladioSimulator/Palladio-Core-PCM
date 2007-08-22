@@ -46,15 +46,4 @@ public class VariableUsage3CreateCommand extends CreateElementCommand {
 		return container;
 	}
 
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		SetVariableAction container = (SetVariableAction) getElementToEdit();
-		if (container.getVariableUsage_SetVariableAction() != null) {
-			return false;
-		}
-		return true;
-	}
-
 }

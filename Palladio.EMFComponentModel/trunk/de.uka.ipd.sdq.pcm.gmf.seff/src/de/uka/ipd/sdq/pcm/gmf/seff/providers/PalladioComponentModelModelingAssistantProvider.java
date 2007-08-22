@@ -134,12 +134,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		}
 		if (editPart instanceof ExternalCallActionInputVariableUsageEditPart) {
 			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3028);
 			return types;
 		}
 		if (editPart instanceof ExternalCallActionOutputVariableUsageEditPart) {
 			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3022);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3029);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourLoopCompartmentEditPart) {
@@ -188,12 +188,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		}
 		if (editPart instanceof ExternalCallActionInputVariableUsage2EditPart) {
 			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3028);
 			return types;
 		}
 		if (editPart instanceof ExternalCallActionOutputVariableUsage2EditPart) {
 			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3022);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3029);
 			return types;
 		}
 		if (editPart instanceof ForkActionForkedBehavioursEditPart) {
@@ -235,7 +235,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		}
 		if (editPart instanceof SetVariableActionVariableSetterEditPart) {
 			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3030);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBranchCompartment2EditPart) {
@@ -266,7 +266,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		}
 		if (editPart instanceof SetVariableActionVariableSetter2EditPart) {
 			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3030);
 			return types;
 		}
 		if (editPart instanceof ForkActionForkedBehaviours2EditPart) {

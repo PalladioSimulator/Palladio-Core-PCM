@@ -308,15 +308,15 @@ public class PalladioComponentModelPaletteFactory {
 	 */
 	private ToolEntry createVariableUsage3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
-		types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
-		types.add(PalladioComponentModelElementTypes.VariableUsage_3022);
-		types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3028);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3029);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3030);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.VariableUsage3CreationTool_title,
 				Messages.VariableUsage3CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3001));
+						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3028));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

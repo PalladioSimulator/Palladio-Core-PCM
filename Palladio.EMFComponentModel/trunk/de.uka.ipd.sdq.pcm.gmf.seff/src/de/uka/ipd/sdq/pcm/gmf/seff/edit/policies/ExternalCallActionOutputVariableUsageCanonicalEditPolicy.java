@@ -75,7 +75,7 @@ public class ExternalCallActionOutputVariableUsageCanonicalEditPolicy extends
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize
 					.add(SeffPackage.eINSTANCE
-							.getExternalCallAction_OutputVariableUsage_ExternalCallAction());
+							.getExternalCallAction_OutputVariableUsages_ExternalCallAction());
 		}
 		return myFeaturesToSynchronize;
 	}

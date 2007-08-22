@@ -37,7 +37,7 @@ public class VariableUsageVariableCharacterisation2CanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getVariableUsageVariableCharacterisation_7022SemanticChildren(
+				.getVariableUsageVariableCharacterisation_7028SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((PalladioComponentModelNodeDescriptor) it.next())
 					.getModelElement());

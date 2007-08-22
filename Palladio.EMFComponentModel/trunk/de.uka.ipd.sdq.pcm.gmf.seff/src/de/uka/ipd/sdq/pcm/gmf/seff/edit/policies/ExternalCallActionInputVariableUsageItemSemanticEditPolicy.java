@@ -23,12 +23,12 @@ public class ExternalCallActionInputVariableUsageItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableUsage_3001 == req
+		if (PalladioComponentModelElementTypes.VariableUsage_3028 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(SeffPackage.eINSTANCE
-								.getExternalCallAction_ParameterUsage_ExternalCallAction());
+								.getExternalCallAction_InputParameterUsages_ExternalCallAction());
 			}
 			return getGEFWrapper(new VariableUsageCreateCommand(req));
 		}

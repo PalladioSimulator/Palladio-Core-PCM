@@ -300,9 +300,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createVariableCharacterisation_3002Parser() {
-		EAttribute[] features = new EAttribute[] {
-				ParameterPackage.eINSTANCE.getVariableCharacterisation_Type(),
-				StoexPackage.eINSTANCE.getRandomVariable_Specification(), };
+		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
+				.getVariableCharacterisation_Type(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		parser.setViewPattern("{0} = {1}");
 		parser.setEditorPattern("{0} = {1}");
@@ -329,9 +328,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createVariableCharacterisation_3016Parser() {
-		EAttribute[] features = new EAttribute[] {
-				ParameterPackage.eINSTANCE.getVariableCharacterisation_Type(),
-				StoexPackage.eINSTANCE.getRandomVariable_Specification(), };
+		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
+				.getVariableCharacterisation_Type(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		parser.setViewPattern("{0} = {1}");
 		parser.setEditorPattern("{0} = {1}");
@@ -386,34 +384,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser parametricResourceDemand_3008Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getParametricResourceDemand_3008Parser() {
-		if (parametricResourceDemand_3008Parser == null) {
-			parametricResourceDemand_3008Parser = createParametricResourceDemand_3008Parser();
-		}
-		return parametricResourceDemand_3008Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createParametricResourceDemand_3008Parser() {
-		EAttribute[] features = new EAttribute[] { StoexPackage.eINSTANCE
-				.getRandomVariable_Specification(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		parser.setViewPattern("{0}");
-		parser.setEditorPattern("{0}");
-		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -642,9 +612,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createVariableCharacterisation_3025Parser() {
-		EAttribute[] features = new EAttribute[] {
-				ParameterPackage.eINSTANCE.getVariableCharacterisation_Type(),
-				StoexPackage.eINSTANCE.getRandomVariable_Specification(), };
+		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
+				.getVariableCharacterisation_Type(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		parser.setViewPattern("{0} = {1}");
 		parser.setEditorPattern("{0} = {1}");
@@ -708,8 +677,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getLoopActionEntityName_5003Parser();
 		case InternalActionEntityNameEditPart.VISUAL_ID:
 			return getInternalActionEntityName_5005Parser();
-		case ParametricResourceDemandEditPart.VISUAL_ID:
-			return getParametricResourceDemand_3008Parser();
 		case BranchActionEntityNameEditPart.VISUAL_ID:
 			return getBranchActionEntityName_5008Parser();
 		case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:

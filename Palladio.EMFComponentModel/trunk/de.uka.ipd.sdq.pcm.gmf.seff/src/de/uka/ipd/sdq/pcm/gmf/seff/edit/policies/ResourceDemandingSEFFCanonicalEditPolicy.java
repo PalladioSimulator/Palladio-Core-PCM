@@ -318,7 +318,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case VariableUsageEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater
-					.getVariableUsage_3001ContainedLinks(view));
+					.getVariableUsage_3028ContainedLinks(view));
 			break;
 		}
 		case VariableCharacterisationEditPart.VISUAL_ID: {
@@ -330,7 +330,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case VariableUsage2EditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater
-					.getVariableUsage_3022ContainedLinks(view));
+					.getVariableUsage_3029ContainedLinks(view));
 			break;
 		}
 		case VariableCharacterisation2EditPart.VISUAL_ID: {
@@ -444,7 +444,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case VariableUsage3EditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater
-					.getVariableUsage_3015ContainedLinks(view));
+					.getVariableUsage_3030ContainedLinks(view));
 			break;
 		}
 		case VariableCharacterisation3EditPart.VISUAL_ID: {

@@ -14,7 +14,7 @@ public class OpenBranchConditionDialog extends OpenStoExDialog {
 	@Override
 	protected RandomVariable getRandomVariable(EObject parent) {
 		GuardedBranchTransition transition = (GuardedBranchTransition) parent;
-		RandomVariable rv = transition.getBranchCondition_BranchTransition();
+		RandomVariable rv = transition.getBranchCondition_GuardedBranchTransition();
 		return rv;
 	}
 	

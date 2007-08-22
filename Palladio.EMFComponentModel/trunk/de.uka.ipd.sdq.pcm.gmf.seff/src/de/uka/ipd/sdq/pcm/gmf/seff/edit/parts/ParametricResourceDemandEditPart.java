@@ -196,7 +196,9 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-		return resolveSemanticElement();
+
+		EObject element = resolveSemanticElement();
+		return element != null ? element : (View) getModel();
 	}
 
 	/**
