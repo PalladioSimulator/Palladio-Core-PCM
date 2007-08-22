@@ -68,7 +68,9 @@
 «DEFINE ResourceContainerCase FOR ResourceContainer»
 	if (rc.getResourceContainerID().equals("«this.id»")) {
 		«EXPAND ActiveResourceAdd FOREACH this.activeResourceSpecifications_ResourceContainer»
+		«REM» Refactor!
 		«EXPAND PassiveResourceAdd FOREACH this.passiveResourceSpecifications_ResourceContainer»
+		«ENDREM»
 	}
 «ENDDEFINE»
 
@@ -91,12 +93,14 @@
 		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
 		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
 		«this.processingRate»,
-		"«this.units.javaString()»",
+		"TODO: unit!",
 		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);
 «ENDDEFINE»
 
+«REM»TODO: Refactor
 «DEFINE PassiveResourceAdd FOR PassiveResourceSpecification»
 	rc.addPassiveResource(
 		"«this.passiveResourceType_PassiveResourceSpecification.entityName»",
 		«this.capacity»);
 «ENDDEFINE»
+«ENDREM»

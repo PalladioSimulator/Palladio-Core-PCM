@@ -27,7 +27,7 @@
 
 «DEFINE Action FOR ExternalCallAction»
     «EXPAND m2t_transforms::calls::Call(this,
-       	"myContext.getRole"+this.getComponent().findRoleByInterface(this.calledService_ExternalService.interface_Signature).javaName()+"().",
+       	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
     	this.parameterUsage_ExternalCallAction, this.outputVariableUsage_ExternalCallAction) FOR this.calledService_ExternalService»
 «ENDDEFINE»
 
@@ -42,7 +42,7 @@
    «ERROR "BranchAction is a template method and must be overridden"»
 «ENDDEFINE»
 
-«DEFINE Action FOR AquireAction»
+«DEFINE Action FOR AcquireAction»
    «ERROR "AquireAction is a template method and must be overridden"»
 «ENDDEFINE»
 

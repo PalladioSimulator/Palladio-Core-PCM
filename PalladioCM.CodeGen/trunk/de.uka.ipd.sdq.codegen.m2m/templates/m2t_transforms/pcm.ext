@@ -112,14 +112,4 @@ List[InterfaceProvidingEntity] getProvidingEntities(List[ProvidedRole] pr) :
 List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[ProvidedRole] pr, int i) :
 	i < pr.size
 		? (getProvidingEntitiesRecursive(pr,i+1).contains(pr.get(i).providingEntity_ProvidedRole) ? getProvidingEntitiesRecursive(pr,i+1) : getProvidingEntitiesRecursive(pr,i+1).union({pr.get(i).providingEntity_ProvidedRole}) ) 
-		: {};	
-
-//-----------------------------------------------------------------------------------------
-// TODO: This is needed by a workaround to not break old model instances in seff.xpt in main templates
-// Should be removed as soon as most of the instances are migrated		
-getComponent(Object o):
-	BasicComponent.isInstance(o) ? ((BasicComponent)o) : getComponent(o.eContainer);
-	
-findRoleByInterface(BasicComponent bc, Interface i):
-	bc.requiredRoles_InterfaceRequiringEntity.select(r|r.requiredInterface__RequiredRole == i).first();
-//---------------------------------
+		: {};

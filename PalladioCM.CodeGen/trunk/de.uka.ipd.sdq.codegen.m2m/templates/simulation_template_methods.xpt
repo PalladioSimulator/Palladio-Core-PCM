@@ -125,7 +125,7 @@
 	«EXPAND m2t_transforms::sim::seff::Action FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::seff::Action FOR AquireAction»
+«AROUND m2t_transforms::seff::Action FOR AcquireAction»
 	«EXPAND m2t_transforms::sim::seff::Action FOR this»
 «ENDAROUND»
 

@@ -57,8 +57,11 @@
 		//active Resources of container «this.id»		
 		«EXPAND ActiveResourceAdd FOREACH this.activeResourceSpecifications_ResourceContainer»
 
+«REM»
+Refactor!
 		//passive Resources	of container «this.id»
 		«EXPAND PassiveResourceAdd FOREACH this.passiveResourceSpecifications_ResourceContainer»
+«ENDREM»
 
 «ENDDEFINE»
 
@@ -74,10 +77,13 @@
 	
 «ENDDEFINE»
 
-«DEFINE PassiveResourceAdd FOR PassiveResourceSpecification»
-		de.uka.ipd.sdq.prototype.framework.strategies.PassiveResourceRegistry.singleton()
-		  .addPassiveResource(new de.uka.ipd.sdq.prototype.framework.strategies.PassiveResource(
-		    «this.capacity»,
-		    "«this.passiveResourceType_PassiveResourceSpecification.entityName»"));
-
-«ENDDEFINE»
+«REM»
+Refactor!
+	«DEFINE PassiveResourceAdd FOR PassiveResourceSpecification»
+			de.uka.ipd.sdq.prototype.framework.strategies.PassiveResourceRegistry.singleton()
+			  .addPassiveResource(new de.uka.ipd.sdq.prototype.framework.strategies.PassiveResource(
+			    «this.capacity»,
+			    "«this.passiveResourceType_PassiveResourceSpecification.entityName»"));
+	
+	«ENDDEFINE»
+«ENDREM»

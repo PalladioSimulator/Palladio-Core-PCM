@@ -7,6 +7,9 @@ import resourceenvironment;
 import usagemodel;
 extension m2t_transforms::pcm;
 
+context ExternalCallAction ERROR 'A Role is needed in an external call':
+	this.role_ExternalService != null;
+	
 context VariableUsage ERROR 'LHS ID not set':
 	this.namedReference_VariableUsage != null;
 	

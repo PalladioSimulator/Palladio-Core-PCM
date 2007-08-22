@@ -64,16 +64,18 @@
 	sum«counterNumber» += «this.branchProbability»;
 «ENDDEFINE»
 
-«DEFINE Action FOR AquireAction»
-	// Aquire «this.resourceType_Aquire.entityName»
+«DEFINE Action FOR AcquireAction»
+	// TODO: Fix PassiveResource -> Entitiy
+	// Aquire «this.passiveresource_AcquireAction»
 	((de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer)ctx.findResource(this.assemblyContextID))
-		.acquirePassiveResource(ctx.getThread(),"«this.resourceType_Aquire.entityName»");
+		.acquirePassiveResource(ctx.getThread(),"«this.passiveresource_AcquireAction»");
 «ENDDEFINE»
 
 «DEFINE Action FOR ReleaseAction»
-	// Release «this.resourceType_Release.entityName»
+	// TODO: Fix PassiveResource -> Entitiy
+	// Release «this.passiveResource_ReleaseAction»
 	((de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer)ctx.findResource(this.assemblyContextID))
-		.releasePassiveResource("«this.resourceType_Release.entityName»");
+		.releasePassiveResource("«this.passiveResource_ReleaseAction»");
 «ENDDEFINE»
 
 «DEFINE Action FOR StartAction»
@@ -112,7 +114,7 @@
 	{
 		de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
 			new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{ 
-			«FOREACH this.forkedBehaviours_Fork AS f SEPARATOR ","»
+			«FOREACH this.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint AS f SEPARATOR ","»
 				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID){
 					public void executeBehaviour() {
 						«EXPAND m2t_transforms::java_core::Actions FOR f.steps_Behaviour.findStart()» 

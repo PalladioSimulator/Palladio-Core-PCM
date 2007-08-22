@@ -41,12 +41,12 @@
 	}
 «ENDDEFINE»
 
-«DEFINE Action FOR AquireAction»
-	// Aquire «this.resourceType_Aquire.entityName»
+«DEFINE Action FOR AcquireAction»
+	// Acquire «this.passiveresource_AcquireAction»
 	// TODO: Implement code to get the resource
 «ENDDEFINE»
 
 «DEFINE Action FOR ReleaseAction»
-	// Release «this.resourceType_Release.entityName»
+	// Release «this.passiveResource_ReleaseAction»
 	// TODO: Implement code to release the resource
 «ENDDEFINE»
