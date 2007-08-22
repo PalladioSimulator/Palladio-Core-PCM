@@ -44,6 +44,7 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
+import de.uka.ipd.sdq.units.UnitsPackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -151,6 +152,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		UsagemodelPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theCompletionsPackage.createPackageContents();

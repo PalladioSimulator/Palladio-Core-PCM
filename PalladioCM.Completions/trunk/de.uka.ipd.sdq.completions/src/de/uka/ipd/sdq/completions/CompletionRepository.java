@@ -38,7 +38,7 @@ public interface CompletionRepository extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Completions Completion Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.completions.CompletionsPackage#getCompletionRepository_Completions_CompletionRepository()
-	 * @model type="de.uka.ipd.sdq.completions.Completion" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Completion> getCompletions_CompletionRepository();

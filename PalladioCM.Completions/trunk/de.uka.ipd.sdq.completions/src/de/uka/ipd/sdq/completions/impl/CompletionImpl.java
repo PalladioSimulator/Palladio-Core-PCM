@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.completions.CompletionsPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
@@ -37,9 +38,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +54,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link de.uka.ipd.sdq.completions.impl.CompletionImpl#getRepository_ProvidesComponentType <em>Repository Provides Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.completions.impl.CompletionImpl#getParentProvidesComponentTypes <em>Parent Provides Component Types</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.completions.impl.CompletionImpl#getParentCompleteComponentTypes <em>Parent Complete Component Types</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.completions.impl.CompletionImpl#getComponentParameterUsage_ImplementationComponentType <em>Component Parameter Usage Implementation Component Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +80,16 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 	 * @ordered
 	 */
 	protected EList<CompleteComponentType> parentCompleteComponentTypes;
+
+	/**
+	 * The cached value of the '{@link #getComponentParameterUsage_ImplementationComponentType() <em>Component Parameter Usage Implementation Component Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentParameterUsage_ImplementationComponentType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableUsage> componentParameterUsage_ImplementationComponentType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,6 +173,18 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 			parentCompleteComponentTypes = new EObjectResolvingEList<CompleteComponentType>(CompleteComponentType.class, this, CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES);
 		}
 		return parentCompleteComponentTypes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
+		if (componentParameterUsage_ImplementationComponentType == null) {
+			componentParameterUsage_ImplementationComponentType = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
+		}
+		return componentParameterUsage_ImplementationComponentType;
 	}
 
 	/**
@@ -312,6 +338,8 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 		switch (featureID) {
 			case CompletionsPackage.COMPLETION__REPOSITORY_PROVIDES_COMPONENT_TYPE:
 				return basicSetRepository_ProvidesComponentType(null, msgs);
+			case CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
+				return ((InternalEList<?>)getComponentParameterUsage_ImplementationComponentType()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -344,6 +372,8 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 				return getParentProvidesComponentTypes();
 			case CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES:
 				return getParentCompleteComponentTypes();
+			case CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
+				return getComponentParameterUsage_ImplementationComponentType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -368,6 +398,10 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 				getParentCompleteComponentTypes().clear();
 				getParentCompleteComponentTypes().addAll((Collection<? extends CompleteComponentType>)newValue);
 				return;
+			case CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
+				getComponentParameterUsage_ImplementationComponentType().clear();
+				getComponentParameterUsage_ImplementationComponentType().addAll((Collection<? extends VariableUsage>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -389,6 +423,9 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 			case CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES:
 				getParentCompleteComponentTypes().clear();
 				return;
+			case CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
+				getComponentParameterUsage_ImplementationComponentType().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -407,6 +444,8 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 				return parentProvidesComponentTypes != null && !parentProvidesComponentTypes.isEmpty();
 			case CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES:
 				return parentCompleteComponentTypes != null && !parentCompleteComponentTypes.isEmpty();
+			case CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
+				return componentParameterUsage_ImplementationComponentType != null && !componentParameterUsage_ImplementationComponentType.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -433,6 +472,7 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 		if (baseClass == ImplementationComponentType.class) {
 			switch (derivedFeatureID) {
 				case CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES: return RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
+				case CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE: return RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE;
 				default: return -1;
 			}
 		}
@@ -461,6 +501,7 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 		if (baseClass == ImplementationComponentType.class) {
 			switch (baseFeatureID) {
 				case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES: return CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES;
+				case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE: return CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE;
 				default: return -1;
 			}
 		}
