@@ -16,6 +16,8 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.sdq.pcm.transformations.ISignatureDependentDemand;
 class InternalActionDescriptor {
 	private String resourceDemand;
@@ -110,7 +112,9 @@ public class SeffBuilder {
 		InternalAction action = SeffFactory.eINSTANCE.createInternalAction();
 		ParametricResourceDemand d = SeffFactory.eINSTANCE.createParametricResourceDemand();
 		d.setRequiredResource_ParametricResourceDemand(type);
-		d.setSpecification(getSaveResourceDemand(resourceDemandSpec));
+		PCMRandomVariable specification = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		specification.setSpecification(getSaveResourceDemand(resourceDemandSpec));
+		d.setSpecification_ParametericResourceDemand(specification);
 		action.getResourceDemand_Action().add(d);
 		
 		return action;
