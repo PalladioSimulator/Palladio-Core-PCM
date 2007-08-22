@@ -54,10 +54,11 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 		if (request.getElementToConfigure().eContainer() instanceof ExternalCallAction) {
-			if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3001){
+			// TODO: Check this as the ElementIDs changed!!!!! And I only guessed the new ones
+			if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3028){
 				// 3001 = VariableUsage for input variables
 				return caseExternalCallActionInputParameter(request);
-			} else if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3022){
+			} else if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3029){
 				// 3022 = VariableUsage for output variables
 				return caseExternalCallActionOutputParameter(request);
 			} else {
