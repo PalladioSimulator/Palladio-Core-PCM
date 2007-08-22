@@ -54,37 +54,6 @@
                typeId="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3007">
          </adviceBinding>
       </metamodel>
-      
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTime_9100"
-               name="ThinkTime"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ThinkTime"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.usage.helper.ThinkTimeEditHelper">
-            <param name="semanticHint" value="9100"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterations_9101"
-               name="LoopIterations"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="LoopIterations"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.usage.helper.LoopIterationsEditHelper">
-            <param name="semanticHint" value="9101"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.usage.ArrivalRate_9102"
-               name="ArrivalRate"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="InterArrivalTime"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.usage.helper.InterArrivalTimeEditHelper">
-            <param name="semanticHint" value="9102"/>
-         </metamodelType>
-      </metamodel>
    </extension>
 
    <extension
@@ -105,15 +74,6 @@
          </advice>
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCallAdvice">
-         </advice>
-         <advice
-               ref="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTimeActionAdvice">
-         </advice>
-         <advice
-               ref="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterationsActionAdvice">
-         </advice>      
-         <advice
-               ref="de.uka.ipd.sdq.pcm.gmf.usage.ArrivalRateActionAdvice">
          </advice>
           <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsageAdvice">
