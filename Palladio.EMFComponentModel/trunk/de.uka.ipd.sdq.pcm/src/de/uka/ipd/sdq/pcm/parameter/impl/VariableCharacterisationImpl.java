@@ -9,13 +9,16 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 
-import de.uka.ipd.sdq.stoex.impl.PCMRandomVariableImpl;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,12 +28,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl#getSpecification_VariableCharacterisation <em>Specification Variable Characterisation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class VariableCharacterisationImpl extends PCMRandomVariableImpl implements VariableCharacterisation {
+public class VariableCharacterisationImpl extends EObjectImpl implements VariableCharacterisation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,6 +61,16 @@ public class VariableCharacterisationImpl extends PCMRandomVariableImpl implemen
 	 * @ordered
 	 */
 	protected VariableCharacterisationType type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSpecification_VariableCharacterisation() <em>Specification Variable Characterisation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecification_VariableCharacterisation()
+	 * @generated
+	 * @ordered
+	 */
+	protected PCMRandomVariable specification_VariableCharacterisation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,11 +117,70 @@ public class VariableCharacterisationImpl extends PCMRandomVariableImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PCMRandomVariable getSpecification_VariableCharacterisation() {
+		return specification_VariableCharacterisation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSpecification_VariableCharacterisation(PCMRandomVariable newSpecification_VariableCharacterisation, NotificationChain msgs) {
+		PCMRandomVariable oldSpecification_VariableCharacterisation = specification_VariableCharacterisation;
+		specification_VariableCharacterisation = newSpecification_VariableCharacterisation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION, oldSpecification_VariableCharacterisation, newSpecification_VariableCharacterisation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSpecification_VariableCharacterisation(PCMRandomVariable newSpecification_VariableCharacterisation) {
+		if (newSpecification_VariableCharacterisation != specification_VariableCharacterisation) {
+			NotificationChain msgs = null;
+			if (specification_VariableCharacterisation != null)
+				msgs = ((InternalEObject)specification_VariableCharacterisation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION, null, msgs);
+			if (newSpecification_VariableCharacterisation != null)
+				msgs = ((InternalEObject)newSpecification_VariableCharacterisation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION, null, msgs);
+			msgs = basicSetSpecification_VariableCharacterisation(newSpecification_VariableCharacterisation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION, newSpecification_VariableCharacterisation, newSpecification_VariableCharacterisation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
+				return basicSetSpecification_VariableCharacterisation(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
 				return getType();
+			case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
+				return getSpecification_VariableCharacterisation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,6 +195,9 @@ public class VariableCharacterisationImpl extends PCMRandomVariableImpl implemen
 		switch (featureID) {
 			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
 				setType((VariableCharacterisationType)newValue);
+				return;
+			case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
+				setSpecification_VariableCharacterisation((PCMRandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,6 +214,9 @@ public class VariableCharacterisationImpl extends PCMRandomVariableImpl implemen
 			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
+				setSpecification_VariableCharacterisation((PCMRandomVariable)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,6 +231,8 @@ public class VariableCharacterisationImpl extends PCMRandomVariableImpl implemen
 		switch (featureID) {
 			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
 				return type != TYPE_EDEFAULT;
+			case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
+				return specification_VariableCharacterisation != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -176,9 +176,9 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
@@ -246,6 +246,15 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 */
 	public EAttribute getVariableCharacterisation_Type() {
 		return (EAttribute)variableCharacterisationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableCharacterisation_Specification_VariableCharacterisation() {
+		return (EReference)variableCharacterisationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -332,6 +341,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		// Create classes and their features
 		variableCharacterisationEClass = createEClass(VARIABLE_CHARACTERISATION);
 		createEAttribute(variableCharacterisationEClass, VARIABLE_CHARACTERISATION__TYPE);
+		createEReference(variableCharacterisationEClass, VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION);
 
 		characterisedVariableEClass = createEClass(CHARACTERISED_VARIABLE);
 		createEAttribute(characterisedVariableEClass, CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE);
@@ -375,12 +385,12 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		variableCharacterisationEClass.getESuperTypes().add(theStoexPackage.getPCMRandomVariable());
 		characterisedVariableEClass.getESuperTypes().add(theStoexPackage.getVariable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(variableCharacterisationEClass, VariableCharacterisation.class, "VariableCharacterisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariableCharacterisation_Type(), this.getVariableCharacterisationType(), "type", null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableCharacterisation_Specification_VariableCharacterisation(), theStoexPackage.getPCMRandomVariable(), null, "specification_VariableCharacterisation", null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(characterisedVariableEClass, CharacterisedVariable.class, "CharacterisedVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCharacterisedVariable_CharacterisationType(), this.getVariableCharacterisationType(), "characterisationType", null, 1, 1, CharacterisedVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

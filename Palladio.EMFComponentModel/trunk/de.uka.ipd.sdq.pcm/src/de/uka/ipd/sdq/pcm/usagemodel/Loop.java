@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +16,7 @@ package de.uka.ipd.sdq.pcm.usagemodel;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop <em>Iterations Loop</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop <em>Loop Iteration Loop</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,29 +59,29 @@ public interface Loop extends AbstractUserAction {
 	void setBodyBehaviour_Loop(ScenarioBehaviour value);
 
 	/**
-	 * Returns the value of the '<em><b>Iterations Loop</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Loop Iteration Loop</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Iterations Loop</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Loop Iteration Loop</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Iterations Loop</em>' containment reference.
-	 * @see #setIterations_Loop(LoopIterations)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getLoop_Iterations_Loop()
+	 * @return the value of the '<em>Loop Iteration Loop</em>' containment reference.
+	 * @see #setLoopIteration_Loop(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getLoop_LoopIteration_Loop()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	LoopIterations getIterations_Loop();
+	PCMRandomVariable getLoopIteration_Loop();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop <em>Iterations Loop</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop <em>Loop Iteration Loop</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Iterations Loop</em>' containment reference.
-	 * @see #getIterations_Loop()
+	 * @param value the new value of the '<em>Loop Iteration Loop</em>' containment reference.
+	 * @see #getLoopIteration_Loop()
 	 * @generated
 	 */
-	void setIterations_Loop(LoopIterations value);
+	void setLoopIteration_Loop(PCMRandomVariable value);
 
 } // Loop

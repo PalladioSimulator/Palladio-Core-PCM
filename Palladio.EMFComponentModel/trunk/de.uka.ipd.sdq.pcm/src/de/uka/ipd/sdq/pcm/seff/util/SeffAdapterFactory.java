@@ -12,9 +12,6 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.seff.*;
 
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-import de.uka.ipd.sdq.stoex.RandomVariable;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -126,10 +123,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractLoopActionAdapter();
 			}
 			@Override
-			public Adapter caseIterationCount(IterationCount object) {
-				return createIterationCountAdapter();
-			}
-			@Override
 			public Adapter caseInternalAction(InternalAction object) {
 				return createInternalActionAdapter();
 			}
@@ -140,10 +133,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseForkedBehaviour(ForkedBehaviour object) {
 				return createForkedBehaviourAdapter();
-			}
-			@Override
-			public Adapter caseNumberOfReplicas(NumberOfReplicas object) {
-				return createNumberOfReplicasAdapter();
 			}
 			@Override
 			public Adapter caseSynchronisationPoint(SynchronisationPoint object) {
@@ -168,10 +157,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAcquireAction(AcquireAction object) {
 				return createAcquireActionAdapter();
-			}
-			@Override
-			public Adapter caseBranchCondition(BranchCondition object) {
-				return createBranchConditionAdapter();
 			}
 			@Override
 			public Adapter caseCollectionIteratorAction(CollectionIteratorAction object) {
@@ -200,14 +185,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
-			}
-			@Override
-			public Adapter caseRandomVariable(RandomVariable object) {
-				return createRandomVariableAdapter();
-			}
-			@Override
-			public Adapter casePCMRandomVariable(PCMRandomVariable object) {
-				return createPCMRandomVariableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -370,20 +347,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.IterationCount <em>Iteration Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.IterationCount
-	 * @generated
-	 */
-	public Adapter createIterationCountAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.InternalAction <em>Internal Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -422,20 +385,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createForkedBehaviourAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.NumberOfReplicas <em>Number Of Replicas</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.NumberOfReplicas
-	 * @generated
-	 */
-	public Adapter createNumberOfReplicasAdapter() {
 		return null;
 	}
 
@@ -520,20 +469,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAcquireActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.BranchCondition <em>Branch Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchCondition
-	 * @generated
-	 */
-	public Adapter createBranchConditionAdapter() {
 		return null;
 	}
 
@@ -632,34 +567,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.RandomVariable
-	 * @generated
-	 */
-	public Adapter createRandomVariableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.PCMRandomVariable <em>PCM Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.PCMRandomVariable
-	 * @generated
-	 */
-	public Adapter createPCMRandomVariableAdapter() {
 		return null;
 	}
 

@@ -10,13 +10,17 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl#getVariableUsage_SetVariableAction <em>Variable Usage Set Variable Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl#getLocalVariableUsages_SetVariableAction <em>Local Variable Usages Set Variable Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,14 +44,14 @@ public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl i
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getVariableUsage_SetVariableAction() <em>Variable Usage Set Variable Action</em>}' containment reference.
+	 * The cached value of the '{@link #getLocalVariableUsages_SetVariableAction() <em>Local Variable Usages Set Variable Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariableUsage_SetVariableAction()
+	 * @see #getLocalVariableUsages_SetVariableAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableUsage variableUsage_SetVariableAction;
+	protected EList<VariableUsage> localVariableUsages_SetVariableAction;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,42 +77,11 @@ public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableUsage getVariableUsage_SetVariableAction() {
-		return variableUsage_SetVariableAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVariableUsage_SetVariableAction(VariableUsage newVariableUsage_SetVariableAction, NotificationChain msgs) {
-		VariableUsage oldVariableUsage_SetVariableAction = variableUsage_SetVariableAction;
-		variableUsage_SetVariableAction = newVariableUsage_SetVariableAction;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION, oldVariableUsage_SetVariableAction, newVariableUsage_SetVariableAction);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<VariableUsage> getLocalVariableUsages_SetVariableAction() {
+		if (localVariableUsages_SetVariableAction == null) {
+			localVariableUsages_SetVariableAction = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVariableUsage_SetVariableAction(VariableUsage newVariableUsage_SetVariableAction) {
-		if (newVariableUsage_SetVariableAction != variableUsage_SetVariableAction) {
-			NotificationChain msgs = null;
-			if (variableUsage_SetVariableAction != null)
-				msgs = ((InternalEObject)variableUsage_SetVariableAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION, null, msgs);
-			if (newVariableUsage_SetVariableAction != null)
-				msgs = ((InternalEObject)newVariableUsage_SetVariableAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION, null, msgs);
-			msgs = basicSetVariableUsage_SetVariableAction(newVariableUsage_SetVariableAction, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION, newVariableUsage_SetVariableAction, newVariableUsage_SetVariableAction));
+		return localVariableUsages_SetVariableAction;
 	}
 
 	/**
@@ -119,8 +92,8 @@ public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl i
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION:
-				return basicSetVariableUsage_SetVariableAction(null, msgs);
+			case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+				return ((InternalEList<?>)getLocalVariableUsages_SetVariableAction()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -133,8 +106,8 @@ public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl i
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION:
-				return getVariableUsage_SetVariableAction();
+			case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+				return getLocalVariableUsages_SetVariableAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -144,11 +117,13 @@ public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION:
-				setVariableUsage_SetVariableAction((VariableUsage)newValue);
+			case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+				getLocalVariableUsages_SetVariableAction().clear();
+				getLocalVariableUsages_SetVariableAction().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,8 +137,8 @@ public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl i
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION:
-				setVariableUsage_SetVariableAction((VariableUsage)null);
+			case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+				getLocalVariableUsages_SetVariableAction().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -177,8 +152,8 @@ public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl i
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION:
-				return variableUsage_SetVariableAction != null;
+			case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+				return localVariableUsages_SetVariableAction != null && !localVariableUsages_SetVariableAction.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

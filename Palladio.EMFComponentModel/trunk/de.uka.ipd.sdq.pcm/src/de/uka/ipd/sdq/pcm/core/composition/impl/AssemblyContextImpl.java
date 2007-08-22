@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getEncapsulatedComponent_ChildComponentContext <em>Encapsulated Component Child Component Context</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getComponentParameterUsage_AssemblyContext <em>Component Parameter Usage Assembly Context</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getConfigParameterUsages_AssemblyContext <em>Config Parameter Usages Assembly Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,14 +65,14 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	protected ProvidesComponentType encapsulatedComponent_ChildComponentContext;
 
 	/**
-	 * The cached value of the '{@link #getComponentParameterUsage_AssemblyContext() <em>Component Parameter Usage Assembly Context</em>}' containment reference list.
+	 * The cached value of the '{@link #getConfigParameterUsages_AssemblyContext() <em>Config Parameter Usages Assembly Context</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComponentParameterUsage_AssemblyContext()
+	 * @see #getConfigParameterUsages_AssemblyContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> componentParameterUsage_AssemblyContext;
+	protected EList<VariableUsage> configParameterUsages_AssemblyContext;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,11 +177,11 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getComponentParameterUsage_AssemblyContext() {
-		if (componentParameterUsage_AssemblyContext == null) {
-			componentParameterUsage_AssemblyContext = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT);
+	public EList<VariableUsage> getConfigParameterUsages_AssemblyContext() {
+		if (configParameterUsages_AssemblyContext == null) {
+			configParameterUsages_AssemblyContext = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT);
 		}
-		return componentParameterUsage_AssemblyContext;
+		return configParameterUsages_AssemblyContext;
 	}
 
 	/**
@@ -210,8 +210,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 		switch (featureID) {
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				return basicSetParentStructure_AssemblyContext(null, msgs);
-			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
-				return ((InternalEList<?>)getComponentParameterUsage_AssemblyContext()).basicRemove(otherEnd, msgs);
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
+				return ((InternalEList<?>)getConfigParameterUsages_AssemblyContext()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -243,8 +243,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 				return basicGetEncapsulatedComponent_ChildComponentContext();
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				return getParentStructure_AssemblyContext();
-			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
-				return getComponentParameterUsage_AssemblyContext();
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
+				return getConfigParameterUsages_AssemblyContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,9 +264,9 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				setParentStructure_AssemblyContext((ComposedStructure)newValue);
 				return;
-			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
-				getComponentParameterUsage_AssemblyContext().clear();
-				getComponentParameterUsage_AssemblyContext().addAll((Collection<? extends VariableUsage>)newValue);
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
+				getConfigParameterUsages_AssemblyContext().clear();
+				getConfigParameterUsages_AssemblyContext().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -286,8 +286,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				setParentStructure_AssemblyContext((ComposedStructure)null);
 				return;
-			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
-				getComponentParameterUsage_AssemblyContext().clear();
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
+				getConfigParameterUsages_AssemblyContext().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -305,8 +305,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 				return encapsulatedComponent_ChildComponentContext != null;
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				return getParentStructure_AssemblyContext() != null;
-			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
-				return componentParameterUsage_AssemblyContext != null && !componentParameterUsage_AssemblyContext.isEmpty();
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
+				return configParameterUsages_AssemblyContext != null && !configParameterUsages_AssemblyContext.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

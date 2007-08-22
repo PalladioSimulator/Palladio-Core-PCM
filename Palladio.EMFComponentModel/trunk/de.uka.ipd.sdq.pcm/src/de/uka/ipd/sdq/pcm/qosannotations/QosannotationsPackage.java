@@ -7,10 +7,6 @@ package de.uka.ipd.sdq.pcm.qosannotations;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -81,31 +77,13 @@ public interface QosannotationsPackage extends EPackage {
 	int SPECIFIED_EXECUTION_TIME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIED_EXECUTION_TIME__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIED_EXECUTION_TIME__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Role Specified Execution Time</b></em>' reference.
@@ -114,7 +92,16 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Specified Execution Time</em>' class.
@@ -123,7 +110,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 2;
+	int SPECIFIED_EXECUTION_TIME_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedFailureProbabilityImpl <em>Specified Failure Probability</em>}' class.
@@ -155,24 +142,6 @@ public interface QosannotationsPackage extends EPackage {
 	int SYSTEM_SPECIFIED_EXECUTION_TIME = 2;
 
 	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_SPECIFIED_EXECUTION_TIME__SPECIFICATION = SPECIFIED_EXECUTION_TIME__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_SPECIFIED_EXECUTION_TIME__EXPRESSION = SPECIFIED_EXECUTION_TIME__EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,6 +158,15 @@ public interface QosannotationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SYSTEM_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME;
 
 	/**
 	 * The number of structural features of the '<em>System Specified Execution Time</em>' class.
@@ -210,24 +188,6 @@ public interface QosannotationsPackage extends EPackage {
 	int COMPONENT_SPECIFIED_EXECUTION_TIME = 3;
 
 	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT_SPECIFIED_EXECUTION_TIME__SPECIFICATION = SPECIFIED_EXECUTION_TIME__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT_SPECIFIED_EXECUTION_TIME__EXPRESSION = SPECIFIED_EXECUTION_TIME__EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -244,6 +204,15 @@ public interface QosannotationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPONENT_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Assembly Context Component Specified Execution Time</b></em>' reference.
@@ -274,31 +243,13 @@ public interface QosannotationsPackage extends EPackage {
 	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__VARIABLE_CHARACTERISATION_VARIABLE_USAGE = ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE;
-
-	/**
-	 * The feature id for the '<em><b>Named Reference Variable Usage</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__NAMED_REFERENCE_VARIABLE_USAGE = ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE;
-
-	/**
 	 * The feature id for the '<em><b>Signature Specified Output Parameter Abstraction</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = ParameterPackage.VARIABLE_USAGE_FEATURE_COUNT + 0;
+	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Role Specified Output Parameter Abstraction</b></em>' reference.
@@ -307,7 +258,16 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = ParameterPackage.VARIABLE_USAGE_FEATURE_COUNT + 1;
+	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Expected External Outputs Specified Output Parameter Abstraction</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Specified Output Parameter Abstraction</em>' class.
@@ -316,7 +276,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_FEATURE_COUNT = ParameterPackage.VARIABLE_USAGE_FEATURE_COUNT + 2;
+	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl <em>Qo SAnnotations</em>}' class.
@@ -407,6 +367,17 @@ public interface QosannotationsPackage extends EPackage {
 	EReference getSpecifiedExecutionTime_Role_SpecifiedExecutionTime();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Specification Specified Execution Time</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime()
+	 * @see #getSpecifiedExecutionTime()
+	 * @generated
+	 */
+	EReference getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability <em>Specified Failure Probability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -478,6 +449,17 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction <em>Expected External Outputs Specified Output Parameter Abstraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expected External Outputs Specified Output Parameter Abstraction</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
+	 * @see #getSpecifiedOutputParameterAbstraction()
+	 * @generated
+	 */
+	EReference getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations <em>Qo SAnnotations</em>}'.
@@ -560,6 +542,14 @@ public interface QosannotationsPackage extends EPackage {
 		EReference SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = eINSTANCE.getSpecifiedExecutionTime_Role_SpecifiedExecutionTime();
 
 		/**
+		 * The meta object literal for the '<em><b>Specification Specified Execution Time</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = eINSTANCE.getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedFailureProbabilityImpl <em>Specified Failure Probability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -622,6 +612,14 @@ public interface QosannotationsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = eINSTANCE.getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction();
+
+		/**
+		 * The meta object literal for the '<em><b>Expected External Outputs Specified Output Parameter Abstraction</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = eINSTANCE.getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl <em>Qo SAnnotations</em>}' class.

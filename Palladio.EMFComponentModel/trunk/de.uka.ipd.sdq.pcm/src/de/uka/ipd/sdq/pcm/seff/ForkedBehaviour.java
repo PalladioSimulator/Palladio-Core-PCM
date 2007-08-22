@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,12 +40,12 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Replicas Forked Behaviour</em>' containment reference.
-	 * @see #setNumberOfReplicas_ForkedBehaviour(NumberOfReplicas)
+	 * @see #setNumberOfReplicas_ForkedBehaviour(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkedBehaviour_NumberOfReplicas_ForkedBehaviour()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	NumberOfReplicas getNumberOfReplicas_ForkedBehaviour();
+	PCMRandomVariable getNumberOfReplicas_ForkedBehaviour();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getNumberOfReplicas_ForkedBehaviour <em>Number Of Replicas Forked Behaviour</em>}' containment reference.
@@ -54,6 +55,6 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
 	 * @see #getNumberOfReplicas_ForkedBehaviour()
 	 * @generated
 	 */
-	void setNumberOfReplicas_ForkedBehaviour(NumberOfReplicas value);
+	void setNumberOfReplicas_ForkedBehaviour(PCMRandomVariable value);
 
 } // ForkedBehaviour

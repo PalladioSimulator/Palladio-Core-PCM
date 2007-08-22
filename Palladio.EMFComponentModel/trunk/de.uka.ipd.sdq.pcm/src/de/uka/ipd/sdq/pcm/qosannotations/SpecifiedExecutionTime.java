@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 
 import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Specified Execution Time</b></em>'.
@@ -20,6 +22,7 @@ import de.uka.ipd.sdq.stoex.PCMRandomVariable;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime#getRole_SpecifiedExecutionTime <em>Role Specified Execution Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +30,7 @@ import de.uka.ipd.sdq.stoex.PCMRandomVariable;
  * @model abstract="true"
  * @generated
  */
-public interface SpecifiedExecutionTime extends PCMRandomVariable {
+public interface SpecifiedExecutionTime extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,5 +89,31 @@ public interface SpecifiedExecutionTime extends PCMRandomVariable {
 	 * @generated
 	 */
 	void setRole_SpecifiedExecutionTime(Role value);
+
+	/**
+	 * Returns the value of the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Specification Specified Execution Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Specification Specified Execution Time</em>' containment reference.
+	 * @see #setSpecification_SpecifiedExecutionTime(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime()
+	 * @model containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	PCMRandomVariable getSpecification_SpecifiedExecutionTime();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specification Specified Execution Time</em>' containment reference.
+	 * @see #getSpecification_SpecifiedExecutionTime()
+	 * @generated
+	 */
+	void setSpecification_SpecifiedExecutionTime(PCMRandomVariable value);
 
 } // SpecifiedExecutionTime

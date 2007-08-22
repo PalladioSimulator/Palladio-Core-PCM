@@ -6,10 +6,11 @@
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.ThinkTime;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
+
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 import java.util.Map;
 
@@ -90,7 +91,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * @generated
 	 * @ordered
 	 */
-	protected ThinkTime thinkTime_ClosedWorkload;
+	protected PCMRandomVariable thinkTime_ClosedWorkload;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #PopulationInClosedWorkloadNeedsToBeSpecified <em>Population In Closed Workload Needs To Be Specified</em>}' invariant constraint.
@@ -157,7 +158,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ThinkTime getThinkTime_ClosedWorkload() {
+	public PCMRandomVariable getThinkTime_ClosedWorkload() {
 		return thinkTime_ClosedWorkload;
 	}
 
@@ -166,8 +167,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetThinkTime_ClosedWorkload(ThinkTime newThinkTime_ClosedWorkload, NotificationChain msgs) {
-		ThinkTime oldThinkTime_ClosedWorkload = thinkTime_ClosedWorkload;
+	public NotificationChain basicSetThinkTime_ClosedWorkload(PCMRandomVariable newThinkTime_ClosedWorkload, NotificationChain msgs) {
+		PCMRandomVariable oldThinkTime_ClosedWorkload = thinkTime_ClosedWorkload;
 		thinkTime_ClosedWorkload = newThinkTime_ClosedWorkload;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, oldThinkTime_ClosedWorkload, newThinkTime_ClosedWorkload);
@@ -181,7 +182,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setThinkTime_ClosedWorkload(ThinkTime newThinkTime_ClosedWorkload) {
+	public void setThinkTime_ClosedWorkload(PCMRandomVariable newThinkTime_ClosedWorkload) {
 		if (newThinkTime_ClosedWorkload != thinkTime_ClosedWorkload) {
 			NotificationChain msgs = null;
 			if (thinkTime_ClosedWorkload != null)
@@ -315,7 +316,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 				setPopulation(((Integer)newValue).intValue());
 				return;
 			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
-				setThinkTime_ClosedWorkload((ThinkTime)newValue);
+				setThinkTime_ClosedWorkload((PCMRandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -333,7 +334,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 				setPopulation(POPULATION_EDEFAULT);
 				return;
 			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
-				setThinkTime_ClosedWorkload((ThinkTime)null);
+				setThinkTime_ClosedWorkload((PCMRandomVariable)null);
 				return;
 		}
 		super.eUnset(featureID);

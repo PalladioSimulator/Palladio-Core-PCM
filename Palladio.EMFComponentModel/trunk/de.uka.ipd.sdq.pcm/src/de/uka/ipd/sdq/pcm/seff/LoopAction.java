@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ package de.uka.ipd.sdq.pcm.seff;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterationCount_LoopAction <em>Iteration Count Loop Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,29 +32,29 @@ public interface LoopAction extends AbstractLoopAction {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Iterations Loop Action</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Iteration Count Loop Action</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Iterations Loop Action</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Iteration Count Loop Action</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Iterations Loop Action</em>' containment reference.
-	 * @see #setIterations_LoopAction(IterationCount)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getLoopAction_Iterations_LoopAction()
+	 * @return the value of the '<em>Iteration Count Loop Action</em>' containment reference.
+	 * @see #setIterationCount_LoopAction(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getLoopAction_IterationCount_LoopAction()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	IterationCount getIterations_LoopAction();
+	PCMRandomVariable getIterationCount_LoopAction();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterationCount_LoopAction <em>Iteration Count Loop Action</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Iterations Loop Action</em>' containment reference.
-	 * @see #getIterations_LoopAction()
+	 * @param value the new value of the '<em>Iteration Count Loop Action</em>' containment reference.
+	 * @see #getIterationCount_LoopAction()
 	 * @generated
 	 */
-	void setIterations_LoopAction(IterationCount value);
+	void setIterationCount_LoopAction(PCMRandomVariable value);
 
 } // LoopAction

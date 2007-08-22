@@ -10,12 +10,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-
 import de.uka.ipd.sdq.pcm.qosannotations.*;
-
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -110,18 +105,6 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseQoSAnnotations(QoSAnnotations object) {
 				return createQoSAnnotationsAdapter();
-			}
-			@Override
-			public Adapter caseRandomVariable(RandomVariable object) {
-				return createRandomVariableAdapter();
-			}
-			@Override
-			public Adapter casePCMRandomVariable(PCMRandomVariable object) {
-				return createPCMRandomVariableAdapter();
-			}
-			@Override
-			public Adapter caseVariableUsage(VariableUsage object) {
-				return createVariableUsageAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -236,48 +219,6 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createQoSAnnotationsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.RandomVariable
-	 * @generated
-	 */
-	public Adapter createRandomVariableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.PCMRandomVariable <em>PCM Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.PCMRandomVariable
-	 * @generated
-	 */
-	public Adapter createPCMRandomVariableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage <em>Variable Usage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage
-	 * @generated
-	 */
-	public Adapter createVariableUsageAdapter() {
 		return null;
 	}
 

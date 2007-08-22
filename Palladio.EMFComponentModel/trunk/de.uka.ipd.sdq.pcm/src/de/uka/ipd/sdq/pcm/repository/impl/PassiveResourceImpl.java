@@ -5,10 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -48,7 +48,7 @@ public class PassiveResourceImpl extends EObjectImpl implements PassiveResource 
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableUsage capacity_PassiveResource;
+	protected PCMRandomVariable capacity_PassiveResource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class PassiveResourceImpl extends EObjectImpl implements PassiveResource 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableUsage getCapacity_PassiveResource() {
+	public PCMRandomVariable getCapacity_PassiveResource() {
 		return capacity_PassiveResource;
 	}
 
@@ -83,8 +83,8 @@ public class PassiveResourceImpl extends EObjectImpl implements PassiveResource 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCapacity_PassiveResource(VariableUsage newCapacity_PassiveResource, NotificationChain msgs) {
-		VariableUsage oldCapacity_PassiveResource = capacity_PassiveResource;
+	public NotificationChain basicSetCapacity_PassiveResource(PCMRandomVariable newCapacity_PassiveResource, NotificationChain msgs) {
+		PCMRandomVariable oldCapacity_PassiveResource = capacity_PassiveResource;
 		capacity_PassiveResource = newCapacity_PassiveResource;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE, oldCapacity_PassiveResource, newCapacity_PassiveResource);
@@ -98,7 +98,7 @@ public class PassiveResourceImpl extends EObjectImpl implements PassiveResource 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCapacity_PassiveResource(VariableUsage newCapacity_PassiveResource) {
+	public void setCapacity_PassiveResource(PCMRandomVariable newCapacity_PassiveResource) {
 		if (newCapacity_PassiveResource != capacity_PassiveResource) {
 			NotificationChain msgs = null;
 			if (capacity_PassiveResource != null)
@@ -149,7 +149,7 @@ public class PassiveResourceImpl extends EObjectImpl implements PassiveResource 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-				setCapacity_PassiveResource((VariableUsage)newValue);
+				setCapacity_PassiveResource((PCMRandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -164,7 +164,7 @@ public class PassiveResourceImpl extends EObjectImpl implements PassiveResource 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-				setCapacity_PassiveResource((VariableUsage)null);
+				setCapacity_PassiveResource((PCMRandomVariable)null);
 				return;
 		}
 		super.eUnset(featureID);

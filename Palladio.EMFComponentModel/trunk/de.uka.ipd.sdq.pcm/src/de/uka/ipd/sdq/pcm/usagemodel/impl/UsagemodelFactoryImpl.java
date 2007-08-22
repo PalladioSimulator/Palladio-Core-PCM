@@ -69,19 +69,16 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 			case UsagemodelPackage.USAGE_SCENARIO: return createUsageScenario();
 			case UsagemodelPackage.SCENARIO_BEHAVIOUR: return createScenarioBehaviour();
 			case UsagemodelPackage.USAGE_MODEL: return createUsageModel();
+			case UsagemodelPackage.USER_DATA: return createUserData();
 			case UsagemodelPackage.STOP: return createStop();
 			case UsagemodelPackage.START: return createStart();
 			case UsagemodelPackage.OPEN_WORKLOAD: return createOpenWorkload();
-			case UsagemodelPackage.INTER_ARRIVAL_TIME: return createInterArrivalTime();
 			case UsagemodelPackage.LOOP: return createLoop();
-			case UsagemodelPackage.LOOP_ITERATIONS: return createLoopIterations();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL: return createEntryLevelSystemCall();
 			case UsagemodelPackage.CLOSED_WORKLOAD: return createClosedWorkload();
-			case UsagemodelPackage.THINK_TIME: return createThinkTime();
 			case UsagemodelPackage.BRANCH: return createBranch();
 			case UsagemodelPackage.BRANCH_TRANSITION: return createBranchTransition();
 			case UsagemodelPackage.DELAY: return createDelay();
-			case UsagemodelPackage.DELAY_TIME: return createDelayTime();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -122,6 +119,16 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UserData createUserData() {
+		UserDataImpl userData = new UserDataImpl();
+		return userData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Stop createStop() {
 		StopImpl stop = new StopImpl();
 		return stop;
@@ -152,29 +159,9 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterArrivalTime createInterArrivalTime() {
-		InterArrivalTimeImpl interArrivalTime = new InterArrivalTimeImpl();
-		return interArrivalTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Loop createLoop() {
 		LoopImpl loop = new LoopImpl();
 		return loop;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LoopIterations createLoopIterations() {
-		LoopIterationsImpl loopIterations = new LoopIterationsImpl();
-		return loopIterations;
 	}
 
 	/**
@@ -195,16 +182,6 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	public ClosedWorkload createClosedWorkload() {
 		ClosedWorkloadImpl closedWorkload = new ClosedWorkloadImpl();
 		return closedWorkload;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ThinkTime createThinkTime() {
-		ThinkTimeImpl thinkTime = new ThinkTimeImpl();
-		return thinkTime;
 	}
 
 	/**
@@ -235,16 +212,6 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	public Delay createDelay() {
 		DelayImpl delay = new DelayImpl();
 		return delay;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DelayTime createDelayTime() {
-		DelayTimeImpl delayTime = new DelayTimeImpl();
-		return delayTime;
 	}
 
 	/**

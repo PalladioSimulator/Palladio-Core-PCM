@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel <em>Usage Scenario Usage Model</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUserData_UsageModel <em>User Data Usage Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,5 +49,21 @@ public interface UsageModel extends EObject {
 	 * @generated
 	 */
 	EList<UsageScenario> getUsageScenario_UsageModel();
+
+	/**
+	 * Returns the value of the '<em><b>User Data Usage Model</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.UserData}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>User Data Usage Model</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>User Data Usage Model</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel_UserData_UsageModel()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<UserData> getUserData_UsageModel();
 
 } // UsageModel

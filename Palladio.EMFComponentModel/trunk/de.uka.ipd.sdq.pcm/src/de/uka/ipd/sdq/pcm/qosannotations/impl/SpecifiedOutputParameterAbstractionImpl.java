@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.impl;
 
-import de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
@@ -13,12 +13,21 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,12 +38,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl#getSignature_SpecifiedOutputParameterAbstraction <em>Signature Specified Output Parameter Abstraction</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl#getRole_SpecifiedOutputParameterAbstraction <em>Role Specified Output Parameter Abstraction</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl#getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction <em>Expected External Outputs Specified Output Parameter Abstraction</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SpecifiedOutputParameterAbstractionImpl extends VariableUsageImpl implements SpecifiedOutputParameterAbstraction {
+public class SpecifiedOutputParameterAbstractionImpl extends EObjectImpl implements SpecifiedOutputParameterAbstraction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,6 +71,16 @@ public class SpecifiedOutputParameterAbstractionImpl extends VariableUsageImpl i
 	 * @ordered
 	 */
 	protected Role role_SpecifiedOutputParameterAbstraction;
+
+	/**
+	 * The cached value of the '{@link #getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() <em>Expected External Outputs Specified Output Parameter Abstraction</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableUsage> expectedExternalOutputs_SpecifiedOutputParameterAbstraction;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,6 +182,32 @@ public class SpecifiedOutputParameterAbstractionImpl extends VariableUsageImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<VariableUsage> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() {
+		if (expectedExternalOutputs_SpecifiedOutputParameterAbstraction == null) {
+			expectedExternalOutputs_SpecifiedOutputParameterAbstraction = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
+		}
+		return expectedExternalOutputs_SpecifiedOutputParameterAbstraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
+				return ((InternalEList<?>)getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -171,6 +217,8 @@ public class SpecifiedOutputParameterAbstractionImpl extends VariableUsageImpl i
 			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
 				if (resolve) return getRole_SpecifiedOutputParameterAbstraction();
 				return basicGetRole_SpecifiedOutputParameterAbstraction();
+			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
+				return getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +228,7 @@ public class SpecifiedOutputParameterAbstractionImpl extends VariableUsageImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -188,6 +237,10 @@ public class SpecifiedOutputParameterAbstractionImpl extends VariableUsageImpl i
 				return;
 			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
 				setRole_SpecifiedOutputParameterAbstraction((Role)newValue);
+				return;
+			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
+				getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().clear();
+				getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,6 +260,9 @@ public class SpecifiedOutputParameterAbstractionImpl extends VariableUsageImpl i
 			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
 				setRole_SpecifiedOutputParameterAbstraction((Role)null);
 				return;
+			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
+				getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -223,6 +279,8 @@ public class SpecifiedOutputParameterAbstractionImpl extends VariableUsageImpl i
 				return signature_SpecifiedOutputParameterAbstraction != null;
 			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
 				return role_SpecifiedOutputParameterAbstraction != null;
+			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
+				return expectedExternalOutputs_SpecifiedOutputParameterAbstraction != null && !expectedExternalOutputs_SpecifiedOutputParameterAbstraction.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

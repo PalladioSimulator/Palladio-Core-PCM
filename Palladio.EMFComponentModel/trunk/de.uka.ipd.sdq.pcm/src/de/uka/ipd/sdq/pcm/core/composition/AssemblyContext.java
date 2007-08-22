@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getEncapsulatedComponent_ChildComponentContext <em>Encapsulated Component Child Component Context</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getComponentParameterUsage_AssemblyContext <em>Component Parameter Usage Assembly Context</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getConfigParameterUsages_AssemblyContext <em>Config Parameter Usages Assembly Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,19 +94,19 @@ public interface AssemblyContext extends Entity {
 	void setParentStructure_AssemblyContext(ComposedStructure value);
 
 	/**
-	 * Returns the value of the '<em><b>Component Parameter Usage Assembly Context</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Config Parameter Usages Assembly Context</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Component Parameter Usage Assembly Context</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Config Parameter Usages Assembly Context</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Component Parameter Usage Assembly Context</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ComponentParameterUsage_AssemblyContext()
+	 * @return the value of the '<em>Config Parameter Usages Assembly Context</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ConfigParameterUsages_AssemblyContext()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<VariableUsage> getComponentParameterUsage_AssemblyContext();
+	EList<VariableUsage> getConfigParameterUsages_AssemblyContext();
 
 } // AssemblyContext

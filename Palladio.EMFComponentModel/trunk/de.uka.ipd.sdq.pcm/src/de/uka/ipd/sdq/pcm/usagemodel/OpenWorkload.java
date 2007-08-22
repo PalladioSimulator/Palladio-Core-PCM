@@ -5,6 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -42,12 +44,12 @@ public interface OpenWorkload extends Workload {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inter Arrival Time Open Workload</em>' containment reference.
-	 * @see #setInterArrivalTime_OpenWorkload(InterArrivalTime)
+	 * @see #setInterArrivalTime_OpenWorkload(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getOpenWorkload_InterArrivalTime_OpenWorkload()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	InterArrivalTime getInterArrivalTime_OpenWorkload();
+	PCMRandomVariable getInterArrivalTime_OpenWorkload();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload <em>Inter Arrival Time Open Workload</em>}' containment reference.
@@ -57,7 +59,7 @@ public interface OpenWorkload extends Workload {
 	 * @see #getInterArrivalTime_OpenWorkload()
 	 * @generated
 	 */
-	void setInterArrivalTime_OpenWorkload(InterArrivalTime value);
+	void setInterArrivalTime_OpenWorkload(PCMRandomVariable value);
 
 	/**
 	 * <!-- begin-user-doc -->

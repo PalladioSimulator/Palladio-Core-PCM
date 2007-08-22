@@ -119,14 +119,8 @@ public class ResourceenvironmentValidator extends EObjectValidator {
 				return validateLinkingResource((LinkingResource)value, diagnostics, context);
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				return validateCommunicationLinkResourceSpecification((CommunicationLinkResourceSpecification)value, diagnostics, context);
-			case ResourceenvironmentPackage.LATENCY:
-				return validateLatency((Latency)value, diagnostics, context);
-			case ResourceenvironmentPackage.THROUGHPUT:
-				return validateThroughput((Throughput)value, diagnostics, context);
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION:
 				return validateProcessingResourceSpecification((ProcessingResourceSpecification)value, diagnostics, context);
-			case ResourceenvironmentPackage.PROCESSING_RATE:
-				return validateProcessingRate((ProcessingRate)value, diagnostics, context);
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER:
 				return validateResourceContainer((ResourceContainer)value, diagnostics, context);
 			case ResourceenvironmentPackage.SCHEDULING_POLICY:
@@ -176,24 +170,6 @@ public class ResourceenvironmentValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateLatency(Latency latency, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(latency, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateThroughput(Throughput throughput, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(throughput, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateProcessingResourceSpecification(ProcessingResourceSpecification processingResourceSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_EveryMultiplicityConforms(processingResourceSpecification, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(processingResourceSpecification, diagnostics, context);
@@ -214,15 +190,6 @@ public class ResourceenvironmentValidator extends EObjectValidator {
 	 */
 	public boolean validateProcessingResourceSpecification_ProcessingRatemustbelargerthanzero(ProcessingResourceSpecification processingResourceSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return processingResourceSpecification.ProcessingRatemustbelargerthanzero(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProcessingRate(ProcessingRate processingRate, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(processingRate, diagnostics, context);
 	}
 
 	/**

@@ -12,8 +12,6 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 
-import de.uka.ipd.sdq.stoex.RandomVariable;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -97,20 +95,8 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 				return createCommunicationLinkResourceSpecificationAdapter();
 			}
 			@Override
-			public Adapter caseLatency(Latency object) {
-				return createLatencyAdapter();
-			}
-			@Override
-			public Adapter caseThroughput(Throughput object) {
-				return createThroughputAdapter();
-			}
-			@Override
 			public Adapter caseProcessingResourceSpecification(ProcessingResourceSpecification object) {
 				return createProcessingResourceSpecificationAdapter();
-			}
-			@Override
-			public Adapter caseProcessingRate(ProcessingRate object) {
-				return createProcessingRateAdapter();
 			}
 			@Override
 			public Adapter caseResourceContainer(ResourceContainer object) {
@@ -127,10 +113,6 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
-			}
-			@Override
-			public Adapter caseRandomVariable(RandomVariable object) {
-				return createRandomVariableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -195,34 +177,6 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Latency <em>Latency</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Latency
-	 * @generated
-	 */
-	public Adapter createLatencyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Throughput <em>Throughput</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Throughput
-	 * @generated
-	 */
-	public Adapter createThroughputAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification <em>Processing Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -233,20 +187,6 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProcessingResourceSpecificationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate <em>Processing Rate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate
-	 * @generated
-	 */
-	public Adapter createProcessingRateAdapter() {
 		return null;
 	}
 
@@ -303,20 +243,6 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.RandomVariable
-	 * @generated
-	 */
-	public Adapter createRandomVariableAdapter() {
 		return null;
 	}
 

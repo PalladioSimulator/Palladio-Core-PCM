@@ -21,8 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getCalledService_ExternalService <em>Called Service External Service</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getParameterUsage_ExternalCallAction <em>Parameter Usage External Call Action</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsage_ExternalCallAction <em>Output Variable Usage External Call Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getInputParameterUsages_ExternalCallAction <em>Input Parameter Usages External Call Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsages_ExternalCallAction <em>Output Variable Usages External Call Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}</li>
  * </ul>
  * </p>
@@ -66,36 +66,36 @@ public interface ExternalCallAction extends AbstractAction {
 	void setCalledService_ExternalService(Signature value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Usage External Call Action</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Input Parameter Usages External Call Action</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameter Usage External Call Action</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Input Parameter Usages External Call Action</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Usage External Call Action</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_ParameterUsage_ExternalCallAction()
+	 * @return the value of the '<em>Input Parameter Usages External Call Action</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_InputParameterUsages_ExternalCallAction()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<VariableUsage> getParameterUsage_ExternalCallAction();
+	EList<VariableUsage> getInputParameterUsages_ExternalCallAction();
 
 	/**
-	 * Returns the value of the '<em><b>Output Variable Usage External Call Action</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Output Variable Usages External Call Action</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Variable Usage External Call Action</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Output Variable Usages External Call Action</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Variable Usage External Call Action</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_OutputVariableUsage_ExternalCallAction()
+	 * @return the value of the '<em>Output Variable Usages External Call Action</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_OutputVariableUsages_ExternalCallAction()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<VariableUsage> getOutputVariableUsage_ExternalCallAction();
+	EList<VariableUsage> getOutputVariableUsages_ExternalCallAction();
 
 	/**
 	 * Returns the value of the '<em><b>Role External Service</b></em>' reference.

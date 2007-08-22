@@ -95,12 +95,12 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated not
+	 * @generated
 	 */
 	public Unit basicGetUnit() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	/**

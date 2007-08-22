@@ -7,8 +7,6 @@ package de.uka.ipd.sdq.pcm.usagemodel;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -264,13 +262,59 @@ public interface UsagemodelPackage extends EPackage {
 	int USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL = 0;
 
 	/**
+	 * The feature id for the '<em><b>User Data Usage Model</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USAGE_MODEL__USER_DATA_USAGE_MODEL = 1;
+
+	/**
 	 * The number of structural features of the '<em>Usage Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USAGE_MODEL_FEATURE_COUNT = 1;
+	int USAGE_MODEL_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl <em>User Data</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getUserData()
+	 * @generated
+	 */
+	int USER_DATA = 5;
+
+	/**
+	 * The feature id for the '<em><b>User Data Parameter Usages User Data</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA = 0;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Context user Data</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_DATA__ASSEMBLY_CONTEXT_USER_DATA = 1;
+
+	/**
+	 * The number of structural features of the '<em>User Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_DATA_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.StopImpl <em>Stop</em>}' class.
@@ -280,7 +324,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getStop()
 	 * @generated
 	 */
-	int STOP = 5;
+	int STOP = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -335,7 +379,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getStart()
 	 * @generated
 	 */
-	int START = 6;
+	int START = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -390,7 +434,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getOpenWorkload()
 	 * @generated
 	 */
-	int OPEN_WORKLOAD = 7;
+	int OPEN_WORKLOAD = 8;
 
 	/**
 	 * The feature id for the '<em><b>Inter Arrival Time Open Workload</b></em>' containment reference.
@@ -409,43 +453,6 @@ public interface UsagemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPEN_WORKLOAD_FEATURE_COUNT = WORKLOAD_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.InterArrivalTimeImpl <em>Inter Arrival Time</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.InterArrivalTimeImpl
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getInterArrivalTime()
-	 * @generated
-	 */
-	int INTER_ARRIVAL_TIME = 8;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTER_ARRIVAL_TIME__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTER_ARRIVAL_TIME__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Inter Arrival Time</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTER_ARRIVAL_TIME_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl <em>Loop</em>}' class.
@@ -503,13 +510,13 @@ public interface UsagemodelPackage extends EPackage {
 	int LOOP__BODY_BEHAVIOUR_LOOP = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Iterations Loop</b></em>' containment reference.
+	 * The feature id for the '<em><b>Loop Iteration Loop</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP__ITERATIONS_LOOP = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
+	int LOOP__LOOP_ITERATION_LOOP = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Loop</em>' class.
@@ -521,43 +528,6 @@ public interface UsagemodelPackage extends EPackage {
 	int LOOP_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopIterationsImpl <em>Loop Iterations</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.LoopIterationsImpl
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getLoopIterations()
-	 * @generated
-	 */
-	int LOOP_ITERATIONS = 10;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP_ITERATIONS__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP_ITERATIONS__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Loop Iterations</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP_ITERATIONS_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl <em>Entry Level System Call</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -565,7 +535,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getEntryLevelSystemCall()
 	 * @generated
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL = 11;
+	int ENTRY_LEVEL_SYSTEM_CALL = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -604,13 +574,13 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
 	/**
-	 * The feature id for the '<em><b>Actual Parameter Usage Entry Level System Call</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Parameter Usages Entry Level System Call</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
+	int ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Provided Role Entry Level System Call</b></em>' reference.
@@ -631,13 +601,13 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Output Parameter Usage Entry Level System Call</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Output Parameter Usages Entry Level System Call</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
+	int ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Entry Level System Call</em>' class.
@@ -656,7 +626,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getClosedWorkload()
 	 * @generated
 	 */
-	int CLOSED_WORKLOAD = 12;
+	int CLOSED_WORKLOAD = 11;
 
 	/**
 	 * The feature id for the '<em><b>Population</b></em>' attribute.
@@ -686,43 +656,6 @@ public interface UsagemodelPackage extends EPackage {
 	int CLOSED_WORKLOAD_FEATURE_COUNT = WORKLOAD_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ThinkTimeImpl <em>Think Time</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.ThinkTimeImpl
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getThinkTime()
-	 * @generated
-	 */
-	int THINK_TIME = 13;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int THINK_TIME__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int THINK_TIME__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Think Time</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int THINK_TIME_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl <em>Branch</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -730,7 +663,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 14;
+	int BRANCH = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -794,7 +727,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranchTransition()
 	 * @generated
 	 */
-	int BRANCH_TRANSITION = 15;
+	int BRANCH_TRANSITION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Branch Probability</b></em>' attribute.
@@ -831,7 +764,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getDelay()
 	 * @generated
 	 */
-	int DELAY = 16;
+	int DELAY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -870,13 +803,13 @@ public interface UsagemodelPackage extends EPackage {
 	int DELAY__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
 	/**
-	 * The feature id for the '<em><b>Time</b></em>' containment reference.
+	 * The feature id for the '<em><b>Time Specification Delay</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELAY__TIME = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
+	int DELAY__TIME_SPECIFICATION_DELAY = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Delay</em>' class.
@@ -886,43 +819,6 @@ public interface UsagemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int DELAY_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayTimeImpl <em>Delay Time</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.DelayTimeImpl
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getDelayTime()
-	 * @generated
-	 */
-	int DELAY_TIME = 17;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELAY_TIME__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELAY_TIME__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Delay Time</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELAY_TIME_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 
 	/**
@@ -1042,6 +938,49 @@ public interface UsagemodelPackage extends EPackage {
 	EReference getUsageModel_UsageScenario_UsageModel();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUserData_UsageModel <em>User Data Usage Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>User Data Usage Model</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUserData_UsageModel()
+	 * @see #getUsageModel()
+	 * @generated
+	 */
+	EReference getUsageModel_UserData_UsageModel();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData <em>User Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>User Data</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UserData
+	 * @generated
+	 */
+	EClass getUserData();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData <em>User Data Parameter Usages User Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>User Data Parameter Usages User Data</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData()
+	 * @see #getUserData()
+	 * @generated
+	 */
+	EReference getUserData_UserDataParameterUsages_UserData();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly Context user Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Assembly Context user Data</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData()
+	 * @see #getUserData()
+	 * @generated
+	 */
+	EReference getUserData_AssemblyContext_userData();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Stop <em>Stop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1083,16 +1022,6 @@ public interface UsagemodelPackage extends EPackage {
 	EReference getOpenWorkload_InterArrivalTime_OpenWorkload();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime <em>Inter Arrival Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Inter Arrival Time</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime
-	 * @generated
-	 */
-	EClass getInterArrivalTime();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop <em>Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1114,25 +1043,15 @@ public interface UsagemodelPackage extends EPackage {
 	EReference getLoop_BodyBehaviour_Loop();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop <em>Iterations Loop</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop <em>Loop Iteration Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Iterations Loop</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop()
+	 * @return the meta object for the containment reference '<em>Loop Iteration Loop</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop()
 	 * @see #getLoop()
 	 * @generated
 	 */
-	EReference getLoop_Iterations_Loop();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations <em>Loop Iterations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Loop Iterations</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.LoopIterations
-	 * @generated
-	 */
-	EClass getLoopIterations();
+	EReference getLoop_LoopIteration_Loop();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall <em>Entry Level System Call</em>}'.
@@ -1145,15 +1064,15 @@ public interface UsagemodelPackage extends EPackage {
 	EClass getEntryLevelSystemCall();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall <em>Input Parameter Usages Entry Level System Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Actual Parameter Usage Entry Level System Call</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParameterUsage_EntryLevelSystemCall()
+	 * @return the meta object for the containment reference list '<em>Input Parameter Usages Entry Level System Call</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall()
 	 * @see #getEntryLevelSystemCall()
 	 * @generated
 	 */
-	EReference getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall();
+	EReference getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}'.
@@ -1178,15 +1097,15 @@ public interface UsagemodelPackage extends EPackage {
 	EReference getEntryLevelSystemCall_Signature_EntryLevelSystemCall();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsage_EntryLevelSystemCall <em>Output Parameter Usage Entry Level System Call</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall <em>Output Parameter Usages Entry Level System Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Output Parameter Usage Entry Level System Call</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsage_EntryLevelSystemCall()
+	 * @return the meta object for the containment reference list '<em>Output Parameter Usages Entry Level System Call</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall()
 	 * @see #getEntryLevelSystemCall()
 	 * @generated
 	 */
-	EReference getEntryLevelSystemCall_OutputParameterUsage_EntryLevelSystemCall();
+	EReference getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload <em>Closed Workload</em>}'.
@@ -1219,16 +1138,6 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getClosedWorkload_ThinkTime_ClosedWorkload();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.ThinkTime <em>Think Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Think Time</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.ThinkTime
-	 * @generated
-	 */
-	EClass getThinkTime();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Branch <em>Branch</em>}'.
@@ -1294,25 +1203,15 @@ public interface UsagemodelPackage extends EPackage {
 	EClass getDelay();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTime <em>Time</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay <em>Time Specification Delay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Time</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.Delay#getTime()
+	 * @return the meta object for the containment reference '<em>Time Specification Delay</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay()
 	 * @see #getDelay()
 	 * @generated
 	 */
-	EReference getDelay_Time();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.DelayTime <em>Delay Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Delay Time</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.DelayTime
-	 * @generated
-	 */
-	EClass getDelayTime();
+	EReference getDelay_TimeSpecification_Delay();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1435,6 +1334,40 @@ public interface UsagemodelPackage extends EPackage {
 		EReference USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL = eINSTANCE.getUsageModel_UsageScenario_UsageModel();
 
 		/**
+		 * The meta object literal for the '<em><b>User Data Usage Model</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USAGE_MODEL__USER_DATA_USAGE_MODEL = eINSTANCE.getUsageModel_UserData_UsageModel();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl <em>User Data</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getUserData()
+		 * @generated
+		 */
+		EClass USER_DATA = eINSTANCE.getUserData();
+
+		/**
+		 * The meta object literal for the '<em><b>User Data Parameter Usages User Data</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA = eINSTANCE.getUserData_UserDataParameterUsages_UserData();
+
+		/**
+		 * The meta object literal for the '<em><b>Assembly Context user Data</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USER_DATA__ASSEMBLY_CONTEXT_USER_DATA = eINSTANCE.getUserData_AssemblyContext_userData();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.StopImpl <em>Stop</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1473,16 +1406,6 @@ public interface UsagemodelPackage extends EPackage {
 		EReference OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD = eINSTANCE.getOpenWorkload_InterArrivalTime_OpenWorkload();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.InterArrivalTimeImpl <em>Inter Arrival Time</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.InterArrivalTimeImpl
-		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getInterArrivalTime()
-		 * @generated
-		 */
-		EClass INTER_ARRIVAL_TIME = eINSTANCE.getInterArrivalTime();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl <em>Loop</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1501,22 +1424,12 @@ public interface UsagemodelPackage extends EPackage {
 		EReference LOOP__BODY_BEHAVIOUR_LOOP = eINSTANCE.getLoop_BodyBehaviour_Loop();
 
 		/**
-		 * The meta object literal for the '<em><b>Iterations Loop</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Loop Iteration Loop</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LOOP__ITERATIONS_LOOP = eINSTANCE.getLoop_Iterations_Loop();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopIterationsImpl <em>Loop Iterations</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.LoopIterationsImpl
-		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getLoopIterations()
-		 * @generated
-		 */
-		EClass LOOP_ITERATIONS = eINSTANCE.getLoopIterations();
+		EReference LOOP__LOOP_ITERATION_LOOP = eINSTANCE.getLoop_LoopIteration_Loop();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl <em>Entry Level System Call</em>}' class.
@@ -1529,12 +1442,12 @@ public interface UsagemodelPackage extends EPackage {
 		EClass ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall();
 
 		/**
-		 * The meta object literal for the '<em><b>Actual Parameter Usage Entry Level System Call</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Input Parameter Usages Entry Level System Call</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall();
+		EReference ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall();
 
 		/**
 		 * The meta object literal for the '<em><b>Provided Role Entry Level System Call</b></em>' reference feature.
@@ -1553,12 +1466,12 @@ public interface UsagemodelPackage extends EPackage {
 		EReference ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_Signature_EntryLevelSystemCall();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Parameter Usage Entry Level System Call</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Output Parameter Usages Entry Level System Call</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_OutputParameterUsage_EntryLevelSystemCall();
+		EReference ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed Workload</em>}' class.
@@ -1585,16 +1498,6 @@ public interface UsagemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD = eINSTANCE.getClosedWorkload_ThinkTime_ClosedWorkload();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ThinkTimeImpl <em>Think Time</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.ThinkTimeImpl
-		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getThinkTime()
-		 * @generated
-		 */
-		EClass THINK_TIME = eINSTANCE.getThinkTime();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl <em>Branch</em>}' class.
@@ -1651,22 +1554,12 @@ public interface UsagemodelPackage extends EPackage {
 		EClass DELAY = eINSTANCE.getDelay();
 
 		/**
-		 * The meta object literal for the '<em><b>Time</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Time Specification Delay</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DELAY__TIME = eINSTANCE.getDelay_Time();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayTimeImpl <em>Delay Time</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.DelayTimeImpl
-		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getDelayTime()
-		 * @generated
-		 */
-		EClass DELAY_TIME = eINSTANCE.getDelayTime();
+		EReference DELAY__TIME_SPECIFICATION_DELAY = eINSTANCE.getDelay_TimeSpecification_Delay();
 
 	}
 

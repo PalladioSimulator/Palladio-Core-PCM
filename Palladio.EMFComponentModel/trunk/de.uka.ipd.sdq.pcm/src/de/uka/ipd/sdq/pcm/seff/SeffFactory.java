@@ -95,15 +95,6 @@ public interface SeffFactory extends EFactory {
 	LoopAction createLoopAction();
 
 	/**
-	 * Returns a new object of class '<em>Iteration Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Iteration Count</em>'.
-	 * @generated
-	 */
-	IterationCount createIterationCount();
-
-	/**
 	 * Returns a new object of class '<em>Internal Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,15 +120,6 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	ForkedBehaviour createForkedBehaviour();
-
-	/**
-	 * Returns a new object of class '<em>Number Of Replicas</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number Of Replicas</em>'.
-	 * @generated
-	 */
-	NumberOfReplicas createNumberOfReplicas();
 
 	/**
 	 * Returns a new object of class '<em>Synchronisation Point</em>'.
@@ -183,15 +165,6 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	AcquireAction createAcquireAction();
-
-	/**
-	 * Returns a new object of class '<em>Branch Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Branch Condition</em>'.
-	 * @generated
-	 */
-	BranchCondition createBranchCondition();
 
 	/**
 	 * Returns a new object of class '<em>Collection Iterator Action</em>'.

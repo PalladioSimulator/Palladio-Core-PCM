@@ -10,6 +10,10 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Specified Output Parameter Abstraction</b></em>'.
@@ -20,6 +24,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getSignature_SpecifiedOutputParameterAbstraction <em>Signature Specified Output Parameter Abstraction</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getRole_SpecifiedOutputParameterAbstraction <em>Role Specified Output Parameter Abstraction</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction <em>Expected External Outputs Specified Output Parameter Abstraction</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +32,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * @model
  * @generated
  */
-public interface SpecifiedOutputParameterAbstraction extends VariableUsage {
+public interface SpecifiedOutputParameterAbstraction extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,5 +91,21 @@ public interface SpecifiedOutputParameterAbstraction extends VariableUsage {
 	 * @generated
 	 */
 	void setRole_SpecifiedOutputParameterAbstraction(Role value);
+
+	/**
+	 * Returns the value of the '<em><b>Expected External Outputs Specified Output Parameter Abstraction</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Expected External Outputs Specified Output Parameter Abstraction</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Expected External Outputs Specified Output Parameter Abstraction</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<VariableUsage> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
 
 } // SpecifiedOutputParameterAbstraction

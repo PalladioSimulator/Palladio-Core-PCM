@@ -12,10 +12,8 @@ import de.uka.ipd.sdq.stoex.BooleanExpression;
 import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IfElse;
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.Product;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.Unary;
 import de.uka.ipd.sdq.stoex.Variable;
@@ -101,14 +99,6 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseVariableUsage(VariableUsage object) {
 				return createVariableUsageAdapter();
-			}
-			@Override
-			public Adapter caseRandomVariable(RandomVariable object) {
-				return createRandomVariableAdapter();
-			}
-			@Override
-			public Adapter casePCMRandomVariable(PCMRandomVariable object) {
-				return createPCMRandomVariableAdapter();
 			}
 			@Override
 			public Adapter caseExpression(Expression object) {
@@ -209,34 +199,6 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVariableUsageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.RandomVariable
-	 * @generated
-	 */
-	public Adapter createRandomVariableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.PCMRandomVariable <em>PCM Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.PCMRandomVariable
-	 * @generated
-	 */
-	public Adapter createPCMRandomVariableAdapter() {
 		return null;
 	}
 

@@ -73,17 +73,14 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: return createResourceDemandingBehaviour();
 			case SeffPackage.RELEASE_ACTION: return createReleaseAction();
 			case SeffPackage.LOOP_ACTION: return createLoopAction();
-			case SeffPackage.ITERATION_COUNT: return createIterationCount();
 			case SeffPackage.INTERNAL_ACTION: return createInternalAction();
 			case SeffPackage.FORK_ACTION: return createForkAction();
 			case SeffPackage.FORKED_BEHAVIOUR: return createForkedBehaviour();
-			case SeffPackage.NUMBER_OF_REPLICAS: return createNumberOfReplicas();
 			case SeffPackage.SYNCHRONISATION_POINT: return createSynchronisationPoint();
 			case SeffPackage.EXTERNAL_CALL_ACTION: return createExternalCallAction();
 			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION: return createProbabilisticBranchTransition();
 			case SeffPackage.BRANCH_ACTION: return createBranchAction();
 			case SeffPackage.ACQUIRE_ACTION: return createAcquireAction();
-			case SeffPackage.BRANCH_CONDITION: return createBranchCondition();
 			case SeffPackage.COLLECTION_ITERATOR_ACTION: return createCollectionIteratorAction();
 			case SeffPackage.GUARDED_BRANCH_TRANSITION: return createGuardedBranchTransition();
 			case SeffPackage.SET_VARIABLE_ACTION: return createSetVariableAction();
@@ -167,16 +164,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IterationCount createIterationCount() {
-		IterationCountImpl iterationCount = new IterationCountImpl();
-		return iterationCount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public InternalAction createInternalAction() {
 		InternalActionImpl internalAction = new InternalActionImpl();
 		return internalAction;
@@ -200,16 +187,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public ForkedBehaviour createForkedBehaviour() {
 		ForkedBehaviourImpl forkedBehaviour = new ForkedBehaviourImpl();
 		return forkedBehaviour;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NumberOfReplicas createNumberOfReplicas() {
-		NumberOfReplicasImpl numberOfReplicas = new NumberOfReplicasImpl();
-		return numberOfReplicas;
 	}
 
 	/**
@@ -260,16 +237,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public AcquireAction createAcquireAction() {
 		AcquireActionImpl acquireAction = new AcquireActionImpl();
 		return acquireAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BranchCondition createBranchCondition() {
-		BranchConditionImpl branchCondition = new BranchConditionImpl();
-		return branchCondition;
 	}
 
 	/**

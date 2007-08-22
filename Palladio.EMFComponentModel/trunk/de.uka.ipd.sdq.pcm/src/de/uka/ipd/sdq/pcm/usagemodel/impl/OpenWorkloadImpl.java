@@ -5,11 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
-import de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
+
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 import java.util.Map;
 
@@ -69,7 +70,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * @generated
 	 * @ordered
 	 */
-	protected InterArrivalTime interArrivalTime_OpenWorkload;
+	protected PCMRandomVariable interArrivalTime_OpenWorkload;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified <em>Inter Arrival Time In Open Workload Needs To Be Specified</em>}' invariant constraint.
@@ -106,7 +107,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterArrivalTime getInterArrivalTime_OpenWorkload() {
+	public PCMRandomVariable getInterArrivalTime_OpenWorkload() {
 		return interArrivalTime_OpenWorkload;
 	}
 
@@ -115,8 +116,8 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInterArrivalTime_OpenWorkload(InterArrivalTime newInterArrivalTime_OpenWorkload, NotificationChain msgs) {
-		InterArrivalTime oldInterArrivalTime_OpenWorkload = interArrivalTime_OpenWorkload;
+	public NotificationChain basicSetInterArrivalTime_OpenWorkload(PCMRandomVariable newInterArrivalTime_OpenWorkload, NotificationChain msgs) {
+		PCMRandomVariable oldInterArrivalTime_OpenWorkload = interArrivalTime_OpenWorkload;
 		interArrivalTime_OpenWorkload = newInterArrivalTime_OpenWorkload;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, oldInterArrivalTime_OpenWorkload, newInterArrivalTime_OpenWorkload);
@@ -130,7 +131,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInterArrivalTime_OpenWorkload(InterArrivalTime newInterArrivalTime_OpenWorkload) {
+	public void setInterArrivalTime_OpenWorkload(PCMRandomVariable newInterArrivalTime_OpenWorkload) {
 		if (newInterArrivalTime_OpenWorkload != interArrivalTime_OpenWorkload) {
 			NotificationChain msgs = null;
 			if (interArrivalTime_OpenWorkload != null)
@@ -220,7 +221,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
-				setInterArrivalTime_OpenWorkload((InterArrivalTime)newValue);
+				setInterArrivalTime_OpenWorkload((PCMRandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -235,7 +236,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
-				setInterArrivalTime_OpenWorkload((InterArrivalTime)null);
+				setInterArrivalTime_OpenWorkload((PCMRandomVariable)null);
 				return;
 		}
 		super.eUnset(featureID);

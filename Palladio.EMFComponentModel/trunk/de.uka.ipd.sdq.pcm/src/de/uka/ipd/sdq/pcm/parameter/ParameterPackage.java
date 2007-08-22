@@ -79,31 +79,22 @@ public interface ParameterPackage extends EPackage {
 	int VARIABLE_CHARACTERISATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_CHARACTERISATION__TYPE = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int VARIABLE_CHARACTERISATION__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Specification Variable Characterisation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION = 1;
 
 	/**
 	 * The number of structural features of the '<em>Variable Characterisation</em>' class.
@@ -112,7 +103,7 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.
@@ -221,6 +212,17 @@ public interface ParameterPackage extends EPackage {
 	EAttribute getVariableCharacterisation_Type();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation <em>Specification Variable Characterisation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Specification Variable Characterisation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation()
+	 * @see #getVariableCharacterisation()
+	 * @generated
+	 */
+	EReference getVariableCharacterisation_Specification_VariableCharacterisation();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable <em>Characterised Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +324,14 @@ public interface ParameterPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VARIABLE_CHARACTERISATION__TYPE = eINSTANCE.getVariableCharacterisation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Specification Variable Characterisation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION = eINSTANCE.getVariableCharacterisation_Specification_VariableCharacterisation();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.

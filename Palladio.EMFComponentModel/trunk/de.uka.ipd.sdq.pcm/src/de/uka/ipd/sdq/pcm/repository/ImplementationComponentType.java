@@ -5,6 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -19,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes <em>Parent Complete Component Types</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType <em>Component Parameter Usage Implementation Component Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +52,22 @@ public interface ImplementationComponentType extends CompleteComponentType {
 	 * @generated
 	 */
 	EList<CompleteComponentType> getParentCompleteComponentTypes();
+
+	/**
+	 * Returns the value of the '<em><b>Component Parameter Usage Implementation Component Type</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Component Parameter Usage Implementation Component Type</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Component Parameter Usage Implementation Component Type</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType();
 
 	/**
 	 * <!-- begin-user-doc -->

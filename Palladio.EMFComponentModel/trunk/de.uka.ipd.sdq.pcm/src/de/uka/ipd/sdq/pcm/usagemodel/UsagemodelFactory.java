@@ -59,6 +59,15 @@ public interface UsagemodelFactory extends EFactory {
 	UsageModel createUsageModel();
 
 	/**
+	 * Returns a new object of class '<em>User Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>User Data</em>'.
+	 * @generated
+	 */
+	UserData createUserData();
+
+	/**
 	 * Returns a new object of class '<em>Stop</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,15 +95,6 @@ public interface UsagemodelFactory extends EFactory {
 	OpenWorkload createOpenWorkload();
 
 	/**
-	 * Returns a new object of class '<em>Inter Arrival Time</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Inter Arrival Time</em>'.
-	 * @generated
-	 */
-	InterArrivalTime createInterArrivalTime();
-
-	/**
 	 * Returns a new object of class '<em>Loop</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,15 +102,6 @@ public interface UsagemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Loop createLoop();
-
-	/**
-	 * Returns a new object of class '<em>Loop Iterations</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Loop Iterations</em>'.
-	 * @generated
-	 */
-	LoopIterations createLoopIterations();
 
 	/**
 	 * Returns a new object of class '<em>Entry Level System Call</em>'.
@@ -129,15 +120,6 @@ public interface UsagemodelFactory extends EFactory {
 	 * @generated
 	 */
 	ClosedWorkload createClosedWorkload();
-
-	/**
-	 * Returns a new object of class '<em>Think Time</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Think Time</em>'.
-	 * @generated
-	 */
-	ThinkTime createThinkTime();
 
 	/**
 	 * Returns a new object of class '<em>Branch</em>'.
@@ -165,15 +147,6 @@ public interface UsagemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Delay createDelay();
-
-	/**
-	 * Returns a new object of class '<em>Delay Time</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Delay Time</em>'.
-	 * @generated
-	 */
-	DelayTime createDelayTime();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -12,9 +12,6 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.usagemodel.*;
 
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-import de.uka.ipd.sdq.stoex.RandomVariable;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -106,6 +103,10 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 				return createUsageModelAdapter();
 			}
 			@Override
+			public Adapter caseUserData(UserData object) {
+				return createUserDataAdapter();
+			}
+			@Override
 			public Adapter caseStop(Stop object) {
 				return createStopAdapter();
 			}
@@ -118,16 +119,8 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 				return createOpenWorkloadAdapter();
 			}
 			@Override
-			public Adapter caseInterArrivalTime(InterArrivalTime object) {
-				return createInterArrivalTimeAdapter();
-			}
-			@Override
 			public Adapter caseLoop(Loop object) {
 				return createLoopAdapter();
-			}
-			@Override
-			public Adapter caseLoopIterations(LoopIterations object) {
-				return createLoopIterationsAdapter();
 			}
 			@Override
 			public Adapter caseEntryLevelSystemCall(EntryLevelSystemCall object) {
@@ -136,10 +129,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseClosedWorkload(ClosedWorkload object) {
 				return createClosedWorkloadAdapter();
-			}
-			@Override
-			public Adapter caseThinkTime(ThinkTime object) {
-				return createThinkTimeAdapter();
 			}
 			@Override
 			public Adapter caseBranch(Branch object) {
@@ -154,10 +143,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 				return createDelayAdapter();
 			}
 			@Override
-			public Adapter caseDelayTime(DelayTime object) {
-				return createDelayTimeAdapter();
-			}
-			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -168,14 +153,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
-			}
-			@Override
-			public Adapter caseRandomVariable(RandomVariable object) {
-				return createRandomVariableAdapter();
-			}
-			@Override
-			public Adapter casePCMRandomVariable(PCMRandomVariable object) {
-				return createPCMRandomVariableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -268,6 +245,20 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData <em>User Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UserData
+	 * @generated
+	 */
+	public Adapter createUserDataAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Stop <em>Stop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -310,20 +301,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime <em>Inter Arrival Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime
-	 * @generated
-	 */
-	public Adapter createInterArrivalTimeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop <em>Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -334,20 +311,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLoopAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations <em>Loop Iterations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.LoopIterations
-	 * @generated
-	 */
-	public Adapter createLoopIterationsAdapter() {
 		return null;
 	}
 
@@ -376,20 +339,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createClosedWorkloadAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.ThinkTime <em>Think Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.ThinkTime
-	 * @generated
-	 */
-	public Adapter createThinkTimeAdapter() {
 		return null;
 	}
 
@@ -436,20 +385,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.DelayTime <em>Delay Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.DelayTime
-	 * @generated
-	 */
-	public Adapter createDelayTimeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -488,34 +423,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.RandomVariable
-	 * @generated
-	 */
-	public Adapter createRandomVariableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.PCMRandomVariable <em>PCM Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.PCMRandomVariable
-	 * @generated
-	 */
-	public Adapter createPCMRandomVariableAdapter() {
 		return null;
 	}
 

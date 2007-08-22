@@ -7,6 +7,8 @@ package de.uka.ipd.sdq.pcm.resourceenvironment;
 
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,8 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkLatency <em>Link Latency</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput <em>Throughput</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification <em>Latency Communication Link Resource Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification <em>Throughput Communication Link Resource Specification</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,55 +64,55 @@ public interface CommunicationLinkResourceSpecification extends EObject {
 	void setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(CommunicationLinkResourceType value);
 
 	/**
-	 * Returns the value of the '<em><b>Link Latency</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Latency Communication Link Resource Specification</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Link Latency</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Latency Communication Link Resource Specification</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Link Latency</em>' containment reference.
-	 * @see #setLinkLatency(Latency)
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_LinkLatency()
+	 * @return the value of the '<em>Latency Communication Link Resource Specification</em>' containment reference.
+	 * @see #setLatency_CommunicationLinkResourceSpecification(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	Latency getLinkLatency();
+	PCMRandomVariable getLatency_CommunicationLinkResourceSpecification();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkLatency <em>Link Latency</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification <em>Latency Communication Link Resource Specification</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Link Latency</em>' containment reference.
-	 * @see #getLinkLatency()
+	 * @param value the new value of the '<em>Latency Communication Link Resource Specification</em>' containment reference.
+	 * @see #getLatency_CommunicationLinkResourceSpecification()
 	 * @generated
 	 */
-	void setLinkLatency(Latency value);
+	void setLatency_CommunicationLinkResourceSpecification(PCMRandomVariable value);
 
 	/**
-	 * Returns the value of the '<em><b>Throughput</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Throughput Communication Link Resource Specification</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Throughput</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Throughput Communication Link Resource Specification</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Throughput</em>' containment reference.
-	 * @see #setThroughput(Throughput)
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_Throughput()
+	 * @return the value of the '<em>Throughput Communication Link Resource Specification</em>' containment reference.
+	 * @see #setThroughput_CommunicationLinkResourceSpecification(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	Throughput getThroughput();
+	PCMRandomVariable getThroughput_CommunicationLinkResourceSpecification();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput <em>Throughput</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification <em>Throughput Communication Link Resource Specification</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Throughput</em>' containment reference.
-	 * @see #getThroughput()
+	 * @param value the new value of the '<em>Throughput Communication Link Resource Specification</em>' containment reference.
+	 * @see #getThroughput_CommunicationLinkResourceSpecification()
 	 * @generated
 	 */
-	void setThroughput(Throughput value);
+	void setThroughput_CommunicationLinkResourceSpecification(PCMRandomVariable value);
 
 } // CommunicationLinkResourceSpecification

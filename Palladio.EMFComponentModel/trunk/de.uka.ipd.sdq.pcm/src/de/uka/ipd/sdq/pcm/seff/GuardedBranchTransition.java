@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ package de.uka.ipd.sdq.pcm.seff;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_BranchTransition <em>Branch Condition Branch Transition</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition <em>Branch Condition Guarded Branch Transition</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,29 +32,29 @@ public interface GuardedBranchTransition extends AbstractBranchTransition {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Branch Condition Branch Transition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Branch Condition Guarded Branch Transition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Branch Condition Branch Transition</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Branch Condition Guarded Branch Transition</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branch Condition Branch Transition</em>' containment reference.
-	 * @see #setBranchCondition_BranchTransition(BranchCondition)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getGuardedBranchTransition_BranchCondition_BranchTransition()
+	 * @return the value of the '<em>Branch Condition Guarded Branch Transition</em>' containment reference.
+	 * @see #setBranchCondition_GuardedBranchTransition(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getGuardedBranchTransition_BranchCondition_GuardedBranchTransition()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	BranchCondition getBranchCondition_BranchTransition();
+	PCMRandomVariable getBranchCondition_GuardedBranchTransition();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_BranchTransition <em>Branch Condition Branch Transition</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition <em>Branch Condition Guarded Branch Transition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branch Condition Branch Transition</em>' containment reference.
-	 * @see #getBranchCondition_BranchTransition()
+	 * @param value the new value of the '<em>Branch Condition Guarded Branch Transition</em>' containment reference.
+	 * @see #getBranchCondition_GuardedBranchTransition()
 	 * @generated
 	 */
-	void setBranchCondition_BranchTransition(BranchCondition value);
+	void setBranchCondition_GuardedBranchTransition(PCMRandomVariable value);
 
 } // GuardedBranchTransition

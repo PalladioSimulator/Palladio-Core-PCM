@@ -5,6 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -69,12 +71,12 @@ public interface ClosedWorkload extends Workload {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Think Time Closed Workload</em>' containment reference.
-	 * @see #setThinkTime_ClosedWorkload(ThinkTime)
+	 * @see #setThinkTime_ClosedWorkload(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getClosedWorkload_ThinkTime_ClosedWorkload()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	ThinkTime getThinkTime_ClosedWorkload();
+	PCMRandomVariable getThinkTime_ClosedWorkload();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>Think Time Closed Workload</em>}' containment reference.
@@ -84,7 +86,7 @@ public interface ClosedWorkload extends Workload {
 	 * @see #getThinkTime_ClosedWorkload()
 	 * @generated
 	 */
-	void setThinkTime_ClosedWorkload(ThinkTime value);
+	void setThinkTime_ClosedWorkload(PCMRandomVariable value);
 
 	/**
 	 * <!-- begin-user-doc -->

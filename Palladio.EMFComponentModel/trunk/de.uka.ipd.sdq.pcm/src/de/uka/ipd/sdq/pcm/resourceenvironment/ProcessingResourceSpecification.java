@@ -7,6 +7,8 @@ package de.uka.ipd.sdq.pcm.resourceenvironment;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -23,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,30 +97,30 @@ public interface ProcessingResourceSpecification extends EObject {
 	void setActiveResourceType_ActiveResourceSpecification(ProcessingResourceType value);
 
 	/**
-	 * Returns the value of the '<em><b>Processing Rate</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Processing Rate Processing Resource Specification</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Processing Rate</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Processing Rate Processing Resource Specification</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Processing Rate</em>' containment reference.
-	 * @see #setProcessingRate(ProcessingRate)
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ProcessingRate()
+	 * @return the value of the '<em>Processing Rate Processing Resource Specification</em>' containment reference.
+	 * @see #setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	ProcessingRate getProcessingRate();
+	PCMRandomVariable getProcessingRate_ProcessingResourceSpecification();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Processing Rate</em>' containment reference.
-	 * @see #getProcessingRate()
+	 * @param value the new value of the '<em>Processing Rate Processing Resource Specification</em>' containment reference.
+	 * @see #getProcessingRate_ProcessingResourceSpecification()
 	 * @generated
 	 */
-	void setProcessingRate(ProcessingRate value);
+	void setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable value);
 
 	/**
 	 * <!-- begin-user-doc -->

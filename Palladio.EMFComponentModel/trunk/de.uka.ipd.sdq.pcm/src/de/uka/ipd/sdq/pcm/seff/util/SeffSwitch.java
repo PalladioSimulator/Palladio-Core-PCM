@@ -12,9 +12,6 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.seff.*;
 
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-import de.uka.ipd.sdq.stoex.RandomVariable;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -134,8 +131,6 @@ public class SeffSwitch<T> {
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND: {
 				ParametricResourceDemand parametricResourceDemand = (ParametricResourceDemand)theEObject;
 				T result = caseParametricResourceDemand(parametricResourceDemand);
-				if (result == null) result = casePCMRandomVariable(parametricResourceDemand);
-				if (result == null) result = caseRandomVariable(parametricResourceDemand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,14 +194,6 @@ public class SeffSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SeffPackage.ITERATION_COUNT: {
-				IterationCount iterationCount = (IterationCount)theEObject;
-				T result = caseIterationCount(iterationCount);
-				if (result == null) result = casePCMRandomVariable(iterationCount);
-				if (result == null) result = caseRandomVariable(iterationCount);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SeffPackage.INTERNAL_ACTION: {
 				InternalAction internalAction = (InternalAction)theEObject;
 				T result = caseInternalAction(internalAction);
@@ -233,14 +220,6 @@ public class SeffSwitch<T> {
 				ForkedBehaviour forkedBehaviour = (ForkedBehaviour)theEObject;
 				T result = caseForkedBehaviour(forkedBehaviour);
 				if (result == null) result = caseResourceDemandingBehaviour(forkedBehaviour);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SeffPackage.NUMBER_OF_REPLICAS: {
-				NumberOfReplicas numberOfReplicas = (NumberOfReplicas)theEObject;
-				T result = caseNumberOfReplicas(numberOfReplicas);
-				if (result == null) result = casePCMRandomVariable(numberOfReplicas);
-				if (result == null) result = caseRandomVariable(numberOfReplicas);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -294,14 +273,6 @@ public class SeffSwitch<T> {
 				if (result == null) result = caseEntity(acquireAction);
 				if (result == null) result = caseIdentifier(acquireAction);
 				if (result == null) result = caseNamedElement(acquireAction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SeffPackage.BRANCH_CONDITION: {
-				BranchCondition branchCondition = (BranchCondition)theEObject;
-				T result = caseBranchCondition(branchCondition);
-				if (result == null) result = casePCMRandomVariable(branchCondition);
-				if (result == null) result = caseRandomVariable(branchCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -497,21 +468,6 @@ public class SeffSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Iteration Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Iteration Count</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIterationCount(IterationCount object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Internal Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -553,21 +509,6 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseForkedBehaviour(ForkedBehaviour object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Number Of Replicas</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Number Of Replicas</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNumberOfReplicas(NumberOfReplicas object) {
 		return null;
 	}
 
@@ -658,21 +599,6 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseAcquireAction(AcquireAction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Branch Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Branch Condition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBranchCondition(BranchCondition object) {
 		return null;
 	}
 
@@ -778,36 +704,6 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseEntity(Entity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Random Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Random Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRandomVariable(RandomVariable object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePCMRandomVariable(PCMRandomVariable object) {
 		return null;
 	}
 

@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingRate;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
@@ -13,6 +12,8 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentValidator;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 import java.util.Map;
 
@@ -53,7 +54,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getProcessingRate <em>Processing Rate</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,14 +99,14 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	protected ProcessingResourceType activeResourceType_ActiveResourceSpecification;
 
 	/**
-	 * The cached value of the '{@link #getProcessingRate() <em>Processing Rate</em>}' containment reference.
+	 * The cached value of the '{@link #getProcessingRate_ProcessingResourceSpecification() <em>Processing Rate Processing Resource Specification</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProcessingRate()
+	 * @see #getProcessingRate_ProcessingResourceSpecification()
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcessingRate processingRate;
+	protected PCMRandomVariable processingRate_ProcessingResourceSpecification;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ProcessingRatemustbelargerthanzero <em>Processing Ratemustbelargerthanzero</em>}' invariant constraint.
@@ -201,8 +202,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingRate getProcessingRate() {
-		return processingRate;
+	public PCMRandomVariable getProcessingRate_ProcessingResourceSpecification() {
+		return processingRate_ProcessingResourceSpecification;
 	}
 
 	/**
@@ -210,11 +211,11 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProcessingRate(ProcessingRate newProcessingRate, NotificationChain msgs) {
-		ProcessingRate oldProcessingRate = processingRate;
-		processingRate = newProcessingRate;
+	public NotificationChain basicSetProcessingRate_ProcessingResourceSpecification(PCMRandomVariable newProcessingRate_ProcessingResourceSpecification, NotificationChain msgs) {
+		PCMRandomVariable oldProcessingRate_ProcessingResourceSpecification = processingRate_ProcessingResourceSpecification;
+		processingRate_ProcessingResourceSpecification = newProcessingRate_ProcessingResourceSpecification;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, oldProcessingRate, newProcessingRate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION, oldProcessingRate_ProcessingResourceSpecification, newProcessingRate_ProcessingResourceSpecification);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -225,18 +226,18 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProcessingRate(ProcessingRate newProcessingRate) {
-		if (newProcessingRate != processingRate) {
+	public void setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable newProcessingRate_ProcessingResourceSpecification) {
+		if (newProcessingRate_ProcessingResourceSpecification != processingRate_ProcessingResourceSpecification) {
 			NotificationChain msgs = null;
-			if (processingRate != null)
-				msgs = ((InternalEObject)processingRate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, null, msgs);
-			if (newProcessingRate != null)
-				msgs = ((InternalEObject)newProcessingRate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, null, msgs);
-			msgs = basicSetProcessingRate(newProcessingRate, msgs);
+			if (processingRate_ProcessingResourceSpecification != null)
+				msgs = ((InternalEObject)processingRate_ProcessingResourceSpecification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION, null, msgs);
+			if (newProcessingRate_ProcessingResourceSpecification != null)
+				msgs = ((InternalEObject)newProcessingRate_ProcessingResourceSpecification).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION, null, msgs);
+			msgs = basicSetProcessingRate_ProcessingResourceSpecification(newProcessingRate_ProcessingResourceSpecification, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, newProcessingRate, newProcessingRate));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION, newProcessingRate_ProcessingResourceSpecification, newProcessingRate_ProcessingResourceSpecification));
 	}
 
 	/**
@@ -286,8 +287,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				return basicSetProcessingRate(null, msgs);
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
+				return basicSetProcessingRate_ProcessingResourceSpecification(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -305,8 +306,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				if (resolve) return getActiveResourceType_ActiveResourceSpecification();
 				return basicGetActiveResourceType_ActiveResourceSpecification();
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				return getProcessingRate();
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
+				return getProcessingRate_ProcessingResourceSpecification();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -325,8 +326,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				setActiveResourceType_ActiveResourceSpecification((ProcessingResourceType)newValue);
 				return;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				setProcessingRate((ProcessingRate)newValue);
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
+				setProcessingRate_ProcessingResourceSpecification((PCMRandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,8 +347,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				setActiveResourceType_ActiveResourceSpecification((ProcessingResourceType)null);
 				return;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				setProcessingRate((ProcessingRate)null);
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
+				setProcessingRate_ProcessingResourceSpecification((PCMRandomVariable)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -365,8 +366,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				return schedulingPolicy != SCHEDULING_POLICY_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				return activeResourceType_ActiveResourceSpecification != null;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				return processingRate != null;
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
+				return processingRate_ProcessingResourceSpecification != null;
 		}
 		return super.eIsSet(featureID);
 	}

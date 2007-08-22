@@ -59,24 +59,6 @@ public interface ResourceenvironmentFactory extends EFactory {
 	CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification();
 
 	/**
-	 * Returns a new object of class '<em>Latency</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Latency</em>'.
-	 * @generated
-	 */
-	Latency createLatency();
-
-	/**
-	 * Returns a new object of class '<em>Throughput</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Throughput</em>'.
-	 * @generated
-	 */
-	Throughput createThroughput();
-
-	/**
 	 * Returns a new object of class '<em>Processing Resource Specification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,15 +66,6 @@ public interface ResourceenvironmentFactory extends EFactory {
 	 * @generated
 	 */
 	ProcessingResourceSpecification createProcessingResourceSpecification();
-
-	/**
-	 * Returns a new object of class '<em>Processing Rate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Processing Rate</em>'.
-	 * @generated
-	 */
-	ProcessingRate createProcessingRate();
 
 	/**
 	 * Returns a new object of class '<em>Resource Container</em>'.

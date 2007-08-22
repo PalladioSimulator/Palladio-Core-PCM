@@ -13,6 +13,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parametric Resource Demand</b></em>'.
@@ -22,6 +24,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getSpecification_ParametericResourceDemand <em>Specification Parameteric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
  * </p>
@@ -30,7 +33,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * @model
  * @generated
  */
-public interface ParametricResourceDemand extends PCMRandomVariable {
+public interface ParametricResourceDemand extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,6 +66,32 @@ public interface ParametricResourceDemand extends PCMRandomVariable {
 	 * @generated
 	 */
 	void setRequiredResource_ParametricResourceDemand(ProcessingResourceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Specification Parameteric Resource Demand</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Specification Parameteric Resource Demand</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Specification Parameteric Resource Demand</em>' containment reference.
+	 * @see #setSpecification_ParametericResourceDemand(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getParametricResourceDemand_Specification_ParametericResourceDemand()
+	 * @model containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	PCMRandomVariable getSpecification_ParametericResourceDemand();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getSpecification_ParametericResourceDemand <em>Specification Parameteric Resource Demand</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specification Parameteric Resource Demand</em>' containment reference.
+	 * @see #getSpecification_ParametericResourceDemand()
+	 * @generated
+	 */
+	void setSpecification_ParametericResourceDemand(PCMRandomVariable value);
 
 	/**
 	 * Returns the value of the '<em><b>Action Parametric Resource Demand</b></em>' container reference.

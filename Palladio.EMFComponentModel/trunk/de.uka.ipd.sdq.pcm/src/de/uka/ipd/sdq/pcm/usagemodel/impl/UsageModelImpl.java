@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 
 import java.util.Collection;
 
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UsageModelImpl#getUsageScenario_UsageModel <em>Usage Scenario Usage Model</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UsageModelImpl#getUserData_UsageModel <em>User Data Usage Model</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +55,16 @@ public class UsageModelImpl extends EObjectImpl implements UsageModel {
 	 * @ordered
 	 */
 	protected EList<UsageScenario> usageScenario_UsageModel;
+
+	/**
+	 * The cached value of the '{@link #getUserData_UsageModel() <em>User Data Usage Model</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUserData_UsageModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UserData> userData_UsageModel;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,11 +102,25 @@ public class UsageModelImpl extends EObjectImpl implements UsageModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UserData> getUserData_UsageModel() {
+		if (userData_UsageModel == null) {
+			userData_UsageModel = new EObjectContainmentEList<UserData>(UserData.class, this, UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL);
+		}
+		return userData_UsageModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
 				return ((InternalEList<?>)getUsageScenario_UsageModel()).basicRemove(otherEnd, msgs);
+			case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
+				return ((InternalEList<?>)getUserData_UsageModel()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -109,6 +135,8 @@ public class UsageModelImpl extends EObjectImpl implements UsageModel {
 		switch (featureID) {
 			case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
 				return getUsageScenario_UsageModel();
+			case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
+				return getUserData_UsageModel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,6 +154,10 @@ public class UsageModelImpl extends EObjectImpl implements UsageModel {
 				getUsageScenario_UsageModel().clear();
 				getUsageScenario_UsageModel().addAll((Collection<? extends UsageScenario>)newValue);
 				return;
+			case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
+				getUserData_UsageModel().clear();
+				getUserData_UsageModel().addAll((Collection<? extends UserData>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -141,6 +173,9 @@ public class UsageModelImpl extends EObjectImpl implements UsageModel {
 			case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
 				getUsageScenario_UsageModel().clear();
 				return;
+			case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
+				getUserData_UsageModel().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -155,6 +190,8 @@ public class UsageModelImpl extends EObjectImpl implements UsageModel {
 		switch (featureID) {
 			case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
 				return usageScenario_UsageModel != null && !usageScenario_UsageModel.isEmpty();
+			case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
+				return userData_UsageModel != null && !userData_UsageModel.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

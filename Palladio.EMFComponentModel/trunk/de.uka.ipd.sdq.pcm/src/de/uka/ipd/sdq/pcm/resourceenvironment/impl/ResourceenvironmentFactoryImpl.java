@@ -70,10 +70,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: return createResourceEnvironment();
 			case ResourceenvironmentPackage.LINKING_RESOURCE: return createLinkingResource();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return createCommunicationLinkResourceSpecification();
-			case ResourceenvironmentPackage.LATENCY: return createLatency();
-			case ResourceenvironmentPackage.THROUGHPUT: return createThroughput();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return createProcessingResourceSpecification();
-			case ResourceenvironmentPackage.PROCESSING_RATE: return createProcessingRate();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER: return createResourceContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -145,39 +142,9 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Latency createLatency() {
-		LatencyImpl latency = new LatencyImpl();
-		return latency;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Throughput createThroughput() {
-		ThroughputImpl throughput = new ThroughputImpl();
-		return throughput;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ProcessingResourceSpecification createProcessingResourceSpecification() {
 		ProcessingResourceSpecificationImpl processingResourceSpecification = new ProcessingResourceSpecificationImpl();
 		return processingResourceSpecification;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessingRate createProcessingRate() {
-		ProcessingRateImpl processingRate = new ProcessingRateImpl();
-		return processingRate;
 	}
 
 	/**

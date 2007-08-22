@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -42,12 +42,12 @@ public interface PassiveResource extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Capacity Passive Resource</em>' containment reference.
-	 * @see #setCapacity_PassiveResource(VariableUsage)
+	 * @see #setCapacity_PassiveResource(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getPassiveResource_Capacity_PassiveResource()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	VariableUsage getCapacity_PassiveResource();
+	PCMRandomVariable getCapacity_PassiveResource();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource <em>Capacity Passive Resource</em>}' containment reference.
@@ -57,6 +57,6 @@ public interface PassiveResource extends EObject {
 	 * @see #getCapacity_PassiveResource()
 	 * @generated
 	 */
-	void setCapacity_PassiveResource(VariableUsage value);
+	void setCapacity_PassiveResource(PCMRandomVariable value);
 
 } // PassiveResource

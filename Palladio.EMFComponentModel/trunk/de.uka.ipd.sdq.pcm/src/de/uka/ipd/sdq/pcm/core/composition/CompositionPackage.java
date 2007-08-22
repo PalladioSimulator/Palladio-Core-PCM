@@ -190,13 +190,13 @@ public interface CompositionPackage extends EPackage {
 	int ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Component Parameter Usage Assembly Context</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Config Parameter Usages Assembly Context</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+	int ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Assembly Context</em>' class.
@@ -523,15 +523,15 @@ public interface CompositionPackage extends EPackage {
 	EReference getAssemblyContext_ParentStructure_AssemblyContext();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getComponentParameterUsage_AssemblyContext <em>Component Parameter Usage Assembly Context</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getConfigParameterUsages_AssemblyContext <em>Config Parameter Usages Assembly Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Component Parameter Usage Assembly Context</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getComponentParameterUsage_AssemblyContext()
+	 * @return the meta object for the containment reference list '<em>Config Parameter Usages Assembly Context</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getConfigParameterUsages_AssemblyContext()
 	 * @see #getAssemblyContext()
 	 * @generated
 	 */
-	EReference getAssemblyContext_ComponentParameterUsage_AssemblyContext();
+	EReference getAssemblyContext_ConfigParameterUsages_AssemblyContext();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector <em>Required Delegation Connector</em>}'.
@@ -797,12 +797,12 @@ public interface CompositionPackage extends EPackage {
 		EReference ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT = eINSTANCE.getAssemblyContext_ParentStructure_AssemblyContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Component Parameter Usage Assembly Context</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Config Parameter Usages Assembly Context</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT = eINSTANCE.getAssemblyContext_ComponentParameterUsage_AssemblyContext();
+		EReference ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT = eINSTANCE.getAssemblyContext_ConfigParameterUsages_AssemblyContext();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredDelegationConnectorImpl <em>Required Delegation Connector</em>}' class.

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ package de.uka.ipd.sdq.pcm.usagemodel;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTime <em>Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay <em>Time Specification Delay</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,29 +32,29 @@ public interface Delay extends AbstractUserAction {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Time</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Time Specification Delay</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Time</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Time Specification Delay</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Time</em>' containment reference.
-	 * @see #setTime(DelayTime)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getDelay_Time()
+	 * @return the value of the '<em>Time Specification Delay</em>' containment reference.
+	 * @see #setTimeSpecification_Delay(PCMRandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getDelay_TimeSpecification_Delay()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	DelayTime getTime();
+	PCMRandomVariable getTimeSpecification_Delay();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTime <em>Time</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay <em>Time Specification Delay</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Time</em>' containment reference.
-	 * @see #getTime()
+	 * @param value the new value of the '<em>Time Specification Delay</em>' containment reference.
+	 * @see #getTimeSpecification_Delay()
 	 * @generated
 	 */
-	void setTime(DelayTime value);
+	void setTimeSpecification_Delay(PCMRandomVariable value);
 
 } // Delay

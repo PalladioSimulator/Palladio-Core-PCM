@@ -6,8 +6,9 @@
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Delay;
-import de.uka.ipd.sdq.pcm.usagemodel.DelayTime;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl#getTime <em>Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl#getTimeSpecification_Delay <em>Time Specification Delay</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,14 +40,14 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getTime() <em>Time</em>}' containment reference.
+	 * The cached value of the '{@link #getTimeSpecification_Delay() <em>Time Specification Delay</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTime()
+	 * @see #getTimeSpecification_Delay()
 	 * @generated
 	 * @ordered
 	 */
-	protected DelayTime time;
+	protected PCMRandomVariable timeSpecification_Delay;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,8 +73,8 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DelayTime getTime() {
-		return time;
+	public PCMRandomVariable getTimeSpecification_Delay() {
+		return timeSpecification_Delay;
 	}
 
 	/**
@@ -81,11 +82,11 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTime(DelayTime newTime, NotificationChain msgs) {
-		DelayTime oldTime = time;
-		time = newTime;
+	public NotificationChain basicSetTimeSpecification_Delay(PCMRandomVariable newTimeSpecification_Delay, NotificationChain msgs) {
+		PCMRandomVariable oldTimeSpecification_Delay = timeSpecification_Delay;
+		timeSpecification_Delay = newTimeSpecification_Delay;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.DELAY__TIME, oldTime, newTime);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, oldTimeSpecification_Delay, newTimeSpecification_Delay);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -96,18 +97,18 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTime(DelayTime newTime) {
-		if (newTime != time) {
+	public void setTimeSpecification_Delay(PCMRandomVariable newTimeSpecification_Delay) {
+		if (newTimeSpecification_Delay != timeSpecification_Delay) {
 			NotificationChain msgs = null;
-			if (time != null)
-				msgs = ((InternalEObject)time).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.DELAY__TIME, null, msgs);
-			if (newTime != null)
-				msgs = ((InternalEObject)newTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.DELAY__TIME, null, msgs);
-			msgs = basicSetTime(newTime, msgs);
+			if (timeSpecification_Delay != null)
+				msgs = ((InternalEObject)timeSpecification_Delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
+			if (newTimeSpecification_Delay != null)
+				msgs = ((InternalEObject)newTimeSpecification_Delay).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
+			msgs = basicSetTimeSpecification_Delay(newTimeSpecification_Delay, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.DELAY__TIME, newTime, newTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, newTimeSpecification_Delay, newTimeSpecification_Delay));
 	}
 
 	/**
@@ -118,8 +119,8 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UsagemodelPackage.DELAY__TIME:
-				return basicSetTime(null, msgs);
+			case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
+				return basicSetTimeSpecification_Delay(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -132,8 +133,8 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UsagemodelPackage.DELAY__TIME:
-				return getTime();
+			case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
+				return getTimeSpecification_Delay();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,8 +147,8 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UsagemodelPackage.DELAY__TIME:
-				setTime((DelayTime)newValue);
+			case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
+				setTimeSpecification_Delay((PCMRandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -161,8 +162,8 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UsagemodelPackage.DELAY__TIME:
-				setTime((DelayTime)null);
+			case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
+				setTimeSpecification_Delay((PCMRandomVariable)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -176,8 +177,8 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UsagemodelPackage.DELAY__TIME:
-				return time != null;
+			case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
+				return timeSpecification_Delay != null;
 		}
 		return super.eIsSet(featureID);
 	}

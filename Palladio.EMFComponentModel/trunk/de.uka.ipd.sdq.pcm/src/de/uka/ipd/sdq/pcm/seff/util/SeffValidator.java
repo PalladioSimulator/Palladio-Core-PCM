@@ -9,8 +9,6 @@ import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 
 import de.uka.ipd.sdq.pcm.seff.*;
 
-import de.uka.ipd.sdq.stoex.util.StoexValidator;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -141,14 +139,6 @@ public class SeffValidator extends EObjectValidator {
 	protected IdentifierValidator identifierValidator;
 
 	/**
-	 * The cached base package validator.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StoexValidator stoexValidator;
-
-	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,7 +147,6 @@ public class SeffValidator extends EObjectValidator {
 	public SeffValidator() {
 		super();
 		identifierValidator = IdentifierValidator.INSTANCE;
-		stoexValidator = StoexValidator.INSTANCE;
 	}
 
 	/**
@@ -200,16 +189,12 @@ public class SeffValidator extends EObjectValidator {
 				return validateLoopAction((LoopAction)value, diagnostics, context);
 			case SeffPackage.ABSTRACT_LOOP_ACTION:
 				return validateAbstractLoopAction((AbstractLoopAction)value, diagnostics, context);
-			case SeffPackage.ITERATION_COUNT:
-				return validateIterationCount((IterationCount)value, diagnostics, context);
 			case SeffPackage.INTERNAL_ACTION:
 				return validateInternalAction((InternalAction)value, diagnostics, context);
 			case SeffPackage.FORK_ACTION:
 				return validateForkAction((ForkAction)value, diagnostics, context);
 			case SeffPackage.FORKED_BEHAVIOUR:
 				return validateForkedBehaviour((ForkedBehaviour)value, diagnostics, context);
-			case SeffPackage.NUMBER_OF_REPLICAS:
-				return validateNumberOfReplicas((NumberOfReplicas)value, diagnostics, context);
 			case SeffPackage.SYNCHRONISATION_POINT:
 				return validateSynchronisationPoint((SynchronisationPoint)value, diagnostics, context);
 			case SeffPackage.EXTERNAL_CALL_ACTION:
@@ -222,8 +207,6 @@ public class SeffValidator extends EObjectValidator {
 				return validateBranchAction((BranchAction)value, diagnostics, context);
 			case SeffPackage.ACQUIRE_ACTION:
 				return validateAcquireAction((AcquireAction)value, diagnostics, context);
-			case SeffPackage.BRANCH_CONDITION:
-				return validateBranchCondition((BranchCondition)value, diagnostics, context);
 			case SeffPackage.COLLECTION_ITERATOR_ACTION:
 				return validateCollectionIteratorAction((CollectionIteratorAction)value, diagnostics, context);
 			case SeffPackage.GUARDED_BRANCH_TRANSITION:
@@ -312,7 +295,6 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(parametricResourceDemand, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parametricResourceDemand, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parametricResourceDemand, diagnostics, context);
-		if (result || diagnostics != null) result &= stoexValidator.validatePCMRandomVariable_SpecificationMustNotBeNULL(parametricResourceDemand, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParametricResourceDemand_ParametricResourceDemandSpecificationMustNotBeNULL(parametricResourceDemand, diagnostics, context);
 		return result;
 	}
@@ -480,23 +462,6 @@ public class SeffValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateIterationCount(IterationCount iterationCount, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(iterationCount, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(iterationCount, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(iterationCount, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(iterationCount, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(iterationCount, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(iterationCount, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(iterationCount, diagnostics, context);
-		if (result || diagnostics != null) result &= stoexValidator.validatePCMRandomVariable_SpecificationMustNotBeNULL(iterationCount, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateInternalAction(InternalAction internalAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_EveryMultiplicityConforms(internalAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(internalAction, diagnostics, context);
@@ -542,23 +507,6 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(forkedBehaviour, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNumberOfReplicas(NumberOfReplicas numberOfReplicas, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(numberOfReplicas, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(numberOfReplicas, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(numberOfReplicas, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(numberOfReplicas, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(numberOfReplicas, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(numberOfReplicas, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(numberOfReplicas, diagnostics, context);
-		if (result || diagnostics != null) result &= stoexValidator.validatePCMRandomVariable_SpecificationMustNotBeNULL(numberOfReplicas, diagnostics, context);
 		return result;
 	}
 
@@ -675,23 +623,6 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(acquireAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(acquireAction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(acquireAction, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBranchCondition(BranchCondition branchCondition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(branchCondition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(branchCondition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(branchCondition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(branchCondition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(branchCondition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(branchCondition, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(branchCondition, diagnostics, context);
-		if (result || diagnostics != null) result &= stoexValidator.validatePCMRandomVariable_SpecificationMustNotBeNULL(branchCondition, diagnostics, context);
 		return result;
 	}
 

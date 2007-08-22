@@ -12,10 +12,8 @@ import de.uka.ipd.sdq.stoex.BooleanExpression;
 import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IfElse;
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.Product;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.Unary;
 import de.uka.ipd.sdq.stoex.Variable;
@@ -109,8 +107,6 @@ public class ParameterSwitch<T> {
 			case ParameterPackage.VARIABLE_CHARACTERISATION: {
 				VariableCharacterisation variableCharacterisation = (VariableCharacterisation)theEObject;
 				T result = caseVariableCharacterisation(variableCharacterisation);
-				if (result == null) result = casePCMRandomVariable(variableCharacterisation);
-				if (result == null) result = caseRandomVariable(variableCharacterisation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -182,36 +178,6 @@ public class ParameterSwitch<T> {
 	 * @generated
 	 */
 	public T caseVariableUsage(VariableUsage object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Random Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Random Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRandomVariable(RandomVariable object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePCMRandomVariable(PCMRandomVariable object) {
 		return null;
 	}
 

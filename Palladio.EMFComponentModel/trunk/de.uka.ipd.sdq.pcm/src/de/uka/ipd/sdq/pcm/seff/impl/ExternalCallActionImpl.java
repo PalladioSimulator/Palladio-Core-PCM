@@ -36,8 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getCalledService_ExternalService <em>Called Service External Service</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getParameterUsage_ExternalCallAction <em>Parameter Usage External Call Action</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getOutputVariableUsage_ExternalCallAction <em>Output Variable Usage External Call Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getInputParameterUsages_ExternalCallAction <em>Input Parameter Usages External Call Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getOutputVariableUsages_ExternalCallAction <em>Output Variable Usages External Call Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getRole_ExternalService <em>Role External Service</em>}</li>
  * </ul>
  * </p>
@@ -63,24 +63,24 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	protected Signature calledService_ExternalService;
 
 	/**
-	 * The cached value of the '{@link #getParameterUsage_ExternalCallAction() <em>Parameter Usage External Call Action</em>}' containment reference list.
+	 * The cached value of the '{@link #getInputParameterUsages_ExternalCallAction() <em>Input Parameter Usages External Call Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameterUsage_ExternalCallAction()
+	 * @see #getInputParameterUsages_ExternalCallAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> parameterUsage_ExternalCallAction;
+	protected EList<VariableUsage> inputParameterUsages_ExternalCallAction;
 
 	/**
-	 * The cached value of the '{@link #getOutputVariableUsage_ExternalCallAction() <em>Output Variable Usage External Call Action</em>}' containment reference list.
+	 * The cached value of the '{@link #getOutputVariableUsages_ExternalCallAction() <em>Output Variable Usages External Call Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputVariableUsage_ExternalCallAction()
+	 * @see #getOutputVariableUsages_ExternalCallAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> outputVariableUsage_ExternalCallAction;
+	protected EList<VariableUsage> outputVariableUsages_ExternalCallAction;
 
 	/**
 	 * The cached value of the '{@link #getRole_ExternalService() <em>Role External Service</em>}' reference.
@@ -154,11 +154,11 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getParameterUsage_ExternalCallAction() {
-		if (parameterUsage_ExternalCallAction == null) {
-			parameterUsage_ExternalCallAction = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
+	public EList<VariableUsage> getInputParameterUsages_ExternalCallAction() {
+		if (inputParameterUsages_ExternalCallAction == null) {
+			inputParameterUsages_ExternalCallAction = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION);
 		}
-		return parameterUsage_ExternalCallAction;
+		return inputParameterUsages_ExternalCallAction;
 	}
 
 	/**
@@ -166,11 +166,11 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getOutputVariableUsage_ExternalCallAction() {
-		if (outputVariableUsage_ExternalCallAction == null) {
-			outputVariableUsage_ExternalCallAction = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION);
+	public EList<VariableUsage> getOutputVariableUsages_ExternalCallAction() {
+		if (outputVariableUsages_ExternalCallAction == null) {
+			outputVariableUsages_ExternalCallAction = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION);
 		}
-		return outputVariableUsage_ExternalCallAction;
+		return outputVariableUsages_ExternalCallAction;
 	}
 
 	/**
@@ -219,10 +219,10 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
-				return ((InternalEList<?>)getParameterUsage_ExternalCallAction()).basicRemove(otherEnd, msgs);
-			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION:
-				return ((InternalEList<?>)getOutputVariableUsage_ExternalCallAction()).basicRemove(otherEnd, msgs);
+			case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
+				return ((InternalEList<?>)getInputParameterUsages_ExternalCallAction()).basicRemove(otherEnd, msgs);
+			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
+				return ((InternalEList<?>)getOutputVariableUsages_ExternalCallAction()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -238,10 +238,10 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
 				if (resolve) return getCalledService_ExternalService();
 				return basicGetCalledService_ExternalService();
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
-				return getParameterUsage_ExternalCallAction();
-			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION:
-				return getOutputVariableUsage_ExternalCallAction();
+			case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
+				return getInputParameterUsages_ExternalCallAction();
+			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
+				return getOutputVariableUsages_ExternalCallAction();
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
 				if (resolve) return getRole_ExternalService();
 				return basicGetRole_ExternalService();
@@ -261,13 +261,13 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
 				setCalledService_ExternalService((Signature)newValue);
 				return;
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
-				getParameterUsage_ExternalCallAction().clear();
-				getParameterUsage_ExternalCallAction().addAll((Collection<? extends VariableUsage>)newValue);
+			case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
+				getInputParameterUsages_ExternalCallAction().clear();
+				getInputParameterUsages_ExternalCallAction().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
-			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION:
-				getOutputVariableUsage_ExternalCallAction().clear();
-				getOutputVariableUsage_ExternalCallAction().addAll((Collection<? extends VariableUsage>)newValue);
+			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
+				getOutputVariableUsages_ExternalCallAction().clear();
+				getOutputVariableUsages_ExternalCallAction().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
 				setRole_ExternalService((Role)newValue);
@@ -287,11 +287,11 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
 				setCalledService_ExternalService((Signature)null);
 				return;
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
-				getParameterUsage_ExternalCallAction().clear();
+			case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
+				getInputParameterUsages_ExternalCallAction().clear();
 				return;
-			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION:
-				getOutputVariableUsage_ExternalCallAction().clear();
+			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
+				getOutputVariableUsages_ExternalCallAction().clear();
 				return;
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
 				setRole_ExternalService((Role)null);
@@ -310,10 +310,10 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 		switch (featureID) {
 			case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
 				return calledService_ExternalService != null;
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
-				return parameterUsage_ExternalCallAction != null && !parameterUsage_ExternalCallAction.isEmpty();
-			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION:
-				return outputVariableUsage_ExternalCallAction != null && !outputVariableUsage_ExternalCallAction.isEmpty();
+			case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
+				return inputParameterUsages_ExternalCallAction != null && !inputParameterUsages_ExternalCallAction.isEmpty();
+			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
+				return outputVariableUsages_ExternalCallAction != null && !outputVariableUsages_ExternalCallAction.isEmpty();
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
 				return role_ExternalService != null;
 		}

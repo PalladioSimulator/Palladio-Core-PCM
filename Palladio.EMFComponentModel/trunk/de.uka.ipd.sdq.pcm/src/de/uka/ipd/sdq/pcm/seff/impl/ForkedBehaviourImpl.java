@@ -6,8 +6,9 @@
 package de.uka.ipd.sdq.pcm.seff.impl;
 
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
-import de.uka.ipd.sdq.pcm.seff.NumberOfReplicas;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
+import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -46,7 +47,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected NumberOfReplicas numberOfReplicas_ForkedBehaviour;
+	protected PCMRandomVariable numberOfReplicas_ForkedBehaviour;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,7 +73,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NumberOfReplicas getNumberOfReplicas_ForkedBehaviour() {
+	public PCMRandomVariable getNumberOfReplicas_ForkedBehaviour() {
 		return numberOfReplicas_ForkedBehaviour;
 	}
 
@@ -81,8 +82,8 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNumberOfReplicas_ForkedBehaviour(NumberOfReplicas newNumberOfReplicas_ForkedBehaviour, NotificationChain msgs) {
-		NumberOfReplicas oldNumberOfReplicas_ForkedBehaviour = numberOfReplicas_ForkedBehaviour;
+	public NotificationChain basicSetNumberOfReplicas_ForkedBehaviour(PCMRandomVariable newNumberOfReplicas_ForkedBehaviour, NotificationChain msgs) {
+		PCMRandomVariable oldNumberOfReplicas_ForkedBehaviour = numberOfReplicas_ForkedBehaviour;
 		numberOfReplicas_ForkedBehaviour = newNumberOfReplicas_ForkedBehaviour;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SeffPackage.FORKED_BEHAVIOUR__NUMBER_OF_REPLICAS_FORKED_BEHAVIOUR, oldNumberOfReplicas_ForkedBehaviour, newNumberOfReplicas_ForkedBehaviour);
@@ -96,7 +97,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumberOfReplicas_ForkedBehaviour(NumberOfReplicas newNumberOfReplicas_ForkedBehaviour) {
+	public void setNumberOfReplicas_ForkedBehaviour(PCMRandomVariable newNumberOfReplicas_ForkedBehaviour) {
 		if (newNumberOfReplicas_ForkedBehaviour != numberOfReplicas_ForkedBehaviour) {
 			NotificationChain msgs = null;
 			if (numberOfReplicas_ForkedBehaviour != null)
@@ -147,7 +148,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SeffPackage.FORKED_BEHAVIOUR__NUMBER_OF_REPLICAS_FORKED_BEHAVIOUR:
-				setNumberOfReplicas_ForkedBehaviour((NumberOfReplicas)newValue);
+				setNumberOfReplicas_ForkedBehaviour((PCMRandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,7 +163,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case SeffPackage.FORKED_BEHAVIOUR__NUMBER_OF_REPLICAS_FORKED_BEHAVIOUR:
-				setNumberOfReplicas_ForkedBehaviour((NumberOfReplicas)null);
+				setNumberOfReplicas_ForkedBehaviour((PCMRandomVariable)null);
 				return;
 		}
 		super.eUnset(featureID);

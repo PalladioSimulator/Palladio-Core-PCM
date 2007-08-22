@@ -9,8 +9,6 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -265,31 +263,22 @@ public interface SeffPackage extends EPackage {
 	int PARAMETRIC_RESOURCE_DEMAND = 3;
 
 	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
 	 * The feature id for the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = 0;
+
+	/**
+	 * The feature id for the '<em><b>Specification Parameteric Resource Demand</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND = 1;
 
 	/**
 	 * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' container reference.
@@ -298,7 +287,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = 2;
 
 	/**
 	 * The number of structural features of the '<em>Parametric Resource Demand</em>' class.
@@ -307,7 +296,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 2;
+	int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
@@ -667,13 +656,13 @@ public interface SeffPackage extends EPackage {
 	int LOOP_ACTION__BODY_BEHAVIOUR_LOOP = ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP;
 
 	/**
-	 * The feature id for the '<em><b>Iterations Loop Action</b></em>' containment reference.
+	 * The feature id for the '<em><b>Iteration Count Loop Action</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION__ITERATIONS_LOOP_ACTION = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 0;
+	int LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Loop Action</em>' class.
@@ -685,43 +674,6 @@ public interface SeffPackage extends EPackage {
 	int LOOP_ACTION_FEATURE_COUNT = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl <em>Iteration Count</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getIterationCount()
-	 * @generated
-	 */
-	int ITERATION_COUNT = 10;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATION_COUNT__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATION_COUNT__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Iteration Count</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATION_COUNT_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -729,7 +681,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalAction()
 	 * @generated
 	 */
-	int INTERNAL_ACTION = 11;
+	int INTERNAL_ACTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -802,7 +754,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkAction()
 	 * @generated
 	 */
-	int FORK_ACTION = 12;
+	int FORK_ACTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -884,7 +836,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkedBehaviour()
 	 * @generated
 	 */
-	int FORKED_BEHAVIOUR = 13;
+	int FORKED_BEHAVIOUR = 12;
 
 	/**
 	 * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list.
@@ -914,43 +866,6 @@ public interface SeffPackage extends EPackage {
 	int FORKED_BEHAVIOUR_FEATURE_COUNT = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.NumberOfReplicasImpl <em>Number Of Replicas</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.NumberOfReplicasImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getNumberOfReplicas()
-	 * @generated
-	 */
-	int NUMBER_OF_REPLICAS = 14;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OF_REPLICAS__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OF_REPLICAS__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Number Of Replicas</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OF_REPLICAS_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl <em>Synchronisation Point</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -958,7 +873,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSynchronisationPoint()
 	 * @generated
 	 */
-	int SYNCHRONISATION_POINT = 15;
+	int SYNCHRONISATION_POINT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous Forked Behaviours Synchronisation Point</b></em>' containment reference list.
@@ -970,13 +885,13 @@ public interface SeffPackage extends EPackage {
 	int SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Output Variable Usage Synchronisation Point</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Output Parameter Usage Synchronisation Point</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCHRONISATION_POINT__OUTPUT_VARIABLE_USAGE_SYNCHRONISATION_POINT = 1;
+	int SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT = 1;
 
 	/**
 	 * The number of structural features of the '<em>Synchronisation Point</em>' class.
@@ -995,7 +910,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getExternalCallAction()
 	 * @generated
 	 */
-	int EXTERNAL_CALL_ACTION = 16;
+	int EXTERNAL_CALL_ACTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1043,22 +958,22 @@ public interface SeffPackage extends EPackage {
 	int EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE = ABSTRACT_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Usage External Call Action</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Parameter Usages External Call Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+	int EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Output Variable Usage External Call Action</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Output Variable Usages External Call Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+	int EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Role External Service</b></em>' reference.
@@ -1086,7 +1001,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
 	 * @generated
 	 */
-	int ABSTRACT_BRANCH_TRANSITION = 18;
+	int ABSTRACT_BRANCH_TRANSITION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1123,7 +1038,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getProbabilisticBranchTransition()
 	 * @generated
 	 */
-	int PROBABILISTIC_BRANCH_TRANSITION = 17;
+	int PROBABILISTIC_BRANCH_TRANSITION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1169,7 +1084,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchAction()
 	 * @generated
 	 */
-	int BRANCH_ACTION = 19;
+	int BRANCH_ACTION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1242,7 +1157,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAcquireAction()
 	 * @generated
 	 */
-	int ACQUIRE_ACTION = 20;
+	int ACQUIRE_ACTION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1308,43 +1223,6 @@ public interface SeffPackage extends EPackage {
 	int ACQUIRE_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchConditionImpl <em>Branch Condition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.BranchConditionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchCondition()
-	 * @generated
-	 */
-	int BRANCH_CONDITION = 21;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH_CONDITION__SPECIFICATION = StoexPackage.PCM_RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH_CONDITION__EXPRESSION = StoexPackage.PCM_RANDOM_VARIABLE__EXPRESSION;
-
-	/**
-	 * The number of structural features of the '<em>Branch Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH_CONDITION_FEATURE_COUNT = StoexPackage.PCM_RANDOM_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl <em>Collection Iterator Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1352,7 +1230,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCollectionIteratorAction()
 	 * @generated
 	 */
-	int COLLECTION_ITERATOR_ACTION = 22;
+	int COLLECTION_ITERATOR_ACTION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1434,7 +1312,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getGuardedBranchTransition()
 	 * @generated
 	 */
-	int GUARDED_BRANCH_TRANSITION = 23;
+	int GUARDED_BRANCH_TRANSITION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1455,13 +1333,13 @@ public interface SeffPackage extends EPackage {
 	int GUARDED_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION;
 
 	/**
-	 * The feature id for the '<em><b>Branch Condition Branch Transition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Branch Condition Guarded Branch Transition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 0;
+	int GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Guarded Branch Transition</em>' class.
@@ -1480,7 +1358,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSetVariableAction()
 	 * @generated
 	 */
-	int SET_VARIABLE_ACTION = 24;
+	int SET_VARIABLE_ACTION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1528,13 +1406,13 @@ public interface SeffPackage extends EPackage {
 	int SET_VARIABLE_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Variable Usage Set Variable Action</b></em>' containment reference.
+	 * The feature id for the '<em><b>Local Variable Usages Set Variable Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
+	int SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Set Variable Action</em>' class.
@@ -1553,7 +1431,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
 	 * @generated
 	 */
-	int SERVICE_EFFECT_SPECIFICATION = 25;
+	int SERVICE_EFFECT_SPECIFICATION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
@@ -1668,6 +1546,17 @@ public interface SeffPackage extends EPackage {
 	EReference getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getSpecification_ParametericResourceDemand <em>Specification Parameteric Resource Demand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Specification Parameteric Resource Demand</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getSpecification_ParametericResourceDemand()
+	 * @see #getParametricResourceDemand()
+	 * @generated
+	 */
+	EReference getParametricResourceDemand_Specification_ParametericResourceDemand();
+
+	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1751,15 +1640,15 @@ public interface SeffPackage extends EPackage {
 	EClass getLoopAction();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterationCount_LoopAction <em>Iteration Count Loop Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Iterations Loop Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction()
+	 * @return the meta object for the containment reference '<em>Iteration Count Loop Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.LoopAction#getIterationCount_LoopAction()
 	 * @see #getLoopAction()
 	 * @generated
 	 */
-	EReference getLoopAction_Iterations_LoopAction();
+	EReference getLoopAction_IterationCount_LoopAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction <em>Abstract Loop Action</em>}'.
@@ -1781,16 +1670,6 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAbstractLoopAction_BodyBehaviour_Loop();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.IterationCount <em>Iteration Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Iteration Count</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.IterationCount
-	 * @generated
-	 */
-	EClass getIterationCount();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.InternalAction <em>Internal Action</em>}'.
@@ -1867,16 +1746,6 @@ public interface SeffPackage extends EPackage {
 	EReference getForkedBehaviour_NumberOfReplicas_ForkedBehaviour();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.NumberOfReplicas <em>Number Of Replicas</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Number Of Replicas</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.NumberOfReplicas
-	 * @generated
-	 */
-	EClass getNumberOfReplicas();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint <em>Synchronisation Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1898,15 +1767,15 @@ public interface SeffPackage extends EPackage {
 	EReference getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputVariableUsage_SynchronisationPoint <em>Output Variable Usage Synchronisation Point</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint <em>Output Parameter Usage Synchronisation Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Output Variable Usage Synchronisation Point</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputVariableUsage_SynchronisationPoint()
+	 * @return the meta object for the containment reference list '<em>Output Parameter Usage Synchronisation Point</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint()
 	 * @see #getSynchronisationPoint()
 	 * @generated
 	 */
-	EReference getSynchronisationPoint_OutputVariableUsage_SynchronisationPoint();
+	EReference getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction <em>External Call Action</em>}'.
@@ -1930,26 +1799,26 @@ public interface SeffPackage extends EPackage {
 	EReference getExternalCallAction_CalledService_ExternalService();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getParameterUsage_ExternalCallAction <em>Parameter Usage External Call Action</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getInputParameterUsages_ExternalCallAction <em>Input Parameter Usages External Call Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameter Usage External Call Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getParameterUsage_ExternalCallAction()
+	 * @return the meta object for the containment reference list '<em>Input Parameter Usages External Call Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getInputParameterUsages_ExternalCallAction()
 	 * @see #getExternalCallAction()
 	 * @generated
 	 */
-	EReference getExternalCallAction_ParameterUsage_ExternalCallAction();
+	EReference getExternalCallAction_InputParameterUsages_ExternalCallAction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsage_ExternalCallAction <em>Output Variable Usage External Call Action</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsages_ExternalCallAction <em>Output Variable Usages External Call Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Output Variable Usage External Call Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsage_ExternalCallAction()
+	 * @return the meta object for the containment reference list '<em>Output Variable Usages External Call Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsages_ExternalCallAction()
 	 * @see #getExternalCallAction()
 	 * @generated
 	 */
-	EReference getExternalCallAction_OutputVariableUsage_ExternalCallAction();
+	EReference getExternalCallAction_OutputVariableUsages_ExternalCallAction();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}'.
@@ -2047,16 +1916,6 @@ public interface SeffPackage extends EPackage {
 	EReference getAcquireAction_Passiveresource_AcquireAction();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.BranchCondition <em>Branch Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Branch Condition</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchCondition
-	 * @generated
-	 */
-	EClass getBranchCondition();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction <em>Collection Iterator Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2088,15 +1947,15 @@ public interface SeffPackage extends EPackage {
 	EClass getGuardedBranchTransition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_BranchTransition <em>Branch Condition Branch Transition</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition <em>Branch Condition Guarded Branch Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Branch Condition Branch Transition</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_BranchTransition()
+	 * @return the meta object for the containment reference '<em>Branch Condition Guarded Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition()
 	 * @see #getGuardedBranchTransition()
 	 * @generated
 	 */
-	EReference getGuardedBranchTransition_BranchCondition_BranchTransition();
+	EReference getGuardedBranchTransition_BranchCondition_GuardedBranchTransition();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.SetVariableAction <em>Set Variable Action</em>}'.
@@ -2109,15 +1968,15 @@ public interface SeffPackage extends EPackage {
 	EClass getSetVariableAction();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.SetVariableAction#getVariableUsage_SetVariableAction <em>Variable Usage Set Variable Action</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction <em>Local Variable Usages Set Variable Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Variable Usage Set Variable Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.SetVariableAction#getVariableUsage_SetVariableAction()
+	 * @return the meta object for the containment reference list '<em>Local Variable Usages Set Variable Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction()
 	 * @see #getSetVariableAction()
 	 * @generated
 	 */
-	EReference getSetVariableAction_VariableUsage_SetVariableAction();
+	EReference getSetVariableAction_LocalVariableUsages_SetVariableAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification <em>Service Effect Specification</em>}'.
@@ -2246,6 +2105,14 @@ public interface SeffPackage extends EPackage {
 		EReference PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
 
 		/**
+		 * The meta object literal for the '<em><b>Specification Parameteric Resource Demand</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_Specification_ParametericResourceDemand();
+
+		/**
 		 * The meta object literal for the '<em><b>Action Parametric Resource Demand</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2320,12 +2187,12 @@ public interface SeffPackage extends EPackage {
 		EClass LOOP_ACTION = eINSTANCE.getLoopAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Iterations Loop Action</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Iteration Count Loop Action</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LOOP_ACTION__ITERATIONS_LOOP_ACTION = eINSTANCE.getLoopAction_Iterations_LoopAction();
+		EReference LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION = eINSTANCE.getLoopAction_IterationCount_LoopAction();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
@@ -2344,16 +2211,6 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP = eINSTANCE.getAbstractLoopAction_BodyBehaviour_Loop();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl <em>Iteration Count</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getIterationCount()
-		 * @generated
-		 */
-		EClass ITERATION_COUNT = eINSTANCE.getIterationCount();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.
@@ -2418,16 +2275,6 @@ public interface SeffPackage extends EPackage {
 		EReference FORKED_BEHAVIOUR__NUMBER_OF_REPLICAS_FORKED_BEHAVIOUR = eINSTANCE.getForkedBehaviour_NumberOfReplicas_ForkedBehaviour();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.NumberOfReplicasImpl <em>Number Of Replicas</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.NumberOfReplicasImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getNumberOfReplicas()
-		 * @generated
-		 */
-		EClass NUMBER_OF_REPLICAS = eINSTANCE.getNumberOfReplicas();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl <em>Synchronisation Point</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2446,12 +2293,12 @@ public interface SeffPackage extends EPackage {
 		EReference SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Variable Usage Synchronisation Point</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Output Parameter Usage Synchronisation Point</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SYNCHRONISATION_POINT__OUTPUT_VARIABLE_USAGE_SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint_OutputVariableUsage_SynchronisationPoint();
+		EReference SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl <em>External Call Action</em>}' class.
@@ -2472,20 +2319,20 @@ public interface SeffPackage extends EPackage {
 		EReference EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE = eINSTANCE.getExternalCallAction_CalledService_ExternalService();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Usage External Call Action</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Input Parameter Usages External Call Action</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION = eINSTANCE.getExternalCallAction_ParameterUsage_ExternalCallAction();
+		EReference EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION = eINSTANCE.getExternalCallAction_InputParameterUsages_ExternalCallAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Variable Usage External Call Action</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Output Variable Usages External Call Action</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION = eINSTANCE.getExternalCallAction_OutputVariableUsage_ExternalCallAction();
+		EReference EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION = eINSTANCE.getExternalCallAction_OutputVariableUsages_ExternalCallAction();
 
 		/**
 		 * The meta object literal for the '<em><b>Role External Service</b></em>' reference feature.
@@ -2568,16 +2415,6 @@ public interface SeffPackage extends EPackage {
 		EReference ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION = eINSTANCE.getAcquireAction_Passiveresource_AcquireAction();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchConditionImpl <em>Branch Condition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.BranchConditionImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchCondition()
-		 * @generated
-		 */
-		EClass BRANCH_CONDITION = eINSTANCE.getBranchCondition();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl <em>Collection Iterator Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2606,12 +2443,12 @@ public interface SeffPackage extends EPackage {
 		EClass GUARDED_BRANCH_TRANSITION = eINSTANCE.getGuardedBranchTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>Branch Condition Branch Transition</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Branch Condition Guarded Branch Transition</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION = eINSTANCE.getGuardedBranchTransition_BranchCondition_BranchTransition();
+		EReference GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION = eINSTANCE.getGuardedBranchTransition_BranchCondition_GuardedBranchTransition();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl <em>Set Variable Action</em>}' class.
@@ -2624,12 +2461,12 @@ public interface SeffPackage extends EPackage {
 		EClass SET_VARIABLE_ACTION = eINSTANCE.getSetVariableAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable Usage Set Variable Action</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Local Variable Usages Set Variable Action</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION = eINSTANCE.getSetVariableAction_VariableUsage_SetVariableAction();
+		EReference SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION = eINSTANCE.getSetVariableAction_LocalVariableUsages_SetVariableAction();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.
