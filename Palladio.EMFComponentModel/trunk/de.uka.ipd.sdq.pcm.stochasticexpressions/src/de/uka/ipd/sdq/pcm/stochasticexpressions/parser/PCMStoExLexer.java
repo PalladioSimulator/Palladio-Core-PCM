@@ -1,7 +1,7 @@
-package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
+// $ANTLR 3.0 C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-08-13 17:26:14
 
-// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-08-09 17:44:00
-
+	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
+	
 import org.antlr.runtime.*;
 import java.util.Stack;
 import java.util.List;
@@ -65,14 +65,14 @@ public class PCMStoExLexer extends Lexer {
     public PCMStoExLexer(CharStream input) {
         super(input);
     }
-    public String getGrammarFileName() { return "C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g"; }
+    public String getGrammarFileName() { return "C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g"; }
 
     // $ANTLR start T53
     public final void mT53() throws RecognitionException {
         try {
             int _type = T53;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:3:5: ( '?' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:3:7: '?'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:3:5: ( '?' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:3:7: '?'
             {
             match('?'); 
 
@@ -89,8 +89,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mT54() throws RecognitionException {
         try {
             int _type = T54;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:4:5: ( ':' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:4:7: ':'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:4:5: ( ':' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:4:7: ':'
             {
             match(':'); 
 
@@ -107,8 +107,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mOR() throws RecognitionException {
         try {
             int _type = OR;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:375:2: ( 'OR' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:375:4: 'OR'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:375:2: ( 'OR' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:375:4: 'OR'
             {
             match("OR"); 
 
@@ -126,8 +126,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mXOR() throws RecognitionException {
         try {
             int _type = XOR;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:379:2: ( 'XOR' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:379:4: 'XOR'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:379:2: ( 'XOR' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:379:4: 'XOR'
             {
             match("XOR"); 
 
@@ -145,8 +145,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mAND() throws RecognitionException {
         try {
             int _type = AND;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:383:2: ( 'AND' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:383:4: 'AND'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:383:2: ( 'AND' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:383:4: 'AND'
             {
             match("AND"); 
 
@@ -164,8 +164,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNOT() throws RecognitionException {
         try {
             int _type = NOT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:387:2: ( 'NOT' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:387:4: 'NOT'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:387:2: ( 'NOT' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:387:4: 'NOT'
             {
             match("NOT"); 
 
@@ -183,8 +183,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mINTPMF() throws RecognitionException {
         try {
             int _type = INTPMF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:391:2: ( 'IntPMF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:391:4: 'IntPMF'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:391:2: ( 'IntPMF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:391:4: 'IntPMF'
             {
             match("IntPMF"); 
 
@@ -202,8 +202,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDOUBLEPMF() throws RecognitionException {
         try {
             int _type = DOUBLEPMF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:395:2: ( 'DoublePMF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:395:4: 'DoublePMF'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:395:2: ( 'DoublePMF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:395:4: 'DoublePMF'
             {
             match("DoublePMF"); 
 
@@ -221,8 +221,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mENUMPMF() throws RecognitionException {
         try {
             int _type = ENUMPMF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:399:2: ( 'EnumPMF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:399:4: 'EnumPMF'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:399:2: ( 'EnumPMF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:399:4: 'EnumPMF'
             {
             match("EnumPMF"); 
 
@@ -240,8 +240,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDOUBLEPDF() throws RecognitionException {
         try {
             int _type = DOUBLEPDF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:403:2: ( 'DoublePDF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:403:4: 'DoublePDF'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:403:2: ( 'DoublePDF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:403:4: 'DoublePDF'
             {
             match("DoublePDF"); 
 
@@ -259,8 +259,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBOOLPMF() throws RecognitionException {
         try {
             int _type = BOOLPMF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:407:2: ( 'BoolPMF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:407:4: 'BoolPMF'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:407:2: ( 'BoolPMF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:407:4: 'BoolPMF'
             {
             match("BoolPMF"); 
 
@@ -278,8 +278,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mUNIT() throws RecognitionException {
         try {
             int _type = UNIT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:411:2: ( 'unit' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:411:4: 'unit'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:411:2: ( 'unit' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:411:4: 'unit'
             {
             match("unit"); 
 
@@ -297,8 +297,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBOOL() throws RecognitionException {
         try {
             int _type = BOOL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:415:2: ( '\"bool\"' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:415:4: '\"bool\"'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:415:2: ( '\"bool\"' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:415:4: '\"bool\"'
             {
             match("\"bool\""); 
 
@@ -316,8 +316,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mFALSE() throws RecognitionException {
         try {
             int _type = FALSE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:419:2: ( 'false' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:419:4: 'false'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:419:2: ( 'false' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:419:4: 'false'
             {
             match("false"); 
 
@@ -335,8 +335,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mTRUE() throws RecognitionException {
         try {
             int _type = TRUE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:423:2: ( 'true' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:423:4: 'true'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:423:2: ( 'true' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:423:4: 'true'
             {
             match("true"); 
 
@@ -354,8 +354,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBYTESIZE() throws RecognitionException {
         try {
             int _type = BYTESIZE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:427:2: ( 'BYTESIZE' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:427:4: 'BYTESIZE'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:427:2: ( 'BYTESIZE' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:427:4: 'BYTESIZE'
             {
             match("BYTESIZE"); 
 
@@ -373,8 +373,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSTRUCTURE() throws RecognitionException {
         try {
             int _type = STRUCTURE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:431:2: ( 'STRUCTURE' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:431:4: 'STRUCTURE'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:431:2: ( 'STRUCTURE' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:431:4: 'STRUCTURE'
             {
             match("STRUCTURE"); 
 
@@ -392,8 +392,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNUMBER_OF_ELEMENTS() throws RecognitionException {
         try {
             int _type = NUMBER_OF_ELEMENTS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:435:2: ( 'NUMBER_OF_ELEMENTS' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:435:4: 'NUMBER_OF_ELEMENTS'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:435:2: ( 'NUMBER_OF_ELEMENTS' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:435:4: 'NUMBER_OF_ELEMENTS'
             {
             match("NUMBER_OF_ELEMENTS"); 
 
@@ -411,8 +411,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mTYPE() throws RecognitionException {
         try {
             int _type = TYPE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:439:2: ( 'TYPE' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:439:4: 'TYPE'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:439:2: ( 'TYPE' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:439:4: 'TYPE'
             {
             match("TYPE"); 
 
@@ -430,8 +430,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mVALUE() throws RecognitionException {
         try {
             int _type = VALUE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:443:2: ( 'VALUE' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:443:4: 'VALUE'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:443:2: ( 'VALUE' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:443:4: 'VALUE'
             {
             match("VALUE"); 
 
@@ -449,8 +449,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mINNER() throws RecognitionException {
         try {
             int _type = INNER;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:447:2: ( 'INNER' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:447:4: 'INNER'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:447:2: ( 'INNER' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:447:4: 'INNER'
             {
             match("INNER"); 
 
@@ -468,8 +468,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mPLUS() throws RecognitionException {
         try {
             int _type = PLUS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:7: ( '+' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:9: '+'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:7: ( '+' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:9: '+'
             {
             match('+'); 
 
@@ -486,8 +486,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMINUS() throws RecognitionException {
         try {
             int _type = MINUS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:451:7: ( '-' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:451:9: '-'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:451:7: ( '-' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:451:9: '-'
             {
             match('-'); 
 
@@ -504,8 +504,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMUL() throws RecognitionException {
         try {
             int _type = MUL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:452:7: ( '*' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:452:9: '*'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:452:7: ( '*' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:452:9: '*'
             {
             match('*'); 
 
@@ -522,8 +522,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDIV() throws RecognitionException {
         try {
             int _type = DIV;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:453:7: ( '/' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:453:9: '/'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:453:7: ( '/' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:453:9: '/'
             {
             match('/'); 
 
@@ -540,8 +540,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMOD() throws RecognitionException {
         try {
             int _type = MOD;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:7: ( '%' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:9: '%'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:7: ( '%' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:9: '%'
             {
             match('%'); 
 
@@ -558,8 +558,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mPOW() throws RecognitionException {
         try {
             int _type = POW;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:455:7: ( '^' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:455:9: '^'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:455:7: ( '^' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:455:9: '^'
             {
             match('^'); 
 
@@ -576,8 +576,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLPAREN() throws RecognitionException {
         try {
             int _type = LPAREN;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:456:7: ( '(' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:456:9: '('
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:456:7: ( '(' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:456:9: '('
             {
             match('('); 
 
@@ -594,8 +594,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mRPAREN() throws RecognitionException {
         try {
             int _type = RPAREN;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:457:7: ( ')' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:457:9: ')'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:457:7: ( ')' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:457:9: ')'
             {
             match(')'); 
 
@@ -612,8 +612,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSEMI() throws RecognitionException {
         try {
             int _type = SEMI;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:7: ( ';' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:9: ';'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:7: ( ';' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:9: ';'
             {
             match(';'); 
 
@@ -630,8 +630,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mCOLON() throws RecognitionException {
         try {
             int _type = COLON;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:459:8: ( ',' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:459:10: ','
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:459:8: ( ',' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:459:10: ','
             {
             match(','); 
 
@@ -648,8 +648,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDEFINITION() throws RecognitionException {
         try {
             int _type = DEFINITION;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:460:12: ( '=' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:460:14: '='
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:460:12: ( '=' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:460:14: '='
             {
             match('='); 
 
@@ -666,8 +666,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mORDERED_DEF() throws RecognitionException {
         try {
             int _type = ORDERED_DEF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:2: ( 'ordered' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:4: 'ordered'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:2: ( 'ordered' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:4: 'ordered'
             {
             match("ordered"); 
 
@@ -685,8 +685,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mEQUAL() throws RecognitionException {
         try {
             int _type = EQUAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:463:7: ( '==' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:463:9: '=='
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:463:7: ( '==' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:463:9: '=='
             {
             match("=="); 
 
@@ -704,8 +704,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSQUARE_PAREN_L() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_L;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:464:16: ( '[' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:464:18: '['
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:464:16: ( '[' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:464:18: '['
             {
             match('['); 
 
@@ -722,8 +722,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSQUARE_PAREN_R() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_R;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:465:16: ( ']' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:465:18: ']'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:465:16: ( ']' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:465:18: ']'
             {
             match(']'); 
 
@@ -739,8 +739,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start DIGIT
     public final void mDIGIT() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:16: ( '0' .. '9' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:18: '0' .. '9'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:16: ( '0' .. '9' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:18: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -756,10 +756,10 @@ public class PCMStoExLexer extends Lexer {
     public final void mNUMBER() throws RecognitionException {
         try {
             int _type = NUMBER;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:8: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:8: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
             {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:10: ( DIGIT )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:10: ( DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -773,7 +773,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:11: DIGIT
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:11: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -789,7 +789,7 @@ public class PCMStoExLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:19: ( '.' ( DIGIT )+ )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:19: ( '.' ( DIGIT )+ )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -798,10 +798,10 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:20: '.' ( DIGIT )+
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:20: '.' ( DIGIT )+
                     {
                     match('.'); 
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:24: ( DIGIT )+
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:24: ( DIGIT )+
                     int cnt2=0;
                     loop2:
                     do {
@@ -815,7 +815,7 @@ public class PCMStoExLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:25: DIGIT
+                    	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:25: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -837,7 +837,7 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:35: ( Exponent )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:35: ( Exponent )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -846,7 +846,7 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:35: Exponent
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:35: Exponent
                     {
                     mExponent(); 
 
@@ -868,8 +868,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start Exponent
     public final void mExponent() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -881,7 +881,7 @@ public class PCMStoExLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:22: ( '+' | '-' )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:22: ( '+' | '-' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -890,7 +890,7 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -908,7 +908,7 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:33: ( '0' .. '9' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:33: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -922,7 +922,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:34: '0' .. '9'
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -950,8 +950,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start ALPHA
     public final void mALPHA() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:470:16: ( 'a' .. 'z' | 'A' .. 'Z' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:470:16: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -976,8 +976,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNOTEQUAL() throws RecognitionException {
         try {
             int _type = NOTEQUAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:471:10: ( '<>' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:471:12: '<>'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:471:10: ( '<>' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:471:12: '<>'
             {
             match("<>"); 
 
@@ -995,8 +995,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mGREATER() throws RecognitionException {
         try {
             int _type = GREATER;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:472:9: ( '>' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:472:11: '>'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:472:9: ( '>' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:472:11: '>'
             {
             match('>'); 
 
@@ -1013,8 +1013,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLESS() throws RecognitionException {
         try {
             int _type = LESS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:473:6: ( '<' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:473:8: '<'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:473:6: ( '<' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:473:8: '<'
             {
             match('<'); 
 
@@ -1031,8 +1031,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mGREATEREQUAL() throws RecognitionException {
         try {
             int _type = GREATEREQUAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:14: ( '>=' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:16: '>='
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:14: ( '>=' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:16: '>='
             {
             match(">="); 
 
@@ -1050,8 +1050,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLESSEQUAL() throws RecognitionException {
         try {
             int _type = LESSEQUAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:475:11: ( '<=' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:475:13: '<='
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:475:11: ( '<=' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:475:13: '<='
             {
             match("<="); 
 
@@ -1069,11 +1069,11 @@ public class PCMStoExLexer extends Lexer {
     public final void mSTRING_LITERAL() throws RecognitionException {
         try {
             int _type = STRING_LITERAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
             {
             match('\"'); 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:23: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:23: ( ALPHA | '_' )+
             int cnt7=0;
             loop7:
             do {
@@ -1087,7 +1087,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1127,8 +1127,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDOT() throws RecognitionException {
         try {
             int _type = DOT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:477:4: ( '.' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:477:6: '.'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:477:4: ( '.' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:477:6: '.'
             {
             match('.'); 
 
@@ -1145,10 +1145,10 @@ public class PCMStoExLexer extends Lexer {
     public final void mID() throws RecognitionException {
         try {
             int _type = ID;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:3: ( ( ALPHA | '_' )+ )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:4: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:3: ( ( ALPHA | '_' )+ )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:4: ( ALPHA | '_' )+
             {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:4: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:4: ( ALPHA | '_' )+
             int cnt8=0;
             loop8:
             do {
@@ -1162,7 +1162,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1201,8 +1201,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mWS() throws RecognitionException {
         try {
             int _type = WS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -1229,12 +1229,12 @@ public class PCMStoExLexer extends Lexer {
     public final void mCOMMENT() throws RecognitionException {
         try {
             int _type = COMMENT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:14: ( options {greedy=false; } : . )*
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:14: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -1259,7 +1259,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:42: .
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:42: .
             	    {
             	    matchAny(); 
 
@@ -1288,12 +1288,12 @@ public class PCMStoExLexer extends Lexer {
     public final void mLINE_COMMENT() throws RecognitionException {
         try {
             int _type = LINE_COMMENT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
             {
             match("//"); 
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:12: (~ ( '\\n' | '\\r' ) )*
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:12: (~ ( '\\n' | '\\r' ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1306,7 +1306,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:12: ~ ( '\\n' | '\\r' )
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1327,7 +1327,7 @@ public class PCMStoExLexer extends Lexer {
                 }
             } while (true);
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:26: ( '\\r' )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:26: ( '\\r' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1336,7 +1336,7 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:26: '\\r'
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:26: '\\r'
                     {
                     match('\r'); 
 
@@ -1345,7 +1345,7 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:32: ( '\\n' | EOF )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:32: ( '\\n' | EOF )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1356,14 +1356,14 @@ public class PCMStoExLexer extends Lexer {
                 alt12=2;}
             switch (alt12) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:33: '\\n'
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:33: '\\n'
                     {
                     match('\n'); 
 
                     }
                     break;
                 case 2 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:38: EOF
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:38: EOF
                     {
                     match(EOF); 
 
@@ -1384,7 +1384,7 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR end LINE_COMMENT
 
     public void mTokens() throws RecognitionException {
-        // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:8: ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
+        // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:8: ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
         int alt13=48;
         switch ( input.LA(1) ) {
         case '?':
@@ -2410,336 +2410,336 @@ public class PCMStoExLexer extends Lexer {
 
         switch (alt13) {
             case 1 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:10: T53
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:10: T53
                 {
                 mT53(); 
 
                 }
                 break;
             case 2 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:14: T54
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:14: T54
                 {
                 mT54(); 
 
                 }
                 break;
             case 3 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:18: OR
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:18: OR
                 {
                 mOR(); 
 
                 }
                 break;
             case 4 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:21: XOR
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:21: XOR
                 {
                 mXOR(); 
 
                 }
                 break;
             case 5 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:25: AND
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:25: AND
                 {
                 mAND(); 
 
                 }
                 break;
             case 6 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:29: NOT
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:29: NOT
                 {
                 mNOT(); 
 
                 }
                 break;
             case 7 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:33: INTPMF
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:33: INTPMF
                 {
                 mINTPMF(); 
 
                 }
                 break;
             case 8 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:40: DOUBLEPMF
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:40: DOUBLEPMF
                 {
                 mDOUBLEPMF(); 
 
                 }
                 break;
             case 9 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:50: ENUMPMF
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:50: ENUMPMF
                 {
                 mENUMPMF(); 
 
                 }
                 break;
             case 10 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:58: DOUBLEPDF
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:58: DOUBLEPDF
                 {
                 mDOUBLEPDF(); 
 
                 }
                 break;
             case 11 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:68: BOOLPMF
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:68: BOOLPMF
                 {
                 mBOOLPMF(); 
 
                 }
                 break;
             case 12 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:76: UNIT
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:76: UNIT
                 {
                 mUNIT(); 
 
                 }
                 break;
             case 13 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:81: BOOL
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:81: BOOL
                 {
                 mBOOL(); 
 
                 }
                 break;
             case 14 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:86: FALSE
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:86: FALSE
                 {
                 mFALSE(); 
 
                 }
                 break;
             case 15 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:92: TRUE
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:92: TRUE
                 {
                 mTRUE(); 
 
                 }
                 break;
             case 16 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:97: BYTESIZE
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:97: BYTESIZE
                 {
                 mBYTESIZE(); 
 
                 }
                 break;
             case 17 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:106: STRUCTURE
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:106: STRUCTURE
                 {
                 mSTRUCTURE(); 
 
                 }
                 break;
             case 18 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:116: NUMBER_OF_ELEMENTS
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:116: NUMBER_OF_ELEMENTS
                 {
                 mNUMBER_OF_ELEMENTS(); 
 
                 }
                 break;
             case 19 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:135: TYPE
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:135: TYPE
                 {
                 mTYPE(); 
 
                 }
                 break;
             case 20 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:140: VALUE
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:140: VALUE
                 {
                 mVALUE(); 
 
                 }
                 break;
             case 21 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:146: INNER
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:146: INNER
                 {
                 mINNER(); 
 
                 }
                 break;
             case 22 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:152: PLUS
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:152: PLUS
                 {
                 mPLUS(); 
 
                 }
                 break;
             case 23 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:157: MINUS
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:157: MINUS
                 {
                 mMINUS(); 
 
                 }
                 break;
             case 24 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:163: MUL
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:163: MUL
                 {
                 mMUL(); 
 
                 }
                 break;
             case 25 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:167: DIV
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:167: DIV
                 {
                 mDIV(); 
 
                 }
                 break;
             case 26 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:171: MOD
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:171: MOD
                 {
                 mMOD(); 
 
                 }
                 break;
             case 27 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:175: POW
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:175: POW
                 {
                 mPOW(); 
 
                 }
                 break;
             case 28 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:179: LPAREN
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:179: LPAREN
                 {
                 mLPAREN(); 
 
                 }
                 break;
             case 29 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:186: RPAREN
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:186: RPAREN
                 {
                 mRPAREN(); 
 
                 }
                 break;
             case 30 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:193: SEMI
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:193: SEMI
                 {
                 mSEMI(); 
 
                 }
                 break;
             case 31 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:198: COLON
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:198: COLON
                 {
                 mCOLON(); 
 
                 }
                 break;
             case 32 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:204: DEFINITION
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:204: DEFINITION
                 {
                 mDEFINITION(); 
 
                 }
                 break;
             case 33 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:215: ORDERED_DEF
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:215: ORDERED_DEF
                 {
                 mORDERED_DEF(); 
 
                 }
                 break;
             case 34 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:227: EQUAL
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:227: EQUAL
                 {
                 mEQUAL(); 
 
                 }
                 break;
             case 35 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:233: SQUARE_PAREN_L
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:233: SQUARE_PAREN_L
                 {
                 mSQUARE_PAREN_L(); 
 
                 }
                 break;
             case 36 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:248: SQUARE_PAREN_R
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:248: SQUARE_PAREN_R
                 {
                 mSQUARE_PAREN_R(); 
 
                 }
                 break;
             case 37 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:263: NUMBER
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:263: NUMBER
                 {
                 mNUMBER(); 
 
                 }
                 break;
             case 38 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:270: NOTEQUAL
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:270: NOTEQUAL
                 {
                 mNOTEQUAL(); 
 
                 }
                 break;
             case 39 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:279: GREATER
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:279: GREATER
                 {
                 mGREATER(); 
 
                 }
                 break;
             case 40 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:287: LESS
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:287: LESS
                 {
                 mLESS(); 
 
                 }
                 break;
             case 41 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:292: GREATEREQUAL
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:292: GREATEREQUAL
                 {
                 mGREATEREQUAL(); 
 
                 }
                 break;
             case 42 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:305: LESSEQUAL
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:305: LESSEQUAL
                 {
                 mLESSEQUAL(); 
 
                 }
                 break;
             case 43 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:315: STRING_LITERAL
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:315: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
             case 44 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:330: DOT
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:330: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
             case 45 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:334: ID
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:334: ID
                 {
                 mID(); 
 
                 }
                 break;
             case 46 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:337: WS
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:337: WS
                 {
                 mWS(); 
 
                 }
                 break;
             case 47 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:340: COMMENT
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:340: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
             case 48 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:348: LINE_COMMENT
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:348: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 
