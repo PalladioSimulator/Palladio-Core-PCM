@@ -96,16 +96,6 @@
         queryText="true"/>
   </nodeTraces>
   <childNodeTraces
-      visualID="3001"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ExternalCallAction') and _containmentMF_.name = 'parameterUsage_ExternalCallAction')">
-    <nodeLabelTraces
-        visualID="5001"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7002"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
       visualID="3002"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableCharacterisation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and _containmentMF_.name = 'variableCharacterisation_VariableUsage')"/>
   <childNodeTraces
@@ -199,16 +189,6 @@
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
-      visualID="3015"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'SetVariableAction') and _containmentMF_.name = 'variableUsage_SetVariableAction')">
-    <nodeLabelTraces
-        visualID="5017"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7017"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
       visualID="3016"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableCharacterisation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and _containmentMF_.name = 'variableCharacterisation_VariableUsage')"/>
   <childNodeTraces
@@ -230,16 +210,6 @@
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ReleaseAction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ResourceDemandingBehaviour') and _containmentMF_.name = 'steps_Behaviour')">
     <nodeLabelTraces
         visualID="5020"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
-      visualID="3022"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ExternalCallAction') and _containmentMF_.name = 'outputVariableUsage_ExternalCallAction')">
-    <nodeLabelTraces
-        visualID="5025"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7022"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
@@ -277,6 +247,36 @@
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ForkedBehaviour') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ForkAction') and _containmentMF_.name = 'asynchronousForkedBehaviours_ForkAction')">
     <compartmentTraces
         visualID="7026"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3028"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ExternalCallAction') and _containmentMF_.name = 'inputParameterUsages_ExternalCallAction')">
+    <nodeLabelTraces
+        visualID="5030"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7027"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3029"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ExternalCallAction') and _containmentMF_.name = 'outputVariableUsages_ExternalCallAction')">
+    <nodeLabelTraces
+        visualID="5031"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7028"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3030"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'SetVariableAction') and _containmentMF_.name = 'localVariableUsages_SetVariableAction')">
+    <nodeLabelTraces
+        visualID="5032"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7029"
         queryText="true"/>
   </childNodeTraces>
   <linkTraces

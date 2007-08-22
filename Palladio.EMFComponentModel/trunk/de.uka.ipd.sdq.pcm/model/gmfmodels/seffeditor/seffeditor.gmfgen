@@ -29,7 +29,7 @@
     <domainDiagramElement
         href="../../pcm.genmodel#//pcm/seff/ResourceDemandingSEFF"/>
     <childNodes
-        visualID="3001"
+        visualID="3028"
         editPartClassName="VariableUsageEditPart"
         itemSemanticEditPolicyClassName="VariableUsageItemSemanticEditPolicy"
         notationViewFactoryClassName="VariableUsageViewFactory"
@@ -57,15 +57,15 @@
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableUsage"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/inputParameterUsages_ExternalCallAction"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/inputParameterUsages_ExternalCallAction"/>
       </modelFacet>
       <labels
-          visualID="5001"
-          editPartClassName="VariableUsageReferenceLabelEditPart"
-          itemSemanticEditPolicyClassName="VariableUsageReferenceLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="VariableUsageReferenceLabelViewFactory"
+          visualID="5030"
+          editPartClassName="WrapLabelEditPart"
+          itemSemanticEditPolicyClassName="WrapLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="WrapLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -117,12 +117,10 @@
           editPattern="">
         <metaFeatures
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
-        <metaFeatures
-            href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
-        visualID="3022"
+        visualID="3029"
         editPartClassName="VariableUsage2EditPart"
         itemSemanticEditPolicyClassName="VariableUsage2ItemSemanticEditPolicy"
         notationViewFactoryClassName="VariableUsage2ViewFactory"
@@ -135,8 +133,7 @@
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.0/@elementType"
-          editHelperAdviceClassName="VariableUsageEditHelperAdvice"/>
+          metamodelType="//@diagram/@childNodes.0/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ParametricParameterUsageFigure"
@@ -151,15 +148,15 @@
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableUsage"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/outputVariableUsage_ExternalCallAction"/>
+            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/outputVariableUsages_ExternalCallAction"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/outputVariableUsage_ExternalCallAction"/>
+            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/outputVariableUsages_ExternalCallAction"/>
       </modelFacet>
       <labels
-          visualID="5025"
-          editPartClassName="VariableUsageReferenceLabel2EditPart"
-          itemSemanticEditPolicyClassName="VariableUsageReferenceLabel2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="VariableUsageReferenceLabel2ViewFactory"
+          visualID="5031"
+          editPartClassName="WrapLabel2EditPart"
+          itemSemanticEditPolicyClassName="WrapLabel2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="WrapLabel2ViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -212,8 +209,6 @@
           editPattern="">
         <metaFeatures
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
-        <metaFeatures
-            href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
@@ -477,13 +472,6 @@
         <childMetaFeature
             href="../../pcm.genmodel#//pcm/seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
       </modelFacet>
-      <labelModelFacet
-          xsi:type="gmfgen:FeatureLabelModelFacet"
-          viewPattern="{0}"
-          editPattern="{0}">
-        <metaFeatures
-            href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
-      </labelModelFacet>
     </childNodes>
     <childNodes
         visualID="3009"
@@ -991,7 +979,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3015"
+        visualID="3030"
         editPartClassName="VariableUsage3EditPart"
         itemSemanticEditPolicyClassName="VariableUsage3ItemSemanticEditPolicy"
         notationViewFactoryClassName="VariableUsage3ViewFactory"
@@ -1004,8 +992,7 @@
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.0/@elementType"
-          editHelperAdviceClassName="VariableUsage2EditHelperAdvice"/>
+          metamodelType="//@diagram/@childNodes.0/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ParametricParameterUsageFigure"
@@ -1020,15 +1007,15 @@
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableUsage"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/SetVariableAction/variableUsage_SetVariableAction"/>
+            href="../../pcm.genmodel#//pcm/seff/SetVariableAction/localVariableUsages_SetVariableAction"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/SetVariableAction/variableUsage_SetVariableAction"/>
+            href="../../pcm.genmodel#//pcm/seff/SetVariableAction/localVariableUsages_SetVariableAction"/>
       </modelFacet>
       <labels
-          visualID="5017"
-          editPartClassName="VariableUsageReferenceLabel3EditPart"
-          itemSemanticEditPolicyClassName="VariableUsageReferenceLabel3ItemSemanticEditPolicy"
-          notationViewFactoryClassName="VariableUsageReferenceLabel3ViewFactory"
+          visualID="5032"
+          editPartClassName="WrapLabel3EditPart"
+          itemSemanticEditPolicyClassName="WrapLabel3ItemSemanticEditPolicy"
+          notationViewFactoryClassName="WrapLabel3ViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1081,8 +1068,6 @@
           editPattern="">
         <metaFeatures
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
-        <metaFeatures
-            href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
@@ -1792,7 +1777,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7002"
+        visualID="7027"
         editPartClassName="VariableUsageVariableCharacterisationEditPart"
         itemSemanticEditPolicyClassName="VariableUsageVariableCharacterisationItemSemanticEditPolicy"
         notationViewFactoryClassName="VariableUsageVariableCharacterisationViewFactory"
@@ -1814,7 +1799,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7022"
+        visualID="7028"
         editPartClassName="VariableUsageVariableCharacterisation2EditPart"
         itemSemanticEditPolicyClassName="VariableUsageVariableCharacterisation2ItemSemanticEditPolicy"
         notationViewFactoryClassName="VariableUsageVariableCharacterisation2ViewFactory"
@@ -2044,7 +2029,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7017"
+        visualID="7029"
         editPartClassName="VariableUsageVariableCharacterisation3EditPart"
         itemSemanticEditPolicyClassName="VariableUsageVariableCharacterisation3ItemSemanticEditPolicy"
         notationViewFactoryClassName="VariableUsageVariableCharacterisation3ViewFactory"

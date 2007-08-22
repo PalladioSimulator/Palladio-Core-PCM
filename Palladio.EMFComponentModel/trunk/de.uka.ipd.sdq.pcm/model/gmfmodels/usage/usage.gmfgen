@@ -146,7 +146,7 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3004"
+        visualID="3011"
         editPartClassName="VariableUsageEditPart"
         itemSemanticEditPolicyClassName="VariableUsageItemSemanticEditPolicy"
         notationViewFactoryClassName="VariableUsageViewFactory"
@@ -174,15 +174,15 @@
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableUsage"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/usagemodel/EntryLevelSystemCall/actualParameterUsage_EntryLevelSystemCall"/>
+            href="../../pcm.genmodel#//pcm/usagemodel/EntryLevelSystemCall/inputParameterUsages_EntryLevelSystemCall"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/usagemodel/EntryLevelSystemCall/actualParameterUsage_EntryLevelSystemCall"/>
+            href="../../pcm.genmodel#//pcm/usagemodel/EntryLevelSystemCall/inputParameterUsages_EntryLevelSystemCall"/>
       </modelFacet>
       <labels
-          visualID="5006"
-          editPartClassName="VariableUsageReferenceLabelEditPart"
-          itemSemanticEditPolicyClassName="VariableUsageReferenceLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="VariableUsageReferenceLabelViewFactory"
+          visualID="5011"
+          editPartClassName="WrapLabelEditPart"
+          itemSemanticEditPolicyClassName="WrapLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="WrapLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -233,8 +233,6 @@
           viewPattern="{0} = {1}">
         <metaFeatures
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
-        <metaFeatures
-            href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
@@ -655,7 +653,8 @@
         title="SystemCallVariableUsageCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.2">
+        node="//@diagram/@childNodes.2"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -666,7 +665,7 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="7003"
+        visualID="7010"
         editPartClassName="VariableUsageVariableCharacterisationEditPart"
         itemSemanticEditPolicyClassName="VariableUsageVariableCharacterisationItemSemanticEditPolicy"
         notationViewFactoryClassName="VariableUsageVariableCharacterisationViewFactory"

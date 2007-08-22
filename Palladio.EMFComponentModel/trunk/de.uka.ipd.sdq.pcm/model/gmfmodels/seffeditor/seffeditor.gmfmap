@@ -61,9 +61,9 @@
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../pcm.ecore#//seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+            href="../../pcm.ecore#//seff/ExternalCallAction/inputParameterUsages_ExternalCallAction"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+            href="../../pcm.ecore#//seff/ExternalCallAction/inputParameterUsages_ExternalCallAction"/>
         <ownedChild>
           <domainMetaElement
               href="../../pcm.ecore#//parameter/VariableUsage"/>
@@ -95,8 +95,6 @@
                     href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>
                 <features
                     href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
-                <features
-                    href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -115,9 +113,9 @@
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.1">
         <containmentFeature
-            href="../../pcm.ecore#//seff/ExternalCallAction/outputVariableUsage_ExternalCallAction"/>
+            href="../../pcm.ecore#//seff/ExternalCallAction/outputVariableUsages_ExternalCallAction"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/ExternalCallAction/outputVariableUsage_ExternalCallAction"/>
+            href="../../pcm.ecore#//seff/ExternalCallAction/outputVariableUsages_ExternalCallAction"/>
         <ownedChild>
           <domainMetaElement
               href="../../pcm.ecore#//parameter/VariableUsage"/>
@@ -149,8 +147,6 @@
                     href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>
                 <features
                     href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
-                <features
-                    href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -636,14 +632,9 @@
           <domainMetaElement
               href="../../pcm.ecore#//seff/ParametricResourceDemand"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              readOnly="true"
-              viewPattern="{0}"
-              editPattern="{0}">
+              readOnly="true">
             <diagramLabel
                 href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>
-            <features
-                href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -811,9 +802,9 @@
       <children
           compartment="//@nodes.7/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../pcm.ecore#//seff/SetVariableAction/variableUsage_SetVariableAction"/>
+            href="../../pcm.ecore#//seff/SetVariableAction/localVariableUsages_SetVariableAction"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/SetVariableAction/variableUsage_SetVariableAction"/>
+            href="../../pcm.ecore#//seff/SetVariableAction/localVariableUsages_SetVariableAction"/>
         <ownedChild>
           <domainMetaElement
               href="../../pcm.ecore#//parameter/VariableUsage"/>
@@ -845,8 +836,6 @@
                     href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>
                 <features
                     href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
-                <features
-                    href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"

@@ -72,9 +72,9 @@
           <children
               compartment="//@nodes.0/@ownedChild/@children.2/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../pcm.ecore#//usagemodel/EntryLevelSystemCall/actualParameterUsage_EntryLevelSystemCall"/>
+                href="../../pcm.ecore#//usagemodel/EntryLevelSystemCall/inputParameterUsages_EntryLevelSystemCall"/>
             <childrenFeature
-                href="../../pcm.ecore#//usagemodel/EntryLevelSystemCall/actualParameterUsage_EntryLevelSystemCall"/>
+                href="../../pcm.ecore#//usagemodel/EntryLevelSystemCall/inputParameterUsages_EntryLevelSystemCall"/>
             <ownedChild>
               <domainMetaElement
                   href="../../pcm.ecore#//parameter/VariableUsage"/>
@@ -105,8 +105,6 @@
                         href="../seffeditor/seffeditor.gmfgraph#VariableCharacterisationLabel"/>
                     <features
                         href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
-                    <features
-                        href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
                   </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
