@@ -163,7 +163,7 @@ public class StochasticExpressionEditDialog extends
 	}
 
 	private boolean isOutputCharacterisation(ExternalCallAction eca, EObject rv) {
-		for (VariableUsage vu : eca.getOutputVariableUsage_ExternalCallAction()){
+		for (VariableUsage vu : eca.getOutputVariableUsages_ExternalCallAction()){
 			if (vu.getVariableCharacterisation_VariableUsage().contains(rv))
 				return true;
 		}
