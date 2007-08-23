@@ -65,6 +65,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	private AnnotationModel fAnnotationModel;
 	
 	private Object result = null;
+	private String resultText = null;
 	
 	protected Parameter[] context = null;
 
@@ -95,6 +96,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	protected void cancelPressed() {
 		super.cancelPressed();
 		result = null;
+		resultText = "";
 	}
 
 	@Override
@@ -177,6 +179,13 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		return textViewer.getControl();
 	}
 
+	@Override
+	protected Control createContents(Composite parent) {
+		Control result = super.createContents(parent);
+		parseInputAndRefreshAnnotations();
+		return result;
+	}
+
 	protected abstract ITokenMapper getTokenMapper();
 	protected abstract Class<?> getLexerClass();
 
@@ -219,6 +228,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		if (!hasWarnings)
 			this.setMessage(null);
 		result = value;
+		resultText = this.textViewer.getDocument().get();
 	}
 
 	private void showInputWarning(IIssue ex) {
@@ -289,6 +299,10 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
 		newShell.setText(getTitle());
+	}
+
+	public String getResultText() {
+		return resultText;
 	}
 }
 

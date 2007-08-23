@@ -64,7 +64,11 @@ public class StochasticExpressionEditDialog extends
 	public Expression getResult() {
 		return (Expression)super.getResult();
 	}
-	
+
+	public String getResultText() {
+		return super.getResultText();
+	}
+
 	@Override
 	protected String getInitialText() {
 		return "";
