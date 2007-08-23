@@ -168,29 +168,6 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.PCMRandomVariable} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PCMRandomVariableItemProvider pcmRandomVariableItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.PCMRandomVariable}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPCMRandomVariableAdapter() {
-		if (pcmRandomVariableItemProvider == null) {
-			pcmRandomVariableItemProvider = new PCMRandomVariableItemProvider(this);
-		}
-
-		return pcmRandomVariableItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.RandomVariable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -638,8 +615,6 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 		if (namespaceReferenceItemProvider != null) namespaceReferenceItemProvider.dispose();
 		if (variableItemProvider != null) variableItemProvider.dispose();
 		if (termExpressionItemProvider != null) termExpressionItemProvider.dispose();
-		if (pcmRandomVariableItemProvider != null) pcmRandomVariableItemProvider.dispose();
-		if (randomVariableItemProvider != null) randomVariableItemProvider.dispose();
 		if (productExpressionItemProvider != null) productExpressionItemProvider.dispose();
 		if (probabilityFunctionLiteralItemProvider != null) probabilityFunctionLiteralItemProvider.dispose();
 		if (parenthesisItemProvider != null) parenthesisItemProvider.dispose();
@@ -654,6 +629,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 		if (negativeExpressionItemProvider != null) negativeExpressionItemProvider.dispose();
 		if (functionLiteralItemProvider != null) functionLiteralItemProvider.dispose();
 		if (ifElseExpressionItemProvider != null) ifElseExpressionItemProvider.dispose();
+		if (randomVariableItemProvider != null) randomVariableItemProvider.dispose();
 	}
 
 }
