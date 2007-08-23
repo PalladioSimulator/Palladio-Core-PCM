@@ -8,5 +8,6 @@ Require-Bundle: de.uka.ipd.sdq.pcm.stochasticexpressions,
  org.antlr,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.stoex.analyser,
- org.junit
+ org.junit,
+ de.uka.ipd.sdq.pcm
 Export-Package: de.uka.ipd.sdq.pcm.stochasticexpressions.tests
