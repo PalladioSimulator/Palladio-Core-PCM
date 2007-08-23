@@ -10,5 +10,4 @@ Require-Bundle: de.uka.ipd.sdq.stoex,
  org.antlr;bundle-version="[3.0.0,3.0.0]",
  org.junit4,
  de.uka.ipd.sdq.errorhandling
-Export-Package: de.uka.ipd.sdq.pcm.stochasticexpressions,
- de.uka.ipd.sdq.pcm.stochasticexpressions.parser
+Export-Package: de.uka.ipd.sdq.pcm.stochasticexpressions
