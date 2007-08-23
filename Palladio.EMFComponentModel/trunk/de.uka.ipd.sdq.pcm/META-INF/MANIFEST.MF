@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm; singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 3.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -42,6 +42,7 @@ Export-Package: de.uka.ipd.sdq.pcm.allocation,
  de.uka.ipd.sdq.pcm.seff,
  de.uka.ipd.sdq.pcm.seff.impl,
  de.uka.ipd.sdq.pcm.seff.util,
+ de.uka.ipd.sdq.pcm.stochasticexpressions.parser,
  de.uka.ipd.sdq.pcm.system,
  de.uka.ipd.sdq.pcm.system.impl,
  de.uka.ipd.sdq.pcm.system.util,
@@ -53,5 +54,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
- org.eclipse.emf.ocl
+ org.eclipse.emf.ocl,
+ org.antlr,
+ de.uka.ipd.sdq.errorhandling
 Eclipse-LazyStart: true

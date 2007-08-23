@@ -77,15 +77,6 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 */
 	protected PCMRandomVariable specification_ParametericResourceDemand;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ParametricResourceDemandSpecificationMustNotBeNULL <em>Parametric Resource Demand Specification Must Not Be NULL</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ParametricResourceDemandSpecificationMustNotBeNULL
-	 * @generated
-	 */
-	private static OCLExpression ParametricResourceDemandSpecificationMustNotBeNULLInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -227,45 +218,6 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, newAction_ParametricResourceDemand, newAction_ParametricResourceDemand));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean ParametricResourceDemandSpecificationMustNotBeNULL(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ParametricResourceDemandSpecificationMustNotBeNULLInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.specification<>'' and not self.specification.oclIsUndefined()  ";
-			
-			try {
-				ParametricResourceDemandSpecificationMustNotBeNULLInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ParametricResourceDemandSpecificationMustNotBeNULLInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 SeffValidator.DIAGNOSTIC_SOURCE,
-						 SeffValidator.PARAMETRIC_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_SPECIFICATION_MUST_NOT_BE_NULL,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ParametricResourceDemandSpecificationMustNotBeNULL", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
 	}
 
 	/**

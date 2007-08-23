@@ -119,16 +119,4 @@ public interface ParametricResourceDemand extends EObject {
 	 */
 	void setAction_ParametricResourceDemand(AbstractResourceDemandingAction value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.specification<>'' and not self.specification.oclIsUndefined()
-	 * 
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean ParametricResourceDemandSpecificationMustNotBeNULL(DiagnosticChain diagnostics, Map<Object, Object> context);
-
 } // ParametricResourceDemand

@@ -9,11 +9,18 @@ import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 import de.uka.ipd.sdq.pcm.core.util.CoreValidator;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExParser;
 
+import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
 
 import java.util.Map;
 
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CharStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -121,4 +128,19 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 		
 	}
 
+	@Override
+	public Expression basicGetExpression() {
+		MyPCMStoExLexer lexer = new MyPCMStoExLexer(new ANTLRStringStream(this.getSpecification()));
+		MyPCMStoExParser parser = new MyPCMStoExParser(new CommonTokenStream(lexer));
+		Expression e;
+		try {
+			e = parser.expression();
+		} catch (RecognitionException e1) {
+			return null;
+		}
+		if (parser.hasErrors())
+			return null;
+		return e;
+	}
+	
 } //PCMRandomVariableImpl
