@@ -132,10 +132,8 @@ public class SamplePDFItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SamplePDF)object).getUnitSpecification();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SamplePDF_type") :
-			getString("_UI_SamplePDF_type") + " " + label;
+		SamplePDF samplePDF = (SamplePDF)object;
+		return getString("_UI_SamplePDF_type") + " " + samplePDF.getDistance();
 	}
 
 	/**

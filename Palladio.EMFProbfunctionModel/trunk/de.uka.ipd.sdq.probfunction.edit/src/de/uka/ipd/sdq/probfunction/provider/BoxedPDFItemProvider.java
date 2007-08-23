@@ -117,10 +117,7 @@ public class BoxedPDFItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BoxedPDF)object).getUnitSpecification();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BoxedPDF_type") :
-			getString("_UI_BoxedPDF_type") + " " + label;
+		return getString("_UI_BoxedPDF_type");
 	}
 
 	/**

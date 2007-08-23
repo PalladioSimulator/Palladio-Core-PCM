@@ -71,10 +71,7 @@ public class ProbabilityDensityFunctionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProbabilityDensityFunction)object).getUnitSpecification();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ProbabilityDensityFunction_type") :
-			getString("_UI_ProbabilityDensityFunction_type") + " " + label;
+		return getString("_UI_ProbabilityDensityFunction_type");
 	}
 
 	/**

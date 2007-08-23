@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.ProbabilityFunction} object.
@@ -33,7 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class ProbabilityFunctionItemProvider
-	extends UnitCarryingElementItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -73,10 +74,7 @@ public class ProbabilityFunctionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProbabilityFunction)object).getUnitSpecification();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ProbabilityFunction_type") :
-			getString("_UI_ProbabilityFunction_type") + " " + label;
+		return getString("_UI_ProbabilityFunction_type");
 	}
 
 	/**

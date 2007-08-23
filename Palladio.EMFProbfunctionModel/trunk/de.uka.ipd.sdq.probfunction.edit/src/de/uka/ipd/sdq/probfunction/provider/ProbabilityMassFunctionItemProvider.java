@@ -142,10 +142,8 @@ public class ProbabilityMassFunctionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProbabilityMassFunction)object).getUnitSpecification();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ProbabilityMassFunction_type") :
-			getString("_UI_ProbabilityMassFunction_type") + " " + label;
+		ProbabilityMassFunction probabilityMassFunction = (ProbabilityMassFunction)object;
+		return getString("_UI_ProbabilityMassFunction_type") + " " + probabilityMassFunction.isOrderedDomain();
 	}
 
 	/**
