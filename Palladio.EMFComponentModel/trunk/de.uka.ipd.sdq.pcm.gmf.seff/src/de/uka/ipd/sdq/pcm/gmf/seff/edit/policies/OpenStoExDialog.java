@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -23,9 +24,24 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 // called via a CustomBehaviour in the genmap
 public class OpenStoExDialog extends OpenEditPolicy {
 
+	private EStructuralFeature randomVariableFeature;
+
+	public OpenStoExDialog(EStructuralFeature randomVariableFeature) {
+		super();
+		this.randomVariableFeature = randomVariableFeature;
+	}
+
+	public OpenStoExDialog() {
+		super();
+		this.randomVariableFeature = null;
+	}
+	
 	protected RandomVariable getRandomVariable(EObject parent) {
 		// Default Implementation. Override as necessary
-		return (RandomVariable)parent;
+		if (randomVariableFeature == null)
+			return (RandomVariable)parent;
+		else
+			return (RandomVariable)parent.eGet(randomVariableFeature);
 	}
 	
 	@Override
@@ -41,7 +57,7 @@ public class OpenStoExDialog extends OpenEditPolicy {
 			SetRequest setRequest = new SetRequest(
 					rv, 
 					StoexPackage.eINSTANCE.getRandomVariable_Specification(), 
-					new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult()));
+					dialog.getResultText());
 			SetValueCommand cmd = new SetValueCommand(setRequest);
 			return new ICommandProxy(cmd);
 		}

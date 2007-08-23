@@ -57,6 +57,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ParametricResourceDemandItemSem
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
@@ -108,7 +109,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -120,7 +121,9 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenStoExDialog());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, 
+				new OpenStoExDialog(
+						SeffPackage.eINSTANCE.getParametricResourceDemand_Specification_ParametericResourceDemand()));
 	}
 
 	/**
