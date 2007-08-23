@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.StoexPackage;
@@ -48,7 +49,7 @@ public class ParametricResourceDemandConfigureCommand extends
 			return CommandResult
 					.newErrorCommandResult("Set RequiredResource for the ParametricResourceDemand failed!");
 		}
-		commandResult = setSpecifikation_ParametricResourceDemand(monitor, info);
+		commandResult = setSpecification_ParametricResourceDemand(monitor, info);
 //		if (!isOK(commandResult)) {
 //			return CommandResult
 //					.newErrorCommandResult("Set Action for the ParametricResourceDemand failed!");
@@ -89,7 +90,7 @@ public class ParametricResourceDemandConfigureCommand extends
 		return cmd.getCommandResult();
 	}
 
-	private CommandResult setSpecifikation_ParametricResourceDemand(
+	private CommandResult setSpecification_ParametricResourceDemand(
 			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 
@@ -101,11 +102,12 @@ public class ParametricResourceDemandConfigureCommand extends
 		if (dialog.getReturnCode() == Dialog.CANCEL)
 			return CommandResult.newCancelledCommandResult();
 
-		ICommand cmd = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), StoexPackage.eINSTANCE
-				.getRandomVariable_Specification(),
-				new PCMStoExPrettyPrintVisitor()
-						.prettyPrint(dialog.getResult())));
+		ICommand cmd = new SetValueCommand(
+				new SetRequest(((ParametricResourceDemand)request
+					.getElementToConfigure()).getSpecification_ParametericResourceDemand(),
+				StoexPackage.eINSTANCE
+					.getRandomVariable_Specification(),
+				dialog.getResultText()));
 		cmd.execute(monitor, info);
 
 		return cmd.getCommandResult();
