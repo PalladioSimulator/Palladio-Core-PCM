@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.units.impl.UnitCarryingElementImpl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class ProbabilityFunctionImpl extends UnitCarryingElementImpl implements ProbabilityFunction {
+public abstract class ProbabilityFunctionImpl extends EObjectImpl implements ProbabilityFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -34,12 +34,7 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch<String> {
 					+ ")";
 		}
 		
-		if (object.getUnitSpecification() != null && 
-		  !(object.getUnitSpecification().equals(""))){
-			return "DoublePDF"+ "(unit=\""+object.getUnitSpecification() + "\")[" + sampleString + " ]";
-		} else {
-			return "DoublePDF[" + sampleString + " ]";
-		}
+		return "DoublePDF[" + sampleString + " ]";
 	}
 
 	/*
@@ -59,17 +54,6 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch<String> {
 		if (pmfType.equals("EnumPMF")) {
 			leftSeparator = "\"";
 			rightSeparator = "\";";
-		}
-		
-		if (object.getUnitSpecification() != null && 
-		  !(object.getUnitSpecification().equals(""))){
-			pmfType += "(unit=\""+object.getUnitSpecification() + "\"";
-			
-			if (object.isOrderedDomain()){
-				pmfType += "; ordered";
-			}
-			
-			pmfType += ")";
 		}
 		
 		for (Sample s : (List<Sample>) object.getSamples()) {

@@ -72,31 +72,13 @@ public interface ProbfunctionPackage extends EPackage {
 	int PROBABILITY_FUNCTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROBABILITY_FUNCTION__UNIT = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROBABILITY_FUNCTION__UNIT_SPECIFICATION = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT_SPECIFICATION;
-
-	/**
 	 * The number of structural features of the '<em>Probability Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROBABILITY_FUNCTION_FEATURE_COUNT = UnitsPackage.UNIT_CARRYING_ELEMENT_FEATURE_COUNT + 0;
+	int PROBABILITY_FUNCTION_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.ProbabilityDensityFunctionImpl <em>Probability Density Function</em>}' class.
@@ -107,24 +89,6 @@ public interface ProbfunctionPackage extends EPackage {
 	 * @generated
 	 */
 	int PROBABILITY_DENSITY_FUNCTION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROBABILITY_DENSITY_FUNCTION__UNIT = PROBABILITY_FUNCTION__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROBABILITY_DENSITY_FUNCTION__UNIT_SPECIFICATION = PROBABILITY_FUNCTION__UNIT_SPECIFICATION;
 
 	/**
 	 * The number of structural features of the '<em>Probability Density Function</em>' class.
@@ -144,24 +108,6 @@ public interface ProbfunctionPackage extends EPackage {
 	 * @generated
 	 */
 	int BOXED_PDF = 0;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOXED_PDF__UNIT = PROBABILITY_DENSITY_FUNCTION__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOXED_PDF__UNIT_SPECIFICATION = PROBABILITY_DENSITY_FUNCTION__UNIT_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Samples</b></em>' containment reference list.
@@ -227,24 +173,6 @@ public interface ProbfunctionPackage extends EPackage {
 	 * @generated
 	 */
 	int PROBABILITY_MASS_FUNCTION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROBABILITY_MASS_FUNCTION__UNIT = PROBABILITY_FUNCTION__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROBABILITY_MASS_FUNCTION__UNIT_SPECIFICATION = PROBABILITY_FUNCTION__UNIT_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Samples</b></em>' containment reference list.
@@ -319,24 +247,6 @@ public interface ProbfunctionPackage extends EPackage {
 	 * @generated
 	 */
 	int SAMPLE_PDF = 6;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SAMPLE_PDF__UNIT = PROBABILITY_DENSITY_FUNCTION__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SAMPLE_PDF__UNIT_SPECIFICATION = PROBABILITY_DENSITY_FUNCTION__UNIT_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Distance</b></em>' attribute.

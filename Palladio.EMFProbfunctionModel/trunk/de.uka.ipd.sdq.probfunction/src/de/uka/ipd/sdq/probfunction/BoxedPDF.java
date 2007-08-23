@@ -36,7 +36,7 @@ public interface BoxedPDF extends ProbabilityDensityFunction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Samples</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getBoxedPDF_Samples()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ContinuousSample> getSamples();

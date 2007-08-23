@@ -94,7 +94,6 @@ public class ProbfunctionSwitch<T> {
 				T result = caseBoxedPDF(boxedPDF);
 				if (result == null) result = caseProbabilityDensityFunction(boxedPDF);
 				if (result == null) result = caseProbabilityFunction(boxedPDF);
-				if (result == null) result = caseUnitCarryingElement(boxedPDF);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -102,14 +101,12 @@ public class ProbfunctionSwitch<T> {
 				ProbabilityDensityFunction probabilityDensityFunction = (ProbabilityDensityFunction)theEObject;
 				T result = caseProbabilityDensityFunction(probabilityDensityFunction);
 				if (result == null) result = caseProbabilityFunction(probabilityDensityFunction);
-				if (result == null) result = caseUnitCarryingElement(probabilityDensityFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ProbfunctionPackage.PROBABILITY_FUNCTION: {
 				ProbabilityFunction probabilityFunction = (ProbabilityFunction)theEObject;
 				T result = caseProbabilityFunction(probabilityFunction);
-				if (result == null) result = caseUnitCarryingElement(probabilityFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,7 +120,6 @@ public class ProbfunctionSwitch<T> {
 				ProbabilityMassFunction probabilityMassFunction = (ProbabilityMassFunction)theEObject;
 				T result = caseProbabilityMassFunction(probabilityMassFunction);
 				if (result == null) result = caseProbabilityFunction(probabilityMassFunction);
-				if (result == null) result = caseUnitCarryingElement(probabilityMassFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,7 +134,6 @@ public class ProbfunctionSwitch<T> {
 				T result = caseSamplePDF(samplePDF);
 				if (result == null) result = caseProbabilityDensityFunction(samplePDF);
 				if (result == null) result = caseProbabilityFunction(samplePDF);
-				if (result == null) result = caseUnitCarryingElement(samplePDF);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -248,21 +243,6 @@ public class ProbfunctionSwitch<T> {
 	 * @generated
 	 */
 	public T caseSamplePDF(SamplePDF object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUnitCarryingElement(UnitCarryingElement object) {
 		return null;
 	}
 

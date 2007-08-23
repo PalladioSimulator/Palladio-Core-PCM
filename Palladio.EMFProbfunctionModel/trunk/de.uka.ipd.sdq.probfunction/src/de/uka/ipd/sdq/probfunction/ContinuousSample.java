@@ -37,7 +37,7 @@ public interface ContinuousSample extends EObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(double)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getContinuousSample_Value()
-	 * @model unique="false"
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
 	double getValue();
@@ -63,7 +63,7 @@ public interface ContinuousSample extends EObject {
 	 * @return the value of the '<em>Probability</em>' attribute.
 	 * @see #setProbability(double)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getContinuousSample_Probability()
-	 * @model unique="false"
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
 	double getProbability();

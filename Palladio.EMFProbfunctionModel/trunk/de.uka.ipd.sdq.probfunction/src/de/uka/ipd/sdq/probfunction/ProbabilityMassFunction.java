@@ -53,7 +53,7 @@ public interface ProbabilityMassFunction extends ProbabilityFunction {
 	 * @return the value of the '<em>Ordered Domain</em>' attribute.
 	 * @see #setOrderedDomain(boolean)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getProbabilityMassFunction_OrderedDomain()
-	 * @model required="true"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	boolean isOrderedDomain();

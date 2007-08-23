@@ -102,10 +102,6 @@ public class ProbfunctionAdapterFactory extends AdapterFactoryImpl {
 				return createSamplePDFAdapter();
 			}
 			@Override
-			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
-				return createUnitCarryingElementAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -220,20 +216,6 @@ public class ProbfunctionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSamplePDFAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.units.UnitCarryingElement <em>Unit Carrying Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.units.UnitCarryingElement
-	 * @generated
-	 */
-	public Adapter createUnitCarryingElementAdapter() {
 		return null;
 	}
 
