@@ -6,7 +6,15 @@
 package de.uka.ipd.sdq.pcm.parameter.util;
 
 import de.uka.ipd.sdq.pcm.parameter.*;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.stoex.Atom;
 import de.uka.ipd.sdq.stoex.BooleanExpression;
 import de.uka.ipd.sdq.stoex.Comparison;
@@ -17,13 +25,6 @@ import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.Unary;
 import de.uka.ipd.sdq.stoex.Variable;
-
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

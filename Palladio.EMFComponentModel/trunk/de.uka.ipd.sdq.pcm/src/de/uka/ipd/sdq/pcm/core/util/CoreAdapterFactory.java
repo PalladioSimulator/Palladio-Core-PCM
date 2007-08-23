@@ -3,29 +3,27 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.core.connectors.util;
+package de.uka.ipd.sdq.pcm.core.util;
 
+import de.uka.ipd.sdq.pcm.core.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.connectors.*;
-import de.uka.ipd.sdq.pcm.core.connectors.Connector;
-import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage
+ * @see de.uka.ipd.sdq.pcm.core.CorePackage
  * @generated
  */
-public class ConnectorsAdapterFactory extends AdapterFactoryImpl {
+public class CoreAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,7 +37,7 @@ public class ConnectorsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ConnectorsPackage modelPackage;
+	protected static CorePackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -47,9 +45,9 @@ public class ConnectorsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectorsAdapterFactory() {
+	public CoreAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = ConnectorsPackage.eINSTANCE;
+			modelPackage = CorePackage.eINSTANCE;
 		}
 	}
 
@@ -78,23 +76,15 @@ public class ConnectorsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConnectorsSwitch<Adapter> modelSwitch =
-		new ConnectorsSwitch<Adapter>() {
+	protected CoreSwitch<Adapter> modelSwitch =
+		new CoreSwitch<Adapter>() {
 			@Override
-			public Adapter caseConnector(Connector object) {
-				return createConnectorAdapter();
+			public Adapter casePCMRandomVariable(PCMRandomVariable object) {
+				return createPCMRandomVariableAdapter();
 			}
 			@Override
-			public Adapter caseIdentifier(Identifier object) {
-				return createIdentifierAdapter();
-			}
-			@Override
-			public Adapter caseNamedElement(NamedElement object) {
-				return createNamedElementAdapter();
-			}
-			@Override
-			public Adapter caseEntity(Entity object) {
-				return createEntityAdapter();
+			public Adapter caseRandomVariable(RandomVariable object) {
+				return createRandomVariableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -117,58 +107,30 @@ public class ConnectorsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.connectors.Connector <em>Connector</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable <em>PCM Random Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.connectors.Connector
+	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable
 	 * @generated
 	 */
-	public Adapter createConnectorAdapter() {
+	public Adapter createPCMRandomVariableAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @see de.uka.ipd.sdq.stoex.RandomVariable
 	 * @generated
 	 */
-	public Adapter createIdentifierAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
-	 * @generated
-	 */
-	public Adapter createNamedElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.Entity
-	 * @generated
-	 */
-	public Adapter createEntityAdapter() {
+	public Adapter createRandomVariableAdapter() {
 		return null;
 	}
 
@@ -184,4 +146,4 @@ public class ConnectorsAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //ConnectorsAdapterFactory
+} //CoreAdapterFactory

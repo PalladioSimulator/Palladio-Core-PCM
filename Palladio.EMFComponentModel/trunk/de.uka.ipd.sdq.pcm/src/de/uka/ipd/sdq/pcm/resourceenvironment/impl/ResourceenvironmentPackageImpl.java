@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
@@ -197,11 +199,12 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
+		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
@@ -217,6 +220,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Create package meta-data objects
 		theResourceenvironmentPackage.createPackageContents();
+		theCorePackage.createPackageContents();
 		theEntityPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
@@ -232,6 +236,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Initialize created meta-data
 		theResourceenvironmentPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
@@ -502,7 +507,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
-		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -524,13 +529,13 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		initEClass(communicationLinkResourceSpecificationEClass, CommunicationLinkResourceSpecification.class, "CommunicationLinkResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification(), theResourcetypePackage.getCommunicationLinkResourceType(), null, "communicationLinkResourceType_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification(), theStoexPackage.getPCMRandomVariable(), null, "latency_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification(), theStoexPackage.getPCMRandomVariable(), null, "throughput_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "latency_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "throughput_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(processingResourceSpecificationEClass, ProcessingResourceSpecification.class, "ProcessingResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProcessingResourceSpecification_SchedulingPolicy(), this.getSchedulingPolicy(), "schedulingPolicy", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(), theResourcetypePackage.getProcessingResourceType(), null, "activeResourceType_ActiveResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(), theStoexPackage.getPCMRandomVariable(), null, "processingRate_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(), theCorePackage.getPCMRandomVariable(), null, "processingRate_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		EOperation op = addEOperation(processingResourceSpecificationEClass, ecorePackage.getEBoolean(), "ProcessingRatemustbelargerthanzero", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -3,20 +3,17 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.allocation.util;
+package de.uka.ipd.sdq.pcm.core.util;
 
+import de.uka.ipd.sdq.pcm.core.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.allocation.*;
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,10 +25,10 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage
+ * @see de.uka.ipd.sdq.pcm.core.CorePackage
  * @generated
  */
-public class AllocationSwitch<T> {
+public class CoreSwitch<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,7 +42,7 @@ public class AllocationSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static AllocationPackage modelPackage;
+	protected static CorePackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -53,9 +50,9 @@ public class AllocationSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllocationSwitch() {
+	public CoreSwitch() {
 		if (modelPackage == null) {
-			modelPackage = AllocationPackage.eINSTANCE;
+			modelPackage = CorePackage.eINSTANCE;
 		}
 	}
 
@@ -99,21 +96,10 @@ public class AllocationSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case AllocationPackage.ALLOCATION_CONTEXT: {
-				AllocationContext allocationContext = (AllocationContext)theEObject;
-				T result = caseAllocationContext(allocationContext);
-				if (result == null) result = caseEntity(allocationContext);
-				if (result == null) result = caseIdentifier(allocationContext);
-				if (result == null) result = caseNamedElement(allocationContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case AllocationPackage.ALLOCATION: {
-				Allocation allocation = (Allocation)theEObject;
-				T result = caseAllocation(allocation);
-				if (result == null) result = caseEntity(allocation);
-				if (result == null) result = caseIdentifier(allocation);
-				if (result == null) result = caseNamedElement(allocation);
+			case CorePackage.PCM_RANDOM_VARIABLE: {
+				PCMRandomVariable pcmRandomVariable = (PCMRandomVariable)theEObject;
+				T result = casePCMRandomVariable(pcmRandomVariable);
+				if (result == null) result = caseRandomVariable(pcmRandomVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -122,77 +108,32 @@ public class AllocationSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Context</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Context</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAllocationContext(AllocationContext object) {
+	public T casePCMRandomVariable(PCMRandomVariable object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Allocation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Random Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Allocation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Random Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAllocation(Allocation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIdentifier(Identifier object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNamedElement(NamedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEntity(Entity object) {
+	public T caseRandomVariable(RandomVariable object) {
 		return null;
 	}
 
@@ -211,4 +152,4 @@ public class AllocationSwitch<T> {
 		return null;
 	}
 
-} //AllocationSwitch
+} //CoreSwitch

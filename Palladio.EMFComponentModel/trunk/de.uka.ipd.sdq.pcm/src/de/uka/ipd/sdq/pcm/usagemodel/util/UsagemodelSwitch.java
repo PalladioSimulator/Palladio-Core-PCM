@@ -5,17 +5,31 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.usagemodel.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.usagemodel.*;
+import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
+import de.uka.ipd.sdq.pcm.usagemodel.Branch;
+import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
+import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.Delay;
+import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import de.uka.ipd.sdq.pcm.usagemodel.Loop;
+import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
+import de.uka.ipd.sdq.pcm.usagemodel.Start;
+import de.uka.ipd.sdq.pcm.usagemodel.Stop;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.pcm.usagemodel.UserData;
+import de.uka.ipd.sdq.pcm.usagemodel.Workload;
 
 /**
  * <!-- begin-user-doc -->

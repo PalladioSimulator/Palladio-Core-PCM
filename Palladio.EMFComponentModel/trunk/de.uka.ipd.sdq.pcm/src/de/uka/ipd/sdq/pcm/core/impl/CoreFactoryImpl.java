@@ -3,17 +3,18 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.core.connectors.impl;
+package de.uka.ipd.sdq.pcm.core.impl;
 
-import de.uka.ipd.sdq.pcm.core.connectors.*;
+import de.uka.ipd.sdq.pcm.core.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsFactory;
-import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFactory {
+public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,17 +36,17 @@ public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ConnectorsFactory init() {
+	public static CoreFactory init() {
 		try {
-			ConnectorsFactory theConnectorsFactory = (ConnectorsFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"); 
-			if (theConnectorsFactory != null) {
-				return theConnectorsFactory;
+			CoreFactory theCoreFactory = (CoreFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0"); 
+			if (theCoreFactory != null) {
+				return theCoreFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new ConnectorsFactoryImpl();
+		return new CoreFactoryImpl();
 	}
 
 	/**
@@ -54,7 +55,7 @@ public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectorsFactoryImpl() {
+	public CoreFactoryImpl() {
 		super();
 	}
 
@@ -66,6 +67,7 @@ public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case CorePackage.PCM_RANDOM_VARIABLE: return createPCMRandomVariable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,8 +78,18 @@ public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConnectorsPackage getConnectorsPackage() {
-		return (ConnectorsPackage)getEPackage();
+	public PCMRandomVariable createPCMRandomVariable() {
+		PCMRandomVariableImpl pcmRandomVariable = new PCMRandomVariableImpl();
+		return pcmRandomVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CorePackage getCorePackage() {
+		return (CorePackage)getEPackage();
 	}
 
 	/**
@@ -87,8 +99,8 @@ public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFac
 	 * @generated
 	 */
 	@Deprecated
-	public static ConnectorsPackage getPackage() {
-		return ConnectorsPackage.eINSTANCE;
+	public static CorePackage getPackage() {
+		return CorePackage.eINSTANCE;
 	}
 
-} //ConnectorsFactoryImpl
+} //CoreFactoryImpl

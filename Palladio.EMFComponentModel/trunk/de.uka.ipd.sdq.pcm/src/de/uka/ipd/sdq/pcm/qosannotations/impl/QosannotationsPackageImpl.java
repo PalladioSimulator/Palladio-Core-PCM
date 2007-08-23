@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
@@ -190,11 +192,12 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
+		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
@@ -210,6 +213,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 
 		// Create package meta-data objects
 		theQosannotationsPackage.createPackageContents();
+		theCorePackage.createPackageContents();
 		theEntityPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
@@ -225,6 +229,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 
 		// Initialize created meta-data
 		theQosannotationsPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
@@ -454,7 +459,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 
 		// Obtain other dependent packages
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
-		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
@@ -472,7 +477,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		initEClass(specifiedExecutionTimeEClass, SpecifiedExecutionTime.class, "SpecifiedExecutionTime", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpecifiedExecutionTime_Signature_SpecifiedTimeConsumption(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedTimeConsumption", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSpecifiedExecutionTime_Role_SpecifiedExecutionTime(), theRepositoryPackage.getRole(), null, "role_SpecifiedExecutionTime", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime(), theStoexPackage.getPCMRandomVariable(), null, "specification_SpecifiedExecutionTime", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime(), theCorePackage.getPCMRandomVariable(), null, "specification_SpecifiedExecutionTime", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(specifiedFailureProbabilityEClass, SpecifiedFailureProbability.class, "SpecifiedFailureProbability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

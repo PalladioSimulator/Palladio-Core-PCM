@@ -5,11 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
-import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
-
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 
 /**
  * <!-- begin-user-doc -->

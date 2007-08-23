@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
@@ -149,11 +151,12 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
+		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
@@ -169,6 +172,7 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 
 		// Create package meta-data objects
 		theConnectorsPackage.createPackageContents();
+		theCorePackage.createPackageContents();
 		theEntityPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
@@ -184,6 +188,7 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 
 		// Initialize created meta-data
 		theConnectorsPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
@@ -278,9 +283,6 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(connectorEClass, Connector.class, "Connector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		// Create resource
-		createResource(eNS_URI);
 	}
 
 } //ConnectorsPackageImpl

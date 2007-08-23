@@ -5,9 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-
-import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface PassiveResource extends EObject {
+public interface PassiveResource extends Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

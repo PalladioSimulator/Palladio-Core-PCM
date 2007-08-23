@@ -5,19 +5,18 @@
  */
 package de.uka.ipd.sdq.pcm.allocation.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.allocation.*;
-
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.allocation.*;
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

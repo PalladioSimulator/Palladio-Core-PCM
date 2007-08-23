@@ -5,17 +5,37 @@
  */
 package de.uka.ipd.sdq.pcm.repository.util;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
-import de.uka.ipd.sdq.pcm.repository.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.repository.*;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
+import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
+import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
+import de.uka.ipd.sdq.pcm.repository.DataType;
+import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
+import de.uka.ipd.sdq.pcm.repository.ExceptionType;
+import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
+import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.Role;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * <!-- begin-user-doc -->
@@ -264,7 +284,15 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validatePassiveResource(PassiveResource passiveResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(passiveResource, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(passiveResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(passiveResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(passiveResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(passiveResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(passiveResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(passiveResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(passiveResource, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(passiveResource, diagnostics, context);
+		return result;
 	}
 
 	/**

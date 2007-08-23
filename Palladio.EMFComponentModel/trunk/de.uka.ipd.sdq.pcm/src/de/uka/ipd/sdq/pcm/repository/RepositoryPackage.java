@@ -81,13 +81,31 @@ public interface RepositoryPackage extends EPackage {
 	int PASSIVE_RESOURCE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_RESOURCE__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PASSIVE_RESOURCE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Capacity Passive Resource</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE = 0;
+	int PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Passive Resource</em>' class.
@@ -96,7 +114,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PASSIVE_RESOURCE_FEATURE_COUNT = 1;
+	int PASSIVE_RESOURCE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl <em>Signature</em>}' class.

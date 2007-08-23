@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
@@ -159,11 +161,12 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
+		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
@@ -179,6 +182,7 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
 		// Create package meta-data objects
 		theProtocolPackage.createPackageContents();
+		theCorePackage.createPackageContents();
 		theEntityPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
@@ -194,6 +198,7 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
 
 		// Initialize created meta-data
 		theProtocolPackage.initializePackageContents();
+		theCorePackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();

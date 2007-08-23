@@ -6,13 +6,14 @@
 package de.uka.ipd.sdq.pcm.protocol.util;
 
 import de.uka.ipd.sdq.pcm.protocol.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.protocol.Protocol;
+import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+import de.uka.ipd.sdq.pcm.protocol.ServiceCall;
 
 /**
  * <!-- begin-user-doc -->

@@ -5,17 +5,21 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.util;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.resourceenvironment.*;
+import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 
 /**
  * <!-- begin-user-doc -->

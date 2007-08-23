@@ -5,9 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->

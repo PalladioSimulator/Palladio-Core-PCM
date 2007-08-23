@@ -5,15 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 /**
  * <!-- begin-user-doc -->

@@ -5,19 +5,16 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class PassiveResourceImpl extends EObjectImpl implements PassiveResource {
+public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

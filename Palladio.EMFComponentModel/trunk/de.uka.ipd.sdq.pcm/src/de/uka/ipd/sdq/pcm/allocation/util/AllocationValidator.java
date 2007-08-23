@@ -5,17 +5,17 @@
  */
 package de.uka.ipd.sdq.pcm.allocation.util;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
-import de.uka.ipd.sdq.pcm.allocation.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.allocation.*;
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 /**
  * <!-- begin-user-doc -->

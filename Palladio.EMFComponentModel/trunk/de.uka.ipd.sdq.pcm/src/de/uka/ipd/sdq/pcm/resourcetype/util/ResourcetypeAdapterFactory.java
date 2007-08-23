@@ -5,21 +5,21 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.resourcetype.*;
-
-import de.uka.ipd.sdq.units.UnitCarryingElement;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.resourcetype.*;
+import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 
 /**
  * <!-- begin-user-doc -->

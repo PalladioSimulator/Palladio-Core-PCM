@@ -5,23 +5,23 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.core.composition.*;
-
-import de.uka.ipd.sdq.pcm.core.connectors.Connector;
-
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.composition.*;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.connectors.Connector;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 
 /**
  * <!-- begin-user-doc -->

@@ -3,7 +3,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.core.entity.impl;
+package de.uka.ipd.sdq.pcm.core.impl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
@@ -11,7 +11,10 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
@@ -20,16 +23,12 @@ import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
 
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
 
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.EntityFactory;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
-import de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl;
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
+
+import de.uka.ipd.sdq.pcm.core.util.CoreValidator;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
@@ -72,10 +71,11 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 import de.uka.ipd.sdq.units.UnitsPackage;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -85,7 +85,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
+public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,42 +98,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass entityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass namedElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass interfaceProvidingEntityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass interfaceProvidingRequiringEntityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass interfaceRequiringEntityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass composedProvidingRequiringEntityEClass = null;
+	private EClass pcmRandomVariableEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -146,12 +111,12 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#eNS_URI
+	 * @see de.uka.ipd.sdq.pcm.core.CorePackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private EntityPackageImpl() {
-		super(eNS_URI, EntityFactory.eINSTANCE);
+	private CorePackageImpl() {
+		super(eNS_URI, CoreFactory.eINSTANCE);
 	}
 
 	/**
@@ -183,11 +148,11 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static EntityPackage init() {
-		if (isInited) return (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+	public static CorePackage init() {
+		if (isInited) return (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 
 		// Obtain or create and register package
-		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new EntityPackageImpl());
+		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new CorePackageImpl());
 
 		isInited = true;
 
@@ -198,7 +163,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
+		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
@@ -213,8 +178,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
 
 		// Create package meta-data objects
-		theEntityPackage.createPackageContents();
 		theCorePackage.createPackageContents();
+		theEntityPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
@@ -229,8 +194,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		theUsagemodelPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theEntityPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
+		theEntityPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
@@ -244,10 +209,19 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		theQosannotationsPackage.initializePackageContents();
 		theUsagemodelPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theCorePackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return CoreValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
-		theEntityPackage.freeze();
+		theCorePackage.freeze();
 
-		return theEntityPackage;
+		return theCorePackage;
 	}
 
 	/**
@@ -255,8 +229,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEntity() {
-		return entityEClass;
+	public EClass getPCMRandomVariable() {
+		return pcmRandomVariableEClass;
 	}
 
 	/**
@@ -264,80 +238,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNamedElement() {
-		return namedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNamedElement_EntityName() {
-		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInterfaceProvidingEntity() {
-		return interfaceProvidingEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity() {
-		return (EReference)interfaceProvidingEntityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInterfaceProvidingRequiringEntity() {
-		return interfaceProvidingRequiringEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInterfaceRequiringEntity() {
-		return interfaceRequiringEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity() {
-		return (EReference)interfaceRequiringEntityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getComposedProvidingRequiringEntity() {
-		return composedProvidingRequiringEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EntityFactory getEntityFactory() {
-		return (EntityFactory)getEFactoryInstance();
+	public CoreFactory getCoreFactory() {
+		return (CoreFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -359,20 +261,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		entityEClass = createEClass(ENTITY);
-
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__ENTITY_NAME);
-
-		interfaceProvidingEntityEClass = createEClass(INTERFACE_PROVIDING_ENTITY);
-		createEReference(interfaceProvidingEntityEClass, INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
-
-		interfaceProvidingRequiringEntityEClass = createEClass(INTERFACE_PROVIDING_REQUIRING_ENTITY);
-
-		interfaceRequiringEntityEClass = createEClass(INTERFACE_REQUIRING_ENTITY);
-		createEReference(interfaceRequiringEntityEClass, INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
-
-		composedProvidingRequiringEntityEClass = createEClass(COMPOSED_PROVIDING_REQUIRING_ENTITY);
+		pcmRandomVariableEClass = createEClass(PCM_RANDOM_VARIABLE);
 	}
 
 	/**
@@ -399,39 +288,37 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
-		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		ConnectorsPackage theConnectorsPackage = (ConnectorsPackage)EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
+		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theEntityPackage);
+		getESubpackages().add(theConnectorsPackage);
+		getESubpackages().add(theCompositionPackage);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		entityEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-		entityEClass.getESuperTypes().add(this.getNamedElement());
-		interfaceProvidingEntityEClass.getESuperTypes().add(this.getEntity());
-		interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingEntity());
-		interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceRequiringEntity());
-		interfaceRequiringEntityEClass.getESuperTypes().add(this.getEntity());
-		composedProvidingRequiringEntityEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
-		composedProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingRequiringEntity());
+		pcmRandomVariableEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(pcmRandomVariableEClass, PCMRandomVariable.class, "PCMRandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_EntityName(), ecorePackage.getEString(), "entityName", "aName", 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		EOperation op = addEOperation(pcmRandomVariableEClass, ecorePackage.getEBoolean(), "SpecificationMustNotBeNULL", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(interfaceProvidingEntityEClass, InterfaceProvidingEntity.class, "InterfaceProvidingEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(), theRepositoryPackage.getProvidedRole(), theRepositoryPackage.getProvidedRole_ProvidingEntity_ProvidedRole(), "providedRoles_InterfaceProvidingEntity", null, 0, -1, InterfaceProvidingEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(interfaceProvidingRequiringEntityEClass, InterfaceProvidingRequiringEntity.class, "InterfaceProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(interfaceRequiringEntityEClass, InterfaceRequiringEntity.class, "InterfaceRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(), theRepositoryPackage.getRequiredRole(), theRepositoryPackage.getRequiredRole_RequiringEntity_RequiredRole(), "requiredRoles_InterfaceRequiringEntity", null, 0, -1, InterfaceRequiringEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(composedProvidingRequiringEntityEClass, ComposedProvidingRequiringEntity.class, "ComposedProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		// Create resource
+		createResource(eNS_URI);
 	}
 
-} //EntityPackageImpl
+} //CorePackageImpl
