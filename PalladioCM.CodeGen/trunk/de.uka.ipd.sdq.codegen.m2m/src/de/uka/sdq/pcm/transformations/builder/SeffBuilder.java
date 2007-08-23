@@ -5,6 +5,8 @@ import java.util.Collections;
 
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -16,7 +18,6 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.sdq.pcm.transformations.ISignatureDependentDemand;
 class InternalActionDescriptor {
@@ -112,7 +113,7 @@ public class SeffBuilder {
 		InternalAction action = SeffFactory.eINSTANCE.createInternalAction();
 		ParametricResourceDemand d = SeffFactory.eINSTANCE.createParametricResourceDemand();
 		d.setRequiredResource_ParametricResourceDemand(type);
-		PCMRandomVariable specification = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		PCMRandomVariable specification = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		specification.setSpecification(getSaveResourceDemand(resourceDemandSpec));
 		d.setSpecification_ParametericResourceDemand(specification);
 		action.getResourceDemand_Action().add(d);
