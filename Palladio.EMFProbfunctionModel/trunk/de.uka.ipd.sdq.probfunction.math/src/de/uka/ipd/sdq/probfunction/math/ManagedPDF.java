@@ -257,7 +257,8 @@ public class ManagedPDF {
 	}
 
 	public boolean isComplete() {
-		return getModelPdf().getUnitSpecification() != null;
+		// TODO: Check new unit model
+		return true;
 	}
 
 	public static ManagedPDF createDiracImpulse()
