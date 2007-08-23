@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
-import de.uka.ipd.sdq.stoex.util.StoexValidator;
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 

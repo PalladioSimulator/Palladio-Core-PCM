@@ -224,19 +224,6 @@ public class StoexSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StoexPackage.PCM_RANDOM_VARIABLE: {
-				PCMRandomVariable pcmRandomVariable = (PCMRandomVariable)theEObject;
-				T result = casePCMRandomVariable(pcmRandomVariable);
-				if (result == null) result = caseRandomVariable(pcmRandomVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StoexPackage.RANDOM_VARIABLE: {
-				RandomVariable randomVariable = (RandomVariable)theEObject;
-				T result = caseRandomVariable(randomVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case StoexPackage.PRODUCT_EXPRESSION: {
 				ProductExpression productExpression = (ProductExpression)theEObject;
 				T result = caseProductExpression(productExpression);
@@ -439,6 +426,12 @@ public class StoexSwitch<T> {
 				T result = caseIfElseExpression(ifElseExpression);
 				if (result == null) result = caseIfElse(ifElseExpression);
 				if (result == null) result = caseExpression(ifElseExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.RANDOM_VARIABLE: {
+				RandomVariable randomVariable = (RandomVariable)theEObject;
+				T result = caseRandomVariable(randomVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -653,21 +646,6 @@ public class StoexSwitch<T> {
 	 * @generated
 	 */
 	public T caseTermExpression(TermExpression object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>PCM Random Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePCMRandomVariable(PCMRandomVariable object) {
 		return null;
 	}
 

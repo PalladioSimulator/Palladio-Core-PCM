@@ -129,14 +129,6 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 				return createTermExpressionAdapter();
 			}
 			@Override
-			public Adapter casePCMRandomVariable(PCMRandomVariable object) {
-				return createPCMRandomVariableAdapter();
-			}
-			@Override
-			public Adapter caseRandomVariable(RandomVariable object) {
-				return createRandomVariableAdapter();
-			}
-			@Override
 			public Adapter caseProductExpression(ProductExpression object) {
 				return createProductExpressionAdapter();
 			}
@@ -195,6 +187,10 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIfElseExpression(IfElseExpression object) {
 				return createIfElseExpressionAdapter();
+			}
+			@Override
+			public Adapter caseRandomVariable(RandomVariable object) {
+				return createRandomVariableAdapter();
 			}
 			@Override
 			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
@@ -413,20 +409,6 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTermExpressionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.PCMRandomVariable <em>PCM Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.PCMRandomVariable
-	 * @generated
-	 */
-	public Adapter createPCMRandomVariableAdapter() {
 		return null;
 	}
 

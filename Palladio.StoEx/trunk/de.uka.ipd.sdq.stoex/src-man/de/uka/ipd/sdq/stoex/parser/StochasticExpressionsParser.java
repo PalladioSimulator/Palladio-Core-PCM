@@ -989,7 +989,6 @@ public class StochasticExpressionsParser extends Parser {
                             unitSpec=unit();
                             _fsp--;
 
-                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
@@ -1063,8 +1062,6 @@ public class StochasticExpressionsParser extends Parser {
                             pushFollow(FOLLOW_unit_in_definition892);
                             unitSpec=unit();
                             _fsp--;
-
-                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
@@ -1141,7 +1138,6 @@ public class StochasticExpressionsParser extends Parser {
                             unitSpec=unit();
                             _fsp--;
 
-                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
@@ -1225,7 +1221,6 @@ public class StochasticExpressionsParser extends Parser {
                             unitSpec=unit();
                             _fsp--;
 
-                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 
@@ -1302,7 +1297,6 @@ public class StochasticExpressionsParser extends Parser {
                             unitSpec=bool_unit();
                             _fsp--;
 
-                            probFunction.setUnitSpecification(unitSpec);
 
                             }
 

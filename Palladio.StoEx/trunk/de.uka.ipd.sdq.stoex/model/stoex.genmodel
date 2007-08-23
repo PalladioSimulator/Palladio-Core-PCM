@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.stoex/src"
     modelPluginID="de.uka.ipd.sdq.stoex" modelName="Stoex" importerID="org.eclipse.uml2.uml.ecore.importer"
-    complianceLevel="6.0" usedGenPackages="../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+    complianceLevel="6.0" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="REDEFINING_PROPERTIES" value="REPORT"/>
     <details key="UNION_PROPERTIES" value="REPORT"/>
@@ -70,17 +70,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//TermExpression/right"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//TermExpression/operation"/>
     </genClasses>
-    <genClasses ecoreClass="stoex.ecore#//PCMRandomVariable">
-      <genOperations ecoreOperation="stoex.ecore#//PCMRandomVariable/SpecificationMustNotBeNULL">
-        <genParameters ecoreParameter="stoex.ecore#//PCMRandomVariable/SpecificationMustNotBeNULL/diagnostics"/>
-        <genParameters ecoreParameter="stoex.ecore#//PCMRandomVariable/SpecificationMustNotBeNULL/context"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="stoex.ecore#//RandomVariable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//RandomVariable/specification"/>
-      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference stoex.ecore#//RandomVariable/expression"/>
-    </genClasses>
     <genClasses ecoreClass="stoex.ecore#//ProductExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProductExpression/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProductExpression/right"/>
@@ -133,6 +122,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/ifExpression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/elseExpression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/conditionExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//RandomVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//RandomVariable/specification"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference stoex.ecore#//RandomVariable/expression"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

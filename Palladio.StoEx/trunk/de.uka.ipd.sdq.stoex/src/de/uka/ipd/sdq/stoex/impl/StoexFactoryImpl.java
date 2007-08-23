@@ -65,8 +65,6 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 			case StoexPackage.NAMESPACE_REFERENCE: return createNamespaceReference();
 			case StoexPackage.VARIABLE: return createVariable();
 			case StoexPackage.TERM_EXPRESSION: return createTermExpression();
-			case StoexPackage.PCM_RANDOM_VARIABLE: return createPCMRandomVariable();
-			case StoexPackage.RANDOM_VARIABLE: return createRandomVariable();
 			case StoexPackage.PRODUCT_EXPRESSION: return createProductExpression();
 			case StoexPackage.PROBABILITY_FUNCTION_LITERAL: return createProbabilityFunctionLiteral();
 			case StoexPackage.PARENTHESIS: return createParenthesis();
@@ -81,6 +79,7 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 			case StoexPackage.NEGATIVE_EXPRESSION: return createNegativeExpression();
 			case StoexPackage.FUNCTION_LITERAL: return createFunctionLiteral();
 			case StoexPackage.IF_ELSE_EXPRESSION: return createIfElseExpression();
+			case StoexPackage.RANDOM_VARIABLE: return createRandomVariable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -166,16 +165,6 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 	public TermExpression createTermExpression() {
 		TermExpressionImpl termExpression = new TermExpressionImpl();
 		return termExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMRandomVariable createPCMRandomVariable() {
-		PCMRandomVariableImpl pcmRandomVariable = new PCMRandomVariableImpl();
-		return pcmRandomVariable;
 	}
 
 	/**

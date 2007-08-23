@@ -62,15 +62,6 @@ public interface StoexFactory extends EFactory {
 	TermExpression createTermExpression();
 
 	/**
-	 * Returns a new object of class '<em>PCM Random Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>PCM Random Variable</em>'.
-	 * @generated
-	 */
-	PCMRandomVariable createPCMRandomVariable();
-
-	/**
 	 * Returns a new object of class '<em>Random Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

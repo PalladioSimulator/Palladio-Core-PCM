@@ -27,7 +27,6 @@ import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
 import de.uka.ipd.sdq.stoex.NotExpression;
 import de.uka.ipd.sdq.stoex.NumericLiteral;
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.PowerExpression;
@@ -46,7 +45,6 @@ import de.uka.ipd.sdq.stoex.Unary;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
-import de.uka.ipd.sdq.stoex.util.StoexValidator;
 import de.uka.ipd.sdq.units.UnitsPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -163,13 +161,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * @generated
 	 */
 	private EClass termExpressionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pcmRandomVariableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -377,15 +368,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		// Initialize created meta-data
 		theStoexPackage.initializePackageContents();
 
-		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theStoexPackage, 
-			 new EValidator.Descriptor() {
-				 public EValidator getEValidator() {
-					 return StoexValidator.INSTANCE;
-				 }
-			 });
-
 		// Mark meta-data to indicate it can't be changed
 		theStoexPackage.freeze();
 
@@ -570,15 +552,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 */
 	public EAttribute getTermExpression_Operation() {
 		return (EAttribute)termExpressionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPCMRandomVariable() {
-		return pcmRandomVariableEClass;
 	}
 
 	/**
@@ -1057,12 +1030,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		createEReference(termExpressionEClass, TERM_EXPRESSION__RIGHT);
 		createEAttribute(termExpressionEClass, TERM_EXPRESSION__OPERATION);
 
-		pcmRandomVariableEClass = createEClass(PCM_RANDOM_VARIABLE);
-
-		randomVariableEClass = createEClass(RANDOM_VARIABLE);
-		createEAttribute(randomVariableEClass, RANDOM_VARIABLE__SPECIFICATION);
-		createEReference(randomVariableEClass, RANDOM_VARIABLE__EXPRESSION);
-
 		productExpressionEClass = createEClass(PRODUCT_EXPRESSION);
 		createEReference(productExpressionEClass, PRODUCT_EXPRESSION__LEFT);
 		createEReference(productExpressionEClass, PRODUCT_EXPRESSION__RIGHT);
@@ -1117,6 +1084,10 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		createEReference(ifElseExpressionEClass, IF_ELSE_EXPRESSION__ELSE_EXPRESSION);
 		createEReference(ifElseExpressionEClass, IF_ELSE_EXPRESSION__CONDITION_EXPRESSION);
 
+		randomVariableEClass = createEClass(RANDOM_VARIABLE);
+		createEAttribute(randomVariableEClass, RANDOM_VARIABLE__SPECIFICATION);
+		createEReference(randomVariableEClass, RANDOM_VARIABLE__EXPRESSION);
+
 		// Create enums
 		termOperationsEEnum = createEEnum(TERM_OPERATIONS);
 		productOperationsEEnum = createEEnum(PRODUCT_OPERATIONS);
@@ -1168,7 +1139,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		booleanExpressionEClass.getESuperTypes().add(this.getIfElse());
 		ifElseEClass.getESuperTypes().add(this.getExpression());
 		termExpressionEClass.getESuperTypes().add(this.getTerm());
-		pcmRandomVariableEClass.getESuperTypes().add(this.getRandomVariable());
 		productExpressionEClass.getESuperTypes().add(this.getProduct());
 		probabilityFunctionLiteralEClass.getESuperTypes().add(this.getAtom());
 		parenthesisEClass.getESuperTypes().add(this.getAtom());
@@ -1220,21 +1190,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		initEReference(getTermExpression_Left(), this.getTerm(), null, "left", null, 1, 1, TermExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getTermExpression_Right(), this.getProduct(), null, "right", null, 1, 1, TermExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getTermExpression_Operation(), this.getTermOperations(), "operation", null, 1, 1, TermExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(pcmRandomVariableEClass, PCMRandomVariable.class, "PCMRandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		EOperation op = addEOperation(pcmRandomVariableEClass, ecorePackage.getEBoolean(), "SpecificationMustNotBeNULL", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(randomVariableEClass, RandomVariable.class, "RandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRandomVariable_Specification(), ecorePackage.getEString(), "specification", null, 1, 1, RandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRandomVariable_Expression(), this.getExpression(), null, "expression", null, 1, 1, RandomVariable.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(productExpressionEClass, ProductExpression.class, "ProductExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProductExpression_Left(), this.getProduct(), null, "left", null, 1, 1, ProductExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1289,6 +1244,10 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		initEReference(getIfElseExpression_IfExpression(), this.getBooleanExpression(), null, "ifExpression", null, 1, 1, IfElseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getIfElseExpression_ElseExpression(), this.getBooleanExpression(), null, "elseExpression", null, 1, 1, IfElseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getIfElseExpression_ConditionExpression(), this.getBooleanExpression(), null, "conditionExpression", null, 1, 1, IfElseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(randomVariableEClass, RandomVariable.class, "RandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRandomVariable_Specification(), ecorePackage.getEString(), "specification", null, 1, 1, RandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRandomVariable_Expression(), this.getExpression(), null, "expression", null, 1, 1, RandomVariable.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(termOperationsEEnum, TermOperations.class, "TermOperations");
