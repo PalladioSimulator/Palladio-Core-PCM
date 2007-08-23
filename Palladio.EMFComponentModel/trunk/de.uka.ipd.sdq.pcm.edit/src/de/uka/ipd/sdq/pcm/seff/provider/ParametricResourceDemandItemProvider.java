@@ -6,23 +6,13 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
-
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.stoex.StoexFactory;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -32,6 +22,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand} object.
@@ -187,7 +182,7 @@ public class ParametricResourceDemandItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
-				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
+				 CoreFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

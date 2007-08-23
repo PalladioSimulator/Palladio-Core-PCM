@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import java.util.Collection;
 import java.util.List;
 

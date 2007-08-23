@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcm.core.composition.provider.ComposedStructureItemProvide
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 import java.util.Collection;

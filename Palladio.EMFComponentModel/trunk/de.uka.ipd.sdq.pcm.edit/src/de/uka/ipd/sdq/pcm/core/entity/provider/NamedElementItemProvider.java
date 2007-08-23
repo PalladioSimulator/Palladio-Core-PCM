@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.pcm.core.entity.provider;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import java.util.Collection;
 import java.util.List;
 

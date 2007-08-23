@@ -3,16 +3,21 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.repository.provider;
+package de.uka.ipd.sdq.pcm.core.provider;
 
+
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+
+import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -20,18 +25,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompleteComponentTypeItemProvider
-	extends ProvidesComponentTypeItemProvider
+public class PCMRandomVariableItemProvider
+	extends RandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -51,7 +52,7 @@ public class CompleteComponentTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompleteComponentTypeItemProvider(AdapterFactory adapterFactory) {
+	public PCMRandomVariableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,42 +67,19 @@ public class CompleteComponentTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParentProvidesComponentTypesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Parent Provides Component Types feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParentProvidesComponentTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompleteComponentType_parentProvidesComponentTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompleteComponentType_parentProvidesComponentTypes_feature", "_UI_CompleteComponentType_type"),
-				 RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns CompleteComponentType.gif.
+	 * This returns PCMRandomVariable.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompleteComponentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PCMRandomVariable"));
 	}
 
 	/**
@@ -112,10 +90,10 @@ public class CompleteComponentTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompleteComponentType)object).getId();
+		String label = ((PCMRandomVariable)object).getSpecification();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CompleteComponentType_type") :
-			getString("_UI_CompleteComponentType_type") + " " + label;
+			getString("_UI_PCMRandomVariable_type") :
+			getString("_UI_PCMRandomVariable_type") + " " + label;
 	}
 
 	/**
