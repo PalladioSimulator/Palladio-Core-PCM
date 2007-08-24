@@ -120,15 +120,4 @@ public interface ProcessingResourceSpecification extends EObject {
 	 */
 	void setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.processingRate > 0.0
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean ProcessingRatemustbelargerthanzero(DiagnosticChain diagnostics, Map<Object, Object> context);
-
 } // ProcessingResourceSpecification
