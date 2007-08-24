@@ -1,12 +1,17 @@
 import parameter;
 import seff;
 import repository;
-import composition;
+import core::composition;
 import system;
 import resourceenvironment;
 import usagemodel;
+import entity;
+import core::entity;
 extension m2t_transforms::pcm;
 
+context InterfaceProvidingEntity ERROR '':
+	this.id != '';
+	
 context ExternalCallAction ERROR 'A Role is needed in an external call':
 	this.role_ExternalService != null;
 	
@@ -52,7 +57,7 @@ context ClosedWorkload ERROR 'Closed Workload must have a population > 0':
 context CommunicationLinkResourceSpecification ERROR 'No latency specified for communication resource' :
 	this.latency_CommunicationLinkResourceSpecification != null && this.latency_CommunicationLinkResourceSpecification.specification != '';
 	
-context ProcessingResourceSpecification ERROR 'Processing Rate must be > 0 for ProcessingResourceSpecification':
+context ProcessingResourceSpecification ERROR 'Processing Rate must be set for ProcessingResourceSpecification':
 	this.processingRate_ProcessingResourceSpecification != null && this.processingRate_ProcessingResourceSpecification.specification != '';
 	
 context Repository ERROR 'Repository should contain at least one component':

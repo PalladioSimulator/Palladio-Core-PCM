@@ -1,6 +1,6 @@
 «EXTENSION m2t_transforms::java_names»
 «IMPORT system»
-«IMPORT composition»
+«IMPORT core::composition»
 
 «DEFINE Root FOR System»
    «EXPAND m2t_transforms::completions::ExpandCompletions FOR this»

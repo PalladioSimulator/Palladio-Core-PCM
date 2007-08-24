@@ -3,8 +3,8 @@
 «IMPORT repository»
 «IMPORT seff»
 «IMPORT system»
-«IMPORT entity»
-«IMPORT composition»
+«IMPORT core::entity»
+«IMPORT core::composition»
 «IMPORT completions»
 
 «DEFINE PortDelegationDelegatingCall FOR Signature»

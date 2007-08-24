@@ -3,8 +3,8 @@
 «IMPORT repository»
 «IMPORT seff»
 «IMPORT system»
-«IMPORT entity»
-«IMPORT composition»
+«IMPORT core::entity»
+«IMPORT core::composition»
 
 // This set of templates expands the Component Context Pattern by Markus Voelter, which uses a
 // combined port to combine all required interfaces and this combined port is stored in the 

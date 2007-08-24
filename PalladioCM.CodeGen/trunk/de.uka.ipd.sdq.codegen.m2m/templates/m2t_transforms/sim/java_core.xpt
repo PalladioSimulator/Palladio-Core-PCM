@@ -3,7 +3,7 @@
 «IMPORT repository»
 «IMPORT seff»
 «IMPORT system»
-«IMPORT entity»
+«IMPORT core::entity»
 
 «DEFINE SpecificImplementationPartTM FOR ProvidesComponentType»
 	// Component Parameter setter

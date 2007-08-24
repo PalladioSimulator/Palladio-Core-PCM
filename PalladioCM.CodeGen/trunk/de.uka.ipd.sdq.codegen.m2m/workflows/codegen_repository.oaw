@@ -10,6 +10,9 @@
     
 	<component
 		class="org.openarchitectureware.check.CheckComponent">
+	    <metaModel id="id.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.identifier.IdentifierPackage"/>
+		</metaModel>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>
@@ -49,6 +52,9 @@
 
 	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
 		<fileEncoding value="ISO-8859-1"/>
+	    <metaModel id="id.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.identifier.IdentifierPackage"/>
+		</metaModel>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>

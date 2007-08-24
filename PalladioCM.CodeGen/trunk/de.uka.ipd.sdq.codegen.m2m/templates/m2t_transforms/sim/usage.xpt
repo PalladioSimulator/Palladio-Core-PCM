@@ -1,9 +1,9 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
 «IMPORT system»
-«IMPORT composition»
+«IMPORT core::composition»
 «IMPORT usagemodel»
-«IMPORT entity»
+«IMPORT core::entity»
 «IMPORT repository»
 «IMPORT allocation»
 

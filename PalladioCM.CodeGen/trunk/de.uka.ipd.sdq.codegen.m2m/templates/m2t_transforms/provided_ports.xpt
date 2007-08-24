@@ -3,8 +3,8 @@
 «IMPORT repository»
 «IMPORT seff»
 «IMPORT system»
-«IMPORT entity»
-«IMPORT composition»
+«IMPORT core::entity»
+«IMPORT core::composition»
 
 // Generate a class for each provided role implementing the interface of that role
 // This so called port delegates to implementations in the main component class

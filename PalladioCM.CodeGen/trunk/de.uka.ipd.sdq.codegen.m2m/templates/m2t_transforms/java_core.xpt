@@ -3,7 +3,7 @@
 «IMPORT repository»
 «IMPORT seff»
 «IMPORT system»
-«IMPORT entity»
+«IMPORT core::entity»
 «IMPORT completions»
 
 «DEFINE ClassHeader FOR ProvidesComponentType»

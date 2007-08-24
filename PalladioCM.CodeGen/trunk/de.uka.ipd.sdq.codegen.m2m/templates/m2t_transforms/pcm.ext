@@ -1,8 +1,8 @@
-import entity;
+import core::entity;
 import repository;
 import seff;
 import system;
-import composition;
+import core::composition;
 import usagemodel;
 import parameter;
 import stoex;

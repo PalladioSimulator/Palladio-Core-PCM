@@ -1,7 +1,7 @@
 «IMPORT system»
-«IMPORT composition»
+«IMPORT core::composition»
 «IMPORT repository»
-«IMPORT entity»
+«IMPORT core::entity»
 «IMPORT completions»
 «EXTENSION m2t_transforms::pcm»
 «EXTENSION m2t_transforms::java_names»
