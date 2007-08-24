@@ -1,5 +1,5 @@
 Please provide the mapping of subfolders to parts of PCM / Palladio in this file.
- 
+
 
 Palladio.CoreServices 			Core-Plugins which are needed more than once by other plugins
 Palladio.EMFAnalyticalModel 		Contains the current Version of the process algebra.
