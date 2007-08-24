@@ -11,15 +11,15 @@
     
 	<component
 		class="org.openarchitectureware.check.CheckComponent">
+	    <metaModel id="pcm.core.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
+		</metaModel>	    
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.resourceenv" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
 		</metaModel>
-	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
-		</metaModel>	    
 		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
 		</metaModel>
@@ -35,13 +35,10 @@
 		<metaModel id="pcm.allocation.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
 		</metaModel>
-		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"/>
-		</metaModel>
-		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+		<metaModel id="pcm.usage.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
 		</metaModel>		
-		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+		<metaModel id="pcm.parameter.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
 		<checkFile value="pcm"/>
@@ -50,12 +47,12 @@
 
 	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
 		<fileEncoding value="ISO-8859-1"/>
+	    <metaModel id="pcm.core.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
+		</metaModel>	    
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>
-	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
-		</metaModel>	    
 		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
 		</metaModel>
@@ -72,13 +69,13 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"/>
-		</metaModel>
-		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
 		</metaModel>		
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
