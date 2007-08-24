@@ -20,6 +20,8 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 /**
  * @author ihssane
  * 
+ * TODO: Kommentare!
+ * 
  */
 public class FileSensorDAO implements ISensorDAO {
 
@@ -37,6 +39,8 @@ public class FileSensorDAO implements ISensorDAO {
 		stsen.setSensorName(p_sensorname);
 		stsen.setSensorID(idGen.getNextSensorID());
 
+		// TODO: die serialisierten Objekte sollten selbst ihren Dateinamen kennen, sonst kann es hier leicht zu Fehlern kommen
+		// ausserdem: dublizierter code.
 		factory.serializeToFile("sensor" + stsen.getSensorID(), stsen);
 
 		return stsen;
@@ -47,10 +51,12 @@ public class FileSensorDAO implements ISensorDAO {
 		result.setSensorID(idGen.getNextSensorID());
 		result.setSensorName(p_sensorname);
 
+		//TODO: s. addStateSensor
 		factory.serializeToFile("sensor" + result.getSensorID(), result);
 		return result;
 	}
 
+	//TODO: Auch hier gilt: Einmaliges Laden zu Beginn kann einiges erleichtern -> Clevere Datenstruktur mit HashTables.
 	public Collection<Sensor> findBySensorName(String searchKey) {
 		Collection<Sensor> result = new ArrayList<Sensor>();
 		File[] files = factory.listFiles("sensor");
@@ -62,6 +68,7 @@ public class FileSensorDAO implements ISensorDAO {
 		return Collections.unmodifiableCollection(result);
 	}
 
+	// TODO: Hier genauso. Das Lesen und Schreiben von Dateien sollte möglichst nur an einer Stelle vorkommen. 
 	public Sensor get(long id) {
 		File[] files = factory.listFiles("sensor" + id);
 		Sensor sensor = null;

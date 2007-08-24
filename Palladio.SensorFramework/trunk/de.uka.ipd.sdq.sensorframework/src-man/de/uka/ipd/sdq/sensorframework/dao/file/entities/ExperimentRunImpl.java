@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
-
 /**
  * @author ihssane
  * 
@@ -30,7 +29,7 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 	private static final long serialVersionUID = 1L;
 	private transient FileDAOFactory factory;
 	private long experimentRunID;
-	private String experimetDateTime;
+	private String experimetDateTime; // TODO: Typo
 	private transient HashMap<Long, SensorAndMeasurementsImpl> sensorAndMeasurements;
 	public List<Long> sensorIDs;
 
@@ -48,6 +47,7 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 		return experimentRunID;
 	}
 
+	// TODO: darf die ID verändert werden?
 	public void setExperimentRunID(long experimentRunID) {
 		this.experimentRunID = experimentRunID;
 	}
@@ -56,6 +56,7 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 		return experimetDateTime;
 	}
 
+	// TODO: darf dieser wert verändert werden?
 	public void setExperimentDateTime(String experimetDateTime) {
 		this.experimetDateTime = experimetDateTime;
 	}
@@ -82,13 +83,24 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 		return result;
 	}
 
+	// TODO: diese einfache Operation benötigt sehr viele Fallunterscheidungen
+	// und Prüfungen. Können hier vorbedingungen gefordert werden, die den
+	// Zugriff beschleunigen?
 	public StateMeasurement addStateMeasurement(StateSensor p_sensor,
 			State p_sensorstate, double p_eventtime) {
 		SensorAndMeasurementsImpl sam = null;
+
+		// TODO: Warum kann dieser Fall auftreten? Tabelle wird im Konstruktor
+		// initialisiert.
 		if (sensorAndMeasurements == null)
 			sensorAndMeasurements = new HashMap<Long, SensorAndMeasurementsImpl>();
 
-		if (!sensorIDs.contains(p_sensor.getSensorID())) {
+		// TODO sensorIDs == sensorAndMasurements.keys() !!
+		// TODO senorAndMeasurements umbenennen in z.B.
+		// measurmentsForSensorTable
+		if (!sensorIDs.contains(p_sensor.getSensorID())) { // TODO: Langsam, da
+															// Dateien geladen
+															// werden!!!
 			sam = new StateSensorAndMeasurement(p_sensor);
 			sensorIDs.add(p_sensor.getSensorID());
 			sensorAndMeasurements.put(p_sensor.getSensorID(), sam);
@@ -96,6 +108,9 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 
 		sam = sensorAndMeasurements.get(p_sensor.getSensorID());
 		if (sam == null) {
+			// TODO: was, wenn die Datei nicht existiert?
+			// TODO: wie sortiert sich dieser Fall in die oben gelisteten Fälle
+			// ein?
 			sam = loadMeasurementsFromFile(p_sensor.getSensorID());
 		}
 		sam.addEventTime(p_eventtime);
@@ -105,6 +120,7 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 				p_sensorstate, p_eventtime);
 	}
 
+	// TODO: Analog zu addStateMeasurement
 	public TimeSpanMeasurement addTimeSpanMeasurement(TimeSpanSensor p_sensor,
 			double p_eventtime, double p_timespan) {
 		SensorAndMeasurementsImpl sam = null;

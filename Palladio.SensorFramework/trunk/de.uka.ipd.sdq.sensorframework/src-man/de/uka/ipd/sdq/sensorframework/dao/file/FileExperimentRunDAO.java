@@ -38,6 +38,9 @@ public class FileExperimentRunDAO implements IExperimentRunDAO {
 
 	public ExperimentRun get(long id) {
 		ExperimentRun result = null;
+		// TODO: Lassen sich die Metadaten hier cleverer anlegen, z.B. in einer HashTable?
+		// getExperimentForRunId(id).getRun(id) 
+		// beide methoden sind ein lookup in einer hashtable
 		for (Experiment exp : factory.createExperimentDAO().getExperiments()) {
 			for (ExperimentRun run : exp.getExperimentRuns())
 				if (run.getExperimentRunID() == id) {
@@ -46,10 +49,12 @@ public class FileExperimentRunDAO implements IExperimentRunDAO {
 				}
 
 		}
-		((ExperimentRunImpl) result).setFactory(factory);
+		((ExperimentRunImpl) result).setFactory(factory); // TODO: Warum muss hier die Factory gesetzt werden?
 		return result;
 	}
 
+	// TODO: Werden hier auch alle Runs geladen, oder nur die Metadaten?
+	// TODO: Wenn nur die MetaDaten geladen werden, sollte das einmal zu Anfang geschehen. Hier nur zugriff auf eine entsprechende Hashtabelle.
 	public Collection<ExperimentRun> getExperimentRuns() {
 		List<ExperimentRun> result = new ArrayList<ExperimentRun>();
 		for (Experiment exp : factory.createExperimentDAO().getExperiments()) {
@@ -73,5 +78,4 @@ public class FileExperimentRunDAO implements IExperimentRunDAO {
 			factory.serializeToFile("ExpRun" + er.getExperimentRunID()
 					+ "Measurements" + sam.getSensor().getSensorID(), sam);
 	}
-
 }

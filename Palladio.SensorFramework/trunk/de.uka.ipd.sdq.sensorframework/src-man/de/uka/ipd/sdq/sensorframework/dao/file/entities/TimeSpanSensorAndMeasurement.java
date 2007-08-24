@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
  */
 public class TimeSpanSensorAndMeasurement extends SensorAndMeasurementsImpl {
 
+	// TODO einige der serialVersionUIDs stehen auf 1L !!!!
 	private static final long serialVersionUID = 3516448762554779531L;
 	private DoubleArrayList timeSpan;
 

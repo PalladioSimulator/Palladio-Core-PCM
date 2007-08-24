@@ -24,9 +24,12 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
 /**
  * @author ihssane
  * 
+ * TODO: Kommentare
+ * 
  */
 public class FileDAOFactory implements IDAOFactory {
 
+	//TODO: Wozu werden die Felder benutzt? Kommentare!
 	private IExperimentDAO experimentDAO;
 	private IExperimentRunDAO experimentRunDAO;
 	private IMeasurementDAO measurementDAO;
@@ -54,9 +57,10 @@ public class FileDAOFactory implements IDAOFactory {
 					+ " is not a directory!");
 	}
 
+	// TODO: was liefert mir diese Methode? Was genau muss ich als filename übergeben?
 	public File[] listFiles(String filename) {
 		File path = new File(root);
-		final String fn = filename;
+		final String fn = filename; //TODO: Was genau ist fn hier? wie sieht eine mögliche Verwendung aus?
 		return path.listFiles(new FilenameFilter() {
 
 			public boolean accept(File dir, String name) {
@@ -115,6 +119,7 @@ public class FileDAOFactory implements IDAOFactory {
 			try {
 				fos.close();
 			} catch (Exception e) {
+				// TODO: Exceptions dürfen nicht einfach verschwinden!
 			}
 		}
 	}
@@ -139,6 +144,7 @@ public class FileDAOFactory implements IDAOFactory {
 			try {
 				fis.close();
 			} catch (Exception e) {
+				// TODO: Exceptions dürfen nicht einfach verschwinden!
 			}
 		}
 		return result;
@@ -166,6 +172,7 @@ public class FileDAOFactory implements IDAOFactory {
 		return "";
 	}
 
+	// TODO: wozu wird diese Methode benötigt? ID sollte von außen eigentlich nicht editierbar sein.
 	public void setID(long i) {
 		factoryID = i;
 	}

@@ -19,6 +19,8 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IMeasurementDAO;
 /**
  * @author ihssane
  * 
+ * TODO Kommentare!
+ * 
  */
 public class FileMeasurementDAO implements IMeasurementDAO {
 

@@ -34,6 +34,7 @@ public class FileStateDAO implements IStateDAO {
 		return state;
 	}
 
+	//TODO: Laden zu beginn
 	public Collection<State> findByStateLiteral(String searchKey) {
 		Collection<State> result = new ArrayList<State>();
 		File[] files = factory.listFiles("state");
@@ -45,6 +46,7 @@ public class FileStateDAO implements IStateDAO {
 		return Collections.unmodifiableCollection(result);
 	}
 
+	//TODO: Laden zu beginn.
 	public State get(long id) {
 		File[] files = factory.listFiles("state" + id);
 		State state = null;
@@ -66,6 +68,7 @@ public class FileStateDAO implements IStateDAO {
 		if (state == null) {
 			return;
 		}
+		//TODO: Objekte müssen ihren Dateinamen kennen
 		factory.removeFile("state" + state.getStateID());
 	}
 
@@ -73,6 +76,7 @@ public class FileStateDAO implements IStateDAO {
 	}
 
 	public void store(State st) {
+		//TODO: Objekte müssen ihren Dateinamen kennen
 		factory.serializeToFile("state" + st.getStateID(), st);
 	}
 

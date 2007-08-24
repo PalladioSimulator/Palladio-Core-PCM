@@ -9,6 +9,9 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 /**
  * @author ihssane
  * 
+ * TODO Kommentare
+ * TODO Warum wird hier nicht TimeSpanSensorAndMeasurement referenziert??
+ * 
  */
 public class TimeSpanMeasurementImpl extends MeasurementImpl implements
 		TimeSpanMeasurement {

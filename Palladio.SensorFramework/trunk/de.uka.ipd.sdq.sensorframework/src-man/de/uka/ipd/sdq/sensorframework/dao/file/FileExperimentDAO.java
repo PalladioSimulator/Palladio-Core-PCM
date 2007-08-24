@@ -19,6 +19,8 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 /**
  * @author ihssane
  * 
+ * TODO: Kommentare
+ * 
  */
 public class FileExperimentDAO implements IExperimentDAO {
 
@@ -38,6 +40,7 @@ public class FileExperimentDAO implements IExperimentDAO {
 		return exp;
 	}
 
+	// TODO: Warum werden nicht alle Experimente einmal zu beginn geladen? Performance bei mehrfachem Suchen in vielen Experimenten.
 	public Collection<Experiment> findByExperimentName(String searchKey) {
 		List<Experiment> result = new ArrayList<Experiment>();
 		File[] files = factory.listFiles("experiment");
@@ -51,6 +54,7 @@ public class FileExperimentDAO implements IExperimentDAO {
 		return Collections.unmodifiableCollection(result);
 	}
 
+	// TODO: Das einmalige Laden würde auch hier den Zugriff vereinfachen: return experimentTable.get(id);
 	public Experiment get(long id) {
 		File[] files = factory.listFiles("experiment" + id);
 		Experiment exp = null;
@@ -65,6 +69,7 @@ public class FileExperimentDAO implements IExperimentDAO {
 		return exp;
 	}
 
+	// TODO: 3x fast der gleiche Code -> Einmal zu Anfang laden.
 	public Collection<Experiment> getExperiments() {
 		List<Experiment> result = new ArrayList<Experiment>();
 		File[] files = factory.listFiles("experiment");
