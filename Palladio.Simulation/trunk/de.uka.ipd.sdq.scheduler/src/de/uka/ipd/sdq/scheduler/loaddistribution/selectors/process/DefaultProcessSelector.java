@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.tmp;
+package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.process;
 
 import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IProcessSelector;
