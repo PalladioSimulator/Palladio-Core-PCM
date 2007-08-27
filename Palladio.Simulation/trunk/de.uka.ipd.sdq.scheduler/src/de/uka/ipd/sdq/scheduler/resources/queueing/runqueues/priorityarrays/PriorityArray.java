@@ -1,73 +1,28 @@
 package de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.priorityarrays;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Hashtable;
+import java.util.List;
+
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.ProcessQueue;
 
 public class PriorityArray {
-	
-	private ProcessQueue<ProcessWithPriority>[] priorityArray;
-	
-	public PriorityArray(IPriorityManager priorityManager){
-		this.priorityManager = priorityManager;
-		this.priorityArray = new ProcessQueue[priorityManager.getNumPriorities()];
-		for(int i=0; i<priorityArray.length; i++){
-			priorityArray[i] = new ProcessQueue<ProcessWithPriority>();
-		}
-	}
 
-
-	/**
-	 * @uml.property   name="priorityManager"
-	 * @uml.associationEnd   aggregation="shared" inverse="priorityArray:de.uka.ipd.sdq.capra.simulator.resources.IPriorityManager"
-	 */
+	private Hashtable<IPriority, ProcessQueue<ProcessWithPriority>> priorityTable;
 	private IPriorityManager priorityManager;
 
-	/**
-	 * Getter of the property <tt>priorityManager</tt>
-	 * 
-	 * @return Returns the manager.
-	 * @uml.property name="priorityManager"
-	 */
-	public IPriorityManager getPriorityManager() {
-		return priorityManager;
-	}
-
-	/**
-	 * Setter of the property <tt>priorityManager</tt>
-	 * 
-	 * @param priorityManager
-	 *            The manager to set.
-	 * @uml.property name="priorityManager"
-	 */
-	public void setPriorityManager(IPriorityManager priorityManager) {
+	public PriorityArray(IPriorityManager priorityManager) {
 		this.priorityManager = priorityManager;
-	}
-
-	/**
-	 * Moves the process to its new queue.
-	 */
-	public void notifyPriorityChanged(ProcessWithPriority process,
-			int from_prio, int to_prio) {
-		getQueue(from_prio).remove(process);
-		addToQueueAfterPriorityChange(to_prio, process);
-
-	}
-
-	/**
-	 * Inserts a process into a new queue after its priority changed. Currently
-	 * the process is added to the end of the queue. If changes are necessary,
-	 * this method can be extracted as a template or strategy.
-	 * 
-	 * @param to_prio
-	 * @param process
-	 */
-	private void addToQueueAfterPriorityChange(int to_prio,
-			ProcessWithPriority process) {
-		getQueue(to_prio).addLast(process);
+		this.priorityTable = new Hashtable<IPriority, ProcessQueue<ProcessWithPriority>>();
+		for (IPriority prio : priorityManager.decreasing()) {
+			priorityTable.put(prio, new ProcessQueue<ProcessWithPriority>());
+		}
 	}
 
 	/**
@@ -76,8 +31,8 @@ public class PriorityArray {
 	@SuppressWarnings("unchecked")
 	public int getNumberOfProcesses() {
 		int num = 0;
-		for (ProcessQueue queue : this.priorityArray) {
-			num += queue.getNumberOfProcesses();
+		for (ProcessQueue queue : priorityTable.values()) {
+			num += queue.size();
 		}
 		return num;
 	}
@@ -87,24 +42,11 @@ public class PriorityArray {
 	 */
 	@SuppressWarnings("unchecked")
 	public boolean isEmpty() {
-		for (ProcessQueue queue : this.priorityArray) {
-			if (queue.isEmpty())
+		for (ProcessQueue queue : priorityTable.values()) {
+			if (!queue.isEmpty())
 				return false;
 		}
 		return true;
-	}
-
-	/**
-	 * @return Returns the queue with the highest priority which is not empty.
-	 *         Null if all queues are empty.
-	 */
-	public ProcessQueue<ProcessWithPriority> getNonEmptyQueueWithHighestPriority() {
-		for (int prio = priorityManager.getHighestPriority(); !this.priorityManager
-				.outOfBounds(prio); prio = this.priorityManager.nextLower(prio)) {
-			if (!getQueue(prio).isEmpty())
-				return getQueue(prio);
-		}
-		return null;
 	}
 
 	/**
@@ -120,23 +62,28 @@ public class PriorityArray {
 				(ProcessWithPriority) process);
 	}
 
-	
 	/**
 	 * Adds a new process at the END of the process' priority's queue.
+	 * 
 	 * @param process
 	 */
 	public void addLast(ActiveProcess process) {
-		assert process instanceof ProcessWithPriority : "Only 'ProcessWithPriority' instances are allowed for PriorityArrays!";
-		getQueueFor((ProcessWithPriority)process).addLast((ProcessWithPriority)process);
+		add(process,false);
 	}
-	
+
 	/**
 	 * Adds a new process at the BEGINNING of the process' priority's queue.
+	 * 
 	 * @param process
 	 */
 	public void addFirst(ActiveProcess process) {
+		add(process,true);
+	}
+
+	public void add(ActiveProcess process, boolean inFront) {
 		assert process instanceof ProcessWithPriority : "Only 'ProcessWithPriority' instances are allowed for PriorityArrays!";
-		getQueueFor((ProcessWithPriority)process).addFirst((ProcessWithPriority)process);
+		ProcessWithPriority prio_process = (ProcessWithPriority) process;
+		getQueueFor(prio_process).add(prio_process,inFront);
 	}
 
 	/**
@@ -147,33 +94,107 @@ public class PriorityArray {
 	 */
 	public ProcessQueue<ProcessWithPriority> getQueueFor(
 			ProcessWithPriority process) {
-		return getQueue(process.getCurrentPriority());
+		return getQueue(process.getDynamicPriority());
 	}
 
-	private ProcessQueue<ProcessWithPriority> getQueue(int prio) {
-		int pos = priorityManager.getPosition(prio);
-		return priorityArray[pos];
+	/**
+	 * @return Returns the queue with the highest priority which is not empty.
+	 *         Null if all queues are empty.
+	 */
+	public ProcessQueue<ProcessWithPriority> getNonEmptyQueueWithHighestPriority() {
+		for (IPriority prio : priorityManager.decreasing()) {
+			if (!getQueue(prio).isEmpty())
+				return getQueue(prio);
+		}
+		return null;
 	}
 
 	public IPriority getLowestPriorityWithNonEmptyQueue() {
-		// TODO Auto-generated method stub
-		return null;
+		return getFirstNonEmptyPriority(priorityManager.increasing());
 	}
 
 	public IPriority getHighestPriorityWithNonEmptyQueue() {
-		// TODO Auto-generated method stub
+		return getFirstNonEmptyPriority(priorityManager.decreasing());
+	}
+
+	private IPriority getFirstNonEmptyPriority(Iterable<IPriority> direction) {
+		for (IPriority prio : direction) {
+			if (!getQueue(prio).isEmpty())
+				return prio;
+		}
 		return null;
 	}
 
-	public ProcessQueue<ProcessWithPriority> getQueueFor(IPriority prio) {
-		return null;
-		// TODO Auto-generated method stub
-		
+	public ProcessQueue<ProcessWithPriority> getQueue(IPriority prio) {
+		return priorityTable.get(prio);
 	}
 
-	public ProcessQueue<ActiveProcess> getUrgentQueue(
+	/**
+	 * Returns the queue with the highest priority of which at least one process
+	 * can be executed on instance.
+	 * 
+	 * @param instance
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
 			SimResourceInstance instance) {
-		// TODO Auto-generated method stub
+		for (IPriority prio : priorityManager.decreasing()) {
+			for (ActiveProcess process : getQueue(prio).ascending()) {
+				if (process.checkAffinity(instance))
+					return (ProcessQueue) getQueue(prio);
+			}
+		}
 		return null;
+	}
+
+	/**
+	 * Returns the process with the highest priority runnable on the given instance.
+	 * @param instance
+	 * @return
+	 */
+	public ActiveProcess getNextRunnableProcess(SimResourceInstance instance) {
+		for (IPriority prio : priorityManager.decreasing()) {
+			for (ActiveProcess process : getQueue(prio).ascending()) {
+				if (process.checkAffinity(instance))
+					return process;
+			}
+		}
+		return null;
+	}
+
+	public boolean contains(ActiveProcess process) {
+		for (ProcessQueue<ProcessWithPriority> queue : priorityTable.values()) {
+			if (queue.contains(process))
+				return true;
+		}
+		return false;
+	}
+
+	public ActiveProcess getNextRunnableProcess() {
+		return getNonEmptyQueueWithHighestPriority().peek();
+	}
+
+	/**
+	 * Adds processes that do not violate the affinity constraint to the list
+	 * in the specified direction.
+	 * 
+	 * @param targetInstance
+	 */
+	public List<ActiveProcess> identifyMovableProcesses(
+			SimResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
+		List<ActiveProcess> processList = new ArrayList<ActiveProcess>(); 
+		Iterable<IPriority> prio_direction = prio_increasing ? priorityManager.increasing() : priorityManager.decreasing(); 
+		for (IPriority prio : prio_direction) {
+			Iterable<ProcessWithPriority> queue_direction = queue_ascending ? getQueue(prio).ascending() : getQueue(prio).descending();
+			for (ActiveProcess process : queue_direction) {
+				if (process.checkAffinity(targetInstance)) {
+					processList.add(process);
+					if (processList.size() >= processes_needed)
+						break;
+				}
+			}
+		}
+		return processList;
 	}
 }

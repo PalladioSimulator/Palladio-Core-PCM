@@ -16,9 +16,6 @@ public class RoundRobinSelector extends AbstractInstanceSelector {
 		reset();
 	}
 
-	private void reset() {
-		instanceIterator = runQueueHolder.getResourceInstances().iterator();
-	}
 
 	@Override
 	public SimResourceInstance selectInstanceFor(ActiveProcess process) {
@@ -27,7 +24,7 @@ public class RoundRobinSelector extends AbstractInstanceSelector {
 			SimResourceInstance current = getNext();
 			if (process.checkAffinity(current)){
 				result = current;
-				if (process.hasIdealInstance()){
+				if (!process.hasIdealInstance()){
 					process.setIdealInstance(current);
 				}
 			}
@@ -39,5 +36,9 @@ public class RoundRobinSelector extends AbstractInstanceSelector {
 		if (!instanceIterator.hasNext())
 			reset();
 		return instanceIterator.next();
+	}
+
+	private void reset() {
+		instanceIterator = runQueueHolder.getResourceInstances().iterator();
 	}
 }

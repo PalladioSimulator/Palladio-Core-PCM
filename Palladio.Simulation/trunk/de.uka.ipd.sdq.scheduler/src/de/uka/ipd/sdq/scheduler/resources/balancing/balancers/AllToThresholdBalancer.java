@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler.resources.balancing.balancers;
 
-import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
@@ -13,19 +12,22 @@ import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStra
  * @author jens.happe
  * 
  */
-public class OnThresholdBalancer extends AbstractLoadBalancer {
+public class AllToThresholdBalancer extends AbstractLoadBalancer {
 
 	/**
 	 * If the number of tasks differs more than this value, tasks are moved.
-	 * 
-	 * @uml.property name="threshold"
 	 */
 	private double threshold;
 
-	public OnThresholdBalancer(double balanceInterval,
-			MultipleQueuesStrategy runQueueHolder) {
-		super(balanceInterval, runQueueHolder);
+
+	public AllToThresholdBalancer(double balanceInterval,
+			MultipleQueuesStrategy queueHolder, boolean prio_increasing,
+			boolean queue_ascending, int max_iterations, double threshold) {
+		super(balanceInterval, queueHolder, prio_increasing, queue_ascending,
+				max_iterations);
+		this.threshold = threshold;
 	}
+
 
 	@Override
 	protected boolean isBalanced(SimResourceInstance firstInstance,
@@ -33,10 +35,13 @@ public class OnThresholdBalancer extends AbstractLoadBalancer {
 		double firstLoad = load(firstInstance);
 		double secondLoad = load(secondInstance);
 		double totalLoad = firstLoad + secondLoad;
+
+		if (totalLoad == 0)
+			return true;
+		
 		firstLoad /= totalLoad;
 		secondLoad /= totalLoad;
-		double difference = Math.abs(firstLoad - secondLoad);
-		return MathTools.lessOrEqual(difference, threshold);
+		double distance = Math.abs(firstLoad - secondLoad);
+		return distance <= threshold;
 	}
-
 }

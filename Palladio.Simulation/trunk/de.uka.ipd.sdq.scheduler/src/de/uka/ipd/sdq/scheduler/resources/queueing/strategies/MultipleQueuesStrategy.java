@@ -12,32 +12,24 @@ import de.uka.ipd.sdq.scheduler.resources.balancing.ILoadBalancer;
 import de.uka.ipd.sdq.scheduler.resources.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
 
-
 public class MultipleQueuesStrategy implements IQueueingStrategy {
 
-	/**
-	 * @uml.property   name="loadBalancer"
-	 * @uml.associationEnd   aggregation="composite" inverse="scheduler:de.uka.ipd.sdq.capra.simulator.resources.ILoadBalancer"
-	 */
 	private ILoadBalancer loadBalancer;
-
-	/**
-	 * @uml.property   name="initialInstanceSelector"
-	 * @uml.associationEnd   aggregation="composite" inverse="multipleRunQueueScheduler:de.uka.ipd.sdq.capra.simulator.resources.IInitialInstanceSelector"
-	 */
 	private IInstanceSelector instanceSelector;
-
 	private Hashtable<SimResourceInstance, IRunQueue> runQueueTable;
-	
-	public MultipleQueuesStrategy(Collection<SimResourceInstance> allInstances, IRunQueue prototypeRunQueue, IInstanceSelector initialInstanceSelector, ILoadBalancer loadBalancer){
+
+	public MultipleQueuesStrategy(Collection<SimResourceInstance> allInstances,
+			IRunQueue prototypeRunQueue,
+			IInstanceSelector initialInstanceSelector,
+			ILoadBalancer loadBalancer) {
 		runQueueTable = new Hashtable<SimResourceInstance, IRunQueue>();
 		this.instanceSelector = initialInstanceSelector;
 		this.loadBalancer = loadBalancer;
 		for (SimResourceInstance resourceInstance : allInstances) {
-			runQueueTable.put(resourceInstance, prototypeRunQueue.createNewInstance());
+			runQueueTable.put(resourceInstance, prototypeRunQueue
+					.createNewInstance());
 		}
 	}
-
 
 	/**
 	 * Returns the RunQueue for a resource instance.
@@ -55,48 +47,56 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	}
 
 	/**
-	 * Adds a process to the runqueue. The process is added using the strategy of the runqueue.
+	 * Adds a process to the runqueue. The process is added using the strategy
+	 * of the runqueue.
 	 * 
 	 * A process is added after its creation or after waiting.
-	 * 
-	 * TODO: Evaluate the influence of different adding strategies.
 	 */
 	@Override
-	public void addProcess(ActiveProcess process) {
-		SimResourceInstance instance = instanceSelector.selectInstanceFor(process);
-		getRunQueueFor(instance).addProcess(process);
+	public void addProcess(ActiveProcess process, boolean inFront) {
+		SimResourceInstance instance = process.getLastInstance();
+		if (instance == null) {
+			instance = instanceSelector.selectInstanceFor(process);
+			process.setLastInstance(instance);
+		}
+		getRunQueueFor(instance).addProcess(process, inFront);
 	}
-
 
 	/**
-	 * Moves the given process from the runqueue of the src instance to the runqueue of the dest instance.
+	 * Moves the given process from the runqueue of the src instance to the
+	 * runqueue of the dest instance.
 	 * 
-	 * TODO: Check if the process has been in the src's runqueue.
-	 * 
-	 * @param process Process to be moved.
-	 * @param src Source resource instance.
-	 * @param dest Destination resource instance.
+	 * @param process
+	 *            Process to be moved.
+	 * @param src
+	 *            Source resource instance.
+	 * @param dest
+	 *            Destination resource instance.
 	 */
-	public void move(ActiveProcess process, SimResourceInstance src, SimResourceInstance dest) {
+	public void move(ActiveProcess process, SimResourceInstance src,
+			SimResourceInstance dest) {
+		assert process.getLastInstance().equals(src);
+		assert getRunQueueFor(src).contains(process) : "Process '" + process
+				+ "' is not in the runqueue of '" + src + "'";
+		assert process.getRunQueue() == getRunQueueFor(src) : "Invalid state of runqueues!";
+
 		getRunQueueFor(src).removeProcess(process);
-		getRunQueueFor(dest).addProcess(process);
+		getRunQueueFor(dest).addProcess(process, false);
 	}
 
 	@Override
-	public void balance() {
-		loadBalancer.balance();
+	public void balance(SimResourceInstance instance) {
+		loadBalancer.balance(instance);
 	}
-
 
 	public Collection<SimResourceInstance> getResourceInstances() {
 		return this.runQueueTable.keySet();
 	}
 
-
 	public boolean isIdle(SimResourceInstance instance) {
 		return getRunQueueFor(instance).isEmpty();
 	}
-	
+
 	/**
 	 * Returns all queues without jobs.
 	 * 
@@ -112,25 +112,36 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		return idleInstances;
 	}
 
+	@Override
+	public boolean removePendingProcess(ActiveProcess process) {
+		return getRunQueueFor(process.getLastInstance()).removePendingProcess(
+				process);
+
+	}
 
 	@Override
-	public ActiveProcess getProcessRunningOn(SimResourceInstance instance) {
-		// TODO Auto-generated method stub
+	public boolean containsPending(ActiveProcess process) {
+		return getRunQueueFor(process.getLastInstance()).containsPending(
+				process);
+	}
+
+	@Override
+	public void removeRunning(ActiveProcess process) {
+		getRunQueueFor(process.getLastInstance()).removeRunning(process);
+	}
+
+	@Override
+	public SimResourceInstance runningOn(ActiveProcess process) {
+		for (SimResourceInstance instance : runQueueTable.keySet()) {
+			if (runQueueTable.get(instance).containsRunning(process)) {
+				return instance;
+			}
+		}
 		return null;
 	}
 
-
 	@Override
-	public void returnActive(ActiveProcess running, boolean b) {
-		// TODO Auto-generated method stub
-		
+	public void setRunningOn(ActiveProcess process, SimResourceInstance instance) {
+		getRunQueueFor(instance).setRunningOn(process, instance);
 	}
-
-
-	@Override
-	public void returnExpired(ActiveProcess running, boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

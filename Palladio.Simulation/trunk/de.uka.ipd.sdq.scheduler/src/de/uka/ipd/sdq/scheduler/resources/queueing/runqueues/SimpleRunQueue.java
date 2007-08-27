@@ -6,58 +6,31 @@ import java.util.List;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics.ProcessQueue;
-
 
 public class SimpleRunQueue extends AbstractRunQueue {
 
-	
-	public SimpleRunQueue(){
-		this.queue = new ProcessQueue<ActiveProcess>();
-	}
-	
-	/**
-	 * @uml.property   name="processQueue"
-	 * @uml.associationEnd   aggregation="composite" inverse="simpleRunQueue:de.uka.ipd.sdq.capra.simulator.resources.ProcessQueue"
-	 */
 	private ProcessQueue<ActiveProcess> queue;
 
-	
+	public SimpleRunQueue() {
+		this.queue = new ProcessQueue<ActiveProcess>();
+	}
+
 	/**
 	 * Adds a process at the end of the run queue.
 	 */
 	@Override
-	public void addProcess(ActiveProcess process) {
-		queue.addLast(process);
+	public void addProcessToRunQueue(ActiveProcess process, boolean inFront) {
+		queue.add(process, inFront);
 	}
 
 	@Override
 	protected int numWaitingProcesses() {
-		return queue.getNumberOfProcesses();
-	}
-
-
-	@Override
-	protected void removePendingProcess(ActiveProcess process) {
-		queue.remove(process);
+		return queue.size();
 	}
 
 	@Override
-	public void returnActiveProcess(ActiveProcess process, boolean inFront) {
-		returnProcess(process,inFront);
-	}
-
-	@Override
-	public void returnExpiredProcess(ActiveProcess process, boolean inFront) {
-		returnProcess(process,inFront);
-	}
-
-	private void returnProcess(ActiveProcess process, boolean inFront) {
-		if (inFront){
-			queue.addFirst(process);
-		} else {
-			queue.addLast(process);
-		}
+	public boolean removePendingProcess(ActiveProcess process) {
+		return queue.remove(process);
 	}
 
 	@Override
@@ -67,18 +40,21 @@ public class SimpleRunQueue extends AbstractRunQueue {
 
 	@Override
 	public List<ActiveProcess> identifyMovableProcesses(
-			SimResourceInstance targetInstance) {
+			SimResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
 		List<ActiveProcess> processList = new ArrayList<ActiveProcess>();
-		for (ActiveProcess process : this.queue) {
-			if (process.checkAffinity(targetInstance)){
+		Iterable<ActiveProcess> queue_direction = queue_ascending ? this.queue.ascending() : this.queue.descending();
+		for (ActiveProcess process : queue_direction) {
+			if (process.checkAffinity(targetInstance)) {
 				processList.add(process);
+				if (processList.size() >= processes_needed)
+					break;
 			}
 		}
 		return processList;
 	}
 
 	@Override
-	public ProcessQueue<ActiveProcess> getUrgentQueue(
+	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
 			SimResourceInstance instance) {
 		if (this.queue.containsRunnableFor(instance))
 			return this.queue;
@@ -86,7 +62,22 @@ public class SimpleRunQueue extends AbstractRunQueue {
 	}
 
 	@Override
+	public ActiveProcess getNextRunnableProcess(SimResourceInstance instance) {
+		for (ActiveProcess process : queue.ascending()) {
+			if (process.checkAffinity(instance))
+				return process;
+		}
+		return null;
+	}
+
+	@Override
 	public ActiveProcess getNextRunnableProcess() {
 		return queue.peek();
 	}
+
+	@Override
+	public boolean containsPending(ActiveProcess process) {
+		return queue.contains(process);
+	}
+
 }

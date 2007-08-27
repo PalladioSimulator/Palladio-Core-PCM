@@ -1,78 +1,63 @@
 package de.uka.ipd.sdq.scheduler.resources;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.ProcessRegistry;
 import de.uka.ipd.sdq.scheduler.resources.scheduler.IScheduler;
 
+public class SimActiveResource extends AbstractSimResource implements
+		IActiveResource {
 
-public class SimActiveResource extends AbstractSimResource implements IActiveResource {
-
-	/**
-	 * @uml.property   name="scheduler"
-	 * @uml.associationEnd   aggregation="composite" inverse="simActiveResource:de.uka.ipd.sdq.capra.simulator.resources.IScheduler"
-	 */
 	private IScheduler scheduler;
+	private List<SimResourceInstance> instanceList;
+	private ProcessRegistry processRegistry;
 
-	/**
-	 * Getter of the property <tt>scheduler</tt>
-	 * @return  Returns the scheduler.
-	 * @uml.property  name="scheduler"
-	 */
+	public SimActiveResource(int capacity, String name, String id,
+			IScheduler scheduler) {
+		super(capacity, name, id);
+		this.scheduler = scheduler;
+		this.instanceList = new ArrayList<SimResourceInstance>();
+		this.processRegistry = new ProcessRegistry();
+		for (int i = 0; i < capacity; i++) {
+			instanceList.add(factory.createResourceInstance(i, name, id,
+					scheduler));
+		}
+	}
+
 	public IScheduler getScheduler() {
 		return scheduler;
 	}
 
+	public List<SimResourceInstance> getInstanceList() {
+		return instanceList;
+	}
+	
+	public ActiveProcess lookUp(ISchedulableProcess process){
+		return processRegistry.lookUp(process);
+	}
+
+	@Override
+	public void process(ISchedulableProcess sched_process, double demand) {
+		ActiveProcess process = processRegistry.lookUp(sched_process);
+		assert MathTools.equalsDouble(process.getCurrentDemand(), 0) : "Demand of Process "
+				+ process
+				+ " must be processed completely before adding a new demand!";
+		process.setCurrentDemand(demand);
+		scheduler.scheduleNextEvent(process.getLastInstance());
+		sched_process.passivate();
+	}
+
 	/**
-	 * Setter of the property <tt>scheduler</tt>
-	 * @param scheduler  The scheduler to set.
-	 * @uml.property  name="scheduler"
+	 * Before a process can process demands on the resource it needs to be
+	 * registered.
 	 */
-	public void setScheduler(IScheduler scheduler) {
-		this.scheduler = scheduler;
-	}
-
-	@Override
-	public void process(ISchedulableProcess process, boolean demand) {
-	}
-
-	@Override
 	public void registerNewProcess(ActiveProcess process) {
-		// TODO Auto-generated method stub
-		
+		processRegistry.registerProcess(process);
+		scheduler.addProcess(process);
 	}
-
-	/**
-	 * @uml.property   name="instances"
-	 * @uml.associationEnd   aggregation="composite" inverse="simActiveResource:de.uka.ipd.sdq.capra.simulator.resources.SimResourceInstance" qualifier="key:java.lang.Integer de.uka.ipd.sdq.capra.simulator.resources.SimResourceInstance"
-	 */
-	private Map<Integer, SimResourceInstance> instancesMap;
-
-	/**
-	 * Getter of the property <tt>instances</tt>
-	 * @return  Returns the instancesMap.
-	 * @uml.property  name="instances"
-	 */
-	public Map<Integer, SimResourceInstance> getInstances() {
-		return instancesMap;
-	}
-
-	/**
-	 * Setter of the property <tt>instances</tt>
-	 * @param instances  The instancesMap to set.
-	 * @uml.property  name="instances"
-	 */
-	public void setInstances(Map<Integer, SimResourceInstance> instances) {
-		instancesMap = instances;
-	}
-
-		
-		/**
-		 */
-		public SimResourceInstance getInstance(int instance_id){
-			return null;
-		}
-
 }

@@ -3,37 +3,22 @@ package de.uka.ipd.sdq.scheduler.resources.balancing.constraints;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.balancing.IResourceInstanceConstraint;
 
+public class SingleResourceInstanceConstraint implements
+		IResourceInstanceConstraint {
 
-public class SingleResourceInstanceConstraint implements IResourceInstanceConstraint {
+	private SimResourceInstance instance;
+
+	public SingleResourceInstanceConstraint(SimResourceInstance instance) {
+		super();
+		this.instance = instance;
+	}
 
 	@Override
 	public boolean check(SimResourceInstance instance) {
-		return idealResourceInstance.equals(instance);
+		return this.instance.equals(instance);
 	}
 
-	/**
-	 * @uml.property   name="idealResourceInstance"
-	 * @uml.associationEnd   inverse="idealResourceInstanceConstraint:de.uka.ipd.sdq.capra.simulator.resources.SimResourceInstance"
-	 */
-	private SimResourceInstance idealResourceInstance;
-
-	/**
-	 * Getter of the property <tt>idealResourceInstance</tt>
-	 * @return  Returns the idealResourceInstance.
-	 * @uml.property  name="idealResourceInstance"
-	 */
-	public SimResourceInstance getIdealResourceInstance() {
-		return idealResourceInstance;
+	public SimResourceInstance getResourceInstance() {
+		return instance;
 	}
-
-	/**
-	 * Setter of the property <tt>idealResourceInstance</tt>
-	 * @param idealResourceInstance  The idealResourceInstance to set.
-	 * @uml.property  name="idealResourceInstance"
-	 */
-	public void setIdealResourceInstance(
-			SimResourceInstance idealResourceInstance) {
-				this.idealResourceInstance = idealResourceInstance;
-			}
-
 }

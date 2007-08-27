@@ -4,46 +4,25 @@ import de.uka.ipd.sdq.scheduler.resources.timeslice.ITimeSlice;
 
 public abstract class AbstractDiscreteTimeSlice implements ITimeSlice {
 
-	protected int remainingTicks;
+	protected double remaining_ticks;
 
-	protected double timePerTick;
+	protected double tick_time;
 	
 	protected int timeslice;
 	
 	public AbstractDiscreteTimeSlice(double timePerTick) {
 		super();
-		this.remainingTicks = 0;
-		this.timePerTick = timePerTick;
+		this.remaining_ticks = 0;
+		this.tick_time = timePerTick;
 	}
 
-	public double getRemainingTime(){
-		return remainingTicks * timePerTick;
-	}
-
-	public boolean isFinished() {
-		return remainingTicks == 0;
-	}
-	
-	@Override
-	public void reset() {
-		remainingTicks = timeslice;
-	}
-
-	/**
-	 * Subtracts the rounded (lower end) number of ticks passed during the given
-	 * time.
-	 */
-	public void substractTime(double time) {
-		int ticks = (int) (time / timePerTick);
-		remainingTicks -= ticks;
-		assert remainingTicks >= 0 : "Timeslice exeeded!";
-	}
+	public abstract double getTimeUntilNextInterruption();
 
 	public int getRemainingTicks() {
-		return remainingTicks;
+		return (int)remaining_ticks;
 	}
 
 	public void setRemainingTicks(int remainingTicks) {
-		this.remainingTicks = remainingTicks;
+		this.remaining_ticks = remainingTicks;
 	}
 }

@@ -1,15 +1,14 @@
-package de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics;
+package de.uka.ipd.sdq.scheduler.resources.queueing.runqueues;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Iterator;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 
-public class ProcessQueue<T> implements Iterable<T> {
+public class ProcessQueue<T> {
 
-	private Deque<T> queue;
+	private ArrayDeque<T> queue;
 	
 	
 	public ProcessQueue(){
@@ -20,6 +19,17 @@ public class ProcessQueue<T> implements Iterable<T> {
 		queue.addLast(process);
 	}
 
+	public void addFirst(T process) {
+		queue.addFirst(process);
+	}
+	
+	public void add(T process, boolean inFront){
+		if (inFront) 
+			queue.addFirst(process);
+		else
+			queue.addLast(process);
+	}
+
 	public T peek() {
 		return queue.peek();
 	}
@@ -28,13 +38,9 @@ public class ProcessQueue<T> implements Iterable<T> {
 		return queue.poll();
 	}
 
-	public void addFirst(T process) {
-		queue.addFirst(process);
-	}
-
 	/**
 	 */
-	public int getNumberOfProcesses() {
+	public int size() {
 		return queue.size();
 	}
 
@@ -46,9 +52,22 @@ public class ProcessQueue<T> implements Iterable<T> {
 		return queue.isEmpty();
 	}
 
-	@Override
-	public Iterator<T> iterator() {
-		return queue.iterator();
+	public Iterable<T> ascending(){
+		return new Iterable<T>(){
+			@Override
+			public Iterator<T> iterator() {
+				return queue.iterator();
+			}
+		};
+	}
+	
+	public Iterable<T> descending(){
+		return new Iterable<T>(){
+			@Override
+			public Iterator<T> iterator() {
+				return queue.descendingIterator();
+			}
+		};
 	}
 
 	@SuppressWarnings("unchecked")
@@ -60,6 +79,10 @@ public class ProcessQueue<T> implements Iterable<T> {
 				return true;
 		}
 		return false;
+	}
+
+	public boolean contains(ActiveProcess process) {
+		return queue.contains(process);
 	}
 
 }

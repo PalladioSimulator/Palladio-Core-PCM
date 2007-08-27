@@ -6,58 +6,56 @@ import de.uka.ipd.sdq.scheduler.resources.balancing.IProcessSelector;
 import de.uka.ipd.sdq.scheduler.resources.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
 
+public class SingleQueueStrategy implements IQueueingStrategy {
 
-
-public class SingleQueueStrategy implements IQueueingStrategy  {
-	
-	/**
-	 * @uml.property   name="runQueue"
-	 * @uml.associationEnd   aggregation="composite" inverse="singleRunQueueScheduler:de.uka.ipd.sdq.capra.simulator.resources.IRunQueue"
-	 */
 	private IRunQueue runQueue;
-	
-	/**
-	 * @uml.property   name="processSelector"
-	 * @uml.associationEnd   inverse="singleRunQueue:de.uka.ipd.sdq.capra.simulator.resources.IProcessSelector"
-	 */
 	private IProcessSelector processSelector;
 
-	public SingleQueueStrategy(IRunQueue runQueue, IProcessSelector processSelector) {
+	public SingleQueueStrategy(IRunQueue runQueue,
+			IProcessSelector processSelector) {
 		super();
 		this.runQueue = runQueue;
 		this.processSelector = processSelector;
 	}
-	
+
 	@Override
 	public ActiveProcess getNextProcessFor(SimResourceInstance instance) {
 		return processSelector.select(runQueue, instance);
 	}
 
 	@Override
-	public void addProcess(ActiveProcess process) {
-		runQueue.addProcess(process);
+	public void addProcess(ActiveProcess process, boolean inFront) {
+		runQueue.addProcess(process, inFront);
 	}
 
 	@Override
-	public void balance() {
+	public void balance(SimResourceInstance instance) {
 		// nothing to do.
 	}
 
 	@Override
-	public ActiveProcess getProcessRunningOn(SimResourceInstance instance) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean removePendingProcess(ActiveProcess process) {
+		return runQueue.removePendingProcess(process);
 	}
 
 	@Override
-	public void returnActive(ActiveProcess running, boolean b) {
-		// TODO Auto-generated method stub
-		
+	public boolean containsPending(ActiveProcess process) {
+		return runQueue.containsPending(process);
 	}
 
 	@Override
-	public void returnExpired(ActiveProcess running, boolean b) {
-		// TODO Auto-generated method stub
-		
+	public void removeRunning(ActiveProcess process) {
+		runQueue.removeRunning(process);
 	}
+
+	@Override
+	public SimResourceInstance runningOn(ActiveProcess process) {
+		return runQueue.runningOn(process);
+	}
+
+	@Override
+	public void setRunningOn(ActiveProcess process, SimResourceInstance instance) {
+		runQueue.setRunningOn(process, instance);
+	}
+
 }

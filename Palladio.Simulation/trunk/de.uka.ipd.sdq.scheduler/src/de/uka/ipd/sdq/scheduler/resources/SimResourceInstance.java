@@ -1,96 +1,77 @@
 package de.uka.ipd.sdq.scheduler.resources;
 
+import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.scheduler.IScheduler;
 
 public class SimResourceInstance {
 
-	/**
-	 * @uml.property name="id"
-	 */
-	private int id;
-
-	/**
-	 * Getter of the property <tt>id</tt>
-	 * 
-	 * @return Returns the id.
-	 * @uml.property name="id"
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * Setter of the property <tt>id</tt>
-	 * 
-	 * @param id
-	 *            The id to set.
-	 * @uml.property name="id"
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * @uml.property name="runningProcess"
-	 */
+	private String name;
 	private ActiveProcess runningProcess;
+	private SchedulingEvent schedulingEvent;
 
-	/**
-	 * Getter of the property <tt>runningProcess</tt>
-	 * 
-	 * @return Returns the runningProcess.
-	 * @uml.property name="runningProcess"
-	 */
+	public SimResourceInstance(int id, String unique_name, IScheduler scheduler) {
+		super();
+		this.name = unique_name;
+		this.schedulingEvent = new SchedulingEvent(scheduler, this);
+	}
+
 	public ActiveProcess getRunningProcess() {
 		return runningProcess;
 	}
-
-	/**
-	 * Setter of the property <tt>runningProcess</tt>
-	 * 
-	 * @param runningProcess
-	 *            The runningProcess to set.
-	 * @uml.property name="runningProcess"
-	 */
-	public void setRunningProcess(ActiveProcess runningProcess) {
-		this.runningProcess = runningProcess;
-	}
 	
-	/**
-	 * Removes the currently running process from this instance and returns it.
-	 * @return The currently running process.
-	 */
-	public ActiveProcess pollRunningProcess(){
-		ActiveProcess process = this.runningProcess;
+	public void release() {
 		this.runningProcess = null;
-		return process;
 	}
 
 	/**
-	 * True, if there is no process executing on this resource instance, false otherwise.
+	 * True, if there is no process executing on this resource instance, false
+	 * otherwise.
 	 */
-	public boolean isIdle() {
+	public boolean noProcessAssigned() {
 		return runningProcess == null;
 	}
 
 	/**
-	 * Assigns a new process to this instance. Note that the resource has to be idle to do so.
+	 * Assigns a new process to this instance. Note that the resource has to be
+	 * idle to do so.
+	 * 
 	 * @param process
 	 */
 	public void assign(ActiveProcess process) {
-		assert this.isIdle() : "There is already a process executing on resource instance "
-			+ this;
+		assert this.noProcessAssigned() : "There is already a process executing on resource instance "
+				+ this;
 		runningProcess = process;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void scheduleSchedulingEvent(double time) {
+		schedulingEvent.schedule(time);
+	}
+
+	public void cancelSchedulingEvent() {
+		schedulingEvent.cancel();
+	}
+
+	@Override
+	public String toString() {
+		return getName();
 	}
 	
 	@Override
-	public String toString() {
-		return "" + id;
+	public boolean equals(Object obj) {
+		if (obj instanceof SimResourceInstance) {
+			SimResourceInstance instance = (SimResourceInstance) obj;
+			return this.getName().equals(instance.getName());
+		}
+		return false;
 	}
-
-	public void scheduleSchedulingEvent() {
-		// TODO Auto-generated method stub
-		
+	
+	@Override
+	public int hashCode() {
+		return getName().hashCode();
 	}
-
 }

@@ -9,30 +9,35 @@ import umontreal.iro.lecuyer.simevents.Sim;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.balancing.ILoadBalancer;
-import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.queueing.strategies.MultipleQueuesStrategy;
 
 public abstract class AbstractLoadBalancer implements ILoadBalancer {
 
-	/**
-	 * @uml.property name="balanceInterval"
-	 */
 	protected double balanceInterval;
 
-	/**
-	 * @uml.property name="lastBalanced"
-	 */
 	protected double lastBalanced;
 
-	protected MultipleQueuesStrategy runQueueHolder;
+	protected MultipleQueuesStrategy queueHolder;
+
+	protected boolean prio_increasing;
+
+	protected boolean queue_ascending;
+
+	private int max_iterations;
+	
 
 	public AbstractLoadBalancer(double balanceInterval,
-			MultipleQueuesStrategy runQueueHolder) {
+			MultipleQueuesStrategy queueHolder, boolean prio_increasing,
+			boolean queue_ascending, int max_iterations) {
 		super();
-		this.balanceInterval = balanceInterval;
 		this.lastBalanced = 0;
-		this.runQueueHolder = runQueueHolder;
+		this.balanceInterval = balanceInterval;
+		this.queueHolder = queueHolder;
+		this.prio_increasing = prio_increasing;
+		this.queue_ascending = queue_ascending;
+		this.max_iterations = max_iterations;
 	}
+
 
 	/**
 	 * Checks if both queues are balanced with respect to a given criteria.
@@ -45,58 +50,33 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	protected abstract boolean isBalanced(SimResourceInstance firstInstance,
 			SimResourceInstance secondInstance);
 
+
 	@Override
-	public void balance() {
+	public void balance(SimResourceInstance instance) {
 		double now = Sim.time();
 		if (now - lastBalanced >= balanceInterval) {
-			doBalance();
+			doBalance(instance);
 			lastBalanced = now;
 		}
 	}
 
 	/**
-	 * Idle Processors look for the busiest runqueue. If the queue contains more
-	 * than one task, they steal one.
-	 */
-	protected void doBalance() {
-		Collection<SimResourceInstance> idleInstances = runQueueHolder.getIdleInstances();
-		Collection<SimResourceInstance> busyInstances = getBusyInstances();
-		for (Iterator<SimResourceInstance> iterator = idleInstances.iterator(); iterator
-				.hasNext()
-				&& !busyInstances.isEmpty();) {
-			SimResourceInstance idleInstance = iterator.next();
-			SimResourceInstance busiestInstance = getBusiestQueue(busyInstances);
-			balanceTwoInstances(busiestInstance, idleInstance);
-			if (!isBusy(busiestInstance))
-				busyInstances.remove(busiestInstance);
-		}
-
-	}
-
-	/**
-	 * True, if the queue contains more than one process.
+	 * Moves processes from the busy instance to the idle instance until both
+	 * are balanced.
 	 * 
-	 * @param runQueue
-	 * @return
+	 * @param src
+	 * @param dest
 	 */
-	protected boolean isBusy(SimResourceInstance instance) {
-		return runQueueHolder.getRunQueueFor(instance).getCurrentLoad() > 1;
-	}
-
-	/**
-	 * Moves processes from the busy instance to the idle instance until both are balanced.
-	 * @param busyInstance
-	 * @param idleInstance
-	 */
-	protected void balanceTwoInstances(SimResourceInstance busyInstance,
-			SimResourceInstance idleInstance) {
-		List<ActiveProcess> movableProcesseList = identifyMovableProcesses(
-				busyInstance, idleInstance);
+	protected void balanceTwoInstances(SimResourceInstance src,
+			SimResourceInstance dest, int max_processes_needed) {
+		List<ActiveProcess> movableProcesseList = identifyMovableProcesses(src,
+				dest, max_processes_needed);
 		Iterator<ActiveProcess> iterator = movableProcesseList.iterator();
 
-		while (!isBalanced(busyInstance, idleInstance) && iterator.hasNext()) {
-			move(iterator.next(), busyInstance, idleInstance);
+		while ( iterator.hasNext() && load(src) > 1 && !isBalanced(src, dest) ) {
+			move(iterator.next(), src, dest);
 		}
+		dest.scheduleSchedulingEvent(0);
 	}
 
 	/**
@@ -108,7 +88,7 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 */
 	protected void move(ActiveProcess process, SimResourceInstance src,
 			SimResourceInstance dest) {
-		runQueueHolder.move(process, src, dest);
+		queueHolder.move(process, src, dest);
 	}
 
 	/**
@@ -120,28 +100,10 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 */
 	protected List<ActiveProcess> identifyMovableProcesses(
 			SimResourceInstance sourceInstance,
-			SimResourceInstance targetInstance) {
-		return runQueueHolder.getRunQueueFor(sourceInstance).identifyMovableProcesses(targetInstance);
-	}
-
-	/**
-	 * Returns the busiest queue in the given collection.
-	 * 
-	 * @param runQueues
-	 * @return
-	 */
-	protected SimResourceInstance getBusiestQueue(
-			Collection<SimResourceInstance> instances) {
-		SimResourceInstance busiestInstance = null;
-		Iterator<SimResourceInstance> iterator = instances.iterator();
-		while (iterator.hasNext()) {
-			SimResourceInstance currentInstance = iterator.next();
-			if (busiestInstance == null
-					|| load(busiestInstance) < load(currentInstance)) {
-				busiestInstance = currentInstance;
-			}
-		}
-		return busiestInstance;
+			SimResourceInstance targetInstance, int processes_needed) {
+		return queueHolder.getRunQueueFor(sourceInstance)
+				.identifyMovableProcesses(targetInstance, prio_increasing,
+						queue_ascending, processes_needed);
 	}
 
 	/**
@@ -151,23 +113,80 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 * @return
 	 */
 	protected int load(SimResourceInstance instance) {
-		return runQueueHolder.getRunQueueFor(instance).getCurrentLoad();
+		return queueHolder.getRunQueueFor(instance).getCurrentLoad();
+	}
+	
+	/**
+	 * Returns the busiest queue in the given list.
+	 * 
+	 * @param runQueues
+	 * @return
+	 */
+	protected SimResourceInstance getBusiest(Collection<SimResourceInstance> instanceList) {
+		SimResourceInstance busiest = null;
+		for (SimResourceInstance instance : instanceList) {
+			if (busiest == null || load(instance) > load(busiest))
+				busiest = instance;
+		}
+		return busiest;
 	}
 
+	
+	/**
+	 * Returns the laziest queue in the given list.
+	 * 
+	 * @param runQueues
+	 * @return
+	 */
+	protected SimResourceInstance getLaziest(Collection<SimResourceInstance> instanceList) {
+		SimResourceInstance laziest = null;
+		for (SimResourceInstance instance : instanceList) {
+			if (laziest == null || load(instance) < load(laziest))
+				laziest = instance;
+		}
+		return laziest;
+	}
+	
 	/**
 	 * Returns all queues with more than one job.
 	 * 
 	 * @param runQueueCollection
 	 * @return
 	 */
-	protected Collection<SimResourceInstance> getBusyInstances() {
-		Collection<SimResourceInstance> busyQueues = new ArrayList<SimResourceInstance>();
-		for (SimResourceInstance instance : runQueueHolder
-				.getResourceInstances()) {
-			if (isBusy(instance))
+	protected List<SimResourceInstance> getInstancesWithMoreThanOneProcess() {
+		List<SimResourceInstance> busyQueues = new ArrayList<SimResourceInstance>();
+		for (SimResourceInstance instance : queueHolder.getResourceInstances()) {
+			if (load(instance) > 1)
 				busyQueues.add(instance);
 		}
 		return busyQueues;
 	}
+	
+	protected int numProcessedNeeded(SimResourceInstance firstInstance,
+			SimResourceInstance secondInstance) {
+		int firstLoad = load(firstInstance);
+		int secondLoad = load(secondInstance);
+		return Math.abs(firstLoad - secondLoad) / 2;
+	}
 
+	protected void doBalance(SimResourceInstance instance) {
+		SimResourceInstance busiest = getBusiest(queueHolder.getResourceInstances());
+		if( !busiest.equals(instance) && !isBalanced(busiest, instance) && load(busiest) > 1 ){
+			int max_processes_needed = numProcessedNeeded(busiest, instance);
+			balanceTwoInstances(busiest, instance, max_processes_needed);
+		}
+	}
+
+	protected void doBalanceAll() {
+		SimResourceInstance busiest = getBusiest(queueHolder.getResourceInstances());
+		SimResourceInstance laziest = getLaziest(queueHolder.getResourceInstances());
+		int i=0;
+		while( !busiest.equals(laziest) && !isBalanced(busiest, laziest) && load(busiest) > 1 && i < max_iterations){
+			int max_processes_needed = numProcessedNeeded(busiest, laziest);
+			balanceTwoInstances(busiest, laziest, max_processes_needed);
+			busiest = getBusiest(queueHolder.getResourceInstances());
+			laziest = getLaziest(queueHolder.getResourceInstances());
+			i++;
+		}
+	}
 }

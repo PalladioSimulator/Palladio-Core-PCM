@@ -19,7 +19,7 @@ public class IdleSelector extends AbstractInstanceSelector  {
 	@Override
 	public SimResourceInstance selectInstanceFor(ActiveProcess process) {
 		List<SimResourceInstance> idleInstances = runQueueHolder.getIdleInstances();
-		process.applyAffinityConstraint(idleInstances);
+		process.removeNonAffineInstances(idleInstances);
 		
 		if (!process.hasIdealInstance())
 			selectIdealInstance(process);

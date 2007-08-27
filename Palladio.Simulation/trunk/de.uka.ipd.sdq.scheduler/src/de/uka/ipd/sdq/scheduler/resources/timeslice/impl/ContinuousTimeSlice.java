@@ -16,29 +16,28 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	}
 
 	@Override
-	public double getRemainingTime() {
+	public double getTimeUntilNextInterruption() {
 		return remainingTimeslice;
 	}
 
 	@Override
-	public boolean isFinished() {
+	public boolean completelyFinished() {
 		return MathTools.equalsDouble(remainingTimeslice, 0.0);
+	}
+	
+	@Override
+	public boolean partFinished() {
+		return completelyFinished();
 	}
 
 	@Override
 	public void substractTime(double time) {
 		remainingTimeslice -= time;
-		assert !MathTools.less(0.0, remainingTimeslice) : "Timeslice exceeded!";
+		assert !MathTools.less(remainingTimeslice, 0.0) : "Timeslice exceeded!";
 	}
 
 	@Override
 	public void reset() {
 		remainingTimeslice = timeslice;
 	}
-
-	@Override
-	public double getGranularity() {
-		return this.timeslice;
-	}
-
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.basics.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.queueing.runqueues.ProcessQueue;
 
 public interface IRunQueue {
 
@@ -14,44 +14,35 @@ public interface IRunQueue {
 	public abstract int getCurrentLoad();
 
 	/**
-	 * Returns the next process runnable on the given instance. The process is
-	 * marked as STANDBY and cannot be selected by other resources.
+	 * Returns the next process runnable on the given instance.
+	 */
+	public abstract ActiveProcess getNextRunnableProcess(
+			SimResourceInstance instance);
+
+	/**
+	 * Returns the next runnable process.
+	 * 
+	 * @return
 	 */
 	public abstract ActiveProcess getNextRunnableProcess();
 
 	/**
-	 * Returns a process to the runqueue that was interrupted before it finished
-	 * its timeslice.
-	 * 
-	 * @param inFront
-	 *            TODO
-	 */
-	public abstract void returnActiveProcess(ActiveProcess process,
-			boolean inFront);
-
-	/**
-	 * Returns a process to the runqueue whose timeslice expired.
-	 */
-	public abstract void returnExpiredProcess(ActiveProcess process,
-			boolean inFront);
-
-	/**
-	 * @return TODO
+	 * @return True, if there are no processes in the runqueue.
 	 */
 	public abstract boolean isEmpty();
 
 	/**
+	 * Removes a process from the runqueue.
 	 */
-	public abstract void removeProcess(ActiveProcess process);
+	public abstract boolean removeProcess(ActiveProcess process);
 
 	/**
+	 * Adds a process at the very end of the runqueue.
+	 * 
+	 * @param inFront
+	 *            TODO
 	 */
-	public abstract void addProcess(ActiveProcess process);
-
-	/**
-	 * Notifies the queue that the process is currently in running state.
-	 */
-	public abstract void notifyRunning(ActiveProcess process);
+	public abstract void addProcess(ActiveProcess process, boolean inFront);
 
 	/**
 	 * Creates a new instance of the given runqueue. Prototype Object Pattern.
@@ -59,6 +50,16 @@ public interface IRunQueue {
 	 * @return
 	 */
 	public abstract IRunQueue createNewInstance();
+
+	/**
+	 * Returns the most urgent queue which contains at least one process which
+	 * can run on the given instance. NULL if no such queue exists.
+	 * 
+	 * @param instance
+	 * @return
+	 */
+	public abstract ProcessQueue<ActiveProcess> getBestRunnableQueue(
+			SimResourceInstance instance);
 
 	/**
 	 * Composes a list of processes movable to the specified target. The list is
@@ -70,16 +71,28 @@ public interface IRunQueue {
 	 * @return
 	 */
 	public abstract List<ActiveProcess> identifyMovableProcesses(
-			SimResourceInstance targetInstance);
+			SimResourceInstance targetInstance, boolean prio_increasing,
+			boolean queue_ascending, int processes_needed);
 
 	/**
-	 * Returns the most urgent queue which contains at least one process which
-	 * can run on the given instance. NULL if no such queue exists.
+	 * True, if the process is in this runqueue, otherwise false.
 	 * 
-	 * @param instance
+	 * @param process
 	 * @return
 	 */
-	public abstract ProcessQueue<ActiveProcess> getUrgentQueue(
+	public abstract boolean contains(ActiveProcess process);
+
+	public abstract boolean removePendingProcess(ActiveProcess process);
+
+	public abstract boolean containsPending(ActiveProcess process);
+
+	public abstract void removeRunning(ActiveProcess process);
+
+	public abstract boolean containsRunning(ActiveProcess process);
+
+	public abstract void setRunningOn(ActiveProcess process,
 			SimResourceInstance instance);
+
+	public abstract SimResourceInstance runningOn(ActiveProcess process);
 
 }
