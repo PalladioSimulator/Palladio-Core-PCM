@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance;
 import java.util.Iterator;
 
 import de.uka.ipd.sdq.scheduler.IResourceInstance;
-import de.uka.ipd.sdq.scheduler.loaddistribution.selectors.bla.AbstractInstanceSelector;
 import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
 
