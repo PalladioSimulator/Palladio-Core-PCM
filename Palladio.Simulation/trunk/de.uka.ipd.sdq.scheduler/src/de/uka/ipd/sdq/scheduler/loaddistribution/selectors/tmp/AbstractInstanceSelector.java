@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance;
+package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.tmp;
 
 import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IInstanceSelector;
