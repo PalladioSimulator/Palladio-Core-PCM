@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" xmi:id="_ApT00Er9EdyCeu5nJw8QqA" type="allocation" measurementUnit="Pixel">
+  <styles xmi:type="notation:PageStyle" xmi:id="_ApT00Ur9EdyCeu5nJw8QqA"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_ApT00kr9EdyCeu5nJw8QqA"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_ApT000r9EdyCeu5nJw8QqA"/>
+  <element xmi:type="pcm.allocation:Allocation" href="MediaStore.allocation#_rxD2EKYVEduWZfldHy3B1Q"/>
+</notation:Diagram>

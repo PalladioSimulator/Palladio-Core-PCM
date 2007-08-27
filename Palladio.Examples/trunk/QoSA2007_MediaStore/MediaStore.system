@@ -14,12 +14,14 @@
   </childComponentContexts_ComposedStructure>
   <childComponentContexts_ComposedStructure id="_IoJoEKYUEduWZfldHy3B1Q" entityName="AssCtx_AudioDB">
     <encapsulatedComponent_ChildComponentContext href="MediaStore.repository#_a5a906YFEduWZfldHy3B1Q"/>
-    <componentParameterUsage_AssemblyContext>
-      <variableCharacterisation_VariableUsage specification="4000000" type="BYTESIZE"/>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="BYTESIZE">
+        <specification_VariableCharacterisation specification="4000000"/>
+      </variableCharacterisation_VariableUsage>
       <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="StoredFiles">
         <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
       </namedReference_VariableUsage>
-    </componentParameterUsage_AssemblyContext>
+    </configParameterUsages_AssemblyContext>
   </childComponentContexts_ComposedStructure>
   <providedDelegationConnectors_ComposedStructure id="_brD4UKYUEduWZfldHy3B1Q" outerProvidedRole_ProvidedDelegationConnector="_alLOUKYUEduWZfldHy3B1Q" childComponentContext_ProvidedDelegationConnector="_Glw5kKYUEduWZfldHy3B1Q">
     <innerProvidedRole_ProvidedDelegationConnector href="MediaStore.repository#_R3NqkKYSEduWZfldHy3B1Q"/>
