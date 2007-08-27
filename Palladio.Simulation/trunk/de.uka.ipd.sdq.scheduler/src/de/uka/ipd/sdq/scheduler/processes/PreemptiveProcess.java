@@ -1,59 +1,39 @@
 package de.uka.ipd.sdq.scheduler.processes;
 
+import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.timeslice.ITimeSlice;
-
 
 public class PreemptiveProcess extends ActiveProcess {
 
-	/**
-	 * @uml.property   name="timeSlice"
-	 * @uml.associationEnd   aggregation="composite" inverse="preemptiveProcess:de.uka.ipd.sdq.capra.simulator.resources.ITimeSlice"
-	 */
-	private ITimeSlice timeSlice;
-
-	/**
-	 * Getter of the property <tt>timeSlice</tt>
-	 * @return  Returns the timeSlice.
-	 * @uml.property  name="timeSlice"
-	 */
-	public ITimeSlice getTimeSlice() {
-		return timeSlice;
+	private ITimeSlice timeslice = null;
+	
+	public PreemptiveProcess(ISchedulableProcess process, String name,
+			ITimeSlice timeslice) {
+		super(process, name);
+		this.timeslice = timeslice;
+	}
+	
+	public boolean timeSlicePartFinished() {
+		return timeslice.partFinished();
+	}
+	
+	public boolean timeSliceCompletelyFinished() {
+		return timeslice.completelyFinished();
 	}
 
-	/**
-	 * Setter of the property <tt>timeSlice</tt>
-	 * @param timeSlice  The timeSlice to set.
-	 * @uml.property  name="timeSlice"
-	 */
-	public void setTimeSlice(ITimeSlice timeSlice) {
-		this.timeSlice = timeSlice;
+	public void resetTimeSlice() {
+		timeslice.reset();
 	}
 
-		
-		/**
-		 * Process changes back to READY state
-		 */
-		public void notifyPreemption(){
-		}
-
-			
-			/**
-			 * Process changes to RUNNING state
-			 */
-			public void notifyActivation(){
-			}
-
-				
-				/**
-				 */
-				public boolean timesliceFinished(){
-					return false;	
-				}
-
-					
-					/**
-					 */
-					public void resetTimeSlice(){
-					}
-
+	@Override
+	protected void passTime(double passedTime) {
+		super.passTime(passedTime);
+		timeslice.substractTime(passedTime);
+	}
+	
+	@Override
+	public double getTimeUntilNextInterruption() {
+		return timeslice.getTimeUntilNextInterruption();
+	}
 }

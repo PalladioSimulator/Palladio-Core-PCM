@@ -15,7 +15,7 @@ public class ProcessRegistry {
 	}
 
 	public void registerProcess(ActiveProcess process){
-		registry.put(process.getProcess(), process);
+		registry.put(process.getSchedulableProcess(), process);
 	}
 	
 	public ActiveProcess lookUp(ISchedulableProcess process){

@@ -1,298 +1,275 @@
 package de.uka.ipd.sdq.scheduler.processes;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import umontreal.iro.lecuyer.simevents.Sim;
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.events.ProceedEvent;
+import de.uka.ipd.sdq.scheduler.processes.sensors.IProcessStateSensor;
+import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.balancing.IResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.resources.balancing.constraints.MultipleResourceInstancesConstraint;
 import de.uka.ipd.sdq.scheduler.resources.balancing.constraints.SingleResourceInstanceConstraint;
+import de.uka.ipd.sdq.scheduler.resources.passive.IDelayedAction;
+import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
 
 public class ActiveProcess {
-
+	
+	
 	/**
-	 * @uml.property   name="state"
-	 * @uml.associationEnd   aggregation="composite" inverse="runningProcess:de.uka.ipd.sdq.scheduler.processes.PROCESS_STATE"
-	 */
-	private PROCESS_STATE state = PROCESS_STATE.READY;
-
-	/**
-	 * Getter of the property <tt>state</tt>
+	 * Creates a new wrapper containing the running information of a process.
 	 * 
-	 * @return Returns the state.
-	 * @uml.property name="state"
+	 * @param process
+	 *            The process that should be executed.
+	 * 
+	 * @param name
+	 *            A UNIQUE name of the process.
 	 */
+	protected ActiveProcess(ISchedulableProcess process, String name) {
+		super();
+
+		this.affinityConstraint = null;
+		this.currentDemand = 0;
+		this.idealInstanceConstraint = null;
+		this.lastInstanceConstraint = null;
+		this.lastUpdateTime = 0;
+		this.name = name;
+		this.proceedEvent = new ProceedEvent(this);
+		this.process = process;
+		this.processStateSensorList = new ArrayList<IProcessStateSensor>();
+		this.runqueue = null;
+		this.state = PROCESS_STATE.READY;
+	}
+
+	// /////////////////////////////////////////////////////////////////////
+	// Basics
+	// /////////////////////////////////////////////////////////////////////
+
+	private ISchedulableProcess process;
+	private String name;
+	private IRunQueue runqueue;
+
+	public IRunQueue getRunQueue() {
+		return runqueue;
+	}
+	
+	public void setRunQueue(IRunQueue runqueue){
+		this.runqueue = runqueue;
+	}
+
+
+	public ISchedulableProcess getSchedulableProcess() {
+		return process;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof ActiveProcess) {
+			ActiveProcess process = (ActiveProcess) obj;
+			return this.name.equals(process.name);
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
+
+	// /////////////////////////////////////////////////////////////////////
+	// Process State
+	// /////////////////////////////////////////////////////////////////////
+
+	private PROCESS_STATE state = PROCESS_STATE.READY;
+	private List<IProcessStateSensor> processStateSensorList;
+
 	public PROCESS_STATE getState() {
 		return state;
 	}
 
-	/**
-	 * Setter of the property <tt>state</tt>
-	 * 
-	 * @param state
-	 *            The state to set.
-	 * @uml.property name="state"
-	 */
-	public void setState(PROCESS_STATE state) {
-		this.state = state;
+	public void setState(PROCESS_STATE new_state) {
+		state = new_state;
+		for (IProcessStateSensor sensor : processStateSensorList) {
+			sensor.update(new_state);
+		}
 	}
 
-	/**
-	 * @uml.property   name="currentDemand"
-	 */
-	private double currentDemand;
+	public void setRunning() {
+		setState(PROCESS_STATE.RUNNING);
+	}
 
-	/**
-	 * Getter of the property <tt>remainingDemand</tt>
-	 * 
-	 * @return Returns the remainingDemand.
-	 * @uml.property name="currentDemand"
-	 */
+	public void setReady() {
+		setState(PROCESS_STATE.READY);
+	}
+
+	public void setWaiting() {
+		setState(PROCESS_STATE.WAITING);
+	}
+
+	public boolean isRunning() {
+		return getState() == PROCESS_STATE.RUNNING;
+	}
+	
+	public boolean isReady() {
+		return getState() == PROCESS_STATE.READY;
+	}
+
+	public boolean isWaiting() {
+		return getState() == PROCESS_STATE.WAITING;
+	}
+
+	public void addStateSensor(IProcessStateSensor sensor) {
+		processStateSensorList.add(sensor);
+	}
+
+	public void removeStateSensor(IProcessStateSensor sensor) {
+		processStateSensorList.remove(sensor);
+	}
+
+	// /////////////////////////////////////////////////////////////////////
+	// Timing
+	// /////////////////////////////////////////////////////////////////////
+
+	private double currentDemand = 0;
+	private double lastUpdateTime = 0;
+
 	public double getCurrentDemand() {
 		return currentDemand;
 	}
 
-	/**
-	 * Setter of the property <tt>remainingDemand</tt>
-	 * 
-	 * @param remainingDemand
-	 *            The remainingDemand to set.
-	 * @uml.property name="currentDemand"
-	 */
 	public void setCurrentDemand(double currentDemand) {
 		this.currentDemand = currentDemand;
 	}
 
-	public double getRemainingTimeSlice() {
-		return 0;
-	}
-
 	/**
-	 * @uml.property   name="processStateSensorList"
-	 * @uml.associationEnd   multiplicity="(0 -1)" ordering="true" aggregation="shared" inverse="activeProcess:de.uka.ipd.sdq.scheduler.processes.IProcessStateSensor"
-	 */
-	private List<IProcessStateSensor> processStateSensorList;
-
-	/**
-	 * Getter of the property <tt>processStateSensorList</tt>
-	 * 
-	 * @return Returns the processStateSensorList.
-	 * @uml.property name="processStateSensorList"
-	 */
-	public List<IProcessStateSensor> getProcessStateSensorList() {
-		return processStateSensorList;
-	}
-
-	/**
-	 * Setter of the property <tt>processStateSensorList</tt>
-	 * 
-	 * @param processStateSensorList
-	 *            The processStateSensorList to set.
-	 * @uml.property name="processStateSensorList"
-	 */
-	public void setProcessStateSensorList(
-			List<IProcessStateSensor> processStateSensorList) {
-				this.processStateSensorList = processStateSensorList;
-			}
-
-	/**
-	 * @uml.property   name="process"
-	 * @uml.associationEnd   aggregation="shared" inverse="abstractDecoratedProcess:de.uka.ipd.sdq.capra.simulator.expressions.Simprocess"
-	 */
-	private ISchedulableProcess process;
-
-	/**
-	 * Getter of the property <tt>process</tt>
-	 * 
-	 * @return Returns the process.
-	 * @uml.property name="process"
-	 */
-	public ISchedulableProcess getProcess() {
-		return process;
-	}
-
-	/**
-	 * Setter of the property <tt>process</tt>
-	 * 
-	 * @param process
-	 *            The process to set.
-	 * @uml.property name="process"
-	 */
-	public void setProcess(ISchedulableProcess process) {
-		this.process = process;
-	}
-
-	/**
-	 */
-	public double getRemainingDemand() {
-		return 0;
-	}
-
-	/**
-	 * Proceeds all timeing variables to the current simulation time.
+	 * Proceeds all timing variables to the current simulation time.
 	 */
 	public void toNow() {
+		double currentTime = Sim.time();
+		if (isRunning()) {
+			double passedTime = currentTime - lastUpdateTime;
+			if (passedTime > MathTools.EPSILON_ERROR) {
+				passTime(passedTime);
+			}
+		}
+		lastUpdateTime = currentTime;
 	}
 
-	public void setStandby() {
-		// TODO Auto-generated method stub
-		
+	protected void passTime(double passedTime) {
+		currentDemand -= passedTime;
 	}
 
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	// /////////////////////////////////////////////////////////////////////
+	// Resource Instance Constraints
+	// /////////////////////////////////////////////////////////////////////
 
-	public void setRunning() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/**
-	 * @uml.property   name="affinityConstraint"
-	 * @uml.associationEnd   aggregation="composite" inverse="activeProcess:de.uka.ipd.sdq.capra.simulator.resources.MultipleResourceInstancesConstraint"
-	 */
 	private MultipleResourceInstancesConstraint affinityConstraint;
-
-	/**
-	 * Getter of the property <tt>affinityConstraint</tt>
-	 * @return  Returns the affinityConstraint.
-	 * @uml.property  name="affinityConstraint"
-	 */
-	public MultipleResourceInstancesConstraint getAffinityConstraint() {
-		return affinityConstraint;
-	}
-
-	/**
-	 * Setter of the property <tt>affinityConstraint</tt>
-	 * @param affinityConstraint  The affinityConstraint to set.
-	 * @uml.property  name="affinityConstraint"
-	 */
-	public void setAffinityConstraint(
-			MultipleResourceInstancesConstraint affinityConstraint) {
-				this.affinityConstraint = affinityConstraint;
-			}
-
-	/**
-	 * @uml.property   name="idealInstanceConstraint"
-	 * @uml.associationEnd   aggregation="composite" inverse="activeProcess:de.uka.ipd.sdq.capra.simulator.resources.SingleResourceInstanceConstraint"
-	 */
 	private SingleResourceInstanceConstraint idealInstanceConstraint;
-
-	/** 
-	 * Getter of the property <tt>idealInstanceConstraint</tt>
-	 * @return  Returns the idealInstanceConstraint.
-	 * @uml.property  name="idealInstanceConstraint"
-	 */
-	public SingleResourceInstanceConstraint getIdealInstanceConstraint() {
-		return idealInstanceConstraint;
-	}
-
-	/** 
-	 * Setter of the property <tt>idealInstanceConstraint</tt>
-	 * @param idealInstanceConstraint  The idealInstanceConstraint to set.
-	 * @uml.property  name="idealInstanceConstraint"
-	 */
-	public void setIdealInstanceConstraint(
-			SingleResourceInstanceConstraint idealInstanceConstraint) {
-				this.idealInstanceConstraint = idealInstanceConstraint;
-			}
-
-	/**
-	 * @uml.property   name="lastInstanceConstraint"
-	 * @uml.associationEnd   aggregation="composite" inverse="activeProcess:de.uka.ipd.sdq.capra.simulator.resources.SingleResourceInstanceConstraint"
-	 */
 	private SingleResourceInstanceConstraint lastInstanceConstraint;
 
-	/**
-	 * Getter of the property <tt>lastInstanceConstraint</tt>
-	 * @return  Returns the lastInstanceConstraint.
-	 * @uml.property  name="lastInstanceConstraint"
-	 */
-	public SingleResourceInstanceConstraint getLastInstanceConstraint() {
-		return lastInstanceConstraint;
+	public void setAffineInstances(List<SimResourceInstance> instanceList) {
+		affinityConstraint = new MultipleResourceInstancesConstraint(
+				instanceList);
 	}
 
-	/**
-	 * Setter of the property <tt>lastInstanceConstraint</tt>
-	 * @param lastInstanceConstraint  The lastInstanceConstraint to set.
-	 * @uml.property  name="lastInstanceConstraint"
-	 */
-	public void setLastInstanceConstraint(
-			SingleResourceInstanceConstraint lastInstanceConstraint) {
-				this.lastInstanceConstraint = lastInstanceConstraint;
-			}
+	public boolean hasAffinityList() {
+		return affinityConstraint != null;
+	}
 
 	public boolean checkAffinity(SimResourceInstance instance) {
-		if (affinityConstraint != null){
-			return affinityConstraint.check(instance);
+		return checkInstanceConstraint(affinityConstraint, instance);
+	}
+
+	public void removeNonAffineInstances(List<SimResourceInstance> instances) {
+		if (hasAffinityList()) {
+			for (SimResourceInstance instance : instances) {
+				if (!affinityConstraint.check(instance)) {
+					instances.remove(instance);
+				}
+			}
 		}
-		return true; // if no constraint is defined, every instance is accepted.
 	}
 
-	public void setIdealInstance(SimResourceInstance current) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void setIdealInstance(SimResourceInstance instance) {
+		idealInstanceConstraint = new SingleResourceInstanceConstraint(instance);
 
-	public boolean idealInstanceNotSet() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public void applyAffinityConstraint(List<SimResourceInstance> idleInstances) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public boolean hasIdealInstance() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public SimResourceInstance getIdealInstance() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public boolean hasLastInstance() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public SimResourceInstance getLastInstance() {
-		// TODO Auto-generated method stub
-		return null;
+		return idealInstanceConstraint != null;
 	}
 
 	public boolean isIdealInstance(SimResourceInstance instance) {
-		// TODO Auto-generated method stub
-		return false;
+		return checkInstanceConstraint(idealInstanceConstraint, instance);
+	}
+
+	public SimResourceInstance getIdealInstance() {
+		if (hasIdealInstance()) {
+			return idealInstanceConstraint.getResourceInstance();
+		}
+		return null;
+	}
+
+
+	public void setLastInstance(SimResourceInstance instance) {
+		lastInstanceConstraint = new SingleResourceInstanceConstraint(instance);
+	}
+	
+	public boolean hasLastInstance() {
+		return lastInstanceConstraint != null;
+	}
+
+	public SimResourceInstance getLastInstance() {
+		if (hasLastInstance())
+			return lastInstanceConstraint.getResourceInstance();
+		return null;
 	}
 
 	public boolean isLastInstance(SimResourceInstance instance) {
-		// TODO Auto-generated method stub
-		return false;
+		return checkInstanceConstraint(lastInstanceConstraint, instance);
 	}
 
-	public void setReady() {
-		// TODO Auto-generated method stub
-		
+	private boolean checkInstanceConstraint(
+			IResourceInstanceConstraint constraint, SimResourceInstance instance) {
+		if (constraint != null) {
+			return constraint.check(instance);
+		}
+		// if no constraint is defined, every instance is accepted.
+		return true;
 	}
 
-	public boolean timeSliceExpired() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	// /////////////////////////////////////////////////////////////////////
+	// Resource Instance Constraints
+	// /////////////////////////////////////////////////////////////////////
 
-	public void resetTimeSlice() {
-		// TODO Auto-generated method stub
-		
-	}
+	private ProceedEvent proceedEvent = null;
 
 	public void scheduleProceedEvent() {
-		// TODO Auto-generated method stub
-		
+		proceedEvent.schedule(getCurrentDemand());
+	}
+	
+	public void cancelProceedEvent() {
+		proceedEvent.cancel();
 	}
 
+
+	public double getTimeUntilNextInterruption() {
+		return currentDemand;
+	}
+
+	public void setDelayedAction(IDelayedAction action) {
+		this.proceedEvent.setDelayedAction(action);
+	}
 }
