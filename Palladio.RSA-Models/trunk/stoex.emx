@@ -274,25 +274,35 @@
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_kyHtoTpfEduKtOWw2f6nDA" fillColor="65535" lineColor="0" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kyHtojpfEduKtOWw2f6nDA" x="-4134" y="2544"/>
       </children>
-      <children xmi:id="_3riEIDuSEduKtOWw2f6nDA" sourceEdges="_XvZXADhvEdy4wo8LP9zxLA" element="_GIDLsPdxEdqB_7dkOscBPA">
-        <children xmi:id="_3riEIzuSEduKtOWw2f6nDA" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
+      <children xmi:id="_3riEIDuSEduKtOWw2f6nDA" sourceEdges="_XvZXADhvEdy4wo8LP9zxLA">
+        <children xmi:id="_3riEIzuSEduKtOWw2f6nDA" type="ImageCompartment">
+          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/PCMRandomVariable"/>
           <layoutConstraint xmi:type="notation:Size" xmi:id="_3riEJDuSEduKtOWw2f6nDA" width="1320" height="1320"/>
         </children>
-        <children xmi:id="_3riEJTuSEduKtOWw2f6nDA" type="Stereotype" element="_GIDLsPdxEdqB_7dkOscBPA"/>
-        <children xmi:id="_3riEJjuSEduKtOWw2f6nDA" type="Name" element="_GIDLsPdxEdqB_7dkOscBPA"/>
-        <children xmi:id="_3riEJzuSEduKtOWw2f6nDA" type="AttributeCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
+        <children xmi:id="_3riEJTuSEduKtOWw2f6nDA" type="Stereotype">
+          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/PCMRandomVariable"/>
+        </children>
+        <children xmi:id="_3riEJjuSEduKtOWw2f6nDA" type="Name">
+          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/PCMRandomVariable"/>
+        </children>
+        <children xmi:id="_3riEJzuSEduKtOWw2f6nDA" type="AttributeCompartment">
           <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_3riEKDuSEduKtOWw2f6nDA"/>
+          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/PCMRandomVariable"/>
         </children>
-        <children xmi:id="_3riEKTuSEduKtOWw2f6nDA" type="OperationCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
+        <children xmi:id="_3riEKTuSEduKtOWw2f6nDA" type="OperationCompartment">
           <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_3riEKjuSEduKtOWw2f6nDA"/>
+          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/PCMRandomVariable"/>
         </children>
-        <children xmi:id="_3riEKzuSEduKtOWw2f6nDA" visible="false" type="SignalCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
+        <children xmi:id="_3riEKzuSEduKtOWw2f6nDA" visible="false" type="SignalCompartment">
           <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_3riELDuSEduKtOWw2f6nDA"/>
+          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/PCMRandomVariable"/>
         </children>
-        <children xmi:id="_3riELTuSEduKtOWw2f6nDA" visible="false" type="StructureCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
+        <children xmi:id="_3riELTuSEduKtOWw2f6nDA" visible="false" type="StructureCompartment">
           <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_3riELjuSEduKtOWw2f6nDA"/>
+          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/PCMRandomVariable"/>
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_3riEITuSEduKtOWw2f6nDA" fillColor="65535" lineColor="0" showStereotype="Label"/>
+        <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/PCMRandomVariable"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3riEIjuSEduKtOWw2f6nDA" x="-6678" y="-2544"/>
       </children>
       <children xmi:id="_Tjn7EFOqEduyKfhIjBdbtA" sourceEdges="_VaYoYFOqEduyKfhIjBdbtA _XAAiYFOqEduyKfhIjBdbtA _ZATmMFOqEduyKfhIjBdbtA" element="_TjLPIFOqEduyKfhIjBdbtA">
@@ -1914,13 +1924,19 @@
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_GLGCgRsSEdyCgOLt3ngiGQ" fontName="Segoe UI" showStereotype="Text"/>
         <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_GLGCghsSEdyCgOLt3ngiGQ" points="[-60, 24, 125, -24]$[-111, 53, 74, 5]"/>
       </edges>
-      <edges xmi:id="_XvZXADhvEdy4wo8LP9zxLA" element="_XvF1ADhvEdy4wo8LP9zxLA" source="_3riEIDuSEduKtOWw2f6nDA" target="_UcPkMDhvEdy4wo8LP9zxLA">
-        <children xmi:id="_XvZXAzhvEdy4wo8LP9zxLA" type="NameLabel" element="_XvF1ADhvEdy4wo8LP9zxLA">
-          <children xmi:id="_XvZXBThvEdy4wo8LP9zxLA" type="Stereotype" element="_XvF1ADhvEdy4wo8LP9zxLA"/>
-          <children xmi:id="_XvZXBjhvEdy4wo8LP9zxLA" type="Name" element="_XvF1ADhvEdy4wo8LP9zxLA"/>
+      <edges xmi:id="_XvZXADhvEdy4wo8LP9zxLA" source="_3riEIDuSEduKtOWw2f6nDA" target="_UcPkMDhvEdy4wo8LP9zxLA">
+        <children xmi:id="_XvZXAzhvEdy4wo8LP9zxLA" type="NameLabel">
+          <children xmi:id="_XvZXBThvEdy4wo8LP9zxLA" type="Stereotype">
+            <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralization%3E"/>
+          </children>
+          <children xmi:id="_XvZXBjhvEdy4wo8LP9zxLA" type="Name">
+            <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralization%3E"/>
+          </children>
+          <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralization%3E"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XvZXBDhvEdy4wo8LP9zxLA" y="-185"/>
         </children>
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_XvZXAThvEdy4wo8LP9zxLA" showStereotype="Text"/>
+        <element xmi:type="uml:Generalization" href="pcm.emx#_XvF1ADhvEdy4wo8LP9zxLA?pcm/core/PCMRandomVariable/%3CGeneralization%3E"/>
         <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XvZXAjhvEdy4wo8LP9zxLA" points="[-84, -14, 129, 7]$[-143, -14, 70, 7]"/>
       </edges>
       <edges xmi:id="_ew9VQDhvEdy4wo8LP9zxLA" element="_evUWgDhvEdy4wo8LP9zxLA" source="_UcPkMDhvEdy4wo8LP9zxLA" target="_IZWfEDpQEduKtOWw2f6nDA">
@@ -2254,12 +2270,6 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_dNNvkDpQEduKtOWw2f6nDA" name="Term" isAbstract="true">
     <generalization xmi:id="_lzELEDpQEduKtOWw2f6nDA" general="_SRTboDpQEduKtOWw2f6nDA"/>
-  </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_GIDLsPdxEdqB_7dkOscBPA" name="PCMRandomVariable">
-    <ownedRule xmi:id="_QUWVkCooEdyENO6Lndj6uA" name="SpecificationMustNotBeNULL" constrainedElement="_GIDLsPdxEdqB_7dkOscBPA">
-      <specification xmi:type="uml:OpaqueExpression" xmi:id="_QUW8oCooEdyENO6Lndj6uA" body="not self.specification.oclIsUndefined() and self.specification &lt;> ''" language="OCL"/>
-    </ownedRule>
-    <generalization xmi:id="_XvF1ADhvEdy4wo8LP9zxLA" general="_Ubf9UDhvEdy4wo8LP9zxLA"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_uSRvAFOqEduyKfhIjBdbtA" name="ProductExpression">
     <generalization xmi:id="_7r1xIFOqEduyKfhIjBdbtA" general="_jsECUDpQEduKtOWw2f6nDA"/>
