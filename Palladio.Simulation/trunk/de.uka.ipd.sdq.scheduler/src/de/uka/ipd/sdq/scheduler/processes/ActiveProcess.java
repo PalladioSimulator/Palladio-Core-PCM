@@ -6,15 +6,15 @@ import java.util.List;
 import umontreal.iro.lecuyer.simevents.Sim;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.balancing.IResourceInstanceConstraint;
+import de.uka.ipd.sdq.scheduler.balancing.constraints.MultipleResourceInstancesConstraint;
+import de.uka.ipd.sdq.scheduler.balancing.constraints.SingleResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.events.ProceedEvent;
+import de.uka.ipd.sdq.scheduler.passiveresources.IDelayedAction;
 import de.uka.ipd.sdq.scheduler.processes.sensors.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
+import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.balancing.IResourceInstanceConstraint;
-import de.uka.ipd.sdq.scheduler.resources.balancing.constraints.MultipleResourceInstancesConstraint;
-import de.uka.ipd.sdq.scheduler.resources.balancing.constraints.SingleResourceInstanceConstraint;
-import de.uka.ipd.sdq.scheduler.resources.passive.IDelayedAction;
-import de.uka.ipd.sdq.scheduler.resources.queueing.IRunQueue;
 
 public class ActiveProcess {
 	

@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.scheduler.events;
 
 import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
-import de.uka.ipd.sdq.scheduler.resources.scheduler.IScheduler;
+import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 import umontreal.iro.lecuyer.simevents.Event;
 
 public class SchedulingEvent extends Event {

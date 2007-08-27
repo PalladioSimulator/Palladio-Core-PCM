@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.scheduler.resources;
 
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.resources.scheduler.IScheduler;
+import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class SimResourceInstance {
 

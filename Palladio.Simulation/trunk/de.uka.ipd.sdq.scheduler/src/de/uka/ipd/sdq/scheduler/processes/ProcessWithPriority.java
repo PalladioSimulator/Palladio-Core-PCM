@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.scheduler.processes;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
-import de.uka.ipd.sdq.scheduler.resources.timeslice.ITimeSlice;
+import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
 public class ProcessWithPriority extends PreemptiveProcess {
 

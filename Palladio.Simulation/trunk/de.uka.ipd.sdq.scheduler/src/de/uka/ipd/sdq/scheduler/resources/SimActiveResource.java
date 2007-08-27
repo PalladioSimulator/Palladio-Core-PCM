@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.ProcessRegistry;
-import de.uka.ipd.sdq.scheduler.resources.scheduler.IScheduler;
+import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class SimActiveResource extends AbstractSimResource implements
 		IActiveResource {
