@@ -243,10 +243,11 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		if (!MathTools.equalsDouble(getProbabilitySum(), 1.0))
 			throw new ProbabilitySumNotOneException();
 
-		if (getUnit() == null)
-			throw new UnitNotSetException();
-		if (getUnit().getUnitName() == null)
-			throw new UnitNameNotSetException();
+		// TODO: Refactor to new UNIT framework
+		// if (getUnit() == null)
+		//	throw new UnitNotSetException();
+		// if (getUnit().getUnitName() == null)
+		//	throw new UnitNameNotSetException();
 
 		for (IContinuousSample s : samples) {
 			if (s == null || s.getValue() < 0.0 || s.getProbability() < 0.0
