@@ -1,13 +1,12 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuAttributesGetMethods;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
-import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
+import de.uka.ipd.sdq.codegen.workflow.jobs.CheckOAWConstraintsJob;
+import de.uka.ipd.sdq.codegen.workflow.jobs.GenerateOAWCodeJob;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
@@ -18,25 +17,35 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  * @author Philipp Meier
  */
 public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
-	
+
 	/**
-	 * @param configuration the launch configuration
+	 * @param attributes -
+	 *            defines the methods, the return SimuCom special variable from the
+	 *            LaunchConfiguration-Object.
+	 * 
 	 * @throws CoreException
+	 * @throws JobFailedException
 	 */
-	public SimulationRunCompositeJob(ILaunchConfiguration configuration) throws CoreException {
-		assert (configuration != null);
-		
-		this.addJob(new CheckOAWConstraintsJob(configuration));
-		
-		CreatePluginProjectJob createPluginProjectJob =
-			new CreatePluginProjectJob(configuration);		
-		this.addJob(createPluginProjectJob);		
-		
-		this.addJob(new GeneratePluginCodeJob(configuration));
+	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes)
+			throws JobFailedException, CoreException {
+
+		CheckOAWConstraintsJob checkOAWConstraintsJob = new CheckOAWConstraintsJob(
+				attributes.getFiles(), attributes.isShouldThrowException());
+		this.addJob(checkOAWConstraintsJob);
+
+		CreatePluginProjectJob createPluginProjectJob = new CreatePluginProjectJob(
+				attributes.isDeleteProject());
+		this.addJob(createPluginProjectJob);
+
+		GenerateOAWCodeJob generatePluginCodeJob = new GenerateOAWCodeJob(
+				attributes.getOAWWorkflowProperties());
+		this.addJob(generatePluginCodeJob);
+
 		this.addJob(new CompilePluginCodeJob(createPluginProjectJob));
 		this.addJob(new LoadPluginJob(createPluginProjectJob));
 
-		SimuComConfig simuConfig = new SimuComConfig(configuration.getAttributes());
+		SimuComConfig simuConfig = new SimuComConfig(attributes
+				.getSimuComProperties());
 		this.addJob(new SimulateJob(simuConfig));
 	}
 

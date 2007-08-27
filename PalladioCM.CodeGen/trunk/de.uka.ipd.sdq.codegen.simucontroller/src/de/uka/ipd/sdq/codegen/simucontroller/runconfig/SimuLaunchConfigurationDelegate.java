@@ -6,7 +6,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
-import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 
 /**
  * The class adapts defined functionality in the LaunchConfigurationDelegate for
@@ -17,34 +17,25 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  * @author Roman Andrej
  */
 public class SimuLaunchConfigurationDelegate extends
-		LaunchConfigurationDelegate {
+		LaunchConfigurationDelegate<SimuAttributesGetMethods> {
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#createRunCompositeJob(org.eclipse.debug.core.ILaunchConfiguration)
+	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#creataAttributesGetMethods(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
 	@Override
-	protected IJob createRunCompositeJob(ILaunchConfiguration configuration)
-			throws CoreException {
-		
-		return new SimulationRunCompositeJob(configuration);
+	protected SimuAttributesGetMethods creataAttributesGetMethods(
+			ILaunchConfiguration configuration) {
+		return new SimuAttributesGetMethods(configuration);
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#getTemplateMethod()
+	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#createRunCompositeJob(de.uka.ipd.sdq.codegen.runconfig.AttributesGetMethods)
 	 */
 	@Override
-	protected String defineTemplateMethod() {
-		return "simulation_template_methods";
+	protected IJob createRunCompositeJob(SimuAttributesGetMethods attributes)
+			throws JobFailedException, CoreException {
+		return new SimulationRunCompositeJob(attributes);
 	}
 
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#isShouldThrowException(org.eclipse.debug.core.ILaunchConfiguration)
-	 */
-	@Override
-	public boolean isShouldThrowException(ILaunchConfiguration configuration)
-			throws CoreException {
-		return configuration.getAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION,
-				false);
-	}
 }
