@@ -1,14 +1,14 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class SimResourceInstance implements IResourceInstance {
 
 	private String name;
-	private ActiveProcess runningProcess;
+	private IRunningProcess runningProcess;
 	private SchedulingEvent schedulingEvent;
 
 	public SimResourceInstance(int id, String unique_name, IScheduler scheduler) {
@@ -17,53 +17,33 @@ public class SimResourceInstance implements IResourceInstance {
 		this.schedulingEvent = new SchedulingEvent(scheduler, this);
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.resources.active.IResourceInstance#getRunningProcess()
-	 */
-	public ActiveProcess getRunningProcess() {
+	public IRunningProcess getRunningProcess() {
 		return runningProcess;
 	}
 	
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.resources.active.IResourceInstance#release()
-	 */
 	public void release() {
 		this.runningProcess = null;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.resources.active.IResourceInstance#noProcessAssigned()
-	 */
-	public boolean noProcessAssigned() {
-		return runningProcess == null;
+	public boolean processAssigned() {
+		return runningProcess != null;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.resources.active.IResourceInstance#assign(de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess)
-	 */
-	public void assign(ActiveProcess process) {
-		assert this.noProcessAssigned() : "There is already a process executing on resource instance "
+	public void assign(IRunningProcess process) {
+		assert !this.processAssigned() : "There is already a process executing on resource instance "
 				+ this;
 		runningProcess = process;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.resources.active.IResourceInstance#getName()
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.resources.active.IResourceInstance#scheduleSchedulingEvent(double)
-	 */
 	public void scheduleSchedulingEvent(double time) {
+		cancelSchedulingEvent();
 		schedulingEvent.schedule(time);
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.resources.active.IResourceInstance#cancelSchedulingEvent()
-	 */
 	public void cancelSchedulingEvent() {
 		schedulingEvent.cancel();
 	}

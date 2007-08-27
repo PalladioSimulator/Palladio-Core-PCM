@@ -1,11 +1,11 @@
 package de.uka.ipd.sdq.scheduler.loaddistribution;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public interface IResourceInstanceConstraint {
 
 	/**
-	 * Checks whether this process can run on the specified resource instance.
+	 * Checks whether the condition is fulfilled for the given instance.
 	 */
 	public abstract boolean check(IResourceInstance instance);
 

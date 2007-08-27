@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.scheduler.resources.passive;
 
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IRunningProcess;
 
-public class SimFairPassiveResource extends SimPassiveResource {
+public class SimFairPassiveResource extends SimAbstractPassiveResource {
 
 	public SimFairPassiveResource(int capacity, String name, String id) {
 		super(capacity, name, id);
@@ -15,7 +15,7 @@ public class SimFairPassiveResource extends SimPassiveResource {
 		}
 	}
 
-	protected boolean canProceed(ActiveProcess process, int num) {
+	protected boolean canProceed(IRunningProcess process, int num) {
 		return waitingQueue.isEmpty() && num <= capacity;
 	}
 }

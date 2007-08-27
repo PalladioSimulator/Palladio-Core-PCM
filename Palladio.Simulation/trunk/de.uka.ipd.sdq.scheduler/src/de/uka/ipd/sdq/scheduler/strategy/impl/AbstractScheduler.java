@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
@@ -27,7 +27,7 @@ public abstract class AbstractScheduler implements IScheduler {
 	public abstract void schedule(IResourceInstance instance);
 
 	@Override
-	public void addProcess(ActiveProcess process) {
+	public void addProcess(IActiveProcess process) {
 		queueing_strategy.addProcess(process, false);
 	}
 
@@ -37,12 +37,12 @@ public abstract class AbstractScheduler implements IScheduler {
 	 * @param process
 	 * @param instance
 	 */
-	protected void fromReadyToRunningOn(ActiveProcess process,
+	protected void fromReadyToRunningOn(IActiveProcess process,
 			IResourceInstance instance) {
 		assert process != null;
 		assert process.isReady();
 		assert queueing_strategy.containsPending(process);
-		assert instance.noProcessAssigned();
+		assert !instance.processAssigned();
 
 		queueing_strategy.removePendingProcess(process);
 		process.setRunning();
@@ -56,7 +56,7 @@ public abstract class AbstractScheduler implements IScheduler {
 	 * 
 	 * @param process
 	 */
-	protected void fromRunningToReady(ActiveProcess process, boolean inFront) {
+	protected void fromRunningToReady(IActiveProcess process, boolean inFront) {
 		assert process.isRunning() : "Process must be in running state to return to pending queue!";
 		assert queueing_strategy.runningOn(process).equals(
 				process.getLastInstance()) : "Inconstistant State of the last instance of the process.";
@@ -69,7 +69,7 @@ public abstract class AbstractScheduler implements IScheduler {
 
 	@Override
 	public void fromWaitingToReady(WaitingProcess waiting_process, ProcessQueue<WaitingProcess> waitingQueue) {
-		ActiveProcess process = waiting_process.getProcess();
+		IActiveProcess process = waiting_process.getProcess();
 		assert process.isWaiting() : "Process must be in waiting state";
 		
 		waitingQueue.remove(waiting_process);
@@ -81,7 +81,7 @@ public abstract class AbstractScheduler implements IScheduler {
 	@Override
 	public void fromRunningToWaiting(WaitingProcess waiting_process,
 			ProcessQueue<WaitingProcess> waitingQueue, boolean inFront) {
-		ActiveProcess process = waiting_process.getProcess();
+		IActiveProcess process = waiting_process.getProcess();
 		assert process.isRunning() : "Process must be in running state.";
 		
 		process.getRunQueue().removeRunning(process);

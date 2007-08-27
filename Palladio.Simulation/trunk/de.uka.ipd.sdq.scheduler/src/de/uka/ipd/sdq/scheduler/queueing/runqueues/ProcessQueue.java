@@ -3,8 +3,9 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues;
 import java.util.ArrayDeque;
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IRunningProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class ProcessQueue<T> {
 
@@ -74,14 +75,14 @@ public class ProcessQueue<T> {
 	public boolean containsRunnableFor(IResourceInstance instance) {
 		Iterator iterator = this.queue.iterator();
 		while(iterator.hasNext()){
-			ActiveProcess process = (ActiveProcess)iterator.next();
+			IActiveProcess process = (IActiveProcess)iterator.next();
 			if(process.checkAffinity(instance))
 				return true;
 		}
 		return false;
 	}
 
-	public boolean contains(ActiveProcess process) {
+	public boolean contains(IRunningProcess process) {
 		return queue.contains(process);
 	}
 

@@ -3,23 +3,23 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class SimpleRunQueue extends AbstractRunQueue {
 
-	private ProcessQueue<ActiveProcess> queue;
+	private ProcessQueue<IActiveProcess> queue;
 
 	public SimpleRunQueue() {
-		this.queue = new ProcessQueue<ActiveProcess>();
+		this.queue = new ProcessQueue<IActiveProcess>();
 	}
 
 	/**
 	 * Adds a process at the end of the run queue.
 	 */
 	@Override
-	public void addProcessToRunQueue(ActiveProcess process, boolean inFront) {
+	public void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
 		queue.add(process, inFront);
 	}
 
@@ -29,7 +29,7 @@ public class SimpleRunQueue extends AbstractRunQueue {
 	}
 
 	@Override
-	public boolean removePendingProcess(ActiveProcess process) {
+	public boolean removePendingProcess(IActiveProcess process) {
 		return queue.remove(process);
 	}
 
@@ -39,11 +39,11 @@ public class SimpleRunQueue extends AbstractRunQueue {
 	}
 
 	@Override
-	public List<ActiveProcess> identifyMovableProcesses(
+	public List<IActiveProcess> identifyMovableProcesses(
 			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
-		List<ActiveProcess> processList = new ArrayList<ActiveProcess>();
-		Iterable<ActiveProcess> queue_direction = queue_ascending ? this.queue.ascending() : this.queue.descending();
-		for (ActiveProcess process : queue_direction) {
+		List<IActiveProcess> processList = new ArrayList<IActiveProcess>();
+		Iterable<IActiveProcess> queue_direction = queue_ascending ? this.queue.ascending() : this.queue.descending();
+		for (IActiveProcess process : queue_direction) {
 			if (process.checkAffinity(targetInstance)) {
 				processList.add(process);
 				if (processList.size() >= processes_needed)
@@ -54,7 +54,7 @@ public class SimpleRunQueue extends AbstractRunQueue {
 	}
 
 	@Override
-	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
+	public ProcessQueue<IActiveProcess> getBestRunnableQueue(
 			IResourceInstance instance) {
 		if (this.queue.containsRunnableFor(instance))
 			return this.queue;
@@ -62,8 +62,8 @@ public class SimpleRunQueue extends AbstractRunQueue {
 	}
 
 	@Override
-	public ActiveProcess getNextRunnableProcess(IResourceInstance instance) {
-		for (ActiveProcess process : queue.ascending()) {
+	public IActiveProcess getNextRunnableProcess(IResourceInstance instance) {
+		for (IActiveProcess process : queue.ascending()) {
 			if (process.checkAffinity(instance))
 				return process;
 		}
@@ -71,12 +71,12 @@ public class SimpleRunQueue extends AbstractRunQueue {
 	}
 
 	@Override
-	public ActiveProcess getNextRunnableProcess() {
+	public IActiveProcess getNextRunnableProcess() {
 		return queue.peek();
 	}
 
 	@Override
-	public boolean containsPending(ActiveProcess process) {
+	public boolean containsPending(IActiveProcess process) {
 		return queue.contains(process);
 	}
 

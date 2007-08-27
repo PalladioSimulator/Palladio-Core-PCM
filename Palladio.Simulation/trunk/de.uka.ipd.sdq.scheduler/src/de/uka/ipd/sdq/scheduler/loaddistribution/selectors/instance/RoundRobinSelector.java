@@ -1,24 +1,24 @@
-package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.tmp;
+package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance;
 
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 
 public class RoundRobinSelector extends AbstractInstanceSelector {
 	
-	Iterator<IResourceInstance> instanceIterator;
+	Iterator<IResourceInstance> instance_iterator;
 
-	public RoundRobinSelector(MultipleQueuesStrategy runQueueHolder) {
-		super(runQueueHolder);
+	public RoundRobinSelector(MultipleQueuesStrategy run_queue_holder) {
+		super(run_queue_holder);
 		reset();
 	}
 
 
 	@Override
-	public IResourceInstance selectInstanceFor(ActiveProcess process) {
+	public IResourceInstance selectInstanceFor(IActiveProcess process) {
 		IResourceInstance result = null;
 		while(result == null){
 			IResourceInstance current = getNext();
@@ -33,12 +33,12 @@ public class RoundRobinSelector extends AbstractInstanceSelector {
 	}
 
 	private IResourceInstance getNext() {
-		if (!instanceIterator.hasNext())
+		if (!instance_iterator.hasNext())
 			reset();
-		return instanceIterator.next();
+		return instance_iterator.next();
 	}
 
 	private void reset() {
-		instanceIterator = runQueueHolder.getResourceInstances().iterator();
+		instance_iterator = queue_holder.getResourceInstances().iterator();
 	}
 }

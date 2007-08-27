@@ -3,62 +3,63 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues;
 import java.util.Hashtable;
 import java.util.Map;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public abstract class AbstractRunQueue implements IRunQueue {
 
-	protected Map<ActiveProcess, IResourceInstance> runningOnTable;
+	protected Map<IActiveProcess, IResourceInstance> running_on_table;
 
 	protected AbstractRunQueue() {
-		runningOnTable = new Hashtable<ActiveProcess, IResourceInstance>();
+		running_on_table = new Hashtable<IActiveProcess, IResourceInstance>();
 	}
 
 	public int getCurrentLoad() {
-		return runningOnTable.size() + numWaitingProcesses();
+		return running_on_table.size() + numWaitingProcesses();
 	}
 
 	public boolean isEmpty() {
 		return getCurrentLoad() == 0;
 	}
 
-	public boolean removeProcess(ActiveProcess process) {
-		return runningOnTable.remove(process) != null
+	public boolean removeProcess(IActiveProcess process) {
+		return running_on_table.remove(process) != null
 				|| removePendingProcess(process);
 	}
 
 	@Override
-	public boolean contains(ActiveProcess process) {
-		return runningOnTable.containsKey(process) || containsPending(process);
+	public boolean contains(IActiveProcess process) {
+		return running_on_table.containsKey(process) || containsPending(process);
 	}
 
-	public void addProcess(ActiveProcess process, boolean inFront) {
+	public void addProcess(IActiveProcess process, boolean inFront) {
 		process.setRunQueue(this);
 		addProcessToRunQueue(process,inFront);
 	}
 	
 	@Override
-	public boolean containsRunning(ActiveProcess process) {
-		return runningOnTable.containsKey(process);
+	public boolean containsRunning(IActiveProcess process) {
+		return running_on_table.containsKey(process);
 	}
 	
 	@Override
-	public void removeRunning(ActiveProcess process) {
-		runningOnTable.remove(process);
+	public void removeRunning(IActiveProcess process) {
+		running_on_table.remove(process);
 	}
 	
 	@Override
-	public void setRunningOn(ActiveProcess process, IResourceInstance instance) {
-		runningOnTable.put(process, instance);
+	public void setRunningOn(IActiveProcess process, IResourceInstance instance) {
+		assert running_on_table.get(process) == null;
+		running_on_table.put(process, instance);
 	}
 	
 	@Override
-	public IResourceInstance runningOn(ActiveProcess process) {
-		return runningOnTable.get(process);
+	public IResourceInstance runningOn(IActiveProcess process) {
+		return running_on_table.get(process);
 	}
 
-	public abstract ActiveProcess getNextRunnableProcess(
+	public abstract IActiveProcess getNextRunnableProcess(
 			IResourceInstance instance);
 
 	/**
@@ -67,7 +68,7 @@ public abstract class AbstractRunQueue implements IRunQueue {
 	 * @param process
 	 * @return
 	 */
-	public abstract boolean containsPending(ActiveProcess process);
+	public abstract boolean containsPending(IActiveProcess process);
 
 	/**
 	 * Template Method. Returns the number of processs waiting in the queue.
@@ -81,14 +82,14 @@ public abstract class AbstractRunQueue implements IRunQueue {
 	 * 
 	 * @param process
 	 */
-	public abstract boolean removePendingProcess(ActiveProcess process);
+	public abstract boolean removePendingProcess(IActiveProcess process);
 
 	/**
 	 * Template method.
 	 * 
 	 * @param process
-	 * @param inFront TODO
+	 * @param inFront 
 	 */
-	protected abstract void addProcessToRunQueue(ActiveProcess process, boolean inFront);
+	protected abstract void addProcessToRunQueue(IActiveProcess process, boolean inFront);
 
 }

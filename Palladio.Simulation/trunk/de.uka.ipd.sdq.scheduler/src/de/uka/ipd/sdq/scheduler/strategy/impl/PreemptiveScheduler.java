@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public class PreemptiveScheduler extends AbstractScheduler {
@@ -19,15 +19,16 @@ public class PreemptiveScheduler extends AbstractScheduler {
 
 	@Override
 	public void schedule(IResourceInstance instance) {
-		// Cancel possibly pending scheduling events for the instance. The new
-		// events are determined in the process of this method.
-		instance.cancelSchedulingEvent();
-
 		// Balance the runqueue of this instance with the runqueues of other
 		// instances. This might change the state of the instance's runqueue.
 		// So, the next runnable process can only be determined after the
 		// balancing was finished.
 		queueing_strategy.balance(instance);
+
+		// Cancel possibly pending scheduling events for the instance (e.g.
+		// caused by the load balancing). The new events are determined in the
+		// process of this method.
+		instance.cancelSchedulingEvent();
 
 		ProcessWithPriority running_process = (ProcessWithPriority) instance
 				.getRunningProcess();
@@ -41,7 +42,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		boolean next_has_higher_priority = hasHigherPriority(next_process,
 				running_process);
 
-		if ( reschedulingNeeded(running_process, next_process)
+		if (reschedulingNeeded(running_process, next_process)
 				|| next_has_higher_priority) {
 			unschedule(running_process, next_has_higher_priority);
 			next_process.toNow();

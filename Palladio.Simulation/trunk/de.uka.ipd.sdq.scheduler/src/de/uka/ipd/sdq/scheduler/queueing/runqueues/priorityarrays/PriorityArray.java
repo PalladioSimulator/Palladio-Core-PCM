@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class PriorityArray {
 
@@ -55,7 +55,7 @@ public class PriorityArray {
 	 * @return True, if the process has been successfully removed. False,
 	 *         otherwise.
 	 */
-	public boolean removeProcess(ActiveProcess process) {
+	public boolean removeProcess(IActiveProcess process) {
 		assert process instanceof ProcessWithPriority : "Only 'ProcessWithPriority' instances are allowed for PriorityArrays!";
 		return getQueueFor((ProcessWithPriority) process).remove(
 				(ProcessWithPriority) process);
@@ -66,7 +66,7 @@ public class PriorityArray {
 	 * 
 	 * @param process
 	 */
-	public void addLast(ActiveProcess process) {
+	public void addLast(IActiveProcess process) {
 		add(process,false);
 	}
 
@@ -75,11 +75,11 @@ public class PriorityArray {
 	 * 
 	 * @param process
 	 */
-	public void addFirst(ActiveProcess process) {
+	public void addFirst(IActiveProcess process) {
 		add(process,true);
 	}
 
-	public void add(ActiveProcess process, boolean inFront) {
+	public void add(IActiveProcess process, boolean inFront) {
 		assert process instanceof ProcessWithPriority : "Only 'ProcessWithPriority' instances are allowed for PriorityArrays!";
 		ProcessWithPriority prio_process = (ProcessWithPriority) process;
 		getQueueFor(prio_process).add(prio_process,inFront);
@@ -136,10 +136,10 @@ public class PriorityArray {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
+	public ProcessQueue<IActiveProcess> getBestRunnableQueue(
 			IResourceInstance instance) {
 		for (IPriority prio : priorityManager.decreasing()) {
-			for (ActiveProcess process : getQueue(prio).ascending()) {
+			for (IActiveProcess process : getQueue(prio).ascending()) {
 				if (process.checkAffinity(instance))
 					return (ProcessQueue) getQueue(prio);
 			}
@@ -152,9 +152,9 @@ public class PriorityArray {
 	 * @param instance
 	 * @return
 	 */
-	public ActiveProcess getNextRunnableProcess(IResourceInstance instance) {
+	public IActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		for (IPriority prio : priorityManager.decreasing()) {
-			for (ActiveProcess process : getQueue(prio).ascending()) {
+			for (IActiveProcess process : getQueue(prio).ascending()) {
 				if (process.checkAffinity(instance))
 					return process;
 			}
@@ -162,7 +162,7 @@ public class PriorityArray {
 		return null;
 	}
 
-	public boolean contains(ActiveProcess process) {
+	public boolean contains(IActiveProcess process) {
 		for (ProcessQueue<ProcessWithPriority> queue : priorityTable.values()) {
 			if (queue.contains(process))
 				return true;
@@ -170,7 +170,7 @@ public class PriorityArray {
 		return false;
 	}
 
-	public ActiveProcess getNextRunnableProcess() {
+	public IActiveProcess getNextRunnableProcess() {
 		return getNonEmptyQueueWithHighestPriority().peek();
 	}
 
@@ -180,13 +180,13 @@ public class PriorityArray {
 	 * 
 	 * @param targetInstance
 	 */
-	public List<ActiveProcess> identifyMovableProcesses(
+	public List<IActiveProcess> identifyMovableProcesses(
 			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
-		List<ActiveProcess> processList = new ArrayList<ActiveProcess>(); 
+		List<IActiveProcess> processList = new ArrayList<IActiveProcess>(); 
 		Iterable<IPriority> prio_direction = prio_increasing ? priorityManager.increasing() : priorityManager.decreasing(); 
 		for (IPriority prio : prio_direction) {
 			Iterable<ProcessWithPriority> queue_direction = queue_ascending ? getQueue(prio).ascending() : getQueue(prio).descending();
-			for (ActiveProcess process : queue_direction) {
+			for (IActiveProcess process : queue_direction) {
 				if (process.checkAffinity(targetInstance)) {
 					processList.add(process);
 					if (processList.size() >= processes_needed)

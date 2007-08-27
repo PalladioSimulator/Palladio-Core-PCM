@@ -1,11 +1,10 @@
 package de.uka.ipd.sdq.scheduler.queueing.strategies;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IProcessSelector;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class SingleQueueStrategy implements IQueueingStrategy {
 
@@ -20,12 +19,12 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	}
 
 	@Override
-	public ActiveProcess getNextProcessFor(IResourceInstance instance) {
+	public IActiveProcess getNextProcessFor(IResourceInstance instance) {
 		return processSelector.select(runQueue, instance);
 	}
 
 	@Override
-	public void addProcess(ActiveProcess process, boolean inFront) {
+	public void addProcess(IActiveProcess process, boolean inFront) {
 		runQueue.addProcess(process, inFront);
 	}
 
@@ -35,27 +34,27 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	}
 
 	@Override
-	public boolean removePendingProcess(ActiveProcess process) {
+	public boolean removePendingProcess(IActiveProcess process) {
 		return runQueue.removePendingProcess(process);
 	}
 
 	@Override
-	public boolean containsPending(ActiveProcess process) {
+	public boolean containsPending(IActiveProcess process) {
 		return runQueue.containsPending(process);
 	}
 
 	@Override
-	public void removeRunning(ActiveProcess process) {
+	public void removeRunning(IActiveProcess process) {
 		runQueue.removeRunning(process);
 	}
 
 	@Override
-	public IResourceInstance runningOn(ActiveProcess process) {
+	public IResourceInstance runningOn(IActiveProcess process) {
 		return runQueue.runningOn(process);
 	}
 
 	@Override
-	public void setRunningOn(ActiveProcess process, IResourceInstance instance) {
+	public void setRunningOn(IActiveProcess process, IResourceInstance instance) {
 		runQueue.setRunningOn(process, instance);
 	}
 

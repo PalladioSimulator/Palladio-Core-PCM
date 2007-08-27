@@ -1,19 +1,19 @@
 package de.uka.ipd.sdq.scheduler.resources.passive;
 
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 
 public class WaitingProcess {
 
-	private ActiveProcess process;
+	private IActiveProcess process;
 	private int num_requested;
 
-	public WaitingProcess(ActiveProcess process, int num_requested) {
+	public WaitingProcess(IActiveProcess process, int num_requested) {
 		super();
 		this.process = process;
 		this.num_requested = num_requested;
 	}
 
-	public ActiveProcess getProcess() {
+	public IActiveProcess getProcess() {
 		return process;
 	}
 

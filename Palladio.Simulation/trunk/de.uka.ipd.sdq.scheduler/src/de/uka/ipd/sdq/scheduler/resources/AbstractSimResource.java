@@ -1,6 +1,6 @@
-package de.uka.ipd.sdq.scheduler.resources.active;
+package de.uka.ipd.sdq.scheduler.resources;
 
-import de.uka.ipd.sdq.scheduler.SchedulerFactory;
+import de.uka.ipd.sdq.scheduler.ResourceFactory;
 
 
 public abstract class AbstractSimResource {
@@ -8,7 +8,7 @@ public abstract class AbstractSimResource {
 	protected int capacity;
 	private String name = "";
 	private String id = "";
-	protected SchedulerFactory factory = new SchedulerFactory();
+	protected ResourceFactory factory = new ResourceFactory();
 
 	public AbstractSimResource(int capacity, String name, String id) {
 		super();

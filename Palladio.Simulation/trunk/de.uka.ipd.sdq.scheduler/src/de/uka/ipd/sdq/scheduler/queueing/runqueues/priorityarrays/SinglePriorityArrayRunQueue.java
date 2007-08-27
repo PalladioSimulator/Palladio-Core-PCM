@@ -2,11 +2,11 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues.priorityarrays;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 
 public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  {
@@ -24,17 +24,17 @@ public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  
 	}
 
 	@Override
-	public ActiveProcess getNextRunnableProcess(IResourceInstance instance) {
+	public IActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		return priorityArray.getNextRunnableProcess(instance);
 	}
 	
 	@Override
-	public ActiveProcess getNextRunnableProcess() {
+	public IActiveProcess getNextRunnableProcess() {
 		return priorityArray.getNextRunnableProcess();
 	}
 
 	@Override
-	public boolean removePendingProcess(ActiveProcess process) {
+	public boolean removePendingProcess(IActiveProcess process) {
 		return priorityArray.removeProcess(process);
 	}
 
@@ -44,24 +44,24 @@ public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  
 	}
 
 	@Override
-	public List<ActiveProcess> identifyMovableProcesses(
+	public List<IActiveProcess> identifyMovableProcesses(
 			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
 		return priorityArray.identifyMovableProcesses(targetInstance,prio_increasing,queue_ascending,processes_needed);
 	}
 
 	@Override
-	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
+	public ProcessQueue<IActiveProcess> getBestRunnableQueue(
 			IResourceInstance instance) {
 		return this.priorityArray.getBestRunnableQueue(instance);
 	}
 
 	@Override
-	public boolean containsPending(ActiveProcess process) {
+	public boolean containsPending(IActiveProcess process) {
 		return priorityArray.contains(process);
 	}
 
 	@Override
-	protected void addProcessToRunQueue(ActiveProcess process, boolean inFront) {
+	protected void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
 		priorityArray.add(process, inFront);
 	}
 }

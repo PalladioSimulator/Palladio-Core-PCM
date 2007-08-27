@@ -2,10 +2,20 @@ package de.uka.ipd.sdq.scheduler;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 
+/**
+ * A passive can be hold by a process for some time. As the number of available
+ * instances is limited the process might has to wait until it gets the
+ * requested number of instances.
+ * 
+ * @author jens
+ * 
+ */
 public interface IPassiveResource {
 
 	/**
-	 * Acquires num instances of the passive resource for the given process.
+	 * Acquires num instances of the passive resource for the given process. The
+	 * process is blocked until it successfully receives the requested number of
+	 * resource instances.
 	 */
 	public abstract void acquire(ISchedulableProcess process, int num);
 

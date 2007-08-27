@@ -2,22 +2,27 @@ package de.uka.ipd.sdq.scheduler.queueing;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
+/**
+ * Interface for process queues used by more general queuing strategies.
+ * 
+ * @author jens
+ * 
+ */
 public interface IRunQueue {
 
 	/**
-	 * Returns the current number of tasks in the ready queues.
+	 * Returns the current number of processes in the ready queues.
 	 */
 	public abstract int getCurrentLoad();
 
 	/**
 	 * Returns the next process runnable on the given instance.
 	 */
-	public abstract ActiveProcess getNextRunnableProcess(
+	public abstract IActiveProcess getNextRunnableProcess(
 			IResourceInstance instance);
 
 	/**
@@ -25,7 +30,7 @@ public interface IRunQueue {
 	 * 
 	 * @return
 	 */
-	public abstract ActiveProcess getNextRunnableProcess();
+	public abstract IActiveProcess getNextRunnableProcess();
 
 	/**
 	 * @return True, if there are no processes in the runqueue.
@@ -34,66 +39,122 @@ public interface IRunQueue {
 
 	/**
 	 * Removes a process from the runqueue.
+	 * 
+	 * @param process
+	 * @return True, if the process was removed. False, if the process was not
+	 *         found in the queue.
 	 */
-	public abstract boolean removeProcess(ActiveProcess process);
+	public abstract boolean removeProcess(IActiveProcess process);
 
 	/**
-	 * Adds a process at the very end of the runqueue.
+	 * Adds a process to the runqueue.
 	 * 
 	 * @param inFront
-	 *            TODO
+	 *            If true, the process is added at the beginning of its queue,
+	 *            otherwise it is added at the queue's end.
 	 */
-	public abstract void addProcess(ActiveProcess process, boolean inFront);
+	public abstract void addProcess(IActiveProcess process, boolean inFront);
 
 	/**
-	 * Creates a new instance of the given runqueue. Prototype Object Pattern.
+	 * Prototype Object Pattern. Creates a new instance of the given runqueue.
 	 * 
 	 * @return
 	 */
 	public abstract IRunQueue createNewInstance();
 
 	/**
-	 * Returns the most urgent queue which contains at least one process which
-	 * can run on the given instance. NULL if no such queue exists.
-	 * 
 	 * @param instance
-	 * @return
+	 *            Resource instance a process is needed for.
+	 * @return Returns the most urgent queue which contains at least one process
+	 *         which can run on the given instance. NULL if no such queue
+	 *         exists.
 	 */
-	public abstract ProcessQueue<ActiveProcess> getBestRunnableQueue(
+	public abstract ProcessQueue<IActiveProcess> getBestRunnableQueue(
 			IResourceInstance instance);
 
 	/**
 	 * Composes a list of processes movable to the specified target. The list is
 	 * ordered in terms of what suits best for the target resource instance. The
 	 * first element is better than the second which is better than the third
-	 * and so on.
+	 * and so on. Note that currently running processes are never added to the
+	 * movable list.
 	 * 
 	 * @param targetInstance
-	 * @return
+	 *            Resource instance the processes shall be moved to.
+	 * @param prio_increasing
+	 *            If true, the processes in the resulting list are ordered with
+	 *            an increasing priority, otherwise with a decreasing priority.
+	 * @param queue_ascending
+	 *            If true, processes in the resulting list are in the same order
+	 *            as in the queue, otherwise they are in reverse order.
+	 * @param processes_needed
+	 *            The maximum number of processes needed for the resource.
+	 * @return An ordered list of processes movable to the target resource.
 	 */
-	public abstract List<ActiveProcess> identifyMovableProcesses(
+	public abstract List<IActiveProcess> identifyMovableProcesses(
 			IResourceInstance targetInstance, boolean prio_increasing,
 			boolean queue_ascending, int processes_needed);
 
 	/**
-	 * True, if the process is in this runqueue, otherwise false.
+	 * @param process
+	 *            Process of interest.
+	 * @return True, if the process is in this runqueue, otherwise false.
+	 */
+	public abstract boolean contains(IActiveProcess process);
+
+	/**
+	 * Removes a process from the pending queue of the runqueue, i.e. the
+	 * process is in ready state.
 	 * 
 	 * @param process
-	 * @return
+	 *            Process of interest.
+	 * @return True, if the process was successfully removed, otherwise (if the
+	 *         process was not found) false.
 	 */
-	public abstract boolean contains(ActiveProcess process);
+	public abstract boolean removePendingProcess(IActiveProcess process);
 
-	public abstract boolean removePendingProcess(ActiveProcess process);
+	/**
+	 * @param process
+	 *            Process of interest.
+	 * @return True, if the process is pending in the runqueue.
+	 */
+	public abstract boolean containsPending(IActiveProcess process);
 
-	public abstract boolean containsPending(ActiveProcess process);
+	/**
+	 * Removes a running process from the runqueue.
+	 * 
+	 * @param process
+	 *            Process of interest.
+	 */
+	public abstract void removeRunning(IActiveProcess process);
 
-	public abstract void removeRunning(ActiveProcess process);
+	/**
+	 * Checks if the runqueue contains a running process.
+	 * 
+	 * @param process
+	 *            Process of interest.
+	 * @return True, if the process is in the running list of the runqueue,
+	 *         otherwise false.
+	 */
+	public abstract boolean containsRunning(IActiveProcess process);
 
-	public abstract boolean containsRunning(ActiveProcess process);
-
-	public abstract void setRunningOn(ActiveProcess process,
+	/**
+	 * Sets the given process as running on the specified instance. Note that
+	 * the process must not be marked as running on another instance.
+	 * 
+	 * @param process
+	 *            Process to run.
+	 * @param instance
+	 *            Instance the process shall run on.
+	 */
+	public abstract void setRunningOn(IActiveProcess process,
 			IResourceInstance instance);
 
-	public abstract IResourceInstance runningOn(ActiveProcess process);
+	/**
+	 * @param process
+	 *            Process of interest.
+	 * @return The resource instance the given process is running on.
+	 */
+	public abstract IResourceInstance runningOn(IActiveProcess process);
 
 }

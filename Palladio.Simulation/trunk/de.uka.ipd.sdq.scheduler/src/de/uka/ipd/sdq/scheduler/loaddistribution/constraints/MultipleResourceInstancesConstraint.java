@@ -2,11 +2,11 @@ package de.uka.ipd.sdq.scheduler.loaddistribution.constraints;
 
 import java.util.Collection;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IResourceInstanceConstraint;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
-
-public class MultipleResourceInstancesConstraint implements IResourceInstanceConstraint {
+public class MultipleResourceInstancesConstraint implements
+		IResourceInstanceConstraint {
 
 	private Collection<IResourceInstance> instanceList;
 
@@ -14,8 +14,8 @@ public class MultipleResourceInstancesConstraint implements IResourceInstanceCon
 			Collection<IResourceInstance> instanceList) {
 		this.instanceList = instanceList;
 	}
-	
-	public Collection<IResourceInstance> getInstances(){
+
+	public Collection<IResourceInstance> getInstances() {
 		return instanceList;
 	}
 

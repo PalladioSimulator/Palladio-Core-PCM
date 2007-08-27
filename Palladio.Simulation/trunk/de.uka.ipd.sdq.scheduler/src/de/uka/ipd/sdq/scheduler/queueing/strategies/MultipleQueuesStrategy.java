@@ -5,12 +5,12 @@ import java.util.Collection;
 import java.util.Hashtable;
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.loaddistribution.ILoadBalancer;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class MultipleQueuesStrategy implements IQueueingStrategy {
 
@@ -42,7 +42,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	 * Returns the next runnable process for the resource instance.
 	 */
 	@Override
-	public ActiveProcess getNextProcessFor(IResourceInstance instance) {
+	public IActiveProcess getNextProcessFor(IResourceInstance instance) {
 		return getRunQueueFor(instance).getNextRunnableProcess();
 	}
 
@@ -53,7 +53,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	 * A process is added after its creation or after waiting.
 	 */
 	@Override
-	public void addProcess(ActiveProcess process, boolean inFront) {
+	public void addProcess(IActiveProcess process, boolean inFront) {
 		IResourceInstance instance = process.getLastInstance();
 		if (instance == null) {
 			instance = instanceSelector.selectInstanceFor(process);
@@ -73,7 +73,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	 * @param dest
 	 *            Destination resource instance.
 	 */
-	public void move(ActiveProcess process, IResourceInstance src,
+	public void move(IActiveProcess process, IResourceInstance src,
 			IResourceInstance dest) {
 		assert process.getLastInstance().equals(src);
 		assert getRunQueueFor(src).contains(process) : "Process '" + process
@@ -113,25 +113,25 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	}
 
 	@Override
-	public boolean removePendingProcess(ActiveProcess process) {
+	public boolean removePendingProcess(IActiveProcess process) {
 		return getRunQueueFor(process.getLastInstance()).removePendingProcess(
 				process);
 
 	}
 
 	@Override
-	public boolean containsPending(ActiveProcess process) {
+	public boolean containsPending(IActiveProcess process) {
 		return getRunQueueFor(process.getLastInstance()).containsPending(
 				process);
 	}
 
 	@Override
-	public void removeRunning(ActiveProcess process) {
+	public void removeRunning(IActiveProcess process) {
 		getRunQueueFor(process.getLastInstance()).removeRunning(process);
 	}
 
 	@Override
-	public IResourceInstance runningOn(ActiveProcess process) {
+	public IResourceInstance runningOn(IActiveProcess process) {
 		for (IResourceInstance instance : runQueueTable.keySet()) {
 			if (runQueueTable.get(instance).containsRunning(process)) {
 				return instance;
@@ -141,7 +141,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	}
 
 	@Override
-	public void setRunningOn(ActiveProcess process, IResourceInstance instance) {
+	public void setRunningOn(IActiveProcess process, IResourceInstance instance) {
 		getRunQueueFor(instance).setRunningOn(process, instance);
 	}
 }

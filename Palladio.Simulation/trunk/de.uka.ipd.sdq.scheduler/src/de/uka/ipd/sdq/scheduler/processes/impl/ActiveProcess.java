@@ -5,18 +5,18 @@ import java.util.List;
 
 import umontreal.iro.lecuyer.simevents.Sim;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.events.IDelayedAction;
 import de.uka.ipd.sdq.scheduler.events.ProceedEvent;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.MultipleResourceInstancesConstraint;
 import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.SingleResourceInstanceConstraint;
-import de.uka.ipd.sdq.scheduler.processes.IProcessStateSensor;
-import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.passive.IDelayedAction;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
-public class ActiveProcess {
+public class ActiveProcess implements IActiveProcess {
 	
 	
 	/**
@@ -52,6 +52,9 @@ public class ActiveProcess {
 	private String name;
 	private IRunQueue runqueue;
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getRunQueue()
+	 */
 	public IRunQueue getRunQueue() {
 		return runqueue;
 	}
@@ -61,10 +64,16 @@ public class ActiveProcess {
 	}
 
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getSchedulableProcess()
+	 */
 	public ISchedulableProcess getSchedulableProcess() {
 		return process;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getName()
+	 */
 	public String getName() {
 		return name;
 	}
@@ -106,34 +115,58 @@ public class ActiveProcess {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setRunning()
+	 */
 	public void setRunning() {
 		setState(PROCESS_STATE.RUNNING);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setReady()
+	 */
 	public void setReady() {
 		setState(PROCESS_STATE.READY);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setWaiting()
+	 */
 	public void setWaiting() {
 		setState(PROCESS_STATE.WAITING);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#isRunning()
+	 */
 	public boolean isRunning() {
 		return getState() == PROCESS_STATE.RUNNING;
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#isReady()
+	 */
 	public boolean isReady() {
 		return getState() == PROCESS_STATE.READY;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#isWaiting()
+	 */
 	public boolean isWaiting() {
 		return getState() == PROCESS_STATE.WAITING;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#addStateSensor(de.uka.ipd.sdq.scheduler.processes.IProcessStateSensor)
+	 */
 	public void addStateSensor(IProcessStateSensor sensor) {
 		processStateSensorList.add(sensor);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#removeStateSensor(de.uka.ipd.sdq.scheduler.processes.IProcessStateSensor)
+	 */
 	public void removeStateSensor(IProcessStateSensor sensor) {
 		processStateSensorList.remove(sensor);
 	}
@@ -145,16 +178,23 @@ public class ActiveProcess {
 	private double currentDemand = 0;
 	private double lastUpdateTime = 0;
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getCurrentDemand()
+	 */
 	public double getCurrentDemand() {
 		return currentDemand;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setCurrentDemand(double)
+	 */
 	public void setCurrentDemand(double currentDemand) {
+		assert MathTools.equalsDouble(currentDemand, 0.0);
 		this.currentDemand = currentDemand;
 	}
 
-	/**
-	 * Proceeds all timing variables to the current simulation time.
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#toNow()
 	 */
 	public void toNow() {
 		double currentTime = Sim.time();
@@ -179,19 +219,31 @@ public class ActiveProcess {
 	private SingleResourceInstanceConstraint idealInstanceConstraint;
 	private SingleResourceInstanceConstraint lastInstanceConstraint;
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setAffineInstances(java.util.List)
+	 */
 	public void setAffineInstances(List<IResourceInstance> instanceList) {
 		affinityConstraint = new MultipleResourceInstancesConstraint(
 				instanceList);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#hasAffinityList()
+	 */
 	public boolean hasAffinityList() {
 		return affinityConstraint != null;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#checkAffinity(de.uka.ipd.sdq.scheduler.resources.IResourceInstance)
+	 */
 	public boolean checkAffinity(IResourceInstance instance) {
 		return checkInstanceConstraint(affinityConstraint, instance);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#removeNonAffineInstances(java.util.List)
+	 */
 	public void removeNonAffineInstances(List<IResourceInstance> instances) {
 		if (hasAffinityList()) {
 			for (IResourceInstance instance : instances) {
@@ -202,19 +254,31 @@ public class ActiveProcess {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setIdealInstance(de.uka.ipd.sdq.scheduler.resources.IResourceInstance)
+	 */
 	public void setIdealInstance(IResourceInstance instance) {
 		idealInstanceConstraint = new SingleResourceInstanceConstraint(instance);
 
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#hasIdealInstance()
+	 */
 	public boolean hasIdealInstance() {
 		return idealInstanceConstraint != null;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#isIdealInstance(de.uka.ipd.sdq.scheduler.resources.IResourceInstance)
+	 */
 	public boolean isIdealInstance(IResourceInstance instance) {
 		return checkInstanceConstraint(idealInstanceConstraint, instance);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getIdealInstance()
+	 */
 	public IResourceInstance getIdealInstance() {
 		if (hasIdealInstance()) {
 			return idealInstanceConstraint.getResourceInstance();
@@ -223,20 +287,32 @@ public class ActiveProcess {
 	}
 
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setLastInstance(de.uka.ipd.sdq.scheduler.resources.IResourceInstance)
+	 */
 	public void setLastInstance(IResourceInstance instance) {
 		lastInstanceConstraint = new SingleResourceInstanceConstraint(instance);
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#hasLastInstance()
+	 */
 	public boolean hasLastInstance() {
 		return lastInstanceConstraint != null;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getLastInstance()
+	 */
 	public IResourceInstance getLastInstance() {
 		if (hasLastInstance())
 			return lastInstanceConstraint.getResourceInstance();
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#isLastInstance(de.uka.ipd.sdq.scheduler.resources.IResourceInstance)
+	 */
 	public boolean isLastInstance(IResourceInstance instance) {
 		return checkInstanceConstraint(lastInstanceConstraint, instance);
 	}
@@ -256,19 +332,31 @@ public class ActiveProcess {
 
 	private ProceedEvent proceedEvent = null;
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#scheduleProceedEvent()
+	 */
 	public void scheduleProceedEvent() {
 		proceedEvent.schedule(getCurrentDemand());
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#cancelProceedEvent()
+	 */
 	public void cancelProceedEvent() {
 		proceedEvent.cancel();
 	}
 
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getTimeUntilNextInterruption()
+	 */
 	public double getTimeUntilNextInterruption() {
 		return currentDemand;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setDelayedAction(de.uka.ipd.sdq.scheduler.events.IDelayedAction)
+	 */
 	public void setDelayedAction(IDelayedAction action) {
 		this.proceedEvent.setDelayedAction(action);
 	}

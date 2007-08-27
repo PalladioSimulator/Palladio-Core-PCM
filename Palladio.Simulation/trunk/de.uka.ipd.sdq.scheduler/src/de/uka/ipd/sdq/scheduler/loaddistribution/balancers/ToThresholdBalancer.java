@@ -4,15 +4,15 @@ import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 /**
- * For all idle resource instances it ensures that the load is shared so that
- * the load of two the resource instances does not differ more than 'threshold'.
- * The threshold is a relative value between 0 and 1. If 0 the load of both
- * instances must be equal, if 1 the load of both instances is never balanced.
+ * Ensures that the load of two resource instances does not differ more than
+ * 'threshold'. The threshold is a relative value between 0 and 1. If 0 the load
+ * of both instances must be equal, if 1 the load of both instances is never
+ * balanced.
  * 
  * @author jens.happe
  * 
  */
-public class IdleToThresholdBalancer extends AbstractLoadBalancer {
+public class ToThresholdBalancer extends AbstractLoadBalancer {
 
 	/**
 	 * Maximum, relative load difference of two resource instances.
@@ -49,7 +49,7 @@ public class IdleToThresholdBalancer extends AbstractLoadBalancer {
 	 * @param threshold
 	 *            Maximum, relative load difference of two resource instances.
 	 */
-	public IdleToThresholdBalancer(double balance_interval,
+	protected ToThresholdBalancer(double balance_interval,
 			boolean global_balance, MultipleQueuesStrategy queue_holder,
 			boolean prio_increasing, boolean queue_ascending,
 			int max_iterations, double threshold) {
@@ -61,21 +61,16 @@ public class IdleToThresholdBalancer extends AbstractLoadBalancer {
 	@Override
 	protected boolean isBalanced(IResourceInstance firstInstance,
 			IResourceInstance secondInstance) {
+		double firstLoad = load(firstInstance);
+		double secondLoad = load(secondInstance);
+		double totalLoad = firstLoad + secondLoad;
 
-		if (queue_holder.isIdle(firstInstance) != queue_holder
-				.isIdle(secondInstance)) {
-			double firstLoad = load(firstInstance);
-			double secondLoad = load(secondInstance);
-			double totalLoad = firstLoad + secondLoad;
+		if (totalLoad == 0)
+			return true;
 
-			if (totalLoad == 0)
-				return true;
-
-			firstLoad /= totalLoad;
-			secondLoad /= totalLoad;
-			double distance = Math.abs(firstLoad - secondLoad);
-			return distance <= threshold;
-		}
-		return true;
+		firstLoad /= totalLoad;
+		secondLoad /= totalLoad;
+		double distance = Math.abs(firstLoad - secondLoad);
+		return distance <= threshold;
 	}
 }

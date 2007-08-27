@@ -2,6 +2,10 @@ package de.uka.ipd.sdq.scheduler.priority;
 
 public interface IPriority extends Cloneable {
 
+	/**
+	 * PriorityManager this priority instance belongs to.
+	 * @return
+	 */
 	IPriorityManager getManager();
 
 	/**
@@ -20,8 +24,18 @@ public interface IPriority extends Cloneable {
 	 */
 	int absoluteValue();
 
+	/**
+	 * Returns the priority as an integer. Depends on the original specification.
+	 * 
+	 * @return
+	 */
 	int getValue();
 
+	
+	/**
+	 * Sets the value of the priority according to its original specification.
+	 * @param value
+	 */
 	void setValue(int value);
 
 
@@ -35,11 +49,27 @@ public interface IPriority extends Cloneable {
 	 */
 	IPriority decrease();
 
+	/**
+	 * True, if this priority is lower or equal to prio, otherwise false.
+	 * 
+	 * @param prio
+	 * @return
+	 */
 	boolean lessOrEqual(IPriority prio);
 
+	/**
+	 * True, if this priority is higher than prio, otherwise false.
+	 * 
+	 * @param prio
+	 * @return
+	 */
 	boolean greaterThan(IPriority prio);
 
 
+	/**
+	 * Creates a copy of this priority instance.
+	 * @return
+	 */
 	IPriority clone();
 
 	/**

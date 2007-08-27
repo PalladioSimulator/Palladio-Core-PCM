@@ -1,8 +1,10 @@
 package de.uka.ipd.sdq.scheduler.resources.passive;
 
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IRunningProcess;
+import de.uka.ipd.sdq.scheduler.events.IDelayedAction;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 
-public class SimUnfairPassiveResource extends SimPassiveResource {
+public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 
 	private double acquisition_demand;
 
@@ -12,7 +14,7 @@ public class SimUnfairPassiveResource extends SimPassiveResource {
 	}
 
 	@Override
-	protected boolean canProceed(ActiveProcess process, int num) {
+	protected boolean canProceed(IRunningProcess process, int num) {
 		return num <= capacity;
 	}
 
@@ -20,7 +22,7 @@ public class SimUnfairPassiveResource extends SimPassiveResource {
 	protected void notifyWaitingProcesses() {
 		WaitingProcess waiting_process = waitingQueue.peek();
 		if (waiting_process != null){
-			ActiveProcess process = waiting_process.getProcess();
+			IActiveProcess process = waiting_process.getProcess();
 			process.setCurrentDemand(acquisition_demand);
 			process.setDelayedAction(new UnfairAccessAction(waiting_process));
 			fromWaitingToReady(waiting_process);

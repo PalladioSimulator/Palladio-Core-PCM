@@ -1,6 +1,6 @@
-package de.uka.ipd.sdq.scheduler.processes;
+package de.uka.ipd.sdq.scheduler;
 
-import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
+import de.uka.ipd.sdq.scheduler.processes.impl.PROCESS_STATE;
 
 /**
  * Observer of the process' states.

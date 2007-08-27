@@ -1,28 +1,29 @@
 package de.uka.ipd.sdq.scheduler.resources.passive;
 
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
+import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.AbstractSimResource;
+import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
-public abstract class SimPassiveResource extends AbstractSimResource implements
+public abstract class SimAbstractPassiveResource extends AbstractSimResource implements
 		IPassiveResource {
 
 	private IPriorityBoost priorityBoost;
 	protected ProcessQueue<WaitingProcess> waitingQueue;
 	protected SimActiveResource mainResource;
 
-	public SimPassiveResource(int capacity, String name, String id) {
+	public SimAbstractPassiveResource(int capacity, String name, String id) {
 		super(capacity, name, id);
 	}
 
 	@Override
 	public void acquire(ISchedulableProcess sched_process, int num) {
-		ActiveProcess process = mainResource.lookUp(
+		IActiveProcess process = mainResource.lookUp(
 				sched_process);
 		if (canProceed(process, num)) {
 			grantAccess(process, num);
@@ -39,7 +40,7 @@ public abstract class SimPassiveResource extends AbstractSimResource implements
 		notifyWaitingProcesses();
 	}
 
-	protected void grantAccess(ActiveProcess process, int num) {
+	protected void grantAccess(IRunningProcess process, int num) {
 		capacity -= num;
 		assert capacity >= 0 : "More resource than available have been acquired!";
 		boostPriority(process);
@@ -74,7 +75,7 @@ public abstract class SimPassiveResource extends AbstractSimResource implements
 		mainResource.getScheduler().fromRunningToWaiting(waiting_process, waitingQueue, inFront);
 	}
 
-	private void boostPriority(ActiveProcess process) {
+	private void boostPriority(IRunningProcess process) {
 		if (priorityBoost != null) {
 			assert process instanceof ProcessWithPriority : "If priority boosts are used only ProcessWithPriorities can be used!";
 			priorityBoost.boost((ProcessWithPriority) process);
@@ -91,5 +92,5 @@ public abstract class SimPassiveResource extends AbstractSimResource implements
 	 * Template Method. Depending on the type of resource, processes are
 	 * notified differently.
 	 */
-	protected abstract boolean canProceed(ActiveProcess process, int num);
+	protected abstract boolean canProceed(IRunningProcess process, int num);
 }

@@ -5,10 +5,12 @@ import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessRegistry;
+import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class SimActiveResource extends AbstractSimResource implements
@@ -37,14 +39,14 @@ public class SimActiveResource extends AbstractSimResource implements
 	public List<IResourceInstance> getInstanceList() {
 		return instanceList;
 	}
-	
-	public ActiveProcess lookUp(ISchedulableProcess process){
+
+	public IActiveProcess lookUp(ISchedulableProcess process) {
 		return processRegistry.lookUp(process);
 	}
 
 	@Override
 	public void process(ISchedulableProcess sched_process, double demand) {
-		ActiveProcess process = processRegistry.lookUp(sched_process);
+		IActiveProcess process = processRegistry.lookUp(sched_process);
 		assert MathTools.equalsDouble(process.getCurrentDemand(), 0) : "Demand of Process "
 				+ process
 				+ " must be processed completely before adding a new demand!";
@@ -54,11 +56,21 @@ public class SimActiveResource extends AbstractSimResource implements
 	}
 
 	/**
-	 * Before a process can process demands on the resource it needs to be
-	 * registered.
+	 * Before a process can issue demands to the resource it needs to be
+	 * registered. After registration the process is blocked.
+	 * 
+	 * @param process
+	 *            Process to execute on the resource.
 	 */
-	public void registerNewProcess(ActiveProcess process) {
-		processRegistry.registerProcess(process);
-		scheduler.addProcess(process);
+	public void registerNewProcess(IRunningProcess process) {
+		processRegistry.registerProcess((IActiveProcess) process);
+		scheduler.addProcess((IActiveProcess) process);
+		process.getSchedulableProcess().passivate();
+	}
+
+	public void start() {
+		for (IResourceInstance instance : this.instanceList) {
+			scheduler.scheduleNextEvent(instance);
+		}
 	}
 }

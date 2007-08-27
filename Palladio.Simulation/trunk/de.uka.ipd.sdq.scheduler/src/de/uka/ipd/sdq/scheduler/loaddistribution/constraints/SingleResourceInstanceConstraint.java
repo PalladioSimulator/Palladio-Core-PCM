@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.scheduler.loaddistribution.constraints;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IResourceInstanceConstraint;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class SingleResourceInstanceConstraint implements
 		IResourceInstanceConstraint {

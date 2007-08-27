@@ -2,12 +2,12 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues.priorityarrays;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 
@@ -24,7 +24,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	 * Adds a new process to the end of the expired priority array.
 	 */
 	@Override
-	public void addProcessToRunQueue(ActiveProcess process, boolean inFront) {
+	public void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
 		if (process instanceof PreemptiveProcess) {
 			PreemptiveProcess preemptiveProcess = (PreemptiveProcess) process;
 			if (preemptiveProcess.timeSliceCompletelyFinished()) {
@@ -44,7 +44,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	}
 
 	@Override
-	public ActiveProcess getNextRunnableProcess(IResourceInstance instance) {
+	public IActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		if (activeQueueEmpty())
 			switchActiveAndExpired();
 		if (activePriorityArray.isEmpty()) // no process to be scheduled.
@@ -53,7 +53,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	}
 
 	@Override
-	public ActiveProcess getNextRunnableProcess() {
+	public IActiveProcess getNextRunnableProcess() {
 		if (activeQueueEmpty())
 			switchActiveAndExpired();
 		if (activePriorityArray.isEmpty()) // no process to be scheduled.
@@ -68,7 +68,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	}
 
 	@Override
-	public boolean removePendingProcess(ActiveProcess process) {
+	public boolean removePendingProcess(IActiveProcess process) {
 		return activePriorityArray.removeProcess(process) ||
 			   expiredPriorityArray.removeProcess(process);
 	}
@@ -78,7 +78,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	 * running and standby processes.
 	 */
 	protected boolean activeQueueEmpty() {
-		return runningOnTable.isEmpty() && activePriorityArray.isEmpty();
+		return running_on_table.isEmpty() && activePriorityArray.isEmpty();
 	}
 
 	@Override
@@ -87,20 +87,19 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	}
 
 	/**
-	 * TODO: allow different strategies for process selection.
 	 */
 	@Override
-	public List<ActiveProcess> identifyMovableProcesses(
+	public List<IActiveProcess> identifyMovableProcesses(
 			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
-		List<ActiveProcess> processList = expiredPriorityArray.identifyMovableProcesses(targetInstance, prio_increasing, queue_ascending, processes_needed) ;
+		List<IActiveProcess> processList = expiredPriorityArray.identifyMovableProcesses(targetInstance, prio_increasing, queue_ascending, processes_needed) ;
 		processList.addAll( activePriorityArray.identifyMovableProcesses(targetInstance, prio_increasing, queue_ascending, processes_needed) );
 		return processList;
 	}
 
 	@Override
-	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
+	public ProcessQueue<IActiveProcess> getBestRunnableQueue(
 			IResourceInstance instance) {
-		ProcessQueue<ActiveProcess> result = activePriorityArray
+		ProcessQueue<IActiveProcess> result = activePriorityArray
 				.getBestRunnableQueue(instance);
 		if (result == null) {
 			result = expiredPriorityArray.getBestRunnableQueue(instance);
@@ -109,7 +108,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	}
 
 	@Override
-	public boolean containsPending(ActiveProcess process) {
+	public boolean containsPending(IActiveProcess process) {
 		return activePriorityArray.contains(process) || expiredPriorityArray.contains(process);
 	}
 }

@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.scheduler.processes.sensors;
 
-import de.uka.ipd.sdq.scheduler.processes.IProcessStateSensor;
-import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
 import umontreal.iro.lecuyer.simevents.Sim;
+import de.uka.ipd.sdq.scheduler.IProcessStateSensor;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.PROCESS_STATE;
 
 public class SleepAverageSensor implements IProcessStateSensor {
 
@@ -12,7 +12,7 @@ public class SleepAverageSensor implements IProcessStateSensor {
 	private double sleep_average;
 	private double max_sleep_average;
 	
-	public SleepAverageSensor(ActiveProcess process, double max_sleep_average){
+	public SleepAverageSensor(IActiveProcess process, double max_sleep_average){
 		this.sleep_average = 0;
 		this.lastUpdateTime = 0;
 		this.last_state = process.getState();
