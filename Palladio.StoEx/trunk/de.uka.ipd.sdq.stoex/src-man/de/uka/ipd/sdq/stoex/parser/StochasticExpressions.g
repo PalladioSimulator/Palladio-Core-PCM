@@ -7,29 +7,42 @@ grammar StochasticExpressions;
 	import de.uka.ipd.sdq.stoex.*;
 	import de.uka.ipd.sdq.probfunction.*;
 	import java.util.ArrayList;
+	import java.util.Collection;
 }
 
 expression returns [Expression exp] 
 		:  
-			c=boolOrExpr
+		c=ifelseExpr EOF
 		{exp = c;}; 
 
-boolOrExpr returns [BooleanExpression boolExp] 
+ifelseExpr returns [IfElse ifelseExp]
 	:
-	b1 = boolAndExpr 
-		(('OR'  |
-		 'XOR' )
-		 boolAndExpr
-		)*
+	cond = boolAndExpr {ifelseExp = cond;} 
+		({IfElseExpression newIfelseExp = StoexFactory.eINSTANCE.createIfElseExpression();
+		  newIfelseExp.setConditionExpression(cond);}
+		 '?' ifEx = boolAndExpr {newIfelseExp.setIfExpression(ifEx);} ':' elseEx = boolAndExpr {newIfelseExp.setElseExpression(elseEx);
+		 ifelseExp = newIfelseExp;})?
 	;
 
 boolAndExpr returns [BooleanExpression boolExp] 
 	:
-	b1 = compareExpr 
-		('AND' 
-		 compareExpr
+	b1 = boolOrExpr {boolExp = b1;}
+		({BooleanOperatorExpression boolExprNew = StoexFactory.eINSTANCE.createBooleanOperatorExpression();}
+		AND {boolExprNew.setOperation(BooleanOperations.AND);}
+		 b2 = boolOrExpr {boolExprNew.setLeft(b1); boolExprNew.setRight(b2); boolExp = boolExprNew;}
 		)*
 	;
+boolOrExpr returns [BooleanExpression boolExp] 
+	:
+	b1 = compareExpr {boolExp = b1;}
+		( {BooleanOperatorExpression boolExprNew = StoexFactory.eINSTANCE.createBooleanOperatorExpression();}
+		(OR {boolExprNew.setOperation(BooleanOperations.OR);}|
+		 XOR{boolExprNew.setOperation(BooleanOperations.XOR);} )
+		 b2 = compareExpr
+		    {boolExprNew.setLeft(b1); boolExprNew.setRight(b2); boolExp = boolExprNew;}
+		)*
+	;
+
 
 
 compareExpr returns [Comparison comp]
@@ -78,16 +91,20 @@ powExpr returns [Power pw]
 				}
 			)? 		
 ;
-unaryExpr returns [Atom a] :
+unaryExpr returns [Unary u] :
 		  // unary minus
 		  MINUS uminus = unaryExpr
-		  // TODO: Implement parse actions
+		  {NegativeExpression ne = StoexFactory.eINSTANCE.createNegativeExpression();
+		  ne.setInner(uminus);
+		  u = ne;}
 		  |
-		  'NOT' unot = unaryExpr
+		  NOT unot = unaryExpr
+		  {NotExpression no = StoexFactory.eINSTANCE.createNotExpression();
+		  no.setInner(unot);
+		  u = no;}
 		  |
-		  atom
+		  a = atom {u = a;}
 		  ;
-
 atom returns [Atom a]
 	 :
 		(
@@ -109,12 +126,6 @@ atom returns [Atom a]
 				}
 			}
 		  |
-		  // variables
-		  id = scoped_id 
-		  { a = StoexFactory.eINSTANCE.createVariable();
-		  	((Variable)a).setId_Variable(id);
-		  }
-		  | 
 		  // probability function literals
 		  def = definition
 		  {a=def;}
@@ -124,6 +135,7 @@ atom returns [Atom a]
 		  {
 		  	StringLiteral stringLiteral = StoexFactory.eINSTANCE.createStringLiteral();
 		  	stringLiteral.setValue(sl.getText().replace("\"",""));
+		  	a = stringLiteral;
 		  }
 		  |
 		  // boolean literal
@@ -131,11 +143,25 @@ atom returns [Atom a]
 		  {
 		  	BoolLiteral boolLiteral = StoexFactory.eINSTANCE.createBoolLiteral();
 	   		boolLiteral.setValue(bl.equals("true"));
+	   		a = boolLiteral;
 	   	  } 
 		  |
+		  // variables
+		  id = scoped_id 
+		 { a = StoexFactory.eINSTANCE.createVariable();
+		  	((Variable)a).setId_Variable(id);
+		  }
+		  |
+		  // function call
+		  fid = ID {FunctionLiteral flit = StoexFactory.eINSTANCE.createFunctionLiteral();
+		  	    flit.setId(fid.getText());}
+		  	args = arguments
+		  	{flit.getParameters_FunctionLiteral().addAll(args);
+		  	a = flit;}
+		  | 
 		  // parenthesis expression
 		  LPAREN
-		  inner = compareExpr
+		  inner = ifelseExpr
 		  RPAREN
 		  {
 			Parenthesis paren = StoexFactory.eINSTANCE.createParenthesis();
@@ -144,35 +170,37 @@ atom returns [Atom a]
 		  }
 	    ) 
 ;
- 
+     
+arguments returns [Collection<Expression> parameters]
+	@init{parameters = new ArrayList<Expression>();}    
+	:   
+	LPAREN paramList = expressionList? {parameters.addAll(paramList);} RPAREN
+	;
+	
+expressionList returns [Collection<Expression> parameters]
+	@init{parameters = new ArrayList<Expression>();}    
+	:   
+    		p1 = boolAndExpr {parameters.add(p1);} (COLON p2 = boolAndExpr {parameters.add(p2);})*
+    	;
+    
 definition returns [ProbabilityFunctionLiteral pfl] 
 	@init {pfl = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
 	 ProbabilityFunction probFunction = null; } : 
 		
 		// Numeric PMF
 			
-			'IntPMF'
+			INTPMF
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			(LPAREN
-			  (
-			  unitSpec = unit 
-			  {probFunction.setUnitSpecification(unitSpec);})
-			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
 				  isample = numeric_int_sample
 				  {((ProbabilityMassFunction)probFunction).getSamples().add(isample);})+ 
 	 		SQUARE_PAREN_R 
 	 		|
-		 	'DoublePMF' 
+		 	DOUBLEPMF 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			(LPAREN
-			  (
-			  unitSpec = unit 
-			  {probFunction.setUnitSpecification(unitSpec);})
-			RPAREN)?
 		 	SQUARE_PAREN_L 
 				( 
 				rsample = numeric_real_sample
@@ -180,19 +208,14 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			SQUARE_PAREN_R
 			| 
 		// Enum PMF
-			'EnumPMF' 
+			ENUMPMF 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
 				   }
 			(LPAREN
-			  (
-			  unitSpec = unit 
-			  {probFunction.setUnitSpecification(unitSpec);})
-			  (SEMI
 			  ORDERED_DEF
 			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
-			  )
 			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
@@ -200,33 +223,23 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			   	{((ProbabilityMassFunction)probFunction).getSamples().add(ssample);})+ 
 			SQUARE_PAREN_R
 			|
-			'DoublePDF'
+			DOUBLEPDF
 				{probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			(LPAREN
-			  (
-			  unitSpec = unit 
-			  {probFunction.setUnitSpecification(unitSpec);})
-			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
 				  pdf_sample = real_pdf_sample
 				  {((BoxedPDF)probFunction).getSamples().add(pdf_sample);})+ 
 	 		SQUARE_PAREN_R 
 			|
-			'BoolPMF' 
+			BOOLPMF 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
 				   }
 			(LPAREN
-			  (
-			  unitSpec = bool_unit 
-			  {probFunction.setUnitSpecification(unitSpec);})
-			  (SEMI
 			  ORDERED_DEF
 			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
-			  )?
 			RPAREN)?
 			SQUARE_PAREN_L 
 				( 
@@ -234,22 +247,6 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			   	{((ProbabilityMassFunction)probFunction).getSamples().add(ssample);})+ 
 			SQUARE_PAREN_R
 ;	 		
-			
-
-unit returns [String u]
-	:
-		'unit'
-			DEFINITION
-			str=STRING_LITERAL 
-			{u = str.getText().replace("\"","");} ;
-
-bool_unit returns [String u]
-	:
-		'unit'
-			EQUAL
-			'"bool"'
-			{u = "bool";} ;
-
 
 numeric_int_sample returns [Sample s]
 	@init {s = null;} : 
@@ -300,7 +297,7 @@ boolsample returns [Sample s]
 		LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 		str = boolean_keywords
-		{s.setValue(str);}
+		{s.setValue(str.equals("true"));}
 		SEMI
 		n=NUMBER 
 			{s.setProbability(Double.parseDouble(n.getText()));} 
@@ -309,20 +306,20 @@ boolsample returns [Sample s]
 boolean_keywords returns [String keyword]
 	:
 		(
-		'false'
+		FALSE
 			{keyword = "false";} 
 		|
-		'true'
+		TRUE
 			{keyword = "true"; }
 		);
 
 characterisation_keywords returns [String keyword] 
 @init {keyword = null;}:
- ('BYTESIZE' {keyword="BYTESIZE";}
- | 'STRUCTURE' {keyword="STRUCTURE";}
- | 'NUMBER_OF_ELEMENTS' {keyword="NUMBER_OF_ELEMENTS";}
- | 'TYPE' {keyword="TYPE";}
- | 'VALUE' {keyword="VALUE";}
+ (BYTESIZE {keyword="BYTESIZE";}
+ | STRUCTURE {keyword="STRUCTURE";}
+ | NUMBER_OF_ELEMENTS {keyword="NUMBER_OF_ELEMENTS";}
+ | TYPE {keyword="TYPE";}
+ | VALUE {keyword="VALUE";}
 );
  	
 scoped_id returns [AbstractNamedReference ref]
@@ -330,7 +327,7 @@ scoped_id returns [AbstractNamedReference ref]
 		ArrayList<String> nameParts = new ArrayList<String>();} :
 		
 	id1=ID {nameParts.add(id1.getText());} 
-	    (DOT (id2=ID {nameParts.add(id2.getText());} | 'INNER' {nameParts.add("INNER");} ))*
+	    (DOT (id2=ID {nameParts.add(id2.getText());} | INNER {nameParts.add("INNER");} ))*
 	{
 	AbstractNamedReference firstNsRef=null;
 	NamespaceReference lastNsRef = null;
@@ -354,10 +351,82 @@ scoped_id returns [AbstractNamedReference ref]
 			ref = varRef;
 	}
 ;
-	
-/*options { 
-	k = 2;  
-}*/
+
+OR
+	:	'OR'
+	;
+
+XOR
+	:	'XOR'
+	;
+
+AND
+	:	'AND'
+	;
+
+NOT
+	:	'NOT'
+	;
+
+INTPMF
+	:	'IntPMF'
+	;
+
+DOUBLEPMF
+	:	'DoublePMF'
+	;
+
+ENUMPMF
+	:	'EnumPMF'
+	;
+
+DOUBLEPDF
+	:	'DoublePDF'
+	;
+
+BOOLPMF
+	:	'BoolPMF'
+	;
+
+UNIT
+	:	'unit'
+	;
+
+BOOL
+	:	'"bool"'
+	;
+
+FALSE
+	:	'false'
+	;
+
+TRUE
+	:	'true'
+	;
+
+BYTESIZE
+	:	'BYTESIZE'
+	;
+
+STRUCTURE
+	:	'STRUCTURE'
+	;
+
+NUMBER_OF_ELEMENTS
+	:	'NUMBER_OF_ELEMENTS'
+	;
+
+TYPE
+	:	'TYPE'
+	;
+
+VALUE
+	:	'VALUE'
+	;
+
+INNER
+	:	'INNER'
+	;
 
 PLUS  : '+' ;
 MINUS : '-' ;
@@ -368,6 +437,7 @@ POW   : '^' ;
 LPAREN: '(' ;
 RPAREN: ')' ;
 SEMI  : ';' ;
+COLON 	:	',';
 DEFINITION : '=' ;
 ORDERED_DEF
 	:	'ordered';
@@ -386,7 +456,7 @@ GREATEREQUAL : '>=' ;
 LESSEQUAL : '<=' ;
 STRING_LITERAL : '\"' (ALPHA|'_')+ '\"' ;
 DOT: '.';
-ID /*options {testLiterals=true;}*/: (ALPHA|'_')+;
+ID:(ALPHA|'_')+;
 
 
 WS  :  (' '|'\r'|'\t'|'\u000C'|'\n') {$channel=HIDDEN;}
@@ -397,5 +467,7 @@ COMMENT
     ;
 
 LINE_COMMENT
-    : '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
+    : '//' ~('\n'|'\r')* '\r'? ('\n'|EOF) {$channel=HIDDEN;}
     ;
+
+

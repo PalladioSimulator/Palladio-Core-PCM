@@ -361,8 +361,12 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			logger.error("Calculation with PDF and Literal failed!");
 			e.printStackTrace();
 		}
-
-		logger.info("Result: "+resultIPDF.toString());
+		if (resultIPDF != null) {
+			logger.info("Result: "+resultIPDF.toString());	
+		} else {
+			int a=0;
+		}
+		
 
 		return createLiteralForIPDF(resultIPDF);
 	}

@@ -1,5 +1,5 @@
-// $ANTLR 3.0 C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g 2007-08-08 17:14:04
 package de.uka.ipd.sdq.stoex.parser;
+// $ANTLR 3.0 C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g 2007-08-27 10:56:49
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -7,68 +7,107 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class StochasticExpressionsLexer extends Lexer {
-    public static final int MOD=14;
-    public static final int GREATEREQUAL=8;
-    public static final int Exponent=28;
-    public static final int ID=25;
+    public static final int INNER=43;
+    public static final int MOD=17;
+    public static final int BOOLPMF=33;
+    public static final int ENUMPMF=30;
+    public static final int GREATEREQUAL=11;
+    public static final int Exponent=48;
+    public static final int NOT=19;
+    public static final int ID=22;
+    public static final int AND=4;
     public static final int EOF=-1;
-    public static final int LPAREN=18;
-    public static final int NOTEQUAL=7;
-    public static final int RPAREN=19;
-    public static final int GREATER=4;
-    public static final int STRING_LITERAL=17;
-    public static final int POW=15;
-    public static final int EQUAL=6;
-    public static final int LESS=5;
-    public static final int DEFINITION=24;
-    public static final int PLUS=10;
-    public static final int T38=38;
-    public static final int T37=37;
-    public static final int DIGIT=27;
-    public static final int T39=39;
-    public static final int COMMENT=31;
-    public static final int DOT=26;
-    public static final int T34=34;
-    public static final int T33=33;
-    public static final int T36=36;
-    public static final int T35=35;
-    public static final int LINE_COMMENT=32;
-    public static final int NUMBER=16;
-    public static final int T49=49;
-    public static final int T48=48;
-    public static final int MINUS=11;
-    public static final int T43=43;
-    public static final int Tokens=52;
-    public static final int T42=42;
-    public static final int MUL=12;
-    public static final int SEMI=22;
-    public static final int T41=41;
-    public static final int T40=40;
-    public static final int T47=47;
-    public static final int T46=46;
-    public static final int ALPHA=29;
-    public static final int T45=45;
-    public static final int T44=44;
-    public static final int SQUARE_PAREN_R=21;
-    public static final int WS=30;
-    public static final int T50=50;
-    public static final int SQUARE_PAREN_L=20;
-    public static final int DIV=13;
-    public static final int ORDERED_DEF=23;
-    public static final int T51=51;
-    public static final int LESSEQUAL=9;
+    public static final int STRUCTURE=38;
+    public static final int LPAREN=23;
+    public static final int TYPE=40;
+    public static final int NOTEQUAL=10;
+    public static final int RPAREN=24;
+    public static final int STRING_LITERAL=21;
+    public static final int GREATER=7;
+    public static final int POW=18;
+    public static final int EQUAL=9;
+    public static final int LESS=8;
+    public static final int DEFINITION=46;
+    public static final int PLUS=13;
+    public static final int DIGIT=47;
+    public static final int COMMENT=51;
+    public static final int DOT=42;
+    public static final int DOUBLEPDF=32;
+    public static final int XOR=6;
+    public static final int INTPMF=26;
+    public static final int LINE_COMMENT=52;
+    public static final int DOUBLEPMF=29;
+    public static final int BOOL=45;
+    public static final int NUMBER=20;
+    public static final int NUMBER_OF_ELEMENTS=39;
+    public static final int MINUS=14;
+    public static final int VALUE=41;
+    public static final int Tokens=55;
+    public static final int MUL=15;
+    public static final int SEMI=34;
+    public static final int TRUE=36;
+    public static final int ALPHA=49;
+    public static final int COLON=25;
+    public static final int SQUARE_PAREN_R=28;
+    public static final int UNIT=44;
+    public static final int WS=50;
+    public static final int SQUARE_PAREN_L=27;
+    public static final int OR=5;
+    public static final int BYTESIZE=37;
+    public static final int DIV=16;
+    public static final int ORDERED_DEF=31;
+    public static final int FALSE=35;
+    public static final int T54=54;
+    public static final int LESSEQUAL=12;
+    public static final int T53=53;
     public StochasticExpressionsLexer() {;} 
     public StochasticExpressionsLexer(CharStream input) {
         super(input);
     }
-    public String getGrammarFileName() { return "C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g"; }
+    public String getGrammarFileName() { return "C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g"; }
 
-    // $ANTLR start T33
-    public final void mT33() throws RecognitionException {
+    // $ANTLR start T53
+    public final void mT53() throws RecognitionException {
         try {
-            int _type = T33;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:3:5: ( 'OR' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:3:7: 'OR'
+            int _type = T53;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:3:5: ( '?' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:3:7: '?'
+            {
+            match('?'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T53
+
+    // $ANTLR start T54
+    public final void mT54() throws RecognitionException {
+        try {
+            int _type = T54;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:4:5: ( ':' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:4:7: ':'
+            {
+            match(':'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T54
+
+    // $ANTLR start OR
+    public final void mOR() throws RecognitionException {
+        try {
+            int _type = OR;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:356:2: ( 'OR' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:356:4: 'OR'
             {
             match("OR"); 
 
@@ -80,14 +119,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T33
+    // $ANTLR end OR
 
-    // $ANTLR start T34
-    public final void mT34() throws RecognitionException {
+    // $ANTLR start XOR
+    public final void mXOR() throws RecognitionException {
         try {
-            int _type = T34;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:4:5: ( 'XOR' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:4:7: 'XOR'
+            int _type = XOR;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:360:2: ( 'XOR' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:360:4: 'XOR'
             {
             match("XOR"); 
 
@@ -99,14 +138,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T34
+    // $ANTLR end XOR
 
-    // $ANTLR start T35
-    public final void mT35() throws RecognitionException {
+    // $ANTLR start AND
+    public final void mAND() throws RecognitionException {
         try {
-            int _type = T35;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:5:5: ( 'AND' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:5:7: 'AND'
+            int _type = AND;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:364:2: ( 'AND' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:364:4: 'AND'
             {
             match("AND"); 
 
@@ -118,14 +157,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T35
+    // $ANTLR end AND
 
-    // $ANTLR start T36
-    public final void mT36() throws RecognitionException {
+    // $ANTLR start NOT
+    public final void mNOT() throws RecognitionException {
         try {
-            int _type = T36;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:6:5: ( 'NOT' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:6:7: 'NOT'
+            int _type = NOT;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:368:2: ( 'NOT' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:368:4: 'NOT'
             {
             match("NOT"); 
 
@@ -137,14 +176,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T36
+    // $ANTLR end NOT
 
-    // $ANTLR start T37
-    public final void mT37() throws RecognitionException {
+    // $ANTLR start INTPMF
+    public final void mINTPMF() throws RecognitionException {
         try {
-            int _type = T37;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:7:5: ( 'IntPMF' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:7:7: 'IntPMF'
+            int _type = INTPMF;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:372:2: ( 'IntPMF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:372:4: 'IntPMF'
             {
             match("IntPMF"); 
 
@@ -156,14 +195,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T37
+    // $ANTLR end INTPMF
 
-    // $ANTLR start T38
-    public final void mT38() throws RecognitionException {
+    // $ANTLR start DOUBLEPMF
+    public final void mDOUBLEPMF() throws RecognitionException {
         try {
-            int _type = T38;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:8:5: ( 'DoublePMF' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:8:7: 'DoublePMF'
+            int _type = DOUBLEPMF;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:376:2: ( 'DoublePMF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:376:4: 'DoublePMF'
             {
             match("DoublePMF"); 
 
@@ -175,14 +214,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T38
+    // $ANTLR end DOUBLEPMF
 
-    // $ANTLR start T39
-    public final void mT39() throws RecognitionException {
+    // $ANTLR start ENUMPMF
+    public final void mENUMPMF() throws RecognitionException {
         try {
-            int _type = T39;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:9:5: ( 'EnumPMF' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:9:7: 'EnumPMF'
+            int _type = ENUMPMF;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:2: ( 'EnumPMF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:4: 'EnumPMF'
             {
             match("EnumPMF"); 
 
@@ -194,14 +233,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T39
+    // $ANTLR end ENUMPMF
 
-    // $ANTLR start T40
-    public final void mT40() throws RecognitionException {
+    // $ANTLR start DOUBLEPDF
+    public final void mDOUBLEPDF() throws RecognitionException {
         try {
-            int _type = T40;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:10:5: ( 'DoublePDF' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:10:7: 'DoublePDF'
+            int _type = DOUBLEPDF;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:384:2: ( 'DoublePDF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:384:4: 'DoublePDF'
             {
             match("DoublePDF"); 
 
@@ -213,14 +252,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T40
+    // $ANTLR end DOUBLEPDF
 
-    // $ANTLR start T41
-    public final void mT41() throws RecognitionException {
+    // $ANTLR start BOOLPMF
+    public final void mBOOLPMF() throws RecognitionException {
         try {
-            int _type = T41;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:11:5: ( 'BoolPMF' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:11:7: 'BoolPMF'
+            int _type = BOOLPMF;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:388:2: ( 'BoolPMF' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:388:4: 'BoolPMF'
             {
             match("BoolPMF"); 
 
@@ -232,14 +271,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T41
+    // $ANTLR end BOOLPMF
 
-    // $ANTLR start T42
-    public final void mT42() throws RecognitionException {
+    // $ANTLR start UNIT
+    public final void mUNIT() throws RecognitionException {
         try {
-            int _type = T42;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:12:5: ( 'unit' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:12:7: 'unit'
+            int _type = UNIT;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:392:2: ( 'unit' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:392:4: 'unit'
             {
             match("unit"); 
 
@@ -251,14 +290,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T42
+    // $ANTLR end UNIT
 
-    // $ANTLR start T43
-    public final void mT43() throws RecognitionException {
+    // $ANTLR start BOOL
+    public final void mBOOL() throws RecognitionException {
         try {
-            int _type = T43;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:13:5: ( '\"bool\"' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:13:7: '\"bool\"'
+            int _type = BOOL;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:2: ( '\"bool\"' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:4: '\"bool\"'
             {
             match("\"bool\""); 
 
@@ -270,14 +309,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T43
+    // $ANTLR end BOOL
 
-    // $ANTLR start T44
-    public final void mT44() throws RecognitionException {
+    // $ANTLR start FALSE
+    public final void mFALSE() throws RecognitionException {
         try {
-            int _type = T44;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:5: ( 'false' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:14:7: 'false'
+            int _type = FALSE;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:2: ( 'false' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:4: 'false'
             {
             match("false"); 
 
@@ -289,14 +328,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T44
+    // $ANTLR end FALSE
 
-    // $ANTLR start T45
-    public final void mT45() throws RecognitionException {
+    // $ANTLR start TRUE
+    public final void mTRUE() throws RecognitionException {
         try {
-            int _type = T45;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:15:5: ( 'true' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:15:7: 'true'
+            int _type = TRUE;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:404:2: ( 'true' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:404:4: 'true'
             {
             match("true"); 
 
@@ -308,14 +347,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T45
+    // $ANTLR end TRUE
 
-    // $ANTLR start T46
-    public final void mT46() throws RecognitionException {
+    // $ANTLR start BYTESIZE
+    public final void mBYTESIZE() throws RecognitionException {
         try {
-            int _type = T46;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:16:5: ( 'BYTESIZE' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:16:7: 'BYTESIZE'
+            int _type = BYTESIZE;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:408:2: ( 'BYTESIZE' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:408:4: 'BYTESIZE'
             {
             match("BYTESIZE"); 
 
@@ -327,14 +366,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T46
+    // $ANTLR end BYTESIZE
 
-    // $ANTLR start T47
-    public final void mT47() throws RecognitionException {
+    // $ANTLR start STRUCTURE
+    public final void mSTRUCTURE() throws RecognitionException {
         try {
-            int _type = T47;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:17:5: ( 'STRUCTURE' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:17:7: 'STRUCTURE'
+            int _type = STRUCTURE;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:412:2: ( 'STRUCTURE' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:412:4: 'STRUCTURE'
             {
             match("STRUCTURE"); 
 
@@ -346,14 +385,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T47
+    // $ANTLR end STRUCTURE
 
-    // $ANTLR start T48
-    public final void mT48() throws RecognitionException {
+    // $ANTLR start NUMBER_OF_ELEMENTS
+    public final void mNUMBER_OF_ELEMENTS() throws RecognitionException {
         try {
-            int _type = T48;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:18:5: ( 'NUMBER_OF_ELEMENTS' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:18:7: 'NUMBER_OF_ELEMENTS'
+            int _type = NUMBER_OF_ELEMENTS;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:416:2: ( 'NUMBER_OF_ELEMENTS' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:416:4: 'NUMBER_OF_ELEMENTS'
             {
             match("NUMBER_OF_ELEMENTS"); 
 
@@ -365,14 +404,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T48
+    // $ANTLR end NUMBER_OF_ELEMENTS
 
-    // $ANTLR start T49
-    public final void mT49() throws RecognitionException {
+    // $ANTLR start TYPE
+    public final void mTYPE() throws RecognitionException {
         try {
-            int _type = T49;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:5: ( 'TYPE' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:19:7: 'TYPE'
+            int _type = TYPE;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:420:2: ( 'TYPE' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:420:4: 'TYPE'
             {
             match("TYPE"); 
 
@@ -384,14 +423,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T49
+    // $ANTLR end TYPE
 
-    // $ANTLR start T50
-    public final void mT50() throws RecognitionException {
+    // $ANTLR start VALUE
+    public final void mVALUE() throws RecognitionException {
         try {
-            int _type = T50;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:5: ( 'VALUE' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:20:7: 'VALUE'
+            int _type = VALUE;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:424:2: ( 'VALUE' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:424:4: 'VALUE'
             {
             match("VALUE"); 
 
@@ -403,14 +442,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T50
+    // $ANTLR end VALUE
 
-    // $ANTLR start T51
-    public final void mT51() throws RecognitionException {
+    // $ANTLR start INNER
+    public final void mINNER() throws RecognitionException {
         try {
-            int _type = T51;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:21:5: ( 'INNER' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:21:7: 'INNER'
+            int _type = INNER;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:428:2: ( 'INNER' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:428:4: 'INNER'
             {
             match("INNER"); 
 
@@ -422,14 +461,14 @@ public class StochasticExpressionsLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end T51
+    // $ANTLR end INNER
 
     // $ANTLR start PLUS
     public final void mPLUS() throws RecognitionException {
         try {
             int _type = PLUS;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:362:7: ( '+' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:362:9: '+'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:431:7: ( '+' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:431:9: '+'
             {
             match('+'); 
 
@@ -446,8 +485,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mMINUS() throws RecognitionException {
         try {
             int _type = MINUS;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:363:7: ( '-' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:363:9: '-'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:432:7: ( '-' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:432:9: '-'
             {
             match('-'); 
 
@@ -464,8 +503,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mMUL() throws RecognitionException {
         try {
             int _type = MUL;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:364:7: ( '*' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:364:9: '*'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:433:7: ( '*' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:433:9: '*'
             {
             match('*'); 
 
@@ -482,8 +521,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mDIV() throws RecognitionException {
         try {
             int _type = DIV;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:365:7: ( '/' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:365:9: '/'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:434:7: ( '/' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:434:9: '/'
             {
             match('/'); 
 
@@ -500,8 +539,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mMOD() throws RecognitionException {
         try {
             int _type = MOD;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:366:7: ( '%' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:366:9: '%'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:435:7: ( '%' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:435:9: '%'
             {
             match('%'); 
 
@@ -518,8 +557,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mPOW() throws RecognitionException {
         try {
             int _type = POW;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:367:7: ( '^' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:367:9: '^'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:436:7: ( '^' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:436:9: '^'
             {
             match('^'); 
 
@@ -536,8 +575,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mLPAREN() throws RecognitionException {
         try {
             int _type = LPAREN;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:368:7: ( '(' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:368:9: '('
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:437:7: ( '(' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:437:9: '('
             {
             match('('); 
 
@@ -554,8 +593,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mRPAREN() throws RecognitionException {
         try {
             int _type = RPAREN;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:369:7: ( ')' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:369:9: ')'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:438:7: ( ')' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:438:9: ')'
             {
             match(')'); 
 
@@ -572,8 +611,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mSEMI() throws RecognitionException {
         try {
             int _type = SEMI;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:370:7: ( ';' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:370:9: ';'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:439:7: ( ';' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:439:9: ';'
             {
             match(';'); 
 
@@ -586,12 +625,30 @@ public class StochasticExpressionsLexer extends Lexer {
     }
     // $ANTLR end SEMI
 
+    // $ANTLR start COLON
+    public final void mCOLON() throws RecognitionException {
+        try {
+            int _type = COLON;
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:440:8: ( ',' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:440:10: ','
+            {
+            match(','); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end COLON
+
     // $ANTLR start DEFINITION
     public final void mDEFINITION() throws RecognitionException {
         try {
             int _type = DEFINITION;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:371:12: ( '=' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:371:14: '='
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:441:12: ( '=' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:441:14: '='
             {
             match('='); 
 
@@ -608,8 +665,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mORDERED_DEF() throws RecognitionException {
         try {
             int _type = ORDERED_DEF;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:373:2: ( 'ordered' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:373:4: 'ordered'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:443:2: ( 'ordered' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:443:4: 'ordered'
             {
             match("ordered"); 
 
@@ -627,8 +684,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mEQUAL() throws RecognitionException {
         try {
             int _type = EQUAL;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:374:7: ( '==' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:374:9: '=='
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:444:7: ( '==' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:444:9: '=='
             {
             match("=="); 
 
@@ -646,8 +703,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mSQUARE_PAREN_L() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_L;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:375:16: ( '[' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:375:18: '['
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:445:16: ( '[' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:445:18: '['
             {
             match('['); 
 
@@ -664,8 +721,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mSQUARE_PAREN_R() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_R;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:376:16: ( ']' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:376:18: ']'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:446:16: ( ']' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:446:18: ']'
             {
             match(']'); 
 
@@ -681,8 +738,8 @@ public class StochasticExpressionsLexer extends Lexer {
     // $ANTLR start DIGIT
     public final void mDIGIT() throws RecognitionException {
         try {
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:377:16: ( '0' .. '9' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:377:18: '0' .. '9'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:447:16: ( '0' .. '9' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:447:18: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -698,10 +755,10 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mNUMBER() throws RecognitionException {
         try {
             int _type = NUMBER;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:8: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:8: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
             {
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:10: ( DIGIT )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:10: ( DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -715,7 +772,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:11: DIGIT
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:11: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -731,7 +788,7 @@ public class StochasticExpressionsLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:19: ( '.' ( DIGIT )+ )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:19: ( '.' ( DIGIT )+ )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -740,10 +797,10 @@ public class StochasticExpressionsLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:20: '.' ( DIGIT )+
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:20: '.' ( DIGIT )+
                     {
                     match('.'); 
-                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:24: ( DIGIT )+
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:24: ( DIGIT )+
                     int cnt2=0;
                     loop2:
                     do {
@@ -757,7 +814,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:25: DIGIT
+                    	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:25: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -779,7 +836,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
             }
 
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:35: ( Exponent )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:35: ( Exponent )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -788,7 +845,7 @@ public class StochasticExpressionsLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:378:35: Exponent
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:448:35: Exponent
                     {
                     mExponent(); 
 
@@ -810,8 +867,8 @@ public class StochasticExpressionsLexer extends Lexer {
     // $ANTLR start Exponent
     public final void mExponent() throws RecognitionException {
         try {
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:450:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:450:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -823,7 +880,7 @@ public class StochasticExpressionsLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:22: ( '+' | '-' )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:450:22: ( '+' | '-' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -832,7 +889,7 @@ public class StochasticExpressionsLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -850,7 +907,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
             }
 
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:33: ( '0' .. '9' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:450:33: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -864,7 +921,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:380:34: '0' .. '9'
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:450:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -892,8 +949,8 @@ public class StochasticExpressionsLexer extends Lexer {
     // $ANTLR start ALPHA
     public final void mALPHA() throws RecognitionException {
         try {
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:381:16: ( 'a' .. 'z' | 'A' .. 'Z' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:451:16: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -918,8 +975,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mNOTEQUAL() throws RecognitionException {
         try {
             int _type = NOTEQUAL;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:10: ( '<>' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:382:12: '<>'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:452:10: ( '<>' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:452:12: '<>'
             {
             match("<>"); 
 
@@ -937,8 +994,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mGREATER() throws RecognitionException {
         try {
             int _type = GREATER;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:383:9: ( '>' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:383:11: '>'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:453:9: ( '>' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:453:11: '>'
             {
             match('>'); 
 
@@ -955,8 +1012,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mLESS() throws RecognitionException {
         try {
             int _type = LESS;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:384:6: ( '<' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:384:8: '<'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:454:6: ( '<' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:454:8: '<'
             {
             match('<'); 
 
@@ -973,8 +1030,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mGREATEREQUAL() throws RecognitionException {
         try {
             int _type = GREATEREQUAL;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:385:14: ( '>=' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:385:16: '>='
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:455:14: ( '>=' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:455:16: '>='
             {
             match(">="); 
 
@@ -992,8 +1049,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mLESSEQUAL() throws RecognitionException {
         try {
             int _type = LESSEQUAL;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:386:11: ( '<=' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:386:13: '<='
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:456:11: ( '<=' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:456:13: '<='
             {
             match("<="); 
 
@@ -1011,11 +1068,11 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mSTRING_LITERAL() throws RecognitionException {
         try {
             int _type = STRING_LITERAL;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:387:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:387:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:457:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:457:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
             {
             match('\"'); 
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:387:23: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:457:23: ( ALPHA | '_' )+
             int cnt7=0;
             loop7:
             do {
@@ -1029,7 +1086,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1069,8 +1126,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mDOT() throws RecognitionException {
         try {
             int _type = DOT;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:388:4: ( '.' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:388:6: '.'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:458:4: ( '.' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:458:6: '.'
             {
             match('.'); 
 
@@ -1087,10 +1144,10 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mID() throws RecognitionException {
         try {
             int _type = ID;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:36: ( ( ALPHA | '_' )+ )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:38: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:459:3: ( ( ALPHA | '_' )+ )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:459:4: ( ALPHA | '_' )+
             {
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:389:38: ( ALPHA | '_' )+
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:459:4: ( ALPHA | '_' )+
             int cnt8=0;
             loop8:
             do {
@@ -1104,7 +1161,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1143,8 +1200,8 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mWS() throws RecognitionException {
         try {
             int _type = WS;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:392:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:392:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:462:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:462:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -1171,12 +1228,12 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mCOMMENT() throws RecognitionException {
         try {
             int _type = COMMENT;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:466:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:466:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:14: ( options {greedy=false; } : . )*
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:466:14: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -1201,7 +1258,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:396:42: .
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:466:42: .
             	    {
             	    matchAny(); 
 
@@ -1230,12 +1287,12 @@ public class StochasticExpressionsLexer extends Lexer {
     public final void mLINE_COMMENT() throws RecognitionException {
         try {
             int _type = LINE_COMMENT;
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) )
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
             {
             match("//"); 
 
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:12: (~ ( '\\n' | '\\r' ) )*
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:12: (~ ( '\\n' | '\\r' ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1248,7 +1305,7 @@ public class StochasticExpressionsLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:12: ~ ( '\\n' | '\\r' )
+            	    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1269,7 +1326,7 @@ public class StochasticExpressionsLexer extends Lexer {
                 }
             } while (true);
 
-            // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:26: ( '\\r' )?
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:26: ( '\\r' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1278,7 +1335,7 @@ public class StochasticExpressionsLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:400:26: '\\r'
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:26: '\\r'
                     {
                     match('\r'); 
 
@@ -1287,7 +1344,33 @@ public class StochasticExpressionsLexer extends Lexer {
 
             }
 
-            match('\n'); 
+            // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:32: ( '\\n' | EOF )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0=='\n') ) {
+                alt12=1;
+            }
+            else {
+                alt12=2;}
+            switch (alt12) {
+                case 1 :
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:33: '\\n'
+                    {
+                    match('\n'); 
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:470:38: EOF
+                    {
+                    match(EOF); 
+
+                    }
+                    break;
+
+            }
+
             channel=HIDDEN;
 
             }
@@ -1300,70 +1383,80 @@ public class StochasticExpressionsLexer extends Lexer {
     // $ANTLR end LINE_COMMENT
 
     public void mTokens() throws RecognitionException {
-        // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:8: ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
-        int alt12=45;
+        // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:8: ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
+        int alt13=48;
         switch ( input.LA(1) ) {
+        case '?':
+            {
+            alt13=1;
+            }
+            break;
+        case ':':
+            {
+            alt13=2;
+            }
+            break;
         case 'O':
             {
-            int LA12_1 = input.LA(2);
+            int LA13_3 = input.LA(2);
 
-            if ( (LA12_1=='R') ) {
-                int LA12_35 = input.LA(3);
+            if ( (LA13_3=='R') ) {
+                int LA13_38 = input.LA(3);
 
-                if ( ((LA12_35>='A' && LA12_35<='Z')||LA12_35=='_'||(LA12_35>='a' && LA12_35<='z')) ) {
-                    alt12=42;
+                if ( ((LA13_38>='A' && LA13_38<='Z')||LA13_38=='_'||(LA13_38>='a' && LA13_38<='z')) ) {
+                    alt13=45;
                 }
                 else {
-                    alt12=1;}
+                    alt13=3;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 'X':
             {
-            int LA12_2 = input.LA(2);
+            int LA13_4 = input.LA(2);
 
-            if ( (LA12_2=='O') ) {
-                int LA12_36 = input.LA(3);
+            if ( (LA13_4=='O') ) {
+                int LA13_39 = input.LA(3);
 
-                if ( (LA12_36=='R') ) {
-                    int LA12_66 = input.LA(4);
+                if ( (LA13_39=='R') ) {
+                    int LA13_69 = input.LA(4);
 
-                    if ( ((LA12_66>='A' && LA12_66<='Z')||LA12_66=='_'||(LA12_66>='a' && LA12_66<='z')) ) {
-                        alt12=42;
+                    if ( ((LA13_69>='A' && LA13_69<='Z')||LA13_69=='_'||(LA13_69>='a' && LA13_69<='z')) ) {
+                        alt13=45;
                     }
                     else {
-                        alt12=2;}
+                        alt13=4;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 'A':
             {
-            int LA12_3 = input.LA(2);
+            int LA13_5 = input.LA(2);
 
-            if ( (LA12_3=='N') ) {
-                int LA12_37 = input.LA(3);
+            if ( (LA13_5=='N') ) {
+                int LA13_40 = input.LA(3);
 
-                if ( (LA12_37=='D') ) {
-                    int LA12_67 = input.LA(4);
+                if ( (LA13_40=='D') ) {
+                    int LA13_70 = input.LA(4);
 
-                    if ( ((LA12_67>='A' && LA12_67<='Z')||LA12_67=='_'||(LA12_67>='a' && LA12_67<='z')) ) {
-                        alt12=42;
+                    if ( ((LA13_70>='A' && LA13_70<='Z')||LA13_70=='_'||(LA13_70>='a' && LA13_70<='z')) ) {
+                        alt13=45;
                     }
                     else {
-                        alt12=3;}
+                        alt13=5;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 'N':
@@ -1371,130 +1464,130 @@ public class StochasticExpressionsLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'O':
                 {
-                int LA12_38 = input.LA(3);
+                int LA13_41 = input.LA(3);
 
-                if ( (LA12_38=='T') ) {
-                    int LA12_68 = input.LA(4);
+                if ( (LA13_41=='T') ) {
+                    int LA13_71 = input.LA(4);
 
-                    if ( ((LA12_68>='A' && LA12_68<='Z')||LA12_68=='_'||(LA12_68>='a' && LA12_68<='z')) ) {
-                        alt12=42;
+                    if ( ((LA13_71>='A' && LA13_71<='Z')||LA13_71=='_'||(LA13_71>='a' && LA13_71<='z')) ) {
+                        alt13=45;
                     }
                     else {
-                        alt12=4;}
+                        alt13=6;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
                 }
                 break;
             case 'U':
                 {
-                int LA12_39 = input.LA(3);
+                int LA13_42 = input.LA(3);
 
-                if ( (LA12_39=='M') ) {
-                    int LA12_69 = input.LA(4);
+                if ( (LA13_42=='M') ) {
+                    int LA13_72 = input.LA(4);
 
-                    if ( (LA12_69=='B') ) {
-                        int LA12_87 = input.LA(5);
+                    if ( (LA13_72=='B') ) {
+                        int LA13_90 = input.LA(5);
 
-                        if ( (LA12_87=='E') ) {
-                            int LA12_102 = input.LA(6);
+                        if ( (LA13_90=='E') ) {
+                            int LA13_105 = input.LA(6);
 
-                            if ( (LA12_102=='R') ) {
-                                int LA12_117 = input.LA(7);
+                            if ( (LA13_105=='R') ) {
+                                int LA13_120 = input.LA(7);
 
-                                if ( (LA12_117=='_') ) {
-                                    int LA12_129 = input.LA(8);
+                                if ( (LA13_120=='_') ) {
+                                    int LA13_132 = input.LA(8);
 
-                                    if ( (LA12_129=='O') ) {
-                                        int LA12_138 = input.LA(9);
+                                    if ( (LA13_132=='O') ) {
+                                        int LA13_141 = input.LA(9);
 
-                                        if ( (LA12_138=='F') ) {
-                                            int LA12_146 = input.LA(10);
+                                        if ( (LA13_141=='F') ) {
+                                            int LA13_149 = input.LA(10);
 
-                                            if ( (LA12_146=='_') ) {
-                                                int LA12_151 = input.LA(11);
+                                            if ( (LA13_149=='_') ) {
+                                                int LA13_154 = input.LA(11);
 
-                                                if ( (LA12_151=='E') ) {
-                                                    int LA12_155 = input.LA(12);
+                                                if ( (LA13_154=='E') ) {
+                                                    int LA13_158 = input.LA(12);
 
-                                                    if ( (LA12_155=='L') ) {
-                                                        int LA12_156 = input.LA(13);
+                                                    if ( (LA13_158=='L') ) {
+                                                        int LA13_159 = input.LA(13);
 
-                                                        if ( (LA12_156=='E') ) {
-                                                            int LA12_157 = input.LA(14);
+                                                        if ( (LA13_159=='E') ) {
+                                                            int LA13_160 = input.LA(14);
 
-                                                            if ( (LA12_157=='M') ) {
-                                                                int LA12_158 = input.LA(15);
+                                                            if ( (LA13_160=='M') ) {
+                                                                int LA13_161 = input.LA(15);
 
-                                                                if ( (LA12_158=='E') ) {
-                                                                    int LA12_159 = input.LA(16);
+                                                                if ( (LA13_161=='E') ) {
+                                                                    int LA13_162 = input.LA(16);
 
-                                                                    if ( (LA12_159=='N') ) {
-                                                                        int LA12_160 = input.LA(17);
+                                                                    if ( (LA13_162=='N') ) {
+                                                                        int LA13_163 = input.LA(17);
 
-                                                                        if ( (LA12_160=='T') ) {
-                                                                            int LA12_161 = input.LA(18);
+                                                                        if ( (LA13_163=='T') ) {
+                                                                            int LA13_164 = input.LA(18);
 
-                                                                            if ( (LA12_161=='S') ) {
-                                                                                int LA12_162 = input.LA(19);
+                                                                            if ( (LA13_164=='S') ) {
+                                                                                int LA13_165 = input.LA(19);
 
-                                                                                if ( ((LA12_162>='A' && LA12_162<='Z')||LA12_162=='_'||(LA12_162>='a' && LA12_162<='z')) ) {
-                                                                                    alt12=42;
+                                                                                if ( ((LA13_165>='A' && LA13_165<='Z')||LA13_165=='_'||(LA13_165>='a' && LA13_165<='z')) ) {
+                                                                                    alt13=45;
                                                                                 }
                                                                                 else {
-                                                                                    alt12=16;}
+                                                                                    alt13=18;}
                                                                             }
                                                                             else {
-                                                                                alt12=42;}
+                                                                                alt13=45;}
                                                                         }
                                                                         else {
-                                                                            alt12=42;}
+                                                                            alt13=45;}
                                                                     }
                                                                     else {
-                                                                        alt12=42;}
+                                                                        alt13=45;}
                                                                 }
                                                                 else {
-                                                                    alt12=42;}
+                                                                    alt13=45;}
                                                             }
                                                             else {
-                                                                alt12=42;}
+                                                                alt13=45;}
                                                         }
                                                         else {
-                                                            alt12=42;}
+                                                            alt13=45;}
                                                     }
                                                     else {
-                                                        alt12=42;}
+                                                        alt13=45;}
                                                 }
                                                 else {
-                                                    alt12=42;}
+                                                    alt13=45;}
                                             }
                                             else {
-                                                alt12=42;}
+                                                alt13=45;}
                                         }
                                         else {
-                                            alt12=42;}
+                                            alt13=45;}
                                     }
                                     else {
-                                        alt12=42;}
+                                        alt13=45;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt13=45;}
                             }
                             else {
-                                alt12=42;}
+                                alt13=45;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
                 }
                 break;
             default:
-                alt12=42;}
+                alt13=45;}
 
             }
             break;
@@ -1503,196 +1596,196 @@ public class StochasticExpressionsLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'n':
                 {
-                int LA12_40 = input.LA(3);
+                int LA13_43 = input.LA(3);
 
-                if ( (LA12_40=='t') ) {
-                    int LA12_70 = input.LA(4);
+                if ( (LA13_43=='t') ) {
+                    int LA13_73 = input.LA(4);
 
-                    if ( (LA12_70=='P') ) {
-                        int LA12_88 = input.LA(5);
+                    if ( (LA13_73=='P') ) {
+                        int LA13_91 = input.LA(5);
 
-                        if ( (LA12_88=='M') ) {
-                            int LA12_103 = input.LA(6);
+                        if ( (LA13_91=='M') ) {
+                            int LA13_106 = input.LA(6);
 
-                            if ( (LA12_103=='F') ) {
-                                int LA12_118 = input.LA(7);
+                            if ( (LA13_106=='F') ) {
+                                int LA13_121 = input.LA(7);
 
-                                if ( ((LA12_118>='A' && LA12_118<='Z')||LA12_118=='_'||(LA12_118>='a' && LA12_118<='z')) ) {
-                                    alt12=42;
+                                if ( ((LA13_121>='A' && LA13_121<='Z')||LA13_121=='_'||(LA13_121>='a' && LA13_121<='z')) ) {
+                                    alt13=45;
                                 }
                                 else {
-                                    alt12=5;}
+                                    alt13=7;}
                             }
                             else {
-                                alt12=42;}
+                                alt13=45;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
                 }
                 break;
             case 'N':
                 {
-                int LA12_41 = input.LA(3);
+                int LA13_44 = input.LA(3);
 
-                if ( (LA12_41=='N') ) {
-                    int LA12_71 = input.LA(4);
+                if ( (LA13_44=='N') ) {
+                    int LA13_74 = input.LA(4);
 
-                    if ( (LA12_71=='E') ) {
-                        int LA12_89 = input.LA(5);
+                    if ( (LA13_74=='E') ) {
+                        int LA13_92 = input.LA(5);
 
-                        if ( (LA12_89=='R') ) {
-                            int LA12_104 = input.LA(6);
+                        if ( (LA13_92=='R') ) {
+                            int LA13_107 = input.LA(6);
 
-                            if ( ((LA12_104>='A' && LA12_104<='Z')||LA12_104=='_'||(LA12_104>='a' && LA12_104<='z')) ) {
-                                alt12=42;
+                            if ( ((LA13_107>='A' && LA13_107<='Z')||LA13_107=='_'||(LA13_107>='a' && LA13_107<='z')) ) {
+                                alt13=45;
                             }
                             else {
-                                alt12=19;}
+                                alt13=21;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
                 }
                 break;
             default:
-                alt12=42;}
+                alt13=45;}
 
             }
             break;
         case 'D':
             {
-            int LA12_6 = input.LA(2);
+            int LA13_8 = input.LA(2);
 
-            if ( (LA12_6=='o') ) {
-                int LA12_42 = input.LA(3);
+            if ( (LA13_8=='o') ) {
+                int LA13_45 = input.LA(3);
 
-                if ( (LA12_42=='u') ) {
-                    int LA12_72 = input.LA(4);
+                if ( (LA13_45=='u') ) {
+                    int LA13_75 = input.LA(4);
 
-                    if ( (LA12_72=='b') ) {
-                        int LA12_90 = input.LA(5);
+                    if ( (LA13_75=='b') ) {
+                        int LA13_93 = input.LA(5);
 
-                        if ( (LA12_90=='l') ) {
-                            int LA12_105 = input.LA(6);
+                        if ( (LA13_93=='l') ) {
+                            int LA13_108 = input.LA(6);
 
-                            if ( (LA12_105=='e') ) {
-                                int LA12_120 = input.LA(7);
+                            if ( (LA13_108=='e') ) {
+                                int LA13_123 = input.LA(7);
 
-                                if ( (LA12_120=='P') ) {
+                                if ( (LA13_123=='P') ) {
                                     switch ( input.LA(8) ) {
-                                    case 'M':
-                                        {
-                                        int LA12_139 = input.LA(9);
-
-                                        if ( (LA12_139=='F') ) {
-                                            int LA12_147 = input.LA(10);
-
-                                            if ( ((LA12_147>='A' && LA12_147<='Z')||LA12_147=='_'||(LA12_147>='a' && LA12_147<='z')) ) {
-                                                alt12=42;
-                                            }
-                                            else {
-                                                alt12=6;}
-                                        }
-                                        else {
-                                            alt12=42;}
-                                        }
-                                        break;
                                     case 'D':
                                         {
-                                        int LA12_140 = input.LA(9);
+                                        int LA13_142 = input.LA(9);
 
-                                        if ( (LA12_140=='F') ) {
-                                            int LA12_148 = input.LA(10);
+                                        if ( (LA13_142=='F') ) {
+                                            int LA13_150 = input.LA(10);
 
-                                            if ( ((LA12_148>='A' && LA12_148<='Z')||LA12_148=='_'||(LA12_148>='a' && LA12_148<='z')) ) {
-                                                alt12=42;
+                                            if ( ((LA13_150>='A' && LA13_150<='Z')||LA13_150=='_'||(LA13_150>='a' && LA13_150<='z')) ) {
+                                                alt13=45;
                                             }
                                             else {
-                                                alt12=8;}
+                                                alt13=10;}
                                         }
                                         else {
-                                            alt12=42;}
+                                            alt13=45;}
+                                        }
+                                        break;
+                                    case 'M':
+                                        {
+                                        int LA13_143 = input.LA(9);
+
+                                        if ( (LA13_143=='F') ) {
+                                            int LA13_151 = input.LA(10);
+
+                                            if ( ((LA13_151>='A' && LA13_151<='Z')||LA13_151=='_'||(LA13_151>='a' && LA13_151<='z')) ) {
+                                                alt13=45;
+                                            }
+                                            else {
+                                                alt13=8;}
+                                        }
+                                        else {
+                                            alt13=45;}
                                         }
                                         break;
                                     default:
-                                        alt12=42;}
+                                        alt13=45;}
 
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt13=45;}
                             }
                             else {
-                                alt12=42;}
+                                alt13=45;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 'E':
             {
-            int LA12_7 = input.LA(2);
+            int LA13_9 = input.LA(2);
 
-            if ( (LA12_7=='n') ) {
-                int LA12_43 = input.LA(3);
+            if ( (LA13_9=='n') ) {
+                int LA13_46 = input.LA(3);
 
-                if ( (LA12_43=='u') ) {
-                    int LA12_73 = input.LA(4);
+                if ( (LA13_46=='u') ) {
+                    int LA13_76 = input.LA(4);
 
-                    if ( (LA12_73=='m') ) {
-                        int LA12_91 = input.LA(5);
+                    if ( (LA13_76=='m') ) {
+                        int LA13_94 = input.LA(5);
 
-                        if ( (LA12_91=='P') ) {
-                            int LA12_106 = input.LA(6);
+                        if ( (LA13_94=='P') ) {
+                            int LA13_109 = input.LA(6);
 
-                            if ( (LA12_106=='M') ) {
-                                int LA12_121 = input.LA(7);
+                            if ( (LA13_109=='M') ) {
+                                int LA13_124 = input.LA(7);
 
-                                if ( (LA12_121=='F') ) {
-                                    int LA12_132 = input.LA(8);
+                                if ( (LA13_124=='F') ) {
+                                    int LA13_135 = input.LA(8);
 
-                                    if ( ((LA12_132>='A' && LA12_132<='Z')||LA12_132=='_'||(LA12_132>='a' && LA12_132<='z')) ) {
-                                        alt12=42;
+                                    if ( ((LA13_135>='A' && LA13_135<='Z')||LA13_135=='_'||(LA13_135>='a' && LA13_135<='z')) ) {
+                                        alt13=45;
                                     }
                                     else {
-                                        alt12=7;}
+                                        alt13=9;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt13=45;}
                             }
                             else {
-                                alt12=42;}
+                                alt13=45;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 'B':
@@ -1700,191 +1793,191 @@ public class StochasticExpressionsLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'o':
                 {
-                int LA12_44 = input.LA(3);
+                int LA13_47 = input.LA(3);
 
-                if ( (LA12_44=='o') ) {
-                    int LA12_74 = input.LA(4);
+                if ( (LA13_47=='o') ) {
+                    int LA13_77 = input.LA(4);
 
-                    if ( (LA12_74=='l') ) {
-                        int LA12_92 = input.LA(5);
+                    if ( (LA13_77=='l') ) {
+                        int LA13_95 = input.LA(5);
 
-                        if ( (LA12_92=='P') ) {
-                            int LA12_107 = input.LA(6);
+                        if ( (LA13_95=='P') ) {
+                            int LA13_110 = input.LA(6);
 
-                            if ( (LA12_107=='M') ) {
-                                int LA12_122 = input.LA(7);
+                            if ( (LA13_110=='M') ) {
+                                int LA13_125 = input.LA(7);
 
-                                if ( (LA12_122=='F') ) {
-                                    int LA12_133 = input.LA(8);
+                                if ( (LA13_125=='F') ) {
+                                    int LA13_136 = input.LA(8);
 
-                                    if ( ((LA12_133>='A' && LA12_133<='Z')||LA12_133=='_'||(LA12_133>='a' && LA12_133<='z')) ) {
-                                        alt12=42;
+                                    if ( ((LA13_136>='A' && LA13_136<='Z')||LA13_136=='_'||(LA13_136>='a' && LA13_136<='z')) ) {
+                                        alt13=45;
                                     }
                                     else {
-                                        alt12=9;}
+                                        alt13=11;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt13=45;}
                             }
                             else {
-                                alt12=42;}
+                                alt13=45;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
                 }
                 break;
             case 'Y':
                 {
-                int LA12_45 = input.LA(3);
+                int LA13_48 = input.LA(3);
 
-                if ( (LA12_45=='T') ) {
-                    int LA12_75 = input.LA(4);
+                if ( (LA13_48=='T') ) {
+                    int LA13_78 = input.LA(4);
 
-                    if ( (LA12_75=='E') ) {
-                        int LA12_93 = input.LA(5);
+                    if ( (LA13_78=='E') ) {
+                        int LA13_96 = input.LA(5);
 
-                        if ( (LA12_93=='S') ) {
-                            int LA12_108 = input.LA(6);
+                        if ( (LA13_96=='S') ) {
+                            int LA13_111 = input.LA(6);
 
-                            if ( (LA12_108=='I') ) {
-                                int LA12_123 = input.LA(7);
+                            if ( (LA13_111=='I') ) {
+                                int LA13_126 = input.LA(7);
 
-                                if ( (LA12_123=='Z') ) {
-                                    int LA12_134 = input.LA(8);
+                                if ( (LA13_126=='Z') ) {
+                                    int LA13_137 = input.LA(8);
 
-                                    if ( (LA12_134=='E') ) {
-                                        int LA12_143 = input.LA(9);
+                                    if ( (LA13_137=='E') ) {
+                                        int LA13_146 = input.LA(9);
 
-                                        if ( ((LA12_143>='A' && LA12_143<='Z')||LA12_143=='_'||(LA12_143>='a' && LA12_143<='z')) ) {
-                                            alt12=42;
+                                        if ( ((LA13_146>='A' && LA13_146<='Z')||LA13_146=='_'||(LA13_146>='a' && LA13_146<='z')) ) {
+                                            alt13=45;
                                         }
                                         else {
-                                            alt12=14;}
+                                            alt13=16;}
                                     }
                                     else {
-                                        alt12=42;}
+                                        alt13=45;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt13=45;}
                             }
                             else {
-                                alt12=42;}
+                                alt13=45;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
                 }
                 break;
             default:
-                alt12=42;}
+                alt13=45;}
 
             }
             break;
         case 'u':
             {
-            int LA12_9 = input.LA(2);
+            int LA13_11 = input.LA(2);
 
-            if ( (LA12_9=='n') ) {
-                int LA12_46 = input.LA(3);
+            if ( (LA13_11=='n') ) {
+                int LA13_49 = input.LA(3);
 
-                if ( (LA12_46=='i') ) {
-                    int LA12_76 = input.LA(4);
+                if ( (LA13_49=='i') ) {
+                    int LA13_79 = input.LA(4);
 
-                    if ( (LA12_76=='t') ) {
-                        int LA12_94 = input.LA(5);
+                    if ( (LA13_79=='t') ) {
+                        int LA13_97 = input.LA(5);
 
-                        if ( ((LA12_94>='A' && LA12_94<='Z')||LA12_94=='_'||(LA12_94>='a' && LA12_94<='z')) ) {
-                            alt12=42;
+                        if ( ((LA13_97>='A' && LA13_97<='Z')||LA13_97=='_'||(LA13_97>='a' && LA13_97<='z')) ) {
+                            alt13=45;
                         }
                         else {
-                            alt12=10;}
+                            alt13=12;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case '\"':
             {
-            int LA12_10 = input.LA(2);
+            int LA13_12 = input.LA(2);
 
-            if ( (LA12_10=='b') ) {
-                int LA12_47 = input.LA(3);
+            if ( (LA13_12=='b') ) {
+                int LA13_50 = input.LA(3);
 
-                if ( (LA12_47=='o') ) {
-                    int LA12_77 = input.LA(4);
+                if ( (LA13_50=='o') ) {
+                    int LA13_80 = input.LA(4);
 
-                    if ( (LA12_77=='o') ) {
-                        int LA12_95 = input.LA(5);
+                    if ( (LA13_80=='o') ) {
+                        int LA13_98 = input.LA(5);
 
-                        if ( (LA12_95=='l') ) {
-                            int LA12_110 = input.LA(6);
+                        if ( (LA13_98=='l') ) {
+                            int LA13_113 = input.LA(6);
 
-                            if ( (LA12_110=='\"') ) {
-                                alt12=11;
+                            if ( (LA13_113=='\"') ) {
+                                alt13=13;
                             }
-                            else if ( ((LA12_110>='A' && LA12_110<='Z')||LA12_110=='_'||(LA12_110>='a' && LA12_110<='z')) ) {
-                                alt12=40;
+                            else if ( ((LA13_113>='A' && LA13_113<='Z')||LA13_113=='_'||(LA13_113>='a' && LA13_113<='z')) ) {
+                                alt13=43;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1:1: Tokens : ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 110, input);
+                                    new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 113, input);
 
                                 throw nvae;
                             }
                         }
-                        else if ( (LA12_95=='\"'||(LA12_95>='A' && LA12_95<='Z')||LA12_95=='_'||(LA12_95>='a' && LA12_95<='k')||(LA12_95>='m' && LA12_95<='z')) ) {
-                            alt12=40;
+                        else if ( (LA13_98=='\"'||(LA13_98>='A' && LA13_98<='Z')||LA13_98=='_'||(LA13_98>='a' && LA13_98<='k')||(LA13_98>='m' && LA13_98<='z')) ) {
+                            alt13=43;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("1:1: Tokens : ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 95, input);
+                                new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 98, input);
 
                             throw nvae;
                         }
                     }
-                    else if ( (LA12_77=='\"'||(LA12_77>='A' && LA12_77<='Z')||LA12_77=='_'||(LA12_77>='a' && LA12_77<='n')||(LA12_77>='p' && LA12_77<='z')) ) {
-                        alt12=40;
+                    else if ( (LA13_80=='\"'||(LA13_80>='A' && LA13_80<='Z')||LA13_80=='_'||(LA13_80>='a' && LA13_80<='n')||(LA13_80>='p' && LA13_80<='z')) ) {
+                        alt13=43;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("1:1: Tokens : ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 77, input);
+                            new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 80, input);
 
                         throw nvae;
                     }
                 }
-                else if ( (LA12_47=='\"'||(LA12_47>='A' && LA12_47<='Z')||LA12_47=='_'||(LA12_47>='a' && LA12_47<='n')||(LA12_47>='p' && LA12_47<='z')) ) {
-                    alt12=40;
+                else if ( (LA13_50=='\"'||(LA13_50>='A' && LA13_50<='Z')||LA13_50=='_'||(LA13_50>='a' && LA13_50<='n')||(LA13_50>='p' && LA13_50<='z')) ) {
+                    alt13=43;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("1:1: Tokens : ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 47, input);
+                        new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 50, input);
 
                     throw nvae;
                 }
             }
-            else if ( ((LA12_10>='A' && LA12_10<='Z')||LA12_10=='_'||LA12_10=='a'||(LA12_10>='c' && LA12_10<='z')) ) {
-                alt12=40;
+            else if ( ((LA13_12>='A' && LA13_12<='Z')||LA13_12=='_'||LA13_12=='a'||(LA13_12>='c' && LA13_12<='z')) ) {
+                alt13=43;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1:1: Tokens : ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 10, input);
+                    new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 12, input);
 
                 throw nvae;
             }
@@ -1892,204 +1985,204 @@ public class StochasticExpressionsLexer extends Lexer {
             break;
         case 'f':
             {
-            int LA12_11 = input.LA(2);
+            int LA13_13 = input.LA(2);
 
-            if ( (LA12_11=='a') ) {
-                int LA12_49 = input.LA(3);
+            if ( (LA13_13=='a') ) {
+                int LA13_52 = input.LA(3);
 
-                if ( (LA12_49=='l') ) {
-                    int LA12_78 = input.LA(4);
+                if ( (LA13_52=='l') ) {
+                    int LA13_81 = input.LA(4);
 
-                    if ( (LA12_78=='s') ) {
-                        int LA12_96 = input.LA(5);
+                    if ( (LA13_81=='s') ) {
+                        int LA13_99 = input.LA(5);
 
-                        if ( (LA12_96=='e') ) {
-                            int LA12_111 = input.LA(6);
+                        if ( (LA13_99=='e') ) {
+                            int LA13_114 = input.LA(6);
 
-                            if ( ((LA12_111>='A' && LA12_111<='Z')||LA12_111=='_'||(LA12_111>='a' && LA12_111<='z')) ) {
-                                alt12=42;
+                            if ( ((LA13_114>='A' && LA13_114<='Z')||LA13_114=='_'||(LA13_114>='a' && LA13_114<='z')) ) {
+                                alt13=45;
                             }
                             else {
-                                alt12=12;}
+                                alt13=14;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 't':
             {
-            int LA12_12 = input.LA(2);
+            int LA13_14 = input.LA(2);
 
-            if ( (LA12_12=='r') ) {
-                int LA12_50 = input.LA(3);
+            if ( (LA13_14=='r') ) {
+                int LA13_53 = input.LA(3);
 
-                if ( (LA12_50=='u') ) {
-                    int LA12_79 = input.LA(4);
+                if ( (LA13_53=='u') ) {
+                    int LA13_82 = input.LA(4);
 
-                    if ( (LA12_79=='e') ) {
-                        int LA12_97 = input.LA(5);
+                    if ( (LA13_82=='e') ) {
+                        int LA13_100 = input.LA(5);
 
-                        if ( ((LA12_97>='A' && LA12_97<='Z')||LA12_97=='_'||(LA12_97>='a' && LA12_97<='z')) ) {
-                            alt12=42;
+                        if ( ((LA13_100>='A' && LA13_100<='Z')||LA13_100=='_'||(LA13_100>='a' && LA13_100<='z')) ) {
+                            alt13=45;
                         }
                         else {
-                            alt12=13;}
+                            alt13=15;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 'S':
             {
-            int LA12_13 = input.LA(2);
+            int LA13_15 = input.LA(2);
 
-            if ( (LA12_13=='T') ) {
-                int LA12_51 = input.LA(3);
+            if ( (LA13_15=='T') ) {
+                int LA13_54 = input.LA(3);
 
-                if ( (LA12_51=='R') ) {
-                    int LA12_80 = input.LA(4);
+                if ( (LA13_54=='R') ) {
+                    int LA13_83 = input.LA(4);
 
-                    if ( (LA12_80=='U') ) {
-                        int LA12_98 = input.LA(5);
+                    if ( (LA13_83=='U') ) {
+                        int LA13_101 = input.LA(5);
 
-                        if ( (LA12_98=='C') ) {
-                            int LA12_113 = input.LA(6);
+                        if ( (LA13_101=='C') ) {
+                            int LA13_116 = input.LA(6);
 
-                            if ( (LA12_113=='T') ) {
-                                int LA12_126 = input.LA(7);
+                            if ( (LA13_116=='T') ) {
+                                int LA13_129 = input.LA(7);
 
-                                if ( (LA12_126=='U') ) {
-                                    int LA12_136 = input.LA(8);
+                                if ( (LA13_129=='U') ) {
+                                    int LA13_139 = input.LA(8);
 
-                                    if ( (LA12_136=='R') ) {
-                                        int LA12_144 = input.LA(9);
+                                    if ( (LA13_139=='R') ) {
+                                        int LA13_147 = input.LA(9);
 
-                                        if ( (LA12_144=='E') ) {
-                                            int LA12_150 = input.LA(10);
+                                        if ( (LA13_147=='E') ) {
+                                            int LA13_153 = input.LA(10);
 
-                                            if ( ((LA12_150>='A' && LA12_150<='Z')||LA12_150=='_'||(LA12_150>='a' && LA12_150<='z')) ) {
-                                                alt12=42;
+                                            if ( ((LA13_153>='A' && LA13_153<='Z')||LA13_153=='_'||(LA13_153>='a' && LA13_153<='z')) ) {
+                                                alt13=45;
                                             }
                                             else {
-                                                alt12=15;}
+                                                alt13=17;}
                                         }
                                         else {
-                                            alt12=42;}
+                                            alt13=45;}
                                     }
                                     else {
-                                        alt12=42;}
+                                        alt13=45;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt13=45;}
                             }
                             else {
-                                alt12=42;}
+                                alt13=45;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 'T':
             {
-            int LA12_14 = input.LA(2);
+            int LA13_16 = input.LA(2);
 
-            if ( (LA12_14=='Y') ) {
-                int LA12_52 = input.LA(3);
+            if ( (LA13_16=='Y') ) {
+                int LA13_55 = input.LA(3);
 
-                if ( (LA12_52=='P') ) {
-                    int LA12_81 = input.LA(4);
+                if ( (LA13_55=='P') ) {
+                    int LA13_84 = input.LA(4);
 
-                    if ( (LA12_81=='E') ) {
-                        int LA12_99 = input.LA(5);
+                    if ( (LA13_84=='E') ) {
+                        int LA13_102 = input.LA(5);
 
-                        if ( ((LA12_99>='A' && LA12_99<='Z')||LA12_99=='_'||(LA12_99>='a' && LA12_99<='z')) ) {
-                            alt12=42;
+                        if ( ((LA13_102>='A' && LA13_102<='Z')||LA13_102=='_'||(LA13_102>='a' && LA13_102<='z')) ) {
+                            alt13=45;
                         }
                         else {
-                            alt12=17;}
+                            alt13=19;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case 'V':
             {
-            int LA12_15 = input.LA(2);
+            int LA13_17 = input.LA(2);
 
-            if ( (LA12_15=='A') ) {
-                int LA12_53 = input.LA(3);
+            if ( (LA13_17=='A') ) {
+                int LA13_56 = input.LA(3);
 
-                if ( (LA12_53=='L') ) {
-                    int LA12_82 = input.LA(4);
+                if ( (LA13_56=='L') ) {
+                    int LA13_85 = input.LA(4);
 
-                    if ( (LA12_82=='U') ) {
-                        int LA12_100 = input.LA(5);
+                    if ( (LA13_85=='U') ) {
+                        int LA13_103 = input.LA(5);
 
-                        if ( (LA12_100=='E') ) {
-                            int LA12_115 = input.LA(6);
+                        if ( (LA13_103=='E') ) {
+                            int LA13_118 = input.LA(6);
 
-                            if ( ((LA12_115>='A' && LA12_115<='Z')||LA12_115=='_'||(LA12_115>='a' && LA12_115<='z')) ) {
-                                alt12=42;
+                            if ( ((LA13_118>='A' && LA13_118<='Z')||LA13_118=='_'||(LA13_118>='a' && LA13_118<='z')) ) {
+                                alt13=45;
                             }
                             else {
-                                alt12=18;}
+                                alt13=20;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case '+':
             {
-            alt12=20;
+            alt13=22;
             }
             break;
         case '-':
             {
-            alt12=21;
+            alt13=23;
             }
             break;
         case '*':
             {
-            alt12=22;
+            alt13=24;
             }
             break;
         case '/':
@@ -2097,110 +2190,115 @@ public class StochasticExpressionsLexer extends Lexer {
             switch ( input.LA(2) ) {
             case '/':
                 {
-                alt12=45;
+                alt13=48;
                 }
                 break;
             case '*':
                 {
-                alt12=44;
+                alt13=47;
                 }
                 break;
             default:
-                alt12=23;}
+                alt13=25;}
 
             }
             break;
         case '%':
             {
-            alt12=24;
+            alt13=26;
             }
             break;
         case '^':
             {
-            alt12=25;
+            alt13=27;
             }
             break;
         case '(':
             {
-            alt12=26;
+            alt13=28;
             }
             break;
         case ')':
             {
-            alt12=27;
+            alt13=29;
             }
             break;
         case ';':
             {
-            alt12=28;
+            alt13=30;
+            }
+            break;
+        case ',':
+            {
+            alt13=31;
             }
             break;
         case '=':
             {
-            int LA12_25 = input.LA(2);
+            int LA13_28 = input.LA(2);
 
-            if ( (LA12_25=='=') ) {
-                alt12=31;
+            if ( (LA13_28=='=') ) {
+                alt13=34;
             }
             else {
-                alt12=29;}
+                alt13=32;}
             }
             break;
         case 'o':
             {
-            int LA12_26 = input.LA(2);
+            int LA13_29 = input.LA(2);
 
-            if ( (LA12_26=='r') ) {
-                int LA12_59 = input.LA(3);
+            if ( (LA13_29=='r') ) {
+                int LA13_62 = input.LA(3);
 
-                if ( (LA12_59=='d') ) {
-                    int LA12_83 = input.LA(4);
+                if ( (LA13_62=='d') ) {
+                    int LA13_86 = input.LA(4);
 
-                    if ( (LA12_83=='e') ) {
-                        int LA12_101 = input.LA(5);
+                    if ( (LA13_86=='e') ) {
+                        int LA13_104 = input.LA(5);
 
-                        if ( (LA12_101=='r') ) {
-                            int LA12_116 = input.LA(6);
+                        if ( (LA13_104=='r') ) {
+                            int LA13_119 = input.LA(6);
 
-                            if ( (LA12_116=='e') ) {
-                                int LA12_128 = input.LA(7);
+                            if ( (LA13_119=='e') ) {
+                                int LA13_131 = input.LA(7);
 
-                                if ( (LA12_128=='d') ) {
-                                    int LA12_137 = input.LA(8);
+                                if ( (LA13_131=='d') ) {
+                                    int LA13_140 = input.LA(8);
 
-                                    if ( ((LA12_137>='A' && LA12_137<='Z')||LA12_137=='_'||(LA12_137>='a' && LA12_137<='z')) ) {
-                                        alt12=42;
+                                    if ( ((LA13_140>='A' && LA13_140<='Z')||LA13_140=='_'||(LA13_140>='a' && LA13_140<='z')) ) {
+                                        alt13=45;
                                     }
                                     else {
-                                        alt12=30;}
+                                        alt13=33;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt13=45;}
                             }
                             else {
-                                alt12=42;}
+                                alt13=45;}
                         }
                         else {
-                            alt12=42;}
+                            alt13=45;}
                     }
                     else {
-                        alt12=42;}
+                        alt13=45;}
                 }
                 else {
-                    alt12=42;}
+                    alt13=45;}
             }
             else {
-                alt12=42;}
+                alt13=45;}
             }
             break;
         case '[':
             {
-            alt12=32;
+            alt13=35;
             }
             break;
         case ']':
             {
-            alt12=33;
+            alt13=36;
             }
             break;
         case '0':
@@ -2214,7 +2312,7 @@ public class StochasticExpressionsLexer extends Lexer {
         case '8':
         case '9':
             {
-            alt12=34;
+            alt13=37;
             }
             break;
         case '<':
@@ -2222,33 +2320,33 @@ public class StochasticExpressionsLexer extends Lexer {
             switch ( input.LA(2) ) {
             case '=':
                 {
-                alt12=39;
+                alt13=42;
                 }
                 break;
             case '>':
                 {
-                alt12=35;
+                alt13=38;
                 }
                 break;
             default:
-                alt12=37;}
+                alt13=40;}
 
             }
             break;
         case '>':
             {
-            int LA12_31 = input.LA(2);
+            int LA13_34 = input.LA(2);
 
-            if ( (LA12_31=='=') ) {
-                alt12=38;
+            if ( (LA13_34=='=') ) {
+                alt13=41;
             }
             else {
-                alt12=36;}
+                alt13=39;}
             }
             break;
         case '.':
             {
-            alt12=41;
+            alt13=44;
             }
             break;
         case 'C':
@@ -2290,7 +2388,7 @@ public class StochasticExpressionsLexer extends Lexer {
         case 'y':
         case 'z':
             {
-            alt12=42;
+            alt13=45;
             }
             break;
         case '\t':
@@ -2299,327 +2397,348 @@ public class StochasticExpressionsLexer extends Lexer {
         case '\r':
         case ' ':
             {
-            alt12=43;
+            alt13=46;
             }
             break;
         default:
             NoViableAltException nvae =
-                new NoViableAltException("1:1: Tokens : ( T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 0, input);
+                new NoViableAltException("1:1: Tokens : ( T53 | T54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 13, 0, input);
 
             throw nvae;
         }
 
-        switch (alt12) {
+        switch (alt13) {
             case 1 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:10: T33
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:10: T53
                 {
-                mT33(); 
+                mT53(); 
 
                 }
                 break;
             case 2 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:14: T34
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:14: T54
                 {
-                mT34(); 
+                mT54(); 
 
                 }
                 break;
             case 3 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:18: T35
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:18: OR
                 {
-                mT35(); 
+                mOR(); 
 
                 }
                 break;
             case 4 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:22: T36
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:21: XOR
                 {
-                mT36(); 
+                mXOR(); 
 
                 }
                 break;
             case 5 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:26: T37
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:25: AND
                 {
-                mT37(); 
+                mAND(); 
 
                 }
                 break;
             case 6 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:30: T38
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:29: NOT
                 {
-                mT38(); 
+                mNOT(); 
 
                 }
                 break;
             case 7 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:34: T39
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:33: INTPMF
                 {
-                mT39(); 
+                mINTPMF(); 
 
                 }
                 break;
             case 8 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:38: T40
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:40: DOUBLEPMF
                 {
-                mT40(); 
+                mDOUBLEPMF(); 
 
                 }
                 break;
             case 9 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:42: T41
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:50: ENUMPMF
                 {
-                mT41(); 
+                mENUMPMF(); 
 
                 }
                 break;
             case 10 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:46: T42
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:58: DOUBLEPDF
                 {
-                mT42(); 
+                mDOUBLEPDF(); 
 
                 }
                 break;
             case 11 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:50: T43
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:68: BOOLPMF
                 {
-                mT43(); 
+                mBOOLPMF(); 
 
                 }
                 break;
             case 12 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:54: T44
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:76: UNIT
                 {
-                mT44(); 
+                mUNIT(); 
 
                 }
                 break;
             case 13 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:58: T45
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:81: BOOL
                 {
-                mT45(); 
+                mBOOL(); 
 
                 }
                 break;
             case 14 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:62: T46
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:86: FALSE
                 {
-                mT46(); 
+                mFALSE(); 
 
                 }
                 break;
             case 15 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:66: T47
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:92: TRUE
                 {
-                mT47(); 
+                mTRUE(); 
 
                 }
                 break;
             case 16 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:70: T48
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:97: BYTESIZE
                 {
-                mT48(); 
+                mBYTESIZE(); 
 
                 }
                 break;
             case 17 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:74: T49
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:106: STRUCTURE
                 {
-                mT49(); 
+                mSTRUCTURE(); 
 
                 }
                 break;
             case 18 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:78: T50
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:116: NUMBER_OF_ELEMENTS
                 {
-                mT50(); 
+                mNUMBER_OF_ELEMENTS(); 
 
                 }
                 break;
             case 19 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:82: T51
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:135: TYPE
                 {
-                mT51(); 
+                mTYPE(); 
 
                 }
                 break;
             case 20 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:86: PLUS
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:140: VALUE
+                {
+                mVALUE(); 
+
+                }
+                break;
+            case 21 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:146: INNER
+                {
+                mINNER(); 
+
+                }
+                break;
+            case 22 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:152: PLUS
                 {
                 mPLUS(); 
 
                 }
                 break;
-            case 21 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:91: MINUS
+            case 23 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:157: MINUS
                 {
                 mMINUS(); 
 
                 }
                 break;
-            case 22 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:97: MUL
+            case 24 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:163: MUL
                 {
                 mMUL(); 
 
                 }
                 break;
-            case 23 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:101: DIV
+            case 25 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:167: DIV
                 {
                 mDIV(); 
 
                 }
                 break;
-            case 24 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:105: MOD
+            case 26 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:171: MOD
                 {
                 mMOD(); 
 
                 }
                 break;
-            case 25 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:109: POW
+            case 27 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:175: POW
                 {
                 mPOW(); 
 
                 }
                 break;
-            case 26 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:113: LPAREN
+            case 28 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:179: LPAREN
                 {
                 mLPAREN(); 
 
                 }
                 break;
-            case 27 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:120: RPAREN
+            case 29 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:186: RPAREN
                 {
                 mRPAREN(); 
 
                 }
                 break;
-            case 28 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:127: SEMI
+            case 30 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:193: SEMI
                 {
                 mSEMI(); 
 
                 }
                 break;
-            case 29 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:132: DEFINITION
+            case 31 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:198: COLON
+                {
+                mCOLON(); 
+
+                }
+                break;
+            case 32 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:204: DEFINITION
                 {
                 mDEFINITION(); 
 
                 }
                 break;
-            case 30 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:143: ORDERED_DEF
+            case 33 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:215: ORDERED_DEF
                 {
                 mORDERED_DEF(); 
 
                 }
                 break;
-            case 31 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:155: EQUAL
+            case 34 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:227: EQUAL
                 {
                 mEQUAL(); 
 
                 }
                 break;
-            case 32 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:161: SQUARE_PAREN_L
+            case 35 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:233: SQUARE_PAREN_L
                 {
                 mSQUARE_PAREN_L(); 
 
                 }
                 break;
-            case 33 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:176: SQUARE_PAREN_R
+            case 36 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:248: SQUARE_PAREN_R
                 {
                 mSQUARE_PAREN_R(); 
 
                 }
                 break;
-            case 34 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:191: NUMBER
+            case 37 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:263: NUMBER
                 {
                 mNUMBER(); 
 
                 }
                 break;
-            case 35 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:198: NOTEQUAL
+            case 38 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:270: NOTEQUAL
                 {
                 mNOTEQUAL(); 
 
                 }
                 break;
-            case 36 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:207: GREATER
+            case 39 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:279: GREATER
                 {
                 mGREATER(); 
 
                 }
                 break;
-            case 37 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:215: LESS
+            case 40 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:287: LESS
                 {
                 mLESS(); 
 
                 }
                 break;
-            case 38 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:220: GREATEREQUAL
+            case 41 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:292: GREATEREQUAL
                 {
                 mGREATEREQUAL(); 
 
                 }
                 break;
-            case 39 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:233: LESSEQUAL
+            case 42 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:305: LESSEQUAL
                 {
                 mLESSEQUAL(); 
 
                 }
                 break;
-            case 40 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:243: STRING_LITERAL
+            case 43 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:315: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
-            case 41 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:258: DOT
+            case 44 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:330: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
-            case 42 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:262: ID
+            case 45 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:334: ID
                 {
                 mID(); 
 
                 }
                 break;
-            case 43 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:265: WS
+            case 46 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:337: WS
                 {
                 mWS(); 
 
                 }
                 break;
-            case 44 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:268: COMMENT
+            case 47 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:340: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
-            case 45 :
-                // C:\\Dokumente und Einstellungen\\jens.happe\\Desktop\\dev\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:276: LINE_COMMENT
+            case 48 :
+                // C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.StoEx\\trunk\\de.uka.ipd.sdq.stoex\\src-man\\de\\uka\\ipd\\sdq\\stoex\\parser\\StochasticExpressions.g:1:348: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 
