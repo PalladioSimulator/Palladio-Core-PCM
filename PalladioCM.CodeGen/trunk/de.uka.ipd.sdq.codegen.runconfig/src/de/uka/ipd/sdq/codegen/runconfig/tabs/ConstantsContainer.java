@@ -38,7 +38,7 @@ public class ConstantsContainer {
 	public static final String DELETE_PLUGIN = "clear";
 	
 	/** Feature options tab*/
-	public static final String SIMULATE_LINKING_RESOURCES = "linkingResources";
+	public static final String SIMULATE_LINKING_RESOURCES = "respectLinkingResources";
 	public static final String COMPONENT_LOOKUP = "componentLookup";
 
 	public static String WORKSPACE_LOCATION = ResourcesPlugin.getWorkspace()
