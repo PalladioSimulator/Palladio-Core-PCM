@@ -1,7 +1,8 @@
 package de.uka.ipd.sdq.scheduler.queueing.strategies;
 
-import de.uka.ipd.sdq.scheduler.balancing.IProcessSelector;
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.loaddistribution.IProcessSelector;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
@@ -19,7 +20,7 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	}
 
 	@Override
-	public ActiveProcess getNextProcessFor(SimResourceInstance instance) {
+	public ActiveProcess getNextProcessFor(IResourceInstance instance) {
 		return processSelector.select(runQueue, instance);
 	}
 
@@ -29,7 +30,7 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	}
 
 	@Override
-	public void balance(SimResourceInstance instance) {
+	public void balance(IResourceInstance instance) {
 		// nothing to do.
 	}
 
@@ -49,12 +50,12 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	}
 
 	@Override
-	public SimResourceInstance runningOn(ActiveProcess process) {
+	public IResourceInstance runningOn(ActiveProcess process) {
 		return runQueue.runningOn(process);
 	}
 
 	@Override
-	public void setRunningOn(ActiveProcess process, SimResourceInstance instance) {
+	public void setRunningOn(ActiveProcess process, IResourceInstance instance) {
 		runQueue.setRunningOn(process, instance);
 	}
 

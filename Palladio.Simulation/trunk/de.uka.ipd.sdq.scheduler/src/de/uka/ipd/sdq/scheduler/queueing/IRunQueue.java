@@ -2,7 +2,8 @@ package de.uka.ipd.sdq.scheduler.queueing;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
 import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
@@ -17,7 +18,7 @@ public interface IRunQueue {
 	 * Returns the next process runnable on the given instance.
 	 */
 	public abstract ActiveProcess getNextRunnableProcess(
-			SimResourceInstance instance);
+			IResourceInstance instance);
 
 	/**
 	 * Returns the next runnable process.
@@ -59,7 +60,7 @@ public interface IRunQueue {
 	 * @return
 	 */
 	public abstract ProcessQueue<ActiveProcess> getBestRunnableQueue(
-			SimResourceInstance instance);
+			IResourceInstance instance);
 
 	/**
 	 * Composes a list of processes movable to the specified target. The list is
@@ -71,7 +72,7 @@ public interface IRunQueue {
 	 * @return
 	 */
 	public abstract List<ActiveProcess> identifyMovableProcesses(
-			SimResourceInstance targetInstance, boolean prio_increasing,
+			IResourceInstance targetInstance, boolean prio_increasing,
 			boolean queue_ascending, int processes_needed);
 
 	/**
@@ -91,8 +92,8 @@ public interface IRunQueue {
 	public abstract boolean containsRunning(ActiveProcess process);
 
 	public abstract void setRunningOn(ActiveProcess process,
-			SimResourceInstance instance);
+			IResourceInstance instance);
 
-	public abstract SimResourceInstance runningOn(ActiveProcess process);
+	public abstract IResourceInstance runningOn(ActiveProcess process);
 
 }

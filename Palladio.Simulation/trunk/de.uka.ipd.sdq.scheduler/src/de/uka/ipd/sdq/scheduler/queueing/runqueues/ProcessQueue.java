@@ -3,8 +3,8 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues;
 import java.util.ArrayDeque;
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 
 public class ProcessQueue<T> {
 
@@ -71,7 +71,7 @@ public class ProcessQueue<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public boolean containsRunnableFor(SimResourceInstance instance) {
+	public boolean containsRunnableFor(IResourceInstance instance) {
 		Iterator iterator = this.queue.iterator();
 		while(iterator.hasNext()){
 			ActiveProcess process = (ActiveProcess)iterator.next();

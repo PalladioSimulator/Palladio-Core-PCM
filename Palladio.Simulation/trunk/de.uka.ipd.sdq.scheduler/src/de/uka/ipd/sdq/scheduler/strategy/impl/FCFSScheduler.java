@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 
 public class FCFSScheduler extends AbstractScheduler {
@@ -14,13 +14,13 @@ public class FCFSScheduler extends AbstractScheduler {
 	}
 
 	@Override
-	public void schedule(SimResourceInstance instance) {
+	public void schedule(IResourceInstance instance) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void scheduleNextEvent(SimResourceInstance instance) {
+	public void scheduleNextEvent(IResourceInstance instance) {
 		// TODO Auto-generated method stub
 		
 	}

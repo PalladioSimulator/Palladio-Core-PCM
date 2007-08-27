@@ -1,8 +1,8 @@
-package de.uka.ipd.sdq.scheduler.resources.timeslice.impl;
+package de.uka.ipd.sdq.scheduler.timeslice.impl;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
-import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
+import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 
 public class DiscretePriorityDependentTimeSlice extends
 		AbstractDiscreteTimeSlice {

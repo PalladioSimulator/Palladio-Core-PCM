@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.processes.sensors;
+package de.uka.ipd.sdq.scheduler.processes;
 
 import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
 

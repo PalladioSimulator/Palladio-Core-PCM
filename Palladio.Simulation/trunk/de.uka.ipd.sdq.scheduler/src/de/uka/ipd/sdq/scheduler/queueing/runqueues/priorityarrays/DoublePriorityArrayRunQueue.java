@@ -2,12 +2,12 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues.priorityarrays;
 
 import java.util.List;
 
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.processes.PreemptiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 
@@ -44,7 +44,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	}
 
 	@Override
-	public ActiveProcess getNextRunnableProcess(SimResourceInstance instance) {
+	public ActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		if (activeQueueEmpty())
 			switchActiveAndExpired();
 		if (activePriorityArray.isEmpty()) // no process to be scheduled.
@@ -91,7 +91,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 	 */
 	@Override
 	public List<ActiveProcess> identifyMovableProcesses(
-			SimResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
+			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
 		List<ActiveProcess> processList = expiredPriorityArray.identifyMovableProcesses(targetInstance, prio_increasing, queue_ascending, processes_needed) ;
 		processList.addAll( activePriorityArray.identifyMovableProcesses(targetInstance, prio_increasing, queue_ascending, processes_needed) );
 		return processList;
@@ -99,7 +99,7 @@ public class DoublePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue {
 
 	@Override
 	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
-			SimResourceInstance instance) {
+			IResourceInstance instance) {
 		ProcessQueue<ActiveProcess> result = activePriorityArray
 				.getBestRunnableQueue(instance);
 		if (result == null) {

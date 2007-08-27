@@ -5,23 +5,24 @@ import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.processes.ProcessRegistry;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.ProcessRegistry;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class SimActiveResource extends AbstractSimResource implements
 		IActiveResource {
 
 	private IScheduler scheduler;
-	private List<SimResourceInstance> instanceList;
+	private List<IResourceInstance> instanceList;
 	private ProcessRegistry processRegistry;
 
 	public SimActiveResource(int capacity, String name, String id,
 			IScheduler scheduler) {
 		super(capacity, name, id);
 		this.scheduler = scheduler;
-		this.instanceList = new ArrayList<SimResourceInstance>();
+		this.instanceList = new ArrayList<IResourceInstance>();
 		this.processRegistry = new ProcessRegistry();
 		for (int i = 0; i < capacity; i++) {
 			instanceList.add(factory.createResourceInstance(i, name, id,
@@ -33,7 +34,7 @@ public class SimActiveResource extends AbstractSimResource implements
 		return scheduler;
 	}
 
-	public List<SimResourceInstance> getInstanceList() {
+	public List<IResourceInstance> getInstanceList() {
 		return instanceList;
 	}
 	

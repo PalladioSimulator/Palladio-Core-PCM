@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.scheduler.events;
 
 import umontreal.iro.lecuyer.simevents.Event;
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.passive.IDelayedAction;
 
 public class ProceedEvent extends Event {

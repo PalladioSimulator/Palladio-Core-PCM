@@ -1,19 +1,19 @@
-package de.uka.ipd.sdq.scheduler.processes;
+package de.uka.ipd.sdq.scheduler.processes.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import umontreal.iro.lecuyer.simevents.Sim;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.balancing.IResourceInstanceConstraint;
-import de.uka.ipd.sdq.scheduler.balancing.constraints.MultipleResourceInstancesConstraint;
-import de.uka.ipd.sdq.scheduler.balancing.constraints.SingleResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.events.ProceedEvent;
-import de.uka.ipd.sdq.scheduler.processes.sensors.IProcessStateSensor;
+import de.uka.ipd.sdq.scheduler.loaddistribution.IResourceInstanceConstraint;
+import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.MultipleResourceInstancesConstraint;
+import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.SingleResourceInstanceConstraint;
+import de.uka.ipd.sdq.scheduler.processes.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.IDelayedAction;
 
 public class ActiveProcess {
@@ -179,7 +179,7 @@ public class ActiveProcess {
 	private SingleResourceInstanceConstraint idealInstanceConstraint;
 	private SingleResourceInstanceConstraint lastInstanceConstraint;
 
-	public void setAffineInstances(List<SimResourceInstance> instanceList) {
+	public void setAffineInstances(List<IResourceInstance> instanceList) {
 		affinityConstraint = new MultipleResourceInstancesConstraint(
 				instanceList);
 	}
@@ -188,13 +188,13 @@ public class ActiveProcess {
 		return affinityConstraint != null;
 	}
 
-	public boolean checkAffinity(SimResourceInstance instance) {
+	public boolean checkAffinity(IResourceInstance instance) {
 		return checkInstanceConstraint(affinityConstraint, instance);
 	}
 
-	public void removeNonAffineInstances(List<SimResourceInstance> instances) {
+	public void removeNonAffineInstances(List<IResourceInstance> instances) {
 		if (hasAffinityList()) {
-			for (SimResourceInstance instance : instances) {
+			for (IResourceInstance instance : instances) {
 				if (!affinityConstraint.check(instance)) {
 					instances.remove(instance);
 				}
@@ -202,7 +202,7 @@ public class ActiveProcess {
 		}
 	}
 
-	public void setIdealInstance(SimResourceInstance instance) {
+	public void setIdealInstance(IResourceInstance instance) {
 		idealInstanceConstraint = new SingleResourceInstanceConstraint(instance);
 
 	}
@@ -211,11 +211,11 @@ public class ActiveProcess {
 		return idealInstanceConstraint != null;
 	}
 
-	public boolean isIdealInstance(SimResourceInstance instance) {
+	public boolean isIdealInstance(IResourceInstance instance) {
 		return checkInstanceConstraint(idealInstanceConstraint, instance);
 	}
 
-	public SimResourceInstance getIdealInstance() {
+	public IResourceInstance getIdealInstance() {
 		if (hasIdealInstance()) {
 			return idealInstanceConstraint.getResourceInstance();
 		}
@@ -223,7 +223,7 @@ public class ActiveProcess {
 	}
 
 
-	public void setLastInstance(SimResourceInstance instance) {
+	public void setLastInstance(IResourceInstance instance) {
 		lastInstanceConstraint = new SingleResourceInstanceConstraint(instance);
 	}
 	
@@ -231,18 +231,18 @@ public class ActiveProcess {
 		return lastInstanceConstraint != null;
 	}
 
-	public SimResourceInstance getLastInstance() {
+	public IResourceInstance getLastInstance() {
 		if (hasLastInstance())
 			return lastInstanceConstraint.getResourceInstance();
 		return null;
 	}
 
-	public boolean isLastInstance(SimResourceInstance instance) {
+	public boolean isLastInstance(IResourceInstance instance) {
 		return checkInstanceConstraint(lastInstanceConstraint, instance);
 	}
 
 	private boolean checkInstanceConstraint(
-			IResourceInstanceConstraint constraint, SimResourceInstance instance) {
+			IResourceInstanceConstraint constraint, IResourceInstance instance) {
 		if (constraint != null) {
 			return constraint.check(instance);
 		}

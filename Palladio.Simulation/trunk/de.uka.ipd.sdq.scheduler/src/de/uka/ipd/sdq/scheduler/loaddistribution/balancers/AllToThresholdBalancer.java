@@ -1,7 +1,7 @@
-package de.uka.ipd.sdq.scheduler.balancing.balancers;
+package de.uka.ipd.sdq.scheduler.loaddistribution.balancers;
 
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 /**
  * Ensures that the load of two resource instances does not differ more than
@@ -30,8 +30,8 @@ public class AllToThresholdBalancer extends AbstractLoadBalancer {
 
 
 	@Override
-	protected boolean isBalanced(SimResourceInstance firstInstance,
-			SimResourceInstance secondInstance) {
+	protected boolean isBalanced(IResourceInstance firstInstance,
+			IResourceInstance secondInstance) {
 		double firstLoad = load(firstInstance);
 		double secondLoad = load(secondInstance);
 		double totalLoad = firstLoad + secondLoad;

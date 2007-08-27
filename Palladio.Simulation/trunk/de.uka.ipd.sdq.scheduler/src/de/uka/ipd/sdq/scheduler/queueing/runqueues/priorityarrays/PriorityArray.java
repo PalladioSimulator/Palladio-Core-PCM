@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class PriorityArray {
 
@@ -137,7 +137,7 @@ public class PriorityArray {
 	 */
 	@SuppressWarnings("unchecked")
 	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
-			SimResourceInstance instance) {
+			IResourceInstance instance) {
 		for (IPriority prio : priorityManager.decreasing()) {
 			for (ActiveProcess process : getQueue(prio).ascending()) {
 				if (process.checkAffinity(instance))
@@ -152,7 +152,7 @@ public class PriorityArray {
 	 * @param instance
 	 * @return
 	 */
-	public ActiveProcess getNextRunnableProcess(SimResourceInstance instance) {
+	public ActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		for (IPriority prio : priorityManager.decreasing()) {
 			for (ActiveProcess process : getQueue(prio).ascending()) {
 				if (process.checkAffinity(instance))
@@ -181,7 +181,7 @@ public class PriorityArray {
 	 * @param targetInstance
 	 */
 	public List<ActiveProcess> identifyMovableProcesses(
-			SimResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
+			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
 		List<ActiveProcess> processList = new ArrayList<ActiveProcess>(); 
 		Iterable<IPriority> prio_direction = prio_increasing ? priorityManager.increasing() : priorityManager.decreasing(); 
 		for (IPriority prio : prio_direction) {

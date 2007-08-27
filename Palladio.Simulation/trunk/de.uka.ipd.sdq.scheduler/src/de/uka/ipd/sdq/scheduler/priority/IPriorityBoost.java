@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.scheduler.priority;
 
-import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
+import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 
 public interface IPriorityBoost {
 

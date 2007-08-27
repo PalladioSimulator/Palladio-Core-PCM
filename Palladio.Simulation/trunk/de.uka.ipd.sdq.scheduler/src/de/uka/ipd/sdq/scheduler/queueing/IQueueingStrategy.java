@@ -1,14 +1,14 @@
 package de.uka.ipd.sdq.scheduler.queueing;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 
 public interface IQueueingStrategy {
 
 	/**
 	 * Returns the next executable process for the given instance.
 	 */
-	public abstract ActiveProcess getNextProcessFor(SimResourceInstance instance);
+	public abstract ActiveProcess getNextProcessFor(IResourceInstance instance);
 
 	/**
 	 * Adds a new process to the queue(s).
@@ -21,7 +21,7 @@ public interface IQueueingStrategy {
 	 * multiple resource instances.
 	 * @param instance 
 	 */
-	public abstract void balance(SimResourceInstance instance);
+	public abstract void balance(IResourceInstance instance);
 
 	/**
 	 * 
@@ -33,9 +33,9 @@ public interface IQueueingStrategy {
 	public abstract boolean containsPending(ActiveProcess process);
 
 	public abstract void setRunningOn(ActiveProcess process,
-			SimResourceInstance instance);
+			IResourceInstance instance);
 
-	public abstract SimResourceInstance runningOn(ActiveProcess process);
+	public abstract IResourceInstance runningOn(ActiveProcess process);
 
 	public abstract void removeRunning(ActiveProcess process);
 

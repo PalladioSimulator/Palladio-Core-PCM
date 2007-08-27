@@ -1,10 +1,10 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
-import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
+import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class PreemptiveScheduler extends AbstractScheduler {
 
@@ -18,7 +18,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	}
 
 	@Override
-	public void schedule(SimResourceInstance instance) {
+	public void schedule(IResourceInstance instance) {
 		// Cancel possibly pending scheduling events for the instance. The new
 		// events are determined in the process of this method.
 		instance.cancelSchedulingEvent();
@@ -100,7 +100,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		return prio_one.greaterThan(prio_two);
 	}
 
-	public void scheduleNextEvent(SimResourceInstance instance) {
+	public void scheduleNextEvent(IResourceInstance instance) {
 		ProcessWithPriority running = (ProcessWithPriority) instance
 				.getRunningProcess();
 		if (running != null) {

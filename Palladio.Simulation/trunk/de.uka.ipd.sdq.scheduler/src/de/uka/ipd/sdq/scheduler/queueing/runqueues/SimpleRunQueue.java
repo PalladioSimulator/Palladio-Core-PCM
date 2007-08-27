@@ -3,9 +3,9 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class SimpleRunQueue extends AbstractRunQueue {
 
@@ -40,7 +40,7 @@ public class SimpleRunQueue extends AbstractRunQueue {
 
 	@Override
 	public List<ActiveProcess> identifyMovableProcesses(
-			SimResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
+			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
 		List<ActiveProcess> processList = new ArrayList<ActiveProcess>();
 		Iterable<ActiveProcess> queue_direction = queue_ascending ? this.queue.ascending() : this.queue.descending();
 		for (ActiveProcess process : queue_direction) {
@@ -55,14 +55,14 @@ public class SimpleRunQueue extends AbstractRunQueue {
 
 	@Override
 	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
-			SimResourceInstance instance) {
+			IResourceInstance instance) {
 		if (this.queue.containsRunnableFor(instance))
 			return this.queue;
 		return null;
 	}
 
 	@Override
-	public ActiveProcess getNextRunnableProcess(SimResourceInstance instance) {
+	public ActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		for (ActiveProcess process : queue.ascending()) {
 			if (process.checkAffinity(instance))
 				return process;

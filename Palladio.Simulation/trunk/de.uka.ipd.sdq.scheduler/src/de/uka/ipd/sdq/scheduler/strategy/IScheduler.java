@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.scheduler.strategy;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 
 public interface IScheduler {
@@ -13,7 +13,7 @@ public interface IScheduler {
 	 * @param instance
 	 *            TODO
 	 */
-	public abstract void schedule(SimResourceInstance instance);
+	public abstract void schedule(IResourceInstance instance);
 
 	/**
 	 * Registers a new process and adds it to the scheduler's ready queues.
@@ -36,6 +36,6 @@ public interface IScheduler {
 	 */
 	public abstract void fromRunningToWaiting(WaitingProcess waiting_process, ProcessQueue<WaitingProcess> waitingQueue, boolean inFront);
 
-	public abstract void scheduleNextEvent(SimResourceInstance instance);
+	public abstract void scheduleNextEvent(IResourceInstance instance);
 
 }

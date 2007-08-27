@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.scheduler.priority.update;
 
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.processes.sensors.SleepAverageSensor;
 
 

@@ -1,10 +1,10 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
@@ -24,7 +24,7 @@ public abstract class AbstractScheduler implements IScheduler {
 		this.in_front_after_waiting = in_front_after_waiting;
 	}
 
-	public abstract void schedule(SimResourceInstance instance);
+	public abstract void schedule(IResourceInstance instance);
 
 	@Override
 	public void addProcess(ActiveProcess process) {
@@ -38,7 +38,7 @@ public abstract class AbstractScheduler implements IScheduler {
 	 * @param instance
 	 */
 	protected void fromReadyToRunningOn(ActiveProcess process,
-			SimResourceInstance instance) {
+			IResourceInstance instance) {
 		assert process != null;
 		assert process.isReady();
 		assert queueing_strategy.containsPending(process);

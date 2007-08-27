@@ -2,11 +2,11 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues.priorityarrays;
 
 import java.util.List;
 
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 
 public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  {
@@ -24,7 +24,7 @@ public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  
 	}
 
 	@Override
-	public ActiveProcess getNextRunnableProcess(SimResourceInstance instance) {
+	public ActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		return priorityArray.getNextRunnableProcess(instance);
 	}
 	
@@ -45,13 +45,13 @@ public class SinglePriorityArrayRunQueue extends AbstractPriorityArrayRunQueue  
 
 	@Override
 	public List<ActiveProcess> identifyMovableProcesses(
-			SimResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
+			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
 		return priorityArray.identifyMovableProcesses(targetInstance,prio_increasing,queue_ascending,processes_needed);
 	}
 
 	@Override
 	public ProcessQueue<ActiveProcess> getBestRunnableQueue(
-			SimResourceInstance instance) {
+			IResourceInstance instance) {
 		return this.priorityArray.getBestRunnableQueue(instance);
 	}
 

@@ -1,7 +1,7 @@
-package de.uka.ipd.sdq.scheduler.balancing.balancers;
+package de.uka.ipd.sdq.scheduler.loaddistribution.balancers;
 
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 /**
  * Moves one process to each idle resource, if possilbe.
@@ -20,8 +20,8 @@ public class OneToIdleBalancer extends AbstractLoadBalancer {
 
 
 	@Override
-	protected boolean isBalanced(SimResourceInstance firstInstance,
-			SimResourceInstance secondInstance) {
+	protected boolean isBalanced(IResourceInstance firstInstance,
+			IResourceInstance secondInstance) {
 		return (queueHolder.isIdle(firstInstance) == queueHolder
 				.isIdle(secondInstance));
 	}

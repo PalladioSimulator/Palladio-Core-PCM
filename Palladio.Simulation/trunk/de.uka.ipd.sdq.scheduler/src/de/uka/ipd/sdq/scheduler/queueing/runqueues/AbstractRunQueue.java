@@ -3,16 +3,16 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues;
 import java.util.Hashtable;
 import java.util.Map;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public abstract class AbstractRunQueue implements IRunQueue {
 
-	protected Map<ActiveProcess, SimResourceInstance> runningOnTable;
+	protected Map<ActiveProcess, IResourceInstance> runningOnTable;
 
 	protected AbstractRunQueue() {
-		runningOnTable = new Hashtable<ActiveProcess, SimResourceInstance>();
+		runningOnTable = new Hashtable<ActiveProcess, IResourceInstance>();
 	}
 
 	public int getCurrentLoad() {
@@ -49,17 +49,17 @@ public abstract class AbstractRunQueue implements IRunQueue {
 	}
 	
 	@Override
-	public void setRunningOn(ActiveProcess process, SimResourceInstance instance) {
+	public void setRunningOn(ActiveProcess process, IResourceInstance instance) {
 		runningOnTable.put(process, instance);
 	}
 	
 	@Override
-	public SimResourceInstance runningOn(ActiveProcess process) {
+	public IResourceInstance runningOn(ActiveProcess process) {
 		return runningOnTable.get(process);
 	}
 
 	public abstract ActiveProcess getNextRunnableProcess(
-			SimResourceInstance instance);
+			IResourceInstance instance);
 
 	/**
 	 * Template Method. Returns

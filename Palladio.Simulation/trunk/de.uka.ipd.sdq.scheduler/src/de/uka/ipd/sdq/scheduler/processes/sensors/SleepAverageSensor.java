@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.scheduler.processes.sensors;
 
-import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.IProcessStateSensor;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
 import umontreal.iro.lecuyer.simevents.Sim;
 
