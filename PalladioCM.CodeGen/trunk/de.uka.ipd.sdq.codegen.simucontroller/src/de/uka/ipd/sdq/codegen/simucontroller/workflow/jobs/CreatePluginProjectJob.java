@@ -7,11 +7,9 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
@@ -23,13 +21,8 @@ public class CreatePluginProjectJob implements IJob {
 	private IProject myProject;
 	private boolean deleteProject;
 
-	public CreatePluginProjectJob(ILaunchConfiguration configuration) {
-		myProject = null;
-		try {
-			deleteProject = configuration.getAttribute(ConstantsContainer.DELETE_PLUGIN, true);
-		} catch (CoreException e) {
-			deleteProject = true;
-		}
+	public CreatePluginProjectJob(boolean deleteProject) {
+		this.deleteProject = deleteProject;
 	}
 
 	public IProject getProject() {

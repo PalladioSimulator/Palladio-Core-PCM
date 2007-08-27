@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -13,6 +16,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 
 /**
  * The class extends ConfigurationTab by CheckBox. User can decide whether that
@@ -56,5 +60,31 @@ public class SimuConfigurationTab extends ConfigurationTab {
 				SimuConfigurationTab.this.updateLaunchConfigurationDialog();
 			}
 		});
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
+	 */
+	@Override
+	public void initializeFrom(ILaunchConfiguration configuration) {
+		super.initializeFrom(configuration);
+
+		try {
+			clearButton.setSelection(configuration.getAttribute(
+					ConstantsContainer.DELETE_PLUGIN, true));
+		} catch (CoreException e) {
+			clearButton.setSelection(true);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 */
+	@Override
+	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
+		super.performApply(configuration);
+
+		configuration.setAttribute(ConstantsContainer.DELETE_PLUGIN,
+				clearButton.getSelection());
 	}
 }
