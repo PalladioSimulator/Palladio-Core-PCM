@@ -8,9 +8,11 @@ Bundle-Vendor: de.uka.ipd.sdq
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  de.uka.ipd.sdq.dialogs,
- org.openarchitectureware.workflow,
  de.uka.ipd.sdq.pcm,
- de.uka.ipd.sdq.errorhandling
+ de.uka.ipd.sdq.errorhandling,
+ org.openarchitectureware.core.expressions,
+ org.openarchitectureware.core.workflow,
+ org.openarchitectureware.core.emftools
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.workflow,
  de.uka.ipd.sdq.codegen.workflow.jobs
