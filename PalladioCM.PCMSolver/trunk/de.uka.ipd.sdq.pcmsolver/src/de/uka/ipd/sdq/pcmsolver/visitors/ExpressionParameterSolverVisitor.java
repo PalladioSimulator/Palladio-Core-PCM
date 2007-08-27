@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.pcmsolver.visitors;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
@@ -13,7 +12,6 @@ import de.uka.ipd.sdq.context.computed_usage.Input;
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.Expression;
@@ -56,7 +54,7 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 		for (ExternalCallOutput eco : ecoList){
 			// TODO: recognise scopes
 			EList<VariableUsage> vuList2 = eco.getParameterCharacterisations_ExternalCallOutput();
-			vuList.addAll(vuList2);
+			vuList.addAll(vuList2); 
 		}
 		
 		String soughtParameterName = getFullParameterName(anr);

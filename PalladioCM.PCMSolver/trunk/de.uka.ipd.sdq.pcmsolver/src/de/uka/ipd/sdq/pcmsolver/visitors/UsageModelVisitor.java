@@ -3,25 +3,13 @@ package de.uka.ipd.sdq.pcmsolver.visitors;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocation;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
-import de.uka.ipd.sdq.context.computed_usage.ComputedUsage;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.context.computed_usage.Input;
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
@@ -31,14 +19,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
-import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
-import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-import de.uka.ipd.sdq.stoex.NamespaceReference;
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-import de.uka.ipd.sdq.stoex.StoexFactory;
-import de.uka.ipd.sdq.stoex.VariableReference;
 
 /**
  * @author Koziolek

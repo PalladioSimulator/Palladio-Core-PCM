@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;

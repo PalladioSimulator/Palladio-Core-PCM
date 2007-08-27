@@ -3,7 +3,8 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2006, SDQ Group, University Karlsruhe (TH)"
     modelDirectory="/de.uka.ipd.sdq.context/src" modelPluginID="de.uka.ipd.sdq.context"
-    modelName="Context" importerID="org.eclipse.uml2.uml.ecore.importer" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
+    modelName="Context" importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0"
+    usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="DUPLICATE_FEATURES" value="DISCARD"/>
     <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
@@ -24,8 +25,7 @@
   <foreignModel>file:/C:/Dokumente%20und%20Einstellungen/Koziolek/Eigene%20Dateien/RSA-Export/context.uml2</foreignModel>
   <genPackages prefix="Context" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="context.ecore#/">
-    <nestedGenPackages prefix="ComputedUsage" basePackage="de.uka.ipd.sdq.context"
-        disposableProviderFactory="true" ecorePackage="context.ecore#//computed_usage">
+    <nestedGenPackages prefix="Computed_usage" disposableProviderFactory="true" ecorePackage="context.ecore#//computed_usage">
       <genClasses ecoreClass="context.ecore#//computed_usage/ComputedUsageContext">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/branchProbabilities_ComputedUsageContext"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsageContext/loopiterations_ComputedUsageContext"/>
@@ -66,8 +66,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_usage/ComputedUsage/usageContexts_ComputedUsage"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="ComputedAllocation" basePackage="de.uka.ipd.sdq.context"
-        disposableProviderFactory="true" ecorePackage="context.ecore#//computed_allocation">
+    <nestedGenPackages prefix="Computed_allocation" disposableProviderFactory="true"
+        ecorePackage="context.ecore#//computed_allocation">
       <genClasses ecoreClass="context.ecore#//computed_allocation/ComputedAllocationContext">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//computed_allocation/ComputedAllocationContext/resourceDemands_ComputedAllocationContext"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

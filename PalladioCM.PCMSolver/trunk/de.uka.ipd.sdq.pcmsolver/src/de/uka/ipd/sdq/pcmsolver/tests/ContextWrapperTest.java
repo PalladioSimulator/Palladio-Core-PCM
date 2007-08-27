@@ -5,8 +5,6 @@ import junit.framework.JUnit4TestAdapter;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
-
 
 public class ContextWrapperTest {
 

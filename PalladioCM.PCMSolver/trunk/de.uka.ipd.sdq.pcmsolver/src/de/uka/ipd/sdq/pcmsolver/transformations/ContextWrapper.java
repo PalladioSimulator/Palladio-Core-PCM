@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.pcmsolver.transformations;
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.common.util.EList;
@@ -21,7 +20,6 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -31,28 +29,22 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecifica
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
-import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 
-public class ContextWrapper {
+public class ContextWrapper implements Cloneable{
 
 	private AssemblyContext assCtx;
 	private AllocationContext allCtx;
@@ -88,6 +80,21 @@ public class ContextWrapper {
 		assCtx = oldContextWrapper.getNextAssemblyContext(eca);
 		allCtx = getNextAllocationContext(assCtx);
 		handleComputedContexts(cuc, cac);
+	}
+	
+	protected ContextWrapper(){
+	}
+	
+	@Override
+	public Object clone() {
+		ContextWrapper clonedWrapper = new ContextWrapper();
+		clonedWrapper.setAssCtx(assCtx);
+		clonedWrapper.setAllCtx(allCtx);
+		clonedWrapper.setCompAllCtx(compAllCtx);
+		clonedWrapper.setCompUsgCtx(compUsgCtx);
+		clonedWrapper.setPcmInstance(pcmInstance);
+		clonedWrapper.readComputedContextsToHashMaps();	
+		return clonedWrapper;
 	}
 	
 	private void handleComputedContexts(ComputedUsageContext cuc,

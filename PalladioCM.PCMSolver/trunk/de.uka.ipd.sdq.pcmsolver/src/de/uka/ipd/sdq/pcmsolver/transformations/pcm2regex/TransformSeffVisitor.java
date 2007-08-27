@@ -1,25 +1,12 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
-import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
-import de.uka.ipd.sdq.context.computed_usage.BranchProbability;
-import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
-import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
@@ -29,12 +16,10 @@ import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
-import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
@@ -58,7 +43,6 @@ import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 import de.uka.ipd.sdq.stoex.Atom;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 
 public class TransformSeffVisitor extends SeffSwitch{
 	
@@ -122,7 +106,7 @@ public class TransformSeffVisitor extends SeffSwitch{
 			// we continue with the internal action added after this action
 			return doSwitch(object.getSuccessor_AbstractAction());
 		} else {
-			ContextWrapper oldContextWrapper = contextWrapper;
+			ContextWrapper oldContextWrapper = (ContextWrapper)contextWrapper.clone();
 			contextWrapper = contextWrapper.getContextWrapperFor(object);
 	
 			Sequence seq = expFactory.createSequence();

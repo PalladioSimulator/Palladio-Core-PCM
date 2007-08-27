@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.pcmsolver.handler;
 
-import java.util.Iterator;
-
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
@@ -12,14 +10,12 @@ import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.context.computed_usage.ExternalCallInput;
 import de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput;
 import de.uka.ipd.sdq.context.computed_usage.Input;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
@@ -34,22 +30,13 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
-import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
-import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
-import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
-import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-import de.uka.ipd.sdq.stoex.NamespaceReference;
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-import de.uka.ipd.sdq.stoex.StoexFactory;
-import de.uka.ipd.sdq.stoex.VariableReference;
 
 public class ExternalCallActionHandler {
 	
@@ -139,10 +126,11 @@ public class ExternalCallActionHandler {
 	}
 
 	private void createInternalAction(String timeSpecification, ExternalCallAction call) {
-		PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		PCMRandomVariable rv= CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification(timeSpecification);
 		
 		ParametricResourceDemand demand = seffFactory.createParametricResourceDemand();
+		
 		demand.setSpecification_ParametericResourceDemand(rv);
 		demand.setRequiredResource_ParametricResourceDemand(getProcessingResourceType());
 		
@@ -175,7 +163,7 @@ public class ExternalCallActionHandler {
 		ProcessingResourceSpecification res = ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification();
 		res.setActiveResourceType_ActiveResourceSpecification(resType);
 		
-		PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification("1.0");
 
 		res.setProcessingRate_ProcessingResourceSpecification(rv);
@@ -237,9 +225,12 @@ public class ExternalCallActionHandler {
 				VariableUsageHelper.copyVariableUsageToInput(input, vu);
 			}
 			dummyContext.setInput_ComputedUsageContext(input);
+			
+			ComputedAllocationContext dummyAllContext = compAllocationFactory
+					.createComputedAllocationContext();
 
 			ContextWrapper dummyWrapper = new ContextWrapper(call,
-					dummyContext, null, visitor.getContextWrapper());
+					dummyContext, dummyAllContext, visitor.getContextWrapper());
 
 			EList<VariableUsage> outputParamsDeclaredInSeff = call
 					.getOutputVariableUsages_ExternalCallAction();

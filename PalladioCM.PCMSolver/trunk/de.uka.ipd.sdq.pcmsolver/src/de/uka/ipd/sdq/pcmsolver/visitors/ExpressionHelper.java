@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.pcmsolver.visitors;
 
-import java.io.StringBufferInputStream;
 import java.util.HashMap;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -9,13 +8,11 @@ import org.antlr.runtime.RecognitionException;
 
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
-import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
-import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 
 public class ExpressionHelper {
 

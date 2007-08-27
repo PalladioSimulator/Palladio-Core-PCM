@@ -8,11 +8,11 @@ import java.util.Iterator;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
@@ -21,8 +21,6 @@ import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
-import de.uka.ipd.sdq.stoex.StoexFactory;
 
 /**
  * @author Koziolek
@@ -83,7 +81,7 @@ public class InternalActionHandler{
 		ResourceDemand ard = compAllocationFactory.createResourceDemand();
 		ard.setParametricResourceDemand_ResourceDemand(prd);
 		
-		PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+		PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification(actResDemSpecification);
 		ard.setSpecification_ResourceDemand(rv);
 		

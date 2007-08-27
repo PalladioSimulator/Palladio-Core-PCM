@@ -2,20 +2,19 @@ package de.uka.ipd.sdq.pcmsolver.visitors;
 
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.context.computed_usage.ExternalCallInput;
 import de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput;
 import de.uka.ipd.sdq.context.computed_usage.Input;
 import de.uka.ipd.sdq.context.computed_usage.Output;
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
@@ -37,7 +36,10 @@ public class VariableUsageHelper {
 	public static void copySolvedVariableUsageToOutput(
 			ContextWrapper contextWrapper, VariableUsage vu) {
 		Output output = contextWrapper.getCompUsgCtx().getOutput_ComputedUsageContext();
-		if (output == null)	output = compUsageFactory.createOutput();
+		if (output == null)	{
+			output = compUsageFactory.createOutput();
+			contextWrapper.getCompUsgCtx().setOutput_ComputedUsageContext(output);
+		}
 		VariableUsage newUsage = getCopiedSolvedVariableUsage(contextWrapper, vu);
 		output.getParameterCharacterisations_Output().add(newUsage);
 	}
@@ -74,7 +76,7 @@ public class VariableUsageHelper {
 					.createVariableCharacterisation();
 			solvedCharacterisation.setType(oldVC.getType());
 
-			PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+			PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
 			rv.setSpecification(solvedSpecification);
 			solvedCharacterisation.setSpecification_VariableCharacterisation(rv);
 			
@@ -117,7 +119,7 @@ public class VariableUsageHelper {
 					.createVariableCharacterisation();
 			solvedCharacterisation.setType(oldCharacterisation.getType());
 
-			PCMRandomVariable rv = StoexFactory.eINSTANCE.createPCMRandomVariable();
+			PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
 			rv.setSpecification(solvedSpecification);
 			solvedCharacterisation.setSpecification_VariableCharacterisation(rv);
 			
