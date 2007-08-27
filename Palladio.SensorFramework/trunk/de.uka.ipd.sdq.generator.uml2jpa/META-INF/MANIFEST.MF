@@ -3,17 +3,15 @@ Bundle-ManifestVersion: 2
 Bundle-Name: de.uka.ipd.sdq.generator.uml2jpa
 Bundle-SymbolicName: de.uka.ipd.sdq.generator.uml2jpa; singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Localization: plugin
-Require-Bundle: org.openarchitectureware.core.check,
- org.openarchitectureware.core.emftools,
- org.openarchitectureware.core.xpand2,
- org.eclipse.uml2,
+Require-Bundle: org.eclipse.uml2,
  org.eclipse.uml2.common,
  org.eclipse.uml2.uml,
  org.eclipse.uml2.uml.ecore.exporter,
  org.eclipse.uml2.uml.ecore.importer,
  org.eclipse.uml2.uml.resources,
+ org.openarchitectureware.core.xpand2,
  org.openarchitectureware.uml2.adapter,
+ org.openarchitectureware.core.emftools,
  org.openarchitectureware.uml2.adapter.plugin,
  org.openarchitectureware.base,
  org.openarchitectureware.check.editor,
