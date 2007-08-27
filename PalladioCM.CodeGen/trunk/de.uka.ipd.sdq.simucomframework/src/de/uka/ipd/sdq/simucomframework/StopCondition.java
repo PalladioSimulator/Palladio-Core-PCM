@@ -19,7 +19,7 @@ import desmoj.core.simulator.Model;
  */
 public class StopCondition extends Condition implements Observer
 {
-	private ArrayList values = new ArrayList();
+	private ArrayList<Double> values = new ArrayList<Double>();
 	
 	public StopCondition(Model owner, String name, final String myId, boolean showInTrace) {
 		super(owner, name, showInTrace);
@@ -52,7 +52,7 @@ public class StopCondition extends Condition implements Observer
 	}
 
 	public void update(Observable o, Object arg) {
-		values.add(arg);
+		values.add((Double)arg);
 	}
 
 }
