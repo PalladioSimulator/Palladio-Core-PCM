@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Iterator;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class ProcessQueue<T> {
 

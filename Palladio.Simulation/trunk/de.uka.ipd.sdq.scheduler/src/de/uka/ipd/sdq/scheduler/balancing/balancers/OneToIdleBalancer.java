@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.scheduler.balancing.balancers;
 
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 /**
  * Moves one process to each idle resource, if possilbe.

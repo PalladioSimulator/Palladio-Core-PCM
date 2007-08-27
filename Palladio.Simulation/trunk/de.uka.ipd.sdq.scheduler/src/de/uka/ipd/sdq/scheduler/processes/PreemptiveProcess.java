@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.scheduler.processes;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
 public class PreemptiveProcess extends ActiveProcess {

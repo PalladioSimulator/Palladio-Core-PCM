@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.scheduler.strategy;
 
-import de.uka.ipd.sdq.scheduler.passiveresources.WaitingProcess;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 
 public interface IScheduler {
 

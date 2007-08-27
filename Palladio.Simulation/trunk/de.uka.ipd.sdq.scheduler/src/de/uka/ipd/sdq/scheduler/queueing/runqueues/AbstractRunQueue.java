@@ -5,7 +5,7 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public abstract class AbstractRunQueue implements IRunQueue {
 

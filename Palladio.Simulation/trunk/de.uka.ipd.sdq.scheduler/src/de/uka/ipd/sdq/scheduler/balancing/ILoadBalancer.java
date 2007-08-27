@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.scheduler.balancing;
 
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 
 public interface ILoadBalancer {

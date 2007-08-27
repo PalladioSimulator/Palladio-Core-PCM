@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.scheduler.balancing.instanceselectors;
 import de.uka.ipd.sdq.scheduler.balancing.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 
 public class AbstractInstanceSelector implements IInstanceSelector {

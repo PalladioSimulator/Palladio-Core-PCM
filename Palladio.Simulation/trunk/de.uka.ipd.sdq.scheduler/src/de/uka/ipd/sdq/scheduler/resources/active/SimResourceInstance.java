@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.resources;
+package de.uka.ipd.sdq.scheduler.resources.active;
 
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;

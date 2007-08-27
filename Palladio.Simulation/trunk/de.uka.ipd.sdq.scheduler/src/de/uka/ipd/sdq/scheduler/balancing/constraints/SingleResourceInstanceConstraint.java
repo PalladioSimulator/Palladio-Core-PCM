@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.scheduler.balancing.constraints;
 
 import de.uka.ipd.sdq.scheduler.balancing.IResourceInstanceConstraint;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class SingleResourceInstanceConstraint implements
 		IResourceInstanceConstraint {

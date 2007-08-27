@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.scheduler.balancing.ILoadBalancer;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class MultipleQueuesStrategy implements IQueueingStrategy {
 

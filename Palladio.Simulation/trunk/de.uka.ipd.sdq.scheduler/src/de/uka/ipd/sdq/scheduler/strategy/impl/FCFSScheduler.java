@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
-import de.uka.ipd.sdq.scheduler.resources.SimActiveResource;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 
 public class FCFSScheduler extends AbstractScheduler {

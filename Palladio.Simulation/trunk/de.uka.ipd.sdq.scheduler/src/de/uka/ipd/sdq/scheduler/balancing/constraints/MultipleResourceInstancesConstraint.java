@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.scheduler.balancing.constraints;
 import java.util.Collection;
 
 import de.uka.ipd.sdq.scheduler.balancing.IResourceInstanceConstraint;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 
 public class MultipleResourceInstancesConstraint implements IResourceInstanceConstraint {

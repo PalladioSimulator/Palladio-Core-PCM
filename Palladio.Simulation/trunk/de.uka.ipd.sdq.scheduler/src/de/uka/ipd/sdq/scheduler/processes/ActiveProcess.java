@@ -10,11 +10,11 @@ import de.uka.ipd.sdq.scheduler.balancing.IResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.balancing.constraints.MultipleResourceInstancesConstraint;
 import de.uka.ipd.sdq.scheduler.balancing.constraints.SingleResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.events.ProceedEvent;
-import de.uka.ipd.sdq.scheduler.passiveresources.IDelayedAction;
 import de.uka.ipd.sdq.scheduler.processes.sensors.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.processes.states.PROCESS_STATE;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.passive.IDelayedAction;
 
 public class ActiveProcess {
 	

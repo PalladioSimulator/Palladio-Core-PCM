@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.scheduler;
 
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class SchedulerFactory {

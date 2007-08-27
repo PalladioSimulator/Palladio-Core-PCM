@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.passiveresources;
+package de.uka.ipd.sdq.scheduler.resources.passive;
 
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -6,8 +6,8 @@ import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
-import de.uka.ipd.sdq.scheduler.resources.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.resources.active.AbstractSimResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public abstract class SimPassiveResource extends AbstractSimResource implements
 		IPassiveResource {

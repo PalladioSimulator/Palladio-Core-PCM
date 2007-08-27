@@ -1,11 +1,11 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
-import de.uka.ipd.sdq.scheduler.passiveresources.WaitingProcess;
 import de.uka.ipd.sdq.scheduler.processes.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
-import de.uka.ipd.sdq.scheduler.resources.SimActiveResource;
-import de.uka.ipd.sdq.scheduler.resources.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public abstract class AbstractScheduler implements IScheduler {
