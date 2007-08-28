@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler.loaddistribution.balancers;
 
-import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 /**
@@ -30,9 +29,6 @@ public class ToThresholdBalancer extends AbstractLoadBalancer {
 	 *            Indicates whether all instances should be balanced or only the
 	 *            specified and busiest one.
 	 * 
-	 * @param queue_holder
-	 *            Holder of the runqueues that need to be balanced.
-	 * 
 	 * @param prio_increasing
 	 *            Determines the order how movable processes are returned. If
 	 *            true, the priority of the processes is increasing, otherwise
@@ -45,15 +41,14 @@ public class ToThresholdBalancer extends AbstractLoadBalancer {
 	 * 
 	 * @param max_iterations
 	 *            Gives the maximum number of iterations for a global balancing.
-	 *            
+	 * 
 	 * @param threshold
 	 *            Maximum, relative load difference of two resource instances.
 	 */
-	protected ToThresholdBalancer(double balance_interval,
-			boolean global_balance, MultipleQueuesStrategy queue_holder,
+	public ToThresholdBalancer(double balance_interval, boolean global_balance,
 			boolean prio_increasing, boolean queue_ascending,
 			int max_iterations, double threshold) {
-		super(balance_interval, global_balance, queue_holder, prio_increasing,
+		super(balance_interval, global_balance, prio_increasing,
 				queue_ascending, max_iterations);
 		this.threshold = threshold;
 	}

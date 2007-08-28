@@ -8,19 +8,19 @@ import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 public class MultipleResourceInstancesConstraint implements
 		IResourceInstanceConstraint {
 
-	private Collection<IResourceInstance> instanceList;
+	private Collection<IResourceInstance> instance_list;
 
 	public MultipleResourceInstancesConstraint(
-			Collection<IResourceInstance> instanceList) {
-		this.instanceList = instanceList;
+			Collection<IResourceInstance> instance_list) {
+		this.instance_list = instance_list;
 	}
 
 	public Collection<IResourceInstance> getInstances() {
-		return instanceList;
+		return instance_list;
 	}
 
 	@Override
 	public boolean check(IResourceInstance instance) {
-		return instanceList.contains(instance);
+		return instance_list.contains(instance);
 	}
 }

@@ -5,4 +5,5 @@ Bundle-SymbolicName: de.uka.ipd.sdq.scheduler
 Bundle-Version: 1.0.0
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: de.uka.ipd.sdq.probfunction.math,
- ca.umontreal.iro.lecuyer.ssj
+ ca.umontreal.iro.lecuyer.ssj,
+ de.uka.ipd.sdq.scheduler.configuration

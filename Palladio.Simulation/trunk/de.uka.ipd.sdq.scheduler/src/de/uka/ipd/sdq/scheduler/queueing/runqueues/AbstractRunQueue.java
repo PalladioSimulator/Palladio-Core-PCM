@@ -58,6 +58,12 @@ public abstract class AbstractRunQueue implements IRunQueue {
 	public IResourceInstance runningOn(IActiveProcess process) {
 		return running_on_table.get(process);
 	}
+	
+	@Override
+	public boolean isIdle(IResourceInstance instance) {
+		return !instance.processAssigned() 
+			&& (running_on_table.size() > 1 || numWaitingProcesses() == 0);
+	}
 
 	public abstract IActiveProcess getNextRunnableProcess(
 			IResourceInstance instance);

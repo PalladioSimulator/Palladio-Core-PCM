@@ -27,8 +27,7 @@ public class SimActiveResource extends AbstractSimResource implements
 		this.instanceList = new ArrayList<IResourceInstance>();
 		this.processRegistry = new ProcessRegistry();
 		for (int i = 0; i < capacity; i++) {
-			instanceList.add(factory.createResourceInstance(i, name, id,
-					scheduler));
+			instanceList.add(factory.createResourceInstance(i,this));
 		}
 	}
 
@@ -72,5 +71,9 @@ public class SimActiveResource extends AbstractSimResource implements
 		for (IResourceInstance instance : this.instanceList) {
 			scheduler.scheduleNextEvent(instance);
 		}
+	}
+
+	public boolean isIdle(IResourceInstance instance) {
+		return this.scheduler.isIdle(instance);
 	}
 }

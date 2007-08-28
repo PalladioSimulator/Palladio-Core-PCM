@@ -7,10 +7,8 @@ public class PreemptiveProcess extends ActiveProcess {
 
 	private ITimeSlice timeslice = null;
 	
-	public PreemptiveProcess(ISchedulableProcess process, String name,
-			ITimeSlice timeslice) {
-		super(process, name);
-		this.timeslice = timeslice;
+	public PreemptiveProcess(ISchedulableProcess process, String name, String id) {
+		super(process, name, id);
 	}
 	
 	public boolean timeSlicePartFinished() {
@@ -38,5 +36,9 @@ public class PreemptiveProcess extends ActiveProcess {
 	
 	public ITimeSlice getTimeslice(){
 		return this.timeslice;
+	}
+	
+	public void setTimeSlice(ITimeSlice timeslice) {
+		this.timeslice = timeslice;
 	}
 }

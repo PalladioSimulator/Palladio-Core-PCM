@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.scheduler.processes.impl;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
-import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
 public class ProcessWithPriority extends PreemptiveProcess {
 
@@ -12,9 +11,9 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	private IPriorityUpdateStrategy priorityUpdateStrategy;
 	private static boolean in_front_if_priority_changed = false;
 
-	public ProcessWithPriority(ISchedulableProcess process, String name,
-			ITimeSlice timeslice, IPriority staticPriority) {
-		super(process, name, timeslice);
+	public ProcessWithPriority(ISchedulableProcess process, String name, String id,
+			IPriority staticPriority) {
+		super(process, name, id);
 		this.staticPriority = staticPriority;
 		this.dynamicPriority = staticPriority;
 		this.priorityUpdateStrategy = null;

@@ -28,11 +28,12 @@ public class ActiveProcess implements IActiveProcess {
 	 * @param name
 	 *            A UNIQUE name of the process.
 	 */
-	protected ActiveProcess(ISchedulableProcess process, String name) {
+	public ActiveProcess(ISchedulableProcess process, String name, String id) {
 		super();
 
 		this.affinityConstraint = null;
 		this.currentDemand = 0;
+		this.id = id;
 		this.idealInstanceConstraint = null;
 		this.lastInstanceConstraint = null;
 		this.lastUpdateTime = 0;
@@ -50,11 +51,9 @@ public class ActiveProcess implements IActiveProcess {
 
 	private ISchedulableProcess process;
 	private String name;
+	private String id;
 	private IRunQueue runqueue;
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getRunQueue()
-	 */
 	public IRunQueue getRunQueue() {
 		return runqueue;
 	}
@@ -63,38 +62,35 @@ public class ActiveProcess implements IActiveProcess {
 		this.runqueue = runqueue;
 	}
 
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getSchedulableProcess()
-	 */
 	public ISchedulableProcess getSchedulableProcess() {
 		return process;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#getName()
-	 */
 	public String getName() {
 		return name;
+	}
+	
+	public String getId(){
+		return id;
 	}
 
 	@Override
 	public String toString() {
-		return name;
+		return name + "_" +id;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof ActiveProcess) {
 			ActiveProcess process = (ActiveProcess) obj;
-			return this.name.equals(process.name);
+			return this.id.equals(process.id);
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return name.hashCode();
+		return id.hashCode();
 	}
 
 	// /////////////////////////////////////////////////////////////////////

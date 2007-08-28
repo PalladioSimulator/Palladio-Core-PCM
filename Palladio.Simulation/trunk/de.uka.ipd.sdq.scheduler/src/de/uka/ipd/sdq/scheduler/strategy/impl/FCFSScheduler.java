@@ -25,6 +25,12 @@ public class FCFSScheduler extends AbstractScheduler {
 		
 	}
 
+	@Override
+	public boolean isIdle(IResourceInstance instance) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 
 

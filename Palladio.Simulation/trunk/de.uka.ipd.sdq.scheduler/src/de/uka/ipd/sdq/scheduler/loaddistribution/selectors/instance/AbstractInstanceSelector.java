@@ -2,17 +2,17 @@ package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance;
 
 import de.uka.ipd.sdq.scheduler.loaddistribution.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
-import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 
 public class AbstractInstanceSelector implements IInstanceSelector {
 	
-	protected MultipleQueuesStrategy queue_holder;
+	protected SimActiveResource resource;
 	
-	public AbstractInstanceSelector(MultipleQueuesStrategy runQueueHolder) {
+	public AbstractInstanceSelector(SimActiveResource resource) {
 		super();
-		this.queue_holder = runQueueHolder;
+		this.resource = resource;
 	}
 
 
@@ -20,6 +20,4 @@ public class AbstractInstanceSelector implements IInstanceSelector {
 	public IResourceInstance selectInstanceFor(IActiveProcess process) {
 		return null;
 	}
-
-
 }

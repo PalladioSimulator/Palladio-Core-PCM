@@ -72,9 +72,6 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 *            Indicates whether all instances should be balanced or only the
 	 *            specified and busiest one.
 	 * 
-	 * @param queue_holder
-	 *            Holder of the runqueues that need to be balanced.
-	 * 
 	 * @param prio_increasing
 	 *            Determines the order how movable processes are returned. If
 	 *            true, the priority of the processes is increasing, otherwise
@@ -89,18 +86,21 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 *            Gives the maximum number of iterations for a global balancing.
 	 */
 	protected AbstractLoadBalancer(double balance_interval,
-			boolean do_global_balance, MultipleQueuesStrategy queue_holder,
-			boolean prio_increasing, boolean queue_ascending, int max_iterations) {
+			boolean do_global_balance, boolean prio_increasing, boolean queue_ascending, int max_iterations) {
 		super();
 		this.balance_interval = balance_interval;
 		this.do_global_balance = do_global_balance;
-		this.queue_holder = queue_holder;
 		this.prio_increasing = prio_increasing;
 		this.queue_ascending = queue_ascending;
 		this.max_iterations = max_iterations;
-
+		this.queue_holder = null;
 		this.last_balanced = 0;
 		this.last_balanced_table = new Hashtable<IResourceInstance, Double>();
+	}
+	
+	
+	public void setQueueHolder(MultipleQueuesStrategy queue_holder){
+		this.queue_holder = queue_holder;
 		for (IResourceInstance instance : queue_holder.getResourceInstances()) {
 			this.last_balanced_table.put(instance, 0.0);
 		}

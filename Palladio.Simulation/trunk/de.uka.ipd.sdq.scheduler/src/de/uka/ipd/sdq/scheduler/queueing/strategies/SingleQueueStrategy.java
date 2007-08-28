@@ -58,4 +58,9 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 		runQueue.setRunningOn(process, instance);
 	}
 
+	@Override
+	public boolean isIdle(IResourceInstance instance) {
+		return runQueue.isIdle(instance);
+	}
+
 }

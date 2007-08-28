@@ -115,4 +115,9 @@ public class PreemptiveScheduler extends AbstractScheduler {
 			instance.scheduleSchedulingEvent(scheduling_interval);
 		}
 	}
+
+	@Override
+	public boolean isIdle(IResourceInstance instance) {
+		return queueing_strategy.isIdle(instance);
+	}
 }

@@ -3,16 +3,16 @@ package de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance;
 import java.util.Iterator;
 
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
-import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 
 public class RoundRobinSelector extends AbstractInstanceSelector {
 	
 	Iterator<IResourceInstance> instance_iterator;
 
-	public RoundRobinSelector(MultipleQueuesStrategy run_queue_holder) {
-		super(run_queue_holder);
+	public RoundRobinSelector(SimActiveResource resource) {
+		super(resource);
 		reset();
 	}
 
@@ -39,6 +39,6 @@ public class RoundRobinSelector extends AbstractInstanceSelector {
 	}
 
 	private void reset() {
-		instance_iterator = queue_holder.getResourceInstances().iterator();
+		instance_iterator = resource.getInstanceList().iterator();
 	}
 }

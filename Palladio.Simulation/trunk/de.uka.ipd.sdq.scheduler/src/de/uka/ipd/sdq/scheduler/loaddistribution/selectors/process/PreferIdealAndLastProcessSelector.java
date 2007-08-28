@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.scheduler.queueing.IProcessQueue;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
-public class DefaultProcessSelector implements IProcessSelector {
+public class PreferIdealAndLastProcessSelector implements IProcessSelector {
 
 	@Override
 	public IActiveProcess select(IRunQueue runQueue, IResourceInstance instance) {
