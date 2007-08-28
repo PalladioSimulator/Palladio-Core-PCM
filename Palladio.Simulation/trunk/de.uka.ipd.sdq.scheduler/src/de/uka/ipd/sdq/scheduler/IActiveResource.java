@@ -30,4 +30,18 @@ public interface IActiveResource {
 	 */
 	public abstract void start();
 
+	/**
+	 * Unique identifier of the resource.
+	 * 
+	 * @return
+	 */
+	public abstract String getId();
+
+	/**
+	 * Name of the resource.
+	 * 
+	 * @return
+	 */
+	public abstract String getName();
+
 }

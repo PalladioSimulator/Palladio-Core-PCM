@@ -68,4 +68,11 @@ public interface IScheduler {
 	 */
 	public abstract void scheduleNextEvent(IResourceInstance instance);
 
+	/**
+	 * True, if the given resource has no running or pending jobs, otherwise false.
+	 * @param instance
+	 * @return
+	 */
+	public abstract boolean isIdle(IResourceInstance instance);
+
 }

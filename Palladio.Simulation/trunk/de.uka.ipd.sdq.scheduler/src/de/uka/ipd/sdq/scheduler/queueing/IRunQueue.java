@@ -156,4 +156,13 @@ public interface IRunQueue {
 	 */
 	public abstract IResourceInstance runningOn(IActiveProcess process);
 
+	/**
+	 * True, if there is no process running on the given resource. Furthermore, the
+	 * pending queue has to be empty if there is only one instance.
+	 * 
+	 * @param instance
+	 * @return
+	 */
+	public abstract boolean isIdle(IResourceInstance instance);
+
 }

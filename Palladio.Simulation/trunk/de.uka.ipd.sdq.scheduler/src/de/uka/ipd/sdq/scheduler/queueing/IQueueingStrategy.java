@@ -83,4 +83,11 @@ public interface IQueueingStrategy {
 	 */
 	public abstract void removeRunning(IActiveProcess process);
 
+	/**
+	 * True, if the given resource has no running or pending jobs, otherwise false.
+	 * 
+	 * @param instance
+	 */
+	public abstract boolean isIdle(IResourceInstance instance);
+
 }
