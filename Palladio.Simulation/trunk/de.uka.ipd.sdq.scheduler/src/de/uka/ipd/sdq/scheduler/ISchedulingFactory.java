@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.scheduler;
 
-import de.uka.ipd.sdq.scheduler.builder.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import scheduler.configuration.ActiveResourceConfiguration;
 import scheduler.configuration.PassiveResourceConfiguration;
 import scheduler.configuration.ProcessConfiguration;

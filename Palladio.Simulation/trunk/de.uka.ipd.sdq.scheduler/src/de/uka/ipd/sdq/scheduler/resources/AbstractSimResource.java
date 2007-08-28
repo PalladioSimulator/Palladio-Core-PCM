@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.scheduler.resources;
 
-import de.uka.ipd.sdq.scheduler.builder.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 
 
 public abstract class AbstractSimResource {
