@@ -109,7 +109,7 @@ atom returns [Atom a]
 	 :
 		(
 		  // numeric literals (int, double)
-		  number=NUMBER 
+		  number=NUMBER unit?
 			{
 				String value = number.getText();
 				if (value.indexOf('.') < 0)
@@ -170,6 +170,19 @@ atom returns [Atom a]
 		  }
 	    ) 
 ;
+
+unit	: SQUARE_PAREN_L unit_spec SQUARE_PAREN_R
+	;
+
+
+unit_spec_atom
+	: ID | ID POW NUMBER
+	;
+	
+unit_spec
+	: unit_spec_atom  | unit_spec_atom DIV unit_spec
+	;
+
      
 arguments returns [Collection<Expression> parameters]
 	@init{parameters = new ArrayList<Expression>();}    
@@ -196,7 +209,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				( 
 				  isample = numeric_int_sample
 				  {((ProbabilityMassFunction)probFunction).getSamples().add(isample);})+ 
-	 		SQUARE_PAREN_R 
+	 		SQUARE_PAREN_R unit?
 	 		|
 		 	DOUBLEPMF 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
@@ -205,7 +218,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				( 
 				rsample = numeric_real_sample
 			   	{((ProbabilityMassFunction)probFunction).getSamples().add(rsample);})+ 
-			SQUARE_PAREN_R
+			SQUARE_PAREN_R unit?
 			| 
 		// Enum PMF
 			ENUMPMF 
@@ -230,7 +243,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				( 
 				  pdf_sample = real_pdf_sample
 				  {((BoxedPDF)probFunction).getSamples().add(pdf_sample);})+ 
-	 		SQUARE_PAREN_R 
+	 		SQUARE_PAREN_R unit?
 			|
 			BOOLPMF 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
