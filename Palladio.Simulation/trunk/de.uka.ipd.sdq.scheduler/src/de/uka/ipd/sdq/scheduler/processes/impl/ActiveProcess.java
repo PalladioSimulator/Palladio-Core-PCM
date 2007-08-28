@@ -360,4 +360,5 @@ public class ActiveProcess implements IActiveProcess {
 	public void setDelayedAction(IDelayedAction action) {
 		this.proceedEvent.setDelayedAction(action);
 	}
+
 }

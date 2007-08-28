@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.scheduler.strategy;
 
+import java.util.Deque;
+
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
-import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.queueing.basicqueues.ProcessQueueImpl;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 
@@ -40,7 +42,7 @@ public interface IScheduler {
 	 *            Queue where the process is waiting.
 	 */
 	public abstract void fromWaitingToReady(WaitingProcess waiting_process,
-			ProcessQueue<WaitingProcess> waiting_queue);
+			Deque<WaitingProcess> waiting_queue);
 
 	/**
 	 * Notifies the scheduler, that a running process has to change its state to
@@ -57,7 +59,7 @@ public interface IScheduler {
 	 *            otherwise it is inserted at the end.
 	 */
 	public abstract void fromRunningToWaiting(WaitingProcess waiting_process,
-			ProcessQueue<WaitingProcess> waiting_queue, boolean in_front);
+			Deque<WaitingProcess> waiting_queue, boolean in_front);
 
 	/**
 	 * Schedules the next event for the specified resource instance.

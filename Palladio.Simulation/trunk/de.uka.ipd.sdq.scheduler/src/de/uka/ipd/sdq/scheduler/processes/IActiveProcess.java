@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.scheduler.events.IDelayedAction;
 import de.uka.ipd.sdq.scheduler.processes.impl.PROCESS_STATE;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
 /**
  * Not externally visible methods for running processes.

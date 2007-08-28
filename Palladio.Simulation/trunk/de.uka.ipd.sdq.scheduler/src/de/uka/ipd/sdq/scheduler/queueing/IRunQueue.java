@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.scheduler.queueing;
 import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
-import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 /**
@@ -69,7 +68,7 @@ public interface IRunQueue {
 	 *         which can run on the given instance. NULL if no such queue
 	 *         exists.
 	 */
-	public abstract ProcessQueue<IActiveProcess> getBestRunnableQueue(
+	public abstract IProcessQueue getBestRunnableQueue(
 			IResourceInstance instance);
 
 	/**

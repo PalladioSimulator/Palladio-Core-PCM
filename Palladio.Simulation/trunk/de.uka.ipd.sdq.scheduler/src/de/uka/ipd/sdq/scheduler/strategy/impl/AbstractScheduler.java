@@ -1,8 +1,9 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
+import java.util.Deque;
+
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
-import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
@@ -68,7 +69,7 @@ public abstract class AbstractScheduler implements IScheduler {
 	}
 
 	@Override
-	public void fromWaitingToReady(WaitingProcess waiting_process, ProcessQueue<WaitingProcess> waitingQueue) {
+	public void fromWaitingToReady(WaitingProcess waiting_process, Deque<WaitingProcess> waitingQueue) {
 		IActiveProcess process = waiting_process.getProcess();
 		assert process.isWaiting() : "Process must be in waiting state";
 		
@@ -80,13 +81,17 @@ public abstract class AbstractScheduler implements IScheduler {
 
 	@Override
 	public void fromRunningToWaiting(WaitingProcess waiting_process,
-			ProcessQueue<WaitingProcess> waitingQueue, boolean inFront) {
+			Deque<WaitingProcess> waiting_queue, boolean in_front) {
 		IActiveProcess process = waiting_process.getProcess();
 		assert process.isRunning() : "Process must be in running state.";
 		
 		process.getRunQueue().removeRunning(process);
 		process.setWaiting();
-		waitingQueue.add(waiting_process,inFront);
+		if (in_front){
+			waiting_queue.addFirst(waiting_process);
+		} else {
+			waiting_queue.addLast(waiting_process);
+		}
 		process.getLastInstance().scheduleSchedulingEvent(0);
 	}
 }

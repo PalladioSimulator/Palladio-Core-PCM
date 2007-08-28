@@ -35,4 +35,8 @@ public class PreemptiveProcess extends ActiveProcess {
 	public double getTimeUntilNextInterruption() {
 		return timeslice.getTimeUntilNextInterruption();
 	}
+	
+	public ITimeSlice getTimeslice(){
+		return this.timeslice;
+	}
 }

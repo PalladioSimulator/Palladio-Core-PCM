@@ -1,29 +1,37 @@
 package de.uka.ipd.sdq.scheduler.resources.passive;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
-import de.uka.ipd.sdq.scheduler.queueing.runqueues.ProcessQueue;
+import de.uka.ipd.sdq.scheduler.queueing.basicqueues.ProcessQueueImpl;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public abstract class SimAbstractPassiveResource extends AbstractSimResource implements
 		IPassiveResource {
 
-	private IPriorityBoost priorityBoost;
-	protected ProcessQueue<WaitingProcess> waitingQueue;
-	protected SimActiveResource mainResource;
+	private IPriorityBoost priority_boost;
+	protected Deque<WaitingProcess> waiting_queue;
+	protected SimActiveResource main_resource;
 
-	public SimAbstractPassiveResource(int capacity, String name, String id) {
+
+	public SimAbstractPassiveResource(int capacity, String name, String id,
+			IPriorityBoost priority_boost, SimActiveResource managing_resource) {
 		super(capacity, name, id);
+		this.priority_boost = priority_boost;
+		this.main_resource = managing_resource;
+		this.waiting_queue = new ArrayDeque<WaitingProcess>();
 	}
 
 	@Override
 	public void acquire(ISchedulableProcess sched_process, int num) {
-		IActiveProcess process = mainResource.lookUp(
+		IActiveProcess process = main_resource.lookUp(
 				sched_process);
 		if (canProceed(process, num)) {
 			grantAccess(process, num);
@@ -68,17 +76,17 @@ public abstract class SimAbstractPassiveResource extends AbstractSimResource imp
 	}
 
 	protected void fromWaitingToReady(WaitingProcess waiting_process) {
-		mainResource.getScheduler().fromWaitingToReady(waiting_process,waitingQueue);
+		main_resource.getScheduler().fromWaitingToReady(waiting_process,waiting_queue);
 	}
 
 	protected void fromRunningToWaiting(WaitingProcess waiting_process, boolean inFront) {
-		mainResource.getScheduler().fromRunningToWaiting(waiting_process, waitingQueue, inFront);
+		main_resource.getScheduler().fromRunningToWaiting(waiting_process, waiting_queue, inFront);
 	}
 
 	private void boostPriority(IRunningProcess process) {
-		if (priorityBoost != null) {
+		if (priority_boost != null) {
 			assert process instanceof ProcessWithPriority : "If priority boosts are used only ProcessWithPriorities can be used!";
-			priorityBoost.boost((ProcessWithPriority) process);
+			priority_boost.boost((ProcessWithPriority) process);
 		}
 	}
 
