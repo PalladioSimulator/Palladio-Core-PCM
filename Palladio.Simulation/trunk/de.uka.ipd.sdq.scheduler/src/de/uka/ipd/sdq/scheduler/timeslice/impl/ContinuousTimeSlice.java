@@ -6,38 +6,69 @@ import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
 public class ContinuousTimeSlice implements ITimeSlice {
 	
-	protected double remainingTimeslice;
+	protected double remaining_time;
 	protected double timeslice;
 	
-	public ContinuousTimeSlice(double timeslice) {
+	protected double part;
+	protected double remaining_part;
+	
+	public ContinuousTimeSlice(double timeslice, int granularity) {
 		super();
 		this.timeslice = timeslice;
-		this.remainingTimeslice = 0;
+		this.part = timeslice / granularity;
+		this.remaining_time = 0;
+		this.remaining_part = 0;
+	}
+	
+	protected ContinuousTimeSlice(){
+		this.timeslice = 0;
+		this.part = 0;
+		this.remaining_time = 0;
+		this.remaining_part = 0;
 	}
 
 	@Override
 	public double getTimeUntilNextInterruption() {
-		return remainingTimeslice;
+		return remaining_part;
 	}
 
 	@Override
 	public boolean completelyFinished() {
-		return MathTools.equalsDouble(remainingTimeslice, 0.0);
+		return MathTools.equalsDouble(remaining_time, 0.0);
 	}
 	
 	@Override
 	public boolean partFinished() {
-		return completelyFinished();
+		return MathTools.equalsDouble(remaining_part, 0.0);
 	}
 
 	@Override
 	public void substractTime(double time) {
-		remainingTimeslice -= time;
-		assert !MathTools.less(remainingTimeslice, 0.0) : "Timeslice exceeded!";
+		remaining_time -= time;
+		remaining_part -= time;
+		assert !MathTools.less(remaining_time, 0.0) : "Timeslice exceeded!";
+		assert !MathTools.less(remaining_part, 0.0) : "Part exceeded!";
 	}
 
 	@Override
 	public void reset() {
-		remainingTimeslice = timeslice;
+		remaining_part = part;
+		if ( MathTools.equalsDouble( remaining_time, 0.0) )
+			remaining_time = timeslice;
+	}
+
+	@Override
+	public void fullReset() {
+		remaining_time = timeslice;
+	}
+
+	@Override
+	public void setTo(double time) {
+		remaining_time = time;
+	}
+
+	@Override
+	public double getRemainingTime() {
+		return remaining_time;
 	}
 }
