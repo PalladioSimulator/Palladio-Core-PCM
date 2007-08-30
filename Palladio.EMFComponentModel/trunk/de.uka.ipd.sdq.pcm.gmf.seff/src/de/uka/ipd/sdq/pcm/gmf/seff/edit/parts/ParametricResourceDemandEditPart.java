@@ -224,9 +224,9 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		String text = null;
 		if (resolveSemanticElement() instanceof ParametricResourceDemand) {
 			ParametricResourceDemand demand = (ParametricResourceDemand) resolveSemanticElement();
-			text = new PCMStoExPrettyPrintVisitor().prettyPrint(
-					demand.getSpecification_ParametericResourceDemand().getExpression());
-			if (demand.getRequiredResource_ParametricResourceDemand() != null) {
+			if (demand.getRequiredResource_ParametricResourceDemand() != null){
+				text = new PCMStoExPrettyPrintVisitor().prettyPrint(
+						demand.getSpecification_ParametericResourceDemand().getExpression());
 				if (text == null)
 					text = "";
 				else
