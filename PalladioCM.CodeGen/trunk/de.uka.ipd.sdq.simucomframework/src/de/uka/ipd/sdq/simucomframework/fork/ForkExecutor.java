@@ -46,7 +46,7 @@ public class ForkExecutor {
 	 */
 	private boolean checkIfRemainingChildrenRun() {
 		for(ForkedBehaviourProcess p : forks) 
-			if (!p.isTerminated())
+			if (!p.isAsync() && !p.isTerminated())
 				return true;
 		return false;
 	}

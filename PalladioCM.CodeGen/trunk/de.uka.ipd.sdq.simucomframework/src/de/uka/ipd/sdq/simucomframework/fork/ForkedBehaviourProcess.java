@@ -64,15 +64,17 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 	protected Context ctx;
 	private SimProcess myParent;
 	protected String assemblyContextID;
+	private boolean isAsync;
 
 	private static Logger logger = 
 		Logger.getLogger(ForkedBehaviourProcess.class.getName());
 
-	public ForkedBehaviourProcess(Context myContext, String assemblyContextID) {
+	public ForkedBehaviourProcess(Context myContext, String assemblyContextID, boolean isAsync) {
 		super(myContext.getModel(), "Forked Behaviour", true);
 		this.ctx = new ForkContext(myContext,this);
 		this.myParent = myContext.getThread();
 		this.assemblyContextID = assemblyContextID;
+		this.isAsync = isAsync;
 	}
 
 	@Override
@@ -86,7 +88,10 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 			((SimuComModel)this.getModel()).setStatus(SimuComStatus.ERROR, ex);
 			this.getModel().getExperiment().stop();
 		}
-		myParent.activateAfter(this);
+		if (!isAsync)
+			myParent.activateAfter(this);
+		else
+			logger.debug("Asynch behaviour finished at simtime "+getModel().currentTime().getTimeValue());
 	}
 
 	
@@ -95,5 +100,9 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 	 * in the PCM's fork action
 	 */
 	protected abstract void executeBehaviour();
+
+	public boolean isAsync() {
+		return isAsync;
+	}
 
 }
