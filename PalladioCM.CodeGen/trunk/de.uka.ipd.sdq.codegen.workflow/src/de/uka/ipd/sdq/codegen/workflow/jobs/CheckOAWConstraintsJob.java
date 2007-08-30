@@ -35,6 +35,7 @@ import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.IssuesDialog;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -85,13 +86,12 @@ public class CheckOAWConstraintsJob implements IJob {
 		RepositoryPackage.eINSTANCE,
 		ParameterPackage.eINSTANCE,
 		UsagemodelPackage.eINSTANCE,
-		CompositionPackage.eINSTANCE,
-		EntityPackage.eINSTANCE,
 		SystemPackage.eINSTANCE,
 		ResourcetypePackage.eINSTANCE,
 		ResourceenvironmentPackage.eINSTANCE,
 		AllocationPackage.eINSTANCE,
-		StoexPackage.eINSTANCE
+		StoexPackage.eINSTANCE,
+		CorePackage.eINSTANCE
 	};
 	
 	/* (non-Javadoc)
