@@ -114,8 +114,8 @@
 	{
 		de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
 			new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{ 
-			«FOREACH this.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint AS f SEPARATOR ","»
-				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID){
+			«FOREACH this.asynchronousForkedBehaviours_ForkAction AS f SEPARATOR ","»
+				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID,true){
 					public void executeBehaviour() {
 						«EXPAND m2t_transforms::java_core::Actions FOR f.steps_Behaviour.findStart()» 
 					}
