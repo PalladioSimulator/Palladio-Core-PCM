@@ -84,7 +84,7 @@
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3028">
          </adviceBinding>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000"
                name="PCMRandomVariable"
