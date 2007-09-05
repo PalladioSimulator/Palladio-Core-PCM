@@ -9,35 +9,40 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 /**
  * @author ihssane
  * 
- * TODO Kommentare
- * TODO Warum wird hier nicht TimeSpanSensorAndMeasurement referenziert??
+ * TODO Kommentare TODO Warum wird hier nicht TimeSpanSensorAndMeasurement
+ * referenziert??
  * 
  */
 public class TimeSpanMeasurementImpl extends MeasurementImpl implements
-		TimeSpanMeasurement {
+	TimeSpanMeasurement {
 
-	private double timeSpan;
-	private TimeSpanSensor sensor;
+    private double timeSpan;
+    private TimeSpanSensor sensor;
 
-	public TimeSpanMeasurementImpl(long id, double eventTime, double timeSpan) {
-		super(id, eventTime);
-		this.timeSpan = timeSpan;
-	}
+    // private TimeSpanSensorAndMeasurement tsam;
 
-	public TimeSpanSensor getSensor() {
-		return sensor;
-	}
+    public TimeSpanMeasurementImpl(long id, double eventTime, double timeSpan) {
+	super(id, eventTime);
+	this.timeSpan = timeSpan;
+    }
 
-	public double getTimeSpan() {
-		return timeSpan;
-	}
+    public TimeSpanSensor getSensor() {
+	// return (TimeSpanSensor) tsam.getSensor();
+	return sensor;
+    }
 
-	public void setSensor(TimeSpanSensor value) {
-		this.sensor = value;
-	}
+    public double getTimeSpan() {
+	// return tsam.getTimeSpan().get((int)measurementID);
+	return timeSpan;
+    }
 
-	public void setTimeSpan(double value) {
-		this.timeSpan = value;
-	}
+    public void setSensor(TimeSpanSensor value) {
+	this.sensor = value;
+    }
+
+    public void setTimeSpan(double value) {
+	// tsam.getTimeSpan().remo
+	this.timeSpan = value;
+    }
 
 }

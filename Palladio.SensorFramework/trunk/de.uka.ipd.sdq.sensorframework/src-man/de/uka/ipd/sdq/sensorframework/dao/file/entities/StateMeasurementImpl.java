@@ -12,30 +12,30 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
  * 
  */
 public class StateMeasurementImpl extends MeasurementImpl implements
-		StateMeasurement {
+	StateMeasurement {
 
-	private StateSensor sensor;
-	private State state;
+    private StateSensor sensor;
+    private State state;
 
-	public StateMeasurementImpl(long id, double eventTime, State state) {
-		super(id, eventTime);
-		this.state = state;
-	}
+    public StateMeasurementImpl(long id, double eventTime, State state) {
+	super(id, eventTime);
+	this.state = state;
+    }
 
-	public StateSensor getSensor() {
-		return sensor;
-	}
+    public StateSensor getSensor() {
+	return sensor;
+    }
 
-	public State getSensorState() {
-		return state;
-	}
+    public State getSensorState() {
+	return state;
+    }
 
-	public void setSensor(StateSensor value) {
-		this.sensor = value;
-	}
+    public void setSensor(StateSensor value) {
+	this.sensor = value;
+    }
 
-	public void setSensorState(State value) {
-		this.state = value;
-	}
+    public void setSensorState(State value) {
+	this.state = value;
+    }
 
 }

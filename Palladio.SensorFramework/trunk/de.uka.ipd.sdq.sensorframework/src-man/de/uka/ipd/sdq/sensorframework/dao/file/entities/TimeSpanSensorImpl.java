@@ -12,20 +12,20 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
  */
 public class TimeSpanSensorImpl extends SensorImpl implements TimeSpanSensor {
 
-	private static final long serialVersionUID = 7666935671159276065L;
+    private static final long serialVersionUID = 7666935671159276065L;
 
-	public TimeSpanSensorImpl(FileDAOFactory factory) {
-		super(factory);
-	}
+    public TimeSpanSensorImpl(FileDAOFactory factory) {
+	super(factory);
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (!(obj instanceof TimeSpanSensorImpl))
-			return false;
-		TimeSpanSensorImpl s = (TimeSpanSensorImpl) obj;
-		if (!(sensorID == s.getSensorID() && sensorName.equals(s
-				.getSensorName())))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (!(obj instanceof TimeSpanSensorImpl))
+	    return false;
+	TimeSpanSensorImpl s = (TimeSpanSensorImpl) obj;
+	if (!(sensorID == s.getSensorID() && sensorName.equals(s
+		.getSensorName())))
+	    return false;
+	return true;
+    }
 }
