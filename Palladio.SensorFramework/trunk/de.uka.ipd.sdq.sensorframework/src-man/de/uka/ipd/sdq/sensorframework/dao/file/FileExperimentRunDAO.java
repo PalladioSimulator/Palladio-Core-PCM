@@ -10,6 +10,7 @@ import java.util.HashMap;
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentRunImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.SensorAndMeasurementsImpl;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.Serializable;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
@@ -32,6 +33,7 @@ public class FileExperimentRunDAO implements IExperimentRunDAO {
 	this.factory = factory;
 	this.idGen = idGen;
 	experimentRuns = new HashMap<Long, ExperimentRun>();
+	loadExperimentRuns();
     }
 
     public ExperimentRun addExperimentRun(String p_experimentdatetime) {
@@ -60,8 +62,8 @@ public class FileExperimentRunDAO implements IExperimentRunDAO {
 
     public void removeExperimentRun(ExperimentRun experimentRun,
 	    boolean doCascade) {
-	factory.getFileManager().removeFile(
-		FILE_NAME_PREFIX + experimentRun.getExperimentRunID());
+	experimentRuns.remove(experimentRun.getExperimentRunID());
+	factory.getFileManager().removeFile((Serializable) experimentRun);
 	// TODO lösche auch bei Experiment !
     }
 

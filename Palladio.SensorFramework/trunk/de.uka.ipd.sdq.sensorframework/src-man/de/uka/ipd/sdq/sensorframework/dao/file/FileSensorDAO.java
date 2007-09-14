@@ -98,7 +98,7 @@ public class FileSensorDAO implements ISensorDAO {
 	    }
 	}
 	sensors.remove(sensor.getSensorID());
-	// factory.removeFile("sensor" + sensor.getSensorID());
+	factory.getFileManager().removeFile((Serializable) sensor);
     }
 
     public void store(Sensor s) {

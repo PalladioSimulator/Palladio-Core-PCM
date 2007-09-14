@@ -71,11 +71,13 @@ public class FileStateDAO implements IStateDAO {
 	if (state == null) {
 	    return;
 	}
-	// factory.removeFile();
+	factory.getFileManager().removeFile((Serializable) state);
 	states.remove(state.getStateID());
     }
 
     public void store(StateSensor stateSen) {
+	factory.getFileManager().serializeToFile((Serializable) stateSen);
+	factory.createSensorDAO().store(stateSen);
     }
 
     public void store(State st) {
