@@ -62,9 +62,15 @@ public class FileManager {
 	});
     }
 
-    public boolean removeFile(String fileName) {
-	File path = new File(new File(this.rootDirectory), fileName + ".ser");
+    public boolean removeFile(String filename) {
+	File path = new File(new File(this.rootDirectory), filename
+		.endsWith(".ser") ? filename : filename + ".ser");
 	return path.delete();
+    }
+
+    public boolean removeFile(Serializable ser) {
+	File f = new File(new File(rootDirectory), ser.getFileName());
+	return f.delete();
     }
 
     public void serializeToFile(Serializable ser) {
