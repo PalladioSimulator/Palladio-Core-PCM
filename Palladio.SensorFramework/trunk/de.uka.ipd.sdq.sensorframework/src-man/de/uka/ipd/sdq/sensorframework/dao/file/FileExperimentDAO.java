@@ -12,8 +12,10 @@ import java.util.List;
 
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.Serializable;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 
@@ -73,15 +75,15 @@ public class FileExperimentDAO implements IExperimentDAO {
 
     public void removeExperiment(Experiment experiment, boolean doCascade) {
 	experiments.remove(experiment.getExperimentID());
-	factory.getFileManager().removeFile(
-		FileDAOFactory.EXP_FILE_NAME_PREFIX
-			+ experiment.getExperimentID());
+	factory.getFileManager().removeFile((Serializable) experiment);
     }
 
     public void store(Experiment e) {
 	factory.getFileManager().serializeToFile((ExperimentImpl) e);
 	for (ExperimentRun er : e.getExperimentRuns())
 	    factory.createExperimentRunDAO().store(er);
+	for (Sensor s : e.getSensors())
+	    factory.createSensorDAO().store(s);
     }
 
 }
