@@ -1,10 +1,11 @@
 package de.uka.ipd.sdq.sensorframework.dao.db4o;
 
-import java.io.Serializable;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 
-public class IDGenerator implements Serializable {
+public class IDGenerator implements NamedSerializable {
 
 	private static final long serialVersionUID = -4845947012172760482L;
+	public static final String FILE_NAME = "id_generator";
 
 	private long nextExperimentID = 0;
 	private long nextExperimentRunID = 0;
@@ -32,4 +33,8 @@ public class IDGenerator implements Serializable {
 		return nextStateID++;
 	}
 
+	@Override
+	public String getFileName() {
+		return FILE_NAME;
+	}
 }

@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * @author ihssane
  * 
  */
-public class ExperimentImpl implements Experiment, Serializable {
+public class ExperimentImpl implements Experiment, NamedSerializable {
 
     private static final long serialVersionUID = 1L;
     protected transient IDAOFactory factory;

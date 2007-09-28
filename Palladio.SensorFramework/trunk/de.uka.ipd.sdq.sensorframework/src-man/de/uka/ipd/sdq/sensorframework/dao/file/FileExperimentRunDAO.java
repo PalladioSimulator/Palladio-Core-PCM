@@ -10,7 +10,7 @@ import java.util.HashMap;
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentRunImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.SensorAndMeasurementsImpl;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.Serializable;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
@@ -23,53 +23,53 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
  */
 public class FileExperimentRunDAO implements IExperimentRunDAO {
 
-    public static final String FILE_NAME_PREFIX = "exprun";
+	public static final String FILE_NAME_PREFIX = "exprun";
 
-    private HashMap<Long, ExperimentRun> experimentRuns;
-    private FileDAOFactory factory;
-    private IDGenerator idGen;
+	private HashMap<Long, ExperimentRun> experimentRuns;
+	private FileDAOFactory factory;
+	private IDGenerator idGen;
 
-    public FileExperimentRunDAO(FileDAOFactory factory, IDGenerator idGen) {
-	this.factory = factory;
-	this.idGen = idGen;
-	experimentRuns = new HashMap<Long, ExperimentRun>();
-	loadExperimentRuns();
-    }
-
-    public ExperimentRun addExperimentRun(String p_experimentdatetime) {
-	ExperimentRunImpl expRun = new ExperimentRunImpl(factory);
-	expRun.setExperimentRunID(idGen.getNextExperimentRunID());
-	expRun.setExperimentDateTime(p_experimentdatetime);
-
-	experimentRuns.put(expRun.getExperimentRunID(), expRun);
-	return expRun;
-    }
-
-    public void loadExperimentRuns() {
-	for (Experiment exp : factory.createExperimentDAO().getExperiments()) {
-	    for (ExperimentRun run : exp.getExperimentRuns())
-		experimentRuns.put(run.getExperimentRunID(), run);
+	public FileExperimentRunDAO(FileDAOFactory factory, IDGenerator idGen) {
+		this.factory = factory;
+		this.idGen = idGen;
+		experimentRuns = new HashMap<Long, ExperimentRun>();
+		loadExperimentRuns();
 	}
-    }
 
-    public ExperimentRun get(long id) {
-	return experimentRuns.get(id);
-    }
+	public ExperimentRun addExperimentRun(String p_experimentdatetime) {
+		ExperimentRunImpl expRun = new ExperimentRunImpl(factory);
+		expRun.setExperimentRunID(idGen.getNextExperimentRunID());
+		expRun.setExperimentDateTime(p_experimentdatetime);
 
-    public Collection<ExperimentRun> getExperimentRuns() {
-	return Collections.unmodifiableCollection(experimentRuns.values());
-    }
+		experimentRuns.put(expRun.getExperimentRunID(), expRun);
+		return expRun;
+	}
 
-    public void removeExperimentRun(ExperimentRun experimentRun,
-	    boolean doCascade) {
-	experimentRuns.remove(experimentRun.getExperimentRunID());
-	factory.getFileManager().removeFile((Serializable) experimentRun);
-	// TODO lösche auch bei Experiment !
-    }
+	public void loadExperimentRuns() {
+		for (Experiment exp : factory.createExperimentDAO().getExperiments()) {
+			for (ExperimentRun run : exp.getExperimentRuns())
+				experimentRuns.put(run.getExperimentRunID(), run);
+		}
+	}
 
-    public void store(ExperimentRun er) {
-	for (SensorAndMeasurementsImpl sam : ((ExperimentRunImpl) er)
-		.getCachedSensorAndMeasurements())
-	    factory.getFileManager().serializeToFile(sam);
-    }
+	public ExperimentRun get(long id) {
+		return experimentRuns.get(id);
+	}
+
+	public Collection<ExperimentRun> getExperimentRuns() {
+		return Collections.unmodifiableCollection(experimentRuns.values());
+	}
+
+	public void removeExperimentRun(ExperimentRun experimentRun,
+			boolean doCascade) {
+		experimentRuns.remove(experimentRun.getExperimentRunID());
+		factory.getFileManager().removeFile((NamedSerializable) experimentRun);
+		// TODO lösche auch bei Experiment !
+	}
+
+	public void store(ExperimentRun er) {
+		ExperimentRunImpl myEr = (ExperimentRunImpl) er;
+		for (SensorAndMeasurementsImpl sam : myEr.getCachedSensorAndMeasurements())
+			factory.getFileManager().serializeToFile(sam);
+	}
 }

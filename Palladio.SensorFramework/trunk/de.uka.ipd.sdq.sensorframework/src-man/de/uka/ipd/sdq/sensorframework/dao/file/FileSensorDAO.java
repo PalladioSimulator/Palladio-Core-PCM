@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.Serializable;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateSensorImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanSensorImpl;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
@@ -98,11 +98,11 @@ public class FileSensorDAO implements ISensorDAO {
 	    }
 	}
 	sensors.remove(sensor.getSensorID());
-	factory.getFileManager().removeFile((Serializable) sensor);
+	factory.getFileManager().removeFile((NamedSerializable) sensor);
     }
 
     public void store(Sensor s) {
-	factory.getFileManager().serializeToFile((Serializable) s);
+	factory.getFileManager().serializeToFile((NamedSerializable) s);
     }
 
 }

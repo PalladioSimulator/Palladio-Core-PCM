@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.sensorframework.entities.State;
  * @author ihssane
  * 
  */
-public class StateImpl implements State, Serializable {
+public class StateImpl implements State, NamedSerializable {
 
     private static final long serialVersionUID = -458584924706735994L;
     private long stateID;

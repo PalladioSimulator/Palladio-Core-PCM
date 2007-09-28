@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
  * @author ihssane
  * 
  */
-public abstract class SensorAndMeasurementsImpl implements Serializable {
+public abstract class SensorAndMeasurementsImpl implements NamedSerializable {
 
     protected ExperimentRun experimentRun;
     protected long sensorAndMeasurementsID;

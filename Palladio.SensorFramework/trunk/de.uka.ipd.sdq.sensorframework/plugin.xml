@@ -3,5 +3,4 @@
 <plugin>
    <extension-point id="de.uka.ipd.sdq.sensorframework.adapter" name="DataAdapter" schema="schema/de.uka.ipd.sdq.sensorframework.adapter.exsd"/>
    <extension-point id="de.uka.ipd.sdq.sensorframework.visualisation" name="Visualisation" schema="schema/de.uka.ipd.sdq.sensorframework.visualisation.exsd"/>
-
 </plugin>

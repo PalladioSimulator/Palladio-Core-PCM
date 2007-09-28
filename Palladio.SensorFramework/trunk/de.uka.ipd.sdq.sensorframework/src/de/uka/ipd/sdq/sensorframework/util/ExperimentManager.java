@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
@@ -25,8 +26,8 @@ public class ExperimentManager {
 	
 	private IDAOFactory factory;
 	
-	public ExperimentManager(String experimentName){
-		factory = SensorFrameworkDataset.singleton().getDataSourceByID(1);
+	public ExperimentManager(String experimentName, IDAOFactory factory){
+		this.factory = factory;
 		this.experiment = getExperiment(experimentName);
 		run = experiment.addExperimentRun("Run "+new Date().toString());
 	}
@@ -85,9 +86,8 @@ public class ExperimentManager {
 		return result;
 	}
 	
-	public static void closeDBConnection() {
-		IDAOFactory f = SensorFrameworkDataset.singleton().getDataSourceByID(1);
-		f.finalizeAndClose();
+	public void closeDBConnection() {
+		factory.finalizeAndClose();
 	}
 
 }

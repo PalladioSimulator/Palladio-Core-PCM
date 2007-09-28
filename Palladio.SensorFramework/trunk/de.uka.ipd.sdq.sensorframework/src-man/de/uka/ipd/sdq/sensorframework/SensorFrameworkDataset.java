@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import de.uka.ipd.sdq.sensorframework.dao.db4o.DB4ODAOFactory;
+import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 public class SensorFrameworkDataset {
@@ -13,7 +15,8 @@ public class SensorFrameworkDataset {
 	
 	private SensorFrameworkDataset() {
 		//datasources.add(new MemoryDAOFactory(0));
-		//datasources.add(new DB4ODAOFactory(1,"C:\\temp\\test.db"));
+		//datasources.add(new DB4ODAOFactory(2,"C:\\temp\\test.db"));
+		//addDataSource(new FileDAOFactory(1,"D:/temp"));
 	}
 	
 	public static SensorFrameworkDataset singleton() {

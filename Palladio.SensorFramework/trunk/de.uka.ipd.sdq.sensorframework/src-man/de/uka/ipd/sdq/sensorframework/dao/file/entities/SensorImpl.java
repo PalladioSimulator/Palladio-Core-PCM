@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
  * @author ihssane
  * 
  */
-public abstract class SensorImpl implements Sensor, Serializable {
+public abstract class SensorImpl implements Sensor, NamedSerializable {
 
     protected transient FileDAOFactory factory;
 

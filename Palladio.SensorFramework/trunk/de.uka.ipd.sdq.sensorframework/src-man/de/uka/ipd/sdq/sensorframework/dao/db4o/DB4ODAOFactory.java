@@ -11,6 +11,9 @@ import com.db4o.io.CachedIoAdapter;
 import com.db4o.io.RandomAccessFileAdapter;
 
 import de.uka.ipd.sdq.sensorframework.dao.db4o.entities.ExperimentRunImpl;
+import de.uka.ipd.sdq.sensorframework.dao.db4o.util.PersistedLinkedList;
+import de.uka.ipd.sdq.sensorframework.dao.db4o.util.PersistedLinkedListMarshaller;
+import de.uka.ipd.sdq.sensorframework.dao.db4o.util.PersistedLinkedListTranslator;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
@@ -40,10 +43,10 @@ public class DB4ODAOFactory implements IDAOFactory {
 		this.filename = filename;
 		this.id = id;
 		Db4o.configure().objectClass(ExperimentRunImpl.class).maximumActivationDepth(3);
-		//Db4o.configure().objectClass(PersistedLinkedList.class).
-		//	translate(new PersistedLinkedListTranslator());
-		//Db4o.configure().objectClass(PersistedLinkedList.class).
-		//	marshallWith(new PersistedLinkedListMarshaller());
+		Db4o.configure().objectClass(PersistedLinkedList.class).
+			translate(new PersistedLinkedListTranslator());
+		Db4o.configure().objectClass(PersistedLinkedList.class).
+			marshallWith(new PersistedLinkedListMarshaller());
 		
 		RandomAccessFileAdapter delegateAdapter = new RandomAccessFileAdapter();
 		Db4o.configure().io(new CachedIoAdapter(delegateAdapter));		

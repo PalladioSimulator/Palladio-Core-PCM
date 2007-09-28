@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.Serializable;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateImpl;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
@@ -71,17 +71,17 @@ public class FileStateDAO implements IStateDAO {
 	if (state == null) {
 	    return;
 	}
-	factory.getFileManager().removeFile((Serializable) state);
+	factory.getFileManager().removeFile((NamedSerializable) state);
 	states.remove(state.getStateID());
     }
 
     public void store(StateSensor stateSen) {
-	factory.getFileManager().serializeToFile((Serializable) stateSen);
+	factory.getFileManager().serializeToFile((NamedSerializable) stateSen);
 	factory.createSensorDAO().store(stateSen);
     }
 
     public void store(State st) {
-	factory.getFileManager().serializeToFile((Serializable) st);
+	factory.getFileManager().serializeToFile((NamedSerializable) st);
     }
 
 }

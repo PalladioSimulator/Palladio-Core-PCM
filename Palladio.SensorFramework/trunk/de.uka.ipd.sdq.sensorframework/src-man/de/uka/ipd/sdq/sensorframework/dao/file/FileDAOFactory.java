@@ -23,87 +23,99 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
  */
 public class FileDAOFactory implements IDAOFactory {
 
-    public static final String EXP_FILE_NAME_PREFIX = "experiment";
-    public static final String EXPRUN_FILE_NAME_PREFIX = "exprun";
-    public static final String SENSO_FILE_NAME_PREFIX = "sensor";
-    public static final String STATE_FILE_NAME_PREFIX = "state";
+	public static final String EXP_FILE_NAME_PREFIX = "experiment";
+	public static final String EXPRUN_FILE_NAME_PREFIX = "exprun";
+	public static final String SENSO_FILE_NAME_PREFIX = "sensor";
+	public static final String STATE_FILE_NAME_PREFIX = "state";
 
-    private IExperimentDAO experimentDAO;
-    private IExperimentRunDAO experimentRunDAO;
-    private IMeasurementDAO measurementDAO;
-    private ISensorDAO sensorDAO;
-    private IStateDAO stateDAO;
+	private IExperimentDAO experimentDAO;
+	private IExperimentRunDAO experimentRunDAO;
+	private IMeasurementDAO measurementDAO;
+	private ISensorDAO sensorDAO;
+	private IStateDAO stateDAO;
 
-    private IDGenerator idGen;
-    private FileManager fileManager;
-    private long factoryID;
+	private IDGenerator idGen;
+	private FileManager fileManager;
+	private long factoryID;
 
-    public FileDAOFactory(long id, String rootDirectory) {
-	this.factoryID = id;
-	idGen = new IDGenerator();
-	fileManager = new FileManager(rootDirectory, this);
-    }
+	public FileDAOFactory(long id, String rootDirectory) {
+		this.factoryID = id;
+		fileManager = new FileManager(rootDirectory, this);
+		idGen = createIdGenerator();
+	}
 
-    public String getRootDirectory() {
-	return fileManager.getRootDirectory();
-    }
+	public FileDAOFactory(String rootDirectory) {
+		this(-1,rootDirectory);
+	}
+	
+	private IDGenerator createIdGenerator() {
+		IDGenerator result = (IDGenerator) fileManager.deserializeFromFile(IDGenerator.FILE_NAME);
+		if (result == null){
+			result = new IDGenerator();
+		}
+		return result;
+	}
 
-    public IExperimentDAO createExperimentDAO() {
-	if (this.experimentDAO == null)
-	    this.experimentDAO = new FileExperimentDAO(this, idGen);
-	return this.experimentDAO;
-    }
+	public String getRootDirectory() {
+		return fileManager.getRootDirectory();
+	}
 
-    public IExperimentRunDAO createExperimentRunDAO() {
-	if (this.experimentRunDAO == null)
-	    this.experimentRunDAO = new FileExperimentRunDAO(this, idGen);
-	return this.experimentRunDAO;
-    }
+	public IExperimentDAO createExperimentDAO() {
+		if (this.experimentDAO == null)
+			this.experimentDAO = new FileExperimentDAO(this, idGen);
+		return this.experimentDAO;
+	}
 
-    public IMeasurementDAO createMeasurementDAO() {
-	if (this.measurementDAO == null)
-	    this.measurementDAO = new FileMeasurementDAO(this, idGen);
-	return this.measurementDAO;
-    }
+	public IExperimentRunDAO createExperimentRunDAO() {
+		if (this.experimentRunDAO == null)
+			this.experimentRunDAO = new FileExperimentRunDAO(this, idGen);
+		return this.experimentRunDAO;
+	}
 
-    public ISensorDAO createSensorDAO() {
-	if (this.sensorDAO == null)
-	    this.sensorDAO = new FileSensorDAO(this, idGen);
-	return this.sensorDAO;
-    }
+	public IMeasurementDAO createMeasurementDAO() {
+		if (this.measurementDAO == null)
+			this.measurementDAO = new FileMeasurementDAO(this, idGen);
+		return this.measurementDAO;
+	}
 
-    public IStateDAO createStateDAO() {
-	if (this.stateDAO == null)
-	    this.stateDAO = new FileStateDAO(this, idGen);
-	return this.stateDAO;
-    }
+	public ISensorDAO createSensorDAO() {
+		if (this.sensorDAO == null)
+			this.sensorDAO = new FileSensorDAO(this, idGen);
+		return this.sensorDAO;
+	}
 
-    public void finalizeAndClose() {
-	// nothing to do
-    }
+	public IStateDAO createStateDAO() {
+		if (this.stateDAO == null)
+			this.stateDAO = new FileStateDAO(this, idGen);
+		return this.stateDAO;
+	}
 
-    public FileManager getFileManager() {
-	return fileManager;
-    }
+	public void finalizeAndClose() {
+		fileManager.serializeToFile(idGen);
+	}
 
-    public String getDescription() {
-	return "";
-    }
+	public FileManager getFileManager() {
+		return fileManager;
+	}
 
-    public long getID() {
-	return factoryID;
-    }
+	public String getDescription() {
+		return "";
+	}
 
-    public String getName() {
-	return "File datasource";
-    }
+	public long getID() {
+		return factoryID;
+	}
 
-    public String getPersistendInfo() {
-	return "";
-    }
+	public String getName() {
+		return "File datasource";
+	}
 
-    public void setID(long i) {
-	factoryID = i;
-    }
+	public String getPersistendInfo() {
+		return "";
+	}
+
+	public void setID(long i) {
+		factoryID = i;
+	}
 
 }
