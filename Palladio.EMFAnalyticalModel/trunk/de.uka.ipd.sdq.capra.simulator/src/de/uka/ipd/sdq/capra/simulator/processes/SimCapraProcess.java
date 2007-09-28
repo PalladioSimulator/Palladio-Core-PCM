@@ -1,32 +1,29 @@
-package de.uka.ipd.sdq.capra.simulator.expressions;
+package de.uka.ipd.sdq.capra.simulator.processes;
 
 import java.util.Stack;
 
 import umontreal.iro.lecuyer.simevents.Event;
+import de.uka.ipd.sdq.capra.simulator.actions.SimAction;
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
+import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 
 /**
  * @author     jens.happe
  */
-public class SimCapraProcess {
+public class SimCapraProcess implements ISchedulableProcess {
 
-	SimCapraExpression behaviour;
-	
-	/**
-	 * @uml.property  name="name"
-	 */
-	String name;
-	
-	Stack<SimCapraExpression> executionStack = new Stack<SimCapraExpression>();
+	protected String name;
+	protected String id;
+	protected int number;
+	protected SimCapraExpression behaviour;
+	protected Stack<SimCapraExpression> executionStack = new Stack<SimCapraExpression>();
 
-	/**
-	 * @uml.property  name="ready"
-	 */
-	private boolean ready = false;
-	
-	public SimCapraProcess(SimCapraExpression capraExpression, String name) {
+	public SimCapraProcess(SimCapraExpression capraExpression, String name, String id, int number) {
 		super();
 		this.behaviour = capraExpression;
 		this.name = name;
+		this.id = id;
+		this.number = number;
 	}
 	
 	/*
@@ -57,7 +54,7 @@ public class SimCapraProcess {
 		new StartProcessEvent(this).schedule(startTime);
 	}
 	
-	public void proceed(){
+	public void activate(){
 		SimAction nextAction = getNextAction();
 		if (nextAction == null){ // reset process
 			executionStack.clear();
@@ -68,9 +65,38 @@ public class SimCapraProcess {
 		nextAction.execute(this);
 	}
 	
-	/**
-	 * @author     jens.happe
-	 */
+	@Override
+	public void passivate() {
+		// nothing to do.
+	}
+
+	public String getName() {
+		return name +  "_" + number;
+	}
+	
+	public String getId(){
+		return id + number;
+	}
+
+	@Override
+	public boolean equals(Object arg0) {
+		if (arg0 instanceof SimCapraProcess) {
+			SimCapraProcess process = (SimCapraProcess) arg0;
+			return this.getId().equals(process.getId());
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return getId().hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return getName();
+	}
+
 	private class StartProcessEvent extends Event {
 		
 		private SimCapraProcess process;
@@ -82,51 +108,7 @@ public class SimCapraProcess {
 
 		@Override
 		public void actions() {
-			SimAction action = process.getNextAction();
-			action.execute(process);
+			process.activate();
 		}
-	}
-
-	/**
-	 * @return
-	 * @uml.property  name="name"
-	 */
-	public String getName() {
-		return name;
-	}
-
-	@Override
-	public boolean equals(Object arg0) {
-		if (arg0 instanceof SimCapraProcess) {
-			SimCapraProcess process = (SimCapraProcess) arg0;
-			return this.name.equals(process.name);
-		}
-		return false;
-	}
-
-	@Override
-	public int hashCode() {
-		return name.hashCode();
-	}
-
-	@Override
-	public String toString() {
-		return name;
-	}
-
-	/**
-	 * @return
-	 * @uml.property  name="ready"
-	 */
-	public boolean isReady() {
-		return ready;
-	}
-	
-	/**
-	 * @param ready
-	 * @uml.property  name="ready"
-	 */
-	public void setReady(boolean ready){
-		this.ready = ready;
 	}
 }

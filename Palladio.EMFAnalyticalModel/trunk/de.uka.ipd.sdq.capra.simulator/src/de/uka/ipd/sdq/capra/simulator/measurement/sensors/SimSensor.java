@@ -9,4 +9,6 @@ public interface SimSensor {
 	String getName();
 
 	SimSensorInstance createInstance();
+
+	void finishMeasurements();
 }

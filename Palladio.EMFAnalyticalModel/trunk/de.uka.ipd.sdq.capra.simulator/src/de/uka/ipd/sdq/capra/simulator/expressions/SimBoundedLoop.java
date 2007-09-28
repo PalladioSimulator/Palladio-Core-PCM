@@ -4,8 +4,6 @@ import java.util.Hashtable;
 
 import umontreal.iro.lecuyer.probdist.DiscreteDistribution;
 import umontreal.iro.lecuyer.randvar.RandomVariateGen;
-import umontreal.iro.lecuyer.randvar.RandomVariateGenInt;
-
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 import de.uka.ipd.sdq.capra.simulator.tools.RandomStreamProvider;
 

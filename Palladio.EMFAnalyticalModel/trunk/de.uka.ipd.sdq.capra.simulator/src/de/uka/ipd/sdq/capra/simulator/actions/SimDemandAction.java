@@ -1,20 +1,22 @@
-package de.uka.ipd.sdq.capra.simulator.expressions;
+package de.uka.ipd.sdq.capra.simulator.actions;
 
 import java.util.Hashtable;
 
 import umontreal.iro.lecuyer.probdist.Distribution;
 import umontreal.iro.lecuyer.randvar.RandomVariateGen;
 import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 import de.uka.ipd.sdq.capra.simulator.tools.RandomStreamProvider;
+import de.uka.ipd.sdq.scheduler.IActiveResource;
 
 /**
  * @author     jens.happe
  */
 public class SimDemandAction implements SimAction {
 
-	private SimActiveResource resource;
+	private IActiveResource resource;
 	private Distribution distribution;
 	private RandomVariateGen generator;
 	private String name;
@@ -22,7 +24,7 @@ public class SimDemandAction implements SimAction {
 	private RandomStream flatStream;
 	
 	
-	public SimDemandAction(String name, SimActiveResource resource, Distribution distribution, double samplingWidth) {
+	public SimDemandAction(String name, IActiveResource resource, Distribution distribution, double samplingWidth) {
 		super();
 		this.resource = resource;
 		this.distribution = distribution;

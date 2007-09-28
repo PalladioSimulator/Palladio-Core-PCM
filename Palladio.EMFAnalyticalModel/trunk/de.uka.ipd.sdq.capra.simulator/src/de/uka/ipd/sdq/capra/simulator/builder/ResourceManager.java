@@ -1,108 +1,136 @@
 package de.uka.ipd.sdq.capra.simulator.builder;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Hashtable;
-import java.util.List;
+import java.util.Map;
 
-import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimReplicatedProcess;
-import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl.PreemptiveStrategy;
-import de.uka.ipd.sdq.capra.simulator.resources_old.AbstractSimResource;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.IPreemptiveSchedulingStrategy;
+import org.eclipse.emf.common.util.EList;
+
+import scheduler.configuration.ActiveResourceConfiguration;
+import scheduler.configuration.PassiveResourceConfiguration;
+import de.uka.ipd.sdq.capra.extension.PassiveResource;
+import de.uka.ipd.sdq.capra.resources.ActiveResource;
+import de.uka.ipd.sdq.capra.resources.ProcessingResource;
+import de.uka.ipd.sdq.capra.resources.Resource;
+import de.uka.ipd.sdq.scheduler.IActiveResource;
+import de.uka.ipd.sdq.scheduler.IPassiveResource;
+import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 
 /**
  * Manages a set of resource. It follows the builder pattern.
+ * 
  * @author jens
- *
+ * 
  */
 public class ResourceManager {
 	
-	private Hashtable<String,AbstractSimResource> simResources = new Hashtable<String, AbstractSimResource>();
-	
-	public void addResource(AbstractSimResource resource){
-		simResources.put(resource.getName(), resource);
-	}
-	
-	public AbstractSimResource getResource(String name){
-		return simResources.get(name);
-	}
-	
-	public SimActiveResource getActiveResource(String name){
-		return (SimActiveResource) getResource(name);
-	}
-	
-	public SimPassiveResource getPassiveResource(String name){
-		return (SimPassiveResource) getResource(name);
-		
-	}	
-	
-	public void addPassiveResource(String name, int capacity){
-		SimPassiveResource resource = new SimPassiveResource(name, capacity);
-		addResource(resource);
-		
-		
-	}
-	
-	public void addActiveResource(String name, IPreemptiveSchedulingStrategy strategy) {
-		SimActiveResource resource = new SimActiveResource(strategy,name);
-		addResource(resource);
-	}
+	ISchedulingFactory schedulingFactory = ISchedulingFactory.eINSTANCE;
+	private Map<String, PassiveResourceConfiguration> passive_resource_config_map = new Hashtable<String, PassiveResourceConfiguration>();
+	private Map<String, ActiveResourceConfiguration> active_resource_config_map = new Hashtable<String, ActiveResourceConfiguration>();
+	private Map<String, IPassiveResource> passive_resource_map = new Hashtable<String, IPassiveResource>();
+	private Map<String, IActiveResource> active_resource_map = new Hashtable<String, IActiveResource>();
 
-	public void addDelayResource(String name){
-		//TODO: addActiveResource(name,new DelayStrategy());
-	}
-	
-	public void addFCFSProcessingResource(String name){
-		//TODO: addActiveResource(name,new FCFSStrategy());
-	}
-	
-	public void addProcessorSharingResource(String name){
-		//TODO: addActiveResource(name,new ProcessorSharingStrategy());
-	}	
-
-	public void addRoundRobinResource(String name, double timeSlice) {
-		PreemptiveStrategy strategy = new PreemptiveStrategy(timeSlice);
-		SimActiveResource resource = new SimActiveResource(strategy,name);
-		strategy.setActiveResource(resource);
-		addResource(resource);
-	}
-	
-	public void init(){
-		List<SimActiveResource> activeResourceList = new ArrayList<SimActiveResource>();
-		List<SimPassiveResource> passiveResourceList = new ArrayList<SimPassiveResource>();
-		for (AbstractSimResource r : simResources.values()) {
-			if (r instanceof SimActiveResource) {
-				SimActiveResource activeResource = (SimActiveResource) r;
-				activeResourceList.add(activeResource);
-			} else if (r instanceof SimPassiveResource) {
-				SimPassiveResource passiveResource = (SimPassiveResource) r;
-				passiveResourceList.add(passiveResource);
-			}
+	public void start(){
+		for (IActiveResource resource : active_resource_map.values()) {
+			resource.start();
 		}
-		for (SimPassiveResource simPassiveResource : passiveResourceList) {
-			for (SimActiveResource simActiveResource : activeResourceList) {
-				simPassiveResource.addFavouredResource(simActiveResource);
+	}
+	
+	public void loadActiveResourceConfigurations(
+			EList<ActiveResourceConfiguration> activeResourceConfigurationList) {
+		for (ActiveResourceConfiguration activeResourceConfiguration : activeResourceConfigurationList) {
+			addActiveResourceConfiguration(activeResourceConfiguration);
+		}
+	}
+
+	public void loadPassiveResourceConfigurations(
+			EList<PassiveResourceConfiguration> passiveResourceConfigurationList) {
+		for (PassiveResourceConfiguration passiveResourceConfiguration : passiveResourceConfigurationList) {
+			addPassiveResourceConfiguration(passiveResourceConfiguration);
+		}
+	}
+
+	public void loadResources(EList<Resource> resources) {
+		loadActiveResources(resources);
+		loadPassiveResources(resources);
+	}
+
+	private void loadPassiveResources(EList<Resource> resources) {
+		for (Resource resource : resources) {
+			if (resource instanceof PassiveResource) {
+				PassiveResource passiveResource = (PassiveResource) resource;
+				PassiveResourceConfiguration config = getConfigFor(passiveResource);
+				IPassiveResource simResource = createPassiveResource(config);
+				addPassiveResource(simResource);
 			}
 		}
 	}
 
-	public void register(CapraProcessManager processes) {
-		for (AbstractSimResource r : simResources.values()) {
-			if (r instanceof SimActiveResource) {
-				SimActiveResource activeResource = (SimActiveResource) r;
-				registerProcesses(activeResource,processes);
+	private void loadActiveResources(EList<Resource> resources) {
+		for (Resource resource : resources) {
+			if (resource instanceof ActiveResource) {
+				ActiveResource activeResource = (ActiveResource) resource;
+				ActiveResourceConfiguration config = getConfigFor(activeResource);
+				IActiveResource simResource = createActiveResource(config);
+				addActiveResource(simResource);
 			}
 		}
 	}
 
-	private void registerProcesses(SimActiveResource activeResource,
-			CapraProcessManager processes) {
-		for (SimReplicatedProcess repProcess : processes.getProcesses()) {
-			for (SimCapraProcess process : repProcess.getProcesses()) {
-				activeResource.getRegistry().registerProcess(process);
-			} 
-		}
+	private IPassiveResource createPassiveResource(PassiveResourceConfiguration config) {
+		return schedulingFactory.createPassiveResource(config);
+	}
+
+	private IActiveResource createActiveResource(ActiveResourceConfiguration config) {
+		return schedulingFactory.createActiveResource(config);
+	}
+
+	private void addActiveResourceConfiguration(
+			ActiveResourceConfiguration activeResourceConfiguration) {
+		active_resource_config_map.put(activeResourceConfiguration.getName(), activeResourceConfiguration);
+	}
+
+	private void addPassiveResourceConfiguration(
+			PassiveResourceConfiguration passiveResourceConfiguration) {
+		passive_resource_config_map.put(passiveResourceConfiguration.getName(), passiveResourceConfiguration);
+	}
+
+	private PassiveResourceConfiguration getConfigFor(
+			PassiveResource passiveResource) {
+		return passive_resource_config_map.get( passiveResource.getName() );
+	}
+
+	private ActiveResourceConfiguration getConfigFor(
+			ActiveResource activeResource) {
+		return active_resource_config_map.get( activeResource.getName() );
+	}
+
+	private void addPassiveResource(IPassiveResource passiveResource) {
+		passive_resource_map.put(passiveResource.getName(), passiveResource);
+	}
+
+	private void addActiveResource(IActiveResource activeResource) {
+		active_resource_map.put(activeResource.getName(), activeResource);
+	}
+
+	public Collection<IActiveResource> getActiveResources() {
+		return active_resource_map.values();
+	}
+
+	public IActiveResource getActiveResource(ProcessingResource resource) {
+		return active_resource_map.get(resource.getName());
+	}
+
+	public IPassiveResource getPassiveResource(PassiveResource resource) {
+		return passive_resource_map.get(resource.getName());
+	}
+
+	public Collection<ActiveResourceConfiguration> getActiveResourceConfigurations() {
+		return this.active_resource_config_map.values();
+	}
+
+	public IActiveResource getResourceFor(
+			ActiveResourceConfiguration resource_config) {
+		return this.active_resource_map.get(resource_config.getName());
 	}
 }

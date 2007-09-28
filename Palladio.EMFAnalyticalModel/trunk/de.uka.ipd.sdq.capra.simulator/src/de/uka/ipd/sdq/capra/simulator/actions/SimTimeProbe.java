@@ -1,17 +1,16 @@
-package de.uka.ipd.sdq.capra.simulator.measurement.probes;
+package de.uka.ipd.sdq.capra.simulator.actions;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
 import umontreal.iro.lecuyer.simevents.Sim;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimAction;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensorInstance;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 
 
 public class SimTimeProbe implements SimAction {
@@ -32,7 +31,7 @@ public class SimTimeProbe implements SimAction {
 		for (SimTimeSpanSensorInstance sensorInstance : sensorInstancesToStop) {
 			sensorInstance.notifyStop(time);
 		}
-		capraProcess.proceed();
+		capraProcess.activate();
 	}
 	
 	public void addSensorToStart(SimTimeSpanSensor sensor){

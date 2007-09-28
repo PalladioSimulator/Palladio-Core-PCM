@@ -2,33 +2,45 @@ package de.uka.ipd.sdq.capra.simulator.builder;
 
 import java.util.Collection;
 import java.util.Hashtable;
-import java.util.List;
+import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.capra.measurement.Sensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
 
 public class SensorManager {
-
-	private Hashtable<String, SimSensor> sensorTable = new Hashtable<String, SimSensor>();
 	
-	public void init() {
+	private SensorFactory factory = new SensorFactory();
+	private SensorTransformer transformer = new SensorTransformer(factory);
+	private SensorVisitor visitor = new SensorVisitor(transformer);
+	private Map<String, SimSensor> sensor_map = new Hashtable<String, SimSensor>();
+
+	public void loadSensors(EList<Sensor> sensors) {
 		
-	}
-	
-	public SimSensor getSensor(String name){
-		return sensorTable.get(name);
+		for (Sensor sensor : sensors) {
+			SimSensor s =  visitor.visitSensor(sensor);
+			addSensor(s);
+		}
 	}
 
-	public SimTimeSpanSensor getTimeSpanSensor(String name) {
-		return (SimTimeSpanSensor) getSensor(name);
+	private void addSensor(SimSensor s) {
+		sensor_map.put(s.getName(),s);
 	}
-	
-	public void addSensor(SimSensor sensor){
-		sensorTable.put(sensor.getName(), sensor);
+
+	public SimTimeSpanSensor getTimeSpanSensor(Sensor s) {
+		return (SimTimeSpanSensor)sensor_map.get(s.getName());
 	}
 
 	public Collection<SimSensor> getSensors() {
-		return sensorTable.values();
+		return sensor_map.values();
+	}
 
+	public void finishMeasurements() {
+		for (SimSensor sensor : this.sensor_map.values()) {
+			sensor.finishMeasurements();
+		}
+		
 	}
 }

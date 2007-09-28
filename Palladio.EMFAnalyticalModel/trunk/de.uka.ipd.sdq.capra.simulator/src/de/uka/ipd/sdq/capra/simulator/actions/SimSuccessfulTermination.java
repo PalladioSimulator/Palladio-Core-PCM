@@ -1,8 +1,10 @@
-package de.uka.ipd.sdq.capra.simulator.expressions;
+package de.uka.ipd.sdq.capra.simulator.actions;
 
 import java.util.Hashtable;
 
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 
 public class SimSuccessfulTermination implements SimAction {
 
@@ -32,7 +34,7 @@ public class SimSuccessfulTermination implements SimAction {
 	@Override
 	public void execute(SimCapraProcess capraProcess) {
 		// nothing to do
-		capraProcess.proceed();
+		capraProcess.activate();
 	}
 
 }

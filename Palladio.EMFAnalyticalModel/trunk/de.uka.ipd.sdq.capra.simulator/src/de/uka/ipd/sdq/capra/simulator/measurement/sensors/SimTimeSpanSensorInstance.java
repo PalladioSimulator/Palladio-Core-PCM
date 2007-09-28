@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.capra.simulator.measurement.sensors;
 
+import umontreal.iro.lecuyer.simevents.Sim;
+
 /**
  * @author     jens.happe
  */
@@ -27,6 +29,13 @@ public class SimTimeSpanSensorInstance implements SimSensorInstance {
 			startTime = -1;
 		} else {
 			System.out.println("StartTime not set for sensor " + sensor.getName() + ".");			
+		}
+	}
+
+	@Override
+	public void finishMeasurements() {
+		if (startTime >= 0){
+			sensor.addTimeSpan(Sim.time() - startTime);
 		}
 	}
 }

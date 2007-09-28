@@ -1,22 +1,21 @@
-package de.uka.ipd.sdq.capra.simulator.expressions;
+package de.uka.ipd.sdq.capra.simulator.actions;
 
 import java.util.Hashtable;
 
-import umontreal.iro.lecuyer.simevents.Sim;
-
-import de.uka.ipd.sdq.capra.simulator.CapraSim;
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
+import de.uka.ipd.sdq.scheduler.IPassiveResource;
 
 /**
  * @author     jens.happe
  */
 public class SimAcquireAction implements SimAction {
 
-	private SimPassiveResource resource;
+	private IPassiveResource resource;
 	private int numberRequested;
 	
-	public SimAcquireAction(SimPassiveResource resource, int numberRequested) {
+	public SimAcquireAction(IPassiveResource resource, int numberRequested) {
 		super();
 		this.resource = resource;
 		this.numberRequested = numberRequested;
@@ -43,7 +42,9 @@ public class SimAcquireAction implements SimAction {
 
 	@Override
 	public void execute(SimCapraProcess capraProcess) {
-		resource.acquire(capraProcess,numberRequested);
+		if (resource.acquire(capraProcess,numberRequested)){
+			capraProcess.activate();
+		}
 	}
 	
 	public SimAcquireAction clone(){

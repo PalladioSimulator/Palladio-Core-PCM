@@ -1,18 +1,18 @@
 package de.uka.ipd.sdq.capra.simulator.builder;
 
 import umontreal.iro.lecuyer.probdist.DiscreteDistribution;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimAcquireAction;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimAction;
+import de.uka.ipd.sdq.capra.simulator.actions.SimAcquireAction;
+import de.uka.ipd.sdq.capra.simulator.actions.SimAction;
+import de.uka.ipd.sdq.capra.simulator.actions.SimDemandAction;
+import de.uka.ipd.sdq.capra.simulator.actions.SimReleaseAction;
+import de.uka.ipd.sdq.capra.simulator.actions.SimSuccessfulTermination;
+import de.uka.ipd.sdq.capra.simulator.actions.SimTimeProbe;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimBoundedLoop;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimDemandAction;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimInternalSelector;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimProbabilisticPrefix;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimReleaseAction;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimSuccessfulTermination;
-import de.uka.ipd.sdq.capra.simulator.measurement.probes.SimTimeProbe;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;
+import de.uka.ipd.sdq.scheduler.IActiveResource;
+import de.uka.ipd.sdq.scheduler.IPassiveResource;
 
 
 public class CapraExpressionFactory {
@@ -21,7 +21,7 @@ public class CapraExpressionFactory {
 	public CapraExpressionFactory(){
 	}
 		
-	public SimDemandAction createDemandAction(String name, DiscreteDistribution distribution, double samplingWidth, SimActiveResource resource){
+	public SimDemandAction createDemandAction(String name, DiscreteDistribution distribution, double samplingWidth, IActiveResource resource){
 		return new SimDemandAction(name,resource,distribution,samplingWidth);
 	}
 	
@@ -50,11 +50,11 @@ public class CapraExpressionFactory {
 		return new SimBoundedLoop(numIterations,repeatedProcess,targetProcess);
 	}
 
-	public SimCapraExpression createAcquireAction(SimPassiveResource resource, int numberRequested) {
+	public SimCapraExpression createAcquireAction(IPassiveResource resource, int numberRequested) {
 		return new SimAcquireAction(resource, numberRequested);
 	}
 
-	public SimCapraExpression createReleaseAction(SimPassiveResource resource,
+	public SimCapraExpression createReleaseAction(IPassiveResource resource,
 			int numberReleased) {
 		return new SimReleaseAction(resource, numberReleased);
 	}

@@ -2,10 +2,9 @@ package de.uka.ipd.sdq.capra.simulator.expressions;
 
 import java.util.Hashtable;
 
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
-
 import umontreal.iro.lecuyer.rng.MRG32k3a;
 import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.capra.simulator.actions.SimAction;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 
 /**

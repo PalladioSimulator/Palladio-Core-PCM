@@ -13,16 +13,12 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi,
  org.apache.log4j,
  ca.umontreal.iro.lecuyer.ssj,
- de.uka.ipd.sdq.scheduler
+ de.uka.ipd.sdq.scheduler,
+ de.uka.ipd.sdq.scheduler.configuration
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.capra.simulator,
  de.uka.ipd.sdq.capra.simulator.builder,
  de.uka.ipd.sdq.capra.simulator.expressions,
- de.uka.ipd.sdq.capra.simulator.measurement.probes,
  de.uka.ipd.sdq.capra.simulator.measurement.recorders,
  de.uka.ipd.sdq.capra.simulator.measurement.sensors,
- de.uka.ipd.sdq.capra.simulator.resources_old,
- de.uka.ipd.sdq.capra.simulator.resources_old.scheduling,
- de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.events,
- de.uka.ipd.sdq.capra.simulator.resources_old.scheduling.impl,
- de.uka.ipd.sdq.capra.simulator.tools
+  de.uka.ipd.sdq.capra.simulator.tools

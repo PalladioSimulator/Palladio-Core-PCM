@@ -1,19 +1,21 @@
-package de.uka.ipd.sdq.capra.simulator.expressions;
+package de.uka.ipd.sdq.capra.simulator.actions;
 
 import java.util.Hashtable;
 
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
+import de.uka.ipd.sdq.scheduler.IPassiveResource;
 
 /**
  * @author     jens.happe
  */
 public class SimReleaseAction implements SimAction {
 
-	private SimPassiveResource resource;
+	private IPassiveResource resource;
 	private int numberReleased;
 	
-	public SimReleaseAction(SimPassiveResource resource, int numberReleased) {
+	public SimReleaseAction(IPassiveResource resource, int numberReleased) {
 		super();
 		this.resource = resource;
 		this.numberReleased = numberReleased;
@@ -41,6 +43,7 @@ public class SimReleaseAction implements SimAction {
 	@Override
 	public void execute(SimCapraProcess capraProcess) {
 		resource.release(capraProcess, numberReleased);
+		capraProcess.activate();
 	}
 	
 	public SimReleaseAction clone(){

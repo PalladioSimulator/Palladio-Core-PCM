@@ -1,9 +1,8 @@
 package de.uka.ipd.sdq.capra.simulator.measurement.recorders;
 
-import cern.colt.list.DoubleArrayList;
-import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
 import umontreal.iro.lecuyer.stat.Tally;
 import umontreal.iro.lecuyer.stat.TallyStore;
+import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
 
 public class SimFullTimeSpanRecorder implements SimTimeSpanRecorder {
 	

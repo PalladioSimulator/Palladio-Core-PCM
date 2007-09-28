@@ -1,37 +1,33 @@
-package de.uka.ipd.sdq.capra.simulator.expressions;
+package de.uka.ipd.sdq.capra.simulator.processes;
 
 import java.util.Collection;
 import java.util.Hashtable;
 
+import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
-
-
 
 /**
  * @author  jens.happe
  */
-public class SimReplicatedProcess {
-	/**
-	 * @uml.property  name="processes"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+public class SimProcessGroup {
 	private SimCapraProcess[] processes;
-	/**
-	 * @uml.property  name="name"
-	 */
-	private String name;
 
-	public SimReplicatedProcess(SimCapraExpression behaviour, String name, int numReplicas, Collection<SimSensor> sensorColl){
+	private String name;
+	
+	private String id;
+
+	public SimProcessGroup(SimCapraExpression behaviour, String name, String id, int numReplicas, Collection<SimSensor> sensorColl){
 		super();
+		this.name = name;
+		this.id = id;
 		processes = new SimCapraProcess[numReplicas];
 		for (int i = 0; i < processes.length; i++) {
 			SimCapraExpression myBehaviour = behaviour.clone();
 			Hashtable<String, SimSensorInstance> sensorInstanceTable = createSensorInstances(sensorColl);
 			myBehaviour.useSensorInstances(sensorInstanceTable);
-			processes[i] = new SimCapraProcess(myBehaviour, name + "_" + i);
+			processes[i] = new SimCapraProcess(myBehaviour, name, id, i);
 		}
-		this.name = name;
 	}
 	
 
@@ -44,26 +40,21 @@ public class SimReplicatedProcess {
 		return sensorInstanceTable;
 	}
 
-
 	public void schedule(double simTime) {
 		for (int i = 0; i < processes.length; i++) {
 			processes[i].start(simTime);
 		}
 	}
 
-	/**
-	 * @return
-	 * @uml.property  name="processes"
-	 */
 	public SimCapraProcess[] getProcesses(){
 		return processes;
 	}
 
-	/**
-	 * @return
-	 * @uml.property  name="name"
-	 */
 	public String getName() {
 		return name;
+	}
+	
+	public String getId(){
+		return id;
 	}
 }

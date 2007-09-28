@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
 public class SimTimeSpanSensor implements SimSensor {
 	
 	private List<SimTimeSpanRecorder> recorderList = new ArrayList<SimTimeSpanRecorder>();
+	private List<SimTimeSpanSensorInstance> instanceList = new ArrayList<SimTimeSpanSensorInstance>();
 	
 	/**
 	 * @uml.property  name="name"
@@ -43,6 +44,15 @@ public class SimTimeSpanSensor implements SimSensor {
 			recorder.storeData(expManager);
 		}
 	}
+	
+	@Override
+	public void finishMeasurements() {
+		for (SimSensorInstance instance : instanceList) {
+			instance.finishMeasurements();
+		}
+		
+	}
+
 
 	/**
 	 * @return
@@ -62,6 +72,9 @@ public class SimTimeSpanSensor implements SimSensor {
 
 	@Override
 	public SimSensorInstance createInstance() {
-		return new SimTimeSpanSensorInstance(this);
+		SimTimeSpanSensorInstance instance =  new SimTimeSpanSensorInstance(this);
+		instanceList.add(instance);
+		return instance;
 	}
+
 }

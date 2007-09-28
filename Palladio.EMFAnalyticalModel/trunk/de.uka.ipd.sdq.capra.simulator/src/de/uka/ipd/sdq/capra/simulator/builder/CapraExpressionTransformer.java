@@ -19,26 +19,23 @@ import de.uka.ipd.sdq.capra.core.Renaming;
 import de.uka.ipd.sdq.capra.core.Restriction;
 import de.uka.ipd.sdq.capra.core.SuccessfulTermination;
 import de.uka.ipd.sdq.capra.extension.AcquireAction;
-import de.uka.ipd.sdq.capra.extension.PassiveResource;
 import de.uka.ipd.sdq.capra.extension.ReleaseAction;
 import de.uka.ipd.sdq.capra.measurement.Sensor;
 import de.uka.ipd.sdq.capra.measurement.TimeProbe;
 import de.uka.ipd.sdq.capra.measurement.VisitProbe;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimAction;
+import de.uka.ipd.sdq.capra.simulator.actions.SimAction;
+import de.uka.ipd.sdq.capra.simulator.actions.SimSuccessfulTermination;
+import de.uka.ipd.sdq.capra.simulator.actions.SimTimeProbe;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraProcess;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimInternalSelector;
-import de.uka.ipd.sdq.capra.simulator.expressions.SimSuccessfulTermination;
-import de.uka.ipd.sdq.capra.simulator.measurement.probes.SimTimeProbe;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimActiveResource;
-import de.uka.ipd.sdq.capra.simulator.resources_old.SimPassiveResource;
-import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
+import de.uka.ipd.sdq.scheduler.IActiveResource;
+import de.uka.ipd.sdq.scheduler.IPassiveResource;
 
 /**
  * @author     jens.happe
@@ -47,16 +44,14 @@ public class CapraExpressionTransformer {
 
 	private CapraExpressionFactory factory;
 	private CapraExpressionVisitor expressionVisitor;
-	private SensorManager sensors;
+	private SensorManager sensorManager;
 	private ResourceManager resourceManager;
 
-
-	public CapraExpressionTransformer(ResourceManager resourceManager, CapraExpressionFactory factory,
-			SensorManager sensors) {
+	public CapraExpressionTransformer(ResourceManager resourceManager, SensorManager sensorManager, CapraExpressionFactory factory) {
 		super();
 		this.resourceManager = resourceManager;
 		this.factory = factory;
-		this.sensors = sensors;
+		this.sensorManager = sensorManager;
 		this.expressionVisitor = new CapraExpressionVisitor(this);
 	}
 
@@ -96,9 +91,7 @@ public class CapraExpressionTransformer {
 
 	public SimCapraExpression transformDemandAction(DemandAction demandAction) {
 		String name = demandAction.getIdentifier().getName();
-		String resourceName = demandAction.getResourceUsage().getResource()
-				.getName();
-		SimActiveResource resource = resourceManager.getActiveResource(resourceName);
+		IActiveResource resource = resourceManager.getActiveResource(demandAction.getResourceUsage().getResource());
 		ManagedPDF mPDF = new ManagedPDF(demandAction.getResourceUsage()
 				.getUsageTime());
 		ISamplePDF sPDF = mPDF.getSamplePdfTimeDomain();
@@ -153,13 +146,13 @@ public class CapraExpressionTransformer {
 		SimTimeProbe simProbe = factory.createSimTimeProbe();
 
 		for (Sensor s : timeProbe.getSensorsToStart()) {
-			SimTimeSpanSensor simSensor = sensors
-					.getTimeSpanSensor(s.getName());
+			SimTimeSpanSensor simSensor = sensorManager
+					.getTimeSpanSensor(s);
 			simProbe.addSensorToStart(simSensor);
 		}
 		for (Sensor s : timeProbe.getSensorsToStop()) {
-			SimTimeSpanSensor simSensor = sensors
-					.getTimeSpanSensor(s.getName());
+			SimTimeSpanSensor simSensor = sensorManager
+					.getTimeSpanSensor(s);
 			simProbe.addSensorToStop(simSensor);
 		}
 		return simProbe;
@@ -217,17 +210,13 @@ public class CapraExpressionTransformer {
 
 	public SimCapraExpression transformAcquireAction(AcquireAction acquireAction) {
 		int numberRequested = acquireAction.getNumber();
-		String resourceName = acquireAction.getResource().getName();
-		SimPassiveResource resource = resourceManager.getPassiveResource(resourceName);
-		
+		IPassiveResource resource = resourceManager.getPassiveResource(acquireAction.getResource());
 		return factory.createAcquireAction(resource, numberRequested);
 	}
 
 	public SimCapraExpression transformReleaseAction(ReleaseAction releaseAction) {
 		int numberReleased = releaseAction.getNumber();
-		String resourceName = releaseAction.getResource().getName();
-		SimPassiveResource resource = resourceManager.getPassiveResource(resourceName);
-		
+		IPassiveResource resource = resourceManager.getPassiveResource(releaseAction.getResource());
 		return factory.createReleaseAction(resource, numberReleased);
 	}
 }
