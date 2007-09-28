@@ -64,4 +64,4 @@ Export-Package: com.keypoint,
  org.jfree.ui.action,
  org.jfree.ui.tabbedui,
  org.jfree.util
-Require-Bundle: javax.servlet
+Require-Bundle: org.eclipse.swt
