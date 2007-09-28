@@ -17,6 +17,8 @@ public class SensorFrameworkDataset {
 		//datasources.add(new MemoryDAOFactory(0));
 		//datasources.add(new DB4ODAOFactory(2,"C:\\temp\\test.db"));
 		//addDataSource(new FileDAOFactory(1,"D:/temp"));
+//		IDAOFactory factory = new FileDAOFactory(2,"D:\\Diss\\dev\\runtime-EclipseApplication\\SchedulerConfigurator\\temp\\");
+//		addDataSource(factory);
 	}
 	
 	public static SensorFrameworkDataset singleton() {

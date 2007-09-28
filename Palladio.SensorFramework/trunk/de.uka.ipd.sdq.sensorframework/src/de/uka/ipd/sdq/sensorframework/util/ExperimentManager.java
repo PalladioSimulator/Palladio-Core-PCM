@@ -86,7 +86,7 @@ public class ExperimentManager {
 		return result;
 	}
 	
-	public void closeDBConnection() {
+	public void finalizeAndClose() {
 		factory.finalizeAndClose();
 	}
 

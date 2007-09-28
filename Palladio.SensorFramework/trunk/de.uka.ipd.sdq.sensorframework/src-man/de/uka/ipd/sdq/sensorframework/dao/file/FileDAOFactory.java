@@ -111,7 +111,7 @@ public class FileDAOFactory implements IDAOFactory {
 	}
 
 	public String getPersistendInfo() {
-		return "";
+		return fileManager.getRootDirectory();
 	}
 
 	public void setID(long i) {
