@@ -25,19 +25,17 @@ public class ActiveProcess implements IActiveProcess {
 	 * @param process
 	 *            The process that should be executed.
 	 * 
-	 * @param name
-	 *            A UNIQUE name of the process.
+	 * @param id
+	 *            A unique identifier of the process.
 	 */
-	public ActiveProcess(ISchedulableProcess process, String name, String id) {
+	public ActiveProcess(ISchedulableProcess process) {
 		super();
 
 		this.affinityConstraint = null;
 		this.currentDemand = 0;
-		this.id = id;
 		this.idealInstanceConstraint = null;
 		this.lastInstanceConstraint = null;
 		this.lastUpdateTime = 0;
-		this.name = name;
 		this.proceedEvent = new ProceedEvent(this);
 		this.process = process;
 		this.processStateSensorList = new ArrayList<IProcessStateSensor>();
@@ -50,10 +48,12 @@ public class ActiveProcess implements IActiveProcess {
 	// /////////////////////////////////////////////////////////////////////
 
 	private ISchedulableProcess process;
-	private String name;
-	private String id;
 	private IRunQueue runqueue;
 
+	@Override
+	public void update() {
+	}
+	
 	public IRunQueue getRunQueue() {
 		return runqueue;
 	}
@@ -67,30 +67,30 @@ public class ActiveProcess implements IActiveProcess {
 	}
 
 	public String getName() {
-		return name;
+		return process.getName();
 	}
 	
 	public String getId(){
-		return id;
+		return process.getId();
 	}
 
 	@Override
 	public String toString() {
-		return name + "_" +id;
+		return process.toString();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof ActiveProcess) {
 			ActiveProcess process = (ActiveProcess) obj;
-			return this.id.equals(process.id);
+			return process.getId().equals(this.getId());
 		}
 		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return id.hashCode();
+		return getId().hashCode();
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -185,7 +185,7 @@ public class ActiveProcess implements IActiveProcess {
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setCurrentDemand(double)
 	 */
 	public void setCurrentDemand(double currentDemand) {
-		assert MathTools.equalsDouble(currentDemand, 0.0);
+		assert MathTools.equalsDouble(this.currentDemand, 0.0);
 		this.currentDemand = currentDemand;
 	}
 
@@ -205,6 +205,8 @@ public class ActiveProcess implements IActiveProcess {
 
 	protected void passTime(double passedTime) {
 		currentDemand -= passedTime;
+		if(MathTools.equalsDouble(currentDemand, 0))
+			currentDemand = 0;
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -323,7 +325,7 @@ public class ActiveProcess implements IActiveProcess {
 	}
 
 	// /////////////////////////////////////////////////////////////////////
-	// Resource Instance Constraints
+	// Events
 	// /////////////////////////////////////////////////////////////////////
 
 	private ProceedEvent proceedEvent = null;
@@ -332,6 +334,7 @@ public class ActiveProcess implements IActiveProcess {
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#scheduleProceedEvent()
 	 */
 	public void scheduleProceedEvent() {
+		cancelProceedEvent();
 		proceedEvent.schedule(getCurrentDemand());
 	}
 	
@@ -356,5 +359,7 @@ public class ActiveProcess implements IActiveProcess {
 	public void setDelayedAction(IDelayedAction action) {
 		this.proceedEvent.setDelayedAction(action);
 	}
+
+
 
 }

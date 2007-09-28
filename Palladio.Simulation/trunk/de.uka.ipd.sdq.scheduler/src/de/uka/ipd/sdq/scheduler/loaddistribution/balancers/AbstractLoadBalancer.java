@@ -37,7 +37,7 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 * the last balancing.
 	 */
 	protected double last_balanced;
-
+	
 	/**
 	 * Holder of the runqueues that need to be balanced.
 	 */
@@ -152,8 +152,8 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 			queue_holder.move(iterator.next(), src, dest);
 		}
 
-		src.scheduleSchedulingEvent(0);
-		dest.scheduleSchedulingEvent(0);
+		src.schedulingInterrupt(0);
+		dest.schedulingInterrupt(0);
 	}
 
 	/**

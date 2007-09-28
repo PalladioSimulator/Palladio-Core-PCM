@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
@@ -31,7 +32,10 @@ public class FCFSScheduler extends AbstractScheduler {
 		return false;
 	}
 
-
-
+	@Override
+	protected void initialiseProcess(IActiveProcess process) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

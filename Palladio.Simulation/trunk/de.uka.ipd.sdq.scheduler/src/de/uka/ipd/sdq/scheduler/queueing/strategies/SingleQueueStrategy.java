@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.queueing.strategies;
 
+import de.uka.ipd.sdq.scheduler.loaddistribution.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IProcessSelector;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
@@ -10,12 +11,16 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 
 	private IRunQueue runQueue;
 	private IProcessSelector processSelector;
+	private IInstanceSelector idealInstanceSelector;
+
 
 	public SingleQueueStrategy(IRunQueue runQueue,
-			IProcessSelector processSelector) {
+			IProcessSelector processSelector,
+			IInstanceSelector idealInstanceSelector) {
 		super();
 		this.runQueue = runQueue;
 		this.processSelector = processSelector;
+		this.idealInstanceSelector = idealInstanceSelector;
 	}
 
 	@Override
@@ -25,6 +30,11 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 
 	@Override
 	public void addProcess(IActiveProcess process, boolean inFront) {
+		IResourceInstance instance = process.getLastInstance();
+		if (instance == null) {
+			instance = idealInstanceSelector.selectInstanceFor(process);
+			process.setLastInstance(instance);
+		}
 		runQueue.addProcess(process, inFront);
 	}
 

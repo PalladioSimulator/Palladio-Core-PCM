@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.scheduler;
 
+import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
+
 /**
  * An active resource can execute demands of schedulable processes. Active
  * resources are shared by multiple processes so that they need to use

@@ -45,7 +45,7 @@ public interface IResourceInstance {
 
 	/**
 	 * Schedules the next SchedulingEvent for the instance at the specified
-	 * time.
+	 * time. The event my be deferred or canceled by other actions.
 	 * 
 	 * @param time
 	 *            Time the event shall occur.
@@ -53,8 +53,23 @@ public interface IResourceInstance {
 	public abstract void scheduleSchedulingEvent(double time);
 
 	/**
+	 * Schedules a SchedulingInterrupt. This event cannot be interrupted or
+	 * moved and will occur at the specified time.
+	 * 
+	 * @param time
+	 */
+	public abstract void schedulingInterrupt(double time);
+
+	/**
 	 * Removes a pending SchedulingEvent.
 	 */
 	public abstract void cancelSchedulingEvent();
+
+	/**
+	 * Checks if a SchedulingEvent for this instance is currently scheduled.
+	 * 
+	 * @return True, if a SchedulingEvent is pending, false otherwise.
+	 */
+	public abstract boolean schedulingEventScheduled();
 
 }

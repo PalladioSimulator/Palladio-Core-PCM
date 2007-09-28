@@ -11,9 +11,9 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	private IPriorityUpdateStrategy priorityUpdateStrategy;
 	private static boolean in_front_if_priority_changed = false;
 
-	public ProcessWithPriority(ISchedulableProcess process, String name, String id,
+	public ProcessWithPriority(ISchedulableProcess process,
 			IPriority staticPriority) {
-		super(process, name, id);
+		super(process);
 		this.staticPriority = staticPriority;
 		this.dynamicPriority = staticPriority;
 		this.priorityUpdateStrategy = null;
@@ -52,17 +52,27 @@ public class ProcessWithPriority extends PreemptiveProcess {
 		changePriority(dynamicPriority.decrease());
 	}
 
-	public void setToStaticPriorityWithBonus(int bonus) {
-		changePriority(dynamicPriority.addBonus(staticPriority, bonus));
+	public boolean setToStaticPriorityWithBonus(int bonus) {
+		return changePriority(staticPriority.addBonus(bonus));
 	}
 
-	private void changePriority(IPriority new_priority) {
+	private boolean changePriority(IPriority new_priority) {
 		if (!dynamicPriority.equals(new_priority)){
-			dynamicPriority = new_priority;
 			if (isReady()){
 				getRunQueue().removeProcess(this);
+				dynamicPriority = new_priority;
 				getRunQueue().addProcess(this,in_front_if_priority_changed);
+			} else {
+				dynamicPriority = new_priority;
 			}
+			return true;
 		}
+		return false;
+	}
+
+	@Override
+	public void update() {
+		super.update();
+		updatePriority();
 	}
 }

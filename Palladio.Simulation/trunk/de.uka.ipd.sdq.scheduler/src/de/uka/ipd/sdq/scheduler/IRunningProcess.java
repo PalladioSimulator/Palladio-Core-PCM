@@ -18,9 +18,14 @@ public interface IRunningProcess {
 	public abstract ISchedulableProcess getSchedulableProcess();
 
 	/**
-	 * @return Returns the unique name of this process.
+	 * @return Returns the name of this process.
 	 */
 	public abstract String getName();
+	
+	/**
+	 * @return Returns the unique identifier of the process.
+	 */
+	public abstract String getId();
 
 	/**
 	 * Observer pattern. Adds a new state sensor to the process.

@@ -82,6 +82,9 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 
 		getRunQueueFor(src).removeProcess(process);
 		getRunQueueFor(dest).addProcess(process, false);
+		// Set the ideal instance of the process to the new resource instance.
+		// TODO Is this necessary?
+		process.setIdealInstance(dest);
 	}
 
 	@Override

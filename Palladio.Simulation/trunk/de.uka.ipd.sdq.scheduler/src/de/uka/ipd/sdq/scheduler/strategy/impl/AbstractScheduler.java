@@ -2,6 +2,11 @@ package de.uka.ipd.sdq.scheduler.strategy.impl;
 
 import java.util.Deque;
 
+import org.apache.log4j.Logger;
+
+import umontreal.iro.lecuyer.simevents.Sim;
+
+import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
@@ -27,9 +32,17 @@ public abstract class AbstractScheduler implements IScheduler {
 
 	public abstract void schedule(IResourceInstance instance);
 
+	/**
+	 * Template Method.
+	 * @param process
+	 */
+	protected abstract void initialiseProcess(IActiveProcess process);
+
+	
 	@Override
 	public void addProcess(IActiveProcess process) {
 		queueing_strategy.addProcess(process, false);
+		initialiseProcess(process);
 	}
 
 	/**
@@ -40,6 +53,7 @@ public abstract class AbstractScheduler implements IScheduler {
 	 */
 	protected void fromReadyToRunningOn(IActiveProcess process,
 			IResourceInstance instance) {
+		LoggingWrapper.log(" From READY to RUNNING on "+ instance + " Process " + process);
 		assert process != null;
 		assert process.isReady();
 		assert queueing_strategy.containsPending(process);
@@ -58,40 +72,50 @@ public abstract class AbstractScheduler implements IScheduler {
 	 * @param process
 	 */
 	protected void fromRunningToReady(IActiveProcess process, boolean inFront) {
+		LoggingWrapper.log(" From RUNNING to READY Process " + process);
 		assert process.isRunning() : "Process must be in running state to return to pending queue!";
 		assert queueing_strategy.runningOn(process).equals(
 				process.getLastInstance()) : "Inconstistant State of the last instance of the process.";
 		assert process.getLastInstance().getRunningProcess().equals(process) : "Inconsistent running state!";
-		process.getLastInstance().release();
-		queueing_strategy.removeRunning(process);
+		stopProcess(process);
 		process.setReady();
 		queueing_strategy.addProcess(process, inFront);
 	}
 
 	@Override
-	public void fromWaitingToReady(WaitingProcess waiting_process, Deque<WaitingProcess> waitingQueue) {
-		IActiveProcess process = waiting_process.getProcess();
-		assert process.isWaiting() : "Process must be in waiting state";
-		
-		waitingQueue.remove(waiting_process);
-		process.setReady();
-		queueing_strategy.addProcess(process, in_front_after_waiting);
-		process.getLastInstance().scheduleSchedulingEvent(0);
-	}
-
-	@Override
 	public void fromRunningToWaiting(WaitingProcess waiting_process,
 			Deque<WaitingProcess> waiting_queue, boolean in_front) {
+		LoggingWrapper.log(" From RUNNING to WAITING Process " + waiting_process.getProcess());
 		IActiveProcess process = waiting_process.getProcess();
 		assert process.isRunning() : "Process must be in running state.";
 		
-		process.getRunQueue().removeRunning(process);
+		stopProcess(process);
 		process.setWaiting();
 		if (in_front){
 			waiting_queue.addFirst(waiting_process);
 		} else {
 			waiting_queue.addLast(waiting_process);
 		}
-		process.getLastInstance().scheduleSchedulingEvent(0);
+		process.getLastInstance().schedulingInterrupt(0);
 	}
+
+	private void stopProcess(IActiveProcess process) {
+		process.getLastInstance().release();
+		queueing_strategy.removeRunning(process);
+		process.cancelProceedEvent();
+	}
+	
+	@Override
+	public void fromWaitingToReady(WaitingProcess waiting_process, Deque<WaitingProcess> waitingQueue) {
+		LoggingWrapper.log("From WAITING to READY Process " + waiting_process.getProcess());
+		IActiveProcess process = waiting_process.getProcess();
+		assert process.isWaiting() : "Process must be in waiting state";
+		
+		waitingQueue.remove(waiting_process);
+		process.setReady();
+		queueing_strategy.addProcess(process, in_front_after_waiting);
+		process.getLastInstance().schedulingInterrupt(0);
+	}
+
+
 }

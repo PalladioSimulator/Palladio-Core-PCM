@@ -3,10 +3,13 @@ package de.uka.ipd.sdq.scheduler.resources.active;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessRegistry;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
@@ -20,14 +23,14 @@ public class SimActiveResource extends AbstractSimResource implements
 	private List<IResourceInstance> instanceList;
 	private ProcessRegistry processRegistry;
 
-	public SimActiveResource(int capacity, String name, String id,
-			IScheduler scheduler) {
+	public static final Logger logger = Logger.getLogger("Scheduler");
+
+	public SimActiveResource(int capacity, String name, String id) {
 		super(capacity, name, id);
-		this.scheduler = scheduler;
 		this.instanceList = new ArrayList<IResourceInstance>();
 		this.processRegistry = new ProcessRegistry();
 		for (int i = 0; i < capacity; i++) {
-			instanceList.add(factory.createResourceInstance(i,this));
+			instanceList.add(factory.createResourceInstance(i, this));
 		}
 	}
 
@@ -45,10 +48,10 @@ public class SimActiveResource extends AbstractSimResource implements
 
 	@Override
 	public void process(ISchedulableProcess sched_process, double demand) {
+		LoggingWrapper.log(" Process " + sched_process + " demands "
+				+ MathTools.round(demand, 0.01));
+
 		IActiveProcess process = processRegistry.lookUp(sched_process);
-		assert MathTools.equalsDouble(process.getCurrentDemand(), 0) : "Demand of Process "
-				+ process
-				+ " must be processed completely before adding a new demand!";
 		process.setCurrentDemand(demand);
 		scheduler.scheduleNextEvent(process.getLastInstance());
 		sched_process.passivate();
@@ -69,11 +72,15 @@ public class SimActiveResource extends AbstractSimResource implements
 
 	public void start() {
 		for (IResourceInstance instance : this.instanceList) {
-			scheduler.scheduleNextEvent(instance);
+			instance.schedulingInterrupt(0);
 		}
 	}
 
 	public boolean isIdle(IResourceInstance instance) {
 		return this.scheduler.isIdle(instance);
+	}
+
+	public void setScheduler(IScheduler scheduler) {
+		this.scheduler = scheduler;
 	}
 }

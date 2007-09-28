@@ -3,21 +3,24 @@ package de.uka.ipd.sdq.scheduler.resources.active;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
+import de.uka.ipd.sdq.scheduler.events.SchedulingInterruptEvent;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class SimResourceInstance implements IResourceInstance {
 
-	private String id;
+	private int number;
 	private IActiveResource containing_resource;
 	private IRunningProcess running_process;
 	private SchedulingEvent scheduling_event;
+	private boolean scheduling_event_scheduled;
 	
-	public SimResourceInstance(String id, IActiveResource containing_resource) {
+	public SimResourceInstance(int number, IActiveResource containing_resource) {
 		super();
-		this.id = id;
+		this.number = number;
 		this.containing_resource = containing_resource;
-		this.scheduling_event = new SchedulingEvent(((SimActiveResource)containing_resource).getScheduler(),this);
+		this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
 		this.running_process = null;
+		this.scheduling_event_scheduled = false;
 	}
 
 	public IRunningProcess getRunningProcess() {
@@ -39,16 +42,22 @@ public class SimResourceInstance implements IResourceInstance {
 	}
 
 	public String getName() {
-		return containing_resource.getName() + "_" + id;
+		return containing_resource.getName() + "_" + number;
 	}
 
 	public void scheduleSchedulingEvent(double time) {
 		cancelSchedulingEvent();
 		scheduling_event.schedule(time);
+		scheduling_event_scheduled = true;
+	}
+	
+	public void schedulingInterrupt(double time){
+		new SchedulingInterruptEvent((SimActiveResource)containing_resource, this).schedule(time);
 	}
 
 	public void cancelSchedulingEvent() {
 		scheduling_event.cancel();
+		scheduling_event_scheduled = false;
 	}
 
 	@Override
@@ -60,13 +69,22 @@ public class SimResourceInstance implements IResourceInstance {
 	public boolean equals(Object obj) {
 		if (obj instanceof SimResourceInstance) {
 			SimResourceInstance instance = (SimResourceInstance) obj;
-			return this.id.equals(instance.id);
+			return this.getId().equals(instance.getId());
 		}
 		return false;
 	}
 	
+	public String getId(){
+		return containing_resource.getId() + number;
+	}
+	
 	@Override
 	public int hashCode() {
-		return id.hashCode();
+		return getId().hashCode();
+	}
+
+	@Override
+	public boolean schedulingEventScheduled() {
+		return scheduling_event_scheduled;
 	}
 }

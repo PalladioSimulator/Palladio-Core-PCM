@@ -19,5 +19,19 @@ public interface ISchedulableProcess {
 	 * Notifies the process to stop its execution.
 	 */
 	public abstract void passivate();
+	
+	/**
+	 * Unique identifier of the resource.
+	 * 
+	 * @return
+	 */
+	public abstract String getId();
+
+	/**
+	 * Name of the resource.
+	 * 
+	 * @return
+	 */
+	public abstract String getName();
 
 }

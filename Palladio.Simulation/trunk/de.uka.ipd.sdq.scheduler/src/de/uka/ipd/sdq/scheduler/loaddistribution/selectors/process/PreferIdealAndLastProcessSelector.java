@@ -17,13 +17,19 @@ public class PreferIdealAndLastProcessSelector implements IProcessSelector {
 				if (process.checkAffinity(instance)) {
 					if (result == null) {
 						result = process;
-					} else if (process.isIdealInstance(instance)
-							|| process.isLastInstance(instance)) {
+					} else if (isPreferred(process, instance)
+							&& !isPreferred(result, instance)) {
 						return process;
 					}
 				}
 			}
 		}
 		return result;
+	}
+
+	private boolean isPreferred(IActiveProcess process,
+			IResourceInstance instance) {
+		return process.isIdealInstance(instance)
+				|| process.isLastInstance(instance);
 	}
 }

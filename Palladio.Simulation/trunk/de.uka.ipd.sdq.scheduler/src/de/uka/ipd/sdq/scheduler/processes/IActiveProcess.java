@@ -194,5 +194,10 @@ public interface IActiveProcess extends IRunningProcess {
 	 * @param action
 	 */
 	public abstract void setDelayedAction(IDelayedAction action);
+	
+	/**
+	 * Updates the process's timeslice and priority, if there is such.
+	 */
+	public abstract void update();
 
 }
