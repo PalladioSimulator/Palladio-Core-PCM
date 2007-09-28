@@ -64,12 +64,13 @@ public class WizardSelectDataTypePage extends WizardPage {
 	private void populateComboBox() {
 		myCombo.add("Memory Datasource");
 		myCombo.add("DB4O Datasource");
+		myCombo.add("File Datasource");
 	}
 
 	@Override
 	public boolean canFlipToNextPage() {
 		boolean canFlip = !myCombo.getText().equals("");
-		canFlip = canFlip && myCombo.getText().equals("DB4O Datasource");
+		canFlip = canFlip && (myCombo.getText().equals("DB4O Datasource") || myCombo.getText().equals("File Datasource"));
 
 		return super.canFlipToNextPage() && canFlip;
 	}
