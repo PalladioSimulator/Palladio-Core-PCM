@@ -20,10 +20,11 @@ public class QueueingConfigurationSwitch extends ConfigurationSwitch<IQueueingSt
 	private SimActiveResource resource;
 	private SchedulingFactory factory;
 
-	public QueueingConfigurationSwitch(IRunQueue runqueue_prototype, IInstanceSelector instance_selector, SchedulingFactory factory){
+	public QueueingConfigurationSwitch(IRunQueue runqueue_prototype, IInstanceSelector instance_selector, SchedulingFactory factory, SimActiveResource resource){
 		this.instance_selector = instance_selector;
 		this.runqueue_prototype = runqueue_prototype;
 		this.factory = factory;
+		this.resource = resource;
 	}
 	
 	@Override
@@ -38,6 +39,6 @@ public class QueueingConfigurationSwitch extends ConfigurationSwitch<IQueueingSt
 	@Override
 	public IQueueingStrategy caseSingleQueueConfiguration(SingleQueueConfiguration configuration) {
 		IProcessSelector processSelector = factory.createProcessSelector(configuration.getProcessSelection());
-		return new SingleQueueStrategy(runqueue_prototype, processSelector);
+		return new SingleQueueStrategy(runqueue_prototype, processSelector, instance_selector);
 	}
 }

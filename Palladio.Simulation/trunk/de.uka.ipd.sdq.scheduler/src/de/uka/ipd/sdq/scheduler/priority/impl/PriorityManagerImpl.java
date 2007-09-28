@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.priority.base;
+package de.uka.ipd.sdq.scheduler.priority.impl;
 
 import java.util.Iterator;
 
@@ -50,12 +50,13 @@ public class PriorityManagerImpl implements IPriorityManager {
 					IPriority current = highestPriority.clone();
 					@Override
 					public boolean hasNext() {
-						return current.greaterThan(lowestPriority);
+						return lowestPriority.lessOrEqual(current);
 					}
 					@Override
 					public IPriority next() {
-						current.decrease();
-						return current;
+						IPriority result = current;
+						current = current.decrease();
+						return result;
 					}
 					@Override
 					public void remove() {
@@ -74,12 +75,13 @@ public class PriorityManagerImpl implements IPriorityManager {
 					IPriority current = lowestPriority.clone(); 
 					@Override
 					public boolean hasNext() {
-						return highestPriority.greaterThan(current);
+						return current.lessOrEqual(highestPriority);
 					}
 					@Override
 					public IPriority next() {
-						current.decrease();
-						return current;
+						IPriority result = current;
+						current = current.increase();
+						return result;
 					}
 					@Override
 					public void remove() {

@@ -84,8 +84,7 @@ public interface IPriority extends Cloneable {
 	 * bonus. This method ensures that the new priority lies in the given
 	 * borders (lowest and highest priority).
 	 * 
-	 * @param priority
 	 * @param bonus
 	 */
-	IPriority addBonus(IPriority priority, int bonus);
+	IPriority addBonus(int bonus);
 }

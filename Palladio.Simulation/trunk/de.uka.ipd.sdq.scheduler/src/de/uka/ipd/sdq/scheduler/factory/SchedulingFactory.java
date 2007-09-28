@@ -4,6 +4,7 @@ import java.util.Hashtable;
 import java.util.Map;
 
 import scheduler.configuration.ActiveResourceConfiguration;
+import scheduler.configuration.DynamicPriorityBoostConfiguratioin;
 import scheduler.configuration.InstanceToBalance;
 import scheduler.configuration.LoadBalancing;
 import scheduler.configuration.PassiveResourceConfiguration;
@@ -11,6 +12,7 @@ import scheduler.configuration.PredefinedTimeSliceConfiguration;
 import scheduler.configuration.PreemptionConfiguration;
 import scheduler.configuration.PreferredPriority;
 import scheduler.configuration.PreferredWaitingTime;
+import scheduler.configuration.PriorityBoostConfiguration;
 import scheduler.configuration.PriorityClass;
 import scheduler.configuration.PriorityConfiguration;
 import scheduler.configuration.PriorityDependentTimeSliceConfiguration;
@@ -42,6 +44,8 @@ import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.priority.impl.PriorityManagerImpl;
 import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
 import de.uka.ipd.sdq.scheduler.priority.update.SetToBaseUpdate;
+import de.uka.ipd.sdq.scheduler.priority.update.SleepAverageDependentUpdate;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
@@ -84,13 +88,13 @@ public class SchedulingFactory implements ISchedulingFactory {
 	 */
 	public IActiveResource createActiveResource(
 			ActiveResourceConfiguration configuration) {
-		IActiveResource resource = active_resource_map.get(configuration
+		SimActiveResource resource = (SimActiveResource)active_resource_map.get(configuration
 				.getId());
 		if (resource == null) {
-			IScheduler scheduler = createScheduler(configuration
-					.getSchedulerConfiguration(), resource);
 			resource = new SimActiveResource(configuration.getReplicas(),
-					configuration.getName(), configuration.getId(), scheduler);
+					configuration.getName(), configuration.getId());
+			IScheduler scheduler = createScheduler(configuration.getSchedulerConfiguration(), resource);
+			resource.setScheduler(scheduler);
 			active_resource_map.put(configuration.getId(), resource);
 		}
 		return resource;
@@ -135,12 +139,12 @@ public class SchedulingFactory implements ISchedulingFactory {
 	public IResourceInstance createResourceInstance(int index,
 			IActiveResource containing_resource) {
 
-		String id = index + "_" + containing_resource.getId();
+		String id = containing_resource.getId() + index;
 
-		IResourceInstance instance = resource_instance_map.get(id);
+		IResourceInstance instance = resource_instance_map.get(id );
 		if (instance == null) {
-			instance = new SimResourceInstance(id, containing_resource);
-			resource_instance_map.put(id, instance);
+			instance = new SimResourceInstance(index , containing_resource);
+			resource_instance_map.put(id , instance);
 		}
 		return instance;
 	}
@@ -151,8 +155,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 	public IRunningProcess createRunningProcess(ISchedulableProcess process,
 			ProcessConfiguration configuration,
 			ActiveResourceConfiguration resourceConfiguration) {
-		String name = configuration.getName();
-		String id = configuration.getId() + resourceConfiguration.getId();
+		String id = process.getId() + resourceConfiguration.getId();
 
 		ActiveProcess active_process = process_map.get(id);
 
@@ -162,24 +165,34 @@ public class SchedulingFactory implements ISchedulingFactory {
 				IPriority prio = getPriority(configuration.getPriority(),
 						resourceConfiguration.getSchedulerConfiguration()
 								.getPriorityConfiguration().getRange());
-				active_process = new ProcessWithPriority(process, name, id,
-						prio);
+				active_process = new ProcessWithPriority(process, prio);
+				IPriorityUpdateStrategy updateStrategy = createPriorityUpdadateStrategy(resourceConfiguration.getSchedulerConfiguration().getPriorityConfiguration().getBoostConfiguration(), active_process);
+				((ProcessWithPriority)active_process).setPriorityUpdateStrategy(updateStrategy);
 			}
 			if (resourceConfiguration.getSchedulerConfiguration()
 					.getPreemptionConfiguration() != null) {
 				if (active_process == null)
-					active_process = new PreemptiveProcess(process, name, id);
+					active_process = new PreemptiveProcess(process);
 				ITimeSlice timeslice = createTimeSlice(resourceConfiguration
 						.getSchedulerConfiguration()
 						.getPreemptionConfiguration(), active_process);
 				((PreemptiveProcess) active_process).setTimeSlice(timeslice);
 			} else {
-				active_process = new ActiveProcess(process, name, id);
+				active_process = new ActiveProcess(process);
 			}
 			process_map.put(id, active_process);
 		}
 
 		return active_process;
+	}
+
+	private IPriorityUpdateStrategy createPriorityUpdadateStrategy(
+			PriorityBoostConfiguration boostConfiguration, IActiveProcess process) {
+		if (boostConfiguration instanceof DynamicPriorityBoostConfiguratioin) {
+			DynamicPriorityBoostConfiguratioin dynamic = (DynamicPriorityBoostConfiguratioin) boostConfiguration;
+			return new SleepAverageDependentUpdate(process, dynamic.getMaxSleepAverage().getValue(), dynamic.getMaxBonus());
+		}
+		return null;
 	}
 
 	private IPriority getPriority(PriorityClass priority, PriorityRange range) {
@@ -242,17 +255,14 @@ public class SchedulingFactory implements ISchedulingFactory {
 		return null;
 	}
 
-	private IScheduler createScheduler(SchedulerConfiguration configuration,
-			IActiveResource scheduled_resource) {
+	private IScheduler createScheduler(SchedulerConfiguration configuration, IActiveResource scheduled_resource) {
 		IScheduler scheduler = scheduler_map.get(configuration.getId());
 
 		if (scheduler == null) {
 			if (configuration.getPreemptionConfiguration() != null) {
-				scheduler = createPreemptiveScheduler(configuration,
-						scheduled_resource);
+				scheduler = createPreemptiveScheduler(configuration, scheduled_resource);
 			} else {
-				scheduler = createFCFSScheduler(configuration,
-						scheduled_resource);
+				scheduler = createFCFSScheduler(configuration, scheduled_resource);
 			}
 			scheduler_map.put(configuration.getId(), scheduler);
 		}
@@ -316,7 +326,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 				configuration.getInitialInstanceSelection(), resource);
 
 		QueueingConfigurationSwitch qSwitch = new QueueingConfigurationSwitch(
-				runqueue_prototype, instance_selector, this);
+				runqueue_prototype, instance_selector, this, resource);
 		return qSwitch.doSwitch(configuration);
 	}
 

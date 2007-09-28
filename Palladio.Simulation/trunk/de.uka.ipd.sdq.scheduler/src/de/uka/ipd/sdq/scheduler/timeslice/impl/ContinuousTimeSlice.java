@@ -46,8 +46,8 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	public void substractTime(double time) {
 		remaining_time -= time;
 		remaining_part -= time;
-		assert !MathTools.less(remaining_time, 0.0) : "Timeslice exceeded!";
-		assert !MathTools.less(remaining_part, 0.0) : "Part exceeded!";
+		assert MathTools.lessOrEqual(0.0, remaining_time) : "Timeslice exceeded!";
+		assert MathTools.lessOrEqual(0.0, remaining_part) : "Part exceeded!";
 	}
 
 	@Override
@@ -60,11 +60,13 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	@Override
 	public void fullReset() {
 		remaining_time = timeslice;
+		remaining_part = part;
 	}
 
 	@Override
 	public void setTo(double time) {
 		remaining_time = time;
+		remaining_part = time;
 	}
 
 	@Override

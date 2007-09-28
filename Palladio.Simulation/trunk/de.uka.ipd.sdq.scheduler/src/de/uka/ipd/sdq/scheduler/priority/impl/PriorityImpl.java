@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.priority.base;
+package de.uka.ipd.sdq.scheduler.priority.impl;
 
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
@@ -28,23 +28,23 @@ public class PriorityImpl implements IPriority {
 
 	@Override
 	public boolean greaterThan(IPriority prio) {
-		return this.absolute_value > prio.absoluteValue(); 
+		return manager.direction > 0 ? this.getValue() > prio.getValue() : this.getValue() < prio.getValue();
+	}
+
+	@Override
+	public boolean lessOrEqual(IPriority prio) {
+		return manager.direction > 0 ? this.getValue() <= prio.getValue() : this.getValue() >= prio.getValue();
 	}
 
 	@Override
 	public IPriority increase() {
-		return new PriorityImpl(value += manager.direction, manager);
+		return new PriorityImpl(value + manager.direction, manager);
 	}
 	
 	@Override
 	public IPriority decrease() {
-		return new PriorityImpl(value -= manager.direction, manager);	}
+		return new PriorityImpl(value - manager.direction, manager);	}
 
-
-	@Override
-	public boolean lessOrEqual(IPriority prio) {
-		return this.absoluteValue() <= prio.absoluteValue();
-	}
 
 	@Override
 	public int distance(IPriority prio) {
@@ -68,9 +68,9 @@ public class PriorityImpl implements IPriority {
 	}
 
 	@Override
-	public IPriority addBonus(IPriority priority, int bonus) {
+	public IPriority addBonus(int bonus) {
 		bonus *= manager.direction;
-		int new_value = priority.getValue() + bonus;
+		int new_value = this.getValue() + bonus;
 		if (manager.direction > 0){
 			new_value = Math.max(new_value, manager.lowest_value);
 			new_value = Math.min(new_value, manager.highest_value);
@@ -98,5 +98,10 @@ public class PriorityImpl implements IPriority {
 	@Override
 	public IPriority clone() {
 		return new PriorityImpl(this.value,this.manager);
+	}
+	
+	@Override
+	public String toString() {
+		return ""+value;
 	}
 }
