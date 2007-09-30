@@ -1,9 +1,8 @@
 package de.uka.ipd.sdq.scheduler.events;
 
+import umontreal.iro.lecuyer.simevents.Event;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
-import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
-import umontreal.iro.lecuyer.simevents.Event;
 
 /**
  * Event causing a call to the schedule method of the specified scheduling
@@ -25,6 +24,7 @@ public class SchedulingEvent extends Event {
 
 	@Override
 	public void actions() {
-		containingResource.getScheduler().schedule(instance);
+		containingResource.getScheduler().schedule(instance,true);
+		this.schedule(containingResource.getScheduler().getInterval());
 	}
 }

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.processes.impl;
 
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
@@ -11,28 +12,22 @@ public class PreemptiveProcess extends ActiveProcess {
 		super(process);
 	}
 	
-	public boolean timeSlicePartFinished() {
-		return timeslice.partFinished();
-	}
-	
-	public boolean timeSliceCompletelyFinished() {
-		return timeslice.completelyFinished();
-	}
-
-	public void resetTimeSlice() {
-		timeslice.reset();
-	}
-
-	@Override
-	protected void passTime(double passedTime) {
-		super.passTime(passedTime);
-		timeslice.substractTime(passedTime);
-	}
-	
-	@Override
-	public double getTimeUntilNextInterruption() {
-		return timeslice.getTimeUntilNextInterruption();
-	}
+//	@Override
+//	protected void passTimeProcessing(double passedTime) {
+//		super.passTimeProcessing(passedTime);
+//		timeslice.subTimeProcessing(passedTime);
+//	}
+//	
+//	@Override
+//	protected void passTimeScheduling(double passedTime) {
+//		super.passTimeScheduling(passedTime);
+//		timeslice.subTimeScheduling(passedTime);
+//	}
+//	
+//	@Override
+//	public double getTimeUntilNextInterruption() {
+//		return timeslice.getTimeUntilNextInterruption();
+//	}
 	
 	public ITimeSlice getTimeslice(){
 		return this.timeslice;
@@ -43,8 +38,7 @@ public class PreemptiveProcess extends ActiveProcess {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
-		this.timeslice.reset();
+	public String toString() {
+		return super.toString() + " (" + MathTools.round( timeslice.getRemainingTime(), 0.1) +")";
 	}
 }

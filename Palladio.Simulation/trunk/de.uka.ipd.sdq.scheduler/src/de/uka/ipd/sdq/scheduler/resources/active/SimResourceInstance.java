@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
+import umontreal.iro.lecuyer.simevents.Sim;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
@@ -51,8 +52,8 @@ public class SimResourceInstance implements IResourceInstance {
 		scheduling_event_scheduled = true;
 	}
 	
-	public void schedulingInterrupt(double time){
-		new SchedulingInterruptEvent((SimActiveResource)containing_resource, this).schedule(time);
+	public void schedulingInterrupt(double time, boolean quantum_expired){
+		new SchedulingInterruptEvent((SimActiveResource)containing_resource, this, quantum_expired).schedule(time);
 	}
 
 	public void cancelSchedulingEvent() {
@@ -86,5 +87,16 @@ public class SimResourceInstance implements IResourceInstance {
 	@Override
 	public boolean schedulingEventScheduled() {
 		return scheduling_event_scheduled;
+	}
+
+	@Override
+	public double getNextSchedEventTime() {
+		double time = scheduling_event.time() - Sim.time();
+		return time;
+	}
+
+	@Override
+	public void start() {
+		scheduling_event.schedule(0);
 	}
 }

@@ -1,11 +1,12 @@
 package de.uka.ipd.sdq.scheduler.resources.passive;
 
-import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public class SimFairPassiveResource extends SimAbstractPassiveResource {
@@ -15,25 +16,21 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 		super(capacity, name, id, priority_boost, managing_resource);
 	}
 
-
 	private boolean canProceed(IRunningProcess process, int num) {
 		return (waiting_queue.isEmpty() || waiting_queue.peek().getProcess()
 				.equals(process))
 				&& num <= capacity;
 	}
-	
+
 	@Override
 	public boolean acquire(ISchedulableProcess sched_process, int num) {
-		IActiveProcess process = main_resource.lookUp(sched_process);
-		if (canProceed(process, num) && grantAccessAcquire(process, num)){
-				LoggingWrapper.log("Process " + process + " acquires " + num + " of " + this);
-				// the boost might has changed the remaining time for the process. Thus,
-				// the next scheduling or proceed event needs to be newly determined.
-				main_resource.getScheduler().scheduleNextEvent(
-						((IActiveProcess) process).getLastInstance());
-				return true;
+		PreemptiveProcess process = (PreemptiveProcess)main_resource.lookUp(sched_process);
+		if (canProceed(process, num)) {
+			grantAccess(process, num);
+			return true;
 		} else {
-			LoggingWrapper.log("Process " + process + " is waiting for " + num + " of " + this);
+			LoggingWrapper.log("Process " + process + " is waiting for " + num
+					+ " of " + this);
 			WaitingProcess waiting_process = new WaitingProcess(process, num);
 			fromRunningToWaiting(waiting_process, false);
 			process.getSchedulableProcess().passivate();
@@ -42,12 +39,15 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 	}
 
 	@Override
-	public void release(ISchedulableProcess process, int num) {
-		LoggingWrapper.log("Process " + process + " releases " + num + " of " + this);
+	public void release(ISchedulableProcess sched_process, int num) {
+		IActiveProcess process = main_resource.lookUp(sched_process);
+		
+		LoggingWrapper.log("Process " + process + " releases " + num + " of "
+				+ this);
 		capacity += num;
 		notifyWaitingProcesses();
 	}
-	
+
 	private void notifyWaitingProcesses() {
 		WaitingProcess waitingProcess = waiting_queue.peek();
 		if (waitingProcess != null) {
@@ -56,26 +56,11 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 		}
 	}
 
-	
-
-
-	private boolean grantAccessAcquire(IActiveProcess process, int num) {
-		if (!MathTools.equalsDouble(((IActiveProcess)process).getTimeUntilNextInterruption(), 0)) {
-			boostPriority(process);
-			capacity -= num;
-			assert capacity >= 0 : "More resource than available have been acquired!";
-			return true;
-		} else {
-			process.update();
-			return false;
-		}
-	}
-
-	private void grantAccessAfterWaiting(IActiveProcess process, int num) {
-		if (MathTools.equalsDouble(((IActiveProcess)process).getTimeUntilNextInterruption(), 0)) {
-			process.update();
-		} 
+	private void grantAccess(PreemptiveProcess process, int num) {
+		LoggingWrapper.log("Process " + process + " acquires " + num + " of "
+				+ this);
 		boostPriority(process);
+		punish(process);
 		capacity -= num;
 		assert capacity >= 0 : "More resource than available have been acquired!";
 	}
@@ -91,8 +76,7 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 	private boolean tryToDequeueProcess(WaitingProcess waitingProcess) {
 		if (canProceed(waitingProcess.getProcess(), waitingProcess
 				.getNumRequested())) {
-			LoggingWrapper.log("Process " + waitingProcess.getProcess() + " acquires " + waitingProcess.getNumRequested() + " of " + this + " after waiting.");
-			grantAccessAfterWaiting(waitingProcess.getProcess(), waitingProcess
+			grantAccess((ProcessWithPriority)waitingProcess.getProcess(), waitingProcess
 					.getNumRequested());
 			return true;
 		}

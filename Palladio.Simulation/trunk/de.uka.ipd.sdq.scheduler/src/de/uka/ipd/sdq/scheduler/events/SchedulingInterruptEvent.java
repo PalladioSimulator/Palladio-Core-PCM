@@ -17,15 +17,17 @@ public class SchedulingInterruptEvent extends Event {
 
 	SimActiveResource containingResource;
 	IResourceInstance instance;
+	private boolean quantum_finished;
 
-	public SchedulingInterruptEvent(SimActiveResource containingResource, IResourceInstance instance) {
+	public SchedulingInterruptEvent(SimActiveResource containingResource, IResourceInstance instance, boolean quantum_finished) {
 		super();
 		this.containingResource = containingResource;
 		this.instance = instance;
+		this.quantum_finished = quantum_finished;
 	}
 
 	@Override
 	public void actions() {
-		containingResource.getScheduler().schedule(instance);
+		containingResource.getScheduler().schedule(instance,quantum_finished);
 	}
 }

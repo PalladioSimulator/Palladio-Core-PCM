@@ -40,7 +40,7 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 		LoggingWrapper.log("Process " + process + " acquires " + num + " of "
 				+ this);
 		boostPriority(process);
-		//punish(process);
+		punish(process);
 		capacity -= num;
 		assert capacity >= 0 : "More resource than available have been acquired!";
 		// the boost might has changed the remaining time for the process. Thus,
@@ -51,9 +51,6 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 
 	@Override
 	public void release(ISchedulableProcess sched_process, int num) {
-		ProcessWithPriority process = (ProcessWithPriority) main_resource
-		.lookUp(sched_process);
-		punish(process);
 		LoggingWrapper.log("Process " + sched_process + " releases " + num
 				+ " of " + this);
 		capacity += num;

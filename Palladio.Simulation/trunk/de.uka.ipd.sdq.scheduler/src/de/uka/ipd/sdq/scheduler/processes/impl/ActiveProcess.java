@@ -189,25 +189,31 @@ public class ActiveProcess implements IActiveProcess {
 		this.currentDemand = currentDemand;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#toNow()
-	 */
 	public void toNow() {
 		double currentTime = Sim.time();
 		if (isRunning()) {
 			double passedTime = currentTime - lastUpdateTime;
 			if (passedTime > MathTools.EPSILON_ERROR) {
-				passTime(passedTime);
+				passTimeProcessing(passedTime);
 			}
 		}
 		lastUpdateTime = currentTime;
 	}
 
-	protected void passTime(double passedTime) {
+
+	protected void passTimeProcessing(double passedTime) {
 		currentDemand -= passedTime;
 		if(MathTools.equalsDouble(currentDemand, 0))
 			currentDemand = 0;
 	}
+
+//	protected void passTimeScheduling(double passedTime) {
+//		currentDemand -= passedTime;
+//		if(MathTools.equalsDouble(currentDemand, 0))
+//			currentDemand = 0;
+//	}
+
+	
 
 	// /////////////////////////////////////////////////////////////////////
 	// Resource Instance Constraints

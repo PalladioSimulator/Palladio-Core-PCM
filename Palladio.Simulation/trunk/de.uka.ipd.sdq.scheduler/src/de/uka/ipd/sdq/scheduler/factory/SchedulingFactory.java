@@ -65,6 +65,7 @@ import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 import de.uka.ipd.sdq.scheduler.strategy.impl.PreemptiveScheduler;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 import de.uka.ipd.sdq.scheduler.timeslice.impl.ContinuousTimeSlice;
+import de.uka.ipd.sdq.scheduler.timeslice.impl.DiscreteTimeSlice;
 import de.uka.ipd.sdq.scheduler.timeslice.impl.PriorityDependentTimeSlice;
 
 /**
@@ -231,7 +232,9 @@ public class SchedulingFactory implements ISchedulingFactory {
 					PredefinedTimeSliceConfiguration configuration) {
 				double timeslice = configuration.getTimeslice().getValue();
 				int granularity = configuration.getGranularity();
-				return new ContinuousTimeSlice(timeslice, granularity);
+				// TODO tatsächliche Konfiguration auslesen.
+				return new DiscreteTimeSlice();
+				//return new ContinuousTimeSlice(timeslice,granularity);
 			}
 
 			@Override
@@ -379,7 +382,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 				break;
 			}
 			boost = new de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost(
-					update_strategy, configuration.getBonus(), configuration
+					update_strategy, configuration.getBonus(), (int)configuration
 							.getTimePenalty().getValue(), configuration
 							.isResetTimeslice());
 		}

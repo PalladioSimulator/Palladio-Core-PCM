@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.processes.impl;
 
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
@@ -74,5 +75,10 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	public void update() {
 		super.update();
 		updatePriority();
+	}
+	
+	@Override
+	public String toString() {
+		return getName() + " (" + MathTools.round( getTimeslice().getRemainingTime(), 0.1) +", " + getDynamicPriority() + ")";
 	}
 }

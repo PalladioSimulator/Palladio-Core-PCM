@@ -23,7 +23,7 @@ public interface IScheduler {
 	 * @param instance
 	 *            Resource instance requesting scheduling.
 	 */
-	public abstract void schedule(IResourceInstance instance);
+	public abstract void schedule(IResourceInstance instance, boolean quantum_finished);
 
 	/**
 	 * Registers a new process and adds it to the scheduler's runqueue(s).
@@ -77,5 +77,7 @@ public interface IScheduler {
 	 * @return
 	 */
 	public abstract boolean isIdle(IResourceInstance instance);
+
+	public abstract double getInterval();
 
 }

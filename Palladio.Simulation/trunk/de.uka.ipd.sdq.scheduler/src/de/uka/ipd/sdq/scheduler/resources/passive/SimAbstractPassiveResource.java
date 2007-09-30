@@ -44,7 +44,7 @@ public abstract class SimAbstractPassiveResource extends AbstractSimResource
 		}
 	}
 	
-	protected void punish(ProcessWithPriority process) {
+	protected void punish(IRunningProcess process) {
 		if (priority_boost != null) {
 			assert process instanceof ProcessWithPriority : "If priority boosts are used only ProcessWithPriorities can be used!";
 			priority_boost.punish((ProcessWithPriority) process);

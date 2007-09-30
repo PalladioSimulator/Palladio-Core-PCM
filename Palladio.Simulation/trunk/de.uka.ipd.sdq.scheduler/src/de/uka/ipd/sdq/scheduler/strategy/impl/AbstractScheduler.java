@@ -2,10 +2,6 @@ package de.uka.ipd.sdq.scheduler.strategy.impl;
 
 import java.util.Deque;
 
-import org.apache.log4j.Logger;
-
-import umontreal.iro.lecuyer.simevents.Sim;
-
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
@@ -22,6 +18,8 @@ public abstract class AbstractScheduler implements IScheduler {
 
 	private boolean in_front_after_waiting;
 
+	protected double scheduling_interval;
+
 	public AbstractScheduler(SimActiveResource resource,
 			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting) {
 		super();
@@ -30,15 +28,13 @@ public abstract class AbstractScheduler implements IScheduler {
 		this.in_front_after_waiting = in_front_after_waiting;
 	}
 
-	public abstract void schedule(IResourceInstance instance);
-
 	/**
 	 * Template Method.
+	 * 
 	 * @param process
 	 */
 	protected abstract void initialiseProcess(IActiveProcess process);
 
-	
 	@Override
 	public void addProcess(IActiveProcess process) {
 		queueing_strategy.addProcess(process, false);
@@ -53,7 +49,8 @@ public abstract class AbstractScheduler implements IScheduler {
 	 */
 	protected void fromReadyToRunningOn(IActiveProcess process,
 			IResourceInstance instance) {
-		LoggingWrapper.log(" From READY to RUNNING on "+ instance + " Process " + process);
+		LoggingWrapper.log(" From READY to RUNNING " + process + " on "
+				+ instance);
 		assert process != null;
 		assert process.isReady();
 		assert queueing_strategy.containsPending(process);
@@ -85,18 +82,19 @@ public abstract class AbstractScheduler implements IScheduler {
 	@Override
 	public void fromRunningToWaiting(WaitingProcess waiting_process,
 			Deque<WaitingProcess> waiting_queue, boolean in_front) {
-		LoggingWrapper.log(" From RUNNING to WAITING Process " + waiting_process.getProcess());
+		LoggingWrapper.log(" From RUNNING to WAITING Process "
+				+ waiting_process.getProcess());
 		IActiveProcess process = waiting_process.getProcess();
 		assert process.isRunning() : "Process must be in running state.";
-		
+
 		stopProcess(process);
 		process.setWaiting();
-		if (in_front){
+		if (in_front) {
 			waiting_queue.addFirst(waiting_process);
 		} else {
 			waiting_queue.addLast(waiting_process);
 		}
-		process.getLastInstance().schedulingInterrupt(0);
+		process.getLastInstance().schedulingInterrupt(0, false);
 	}
 
 	private void stopProcess(IActiveProcess process) {
@@ -104,18 +102,18 @@ public abstract class AbstractScheduler implements IScheduler {
 		queueing_strategy.removeRunning(process);
 		process.cancelProceedEvent();
 	}
-	
+
 	@Override
-	public void fromWaitingToReady(WaitingProcess waiting_process, Deque<WaitingProcess> waitingQueue) {
-		LoggingWrapper.log("From WAITING to READY Process " + waiting_process.getProcess());
+	public void fromWaitingToReady(WaitingProcess waiting_process,
+			Deque<WaitingProcess> waitingQueue) {
+		LoggingWrapper.log("From WAITING to READY Process "
+				+ waiting_process.getProcess());
 		IActiveProcess process = waiting_process.getProcess();
 		assert process.isWaiting() : "Process must be in waiting state";
-		
+
 		waitingQueue.remove(waiting_process);
 		process.setReady();
 		queueing_strategy.addProcess(process, in_front_after_waiting);
-		process.getLastInstance().schedulingInterrupt(0);
+		process.getLastInstance().schedulingInterrupt(0, true);
 	}
-
-
 }

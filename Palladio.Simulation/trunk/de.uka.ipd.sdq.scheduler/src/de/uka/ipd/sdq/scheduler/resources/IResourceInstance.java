@@ -57,8 +57,9 @@ public interface IResourceInstance {
 	 * moved and will occur at the specified time.
 	 * 
 	 * @param time
+	 * @param b 
 	 */
-	public abstract void schedulingInterrupt(double time);
+	public abstract void schedulingInterrupt(double time, boolean quantum_expired);
 
 	/**
 	 * Removes a pending SchedulingEvent.
@@ -71,5 +72,9 @@ public interface IResourceInstance {
 	 * @return True, if a SchedulingEvent is pending, false otherwise.
 	 */
 	public abstract boolean schedulingEventScheduled();
+
+	public abstract double getNextSchedEventTime();
+
+	public abstract void start();
 
 }

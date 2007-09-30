@@ -48,10 +48,11 @@ public class SimActiveResource extends AbstractSimResource implements
 
 	@Override
 	public void process(ISchedulableProcess sched_process, double demand) {
-		LoggingWrapper.log(" Process " + sched_process + " demands "
-				+ MathTools.round(demand, 0.01));
-
 		IActiveProcess process = processRegistry.lookUp(sched_process);
+		
+		LoggingWrapper.log(" Process " + process + " demands "
+				+ MathTools.round(demand, 0.01));
+		
 		process.setCurrentDemand(demand);
 		scheduler.scheduleNextEvent(process.getLastInstance());
 		sched_process.passivate();
@@ -72,7 +73,7 @@ public class SimActiveResource extends AbstractSimResource implements
 
 	public void start() {
 		for (IResourceInstance instance : this.instanceList) {
-			instance.schedulingInterrupt(0);
+			instance.start();
 		}
 	}
 
@@ -83,4 +84,5 @@ public class SimActiveResource extends AbstractSimResource implements
 	public void setScheduler(IScheduler scheduler) {
 		this.scheduler = scheduler;
 	}
+
 }

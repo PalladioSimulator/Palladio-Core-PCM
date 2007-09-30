@@ -152,8 +152,8 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 			queue_holder.move(iterator.next(), src, dest);
 		}
 
-		src.schedulingInterrupt(0);
-		dest.schedulingInterrupt(0);
+		src.schedulingInterrupt(0,false);
+		dest.schedulingInterrupt(0,false);
 	}
 
 	/**
