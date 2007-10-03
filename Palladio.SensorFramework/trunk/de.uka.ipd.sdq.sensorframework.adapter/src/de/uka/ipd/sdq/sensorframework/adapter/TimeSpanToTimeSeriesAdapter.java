@@ -18,7 +18,6 @@ public class TimeSpanToTimeSeriesAdapter implements IAdapter {
 		this.myValues = myValues;
 	}
 
-	@Override
 	public Object getAdaptedObject() {
 		TimeSeries series = new TimeSeries( myValues.getSensor().getSensorName() );
 		for (Measurement m : myValues.getMeasurements()) {
@@ -27,12 +26,10 @@ public class TimeSpanToTimeSeriesAdapter implements IAdapter {
 		return series;
 	}
 
-	@Override
 	public Properties getProperties() {
 		return myProperties;
 	}
 
-	@Override
 	public void setProperties(Properties newProperties) {
 		myProperties = newProperties;
 	}

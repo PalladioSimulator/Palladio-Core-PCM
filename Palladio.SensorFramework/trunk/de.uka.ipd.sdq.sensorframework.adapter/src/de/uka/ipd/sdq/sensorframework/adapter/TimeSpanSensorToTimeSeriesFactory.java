@@ -6,7 +6,6 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
 public class TimeSpanSensorToTimeSeriesFactory implements IAdapterFactory {
 
-	@Override
 	public boolean canAdapt(Object adaptee, Class targetClass) {
 		if (adaptee instanceof SensorAndMeasurements){
 			SensorAndMeasurements sam = (SensorAndMeasurements) adaptee;
@@ -16,7 +15,6 @@ public class TimeSpanSensorToTimeSeriesFactory implements IAdapterFactory {
 		return false;
 	}
 
-	@Override
 	public IAdapter getAdapter(Object adaptee) {
 		return new TimeSpanToTimeSeriesAdapter((SensorAndMeasurements) adaptee);
 	}
