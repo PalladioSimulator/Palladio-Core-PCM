@@ -6,7 +6,7 @@
          <editor
                class="de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport"
                icon="icons/new_chart.gif"
-               id="de.uka.ipd.sdq.simucomframework.visualisation.BirtHistogramReport"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport"
                name="Birt Histogram Viewer">
          </editor>
       </extension>
@@ -17,7 +17,7 @@
                acceptsMultiple="true"
                class="de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport"
                displayName="Birt Histogram Chart"
-               editorID="de.uka.ipd.sdq.simucomframework.visualisation.BirtHistogramReport">
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport">
          </Visualisation>
       </extension>
 </plugin>
