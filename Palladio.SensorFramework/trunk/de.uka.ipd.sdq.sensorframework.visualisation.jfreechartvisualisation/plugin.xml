@@ -10,6 +10,12 @@
                name="JFreeChart Histogram Viewer">
          </editor>
          <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartTimeSeriesReport"
+               icon="icons/new_chart.gif"
+               id="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartTimeSeriesReport"
+               name="JFreeChart Time Series Viewer">
+         </editor>
+         <editor
                class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartPieReport"
                icon="icons/new_chart.gif"
                id="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartPieReport"
@@ -37,9 +43,19 @@
          <Visualisation
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
                acceptsMultiple="true"
-               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartPieReport"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartHistogramReport"
                displayName="JFreeChart Histogram"
                editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartHistogramReport">
+         </Visualisation>
+      </extension>
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries"
+               acceptsMultiple="false"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartTimeSeriesReport"
+               displayName="JFreeChart TimeSeries"
+               editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartTimeSeriesReport">
          </Visualisation>
       </extension>
       <extension
