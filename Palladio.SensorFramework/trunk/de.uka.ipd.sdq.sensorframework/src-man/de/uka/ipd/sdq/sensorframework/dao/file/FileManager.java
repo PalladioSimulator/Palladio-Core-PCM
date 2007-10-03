@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.SensorAndMeasurementsImpl;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.AbstractSensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
@@ -100,7 +100,7 @@ public class FileManager {
 	private Object deserializeFromFile(File file) {
 		InputStream fis = null;
 		Object result = null;
-		if (file.exists()){
+		if (file.exists()) {
 			try {
 				fis = new FileInputStream(file);
 				ObjectInputStream o = new ObjectInputStream(fis);
@@ -120,12 +120,10 @@ public class FileManager {
 		return result;
 	}
 
-	public SensorAndMeasurementsImpl loadMeasurementForSensor(long exprunID,
+	public AbstractSensorAndMeasurements loadMeasurementForSensor(long exprunID,
 			long sensorID) {
-		return (SensorAndMeasurementsImpl) factory.getFileManager()
-				.deserializeFromFile(
-						FileDAOFactory.EXPRUN_FILE_NAME_PREFIX + exprunID + "_"
-								+ sensorID);
+		return (AbstractSensorAndMeasurements) deserializeFromFile(FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
+				+ exprunID + "_" + sensorID);
 	}
 
 	public Experiment getExperiment(File file) {

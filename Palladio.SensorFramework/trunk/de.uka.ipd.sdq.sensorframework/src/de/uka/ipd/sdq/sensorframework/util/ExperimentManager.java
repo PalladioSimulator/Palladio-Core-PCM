@@ -44,6 +44,11 @@ public class ExperimentManager {
 
 	public void storeTimeSpan(String sensorName, long startTime, long stopTime){
 		double time = (stopTime - startTime) / SCALING_FACTOR;
+		if (sensorName.equals("ServiceTime") && time < 0.5){
+			System.out.println(time);
+			System.out.println(startTime);
+			System.out.println(stopTime);
+		}
 		TimeSpanSensor sensor = getTimeSpanSensor(sensorName);
 		run.addTimeSpanMeasurement(sensor, startTime, time);
 	}

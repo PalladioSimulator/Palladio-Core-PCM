@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentRunImpl;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.SensorAndMeasurementsImpl;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.AbstractSensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
@@ -69,7 +69,7 @@ public class FileExperimentRunDAO implements IExperimentRunDAO {
 
 	public void store(ExperimentRun er) {
 		ExperimentRunImpl myEr = (ExperimentRunImpl) er;
-		for (SensorAndMeasurementsImpl sam : myEr.getCachedSensorAndMeasurements())
+		for (AbstractSensorAndMeasurements sam : myEr.getCachedSensorAndMeasurements())
 			factory.getFileManager().serializeToFile(sam);
 	}
 }

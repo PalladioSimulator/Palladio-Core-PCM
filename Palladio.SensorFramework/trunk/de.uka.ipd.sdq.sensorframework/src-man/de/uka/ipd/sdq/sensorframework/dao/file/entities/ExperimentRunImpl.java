@@ -30,16 +30,16 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 	private transient FileDAOFactory factory;
 	private long experimentRunID;
 	private String experimentDateTime;
-	private transient HashMap<Long, SensorAndMeasurementsImpl> measurementsForSensor;
+	private transient HashMap<Long, AbstractSensorAndMeasurements> measurementsForSensor;
 	public List<Long> sensorIDs;
 
 	public ExperimentRunImpl(){
-		measurementsForSensor = new HashMap<Long, SensorAndMeasurementsImpl>();
+		measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 	}
 	
 	public ExperimentRunImpl(FileDAOFactory factory) {
 		this.factory = factory;
-		measurementsForSensor = new HashMap<Long, SensorAndMeasurementsImpl>();
+		measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 		sensorIDs = new ArrayList<Long>();
 	}
 
@@ -67,20 +67,20 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 		return;
 	}
 
-	public Collection<SensorAndMeasurementsImpl> getCachedSensorAndMeasurements() {
+	public Collection<AbstractSensorAndMeasurements> getCachedSensorAndMeasurements() {
 		if (measurementsForSensor == null){
-			measurementsForSensor = new HashMap<Long, SensorAndMeasurementsImpl>();
+			measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 		}
 		return measurementsForSensor.values();
 	}
 
-	public Collection<SensorAndMeasurementsImpl> getSensorAndMeasurements() {
-		Collection<SensorAndMeasurementsImpl> result = new ArrayList<SensorAndMeasurementsImpl>();
+	public Collection<AbstractSensorAndMeasurements> getSensorAndMeasurements() {
+		Collection<AbstractSensorAndMeasurements> result = new ArrayList<AbstractSensorAndMeasurements>();
 		if (measurementsForSensor == null)
-			measurementsForSensor = new HashMap<Long, SensorAndMeasurementsImpl>();
+			measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 
 		for (long l : sensorIDs) {
-			SensorAndMeasurementsImpl sam = measurementsForSensor.get(l);
+			AbstractSensorAndMeasurements sam = measurementsForSensor.get(l);
 			if (sam == null)
 				sam = factory.getFileManager().loadMeasurementForSensor(
 						getExperimentRunID(), l);
@@ -91,10 +91,10 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 
 	public StateMeasurement addStateMeasurement(StateSensor p_sensor,
 			State p_sensorstate, double p_eventtime) {
-		SensorAndMeasurementsImpl sam = null;
+		AbstractSensorAndMeasurements sam = null;
 
 		if (measurementsForSensor == null)
-			measurementsForSensor = new HashMap<Long, SensorAndMeasurementsImpl>();
+			measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 
 		if (!sensorIDs.contains(p_sensor.getSensorID())) {
 			sam = new StateSensorAndMeasurement(this, p_sensor);
@@ -107,8 +107,7 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 			sam = factory.getFileManager().loadMeasurementForSensor(
 					getExperimentRunID(), p_sensor.getSensorID());
 		}
-		sam.addEventTime(p_eventtime);
-		((StateSensorAndMeasurement) sam).addState(p_sensorstate);
+		((StateSensorAndMeasurement) sam).addState(p_eventtime, p_sensorstate);
 
 		return factory.createMeasurementDAO().addStateMeasurement(p_sensor,
 				p_sensorstate, p_eventtime);
@@ -116,9 +115,9 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 
 	public TimeSpanMeasurement addTimeSpanMeasurement(TimeSpanSensor p_sensor,
 			double p_eventtime, double p_timespan) {
-		SensorAndMeasurementsImpl sam = null;
+		AbstractSensorAndMeasurements sam = null;
 		if (measurementsForSensor == null)
-			measurementsForSensor = new HashMap<Long, SensorAndMeasurementsImpl>();
+			measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 
 		if (!sensorIDs.contains(p_sensor.getSensorID())) {
 			sam = new TimeSpanSensorAndMeasurement(this, p_sensor);
@@ -131,8 +130,7 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 			sam = factory.getFileManager().loadMeasurementForSensor(
 					getExperimentRunID(), p_sensor.getSensorID());
 		}
-		sam.addEventTime(p_eventtime);
-		((TimeSpanSensorAndMeasurement) sam).addTimeSpan(p_timespan);
+		((TimeSpanSensorAndMeasurement) sam).addTimeSpan(p_eventtime, p_timespan);
 
 		return factory.createMeasurementDAO().addTimeSpanMeasurement(p_sensor,
 				p_eventtime, p_timespan);
@@ -141,7 +139,7 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 	public Collection<Measurement> getMeasurements() {
 		ArrayList<Measurement> m = new ArrayList<Measurement>();
 
-		for (SensorAndMeasurementsImpl sam : getSensorAndMeasurements()) {
+		for (AbstractSensorAndMeasurements sam : getSensorAndMeasurements()) {
 			m.addAll(sam.getMeasurements());
 		}
 		return m;
@@ -154,9 +152,9 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 			return null;
 		}
 		if (measurementsForSensor == null)
-			measurementsForSensor = new HashMap<Long, SensorAndMeasurementsImpl>();
+			measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 
-		SensorAndMeasurementsImpl sam = measurementsForSensor.get(sensor
+		AbstractSensorAndMeasurements sam = measurementsForSensor.get(sensor
 				.getSensorID());
 		if (sam == null) {
 			sam = factory.getFileManager().loadMeasurementForSensor(
