@@ -33,7 +33,6 @@ public class IDGenerator implements NamedSerializable {
 		return nextStateID++;
 	}
 
-	@Override
 	public String getFileName() {
 		return FILE_NAME;
 	}

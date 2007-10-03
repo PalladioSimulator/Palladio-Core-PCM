@@ -18,8 +18,8 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
-import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.sdq.pcm.transformations.ISignatureDependentDemand;
+
 class InternalActionDescriptor {
 	private String resourceDemand;
 	private ProcessingResourceType resourceType;
@@ -35,8 +35,6 @@ class InternalActionDescriptor {
 	public ProcessingResourceType getResourceType() {
 		return resourceType;
 	}
-	
-	
 }
 
 public class SeffBuilder {
