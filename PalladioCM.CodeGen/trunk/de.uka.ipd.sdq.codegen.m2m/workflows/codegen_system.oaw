@@ -18,9 +18,9 @@
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>
-	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
-		</metaModel>	    
+		<metaModel id="units.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.units.UnitsPackage"/>
+		</metaModel>
 		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
 		</metaModel>
@@ -37,7 +37,7 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"/>
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
@@ -69,9 +69,12 @@
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>
-	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
-		</metaModel>	    
+		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
+		</metaModel>		
+		<metaModel id="units.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.units.UnitsPackage"/>
+		</metaModel>
 		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
 		</metaModel>
@@ -88,7 +91,7 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"/>
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>

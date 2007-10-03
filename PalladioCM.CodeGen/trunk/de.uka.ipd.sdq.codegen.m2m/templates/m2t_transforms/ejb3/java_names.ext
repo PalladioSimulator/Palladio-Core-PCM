@@ -1,7 +1,7 @@
-import entity;
+import core::entity;
 import repository;
 import system;
-import composition;
+import core::composition;
 import usagemodel;
 import allocation;
 extension m2t_transforms::java_names;

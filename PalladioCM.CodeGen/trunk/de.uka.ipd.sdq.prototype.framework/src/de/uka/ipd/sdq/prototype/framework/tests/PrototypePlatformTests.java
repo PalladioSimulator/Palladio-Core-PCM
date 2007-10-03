@@ -6,45 +6,61 @@ import java.io.IOException;
 
 import junit.framework.Assert;
 
-import org.junit.Test;
+import org.apache.log4j.Logger;
 import org.junit.Before;
+import org.junit.Test;
 
-import de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum;
-import de.uka.ipd.sdq.prototype.framework.strategies.FibonacciCPUStrategy;
-import de.uka.ipd.sdq.prototype.framework.strategies.IDemandConsumerStrategy;
-import de.uka.ipd.sdq.prototype.framework.strategies.ReadLargeChunksHDDStrategy;
+import de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy;
+import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
+import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.FibonacciDemand;
+import de.uka.ipd.sdq.measurement.strategies.activeresource.hdd.ReadLargeChunksDemand;
 import de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry;
 
 public class PrototypePlatformTests {
 
 	private static final double CPU_PROCESSING_RATE = 1000.0;
 	private static final double HDD_PROCESSING_RATE = 1000.0;
+	private static Logger logger = Logger
+			.getLogger(PrototypePlatformTests.class.getName());
 
 	@Before
 	public void initialise() {
 		/*
 		 * This is done by the Strategy Register itself at the moment, but will
-		 * be needed later. */
-		 IDemandConsumerStrategy cpuStrategy = new FibonacciCPUStrategy(CPU_PROCESSING_RATE);
-		 DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
-		 
-		 IDemandConsumerStrategy hddStrategy = new ReadLargeChunksHDDStrategy(HDD_PROCESSING_RATE);
-		 DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
-		 
+		 * be needed later.
+		 */
+		System.out.println("Pls pin processor! Press a key when ready.");
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		logger.debug("Initialising Testbed");
+		IDemandStrategy cpuStrategy = new FibonacciDemand();
+		cpuStrategy.initialiseStrategy(CPU_PROCESSING_RATE);
+		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(
+				ResourceTypeEnum.CPU, cpuStrategy);
 
+		IDemandStrategy hddStrategy = new ReadLargeChunksDemand("C:\\temp");
+		hddStrategy.initialiseStrategy(HDD_PROCESSING_RATE);
+		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(
+				ResourceTypeEnum.HDD, hddStrategy);
+		logger.debug("Testbed inialised");
 	}
 
 	@Test
 	public void testConsumeCPU() {
 		// long unitsToConsume = 5000;
 		final double ERROR_LEVEL = 0.1; // Total error level for a single
-		// measurement
+										// measurement
 
 		final int TEST_ITERATIONS = 20;
 		final double OUTLIER_RATIO = 0.1; // How many measurements may be
-		// outside bounds
+										  // outside bounds
+		final int START_UNIT = 512;		  // Lower units cause larger relative overhead
 
-		for (long unitsToConsume = 1; unitsToConsume <= 2048; unitsToConsume = unitsToConsume * 2) {
+		for (long unitsToConsume = START_UNIT; unitsToConsume <= 2048; unitsToConsume = unitsToConsume * 2) {
 			testConsumeCPUUnits(ERROR_LEVEL, TEST_ITERATIONS, OUTLIER_RATIO,
 					unitsToConsume);
 
@@ -62,8 +78,8 @@ public class PrototypePlatformTests {
 				* ERROR_LEVEL / 2))
 				/ CPU_PROCESSING_RATE;
 
-		IDemandConsumerStrategy cpuStrategy = DemandConsumerStrategiesRegistry.singleton()
-				.getStrategyFor(ResourceTypeEnum.CPU);
+		IDemandStrategy cpuStrategy = DemandConsumerStrategiesRegistry
+				.singleton().getStrategyFor(ResourceTypeEnum.CPU);
 
 		int countOutliers = 0;
 		for (int i = 0; i < TEST_ITERATIONS; i++) {
@@ -77,24 +93,23 @@ public class PrototypePlatformTests {
 			if (timeConsumptionInSeconds < lowerAcceptanceBound
 					|| timeConsumptionInSeconds > upperAcceptanceBound) {
 				countOutliers++;
-				/*
-				 * if (timeConsumptionInSeconds < lowerAcceptanceBound)
-				 * System.out .println("Lower acceptance level not reached in
-				 * run " + i + ": Time is " + timeConsumptionInSeconds + " and
-				 * must be higher than " + lowerAcceptanceBound); if
-				 * (timeConsumptionInSeconds > upperAcceptanceBound) System.out
-				 * .println("Upper acceptance level not reached in run " + i + ":
-				 * Time is " + timeConsumptionInSeconds + " and must be lower
-				 * than " + upperAcceptanceBound);
-				 */
+				if (timeConsumptionInSeconds < lowerAcceptanceBound)
+					logger.info("Lower acceptance level not reached in run "
+							+ i + ": Time is " + timeConsumptionInSeconds
+							+ " and must be higher than "
+							+ lowerAcceptanceBound);
+				if (timeConsumptionInSeconds > upperAcceptanceBound)
+					logger.
+							info("Upper acceptance level not reached in run "
+									+ i + ": Time is "
+									+ timeConsumptionInSeconds
+									+ " and must be lower than "
+									+ upperAcceptanceBound);
 			}
 		}
-
-		/*
-		 * System.out.println("There have been " + countOutliers + " outliers
-		 * out of " + TEST_ITERATIONS + " values for " + unitsToConsume + " work
-		 * units.");
-		 */
+		logger.info("There have been " + countOutliers + " outliers out of "
+				+ TEST_ITERATIONS + " values for " + unitsToConsume
+				+ " workunits.");
 		Assert.assertTrue("There have been more than " + TEST_ITERATIONS
 				* OUTLIER_RATIO + " outliers for " + unitsToConsume
 				+ " work units: " + countOutliers,
@@ -104,12 +119,12 @@ public class PrototypePlatformTests {
 	@Test
 	public void testConsumeHDD() throws IOException {
 
-
-		ReadLargeChunksHDDStrategy hddStrategy = (ReadLargeChunksHDDStrategy) DemandConsumerStrategiesRegistry
+		ReadLargeChunksDemand hddStrategy = (ReadLargeChunksDemand) DemandConsumerStrategiesRegistry
 				.singleton().getStrategyFor(ResourceTypeEnum.HDD);
 
-		Assert.assertEquals(hddStrategy.getClass(),
-				ReadLargeChunksHDDStrategy.class);
+		Assert
+				.assertEquals(hddStrategy.getClass(),
+						ReadLargeChunksDemand.class);
 
 		BufferedWriter bw = new BufferedWriter(new FileWriter(
 				"testConsumeHDDResults.csv"));
@@ -119,12 +134,11 @@ public class PrototypePlatformTests {
 		hddStrategy.initialiseStrategy(0.0);
 
 		boolean random = true;
-		
+
 		int iterations = 1000;
 
-		
 		double demand = 1000000;
-		//warmup
+		// warmup
 		for (int i = 0; i < 100; i++) {
 			hddStrategy.consume(demand);
 		}
@@ -138,36 +152,32 @@ public class PrototypePlatformTests {
 		// TODO: Noch mehr Tests.
 	}
 
-	private void consumeRandomHDDDemand(ReadLargeChunksHDDStrategy hddStrategy,
+	private void consumeRandomHDDDemand(ReadLargeChunksDemand hddStrategy,
 			BufferedWriter bw, int iterations) throws IOException {
 		double[] demand = new double[iterations];
 		long[] startTime = new long[iterations];
 		long[] endTime = new long[iterations];
-		for (int i = 0; i < iterations; i++){
-			demand[i] = Math.random()*hddStrategy.getMaxFileSize();
+		for (int i = 0; i < iterations; i++) {
+			demand[i] = Math.random() * hddStrategy.getMaxFileSize();
 			startTime[i] = System.nanoTime();
 			hddStrategy.consume(demand[i]);
 			endTime[i] = System.nanoTime();
 		}
-		for (int i = 0; i < iterations; i++){
+		for (int i = 0; i < iterations; i++) {
 			writeHDDResultToFile(bw, startTime[i], endTime[i], demand[i], i);
 		}
 
-
-
 	}
 
-	private void consumeDecreasingHDDDemand(
-			ReadLargeChunksHDDStrategy hddStrategy, BufferedWriter bw,
-			int iterations)
-			throws IOException {
-		
+	private void consumeDecreasingHDDDemand(ReadLargeChunksDemand hddStrategy,
+			BufferedWriter bw, int iterations) throws IOException {
+
 		long sum;
 		double demand;
-		
+
 		long[] startTimes = new long[iterations];
 		long[] endTimes = new long[iterations];
-		
+
 		for (int j = hddStrategy.getMaxFileSize(); j > 0; j -= 1000000) {
 			demand = j;
 
@@ -196,6 +206,5 @@ public class PrototypePlatformTests {
 		bw.newLine();
 		bw.flush();
 	}
-
 
 }

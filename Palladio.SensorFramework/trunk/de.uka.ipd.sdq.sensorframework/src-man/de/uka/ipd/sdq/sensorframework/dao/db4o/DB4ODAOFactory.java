@@ -135,4 +135,9 @@ public class DB4ODAOFactory implements IDAOFactory {
 	public String getPersistendInfo() {
 		return filename;
 	}
+
+	public void reload() {
+		db.close();
+		this.db=Db4o.openFile(filename);
+	}
 }

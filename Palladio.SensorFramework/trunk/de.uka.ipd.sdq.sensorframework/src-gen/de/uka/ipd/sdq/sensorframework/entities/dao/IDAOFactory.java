@@ -23,4 +23,6 @@ public interface IDAOFactory {
 
 	String getPersistendInfo();
 
+	void reload();
+
 }

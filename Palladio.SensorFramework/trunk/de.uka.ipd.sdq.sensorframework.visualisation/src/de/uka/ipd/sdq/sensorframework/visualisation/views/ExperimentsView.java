@@ -19,6 +19,7 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.SensorDataSetDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 
@@ -131,6 +132,7 @@ public class ExperimentsView extends ViewPart {
 		/** Reload viewer action*/
 		reloadView = new Action() {
 			public void run() {
+				SensorFrameworkDataset.singleton().reload();
 				viewer.refresh();
 			}
 		};

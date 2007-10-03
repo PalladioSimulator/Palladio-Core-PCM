@@ -3,7 +3,7 @@
 «EXTENSION m2t_transforms::ejb3::java_names»
 «IMPORT system»
 «IMPORT repository»
-«IMPORT composition»
+«IMPORT core::composition»
 
 
 «DEFINE DeploymentDescriptor FOR System»

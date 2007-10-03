@@ -3,8 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Framework
 Bundle-SymbolicName: de.uka.ipd.sdq.prototype.framework
 Bundle-Version: 1.0.0
-Export-Package: de.uka.ipd.sdq.prototype.framework.resourcetypes,
+Export-Package: de.uka.ipd.sdq.prototype.framework,
  de.uka.ipd.sdq.prototype.framework.strategies,
  de.uka.ipd.sdq.prototype.framework.tests
 Require-Bundle: org.junit4,
- org.apache.log4j
+ org.apache.log4j,
+ de.uka.ipd.sdq.resourcestrategies,
+ de.uka.ipd.sdq.sensorframework

@@ -53,4 +53,9 @@ public class SensorFrameworkDataset {
 		factory.finalizeAndClose();
 		datasources.remove(factory);
 	}
+
+	public void reload() {
+		for (IDAOFactory f : datasources)
+			f.reload();
+	}
 }

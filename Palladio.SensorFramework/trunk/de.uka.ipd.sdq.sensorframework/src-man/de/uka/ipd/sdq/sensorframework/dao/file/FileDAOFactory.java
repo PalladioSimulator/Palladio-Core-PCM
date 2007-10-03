@@ -118,4 +118,19 @@ public class FileDAOFactory implements IDAOFactory {
 		factoryID = i;
 	}
 
+	public void reload() {
+		String oldFilename = fileManager.getRootDirectory();
+		
+		/* Reset all DAOs */
+		experimentDAO = null;
+		experimentRunDAO = null;
+		measurementDAO = null;
+		sensorDAO = null;
+		stateDAO = null;
+
+		// StB: This is not safe for concurrent access, but an inital simple implementation
+		fileManager = new FileManager(oldFilename, this);
+		idGen = createIdGenerator();
+	}
+
 }

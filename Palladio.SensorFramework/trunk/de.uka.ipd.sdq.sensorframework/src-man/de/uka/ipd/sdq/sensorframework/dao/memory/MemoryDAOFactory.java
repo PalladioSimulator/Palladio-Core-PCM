@@ -98,4 +98,8 @@ public class MemoryDAOFactory implements IDAOFactory {
 	public String getPersistendInfo() {
 		return "";
 	}
+
+	public void reload() {
+		// Nothing to do here
+	}
 }
