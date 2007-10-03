@@ -27,17 +27,14 @@ public class JFreeChartTimeSeriesReport extends AbstractReportView implements
 		viewer = new JFreeChartTimeSeriesViewer(parent, 0);
 	}
 
-	@Override
 	public void addInput(Collection<?> c) {
 		
 	}
 
-	@Override
 	public void deleteInput(Collection<?> c) {
 		
 	}
 
-	@Override
 	public void setInput(Collection<?> c) {
 		
 		ArrayList<Object> result = new ArrayList<Object>();
