@@ -16,7 +16,7 @@
     <innerProvidedRole_ProvidedDelegationConnector href="Qosa.repository#_NwEmQHiEEdujPfhn5Gb-iA"/>
   </providedDelegationConnectors_ComposedStructure>
   <requiredDelegationConnectors_ComposedStructure id="_7kjIAHjmEduuSvsux_US9A" outerRequiredRole_RequiredDelegationConnector="_wHtRQHjmEduuSvsux_US9A" childComponentContext_RequiredDelegationConnector="_4P6HcHjmEduuSvsux_US9A">
-    <innerRequiredRole_RequiredDelegationConnector href="Qosa.repository#_wE_w8HjlEduuSvsux_US9A"/>
+    <innerRequiredRole_RequiredDelegationConnector href="Qosa.repository#_mWYNoHiEEdujPfhn5Gb-iA"/>
   </requiredDelegationConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_3LqcMHjmEduuSvsux_US9A" requiringChildComponentContext_CompositeAssemblyConnector="_zOCwEHjmEduuSvsux_US9A" providingChildComponentContext_CompositeAssemblyConnector="_1XIjgHjmEduuSvsux_US9A">
     <providedRole_CompositeAssemblyConnector href="Qosa.repository#_g0LwYHiEEdujPfhn5Gb-iA"/>
@@ -26,10 +26,6 @@
     <providedRole_CompositeAssemblyConnector href="Qosa.repository#_ZZm_wHiFEdujPfhn5Gb-iA"/>
     <requiredRole_CompositeAssemblyConnector href="Qosa.repository#_ceJu0HiFEdujPfhn5Gb-iA"/>
   </compositeAssemblyConnectors_ComposedStructure>
-  <compositeAssemblyConnectors_ComposedStructure id="_D7Wa4HjnEduuSvsux_US9A" requiringChildComponentContext_CompositeAssemblyConnector="_1XIjgHjmEduuSvsux_US9A" providingChildComponentContext_CompositeAssemblyConnector="_4P6HcHjmEduuSvsux_US9A">
-    <providedRole_CompositeAssemblyConnector href="Qosa.repository#_W-oyIHiFEdujPfhn5Gb-iA"/>
-    <requiredRole_CompositeAssemblyConnector href="Qosa.repository#_mWYNoHiEEdujPfhn5Gb-iA"/>
-  </compositeAssemblyConnectors_ComposedStructure>
   <providedRoles_InterfaceProvidingEntity id="_yGq4UHjmEduuSvsux_US9A">
     <providedInterface__ProvidedRole href="Qosa.repository#_5zotAHiDEdujPfhn5Gb-iA"/>
   </providedRoles_InterfaceProvidingEntity>
@@ -37,8 +33,9 @@
     <requiredInterface__RequiredRole href="Qosa.repository#_kmoHQHiEEdujPfhn5Gb-iA"/>
   </requiredRoles_InterfaceRequiringEntity>
   <qosAnnotations_System id="_O1xhEHjnEduuSvsux_US9A">
-    <specifiedExecutionTimes_QoSAnnotations xsi:type="pcm.qosannotations:SystemSpecifiedExecutionTime" specification=" file.BYTESIZE" role_SpecifiedExecutionTime="_wHtRQHjmEduuSvsux_US9A">
+    <specifiedExecutionTimes_QoSAnnotations xsi:type="pcm.qosannotations:SystemSpecifiedExecutionTime" role_SpecifiedExecutionTime="_wHtRQHjmEduuSvsux_US9A">
       <signature_SpecifiedTimeConsumption href="Qosa.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+      <specification_SpecifiedExecutionTime specification="file.BYTESIZE * 8.5 / 500000 - 0.5"/>
     </specifiedExecutionTimes_QoSAnnotations>
   </qosAnnotations_System>
 </pcm.system:System>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:pcm.parameter="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_Ec3-0HNGEdyhjJ7vTdOFcQ" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_E3W7YHNGEdyhjJ7vTdOFcQ" type="2001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_E3W7YXNGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+    <element xmi:type="pcm.seff:StartAction" href="Qosa.repository#_N13bgHigEduukpybJ6mGaw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3W7YnNGEdyhjJ7vTdOFcQ" x="85"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_E3W7Y3NGEdyhjJ7vTdOFcQ" type="2002">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_E3W7ZHNGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+    <element xmi:type="pcm.seff:StopAction" href="Qosa.repository#_OdNIUHigEduukpybJ6mGaw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3W7ZXNGEdyhjJ7vTdOFcQ" x="80" y="490"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_E3gFUHNGEdyhjJ7vTdOFcQ" type="2004">
+    <children xmi:type="notation:Node" xmi:id="_E3gFU3NGEdyhjJ7vTdOFcQ" type="5009"/>
+    <children xmi:type="notation:Node" xmi:id="_E3gFVHNGEdyhjJ7vTdOFcQ" type="5010"/>
+    <children xmi:type="notation:Node" xmi:id="_E6yC0HNGEdyhjJ7vTdOFcQ" type="3003">
+      <children xmi:type="notation:Node" xmi:id="_E6yC03NGEdyhjJ7vTdOFcQ" type="7004">
+        <children xmi:type="notation:Node" xmi:id="_E7hpsHNGEdyhjJ7vTdOFcQ" type="3005">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_E7hpsXNGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+          <element xmi:type="pcm.seff:StopAction" href="Qosa.repository#_aK4QYHigEduukpybJ6mGaw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E7hpsnNGEdyhjJ7vTdOFcQ" x="427" y="80"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_E7hps3NGEdyhjJ7vTdOFcQ" type="3004">
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_E7hptHNGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+          <element xmi:type="pcm.seff:StartAction" href="Qosa.repository#_bMTRIHigEduukpybJ6mGaw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E7hptXNGEdyhjJ7vTdOFcQ" x="19" y="92"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_E7hptnNGEdyhjJ7vTdOFcQ" type="3012">
+          <children xmi:type="notation:Node" xmi:id="_E7hpuXNGEdyhjJ7vTdOFcQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_E7hpunNGEdyhjJ7vTdOFcQ" type="7010">
+            <children xmi:type="notation:Node" xmi:id="_IsrnIHNGEdyhjJ7vTdOFcQ" type="3028">
+              <children xmi:type="notation:Node" xmi:id="_IsrnI3NGEdyhjJ7vTdOFcQ" type="5030"/>
+              <children xmi:type="notation:Node" xmi:id="_IsrnJHNGEdyhjJ7vTdOFcQ" type="7027">
+                <children xmi:type="notation:Node" xmi:id="_Jt2JMHNGEdyhjJ7vTdOFcQ" type="3002">
+                  <element xmi:type="pcm.parameter:VariableCharacterisation" href="Qosa.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0/@variableCharacterisation_VariableUsage.0"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_Jt2JMXNGEdyhjJ7vTdOFcQ"/>
+                </children>
+                <styles xmi:type="notation:DrawerStyle" xmi:id="_IsrnJXNGEdyhjJ7vTdOFcQ"/>
+                <styles xmi:type="notation:TitleStyle" xmi:id="_IsrnJnNGEdyhjJ7vTdOFcQ" showTitle="true"/>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_IsrnJ3NGEdyhjJ7vTdOFcQ"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_IsrnKHNGEdyhjJ7vTdOFcQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_IsrnIXNGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+              <element xmi:type="pcm.parameter:VariableUsage" href="Qosa.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IsrnInNGEdyhjJ7vTdOFcQ" x="7"/>
+            </children>
+            <styles xmi:type="notation:DrawerStyle" xmi:id="_E7hpu3NGEdyhjJ7vTdOFcQ"/>
+            <styles xmi:type="notation:TitleStyle" xmi:id="_E7hpvHNGEdyhjJ7vTdOFcQ" showTitle="true"/>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_E7hpvXNGEdyhjJ7vTdOFcQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_E7hpvnNGEdyhjJ7vTdOFcQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_E7qzoHNGEdyhjJ7vTdOFcQ" type="7023">
+            <styles xmi:type="notation:DrawerStyle" xmi:id="_E7qzoXNGEdyhjJ7vTdOFcQ"/>
+            <styles xmi:type="notation:TitleStyle" xmi:id="_E7qzonNGEdyhjJ7vTdOFcQ" showTitle="true"/>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_E7qzo3NGEdyhjJ7vTdOFcQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_E7qzpHNGEdyhjJ7vTdOFcQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_E7hpt3NGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+          <element xmi:type="pcm.seff:ExternalCallAction" href="Qosa.repository#_mOvHAHikEduI2qb8vPxxKg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E7hpuHNGEdyhjJ7vTdOFcQ" x="151" y="20"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_E6yC1HNGEdyhjJ7vTdOFcQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_E6yC1XNGEdyhjJ7vTdOFcQ"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_E6yC0XNGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+      <element xmi:type="pcm.seff:ResourceDemandingBehaviour" href="Qosa.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E6yC0nNGEdyhjJ7vTdOFcQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_E3gFUXNGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+    <element xmi:type="pcm.seff:LoopAction" href="Qosa.repository#_QM0EwHigEduukpybJ6mGaw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3gFUnNGEdyhjJ7vTdOFcQ" y="80" width="589"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_E3gFVXNGEdyhjJ7vTdOFcQ" type="2003">
+    <children xmi:type="notation:Node" xmi:id="_E3gFWHNGEdyhjJ7vTdOFcQ" type="5002"/>
+    <children xmi:type="notation:Node" xmi:id="_E3gFWXNGEdyhjJ7vTdOFcQ" type="7001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_E3gFWnNGEdyhjJ7vTdOFcQ"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_E3gFW3NGEdyhjJ7vTdOFcQ" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_E3gFXHNGEdyhjJ7vTdOFcQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_E3gFXXNGEdyhjJ7vTdOFcQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_E3gFXnNGEdyhjJ7vTdOFcQ" type="7021">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_E3gFX3NGEdyhjJ7vTdOFcQ"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_E3gFYHNGEdyhjJ7vTdOFcQ" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_E3gFYXNGEdyhjJ7vTdOFcQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_E3gFYnNGEdyhjJ7vTdOFcQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_E3gFVnNGEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
+    <element xmi:type="pcm.seff:ExternalCallAction" href="Qosa.repository#_q5848HikEduI2qb8vPxxKg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3gFV3NGEdyhjJ7vTdOFcQ" x="15" y="332"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_Ec3-0XNGEdyhjJ7vTdOFcQ"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="Qosa.repository#_-d0K1OmaEduCsN-pUEZDKA"/>
+</notation:Diagram>

@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
@@ -137,9 +138,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
-		EntityPackage.eINSTANCE.eClass();
-		ConnectorsPackage.eINSTANCE.eClass();
-		CompositionPackage.eINSTANCE.eClass();
+		CorePackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
 		ParameterPackage.eINSTANCE.eClass();

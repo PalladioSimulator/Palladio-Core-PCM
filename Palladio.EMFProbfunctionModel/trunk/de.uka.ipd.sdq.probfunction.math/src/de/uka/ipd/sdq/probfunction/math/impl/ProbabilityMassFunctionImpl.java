@@ -279,10 +279,11 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		if (!MathTools.equalsDouble(getProbabilitySum(), 1.0))
 			throw new ProbabilitySumNotOneException();
 
-		if (getUnit() == null)
-			throw new UnitNotSetException();
-		if (getUnit().getUnitName() == null)
-			throw new UnitNameNotSetException();
+		//TODO: Fix this when units work again
+		//if (getUnit() == null)
+		//	throw new UnitNotSetException();
+		//if (getUnit().getUnitName() == null)
+		//	throw new UnitNameNotSetException();
 
 		for (ISample sample : this.samples) {
 			Object value = sample.getValue();
