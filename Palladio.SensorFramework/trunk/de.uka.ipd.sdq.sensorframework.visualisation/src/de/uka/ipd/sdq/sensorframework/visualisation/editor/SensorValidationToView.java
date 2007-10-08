@@ -41,7 +41,9 @@ public class SensorValidationToView {
 						|| viewerAcceptsClass.isInstance(sensorAndMeasurements.getSensor()))
 					views.add(element);
 			} catch (ClassNotFoundException e) {
-				// catch exeption for TimeSpanSensor
+				// catch exception for TimeSpanSensor
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 		return views.toArray();

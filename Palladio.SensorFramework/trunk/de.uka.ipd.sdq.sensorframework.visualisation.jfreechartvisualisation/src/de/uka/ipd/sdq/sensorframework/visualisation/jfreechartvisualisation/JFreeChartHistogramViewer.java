@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
 
 
 public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer 
-	implements IHistogramAccepter {
+	implements IHistogramAccepter, ISeriesExporter {
 
 	public JFreeChartHistogramViewer(Composite parent, int style) {
 		super(parent, style);
@@ -23,6 +23,7 @@ public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer
 	protected void initializeContextMenu(MenuManager menu_manager) {
 		super.initializeContextMenu(menu_manager);
 	    menu_manager.add(new LoadCSVHistogram(this));
+	    menu_manager.add(new ExportCSV(this));
 	}
 
 	public void addHistogram(Histogram histogram) {
@@ -53,6 +54,10 @@ public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer
 			density.add(e.getValue(), e.getProbability());
 		}
 		return density;
+	}
+
+	public XYSeries getSeries() {
+		return densityDataset.getSeries(0);
 	}
 
 }

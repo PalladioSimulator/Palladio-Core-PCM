@@ -49,7 +49,7 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 	@Override
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-		newShell.setText("Selection Run");
+		newShell.setText("Select Run");
 		newShell.addShellListener(new ShellAdapter(){
 
 			/* (non-Javadoc)
@@ -130,7 +130,7 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 		fd_separator.bottom = new FormAttachment(100, -5);
 		separator.setLayoutData(fd_separator);
 
-		setMessage("Choise you run...");
+		setMessage("Select you run...");
 		//
 		return area;
 	}

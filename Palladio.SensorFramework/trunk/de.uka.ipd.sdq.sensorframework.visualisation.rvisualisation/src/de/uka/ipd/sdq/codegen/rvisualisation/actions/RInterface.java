@@ -56,6 +56,11 @@ class TextConsole implements RMainLoopCallbacks {
 	public String getText() {
 		return myTextOutput;
 	}
+
+	public void rWriteConsole(Rengine arg0, String arg1, int arg2) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 public class RInterface {

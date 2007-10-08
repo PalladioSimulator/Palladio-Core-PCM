@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation;
 
 import java.util.Collection;
 
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Composite;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.plot.PlotOrientation;
@@ -12,7 +13,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeriesEntity;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 
-public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart {
+public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart implements ISeriesExporter {
 
 	DefaultTableXYDataset dataset = new DefaultTableXYDataset();
 	
@@ -20,6 +21,12 @@ public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart {
 		super(parent, style);
 	}
 
+	@Override
+	protected void initializeContextMenu(MenuManager menu_manager) {
+		super.initializeContextMenu(menu_manager);
+	    menu_manager.add(new CopyClipboardAsR(this));
+	}
+	
 	protected void initChart() {
 		chart = ChartFactory.createScatterPlot("Time Series", "#measurement", "time", dataset, PlotOrientation.VERTICAL, true, true, true);
 	}
@@ -47,4 +54,9 @@ public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart {
 		}
 		return series;
 	}
+	
+	public XYSeries getSeries() {
+		return dataset.getSeries(0);
+	}
+	
 }

@@ -4,7 +4,7 @@
       <extension
             point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
-               acceptsData="de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor"
+               acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
                class="de.uka.ipd.sdq.codegen.rvisualisation.views.RReportView"
                displayName="R TimeSensor Report"
@@ -25,7 +25,7 @@
       <extension
             point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
-               acceptsData="de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor"
+               acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
                class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDistributionComparisonView"
                displayName="R Distribution Comparison"

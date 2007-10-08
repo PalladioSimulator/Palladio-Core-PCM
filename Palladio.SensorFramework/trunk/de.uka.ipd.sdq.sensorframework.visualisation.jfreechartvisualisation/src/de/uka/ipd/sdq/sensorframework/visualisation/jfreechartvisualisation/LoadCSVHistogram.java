@@ -54,6 +54,8 @@ public class LoadCSVHistogram extends Action {
 			return null;
 			// TODO: Error Message Box
 		}
+		for (HistogramEntity e:h.getEntityList())
+			System.out.print("runif("+Math.round(e.getProbability()*100000)+","+(e.getValue()-5)+","+(e.getValue()+5)+"),");
 		return h;
 	}
 }
