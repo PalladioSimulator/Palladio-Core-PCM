@@ -4,11 +4,11 @@
     <providedRoles_InterfaceProvidingEntity id="_NwEmQHiEEdujPfhn5Gb-iA" providedInterface__ProvidedRole="_5zotAHiDEdujPfhn5Gb-iA"/>
     <requiredRoles_InterfaceRequiringEntity id="_bpX4YHiEEdujPfhn5Gb-iA" entityName="ReqRole_WebUI_IAudioStore" requiredInterface__RequiredRole="_PGWcsHiEEdujPfhn5Gb-iA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_-d0K1OmaEduCsN-pUEZDKA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_N13bgHigEduukpybJ6mGaw" successor_AbstractAction="_QM0EwHigEduukpybJ6mGaw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_N13bgHigEduukpybJ6mGaw" successor_AbstractAction="_XGNgMHWxEdywo8AWP2hhOQ"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_OdNIUHigEduukpybJ6mGaw" predecessor_AbstractAction="_q5848HikEduI2qb8vPxxKg"/>
-      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_QM0EwHigEduukpybJ6mGaw" predecessor_AbstractAction="_N13bgHigEduukpybJ6mGaw" successor_AbstractAction="_q5848HikEduI2qb8vPxxKg">
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_q5848HikEduI2qb8vPxxKg" predecessor_AbstractAction="_XGNgMHWxEdywo8AWP2hhOQ" successor_AbstractAction="_OdNIUHigEduukpybJ6mGaw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.1" role_ExternalService="_bpX4YHiEEdujPfhn5Gb-iA"/>
+      <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_XGNgMHWxEdywo8AWP2hhOQ" entityName="MainUploadLoop" predecessor_AbstractAction="_N13bgHigEduukpybJ6mGaw" successor_AbstractAction="_q5848HikEduI2qb8vPxxKg" parameter_CollectionIteratorAction="//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0">
         <bodyBehaviour_Loop>
-          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_aK4QYHigEduukpybJ6mGaw" predecessor_AbstractAction="_mOvHAHikEduI2qb8vPxxKg"/>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_bMTRIHigEduukpybJ6mGaw" successor_AbstractAction="_mOvHAHikEduI2qb8vPxxKg"/>
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_mOvHAHikEduI2qb8vPxxKg" predecessor_AbstractAction="_bMTRIHigEduukpybJ6mGaw" successor_AbstractAction="_aK4QYHigEduukpybJ6mGaw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0" role_ExternalService="_bpX4YHiEEdujPfhn5Gb-iA">
             <inputParameterUsages_ExternalCallAction>
@@ -18,10 +18,9 @@
               <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
             </inputParameterUsages_ExternalCallAction>
           </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_aK4QYHigEduukpybJ6mGaw" predecessor_AbstractAction="_mOvHAHikEduI2qb8vPxxKg"/>
         </bodyBehaviour_Loop>
-        <iterationCount_LoopAction specification="files.NUMBER_OF_ELEMENTS"/>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_q5848HikEduI2qb8vPxxKg" predecessor_AbstractAction="_QM0EwHigEduukpybJ6mGaw" successor_AbstractAction="_OdNIUHigEduukpybJ6mGaw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.1" role_ExternalService="_bpX4YHiEEdujPfhn5Gb-iA"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_fmGMoHiEEdujPfhn5Gb-iA" entityName="AudioStore">

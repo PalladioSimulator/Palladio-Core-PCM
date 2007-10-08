@@ -55,7 +55,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_25LecnNHEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
     <element xmi:type="pcm.seff:ExternalCallAction" href="Qosa.repository#_sde_EHjiEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_25Lec3NHEdyhjJ7vTdOFcQ" y="238"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_25Lec3NHEdyhjJ7vTdOFcQ" x="12" y="252"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_25UoVXNHEdyhjJ7vTdOFcQ" type="2003">
     <children xmi:type="notation:Node" xmi:id="_25UoWHNHEdyhjJ7vTdOFcQ" type="5002"/>

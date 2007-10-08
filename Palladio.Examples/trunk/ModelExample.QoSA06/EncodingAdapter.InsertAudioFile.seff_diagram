@@ -44,7 +44,7 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_ak_akXNIEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
         <element xmi:type="pcm.parameter:VariableUsage" href="Qosa.repository#//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@outputVariableUsages_ExternalCallAction.0"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ak_aknNIEdyhjJ7vTdOFcQ" x="7" y="9"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ak_aknNIEdyhjJ7vTdOFcQ" x="-5" y="-6"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_TXpqLXNIEdyhjJ7vTdOFcQ"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_TXpqLnNIEdyhjJ7vTdOFcQ" showTitle="true"/>
