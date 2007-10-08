@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.pcmbench.tabs.table;
+package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;

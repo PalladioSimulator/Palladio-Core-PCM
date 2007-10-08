@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.tabs.table;
+package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -18,21 +18,18 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
-import org.eclipse.swt.widgets.ToolItem;
 
 import de.uka.ipd.sdq.pcm.dialogs.parameters.ParametersDialog;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsImages;
+import de.uka.ipd.sdq.pcmbench.tabs.EditorSection;
 
-public class OperationsTabViewer {
+public class OperationsTabViewer extends EditorSection {
 
-	private TableViewer tableViewer;
-	private Table table;
-	private ToolBar toolBar;
-	private ToolItem addItem, deleteItem;
+	public OperationsTabViewer(Composite composite) {
+		super(composite);
+	}
+
 	private Signature selectedSignature;
-	private String[] columnNames;
-	private TransactionalEditingDomain editingDomain;
 	private CellEditor[] editors;
 
 	public static final int ICON_COLUMN_INDEX = 0;
@@ -52,37 +49,26 @@ public class OperationsTabViewer {
 	public final static String EXEPTIONTYPE_COLUM		= "ExeptionType";
 	
 	//	 Set column names of Tabele
-	private static String[] operationsTableColumn = new String[] { OPERATIONS_ICON_COLUMN,RETURNTYPE_COLUMN,
+	public static String[] columnNames = new String[] { OPERATIONS_ICON_COLUMN,RETURNTYPE_COLUMN,
 			SERVICENAME_COLUMN, OWNEDPARAMETER_COLUMN, EXEPTIONTYPE_COLUM };
 
-	public static String[] getOperationsTableColumn() {
-		return operationsTableColumn;
-	}
-
-	public OperationsTabViewer(Composite composite) {
-		/**
-		 * @See composite -
-		 *      de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection#createControls(Composite,
-		 *      TabbedPropertySheetPage)
-		 */
-		columnNames = getOperationsTableColumn();
-
-		this.createToolBar(composite);
-		this.createTable(composite);
-		this.createTableViewer(composite);
-	}
 
 	public void setEditingDomain(TransactionalEditingDomain editingDomain){
-		this.editingDomain = editingDomain;
 		((TypeDialogCellEditor)editors[RETURNTYPE_COLUMN_INDEX]).setEditingDomain(editingDomain);
 	}
-	public void createTable(Composite composite) {
+
+	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.EditorSection#createTable(org.eclipse.swt.widgets.Composite, org.eclipse.swt.widgets.ToolBar)
+	 */
+	@Override
+	protected Table createTable(Composite composite, ToolBar toolBar) {
 
 		// style the style of table to construct
 		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
 				| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
 
-		table = new Table(composite, style);
+		Table table = new Table(composite, style);
 
 		FormData data = new FormData();
 		data.left = new FormAttachment(0, 0);
@@ -99,26 +85,29 @@ public class OperationsTabViewer {
 		column.setWidth(25);
 
 		for (int i = 1; i < columnNames.length; i++) {
-
 			// n-te column with task Description
 			column = new TableColumn(table, SWT.LEFT, i);
 			column.setText((String) columnNames[i]);
 			column.setWidth(140);
 		}
+		
+		return table;
 	}
 
-	public void createTableViewer(Composite composite) {
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.EditorSection#createViewer(org.eclipse.swt.widgets.Table)
+	 */
+	@Override
+	protected TableViewer createViewer(Table table) {
 
-		CellEditor textEditor;
-
-		tableViewer = new TableViewer(table);
+		final TableViewer tableViewer = new TableViewer(table);
 		tableViewer.setUseHashlookup(true);
 		tableViewer.setColumnProperties(columnNames);
 
 		// Create the cell editors
 		editors = new CellEditor[columnNames.length];
 
-		textEditor = new TextCellEditor(table);
+		CellEditor textEditor = new TextCellEditor(table);
 		editors[SIGNATURENAME_COLUMN_INDEX] = textEditor;
 
 		textEditor = new TextCellEditor(table);
@@ -148,7 +137,7 @@ public class OperationsTabViewer {
 						Object selected;
 						IStructuredSelection selection = new StructuredSelection();
 						if (!event.getSelection().isEmpty()) {
-							deleteItem.setEnabled(true);
+							getDeleteButton().setEnabled(true);
 
 							selection = (IStructuredSelection) event
 									.getSelection();
@@ -164,54 +153,12 @@ public class OperationsTabViewer {
 									.setEditedSignature(selectedSignature);
 
 						} else
-							deleteItem.setEnabled(false);
+							getDeleteButton().setEnabled(false);
 					}
 				});
 		// TODO
 		OperationsTabRepository.setOperationsViewer(tableViewer);
-	}
-
-	public void createToolBar(Composite composite) {
-
-		FormData fd = new FormData();
-		fd.left = new FormAttachment(96, 0);
-		fd.top = new FormAttachment(0, 0);
-		fd.right = new FormAttachment(100, 0);
-		fd.bottom = new FormAttachment(100, 0);
-
-		toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
-
-		addItem = new ToolItem(toolBar, SWT.PUSH);
-		addItem.setImage(PCMBenchTabsImages.imageRegistry
-				.get(PCMBenchTabsImages.ADD_SIGN));
-		addItem.addSelectionListener(AddActionListener.getSingelton());
-
-		deleteItem = new ToolItem(toolBar, SWT.PUSH);
-		deleteItem.setImage( PCMBenchTabsImages.imageRegistry
-				.get(PCMBenchTabsImages.DELETE_SIGN));
-		deleteItem.setEnabled(false);
-		deleteItem.addSelectionListener(DeleteActionListener.getSingelton());
-
-		toolBar.setLayoutData(fd);
-	}
-
-	public TableViewer getTableViewer() {
+		
 		return tableViewer;
 	}
-
-	/**
-	 * @return the selectedSignature
-	 */
-	public Signature getSelectedSignature() {
-		return selectedSignature;
-	}
-
-	/**
-	 * @param selectedSignature
-	 *            the selectedSignature to set
-	 */
-	public void setSelectedSignature(Signature selectedSignature) {
-		this.selectedSignature = selectedSignature;
-	}
-
 }

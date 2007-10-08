@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.tabs.table;
+package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;

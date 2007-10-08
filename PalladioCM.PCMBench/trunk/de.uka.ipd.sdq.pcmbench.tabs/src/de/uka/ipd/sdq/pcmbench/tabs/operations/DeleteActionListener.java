@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.tabs.table;
+package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -8,29 +8,30 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-public class AddActionListener extends SelectionAdapter {
 
+public class DeleteActionListener extends SelectionAdapter {
+
+	private Signature selectedSignature;
 	private Interface selectedInterface;
 	
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
-	 protected TransactionalEditingDomain editingDomain = null;
-	
+	protected TransactionalEditingDomain editingDomain = null;
+
 	/**
 	 * singleton design patterns
 	 */
-	private static AddActionListener singleton = null;
+	private static DeleteActionListener singleton = null;
 
-	private AddActionListener(){
+	private DeleteActionListener() {
 	}
 	
-	public synchronized static AddActionListener getSingelton(){
+	public synchronized static DeleteActionListener getSingelton(){
 		if (singleton == null)
-			singleton = new AddActionListener();  
+			singleton = new DeleteActionListener();  
 		return singleton;
 	}
 	
@@ -38,18 +39,17 @@ public class AddActionListener extends SelectionAdapter {
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
+		Assert.isNotNull(selectedSignature);
 		Assert.isNotNull(selectedInterface);
 		
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				Signature signature = RepositoryFactory.eINSTANCE.createSignature();
-				signature.setServiceName("ServiceName" + (selectedInterface.getSignatures__Interface().size()+ 1));
-				selectedInterface.getSignatures__Interface().add(signature);
+					selectedInterface.getSignatures__Interface().remove(selectedSignature);
 			}		
 		};
 		
-		recCommand.setDescription("Add new signature");
+		recCommand.setDescription("Delete ...");
 		editingDomain.getCommandStack().execute(recCommand);
 	}
 
@@ -58,7 +58,20 @@ public class AddActionListener extends SelectionAdapter {
 	 */
 	public void setSelectedInterface(Interface selectedInterface) {
 		this.selectedInterface = selectedInterface;
-		this.editingDomain = TransactionUtil.getEditingDomain(this.selectedInterface);
+		this.editingDomain = TransactionUtil.getEditingDomain(selectedInterface);
 	}
 
+	/**
+	 * @param selectedSignature the selectedSignature to set
+	 */
+	public void setSelectedSignature(Signature selectedSignature) {
+		this.selectedSignature = selectedSignature;
+	}
+
+	/**
+	 * @return the selectedInterface
+	 */
+	public Interface getSelectedInterface() {
+		return selectedInterface;
+	}
 }

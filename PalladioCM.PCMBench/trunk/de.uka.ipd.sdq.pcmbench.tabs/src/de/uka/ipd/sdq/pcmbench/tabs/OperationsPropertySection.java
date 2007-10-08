@@ -12,7 +12,6 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
@@ -22,10 +21,10 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.tabs.table.AddActionListener;
-import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabViewer;
-import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.tabs.table.DeleteActionListener;
+import de.uka.ipd.sdq.pcmbench.tabs.operations.AddActionListener;
+import de.uka.ipd.sdq.pcmbench.tabs.operations.DeleteActionListener;
+import de.uka.ipd.sdq.pcmbench.tabs.operations.OperationsTabItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.tabs.operations.OperationsTabViewer;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
@@ -36,11 +35,7 @@ public class OperationsPropertySection extends AbstractPropertySection {
 	/**
 	 * The Property Sheet Page used to display the standard properties
 	 */
-
-	private TableViewer tableViewer;
-
 	private ComposedAdapterFactory adapterFactory;
-
 	private OperationsTabViewer sectionTable;
 
 	/**
@@ -52,26 +47,31 @@ public class OperationsPropertySection extends AbstractPropertySection {
 
 		super.createControls(parent, tabbedPropertySheetPage);
 		Composite composite = getWidgetFactory()
-			.createFlatFormComposite(parent);
-		
+				.createFlatFormComposite(parent);
+
 		adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
-		.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
 		adapterFactory
-		.addAdapterFactory(new SeffItemProviderAdapterFactory());
+				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory
-		.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory
-		.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		
+				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
 		sectionTable = new OperationsTabViewer(composite);
-		tableViewer = sectionTable.getTableViewer();
-		tableViewer.setContentProvider(new AdapterFactoryContentProvider(
-				adapterFactory));
-		tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(
-				new OperationsTabItemProviderAdapterFactory(
-						new PalladioItemProviderAdapterFactory(adapterFactory))));
-		
+		sectionTable
+				.setViewerContentProvider(new AdapterFactoryContentProvider(
+						adapterFactory));
+		sectionTable
+				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
+						new OperationsTabItemProviderAdapterFactory(
+								new PalladioItemProviderAdapterFactory(
+										adapterFactory))));
+		sectionTable.setAddButtonSelectionListener(AddActionListener
+				.getSingelton());
+		sectionTable.setDeleteButtonSelectionListener(DeleteActionListener
+				.getSingelton());
+
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class OperationsPropertySection extends AbstractPropertySection {
 		}
 		
 		Assert.isTrue(input instanceof EObject);
-		tableViewer.setInput(input);
+		sectionTable.getViewer().setInput(input);
 	    sectionTable.setEditingDomain(TransactionUtil.getEditingDomain(input));
 
 		/* (non-Javadoc) set the current selection interface in the
@@ -123,7 +123,7 @@ public class OperationsPropertySection extends AbstractPropertySection {
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		tableViewer.refresh();
+		sectionTable.getViewer().refresh();
 	}
 
 	/**

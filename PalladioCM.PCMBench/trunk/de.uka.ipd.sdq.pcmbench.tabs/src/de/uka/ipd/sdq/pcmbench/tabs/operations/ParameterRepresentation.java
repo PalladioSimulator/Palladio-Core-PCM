@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.tabs.table;
+package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import java.util.Iterator;
 

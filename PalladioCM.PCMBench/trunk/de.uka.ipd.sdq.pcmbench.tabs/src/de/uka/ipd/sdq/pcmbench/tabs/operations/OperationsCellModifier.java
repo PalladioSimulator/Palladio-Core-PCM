@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.tabs.table;
+package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,8 +33,7 @@ public class OperationsCellModifier implements ICellModifier {
 	protected TransactionalEditingDomain editingDomain = null;
 
 	public OperationsCellModifier() {
-		this.columnNames = Arrays.asList(OperationsTabViewer
-				.getOperationsTableColumn());
+		this.columnNames = Arrays.asList(OperationsTabViewer.columnNames);
 	}
 
 	/*
