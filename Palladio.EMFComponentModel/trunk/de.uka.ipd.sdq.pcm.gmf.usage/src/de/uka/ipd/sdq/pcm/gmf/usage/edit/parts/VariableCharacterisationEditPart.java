@@ -69,6 +69,8 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextSele
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.VariableCharacterisationItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelParserProvider;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -224,16 +226,13 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
 		String text = null;
-		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
-		}
+		VariableCharacterisation vc = (VariableCharacterisation) this.resolveSemanticElement();
+		text = vc.getType().getLiteral() + " = ";
+		text += new PCMStoExPrettyPrintVisitor().prettyPrint(vc.getSpecification_VariableCharacterisation().getExpression());
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}

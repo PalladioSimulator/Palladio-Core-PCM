@@ -31,6 +31,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.VariableUsageItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -261,12 +263,14 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated
+		 * @generated not
 		 */
 		private void createContents() {
 
 			fFigureVariableUsageReferenceLabelFigure = new WrapLabel();
-			fFigureVariableUsageReferenceLabelFigure.setText("<?>");
+			fFigureVariableUsageReferenceLabelFigure.setText(
+					new PCMStoExPrettyPrintVisitor().prettyPrint(
+					((VariableUsage)resolveSemanticElement()).getNamedReference_VariableUsage()));
 
 			this.add(fFigureVariableUsageReferenceLabelFigure);
 
