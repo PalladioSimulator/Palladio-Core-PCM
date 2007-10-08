@@ -64,6 +64,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.OpenStoExDialog;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.OpenVariableCharacterisationDialog;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.VariableCharacterisationItemSemanticEditPolicy;
@@ -134,7 +135,8 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenStoExDialog());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenVariableCharacterisationDialog());
 	}
 
 	/**
@@ -230,9 +232,11 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = null;
-		VariableCharacterisation vc = (VariableCharacterisation) this.resolveSemanticElement();
+		VariableCharacterisation vc = (VariableCharacterisation) this
+				.resolveSemanticElement();
 		text = vc.getType().getLiteral() + " = ";
-		text += new PCMStoExPrettyPrintVisitor().prettyPrint(vc.getSpecification_VariableCharacterisation().getExpression());
+		text += new PCMStoExPrettyPrintVisitor().prettyPrint(vc
+				.getSpecification_VariableCharacterisation().getExpression());
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
