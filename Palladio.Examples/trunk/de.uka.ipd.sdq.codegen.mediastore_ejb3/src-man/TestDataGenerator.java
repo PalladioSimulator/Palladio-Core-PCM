@@ -42,9 +42,9 @@ public class TestDataGenerator {
 
 	public static void readMetadataFromFiles() {
 		ArrayList<File> allMP3Files = new ArrayList<File>(1000);
-		//visitAllFiles(new File("y:/New MP3 Lib"),".mp3",true,allMP3Files);
+		visitAllFiles(new File("y:/hda7/media/New MP3 Lib"),".mp3",true,allMP3Files);
 		//visitAllFiles(new File("y:/Mp3"),".mp3",true, allMP3Files);
-		visitAllFiles(new File("y:/"),".mp3",true, allMP3Files);
+		//visitAllFiles(new File("y:/"),".mp3",true, allMP3Files);
 		EntityManager em2 = emFactory.createEntityManager();
 		EntityTransaction t = em2.getTransaction();
 		t.begin();
@@ -98,13 +98,13 @@ public class TestDataGenerator {
 
 	public static void main(String[] args) {
 		System.out.println("--- Start: Reading Movie Files ---");
-		readMovieFiles();
+//		readMovieFiles();
 		System.out.println("--- Reading MP3 Files ---");
-//		readMetadataFromFiles();
+		readMetadataFromFiles();
 		System.out.println("--- Generating Movie Files ---");
-		generatePseudoMovieFiles(10000);
-//		System.out.println("--- Generating MP3 Files ---");
-//		//generateMetaData(250000);
+//		generatePseudoMovieFiles(10000);
+		System.out.println("--- Generating MP3 Files ---");
+		generateMetaData(250000);
 //		System.out.println("--- Testing ---");
 		EntityManager em = emFactory.createEntityManager();
 //		//List<MediaFile> queryResult = em.createQuery("SELECT file FROM VideoFile file WHERE file.movieTitle LIKE '%"+"geister"+"%'").getResultList();

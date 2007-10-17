@@ -5,7 +5,7 @@
       <children xmi:type="notation:Node" xmi:id="_UxF3YHNKEdyhjJ7vTdOFcQ" type="3001">
         <styles xmi:type="notation:ShapeStyle" xmi:id="_UxF3YXNKEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
         <element xmi:type="pcm.usagemodel:Start" href="qosa.usagemodel#_GVWmknNKEdyhjJ7vTdOFcQ"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UxF3YnNKEdyhjJ7vTdOFcQ" x="31" y="114"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UxF3YnNKEdyhjJ7vTdOFcQ" x="43" y="90"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_UxF3Y3NKEdyhjJ7vTdOFcQ" type="3003">
         <children xmi:type="notation:Node" xmi:id="_UxF3ZnNKEdyhjJ7vTdOFcQ" type="5004"/>
@@ -39,12 +39,12 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_UxF3ZHNKEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
         <element xmi:type="pcm.usagemodel:EntryLevelSystemCall" href="qosa.usagemodel#_GVWmk3NKEdyhjJ7vTdOFcQ"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UxF3ZXNKEdyhjJ7vTdOFcQ" x="91" y="18" width="409" height="205"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UxF3ZXNKEdyhjJ7vTdOFcQ" x="91" y="18" width="433" height="157"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_UxF3anNKEdyhjJ7vTdOFcQ" type="3002">
         <styles xmi:type="notation:ShapeStyle" xmi:id="_UxF3a3NKEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
         <element xmi:type="pcm.usagemodel:Stop" href="qosa.usagemodel#_GVWmlXNKEdyhjJ7vTdOFcQ"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UxF3bHNKEdyhjJ7vTdOFcQ" x="535" y="102"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UxF3bHNKEdyhjJ7vTdOFcQ" x="547" y="102"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Uw8GZHNKEdyhjJ7vTdOFcQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Uw8GZXNKEdyhjJ7vTdOFcQ"/>

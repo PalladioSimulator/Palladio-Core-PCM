@@ -28,15 +28,15 @@ public class DownloadFiles implements java.lang.Runnable {
     	
     	int[] ids = new int[count];
     	for (int i=0; i<count; i++){
-    		ids[i] = (int)(Math.random()*4100)+1;
+    		ids[i] = (int)(Math.random()*1500)+1;
     	}
         System.out.println("Start run "+count);
         long start = System.nanoTime();
     	{
-            //m_portIHTTP.downloadHTTP(ids);
+            m_portIHTTP.downloadHTTP(ids);
             // m_portIHTTP.downloadHTTP(new int[]{1,2,3});
-    		//m_portIHTTP.queryFileByField("truckstop", ARTIST);
-    		m_portIHTTP.queryFileByField("anno_1701", MOVIE);
+    		// m_portIHTTP.queryFileByField("truckstop", ARTIST);
+    		// m_portIHTTP.queryFileByField("anno_1701", MOVIE);
         }
     	long result = System.nanoTime()-start;
     	System.out.println("Result: "+result / Math.pow(10,9));
