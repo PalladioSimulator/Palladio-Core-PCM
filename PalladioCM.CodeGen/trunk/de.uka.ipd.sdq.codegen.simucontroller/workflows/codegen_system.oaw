@@ -24,7 +24,7 @@
     	<brokerLookup value="${brokerLookup}"/>
 	</component>
 	
-	<!-- 
+	
 	<component class="oaw.emf.XmiWriter">
 		<modelFile value="${systemFile}.intermediate.repository"/>
 		<inputSlot value="completionRepository"/>
@@ -34,7 +34,7 @@
 		<modelFile value="${systemFile}.intermediate.system"/>
 		<inputSlot value="pcmmodel"/>
 	</component>
- 	-->
+ 	
  	
 	<component
 		class="org.openarchitectureware.check.CheckComponent">
@@ -144,15 +144,12 @@
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
-			<outlet path="${outpath}">
-			</outlet>
+			<outlet path="${ejbsOutpath}" />
+
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
-			<!--
-	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-				organizeImports="true"
-				format="true"/>	
-			-->
-			<prSrcPaths value="${outpath}"/>
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
+		<prSrcPaths value="${ejbsOutpath}"/>
+        <prExcludes value=".svn"/>		
 	</component>	
 	
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
@@ -232,14 +229,10 @@
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::allocation::AllocationTM FOR allocation"/>
-			<outlet path="${outpath}">
-			</outlet>
+			<outlet path="${ejbsOutpath}" />
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
-			<!--
-	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-				organizeImports="true"
-				format="true"/>	
-			-->
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
+        <prExcludes value=".svn"/>		
 	</component>	
 
 	<component adviceTarget="generator2" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">

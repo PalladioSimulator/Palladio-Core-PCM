@@ -73,8 +73,13 @@ public abstract class AttributesGetMethods {
 					.getAttribute(ConstantsContainer.ALLOCATION_FILE, ""));
 			properties.put(ConstantsContainer.USAGE_FILE, configuration
 					.getAttribute(ConstantsContainer.USAGE_FILE, ""));
-			properties.put(ConstantsContainer.OUTPUT_PATH, configuration
-					.getAttribute(ConstantsContainer.OUTPUT_PATH, ""));
+			
+			String basePath = configuration.getAttribute(ConstantsContainer.OUTPUT_PATH, "");
+			properties.put(ConstantsContainer.EAROUT_PATH, basePath);
+			properties.put(ConstantsContainer.INTERFACESOUT_PATH, basePath);
+			properties.put(ConstantsContainer.CLIENTOUT_PATH, basePath);
+			properties.put(ConstantsContainer.EJBSOUT_PATH, basePath);
+			
 			properties.put(ConstantsContainer.SIMULATE_LINKING_RESOURCES, configuration
 					.getAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES, true) ? "true" : "false");
 			properties.put("brokerLookup", configuration

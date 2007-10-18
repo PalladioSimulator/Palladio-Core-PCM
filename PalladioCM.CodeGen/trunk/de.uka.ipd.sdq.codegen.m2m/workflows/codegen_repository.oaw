@@ -3,9 +3,14 @@
 	<property file='./workflows/codegen.properties'/>
 	<property file='${propertyFile}'/>
 	
-	<component class="oaw.emf.XmiReader">
+	<component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">
 		<modelFile value="${repositoryFile}"/>
 		<outputSlot value="pcmmodel"/>
+	</component>
+	
+	<component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">
+		<modelFile value="${featureFile}"/>
+		<outputSlot value="featureConfig"/>
 	</component>
     
 	<component
@@ -88,9 +93,19 @@
 		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
+		<metaModel class="oaw.type.emf.EmfMetaModel"> 
+			<metaModelPackage value="de.uka.ipd.sdq.featuremodel.featuremodelPackage"/>
+   		</metaModel> 		
+		<metaModel class="oaw.type.emf.EmfMetaModel"> 
+			<metaModelPackage value="de.uka.ipd.sdq.featureconfig.featureconfigPackage"/>
+   		</metaModel> 		
+		<metaModel class="oaw.type.emf.EmfMetaModel"> 
+			<metaModelPackage value="org.eclipse.emf.ecore.EcorePackage"/>
+   		</metaModel> 		
+		<globalVarDef name="Features" value="featureConfig"/>
 		<expand value="m2t_transforms::repository::Root FOR pcmmodel"/>
-			<outlet path="${outpath}">
-			</outlet>
+			<outlet path="${ejbsOutpath}" />
+			<outlet path="${interfacesOutpath}" name="INTERFACES" />
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
 				<configFile value="org.eclipse.jdt.core.prefs"/>
 			</beautifier>
@@ -100,7 +115,7 @@
 				format="true"/>	
 			-->
 		<!-- protected regions configuration -->
-		<prSrcPaths value="${outpath}"/>
+		<prSrcPaths value="${ejbsOutpath}"/>
         <prExcludes value=".svn"/>		
 	</component>	
 	

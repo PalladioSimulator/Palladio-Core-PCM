@@ -55,18 +55,13 @@
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::usage::UsageModel(allocation) FOR pcmmodel"/>
-		<outlet path="${outpath}">
-			</outlet>
+			<outlet path="${clientOutpath}" />
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
 				<configFile value="org.eclipse.jdt.core.prefs"/>
 			</beautifier>
-			<!--
-	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-				organizeImports="true"
-				format="true"/>	
-			-->
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
 		<!-- protected regions configuration -->
-		<prSrcPaths value="${outpath}"/>
+		<prSrcPaths value="${clientOutpath}"/>
         <prExcludes value=".svn"/>		
 	</component>	
 
@@ -116,10 +111,14 @@
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>		
 		<expand value="m2t_transforms::build::BuildScripts FOR pcmmodel"/>
-		<outlet path="${outpath}">
-			</outlet>
+			<outlet path="${clientOutpath}" />
+			<outlet path="${earOutpath}" name="EAR" />
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
+				<configFile value="org.eclipse.jdt.core.prefs"/>
+			</beautifier>
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
 		<!-- protected regions configuration -->
-		<prSrcPaths value="${outpath}"/>
+		<prSrcPaths value="${clientOutpath}"/>
         <prExcludes value=".svn"/>		
 	</component>	
 

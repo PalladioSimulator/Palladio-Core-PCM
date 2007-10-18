@@ -4,22 +4,28 @@
 	<property file='${propertyFile}'/>
 	-->
 	
-	<component class="oaw.emf.XmiReader">
+	<component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">
 		<modelFile value="${repositoryFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
-    
+	
+<!-- <component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">
+		<modelFile value="${featureFile}"/>
+		<outputSlot value="featureConfig"/>
+	</component>
+ -->
+     
 	<component
 		class="org.openarchitectureware.check.CheckComponent">
-	    <metaModel id="pcm.core.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
-		</metaModel>	    
+	    <metaModel id="id.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.identifier.IdentifierPackage"/>
+		</metaModel>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>
-		<metaModel id="pcm.core.resourceenv" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
-		</metaModel>
+	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
+		</metaModel>	    
 		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
 		</metaModel>
@@ -35,11 +41,17 @@
 		<metaModel id="pcm.allocation.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
 		</metaModel>
-		<metaModel id="pcm.usage.emf" class="oaw.type.emf.EmfMetaModel">
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
 		</metaModel>		
-		<metaModel id="pcm.parameter.emf" class="oaw.type.emf.EmfMetaModel">
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>
+		<metaModel id="pcm.resourceenvironment" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
 		</metaModel>
 		<checkFile value="pcm"/>
 		<expression value="pcmmodel.eAllContents"/>
@@ -47,12 +59,15 @@
 
 	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
 		<fileEncoding value="ISO-8859-1"/>
-	    <metaModel id="pcm.core.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
-		</metaModel>	    
+	    <metaModel id="id.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.identifier.IdentifierPackage"/>
+		</metaModel>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>
+	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
+		</metaModel>	    
 		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
 		</metaModel>
@@ -69,6 +84,9 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
+		</metaModel>
+		<metaModel id="pcm.usage.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
 		</metaModel>		
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
@@ -77,24 +95,35 @@
 		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
-		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
-		</metaModel>
+		<metaModel class="oaw.type.emf.EmfMetaModel"> 
+			<metaModelPackage value="de.uka.ipd.sdq.featuremodel.featuremodelPackage"/>
+   		</metaModel> 		
+		<metaModel class="oaw.type.emf.EmfMetaModel"> 
+			<metaModelPackage value="de.uka.ipd.sdq.featureconfig.featureconfigPackage"/>
+   		</metaModel> 		
+		<metaModel class="oaw.type.emf.EmfMetaModel"> 
+			<metaModelPackage value="org.eclipse.emf.ecore.EcorePackage"/>
+   		</metaModel> 		
+<!-- 		<globalVarDef name="Features" value="featureConfig"/>  -->
 		<expand value="m2t_transforms::repository::Root FOR pcmmodel"/>
-			<outlet path="${outpath}">
-			</outlet>
-			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
+			<outlet path="${ejbsOutpath}" />
+			<outlet path="${interfacesOutpath}" name="INTERFACES" />
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
+				<configFile value="org.eclipse.jdt.core.prefs"/>
+			</beautifier>
 			<!--
 	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
 				organizeImports="true"
 				format="true"/>	
 			-->
 		<!-- protected regions configuration -->
-		<prSrcPaths value="${outpath}"/>
+		<prSrcPaths value="${ejbsOutpath}"/>
+        <prExcludes value=".svn"/>		
 	</component>	
 	
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
 		<advices value="${aop_templates}"/>
 	</component>	
+
 
 </workflow>

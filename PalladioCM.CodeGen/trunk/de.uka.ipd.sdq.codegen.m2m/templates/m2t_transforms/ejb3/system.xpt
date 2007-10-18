@@ -7,7 +7,7 @@
 
 
 «DEFINE DeploymentDescriptor FOR System»
-	«FILE "ejb-jar.xml"»
+	«FILE "META-INF/ejb-jar.xml"»
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ejb-jar xmlns = "http://java.sun.com/xml/ns/javaee" 

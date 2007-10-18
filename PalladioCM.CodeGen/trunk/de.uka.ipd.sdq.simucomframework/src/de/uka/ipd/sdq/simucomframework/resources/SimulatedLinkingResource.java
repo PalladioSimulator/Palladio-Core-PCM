@@ -6,19 +6,20 @@ import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
 public class SimulatedLinkingResource extends AbstractScheduledResource {
 	
-	private double throughput;
+	private String throughput;
 	private String latencySpec;
 	
-	public SimulatedLinkingResource(SimuComModel myModel, String typeID, String description, double throughput, String latencySpec)
+	public SimulatedLinkingResource(SimuComModel myModel, String typeID, String description, String d, String latencySpec)
 	{
 		super (myModel, typeID, description, SchedulingStrategy.FCFS);
 		this.latencySpec = latencySpec;
-		this.throughput = throughput;
+		this.throughput = d;
 	}
 
 	@Override
 	protected double calculateDemand(double demand) {
-		return NumberConverter.toDouble(StackContext.evaluateStatic(latencySpec)) + demand/throughput;
+		return NumberConverter.toDouble(StackContext.evaluateStatic(latencySpec)) + 
+				demand/NumberConverter.toDouble(StackContext.evaluateStatic(throughput));
 	}
 
 }

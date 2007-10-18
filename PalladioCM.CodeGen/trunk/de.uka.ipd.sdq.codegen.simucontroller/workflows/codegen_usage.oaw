@@ -91,16 +91,14 @@
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::usage::UsageModel(allocation) FOR pcmmodel"/>
-		<outlet path="${outpath}">
-			</outlet>
-			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
-			<!--
-	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-				organizeImports="true"
-				format="true"/>	
-			-->
+			<outlet path="${clientOutpath}" />
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
+				<configFile value="org.eclipse.jdt.core.prefs"/>
+			</beautifier>
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
 		<!-- protected regions configuration -->
-		<prSrcPaths value="${outpath}"/>
+		<prSrcPaths value="${clientOutpath}"/>
+        <prExcludes value=".svn"/>	
 	</component>	
 
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">

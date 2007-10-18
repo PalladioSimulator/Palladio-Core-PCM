@@ -49,14 +49,10 @@
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>		
 		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
-			<outlet path="${outpath}">
-			</outlet>
+			<outlet path="${ejbsOutpath}" />
+
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
-			<!--
-	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-				organizeImports="true"
-				format="true"/>	
-			-->
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
         <prExcludes value=".svn"/>		
 	</component>	
 	
@@ -103,14 +99,9 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::allocation::AllocationTM FOR allocation"/>
-			<outlet path="${outpath}">
-			</outlet>
+			<outlet path="${ejbsOutpath}" />
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
-			<!--
-	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-				organizeImports="true"
-				format="true"/>	
-			-->
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
         <prExcludes value=".svn"/>		
 	</component>	
 

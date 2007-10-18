@@ -1,0 +1,28 @@
+import featuremodel;
+import featureconfig;
+extension org::openarchitectureware::util::stdlib::io;
+
+Configuration getConfiguration() : GLOBALVAR Features;
+
+FeatureConfig getDefaultFeatureConfig() : getConfiguration().defaultConfig;
+
+FeatureConfig getFeatureConfig(Object o) : 
+	getConfiguration().configOverrides.select(conf|conf.referencedObject == o).size > 0 ?
+		getConfiguration().configOverrides.select(conf|conf.referencedObject == o).first()
+	:
+		null;
+
+boolean isFeatureSetRecursive(ConfigNode n, String featureName) :
+   	if n.origin.name == featureName then 
+   		n.configState == ConfigState::USER_SELECTED || n.configState == ConfigState::MASCHINE_SELECTED
+   	else
+   		n.children != null && n.children.exists(c|c.isFeatureSetRecursive(featureName));
+   		 
+boolean isFeatureSet(String featureName) :
+	isFeatureSetRecursive(getDefaultFeatureConfig(),featureName);
+	
+boolean isFeatureSet(Object o, String featureName) :
+	if o.getFeatureConfig() != null then
+		isFeatureSetRecursive(o.getFeatureConfig(),featureName)
+	else
+		isFeatureSetRecursive(getDefaultFeatureConfig(),featureName);	

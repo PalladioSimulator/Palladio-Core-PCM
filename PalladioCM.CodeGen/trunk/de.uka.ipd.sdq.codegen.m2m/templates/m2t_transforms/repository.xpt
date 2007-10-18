@@ -16,7 +16,7 @@
 «ENDDEFINE»
 
 «DEFINE InterfaceFile FOR Interface»
-   «FILE this.getFileName()»
+   «FILE this.getFileName() INTERFACES»
       package «this.repository_Interface.basePackageName()»;
             
       public interface «this.javaName()» {

@@ -15,7 +15,7 @@
 «ENDDEFINE» 
 
 «DEFINE BuildProperties FOR UsageModel»
-	«FILE "build.properties"»
+	«FILE "build.properties" EAR»
 	«PROTECT CSTART '#' CEND '#' ID "build-properties"»
 # Name of the application to build
 projectname=pcm-generated-default-name
@@ -42,7 +42,7 @@ output=output
 «ENDDEFINE»
 
 «DEFINE FileList FOR UsageModel»
-	«FILE "../generated-filesets.xml"»
+	«FILE "generated-filesets.xml" EAR»
 <project name="generated-filesets">
 
 	<fileset id="client-classes" dir="${dist-dir}">
@@ -72,7 +72,7 @@ output=output
 «ENDDEFINE»
 
 «DEFINE ClientXML FOR UsageModel»
-«FILE "application-client.xml"»
+«FILE "META-INF/application-client.xml"»
 <?xml version="1.0" encoding="UTF-8"?>
 «PROTECT CSTART '<!--' CEND '-->' ID "ClientXML" DISABLE»
 <application-client version="5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application-client_5.xsd">
@@ -97,7 +97,7 @@ output=output
 «ENDDEFINE»
 
 «DEFINE ApplicationXML FOR UsageModel»
-«FILE "application.xml"»
+«FILE "META-INF/application.xml" EAR»
 <?xml version="1.0" encoding="UTF-8"?>
 «PROTECT CSTART '<!--' CEND '-->' ID "ApplicationXML" DISABLE»
 <application version="5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd">

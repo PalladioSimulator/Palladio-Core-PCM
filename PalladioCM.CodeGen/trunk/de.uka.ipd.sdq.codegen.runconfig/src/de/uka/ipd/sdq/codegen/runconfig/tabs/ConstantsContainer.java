@@ -40,6 +40,10 @@ public class ConstantsContainer {
 	/** Feature options tab*/
 	public static final String SIMULATE_LINKING_RESOURCES = "respectLinkingResources";
 	public static final String COMPONENT_LOOKUP = "componentLookup";
+	public static final String EAROUT_PATH = "earOutpath";
+	public static final String INTERFACESOUT_PATH = "interfacesOutpath";
+	public static final String CLIENTOUT_PATH = "clientOutpath";
+	public static final String EJBSOUT_PATH = "ejbsOutpath";
 
 	public static String WORKSPACE_LOCATION = ResourcesPlugin.getWorkspace()
 			.getRoot().getLocation().toString()

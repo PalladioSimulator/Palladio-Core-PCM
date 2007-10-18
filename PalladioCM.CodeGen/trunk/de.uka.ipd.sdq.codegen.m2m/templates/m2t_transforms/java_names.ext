@@ -25,7 +25,7 @@ specificationString(String s) :
    s.replaceAll('"','\\\\"');
  
 String javaSignature(Signature s) :
-   s.serviceName + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
+   s.serviceName;  // + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
          
 // TODO: Disable in Code Generations!
 String posInInterface(Signature s, int pos) :

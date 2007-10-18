@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
@@ -55,13 +56,13 @@ public class SeffBuilder {
 	public void build(BasicComponent basicComponent) {
 		for (ProvidedRole providedRole : basicComponent.getProvidedRoles_InterfaceProvidingEntity()) {
 			for (Signature providedService : providedRole.getProvidedInterface__ProvidedRole().getSignatures__Interface()){
-				ResourceDemandingSEFF seff = buildSeff(providedService);
+				ResourceDemandingSEFF seff = buildSeff(providedService,basicComponent.getRequiredRoles_InterfaceRequiringEntity().get(0));
 				basicComponent.getServiceEffectSpecifications__BasicComponent().add(seff);
 			}
 		}
 	}
 	
-	private ResourceDemandingSEFF buildSeff(Signature signature) {
+	private ResourceDemandingSEFF buildSeff(Signature signature, RequiredRole role) {
 		ResourceDemandingSEFF seff = SeffFactory.eINSTANCE.createResourceDemandingSEFF();
 		seff.setDescribedService__SEFF(signature);
 		
@@ -76,6 +77,7 @@ public class SeffBuilder {
 
 		DelegatingExternalCallAction delegatingCall = CompletionsFactory.eINSTANCE.createDelegatingExternalCallAction();
 		delegatingCall.setCalledService_ExternalService(signature);
+		delegatingCall.setRole_ExternalService(role);
 		lastAction = createControlFlow(lastAction, delegatingCall);
 
 		for (Object o : postActions) {
