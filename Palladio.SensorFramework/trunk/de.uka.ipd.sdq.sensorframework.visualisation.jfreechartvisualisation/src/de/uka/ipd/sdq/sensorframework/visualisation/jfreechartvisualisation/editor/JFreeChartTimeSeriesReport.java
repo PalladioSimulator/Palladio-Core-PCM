@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.edi
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
@@ -16,7 +17,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 import de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.JFreeChartTimeSeriesViewer;
 
 public class JFreeChartTimeSeriesReport extends AbstractReportView implements
-		ITabbedPropertySheetPageContributor, IVisualisation {
+		ITabbedPropertySheetPageContributor, IVisualisation<TimeSeries> {
 
 	public static String EDITOR_ID = "de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartTimeSeriesReport";
 	JFreeChartTimeSeriesViewer viewer;
@@ -27,24 +28,23 @@ public class JFreeChartTimeSeriesReport extends AbstractReportView implements
 		viewer = new JFreeChartTimeSeriesViewer(parent, 0);
 	}
 
-	public void addInput(Collection<?> c) {
+	public void addInput(Collection<TimeSeries> c) {
 		
 	}
 
-	public void deleteInput(Collection<?> c) {
+	public void deleteInput(Collection<TimeSeries> c) {
 		
 	}
 
-	public void setInput(Collection<?> c) {
-		
-		ArrayList<Object> result = new ArrayList<Object>();
-		for (Object o : c) {
-			if (o instanceof SensorAndMeasurements){
-				IAdapter adapter = AdapterRegistry.singleton().getAdapter(o, TimeSeries.class);
-				if (adapter != null)
-					result.add(adapter);
-			} 
-		}
-		viewer.setData(result);
+	public void setInput(Collection<TimeSeries> c) {
+		viewer.setData(c);
 	}
+	
+	@Override
+	protected void setInput(List<IAdapter> list) {
+		ArrayList<TimeSeries> viewerInput = new ArrayList<TimeSeries>();
+		for (IAdapter a : list)
+			viewerInput.add((TimeSeries) a.getAdaptedObject());
+		this.setInput(viewerInput);
+	}	
 }

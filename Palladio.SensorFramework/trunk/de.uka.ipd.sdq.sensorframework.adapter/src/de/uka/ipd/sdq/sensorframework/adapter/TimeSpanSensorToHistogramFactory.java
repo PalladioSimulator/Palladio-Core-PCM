@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
@@ -19,4 +20,15 @@ public class TimeSpanSensorToHistogramFactory implements IAdapterFactory {
 		return new TimeSpanToHistogramAdapter((SensorAndMeasurements) adaptee);
 	}
 
+	public String getMetricLabel() {
+		return "Response Time";
+	}
+
+	public String getAdapterFactoryID() {
+		return "TimeSpanToHistogramFactory";
+	}
+	
+	public boolean createsAdaptersFor(Class<?> targetClass) {
+		return targetClass.isAssignableFrom(Histogram.class);
+	}	
 }

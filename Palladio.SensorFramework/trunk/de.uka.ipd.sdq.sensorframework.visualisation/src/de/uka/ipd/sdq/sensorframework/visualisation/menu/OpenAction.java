@@ -10,10 +10,12 @@ import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 public class OpenAction extends Action {
 
 	private String editorID;
+	private String adapterFactoryID;
 
-	public OpenAction(String label, String editorID){
+	public OpenAction(String label, String adapterFactoryID, String editorID){
 		super(label);
 		this.editorID = editorID;
+		this.adapterFactoryID = adapterFactoryID;
 	}
 	
 	@Override
@@ -22,7 +24,7 @@ public class OpenAction extends Action {
 				.getActiveWorkbenchWindow().getActivePage();
 
 		try {
-			page.openEditor(new ConfigEditorInput(),
+			page.openEditor(new ConfigEditorInput(adapterFactoryID),
 					editorID);
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block

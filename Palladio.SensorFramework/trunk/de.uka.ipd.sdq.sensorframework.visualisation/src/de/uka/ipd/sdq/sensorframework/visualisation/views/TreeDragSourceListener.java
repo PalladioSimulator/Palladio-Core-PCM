@@ -10,6 +10,7 @@ import org.eclipse.ui.part.EditorInputTransfer;
 
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ViewAndAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.SensorValidationToView;
@@ -32,46 +33,55 @@ public class TreeDragSourceListener implements DragSourceListener {
 		IStructuredSelection selection = (IStructuredSelection) viewer
 				.getSelection();
 		Object object = selection.getFirstElement();
-		ConfigEditorInput editorInput = new ConfigEditorInput();
 		Object[] viewers = null;
 
 		if (EditorInputTransfer.getInstance().isSupportedType(event.dataType)) {
 			TreeObject treeObject = (TreeObject) object;
 			Object innerObject = treeObject.getObject();
+
 			/** Sensor */
 			if (innerObject instanceof Sensor) {
 				Sensor sensor = (Sensor) innerObject;
-				ExperimentRun run = treeObject.getRun();
-
-				ConfigEntry configEntry = new ConfigEntry(
-						treeObject.getDatasource(),
-						treeObject.getRun(),
-						treeObject.getExperiment(), sensor);
-				editorInput.addConfigEntry(configEntry);
-
 				/** return all view, which can represent the sensor */
-				viewers = SensorValidationToView.findViews(run
+				viewers = SensorValidationToView.findViews(treeObject.getRun()
 						.getMeasurementsOfSensor(sensor));
 			}
 			/** Experiment Run */
 			if (innerObject instanceof ExperimentRun) {
-				ExperimentRun run = (ExperimentRun) innerObject;
-				ConfigEntry configEntry = new ConfigEntry(treeObject.getDatasource(),
-						run, treeObject
-						.getExperiment(), null);
-				editorInput.addConfigEntry(configEntry);
-				
 				/** return all view */
 				viewers = SensorValidationToView.getConfigurationElements();
 			}
 
-			IConfigurationElement action = SensorValidationToView.getSelectedAction(event.display
+			ViewAndAdapterFactory selectedView = SensorValidationToView.getSelectedAction(event.display
 					.getActiveShell(), viewers);
-			EditorInputTransfer.EditorInputData[] transferArray = new EditorInputTransfer.EditorInputData[] { EditorInputTransfer
-					.createEditorInputData(action.getAttribute("editorID"),
-							editorInput) };
-			event.data = transferArray;
+			if (selectedView != null) {
 
+				ConfigEditorInput editorInput = new ConfigEditorInput(selectedView.getFactory().getAdapterFactoryID());
+				/** Sensor */
+				if (innerObject instanceof Sensor) {
+					Sensor sensor = (Sensor) innerObject;
+					ConfigEntry configEntry = new ConfigEntry(
+							treeObject.getDatasource(),
+							treeObject.getRun(),
+							treeObject.getExperiment(), sensor);
+					editorInput.addConfigEntry(configEntry);
+				}
+				/** Experiment Run */
+				if (innerObject instanceof ExperimentRun) {
+					ExperimentRun run = (ExperimentRun) innerObject;
+					ConfigEntry configEntry = new ConfigEntry(treeObject.getDatasource(),
+							run, treeObject
+							.getExperiment(), null);
+					editorInput.addConfigEntry(configEntry);
+				}
+				EditorInputTransfer.EditorInputData[] transferArray = new EditorInputTransfer.EditorInputData[] { EditorInputTransfer
+						.createEditorInputData(selectedView.getView().getAttribute("editorID"),
+								editorInput) };
+				event.data = transferArray;
+			} else {
+				event.data = null;
+				event.doit = false;
+			}
 		} else if (LocalSelectionTransfer.getTransfer().isSupportedType(
 				event.dataType)) {
 			LocalSelectionTransfer.getTransfer().setSelection(selection);

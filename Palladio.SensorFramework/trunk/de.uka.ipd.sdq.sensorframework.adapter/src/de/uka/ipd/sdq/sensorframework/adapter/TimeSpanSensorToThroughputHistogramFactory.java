@@ -1,34 +1,34 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
-public class TimeSpanSensorToTimeSeriesFactory implements IAdapterFactory {
+public class TimeSpanSensorToThroughputHistogramFactory implements IAdapterFactory {
 
 	public boolean canAdapt(Object adaptee, Class targetClass) {
 		if (adaptee instanceof SensorAndMeasurements){
 			SensorAndMeasurements sam = (SensorAndMeasurements) adaptee;
-			if (sam.getSensor() instanceof TimeSpanSensor && TimeSeries.class == targetClass)
+			if (sam.getSensor() instanceof TimeSpanSensor && Histogram.class == targetClass)
 				return true;
 		}
 		return false;
 	}
-
+	
 	public IAdapter getAdapter(Object adaptee) {
-		return new TimeSpanToTimeSeriesAdapter((SensorAndMeasurements) adaptee);
+		return new TimeSpanToThroughputHistogramAdapter((SensorAndMeasurements) adaptee);
 	}
 
 	public String getMetricLabel() {
-		return "Response Time";
+		return "Throughput";
 	}
 
 	public String getAdapterFactoryID() {
-		return "TimeSpanSensorToTimeSeriesFactory";
+		return "TimeSpanSensorToThroughputHistrogramFactory";
 	}
 	
 	public boolean createsAdaptersFor(Class<?> targetClass) {
-		return targetClass.isAssignableFrom(TimeSeries.class);
+		return targetClass.isAssignableFrom(Histogram.class);
 	}
 }

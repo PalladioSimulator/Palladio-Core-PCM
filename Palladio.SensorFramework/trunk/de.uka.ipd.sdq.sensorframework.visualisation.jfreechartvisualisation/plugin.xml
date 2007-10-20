@@ -34,7 +34,7 @@
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie"
                acceptsMultiple="false"
                class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartPieReport"
-               displayName="JFreeChart Pie Chart"
+               displayName="JFreeChart {0} Pie Chart"
                editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartPieReport">
          </Visualisation>
       </extension>
@@ -44,7 +44,7 @@
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
                acceptsMultiple="true"
                class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartHistogramReport"
-               displayName="JFreeChart Histogram"
+               displayName="JFreeChart {0} Histogram"
                editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartHistogramReport">
          </Visualisation>
       </extension>
@@ -54,7 +54,7 @@
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries"
                acceptsMultiple="false"
                class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartTimeSeriesReport"
-               displayName="JFreeChart TimeSeries"
+               displayName="JFreeChart {0} TimeSeries"
                editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartTimeSeriesReport">
          </Visualisation>
       </extension>
@@ -64,7 +64,7 @@
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
                acceptsMultiple="true"
                class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartCDFReport"
-               displayName="JFreeChart CDF"
+               displayName="JFreeChart {0} CDF"
                editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartCDFReport">
          </Visualisation>
       </extension>

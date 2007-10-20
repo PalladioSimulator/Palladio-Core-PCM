@@ -1,9 +1,11 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.editor;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.util.LocalSelectionTransfer;
@@ -24,13 +26,16 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
+import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
+import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.ViewDropTargetListener;
 
 public abstract class AbstractReportView extends EditorPart implements
-		ITabbedPropertySheetPageContributor, IVisualisation, Observer {
+		ITabbedPropertySheetPageContributor, Observer {
 
 	public static String ABSTRACT_EDITOR_ID = "de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView";
 	private ConfigEditorInput myInput;
@@ -139,10 +144,15 @@ public abstract class AbstractReportView extends EditorPart implements
 				}
 			}
 		}
-
-		this.setInput(list);
+		IAdapterFactory myFactory = AdapterRegistry.singleton().getFactoryByID(myInput.getAdapterFactoryID());
+		ArrayList<IAdapter> input = new ArrayList<IAdapter>();
+		for (SensorAndMeasurements sam : list)
+			input.add(myFactory.getAdapter(sam));
+		this.setInput(input);
 	}
 
+	protected abstract void setInput(List<IAdapter> list);
+	
 	/** show exception message */
 	private void showMessage(String title, String message) {
 		MessageDialog.openInformation(this.getEditorSite().getShell(), title,

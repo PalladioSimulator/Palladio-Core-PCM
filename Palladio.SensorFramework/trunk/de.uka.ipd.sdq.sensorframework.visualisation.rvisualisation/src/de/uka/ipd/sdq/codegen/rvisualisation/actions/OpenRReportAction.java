@@ -21,10 +21,12 @@ import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
  */
 public class OpenRReportAction implements IWorkbenchWindowActionDelegate {
 	private IWorkbenchWindow window;
+	private String adapterFactoryID;
 	/**
 	 * The constructor.
 	 */
-	public OpenRReportAction() {
+	public OpenRReportAction(String adapterFactoryID) {
+		this.adapterFactoryID = adapterFactoryID;
 	}
 
 	/**
@@ -38,7 +40,7 @@ public class OpenRReportAction implements IWorkbenchWindowActionDelegate {
 		.getActiveWorkbenchWindow().getActivePage();
 		
 		try {
-			page.openEditor(new ConfigEditorInput(), RReportView.RREPORTVIEW_ID);
+			page.openEditor(new ConfigEditorInput(adapterFactoryID), RReportView.RREPORTVIEW_ID);
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

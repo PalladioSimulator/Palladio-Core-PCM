@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
 
 
-public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer 
+public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer
 	implements IHistogramAccepter, ISeriesExporter {
 
 	public JFreeChartHistogramViewer(Composite parent, int style) {

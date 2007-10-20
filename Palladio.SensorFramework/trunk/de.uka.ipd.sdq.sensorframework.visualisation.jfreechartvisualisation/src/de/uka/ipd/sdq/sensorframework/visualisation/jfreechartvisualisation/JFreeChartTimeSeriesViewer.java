@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeriesEntity;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 
-public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart implements ISeriesExporter {
+public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart<TimeSeries> implements ISeriesExporter {
 
 	DefaultTableXYDataset dataset = new DefaultTableXYDataset();
 	
@@ -31,7 +31,7 @@ public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart implemen
 		chart = ChartFactory.createScatterPlot("Time Series", "#measurement", "time", dataset, PlotOrientation.VERTICAL, true, true, true);
 	}
 
-	public void setData(Collection<?> data){
+	public void setData(Collection<TimeSeries> data){
 		dataset.removeAllSeries();
 		
 		for (Object o : data) {

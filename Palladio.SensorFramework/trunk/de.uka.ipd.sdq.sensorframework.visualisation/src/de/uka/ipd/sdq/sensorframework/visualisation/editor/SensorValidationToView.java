@@ -8,9 +8,11 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
+import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
+import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ViewAndAdapterFactory;
 
 /**
  * This class offers the methods, which it for validating possible a 
@@ -26,27 +28,26 @@ public class SensorValidationToView {
 	 * @return - all view, which can represent the sensor
 	 */
 	public static Object[] findViews(SensorAndMeasurements sensorAndMeasurements) {
-
+		ArrayList<ViewAndAdapterFactory> result = new ArrayList<ViewAndAdapterFactory>();
 		IConfigurationElement[] elements = getConfigurationElements();
 
-		ArrayList<IConfigurationElement> views = new ArrayList<IConfigurationElement>();
-
-		for (int i = 0; i < elements.length; i++) {
-			IConfigurationElement element = elements[i];
+		for (IConfigurationElement element : elements) { // Iterate over all registered views
 			String executableObject = element.getAttribute("acceptsData");
 			try {
-				Class viewerAcceptsClass = Class.forName(executableObject);
-				if (viewerAcceptsClass.isInstance(sensorAndMeasurements) ||
-						AdapterRegistry.singleton().canAdapt(sensorAndMeasurements,viewerAcceptsClass)
-						|| viewerAcceptsClass.isInstance(sensorAndMeasurements.getSensor()))
-					views.add(element);
+				Class<?> viewerAcceptsClass = Class.forName(executableObject);
+				if (AdapterRegistry.singleton().canAdapt(sensorAndMeasurements,viewerAcceptsClass)) {
+					// there is at least one adapter which makes the combination work
+					for (IAdapterFactory f : AdapterRegistry.singleton().getAllAvailableFactories(sensorAndMeasurements, viewerAcceptsClass)) {
+						result.add(new ViewAndAdapterFactory(element,f));
+					}
+				}
 			} catch (ClassNotFoundException e) {
 				// catch exception for TimeSpanSensor
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		return views.toArray();
+		return result.toArray();
 	}
 
 	public static boolean canViewSensor(
@@ -93,7 +94,7 @@ public class SensorValidationToView {
 	/**
 	 * @return - choose Action from ActionListSelectionDialog
 	 */
-	public static IConfigurationElement getSelectedAction(Shell shell,
+	public static ViewAndAdapterFactory getSelectedAction(Shell shell,
 			Object[] elements) {
 		ActionListSelectionDialog dialog = new ActionListSelectionDialog(shell);
 
@@ -101,7 +102,7 @@ public class SensorValidationToView {
 		dialog.open();
 		Object[] results = dialog.getResult();
 		if (results != null)
-			return (IConfigurationElement) results[0];
+			return (ViewAndAdapterFactory)results[0];
 		else return null;
 	}
 }

@@ -1,11 +1,14 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 
 public class AdapterRegistry {
 
 	private static AdapterRegistry singletonInstance = new AdapterRegistry();
-	private static ArrayList<IAdapterFactory> factories = new ArrayList<IAdapterFactory>();
+	private static HashMap<String,IAdapterFactory> factories = new HashMap<String,IAdapterFactory>();
 	
 	private AdapterRegistry() {}
 	
@@ -14,26 +17,41 @@ public class AdapterRegistry {
 	}
 	
 	public void addAdapterFactory(IAdapterFactory adapterFactory){
-		factories.add(adapterFactory);
-	}
-	
-	public IAdapter getAdapter(Object adaptee, Class targetClass){
-		for(IAdapterFactory factory : factories){
-			if (factory.canAdapt(adaptee,targetClass))
-			{
-				return factory.getAdapter(adaptee);
-			}
-		}
-		return null;
+		factories.put(adapterFactory.getAdapterFactoryID(),adapterFactory);
 	}
 
-	public boolean canAdapt(Object adaptee, Class targetClass) {
-		for(IAdapterFactory factory : factories){
+	public IAdapterFactory getFactoryByID(String factoryID){
+		return factories.get(factoryID);
+	}
+	
+	public boolean canAdapt(Object adaptee, Class<?> targetClass) {
+		return getAllAvailableFactories(adaptee, targetClass).size() > 0;
+	}
+
+	public List<IAdapterFactory> getAllAvailableFactories(Object adaptee, Class<?> targetClass) {
+		ArrayList<IAdapterFactory> result = new ArrayList<IAdapterFactory>();
+		for(IAdapterFactory factory : factories.values()){
 			if (factory.canAdapt(adaptee,targetClass))
 			{
-				return true;
+				result.add(factory);
 			}
 		}
-		return false;
+		return result;
 	}
+
+	public IAdapter getAdapter(Object o, Class<?> class1) {
+		return getAllAvailableFactories(o, class1).get(0).getAdapter(o);
+	}
+
+	public List<IAdapterFactory> getAllAvailableFactories(Class<?> targetClass) {
+		ArrayList<IAdapterFactory> result = new ArrayList<IAdapterFactory>();
+		for(IAdapterFactory factory : factories.values()){
+			if (factory.createsAdaptersFor(targetClass))
+			{
+				result.add(factory);
+			}
+		}
+		return result;
+	}
+
 }

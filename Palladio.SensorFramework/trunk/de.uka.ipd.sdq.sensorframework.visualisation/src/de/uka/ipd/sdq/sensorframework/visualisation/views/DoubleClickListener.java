@@ -7,6 +7,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ViewAndAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.SensorValidationToView;
@@ -36,21 +37,21 @@ public class DoubleClickListener implements IDoubleClickListener {
 				if (innerObject instanceof Sensor && run != null) {
 					Sensor sensor = (Sensor) innerObject;
 
-					ConfigEditorInput editorInput = new ConfigEditorInput();
-
-					ConfigEntry configEntry = new ConfigEntry(treeObject
-							.getDatasource(), treeObject.getRun(), treeObject
-							.getExperiment(), sensor);
-					editorInput.addConfigEntry(configEntry);
-
 					/** return all view, which can represent the sensor */
 					Object[] viewers = SensorValidationToView.findViews(run
 							.getMeasurementsOfSensor(sensor));
 
-					IConfigurationElement action = SensorValidationToView
-							.getSelectedAction(event.getViewer().getControl()
-									.getShell(), viewers);
-					hookDoubleClickAction(editorInput, action.getAttribute("editorID"));
+					ViewAndAdapterFactory selecedView = SensorValidationToView.getSelectedAction(event.getViewer().getControl()
+							.getShell(), viewers);
+					if (selecedView != null) {
+						ConfigEditorInput editorInput = new ConfigEditorInput(selecedView.getFactory().getAdapterFactoryID());
+						ConfigEntry configEntry = new ConfigEntry(treeObject
+								.getDatasource(), treeObject.getRun(), treeObject
+								.getExperiment(), sensor);
+						editorInput.addConfigEntry(configEntry);
+						IConfigurationElement action = selecedView.getView();
+						hookDoubleClickAction(editorInput, action.getAttribute("editorID"));
+					}
 
 				}
 			}

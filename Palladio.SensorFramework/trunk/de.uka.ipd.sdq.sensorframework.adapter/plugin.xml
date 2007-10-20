@@ -11,6 +11,20 @@
    <extension
          point="de.uka.ipd.sdq.sensorframework.adapter">
       <DataAdapter
+            class="de.uka.ipd.sdq.sensorframework.adapter.IdentitySensorAdapterFactory"
+            id="de.uka.ipd.sdq.sensorframework.adapter.IdentitySensorAdapter">
+      </DataAdapter>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.sensorframework.adapter">
+      <DataAdapter
+            class="de.uka.ipd.sdq.sensorframework.adapter.TimeSpanSensorToThroughputHistogramFactory"
+            id="de.uka.ipd.sdq.sensorframework.adapter.DataAdapter2">
+      </DataAdapter>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.sensorframework.adapter">
+      <DataAdapter
             class="de.uka.ipd.sdq.sensorframework.adapter.StateSensorToPieFactory"
             id="de.uka.ipd.sdq.sensorframework.adapter.StateToPie">
       </DataAdapter>

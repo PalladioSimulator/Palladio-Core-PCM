@@ -9,7 +9,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.PieEntity;
 
-public class JFreeChartPieViewer extends AbstractJFreeChartChart {
+public class JFreeChartPieViewer extends AbstractJFreeChartChart<Pie> {
 
 	DefaultPieDataset pieDataset=null;
 	
@@ -24,7 +24,7 @@ public class JFreeChartPieViewer extends AbstractJFreeChartChart {
 			chart = ChartFactory.createPieChart3D("Pie", new DefaultPieDataset(), true, true, true);
 	}
 
-	public void setData(Collection<?> data){
+	public void setData(Collection<Pie> data){
 		assert((data.size() == 1) && (data.iterator().next() instanceof Pie));
 		
 		Pie pie = (Pie)data.iterator().next();

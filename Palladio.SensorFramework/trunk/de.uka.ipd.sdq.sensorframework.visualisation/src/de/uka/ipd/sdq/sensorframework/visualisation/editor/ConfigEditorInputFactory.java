@@ -28,6 +28,8 @@ public class ConfigEditorInputFactory implements IElementFactory {
     private static final String EXPERIMENT_RUN = "ExperimentRun"; //$NON-NLS-1$
     private static final String SENSOR_NAME = "SensorName"; //$NON-NLS-1$
     private static final String SENSOR_ID = "SensorId"; //$NON-NLS-1$
+
+	private static final String ADAPTER_FACTORY_ID_ID = "AdpaterFactoryIDID";
 	
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IElementFactory#createElement(org.eclipse.ui.IMemento)
@@ -44,10 +46,15 @@ public class ConfigEditorInputFactory implements IElementFactory {
 		} catch(Exception e) {
 			return null;
 		}
-		return new ConfigEditorInput(configEntry);
+		return new ConfigEditorInput(getAdapterFactoryID(memento),configEntry);
 	}
 
-	 /**
+	 private String getAdapterFactoryID(IMemento memento) {
+		// TODO Auto-generated method stub
+		return memento.getString(ADAPTER_FACTORY_ID_ID);
+	}
+
+	/**
      * Returns the element factory id for this class.
      * 
      * @return the element factory id
@@ -75,6 +82,7 @@ public class ConfigEditorInputFactory implements IElementFactory {
 				memento.putString(SENSOR_ID, sensor.getSensorID() + "");
 			}
 		}
+		memento.putString(ADAPTER_FACTORY_ID_ID, input.getAdapterFactoryID());
 	}
 	
     private Sensor getSensor(IMemento memento) {

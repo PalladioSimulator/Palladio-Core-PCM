@@ -23,18 +23,21 @@ public class ConfigEditorInput extends Observable
 		implements IEditorInput, IPersistableElement,IAdaptable, Observer {
 	
 	private List<ConfigEntry> configEntrys;
+	private String adapterFactoryID;
 	
-	public ConfigEditorInput() {
+	public ConfigEditorInput(String adapterFactoryID) {
 		this.configEntrys = new ArrayList<ConfigEntry>();
+		this.adapterFactoryID = adapterFactoryID;
 	}
 	
-	public ConfigEditorInput(ConfigEntry configEntry) {
+	public ConfigEditorInput(String adapterFactoryID, ConfigEntry configEntry) {
 		this.configEntrys = new ArrayList<ConfigEntry>();
+		this.adapterFactoryID = adapterFactoryID;
 		addConfigEntry(configEntry);
 	}
 	
 	/** Edit command of ConfigEctry	 */
-	public void editConfigEntry(IDAOFactory datasource, ExperimentRun run, Experiment experiment, Sensor sensor) {
+	public void editConfigEntry(IDAOFactory datasource, ExperimentRun run, Experiment experiment, Sensor sensor, String adapterFactoryID) {
 		ConfigEntry configEntry = getConfigEntryToRun(run);
 		
 		if (configEntry == null) {
@@ -161,5 +164,9 @@ public class ConfigEditorInput extends Observable
 		IPath path = SimuPlugin.getDefault().getStateLocation();
 
 		return path.toPortableString() + "/" + "persistable_element.xml";
+	}
+
+	public String getAdapterFactoryID() {
+		return this.adapterFactoryID;
 	}
 }

@@ -16,11 +16,10 @@ import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 
 public abstract class AbstractJFreeChartWidthViewer extends
-		AbstractJFreeChartChart {
+		AbstractJFreeChartChart<Histogram> {
 
-	protected double histogramWidth = 1.0;
-	protected Collection<?> lastData;
-	public static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
+	protected Collection<Histogram> lastData;
+
 	protected DefaultTableXYDataset densityDataset=new DefaultTableXYDataset();
 
 	
@@ -28,57 +27,18 @@ public abstract class AbstractJFreeChartWidthViewer extends
 		super(parent, style);
 	}
 
-	public double getHistogramWidth() {
-		return histogramWidth;
-	}
-
-	public void setData(Collection<?> data) {
-		setData(data,getMaxHistWidth(data));
-	}
-
-	private void setData(Collection<?> data, double width) {
+	public void setData(Collection<Histogram> data) {
 		densityDataset.removeAllSeries();
-		
-		histogramWidth = width;
-		
-		for (Object o : data) {
-			XYSeries density = null;
-			if (o instanceof IAdapter) {
-				IAdapter histAdapter = (IAdapter) o;
-				Properties p = new Properties();
-				p.put(HISTOGRAM_WIDTH, histogramWidth);
-				histAdapter.setProperties(p);
-				Histogram hist = (Histogram) histAdapter.getAdaptedObject();
-				density = computeDensities(hist);
-			}				
-			densityDataset.addSeries(density);
+				
+		for (Histogram h : data) {
+			densityDataset.addSeries(computeDensities(h));
 		}
 		initChart();
 		
-		
 		this.forceRedraw();
-
 		
 		lastData = data;
 	}
 
 	protected abstract XYSeries computeDensities(Histogram hist);
-
-	private double getMaxHistWidth(Collection<?> data) {
-		double result = Double.MIN_VALUE;
-		for (Object object : data) {
-			if (object instanceof IAdapter) {
-				IAdapter myAdapter = (IAdapter) object;
-				double width = (Double)myAdapter.getProperties().get(HISTOGRAM_WIDTH);
-				result = width > result ? width : result;
-			}
-		}
-		return result;
-	}
-
-	public void setHistogramWidth(double width) {
-		this.histogramWidth = width;
-		setData(lastData,width);
-	}
-
 }

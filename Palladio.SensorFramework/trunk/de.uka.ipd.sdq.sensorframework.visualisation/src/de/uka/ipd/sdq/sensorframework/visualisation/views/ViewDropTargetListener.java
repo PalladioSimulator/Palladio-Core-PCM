@@ -83,7 +83,7 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 				 */
 				if (SensorValidationToView.canViewSensor(run
 						.getMeasurementsOfSensor(sensor))) {
-					configEditorInput.editConfigEntry(treeObject.getDatasource(), run, experiment, sensor);
+					configEditorInput.editConfigEntry(treeObject.getDatasource(), run, experiment, sensor, null);
 				} else
 					SensorValidationToView.showMessage(event.display
 							.getActiveShell());

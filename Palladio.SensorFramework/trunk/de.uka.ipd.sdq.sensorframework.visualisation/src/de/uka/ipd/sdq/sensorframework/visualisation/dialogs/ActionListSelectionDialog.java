@@ -24,7 +24,7 @@ public class ActionListSelectionDialog extends ElementListSelectionDialog {
 	 * @param renderer
 	 */
 	public ActionListSelectionDialog(Shell parent) {
-		super(parent, new DialogLabaelProvider());
+		super(parent, new DialogLabelProvider());
 		super.setShellStyle(SWT.NONE);
 	}
 
@@ -42,7 +42,7 @@ public class ActionListSelectionDialog extends ElementListSelectionDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(220, 220);
+		return new Point(400, 300);
 	}
 
 	/* (non-Javadoc)
@@ -56,16 +56,17 @@ public class ActionListSelectionDialog extends ElementListSelectionDialog {
 }
 
 /** LabelProvider for ActionListSelectionDialog */
-class DialogLabaelProvider extends LabelProvider {
+class DialogLabelProvider extends LabelProvider {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.LabelProvider#getText(java.lang.Object)
 	 */
 	@Override
 	public String getText(Object element) {
-		if (element instanceof IConfigurationElement) {
-			IConfigurationElement action = (IConfigurationElement) element;
-			return action.getAttribute("displayName");
+		if (element instanceof ViewAndAdapterFactory) {
+			ViewAndAdapterFactory viewAndAdapter = (ViewAndAdapterFactory) element;
+			String displayName = viewAndAdapter.getView().getAttribute("displayName");
+			return displayName.replace("{0}",viewAndAdapter.getFactory() == null ? "" : viewAndAdapter.getFactory().getMetricLabel());
 		}
 		return super.getText(element);
 	}

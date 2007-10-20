@@ -8,6 +8,9 @@ import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.ui.actions.CompoundContributionItem;
 
+import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
+import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
+
 
 /**
  * A compound contribution is a contribution item consisting of a dynamic list
@@ -23,9 +26,20 @@ public class VisualisationMenuItemContributions extends CompoundContributionItem
 		ArrayList<IContributionItem> items = new ArrayList<IContributionItem>();
 		for(IConfigurationElement configurationElement : Platform.getExtensionRegistry().
 				getConfigurationElementsFor("de.uka.ipd.sdq.sensorframework.visualisation")){
-			items.add(new ActionContributionItem(
-					new OpenAction(configurationElement.getAttribute("displayName"),
-							configurationElement.getAttribute("editorID"))));
+			String executableObject = configurationElement.getAttribute("acceptsData");
+			try {
+				Class<?> viewerAcceptsClass = Class.forName(executableObject);
+				for (IAdapterFactory f : AdapterRegistry.singleton().getAllAvailableFactories(viewerAcceptsClass)) {
+					String displayName = configurationElement.getAttribute("displayName");
+					displayName = displayName.replace("{0}", f.getMetricLabel());
+					items.add(new ActionContributionItem(
+							new OpenAction(displayName,
+								f.getAdapterFactoryID(),	
+								configurationElement.getAttribute("editorID"))));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return items.toArray(new IContributionItem[]{});
 	}

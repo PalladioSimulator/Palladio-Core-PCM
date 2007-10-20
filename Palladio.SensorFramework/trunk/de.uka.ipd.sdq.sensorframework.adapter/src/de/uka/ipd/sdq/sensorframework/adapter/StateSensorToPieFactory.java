@@ -24,4 +24,16 @@ public class StateSensorToPieFactory implements IAdapterFactory {
 		return new StateToPieAdapter((SensorAndMeasurements) adaptee);
 	}
 
+	public String getMetricLabel() {
+		return "Utilisation";
+	}
+
+	public String getAdapterFactoryID() {
+		return "StateSensorToPieFactory";
+	}
+
+	public boolean createsAdaptersFor(Class<?> targetClass) {
+		return targetClass.isAssignableFrom(Pie.class);
+	}
+
 }

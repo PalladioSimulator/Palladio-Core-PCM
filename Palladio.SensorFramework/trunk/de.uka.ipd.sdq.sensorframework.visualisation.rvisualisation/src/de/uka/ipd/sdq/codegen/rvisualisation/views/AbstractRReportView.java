@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
+import java.util.Properties;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
@@ -14,14 +16,17 @@ import org.eclipse.swt.widgets.Composite;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RInterface;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.visitor.HTMLVisitor;
+import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 
-public abstract class AbstractRReportView extends AbstractReportView implements
-		IVisualisation {
+public abstract class AbstractRReportView 
+extends AbstractReportView 
+implements
+		IVisualisation<SensorAndMeasurements> {
 
 	private Browser browser;
 
@@ -31,18 +36,18 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 		setInput(Collections.EMPTY_LIST);
 	}
 
-	public void addInput(Collection c) {
+	public void addInput(Collection<SensorAndMeasurements> c) {
 		System.out.println("Add file was called.");
 		
 		
 	}
 
-	public void deleteInput(Collection c) {
+	public void deleteInput(Collection<SensorAndMeasurements> c) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void setInput(Collection c) {
+	public void setInput(Collection<SensorAndMeasurements> c) {
 		RInterface t = new RInterface();
 		if (RInterface.isEngineAvailable()){
 			ArrayList<IReportItem> items = prepareReportItems(c, t);
@@ -89,6 +94,15 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 		}
 		return null;
 	}
+
+	@Override
+	protected void setInput(List<IAdapter> list) {
+		ArrayList<SensorAndMeasurements> viewerInput = new ArrayList<SensorAndMeasurements>();
+		for (IAdapter a : list) {
+			viewerInput.add((SensorAndMeasurements) a.getAdaptedObject());
+		}
+		this.setInput(viewerInput);
+	}	
 	
 	/** Template method for subclasses to implement. 
 	 * Subclasses can create IReportItems from the given SensorAndMeasurements. They can use the 
