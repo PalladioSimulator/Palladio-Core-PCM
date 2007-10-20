@@ -540,5 +540,41 @@
       <param name="project.name" value="/de.uka.ipd.sdq.simucomframework.variables.tests"/>
       <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/trunk"/>
     </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.featureconfig"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.featureconfig"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.FeatureModelling/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.featureconfig.edit"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.featureconfig.edit"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.FeatureModelling/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.featureconfig.editor"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.featureconfig.editor"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.FeatureModelling/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.featuremodel"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.featuremodel"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.FeatureModelling/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.featuremodel.edit"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.featuremodel.edit"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.FeatureModelling/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.featuremodel.editor"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.featuremodel.editor"/>
+      <param name="url" value="svn://steffen@i43pc13.ipd.uka.de/code/Palladio.FeatureModelling/trunk"/>
+    </antcall>
   </target>
 </project>
