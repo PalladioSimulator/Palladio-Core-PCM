@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Locale;

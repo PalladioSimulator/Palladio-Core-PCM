@@ -90,7 +90,7 @@ public class PersistedLinkedList<T extends IByteSerialisable> implements
 	 * @see de.uka.ipd.sdq.sensorfactory.dao.db4o.util.MyList#get(int)
 	 */
 	public T get(int index) {
-		Iterator it = this.iterator();
+		Iterator<T> it = this.iterator();
 		for (int i = 0; i < index; i++)
 			it.next();
 		return (T) it.next();

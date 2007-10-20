@@ -143,7 +143,7 @@ public abstract class AbstractReportView extends EditorPart implements
 		this.setInput(list);
 	}
 
-	/** show exeption message */
+	/** show exception message */
 	private void showMessage(String title, String message) {
 		MessageDialog.openInformation(this.getEditorSite().getShell(), title,
 				message);

@@ -218,6 +218,10 @@ litigation.
       <update label="Palladio Update Site" url="http://i43pc12.ipd.uka.de/eclipse/PCM/"/>
    </url>
 
+   <includes
+         id="de.uka.ipd.sdq.sensorframework.feature.source"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.apache.commons.logging"/>
