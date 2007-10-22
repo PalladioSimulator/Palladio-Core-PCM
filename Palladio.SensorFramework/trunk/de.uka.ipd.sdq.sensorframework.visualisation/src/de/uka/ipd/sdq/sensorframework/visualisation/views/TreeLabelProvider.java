@@ -5,7 +5,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DataSetLabelProvider;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DatasourceListLabelProvider;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
@@ -48,7 +48,7 @@ public class TreeLabelProvider extends LabelProvider {
 			
 		if (obj instanceof IDAOFactory) {
 			IDAOFactory factory = (IDAOFactory) obj;
-			return DataSetLabelProvider.dataSetRepresentation(factory);
+			return DatasourceListLabelProvider.dataSetRepresentation(factory);
 		}
 
 		return obj.toString();

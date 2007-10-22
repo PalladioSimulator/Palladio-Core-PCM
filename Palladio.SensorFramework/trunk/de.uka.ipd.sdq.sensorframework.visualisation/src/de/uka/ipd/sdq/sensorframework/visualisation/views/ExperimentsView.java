@@ -6,9 +6,11 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerSorter;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
@@ -20,7 +22,8 @@ import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorframework.dialogs.dataset.SensorDataSetDialog;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.OpenDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 
 /**
@@ -40,6 +43,7 @@ public class ExperimentsView extends ViewPart {
 	private Action reloadView;
 	private Action collapseAll;
 	private Action expandAll;
+	private Action configDataSet;
 	private Action openDataSet;
 	
 
@@ -94,20 +98,17 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private void fillLocalPullDown(IMenuManager manager) {
+		manager.add(configDataSet);
 		manager.add(openDataSet);
-		manager.add(reloadView);
 		manager.add(new Separator());
-		manager.add(collapseAll);
-		manager.add(expandAll);
+		manager.add(reloadView);
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
+		manager.add(configDataSet);
 		manager.add(openDataSet);
+		manager.add(new Separator());
 		manager.add(reloadView);
-		manager.add(new Separator());
-		manager.add(collapseAll);
-		manager.add(expandAll);
-		manager.add(new Separator());
 //		drillDownAdapter.addNavigationActions(manager);
 //		manager.add(new Separator());
 //		experimentsAdapter.addNavigationActions(manager);
@@ -116,7 +117,9 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
+		manager.add(configDataSet);
 		manager.add(openDataSet);
+		manager.add(new Separator());
 		manager.add(reloadView);
 		manager.add(new Separator());
 		manager.add(collapseAll);
@@ -160,16 +163,38 @@ public class ExperimentsView extends ViewPart {
 		expandAll.setToolTipText("Expand All");
 		expandAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/expandall.gif"));
 		
-		/** Open DataSet action*/
-		openDataSet = new Action() {
+		/** Config DataSet action*/
+		configDataSet = new Action() {
 			public void run() {
-				SensorDataSetDialog dialog = new SensorDataSetDialog(getSite().getShell());
-				if (dialog.open() == dialog.OK)
+				ConfigureDatasourceDialog dialog = new ConfigureDatasourceDialog(
+						getSite().getShell(), "Confugure Datasources..." ,false);
+				if (dialog.open() == Dialog.OK)
 					viewer.refresh();
 			}
 		};
-		openDataSet.setText("Open existing DataSet");
-		openDataSet.setToolTipText("Open existing DataSet");
+		configDataSet.setText("Config Datasources");
+		configDataSet.setToolTipText("Config Datasources");
+		configDataSet.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/config_obj.png"));
+		
+		/** Open DataSet action*/
+		openDataSet = new Action() {
+			public void run() {
+
+				OpenDatasourceWizard wizard = new OpenDatasourceWizard();
+
+				// Instantiates the wizard container with the wizard and opens
+				// it
+				WizardDialog dialog = new WizardDialog(getSite().getShell(),
+						wizard);
+				dialog.create();
+				
+				dialog.setTitle(ConfigureDatasourceDialog.OPEN_WISARD_TITLE);
+				dialog.open();
+				viewer.refresh();
+			}
+		};
+		openDataSet.setText("Open Datasource");
+		openDataSet.setToolTipText("Open existing Datasource");
 		openDataSet.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/add_datasource.gif"));
 	
 	}
