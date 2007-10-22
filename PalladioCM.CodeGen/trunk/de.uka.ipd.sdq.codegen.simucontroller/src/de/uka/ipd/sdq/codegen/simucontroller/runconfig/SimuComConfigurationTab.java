@@ -7,6 +7,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -23,8 +24,8 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DataSetLabelProvider;
-import de.uka.ipd.sdq.sensorframework.dialogs.dataset.SensorDataSetDialog;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DatasourceListLabelProvider;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
@@ -117,9 +118,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				SensorDataSetDialog dialog = new SensorDataSetDialog(e.display
-						.getActiveShell());
-				if (dialog.open() == dialog.OK) {
+				ConfigureDatasourceDialog dialog = new ConfigureDatasourceDialog(e.display
+						.getActiveShell(),"Select Datasource...", true);
+				if (dialog.open() == Dialog.OK) {
 					IDAOFactory dataSet = (IDAOFactory) dialog.getResult();
 					selectedDataSourceID = (int) dataSet.getID();
 					dataField.setText(dataSet.getName() + " [" + dataSet.getID() + " ]");
@@ -179,7 +180,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				dataField.setText("");
 			else {
 				IDAOFactory factory = SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID);
-				dataField.setText(DataSetLabelProvider.dataSetRepresentation(factory));
+				dataField.setText(DatasourceListLabelProvider.dataSetRepresentation(factory));
 			}
 		} catch (CoreException e) {
 			selectedDataSourceID = -1;
