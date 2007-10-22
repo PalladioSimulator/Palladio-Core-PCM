@@ -66,6 +66,10 @@ public class ContextWrapper implements Cloneable{
 		compUsgCtx = getFirstComputedUsageContext(elsa);
 		compAllCtx = getNextComputedAllocationContext();
 		readComputedContextsToHashMaps();	
+		
+		
+		
+		
 	}
 	
 	public ContextWrapper(EntryLevelSystemCall elsa, PCMInstance pcm, ComputedUsageContext cuc, ComputedAllocationContext cac){

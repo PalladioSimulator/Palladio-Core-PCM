@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.exprsolver.ExpressionSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
+import de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn.Pcm2LqnStrategy;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.ExpressionPrinter;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.Pcm2RegExStrategy;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformUsageModelVisitor;
@@ -72,8 +73,8 @@ public class PCMSolver {
 		}
 
 		
-		SolverStrategy strat = new Pcm2RegExStrategy();
-		
+		//SolverStrategy strat = new Pcm2RegExStrategy();
+		SolverStrategy strat = new Pcm2LqnStrategy();
 
 		monitor.beginTask("Analysis", 100);
 		strat.transform(currentModel);
