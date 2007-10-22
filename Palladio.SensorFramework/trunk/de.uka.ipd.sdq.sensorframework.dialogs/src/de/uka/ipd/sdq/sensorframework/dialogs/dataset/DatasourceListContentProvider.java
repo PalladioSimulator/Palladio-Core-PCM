@@ -8,11 +8,7 @@ import java.util.Collection;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-/**
- * @author admin
- *
- */
-public class DataSetContentProvider implements IStructuredContentProvider {
+public class DatasourceListContentProvider implements IStructuredContentProvider {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)

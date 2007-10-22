@@ -27,23 +27,30 @@ import de.uka.ipd.sdq.sensorframework.dao.db4o.DB4ODAOFactory;
 import de.uka.ipd.sdq.sensorframework.dao.memory.MemoryDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
-public class DataSetDialog extends TitleAreaDialog {
+public class DatasourceDialog extends TitleAreaDialog {
 
+	private static String DIALOG_TITLE = "Create/Load the data source.";
+	
 	private Button addButton, removeButton, okButton, openButton;
 	private Object input;
 	private IDAOFactory selectedDataSet;
 	private TableViewer viewer;
+	private boolean buttonValidation;
+	private String dialogTitle;
 	
 	/** Create the dialog */
-	public DataSetDialog(Shell parentShell, Object input) {
+	public DatasourceDialog(Shell parentShell, String dialogTitle,
+			Object input, boolean makeButtonValidation) {
 		super(parentShell);
+		this.dialogTitle = dialogTitle;
 		this.input = input;
+		this.buttonValidation = makeButtonValidation;
 
 		/**
 		 * the result of combining the constants which are required to produce a
 		 * typical application top level shell
 		 */
-		setShellStyle(SWT.RESIZE|SWT.MAX|SWT.CLOSE);
+		setShellStyle(SWT.RESIZE | SWT.MAX | SWT.CLOSE);
 	}
 	
 	/* (non-Javadoc)
@@ -52,7 +59,7 @@ public class DataSetDialog extends TitleAreaDialog {
 	@Override
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-		newShell.setText("Select Datasource...");
+		newShell.setText(dialogTitle);
 		newShell.addShellListener(new ShellAdapter(){
 
 			/* (non-Javadoc)
@@ -124,8 +131,8 @@ public class DataSetDialog extends TitleAreaDialog {
 
 		/** create a ListViewer */
 		viewer = new TableViewer(list);
-		viewer.setContentProvider(new DataSetContentProvider());
-		viewer.setLabelProvider(new DataSetLabelProvider());
+		viewer.setContentProvider(new DatasourceListContentProvider());
+		viewer.setLabelProvider(new DatasourceListLabelProvider());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener(){
 
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -140,8 +147,9 @@ public class DataSetDialog extends TitleAreaDialog {
 			}
 		});
 		viewer.setInput(input);
+		
+		setTitle(DIALOG_TITLE);
 
-		//
 		return container;
 	}
 
@@ -161,7 +169,7 @@ public class DataSetDialog extends TitleAreaDialog {
 		setErrorMessage(null);
 		okButton.setEnabled(true);
 
-		if (selection == null) {
+		if (buttonValidation && selection == null) {
 			okButton.setEnabled(false);
 			setErrorMessage("No Datasource selected!");
 		}

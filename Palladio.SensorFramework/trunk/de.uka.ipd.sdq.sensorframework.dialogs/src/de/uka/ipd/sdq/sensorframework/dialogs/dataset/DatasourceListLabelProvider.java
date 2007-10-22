@@ -9,11 +9,7 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.sensorframework.dialogs.DialogsImages;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
-/**
- * @author roman
- *
- */
-public class DataSetLabelProvider extends LabelProvider {
+public class DatasourceListLabelProvider extends LabelProvider {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.LabelProvider#getText(java.lang.Object)
