@@ -1,5 +1,7 @@
 package downloadfiles.impl;
 
+import mediarepository.entities.DBID3v1;
+
 public class DownloadFiles implements java.lang.Runnable {
     protected mediastorerepository.IHTTP m_portIHTTP = null;
     private static final int ARTIST = 0;
@@ -30,16 +32,19 @@ public class DownloadFiles implements java.lang.Runnable {
     	for (int i=0; i<count; i++){
     		ids[i] = (int)(Math.random()*1500)+1;
     	}
+    	DBID3v1 id3Tag;
         System.out.println("Start run "+count);
         long start = System.nanoTime();
     	{
-            m_portIHTTP.downloadHTTP(ids);
+             id3Tag = m_portIHTTP.queryID3(ids[0]);
+            //m_portIHTTP.downloadHTTP(ids);
             // m_portIHTTP.downloadHTTP(new int[]{1,2,3});
     		// m_portIHTTP.queryFileByField("truckstop", ARTIST);
     		// m_portIHTTP.queryFileByField("anno_1701", MOVIE);
         }
     	long result = System.nanoTime()-start;
-    	System.out.println("Result: "+result / Math.pow(10,9));
+    	System.out.println("Result: "+result );
+        System.out.println(id3Tag.toString());
 //    	for(int i=1; i<=4159; i++) {
 //    		m_portIHTTP.downloadHTTP(new int[] {i});
 //    		System.out.println(i);

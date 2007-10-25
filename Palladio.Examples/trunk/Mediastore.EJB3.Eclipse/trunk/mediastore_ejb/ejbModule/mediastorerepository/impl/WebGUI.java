@@ -1,5 +1,7 @@
 package mediastorerepository.impl;
 
+import mediarepository.entities.DBID3v1;
+
 public class WebGUI implements mediastorerepository.impl.IWebGUI {
     protected mediastorerepository.impl.ports.IHTTP_WebGUI m_portIHTTP = new mediastorerepository.impl.ports.IHTTP_WebGUI(this);
     protected mediastorerepository.impl.contexts.IWebGUIContext myContext = null;
@@ -28,4 +30,13 @@ public class WebGUI implements mediastorerepository.impl.IWebGUI {
     	return result;
         /*PROTECTED REGION END*/
     }
+
+	@Override
+	public DBID3v1 iHTTP_queryID3(int id) {
+		//long start = System.nanoTime();
+		DBID3v1 result = myContext.getRoleIMediaStore().queryID3(id);
+		//long end = System.nanoTime();
+		//System.out.println(end-start);
+		return result;
+	}
 }

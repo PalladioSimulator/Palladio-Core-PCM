@@ -1,27 +1,36 @@
-public class Main {
-    public static void main(String[] args) {
-        java.util.ArrayList<Thread> threads = new java.util.ArrayList<Thread>();
+class defaultUsageScenarioThread extends
+		de.uka.ipd.sdq.prototype.framework.AbstractScenarioThread {
+	public defaultUsageScenarioThread(
+			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
+			de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor timeSensor) {
+		super(expRun, timeSensor);
+	}
 
-        for (int i = 0; i < 1; i++) {
-            threads.add(new Thread(new java.lang.Runnable() {
-                    downloadfiles.impl.DownloadFiles us = new downloadfiles.impl.DownloadFiles();
+	@Override
+	protected Runnable getScenarioRunner() {
+		return new downloadfiles.impl.DownloadFiles();
+	}
+}
 
-                    public void run() {
-                        while (true) {
-                            us.run();
+public class Main extends de.uka.ipd.sdq.prototype.framework.AbstractMain {
+	@Override
+	protected void initialiseThreads(
+			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
+			de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor timeSensor) {
+		for (int i = 0; i < 1; i++) {
+			threads.add(new defaultUsageScenarioThread(expRun, timeSensor));
+		}
+	}
 
-                            try {
-                                Thread.sleep(0);
-                            } catch (InterruptedException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }));
-        }
+	@Override
+	protected void setupResources() {
+		//ResourceEnvironmentFactory.setUpResources();
+	}
 
-        for (java.util.Iterator<Thread> it = threads.iterator(); it.hasNext();)
-            it.next().start();
-    }
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new Main().run(args);
+	}
 }

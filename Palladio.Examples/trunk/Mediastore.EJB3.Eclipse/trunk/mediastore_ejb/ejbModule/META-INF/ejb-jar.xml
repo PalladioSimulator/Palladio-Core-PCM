@@ -46,10 +46,10 @@
 			</ejb-class>
 			<session-type>Stateless</session-type>
 
-			<ejb-ref>
+			<ejb-local-ref>
 				<ejb-ref-name>ejb/ISound</ejb-ref-name>
 				<ejb-ref-type>Session</ejb-ref-type>
-				<remote>mediastorerepository.ISound</remote>
+				<local>mediastorerepository.ISound</local>
 				<ejb-link>
 					DigitalWatermarking_ISound__HChuEKYUEduWZfldHy3B1Q
 				</ejb-link>
@@ -61,12 +61,12 @@
 						iSound
 					</injection-target-name>
 				</injection-target>
-			</ejb-ref>
+			</ejb-local-ref>
 
-			<ejb-ref>
+			<ejb-local-ref>
 				<ejb-ref-name>ejb/IAudioDB</ejb-ref-name>
 				<ejb-ref-type>Session</ejb-ref-type>
-				<remote>mediastorerepository.IAudioDB</remote>
+				<local>mediastorerepository.IAudioDB</local>
 				<ejb-link>
 					DBAdapter_IAudioDB__IJmq4KYUEduWZfldHy3B1Q
 				</ejb-link>
@@ -78,7 +78,7 @@
 						iAudioDB
 					</injection-target-name>
 				</injection-target>
-			</ejb-ref>
+			</ejb-local-ref>
 
 		</session>
 
@@ -155,10 +155,10 @@
 			</ejb-class>
 			<session-type>Stateless</session-type>
 
-			<ejb-ref>
+			<ejb-local-ref>
 				<ejb-ref-name>ejb/IMediaStore</ejb-ref-name>
 				<ejb-ref-type>Session</ejb-ref-type>
-				<remote>mediastorerepository.IMediaStore</remote>
+				<local>mediastorerepository.IMediaStore</local>
 				<ejb-link>
 					MediaStore_IMediaStore__Fr88sKYUEduWZfldHy3B1Q
 				</ejb-link>
@@ -170,7 +170,7 @@
 						iMediaStore
 					</injection-target-name>
 				</injection-target>
-			</ejb-ref>
+			</ejb-local-ref>
 
 		</session>
 
@@ -330,10 +330,10 @@
 			</ejb-class>
 			<session-type>Stateless</session-type>
 
-			<ejb-ref>
+			<ejb-local-ref>
 				<ejb-ref-name>ejb/IMySQL</ejb-ref-name>
 				<ejb-ref-type>Session</ejb-ref-type>
-				<remote>mediastorerepository.IMySQL</remote>
+				<local>mediastorerepository.IMySQL</local>
 				<ejb-link>
 					AudioDB_IMySQL__IoJoEKYUEduWZfldHy3B1Q
 				</ejb-link>
@@ -345,7 +345,7 @@
 						iMySQL
 					</injection-target-name>
 				</injection-target>
-			</ejb-ref>
+			</ejb-local-ref>
 
 		</session>
 

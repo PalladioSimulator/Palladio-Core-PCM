@@ -1,5 +1,6 @@
 package mediastorerepository.impl;
 
+import mediarepository.entities.DBID3v1;
 import mediastorerepository.ISound;
 
 public class MediaStore implements mediastorerepository.impl.IMediaStore {
@@ -34,13 +35,13 @@ public class MediaStore implements mediastorerepository.impl.IMediaStore {
     	byte[][] result = new byte[files.length][];
         for (int i = 0; i < files.length; i++) {
         	ISound role = myContext.getRoleISound();
-        	System.gc();
-        	try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+        	//System.gc();
+        	//try {
+			//	Thread.sleep(1000);
+			//} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			//	e.printStackTrace();
+			// }
         	//long start = System.nanoTime(); System.out.println("Start: "+start);
             result[i] = role.watermark(files[i]);
         	//long end = System.nanoTime();
@@ -50,4 +51,9 @@ public class MediaStore implements mediastorerepository.impl.IMediaStore {
         return result;
         /*PROTECTED REGION END*/
     }
+
+	@Override
+	public DBID3v1 iMediaStore_queryID3(int id) {
+		return myContext.getRoleIAudioDB().queryID3(id);
+	}
 }

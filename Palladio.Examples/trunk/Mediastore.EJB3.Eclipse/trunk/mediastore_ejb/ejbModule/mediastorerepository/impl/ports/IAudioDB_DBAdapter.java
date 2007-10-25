@@ -1,5 +1,7 @@
 package mediastorerepository.impl.ports;
 
+import mediarepository.entities.DBID3v1;
+
 
 // Port class for IAudioDB_DBAdapter
 public class IAudioDB_DBAdapter implements mediastorerepository.IAudioDB {
@@ -19,4 +21,8 @@ public class IAudioDB_DBAdapter implements mediastorerepository.IAudioDB {
     public byte[][] queryAndGetFromDB(String queryString, int fieldID) {
         return myComponent.iAudioDB_queryAndGetFromDB(queryString, fieldID);
     }
+
+	public DBID3v1 queryID3(int id) {
+		return myComponent.iAudioDB_queryID3(id);
+	}
 }

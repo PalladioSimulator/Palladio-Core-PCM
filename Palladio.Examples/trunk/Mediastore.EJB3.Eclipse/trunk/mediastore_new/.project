@@ -6,6 +6,8 @@
 		<project>mediastore_new.client</project>
 		<project>mediastore_ejb</project>
 		<project>mediastore_ejbClient</project>
+		<project>de.uka.ipd.sdq.prototype.framework</project>
+		<project>de.uka.ipd.sdq.resourcestrategies</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

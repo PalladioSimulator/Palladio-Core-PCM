@@ -1,5 +1,7 @@
 package mediastorerepository.impl.ports;
 
+import mediarepository.entities.DBID3v1;
+
 
 // Port class for IMySQL_AudioDB
 public class IMySQL_AudioDB implements mediastorerepository.IMySQL {
@@ -19,4 +21,8 @@ public class IMySQL_AudioDB implements mediastorerepository.IMySQL {
     public int[] getIDsOfMatchingFiles(String queryString, int fieldID) {
         return myComponent.iMySQL_getIDsOfMatchingFiles(queryString, fieldID);
     }
+
+	public DBID3v1 queryID3(int id) {
+		return myComponent.iMySQL_queryID3(id);
+	}
 }

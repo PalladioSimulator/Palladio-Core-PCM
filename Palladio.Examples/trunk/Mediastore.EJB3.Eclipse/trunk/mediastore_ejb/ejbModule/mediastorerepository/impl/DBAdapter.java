@@ -1,5 +1,7 @@
 package mediastorerepository.impl;
 
+import mediarepository.entities.DBID3v1;
+
 public class DBAdapter implements mediastorerepository.impl.IDBAdapter {
     protected mediastorerepository.impl.ports.IAudioDB_DBAdapter m_portIAudioDB = new mediastorerepository.impl.ports.IAudioDB_DBAdapter(this);
     protected mediastorerepository.impl.contexts.IDBAdapterContext myContext = null;
@@ -26,4 +28,9 @@ public class DBAdapter implements mediastorerepository.impl.IDBAdapter {
     	return myContext.getRoleIMySQL().getFiles(idList);
         /*PROTECTED REGION END*/
     }
+
+	@Override
+	public DBID3v1 iAudioDB_queryID3(int id) {
+		return myContext.getRoleIMySQL().queryID3(id);
+	}
 }

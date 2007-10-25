@@ -8,11 +8,9 @@ import java.io.RandomAccessFile;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 
+import mediarepository.entities.DBID3v1;
 import mediarepository.entities.MP3MediaFile;
 import mediarepository.entities.MediaFile;
 import mediarepository.entities.VideoFile;
@@ -29,8 +27,7 @@ public class AudioDB implements mediastorerepository.impl.IAudioDB {
 
 	protected mediastorerepository.impl.contexts.IAudioDBContext myContext = null;
 
-	@PersistenceContext
-	// EntityManagerFactory emFactory = null;
+	@PersistenceContext(unitName="mediastore")
 	EntityManager em = null;
 
 	public mediastorerepository.IMySQL getPortIMySQL() {
@@ -146,6 +143,7 @@ public class AudioDB implements mediastorerepository.impl.IAudioDB {
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
 	public int[] iMySQL_getIDsOfMatchingFiles(String queryString, int fieldID) {
 		/*
 		 * PROTECTED REGION
@@ -154,7 +152,7 @@ public class AudioDB implements mediastorerepository.impl.IAudioDB {
 		 */
 		int[] result = null;
 		String query = null;
-		List queryResult = null;
+		List<MediaFile> queryResult = null;
 		if (fieldID < MOVIE) {
 			queryResult = queryDBInternal(queryString, fieldID);
 	    	int count = ((int)(Math.random()*5))+10;
@@ -164,7 +162,7 @@ public class AudioDB implements mediastorerepository.impl.IAudioDB {
 	    	}
 		} else {
 			query = "SELECT file FROM VideoFile file WHERE file.movieTitle LIKE '%"+queryString+"%'";
-			queryResult = em.createQuery(query).getResultList();
+			queryResult = (List<MediaFile>)em.createQuery(query).getResultList();
 			result = new int[queryResult.size()];
 			for (int i = 0; i < queryResult.size(); i++) {
 				result[i] = (int) ((MediaFile) queryResult.get(i)).getMediaID();
@@ -174,7 +172,8 @@ public class AudioDB implements mediastorerepository.impl.IAudioDB {
 		/* PROTECTED REGION END */
 	}
 
-	public List queryDBInternal(String queryString, int fieldID) {
+	@SuppressWarnings("unchecked")
+	public List<MediaFile> queryDBInternal(String queryString, int fieldID) {
 //		String query;
 //		List queryResult;
 //		query = "SELECT file FROM DBID3v1 tag, MP3MediaFile file WHERE ";
@@ -189,11 +188,20 @@ public class AudioDB implements mediastorerepository.impl.IAudioDB {
 //		query += "LIKE  '%" + queryString + "%' AND file.id3 = tag";
 //		queryResult = em.createQuery(query).getResultList();
 		String query;
-		List queryResult;
+		List<MediaFile> queryResult;
 		query = "SELECT file FROM MP3MediaFile file WHERE ";
 		query += "file.filename ";
 		query += "LIKE  '%" + queryString + "%'";
-		queryResult = em.createQuery(query).getResultList();
+		queryResult = (List<MediaFile>)em.createQuery(query).getResultList();
 		return queryResult;
+	}
+
+	@Override
+	public DBID3v1 iMySQL_queryID3(int id) {
+		MediaFile mf = (MediaFile) em.find(MediaFile.class,
+				(long) id);
+		MP3MediaFile mp3File = (MP3MediaFile) mf;
+		DBID3v1 result = mp3File.getId3();
+		return result;
 	}
 }
