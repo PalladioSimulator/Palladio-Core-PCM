@@ -7,6 +7,7 @@ import usagemodel;
 import parameter;
 import stoex;
 import completions;
+import emf;
 
 findStart(List[AbstractAction] actions) :
    actions.typeSelect(StartAction).first();
@@ -113,3 +114,6 @@ List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[ProvidedRole] 
 	i < pr.size
 		? (getProvidingEntitiesRecursive(pr,i+1).contains(pr.get(i).providingEntity_ProvidedRole) ? getProvidingEntitiesRecursive(pr,i+1) : getProvidingEntitiesRecursive(pr,i+1).union({pr.get(i).providingEntity_ProvidedRole}) ) 
 		: {};
+		
+BasicComponent findContainerComponent(EObject o) :
+	BasicComponent.isInstance(o) ? o : o.eContainer.findContainerComponent();

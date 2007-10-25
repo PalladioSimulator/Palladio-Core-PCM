@@ -1,5 +1,9 @@
 package de.uka.ipd.sdq.prototype.framework;
 
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.PatternLayout;
+
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
@@ -18,6 +22,10 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 			ExperimentRun expRun,
 			TimeSpanSensor overallTimeSpanSensor) {
 
+		PatternLayout layout = new PatternLayout( "%d{ISO8601} %-5p [%t] %c: %m%n" );
+		logger.addAppender( new ConsoleAppender(layout) );
+		logger.setLevel( Level.INFO );
+	      
 		this.usageScenario = getScenarioRunner();
 		this.experimentRun = expRun;
 		this.overallTimeSpanSensor = overallTimeSpanSensor;
@@ -33,7 +41,7 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 			usageScenario.run();
 			double measuredTimeSpan = (System.nanoTime() - start)
 					/ Math.pow(10, 9);
-			experimentRun.addTimeSpanMeasurement(overallTimeSpanSensor, System.nanoTime(),
+			experimentRun.addTimeSpanMeasurement(overallTimeSpanSensor, System.nanoTime() / Math.pow(10, 9),
 					measuredTimeSpan);
 			logger.debug("Finished my scenario");
 			logger.info("Execution of scenario took: " + measuredTimeSpan

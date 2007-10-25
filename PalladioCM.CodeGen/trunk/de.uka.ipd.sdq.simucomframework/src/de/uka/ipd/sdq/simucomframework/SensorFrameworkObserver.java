@@ -20,10 +20,12 @@ class SensorObserver implements Observer {
 	private ExperimentRun run;
 	private boolean warmUpTime = true;
 	private double lastValue = 0;
+	private SimuComModel model;
 
-	public SensorObserver(ExperimentRun run, TimeSpanSensor sensor) {
+	public SensorObserver(SimuComModel m, ExperimentRun run, TimeSpanSensor sensor) {
 		this.mySensor = sensor;
 		this.run = run;
+		this.model = m;
 	}
 
 	public void update(Observable arg0, Object arg1) {
@@ -35,7 +37,7 @@ class SensorObserver implements Observer {
 			}
 		}
 		if (!warmUpTime)
-			run.addTimeSpanMeasurement(mySensor, 0, (Double)arg1);
+			run.addTimeSpanMeasurement(mySensor, model.currentTime().getTimeValue(), (Double)arg1);
 	}
 	
 }
@@ -53,10 +55,13 @@ public class SensorFrameworkObserver implements ISensorObserver {
 	private Experiment experiment = null;
 	protected ExperimentRun run = null;
 	protected HashMap<String, Sensor> sensors = new HashMap<String, Sensor>();
+
+	private SimuComModel model;
 	
 	public SensorFrameworkObserver(SimuComModel model) {
 		experiment = model.getExperimentDatastore();
 		run = model.getCurrentExperimentRun();
+		this.model = model;
 	}
 	
 	public void sensorAddedEvent(SensorAddedEvent e) {
@@ -64,7 +69,7 @@ public class SensorFrameworkObserver implements ISensorObserver {
 			logger.info("Creating TimeSpan Sensor: "+e.getId());
 			TimeSpanSensor sensor = createOrReuseSensor(experiment.getExperimentName()+": " + e.getId()); 
 			sensors.put(e.getId(),sensor);
-			e.getSupplier().addObserver(new SensorObserver(run,sensor));
+			e.getSupplier().addObserver(new SensorObserver(model,run,sensor));
 		}
 	}
 
