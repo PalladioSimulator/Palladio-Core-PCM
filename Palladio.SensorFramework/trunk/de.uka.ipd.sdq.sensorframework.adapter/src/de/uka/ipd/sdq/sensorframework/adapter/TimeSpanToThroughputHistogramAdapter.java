@@ -36,8 +36,13 @@ public class TimeSpanToThroughputHistogramAdapter implements IAdapter {
 		ArrayList<Integer> count = new ArrayList<Integer>(); int currentCount = 0; 
 		double currentTime = 0;
 		double nextLimit = spanLenght;
+		boolean first = true;
 		for (Measurement m : myValues.getMeasurements()){
 			currentTime = m.getEventTime();
+			if (first) {
+				nextLimit += currentTime;
+				first = false;
+			}
 			if (currentTime < nextLimit)
 				currentCount++;
 			else {

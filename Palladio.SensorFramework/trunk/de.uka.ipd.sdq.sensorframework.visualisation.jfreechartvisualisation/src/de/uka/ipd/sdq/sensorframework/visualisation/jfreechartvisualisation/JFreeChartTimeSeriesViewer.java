@@ -11,7 +11,6 @@ import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeriesEntity;
-import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 
 public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart<TimeSeries> implements ISeriesExporter {
 
@@ -34,15 +33,8 @@ public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart<TimeSeri
 	public void setData(Collection<TimeSeries> data){
 		dataset.removeAllSeries();
 		
-		for (Object o : data) {
-			XYSeries series = null;
-			if (o instanceof IAdapter) {
-				IAdapter adapter = (IAdapter) o;
-				TimeSeries ts = (TimeSeries) adapter.getAdaptedObject(); 
-				series = getSeries(ts);
-			}				
-			dataset.addSeries(series);
-		}
+		for (TimeSeries timeSeries : data)
+			dataset.addSeries(getSeries(timeSeries));
 		initChart();
 		this.forceRedraw();
 	}
