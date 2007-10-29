@@ -29,9 +29,9 @@ import org.w3c.dom.Document;
 class SaveImageAsAction extends Action {
 
 
-	private AbstractJFreeChartChart chartViewer;
+	private AbstractJFreeChartChart<?> chartViewer;
 
-	public SaveImageAsAction(AbstractJFreeChartChart abstractJFreeChartChart) {
+	public SaveImageAsAction(AbstractJFreeChartChart<?> abstractJFreeChartChart) {
 		super();
 		setText("Save Chart as PNG...");
 		this.chartViewer = abstractJFreeChartChart;
@@ -60,10 +60,10 @@ class SaveImageAsAction extends Action {
 class ToggleLegendAction extends Action {
 
 
-	private AbstractJFreeChartChart chartViewer;
+	private AbstractJFreeChartChart<?> chartViewer;
 	private LegendTitle chartLegend;
 
-	public ToggleLegendAction(AbstractJFreeChartChart abstractJFreeChartChart) {
+	public ToggleLegendAction(AbstractJFreeChartChart<?> abstractJFreeChartChart) {
 		super();
 		setText("Enable/Disable Legend");
 		this.chartViewer = abstractJFreeChartChart;
@@ -86,9 +86,9 @@ class ToggleLegendAction extends Action {
 class SaveSVGAsAction extends Action {
 
 
-	private AbstractJFreeChartChart chartViewer;
+	private AbstractJFreeChartChart<?> chartViewer;
 
-	public SaveSVGAsAction(AbstractJFreeChartChart abstractJFreeChartChart) {
+	public SaveSVGAsAction(AbstractJFreeChartChart<?> abstractJFreeChartChart) {
 		super();
 		setText("Save Chart as SVG...");
 		this.chartViewer = abstractJFreeChartChart;
@@ -136,7 +136,7 @@ public abstract class AbstractJFreeChartChart<T> extends ChartComposite {
 
 	public AbstractJFreeChartChart(Composite parent, int style) {
 		super(parent, style);
-		final Graphics2DRenderer renderer = new Graphics2DRenderer();
+		// final Graphics2DRenderer renderer = new Graphics2DRenderer();
 		initChart();
 		
 

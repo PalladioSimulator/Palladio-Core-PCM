@@ -8,9 +8,7 @@ import java.util.List;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
-import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
@@ -36,7 +34,7 @@ public class JFreeChartPieReport extends AbstractReportView implements
 
 	public void setInput(Collection<Pie> c) {
 		if (!c.isEmpty()) {
-			myViewer.setData((Pie) c.iterator().next());
+			myViewer.setData(c);
 		} else
 			myViewer.setData(new Pie("Empty Datasource"));
 	}

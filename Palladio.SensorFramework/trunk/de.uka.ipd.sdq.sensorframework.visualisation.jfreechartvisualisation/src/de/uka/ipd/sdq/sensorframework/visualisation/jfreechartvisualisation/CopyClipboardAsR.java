@@ -1,23 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-
 import org.eclipse.jface.action.Action;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.PlatformUI;
-import org.jfree.chart.entity.XYItemEntity;
 import org.jfree.data.xy.XYDataItem;
 import org.jfree.data.xy.XYSeries;
-
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
 
 public class CopyClipboardAsR extends Action {
 

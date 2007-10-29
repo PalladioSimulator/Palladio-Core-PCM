@@ -1,34 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation;
 
 import java.awt.BasicStroke;
-import java.awt.GradientPaint;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.event.PaintEvent;
-import java.awt.geom.Rectangle2D;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
-import org.eclipse.jface.action.AbstractAction;
-import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
-import org.eclipse.swt.events.PaintListener;
-import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.ui.PlatformUI;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.data.xy.DefaultTableXYDataset;
 import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
@@ -64,6 +42,7 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implement
 	}
 
 
+	@SuppressWarnings("deprecation")
 	protected void initChart() {
 		this.chart = ChartFactory.createXYLineChart("CDF", "Time", "Probability", densityDataset, PlotOrientation.VERTICAL, true, true, true);
 
