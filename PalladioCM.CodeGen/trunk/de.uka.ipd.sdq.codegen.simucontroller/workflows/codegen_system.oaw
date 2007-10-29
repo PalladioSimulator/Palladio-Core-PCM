@@ -23,8 +23,7 @@
     	<respectLinkingResources value="${respectLinkingResources}"/>
     	<brokerLookup value="${brokerLookup}"/>
 	</component>
-	
-<!-- 	
+
 	<component class="oaw.emf.XmiWriter">
 		<modelFile value="${systemFile}.intermediate.repository"/>
 		<inputSlot value="completionRepository"/>
@@ -34,8 +33,7 @@
 		<modelFile value="${systemFile}.intermediate.system"/>
 		<inputSlot value="pcmmodel"/>
 	</component>
---> 	
- 	
+
 	<component
 		class="org.openarchitectureware.check.CheckComponent">
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
@@ -108,7 +106,7 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
 		</metaModel>
 		<checkFile value="pcm"/>
-		<expression value="completionRepository"/>
+		<expression value="completionRepository.eAllContents"/>
 	</component>
 	
 	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">

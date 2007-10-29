@@ -3,7 +3,7 @@
 «IMPORT repository»
 «IMPORT entity»
 «IMPORT system»
-«IMPORT composition»
+«IMPORT core::composition»
 «IMPORT allocation»
 «IMPORT resourceenvironment»
 «IMPORT resourcerepository»
