@@ -57,7 +57,7 @@ public class ConnectorReplacingBuilder implements IBuilder {
 
 	private IClientServerConnectorCompletionComponentBuilder configureCompletionComponentBuilder() {
 		IComponentBuilder networkSimulator = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
-		return new InnerConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator);
+		return new DelayInnerConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator,"1000");
 	}
 
 	private void connectConnectorCompletionWithMiddleware(IClientServerConnectorCompletionComponentBuilder componentBuilder) {

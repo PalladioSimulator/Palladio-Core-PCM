@@ -18,6 +18,9 @@ implements IClientServerConnectorCompletionComponentBuilder {
 	protected LinkingResource myLinkingResource;
 	private IComponentBuilder innerBuilder;
 
+	private IMiddlewareInteractingComponentBuilder serverBuilder;
+	private IMiddlewareInteractingComponentBuilder clientBuilder;
+	
 	public AbstractClientServerConnectorCompletionBuilder(
 			PCMAndCompletionModelHolder models, 
 			AssemblyConnector connector,
@@ -38,11 +41,21 @@ implements IClientServerConnectorCompletionComponentBuilder {
 		return myServerRole;
 	}
 
-	protected abstract IMiddlewareInteractingComponentBuilder getClientSideBuilder();
-	protected abstract IMiddlewareInteractingComponentBuilder getServerSideBuilder();
+	protected IMiddlewareInteractingComponentBuilder getClientSideBuilder() {
+		return clientBuilder;
+	}
 
+	protected IMiddlewareInteractingComponentBuilder getServerSideBuilder() {
+		return serverBuilder;
+	}
+
+	protected abstract IMiddlewareInteractingComponentBuilder createClientSideBuilder();
+	protected abstract IMiddlewareInteractingComponentBuilder createServerSideBuilder();
+	
 	public void build() {
 		super.build();
+		this.clientBuilder = createClientSideBuilder();
+		this.serverBuilder = createServerSideBuilder();
 		
 		innerBuilder.build();
 		getComposedStructure().getChildComponentContexts_ComposedStructure().add(innerBuilder.getAssemblyContext());

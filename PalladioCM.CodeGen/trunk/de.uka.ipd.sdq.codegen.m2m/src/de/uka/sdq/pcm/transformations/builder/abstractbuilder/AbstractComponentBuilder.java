@@ -6,6 +6,8 @@ import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
@@ -73,4 +75,11 @@ implements IComponentBuilder {
 		myModels.getCompletionRepository().getComponents__Repository().add(myComponent);
 	}
 	
+	protected ProcessingResourceType findResourceType(String nameFragment) {
+		for (ResourceType type : myModels.getResourceRepository().getAvailableResourceTypes_ResourceRepository()){
+			if (type instanceof ProcessingResourceType && type.getEntityName().toLowerCase().contains(nameFragment.toLowerCase()))
+				return (ProcessingResourceType) type;
+		}
+		throw new RuntimeException("Neccessary resourcetype "+nameFragment+" not found");
+	}
 }
