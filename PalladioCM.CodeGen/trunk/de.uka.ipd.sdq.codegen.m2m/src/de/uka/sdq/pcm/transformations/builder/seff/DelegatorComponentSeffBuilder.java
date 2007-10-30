@@ -6,15 +6,10 @@ import java.util.List;
 
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
@@ -26,7 +21,7 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
  * @author Snowball
  *
  */
-public class DelegatorComponentSeffBuilder 
+public class DelegatorComponentSeffBuilder extends AbstractSeffBuilder 
 implements ISeffBuilder {
 	
 	protected ArrayList<AbstractInternalActionDescriptor> preActions = new ArrayList<AbstractInternalActionDescriptor>();
@@ -65,17 +60,10 @@ implements ISeffBuilder {
 		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see de.uka.sdq.pcm.transformations.builder.seff.ISeffBuilder#getSeff(de.uka.ipd.sdq.pcm.repository.Signature)
-	 */
-	public List<ResourceDemandingSEFF> getSeffs() {
-		return Collections.unmodifiableList(this.createdSeffs);
-	}
 	
-	private ResourceDemandingSEFF buildSeff(Signature signature) {
-		ResourceDemandingSEFF seff = SeffFactory.eINSTANCE.createResourceDemandingSEFF();
-		seff.setDescribedService__SEFF(signature);
-		
+	@Override
+	protected ResourceDemandingSEFF buildSeff(Signature signature) {
+		ResourceDemandingSEFF seff = super.buildSeff(signature);
 		StartAction start = SeffFactory.eINSTANCE.createStartAction();
 		AbstractAction lastAction = start;
 		
@@ -84,12 +72,12 @@ implements ISeffBuilder {
 			lastAction = createControlFlow(lastAction,action);
 			seff.getSteps_Behaviour().add(action);
 		}
-
+	
 		DelegatingExternalCallAction delegatingCall = CompletionsFactory.eINSTANCE.createDelegatingExternalCallAction();
 		delegatingCall.setCalledService_ExternalService(signature);
 		delegatingCall.setRole_ExternalService(domainReqRole);
 		lastAction = createControlFlow(lastAction, delegatingCall);
-
+	
 		for (AbstractInternalActionDescriptor o : postActions) {
 			AbstractAction action = createAction(o,signature);
 			lastAction = createControlFlow(lastAction,action);
@@ -104,36 +92,10 @@ implements ISeffBuilder {
 		return seff;
 	}
 
-	private AbstractAction createAction(AbstractInternalActionDescriptor descriptor, Signature signature) {
-		if (descriptor instanceof SignatureDependentInternalActionDescriptor)
-			((SignatureDependentInternalActionDescriptor)descriptor).setCurrentSignature(signature);
-		return createInternalAction(descriptor.getResourceType(), descriptor.getResourceDemand());
-	}
-
-
-	private InternalAction createInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
-		InternalAction action = SeffFactory.eINSTANCE.createInternalAction();
-		ParametricResourceDemand d = SeffFactory.eINSTANCE.createParametricResourceDemand();
-		d.setRequiredResource_ParametricResourceDemand(type);
-		PCMRandomVariable specification = CoreFactory.eINSTANCE.createPCMRandomVariable();
-		specification.setSpecification(getSaveResourceDemand(resourceDemandSpec));
-		d.setSpecification_ParametericResourceDemand(specification);
-		action.getResourceDemand_Action().add(d);
-		
-		return action;
-	}
-	
-	private String getSaveResourceDemand(String resourceDemandSpec) {
-		if (resourceDemandSpec == null)
-			return "0";
-		if (resourceDemandSpec.equals(""))
-			return "0";
-		return resourceDemandSpec;
-	}
-
-	private AbstractAction createControlFlow(AbstractAction a,
-			AbstractAction b) {
-		a.setSuccessor_AbstractAction(b);
-		return b;
+	/* (non-Javadoc)
+	 * @see de.uka.sdq.pcm.transformations.builder.seff.ISeffBuilder#getSeff(de.uka.ipd.sdq.pcm.repository.Signature)
+	 */
+	public List<ResourceDemandingSEFF> getSeffs() {
+		return Collections.unmodifiableList(this.createdSeffs);
 	}
 }
