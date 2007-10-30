@@ -1,13 +1,13 @@
-package de.uka.sdq.pcm.transformations.builder;
+package de.uka.sdq.pcm.transformations.builder.seff;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -19,57 +19,67 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
-import de.uka.sdq.pcm.transformations.ISignatureDependentDemand;
 
-class InternalActionDescriptor {
-	private String resourceDemand;
-	private ProcessingResourceType resourceType;
-	public InternalActionDescriptor(String resourceDemand,
-			ProcessingResourceType resourceType) {
-		super();
-		this.resourceDemand = resourceDemand;
-		this.resourceType = resourceType;
-	}
-	public String getResourceDemand() {
-		return resourceDemand;
-	}
-	public ProcessingResourceType getResourceType() {
-		return resourceType;
-	}
-}
-
-public class SeffBuilder {
-	ArrayList<Object> preActions = new ArrayList<Object>();
-	ArrayList<Object> postActions = new ArrayList<Object>();
-
-	public SeffBuilder() {
-	}
-
-	public void appendPreInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
-		preActions.add(new InternalActionDescriptor(resourceDemandSpec,type));
-	}
+/**
+ * A builder which builds identical SEFFs for all services contained in the passed interface. Useful for creating components which delegate their 
+ * call to other components
+ * @author Snowball
+ *
+ */
+public class DelegatorComponentSeffBuilder 
+implements ISeffBuilder {
 	
-	public void appendPostInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
-		postActions.add(new InternalActionDescriptor(resourceDemandSpec,type));
+	protected ArrayList<AbstractInternalActionDescriptor> preActions = new ArrayList<AbstractInternalActionDescriptor>();
+	protected ArrayList<AbstractInternalActionDescriptor> postActions = new ArrayList<AbstractInternalActionDescriptor>();
+	protected RequiredRole domainReqRole;
+	protected ProvidedRole domainProvRole;
+	private ArrayList<ResourceDemandingSEFF> createdSeffs = new ArrayList<ResourceDemandingSEFF>();
+
+	public DelegatorComponentSeffBuilder(ProvidedRole domainProvRole, RequiredRole domainReqRole) {
+		this.domainReqRole = domainReqRole;
+		this.domainProvRole = domainProvRole;
 	}
+
+	/**
+	 * Append an internal action in the chain of actions to be executed before the delegating call
+	 * @param signatureDependentDemand A description of the internal action's demand
+	 */
+	public void appendPreInternalAction(
+			AbstractInternalActionDescriptor signatureDependentDemand) {
+		this.preActions.add(signatureDependentDemand);
+	}
+
+	/**
+	 * Append an internal action in the chain of actions to be executed after the delegating call
+	 * @param signatureDependentDemand A description of the internal action's demand
+	 */
+	public void appendPostInternalAction(
+			AbstractInternalActionDescriptor signatureDependentDemand) {
+		this.postActions.add(signatureDependentDemand);
+	}	
 	
-	public void build(BasicComponent basicComponent) {
-		for (ProvidedRole providedRole : basicComponent.getProvidedRoles_InterfaceProvidingEntity()) {
-			for (Signature providedService : providedRole.getProvidedInterface__ProvidedRole().getSignatures__Interface()){
-				ResourceDemandingSEFF seff = buildSeff(providedService,basicComponent.getRequiredRoles_InterfaceRequiringEntity().get(0));
-				basicComponent.getServiceEffectSpecifications__BasicComponent().add(seff);
-			}
+	public void build() {
+		for (Signature providedService : domainProvRole.getProvidedInterface__ProvidedRole().getSignatures__Interface()){
+			ResourceDemandingSEFF seff = buildSeff(providedService);
+			this.createdSeffs.add(seff);
 		}
 	}
 	
-	private ResourceDemandingSEFF buildSeff(Signature signature, RequiredRole role) {
+	/* (non-Javadoc)
+	 * @see de.uka.sdq.pcm.transformations.builder.seff.ISeffBuilder#getSeff(de.uka.ipd.sdq.pcm.repository.Signature)
+	 */
+	public List<ResourceDemandingSEFF> getSeffs() {
+		return Collections.unmodifiableList(this.createdSeffs);
+	}
+	
+	private ResourceDemandingSEFF buildSeff(Signature signature) {
 		ResourceDemandingSEFF seff = SeffFactory.eINSTANCE.createResourceDemandingSEFF();
 		seff.setDescribedService__SEFF(signature);
 		
 		StartAction start = SeffFactory.eINSTANCE.createStartAction();
 		AbstractAction lastAction = start;
 		
-		for (Object o : preActions) {
+		for (AbstractInternalActionDescriptor o : preActions) {
 			AbstractAction action = createAction(o,signature);
 			lastAction = createControlFlow(lastAction,action);
 			seff.getSteps_Behaviour().add(action);
@@ -77,10 +87,10 @@ public class SeffBuilder {
 
 		DelegatingExternalCallAction delegatingCall = CompletionsFactory.eINSTANCE.createDelegatingExternalCallAction();
 		delegatingCall.setCalledService_ExternalService(signature);
-		delegatingCall.setRole_ExternalService(role);
+		delegatingCall.setRole_ExternalService(domainReqRole);
 		lastAction = createControlFlow(lastAction, delegatingCall);
 
-		for (Object o : postActions) {
+		for (AbstractInternalActionDescriptor o : postActions) {
 			AbstractAction action = createAction(o,signature);
 			lastAction = createControlFlow(lastAction,action);
 			seff.getSteps_Behaviour().add(action);
@@ -94,20 +104,12 @@ public class SeffBuilder {
 		return seff;
 	}
 
-	private AbstractAction createAction(Object o, Signature signature) {
-		if (o instanceof InternalActionDescriptor) {
-			InternalActionDescriptor descriptor = (InternalActionDescriptor) o;
-			return createInternalAction(descriptor.getResourceType(), descriptor.getResourceDemand());
-		}
-		if (o instanceof ISignatureDependentDemand)
-			return createInternalAction(((ISignatureDependentDemand)o).getType(), ((ISignatureDependentDemand)o).getDemand(signature));
-		return null;
+	private AbstractAction createAction(AbstractInternalActionDescriptor descriptor, Signature signature) {
+		if (descriptor instanceof SignatureDependentInternalActionDescriptor)
+			((SignatureDependentInternalActionDescriptor)descriptor).setCurrentSignature(signature);
+		return createInternalAction(descriptor.getResourceType(), descriptor.getResourceDemand());
 	}
 
-	public void appendPreInternalAction(
-			ISignatureDependentDemand signatureDependentDemand) {
-		this.preActions.add(signatureDependentDemand);
-	}
 
 	private InternalAction createInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
 		InternalAction action = SeffFactory.eINSTANCE.createInternalAction();
@@ -134,10 +136,4 @@ public class SeffBuilder {
 		a.setSuccessor_AbstractAction(b);
 		return b;
 	}
-
-	public void appendPostInternalAction(
-			ISignatureDependentDemand signatureDependentDemand) {
-		this.postActions.add(signatureDependentDemand);
-	}
-	
 }

@@ -15,47 +15,35 @@ import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.lib.AbstractWorkflowComponent2;
 import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 
-import de.uka.ipd.sdq.completions.Completion;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
-import de.uka.ipd.sdq.pcm.system.System;
-import de.uka.sdq.pcm.transformations.BytesizeComputationForSignature.Modifier;
-import de.uka.sdq.pcm.transformations.builder.BasicComponentBuilder;
-import de.uka.sdq.pcm.transformations.builder.ConnectorCompletionBuilder;
-import de.uka.sdq.pcm.transformations.builder.SeffBuilder;
+import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
+import de.uka.sdq.pcm.transformations.builder.connectors.ConnectorReplacingBuilder;
+import de.uka.sdq.pcm.transformations.builder.connectors.IClientServerConnectorCompletionComponentBuilder;
+import de.uka.sdq.pcm.transformations.builder.connectors.InnerConnectorCompletionBuilder;
+import de.uka.sdq.pcm.transformations.builder.resourceconsumer.NetworkLoadingComponentBuilder;
+import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
 public class TransformationWorkflowComponent 
 	extends AbstractWorkflowComponent2 {
 
-	System resource = null;
-	Repository completionRepository = null;
-	Allocation allocation = null;
-	private boolean shouldProceed = true;
-	private int counter = 0;
-	private ResourceRepository resourceType;
-	private boolean shouldCreateBrokerLookup = false;
 	private boolean respectLinkingResources = false;
-	
-	public void setBrokerLookup(String value) {
-		if (value.equals("true")) {
-			shouldCreateBrokerLookup = true;
-		}
-	}
-	
+	private PCMAndCompletionModelHolder models;
+		
 	public void setRespectLinkingResources(String value){
 		if (value.equals("true")) {
 			respectLinkingResources  = true;
@@ -64,100 +52,129 @@ public class TransformationWorkflowComponent
 	
 	@Override
 	protected void checkConfigurationInternal(Issues arg0) {
+		// nothing to do here
 	}
 
 	@Override
 	protected void invokeInternal(WorkflowContext context, ProgressMonitor monitor,
 			Issues issues) {
-		if (shouldProceed) {
-			this.resource = (de.uka.ipd.sdq.pcm.system.System) context.get("pcmmodel");
-			this.allocation = (Allocation)context.get("allocation");
-			this.resourceType = (ResourceRepository)context.get("resourceType");
-			completionRepository = RepositoryFactory.eINSTANCE.createRepository();
-			completionRepository.setEntityName("CompletionsRepository");
-			performTransformation(issues);
-			context.set("completionRepository",completionRepository);
-		}
+
+		Repository completionRepository = RepositoryFactory.eINSTANCE.createRepository();
+		context.set("completionRepository",completionRepository);
+		completionRepository.setEntityName("CompletionsRepository");
+		models = new PCMAndCompletionModelHolder(
+				(ResourceRepository)context.get("resourceType"),
+				null,
+				(de.uka.ipd.sdq.pcm.system.System) context.get("pcmmodel"),
+				(Allocation)context.get("allocation"),
+				null,
+				completionRepository,
+				(Repository)context.get("middleware")
+				);
+
+		addMiddlewareToEachResourceContainer(issues);
+		replaceConnectorsWithCompletions(issues);
 	}
 
 	@SuppressWarnings("unchecked")
-	private void performTransformation(final Issues issues) {
+	private void addMiddlewareToEachResourceContainer(final Issues issues) {
 		OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
 
 		try {
 			Set<EObject> result = new SELECT(
-				    new FROM(resource),
+				    new FROM(models.getAllocation().getTargetResourceEnvironment_Allocation()),
+				    new WHERE(new BooleanOCLCondition<EClassifier, EClass, EObject>(
+				    	ocl.getEnvironment(),
+				        "true",
+				        ResourceenvironmentPackage.eINSTANCE.getResourceContainer()))).getEObjects();
+			for(EObject eObject : result) {
+        		addMiddleware((ResourceContainer)eObject);
+			}
+    	} catch (Exception ex) {
+			issues.addError("Exception during M2M transformation: "+ex.getMessage());
+    	}
+	}
+	
+	/**
+	 * Creates a middleware component instance and allocates it to the given resource container
+	 */
+	private void addMiddleware(ResourceContainer resContainer) {
+		AssemblyContext ctx = CompositionFactory.eINSTANCE.createAssemblyContext();
+		ctx.setEntityName("AssCtx Middleware "+resContainer.getEntityName());
+		ctx.setEncapsulatedComponent_ChildComponentContext(models.getMiddlewareRepository().getComponents__Repository().get(0)); // TODO: Parameterise me!
+		models.getSystem().getChildComponentContexts_ComposedStructure().add(ctx);
+		
+		models.getSystem().getChildComponentContexts_ComposedStructure().add(ctx);
+		AllocationContext allocCtx = AllocationFactory.eINSTANCE.createAllocationContext();
+		allocCtx.setEntityName("AllocCtx Middleware "+resContainer.getEntityName());
+		allocCtx.setAssemblyContext_AllocationContext(ctx);
+		allocCtx.setResourceContainer_AllocationContext(resContainer);
+		models.getAllocation().getAllocationContexts_Allocation().add(allocCtx);
+	}
+
+	@SuppressWarnings("unchecked")
+	private void replaceConnectorsWithCompletions(final Issues issues) {
+		OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
+
+		try {
+			Set<EObject> result = new SELECT(
+				    new FROM(models.getSystem()),
 				    new WHERE(new BooleanOCLCondition<EClassifier, EClass, EObject>(
 				    	ocl.getEnvironment(),
 				        "true",
 				        CompositionPackage.eINSTANCE.getAssemblyConnector()))).getEObjects();
-			for(EObject eObject : result) {
-        		transform(eObject);
+			for(EObject connector : result) {
+        		transformConnector((AssemblyConnector) connector);
 			}
     	} catch (Exception ex) {
 			issues.addError("Exception during M2M transformation: "+ex.getMessage());
     	}
 	}
 
-	protected void transform(EObject object) {
-		AssemblyConnector con = (AssemblyConnector) object;
-		java.lang.System.out.println("Expanding a completion for connector "+con.getEntityName());
-		counter++;
+	protected void transformConnector(AssemblyConnector connector) {
+		if ( respectLinkingResources ) {
+			LinkingResource linkingRes = findLinkingResource(connector);
+			if (linkingRes != null) { // Is there a linking resource between the components?
+				java.lang.System.out.println("Expanding a completion for connector "+connector.getEntityName());
 
-		ConnectorCompletionBuilder builder = configureCompletion(con);
-		if (builder.hasComponents()){
-			builder.build();
-			embedCompletionIntoSystem(con, builder.getCompletion());
+				IComponentBuilder networkSimulator = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
+				IClientServerConnectorCompletionComponentBuilder builder = new InnerConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator);
+				ConnectorReplacingBuilder replacer = new ConnectorReplacingBuilder(connector,builder);
+				replacer.build();
+
+				// Only support point-to-point connections
+				AllocationContext clientMWContext = findAllocationContext(linkingRes.getFromResourceContainer_LinkingResource().get(0),models.getMiddlewareRepository().getInterfaces__Repository().get(0));
+				addAssemblyConnector(builder.getClientSideMiddlewareRole(), builder.getAssemblyContext(),
+						clientMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
+						clientMWContext.getAssemblyContext_AllocationContext());
+				AllocationContext serverMWContext = findAllocationContext(linkingRes.getToResourceContainer_LinkingResource().get(0),models.getMiddlewareRepository().getInterfaces__Repository().get(0));
+				addAssemblyConnector(builder.getServerSideMiddlewareRole(), builder.getAssemblyContext(),
+						serverMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
+						serverMWContext.getAssemblyContext_AllocationContext());
+			}
 		}
 	}
 
-	private ConnectorCompletionBuilder configureCompletion(AssemblyConnector con) {
-		ConnectorCompletionBuilder completionBuilder = new ConnectorCompletionBuilder(completionRepository, con);
-
-		if ( shouldCreateBrokerLookup ) {
-			BasicComponentBuilder componentBuilder = completionBuilder.addBasicComponentToChain(
-					findCallingComponentResourceContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector()),
-					this.allocation);
-			SeffBuilder seffBuilder = componentBuilder.getSeffBuilder();
-			seffBuilder.appendPreInternalAction(findCPUResourceType(), "17");
-		}
-		
-		if ( respectLinkingResources ) {
-			LinkingResource linkingRes = findLinkingResource(con);
-			if (linkingRes != null) { // Is there a linking resource between the components?
-				final CommunicationLinkResourceType typeOfLink = linkingRes.getCommunicationLinkResourceSpecifications_LinkingResource().getCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
-				ResourceContainer dummyContainer = ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
-				dummyContainer.setId(linkingRes.getId());
-		
-				BasicComponentBuilder linkingResourceControllerBuilder = completionBuilder.addBasicComponentToChain(
-						dummyContainer,
-						this.allocation);
-				SeffBuilder seffBuilder = linkingResourceControllerBuilder.getSeffBuilder();
-				seffBuilder.appendPreInternalAction(new ISignatureDependentDemand(){
-					public String getDemand(Signature signature) {
-						return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.IN);
-					}
-		
-					public ProcessingResourceType getType() {
-						return typeOfLink;
-					}
-				});
-				seffBuilder.appendPostInternalAction(new ISignatureDependentDemand(){
-					public String getDemand(Signature signature) {
-						return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.OUT);
-					}
-		
-					public ProcessingResourceType getType() {
-						return typeOfLink;
-					}
-				});
-			}
-		}
-		return completionBuilder;
+	private AllocationContext findAllocationContext(
+			ResourceContainer resourceContainer, Interface interfaceToSearch) {
+		for (AllocationContext context : models.getAllocation().getAllocationContexts_Allocation())
+			if (context.getResourceContainer_AllocationContext() == resourceContainer && 
+				context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().get(0).getProvidedInterface__ProvidedRole() == interfaceToSearch)
+				return context;
+		throw new RuntimeException("Model invalid, unable to find middleware component for resource container "+resourceContainer.getEntityName());
+	}	
+	
+	protected void addAssemblyConnector(RequiredRole from, AssemblyContext fromContext, ProvidedRole to, AssemblyContext toContext){
+		AssemblyConnector acon = CompositionFactory.eINSTANCE.createAssemblyConnector();
+		acon.setParentStructure_AssemblyConnector(models.getSystem());
+		acon.setRequiredRole_CompositeAssemblyConnector(from);
+		acon.setRequiringChildComponentContext_CompositeAssemblyConnector(fromContext);
+		acon.setProvidedRole_CompositeAssemblyConnector(to);
+		acon.setProvidingChildComponentContext_CompositeAssemblyConnector(toContext);
 	}
 
 	private LinkingResource findLinkingResource(AssemblyConnector con) {
-		for (LinkingResource lr : this.allocation.getTargetResourceEnvironment_Allocation().getLinkingresource()){
+		for (LinkingResource lr : models.getAllocation().getTargetResourceEnvironment_Allocation().getLinkingresource()){
 			if (lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector())) &&
 					lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getProvidingChildComponentContext_CompositeAssemblyConnector())))
 				return lr;
@@ -169,54 +186,11 @@ public class TransformationWorkflowComponent
 
 	private ResourceContainer findContainer(
 			AssemblyContext requiringChildComponentContext_CompositeAssemblyConnector) {
-		for(AllocationContext ac : this.allocation.getAllocationContexts_Allocation()) {
+		for(AllocationContext ac : this.models.getAllocation().getAllocationContexts_Allocation()) {
 			if (ac.getAssemblyContext_AllocationContext().getId().equals(requiringChildComponentContext_CompositeAssemblyConnector.getId()))
 				return ac.getResourceContainer_AllocationContext();
 		}
 		return null;
-	}
-
-	private ResourceContainer findCallingComponentResourceContainer(
-			AssemblyContext requiringChildComponentContext_CompositeAssemblyConnector) {
-		for(AllocationContext context : allocation.getAllocationContexts_Allocation()) {
-			if (requiringChildComponentContext_CompositeAssemblyConnector.getId().equals(
-					context.getAssemblyContext_AllocationContext().getId()))
-				return context.getResourceContainer_AllocationContext();
-		}
-		throw new RuntimeException("Component Allocation Context not found");
-	}
-	
-	private ProcessingResourceType findCPUResourceType() {
-		for (ResourceType r : resourceType.getAvailableResourceTypes_ResourceRepository()) {
-			if (r.getEntityName().toLowerCase().equals("cpu"))
-				return (ProcessingResourceType)r;
-		}
-		throw new RuntimeException("Unable to find CPU resource type");
-	}
-
-	private void embedCompletionIntoSystem(AssemblyConnector con,
-			Completion completion) {
-		AssemblyContext completionContext = CompositionFactory.eINSTANCE.createAssemblyContext();
-		completionContext.setEntityName("CompletionContext"+counter); counter++;
-		completionContext.setEncapsulatedComponent_ChildComponentContext(completion);
-		
-		AssemblyConnector toCompletionConnector = CompositionFactory.eINSTANCE.createAssemblyConnector();
-		AssemblyConnector fromCompletionConnector = CompositionFactory.eINSTANCE.createAssemblyConnector();
-		
-		toCompletionConnector.setRequiredRole_CompositeAssemblyConnector(con.getRequiredRole_CompositeAssemblyConnector());
-		toCompletionConnector.setRequiringChildComponentContext_CompositeAssemblyConnector(con.getRequiringChildComponentContext_CompositeAssemblyConnector());
-		toCompletionConnector.setProvidedRole_CompositeAssemblyConnector(completion.getProvidedRoles_InterfaceProvidingEntity().get(0));
-		toCompletionConnector.setProvidingChildComponentContext_CompositeAssemblyConnector(completionContext);
-
-		fromCompletionConnector.setRequiredRole_CompositeAssemblyConnector(completion.getRequiredRoles_InterfaceRequiringEntity().get(0));
-		fromCompletionConnector.setRequiringChildComponentContext_CompositeAssemblyConnector(completionContext);
-		fromCompletionConnector.setProvidedRole_CompositeAssemblyConnector(con.getProvidedRole_CompositeAssemblyConnector());
-		fromCompletionConnector.setProvidingChildComponentContext_CompositeAssemblyConnector(con.getProvidingChildComponentContext_CompositeAssemblyConnector());
-		
-		this.resource.getChildComponentContexts_ComposedStructure().add(completionContext);
-		this.resource.getCompositeAssemblyConnectors_ComposedStructure().add(toCompletionConnector);
-		this.resource.getCompositeAssemblyConnectors_ComposedStructure().add(fromCompletionConnector);
-		this.resource.getCompositeAssemblyConnectors_ComposedStructure().remove(con);
 	}
 
 }

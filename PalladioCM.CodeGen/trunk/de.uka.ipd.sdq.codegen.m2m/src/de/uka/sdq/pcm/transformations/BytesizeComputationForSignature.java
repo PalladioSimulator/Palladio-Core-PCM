@@ -13,6 +13,9 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 
 public class BytesizeComputationForSignature {
 	
+	/**
+	 * @author   Snowball
+	 */
 	public enum Modifier{
 		IN,
 		OUT
