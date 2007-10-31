@@ -51,14 +51,14 @@ public class NetworkLoadingComponentBuilder extends BasicComponentBuilder {
 		DelegatorComponentSeffBuilder builder = new DelegatorComponentSeffBuilder(getProvidedRole(),getRequiredRole());
 
 		// Network demand for the Request
-		builder.appendPreInternalAction(new SignatureDependentInternalActionDescriptor(typeOfLink){
+		builder.appendPreAction(new SignatureDependentInternalActionDescriptor(typeOfLink){
 			public String getDemand(Signature signature) {
 				return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.IN);
 			}			
 		});
 		
 		// Network demand for the Reply
-		builder.appendPreInternalAction(new SignatureDependentInternalActionDescriptor(typeOfLink){
+		builder.appendPostAction(new SignatureDependentInternalActionDescriptor(typeOfLink){
 			public String getDemand(Signature signature) {
 				return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.OUT);
 			}

@@ -127,10 +127,22 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR DelegatingExternalCallAction»
+{
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx
+			.getStack().currentStackFrame();
+	// prepare stackframe
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> stackframe = ctx
+			.getStack().createAndPushNewStackFrame(currentFrame);
+	stackframe.addVariables(methodBodyStackFrame);
+
+	
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =	
    	myContext.getRole«this.role_ExternalService.javaName()»().«this.calledService_ExternalService.javaSignature()» 
 	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this.calledService_ExternalService»);
 	resultStackFrame = callResult;
 	// Copy the result variables in my own stack frame so that we can access them in the post actions
 	methodBodyStackFrame.addVariables(callResult);
+	
+	ctx.getStack().removeStackFrame();
+}
 «ENDDEFINE»

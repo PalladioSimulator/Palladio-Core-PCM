@@ -24,8 +24,8 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
 public class DelegatorComponentSeffBuilder extends AbstractSeffBuilder 
 implements ISeffBuilder {
 	
-	protected ArrayList<AbstractInternalActionDescriptor> preActions = new ArrayList<AbstractInternalActionDescriptor>();
-	protected ArrayList<AbstractInternalActionDescriptor> postActions = new ArrayList<AbstractInternalActionDescriptor>();
+	protected ArrayList<AbstractActionDescriptor> preActions = new ArrayList<AbstractActionDescriptor>();
+	protected ArrayList<AbstractActionDescriptor> postActions = new ArrayList<AbstractActionDescriptor>();
 	protected RequiredRole domainReqRole;
 	protected ProvidedRole domainProvRole;
 	private ArrayList<ResourceDemandingSEFF> createdSeffs = new ArrayList<ResourceDemandingSEFF>();
@@ -39,8 +39,8 @@ implements ISeffBuilder {
 	 * Append an internal action in the chain of actions to be executed before the delegating call
 	 * @param signatureDependentDemand A description of the internal action's demand
 	 */
-	public void appendPreInternalAction(
-			AbstractInternalActionDescriptor signatureDependentDemand) {
+	public void appendPreAction(
+			AbstractActionDescriptor signatureDependentDemand) {
 		this.preActions.add(signatureDependentDemand);
 	}
 
@@ -48,8 +48,8 @@ implements ISeffBuilder {
 	 * Append an internal action in the chain of actions to be executed after the delegating call
 	 * @param signatureDependentDemand A description of the internal action's demand
 	 */
-	public void appendPostInternalAction(
-			AbstractInternalActionDescriptor signatureDependentDemand) {
+	public void appendPostAction(
+			AbstractActionDescriptor signatureDependentDemand) {
 		this.postActions.add(signatureDependentDemand);
 	}	
 	
@@ -67,8 +67,11 @@ implements ISeffBuilder {
 		StartAction start = SeffFactory.eINSTANCE.createStartAction();
 		AbstractAction lastAction = start;
 		
-		for (AbstractInternalActionDescriptor o : preActions) {
-			AbstractAction action = createAction(o,signature);
+		setSignatureInActions(preActions,signature);
+		setSignatureInActions(postActions,signature);
+		
+		for (AbstractActionDescriptor descriptor : preActions) {
+			AbstractAction action = descriptor.createAction();
 			lastAction = createControlFlow(lastAction,action);
 			seff.getSteps_Behaviour().add(action);
 		}
@@ -78,8 +81,8 @@ implements ISeffBuilder {
 		delegatingCall.setRole_ExternalService(domainReqRole);
 		lastAction = createControlFlow(lastAction, delegatingCall);
 	
-		for (AbstractInternalActionDescriptor o : postActions) {
-			AbstractAction action = createAction(o,signature);
+		for (AbstractActionDescriptor descriptor : postActions) {
+			AbstractAction action = descriptor.createAction();
 			lastAction = createControlFlow(lastAction,action);
 			seff.getSteps_Behaviour().add(action);
 		}
@@ -90,6 +93,17 @@ implements ISeffBuilder {
 		Collections.addAll(seff.getSteps_Behaviour(), start,stop,delegatingCall);
 		
 		return seff;
+	}
+
+	private void setSignatureInActions(
+			ArrayList<AbstractActionDescriptor> actions, Signature sig) {
+		for (AbstractActionDescriptor descriptor : actions) {
+			if (descriptor instanceof SignatureDependentInternalActionDescriptor) {
+				SignatureDependentInternalActionDescriptor sigDescriptor = (SignatureDependentInternalActionDescriptor) descriptor;
+				sigDescriptor.setCurrentSignature(sig);
+			}
+		}
+		
 	}
 
 	/* (non-Javadoc)

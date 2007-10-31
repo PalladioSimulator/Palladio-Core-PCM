@@ -24,8 +24,8 @@ public class DelayMiddlewareComponentBuilder extends
 	@Override
 	protected DelegatorComponentSeffBuilder getSeffBuilder() {
 		DelegatorComponentSeffBuilder builder = super.getSeffBuilder();
-		builder.appendPreInternalAction(new StaticInternalActionDescriptor(demandStoEx,findResourceType("cpu")));
-		builder.appendPostInternalAction(new StaticInternalActionDescriptor(demandStoEx,findResourceType("cpu")));
+		builder.appendPreAction(new StaticInternalActionDescriptor(demandStoEx,findResourceType("cpu")));
+		builder.appendPostAction(new StaticInternalActionDescriptor(demandStoEx,findResourceType("cpu")));
 		return builder;
 	}
 
