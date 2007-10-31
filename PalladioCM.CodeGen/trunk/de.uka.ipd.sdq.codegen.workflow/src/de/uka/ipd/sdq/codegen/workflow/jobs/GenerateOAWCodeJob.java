@@ -33,55 +33,37 @@ public class GenerateOAWCodeJob implements IJob {
 		if (properties.isEmpty())
 			throw new JobFailedException("Setting up properties failed");
 
-		//Map<String, String> properties = new HashMap<String, String>();
 		Map<String, Object> slotContents = new HashMap<String, Object>();
 
-//		try {
-//			properties.put(ConstantsContainer.AOP_TEMPLATE, myConfiguration
-//					.getAttribute(ConstantsContainer.AOP_TEMPLATE, ""));
-//			properties.put(ConstantsContainer.REPOSITORY_FILE, myConfiguration
-//					.getAttribute(ConstantsContainer.REPOSITORY_FILE, ""));
-//			properties.put(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, myConfiguration
-//					.getAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, ""));
-//			properties.put(ConstantsContainer.SYSTEM_FILE, myConfiguration
-//					.getAttribute(ConstantsContainer.SYSTEM_FILE, ""));
-//			properties.put(ConstantsContainer.ALLOCATION_FILE, myConfiguration
-//					.getAttribute(ConstantsContainer.ALLOCATION_FILE, ""));
-//			properties.put(ConstantsContainer.USAGE_FILE, myConfiguration
-//					.getAttribute(ConstantsContainer.USAGE_FILE, ""));
-//			properties.put(ConstantsContainer.OUTPUT_PATH, myConfiguration
-//					.getAttribute(ConstantsContainer.OUTPUT_PATH, ""));
-//			properties.put("respectLinkingResources", myConfiguration
-//					.getAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES, true) ? "true" : "false");
-//			properties.put("brokerLookup", myConfiguration
-//					.getAttribute(ConstantsContainer.COMPONENT_LOOKUP,
-//							ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal()) 
-//												== ComponentLookupEnum.BROKER.ordinal() ? "true" : "false");
-//		} catch (Exception e) {
-//			throw new JobFailedException("Setting up properties failed", e);
-//		}
-
 		for (String workflowFile : myWorkflowFiles) {
-			try {
-				IssuesImpl issues = new IssuesImpl();
-				WorkflowRunner runner = new WorkflowRunner();
-				runner.prepare(workflowFile, null, properties);
+			generateFile(slotContents, workflowFile);
+		}
+		properties.put("repositoryFile", properties
+				.get("mwRepositoryFile"));
+		generateFile(slotContents, REPOSITORY_FILE);
+	}
 
-				if (!runner.executeWorkflow(slotContents, issues)) {
-					String message = "";
-					for (Issue i : issues.getErrors()) {
-						message += i.getMessage() + " [" + i.getElement() + "]";
-					}
-					throw new OawFailedException(
-							"Generator failed, given model is most likely invalid in "
-									+ workflowFile + ". Issues given: "
-									+ message);
+	private void generateFile(Map<String, Object> slotContents,
+			String workflowFile) throws JobFailedException {
+		try {
+			IssuesImpl issues = new IssuesImpl();
+			WorkflowRunner runner = new WorkflowRunner();
+			runner.prepare(workflowFile, null, properties);
+
+			if (!runner.executeWorkflow(slotContents, issues)) {
+				String message = "";
+				for (Issue i : issues.getErrors()) {
+					message += i.getMessage() + " [" + i.getElement() + "]";
 				}
-			} catch (Exception e) {
-				throw new JobFailedException("Running oAW workflow failed: "
-						+ workflowFile + "\n Errors: " + e.getMessage()
-						+ ". Please see the oAW console output for details!", e);
+				throw new OawFailedException(
+						"Generator failed, given model is most likely invalid in "
+								+ workflowFile + ". Issues given: "
+								+ message);
 			}
+		} catch (Exception e) {
+			throw new JobFailedException("Running oAW workflow failed: "
+					+ workflowFile + "\n Errors: " + e.getMessage()
+					+ ". Please see the oAW console output for details!", e);
 		}
 	}
 

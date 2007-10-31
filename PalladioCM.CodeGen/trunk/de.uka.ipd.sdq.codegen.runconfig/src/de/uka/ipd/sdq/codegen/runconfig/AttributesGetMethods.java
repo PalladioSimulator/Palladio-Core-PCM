@@ -65,6 +65,8 @@ public abstract class AttributesGetMethods {
 			properties.put(ConstantsContainer.AOP_TEMPLATE, defineTemplateMethod());
 			properties.put(ConstantsContainer.REPOSITORY_FILE, configuration
 					.getAttribute(ConstantsContainer.REPOSITORY_FILE, ""));
+			properties.put(ConstantsContainer.MWREPOSITORY_FILE, configuration
+					.getAttribute(ConstantsContainer.MWREPOSITORY_FILE, ""));
 			properties.put(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, configuration
 					.getAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, ""));
 			properties.put(ConstantsContainer.SYSTEM_FILE, configuration

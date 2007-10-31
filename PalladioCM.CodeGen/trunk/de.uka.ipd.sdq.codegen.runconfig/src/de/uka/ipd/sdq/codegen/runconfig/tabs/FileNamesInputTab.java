@@ -43,6 +43,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	private Text textSystem;
 	private Text textAllocation;
 	private Text textUsage;
+	private Text mwtextRepository;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
@@ -141,6 +142,42 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			 */
 			public void widgetSelected(SelectionEvent e) {
 				textRepository.setText(openFileDialog(ConstantsContainer.REPOSITORY_EXTENSION));
+			}
+		});
+
+		/**
+		 * Create MW repository section
+		 */
+		final Group mwrepositoryGroup = new Group(container, SWT.NONE);
+		final GridLayout mwglReposetoryGroup = new GridLayout();
+		mwglReposetoryGroup.numColumns = 3;
+		mwrepositoryGroup.setLayout(mwglReposetoryGroup);
+		mwrepositoryGroup.setText("Middleware Repository File");
+		mwrepositoryGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
+				false));
+
+		mwtextRepository = new Text(mwrepositoryGroup, SWT.SINGLE | SWT.BORDER);
+		final GridData mwgd_textRepository = new GridData(SWT.FILL, SWT.CENTER, true,
+				false);
+		mwgd_textRepository.widthHint = 200;
+		mwtextRepository.setLayoutData(mwgd_textRepository);
+		mwtextRepository.addModifyListener(modifyListener);
+
+		final Button mwworkspaceButton_1 = new Button(mwrepositoryGroup, SWT.NONE);
+		mwworkspaceButton_1.setText("Workspace...");
+		mwworkspaceButton_1
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
+						mwtextRepository, ConstantsContainer.REPOSITORY_EXTENSION));
+
+		final Button mwbuttonRepository = new Button(mwrepositoryGroup, SWT.NONE);
+		mwbuttonRepository.setText("File System...");
+		mwbuttonRepository.addSelectionListener(new SelectionAdapter() {
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				mwtextRepository.setText(openFileDialog(ConstantsContainer.REPOSITORY_EXTENSION));
 			}
 		});
 
@@ -280,6 +317,13 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		}
 
 		try {
+			mwtextRepository.setText(configuration.getAttribute(
+					ConstantsContainer.MWREPOSITORY_FILE, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),"Middleware Repository File", e.getMessage());
+		}
+
+		try {
 			textResourceType.setText(configuration.getAttribute(
 					ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, ""));
 		} catch (CoreException e) {
@@ -310,6 +354,8 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 				textResourceType.getText());
 		configuration.setAttribute(ConstantsContainer.REPOSITORY_FILE,
 				textRepository.getText());
+		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
+				mwtextRepository.getText());
 		configuration.setAttribute(ConstantsContainer.SYSTEM_FILE, textSystem
 				.getText());
 		configuration.setAttribute(ConstantsContainer.ALLOCATION_FILE,
@@ -337,6 +383,11 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		if (!validateFilePath(textRepository.getText(),
 				ConstantsContainer.REPOSITORY_EXTENSION)) {
 			setErrorMessage("Repository is missing!");
+			return false;
+		}
+		if (!validateFilePath(mwtextRepository.getText(),
+				ConstantsContainer.REPOSITORY_EXTENSION)) {
+			setErrorMessage("Middleware Repository is missing!");
 			return false;
 		}
 		if (!validateFilePath(textResourceType.getText(),

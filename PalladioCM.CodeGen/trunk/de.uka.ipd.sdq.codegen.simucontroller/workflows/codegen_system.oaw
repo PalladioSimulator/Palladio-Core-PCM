@@ -5,6 +5,11 @@
 	<property file='${propertyFile}'/>
 	-->
 	<component class="oaw.emf.XmiReader">
+		<modelFile value="${mwRepositoryFile}"/>
+		<outputSlot value="middleware"/>
+	</component>
+		
+	<component class="oaw.emf.XmiReader">
 		<modelFile value="${resourceTypeFile}"/>
 		<outputSlot value="resourceType"/>
 	</component>
@@ -21,7 +26,6 @@
 	
     <component class="de.uka.sdq.pcm.transformations.TransformationWorkflowComponent">
     	<respectLinkingResources value="${respectLinkingResources}"/>
-    	<brokerLookup value="${brokerLookup}"/>
 	</component>
 
 	<component class="oaw.emf.XmiWriter">

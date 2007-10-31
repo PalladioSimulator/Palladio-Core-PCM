@@ -54,6 +54,7 @@ public class SimulatedStackframe <T> implements Serializable {
 	 */
 	public void addValue(String id, T value)
 	{
+		logger.debug("Value "+value+" added to stackframe under id "+id);
 		contents.put(id,value);
 	}
 	
