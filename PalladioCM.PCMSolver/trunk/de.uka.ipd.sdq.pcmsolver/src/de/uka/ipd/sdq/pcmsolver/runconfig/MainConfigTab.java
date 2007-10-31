@@ -8,9 +8,12 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
@@ -23,21 +26,41 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	private Text textSamplingDist;
 	private Text textMaxDomain;
 	private Button checkVerboseLogging = null;
+	private Combo comboSolver;
 	
 	private class MainConfigTabListener extends SelectionAdapter implements ModifyListener {
 		public void modifyText(ModifyEvent e) {
 			updateLaunchConfigurationDialog();
 		}
 	}
+
+	private class ComboBoxListener extends SelectionAdapter implements SelectionListener{
+		public void widgetSelected(SelectionEvent e) {
+
+			// TODO Auto-generated method stub
+			super.widgetSelected(e);
+		}
+	}
+
 	
 	private MainConfigTabListener listener = new MainConfigTabListener();
-	
+	private ComboBoxListener comboListener = new ComboBoxListener();
 	
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
 		container.setLayout(new GridLayout());
 		
+		comboSolver = new Combo (container, SWT.READ_ONLY);
+		comboSolver.setItems (new String [] {"SRE-Solver", "LQNS", "LQSIM"});
+		comboSolver.setSize (200, 200);
+		comboSolver.addModifyListener(listener);
+		comboSolver.addSelectionListener(comboListener);
+		
+		createSREWidgets(container);
+	}
+
+	private void createSREWidgets(Composite container) {
 		final GridLayout analysisGL = new GridLayout();
 		analysisGL.numColumns = 2;
 
@@ -70,6 +93,8 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 				updateLaunchConfigurationDialog();
 			}
 		});
+		
+		//analysisConfigGroup.setP
 	}
 
 	public String getName() {
@@ -77,6 +102,18 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	}
 
 	public void initializeFrom(ILaunchConfiguration configuration) {
+		try{
+			String solver = configuration.getAttribute("solver", "SRE-Solver");
+			String[] items = comboSolver.getItems();
+			for (int i=0; i<items.length; i++){
+				String str = items[i];
+				if (str.equals(solver)){
+					comboSolver.select(i);
+				}
+			}
+		} catch(CoreException e){
+			comboSolver.select(0);
+		}
 		try{
 			textSamplingDist.setText(configuration.getAttribute("samplingDist", "1.0"));
 		} catch(CoreException e){
@@ -97,6 +134,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	}
 
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
+		configuration.setAttribute("solver", comboSolver.getText());
 		configuration.setAttribute("samplingDist", textSamplingDist.getText());
 		configuration.setAttribute("maxDomain", textMaxDomain.getText());
 		configuration.setAttribute("verboseLogging", checkVerboseLogging.getSelection());

@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.pcmsolver.transformations;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.common.util.EList;
@@ -38,11 +40,15 @@ import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
+import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 
 public class ContextWrapper implements Cloneable{
 
@@ -54,7 +60,7 @@ public class ContextWrapper implements Cloneable{
 	
 	private HashMap<AbstractBranchTransition, Double> branchProbs;
 	private HashMap<AbstractLoopAction, ManagedPMF> loopIters;
-	private HashMap<ParametricResourceDemand, ManagedPDF> resDemands;
+	private HashMap<ParametricResourceDemand, ProbabilityDensityFunction> resDemands;
 	private HashMap<ParametricResourceDemand, ProcessingResourceSpecification> procResources;
 	private HashMap<ExternalCallAction, CommunicationLinkResourceSpecification> linkResources;
 
@@ -141,7 +147,7 @@ public class ContextWrapper implements Cloneable{
 
 
 	public ManagedPDF getTimeConsumption(ParametricResourceDemand prd){
-		return resDemands.get(prd);
+		return new ManagedPDF(resDemands.get(prd));
 	}
 
 
@@ -262,18 +268,21 @@ public class ContextWrapper implements Cloneable{
 			loopIters.put(li.getLoopaction_LoopIteration(), pmf);
 		}
 		
-		resDemands = new HashMap<ParametricResourceDemand, ManagedPDF>();
+		//resDemands = new HashMap<ParametricResourceDemand, ManagedPDF>();
+		resDemands = new HashMap<ParametricResourceDemand, ProbabilityDensityFunction>();
 		EList<ResourceDemand> rdList = compAllCtx.getResourceDemands_ComputedAllocationContext();
 		for (ResourceDemand rd : rdList){
 			String spec = rd.getSpecification_ResourceDemand().getSpecification();
-			ManagedPDF pdf = null;
-			try {
-				pdf = ManagedPDF.createFromString(spec);
-			} catch (StringNotPDFException e) {
-				e.printStackTrace();
-			} catch (RecognitionException e) {
-				e.printStackTrace();
-			}
+			ProbabilityFunctionLiteral blah = (ProbabilityFunctionLiteral)ExpressionHelper.parseToExpression(spec);
+			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction)blah.getFunction_ProbabilityFunctionLiteral();
+//			ManagedPDF pdf = null;
+//			try {
+//				pdf = ManagedPDF.createFromString(spec);
+//			} catch (StringNotPDFException e) {
+//				e.printStackTrace();
+//			} catch (RecognitionException e) {
+//				e.printStackTrace();
+//			}
 			resDemands.put(rd.getParametricResourceDemand_ResourceDemand(), pdf);
 		}
 		

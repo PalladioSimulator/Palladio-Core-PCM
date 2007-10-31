@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.pcmsolver;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.BasicConfigurator;
@@ -42,6 +43,7 @@ public class PCMSolver {
 	
 	private PCMInstance currentModel;
 	private IProgressMonitor monitor;
+	private SolverStrategy strat;
 	
 	private static Logger logger = Logger.getLogger(PCMSolver.class.getName());
 	
@@ -54,10 +56,22 @@ public class PCMSolver {
 		
 		currentModel = new PCMInstance(configuration);
 		
+		
+		
 		try {
 			int domainSize = Integer.parseInt(configuration.getAttribute("maxDomain", "32"));
 			double distance = Double.parseDouble(configuration.getAttribute("samplingDist", "1.0"));
 			PDFConfiguration.setCurrentConfiguration(domainSize, distance, iProbFuncFactory.createDefaultUnit());
+			
+			String solver = configuration.getAttribute("solver", "SRE-Solver");
+			if (solver.equals("SRE-Solver")){
+				strat = new Pcm2RegExStrategy();
+			} else if (solver.equals("LQNS")){
+				strat = new Pcm2LqnStrategy(configuration);
+			} else if (solver.equals("LQSIM")){
+				strat = new Pcm2LqnStrategy(configuration);
+			}
+			
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,26 +79,32 @@ public class PCMSolver {
 		
 	}
 	
-	public void start(){
-
+	public PCMSolver(Properties props){
+		BasicConfigurator.configure();
+		currentModel = new PCMInstance(props);
+		PDFConfiguration.setCurrentConfiguration(32, 1.0, iProbFuncFactory.createDefaultUnit());
+		
 		if (!currentModel.isValid()){
 			logger.error("PCM Instance invalid! Check filenames.");
 			return;
 		}
-
-		
-		//SolverStrategy strat = new Pcm2RegExStrategy();
 		SolverStrategy strat = new Pcm2LqnStrategy();
+		strat.transform(currentModel);
+		strat.solve();
+		logger.warn("Completed Analysis:\t\t"+ overallDuration + " ms overall");
+	}
+	
+	public void start(){
+		if (!currentModel.isValid()){
+			logger.error("PCM Instance invalid! Check filenames.");
+			return;
+		}
 
 		monitor.beginTask("Analysis", 100);
 		strat.transform(currentModel);
 		monitor.worked(50);
 		strat.solve();
 		monitor.worked(50);
-		
-
-		
-		logger.warn("Completed Analysis:\t\t"+ overallDuration + " ms overall");
 	}
 
 	private void configureLogging(ILaunchConfiguration configuration) {
@@ -113,6 +133,7 @@ public class PCMSolver {
 		}
 		
 	}
+	
 	
 	private void runDSolver() {
 		long startTime = System.nanoTime();

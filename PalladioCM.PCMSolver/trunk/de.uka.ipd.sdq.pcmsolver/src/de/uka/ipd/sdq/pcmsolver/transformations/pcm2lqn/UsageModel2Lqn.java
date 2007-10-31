@@ -1,35 +1,44 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn;
 
 import java.math.BigInteger;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
+import LqnCore.ActivityDefType;
+import LqnCore.ActivityListType;
 import LqnCore.ActivityMakingCallType;
-import LqnCore.ActivityPhasesType;
-import LqnCore.EntryActivityGraph;
+import LqnCore.ActivityOrType;
+import LqnCore.ActivityType;
 import LqnCore.EntryType;
 import LqnCore.LqnCoreFactory;
 import LqnCore.LqnModelType;
-import LqnCore.PhaseActivities;
+import LqnCore.OrListType;
+import LqnCore.OutputEntryDistributionType;
+import LqnCore.PrecedenceType;
 import LqnCore.ProcessorType;
 import LqnCore.SchedulingType;
+import LqnCore.ServiceType;
+import LqnCore.SingleActivityListType;
 import LqnCore.SolverParamsType;
+import LqnCore.TaskActivityGraph;
+import LqnCore.TaskOptionType;
 import LqnCore.TaskSchedulingType;
 import LqnCore.TaskType;
 import LqnCore.TypeType;
-
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.seff.StopAction;
+import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.Delay;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
@@ -38,21 +47,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcm.usagemodel.Workload;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
-import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformSeffVisitor;
-import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
-import de.uka.ipd.sdq.spa.expression.Alternative;
-import de.uka.ipd.sdq.spa.expression.Expression;
-import de.uka.ipd.sdq.spa.expression.ExpressionFactory;
-import de.uka.ipd.sdq.spa.expression.Option;
-import de.uka.ipd.sdq.spa.expression.Sequence;
-import de.uka.ipd.sdq.spa.expression.Symbol;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 
 public class UsageModel2Lqn extends UsagemodelSwitch {
 
@@ -60,6 +59,9 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 	
 	private IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	private LqnCoreFactory lqnFactory = LqnCoreFactory.eINSTANCE;
+	
+	private LqnModelType lqnModel = null;
+	private TaskActivityGraph taskActivityGraph = null;
 	
 	private PCMInstance pcmInstance;
 	private ContextWrapper contextWrapper = null;
@@ -69,55 +71,23 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 	}
 
 	@Override
-	public Object caseStart(Start object) {
-//		Symbol sym = expFactory.createSymbol();
-//		sym.setName("Start");
-//	
-//		Sequence seq = expFactory.createSequence();
-//		seq.setLeftRegExp(sym);
-//		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
-//	
-//		return seq;
-		return null;
-	}
-
-	@Override
-	public Object caseStop(Stop object) {
-//		Symbol sym = expFactory.createSymbol();
-//		sym.setName("Stop");
-//		return sym;
-		return null;
-	}
-
-	@Override
 	public Object caseEntryLevelSystemCall(EntryLevelSystemCall object) {
+		object.setId("ELSC"+Pcm2LqnHelper.fixGUID(object.getId()));
+		
 		if (contextWrapper == null)
 			contextWrapper = new ContextWrapper(object, pcmInstance);
 		else
 			contextWrapper = contextWrapper.getContextWrapperFor(object);
 
-//		Sequence seq = expFactory.createSequence();
-//		seq.setLeftRegExp(getEntryExpression(object));
-//		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
-//		
-//		return seq;
-		return null;
-	}
-
-	private Expression getEntryExpression(EntryLevelSystemCall object) {
-		Signature signature = object.getSignature_EntryLevelSystemCall();
-		ProvidedRole role = object.getProvidedRole_EntryLevelSystemCall();
-		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
-		ProvidesComponentType offeringComponent = delegationConnector
-				.getChildComponentContext_ProvidedDelegationConnector()
+		ProvidesComponentType offeringComponent = contextWrapper.getAssCtx()
 				.getEncapsulatedComponent_ChildComponentContext();
-	
-		Expression expr = null;
+
+		String entryId = "";
 		if (offeringComponent instanceof BasicComponent){
-			ServiceEffectSpecification seff = getSeff(signature, (BasicComponent)offeringComponent);
-			TransformSeffVisitor seffVisitor = new TransformSeffVisitor(contextWrapper);
+			ServiceEffectSpecification seff = contextWrapper.getNextSEFF(object); 
+			Rdseff2Lqn seffVisitor = new Rdseff2Lqn(contextWrapper,lqnModel);
 			try {
-				expr = (Expression)seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
+				entryId = (String)seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
 			} catch (Exception e) {
 				logger.error("Error while visiting RDSEFF");
 				e.printStackTrace();
@@ -126,37 +96,43 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 			logger.error("Composite Component type not yet supported.");
 			return null;
 		}
-		return expr;
+		
+		ActivityMakingCallType amct = lqnFactory.createActivityMakingCallType();
+		amct.setDest(entryId);
+		amct.setCallsMean("1.0");
+		
+		ActivityDefType adt = createActivityAndPrecedence(object, 0.0);
+		adt.getSynchCall().add(amct);
+		
+		return object.getId();
+		
+	}
+	
+	
+
+
+	private StopAction getStopAction(ResourceDemandingBehaviour object) {
+		StopAction stopAction = (StopAction) EMFHelper.getObjectByType(object
+				.getSteps_Behaviour(), StopAction.class);
+		return stopAction;
 	}
 
 	@Override
-	public Object caseBranch(Branch object) {
-//		Alternative alt = expFactory.createAlternative();
-//
-//		BranchTransition bt1 = (BranchTransition) object.getBranchTransitions_Branch().get(0);
-//		Option opt1 = expFactory.createOption();
-//		opt1.setProbability(bt1.getBranchProbability());
-//		Expression leftExpr = (Expression)doSwitch(bt1.getBranchedBehaviour_BranchTransition());
-//		opt1.setRegexp(leftExpr);
-//		alt.setLeftOption(opt1);
-//		
-//		BranchTransition bt2 = (BranchTransition) object.getBranchTransitions_Branch().get(1);
-//		Option opt2 = expFactory.createOption();
-//		opt2.setProbability(bt2.getBranchProbability());
-//		Expression rightExpr = (Expression)doSwitch(bt2.getBranchedBehaviour_BranchTransition());
-//		opt2.setRegexp(rightExpr);
-//		alt.setRightOption(opt2);
-//		
-//		Sequence seq = expFactory.createSequence();
-//		seq.setLeftRegExp(alt);
-//		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
-//		
-//		return seq;
-		return null;
+	public Object caseDelay(Delay object) {
+		object.setId("Delay"+Pcm2LqnHelper.fixGUID(object.getId()));
+	
+		ActivityDefType adt = createActivityAndPrecedence(object,0.0);
+		adt.setThinkTime(object.getTimeSpecification_Delay().getSpecification());
+	
+		return object.getId();
 	}
+
+
+
 
 	@Override
 	public Object caseLoop(Loop object) {
+		object.setId("Loop"+Pcm2LqnHelper.fixGUID(object.getId()));
 //		de.uka.ipd.sdq.spa.expression.Loop loop = expFactory.createLoop();
 //		RandomVariable iterations = (RandomVariable)object.getLoopIteration_Loop();
 //		loop.setIterationsString(iterations.getSpecification());
@@ -174,36 +150,62 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 	
 	@Override
 	public Object caseUsageModel(UsageModel usageModel) {
-		LqnModelType lmt = lqnFactory.createLqnModelType();
-		lmt.setName("TODO_EnterUsageModelName");
+		lqnModel = lqnFactory.createLqnModelType();
+		lqnModel.setName("TODO_EnterUsageModelName");
 		
+		// TODO: set default parameter
+		// make configurable in run config
 		SolverParamsType spt = lqnFactory.createSolverParamsType();
-		spt.setComment("blah");
+		
+		spt.setComment("Generated by PCM2LQN on "+new Date());
 		spt.setConvVal("1e-005");
 		spt.setItLimit(50);
 		spt.setPrintInt(10);
 		spt.setUnderrelaxCoeff("0.5");
-		lmt.setSolverParams(spt);
-
+		lqnModel.setSolverParams(spt);
+		
+		// first, create processors from resource environment
+		ResourceEnvironment2Lqn reVisitor = new ResourceEnvironment2Lqn(lqnModel);
+		reVisitor.doSwitch(pcmInstance.getResourceEnvironment());
+		
+		// next, visit all usage scenarios and rdseffs
 		EList<UsageScenario> scenList = usageModel.getUsageScenario_UsageModel();
 		for (UsageScenario us : scenList){
-			Object obj = doSwitch(us.getWorkload_UsageScenario());
-			ProcessorType pt = (ProcessorType)obj;
-			lmt.getProcessor().add(pt);
+			doSwitch(us);
 		}
 	
-		return lmt;
+		return lqnModel;
 	}
 
 	
 	
+	@Override
+	public Object caseUsageScenario(UsageScenario object) {
+		doSwitch(object.getWorkload_UsageScenario());
+		doSwitch(object.getScenarioBehaviour_UsageScenario());
+		
+// Generating a reply leads to an error, therefore commented out:				
+//		ReplyActivityType rat = lqnFactory.createReplyActivityType();
+//		rat.setName((String)doSwitch(object.getScenarioBehaviour_UsageScenario()));
+//
+//		ReplyEntryType ret = lqnFactory.createReplyEntryType();
+//		ret.setName(object.getEntityName()+"_Entry"); // TODO
+//		ret.getReplyActivity().add(rat);
+//		
+//		taskActivityGraph.getReplyEntry().add(ret);
+		
+		return null;
+	}
+
+
+
 	@Override
 	public Object caseClosedWorkload(ClosedWorkload closedWorkload) {
 		UsageScenario us = (UsageScenario)closedWorkload.eContainer();
 		
 		ProcessorType pt = lqnFactory.createProcessorType();
 		pt.setName(us.getEntityName()+"_Processor");
-		pt.setMultiplicity(new BigInteger("0"));
+		pt.setMultiplicity(new BigInteger("0")); // TODO
 		pt.setScheduling(SchedulingType.FCFS);
 		
 		TaskType tt = lqnFactory.createTaskType();
@@ -214,32 +216,187 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 		PCMRandomVariable thinkTime = closedWorkload.getThinkTime_ClosedWorkload();
 		tt.setThinkTime(thinkTime.getSpecification());
 		tt.setScheduling(TaskSchedulingType.REF);
+		tt.setActivityGraph(TaskOptionType.YES);
 		pt.getTask().add(tt);
 				
+		ServiceType st = lqnFactory.createServiceType();
+		st.setName("MyService");
+		tt.getService().add(st);
+		
 		EntryType et = lqnFactory.createEntryType();
 		et.setName(us.getEntityName()+"_Entry");
-		et.setType(TypeType.PH1PH2);
+		et.setType(TypeType.NONE); // actually TypeType.GRAPH, but not supported by lqns
+		OutputEntryDistributionType oedt = lqnFactory.createOutputEntryDistributionType();
+		oedt.setPhase(new BigInteger("1"));
+		oedt.setMin("0.0");
+		oedt.setMax("10.0");
+		
+		et.getServiceTimeDistribution().add(oedt);
 		tt.getEntry().add(et);
-		
 				
-		Object obj = doSwitch(us.getScenarioBehaviour_UsageScenario());
-		EntryActivityGraph eag = (EntryActivityGraph)obj;
-		et.setEntryActivityGraph(eag);
+		taskActivityGraph = lqnFactory.createTaskActivityGraph();
 		
-		return pt;
+		tt.setTaskActivities(taskActivityGraph);
+		
+		lqnModel.getProcessor().add(pt);
+		
+		//return pt;
+		return null;
 	}
 
 	@Override
-	public Object caseOpenWorkload(OpenWorkload object) {
-		// TODO Auto-generated method stub
-		return super.caseOpenWorkload(object);
+	public Object caseOpenWorkload(OpenWorkload openWorkload) {
+		UsageScenario us = (UsageScenario)openWorkload.eContainer();
+		
+		ProcessorType pt = lqnFactory.createProcessorType();
+		pt.setName(us.getEntityName()+"_Processor");
+		pt.setMultiplicity(new BigInteger("0")); // TODO
+		pt.setScheduling(SchedulingType.FCFS);
+		
+		TaskType tt = lqnFactory.createTaskType();
+		tt.setName(us.getEntityName()+"_Task");
+		tt.setMultiplicity(new BigInteger("1"));
+		
+		tt.setThinkTime("0.0");
+		tt.setScheduling(TaskSchedulingType.FCFS);
+		tt.setActivityGraph(TaskOptionType.YES);
+		pt.getTask().add(tt);
+				
+		ServiceType st = lqnFactory.createServiceType();
+		st.setName("MyService");
+		tt.getService().add(st);
+		
+		EntryType et = lqnFactory.createEntryType();
+		et.setName(us.getEntityName()+"_Entry");
+		et.setType(TypeType.NONE); // actually TypeType.GRAPH, but not supported by lqns
+		et.setOpenArrivalRate(openWorkload.getInterArrivalTime_OpenWorkload().getSpecification());
+		tt.getEntry().add(et);
+				
+		taskActivityGraph = lqnFactory.createTaskActivityGraph();
+		
+		tt.setTaskActivities(taskActivityGraph);
+		
+		lqnModel.getProcessor().add(pt);
+		
+		//return pt;
+		return null;
 	}
 
 	@Override
 	public Object caseScenarioBehaviour(ScenarioBehaviour object) {
-		EntryActivityGraph eag = lqnFactory.createEntryActivityGraph();
+		return doSwitch(getStartAction(object));
+	}
+
+	@Override
+	public Object caseStart(Start object) {
+		object.setId("Start"+Pcm2LqnHelper.fixGUID(object.getId()));
+		if (object.eContainer().eContainer() instanceof UsageScenario){
+			UsageScenario us = (UsageScenario)object.eContainer().eContainer();
+			ActivityDefType adt = createActivityAndPrecedence(object,0.0);
+			adt.setBoundToEntry(us.getEntityName()+"_Entry");
+			return object.getId(); // for reply activity
+		} else{ //nested scenario behaviour
+			createActivityAndPrecedence(object, 0.0);
+			return object.getId(); // for predecessor
+		}
+	}
+	
+	@Override
+	public Object caseStop(Stop object) {
+		object.setId("Stop"+Pcm2LqnHelper.fixGUID(object.getId()));
+
+		ActivityDefType adt = lqnFactory.createActivityDefType();
+		adt.setHostDemandMean("0.0");
+		adt.setName(object.getId());
+		taskActivityGraph.getActivity().add(adt);
 		
-		return eag;
+		return object.getId();
+	}
+
+	private ActivityDefType createActivityAndPrecedence(AbstractUserAction action,
+			double hostDemandMean) {
+		action.setId(Pcm2LqnHelper.fixGUID(action.getId()));
+		
+		ActivityDefType adt = lqnFactory.createActivityDefType();
+		adt.setHostDemandMean(new Double(hostDemandMean).toString());
+		adt.setName(action.getId());
+		taskActivityGraph.getActivity().add(adt);
+		
+		PrecedenceType pt = lqnFactory.createPrecedenceType();
+		
+		SingleActivityListType saltPre = lqnFactory.createSingleActivityListType();
+		ActivityType atPre = lqnFactory.createActivityType();
+		atPre.setName(action.getId()); 
+		saltPre.setActivity(atPre);
+		
+		SingleActivityListType saltPost = lqnFactory.createSingleActivityListType();
+		ActivityType atPost = lqnFactory.createActivityType();
+		atPost.setName((String)doSwitch(action.getSuccessor()));
+		saltPost.setActivity(atPost);
+
+		pt.setPre(saltPre);
+		pt.setPost(saltPost);
+		
+		taskActivityGraph.getPrecedence().add(pt);
+		
+		return adt;
+	}
+
+	public Object caseBranch(Branch object) {
+		object.setId("Branch"+Pcm2LqnHelper.fixGUID(object.getId()));
+		
+		ActivityDefType adt = lqnFactory.createActivityDefType();
+		adt.setHostDemandMean("0.0");
+		adt.setName(object.getId());
+		taskActivityGraph.getActivity().add(adt);
+		
+		PrecedenceType ptBegin = lqnFactory.createPrecedenceType();
+		SingleActivityListType saltPreBegin = lqnFactory.createSingleActivityListType();
+		ActivityType atPre = lqnFactory.createActivityType();
+		atPre.setName(object.getId());
+		saltPreBegin.setActivity(atPre);
+		
+		OrListType oltPreBegin = lqnFactory.createOrListType(); // branch
+		ActivityListType altPreEnd = lqnFactory.createActivityListType(); //merge
+		
+		EList<BranchTransition> btList = object.getBranchTransitions_Branch();
+		for (BranchTransition bt : btList){
+			ActivityOrType aot = lqnFactory.createActivityOrType();
+			aot.setProb(new Double(bt.getBranchProbability()).toString());
+			
+			ScenarioBehaviour sb = bt.getBranchedBehaviour_BranchTransition();
+			String name = (String)doSwitch(sb);
+			aot.setName(name);
+
+			Stop stopUserAction = getStopAction(sb);
+			ActivityType at = lqnFactory.createActivityType();
+			at.setName(stopUserAction.getId());
+
+			oltPreBegin.getActivity().add(aot);
+			altPreEnd.getActivity().add(at);
+		}
+		
+		PrecedenceType ptEnd = lqnFactory.createPrecedenceType();
+		SingleActivityListType saltPostEnd = lqnFactory.createSingleActivityListType();
+		ActivityType atPostEnd = lqnFactory.createActivityType();
+		atPostEnd.setName((String)doSwitch(object.getSuccessor()));
+		saltPostEnd.setActivity(atPostEnd);
+		
+		ptBegin.setPre(saltPreBegin);
+		ptBegin.setPostOR(oltPreBegin);
+		taskActivityGraph.getPrecedence().add(ptBegin);
+		
+		ptEnd.setPreOR(altPreEnd);
+		ptEnd.setPost(saltPostEnd);
+		taskActivityGraph.getPrecedence().add(ptEnd);
+		
+		return object.getId();
+	}
+	
+	private Stop getStopAction(ScenarioBehaviour object) {
+		Stop stopAction = (Stop) EMFHelper.getObjectByType(object
+				.getActions_ScenarioBehaviour(), Stop.class);
+		return stopAction;
 	}
 
 	private Start getStartAction(ScenarioBehaviour object) {
@@ -247,37 +404,4 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 				.getActions_ScenarioBehaviour(), Start.class);
 		return startAction;
 	}
-
-	
-	private ProvidedDelegationConnector getDelegationConnector(
-			ProvidedRole role) {
-		ProvidedDelegationConnector delegationConnector = 
-			(ProvidedDelegationConnector) EMFHelper
-				.executeOCLQuery(
-						pcmInstance.getSystem(),
-						"self.providedDelegationConnectors_ComposedStructure->select(dc|dc.outerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole.id = '"
-								+ role.getProvidedInterface__ProvidedRole()
-										.getId()
-								+ "')->asOrderedSet()->first()");
-		return delegationConnector;
-		
-	}
-	
-	/**
-	 * @param method
-	 * @param basicComponent
-	 * @return
-	 */
-	private ServiceEffectSpecification getSeff(Signature method,
-			BasicComponent basicComponent) {
-		ServiceEffectSpecification seff = (ServiceEffectSpecification) EMFHelper
-				.executeOCLQuery(
-						basicComponent,
-						"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"
-								+ method.getServiceName()
-								+ "')->asOrderedSet()->first()");
-		return seff;
-	}
-
-	
 }

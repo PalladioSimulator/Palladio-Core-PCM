@@ -31,6 +31,8 @@ public class LoopActionHandler extends AbstractLoopActionHandler {
 			return;
 		}
 		
+		logger.debug("NumberOfIterations: "+solvedSpecification);
+		
 		storeToUsageContext(loop, solvedSpecification);
 		
 		visitLoopBody(loop, solvedSpecification);

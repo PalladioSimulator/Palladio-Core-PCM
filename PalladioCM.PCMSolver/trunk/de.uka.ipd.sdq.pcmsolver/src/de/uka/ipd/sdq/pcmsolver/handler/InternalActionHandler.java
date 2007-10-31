@@ -20,7 +20,11 @@ import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
+import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
+import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
+import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.IntLiteral;
 
 /**
  * @author Koziolek
@@ -76,13 +80,39 @@ public class InternalActionHandler{
 	 */
 	private void createActualResourceDemand(ParametricResourceDemand prd, ProcessingResourceSpecification prs) {
 		// TODO: include branch conditions and loop iterations
-		String actResDemSpecification = getSolvedSpecification(prd.getSpecification_ParametericResourceDemand().getSpecification(), prs);
+		
+		String spec = prd.getSpecification_ParametericResourceDemand().getSpecification();
+		
+		// quick fix:
+		spec = spec.replaceAll("IntPMF", "DoublePDF");
+		spec = spec.replaceAll("DoublePMF", "DoublePDF");
+		
+		String actResDemSpecification = getSolvedSpecification(spec, prs);
 		
 		ResourceDemand ard = compAllocationFactory.createResourceDemand();
 		ard.setParametricResourceDemand_ResourceDemand(prd);
 		
 		PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification(actResDemSpecification);
+		
+		// another quick fix
+		if (rv.getExpression() instanceof DoubleLiteral || rv.getExpression() instanceof IntLiteral){
+			double demand = Double.parseDouble(actResDemSpecification);
+			double distance = 0.1;
+			try {
+				distance = PDFConfiguration.getCurrentConfiguration().getDistance();
+			} catch (ConfigurationNotSetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			distance=0.1;
+			String newDemand = "DoublePDF[(" +
+					new Double(demand-distance).toString()+
+					";0.0)("+demand+";1.0)(" +
+					new Double(demand+distance).toString()+";0.0)]";
+			rv.setSpecification(newDemand);
+			
+		}
 		ard.setSpecification_ResourceDemand(rv);
 		
 		visitor.getContextWrapper().getCompAllCtx()

@@ -12,6 +12,8 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.usagemodel.Branch;
+import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
@@ -75,6 +77,19 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	@Override
 	public Object caseStop(Stop object) {
 		logger.info("VisitStop");
+		return object;
+	}
+
+	
+	
+	@Override
+	public Object caseBranch(Branch object) {
+		logger.info("VisitBranch");
+		EList<BranchTransition> btList = object.getBranchTransitions_Branch();
+		for(BranchTransition bt : btList){
+			doSwitch(bt.getBranchedBehaviour_BranchTransition());
+		}
+		doSwitch(object.getSuccessor());
 		return object;
 	}
 

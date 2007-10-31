@@ -115,6 +115,7 @@ public class ExpressionSolver {
 			} catch (IncompatibleUnitsException e) {
 				e.printStackTrace();
 			}
+
 			return new ManagedPDF(resultPDF, true);
 		}
 
