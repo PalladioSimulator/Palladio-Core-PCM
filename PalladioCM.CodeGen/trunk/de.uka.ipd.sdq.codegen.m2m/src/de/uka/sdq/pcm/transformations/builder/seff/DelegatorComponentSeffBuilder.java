@@ -98,8 +98,8 @@ implements ISeffBuilder {
 	private void setSignatureInActions(
 			ArrayList<AbstractActionDescriptor> actions, Signature sig) {
 		for (AbstractActionDescriptor descriptor : actions) {
-			if (descriptor instanceof SignatureDependentInternalActionDescriptor) {
-				SignatureDependentInternalActionDescriptor sigDescriptor = (SignatureDependentInternalActionDescriptor) descriptor;
+			if (descriptor instanceof ISignatureDependentAction) {
+				ISignatureDependentAction sigDescriptor = (ISignatureDependentAction) descriptor;
 				sigDescriptor.setCurrentSignature(sig);
 			}
 		}

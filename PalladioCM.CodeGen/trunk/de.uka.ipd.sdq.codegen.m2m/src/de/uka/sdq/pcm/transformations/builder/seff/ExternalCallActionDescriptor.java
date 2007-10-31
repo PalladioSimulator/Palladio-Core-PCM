@@ -35,10 +35,17 @@ public class ExternalCallActionDescriptor extends AbstractActionDescriptor {
 		call.setCalledService_ExternalService(this.signature);
 		call.setRole_ExternalService(this.requiredRole);
 		call.setEntityName("ExternalCall");
-		call.getInputParameterUsages_ExternalCallAction().addAll(parameter);
-		call.getOutputVariableUsages_ExternalCallAction().addAll(outParameter);
+		call.getInputParameterUsages_ExternalCallAction().addAll(getInputParameter());
+		call.getOutputVariableUsages_ExternalCallAction().addAll(getOutputParameter());
 		
 		return call;
 	}
+	
+	protected Collection<VariableUsage> getInputParameter(){
+		return parameter;
+	}
 
+	protected Collection<VariableUsage> getOutputParameter(){
+		return outParameter;
+	}
 }

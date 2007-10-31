@@ -31,7 +31,8 @@ public class MiddlewareComponentSeffBuilder extends DelegatorComponentSeffBuilde
 				new ExternalCallActionDescriptor(
 						preSignature,
 						this.middlewareRole,
-						createMiddlewareParameter()));
+						createMiddlewareParameter(),
+						createOutParameter()));
 	}
 
 	public void appendPostMiddlewareCall(Signature postSignature) {
@@ -39,10 +40,11 @@ public class MiddlewareComponentSeffBuilder extends DelegatorComponentSeffBuilde
 				new ExternalCallActionDescriptor(
 						postSignature,
 						this.middlewareRole,
-						createMiddlewareParameter()));
+						createMiddlewareParameter(),
+						createOutParameter()));
 	}
 
-	private Collection<VariableUsage> createMiddlewareParameter() {
+	protected Collection<VariableUsage> createMiddlewareParameter() {
 		Collection<VariableUsage> result = new ArrayList<VariableUsage>();
 		result.add(createVariableUsage("stream", VariableCharacterisationType.BYTESIZE, "stream.BYTESIZE"));
 		return result; 
@@ -61,4 +63,10 @@ public class MiddlewareComponentSeffBuilder extends DelegatorComponentSeffBuilde
 		
 		return usage;
 	}
+	
+	private Collection<VariableUsage> createOutParameter() {
+		Collection<VariableUsage> result = new ArrayList<VariableUsage>();
+		result.add(createVariableUsage("stream", VariableCharacterisationType.BYTESIZE, "RETURN.BYTESIZE"));
+		return result; 
+	}	
 }

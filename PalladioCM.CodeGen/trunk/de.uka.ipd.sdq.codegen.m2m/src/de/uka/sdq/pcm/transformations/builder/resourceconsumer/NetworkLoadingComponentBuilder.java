@@ -11,6 +11,7 @@ import de.uka.sdq.pcm.transformations.BytesizeComputationForSignature.Modifier;
 import de.uka.sdq.pcm.transformations.builder.abstractbuilder.BasicComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBuilder;
 import de.uka.sdq.pcm.transformations.builder.seff.SignatureDependentInternalActionDescriptor;
+import de.uka.sdq.pcm.transformations.builder.seff.StaticInternalActionDescriptor;
 import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
 /**
@@ -51,18 +52,10 @@ public class NetworkLoadingComponentBuilder extends BasicComponentBuilder {
 		DelegatorComponentSeffBuilder builder = new DelegatorComponentSeffBuilder(getProvidedRole(),getRequiredRole());
 
 		// Network demand for the Request
-		builder.appendPreAction(new SignatureDependentInternalActionDescriptor(typeOfLink){
-			public String getDemand(Signature signature) {
-				return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.IN);
-			}			
-		});
+		builder.appendPreAction(new StaticInternalActionDescriptor("stream.BYTESIZE", typeOfLink));
 		
 		// Network demand for the Reply
-		builder.appendPostAction(new SignatureDependentInternalActionDescriptor(typeOfLink){
-			public String getDemand(Signature signature) {
-				return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.OUT);
-			}
-		});
+		builder.appendPostAction(new StaticInternalActionDescriptor("stream.BYTESIZE", typeOfLink));
 		return builder;
 	}
 }
