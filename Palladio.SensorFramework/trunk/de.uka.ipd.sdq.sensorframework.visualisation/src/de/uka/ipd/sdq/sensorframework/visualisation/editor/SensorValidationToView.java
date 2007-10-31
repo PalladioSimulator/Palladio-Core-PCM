@@ -59,8 +59,8 @@ public class SensorValidationToView {
 		Object[] views = findViews(sensorAndMeasurements);
 
 		for (int i = 0; i < views.length; i++) {
-			IConfigurationElement viewer = (IConfigurationElement) views[i];
-			String editorId = viewer.getAttribute("editorID");
+			ViewAndAdapterFactory viewer = (ViewAndAdapterFactory) views[i];
+			String editorId = viewer.getView().getAttribute("editorID");
 			if (activeEditorId.equals(editorId))
 				return true;
 		}
