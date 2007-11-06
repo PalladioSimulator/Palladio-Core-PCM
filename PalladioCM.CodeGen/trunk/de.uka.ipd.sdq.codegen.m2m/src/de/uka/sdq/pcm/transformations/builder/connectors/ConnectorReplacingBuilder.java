@@ -57,8 +57,9 @@ public class ConnectorReplacingBuilder implements IBuilder {
 
 	private IClientServerConnectorCompletionComponentBuilder configureCompletionComponentBuilder() {
 		IComponentBuilder networkSimulator = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
-		IComponentBuilder encryption = new PairwiseMiddlewareInteractingInnerConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator,"encrypt","decrypt");
-		return new MarshallingConnectorCompletionBuilder(models,connector,linkingRes,encryption);
+		//IComponentBuilder encryption = new PairwiseMiddlewareInteractingInnerConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator,"encrypt","decrypt");
+		IComponentBuilder security = new ConfigurableMiddlewareCallingConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator,"createCredentials","checkCredentials",null,null);
+		return new MarshallingConnectorCompletionBuilder(models,connector,linkingRes,security);
 	}
 
 	private void connectConnectorCompletionWithMiddleware(IClientServerConnectorCompletionComponentBuilder componentBuilder) {

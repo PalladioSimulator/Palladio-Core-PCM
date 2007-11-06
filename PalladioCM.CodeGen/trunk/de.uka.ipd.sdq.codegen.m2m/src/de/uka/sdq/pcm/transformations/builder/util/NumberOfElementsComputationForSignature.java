@@ -1,7 +1,5 @@
 package de.uka.sdq.pcm.transformations.builder.util;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;

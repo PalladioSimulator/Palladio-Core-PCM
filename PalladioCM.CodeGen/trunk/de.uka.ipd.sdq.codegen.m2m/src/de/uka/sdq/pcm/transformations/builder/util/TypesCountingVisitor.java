@@ -1,6 +1,5 @@
 package de.uka.sdq.pcm.transformations.builder.util;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;

@@ -30,16 +30,18 @@ public class MiddlewareCallingComponentBuilder extends
 			String preServiceName,
 			String postServiceName) {
 		super(models, providedIf, requiredIf, middlewareInterface, container);
-		this.preSignature = findService(middlewareInterface,preServiceName);
-		this.postSignature = findService(middlewareInterface,postServiceName);
+		this.preSignature = preServiceName == null ? null : findService(middlewareInterface,preServiceName);
+		this.postSignature = postServiceName == null ? null : findService(middlewareInterface,postServiceName);
 	}
 
 	@Override
 	protected DelegatorComponentSeffBuilder getSeffBuilder() {
 		MiddlewareComponentSeffBuilder builder = (MiddlewareComponentSeffBuilder) super.getSeffBuilder();
-		builder.appendPreMiddlewareCall(
+		if (preSignature != null)
+			builder.appendPreMiddlewareCall(
 				preSignature);
-		builder.appendPostMiddlewareCall(
+		if (postSignature != null)
+			builder.appendPostMiddlewareCall(
 				postSignature);
 		builder.appendPostAction(new SetVariableActionDescriptor(
 				createVariableUsage("stream", VariableCharacterisationType.BYTESIZE, "stream.BYTESIZE")));
