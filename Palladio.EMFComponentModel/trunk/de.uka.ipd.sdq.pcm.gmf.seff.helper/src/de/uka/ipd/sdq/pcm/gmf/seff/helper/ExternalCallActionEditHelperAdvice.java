@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.seff.helper;
 
 import java.util.ArrayList;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
@@ -33,15 +32,20 @@ public class ExternalCallActionEditHelperAdvice extends
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 		EObject eObject = searchBasicComponent(request.getElementToConfigure());
-		Signature signature = null;
 		RequiredRole requiredRole = null;
+		
+		// define the filter list
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(RequiredRole.class);
 		filterList.add(Interface.class);
 		filterList.add(Signature.class);
+		
+		// define the additional references
 		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 		additionalReferences.add(RepositoryPackage.eINSTANCE
 				.getRequiredRole_RequiredInterface__RequiredRole());
+		
+		// create the dialog
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, additionalReferences, eObject);
@@ -51,9 +55,16 @@ public class ExternalCallActionEditHelperAdvice extends
 			return new CanceledCommand();
 		if (!(dialog.getResult() instanceof Signature))
 			return new CanceledCommand();
-		signature = (Signature) dialog.getResult();
-		requiredRole = getRequiredRole(eObject, signature);
+		
+		// set the signature for ExternalCallAction 
+		Signature signature = (Signature) dialog.getResult();
 
+		// set the required role for ExternalCallAction 
+		if (dialog.getViewerRootElement() instanceof RequiredRole) {
+			requiredRole = (RequiredRole) dialog.getViewerRootElement();
+		}
+
+		// create and execute the ExternalCallActionConfigureCommand command
 		return new ExternalCallActionConfigureCommand(request, signature,
 				requiredRole);
 	}
@@ -63,28 +74,5 @@ public class ExternalCallActionEditHelperAdvice extends
 		while (!(o instanceof BasicComponent))
 			o = o.eContainer();
 		return o;
-	}
-	
-	/**
-	 * The method supplies back the RequiredRole, from which the service call
-	 * originates.
-	 */
-	public RequiredRole getRequiredRole(EObject input, Signature signature) {
-
-		if (input instanceof BasicComponent) {
-			BasicComponent component = (BasicComponent) input;
-			EList<RequiredRole> roles = component
-					.getRequiredRoles_InterfaceRequiringEntity();
-
-			for (RequiredRole requiredRole : roles) {
-				Interface reqInterface = requiredRole
-						.getRequiredInterface__RequiredRole();
-				if (signature.getInterface_Signature().equals(reqInterface)) {
-					return requiredRole;
-				}
-			}
-		}
-
-		return null;
 	}
 }
