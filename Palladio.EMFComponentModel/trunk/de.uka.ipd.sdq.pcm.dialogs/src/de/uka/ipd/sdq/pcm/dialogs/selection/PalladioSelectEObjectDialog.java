@@ -28,13 +28,8 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 	
 	private Object input;
+	private AdapterFactoryContentProvider contentProvider;
 
-	/**
-	 * @param parent
-	 * @param adapterFactory
-	 * @param filterList
-	 * @param input
-	 */
 	public PalladioSelectEObjectDialog(Shell parent,
 			Collection<Object> filterList,
 			Collection<Object> additionalChildReferences, Object input) {
@@ -49,9 +44,11 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-		setViewerContentProvider(new AdapterFactoryContentProvider(
+		contentProvider = new AdapterFactoryContentProvider(
 				new FilteredItemsAdapterFactory(adapterFactory, filterList,
-						additionalChildReferences)));
+						additionalChildReferences));
+		setViewerContentProvider(contentProvider);
+		
 		setViewerLabelProvider(new AdapterFactoryLabelProvider(
 				new PalladioItemProviderAdapterFactory(adapterFactory)));
 		setViewerInput(input);
@@ -130,5 +127,19 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 				return editingDomain.getResourceSet();
 		}
 		return null;
+	}
+	
+	/**
+	 * The method supplies the main knots of, in this dialogue the represented,
+	 * tree
+	 */
+	public Object getViewerRootElement() {
+		Object object = null;
+		
+		if (contentProvider != null){
+			object = (contentProvider.getElements(input))[0];
+		}
+		
+		return object;
 	}
 }
