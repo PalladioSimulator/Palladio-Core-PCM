@@ -23,7 +23,7 @@ public class IMediaStore_MediaStore implements mediastorerepository.IMediaStore 
         return myComponent.iMediaStore_queryAndGetFromDB(queryString, fieldID);
     }
 
-	public DBID3v1 queryID3(int id) {
+	public DBID3v1[] queryID3(int[] id) {
 		return myComponent.iMediaStore_queryID3(id);
 	}
 }

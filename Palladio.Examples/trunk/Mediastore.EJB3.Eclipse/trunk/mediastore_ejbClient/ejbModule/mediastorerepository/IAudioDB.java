@@ -7,5 +7,5 @@ public interface IAudioDB {
 
     byte[][] queryAndGetFromDB(String queryString, int fieldID);
 
-	DBID3v1 queryID3(int id);
+	DBID3v1[] queryID3(int[] id);
 }

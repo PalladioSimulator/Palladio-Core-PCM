@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: mediastore_ejbClient
+Bundle-SymbolicName: mediastore_ejbClient
+Bundle-Version: 1.0.0
+Bundle-ClassPath: mediastore_ejbClient.jar,
+ Snowball/Downloads/glassfish/lib/toplink-essentials.jar,
+ Snowball/Downloads/glassfish/lib/mysql-connector-java-5.1.5-bin.jar
+Export-Package: .,
+ mediarepository.entities,
+ mediastorerepository
+Require-Bundle: org.hibernate,
+ org.apache.commons.logging

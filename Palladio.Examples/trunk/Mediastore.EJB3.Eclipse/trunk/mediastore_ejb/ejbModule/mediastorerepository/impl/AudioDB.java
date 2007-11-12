@@ -197,11 +197,14 @@ public class AudioDB implements mediastorerepository.impl.IAudioDB {
 	}
 
 	@Override
-	public DBID3v1 iMySQL_queryID3(int id) {
-		MediaFile mf = (MediaFile) em.find(MediaFile.class,
-				(long) id);
-		MP3MediaFile mp3File = (MP3MediaFile) mf;
-		DBID3v1 result = mp3File.getId3();
+	public DBID3v1[] iMySQL_queryID3(int[] id) {
+		DBID3v1[] result = new DBID3v1[id.length];
+		for (int i = 0; i < id.length; i++){
+			MediaFile mf = (MediaFile) em.find(MediaFile.class,
+					(long) id[i]);
+			MP3MediaFile mp3File = (MP3MediaFile) mf;
+			result[i] = mp3File.getId3();
+		}
 		return result;
 	}
 }

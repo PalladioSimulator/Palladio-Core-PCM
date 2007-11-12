@@ -3,7 +3,7 @@
   <children xmi:type="notation:Node" xmi:id="_TXpqIHNIEdyhjJ7vTdOFcQ" type="2001">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TXpqIXNIEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
     <element xmi:type="pcm.seff:StartAction" href="Qosa.repository#_m0OwMHjlEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TXpqInNIEdyhjJ7vTdOFcQ" x="65"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TXpqInNIEdyhjJ7vTdOFcQ" x="120" y="12"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_TXpqI3NIEdyhjJ7vTdOFcQ" type="2003">
     <children xmi:type="notation:Node" xmi:id="_TXpqJnNIEdyhjJ7vTdOFcQ" type="5002"/>
@@ -44,7 +44,7 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_ak_akXNIEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
         <element xmi:type="pcm.parameter:VariableUsage" href="Qosa.repository#//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@outputVariableUsages_ExternalCallAction.0"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ak_aknNIEdyhjJ7vTdOFcQ" x="-5" y="-6"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ak_aknNIEdyhjJ7vTdOFcQ" x="7" y="2"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_TXpqLXNIEdyhjJ7vTdOFcQ"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_TXpqLnNIEdyhjJ7vTdOFcQ" showTitle="true"/>
@@ -53,12 +53,12 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TXpqJHNIEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
     <element xmi:type="pcm.seff:ExternalCallAction" href="Qosa.repository#_ot0vEHjlEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TXpqJXNIEdyhjJ7vTdOFcQ" x="12" y="60"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TXpqJXNIEdyhjJ7vTdOFcQ" x="12" y="60" width="241" height="217"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_TXpqMXNIEdyhjJ7vTdOFcQ" type="2002">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TXpqMnNIEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
     <element xmi:type="pcm.seff:StopAction" href="Qosa.repository#_qifxsHjlEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TXpqM3NIEdyhjJ7vTdOFcQ" x="156" y="540"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TXpqM3NIEdyhjJ7vTdOFcQ" x="108" y="504"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_TXy0EHNIEdyhjJ7vTdOFcQ" type="2003">
     <children xmi:type="notation:Node" xmi:id="_TXy0E3NIEdyhjJ7vTdOFcQ" type="5002"/>
@@ -92,7 +92,18 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TXy0EXNIEdyhjJ7vTdOFcQ" fontName="Segoe UI"/>
     <element xmi:type="pcm.seff:ExternalCallAction" href="Qosa.repository#_zBy5QHjlEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TXy0EnNIEdyhjJ7vTdOFcQ" x="108" y="360"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TXy0EnNIEdyhjJ7vTdOFcQ" x="12" y="312" width="238"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_8E9q8I4bEdyY-tAHE552-Q" type="Note">
+    <children xmi:type="notation:Node" xmi:id="_8E9q844bEdyY-tAHE552-Q" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_8E9q9I4bEdyY-tAHE552-Q" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_8E9q8Y4bEdyY-tAHE552-Q" fontName="Segoe UI" description="&lt;&lt;RDSEFF>> EncodingAdapter.UploadFile" fillColor="13369343" lineColor="6737151"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8E9q8o4bEdyY-tAHE552-Q" x="-72" width="184" height="50"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_TWTmUXNIEdyhjJ7vTdOFcQ"/>
   <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="Qosa.repository#_-d972-maEduCsN-pUEZDKA"/>

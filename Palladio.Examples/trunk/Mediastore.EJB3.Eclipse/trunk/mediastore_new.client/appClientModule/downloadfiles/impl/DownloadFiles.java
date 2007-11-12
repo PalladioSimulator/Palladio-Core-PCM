@@ -1,56 +1,55 @@
 package downloadfiles.impl;
 
+import java.util.Arrays;
+import java.util.Random;
+
+import com.sun.appserv.security.ProgrammaticLogin;
+
 import mediarepository.entities.DBID3v1;
+import mediastorerepository.IHTTP;
+import mediastorews.MediastoreWSWrapper;
 
 public class DownloadFiles implements java.lang.Runnable {
     protected mediastorerepository.IHTTP m_portIHTTP = null;
+	private int[] ids;
     private static final int ARTIST = 0;
 	private static final int TITLE = 1;
 	private static final int MOVIE = 2;
 
-    public DownloadFiles() {
-        javax.naming.InitialContext initial;
-
-        try {
-            initial = new javax.naming.InitialContext();
-
-            javax.naming.Context context = (javax.naming.Context) initial.lookup(
-                    "java:comp/env");
-
-            m_portIHTTP = (mediastorerepository.IHTTP) javax.rmi.PortableRemoteObject.narrow(context.lookup(
-                        "ejb/IHTTP"), mediastorerepository.IHTTP.class);
-        } catch (javax.naming.NamingException e) {
-            e.printStackTrace();
-        }
+	static int j = 0;
+	
+    public DownloadFiles(boolean useRMI) {
+    	if (!useRMI) {
+    		m_portIHTTP = new MediastoreWSWrapper();
+    	} else {
+    		ProgrammaticLogin pl = new ProgrammaticLogin();
+    		pl.login("snowball", "snowilein");
+	    	javax.naming.InitialContext initial;
+	        try {
+	            initial = new javax.naming.InitialContext();
+	            m_portIHTTP = (IHTTP)initial.lookup("mediastorerepository.IHTTP");
+	        } catch (javax.naming.NamingException e) {
+	            e.printStackTrace();
+	        }
+    	}
+    	initIDs(30000);
     }
 
-    public void scenarioRunner() {
-        /*PROTECTED REGION ID(_gBOngaY5EdudtvdezBq5JQ) ENABLED START*/
-    	int count = ((int)(Math.random()*5))+10;
-    	
-    	int[] ids = new int[count];
+	private void initIDs(int count) {    	
+    	ids = new int[count];
+    	Random rand = new Random(1234);
     	for (int i=0; i<count; i++){
-    		ids[i] = (int)(Math.random()*1500)+1;
+    		ids[i] = (int)(rand.nextDouble()*1500)+1;
     	}
-    	DBID3v1 id3Tag;
-        System.out.println("Start run "+count);
-        long start = System.nanoTime();
-    	{
-             id3Tag = m_portIHTTP.queryID3(ids[0]);
-            //m_portIHTTP.downloadHTTP(ids);
-            // m_portIHTTP.downloadHTTP(new int[]{1,2,3});
-    		// m_portIHTTP.queryFileByField("truckstop", ARTIST);
-    		// m_portIHTTP.queryFileByField("anno_1701", MOVIE);
-        }
-    	long result = System.nanoTime()-start;
-    	System.out.println("Result: "+result );
-        System.out.println(id3Tag.toString());
-//    	for(int i=1; i<=4159; i++) {
-//    		m_portIHTTP.downloadHTTP(new int[] {i});
-//    		System.out.println(i);
-//    	}
-//    	System.exit(0);
+	}
+
+    public void scenarioRunner() {
+    	//if (j % 100 == 0) System.out.print('.');
+    	//if ((j+1) % 25000 == 0) throw new RuntimeException("Request stop");
+        /*PROTECTED REGION ID(_gBOngaY5EdudtvdezBq5JQ) ENABLED START*/
+        m_portIHTTP.queryID3(Arrays.copyOf(ids, 1));
     	/*PROTECTED REGION END*/
+        //j++;
     }
 
     public void run() {

@@ -7,5 +7,5 @@ public interface IDBAdapter {
 
     byte[][] iAudioDB_queryAndGetFromDB(String queryString, int fieldID);
 
-	DBID3v1 iAudioDB_queryID3(int id);
+	DBID3v1[] iAudioDB_queryID3(int[] id);
 }

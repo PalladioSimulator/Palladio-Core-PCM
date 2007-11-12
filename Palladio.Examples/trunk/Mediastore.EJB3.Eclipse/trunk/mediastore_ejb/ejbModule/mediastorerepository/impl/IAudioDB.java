@@ -7,5 +7,5 @@ public interface IAudioDB {
 
     int[] iMySQL_getIDsOfMatchingFiles(String queryString, int fieldID);
 
-	DBID3v1 iMySQL_queryID3(int id);
+	DBID3v1[] iMySQL_queryID3(int[] id);
 }

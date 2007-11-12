@@ -7,6 +7,9 @@
 		<project>mediastore_ejb</project>
 		<project>mediastore_ejbClient</project>
 		<project>de.uka.ipd.sdq.prototype.framework</project>
+		<project>de.uka.ipd.sdq.sensorframework</project>
+		<project>mediastore_web</project>
+		<project>de.uka.ipd.sdq.simucomframework.variables</project>
 		<project>de.uka.ipd.sdq.resourcestrategies</project>
 	</projects>
 	<buildSpec>

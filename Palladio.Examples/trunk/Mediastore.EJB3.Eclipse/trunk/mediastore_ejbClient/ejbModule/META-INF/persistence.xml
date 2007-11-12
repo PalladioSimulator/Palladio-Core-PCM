@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="mediastore">
+		<jta-data-source>jdbc/mediastore</jta-data-source>
+		<class>
+		mediarepository.entities.DBID3v1</class>
+		<class>
+		mediarepository.entities.MP3MediaFile</class>
+		<class>
+		mediarepository.entities.MediaFile</class>
+		<class>
+		mediarepository.entities.VideoFile</class>		
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="toplink.logging.level" value="INFO" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="mediastore-test">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>
+		mediarepository.entities.DBID3v1</class>
+		<class>
+		mediarepository.entities.MP3MediaFile</class>
+		<class>
+		mediarepository.entities.MediaFile</class>
+		<class>
+		mediarepository.entities.VideoFile</class>		
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.archive.autodetection"
+				value="class, hbm" />
+			<property name="hibernate.connection.driver_class"
+				value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url"
+				value="jdbc:mysql://localhost/mediastore" />
+			<property name="hibernate.connection.username"
+				value="hibernate" />
+			<property name="hibernate.connection.password"
+				value="hiber!nate" />
+		
+			<property name="toplink.logging.level" value="INFO" />
+			<property name="toplink.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="toplink.jdbc.url"
+				value="jdbc:mysql://localhost/mediastore" />
+			<property name="toplink.jdbc.password" value="hiber!nate" />
+			<property name="toplink.jdbc.user" value="hibernate" />
+		</properties>	
+	</persistence-unit>
+</persistence>

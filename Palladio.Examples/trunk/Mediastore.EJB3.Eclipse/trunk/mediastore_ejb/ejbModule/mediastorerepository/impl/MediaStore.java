@@ -53,7 +53,7 @@ public class MediaStore implements mediastorerepository.impl.IMediaStore {
     }
 
 	@Override
-	public DBID3v1 iMediaStore_queryID3(int id) {
+	public DBID3v1[] iMediaStore_queryID3(int[] id) {
 		return myContext.getRoleIAudioDB().queryID3(id);
 	}
 }

@@ -30,7 +30,7 @@ public class DBAdapter implements mediastorerepository.impl.IDBAdapter {
     }
 
 	@Override
-	public DBID3v1 iAudioDB_queryID3(int id) {
+	public DBID3v1[] iAudioDB_queryID3(int[] id) {
 		return myContext.getRoleIMySQL().queryID3(id);
 	}
 }

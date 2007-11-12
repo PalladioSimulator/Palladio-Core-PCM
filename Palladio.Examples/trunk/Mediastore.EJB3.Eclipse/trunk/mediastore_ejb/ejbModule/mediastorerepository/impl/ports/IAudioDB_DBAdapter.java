@@ -22,7 +22,7 @@ public class IAudioDB_DBAdapter implements mediastorerepository.IAudioDB {
         return myComponent.iAudioDB_queryAndGetFromDB(queryString, fieldID);
     }
 
-	public DBID3v1 queryID3(int id) {
+	public DBID3v1[] queryID3(int[] id) {
 		return myComponent.iAudioDB_queryID3(id);
 	}
 }

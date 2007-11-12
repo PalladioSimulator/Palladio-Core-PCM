@@ -1,5 +1,10 @@
 package mediastorerepository.impl.bean;
 
+import javax.annotation.security.RolesAllowed;
+import javax.jws.WebService;
+
+import mediarepository.entities.DBID3v1;
+
 
 /** The Enterprise Java Bean for the component WebGUI
 */
@@ -8,7 +13,15 @@ public class WebGUIBean extends mediastorerepository.impl.WebGUI implements medi
     public WebGUIBean() {
     }
 
-    // Called by the Container to inject a reference to the local interface of this components
+    
+    @Override @RolesAllowed("CartUsers")
+	public DBID3v1[] iHTTP_queryID3(int[] id) {
+		// TODO Auto-generated method stub
+		return super.iHTTP_queryID3(id);
+	}
+
+
+	// Called by the Container to inject a reference to the local interface of this components
     // context class
     @javax.ejb.EJB(name = "ejb/WebGUI/Context", beanInterface = mediastorerepository.impl.contexts.IWebGUIContext.class)
     @Override

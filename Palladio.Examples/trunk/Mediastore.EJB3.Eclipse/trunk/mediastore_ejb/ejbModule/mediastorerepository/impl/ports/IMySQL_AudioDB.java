@@ -22,7 +22,7 @@ public class IMySQL_AudioDB implements mediastorerepository.IMySQL {
         return myComponent.iMySQL_getIDsOfMatchingFiles(queryString, fieldID);
     }
 
-	public DBID3v1 queryID3(int id) {
+	public DBID3v1[] queryID3(int[] id) {
 		return myComponent.iMySQL_queryID3(id);
 	}
 }

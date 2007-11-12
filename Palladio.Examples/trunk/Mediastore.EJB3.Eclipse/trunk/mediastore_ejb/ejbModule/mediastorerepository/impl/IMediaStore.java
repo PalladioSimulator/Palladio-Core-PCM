@@ -7,5 +7,5 @@ public interface IMediaStore {
 
     byte[][] iMediaStore_queryAndGetFromDB(String queryString, int fieldID);
 
-	DBID3v1 iMediaStore_queryID3(int id);
+	DBID3v1[] iMediaStore_queryID3(int[] id);
 }
