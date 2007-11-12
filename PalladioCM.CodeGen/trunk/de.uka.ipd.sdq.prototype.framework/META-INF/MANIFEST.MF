@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Framework
+Bundle-Name: Prototyping Framework for ProtoCom
 Bundle-SymbolicName: de.uka.ipd.sdq.prototype.framework
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Export-Package: de.uka.ipd.sdq.prototype.framework,
  de.uka.ipd.sdq.prototype.framework.strategies,
  de.uka.ipd.sdq.prototype.framework.tests
@@ -11,3 +11,4 @@ Require-Bundle: org.junit4,
  de.uka.ipd.sdq.resourcestrategies,
  de.uka.ipd.sdq.sensorframework,
  org.apache.commons.cli;visibility:=reexport
+Bundle-Vendor: sdq.ipd.uka.de
