@@ -9,4 +9,5 @@ Export-Package: de.uka.ipd.sdq.prototype.framework,
 Require-Bundle: org.junit4,
  org.apache.log4j,
  de.uka.ipd.sdq.resourcestrategies,
- de.uka.ipd.sdq.sensorframework
+ de.uka.ipd.sdq.sensorframework,
+ org.apache.commons.cli;visibility:=reexport
