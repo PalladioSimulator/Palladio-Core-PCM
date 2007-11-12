@@ -6,18 +6,20 @@ import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
 
-public class OutlierRemovingAdapterTimeSpanSensor implements IAdapter {
+public class WarmupRemovingAdapterTimeSpanSensor implements IAdapter {
 
+	public static final String WARMUP_SIZE = "Warmup_Size";
 	private Properties myProperties = new Properties();
 	private SensorAndMeasurements sam;
 
-	public OutlierRemovingAdapterTimeSpanSensor(SensorAndMeasurements sensorAndMeasurements){
+	public WarmupRemovingAdapterTimeSpanSensor(SensorAndMeasurements sensorAndMeasurements){
 		this.sam = sensorAndMeasurements;
+		myProperties.put(WARMUP_SIZE,2500L);
 	}
 
 	public Object getAdaptedObject() {
 		SensorAndMeasurements result = new SensorAndMeasurements(sam.getSensor(),
-			new OutlierFilteringCollection(sam.getMeasurements(),0.1));
+			new WarmupFilteringCollection(sam.getMeasurements(),(Long) myProperties.get(WARMUP_SIZE))); 
 		
 		return result;
 	}

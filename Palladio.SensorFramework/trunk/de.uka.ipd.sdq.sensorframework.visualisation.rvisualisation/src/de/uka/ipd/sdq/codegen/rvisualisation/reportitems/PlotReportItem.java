@@ -29,15 +29,14 @@ public class PlotReportItem implements IReportItem {
 		try{
 			temp = File.createTempFile("pic", ".bmp");
 			temp.deleteOnExit();
-			//rCommand = "bmp(\"c:\\\\Temp\\\\x.bmp\",height="+bmpSize+",width="+bmpSize+")\n";
-			rCommand = "bmp(\""+temp.getAbsolutePath().replace(temp.separator, "\\\\")+"\",height="+bmpSize+",width="+bmpSize+")\n";
+			rCommand = "bmp(\""+temp.getAbsolutePath().replace(File.separator, "\\\\")+"\",height="+bmpSize+",width="+bmpSize+")\n";
 			rCommand += "plot("+this.dataCommand[0]+",xlab=\"Response Time\",main=\""+this.title+"\")\n";
 			for(int i = 1; i<dataCommand.length; i++){
 				rCommand += "lines("+this.dataCommand[i]+")\n";
 			}
 			rCommand += "graphics.off()\n";
 		}catch(Exception e){
-			RVisualisationPlugin.log(IStatus.ERROR, "Could not create temp file");
+			RVisualisationPlugin.log(IStatus.ERROR, "Could not create temp file. "+e.getClass().getCanonicalName());
 		}
 		re.execute(rCommand);
 	}

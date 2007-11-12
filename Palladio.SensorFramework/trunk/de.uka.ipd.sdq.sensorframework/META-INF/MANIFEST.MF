@@ -25,3 +25,4 @@ Export-Package: de.uka.ipd.sdq.sensorframework,
  de.uka.ipd.sdq.sensorframework.visualisation
 Bundle-ClassPath: src/,
  .
+Bundle-Vendor: sdq.ipd.uka.de

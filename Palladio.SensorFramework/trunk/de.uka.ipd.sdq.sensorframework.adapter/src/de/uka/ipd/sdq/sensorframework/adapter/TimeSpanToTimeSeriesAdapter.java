@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries;
 import de.uka.ipd.sdq.sensorframework.adapter.internal.OutlierRemovingAdapterTimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.adapter.internal.WarmupRemovingAdapterTimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
@@ -21,7 +22,9 @@ public class TimeSpanToTimeSeriesAdapter implements IAdapter {
 	}
 
 	public Object getAdaptedObject() {
-		SensorAndMeasurements values = (Boolean)myProperties.get(OUTLIER_REMOVAL) ? (SensorAndMeasurements) new OutlierRemovingAdapterTimeSpanSensor(myValues).getAdaptedObject() : myValues;
+		SensorAndMeasurements values = (Boolean)myProperties.get(OUTLIER_REMOVAL) ? 
+				(SensorAndMeasurements) new OutlierRemovingAdapterTimeSpanSensor((SensorAndMeasurements) new WarmupRemovingAdapterTimeSpanSensor(myValues).getAdaptedObject()).getAdaptedObject() 
+				: myValues;
 		TimeSeries series = new TimeSeries( values.getSensor().getSensorName() );
 		for (Measurement m : values.getMeasurements()) {
 			series.add(m.getMeasurementID(), ((TimeSpanMeasurement)m).getTimeSpan());

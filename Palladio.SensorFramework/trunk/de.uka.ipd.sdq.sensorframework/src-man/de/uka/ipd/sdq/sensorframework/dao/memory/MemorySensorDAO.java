@@ -44,6 +44,8 @@ public class MemorySensorDAO implements ISensorDAO {
 	}
 
 	public synchronized Sensor get(long id) {
+		if (!index.containsKey(id))
+			throw new RuntimeException("Attempt to retrieve non-existing sensor.");
 		return index.get(id);
 	}
 

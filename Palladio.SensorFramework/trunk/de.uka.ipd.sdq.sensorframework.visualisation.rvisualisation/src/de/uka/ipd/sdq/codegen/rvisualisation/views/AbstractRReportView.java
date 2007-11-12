@@ -9,10 +9,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
+import javax.print.attribute.standard.Severity;
+
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
 
+import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RInterface;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.visitor.HTMLVisitor;
@@ -72,25 +76,17 @@ implements
 			temp = File.createTempFile("data", ".txt");
 			temp.deleteOnExit();
 			FileWriter fw = new FileWriter(temp);
-			System.out.println("Start");
-			long timeM = System.nanoTime();
-			StringBuffer result = new StringBuffer(); //"sensor"+i+"<-c(");
+			StringBuffer result = new StringBuffer();
 			for (Measurement time : sm.getMeasurements()){
 				TimeSpanMeasurement tsm = (TimeSpanMeasurement) time;
 				result.append(tsm.getTimeSpan());
 				result.append(" ");
 			}
-			//TODO throw an error if result.length is 0? (Happened to Anne once, she doesn't know why)
-			if (result.length() != 0 && result.charAt(result.length()-1) == ',')
-				result = result.delete(result.length()-1, result.length()-1);
-			// result.append(")");
 			fw.write(result.toString());
 			fw.close();
-			System.out.println("End "+(System.nanoTime()-timeM));
 			return "sensor"+i+"<-scan(\""+temp.getAbsolutePath().replace(File.separator, "\\\\")+"\")";
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			RVisualisationPlugin.log(IStatus.ERROR, "Failed to transfer sensordata to R. Details: "+e.getMessage());
 		}
 		return null;
 	}

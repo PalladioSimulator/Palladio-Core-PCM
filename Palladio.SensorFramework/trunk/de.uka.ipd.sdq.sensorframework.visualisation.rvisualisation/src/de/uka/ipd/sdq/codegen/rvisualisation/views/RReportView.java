@@ -43,7 +43,8 @@ public class RReportView extends AbstractRReportView {
 			rCommand = "sd(sensor"+i+")\n";
 			items.add(new StatisticsReportItem(rCommand, "Standard-Deviation of Sensor "+sm.getSensor().getSensorName()));
 		} 
-		items.add(1, new PlotReportItem(data.toArray(new String[0]),"Combined Plot"));
+		if (data.size() > 0)
+			items.add(1, new PlotReportItem(data.toArray(new String[0]),"Combined Plot"));
 		return items;
 	}
 
