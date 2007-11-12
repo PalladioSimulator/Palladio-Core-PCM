@@ -61,7 +61,6 @@ public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer
 		return densityDataset.getSeries(0);
 	}
 
-	@Override
 	public double getHistogramWidth() {
 		return densityDataset.getIntervalWidth();
 	}
