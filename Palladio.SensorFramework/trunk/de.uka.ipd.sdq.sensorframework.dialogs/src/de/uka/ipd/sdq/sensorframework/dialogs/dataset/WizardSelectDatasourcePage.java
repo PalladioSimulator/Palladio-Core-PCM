@@ -100,7 +100,7 @@ public class WizardSelectDatasourcePage extends WizardPage {
 		return super.canFlipToNextPage() && canFlip;
 	}
 
-	public Object getResult() {
+	public String getResult() {
 		return result;
 	}
 }

@@ -3,11 +3,16 @@ package de.uka.ipd.sdq.sensorframework.dialogs.dataset;
 
 import java.net.URI;
 
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileInfo;
+import org.eclipse.core.filesystem.IFileStore;
 import org.eclipse.core.filesystem.URIUtil;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourceAttributes;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Preferences;
@@ -92,10 +97,12 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 	private Text containerNameField;
 
 	// Last selection made by user
-	private String selectedFilePath;
+	//private String selectedResourcePath = "";
 	
 	// Last selection made by user
-	private Object selectedResource;
+	private IResource selectedResource;
+	
+	private IFileStore fileStore = null;
 	
 	private TreeViewer treeViewer;
 	
@@ -220,9 +227,12 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 			public void selectionChanged(SelectionChangedEvent event) {
 				IStructuredSelection selection = (IStructuredSelection) event
 						.getSelection();
-				selectedResource = selection.getFirstElement();
-
-				setPageComplete(validitaResource(selectedResource));
+				Object object = selection.getFirstElement();
+				
+				if (object instanceof IResource) {
+					selectedResource = (IResource) object;
+					setPageComplete(validitaResource(selectedResource));
+				}
 			}
 		});
 		treeViewer.addDoubleClickListener(new IDoubleClickListener() {
@@ -260,8 +270,6 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 			text = text.replaceFirst("/", "");
 		}
 
-		selectedFilePath = text;
-
 		containerNameField.setText(text);
 		containerNameField.setToolTipText(text);
 	}
@@ -279,10 +287,14 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 			 * linkedResourceGroup.getLinkTargetURI() is empty.
 			 */
 			URI defaultURI = URIUtil.toURI("");
-			
+
 			if (!uri.toString().equals(defaultURI.toString())) {
-				containerSelectionChanged(uri.getRawPath());
-				setErrorMessage(null);
+
+				try {
+					fileStore = EFS.getStore(uri);
+				} catch (CoreException e) {
+					return false;
+				}
 				return true;
 			}
 		}
@@ -295,23 +307,30 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 	 * @param resource -
 	 *            viewer selection
 	 */
-	private boolean validitaResource(Object resource) {
-		setErrorMessage("No resource selected!");
+	private boolean validitaResource(IResource resource) {
 
-		if (type == IResource.FILE && resource instanceof IFile) {
-			IFile file = (IFile) resource;
-			String filePath = file.getFullPath().makeRelative().toString();
-			containerSelectionChanged(filePath);
-			setErrorMessage(null);
-			return true;
+		if (resource == null) {
+			return false;
 		}
-		if (type == IResource.FOLDER && resource instanceof IFolder) {
-			IFolder folder = (IFolder) resource;
-			String path = folder.getFullPath().makeRelative().toString();
-			containerSelectionChanged(path);
-			setErrorMessage(null);
-			return true;
+
+		IFileInfo fileInfo = null;
+
+		try {
+			fileStore = EFS.getStore(resource.getLocationURI());
+		} catch (CoreException e1) {
+			return false;
 		}
+
+		fileInfo = fileStore.fetchInfo();
+
+		if (type == IResource.FILE) {
+			return !fileInfo.isDirectory();
+		}
+
+		if (type == IResource.FOLDER) {
+			return fileInfo.isDirectory();
+		}
+
 		return false;
 	}
 	
@@ -349,11 +368,11 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 	 * @return IPath
 	 */
 	public IPath getFileFullPath() {
-		if (selectedFilePath == null || selectedFilePath.length() < 1) {
+		if (fileStore == null) {
 			return null;
 		}
 
-		IPath path = new Path(selectedFilePath);
+		IPath path = new Path(fileStore.toString());
 		// The user may not have made this absolute so do it for them
 		path.makeAbsolute();
 
@@ -386,5 +405,19 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 		if (type == IResource.FOLDER )
 			return "folder";
 		return "<undefined>";
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.wizard.WizardPage#setPageComplete(boolean)
+	 */
+	@Override
+	public void setPageComplete(boolean complete) {
+		super.setPageComplete(complete);
+		setErrorMessage("No resource selected!");
+
+		if (complete) {
+			setErrorMessage(null);
+			containerSelectionChanged(fileStore.toString());
+		}
 	}
 }

@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.sensorframework.dialogs.dataset;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 
@@ -22,9 +23,8 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 public class OpenDatasourceWizard extends Wizard {
 
 	
-	private WizardDatasourceLoadPage fileLoadPage, folderLoadPage;
-	private String result;
-	private WizardSelectDatasourcePage selectTypePage;
+	private WizardDatasourceLoadPage db40DatasourceLoadPage, fileDatasourceLoadPage;
+	private WizardSelectDatasourcePage selectDatasourceTypePage;
 
 	public OpenDatasourceWizard() {
 		super();
@@ -38,17 +38,17 @@ public class OpenDatasourceWizard extends Wizard {
 	public void addPages() {
 		super.addPages();
 
-		selectTypePage = new WizardSelectDatasourcePage(
+		selectDatasourceTypePage = new WizardSelectDatasourcePage(
 				"Select Type of Datasource to load", false, true, true);
-		this.addPage(selectTypePage);
+		this.addPage(selectDatasourceTypePage);
 
-		fileLoadPage = new WizardDatasourceLoadPage("Open the database file",
+		db40DatasourceLoadPage = new WizardDatasourceLoadPage("Open the database file",
 				IResource.FILE);
-		this.addPage(fileLoadPage);
+		this.addPage(db40DatasourceLoadPage);
 
-		folderLoadPage = new WizardDatasourceLoadPage(
+		fileDatasourceLoadPage = new WizardDatasourceLoadPage(
 				"Open the database folder", IResource.FOLDER);
-		this.addPage(folderLoadPage);
+		this.addPage(fileDatasourceLoadPage);
 	}
 
 	
@@ -58,22 +58,31 @@ public class OpenDatasourceWizard extends Wizard {
 	@Override
 	public boolean performFinish() {
 		IDAOFactory factory = null;
+		IPath path = null;
 
-		if (selectTypePage.getResult().equals(
+		if (selectDatasourceTypePage.getResult().equals(
 				WizardSelectDatasourcePage.DB4O_DATASRC)) {
-			IPath path = fileLoadPage.getFileFullPath();
-			result = path.toOSString();
+			path = db40DatasourceLoadPage.getFileFullPath();
 			factory = new DB4ODAOFactory(path.toOSString());
-		}
 
-		if (selectTypePage.getResult().equals(
+		} else if (selectDatasourceTypePage.getResult().equals(
 				WizardSelectDatasourcePage.FILE_DATASRC)) {
-			IPath path = folderLoadPage.getFileFullPath();
-			result = path.toOSString();
-			factory = new FileDAOFactory(result);
+			path = fileDatasourceLoadPage.getFileFullPath();
+
+			try {
+				factory = new FileDAOFactory(path.toOSString());
+			} catch (Exception e) {
+				MessageDialog.openError(getShell(), "File DAO factory error.",
+						e.getMessage());
+				return false;
+			}
+
+		} else {
+			return false;
 		}
 
 		SensorFrameworkDataset.singleton().addDataSource(factory);
+
 		return true;
 	}
 
@@ -83,13 +92,13 @@ public class OpenDatasourceWizard extends Wizard {
 	 */
 	@Override
 	public boolean canFinish() {
-		if (selectTypePage.getResult().equals(
+		if (selectDatasourceTypePage.getResult().equals(
 				WizardSelectDatasourcePage.DB4O_DATASRC)) {
-			return fileLoadPage.isPageComplete();
+			return db40DatasourceLoadPage.isPageComplete();
 		}
-		if (selectTypePage.getResult().equals(
+		if (selectDatasourceTypePage.getResult().equals(
 				WizardSelectDatasourcePage.FILE_DATASRC)) {
-			return folderLoadPage.isPageComplete();
+			return fileDatasourceLoadPage.isPageComplete();
 		}
 		return false;
 	}
@@ -105,16 +114,16 @@ public class OpenDatasourceWizard extends Wizard {
 			WizardSelectDatasourcePage data_type_page = (WizardSelectDatasourcePage) page;
 			if (data_type_page.getResult().equals(
 					WizardSelectDatasourcePage.DB4O_DATASRC)) {
-				return fileLoadPage;
+				return db40DatasourceLoadPage;
 			} else if (data_type_page.getResult().equals(
 					WizardSelectDatasourcePage.FILE_DATASRC)) {
-				return folderLoadPage;
+				return fileDatasourceLoadPage;
 			}
 		}
 		return null;
 	}
-
-	public String getResult() {
-		return result;
+	
+	private void showMessage(String message) {
+		MessageDialog.openError(getShell(), "File DAO factory error.", message);
 	}
 }
