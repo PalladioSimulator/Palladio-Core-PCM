@@ -103,6 +103,8 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 		ArrayList<Histogram> viewerInput = new ArrayList<Histogram>();
 		for (IAdapter a : list) {
 			Properties p = a.getProperties();
+			if (p == null)
+				p = new Properties();
 			p.put(HISTOGRAM_WIDTH, histogramWidth);
 			a.setProperties(p);
 			viewerInput.add((Histogram) a.getAdaptedObject());
