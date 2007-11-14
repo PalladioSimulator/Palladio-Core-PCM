@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.sensorframework.visualisation.birt.editor;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
@@ -51,6 +52,12 @@ public class BirtHistogramReport extends AbstractReportView implements
 				adapters.add(adapter);
 		}
 		visualization.initChart(adapters);
+	}
+
+	@Override
+	protected void setInput(List<IAdapter> list) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
