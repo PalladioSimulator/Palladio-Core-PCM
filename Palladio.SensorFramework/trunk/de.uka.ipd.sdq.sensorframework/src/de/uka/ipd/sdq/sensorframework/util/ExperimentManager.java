@@ -53,10 +53,10 @@ public class ExperimentManager {
 		run.addTimeSpanMeasurement(sensor, startTime, time);
 	}
 	
-	public void storeTimeSpans(String sensorName, double[] elements, int upperBound) {
+	public void storeTimeSpans(String sensorName, double[] durationArray, double[] timeArray, int upperBound) {
 		TimeSpanSensor sensor = getTimeSpanSensor(sensorName);
 		for (int i=0; i<upperBound; i++){
-			run.addTimeSpanMeasurement(sensor, i, elements[i]);
+			run.addTimeSpanMeasurement(sensor, timeArray[i], durationArray[i]);
 		}
 	}	
 	
