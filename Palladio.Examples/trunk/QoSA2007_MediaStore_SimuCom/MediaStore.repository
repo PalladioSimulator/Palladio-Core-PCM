@@ -96,7 +96,7 @@
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Lt09lKYqEdunyPSYvCWVNg" predecessor_AbstractAction="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_M_VoyqYqEdunyPSYvCWVNg">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
-          <specification_ParametericResourceDemand specification="0.00000000511 * (fileToMark.BYTESIZE/10^6)"/>
+          <specification_ParametericResourceDemand specification="0.00000000511 * ( fileToMark.BYTESIZE )"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_M_VoyqYqEdunyPSYvCWVNg" entityName="SetReturn" predecessor_AbstractAction="_Lt09lKYqEdunyPSYvCWVNg" successor_AbstractAction="_NcjJMKYqEdunyPSYvCWVNg">
@@ -179,7 +179,7 @@
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__fg_4KYkEduWZfldHy3B1Q" entityName="SelectFiles" predecessor_AbstractAction="_lnM28buBEdudN7w1caiLFg" successor_AbstractAction="_l_CvMLuBEdudN7w1caiLFg">
             <resourceDemand_Action>
               <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
-              <specification_ParametericResourceDemand specification="0.00000004 * (StoredFiles.INNER.BYTESIZE/10^6) + 0.08"/>
+              <specification_ParametericResourceDemand specification="0.00000004 * ( StoredFiles.INNER.BYTESIZE ) + 0.08"/>
             </resourceDemand_Action>
           </steps_Behaviour>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_lnM28buBEdudN7w1caiLFg" successor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q"/>
