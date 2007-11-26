@@ -23,7 +23,8 @@ public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart<TimeSeri
 	@Override
 	protected void initializeContextMenu(MenuManager menu_manager) {
 		super.initializeContextMenu(menu_manager);
-	    menu_manager.add(new CopyClipboardAsR(this));
+	    menu_manager.add(new ExportCSV(this));
+		menu_manager.add(new CopyClipboardAsR(this));
 	}
 	
 	protected void initChart() {
