@@ -29,7 +29,7 @@ public class MaxMeasurementsStopCondition extends Condition implements Observer{
 	}
 
 	public boolean check() {
-		return (measurementCounter<MAX_MEASUREMENTS);
+		return (measurementCounter>=MAX_MEASUREMENTS);
 	}
 	
 	public void update(Observable o, Object arg) {
