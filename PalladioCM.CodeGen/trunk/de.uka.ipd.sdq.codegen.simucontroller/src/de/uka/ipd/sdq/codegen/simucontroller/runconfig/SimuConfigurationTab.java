@@ -7,6 +7,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -17,8 +19,12 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import sun.management.counter.Variability;
+
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
  * The class extends ConfigurationTab by CheckBox. User can decide whether that
@@ -32,13 +38,26 @@ import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 public class SimuConfigurationTab extends ConfigurationTab {
 	
 	private Button clearButton;
-
+	private Text variableText;
+	private Text minimumText;
+	private Text maximumText;
+	private Text stepWidthText;
+	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	public void createControl(Composite parent) {
 		super.createControl(parent);
+		
+		final ModifyListener modifyListener = new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				SimuConfigurationTab.this.setDirty(true);
+				SimuConfigurationTab.this.updateLaunchConfigurationDialog();
+			}
+		};
+		
 		
 		Composite container = (Composite) getControl();
 
@@ -76,10 +95,11 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		variableToAdaptLabel.setLayoutData(gd_variableToAdaptLabel);
 		variableToAdaptLabel.setText("Variable:");
 
-		final Text text = new Text(sensitivityAnalysisParametersGroup, SWT.BORDER);
-		text.setEnabled(false);
-		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-
+		variableText = new Text(sensitivityAnalysisParametersGroup, SWT.BORDER);
+		variableText.setEnabled(false);
+		variableText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		variableText.addModifyListener(modifyListener);
+		
 		final Button selectVariableButton = new Button(sensitivityAnalysisParametersGroup, SWT.NONE);
 		selectVariableButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent e) {
@@ -97,20 +117,23 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		final Label minimumLabel = new Label(composite, SWT.NONE);
 		minimumLabel.setText("Minimum:");
 
-		final Text text_1 = new Text(composite, SWT.BORDER);
-		text_1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-
+		minimumText = new Text(composite, SWT.BORDER);
+		minimumText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		minimumText.addModifyListener(modifyListener);
+		
 		final Label maximumLabel = new Label(composite, SWT.NONE);
 		maximumLabel.setText("Maximum:");
 
-		final Text text_2 = new Text(composite, SWT.BORDER);
-		text_2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-
+		maximumText = new Text(composite, SWT.BORDER);
+		maximumText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		maximumText.addModifyListener(modifyListener);
+		
 		final Label stepWidthLabel = new Label(composite, SWT.NONE);
 		stepWidthLabel.setText("Step Width:");
 
-		final Text text_3 = new Text(composite, SWT.BORDER);
-		text_3.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		stepWidthText = new Text(composite, SWT.BORDER);
+		stepWidthText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		stepWidthText.addModifyListener(modifyListener);
 		
 	}
 
@@ -127,6 +150,34 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		} catch (CoreException e) {
 			clearButton.setSelection(true);
 		}
+		
+		try {
+			variableText.setText(configuration.getAttribute(
+					ConstantsContainer.VARIABLE_TEXT, ""));
+		} catch (CoreException e) {
+			variableText.setText("");
+		}
+
+		try {
+			minimumText.setText(configuration.getAttribute(
+					ConstantsContainer.MINIMUM_TEXT, ""));
+		} catch (CoreException e) {
+			minimumText.setText("");
+		}
+		
+		try {
+			maximumText.setText(configuration.getAttribute(
+					ConstantsContainer.MAXIMUM_TEXT, ""));
+		} catch (CoreException e) {
+			maximumText.setText("");
+		}
+		
+		try {
+			stepWidthText.setText(configuration.getAttribute(
+					ConstantsContainer.STEP_WIDTH_TEXT, ""));
+		} catch (CoreException e) {
+			stepWidthText.setText("");
+		}
 	}
 
 	/* (non-Javadoc)
@@ -138,5 +189,14 @@ public class SimuConfigurationTab extends ConfigurationTab {
 
 		configuration.setAttribute(ConstantsContainer.DELETE_PLUGIN,
 				clearButton.getSelection());
+		configuration.setAttribute(ConstantsContainer.VARIABLE_TEXT,
+				variableText.getText());
+		configuration.setAttribute(ConstantsContainer.MINIMUM_TEXT,
+				minimumText.getText());
+		configuration.setAttribute(ConstantsContainer.MAXIMUM_TEXT,
+				maximumText.getText());
+		configuration.setAttribute(ConstantsContainer.STEP_WIDTH_TEXT,
+				stepWidthText.getText());
+		
 	}
 }
