@@ -4,6 +4,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.MultipleSimulationRunsCompositeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
@@ -34,7 +36,11 @@ public class SimuLaunchConfigurationDelegate extends
 	@Override
 	protected IJob createRunCompositeJob(SimuAttributesGetMethods attributes)
 			throws JobFailedException, CoreException {
-		return new SimulationRunCompositeJob(attributes);
+		if (!attributes.getOAWWorkflowProperties().get(ConstantsContainer.VARIABLE_TEXT).equals("") ) {
+			return new MultipleSimulationRunsCompositeJob(attributes);
+		} else {
+			return new SimulationRunCompositeJob(attributes);
+		}
 	}
 
 

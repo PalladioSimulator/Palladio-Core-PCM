@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.io.File;
 
+import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -97,9 +98,12 @@ public class CreatePluginProjectJob implements IJob {
 		}
 
 		try {
-			if (deleteProject)
+			if (deleteProject) {
 				myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT,
 						new NullProgressMonitor());
+				ResourcesPlugin.getWorkspace().getRoot().refreshLocal(IResource.DEPTH_INFINITE,
+					new NullProgressMonitor());
+			}
 		} catch (CoreException e) {
 			throw new RollbackFailedException("Deleting plugin project failed", e);
 		}

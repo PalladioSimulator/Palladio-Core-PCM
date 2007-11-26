@@ -13,11 +13,12 @@ import desmoj.core.simulator.Model;
 public class MaxMeasurementsStopCondition extends Condition implements Observer{
 
 	private int measurementCounter = 0;
-	private static final int MAX_MEASUREMENTS = 10; 
+	private long max_measurements = 1000; 
 	
 	public MaxMeasurementsStopCondition(Model owner, String name, boolean showInTrace) {
 		super(owner, name, showInTrace);
 
+		max_measurements = ((SimuComModel)owner).getConfig().getMaxMeasurementsCount();
 		((SimuComModel)owner).getSensorFactory().addSensorObserver(new ISensorObserver(){
 			public void sensorAddedEvent(SensorAddedEvent e)
 			{
@@ -29,7 +30,7 @@ public class MaxMeasurementsStopCondition extends Condition implements Observer{
 	}
 
 	public boolean check() {
-		return (measurementCounter>=MAX_MEASUREMENTS);
+		return (measurementCounter>=max_measurements);
 	}
 	
 	public void update(Observable o, Object arg) {

@@ -82,6 +82,11 @@ public abstract class AttributesGetMethods {
 			properties.put(ConstantsContainer.CLIENTOUT_PATH, basePath);
 			properties.put(ConstantsContainer.EJBSOUT_PATH, basePath);
 			
+			properties.put(ConstantsContainer.VARIABLE_TEXT, configuration.getAttribute(ConstantsContainer.VARIABLE_TEXT, ""));
+			properties.put(ConstantsContainer.MINIMUM_TEXT, configuration.getAttribute(ConstantsContainer.MINIMUM_TEXT, ""));
+			properties.put(ConstantsContainer.MAXIMUM_TEXT, configuration.getAttribute(ConstantsContainer.MAXIMUM_TEXT, ""));
+			properties.put(ConstantsContainer.STEP_WIDTH_TEXT, configuration.getAttribute(ConstantsContainer.STEP_WIDTH_TEXT, ""));
+
 			properties.put(ConstantsContainer.SIMULATE_LINKING_RESOURCES, configuration
 					.getAttribute(ConstantsContainer.SIMULATE_LINKING_RESOURCES, true) ? "true" : "false");
 			properties.put("brokerLookup", configuration

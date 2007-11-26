@@ -3,9 +3,16 @@
  */
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import java.util.ArrayList;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -15,6 +22,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -24,6 +32,7 @@ import sun.management.counter.Variability;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
+import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
@@ -42,6 +51,7 @@ public class SimuConfigurationTab extends ConfigurationTab {
 	private Text minimumText;
 	private Text maximumText;
 	private Text stepWidthText;
+	private ArrayList<String> modelFiles = new ArrayList<String>();
 	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
@@ -96,13 +106,14 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		variableToAdaptLabel.setText("Variable:");
 
 		variableText = new Text(sensitivityAnalysisParametersGroup, SWT.BORDER);
-		variableText.setEnabled(false);
+		variableText.setEnabled(true);
 		variableText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		variableText.addModifyListener(modifyListener);
 		
 		final Button selectVariableButton = new Button(sensitivityAnalysisParametersGroup, SWT.NONE);
 		selectVariableButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(final SelectionEvent e) {
+				selectVariable();
 			}
 		});
 		selectVariableButton.setText("Select Variable...");
@@ -136,6 +147,23 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		stepWidthText.addModifyListener(modifyListener);
 		
 	}
+
+	
+	protected void selectVariable() {
+		ResourceSet rs = new ResourceSetImpl();
+		ArrayList filter = new ArrayList();
+		filter.add(EObject.class);
+		for (String file : modelFiles)
+			rs.getResource(URI.createFileURI(file), true);
+		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog
+			(this.getShell(),
+			 filter,
+			 rs);
+		if (dialog.open() == org.eclipse.jface.dialogs.Dialog.OK) {
+			variableText.setText(EcoreUtil.getURI(dialog.getResult()).toString());
+		}
+	}
+
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
@@ -175,6 +203,20 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		try {
 			stepWidthText.setText(configuration.getAttribute(
 					ConstantsContainer.STEP_WIDTH_TEXT, ""));
+		} catch (CoreException e) {
+			stepWidthText.setText("");
+		}
+		
+		try {
+			modelFiles.clear();
+			modelFiles.add(configuration.getAttribute(
+					ConstantsContainer.REPOSITORY_FILE, ""));
+			modelFiles.add(configuration.getAttribute(
+					ConstantsContainer.SYSTEM_FILE, ""));
+			modelFiles.add(configuration.getAttribute(
+					ConstantsContainer.ALLOCATION_FILE, ""));
+			modelFiles.add(configuration.getAttribute(
+					ConstantsContainer.USAGE_FILE, ""));
 		} catch (CoreException e) {
 			stepWidthText.setText("");
 		}

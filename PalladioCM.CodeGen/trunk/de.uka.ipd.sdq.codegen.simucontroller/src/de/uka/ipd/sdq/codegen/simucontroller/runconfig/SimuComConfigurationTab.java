@@ -38,6 +38,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 
 	private Text nameField;
 	private Text timeField;
+	private Text maxMeasurementsField;
 	private Text dataField;
 	private Button checkLoggingButton;
 
@@ -77,6 +78,13 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		final Label secLabel = new Label(simucomGroup, SWT.NONE);
 		secLabel.setText("Simulated Seconds");
 
+		final Label maxLabel = new Label(simucomGroup, SWT.NONE);
+		maxLabel.setText("Maximum measurements count:");
+
+		maxMeasurementsField = new Text(simucomGroup, SWT.BORDER);
+		maxMeasurementsField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		maxMeasurementsField.addModifyListener(modifyListener);
+		
 		/** Create Experiment Run section */
 		final Group experimentrunGroup = new Group(container, SWT.NONE);
 		experimentrunGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -173,6 +181,13 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 
 		try {
+			maxMeasurementsField.setText(configuration.getAttribute(
+					SimuComConfig.MAXIMUM_MEASUREMENT_COUNT, ""));
+		} catch (CoreException e) {
+			maxMeasurementsField.setText("10000");
+		}
+		
+		try {
 			selectedDataSourceID = 
 				configuration.getAttribute(
 						SimuComConfig.DATASOURCE_ID, -1);
@@ -202,7 +217,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
 				nameField.getText());
 		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
-				timeField.getText());
+				timeField.getText());		
+		configuration.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,
+						maxMeasurementsField.getText());
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
 				selectedDataSourceID);
 		configuration.setAttribute(SimuComConfig.VERBOSE_LOGGING,
@@ -216,7 +233,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
 				"MyRun");
 		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
-				"150000");
+		"150000");
+		configuration.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,
+		"10000");
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
 				-1);
 	}
@@ -245,6 +264,10 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			setErrorMessage("Simulation time is missing!");
 			return false;
 		}
+		if (maxMeasurementsField.getText().equals("")){
+			setErrorMessage("Maximum Measurement counter is missing!");
+			return false;
+		}		
 		if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null){
 			setErrorMessage("Data source is missing!");
 			return false;

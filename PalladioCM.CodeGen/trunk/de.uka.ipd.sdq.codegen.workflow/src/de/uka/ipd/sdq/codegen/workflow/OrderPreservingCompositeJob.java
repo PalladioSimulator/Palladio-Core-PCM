@@ -12,8 +12,8 @@ import java.util.Stack;
 
 public class OrderPreservingCompositeJob implements ICompositeJob {
 	
-	private LinkedList<IJob> myJobs;
-	private Stack<IJob> myExecutedJobs;
+	protected LinkedList<IJob> myJobs;
+	protected Stack<IJob> myExecutedJobs;
 	
 	/**
 	 * constructor

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
+import java.util.Map;
+
 import org.eclipse.core.runtime.CoreException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuAttributesGetMethods;
@@ -18,16 +20,26 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  */
 public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 
+	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes)
+	throws JobFailedException, CoreException {
+		this(attributes,1);
+	}
+	
 	/**
 	 * @param attributes -
 	 *            defines the methods, the return SimuCom special variable from the
 	 *            LaunchConfiguration-Object.
+	 * @param i 
 	 * 
 	 * @throws CoreException
 	 * @throws JobFailedException
 	 */
-	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes)
+	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes, int runNo)
 			throws JobFailedException, CoreException {
+
+		Map<String, Object> properties = attributes.getSimuComProperties();
+		if (properties.get(SimuComConfig.RUN_NUMBER) == null)
+			properties.put(SimuComConfig.RUN_NUMBER, runNo);
 
 		CheckOAWConstraintsJob checkOAWConstraintsJob = new CheckOAWConstraintsJob(
 				attributes.getFiles(), attributes.isShouldThrowException());
@@ -37,15 +49,15 @@ public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 				attributes.isDeleteProject());
 		this.addJob(createPluginProjectJob);
 
-		GenerateOAWCodeJob generatePluginCodeJob = new GenerateOAWCodeJob(
-				attributes.getOAWWorkflowProperties());
+		Map<String, String> p = attributes.getOAWWorkflowProperties();
+		p.put(SimuComConfig.RUN_NUMBER, runNo+"");
+		GenerateOAWCodeJob generatePluginCodeJob = new GenerateOAWCodeJob(p);
 		this.addJob(generatePluginCodeJob);
 
 		this.addJob(new CompilePluginCodeJob(createPluginProjectJob));
 		this.addJob(new LoadPluginJob(createPluginProjectJob));
 
-		SimuComConfig simuConfig = new SimuComConfig(attributes
-				.getSimuComProperties());
+		SimuComConfig simuConfig = new SimuComConfig(properties);
 		this.addJob(new SimulateJob(simuConfig));
 	}
 
