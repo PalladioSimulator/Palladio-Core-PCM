@@ -29,6 +29,7 @@ public class ExperimentRunner {
 		model.getSensorFactory().addSensorObserver(sensorObserver);
 		
 		// exp.stop(new StopCondition(model,"StopCondtion","Response Time of ConcurScenario",true));
+		exp.stop(new MaxMeasurementsStopCondition(model,"MaxMeasurementsStopCondtion",true));
 		
 		exp.start();
 
