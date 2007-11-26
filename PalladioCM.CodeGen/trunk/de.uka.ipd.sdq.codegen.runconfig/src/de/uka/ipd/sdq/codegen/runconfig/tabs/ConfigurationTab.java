@@ -136,7 +136,8 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 				//ConstantsContainer.setGeneretePluginPath(pluginPath);
 			}
 		});
-		
+
+
 		// disabled widget
 		setElementsEnabled(false);
 

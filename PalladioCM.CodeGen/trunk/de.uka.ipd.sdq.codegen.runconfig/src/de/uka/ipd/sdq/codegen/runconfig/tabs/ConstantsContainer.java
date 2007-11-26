@@ -37,6 +37,12 @@ public class ConstantsContainer {
 	public static final String OUTPUT_PATH = "outpath";
 	public static final String DELETE_PLUGIN = "clear";
 	
+	public static final String VARIABLE_TEXT = "variable";
+	public static final String MINIMUM_TEXT = "minimum";
+	public static final String MAXIMUM_TEXT = "maximum";
+	public static final String STEP_WIDTH_TEXT = "stepwidth";
+	
+	
 	/** Feature options tab*/
 	public static final String SIMULATE_LINKING_RESOURCES = "respectLinkingResources";
 	public static final String COMPONENT_LOOKUP = "componentLookup";
