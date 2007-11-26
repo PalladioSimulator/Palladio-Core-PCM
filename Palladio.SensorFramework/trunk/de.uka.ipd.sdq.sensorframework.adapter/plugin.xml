@@ -36,5 +36,11 @@
             id="de.uka.ipd.sdq.sensorframework.adapter.TimeSeries">
       </DataAdapter>
    </extension>
-
+   <extension
+         point="de.uka.ipd.sdq.sensorframework.adapter">
+      <DataAdapter
+            class="de.uka.ipd.sdq.sensorframework.adapter.TimeSpanSensorToQuantilFactory"
+            id="de.uka.ipd.sdq.sensorframework.adapter.Quantil">
+      </DataAdapter>
+   </extension>
 </plugin>
