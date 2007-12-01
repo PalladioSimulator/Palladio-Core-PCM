@@ -10,6 +10,9 @@ import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.org.apache.xerces.internal.dom.DeepNodeListImpl;
+
+import de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.FibonacciDemand;
@@ -38,12 +41,12 @@ public class PrototypePlatformTests {
 		}
 		logger.debug("Initialising Testbed");
 		IDemandStrategy cpuStrategy = new FibonacciDemand();
-		cpuStrategy.initialiseStrategy(CPU_PROCESSING_RATE);
+		cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH,CPU_PROCESSING_RATE);
 		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(
 				ResourceTypeEnum.CPU, cpuStrategy);
 
 		IDemandStrategy hddStrategy = new ReadLargeChunksDemand("C:\\temp");
-		hddStrategy.initialiseStrategy(HDD_PROCESSING_RATE);
+		hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,HDD_PROCESSING_RATE);
 		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(
 				ResourceTypeEnum.HDD, hddStrategy);
 		logger.debug("Testbed inialised");
@@ -131,7 +134,7 @@ public class PrototypePlatformTests {
 		bw.write("SizeRead;Time");
 		bw.newLine();
 
-		hddStrategy.initialiseStrategy(0.0);
+		hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,0.0);
 
 		boolean random = true;
 
