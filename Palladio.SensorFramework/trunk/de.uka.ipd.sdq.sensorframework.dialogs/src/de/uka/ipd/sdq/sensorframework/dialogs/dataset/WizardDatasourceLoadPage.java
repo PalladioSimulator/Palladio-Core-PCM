@@ -376,7 +376,8 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 		// The user may not have made this absolute so do it for them
 		path.makeAbsolute();
 
-		if (path.getDevice() == null) {
+		// TODO: StB: Commented out as this is not working under linux and I have doubts that it works correctly under windows!!
+		if (false && path.getDevice() == null) { 
 			IPath rootPath = ResourcesPlugin.getWorkspace().getRoot()
 					.getLocation();
 			return rootPath.append(path);
