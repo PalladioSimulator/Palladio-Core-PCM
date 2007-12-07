@@ -26,11 +26,19 @@ public class SensitivityWorkflowComponent
 	private double min;
 
 	public void setRunNo(String value){
-		runNo = Integer.parseInt(value) - 1;
+		try{
+			runNo = Integer.parseInt(value) - 1;
+		}catch(Exception e){
+			variable = null;
+		}
 	}
 	
 	public void setMin(String value) {
-		min = Double.parseDouble(value);
+		try{
+			min = Double.parseDouble(value);
+		}catch(Exception e){
+			variable = null;
+		}
 	}
 
 	public void setVariable(String value) {
@@ -38,7 +46,11 @@ public class SensitivityWorkflowComponent
 	}
 	
 	public void setStep(String value) {
-		step = Double.parseDouble(value);
+		try{
+			step = Double.parseDouble(value);
+		}catch(Exception e){
+			variable = null;
+		}
 	}
 	
 	@Override
