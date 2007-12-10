@@ -21,15 +21,21 @@ public class ExperimentRunner {
 		Experiment exp = model.getExperiment();
 		// set experiment parameters
 		exp.setShowProgressBar(false); // display a progress bar (or not)
-		exp.stop(new SimTime(simTime)); // set end of simulation at 1500 time
-										// units
+		
+		if (model.getConfig().getMaxMeasurementsCount() <= 0 && simTime <= 0)
+			exp.stop(new SimTime(0)); 
+		else
+			if (simTime > 0)
+				exp.stop(new SimTime(simTime)); // set end of simulation at 1500 time
+												// units
+
+		exp.stop(new MaxMeasurementsStopCondition(model,"MaxMeasurementsStopCondtion",true));
 
 		// Link old and new sensor framework
 		SensorFrameworkObserver sensorObserver = new SensorFrameworkObserver(model);
 		model.getSensorFactory().addSensorObserver(sensorObserver);
 		
 		// exp.stop(new StopCondition(model,"StopCondtion","Response Time of ConcurScenario",true));
-		exp.stop(new MaxMeasurementsStopCondition(model,"MaxMeasurementsStopCondtion",true));
 		
 		exp.start();
 
