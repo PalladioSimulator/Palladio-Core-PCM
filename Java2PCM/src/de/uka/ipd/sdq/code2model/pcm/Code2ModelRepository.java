@@ -169,7 +169,8 @@ public class Code2ModelRepository {
 	 * @return an absolute URI to the file
 	 */
 	private URI getURIForPluginOwnedFile(String fileName) {
-		Bundle b = Platform.getBundle(PLUGIN_ID);
+
+		/*Bundle b = Platform.getBundle(PLUGIN_ID);
 
 		Path path = new Path(fileName);
 		URL resourcetypeFile = FileLocator.find(b, path, null);
@@ -185,7 +186,15 @@ public class Code2ModelRepository {
 		}
 		String p = resourcetypeFile.getPath();
 		URI fileURI = URI.createFileURI(new File(p).getAbsolutePath());
+		logger.info("Using resource type file " + fileURI);*/
+		
+		//TODO: extract constants
+		
+		URI fileURI = URI.createFileURI(
+				"platform:" + File.separator + "plugins" + File.separator +
+				PLUGIN_ID + File.separator + RESOURCETYPE_FILE);
 		logger.info("Using resource type file " + fileURI);
+
 		return fileURI;
 	}
 
