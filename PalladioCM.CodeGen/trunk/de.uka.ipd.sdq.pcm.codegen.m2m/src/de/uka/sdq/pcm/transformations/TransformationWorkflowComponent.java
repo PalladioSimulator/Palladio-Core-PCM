@@ -5,6 +5,7 @@ import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.lib.AbstractWorkflowComponent2;
 import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
@@ -25,6 +26,7 @@ public class TransformationWorkflowComponent
 
 	private boolean respectLinkingResources = false;
 	private PCMAndCompletionModelHolder models;
+	private FeatureConfig featureConfiguration;
 		
 	public void setRespectLinkingResources(String value){
 		if (value.equals("true")) {
@@ -55,6 +57,8 @@ public class TransformationWorkflowComponent
 				(Repository)context.get("middleware")
 				);
 		
+		featureConfiguration = (FeatureConfig) context.get("featureConfig");
+		
 		new AllInstancesTransformer<ResourceContainer>(
 				ResourceenvironmentPackage.eINSTANCE.getResourceContainer(),
 				models.getAllocation().getTargetResourceEnvironment_Allocation()) {
@@ -73,7 +77,7 @@ public class TransformationWorkflowComponent
 					@Override
 					protected void transform(AssemblyConnector connector) {
 						if ( respectLinkingResources ) {
-							ConnectorReplacingBuilder replacer = new ConnectorReplacingBuilder(models,connector);
+							ConnectorReplacingBuilder replacer = new ConnectorReplacingBuilder(models,connector,featureConfiguration);
 							replacer.build();
 						}
 					}

@@ -1,5 +1,6 @@
 package de.uka.sdq.pcm.transformations.builder.connectors;
 
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
@@ -10,8 +11,10 @@ import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.sdq.pcm.transformations.FeatureUtils;
 import de.uka.sdq.pcm.transformations.builder.IBuilder;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
+import de.uka.sdq.pcm.transformations.builder.resourceconsumer.LocalCommunicationComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.resourceconsumer.NetworkLoadingComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
@@ -26,16 +29,18 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	private ComposedStructure parent;
 	private LinkingResource linkingRes;
 	private PCMAndCompletionModelHolder models;
+	private FeatureConfig featureConfig;
 
-	public ConnectorReplacingBuilder(PCMAndCompletionModelHolder models, AssemblyConnector con) {
+	public ConnectorReplacingBuilder(PCMAndCompletionModelHolder models, AssemblyConnector con, FeatureConfig featureConfig) {
 		this.models = models;
 		this.connector = con;
 		this.linkingRes = findLinkingResource(connector);
 		this.parent = con.getParentStructure_AssemblyConnector();
+		this.featureConfig = featureConfig;
 	}
 	
 	public void build() {
-		if (linkingRes != null) {
+		if (FeatureUtils.hasFeature(featureConfig,"DifferentAddressSpace")) {
 			java.lang.System.out.println("Expanding a completion for remote connector "+connector.getEntityName());
 		
 			IClientServerConnectorCompletionComponentBuilder componentBuilder = 
@@ -56,10 +61,23 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	}
 
 	private IClientServerConnectorCompletionComponentBuilder configureCompletionComponentBuilder() {
-		IComponentBuilder networkSimulator = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
-		//IComponentBuilder encryption = new PairwiseMiddlewareInteractingInnerConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator,"encrypt","decrypt");
-		IComponentBuilder security = new ConfigurableMiddlewareCallingConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator,"createCredentials","checkCredentials",null,null);
-		return new MarshallingConnectorCompletionBuilder(models,connector,linkingRes,security);
+		IComponentBuilder builder = null;
+		IClientServerConnectorCompletionComponentBuilder result;
+		if (linkingRes != null)
+			builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
+		else
+			builder = new LocalCommunicationComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole());
+		// IComponentBuilder encryption = new PairwiseMiddlewareInteractingInnerConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator,"encrypt","decrypt");
+		// builder = new ConfigurableMiddlewareCallingConnectorCompletionBuilder(models,connector,linkingRes,builder,"createCredentials","checkCredentials",null,null);
+		
+		if (linkingRes != null)
+			result = new MarshallingConnectorCompletionBuilder(models,connector,linkingRes.getFromResourceContainer_LinkingResource().get(0),linkingRes.getToResourceContainer_LinkingResource().get(0),builder);
+		else {
+			ResourceContainer container = findContainer(this.connector.getRequiringChildComponentContext_CompositeAssemblyConnector());
+			result = new MarshallingConnectorCompletionBuilder(models,connector,container,container,builder);
+		}
+		
+		return result;
 	}
 
 	private void connectConnectorCompletionWithMiddleware(IClientServerConnectorCompletionComponentBuilder componentBuilder) {
@@ -95,11 +113,13 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	}	
 
 	private AllocationContext findClientSideMiddlewareAllocationContext() {
-		return findAllocationContext(linkingRes.getFromResourceContainer_LinkingResource().get(0),models.getMiddlewareRepository().getInterfaces__Repository().get(0));
+		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringChildComponentContext_CompositeAssemblyConnector()) : linkingRes.getFromResourceContainer_LinkingResource().get(0) ;
+		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 	
 	private AllocationContext findServerSideMiddlewareAllocationContext(){
-		return findAllocationContext(linkingRes.getToResourceContainer_LinkingResource().get(0),models.getMiddlewareRepository().getInterfaces__Repository().get(0));
+		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringChildComponentContext_CompositeAssemblyConnector()) : linkingRes.getToResourceContainer_LinkingResource().get(0) ;
+		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 
 	private AllocationContext findAllocationContext(

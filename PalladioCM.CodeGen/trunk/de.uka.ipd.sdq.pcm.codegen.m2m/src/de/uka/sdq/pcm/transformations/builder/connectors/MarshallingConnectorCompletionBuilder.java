@@ -2,6 +2,7 @@ package de.uka.sdq.pcm.transformations.builder.connectors;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.IMiddlewareInteractingComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.MarshallingComponentBuilder;
@@ -15,12 +16,18 @@ import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 public class MarshallingConnectorCompletionBuilder
 extends AbstractClientServerConnectorCompletionBuilder {
 
+	private ResourceContainer fromResourceContainer;
+	private ResourceContainer toResourceContainer;
+
 	public MarshallingConnectorCompletionBuilder(
 			PCMAndCompletionModelHolder models,
 			AssemblyConnector connector,
-			LinkingResource linkingRes,
+			ResourceContainer fromResourceContainer,
+			ResourceContainer toResourceContainer,
 			IComponentBuilder innerBuilder) {
-		super(models, connector, linkingRes, innerBuilder);
+		super(models, connector, null, innerBuilder);
+		this.fromResourceContainer = fromResourceContainer;
+		this.toResourceContainer = toResourceContainer;
 	}
 
 	/**
@@ -35,7 +42,7 @@ extends AbstractClientServerConnectorCompletionBuilder {
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getFromResourceContainer_LinkingResource().get(0),
+				fromResourceContainer,
 				MarshallingComponentBuilder.MarshallerSide.CLIENT);
 	}
 	
@@ -51,7 +58,7 @@ extends AbstractClientServerConnectorCompletionBuilder {
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getToResourceContainer_LinkingResource().get(0),
+				toResourceContainer,
 				MarshallingComponentBuilder.MarshallerSide.SERVER);
 	}
 }
