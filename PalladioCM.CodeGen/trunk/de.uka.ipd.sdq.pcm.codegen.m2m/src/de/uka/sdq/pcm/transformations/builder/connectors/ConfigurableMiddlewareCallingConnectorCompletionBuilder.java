@@ -2,6 +2,7 @@ package de.uka.sdq.pcm.transformations.builder.connectors;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.IMiddlewareInteractingComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.MiddlewareCallingComponentBuilder;
@@ -17,10 +18,12 @@ public class ConfigurableMiddlewareCallingConnectorCompletionBuilder extends
 
 	public ConfigurableMiddlewareCallingConnectorCompletionBuilder(
 			PCMAndCompletionModelHolder models, AssemblyConnector connector,
-			LinkingResource linkingResource, IComponentBuilder innerBuilder,
+			ResourceContainer fromResourceContainer,
+			ResourceContainer toResourceContainer,
+			IComponentBuilder innerBuilder,
 			String clientSideBeforeCall, String serverSideBeforeCall,
 			String serverSideAfterCall, String clientSideAfterCall) {
-		super(models, connector, linkingResource, innerBuilder);
+		super(models, connector, fromResourceContainer, toResourceContainer, innerBuilder);
 		this.clientSideBeforeCall = clientSideBeforeCall;
 		this.clientSideAfterCall = clientSideAfterCall;
 		this.serverSideBeforeCall = serverSideBeforeCall;
@@ -34,7 +37,7 @@ public class ConfigurableMiddlewareCallingConnectorCompletionBuilder extends
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getFromResourceContainer_LinkingResource().get(0),
+				this.fromResourceContainer,
 				clientSideBeforeCall,
 				clientSideAfterCall);
 		return builder;
@@ -47,7 +50,7 @@ public class ConfigurableMiddlewareCallingConnectorCompletionBuilder extends
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getFromResourceContainer_LinkingResource().get(0),
+				this.toResourceContainer,
 				serverSideBeforeCall,
 				serverSideAfterCall);
 		return builder;

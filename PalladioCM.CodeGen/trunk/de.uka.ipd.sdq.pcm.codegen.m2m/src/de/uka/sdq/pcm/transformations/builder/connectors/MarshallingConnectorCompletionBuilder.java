@@ -16,18 +16,13 @@ import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 public class MarshallingConnectorCompletionBuilder
 extends AbstractClientServerConnectorCompletionBuilder {
 
-	private ResourceContainer fromResourceContainer;
-	private ResourceContainer toResourceContainer;
-
 	public MarshallingConnectorCompletionBuilder(
 			PCMAndCompletionModelHolder models,
 			AssemblyConnector connector,
 			ResourceContainer fromResourceContainer,
 			ResourceContainer toResourceContainer,
 			IComponentBuilder innerBuilder) {
-		super(models, connector, null, innerBuilder);
-		this.fromResourceContainer = fromResourceContainer;
-		this.toResourceContainer = toResourceContainer;
+		super(models, connector, fromResourceContainer, toResourceContainer, innerBuilder);
 	}
 
 	/**

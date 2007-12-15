@@ -2,6 +2,7 @@ package de.uka.sdq.pcm.transformations.builder.connectors;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.IMiddlewareInteractingComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.MiddlewareCallingComponentBuilder;
@@ -23,11 +24,12 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	public PairwiseMiddlewareInteractingInnerConnectorCompletionBuilder(
 			PCMAndCompletionModelHolder models,
 			AssemblyConnector connector,
-			LinkingResource linkingRes,
+			ResourceContainer fromResourceContainer,
+			ResourceContainer toResourceContainer,
 			IComponentBuilder innerBuilder,
 			String processCallSignature,
 			String unprocessCallSignature) {
-		super(models, connector, linkingRes, innerBuilder);
+		super(models, connector, fromResourceContainer, toResourceContainer, innerBuilder);
 		this.processCallSignature = processCallSignature;
 		this.unprocessCallSignature = unprocessCallSignature;
 	}
@@ -44,7 +46,7 @@ extends AbstractClientServerConnectorCompletionBuilder {
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getFromResourceContainer_LinkingResource().get(0),
+				this.fromResourceContainer,
 				processCallSignature,
 				unprocessCallSignature);
 		
@@ -63,7 +65,7 @@ extends AbstractClientServerConnectorCompletionBuilder {
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getToResourceContainer_LinkingResource().get(0),
+				this.toResourceContainer,
 				unprocessCallSignature,
 				processCallSignature);
 		

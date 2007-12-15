@@ -2,6 +2,7 @@ package de.uka.sdq.pcm.transformations.builder.connectors;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.BasicMiddlewareComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.IMiddlewareInteractingComponentBuilder;
@@ -19,9 +20,10 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	public InnerConnectorCompletionBuilder(
 			PCMAndCompletionModelHolder models,
 			AssemblyConnector connector,
-			LinkingResource linkingRes,
+			ResourceContainer fromResourceContainer,
+			ResourceContainer toResourceContainer,
 			IComponentBuilder innerBuilder) {
-		super(models, connector, linkingRes, innerBuilder);
+		super(models, connector, fromResourceContainer, toResourceContainer, innerBuilder);
 	}
 
 	/**
@@ -36,7 +38,7 @@ extends AbstractClientServerConnectorCompletionBuilder {
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getFromResourceContainer_LinkingResource().get(0));
+				this.fromResourceContainer);
 	}
 	
 	/**
@@ -51,6 +53,6 @@ extends AbstractClientServerConnectorCompletionBuilder {
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getToResourceContainer_LinkingResource().get(0));
+				this.toResourceContainer);
 	}
 }

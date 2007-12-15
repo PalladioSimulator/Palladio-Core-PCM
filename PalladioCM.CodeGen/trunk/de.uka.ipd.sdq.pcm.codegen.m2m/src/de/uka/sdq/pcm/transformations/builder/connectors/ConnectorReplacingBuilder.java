@@ -63,19 +63,25 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	private IClientServerConnectorCompletionComponentBuilder configureCompletionComponentBuilder() {
 		IComponentBuilder builder = null;
 		IClientServerConnectorCompletionComponentBuilder result;
-		if (linkingRes != null)
-			builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
-		else
-			builder = new LocalCommunicationComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole());
-		// IComponentBuilder encryption = new PairwiseMiddlewareInteractingInnerConnectorCompletionBuilder(models,connector,linkingRes,networkSimulator,"encrypt","decrypt");
-		// builder = new ConfigurableMiddlewareCallingConnectorCompletionBuilder(models,connector,linkingRes,builder,"createCredentials","checkCredentials",null,null);
+		ResourceContainer clientContainer = null;
+		ResourceContainer serverContainer = null;
 		
-		if (linkingRes != null)
-			result = new MarshallingConnectorCompletionBuilder(models,connector,linkingRes.getFromResourceContainer_LinkingResource().get(0),linkingRes.getToResourceContainer_LinkingResource().get(0),builder);
-		else {
-			ResourceContainer container = findContainer(this.connector.getRequiringChildComponentContext_CompositeAssemblyConnector());
-			result = new MarshallingConnectorCompletionBuilder(models,connector,container,container,builder);
+		if (linkingRes  != null) {
+			clientContainer = linkingRes.getFromResourceContainer_LinkingResource().get(0);
+			serverContainer = linkingRes.getToResourceContainer_LinkingResource().get(0);
+			builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
+		} else {
+			clientContainer = findContainer(this.connector.getRequiringChildComponentContext_CompositeAssemblyConnector());
+			serverContainer = clientContainer;
+			builder = new LocalCommunicationComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole());
 		}
+		
+		if (FeatureUtils.hasFeature(featureConfig,"Encryption"))
+			builder = new PairwiseMiddlewareInteractingInnerConnectorCompletionBuilder(models,connector,clientContainer,serverContainer,builder,"encrypt","decrypt");
+		if (FeatureUtils.hasFeature(featureConfig,"Authentication"))
+			builder = new ConfigurableMiddlewareCallingConnectorCompletionBuilder(models,connector,clientContainer,serverContainer,builder,"createCredentials","checkCredentials",null,null);
+		
+		result = new MarshallingConnectorCompletionBuilder(models,connector,clientContainer,serverContainer,builder);
 		
 		return result;
 	}

@@ -4,6 +4,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.IMiddlewareInteractingComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
@@ -15,21 +16,25 @@ implements IClientServerConnectorCompletionComponentBuilder {
 	protected Interface middlewareInterface;
 	private RequiredRole myClientRole;
 	private RequiredRole myServerRole;
-	protected LinkingResource myLinkingResource;
 	private IComponentBuilder innerBuilder;
 
 	private IMiddlewareInteractingComponentBuilder serverBuilder;
 	private IMiddlewareInteractingComponentBuilder clientBuilder;
+
+	protected ResourceContainer fromResourceContainer;
+	protected ResourceContainer toResourceContainer;
 	
 	public AbstractClientServerConnectorCompletionBuilder(
 			PCMAndCompletionModelHolder models, 
 			AssemblyConnector connector,
-			LinkingResource linkingResource,
+			ResourceContainer fromResourceContainer,
+			ResourceContainer toResourceContainer,
 			IComponentBuilder innerBuilder) {
 		super(models, connector);
 		
 		middlewareInterface = models.getMiddlewareRepository().getInterfaces__Repository().get(0);
-		this.myLinkingResource = linkingResource;
+		this.fromResourceContainer = fromResourceContainer;
+		this.toResourceContainer = toResourceContainer;
 		this.innerBuilder = innerBuilder;
 	}
 	

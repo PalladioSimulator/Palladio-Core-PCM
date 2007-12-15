@@ -19,4 +19,13 @@
       <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.1/@children.1"/>
     </children>
   </children>
+  <children configState="MASCHINE_SELECTED">
+    <origin xsi:type="featuremodel:FeatureGroup" href="Connector.featuremodel#//@children.2"/>
+    <children configState="USER_ELIMINATED">
+      <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.2/@children.0"/>
+    </children>
+    <children configState="USER_ELIMINATED">
+      <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.2/@children.1"/>
+    </children>
+  </children>
 </featureconfig:FeatureConfig>

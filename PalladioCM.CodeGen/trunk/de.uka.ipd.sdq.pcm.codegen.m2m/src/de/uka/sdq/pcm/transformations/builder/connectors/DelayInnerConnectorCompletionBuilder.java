@@ -2,6 +2,7 @@ package de.uka.sdq.pcm.transformations.builder.connectors;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.DelayMiddlewareComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.IMiddlewareInteractingComponentBuilder;
@@ -21,10 +22,11 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	public DelayInnerConnectorCompletionBuilder(
 			PCMAndCompletionModelHolder models,
 			AssemblyConnector connector,
-			LinkingResource linkingRes,
+			ResourceContainer fromResourceContainer,
+			ResourceContainer toResourceContainer,
 			IComponentBuilder innerBuilder,
 			String delaySpec) {
-		super(models, connector, linkingRes, innerBuilder);
+		super(models, connector, fromResourceContainer, toResourceContainer, innerBuilder);
 		if (delaySpec == null)
 			throw new IllegalArgumentException("Stoex cannot be null");
 		this.delaySpec = delaySpec;
@@ -42,7 +44,7 @@ extends AbstractClientServerConnectorCompletionBuilder {
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getFromResourceContainer_LinkingResource().get(0),
+				this.fromResourceContainer,
 				delaySpec);
 	}
 	
@@ -58,7 +60,7 @@ extends AbstractClientServerConnectorCompletionBuilder {
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
-				this.myLinkingResource.getToResourceContainer_LinkingResource().get(0),
+				this.toResourceContainer,
 				delaySpec);
 	}
 }
