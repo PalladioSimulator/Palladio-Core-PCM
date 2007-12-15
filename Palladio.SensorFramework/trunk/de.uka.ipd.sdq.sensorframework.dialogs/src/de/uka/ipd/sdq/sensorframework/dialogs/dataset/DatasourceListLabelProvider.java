@@ -18,7 +18,7 @@ public class DatasourceListLabelProvider extends LabelProvider {
 	public String getText(Object element) {
 		if (element instanceof IDAOFactory) {
 			IDAOFactory factory = (IDAOFactory) element;
-			return factory.getName() + " [" + factory.getID()+ "]";
+			return factory.getName() + " - " + factory.getDescription() + " [" + factory.getID()+ "]";
 		}
 		return super.getText(element);
 	}
