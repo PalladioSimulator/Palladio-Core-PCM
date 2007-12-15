@@ -4,7 +4,7 @@
 	<property file='${propertyFile}'/>
 	-->
 	
-	<component class="de.uka.sdq.pcm.transformations.SameResourceSetXmiReader">
+	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
 		<modelFile value="${repositoryFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
@@ -110,6 +110,9 @@
 		<metaModel class="oaw.type.emf.EmfMetaModel"> 
 			<metaModelPackage value="org.eclipse.emf.ecore.EcorePackage"/>
    		</metaModel> 		
+		<metaModel id="units.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.units.UnitsPackage"/>
+		</metaModel>
 <!-- 		<globalVarDef name="Features" value="featureConfig"/>  -->
 		<expand value="m2t_transforms::repository::Root FOR pcmmodel"/>
 			<outlet path="${ejbsOutpath}" />
@@ -130,6 +133,5 @@
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
 		<advices value="${aop_templates}"/>
 	</component>	
-
 
 </workflow>

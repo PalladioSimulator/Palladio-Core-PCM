@@ -4,7 +4,7 @@
 	<property file='./workflows/codegen.properties'/>
 	<property file='${propertyFile}'/>
 	-->
-	<component class="oaw.emf.XmiReader">
+	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
 		<modelFile value="${mwRepositoryFile}"/>
 		<outputSlot value="middleware"/>
 	</component>
@@ -152,9 +152,11 @@
 		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
+		<metaModel id="units.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.units.UnitsPackage"/>
+		</metaModel>
 		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
 			<outlet path="${ejbsOutpath}" />
-
 			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
 			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
 		<prSrcPaths value="${ejbsOutpath}"/>
@@ -236,6 +238,9 @@
 		</metaModel>
 		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
+		</metaModel>
+		<metaModel id="units.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.units.UnitsPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::allocation::AllocationTM FOR allocation"/>
 			<outlet path="${ejbsOutpath}" />
