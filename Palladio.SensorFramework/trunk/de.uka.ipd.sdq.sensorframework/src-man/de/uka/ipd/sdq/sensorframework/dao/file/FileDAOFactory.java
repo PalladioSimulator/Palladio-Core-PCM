@@ -99,7 +99,7 @@ public class FileDAOFactory implements IDAOFactory {
 	}
 
 	public String getDescription() {
-		return "";
+		return fileManager.getRootDirectory();
 	}
 
 	public long getID() {
