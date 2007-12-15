@@ -46,18 +46,15 @@ public abstract class AbstractMain {
 
 		if (cmdLine.hasOption('w')) {
 			System.out.println("Please pin java runtime to a single processor if needed! Press a key to continue!");
-			waitForKeyPress();
+			waitForStopCondition();
 		}
 		
 		setupResources();
 		initialiseThreads(expRun, tss);
 		
-		System.out.println("Starting workload threads. Request a measurement stop by pressing any key!");
-		for (Thread t : threads) {
-			t.start();
-		}
+		startThreads();
 		
-		waitForKeyPress();
+		waitForStopCondition();
 		
 		stop();
 
@@ -65,6 +62,18 @@ public abstract class AbstractMain {
 		datasource.createExperimentDAO().store(exp);
 		datasource.finalizeAndClose();
 		System.out.println("...Done!");
+	}
+
+
+	private void startThreads() {
+		System.out.print("Starting workload threads. ");
+		if (cmdLine.hasOption('m'))
+			System.out.println("Taking "+cmdLine.getOptionValue('m')+" measurements");
+		else
+			System.out.println("Request a measurement stop by pressing any key!");
+		for (Thread t : threads) {
+			t.start();
+		}
 	}
 
 
@@ -86,9 +95,13 @@ public abstract class AbstractMain {
 				withLongOpt("dataDir").
 				withDescription("Datadirectory used by the FileStorage Sensor DAO to store the measured times").create("d"));
 		o.addOption(OptionBuilder.withDescription("Name of the experiment for use in the stored data").hasArg().
-				withLongOpt("name").isRequired().create('n'));;
+				withLongOpt("name").isRequired().create('n'));
 		o.addOption(OptionBuilder.hasArg().withArgName("user count").withLongOpt("threadcount").
 				withDescription("Override usage scenario population (only for closed workloads)").create("c"));
+		o.addOption(OptionBuilder.hasArg().withArgName("max measurements").withLongOpt("maxmeasurement").
+				withDescription("Maximum measurements to take").create("m"));
+		o.addOption(OptionBuilder.hasArg().withArgName("warmup runs").withLongOpt("warmup").
+				withDescription("Warmup runs before measuring (default: 1000)").create("u"));
 		o.addOption("D", "debug", false, "Print debug information. Turn off for real experiments!");
 		
 		getAdditionalOptions(o);
@@ -111,20 +124,24 @@ public abstract class AbstractMain {
 	protected void getAdditionalOptions(Options o) {}
 
 
-	private void waitForKeyPress() {
-		try {
-			System.in.read();
-			while (System.in.available() > 0) System.in.read();
-		} catch (java.io.IOException e1) {
-			e1.printStackTrace();
-			System.exit(-1);
+	private void waitForStopCondition() {
+		if (!cmdLine.hasOption('m')){
+			try {
+				System.in.read();
+				while (System.in.available() > 0) System.in.read();
+			} catch (java.io.IOException e1) {
+				e1.printStackTrace();
+				System.exit(-1);
+			}
 		}
 	}
 
 	private void stop() {
-		logger.debug("Request Thread stop");
-		for (Thread t : threads) {
-			((IStopable) t).requestStop();
+		if (!cmdLine.hasOption('m')) {
+			logger.debug("Request Thread stop");
+			for (Thread t : threads) {
+				((IStopable) t).requestStop();
+			}
 		}
 		for (Thread t : threads) {
 			try {
