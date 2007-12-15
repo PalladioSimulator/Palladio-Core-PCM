@@ -51,6 +51,7 @@ public class ConstantsContainer {
 	public static final String CLIENTOUT_PATH = "clientOutpath";
 	public static final String EJBSOUT_PATH = "ejbsOutpath";
 	public static final String MWREPOSITORY_FILE = "mwRepositoryFile";
+	public static final String FEATURE_CONFIG = "featureConfig";
 
 	public static String WORKSPACE_LOCATION = ResourcesPlugin.getWorkspace()
 			.getRoot().getLocation().toString()

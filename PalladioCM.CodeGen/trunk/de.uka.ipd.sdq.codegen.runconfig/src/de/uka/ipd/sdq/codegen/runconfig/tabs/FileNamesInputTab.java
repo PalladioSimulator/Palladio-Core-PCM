@@ -368,8 +368,10 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Auto-generated method stub
-
+		configuration.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
+			"platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Palladio.resourcetype");
+		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
+			"platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Glassfish.repository");
 	}
 
 	

@@ -1,12 +1,20 @@
 package de.uka.ipd.sdq.codegen.runconfig.tabs;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
+import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
@@ -15,10 +23,14 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.views.navigator.ResourcePatternFilter;
 
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigImages;
+import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab.WorkspaceButtonSelectionListener;
 
 /**
  * The class defines a tab, where the specific characteristics for the
@@ -30,6 +42,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
 	private Button simulateLinkingResourcesButton;
 	private Combo lookupOptions;
+	private Text textFeatureConfig;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
@@ -88,8 +101,72 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		lookupOptions.addModifyListener(modifyListener);
 		for (ComponentLookupEnum value : ComponentLookupEnum.values())
 			lookupOptions.add(value.name());
+		
+		/**
+		 * Create feature model section
+		 */
+		final Group featureConfigGroup = new Group(container, SWT.NONE);
+		final GridLayout glReposetoryTypeGroup = new GridLayout();
+		glReposetoryTypeGroup.numColumns = 3;
+		featureConfigGroup.setLayout(glReposetoryTypeGroup);
+		featureConfigGroup.setText("PCM2EJB Feature Configuration File");
+		featureConfigGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				true, false));
+
+		textFeatureConfig = new Text(featureConfigGroup, SWT.SINGLE
+				| SWT.BORDER);
+		final GridData gd_textResourceTypeRepository = new GridData(SWT.FILL,
+				SWT.CENTER, true, false);
+		gd_textResourceTypeRepository.widthHint = 200;
+		textFeatureConfig.setLayoutData(gd_textResourceTypeRepository);
+		textFeatureConfig.addModifyListener(modifyListener);
+
+		final Button workspaceButton = new Button(featureConfigGroup, SWT.NONE);
+		workspaceButton.setText("Workspace...");
+		workspaceButton
+				.addSelectionListener(new WorkspaceButtonSelectionListener(
+						textFeatureConfig, ConstantsContainer.RESOURCETYPE_EXTENSION));
+
+		final Button buttonResourceTypeRepository = new Button(
+				featureConfigGroup, SWT.NONE);
+		buttonResourceTypeRepository.setLayoutData(new GridData());
+		buttonResourceTypeRepository.setText("File System...");
+		buttonResourceTypeRepository
+				.addSelectionListener(new SelectionAdapter() {
+					
+					/* (non-Javadoc)
+					 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+					 */
+					public void widgetSelected(SelectionEvent e) {
+						textFeatureConfig
+								.setText(openFileDialog(ConstantsContainer.RESOURCETYPE_EXTENSION));
+					}
+				});
 	}
 
+	/**
+	 * The function calls the FileDialog and gives back absolute path on the file
+	 * as String
+	 * 
+	 * @param extensions
+	 *            which the dialog will use to filter the files it shows to the
+	 *            argument
+	 * @return absolute path to a file
+	 */
+	private String openFileDialog(String[] extensions) {
+		String filename = "";
+
+		FileDialog dialog = new FileDialog(getShell(), SWT.OPEN);
+		dialog.setFilterExtensions(extensions);
+		dialog.setText("Select model file");
+
+		if (dialog.open() != null) {
+			String root = dialog.getFilterPath() + File.separatorChar;
+			filename = root + dialog.getFileName();
+		}
+		return filename;
+	}
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
@@ -123,6 +200,12 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 			lookupOptions.setText(ComponentLookupEnum.values()[0].name());
 		}
+		try {
+			textFeatureConfig.setText(configuration.getAttribute(
+					ConstantsContainer.FEATURE_CONFIG, ""));
+		} catch (CoreException e) {
+			simulateLinkingResourcesButton.setSelection(true);
+		}
 	}
 
 	/* (non-Javadoc)
@@ -133,6 +216,8 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				this.simulateLinkingResourcesButton.getSelection());
 		configuration.setAttribute(ConstantsContainer.COMPONENT_LOOKUP,
 				lookupOptions.getSelectionIndex());
+		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
+				textFeatureConfig.getText());
 	}
 
 	/* (non-Javadoc)
@@ -143,7 +228,70 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 				true);
 		configuration.setAttribute(ConstantsContainer.COMPONENT_LOOKUP,
 				ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal());
+		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
+				"platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/ConnectorConfig.featureconfig");
 	}
 	
+	/** Button SelectionListener - call a WorkspaceResourceDialog */
+	class WorkspaceButtonSelectionListener extends SelectionAdapter {
+
+		private Text field;
+		private String extension;
+
+		public WorkspaceButtonSelectionListener(Text field, String[] extensions) {
+			this.field = field;
+			this.extension = getExtensionFromArray(extensions);
+		}
+
+		/* (non-Javadoc)
+		 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+		 */
+		@Override
+		public void widgetSelected(SelectionEvent e) {
+			field.setText(openResourceDialog(extension));
+		}
+
+		private String getExtensionFromArray(String[] array){
+			return array[0];
+		}
+	}
+
+	/**
+	 * The function calls the ContainerSelectionDialog and gives back relative to
+	 * the workspace
+	 * 
+	 * @return relative path to file in workspace
+	 */
+	private String openResourceDialog(String extension) {
+		
+		/** Filter from the redundant files. */
+		List<ViewerFilter> filters = new ArrayList<ViewerFilter>();
+		ResourcePatternFilter filter = new ResourcePatternFilter();
+		filter.setPatterns(new String[]{"*diagram","*.settings","*.project"});
+		filters.add(filter);
+		
+		/** create the dialog message*/
+		String msg = "Select a file (" + extension + ").";
+
+		IFile file = null;
+
+		IFile[] files = WorkspaceResourceDialog.openFileSelection(getShell(),
+				null, msg, false, null, filters);
+		
+		if (files.length != 0)
+			file = files[0];
+		if (file != null)
+			return file.getLocation().toOSString();
+		
+		return "";
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getId()
+	 */
+	@Override
+	public String getId() {
+		return "de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab";
+	}
 	
 }

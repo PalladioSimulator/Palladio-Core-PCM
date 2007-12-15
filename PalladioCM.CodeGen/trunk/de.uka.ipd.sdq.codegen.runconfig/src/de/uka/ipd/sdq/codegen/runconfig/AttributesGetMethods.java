@@ -75,6 +75,8 @@ public abstract class AttributesGetMethods {
 					.getAttribute(ConstantsContainer.ALLOCATION_FILE, ""));
 			properties.put(ConstantsContainer.USAGE_FILE, configuration
 					.getAttribute(ConstantsContainer.USAGE_FILE, ""));
+			properties.put(ConstantsContainer.FEATURE_CONFIG, configuration
+					.getAttribute(ConstantsContainer.FEATURE_CONFIG, ""));
 			
 			String basePath = configuration.getAttribute(ConstantsContainer.OUTPUT_PATH, "");
 			properties.put(ConstantsContainer.EAROUT_PATH, basePath);
