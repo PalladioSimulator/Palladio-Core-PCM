@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<featuremodel:FeatureDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:featuremodel="http://sdq.ipd.uka.de/FeatureModel" name="Connector">
+  <children xsi:type="featuremodel:FeatureGroup" name="Protocol">
+    <children xsi:type="featuremodel:Feature" min="0" name="RMI"/>
+    <children xsi:type="featuremodel:Feature" min="0" name="SOAP"/>
+  </children>
+  <children xsi:type="featuremodel:FeatureGroup" name="ConnectorType">
+    <children xsi:type="featuremodel:Feature" min="0" name="SameAddressSpace"/>
+    <children xsi:type="featuremodel:Feature" min="0" name="DifferentAddressSpace"/>
+  </children>
+</featuremodel:FeatureDiagram>
