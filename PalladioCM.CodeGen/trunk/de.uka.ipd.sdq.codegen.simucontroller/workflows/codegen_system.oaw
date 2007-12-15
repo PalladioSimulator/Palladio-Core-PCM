@@ -8,7 +8,12 @@
 		<modelFile value="${mwRepositoryFile}"/>
 		<outputSlot value="middleware"/>
 	</component>
-		
+
+	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
+		<modelFile value="${featureConfig}"/>
+		<outputSlot value="featureConfig"/>
+	</component>
+ 		
 	<component class="oaw.emf.XmiReader">
 		<modelFile value="${resourceTypeFile}"/>
 		<outputSlot value="resourceType"/>
@@ -157,7 +162,9 @@
 		</metaModel>
 		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
 			<outlet path="${ejbsOutpath}" />
-			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
+				<configFile value="org.eclipse.jdt.core.prefs"/>
+			</beautifier>
 			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier"/>
 		<prSrcPaths value="${ejbsOutpath}"/>
         <prExcludes value=".svn"/>		
