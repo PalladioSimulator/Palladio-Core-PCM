@@ -40,7 +40,9 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	}
 	
 	public void build() {
-		if (FeatureUtils.hasFeature(featureConfig,"DifferentAddressSpace")) {
+		// Teste hier: Entweder sind es 2 Prozesse auf dem selben Rechner _oder_ zwei Prozesse auf verschiedenen Rechner. 
+		// Im letzten Fall ist die Konfigurationsoption "SameAddressSpace" illegal und wird somit übergangen...
+		if (FeatureUtils.hasFeature(featureConfig,"DifferentAddressSpace") || linkingRes != null) {
 			java.lang.System.out.println("Expanding a completion for remote connector "+connector.getEntityName());
 		
 			IClientServerConnectorCompletionComponentBuilder componentBuilder = 
