@@ -12,6 +12,7 @@ public abstract class AbstractConnectorCompletionBuilder
 extends AbstractCompositeStructureBuilder {
 
 	protected AssemblyConnector connectorToReplace;
+	private static long contextID = 0;
 
 	public AbstractConnectorCompletionBuilder(PCMAndCompletionModelHolder models, AssemblyConnector con){
 		super(models);
@@ -32,6 +33,8 @@ extends AbstractCompositeStructureBuilder {
 		myRequiredRole = addRequiredRole(connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),"RequiredRole");
 
 		myAssemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext(); 
+		myAssemblyContext.setEntityName("CompletionComponentContext"+contextID);
+		contextID++;
 		myAssemblyContext.setEncapsulatedComponent_ChildComponentContext(myComponent);
 	}
 	
