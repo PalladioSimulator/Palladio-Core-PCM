@@ -2,6 +2,7 @@ package de.uka.sdq.pcm.transformations;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -20,9 +21,22 @@ public class EclipseXmiReader extends XmiReader {
 	
 	@Override
 	public void checkConfiguration(Issues issues) {
-		if (!this.modelFile.contains(":"))
+		try {
+			final URI fileURI = URI.createURI(this.modelFile);
+			ResourceSet rs = new ResourceSetImpl();
+			Resource r = rs.createResource(fileURI);
+			r.load(null);
+		} catch (Exception ex) {
 			this.modelFile = "file:/" + this.modelFile;
-        final URI fileURI = URI.createURI(this.modelFile);
+			final URI fileURI = URI.createURI(this.modelFile);
+			ResourceSet rs = new ResourceSetImpl();
+			Resource r = rs.createResource(fileURI);
+			try {
+				r.load(null);
+			} catch (IOException e) {
+				issues.addError("File not found: " + modelFile + " Exception: "+ex.getClass().getCanonicalName() + ", "+ex.toString());
+			}
+		}
 	}
 
 
