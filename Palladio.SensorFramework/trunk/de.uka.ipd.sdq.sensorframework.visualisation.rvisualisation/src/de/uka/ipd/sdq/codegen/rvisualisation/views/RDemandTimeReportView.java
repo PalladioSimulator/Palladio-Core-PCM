@@ -30,7 +30,7 @@ public class RDemandTimeReportView extends AbstractRReportView {
 			t.execute(rCommand);
 			
 			rCommand = "sum(sensor"+i+")\n";
-			items.add(new StatisticsReportItem(rCommand, " is the total resource demand of "+sm.getSensor().getSensorName()));
+			items.add(new StatisticsReportItem(rCommand, "Resource demand of "+sm.getSensor().getSensorName()));
 		} 
 		return items;
 	}
