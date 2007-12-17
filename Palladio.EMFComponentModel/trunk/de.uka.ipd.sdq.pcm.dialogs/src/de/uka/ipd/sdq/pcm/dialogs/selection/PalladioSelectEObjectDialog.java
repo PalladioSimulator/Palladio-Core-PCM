@@ -18,7 +18,18 @@ import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.selection.FilteredItemsAdapterFactory;
 import de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentAdapterFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.system.provider.SystemItemProvider;
+import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
@@ -40,9 +51,27 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 		adapterFactory
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory
-				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+			.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 		adapterFactory
-				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+			.addAdapterFactory(new SeffItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new SystemItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new AllocationItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new ParameterItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new CoreItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new CompositionItemProviderAdapterFactory());
+		adapterFactory
+			.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		contentProvider = new AdapterFactoryContentProvider(
 				new FilteredItemsAdapterFactory(adapterFactory, filterList,
