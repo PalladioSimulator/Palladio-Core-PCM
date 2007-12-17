@@ -45,10 +45,10 @@ public class EclipseXmiReader extends XmiReader {
 		ResourceSet rs = new ResourceSetImpl();
     	URI fileURI = URI.createURI(this.modelFile);
     	
-    	//if (fileURI.isFile()) {
-    	//	final File f = loadFile(issues);
-        //	fileURI = URI.createFileURI(f.getAbsolutePath());
-    	//}
+    	if (fileURI.isFile()) {
+    		final File f = loadFile(issues);
+        	fileURI = URI.createFileURI(f.getAbsolutePath());
+    	}
     	
         Resource r = null;
         try {
