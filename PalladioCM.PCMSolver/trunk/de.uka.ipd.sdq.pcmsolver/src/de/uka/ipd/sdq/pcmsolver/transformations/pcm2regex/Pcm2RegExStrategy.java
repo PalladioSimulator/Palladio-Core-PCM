@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
@@ -27,6 +29,8 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 	
 	private static Logger logger = Logger.getLogger(Pcm2RegExStrategy.class.getName());
 	
+	private long overallDuration = 0;
+	
 	public void loadTransformedModel(String fileName) {
 		// TODO Auto-generated method stub
 
@@ -34,9 +38,22 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 
 	public void solve() {
 		if (stoRegEx != null){
+			long timeBeforeCalc = System.nanoTime();
 			ExpressionSolver solver = new ExpressionSolver();
 			ManagedPDF resultPDF = solver.getResponseTime(stoRegEx);
+			
+			long timeAfterCalc = System.nanoTime();
+			long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
+			overallDuration += duration;
+			logger.warn("Finished Running ExprSolver:\t\t"+ duration + " ms");
+			
 			visualize(resultPDF.getPdfTimeDomain());
+			long timeAfterVisualisation = System.nanoTime();
+			duration = TimeUnit.NANOSECONDS.toMillis(timeAfterVisualisation-timeAfterCalc);
+			overallDuration += duration;
+			logger.warn("Finished Visualisation:\t\t"+ duration + " ms");
+			logger.warn("Finished SRE-Solver:\t\t"+ overallDuration+ " ms");
+			
 		} else
 			logger.error("No StochasticRegularExpression available for solution!");
 	}
@@ -45,9 +62,17 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 	}
 
 	public void transform(PCMInstance model) {
+		long timeBeforeCalc = System.nanoTime();
 		runDSolver(model);
 		runPcm2RegEx(model);
 		printStoRegEx();
+		
+		long timeAfterCalc = System.nanoTime();
+		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
+		overallDuration += duration;
+		logger.warn("Finished Running PCM2SRE:\t\t"+ duration + " ms");
+		
+		
 	}
 
 	private void printStoRegEx() {

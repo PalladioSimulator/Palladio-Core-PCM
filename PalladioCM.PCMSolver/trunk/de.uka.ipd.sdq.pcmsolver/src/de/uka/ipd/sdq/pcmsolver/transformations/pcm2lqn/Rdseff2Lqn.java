@@ -151,8 +151,6 @@ public class Rdseff2Lqn extends SeffSwitch {
 		taskActivityGraph = lqnFactory.createTaskActivityGraph();
 		tt.setTaskActivities(taskActivityGraph);
 		
-		
-		
 		ReplyActivityType rat = lqnFactory.createReplyActivityType();
 		rat.setName((String)doSwitch(getStartAction(rdb)));
 		rat.setName(getStopAction(rdb).getId()); //TODO: this is a strange fix
