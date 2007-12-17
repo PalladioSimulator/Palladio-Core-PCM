@@ -214,8 +214,13 @@ public class CheckOAWConstraintsJob implements IJob {
 
 	private Resource getResource(String file) {
 		ResourceSet rs = new ResourceSetImpl();
-		Resource resource = rs.getResource(URI.createFileURI(file), true);
-		return resource;
+		try {
+			Resource resource = rs.getResource(URI.createFileURI(file), true);
+			return resource;
+		} catch(Exception ex) {
+			Resource resource = rs.getResource(URI.createURI(file), true);
+			return resource;
+		}
 	}
 
 	private ExecutionContext getExecutionContext() {

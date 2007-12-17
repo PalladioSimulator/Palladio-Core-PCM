@@ -3,12 +3,12 @@
 	<property file='./workflows/codegen.properties'/>
 	<property file='${propertyFile}'/>
 	-->
-	<component class="oaw.emf.XmiReader">
+	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
 		<modelFile value="${usageFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
  	
- 	<component class="oaw.emf.XmiReader">
+ 	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
 		<modelFile value="${allocationFile}"/>
 		<outputSlot value="allocation"/>
 	</component>

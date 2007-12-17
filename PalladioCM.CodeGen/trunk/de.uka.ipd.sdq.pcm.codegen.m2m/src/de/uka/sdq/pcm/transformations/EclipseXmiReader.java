@@ -17,9 +17,6 @@ import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 
 public class EclipseXmiReader extends XmiReader {
 
-	protected static ResourceSet rs = new ResourceSetImpl();
-	
-	
 	@Override
 	public void checkConfiguration(Issues issues) {
 		try {
@@ -44,7 +41,10 @@ public class EclipseXmiReader extends XmiReader {
 	@Override
 	public void invoke(WorkflowContext model, ProgressMonitor monitor,
 			Issues issues) {
+		
+		ResourceSet rs = new ResourceSetImpl();
     	URI fileURI = URI.createURI(this.modelFile);
+    	
     	if (fileURI.isFile()) {
     		final File f = loadFile(issues);
         	fileURI = URI.createFileURI(f.getAbsolutePath());

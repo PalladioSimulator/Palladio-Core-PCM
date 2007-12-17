@@ -14,12 +14,12 @@
 		<outputSlot value="featureConfig"/>
 	</component>
  		
-	<component class="oaw.emf.XmiReader">
+	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
 		<modelFile value="${resourceTypeFile}"/>
 		<outputSlot value="resourceType"/>
 	</component>
 
-	<component class="oaw.emf.XmiReader">
+	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
 		<modelFile value="${systemFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
@@ -31,7 +31,7 @@
     	<step value="${stepwidth}"/>
 	</component>
 
-	<component class="oaw.emf.XmiReader">
+	<component class="de.uka.sdq.pcm.transformations.EclipseXmiReader">
 		<modelFile value="${allocationFile}"/>
 		<outputSlot value="allocation"/>
 	</component>

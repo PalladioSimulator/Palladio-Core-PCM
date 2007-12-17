@@ -153,8 +153,14 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		ResourceSet rs = new ResourceSetImpl();
 		ArrayList filter = new ArrayList();
 		filter.add(EObject.class);
-		for (String file : modelFiles)
-			rs.getResource(URI.createFileURI(file), true);
+		for (String file : modelFiles) {
+			try {
+				rs.getResource(URI.createURI(file), true);
+			} catch (Exception ex) {
+				rs.getResource(URI.createFileURI(file), true);
+			}
+		}
+		EcoreUtil.resolveAll(rs);
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog
 			(this.getShell(),
 			 filter,
