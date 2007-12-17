@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import de.uka.ipd.sdq.sensorframework.dao.db4o.DB4ODAOFactory;
-import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 public class SensorFrameworkDataset {
@@ -14,11 +12,6 @@ public class SensorFrameworkDataset {
 	private long nextID = 1;
 	
 	private SensorFrameworkDataset() {
-		//datasources.add(new MemoryDAOFactory(0));
-		//datasources.add(new DB4ODAOFactory(2,"C:\\temp\\test.db"));
-		//addDataSource(new FileDAOFactory(1,"D:/temp"));
-//		IDAOFactory factory = new FileDAOFactory(2,"D:\\Diss\\dev\\runtime-EclipseApplication\\SchedulerConfigurator\\temp\\");
-//		addDataSource(factory);
 	}
 	
 	public static SensorFrameworkDataset singleton() {
@@ -29,10 +22,6 @@ public class SensorFrameworkDataset {
 		return Collections.unmodifiableCollection(datasources);
 	}
 	
-	public IDAOFactory getMemoryDataset() {
-		return datasources.get(0);
-	}
-	
 	public IDAOFactory getDataSourceByID(long id){
 		for (IDAOFactory f:datasources)
 			if (f.getID() == id)
@@ -40,13 +29,28 @@ public class SensorFrameworkDataset {
 		return null;
 	}
 
-	public void addDataSource(IDAOFactory factory) {
+	public synchronized void addDataSource(IDAOFactory factory) {
+		for(IDAOFactory f : datasources) {
+			if (f.getID() == factory.getID())
+				throw new RuntimeException("Attemped to add Datasource with an ID already existing in the Sensorframework Dataset");
+			if (f.getID() == nextID && factory.getID() <= 0)
+				throw new RuntimeException("Attemped to add Datasource with an ID already existing in the Sensorframework Dataset");
+		}
+		
 		datasources.add(factory);
-		if (factory.getID() <= 0)
-			factory.setID(nextID ++);
-		else
-			if(factory.getID() > nextID)
-				nextID = factory.getID() + 1;
+		if (factory.getID() <= 0) {
+			factory.setID(nextID);
+			nextID += 1;
+		}
+		else {
+			if(factory.getID() > nextID) {
+				long nextID = 0;
+				for (IDAOFactory f : datasources) {
+					if (f.getID() >= nextID)
+						nextID = f.getID() + 1;
+				}
+			}
+		}
 	}
 
 	public void removeDataSource(IDAOFactory factory) {
