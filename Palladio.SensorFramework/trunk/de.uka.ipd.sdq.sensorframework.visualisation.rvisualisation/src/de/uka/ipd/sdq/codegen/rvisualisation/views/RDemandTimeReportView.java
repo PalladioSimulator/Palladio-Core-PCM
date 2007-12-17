@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
 public class RDemandTimeReportView extends AbstractRReportView {
 
-	public static final String RDEMANDTIMEREPORTVIEW_ID = "de.uka.ipd.sdq.codegen.rvisualization.views.DemandTimeReportView";
+	public static final String RREPORTVIEW_ID = "de.uka.ipd.sdq.codegen.rvisualization.views.DemandTimeReportView";
 
 
 	/**
