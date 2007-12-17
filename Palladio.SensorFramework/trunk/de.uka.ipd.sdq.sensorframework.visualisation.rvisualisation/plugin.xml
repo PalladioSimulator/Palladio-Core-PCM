@@ -11,7 +11,6 @@
                editorID="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView">
          </Visualisation>
       </extension>
-      
       <extension
             point="org.eclipse.ui.editors">
          <editor
@@ -21,7 +20,27 @@
                name="R Report">
          </editor>
       </extension>
-      
+
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDemandTimeReportView"
+               displayName="R Total Demand Report"
+               editorID="de.uka.ipd.sdq.codegen.rvisualization.views.DemandTimeReportView">
+         </Visualisation>
+      </extension>
+      <extension
+            point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDemandTimeReportView"
+               icon="icons/sample.gif"
+               id="de.uka.ipd.sdq.codegen.rvisualization.views.DemandTimeReportView"
+               name="R Total Demand Report">
+         </editor>
+      </extension>
+            
       <extension
             point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
