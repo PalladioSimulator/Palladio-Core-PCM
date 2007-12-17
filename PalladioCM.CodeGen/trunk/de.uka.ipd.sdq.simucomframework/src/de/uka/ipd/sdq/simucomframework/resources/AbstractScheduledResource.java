@@ -35,6 +35,7 @@ public abstract class AbstractScheduledResource extends Entity {
 	private StateSensor stateSensor = null;
 	private State idleState;
 	private TimeSpanSensor waitTimeSensor = null;
+	private TimeSpanSensor demandTimeSensor = null;
 	//private State busyState;
 	private ExperimentRun experimentRun = null;
 	protected ISchedulingStrategy myStrategy = null;
@@ -56,6 +57,11 @@ public abstract class AbstractScheduledResource extends Entity {
 			this.stateSensor.addSensorState(idleState);
 		//this.stateSensor.addSensorState(busyState);
 		this.waitTimeSensor = createOrReuseTimeSensor(myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Wait time at "+description);
+		
+		// used to log requested resource demands
+		this.demandTimeSensor = createOrReuseTimeSensor(
+				myModel.getExperimentDatastore(), 
+				myModel.getExperimentDatastore().getExperimentName()+": Demanded time at "+description);
 		
 		this.experimentRun = myModel.getCurrentExperimentRun();
 		
@@ -149,6 +155,9 @@ public abstract class AbstractScheduledResource extends Entity {
 	{
 		if (demand < 0)
 			throw new NegativeDemandIssuedException("A negative demand occured. Demand was "+demand);
+		experimentRun.addTimeSpanMeasurement(
+				demandTimeSensor, this.getModel().currentTime().getTimeValue(), 
+				demand);
 		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculateDemand(demand),this,this.getModel().currentTime().getTimeValue());
 		if (job.getDemand() > ((SimuComModel)this.getModel()).getConfig().getSimuTime())
 			throw new DemandTooLargeException("A demand calculated from a processing rate and a demand in the design model ("+
