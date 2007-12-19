@@ -12,18 +12,20 @@
 // or open workload users for simucom
 //------------------------------------
 «DEFINE UsageScenarioFactory FOR UsageScenario»
-	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + "Factory.java"»
-		package «this.implementationPackage()»;
-		public class «this.javaName()+"Factory"» 
-		extends «EXPAND UsageFactoryBaseClass FOR this.workload_UsageScenario»
-		{
-			«EXPAND FactoryConstructor FOR this»
-			
-			public de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner createScenarioRunner() {
-				return new «this.implementationPackage()+"."+this.javaName()»(model);
+	«LET this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
+		«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + "Factory.java"»
+			package «this.implementationPackage()»;
+			public class «this.javaName()+"Factory"» 
+			extends «EXPAND UsageFactoryBaseClass FOR this.workload_UsageScenario»
+			{
+				«EXPAND FactoryConstructor FOR this»
+				
+				public de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner createScenarioRunner() {
+					return new «this.implementationPackage()+"."+this.javaName()»(model,«EXPAND m2t_transforms::sim::usage::SystemVariableParameter FOREACH systemList SEPARATOR ","»);
+				}
 			}
-		}
-	«ENDFILE»
+		«ENDFILE»
+	«ENDLET»
 «ENDDEFINE» 
 
 «DEFINE UsageFactoryBaseClass FOR Workload»
@@ -39,11 +41,19 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR UsageScenario»
-	private de.uka.ipd.sdq.simucomframework.model.SimuComModel model = null;
-	public «this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model){
-		«EXPAND FactoryConstructor FOR this.workload_UsageScenario»
-		this.model = model;
-	}
+	«LET this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
+		private de.uka.ipd.sdq.simucomframework.model.SimuComModel model = null;
+		«FOREACH systemList AS system»
+		private «system.fqn()» my«system.javaName()» = null;
+		«ENDFOREACH»
+		public «this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,«EXPAND m2t_transforms::sim::usage::SystemVariableDecl FOREACH systemList SEPARATOR ","»){
+			«EXPAND FactoryConstructor FOR this.workload_UsageScenario»
+			this.model = model;
+			«FOREACH systemList AS system»
+			this.my«system.javaName()» = my«system.javaName()»; 
+			«ENDFOREACH»
+		}
+	«ENDLET»
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR Workload»

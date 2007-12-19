@@ -13,3 +13,22 @@
 		this.myComponentStackFrame = myComponentStackFrame;	
 	}
 «ENDDEFINE»
+
+«DEFINE ComponentConstructor FOR ProvidesComponentType»
+	private String assemblyContextID = null;
+	«EXPAND PassiveResourceDecls FOR this»
+	
+	public «this.javaName()» (String assemblyContextID) {
+		this.assemblyContextID = assemblyContextID;
+	}
+«ENDDEFINE»
+
+«DEFINE PassiveResourceDecls FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE PassiveResourceDecls FOR BasicComponent»
+	// Initialise this component's passive resources
+	«FOREACH this.passiveResource_BasicComponent AS pr»
+		de.uka.ipd.sdq.simucomframework.resources.SimulatedPassiveResource pr_«pr.id.javaVariableName()» = null;
+	«ENDFOREACH»
+«ENDDEFINE»

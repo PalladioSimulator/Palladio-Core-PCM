@@ -117,3 +117,10 @@ List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[ProvidedRole] 
 		
 BasicComponent findContainerComponent(EObject o) :
 	BasicComponent.isInstance(o) ? o : o.eContainer.findContainerComponent();
+	
+List[System] uniqueSystemList(List[System] s) :
+	recursiveList(s,{},0);
+	
+List[System] recursiveList(List[System] s, List[System] result, int pos):
+	pos < s.size ? (result.contains(s.get(pos)) ? recursiveList(s,result,pos+1) : recursiveList(s,(List[System])result.union({s.get(pos)}).toList(),pos+1)) : result; 
+	

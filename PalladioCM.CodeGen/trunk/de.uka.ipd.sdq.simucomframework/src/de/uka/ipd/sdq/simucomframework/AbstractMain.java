@@ -92,6 +92,15 @@ public abstract class AbstractMain {
 	public Throwable getErrorThrowable(){
 		return model.getErrorThrowable();
 	}
+
+	public de.uka.ipd.sdq.simucomframework.SimuComStatus startSimulation(
+			de.uka.ipd.sdq.simucomframework.SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer) {
+		return run(observer,config);
+	}	
+
+	public void stopSimulation() {
+		stop();
+	}
 	
 	/**
 	 * Template method pattern. Child classes have to implement this to

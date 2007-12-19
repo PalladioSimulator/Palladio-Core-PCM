@@ -13,11 +13,7 @@
 «IMPORT completions»
 
 «AROUND m2t_transforms::java_core::ComponentConstructorTM FOR ProvidesComponentType»
-	private String assemblyContextID = null;
-	
-	public «this.javaName()» (String assemblyContextID) {
-		this.assemblyContextID = assemblyContextID;
-	}
+	«EXPAND m2t_transforms::sim::java_core::ComponentConstructor FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»

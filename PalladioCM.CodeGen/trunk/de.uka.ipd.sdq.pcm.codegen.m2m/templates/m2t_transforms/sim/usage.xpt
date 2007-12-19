@@ -13,20 +13,18 @@
 		
 		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
 				implements de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl{
-						
-			public de.uka.ipd.sdq.simucomframework.SimuComStatus startSimulation(
-				de.uka.ipd.sdq.simucomframework.SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer) {
-				return run(observer,config);
-			}	
-
-			public void stopSimulation() {
-				stop();
-			}
 			
 			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {
+				«LET this.usageScenario_UsageModel.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
+					// Create «systemList.size» System(s)
+					«FOREACH systemList AS system»
+						«system.fqn()» my«system.javaName()» = new «system.fqn()»();
+						«EXPAND UsageScenarioConstructorContextInit FOR system»
+					«ENDFOREACH»
 				return new de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] {
 					«EXPAND WorkloadDriver FOREACH this.usageScenario_UsageModel SEPARATOR ","»
 				};
+				«ENDLET»
 			}
 			
 			protected de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory getResourceContainerFactory(){
@@ -35,6 +33,14 @@
 		}
 	«ENDFILE»
 «ENDDEFINE»
+
+«DEFINE UsageScenarioConstructorContextInit FOR System»
+		«this.fqnContext()» context«this.javaName()» = 
+			new «this.fqnContext()»
+				(«EXPAND m2t_transforms::usage::DummyRequiredSystemTM(this) FOREACH this.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);
+      	my«this.javaName()».setContext(context«this.javaName()»);
+«ENDDEFINE»
+
 
 «DEFINE UsageScenario(Allocation a) FOR UsageScenario»
 	«EXPAND m2t_transforms::sim::usage_factory::UsageScenarioFactory FOR this»
@@ -72,21 +78,35 @@
 «ENDDEFINE»
 
 «DEFINE WorkloadClass(UsageScenario u) FOR ClosedWorkload»
-de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
-	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),«this.population»)
+	«LET u.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
+		de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
+			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),«EXPAND SystemVariableParameter FOREACH systemList SEPARATOR ","»),«this.population»)
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE SystemVariableParameter FOR System»
+	my«this.javaName()»
+«ENDDEFINE»
+
+«DEFINE SystemVariableDecl FOR System»
+	«this.fqn()» my«this.javaName()»
 «ENDDEFINE»
 
 «DEFINE WorkloadClass(UsageScenario u) FOR OpenWorkload»
-de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
-	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),
-	"«this.interArrivalTime_OpenWorkload.specification.specificationString()»")
+	«LET u.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
+		de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
+			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),«EXPAND SystemVariableParameter FOREACH systemList SEPARATOR ","»),
+			"«this.interArrivalTime_OpenWorkload.specification.specificationString()»")
+	«ENDLET»
 «ENDDEFINE»
 
 «DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
-public «this.javaName()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
-	ctx = new «a.fqnAllocationContext()»(model);
-	ctx.getStack().createAndPushNewStackFrame();
-	«EXPAND m2t_transforms::usage::UsageScenarioConstructorContextInit(a) FOR this»
-}
+	«LET this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
+		public «this.javaName()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,«EXPAND SystemVariableDecl FOREACH systemList SEPARATOR ","») {
+			ctx = new «a.fqnAllocationContext()»(model);
+			ctx.getStack().createAndPushNewStackFrame();
+			«EXPAND m2t_transforms::usage::UsageScenarioConstructorContextInit(a) FOR this»
+		}
+	«ENDLET»
 «ENDDEFINE»
 

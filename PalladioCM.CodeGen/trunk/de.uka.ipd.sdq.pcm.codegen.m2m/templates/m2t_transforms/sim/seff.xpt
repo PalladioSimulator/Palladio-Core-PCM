@@ -65,17 +65,20 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR AcquireAction»
-	// TODO: Fix PassiveResource -> Entitiy
 	// Aquire «this.passiveresource_AcquireAction»
-	((de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer)ctx.findResource(this.assemblyContextID))
-		.acquirePassiveResource(ctx.getThread(),"«this.passiveresource_AcquireAction»");
+	if (pr_«this.passiveresource_AcquireAction.id.javaVariableName()» == null) {
+		// Initialise Resource First...
+		pr_«this.passiveresource_AcquireAction.id.javaVariableName()» = new de.uka.ipd.sdq.simucomframework.resources.SimulatedPassiveResource(
+			ctx.getModel(),
+			"«this.passiveresource_AcquireAction.entityName» «this.passiveresource_AcquireAction.id»",
+			(Integer)ctx.evaluateStatic("«this.passiveresource_AcquireAction.capacity_PassiveResource.specification.javaString()»",Integer.class)); 
+	}
+	pr_«this.passiveresource_AcquireAction.id.javaVariableName()».acquire(ctx.getThread());
 «ENDDEFINE»
 
 «DEFINE Action FOR ReleaseAction»
-	// TODO: Fix PassiveResource -> Entitiy
 	// Release «this.passiveResource_ReleaseAction»
-	((de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer)ctx.findResource(this.assemblyContextID))
-		.releasePassiveResource("«this.passiveResource_ReleaseAction»");
+	pr_«this.passiveResource_ReleaseAction.id.javaVariableName()».release();
 «ENDDEFINE»
 
 «DEFINE Action FOR StartAction»
