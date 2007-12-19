@@ -217,7 +217,7 @@ public class CheckOAWConstraintsJob implements IJob {
 		try {
 			Resource resource = rs.getResource(URI.createFileURI(file), true);
 			return resource;
-		} catch(Exception ex) {
+		} catch(IllegalArgumentException ex) {
 			Resource resource = rs.getResource(URI.createURI(file), true);
 			return resource;
 		}

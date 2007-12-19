@@ -124,6 +124,18 @@
 					}
 				}
 			«ENDFOREACH»
+			«IF this.asynchronousForkedBehaviours_ForkAction.size > 0»
+			,
+			«ENDIF»
+			«IF this.synchronisingBehaviours_ForkAction != null»
+				«FOREACH this.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint AS f SEPARATOR ","»
+					new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID,false){
+						public void executeBehaviour() {
+							«EXPAND m2t_transforms::java_core::Actions FOR f.steps_Behaviour.findStart()» 
+						}
+					}
+				«ENDFOREACH»
+			«ENDIF»
 			};
 		new de.uka.ipd.sdq.simucomframework.fork.ForkExecutor(ctx.getThread(),forks).run();
 	}
