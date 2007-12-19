@@ -47,7 +47,7 @@ public interface SynchronisationPoint extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Synchronous Forked Behaviours Synchronisation Point</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint()
-	 * @model containment="true" ordered="false"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<ForkedBehaviour> getSynchronousForkedBehaviours_SynchronisationPoint();

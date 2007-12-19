@@ -56,7 +56,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.resourcetype";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

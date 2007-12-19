@@ -259,7 +259,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = " if      self.parentCompleteComponentTypes->notEmpty()  then        self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()      =           self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()  else   true  endif ";
+			String body = " if  	  	self.parentCompleteComponentTypes->notEmpty()  then  	     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()      =           self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()  else  	true  endif ";
 			
 			try {
 				ProvideSameInterfacesAsImplementationTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -298,7 +298,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = " if      self.parentCompleteComponentTypes->notEmpty()  then        self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()      =           self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()  else   true  endif ";
+			String body = " if  	  	self.parentCompleteComponentTypes->notEmpty()  then  	     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()      =           self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()  else  	true  endif ";
 			
 			try {
 				RequireSameInterfacesAsImplementationTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);

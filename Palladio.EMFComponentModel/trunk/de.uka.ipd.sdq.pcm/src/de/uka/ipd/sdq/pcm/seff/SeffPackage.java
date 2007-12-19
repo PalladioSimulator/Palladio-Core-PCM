@@ -59,7 +59,7 @@ public interface SeffPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.seff";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.
@@ -848,22 +848,13 @@ public interface SeffPackage extends EPackage {
 	int FORKED_BEHAVIOUR__STEPS_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Replicas Forked Behaviour</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORKED_BEHAVIOUR__NUMBER_OF_REPLICAS_FORKED_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Forked Behaviour</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORKED_BEHAVIOUR_FEATURE_COUNT = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 1;
+	int FORKED_BEHAVIOUR_FEATURE_COUNT = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl <em>Synchronisation Point</em>}' class.
@@ -1735,17 +1726,6 @@ public interface SeffPackage extends EPackage {
 	EClass getForkedBehaviour();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getNumberOfReplicas_ForkedBehaviour <em>Number Of Replicas Forked Behaviour</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Number Of Replicas Forked Behaviour</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getNumberOfReplicas_ForkedBehaviour()
-	 * @see #getForkedBehaviour()
-	 * @generated
-	 */
-	EReference getForkedBehaviour_NumberOfReplicas_ForkedBehaviour();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint <em>Synchronisation Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2265,14 +2245,6 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FORKED_BEHAVIOUR = eINSTANCE.getForkedBehaviour();
-
-		/**
-		 * The meta object literal for the '<em><b>Number Of Replicas Forked Behaviour</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FORKED_BEHAVIOUR__NUMBER_OF_REPLICAS_FORKED_BEHAVIOUR = eINSTANCE.getForkedBehaviour_NumberOfReplicas_ForkedBehaviour();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl <em>Synchronisation Point</em>}' class.

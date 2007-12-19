@@ -55,7 +55,7 @@ public interface ConnectorsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.core.connectors";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

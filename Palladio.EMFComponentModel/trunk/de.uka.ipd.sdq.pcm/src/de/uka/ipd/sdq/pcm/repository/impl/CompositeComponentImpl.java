@@ -263,7 +263,7 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = " self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |   acc1->union(pr.providedInterface__ProvidedRole.id->asBag())  )  =  if      self.implementationComponentType->notEmpty()  then   self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |    acc2->union(pr.providedInterface__ProvidedRole.id->asBag())   )  else   Bag{}  endif ";
+			String body = " self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |  	acc1->union(pr.providedInterface__ProvidedRole.id->asBag())  )  =  if  	  	self.implementationComponentType->notEmpty()  then  	self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |  		acc2->union(pr.providedInterface__ProvidedRole.id->asBag())  	)  else  	Bag{}  endif ";
 			
 			try {
 				ProvideSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -302,7 +302,7 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = " self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |   acc1->union(pr.requiredInterface__RequiredRole.id->asBag())  )  =  if      self.implementationComponentType->notEmpty()  then   self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |    acc2->union(pr.requiredInterface__RequiredRole.id->asBag())   )  else   Bag{}  endif ";
+			String body = " self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |  	acc1->union(pr.requiredInterface__RequiredRole.id->asBag())  )  =  if  	  	self.implementationComponentType->notEmpty()  then  	self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |  		acc2->union(pr.requiredInterface__RequiredRole.id->asBag())  	)  else  	Bag{}  endif ";
 			
 			try {
 				RequireSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);

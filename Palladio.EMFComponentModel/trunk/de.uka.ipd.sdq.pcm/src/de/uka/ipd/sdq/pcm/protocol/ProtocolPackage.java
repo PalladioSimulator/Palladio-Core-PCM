@@ -55,7 +55,7 @@ public interface ProtocolPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.protocol";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

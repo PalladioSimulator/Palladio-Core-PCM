@@ -159,7 +159,7 @@ public interface Signature extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * self.parameters__Signature->isUnique(p : Parameter |
-	 *  p.parameterName
+	 * 	p.parameterName
 	 * )
 	 * <!-- end-model-doc -->
 	 * @model

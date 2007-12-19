@@ -59,7 +59,7 @@ public interface EntityPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.core.entity";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

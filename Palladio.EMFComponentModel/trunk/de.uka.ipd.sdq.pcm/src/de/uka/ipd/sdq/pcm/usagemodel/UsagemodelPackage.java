@@ -57,7 +57,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.usagemodel";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

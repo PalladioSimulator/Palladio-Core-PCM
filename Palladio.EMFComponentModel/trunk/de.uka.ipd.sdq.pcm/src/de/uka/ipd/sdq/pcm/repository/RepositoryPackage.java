@@ -60,7 +60,7 @@ public interface RepositoryPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.repository";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

@@ -60,7 +60,7 @@ public interface CompositionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.core.composition";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.

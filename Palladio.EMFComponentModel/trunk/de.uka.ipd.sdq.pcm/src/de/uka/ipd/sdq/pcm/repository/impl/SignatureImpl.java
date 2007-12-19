@@ -289,7 +289,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.parameters__Signature->isUnique(p : Parameter |   p.parameterName  ) ";
+			String body = "self.parameters__Signature->isUnique(p : Parameter |  	p.parameterName  ) ";
 			
 			try {
 				ParameterNamesHaveToBeUniqueForASignatureInvOCL = ExpressionsUtil.createInvariant(env, body, true);

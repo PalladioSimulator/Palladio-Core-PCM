@@ -4,7 +4,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm"
     nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/1.0" nsPrefix="pcm">
   <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0"
-      nsPrefix="pcm.core">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
       <eOperations name="SpecificationMustNotBeNULL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -27,7 +27,7 @@
       </eOperations>
     </eClassifiers>
     <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
-        nsPrefix="pcm.core.entity">
+        nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement"/>
       <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="entityName" ordered="false"
@@ -52,11 +52,11 @@
           abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity"/>
     </eSubpackages>
     <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
-        nsPrefix="pcm.core.connectors">
+        nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity"/>
     </eSubpackages>
     <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0"
-        nsPrefix="pcm.core.composition">
+        nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
         <eOperations name="ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -199,7 +199,7 @@
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
-      nsPrefix="pcm.repository">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="PassiveResource" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="capacity_PassiveResource"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
@@ -232,7 +232,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Signature">
       <eOperations name="ParameterNamesHaveToBeUniqueForASignature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.parameters__Signature->isUnique(p : Parameter |&#xD;&#xA; p.parameterName&#xD;&#xA;)"/>
+          <details key="documentation" value="self.parameters__Signature->isUnique(p : Parameter |&#xD;&#xA;&#x9;p.parameterName&#xD;&#xA;)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -341,7 +341,7 @@
       </eOperations>
       <eOperations name="SignaturesHaveToBeUniqueForAnInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA; -- parameters: Sequence of DataType, NOT name #&#xD;&#xA; -- exceptions have not to be considered #&#xD;&#xA; Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA; Tuple{&#xD;&#xA;  returnType : DataType = sig.returntype__Signature,&#xD;&#xA;  serviceName : String = sig.serviceName,&#xD;&#xA;  parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA; }&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
+          <details key="documentation" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__Signature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.serviceName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -380,7 +380,7 @@
         eSuperTypes="#//repository/CompleteComponentType">
       <eOperations name="RequiredInterfacesHaveToConformToCompleteType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- ImplementationTypes required Interfaces have to be a subset&#xD;&#xA;-- of CompleteComponentType required Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;-- self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |&#xD;&#xA;--  acc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--   acc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--  ))&#xD;&#xA;-- ) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;-- self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |&#xD;&#xA;--  acc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--   acc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--  ))&#xD;&#xA;-- )->union( -- union with anchestors found in former recursion #&#xD;&#xA;--  self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |&#xD;&#xA;--   acc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--    acc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--   ))&#xD;&#xA;--  )&#xD;&#xA;-- ) in&#xD;&#xA;-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #&#xD;&#xA;--anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;-- self.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |&#xD;&#xA;--  acc7->union(p.requiredInterface.identifier.id->asBag())&#xD;&#xA;-- ) &#xD;&#xA;--)&#xD;&#xA;true"/>
+          <details key="documentation" value="-- ImplementationTypes required Interfaces have to be a subset&#xD;&#xA;-- of CompleteComponentType required Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;&#x9;))&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #&#xD;&#xA;--anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;self.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc7->union(p.requiredInterface.identifier.id->asBag())&#xD;&#xA;--&#x9;)&#x9;&#xD;&#xA;--)&#xD;&#xA;true"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -399,7 +399,7 @@
       </eOperations>
       <eOperations name="providedInterfacesHaveToConformToCompleteType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- ### EXACT COPY FROM ABOVE ###&#xD;&#xA;-- ImplementationComponentTypes provided Interfaces have to be a superset&#xD;&#xA;-- of CompleteComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;-- self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--  acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;-- ) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;-- self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--  acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;-- )->union( -- union with anchestors found in former recursion #&#xD;&#xA;--  self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--   acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--  )&#xD;&#xA;-- ) in&#xD;&#xA; -- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;-- anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--  self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--   pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--    acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--   )&#xD;&#xA;--  )&#xD;&#xA;-- )&#xD;&#xA;true"/>
+          <details key="documentation" value="-- ### EXACT COPY FROM ABOVE ###&#xD;&#xA;-- ImplementationComponentTypes provided Interfaces have to be a superset&#xD;&#xA;-- of CompleteComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -425,7 +425,7 @@
       <eOperations name="AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="(&#xD;&#xA; self.oclIsTypeOf(CompleteComponentType)&#xD;&#xA; or&#xD;&#xA; self.oclIsTypeOf(ImplementationComponentType)&#xD;&#xA; or&#xD;&#xA; self.oclIsTypeOf(CompositeComponent)&#xD;&#xA; or&#xD;&#xA; self.oclIsTypeOf(BasicComponent)&#xD;&#xA;)&#xD;&#xA;implies&#xD;&#xA;(&#xD;&#xA; self.providedRoles_InterfaceProvidingEntity->size() >= 1&#xD;&#xA; or&#xD;&#xA; self.requiredRoles_InterfaceRequiringEntity->size() >= 1&#xD;&#xA;)"/>
+          <details key="documentation" value="(&#xD;&#xA;&#x9;self.oclIsTypeOf(CompleteComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(ImplementationComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(CompositeComponent)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(BasicComponent)&#xD;&#xA;)&#xD;&#xA;implies&#xD;&#xA;(&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->size() >= 1&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.requiredRoles_InterfaceRequiringEntity->size() >= 1&#xD;&#xA;)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -444,7 +444,7 @@
       </eOperations>
       <eOperations name="providedInterfacesHaveToConformToProvidedType2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- CompleteTypes provided Interfaces have to be a superset&#xD;&#xA;-- of ProvidesComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;-- self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--  acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;-- ) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;-- self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--  acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;-- )->union( -- union with anchestors found in former recursion #&#xD;&#xA;--  self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--   acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--  )&#xD;&#xA;-- ) in&#xD;&#xA;-- -- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;-- anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--  self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--   pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--    acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--   )&#xD;&#xA;--  )&#xD;&#xA;-- )&#xD;&#xA;true"/>
+          <details key="documentation" value="-- CompleteTypes provided Interfaces have to be a superset&#xD;&#xA;-- of ProvidesComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;--&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -469,7 +469,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//repository/ImplementationComponentType #//core/entity/ComposedProvidingRequiringEntity">
       <eOperations name="ProvideSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA; acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA; self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;  acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA; )&#xD;&#xA;else&#xD;&#xA; Bag{}&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -488,7 +488,7 @@
       </eOperations>
       <eOperations name="RequireSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA; acc1->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA; self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;  acc2->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA; )&#xD;&#xA;else&#xD;&#xA; Bag{}&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -530,7 +530,7 @@
       </eOperations>
       <eOperations name="ProvideSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA; --own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA; true&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -549,7 +549,7 @@
       </eOperations>
       <eOperations name="RequireSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA; --own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA; true&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -610,7 +610,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"
-      nsPrefix="pcm.protocol">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="ServiceCall" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature__ServiceCall"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
@@ -621,7 +621,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
-      nsPrefix="pcm.parameter">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
       <eLiterals name="STRUCTURE"/>
       <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
@@ -649,7 +649,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
-      nsPrefix="pcm.seff">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
       <eOperations name="StopActionSuccessorMustNotBeDefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -798,15 +798,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="asynchronousForkedBehaviours_ForkAction"
           ordered="false" upperBound="-1" eType="#//seff/ForkedBehaviour" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="synchronisingBehaviours_ForkAction"
-          ordered="false" lowerBound="1" eType="#//seff/SynchronisationPoint" containment="true"/>
+          ordered="false" eType="#//seff/SynchronisationPoint" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ForkedBehaviour" eSuperTypes="#//seff/ResourceDemandingBehaviour">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfReplicas_ForkedBehaviour"
-          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ForkedBehaviour" eSuperTypes="#//seff/ResourceDemandingBehaviour"/>
     <eClassifiers xsi:type="ecore:EClass" name="SynchronisationPoint">
       <eStructuralFeatures xsi:type="ecore:EReference" name="synchronousForkedBehaviours_SynchronisationPoint"
-          ordered="false" upperBound="-1" eType="#//seff/ForkedBehaviour" containment="true"/>
+          ordered="false" lowerBound="1" upperBound="-1" eType="#//seff/ForkedBehaviour"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameterUsage_SynchronisationPoint"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
     </eClassifiers>
@@ -897,7 +895,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"
-      nsPrefix="pcm.resourcetype">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
       <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
@@ -907,7 +905,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
   </eSubpackages>
   <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0"
-      nsPrefix="pcm.allocation">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="AllocationContext" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_AllocationContext"
           ordered="false" lowerBound="1" eType="#//resourceenvironment/ResourceContainer"/>
@@ -945,7 +943,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0"
-      nsPrefix="pcm.resourceenvironment">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironment">
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" ordered="false"
           upperBound="-1" eType="#//resourceenvironment/LinkingResource" containment="true"/>
@@ -990,7 +988,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
-      nsPrefix="pcm.system">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/entity/Entity #//core/entity/ComposedProvidingRequiringEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="qosAnnotations_System"
           ordered="false" upperBound="-1" eType="#//qosannotations/QoSAnnotations"
@@ -998,7 +996,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0"
-      nsPrefix="pcm.qosannotations">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="SpecifiedExecutionTime" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature_SpecifiedTimeConsumption"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
@@ -1031,7 +1029,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0"
-      nsPrefix="pcm.usagemodel">
+      nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="Workload" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="UsageScenario" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="workload_UsageScenario"

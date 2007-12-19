@@ -59,7 +59,7 @@ public interface ForkAction extends AbstractResourceDemandingAction {
 	 * @return the value of the '<em>Synchronising Behaviours Fork Action</em>' containment reference.
 	 * @see #setSynchronisingBehaviours_ForkAction(SynchronisationPoint)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkAction_SynchronisingBehaviours_ForkAction()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	SynchronisationPoint getSynchronisingBehaviours_ForkAction();

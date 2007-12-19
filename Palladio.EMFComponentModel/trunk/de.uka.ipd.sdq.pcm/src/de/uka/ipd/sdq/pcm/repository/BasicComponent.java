@@ -114,16 +114,16 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- begin-model-doc -->
 	 * -- BC has to provide the same interfaces like the implementationComponentType (if set) #
 	 * if
-	 *   -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
-	 *  self.parentCompleteComponentTypes->notEmpty()
+	 * 	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
+	 * 	self.parentCompleteComponentTypes->notEmpty()
 	 * then
-	 *  --own interface IDs:
+	 * 	--own interface IDs:
 	 *     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()
 	 *     =
 	 *     --complete type interface IDs:
 	 *     self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()
 	 * else
-	 *  true
+	 * 	true
 	 * endif
 	 * <!-- end-model-doc -->
 	 * @model
@@ -137,16 +137,16 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- begin-model-doc -->
 	 * -- BC has to require the same interfaces like the implementationComponentType (if set) #
 	 * if
-	 *   -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
-	 *  self.parentCompleteComponentTypes->notEmpty()
+	 * 	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
+	 * 	self.parentCompleteComponentTypes->notEmpty()
 	 * then
-	 *  --own interface IDs:
+	 * 	--own interface IDs:
 	 *     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()
 	 *     =
 	 *     --complete type interface IDs:
 	 *     self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()
 	 * else
-	 *  true
+	 * 	true
 	 * endif
 	 * <!-- end-model-doc -->
 	 * @model

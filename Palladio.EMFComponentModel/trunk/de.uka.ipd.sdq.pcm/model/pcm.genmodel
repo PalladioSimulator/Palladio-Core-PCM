@@ -22,7 +22,7 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/gmf2/RSA_exports/pcm.uml2</foreignModel>
+  <foreignModel>file:/C:/code/rsa-export/pcm.uml</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -367,9 +367,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ForkAction/asynchronousForkedBehaviours_ForkAction"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ForkAction/synchronisingBehaviours_ForkAction"/>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//seff/ForkedBehaviour">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ForkedBehaviour/numberOfReplicas_ForkedBehaviour"/>
-      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//seff/ForkedBehaviour"/>
       <genClasses ecoreClass="pcm.ecore#//seff/SynchronisationPoint">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/SynchronisationPoint/synchronousForkedBehaviours_SynchronisationPoint"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/SynchronisationPoint/outputParameterUsage_SynchronisationPoint"/>

@@ -198,7 +198,7 @@ public abstract class ImplementationComponentTypeImpl extends CompleteComponentT
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "                             true ";
+			String body = "                    	        true ";
 			
 			try {
 				providedInterfacesHaveToConformToCompleteTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);

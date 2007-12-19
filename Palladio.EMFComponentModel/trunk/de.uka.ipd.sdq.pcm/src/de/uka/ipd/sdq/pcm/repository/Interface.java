@@ -156,16 +156,16 @@ public interface Interface extends Entity {
 	 * -- full signature has to be unique 
 	 * -- (use of ocl-tupels) #
 	 * let sigs : Bag(
-	 *  -- parameters: Sequence of DataType, NOT name #
-	 *  -- exceptions have not to be considered #
-	 *  Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) 
+	 * 	-- parameters: Sequence of DataType, NOT name #
+	 * 	-- exceptions have not to be considered #
+	 * 	Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) 
 	 * ) = 
 	 * self.signatures__Interface->collect(sig : Signature |
-	 *  Tuple{
-	 *   returnType : DataType = sig.returntype__Signature,
-	 *   serviceName : String = sig.serviceName,
-	 *   parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter
-	 *  }
+	 * 	Tuple{
+	 * 		returnType : DataType = sig.returntype__Signature,
+	 * 		serviceName : String = sig.serviceName,
+	 * 		parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter
+	 * 	}
 	 * )
 	 * in
 	 * sigs->isUnique(s|s)

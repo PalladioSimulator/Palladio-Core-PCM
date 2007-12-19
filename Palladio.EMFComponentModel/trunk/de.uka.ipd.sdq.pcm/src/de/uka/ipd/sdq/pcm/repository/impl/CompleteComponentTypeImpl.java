@@ -129,7 +129,7 @@ public class CompleteComponentTypeImpl extends ProvidesComponentTypeImpl impleme
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "(   self.oclIsTypeOf(CompleteComponentType)   or   self.oclIsTypeOf(ImplementationComponentType)   or   self.oclIsTypeOf(CompositeComponent)   or   self.oclIsTypeOf(BasicComponent)  )  implies  (   self.providedRoles_InterfaceProvidingEntity->size() >= 1   or   self.requiredRoles_InterfaceRequiringEntity->size() >= 1  ) ";
+			String body = "(  	self.oclIsTypeOf(CompleteComponentType)  	or  	self.oclIsTypeOf(ImplementationComponentType)  	or  	self.oclIsTypeOf(CompositeComponent)  	or  	self.oclIsTypeOf(BasicComponent)  )  implies  (  	self.providedRoles_InterfaceProvidingEntity->size() >= 1  	or  	self.requiredRoles_InterfaceRequiringEntity->size() >= 1  ) ";
 			
 			try {
 				AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);

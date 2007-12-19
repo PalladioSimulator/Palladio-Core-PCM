@@ -55,7 +55,7 @@ public interface CorePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "pcm.core";
+	String eNS_PREFIX = "";
 
 	/**
 	 * The singleton instance of the package.
