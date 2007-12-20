@@ -5,9 +5,6 @@ package de.uka.ipd.sdq.pcmbench.tabs.parameters;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
@@ -17,6 +14,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.widgets.Composite;
@@ -25,13 +24,13 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.pcmbench.tabs.EditorSection;
+import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
 import de.uka.ipd.sdq.stoex.RandomVariable;
-import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 /**
@@ -146,17 +145,14 @@ public class ComponentParametersEditorSection extends EditorSection {
 			public void selectionChanged(SelectionChangedEvent event) {
 				if (!event.getSelection().isEmpty()) {
 					getDeleteButton().setEnabled(true);
-
+					
 					IStructuredSelection selection = (IStructuredSelection) event
 							.getSelection();
 					Object selected = selection.getFirstElement();
+					
 					Assert.isTrue(selected instanceof VariableUsage);
 
 					selectedVariableUsage = (VariableUsage) selected;
-					
-					// (DeleteActionListener.getSingelton())
-					// .setSelectedSignature(selectedSignature);
-
 				} else
 					getDeleteButton().setEnabled(false);
 			}
@@ -177,5 +173,13 @@ public class ComponentParametersEditorSection extends EditorSection {
 			expectedType = StochasticExpressionEditDialog.getTypeFromVariableCharacterisation((VariableCharacterisation) rv);
 		}
 		return expectedType;
-	}	
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createAddButtonActionListener(java.lang.Object)
+	 */
+	@Override
+	protected SelectionListener createAddButtonActionListener(Object input) {
+		return new AddComponentParameterAction((AssemblyContext) input);
+	}
 }

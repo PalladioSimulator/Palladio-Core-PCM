@@ -4,7 +4,9 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.DialogCellEditor;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
@@ -21,26 +23,24 @@ import org.eclipse.swt.widgets.Control;
 import de.uka.ipd.sdq.pcm.dialogs.datatype.CallDataTypeDialog;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
- * @author admin
+ * @author Roman Andrej
  * 
  */
 public class TypeDialogCellEditor extends DialogCellEditor {
 
-	 /**
-     * The editor control.
-     */
+	 /** The TableViewer */
+    private TableViewer viewer;
+    
+	 /** The editor control. */
     private Composite editor;
 
-    /**
-     * The current contents.
-     */
+    /** The current contents. */
     private Control contents;
 
-    /**
-     * The button.
-     */
+    /** The button. */
     private Button selButton;
     private Button delButton;
     
@@ -55,24 +55,16 @@ public class TypeDialogCellEditor extends DialogCellEditor {
      */
     private Object value = null;
 	
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
-	 */
-
-	protected TransactionalEditingDomain editingDomain = null; // TransactionalEditingDomain.Registry.INSTANCE
-	//		.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
-	
+    private Signature signature;
+    
 
 	/* @See org.eclipse.jface.viewers.DialogCellEditor#DialogCellEditor(org.eclipse.swt.widgets.Control
 	 *      parent)
 	 */
-	public TypeDialogCellEditor(Composite parent) {
-		super(parent, SWT.DEL);
-	}
-
-	public void setEditingDomain(TransactionalEditingDomain editingDomain) {
-		this.editingDomain = editingDomain;
+	public TypeDialogCellEditor(TableViewer viewer, Signature selectedSignature) {
+		super(viewer.getTable(), SWT.DEL);
+		this.viewer = viewer;
+		this.signature = selectedSignature;
 	}
 	
 	/* (non-Javadoc)
@@ -80,27 +72,29 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 	 */
 	@Override
 	protected Object openDialogBox(Control cellEditorWindow) {
-		
+		TransactionalEditingDomain editingDomain = TransactionUtil
+				.getEditingDomain(signature);
+
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(DataType.class);
 		filterList.add(Repository.class);
 		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 
-		CallDataTypeDialog dialog = new CallDataTypeDialog(
-				cellEditorWindow.getShell(),
-				filterList,
-				additionalReferences,
-				editingDomain.getResourceSet());
+		CallDataTypeDialog dialog = new CallDataTypeDialog(cellEditorWindow
+				.getShell(), filterList, additionalReferences, editingDomain
+				.getResourceSet());
 		dialog.setProvidedService(DataType.class);
 		dialog.open();
 
 		if (!(dialog.getResult() instanceof DataType))
 			return null;
-		
+
 		return dialog.getResult();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.jface.viewers.DialogCellEditor#createControl(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
@@ -120,7 +114,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 		delButton = new Button(editor, SWT.DOWN);
 		delButton.setText("X");
 		delButton.setFont(font);
-		delButton.addSelectionListener(new DeleteCellValueListener());
+		delButton.addSelectionListener(new DeleteCellValueListener(viewer, signature));
 
 		selButton = createButton(editor);
 		selButton.setFont(font);

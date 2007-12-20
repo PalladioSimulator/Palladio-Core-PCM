@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.tabs;
+package de.uka.ipd.sdq.pcmbench.tabs.generic;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -14,6 +14,9 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
+import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsImages;
+import de.uka.ipd.sdq.pcmbench.tabs.operations.DeleteActionListener;
+
 public abstract class EditorSection {
 	
 	private Composite composite;
@@ -21,16 +24,19 @@ public abstract class EditorSection {
 	private TableViewer viewer;
 	
 	/**
-	 * @param composite
+	 * defined the selected listener value
 	 */
+	protected DeleteActionListener deleteActionListener;
+	
 	public EditorSection(Composite composite) {
 		composite.getParent().setLayoutData(
 				new GridData(SWT.FILL, SWT.FILL, true, true));
 		this.composite = composite;
+		
 		createSection();
 	}
-	
-	private void createSection(){
+
+	private void createSection() {
 		ToolBar toolBar = createToolBar(composite);
 		Table table = createTable(composite, toolBar);
 		viewer = createViewer(table);
@@ -41,7 +47,8 @@ public abstract class EditorSection {
 	
 	protected ToolBar createToolBar(Composite composite) {
 
-		ToolBar toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
+		ToolBar toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT
+				| SWT.RIGHT);
 		FormData formData = new FormData();
 		formData.left = new FormAttachment(96, 0);
 		formData.top = new FormAttachment(0, 0);
@@ -53,26 +60,32 @@ public abstract class EditorSection {
 		addButton = new ToolItem(toolBar, SWT.PUSH);
 		addButton.setImage(PCMBenchTabsImages.imageRegistry
 				.get(PCMBenchTabsImages.ADD_SIGN));
+//		make in subclass		
+//		addButton
+//				.addSelectionListener(...);
 
 		/** Create Delete-Button by ToolBar */
 		deleteButton = new ToolItem(toolBar, SWT.PUSH);
-		deleteButton.setImage( PCMBenchTabsImages.imageRegistry
+		deleteButton.setImage(PCMBenchTabsImages.imageRegistry
 				.get(PCMBenchTabsImages.DELETE_SIGN));
+		deleteActionListener = new DeleteActionListener();
+		deleteButton
+				.addSelectionListener(deleteActionListener);
 		deleteButton.setEnabled(false);
 
 		return toolBar;
 	}
 	
-	/** Set a SelectionListener for the Delete-Button */
-	public void setDeleteButtonSelectionListener(SelectionListener listener){
-		Assert.isNotNull(deleteButton);
-		deleteButton.addSelectionListener(listener);
-	}
+	/** Create a SelectionListener for the Add-Button */
+	protected abstract SelectionListener createAddButtonActionListener(Object input);
 	
-	/** Set a SelectionListener for the Add-Button */
-	public void setAddButtonSelectionListener(SelectionListener listener){
-		Assert.isNotNull(addButton);
-		addButton.addSelectionListener(listener);
+	/** Set a input for the TableViewer */
+	public void setViewerInput(Object input) {
+		Assert.isNotNull(viewer);
+		viewer.setInput(input);
+		
+		// initialization the selected listener for Add-Button with input object
+		addButton.addSelectionListener(createAddButtonActionListener(input));
 	}
 	
 	/** Set a ContentProvider for the TableViewer */
@@ -85,6 +98,11 @@ public abstract class EditorSection {
 	public void setViewerLabelProvider(IBaseLabelProvider labelProvider){
 		Assert.isNotNull(viewer);
 		viewer.setLabelProvider(labelProvider);
+	}
+	
+	public void refresh(){
+		Assert.isNotNull(viewer);
+		viewer.refresh();
 	}
 
 	/**
@@ -99,12 +117,5 @@ public abstract class EditorSection {
 	 */
 	public ToolItem getDeleteButton() {
 		return deleteButton;
-	}
-
-	/**
-	 * @return the viewer
-	 */
-	public TableViewer getViewer() {
-		return viewer;
 	}
 }

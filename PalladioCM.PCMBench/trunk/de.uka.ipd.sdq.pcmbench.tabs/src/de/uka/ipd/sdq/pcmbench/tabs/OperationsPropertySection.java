@@ -7,7 +7,6 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ISelection;
@@ -17,14 +16,11 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.tabs.operations.AddActionListener;
-import de.uka.ipd.sdq.pcmbench.tabs.operations.DeleteActionListener;
 import de.uka.ipd.sdq.pcmbench.tabs.operations.OperationsTabItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.tabs.operations.OperationsTabViewer;
+import de.uka.ipd.sdq.pcmbench.tabs.operations.OperationsEditorSection;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
@@ -36,7 +32,7 @@ public class OperationsPropertySection extends AbstractPropertySection {
 	 * The Property Sheet Page used to display the standard properties
 	 */
 	private ComposedAdapterFactory adapterFactory;
-	private OperationsTabViewer sectionTable;
+	private OperationsEditorSection sectionTable;
 
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
@@ -58,7 +54,7 @@ public class OperationsPropertySection extends AbstractPropertySection {
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-		sectionTable = new OperationsTabViewer(composite);
+		sectionTable = new OperationsEditorSection(composite);
 		sectionTable
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
 						adapterFactory));
@@ -67,11 +63,6 @@ public class OperationsPropertySection extends AbstractPropertySection {
 						new OperationsTabItemProviderAdapterFactory(
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))));
-		sectionTable.setAddButtonSelectionListener(AddActionListener
-				.getSingelton());
-		sectionTable.setDeleteButtonSelectionListener(DeleteActionListener
-				.getSingelton());
-
 	}
 
 	/**
@@ -95,35 +86,14 @@ public class OperationsPropertySection extends AbstractPropertySection {
 		}
 		
 		Assert.isTrue(input instanceof EObject);
-		sectionTable.getViewer().setInput(input);
-	    sectionTable.setEditingDomain(TransactionUtil.getEditingDomain(input));
-
-		/* (non-Javadoc) set the current selection interface in the
-		 * AddActionListener, DeleteActionListener
-		 * 
-		 * @See de.uka.ipd.sdq.pcmbench.tabs.table.AddActionListener#setSelectedInterface(Interace)
-		 */
-		Assert.isNotNull(AddActionListener.getSingelton());
-		(AddActionListener.getSingelton())
-				.setSelectedInterface((Interface) input);
-		Assert.isNotNull(DeleteActionListener.getSingelton());
-		(DeleteActionListener.getSingelton())
-				.setSelectedInterface((Interface) input);
-
-	}
-
-	/**
-	 * @see org.eclipse.ui.views.properties.tabbed.ISection#dispose()
-	 */
-	public void dispose() {
-		super.dispose();
+		sectionTable.setViewerInput(input);
 	}
 
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		sectionTable.getViewer().refresh();
+		sectionTable.refresh();
 	}
 
 	/**

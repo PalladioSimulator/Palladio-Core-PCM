@@ -8,13 +8,14 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.ICellModifier;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
- * @author roman
+ * @author Roman Andrej
  * 
  * This class implements an ICellModifier. An ICellModifier is called when the
  * user modifes a cell in the tableViewer
@@ -23,8 +24,8 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 public class OperationsCellModifier implements ICellModifier {
 
 	private List<String> columnNames;
-
 	private Signature signature;
+	private TableViewer viewer;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -32,13 +33,12 @@ public class OperationsCellModifier implements ICellModifier {
 	 */
 	protected TransactionalEditingDomain editingDomain = null;
 
-	public OperationsCellModifier() {
-		this.columnNames = Arrays.asList(OperationsTabViewer.columnNames);
+	public OperationsCellModifier(TableViewer viewer) {
+		this.viewer = viewer;
+		this.columnNames = Arrays.asList(OperationsEditorSection.columnNames);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ICellModifier#canModify(Object element,
 	 *      String property)
 	 */
@@ -62,19 +62,19 @@ public class OperationsCellModifier implements ICellModifier {
 		editingDomain = TransactionUtil.getEditingDomain(signature);
 
 		switch (columnIndex) {
-		case OperationsTabViewer.ICON_COLUMN_INDEX: // COMPLETED_COLUMN
+		case OperationsEditorSection.ICON_COLUMN_INDEX: // COMPLETED_COLUMN
 			break;
-		case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX: // RETURNTYPE_COLUMN
+		case OperationsEditorSection.RETURNTYPE_COLUMN_INDEX: // RETURNTYPE_COLUMN
 			if (value instanceof DataType)
 				setReturnType((DataType) value);
 			break;
-		case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX: // SERVICENAME_COLUMN
+		case OperationsEditorSection.SIGNATURENAME_COLUMN_INDEX: // SERVICENAME_COLUMN
 			String valueString = ((String) value).trim();
 			setServiceName(valueString);
 			break;
-		case OperationsTabViewer.PARAMETER_COLUMN_INDEX: // OWNEDPARAMETER_COLUMN
+		case OperationsEditorSection.PARAMETER_COLUMN_INDEX: // OWNEDPARAMETER_COLUMN
 			break;
-		case OperationsTabViewer.EXCEPTIONS_COLUMN_INDEX: // EXEPTIONTYPE_COLUM
+		case OperationsEditorSection.EXCEPTIONS_COLUMN_INDEX: // EXEPTIONTYPE_COLUM
 			break;
 		default:
 		}
@@ -111,12 +111,8 @@ public class OperationsCellModifier implements ICellModifier {
 			recCommand.setDescription("Edit Signature Property");
 			recCommand.setLabel("Set return type");
 			editingDomain.getCommandStack().execute(recCommand);
-			reloadOperationsViewer();
+			viewer.refresh();
 		}
 		
-	}
-	
-	private void reloadOperationsViewer(){
-		OperationsTabRepository.getOperationsViewer().refresh();
 	}
 }

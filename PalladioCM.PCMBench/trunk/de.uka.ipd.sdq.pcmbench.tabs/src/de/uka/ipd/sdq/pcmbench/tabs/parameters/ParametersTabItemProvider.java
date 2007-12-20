@@ -78,10 +78,11 @@ public class ParametersTabItemProvider extends ItemProviderDecorator implements
 		String specification = "";
 		EList<VariableCharacterisation> characterisation = variable
 				.getVariableCharacterisation_VariableUsage();
-		PCMRandomVariable randomVariable = characterisation.get(0)
-				.getSpecification_VariableCharacterisation();
-		if (randomVariable != null)
+		if (characterisation.size() > 0) {
+			PCMRandomVariable randomVariable = characterisation.get(0)
+					.getSpecification_VariableCharacterisation();
 			specification = randomVariable.getSpecification();
+		}
 		return specification;
 	}
 

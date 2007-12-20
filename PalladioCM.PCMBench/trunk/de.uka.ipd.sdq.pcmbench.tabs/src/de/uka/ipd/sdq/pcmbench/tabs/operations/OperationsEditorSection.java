@@ -1,16 +1,14 @@
 package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
-import org.eclipse.core.runtime.Assert;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.widgets.Composite;
@@ -20,12 +18,13 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 
 import de.uka.ipd.sdq.pcm.dialogs.parameters.ParametersDialog;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcmbench.tabs.EditorSection;
+import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
 
-public class OperationsTabViewer extends EditorSection {
-
-	public OperationsTabViewer(Composite composite) {
+public class OperationsEditorSection extends EditorSection {
+	
+	public OperationsEditorSection(Composite composite) {
 		super(composite);
 	}
 
@@ -41,7 +40,6 @@ public class OperationsTabViewer extends EditorSection {
 	/**
 	 * Columns of a table, which is used into operations table
 	 */
-	
 	public final static String OPERATIONS_ICON_COLUMN	= "";
 	public final static String OWNEDPARAMETER_COLUMN 	= "OwnedParameters";
 	public final static String RETURNTYPE_COLUMN 		= "ReturnType";
@@ -53,11 +51,6 @@ public class OperationsTabViewer extends EditorSection {
 			SERVICENAME_COLUMN, OWNEDPARAMETER_COLUMN, EXEPTIONTYPE_COLUM };
 
 
-	public void setEditingDomain(TransactionalEditingDomain editingDomain){
-		((TypeDialogCellEditor)editors[RETURNTYPE_COLUMN_INDEX]).setEditingDomain(editingDomain);
-	}
-
-	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.EditorSection#createTable(org.eclipse.swt.widgets.Composite, org.eclipse.swt.widgets.ToolBar)
 	 */
@@ -100,9 +93,9 @@ public class OperationsTabViewer extends EditorSection {
 	@Override
 	protected TableViewer createViewer(Table table) {
 
-		final TableViewer tableViewer = new TableViewer(table);
-		tableViewer.setUseHashlookup(true);
-		tableViewer.setColumnProperties(columnNames);
+		final TableViewer viewer = new TableViewer(table);
+		viewer.setUseHashlookup(true);
+		viewer.setColumnProperties(columnNames);
 
 		// Create the cell editors
 		editors = new CellEditor[columnNames.length];
@@ -111,54 +104,48 @@ public class OperationsTabViewer extends EditorSection {
 		editors[SIGNATURENAME_COLUMN_INDEX] = textEditor;
 
 		textEditor = new TextCellEditor(table);
-		//editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
+		// editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
 
-		editors[RETURNTYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table);
+		editors[RETURNTYPE_COLUMN_INDEX] = new TypeDialogCellEditor(viewer, selectedSignature);
 
 		editors[PARAMETER_COLUMN_INDEX] = new DialogCellEditor(table) {
 			@Override
 			protected Object openDialogBox(Control cellEditorWindow) {
-				ParametersDialog dialog = new ParametersDialog(
-						cellEditorWindow.getShell(),
-						selectedSignature);
-				if (dialog.open() == dialog.OK)
-					tableViewer.refresh();
+				ParametersDialog dialog = new ParametersDialog(cellEditorWindow
+						.getShell(), selectedSignature);
+				if (dialog.open() == Dialog.OK)
+					viewer.refresh();
 				return null;
 			}
 		};
 
 		// Assign the cell editors to the viewe
-		tableViewer.setCellEditors(editors);
-		tableViewer.setCellModifier(new OperationsCellModifier());
-		tableViewer
-				.addSelectionChangedListener(new ISelectionChangedListener() {
+		viewer.setCellEditors(editors);
+		viewer.setCellModifier(new OperationsCellModifier(viewer));
+		viewer.addSelectionChangedListener(deleteActionListener);
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
-					public void selectionChanged(SelectionChangedEvent event) {
-						Object selected;
-						IStructuredSelection selection = new StructuredSelection();
-						if (!event.getSelection().isEmpty()) {
-							getDeleteButton().setEnabled(true);
-
-							selection = (IStructuredSelection) event
-									.getSelection();
-							selected = selection.getFirstElement();
-							Assert.isTrue(selected instanceof Signature);
-
-							selectedSignature = (Signature) selected;
-
-							(DeleteActionListener.getSingelton())
-									.setSelectedSignature(selectedSignature);
-							// TODO
-							OperationsTabRepository
-									.setEditedSignature(selectedSignature);
-
-						} else
-							getDeleteButton().setEnabled(false);
-					}
-				});
-		// TODO
-		OperationsTabRepository.setOperationsViewer(tableViewer);
+			/* (non-Javadoc)
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+			 */
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				if (!event.getSelection().isEmpty())
+					getDeleteButton().setEnabled(true);
+				else
+					getDeleteButton().setEnabled(false);
+			}
+		});
 		
-		return tableViewer;
+		return viewer;
 	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createAddButtonActionListener(java.lang.Object)
+	 */
+	@Override
+	protected SelectionListener createAddButtonActionListener(Object input) {
+		return new AddActionListener((Interface) input);
+	}
+
 }

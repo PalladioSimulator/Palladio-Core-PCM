@@ -14,51 +14,37 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 public class AddActionListener extends SelectionAdapter {
 
 	private Interface selectedInterface;
-	
+
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
-	 protected TransactionalEditingDomain editingDomain = null;
-	
-	/**
-	 * singleton design patterns
-	 */
-	private static AddActionListener singleton = null;
+	protected TransactionalEditingDomain editingDomain = null;
 
-	private AddActionListener(){
+	public AddActionListener(Interface selectedInterface) {
+		this.selectedInterface = selectedInterface;
 	}
-	
-	public synchronized static AddActionListener getSingelton(){
-		if (singleton == null)
-			singleton = new AddActionListener();  
-		return singleton;
-	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
 		Assert.isNotNull(selectedInterface);
-		
+		editingDomain = TransactionUtil.getEditingDomain(selectedInterface);
+
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				Signature signature = RepositoryFactory.eINSTANCE.createSignature();
-				signature.setServiceName("ServiceName" + (selectedInterface.getSignatures__Interface().size()+ 1));
+				Signature signature = RepositoryFactory.eINSTANCE
+						.createSignature();
+				signature
+						.setServiceName("ServiceName"
+								+ (selectedInterface.getSignatures__Interface()
+										.size() + 1));
 				selectedInterface.getSignatures__Interface().add(signature);
-			}		
+			}
 		};
-		
+
 		recCommand.setDescription("Add new signature");
 		editingDomain.getCommandStack().execute(recCommand);
 	}
-
-	/**
-	 * @param selectedInterface the selectedInterface to set
-	 */
-	public void setSelectedInterface(Interface selectedInterface) {
-		this.selectedInterface = selectedInterface;
-		this.editingDomain = TransactionUtil.getEditingDomain(this.selectedInterface);
-	}
-
 }
