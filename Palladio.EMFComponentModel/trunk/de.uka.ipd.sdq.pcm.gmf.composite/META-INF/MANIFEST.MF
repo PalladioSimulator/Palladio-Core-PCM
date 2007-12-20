@@ -46,6 +46,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.draw2d;visibility:=reexport,
  de.uka.ipd.sdq.dialogs,
  de.uka.ipd.sdq.pcmbench.ui,
- de.uka.ipd.sdq.pcm.dialogs
+ de.uka.ipd.sdq.pcm.dialogs,
+ de.uka.ipd.sdq.pcmbench.tabs
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: J2SE-1.4
