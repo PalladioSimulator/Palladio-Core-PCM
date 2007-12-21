@@ -128,7 +128,6 @@ public class OperationsEditorSection extends EditorSection {
 			/* (non-Javadoc)
 			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
 			 */
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				if (!event.getSelection().isEmpty())
 					getDeleteButton().setEnabled(true);
