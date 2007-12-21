@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.simucomframework.exceptions.DemandTooLargeException;
 import de.uka.ipd.sdq.simucomframework.exceptions.NegativeDemandIssuedException;
 import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.sensors.SensorHelper;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Event;
 import desmoj.core.simulator.SimProcess;
@@ -49,17 +50,18 @@ public abstract class AbstractScheduledResource extends Entity {
 		super (myModel, id, false);
 		this.idle = true;
 		
-		this.idleState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Idle");
+		this.idleState = SensorHelper.createOrReuseState(myModel.getDAOFactory(), "Idle");
 		//this.busyState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Busy");
 
-		this.stateSensor = createOrReuseStateSensor(myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Utilisation of "+description,this.idleState);
+		this.stateSensor = SensorHelper.createOrReuseStateSensor(myModel.getDAOFactory(),myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Utilisation of "+description,this.idleState);
 		if (!this.stateSensor.getSensorStates().contains(idleState)) 
 			this.stateSensor.addSensorState(idleState);
 		//this.stateSensor.addSensorState(busyState);
-		this.waitTimeSensor = createOrReuseTimeSensor(myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Wait time at "+description);
+		this.waitTimeSensor = SensorHelper.createOrReuseTimeSensor(myModel.getDAOFactory(),myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Wait time at "+description);
 		
 		// used to log requested resource demands
-		this.demandTimeSensor = createOrReuseTimeSensor(
+		this.demandTimeSensor = SensorHelper.createOrReuseTimeSensor(
+				myModel.getDAOFactory(),
 				myModel.getExperimentDatastore(), 
 				myModel.getExperimentDatastore().getExperimentName()+": Demanded time at "+description);
 		
@@ -68,18 +70,6 @@ public abstract class AbstractScheduledResource extends Entity {
 		logger.info("Creating Simulated Active Resource: "+this.getName());
 		
 		myStrategy = getStrategy(strategy);
-	}
-
-	private TimeSpanSensor createOrReuseTimeSensor(
-			Experiment experimentDatastore, String id) {
-		ISensorDAO sensorDAO = ((SimuComModel)getModel()).getDAOFactory().createSensorDAO();
-		if (sensorDAO.findBySensorName(id).size() > 0) {
-			for (Sensor s : sensorDAO.findBySensorName(id)) {
-				if (s instanceof TimeSpanSensor && experimentDatastore.getSensors().contains(s))
-					return (TimeSpanSensor) s;
-			}
-		}
-		return experimentDatastore.addTimeSpanSensor(id);
 	}
 
 	protected ISchedulingStrategy getStrategy(SchedulingStrategy strategy) {
@@ -99,23 +89,6 @@ public abstract class AbstractScheduledResource extends Entity {
 		return result;
 	}
 
-	private StateSensor createOrReuseStateSensor(Experiment experiment, String id, State initialState) {
-		ISensorDAO sensorDAO = ((SimuComModel)getModel()).getDAOFactory().createSensorDAO();
-		if (sensorDAO.findBySensorName(id).size() > 0) {
-			for (Sensor s : sensorDAO.findBySensorName(id)) {
-				if (s instanceof StateSensor && experiment.getSensors().contains(s))
-					return (StateSensor) s;
-			}
-		}
-		return experiment.addStateSensor(initialState,id);
-	}
-
-	private State createOrReuseState(IStateDAO stateDAO, String id) {
-		if (stateDAO.findByStateLiteral(id).size() == 1) {
-			return stateDAO.findByStateLiteral(id).iterator().next();
-		}
-		return stateDAO.addState(id);
-	}
 
 	/**
 	 * Add a job and its corresponding demand to the processing queue of
@@ -210,7 +183,7 @@ public abstract class AbstractScheduledResource extends Entity {
 			} else {
 				String stateLiteral = "Busy "+Integer.toString(myStrategy.getTotalJobCount())+" Job(s)";
 				lastCount = myStrategy.getTotalJobCount();
-				State nrState = createOrReuseState(((SimuComModel)this.getModel()).getDAOFactory().createStateDAO(), stateLiteral);
+				State nrState = SensorHelper.createOrReuseState(((SimuComModel)this.getModel()).getDAOFactory(), stateLiteral);
 				if (!stateSensor.getSensorStates().contains(nrState)) 
 					stateSensor.addSensorState(nrState);
 				experimentRun.addStateMeasurement(stateSensor, nrState, this.getModel().currentTime().getTimeValue());

@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import desmoj.core.simulator.Experiment;
 import desmoj.core.simulator.SimTime;
 
@@ -30,18 +31,12 @@ public class ExperimentRunner {
 												// units
 
 		exp.stop(new MaxMeasurementsStopCondition(model,"MaxMeasurementsStopCondtion",true));
-
-		// Link old and new sensor framework
-		SensorFrameworkObserver sensorObserver = new SensorFrameworkObserver(model);
-		model.getSensorFactory().addSensorObserver(sensorObserver);
-		
-		// exp.stop(new StopCondition(model,"StopCondtion","Response Time of ConcurScenario",true));
 		
 		exp.start();
 
 		// generate the report (and other output files)
 		exp.report();
-
+		
 		// stop all threads still alive and close all output files
 		exp.finish();
 		model.getResourceRegistry().deactivateAllActiveResources();
