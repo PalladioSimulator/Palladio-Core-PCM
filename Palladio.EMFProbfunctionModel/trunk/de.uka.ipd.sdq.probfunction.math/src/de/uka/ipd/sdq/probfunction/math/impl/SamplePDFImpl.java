@@ -240,15 +240,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public Object getMedian() throws UnorderedDomainException {
-		if (!hasOrderedDomain())
-			throw new UnorderedDomainException();
-		if (values.size() % 2 != 0) {
-			int i = (int) Math.floor(values.size() / 2.0);
-			return distance * i;
-		} else {
-			int i = (int) Math.round(values.size() / 2.0);
-			return (distance * (2 * i - 1)) / 2;
-		}
+		return getPercentile(50);
 	}
 
 	public Object getPercentile(int p) throws IndexOutOfBoundsException,
@@ -257,9 +249,13 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 			throw new UnorderedDomainException();
 		if (p < 0 || p > 100)
 			throw new IndexOutOfBoundsException();
-
-		int rank = (int) Math.round((p * (values.size() + 1.0)) / 100.0);
-		return values.get(rank).getReal();
+		double prob = ((double)p) / 100.0;
+		double currProb = 0;
+		int i;
+		for(i=0; i < values.size() && currProb < prob; i++){
+			currProb += values.get(i).getReal();
+		}
+		return i*distance;
 	}
 
 	public int numberOfSamples() {

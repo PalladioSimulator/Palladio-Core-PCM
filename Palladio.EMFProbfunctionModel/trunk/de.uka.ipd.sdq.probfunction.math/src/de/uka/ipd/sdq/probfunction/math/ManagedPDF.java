@@ -2,6 +2,9 @@ package de.uka.ipd.sdq.probfunction.math;
 
 import java.util.List;
 
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CommonTokenStream;
+
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
@@ -12,6 +15,9 @@ import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
 /**
  * To be continued...
@@ -294,27 +300,25 @@ public class ManagedPDF {
 		return pdfAsString;
 	}
 
-//	private static ProbabilityFunctionLiteral parse(String s) throws RecognitionException {
-//		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-//				new ANTLRStringStream(s));
-//		StochasticExpressionsParser parser = new StochasticExpressionsParser(
-//				new CommonTokenStream(lexer));
-//		return (ProbabilityFunctionLiteral)parser.expression();
-//	}
-//	
-//	@SuppressWarnings("deprecation")
-//	public static ManagedPDF createFromString(String pdfAsString)
-//			throws RecognitionException,
-//			StringNotPDFException {
-//		ProbabilityFunctionLiteral value = parse(pdfAsString);
-//		try {
-//			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction) value
-//					.getFunction_ProbabilityFunctionLiteral();
-//			return new ManagedPDF(pdf);
-//		} catch (ClassCastException e) {
-//			throw new StringNotPDFException();
-//		}
-//	}
+	private static ProbabilityFunctionLiteral parse(String s) throws Exception {
+		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
+				new ANTLRStringStream(s));
+		StochasticExpressionsParser parser = new StochasticExpressionsParser(
+				new CommonTokenStream(lexer));
+		return (ProbabilityFunctionLiteral)parser.expression();
+	}
+	
+	@SuppressWarnings("deprecation")
+	public static ManagedPDF createFromString(String pdfAsString) throws Exception {
+		ProbabilityFunctionLiteral value = parse(pdfAsString);
+		try {
+			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction) value
+					.getFunction_ProbabilityFunctionLiteral();
+			return new ManagedPDF(pdf);
+		} catch (ClassCastException e) {
+		}
+		return null;
+	}
 
 	public BoxedPDF getModelBoxedPdf() {
 		if (modelBoxedPDF == null) {

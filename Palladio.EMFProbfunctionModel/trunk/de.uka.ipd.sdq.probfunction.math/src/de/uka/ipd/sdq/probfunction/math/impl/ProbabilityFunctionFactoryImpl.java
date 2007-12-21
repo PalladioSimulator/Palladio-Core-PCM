@@ -36,9 +36,8 @@ import flanagan.complex.Complex;
  * @author Ihssane
  * 
  */
-public class ProbabilityFunctionFactoryImpl
-		implements
-			IProbabilityFunctionFactory {
+public class ProbabilityFunctionFactoryImpl implements
+		IProbabilityFunctionFactory {
 
 	public static final String DEFAULT_UNIT_NAME = "ms";
 	private ProbfunctionFactory eFactory = ProbfunctionFactory.eINSTANCE;
@@ -50,7 +49,7 @@ public class ProbabilityFunctionFactoryImpl
 
 	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf)
 			throws ProbabilitySumNotOneException, DoubleSampleException {
-		//TODO: IUnit unit = transformToUnit(epdf.getUnitSpecification());
+		// TODO: IUnit unit = transformToUnit(epdf.getUnitSpecification());
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
 
 		if (epdf instanceof BoxedPDF) {
@@ -65,7 +64,7 @@ public class ProbabilityFunctionFactoryImpl
 				i++;
 			}
 		}
-		return createBoxedPDF(samples, /*TODO:Unit*/null);
+		return createBoxedPDF(samples, /* TODO:Unit */null);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -75,10 +74,12 @@ public class ProbabilityFunctionFactoryImpl
 		if (epdf instanceof SamplePDF) {
 			SamplePDF spdf = (SamplePDF) epdf;
 			double distance = spdf.getDistance();
-			//TODO: Unit IUnit unit = transformToUnit(spdf.getUnitSpecification());
+			// TODO: Unit IUnit unit =
+			// transformToUnit(spdf.getUnitSpecification());
 			List<Double> values = new ArrayList<Double>((List<Double>) spdf
 					.getValues());
-			return createSamplePDFFromDouble(distance, values, /*TODO:Unit*/null);
+			return createSamplePDFFromDouble(distance, values, /* TODO:Unit */
+					null);
 		} else {
 			IBoxedPDF bpdf = transformToBoxedPDF(epdf);
 			return transformBoxedToSamplePDF(bpdf);
@@ -87,10 +88,10 @@ public class ProbabilityFunctionFactoryImpl
 
 	@SuppressWarnings("unchecked")
 	public IProbabilityMassFunction transformToPMF(ProbabilityMassFunction epmf) {
-		//TODO:Unit! IUnit unit = transformToUnit(epmf.getUnitSpecification());
+		// TODO:Unit! IUnit unit = transformToUnit(epmf.getUnitSpecification());
 		boolean hasOrderedDomain = epmf.isOrderedDomain();
-		IProbabilityMassFunction pmf = new ProbabilityMassFunctionImpl(/*TODO:Unit*/null,
-				hasOrderedDomain, false);
+		IProbabilityMassFunction pmf = new ProbabilityMassFunctionImpl(
+				/* TODO:Unit */null, hasOrderedDomain, false);
 		List samples = new ArrayList();
 		for (Object s : epmf.getSamples()) {
 			Sample sample = (Sample) s;
@@ -298,27 +299,28 @@ public class ProbabilityFunctionFactoryImpl
 		Collections.sort(measurements);
 		List<Double> samples = new ArrayList<Double>();
 		HashMap<Integer, Integer> timesMap = new HashMap<Integer, Integer>();
-		
+
 		int maxPos = 0;
-		
-		for (Double d : measurements){
-			int  pos = (int) (d / distance);
+
+		for (Double d : measurements) {
+			int pos = (int) (d / distance);
 			double rest = (d % distance) / distance;
-			if (rest > 0.5) pos += 1;
-			maxPos = pos > maxPos ? pos : maxPos; 
+			if (rest > 0.5)
+				pos += 1;
+			maxPos = pos > maxPos ? pos : maxPos;
 			Integer value = timesMap.get(pos);
 			if (value == null)
 				value = new Integer(0);
 			value++;
-			timesMap.put(pos, value);			
+			timesMap.put(pos, value);
 		}
-		
-		for (int i=0; i<=maxPos; i++){
+
+		for (int i = 0; i <= maxPos; i++) {
 			Integer value = timesMap.get(i);
-			if (value == null){
+			if (value == null) {
 				samples.add(0.0);
 			} else {
-				samples.add((double)value / (double)measurements.size());
+				samples.add((double) value / (double) measurements.size());
 			}
 		}
 
@@ -358,7 +360,8 @@ public class ProbabilityFunctionFactoryImpl
 		BoxedPDF ePDF = eFactory.createBoxedPDF();
 		EList list = ePDF.getSamples();
 
-		//TODO:Unit! ePDF.setUnitSpecification(transformToModelUnitSpecification(pdf.getUnit()));
+		// TODO:Unit!
+		// ePDF.setUnitSpecification(transformToModelUnitSpecification(pdf.getUnit()));
 
 		for (IContinuousSample s : boxedPDF.getSamples())
 			list.add(transformToModelContinuousSample(s));
@@ -388,7 +391,8 @@ public class ProbabilityFunctionFactoryImpl
 
 		for (ISample s : pmf.getSamples())
 			list.add(transformToModelSample(s));
-		//TODO:Unit! epmf.setUnitSpecification(transformToModelUnitSpecification(pmf.getUnit()));
+		// TODO:Unit!
+		// epmf.setUnitSpecification(transformToModelUnitSpecification(pmf.getUnit()));
 		epmf.setOrderedDomain(pmf.hasOrderedDomain());
 		return epmf;
 	}
@@ -403,7 +407,8 @@ public class ProbabilityFunctionFactoryImpl
 		for (Complex d : samplePDF.getValues())
 			list.add(d.getReal());
 
-		//TODO:Unit! ePDF.setUnitSpecification(transformToModelUnitSpecification(pdf.getUnit()));
+		// TODO:Unit!
+		// ePDF.setUnitSpecification(transformToModelUnitSpecification(pdf.getUnit()));
 
 		ePDF.setDistance(samplePDF.getDistance());
 
@@ -445,7 +450,8 @@ public class ProbabilityFunctionFactoryImpl
 			NegativeDistanceException, FunctionNotInTimeDomainException {
 		ISamplePDF resultPDF;
 		if (pdf instanceof ISamplePDF) {
-			resultPDF = ((ISamplePDF) pdf).getFunctionWithNewDistance(newDistance);
+			resultPDF = ((ISamplePDF) pdf)
+					.getFunctionWithNewDistance(newDistance);
 		} else if (pdf instanceof IBoxedPDF) {
 			resultPDF = transformBoxedToSamplePDF((IBoxedPDF) pdf, newDistance);
 		} else if (pdf != null) {
@@ -546,8 +552,7 @@ public class ProbabilityFunctionFactoryImpl
 					newProb = (currentNewSample / samples.get(0).getValue())
 							* samples.get(0).getProbability();
 				else {
-					double dif = index == 0
-							? samples.get(0).getValue()
+					double dif = index == 0 ? samples.get(0).getValue()
 							: samples.get(index).getValue()
 									- samples.get(index - 1).getValue();
 					newProb = (distance / dif)
@@ -584,6 +589,7 @@ public class ProbabilityFunctionFactoryImpl
 		return createSamplePDFFromDouble(distance, newSamples, false, bpdf
 				.getUnit());
 	}
+
 	private IBoxedPDF transformSampledToBoxedPDF(ISamplePDF spdf)
 			throws DoubleSampleException, FunctionNotInTimeDomainException {
 		if (spdf.isInFrequencyDomain())
@@ -592,14 +598,32 @@ public class ProbabilityFunctionFactoryImpl
 		List<Double> values = spdf.getValuesAsDouble();
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
 
-		int i = 0;
-		for (Double d : values) {
-			IContinuousSample sample = this.createContinuousSample(spdf
-					.getDistance()
-					* i, d);
-			samples.add(sample);
-			i++;
+//		int i = 1;
+//		for (Double d : values) {
+//			IContinuousSample sample = this.createContinuousSample(spdf
+//					.getDistance()
+//					* i, d);
+//			samples.add(sample);
+//			i++;
+//		}
+		double distance = spdf.getDistance();
+
+		for (int i = 0; i < values.size();) {
+			double currentProb = values.get(i);
+			double prob = currentProb;
+			for (i = i + 1; i < values.size(); i++) {
+				double nextProb = values.get(i);
+				if (MathTools.equalsDouble(nextProb, currentProb)) {
+					prob += nextProb;
+				} else {
+					break;
+				}
+			}
+			IContinuousSample s = this.
+				createContinuousSample(distance * i, prob);
+			samples.add(s);
 		}
+
 		return createBoxedPDF(samples, spdf.getUnit());
 	}
 

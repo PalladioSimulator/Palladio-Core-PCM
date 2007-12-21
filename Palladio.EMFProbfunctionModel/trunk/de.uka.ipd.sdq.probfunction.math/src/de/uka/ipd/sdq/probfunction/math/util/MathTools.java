@@ -311,9 +311,10 @@ public class MathTools {
 	}
 	
 	public static double round(double value,double precision){
-		value *= 1 / precision;
+		long factor = (long)(1 / precision);
+		value *= factor;
 		long temp = Math.round(value);
-		return temp * precision;
+		return (double)temp / (double)factor;
 	}
 
 	public static boolean lessOrEqual(double d1, double d2) {
@@ -321,6 +322,6 @@ public class MathTools {
 	}
 
 	public static boolean less(double d1, double d2) {
-		return d1 < d2 + EPSILON_ERROR;
+		return d1 < d2 && !equalsDouble(d1, d2);
 	}
 }
