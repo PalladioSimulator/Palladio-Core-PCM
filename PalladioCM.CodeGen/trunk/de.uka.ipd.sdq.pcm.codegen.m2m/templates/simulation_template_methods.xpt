@@ -171,3 +171,7 @@
 «AROUND m2t_transforms::user_actions::UserAction FOR Branch»
 	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
 «ENDAROUND»
+
+«AROUND m2t_transforms::user_actions::UserAction FOR Stop»
+	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
+«ENDAROUND»

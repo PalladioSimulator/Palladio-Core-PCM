@@ -8,6 +8,11 @@
 
 «DEFINE EndResponseTimeMeasurement FOR String»
 	// Stop the response time measurement
-	ctx.getModel().getSensorFactory().addMeasurement("Response Time of «this»",
-		ctx.getModel().currentTime().getTimeValue()-startTime«this.javaVariableName()»);
+	ctx.getModel().getCurrentExperimentRun().addTimeSpanMeasurement(
+			de.uka.ipd.sdq.simucomframework.sensors.SensorHelper.createOrReuseTimeSensor(
+				ctx.getModel().getDAOFactory(),
+				ctx.getModel().getExperimentDatastore(),
+				"Response Time of «this»"),
+			ctx.getModel().currentTime().getTimeValue(),
+			ctx.getModel().currentTime().getTimeValue()-startTime«this.javaVariableName()»);
 «ENDDEFINE»

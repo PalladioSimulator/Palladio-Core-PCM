@@ -31,3 +31,7 @@
 	}
 	sum«counterNumber» += «this.branchProbability»;
 «ENDDEFINE»
+
+«DEFINE UserAction FOR Stop»
+	ctx.getModel().increaseMainMeasurementsCount();
+«ENDDEFINE»
