@@ -5,9 +5,9 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import desmoj.core.simulator.SimProcess;
 
 /**
  * Base class for simulated resource container. A resource container corresponds

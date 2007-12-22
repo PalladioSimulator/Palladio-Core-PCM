@@ -37,16 +37,14 @@ public abstract class AbstractMain {
 		final long SIM_STOP_TIME = config.getSimuTime();
 		
 		model = 
-			SimuComFactory.getSimuComModel( 
-                "SimuCom Model", true, true);
-		model.setConfig(config);
+			SimuComFactory.getSimuComModel(config); 
 		model.initialiseResourceContainer(getResourceContainerFactory());
 		model.setUsageScenarios(getWorkloads());
-		model.getExperiment().getSimClock().addObserver(new Observer(){
+		model.getSimulationControl().addTimeObserver(new Observer(){
 
 			public void update(Observable clock, Object data) {
 				statusObserver.updateStatus(
-						(int)(model.currentTime().getTimeValue() * 100 / SIM_STOP_TIME));
+						(int)(model.getSimulationControl().getCurrentSimulationTime() * 100 / SIM_STOP_TIME));
 			}
 			
 		});
@@ -75,7 +73,7 @@ public abstract class AbstractMain {
 	 * Request a simulation stop 
 	 */
 	protected void stop() {
-		model.getExperiment().stop();
+		model.getSimulationControl().stop();
 	}
 	
 	/**

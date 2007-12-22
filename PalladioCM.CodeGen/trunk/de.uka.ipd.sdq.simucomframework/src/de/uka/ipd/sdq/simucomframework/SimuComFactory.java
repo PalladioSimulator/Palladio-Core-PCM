@@ -1,7 +1,14 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
+
+import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
+import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import desmoj.core.simulator.Experiment;
 
 /**
  * Factory for creating simulation objects. The created objects are already attached
@@ -18,22 +25,28 @@ public class SimuComFactory {
 	 * @param showInTrance Should desmoj trace our experiment
 	 * @return The created simulation model 
 	 */
-	public static SimuComModel getSimuComModel(String name,
-			boolean showInReport, boolean showInTrance) {
+	public static SimuComModel getSimuComModel(SimuComConfig config) {
+		ISimEngineFactory factory = null;
 		
-		SimuComModel model = new SimuComModel(null, 
-				name, 
-				showInReport,
-				showInTrance);
-		
-		Experiment exp = new Experiment("SimuCom Experiment");
-		// ATTENTION, since the name of the experiment is used in the names of
-		// the
-		// output files, you have to specify a string that's compatible with the
-		// filename constraints of your computer's operating system.
-		model.connectToExperiment(exp);
-		
-		return model;
+		for(IConfigurationElement configurationElement : Platform.getExtensionRegistry().
+				getConfigurationElementsFor("de.uka.ipd.sdq.simucomframework.engine")){
+		            
+			try {
+				if (configurationElement.getAttribute("id").equals(config.getEngine()))
+				factory = (ISimEngineFactory)configurationElement.createExecutableExtension("class");
+			} catch (CoreException e) {
+				e.printStackTrace();
+				factory = null;
+			}
+		}
+		if (factory == null)
+			return null;
+		else {
+			SimuComModel model = new SimuComModel( 
+					config, factory);
+			
+			return model;
+		}
 	}
 	
 }

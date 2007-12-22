@@ -3,11 +3,9 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import desmoj.core.exception.SimFinishedException;
-import desmoj.core.simulator.Model;
-import desmoj.core.simulator.SimProcess;
-import desmoj.core.simulator.SimTime;
 
 /**
  * Base class for open workload users. Open workload users begin their life,
@@ -21,8 +19,8 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 	private static Logger logger = 
 		Logger.getLogger(OpenWorkloadUser.class.getName());
 
-	public OpenWorkloadUser(Model owner, String name, IScenarioRunner scenarioRunner) {
-		super(owner, name, false);
+	public OpenWorkloadUser(SimuComModel owner, String name, IScenarioRunner scenarioRunner) {
+		super(owner, name);
 		this.scenarioRunner = scenarioRunner;
 	}
 
@@ -35,9 +33,9 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 			logger.debug(this.getName()+" started! I'm alive!!!");
 			scenarioRunner(this);
 			logger.debug(this.getName()+" done! I'm dying!!!");
-		} catch (SimFinishedException ex) {
+//		} catch (SimFinishedException ex) {
 		} catch (Exception e) {
-			this.getModel().getExperiment().stop();
+			this.getModel().getSimulationControl().stop();
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
 					e);
 		}
@@ -54,6 +52,6 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 	 * @see de.uka.ipd.sdq.simucomframework.usage.IUser#startUserLife()
 	 */
 	public void startUserLife() {
-		this.activate(SimTime.NOW);
+		this.scheduleAt(0);
 	}
 }

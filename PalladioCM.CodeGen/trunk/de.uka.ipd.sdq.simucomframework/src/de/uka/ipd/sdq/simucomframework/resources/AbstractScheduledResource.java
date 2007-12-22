@@ -10,15 +10,15 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.Entity;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEventDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.DemandTooLargeException;
 import de.uka.ipd.sdq.simucomframework.exceptions.NegativeDemandIssuedException;
 import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorHelper;
-import desmoj.core.simulator.Entity;
-import desmoj.core.simulator.Event;
-import desmoj.core.simulator.SimProcess;
-import desmoj.core.simulator.SimTime;
+
 
 /**
  * Base class of all resources which have their own scheduler, i.e., active
@@ -41,13 +41,13 @@ public abstract class AbstractScheduledResource extends Entity {
 	private ExperimentRun experimentRun = null;
 	protected ISchedulingStrategy myStrategy = null;
 
-	private SimTime lastTimeOfAdjustingJobs;
+	private double lastTimeOfAdjustingJobs;
 
 	private int lastCount;
 	
 	public AbstractScheduledResource(SimuComModel myModel, String id, String description, SchedulingStrategy strategy)
 	{
-		super (myModel, id, false);
+		super (myModel, id);
 		this.idle = true;
 		
 		this.idleState = SensorHelper.createOrReuseState(myModel.getDAOFactory(), "Idle");
@@ -129,17 +129,17 @@ public abstract class AbstractScheduledResource extends Entity {
 		if (demand < 0)
 			throw new NegativeDemandIssuedException("A negative demand occured. Demand was "+demand);
 		experimentRun.addTimeSpanMeasurement(
-				demandTimeSensor, this.getModel().currentTime().getTimeValue(), 
+				demandTimeSensor, this.getModel().getSimulationControl().getCurrentSimulationTime(), 
 				demand);
-		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculateDemand(demand),this,this.getModel().currentTime().getTimeValue());
+		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculateDemand(demand),this,this.getModel().getSimulationControl().getCurrentSimulationTime());
 		if (job.getDemand() > ((SimuComModel)this.getModel()).getConfig().getSimuTime())
 			throw new DemandTooLargeException("A demand calculated from a processing rate and a demand in the design model ("+
 					demand+") has been issued to resource "+
 					this.getName()+" which is larger than the total simulation time ("+
 					((SimuComModel)this.getModel()).getConfig().getSimuTime()+"). Check your models.");
-		Event ev = new JobArrivalEvent(this.getModel(),
-				job,"Arrival Event", true);
-		ev.schedule(job, SimTime.NOW);
+		ISimEventDelegate ev = new JobArrivalEvent(this.getModel(),
+				job,"Arrival Event");
+		ev.schedule(job, 0);
 		logger.debug("Thread "+thread.getName()+" requested processing of demand "+demand);
 		thread.passivate();
 	}
@@ -151,8 +151,8 @@ public abstract class AbstractScheduledResource extends Entity {
 	 */
 	public JobAndDemandStruct removeFinishedJob() {
 		JobAndDemandStruct job = myStrategy.removeFinishedJob();
-		experimentRun.addTimeSpanMeasurement(waitTimeSensor, this.getModel().currentTime().getTimeValue(), 
-				job.getWaitTime(this.getModel().currentTime().getTimeValue()));
+		experimentRun.addTimeSpanMeasurement(waitTimeSensor, this.getModel().getSimulationControl().getCurrentSimulationTime(), 
+				job.getWaitTime(this.getModel().getSimulationControl().getCurrentSimulationTime()));
 		return job;
 	}
 
@@ -179,14 +179,14 @@ public abstract class AbstractScheduledResource extends Entity {
 	public void setIdle(boolean b) {
 		if (this.idle != b || lastCount != myStrategy.getTotalJobCount()) {
 			if (b) {
-				experimentRun.addStateMeasurement(stateSensor, idleState, this.getModel().currentTime().getTimeValue());
+				experimentRun.addStateMeasurement(stateSensor, idleState, this.getModel().getSimulationControl().getCurrentSimulationTime());
 			} else {
 				String stateLiteral = "Busy "+Integer.toString(myStrategy.getTotalJobCount())+" Job(s)";
 				lastCount = myStrategy.getTotalJobCount();
 				State nrState = SensorHelper.createOrReuseState(((SimuComModel)this.getModel()).getDAOFactory(), stateLiteral);
 				if (!stateSensor.getSensorStates().contains(nrState)) 
 					stateSensor.addSensorState(nrState);
-				experimentRun.addStateMeasurement(stateSensor, nrState, this.getModel().currentTime().getTimeValue());
+				experimentRun.addStateMeasurement(stateSensor, nrState, this.getModel().getSimulationControl().getCurrentSimulationTime());
 			}
 		}
 		this.idle=b;
@@ -209,7 +209,7 @@ public abstract class AbstractScheduledResource extends Entity {
 	public void activateResource()
 	{
 		logger.debug("Starting Resource "+this.getName());
-		lastTimeOfAdjustingJobs = getModel().currentTime();
+		lastTimeOfAdjustingJobs = getModel().getSimulationControl().getCurrentSimulationTime();
 	}
 	
 	/**
@@ -219,7 +219,7 @@ public abstract class AbstractScheduledResource extends Entity {
 	public void deactivateResource()
 	{
 		logger.debug("Stopping Resource "+this.getName());
-		experimentRun.addStateMeasurement(stateSensor, idleState, getModel().currentTime().getTimeValue());
+		experimentRun.addStateMeasurement(stateSensor, idleState, getModel().getSimulationControl().getCurrentSimulationTime());
 	}
 
 	/**
@@ -227,11 +227,11 @@ public abstract class AbstractScheduledResource extends Entity {
 	 * their remaining demands   
 	 */
 	public void processPassedTime() {
-		double timePassed = getModel().currentTime().getTimeValue() - lastTimeOfAdjustingJobs.getTimeValue();
+		double timePassed = getModel().getSimulationControl().getCurrentSimulationTime() - lastTimeOfAdjustingJobs;
 		
 		myStrategy.processPassedTime(timePassed);
 		
-		lastTimeOfAdjustingJobs = getModel().currentTime();
+		lastTimeOfAdjustingJobs = getModel().getSimulationControl().getCurrentSimulationTime();
 	}
 	
 }

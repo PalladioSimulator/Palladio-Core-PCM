@@ -9,11 +9,13 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.ResourceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDelegate;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
-import desmoj.core.simulator.Model;
 
 /**
  * Central simulation class needed by desmoj. Keeps the simulation state
@@ -21,7 +23,7 @@ import desmoj.core.simulator.Model;
  * @author Steffen Becker
  *
  */
-public class SimuComModel extends Model {
+public class SimuComModel {
 
 	protected ResourceRegistry resourceRegistry = null;
 	private IWorkloadDriver[] workloadDrivers;
@@ -32,24 +34,17 @@ public class SimuComModel extends Model {
 	private ExperimentRun run = null;
 	private IDAOFactory daoFactory;
 	private long mainMeasurementsCount;
+	private ISimEngineFactory simulationEngineFactory;
+	private ISimulationControlDelegate simControl;
 	
-	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace) {
-		super(owner, myName, showInReport, showInTrace);
+	public SimuComModel(SimuComConfig config, ISimEngineFactory factory) {
+		this.config = config;
+		this.simulationEngineFactory = factory;
+		this.simControl = factory.createSimulationControl(this);
 		resourceRegistry = new ResourceRegistry(this);
+		initialiseNewSensorframework(config);
 	}
 
-	/* (non-Javadoc)
-	 * @see desmoj.core.simulator.Model#description()
-	 */
-	@Override
-	public String description() {
-		return "SimuCom Simulation";
-	}
-
-	/* (non-Javadoc)
-	 * @see desmoj.core.simulator.Model#doInitialSchedules()
-	 */
-	@Override
 	public void doInitialSchedules() {
 		for (IWorkloadDriver w : workloadDrivers)
 		{
@@ -57,13 +52,6 @@ public class SimuComModel extends Model {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see desmoj.core.simulator.Model#init()
-	 */
-	@Override
-	public void init() {
-	}
-	
 	/**
 	 * Add the given usage scenarios to this simulation run
 	 * @param workload Usage scenarios to execute during this
@@ -133,17 +121,6 @@ public class SimuComModel extends Model {
 		return config;
 	}
 
-	/**
-	 * Set the configuration of this simulation model. Initialse the model
-	 * to the parameters given.
-	 * @param config The simulation parameters to use during execution of
-	 * the simulation
-	 */
-	public void setConfig(SimuComConfig config) {
-		this.config = config;
-		initialiseNewSensorframework(config);
-	}
-
 	private void initialiseNewSensorframework(SimuComConfig config) {
 		this.daoFactory = SensorFrameworkDataset.singleton().getDataSourceByID(config.getDatasourceID()); 
 		if (daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).size() == 1){
@@ -184,5 +161,22 @@ public class SimuComModel extends Model {
 	
 	public long getMainMeasurementsCount() {
 		return mainMeasurementsCount;
+	}
+	
+	public ISimulationControlDelegate getSimulationControl() {
+		return simControl;
+	}
+
+	public void setSimulationControl(ISimulationControlDelegate control) {
+		this.simControl = control;
+	}
+
+	public void setSimulationEngineFactory(
+			ISimEngineFactory factory) {
+		this.simulationEngineFactory = factory;
+	}
+
+	public ISimEngineFactory getSimEngineFactory() {
+		return this.simulationEngineFactory;
 	}
 }

@@ -68,4 +68,8 @@ public class SimuComConfig {
 		return this.datasourceID;
 	}
 
+	public String getEngine() {
+		return "de.uka.ipd.sdq.simucomframework.ssj.SSJSimEngineFactory";
+	}
+
 }

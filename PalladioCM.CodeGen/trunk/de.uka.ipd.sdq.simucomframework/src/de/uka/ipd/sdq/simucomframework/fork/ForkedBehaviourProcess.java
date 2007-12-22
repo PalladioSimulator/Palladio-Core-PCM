@@ -4,11 +4,11 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
-import desmoj.core.exception.SimFinishedException;
-import desmoj.core.simulator.SimProcess;
 
 /**
  * Context for forked behaviours
@@ -62,7 +62,7 @@ class ForkContext extends Context {
 public abstract class ForkedBehaviourProcess extends SimProcess {
 
 	protected Context ctx;
-	private SimProcess myParent;
+	private ISimProcessDelegate myParent;
 	protected String assemblyContextID;
 	private boolean isAsync;
 
@@ -70,7 +70,7 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 		Logger.getLogger(ForkedBehaviourProcess.class.getName());
 
 	public ForkedBehaviourProcess(Context myContext, String assemblyContextID, boolean isAsync) {
-		super(myContext.getModel(), "Forked Behaviour", true);
+		super(myContext.getModel(), "Forked Behaviour");
 		this.ctx = new ForkContext(myContext,this);
 		this.myParent = myContext.getThread();
 		this.assemblyContextID = assemblyContextID;
@@ -81,17 +81,17 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 	public void lifeCycle() {
 		try {
 			executeBehaviour();
-		} catch(SimFinishedException ex) {
-			return;
+//		} catch(SimFinishedException ex) {
+//			return;
 		} catch(Exception ex) {
 			logger.error("Error in executing forked behaviour!",ex);
 			((SimuComModel)this.getModel()).setStatus(SimuComStatus.ERROR, ex);
-			this.getModel().getExperiment().stop();
+			this.getModel().getSimulationControl().stop();
 		}
 		if (!isAsync)
 			myParent.activateAfter(this);
 		else
-			logger.debug("Asynch behaviour finished at simtime "+getModel().currentTime().getTimeValue());
+			logger.debug("Asynch behaviour finished at simtime "+getModel().getSimulationControl().getCurrentSimulationTime());
 	}
 
 	

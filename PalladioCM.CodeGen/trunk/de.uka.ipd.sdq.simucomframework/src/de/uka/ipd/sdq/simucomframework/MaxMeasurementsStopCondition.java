@@ -1,17 +1,15 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.Condition;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import desmoj.core.simulator.Condition;
-import desmoj.core.simulator.Entity;
-import desmoj.core.simulator.Model;
 
 public class MaxMeasurementsStopCondition extends Condition {
 
 	private long max_measurements = 1000;
 	private SimuComModel myModel; 
 	
-	public MaxMeasurementsStopCondition(Model owner, String name, boolean showInTrace) {
-		super(owner, name, showInTrace);
+	public MaxMeasurementsStopCondition(SimuComModel owner) {
+		super(owner, "Maximum Measurements Count Stop Condition");
 
 		this.myModel = (SimuComModel)owner;
 		max_measurements = myModel.getConfig().getMaxMeasurementsCount();
@@ -20,10 +18,4 @@ public class MaxMeasurementsStopCondition extends Condition {
 	public boolean check() {
 		return (max_measurements > 0) && (myModel.getMainMeasurementsCount()>=max_measurements);
 	}
-	
-	@Override
-	public boolean check(Entity arg0) {
-		return false;
-	}
-	
 }

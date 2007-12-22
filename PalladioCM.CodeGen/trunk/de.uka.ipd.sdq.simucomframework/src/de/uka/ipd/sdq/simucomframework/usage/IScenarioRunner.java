@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
-import desmoj.core.simulator.SimProcess;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 
 /**
  * Interface which encapsulates a behaviour. The behaviour can be executed when

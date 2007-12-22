@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
-import desmoj.core.simulator.Entity;
-import desmoj.core.simulator.Event;
-import desmoj.core.simulator.Model;
-import desmoj.core.simulator.SimTime;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.IEntityDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEventDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent;
+import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
  * Event triggered by the simulation when a job is finished in one of the resources
@@ -11,21 +11,21 @@ import desmoj.core.simulator.SimTime;
  * @author Snowball
  *
  */
-public class JobDoneEvent extends Event {
+public class JobDoneEvent extends SimEvent {
 
-	public JobDoneEvent(Model owner, String name, boolean showInTrace) {
-		super(owner, name, showInTrace);
+	public JobDoneEvent(SimuComModel owner, String name) {
+		super(owner, name);
 	}
 
 	@Override
-	public void eventRoutine(Entity who) {
+	public void eventRoutine(IEntityDelegate who) {
 		AbstractScheduledResource resource = (AbstractScheduledResource) who;
 		resource.processPassedTime();
 		JobAndDemandStruct job = resource.removeFinishedJob();
-		job.getJobParent().activate(SimTime.NOW);
+		job.getJobParent().scheduleAt(0);
 	 	if (resource.hasMoreJobs()) {
-			Event ev = new JobDoneEvent(getModel(), "JobDone", true);
-			ev.schedule(resource, new SimTime(resource.getTimeWhenNextJobIsDone()));
+			ISimEventDelegate ev = new JobDoneEvent(getModel(), "JobDone");
+			ev.schedule(resource, resource.getTimeWhenNextJobIsDone());
 			resource.setIdle(false);
 		} else {
 			resource.setIdle(true);

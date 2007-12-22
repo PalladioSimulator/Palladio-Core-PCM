@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.simucomframework.fork;
 
 import org.apache.log4j.Logger;
 
-import desmoj.core.simulator.SimProcess;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 
 /**
  * Helper to execute a fork action in the PCM. Implements the 
@@ -32,12 +32,12 @@ public class ForkExecutor {
 	 */
 	public void run() {
 		logger.info("Running parallel operations");
-		double start = parent.getModel().currentTime().getTimeValue();
+		double start = parent.getModel().getSimulationControl().getCurrentSimulationTime();
 		for(ForkedBehaviourProcess p : forks) 
 			p.activateAfter(this.parent);
 		while(checkIfRemainingChildrenRun())
 			parent.passivate();
-		logger.debug("Forks took: "+(parent.getModel().currentTime().getTimeValue()-start));
+		logger.debug("Forks took: "+(parent.getModel().getSimulationControl().getCurrentSimulationTime()-start));
 	}
 
 	/**

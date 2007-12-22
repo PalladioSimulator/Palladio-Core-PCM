@@ -4,10 +4,8 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import desmoj.core.exception.SimFinishedException;
-import desmoj.core.simulator.SimProcess;
-import desmoj.core.simulator.SimTime;
 
 
 /**
@@ -31,13 +29,13 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 	 * @param interArrivalTime The time to wait between leaving a new user to its fate
 	 */
 	public OpenWorkload(SimuComModel model, IUserFactory userFactory, String interArrivalTime) {
-		super(model,"OpenWorkloadUserMaturationChamber",true);
+		super(model,"OpenWorkloadUserMaturationChamber");
 		this.interArrivalTime = interArrivalTime;
 		this.userFactory = userFactory;
 	}
 
 	public void run() {
-		this.activate(SimTime.NOW);
+		this.scheduleAt(0);
 	}
 
 	@Override
@@ -52,9 +50,9 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 					throw new RuntimeException("Too many users spawned");
 				}
 			}
-		} catch (SimFinishedException ex) {
+//		} catch (SimFinishedException ex) {
 		} catch (Exception e) {
-			this.getModel().getExperiment().stop();
+			this.getModel().getSimulationControl().stop();
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
 					e);
 		}
@@ -63,7 +61,7 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 	private void waitForNextUser() {
 		double interArrivalTimeSample = (Double)Context.evaluateStatic(interArrivalTime,Double.class);
 		logger.info("Waiting for "+interArrivalTimeSample+" before spawing the next user");
-		this.hold(new SimTime(interArrivalTimeSample));
+		this.hold(interArrivalTimeSample);
 	}
 
 	private void generateUser() {

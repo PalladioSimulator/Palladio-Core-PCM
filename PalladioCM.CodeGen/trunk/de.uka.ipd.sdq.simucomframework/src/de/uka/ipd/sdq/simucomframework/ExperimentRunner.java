@@ -1,9 +1,7 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
-import desmoj.core.simulator.Experiment;
-import desmoj.core.simulator.SimTime;
 
 /**
  * Helper class to actually perform a simulation run using desmo-j
@@ -19,26 +17,23 @@ public class ExperimentRunner {
 	 * @param simTime Maximum simulation time to run the simulation for
 	 */
 	public static void run(SimuComModel model, long simTime) {
-		Experiment exp = model.getExperiment();
+		// Experiment exp = model.getExperiment();
 		// set experiment parameters
-		exp.setShowProgressBar(false); // display a progress bar (or not)
+		// exp.setShowProgressBar(false); // display a progress bar (or not)
 		
 		if (model.getConfig().getMaxMeasurementsCount() <= 0 && simTime <= 0)
-			exp.stop(new SimTime(0)); 
+			model.getSimulationControl().setMaxSimTime(0); 
 		else
 			if (simTime > 0)
-				exp.stop(new SimTime(simTime)); // set end of simulation at 1500 time
-												// units
+				model.getSimulationControl().setMaxSimTime(simTime); // set end of simulation at 1500 time
+																	// units
 
-		exp.stop(new MaxMeasurementsStopCondition(model,"MaxMeasurementsStopCondtion",true));
+		model.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(model));
 		
-		exp.start();
-
-		// generate the report (and other output files)
-		exp.report();
+		model.getSimulationControl().start();
 		
 		// stop all threads still alive and close all output files
-		exp.finish();
+		// TODO: Move me: exp.finish();
 		model.getResourceRegistry().deactivateAllActiveResources();
 
 		model.getDAOFactory().createExperimentDAO().store(model.getExperimentDatastore());

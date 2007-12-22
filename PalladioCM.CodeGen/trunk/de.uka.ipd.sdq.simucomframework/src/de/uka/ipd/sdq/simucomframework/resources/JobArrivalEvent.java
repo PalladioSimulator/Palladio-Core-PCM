@@ -2,24 +2,24 @@
  * 
  */
 package de.uka.ipd.sdq.simucomframework.resources;
- 
-import desmoj.core.simulator.Entity;
-import desmoj.core.simulator.Event;
-import desmoj.core.simulator.Model;
-import desmoj.core.simulator.SimTime;
 
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.IEntityDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEventDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent;
+import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+ 
 /**
  * Event triggered when a new job arrives at a simulated resource and
  * demands processing its resource demand
  * @author Snowball
  *
  */
-public class JobArrivalEvent extends Event {
+public class JobArrivalEvent extends SimEvent {
 
 	private JobAndDemandStruct demand;
 
-	public JobArrivalEvent(Model owner, JobAndDemandStruct jobAndDemandStruct, String name, boolean showInTrace) {
-		super(owner, name, showInTrace);
+	public JobArrivalEvent(SimuComModel owner, JobAndDemandStruct jobAndDemandStruct, String name) {
+		super(owner, name);
 		this.demand = jobAndDemandStruct;
 	}
 
@@ -27,18 +27,17 @@ public class JobArrivalEvent extends Event {
 	 * @see desmoj.core.simulator.Event#eventRoutine(desmoj.core.simulator.Entity)
 	 */
 	@Override
-	public void eventRoutine(Entity who) {
+	public void eventRoutine(IEntityDelegate who) {
 		JobAndDemandStruct job = (JobAndDemandStruct)who;
 		AbstractScheduledResource resource = job.getResource();
 		resource.processPassedTime();
 		resource.addJob(demand);
 		double nextEventTime = resource.getTimeWhenNextJobIsDone();
-		SimTime nextEvent = new SimTime(nextEventTime);
 		if(resource.isScheduled())
-			resource.reSchedule(nextEvent);
+			resource.reschedule(nextEventTime);
 		else {
-			Event ev = new JobDoneEvent(getModel(), "JobDone", true);
-			ev.schedule(resource, nextEvent);
+			ISimEventDelegate ev = new JobDoneEvent(getModel(), "JobDone");
+			ev.schedule(resource, nextEventTime);
 		}
 		resource.setIdle(false);
 	}

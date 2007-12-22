@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import desmoj.core.simulator.Queue;
 
 /**
  * First-come, first-serve scheduling strategy. The first job is executed fully
@@ -10,29 +12,29 @@ import desmoj.core.simulator.Queue;
  *
  */
 public class FCFSStrategy implements ISchedulingStrategy {
-	protected Queue runQueue = null;
+	protected Queue<JobAndDemandStruct> runQueue = null;
 
 	public FCFSStrategy(SimuComModel myModel){
-		runQueue = new Queue(myModel, "RunQueue", true, true);
+		runQueue = new ConcurrentLinkedQueue<JobAndDemandStruct>();
 	}
 
 	public void processPassedTime(double timePassed) {
-		if (runQueue.length() > 0){
-			JobAndDemandStruct jobAndDemand = (JobAndDemandStruct) runQueue.first();
+		if (runQueue.size() > 0){
+			JobAndDemandStruct jobAndDemand = runQueue.peek();
 			jobAndDemand.reduceDemand(timePassed);
 		}
 	}
 
 	public void addJob(JobAndDemandStruct demand) {
-		runQueue.insert(demand);
+		runQueue.offer(demand);
 	}
 
 	public double getTimeWhenNextJobIsDone() {
-		return ((JobAndDemandStruct)runQueue.first()).getDemand();
+		return runQueue.peek().getDemand();
 	}
 
 	public JobAndDemandStruct removeFinishedJob() {
-		JobAndDemandStruct job = (JobAndDemandStruct) runQueue.first();
+		JobAndDemandStruct job = runQueue.peek();
 		if (Math.abs(job.getDemand()) > Math.pow(10, -3))
 			throw new RuntimeException("Job finished, but demand > 0");
 		runQueue.remove(job);
@@ -40,11 +42,11 @@ public class FCFSStrategy implements ISchedulingStrategy {
 	}
 
 	public boolean hasMoreJobs() {
-		return runQueue.length() > 0;
+		return runQueue.size() > 0;
 	}
 
 	public int getTotalJobCount() {
-		return runQueue.length();
+		return runQueue.size();
 	}
 
 }

@@ -3,8 +3,8 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Collection;
 import java.util.HashMap;
 
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import desmoj.core.simulator.SimProcess;
 
 public class SimulatedResourceContainer extends AbstractSimulatedResourceContainer {
 	

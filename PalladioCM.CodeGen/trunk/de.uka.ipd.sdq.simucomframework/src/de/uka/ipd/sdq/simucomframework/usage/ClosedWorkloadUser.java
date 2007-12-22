@@ -4,11 +4,9 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import desmoj.core.exception.SimFinishedException;
-import desmoj.core.simulator.Model;
-import desmoj.core.simulator.SimProcess;
-import desmoj.core.simulator.SimTime;
 
 /**
  * A closed workload user is a user which performs the typical closed workload clycle:
@@ -31,8 +29,8 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	 * @param scenarioRunner2 The scenario runner determining the users behaviour
 	 * @param thinkTimeSpec A stoex which deterimines the users think time
 	 */
-	public ClosedWorkloadUser(Model owner, String name, IScenarioRunner scenarioRunner2, String thinkTimeSpec) {
-		super(owner, name, false);
+	public ClosedWorkloadUser(SimuComModel owner, String name, IScenarioRunner scenarioRunner2, String thinkTimeSpec) {
+		super(owner, name);
 		this.scenarioRunner = scenarioRunner2;
 		this.thinkTime = thinkTimeSpec;
 	}
@@ -47,9 +45,9 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 			while (true) {
 				scenarioRunner(this);
 			}
-		} catch (SimFinishedException ex) {
+		//} catch (SimFinishedException ex) {
 		} catch (Exception e) {
-			this.getModel().getExperiment().stop();
+			this.getModel().getSimulationControl().stop();
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
 					e);
 		}
@@ -60,7 +58,7 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	 */
 	public void scenarioRunner(SimProcess thread) {
 		double thinkTime = (Double)Context.evaluateStatic(this.thinkTime,Double.class,null);
-		this.hold(new SimTime(thinkTime));
+		this.hold(thinkTime);
 		this.scenarioRunner.scenarioRunner(thread);
 	}
 
@@ -68,7 +66,7 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	 * @see de.uka.ipd.sdq.simucomframework.usage.IUser#startUserLife()
 	 */
 	public void startUserLife() {
-		this.activate(SimTime.NOW);
+		this.scheduleAt(0);
 	}
 
 }
