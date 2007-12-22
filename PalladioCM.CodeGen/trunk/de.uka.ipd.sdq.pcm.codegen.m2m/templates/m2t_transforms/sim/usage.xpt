@@ -59,7 +59,7 @@
 «ENDDEFINE» 
 
 «DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
-	public void scenarioRunner(desmoj.core.simulator.SimProcess thread) {
+	public void scenarioRunner(de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess thread) {
 		ctx.setSimProcess(thread);
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
 		{

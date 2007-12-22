@@ -3,7 +3,7 @@
 
 «DEFINE StartResponseTimeMeasurement FOR String»
 	// Start a response time measurement
-	double startTime«this.javaVariableName()» = ctx.getModel().currentTime().getTimeValue();
+	double startTime«this.javaVariableName()» = ctx.getModel().getSimulationControl().getCurrentSimulationTime();
 «ENDDEFINE»
 
 «DEFINE EndResponseTimeMeasurement FOR String»
@@ -13,6 +13,6 @@
 				ctx.getModel().getDAOFactory(),
 				ctx.getModel().getExperimentDatastore(),
 				"Response Time of «this»"),
-			ctx.getModel().currentTime().getTimeValue(),
-			ctx.getModel().currentTime().getTimeValue()-startTime«this.javaVariableName()»);
+			ctx.getModel().getSimulationControl().getCurrentSimulationTime(),
+			ctx.getModel().getSimulationControl().getCurrentSimulationTime()-startTime«this.javaVariableName()»);
 «ENDDEFINE»
