@@ -297,6 +297,20 @@ litigation.
          unpack="false"/>
 
    <plugin
+         id="de.uka.ipd.sdq.simucomframework.desmoj"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.simucomframework.ssj"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="de.uka.ipd.sdq.simucomframework.variables"
          download-size="0"
          install-size="0"
