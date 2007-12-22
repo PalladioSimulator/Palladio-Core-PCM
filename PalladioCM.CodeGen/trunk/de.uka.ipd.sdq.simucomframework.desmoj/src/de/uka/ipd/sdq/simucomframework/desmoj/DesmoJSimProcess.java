@@ -24,16 +24,8 @@ public class DesmoJSimProcess extends SimProcess implements ISimProcessDelegate 
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate#activateAfter(de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate)
-	 */
-	public void activateAfter(de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess p) {
-
-	}
-
-	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate#hold(double)
 	 */
-	@Override
 	public void hold(double d) {
 		this.hold(new SimTime(d));
 	}
@@ -53,9 +45,15 @@ public class DesmoJSimProcess extends SimProcess implements ISimProcessDelegate 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate#scheduleAt(double)
 	 */
-	@Override
 	public void scheduleAt(double d) {
 		this.activate(new SimTime(d));
+	}
+
+	@Override
+	public void activateAfter(
+			de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess p) {
+		
+		
 	}
 
 }

@@ -25,7 +25,6 @@ public class DesmoJEntity extends Entity implements IEntityDelegate {
 		return myAbstractEntity;
 	}
 
-	@Override
 	public void reschedule(double d) {
 		this.reSchedule(new SimTime(d));
 	}

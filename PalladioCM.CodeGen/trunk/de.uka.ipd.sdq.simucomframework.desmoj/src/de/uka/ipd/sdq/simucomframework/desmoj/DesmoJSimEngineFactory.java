@@ -12,7 +12,6 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class DesmoJSimEngineFactory implements ISimEngineFactory {
 
-	@Override
 	public ISimulationControlDelegate createSimulationControl(SimuComModel model) {
 		ISimulationControlDelegate delegate = new DesmoJExperiment(model);
 		model.setSimulationControl(delegate);
@@ -21,7 +20,6 @@ public class DesmoJSimEngineFactory implements ISimEngineFactory {
 		return delegate;
 	}
 
-	@Override
 	public ISimProcessDelegate createSimProcess(SimProcess myProcess, SimuComModel model, String name) {
 		return new DesmoJSimProcess(
 				myProcess,
@@ -29,7 +27,6 @@ public class DesmoJSimEngineFactory implements ISimEngineFactory {
 				name);
 	}
 
-	@Override
 	public ISimEventDelegate createSimEvent(SimEvent myEvent, SimuComModel model, String name) {
 		return new DesmoJSimEvent(
 				myEvent,
@@ -37,7 +34,6 @@ public class DesmoJSimEngineFactory implements ISimEngineFactory {
 				name);
 	}
 
-	@Override
 	public IEntityDelegate createEntity(Entity e, SimuComModel model, String name) {
 		return new DesmoJEntity(
 				e,

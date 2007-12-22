@@ -19,22 +19,18 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 		this.model = new DesmoJModel(model);
 	}
 	
-	@Override
 	public void addStopCondition(Condition condition) {
 		model.getExperiment().stop(new DesmoJConditionWrapper(condition,model));
 	}
 
-	@Override
 	public void addTimeObserver(Observer observer) {
 		model.getExperiment().getSimClock().addObserver(observer);
 	}
 
-	@Override
 	public double getCurrentSimulationTime() {
 		return model.currentTime().getTimeValue();
 	}
 
-	@Override
 	public void setMaxSimTime(long simTime) {
 		if (simTime > 0)
 			model.getExperiment().stop(new SimTime(simTime));
@@ -43,7 +39,6 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 	protected static Logger logger = 
 		Logger.getLogger(DesmoJExperiment.class.getName());
 
-	@Override
 	public void start() {
 		double start = System.nanoTime();
 		logger.warn("Starting simulation...");
@@ -51,7 +46,6 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 		logger.warn("Simulation terminated. Took "+((System.nanoTime()-start)/Math.pow(10,9))+" real time seconds.");
 	}
 
-	@Override
 	public void stop() {
 		model.getExperiment().stop();
 		model.getExperiment().finish();
