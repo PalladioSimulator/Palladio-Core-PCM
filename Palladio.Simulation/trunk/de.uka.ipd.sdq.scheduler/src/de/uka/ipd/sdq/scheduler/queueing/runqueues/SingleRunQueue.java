@@ -17,32 +17,26 @@ public class SingleRunQueue extends AbstractRunQueue  {
 		this.process_queue = queue_prototype.createNewInstance();
 	}
 
-	@Override
 	protected int numWaitingProcesses() {
 		return process_queue.size();
 	}
 
-	@Override
 	public IActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		return process_queue.getNextRunnableProcess(instance);
 	}
 	
-	@Override
 	public IActiveProcess getNextRunnableProcess() {
 		return process_queue.getNextRunnableProcess();
 	}
 
-	@Override
 	public boolean removePendingProcess(IActiveProcess process) {
 		return process_queue.remove(process);
 	}
 
-	@Override
 	public IRunQueue createNewInstance() {
 		return new SingleRunQueue(process_queue);
 	}
 
-	@Override
 	public List<IActiveProcess> identifyMovableProcesses(
 			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
 		List<IActiveProcess> process_list = new ArrayList<IActiveProcess>();
@@ -50,18 +44,15 @@ public class SingleRunQueue extends AbstractRunQueue  {
 		return process_list;
 	}
 
-	@Override
 	public IProcessQueue getBestRunnableQueue(
 			IResourceInstance instance) {
 		return this.process_queue.getBestRunnableQueue(instance);
 	}
 
-	@Override
 	public boolean containsPending(IActiveProcess process) {
 		return process_queue.contains(process);
 	}
 
-	@Override
 	protected void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
 		process_queue.add(process, inFront);
 	}

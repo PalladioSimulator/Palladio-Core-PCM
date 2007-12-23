@@ -41,7 +41,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	/**
 	 * Returns the next runnable process for the resource instance.
 	 */
-	@Override
+	
 	public IActiveProcess getNextProcessFor(IResourceInstance instance) {
 		return getRunQueueFor(instance).getNextRunnableProcess();
 	}
@@ -52,7 +52,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	 * 
 	 * A process is added after its creation or after waiting.
 	 */
-	@Override
+	
 	public void addProcess(IActiveProcess process, boolean inFront) {
 		IResourceInstance instance = process.getLastInstance();
 		if (instance == null) {
@@ -87,7 +87,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		process.setIdealInstance(dest);
 	}
 
-	@Override
+	
 	public void balance(IResourceInstance instance) {
 		loadBalancer.balance(instance);
 	}
@@ -115,25 +115,25 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		return idleInstances;
 	}
 
-	@Override
+	
 	public boolean removePendingProcess(IActiveProcess process) {
 		return getRunQueueFor(process.getLastInstance()).removePendingProcess(
 				process);
 
 	}
 
-	@Override
+	
 	public boolean containsPending(IActiveProcess process) {
 		return getRunQueueFor(process.getLastInstance()).containsPending(
 				process);
 	}
 
-	@Override
+	
 	public void removeRunning(IActiveProcess process) {
 		getRunQueueFor(process.getLastInstance()).removeRunning(process);
 	}
 
-	@Override
+	
 	public IResourceInstance runningOn(IActiveProcess process) {
 		for (IResourceInstance instance : runQueueTable.keySet()) {
 			if (runQueueTable.get(instance).containsRunning(process)) {
@@ -143,7 +143,7 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		return null;
 	}
 
-	@Override
+	
 	public void setRunningOn(IActiveProcess process, IResourceInstance instance) {
 		getRunQueueFor(instance).setRunningOn(process, instance);
 	}

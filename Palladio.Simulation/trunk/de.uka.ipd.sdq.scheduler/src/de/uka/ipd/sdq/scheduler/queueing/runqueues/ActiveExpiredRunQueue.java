@@ -22,7 +22,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	/**
 	 * Adds a new process to the end of the expired priority array.
 	 */
-	@Override
 	public void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
 		if (process instanceof PreemptiveProcess) {
 			PreemptiveProcess preemptiveProcess = (PreemptiveProcess) process;
@@ -36,13 +35,11 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		}
 	}
 
-	@Override
 	protected int numWaitingProcesses() {
 		return activePriorityArray.size()
 				+ expiredPriorityArray.size();
 	}
 
-	@Override
 	public IActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		if (activeQueueEmpty())
 			switchActiveAndExpired();
@@ -51,7 +48,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		return activePriorityArray.getNextRunnableProcess(instance);
 	}
 
-	@Override
 	public IActiveProcess getNextRunnableProcess() {
 		if (activeQueueEmpty())
 			switchActiveAndExpired();
@@ -66,7 +62,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		expiredPriorityArray = temp;
 	}
 
-	@Override
 	public boolean removePendingProcess(IActiveProcess process) {
 		return activePriorityArray.remove(process) ||
 			   expiredPriorityArray.remove(process);
@@ -80,12 +75,10 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		return running_on_table.isEmpty() && activePriorityArray.isEmpty();
 	}
 
-	@Override
 	public IRunQueue createNewInstance() {
 		return new ActiveExpiredRunQueue(activePriorityArray);
 	}
 
-	@Override
 	public List<IActiveProcess> identifyMovableProcesses(
 			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
 		List<IActiveProcess> process_list = new ArrayList<IActiveProcess>(); 
@@ -104,7 +97,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		return result;
 	}
 
-	@Override
 	public boolean containsPending(IActiveProcess process) {
 		return activePriorityArray.contains(process) || expiredPriorityArray.contains(process);
 	}

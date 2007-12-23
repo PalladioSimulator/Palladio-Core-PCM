@@ -28,7 +28,7 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 		return processSelector.select(runQueue, instance);
 	}
 
-	@Override
+	
 	public void addProcess(IActiveProcess process, boolean inFront) {
 		IResourceInstance instance = process.getLastInstance();
 		if (instance == null) {
@@ -38,37 +38,37 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 		runQueue.addProcess(process, inFront);
 	}
 
-	@Override
+	
 	public void balance(IResourceInstance instance) {
 		// nothing to do.
 	}
 
-	@Override
+	
 	public boolean removePendingProcess(IActiveProcess process) {
 		return runQueue.removePendingProcess(process);
 	}
 
-	@Override
+	
 	public boolean containsPending(IActiveProcess process) {
 		return runQueue.containsPending(process);
 	}
 
-	@Override
+	
 	public void removeRunning(IActiveProcess process) {
 		runQueue.removeRunning(process);
 	}
 
-	@Override
+	
 	public IResourceInstance runningOn(IActiveProcess process) {
 		return runQueue.runningOn(process);
 	}
 
-	@Override
+	
 	public void setRunningOn(IActiveProcess process, IResourceInstance instance) {
 		runQueue.setRunningOn(process, instance);
 	}
 
-	@Override
+	
 	public boolean isIdle(IResourceInstance instance) {
 		return runQueue.isIdle(instance);
 	}
