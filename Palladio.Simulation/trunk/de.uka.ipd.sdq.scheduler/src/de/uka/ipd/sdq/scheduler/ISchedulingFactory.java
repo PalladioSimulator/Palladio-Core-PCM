@@ -19,4 +19,5 @@ public interface ISchedulingFactory {
 			ISchedulableProcess process, ProcessConfiguration process_configuration,
 			ActiveResourceConfiguration resource_configuration);
 
+	public abstract void resetFactory();
 }

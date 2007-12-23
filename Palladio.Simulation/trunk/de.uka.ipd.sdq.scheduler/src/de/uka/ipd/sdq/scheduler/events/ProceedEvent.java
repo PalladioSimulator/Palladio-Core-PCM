@@ -1,6 +1,10 @@
 package de.uka.ipd.sdq.scheduler.events;
 
+import org.apache.log4j.Logger;
+
 import umontreal.iro.lecuyer.simevents.Event;
+import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 
 /**
@@ -22,9 +26,10 @@ public class ProceedEvent extends Event {
 
 	IActiveProcess process;
 	private IDelayedAction action;
+	static Logger logger = Logger.getLogger(ProceedEvent.class);
 
 	public ProceedEvent(IActiveProcess process) {
-		super();
+		super(SchedulingFactory.getUsedSimulator());
 		this.process = process;
 		this.action = null;
 	}
@@ -35,6 +40,7 @@ public class ProceedEvent extends Event {
 
 	@Override
 	public void actions() {
+		logger.debug("Proceed Event handler triggered");
 		process.toNow();
 		if (action != null) {
 			// once the action has been successfully executed it is removed.

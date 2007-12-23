@@ -1,6 +1,10 @@
 package de.uka.ipd.sdq.scheduler.events;
 
+import org.apache.log4j.Logger;
+
 import umontreal.iro.lecuyer.simevents.Event;
+import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
@@ -18,9 +22,10 @@ public class SchedulingInterruptEvent extends Event {
 	SimActiveResource containingResource;
 	IResourceInstance instance;
 	private boolean quantum_finished;
+	static Logger logger = Logger.getLogger(SchedulingInterruptEvent.class);
 
 	public SchedulingInterruptEvent(SimActiveResource containingResource, IResourceInstance instance, boolean quantum_finished) {
-		super();
+		super(SchedulingFactory.getUsedSimulator());
 		this.containingResource = containingResource;
 		this.instance = instance;
 		this.quantum_finished = quantum_finished;
@@ -28,6 +33,7 @@ public class SchedulingInterruptEvent extends Event {
 
 	@Override
 	public void actions() {
+		logger.debug("Scheduling Interrupt Event handler triggered");
 		containingResource.getScheduler().schedule(instance,quantum_finished);
 	}
 }

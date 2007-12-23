@@ -19,7 +19,8 @@ public class SimResourceInstance implements IResourceInstance {
 		super();
 		this.number = number;
 		this.containing_resource = containing_resource;
-		this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
+		// Initialise this at start instead of container for multiple Simulation runs with different simulator instances...
+		// this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
 		this.running_process = null;
 		this.scheduling_event_scheduled = false;
 	}
@@ -97,6 +98,7 @@ public class SimResourceInstance implements IResourceInstance {
 
 	@Override
 	public void start() {
+		this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
 		scheduling_event.schedule(0);
 	}
 }

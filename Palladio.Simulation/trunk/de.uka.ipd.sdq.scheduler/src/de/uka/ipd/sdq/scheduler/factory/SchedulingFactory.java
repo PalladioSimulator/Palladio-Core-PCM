@@ -23,6 +23,8 @@ import scheduler.configuration.QueueingConfiguration;
 import scheduler.configuration.SchedulerConfiguration;
 import scheduler.configuration.TimeSliceConfiguration;
 import scheduler.configuration.util.ConfigurationSwitch;
+import umontreal.iro.lecuyer.simevents.Simulator;
+import umontreal.iro.lecuyer.simprocs.ThreadProcessSimulator;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
@@ -77,6 +79,8 @@ import de.uka.ipd.sdq.scheduler.timeslice.impl.PriorityDependentTimeSlice;
  */
 public class SchedulingFactory implements ISchedulingFactory {
 
+	private static Simulator usedSimulator = Simulator.defaultSimulator;
+	
 	private Map<String, IActiveResource> active_resource_map = new Hashtable<String, IActiveResource>();
 	private Map<String, IPassiveResource> passive_resource_map = new Hashtable<String, IPassiveResource>();
 	private Map<String, IResourceInstance> resource_instance_map = new Hashtable<String, IResourceInstance>();
@@ -430,4 +434,20 @@ public class SchedulingFactory implements ISchedulingFactory {
 		return null;
 	}
 
+	public static void setUsedSimulator(Simulator simulator) {
+		usedSimulator = simulator;
+	}
+
+	public static Simulator getUsedSimulator() {
+		return usedSimulator;
+	}
+
+	public void resetFactory(){
+		this.active_resource_map.clear();
+		this.manager_map.clear();
+		this.passive_resource_map.clear();
+		this.process_map.clear();
+		this.resource_instance_map.clear();
+		this.scheduler_map.clear();
+	}
 }
