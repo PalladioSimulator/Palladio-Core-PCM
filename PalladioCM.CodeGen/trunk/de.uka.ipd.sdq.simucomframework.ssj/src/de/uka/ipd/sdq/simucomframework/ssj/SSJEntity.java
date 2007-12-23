@@ -25,12 +25,10 @@ public class SSJEntity implements IEntityDelegate {
 		return myAbstractEntity;
 	}
 
-	@Override
 	public boolean isScheduled() {
 		return isScheduled;
 	}
 
-	@Override
 	public void reschedule(double d) {
 		nextEventForThisEntity.reschedule(d);
 	}

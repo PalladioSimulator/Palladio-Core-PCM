@@ -34,7 +34,6 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		}.schedule(0);
 	}
 
-	@Override
 	public void addStopCondition(Condition maxMeasurementsStopCondition) {
 		stopConditions.add(maxMeasurementsStopCondition);
 	}
@@ -62,17 +61,14 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		}
 	}
 	
-	@Override
 	public void addTimeObserver(Observer observer) {
 		timeObservers .add(observer);
 	}
 
-	@Override
 	public double getCurrentSimulationTime() {
 		return simulator.time();
 	}
 
-	@Override
 	public void setMaxSimTime(long simTime) {
 		new Event(simulator) {
 
@@ -88,7 +84,6 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	protected static Logger logger = 
 		Logger.getLogger(SSJExperiment.class.getName());
 	
-	@Override
 	public void start() {
 		double start = System.nanoTime();
 		logger.warn("Starting simulation...");
@@ -96,7 +91,6 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		logger.warn("Simulation terminated. Took "+((System.nanoTime()-start)/Math.pow(10,9))+" real time seconds.");
 	}
 
-	@Override
 	public void stop() {
 		simulator.stop();
 		simulator.killAll();

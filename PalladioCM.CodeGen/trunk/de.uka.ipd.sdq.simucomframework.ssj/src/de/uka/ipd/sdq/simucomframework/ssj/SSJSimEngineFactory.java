@@ -12,7 +12,6 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SSJSimEngineFactory implements ISimEngineFactory {
 
-	@Override
 	public ISimulationControlDelegate createSimulationControl(SimuComModel model) {
 		ISimulationControlDelegate delegate = new SSJExperiment(model);
 		model.setSimulationControl(delegate);
@@ -21,21 +20,18 @@ public class SSJSimEngineFactory implements ISimEngineFactory {
 		return delegate;
 	}
 
-	@Override
 	public ISimProcessDelegate createSimProcess(SimProcess myProcess, SimuComModel model, String name) {
 		return new SSJSimProcess(
 				myProcess,
 				name);
 	}
 
-	@Override
 	public ISimEventDelegate createSimEvent(SimEvent myEvent, SimuComModel model, String name) {
 		return new SSJSimEvent(
 				myEvent,
 				name);
 	}
 
-	@Override
 	public IEntityDelegate createEntity(Entity e, SimuComModel model, String name) {
 		return new SSJEntity(
 				e,

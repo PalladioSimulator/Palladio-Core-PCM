@@ -22,17 +22,8 @@ public class SSJSimProcess extends umontreal.iro.lecuyer.simprocs.SimProcess imp
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate#activateAfter(de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate)
-	 */
-	public void activateAfter(de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess p) {
-		// TODO: Check if this is correct...?
-		this.scheduleNext();
-	}
-
-	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate#hold(double)
 	 */
-	@Override
 	public void hold(double d) {
 		this.delay(d);
 	}
@@ -40,9 +31,7 @@ public class SSJSimProcess extends umontreal.iro.lecuyer.simprocs.SimProcess imp
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate#scheduleAt(double)
 	 */
-	@Override
 	public void scheduleAt(double d) {
-		// TODO: Check correctness...
 		new Event(sim) {
 
 			@Override
@@ -58,12 +47,10 @@ public class SSJSimProcess extends umontreal.iro.lecuyer.simprocs.SimProcess imp
 		myAbstractProcess.lifeCycle();
 	}
 
-	@Override
 	public boolean isTerminated() {
 		return this.getState() == SimProcess.DEAD;
 	}
 
-	@Override
 	public void passivate() {
 		this.suspend();
 	}

@@ -49,11 +49,4 @@ public class DesmoJSimProcess extends SimProcess implements ISimProcessDelegate 
 		this.activate(new SimTime(d));
 	}
 
-	@Override
-	public void activateAfter(
-			de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess p) {
-		
-		
-	}
-
 }
