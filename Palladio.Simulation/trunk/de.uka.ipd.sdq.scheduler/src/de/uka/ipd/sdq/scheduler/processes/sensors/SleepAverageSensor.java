@@ -28,7 +28,6 @@ public class SleepAverageSensor implements IProcessStateSensor {
 		return max_sleep_average;
 	}
 
-	@Override
 	public void update(PROCESS_STATE new_state) {
 		double currentTime = Sim.time();
 		double passedTime = currentTime - lastUpdateTime;
