@@ -1,8 +1,10 @@
 package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 
+import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
-public abstract class SimProcess extends SimulationElement implements ISimProcessDelegate {
+public abstract class SimProcess extends SimulationElement 
+implements ISimProcessDelegate, ISchedulableProcess {
 
 	ISimProcessDelegate delegate = null;
 	
@@ -29,8 +31,16 @@ public abstract class SimProcess extends SimulationElement implements ISimProces
 	public void passivate() {
 		delegate.passivate();
 	}
+	
+	public void activate() {
+		this.scheduleAt(0);
+	}
 
 	public void scheduleAt(double d) {
 		delegate.scheduleAt(d);
+	}
+	
+	public String getId() {
+		return Thread.currentThread().getName();
 	}
 }

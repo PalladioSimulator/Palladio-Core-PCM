@@ -52,7 +52,8 @@ public class SSJSimProcess extends umontreal.iro.lecuyer.simprocs.SimProcess imp
 	}
 
 	public void passivate() {
-		this.suspend();
+		if (!isTerminated())
+			this.suspend();
 	}
 
 }

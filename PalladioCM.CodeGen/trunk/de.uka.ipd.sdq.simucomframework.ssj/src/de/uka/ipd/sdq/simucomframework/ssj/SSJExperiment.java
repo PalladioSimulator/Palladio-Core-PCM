@@ -6,9 +6,12 @@ import java.util.Observer;
 import org.apache.log4j.Logger;
 
 import umontreal.iro.lecuyer.simevents.Event;
+import umontreal.iro.lecuyer.simevents.Simulator;
 import umontreal.iro.lecuyer.simprocs.ProcessSimulator;
 import umontreal.iro.lecuyer.simprocs.ThreadProcessSimulator;
 
+import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.Condition;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDelegate;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -23,6 +26,9 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	public SSJExperiment(final SimuComModel model) {
 		model.setSimulationControl(this);
 		simulator = new ThreadProcessSimulator();
+		simulator.init();
+		SchedulingFactory.setUsedSimulator(simulator);
+		ISchedulingFactory.eINSTANCE.resetFactory();
 		
 		new Event(simulator) {
 

@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucomframework.resources;
 
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.Entity;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 
 /**
  * Data structure used in scheduler events to store a job, its inital demand,
@@ -15,12 +16,12 @@ import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
  */
 class JobAndDemandStruct extends Entity {
 	private double demand;
-	private ISimProcessDelegate jobParent;
+	private SimProcess jobParent;
 	private AbstractScheduledResource resource;
 	private double originalDemand;
 	private double creationTime;
 	
-	public JobAndDemandStruct(ISimProcessDelegate jobParent, double demand, AbstractScheduledResource abstractScheduledResource, double creationTime){
+	public JobAndDemandStruct(SimProcess jobParent, double demand, AbstractScheduledResource abstractScheduledResource, double creationTime){
 		super(abstractScheduledResource.getModel(),"JobAndDemand");
 		this.creationTime = creationTime;
 		this.demand = demand;

@@ -14,4 +14,6 @@ Export-Package: de.uka.ipd.sdq.simucomframework,
 Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.sensorframework,
  org.apache.log4j,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.scheduler,
+ de.uka.ipd.sdq.scheduler.configuration
