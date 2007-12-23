@@ -23,7 +23,6 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 		this.idealInstanceSelector = idealInstanceSelector;
 	}
 
-	@Override
 	public IActiveProcess getNextProcessFor(IResourceInstance instance) {
 		return processSelector.select(runQueue, instance);
 	}

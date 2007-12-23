@@ -53,7 +53,6 @@ public class ProcessQueueImpl implements IProcessQueue {
 
 	public Iterable<IActiveProcess> ascending(){
 		return new Iterable<IActiveProcess>(){
-			@Override
 			public Iterator<IActiveProcess> iterator() {
 				return queue.iterator();
 			}
