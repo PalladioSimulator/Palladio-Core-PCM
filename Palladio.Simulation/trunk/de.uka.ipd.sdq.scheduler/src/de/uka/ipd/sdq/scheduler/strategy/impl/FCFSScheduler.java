@@ -15,32 +15,32 @@ public class FCFSScheduler extends AbstractScheduler {
 	}
 
 
-	@Override
+	
 	public void scheduleNextEvent(IResourceInstance instance) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public boolean isIdle(IResourceInstance instance) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	protected void initialiseProcess(IActiveProcess process) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public double getInterval() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 
-	@Override
+	
 	public void schedule(IResourceInstance instance, boolean quantum_finished) {
 		// TODO Auto-generated method stub
 		

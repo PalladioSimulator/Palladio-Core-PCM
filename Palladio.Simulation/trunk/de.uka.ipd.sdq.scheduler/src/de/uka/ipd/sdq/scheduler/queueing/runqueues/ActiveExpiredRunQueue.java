@@ -94,7 +94,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		return process_list;
 	}
 
-	@Override
 	public IProcessQueue getBestRunnableQueue(
 			IResourceInstance instance) {
 		IProcessQueue result = activePriorityArray

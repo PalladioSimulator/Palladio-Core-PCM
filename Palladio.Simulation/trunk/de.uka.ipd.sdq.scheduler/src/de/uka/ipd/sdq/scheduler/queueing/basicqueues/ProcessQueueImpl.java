@@ -62,7 +62,6 @@ public class ProcessQueueImpl implements IProcessQueue {
 	
 	public Iterable<IActiveProcess> descending(){
 		return new Iterable<IActiveProcess>(){
-			@Override
 			public Iterator<IActiveProcess> iterator() {
 				return queue.descendingIterator();
 			}
@@ -84,14 +83,12 @@ public class ProcessQueueImpl implements IProcessQueue {
 		return queue.contains(process);
 	}
 
-	@Override
 	public IProcessQueue getBestRunnableQueue(IResourceInstance instance) {
 		if (containsRunnableFor(instance))
 			return this;
 		return null;
 	}
 
-	@Override
 	public IActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		for (IActiveProcess process : ascending()) {
 			if (process.checkAffinity(instance))
@@ -100,12 +97,10 @@ public class ProcessQueueImpl implements IProcessQueue {
 		return null;
 	}
 
-	@Override
 	public IActiveProcess getNextRunnableProcess() {
 		return peek();
 	}
 
-	@Override
 	public void identifyMovableProcesses(
 			IResourceInstance targetInstance, boolean prio_increasing,
 			boolean queue_ascending, int processes_needed, List<IActiveProcess> process_list) {
@@ -119,7 +114,6 @@ public class ProcessQueueImpl implements IProcessQueue {
 		}
 	}
 
-	@Override
 	public IProcessQueue createNewInstance() {
 		return new ProcessQueueImpl();
 	}

@@ -18,7 +18,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		this.scheduling_interval = scheduling_interval;
 	}
 
-	@Override
+	
 	public void schedule(IResourceInstance instance, boolean quantum_finished) {
 		
 		// Balance the runqueue of this instance with the runqueues of other
@@ -111,18 +111,18 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		} 
 	}
 
-	@Override
+	
 	public boolean isIdle(IResourceInstance instance) {
 		return queueing_strategy.isIdle(instance);
 	}
 
-	@Override
+	
 	protected void initialiseProcess(IActiveProcess process) {
 		PreemptiveProcess preemptiveProcess = (PreemptiveProcess) process;
 		preemptiveProcess.getTimeslice().fullReset();
 	}
 
-	@Override
+	
 	public double getInterval() {
 		return scheduling_interval;
 	}

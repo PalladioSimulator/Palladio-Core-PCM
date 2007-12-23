@@ -28,7 +28,6 @@ public abstract class AbstractRunQueue implements IRunQueue {
 				|| removePendingProcess(process);
 	}
 
-	@Override
 	public boolean contains(IActiveProcess process) {
 		return running_on_table.containsKey(process) || containsPending(process);
 	}
@@ -38,28 +37,23 @@ public abstract class AbstractRunQueue implements IRunQueue {
 		addProcessToRunQueue(process,inFront);
 	}
 	
-	@Override
 	public boolean containsRunning(IActiveProcess process) {
 		return running_on_table.containsKey(process);
 	}
 	
-	@Override
 	public void removeRunning(IActiveProcess process) {
 		running_on_table.remove(process);
 	}
 	
-	@Override
 	public void setRunningOn(IActiveProcess process, IResourceInstance instance) {
 		assert running_on_table.get(process) == null;
 		running_on_table.put(process, instance);
 	}
 	
-	@Override
 	public IResourceInstance runningOn(IActiveProcess process) {
 		return running_on_table.get(process);
 	}
 	
-	@Override
 	public boolean isIdle(IResourceInstance instance) {
 		return !instance.processAssigned() 
 			&& (running_on_table.size() > 1 || numWaitingProcesses() == 0);

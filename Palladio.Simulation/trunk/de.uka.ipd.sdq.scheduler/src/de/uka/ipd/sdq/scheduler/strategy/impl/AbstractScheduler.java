@@ -35,7 +35,7 @@ public abstract class AbstractScheduler implements IScheduler {
 	 */
 	protected abstract void initialiseProcess(IActiveProcess process);
 
-	@Override
+	
 	public void addProcess(IActiveProcess process) {
 		queueing_strategy.addProcess(process, false);
 		initialiseProcess(process);
@@ -79,7 +79,7 @@ public abstract class AbstractScheduler implements IScheduler {
 		queueing_strategy.addProcess(process, inFront);
 	}
 
-	@Override
+	
 	public void fromRunningToWaiting(WaitingProcess waiting_process,
 			Deque<WaitingProcess> waiting_queue, boolean in_front) {
 		LoggingWrapper.log(" From RUNNING to WAITING Process "
@@ -103,7 +103,7 @@ public abstract class AbstractScheduler implements IScheduler {
 		process.cancelProceedEvent();
 	}
 
-	@Override
+	
 	public void fromWaitingToReady(WaitingProcess waiting_process,
 			Deque<WaitingProcess> waitingQueue) {
 		LoggingWrapper.log("From WAITING to READY Process "

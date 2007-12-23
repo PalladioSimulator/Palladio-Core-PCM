@@ -206,17 +206,14 @@ public class PriorityArray implements IProcessQueue {
 		};
 	}
 
-	@Override
 	public Iterable<IActiveProcess> descending() {
 		return new Iterable<IActiveProcess>(){
-			@Override
 			public Iterator<IActiveProcess> iterator() {
 				return new Iterator<IActiveProcess>(){
 					
 					Iterator<IPriority> prio_iterator = priority_manager.decreasing().iterator();
 					Iterator<IActiveProcess> queue_iterator = null;
 
-					@Override
 					public boolean hasNext() {
 						while ((queue_iterator == null || !queue_iterator.hasNext()) && prio_iterator.hasNext()){
 							queue_iterator = getQueue(prio_iterator.next()).descending().iterator();
@@ -224,7 +221,6 @@ public class PriorityArray implements IProcessQueue {
 						return (queue_iterator != null && queue_iterator.hasNext());
 					}
 
-					@Override
 					public IActiveProcess next() {
 						while ((queue_iterator == null || !queue_iterator.hasNext()) && prio_iterator.hasNext()){
 							queue_iterator = getQueue(prio_iterator.next()).descending().iterator();
@@ -232,7 +228,6 @@ public class PriorityArray implements IProcessQueue {
 						return queue_iterator == null ? null : queue_iterator.next();
 					}
 
-					@Override
 					public void remove() {
 					}
 					
@@ -242,7 +237,6 @@ public class PriorityArray implements IProcessQueue {
 		};
 	}
 
-	@Override
 	public IProcessQueue createNewInstance() {
 		return new PriorityArray(priority_manager);
 	}
