@@ -89,7 +89,7 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 			this.getModel().getSimulationControl().stop();
 		}
 		if (!isAsync)
-			myParent.activateAfter(this);
+			myParent.scheduleAt(0);
 		else
 			logger.debug("Asynch behaviour finished at simtime "+getModel().getSimulationControl().getCurrentSimulationTime());
 	}

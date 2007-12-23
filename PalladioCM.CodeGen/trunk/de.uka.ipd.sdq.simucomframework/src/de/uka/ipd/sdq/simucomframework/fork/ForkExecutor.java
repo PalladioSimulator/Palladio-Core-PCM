@@ -34,7 +34,7 @@ public class ForkExecutor {
 		logger.info("Running parallel operations");
 		double start = parent.getModel().getSimulationControl().getCurrentSimulationTime();
 		for(ForkedBehaviourProcess p : forks) 
-			p.activateAfter(this.parent);
+			p.scheduleAt(0);
 		while(checkIfRemainingChildrenRun())
 			parent.passivate();
 		logger.debug("Forks took: "+(parent.getModel().getSimulationControl().getCurrentSimulationTime()-start));

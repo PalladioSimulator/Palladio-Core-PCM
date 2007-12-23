@@ -37,14 +37,14 @@ public class SimulatedPassiveResource extends SimProcess {
 	{
 		logger.debug("Simulated thread "+thread.getName()+" requests Passive Resource "+this.resourceID);
 		associatedQueue.add(thread);
-		this.activateAfter(thread);
+		this.scheduleAt(0);
 		thread.passivate();
 	}
 
 	public void release()
 	{
 		available++;
-		this.activateAfter(this);
+		this.scheduleAt(0);
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class SimulatedPassiveResource extends SimProcess {
 					SimProcess next = associatedQueue.peek();
 					associatedQueue.remove(next);
 					logger.debug("Simulated Process "+next.getName()+" acquired Passive Resource "+resourceID+". It continues execution now...");
-					next.activateAfter(this);
+					next.scheduleAt(0);
 				}
 				else
 				{

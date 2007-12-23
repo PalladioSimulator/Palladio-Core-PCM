@@ -17,9 +17,6 @@ public abstract class SimProcess extends SimulationElement implements ISimProces
 	public abstract void lifeCycle();
 
 	// Strategy dependent methods
-	public void activateAfter(SimProcess p) {
-		delegate.activateAfter(p);
-	}
 
 	public void hold(double d) {
 		delegate.hold(d);
