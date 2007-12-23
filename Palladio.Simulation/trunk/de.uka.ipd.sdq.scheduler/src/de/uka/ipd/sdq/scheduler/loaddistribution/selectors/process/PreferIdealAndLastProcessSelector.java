@@ -8,7 +8,6 @@ import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class PreferIdealAndLastProcessSelector implements IProcessSelector {
 
-	@Override
 	public IActiveProcess select(IRunQueue runQueue, IResourceInstance instance) {
 		IProcessQueue queue = runQueue.getBestRunnableQueue(instance);
 		IActiveProcess result = null;

@@ -21,7 +21,6 @@ public class SleepAverageDependentUpdate implements IPriorityUpdateStrategy {
 		this.max_sleep_average = max_sleep_average;
 	}
 
-	@Override
 	/**
 	 * Implementation according to the current Linux 2.6.18 Scheduler
 	 */

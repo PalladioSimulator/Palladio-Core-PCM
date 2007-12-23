@@ -19,7 +19,6 @@ public class MultipleResourceInstancesConstraint implements
 		return instance_list;
 	}
 
-	@Override
 	public boolean check(IResourceInstance instance) {
 		return instance_list.contains(instance);
 	}

@@ -16,7 +16,6 @@ public class AbstractInstanceSelector implements IInstanceSelector {
 	}
 
 
-	@Override
 	public IResourceInstance selectInstanceFor(IActiveProcess process) {
 		return null;
 	}

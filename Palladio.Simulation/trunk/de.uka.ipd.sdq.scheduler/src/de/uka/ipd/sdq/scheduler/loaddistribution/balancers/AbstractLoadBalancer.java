@@ -117,7 +117,6 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	protected abstract boolean isBalanced(IResourceInstance firstInstance,
 			IResourceInstance secondInstance);
 
-	@Override
 	public void balance(IResourceInstance instance) {
 		double now = Sim.time();
 		if (do_global_balance) {

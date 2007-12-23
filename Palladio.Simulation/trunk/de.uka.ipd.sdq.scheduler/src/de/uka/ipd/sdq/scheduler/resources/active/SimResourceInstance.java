@@ -85,18 +85,15 @@ public class SimResourceInstance implements IResourceInstance {
 		return getId().hashCode();
 	}
 
-	@Override
 	public boolean schedulingEventScheduled() {
 		return scheduling_event_scheduled;
 	}
 
-	@Override
 	public double getNextSchedEventTime() {
 		double time = scheduling_event.time() - Sim.time();
 		return time;
 	}
 
-	@Override
 	public void start() {
 		this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
 		scheduling_event.schedule(0);

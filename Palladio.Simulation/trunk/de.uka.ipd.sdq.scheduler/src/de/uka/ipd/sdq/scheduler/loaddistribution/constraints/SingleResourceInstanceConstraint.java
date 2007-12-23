@@ -13,7 +13,6 @@ public class SingleResourceInstanceConstraint implements
 		this.instance = instance;
 	}
 
-	@Override
 	public boolean check(IResourceInstance instance) {
 		return this.instance.equals(instance);
 	}

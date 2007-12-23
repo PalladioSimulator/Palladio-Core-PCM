@@ -19,7 +19,6 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 		this.acquisition_demand = acquisition_demand;
 	}
 
-	@Override
 	public boolean acquire(ISchedulableProcess sched_process, int num) {
 		ProcessWithPriority process = (ProcessWithPriority) main_resource
 				.lookUp(sched_process);
@@ -49,7 +48,6 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 				((IActiveProcess) process).getLastInstance());
 	}
 
-	@Override
 	public void release(ISchedulableProcess sched_process, int num) {
 		LoggingWrapper.log("Process " + sched_process + " releases " + num
 				+ " of " + this);
@@ -95,7 +93,6 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 			this.waiting_process = waiting_process;
 		}
 
-		@Override
 		public boolean perform() {
 			if (!tryToDequeueProcess(waiting_process)) {
 				fromRunningToWaiting(waiting_process, true);

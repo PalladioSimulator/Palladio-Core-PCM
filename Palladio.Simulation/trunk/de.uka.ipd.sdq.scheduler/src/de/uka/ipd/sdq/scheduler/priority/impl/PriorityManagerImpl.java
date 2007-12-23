@@ -41,24 +41,19 @@ public class PriorityManagerImpl implements IPriorityManager {
 	}
 	
 	
-	@Override
 	public Iterable<IPriority> decreasing() {
 		return new Iterable<IPriority>(){
-			@Override
 			public Iterator<IPriority> iterator() {
 				return new Iterator<IPriority>(){
 					IPriority current = highestPriority.clone();
-					@Override
 					public boolean hasNext() {
 						return lowestPriority.lessOrEqual(current);
 					}
-					@Override
 					public IPriority next() {
 						IPriority result = current;
 						current = current.decrease();
 						return result;
 					}
-					@Override
 					public void remove() {
 					}
 				};
@@ -66,24 +61,19 @@ public class PriorityManagerImpl implements IPriorityManager {
 		};
 	}
 	
-	@Override
 	public Iterable<IPriority> increasing() {
 		return new Iterable<IPriority>(){
-			@Override
 			public Iterator<IPriority> iterator() {
 				return new Iterator<IPriority>(){
 					IPriority current = lowestPriority.clone(); 
-					@Override
 					public boolean hasNext() {
 						return current.lessOrEqual(highestPriority);
 					}
-					@Override
 					public IPriority next() {
 						IPriority result = current;
 						current = current.increase();
 						return result;
 					}
-					@Override
 					public void remove() {
 					}
 				};
@@ -91,35 +81,26 @@ public class PriorityManagerImpl implements IPriorityManager {
 		};
 	}
 	
-	@Override
 	public IPriority getDefaultPriority() {
 		return defaultPriority.clone();
 	}
 	
-	@Override
 	public IPriority getHighestPriority() {
 		return highestPriority.clone();
 	}
 	
-	@Override
 	public IPriority getLowestPriority() {
 		return lowestPriority.clone();
 	}
 
-
-	@Override
 	public IPriority getAveragePriority() {
 		return averagePriority.clone();
 	}
 
-
-	@Override
 	public IPriority getHighPriority() {
 		return highPriority.clone();
 	}
 
-
-	@Override
 	public IPriority getLowPriority() {
 		return lowPriority.clone();
 	}

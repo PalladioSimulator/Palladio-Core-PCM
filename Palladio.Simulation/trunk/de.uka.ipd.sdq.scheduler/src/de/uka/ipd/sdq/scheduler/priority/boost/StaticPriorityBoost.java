@@ -24,7 +24,7 @@ public class StaticPriorityBoost implements IPriorityBoost {
 		this.reset_timeslice = reset_timeslice;
 	}
 
-	@Override
+	
 	public void boost(ProcessWithPriority process) {
 		if (reset_timeslice && priorityChanges(process)){
 			process.getTimeslice().fullReset();
@@ -33,13 +33,13 @@ public class StaticPriorityBoost implements IPriorityBoost {
 		process.setPriorityUpdateStrategy(update_strategy);
 	}
 	
-	@Override
+	
 	public void punish(ProcessWithPriority process){
 		process.getTimeslice().punish(penalty);
 	}
 	
 	
-	@Override
+	
 	public boolean priorityChanges(ProcessWithPriority process){
 		IPriority newPrio = process.getStaticPriority().addBonus(bonus);
 		return !newPrio.equals(process.getDynamicPriority());

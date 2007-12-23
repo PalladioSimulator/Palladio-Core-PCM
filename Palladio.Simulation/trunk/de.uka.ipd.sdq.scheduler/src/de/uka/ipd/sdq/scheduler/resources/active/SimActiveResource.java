@@ -46,7 +46,6 @@ public class SimActiveResource extends AbstractSimResource implements
 		return processRegistry.lookUp(process);
 	}
 
-	@Override
 	public void process(ISchedulableProcess sched_process, double demand) {
 		IActiveProcess process = processRegistry.lookUp(sched_process);
 		

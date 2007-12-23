@@ -22,7 +22,6 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 				&& num <= capacity;
 	}
 
-	@Override
 	public boolean acquire(ISchedulableProcess sched_process, int num) {
 		PreemptiveProcess process = (PreemptiveProcess)main_resource.lookUp(sched_process);
 		if (canProceed(process, num)) {
@@ -38,7 +37,6 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 		}
 	}
 
-	@Override
 	public void release(ISchedulableProcess sched_process, int num) {
 		IActiveProcess process = main_resource.lookUp(sched_process);
 		

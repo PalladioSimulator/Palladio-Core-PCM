@@ -40,7 +40,6 @@ public class OneToIdleBalancer extends AbstractLoadBalancer {
 				queue_ascending, max_iterations);
 	}
 
-	@Override
 	protected boolean isBalanced(IResourceInstance firstInstance,
 			IResourceInstance secondInstance) {
 		return (queue_holder.isIdle(firstInstance) == queue_holder

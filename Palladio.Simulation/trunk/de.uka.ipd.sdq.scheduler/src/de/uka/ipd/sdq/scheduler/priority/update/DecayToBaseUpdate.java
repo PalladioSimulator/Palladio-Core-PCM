@@ -8,7 +8,6 @@ import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 
 public class DecayToBaseUpdate implements IPriorityUpdateStrategy {
 
-	@Override
 	public boolean update(ProcessWithPriority process) {
 		if (process.hasBonus()){
 			process.decreasePriority();

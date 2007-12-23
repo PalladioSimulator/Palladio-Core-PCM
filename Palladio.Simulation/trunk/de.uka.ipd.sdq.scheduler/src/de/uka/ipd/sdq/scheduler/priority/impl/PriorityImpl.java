@@ -16,58 +16,58 @@ public class PriorityImpl implements IPriority {
 	}
 	
 
-	@Override
+	
 	public int absoluteValue() {
 		return absolute_value;
 	}
 
-	@Override
+	
 	public IPriorityManager getManager() {
 		return manager;
 	}
 
-	@Override
+	
 	public boolean greaterThan(IPriority prio) {
 		return manager.direction > 0 ? this.getValue() > prio.getValue() : this.getValue() < prio.getValue();
 	}
 
-	@Override
+	
 	public boolean lessOrEqual(IPriority prio) {
 		return manager.direction > 0 ? this.getValue() <= prio.getValue() : this.getValue() >= prio.getValue();
 	}
 
-	@Override
+	
 	public IPriority increase() {
 		return new PriorityImpl(value + manager.direction, manager);
 	}
 	
-	@Override
+	
 	public IPriority decrease() {
 		return new PriorityImpl(value - manager.direction, manager);	}
 
 
-	@Override
+	
 	public int distance(IPriority prio) {
 		return Math.abs(this.getValue() - prio.getValue());
 	}
 	
-	@Override
+	
 	public int getValue() {
 		return value;
 	}
 	
-	@Override
+	
 	public void setValue(int value) {
 		this.value = value;
 		this.absolute_value = Math.abs(value - manager.lowest_value);
 	}
 
-	@Override
+	
 	public void setTo(IPriority priority) {
 		this.setValue(priority.getValue());
 	}
 
-	@Override
+	
 	public IPriority addBonus(int bonus) {
 		bonus *= manager.direction;
 		int new_value = this.getValue() + bonus;
@@ -81,12 +81,12 @@ public class PriorityImpl implements IPriority {
 		return new PriorityImpl(new_value,manager);
 	}
 
-	@Override
+	@Override	
 	public int hashCode() {
 		return absolute_value;
 	}
 	
-	@Override
+	@Override	
 	public boolean equals(Object obj) {
 		if (obj instanceof PriorityImpl) {
 			PriorityImpl prio = (PriorityImpl) obj;
@@ -95,7 +95,7 @@ public class PriorityImpl implements IPriority {
 		return false;
 	}
 	
-	@Override
+	@Override	
 	public IPriority clone() {
 		return new PriorityImpl(this.value,this.manager);
 	}

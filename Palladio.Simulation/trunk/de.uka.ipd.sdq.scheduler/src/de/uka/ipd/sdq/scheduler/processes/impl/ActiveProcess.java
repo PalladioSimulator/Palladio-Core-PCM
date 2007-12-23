@@ -50,7 +50,6 @@ public class ActiveProcess implements IActiveProcess {
 	private ISchedulableProcess process;
 	private IRunQueue runqueue;
 
-	@Override
 	public void update() {
 	}
 	
