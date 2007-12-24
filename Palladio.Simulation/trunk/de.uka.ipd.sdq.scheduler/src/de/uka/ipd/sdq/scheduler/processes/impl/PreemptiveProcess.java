@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.scheduler.processes.impl;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
 public class PreemptiveProcess extends ActiveProcess {
@@ -12,22 +13,11 @@ public class PreemptiveProcess extends ActiveProcess {
 		super(process);
 	}
 	
-//	@Override
-//	protected void passTimeProcessing(double passedTime) {
-//		super.passTimeProcessing(passedTime);
-//		timeslice.subTimeProcessing(passedTime);
-//	}
-//	
-//	@Override
-//	protected void passTimeScheduling(double passedTime) {
-//		super.passTimeScheduling(passedTime);
-//		timeslice.subTimeScheduling(passedTime);
-//	}
-//	
-//	@Override
-//	public double getTimeUntilNextInterruption() {
-//		return timeslice.getTimeUntilNextInterruption();
-//	}
+	@Override
+	protected void passTimeProcessing(double passedTime) {
+		super.passTimeProcessing(passedTime);
+		timeslice.substractTime(passedTime);
+	}
 	
 	public ITimeSlice getTimeslice(){
 		return this.timeslice;
@@ -40,5 +30,12 @@ public class PreemptiveProcess extends ActiveProcess {
 	@Override
 	public String toString() {
 		return super.toString() + " (" + MathTools.round( timeslice.getRemainingTime(), 0.1) +")";
+	}
+	
+	@Override
+	public IActiveProcess createNewInstance(ISchedulableProcess process) {
+		PreemptiveProcess p = new PreemptiveProcess(process);
+		p.timeslice = this.timeslice.clone();
+		return p;
 	}
 }

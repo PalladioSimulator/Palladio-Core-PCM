@@ -34,4 +34,7 @@ public interface ISchedulableProcess {
 	 */
 	public abstract String getName();
 
+	public abstract ISchedulableProcess getParent();
+
+	public abstract boolean isFinished();
 }

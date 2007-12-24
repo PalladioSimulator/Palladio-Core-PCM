@@ -14,11 +14,10 @@ public class FCFSScheduler extends AbstractScheduler {
 		// TODO Auto-generated constructor stub
 	}
 
-
 	
-	public void scheduleNextEvent(IResourceInstance instance) {
+	public double getInterval() {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 
 	
@@ -28,13 +27,13 @@ public class FCFSScheduler extends AbstractScheduler {
 	}
 
 	
-	protected void initialiseProcess(IActiveProcess process) {
+	public void schedule(IResourceInstance instance) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	
-	public double getInterval() {
+	public void scheduleNextEvent(IResourceInstance instance) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -45,5 +44,6 @@ public class FCFSScheduler extends AbstractScheduler {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

@@ -9,6 +9,7 @@ public abstract class AbstractSimResource {
 	private String name = "";
 	private String id = "";
 	protected SchedulingFactory factory = new SchedulingFactory();
+	
 
 	public AbstractSimResource(int capacity, String name, String id) {
 		super();
@@ -27,5 +28,24 @@ public abstract class AbstractSimResource {
 
 	public String getId() {
 		return id;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj != null && obj instanceof AbstractSimResource) {
+			AbstractSimResource res = (AbstractSimResource) obj;
+			return this.id.equals(res.getId());
+		}
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return name + id;
+	}
+	
+	@Override
+	public int hashCode() {
+		return id.hashCode();
 	}
 }

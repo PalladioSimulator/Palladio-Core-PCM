@@ -13,6 +13,6 @@ public interface IInstanceSelector {
 	 * process can be considered (if set). Once set, the ideal instance of a
 	 * process is not changed here.
 	 */
-	public abstract IResourceInstance selectInstanceFor(IActiveProcess process);
+	public abstract IResourceInstance selectInstanceFor(IActiveProcess process, IResourceInstance current);
 
 }

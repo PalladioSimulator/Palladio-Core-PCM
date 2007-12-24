@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public abstract class SimAbstractPassiveResource extends AbstractSimResource
@@ -25,9 +26,9 @@ public abstract class SimAbstractPassiveResource extends AbstractSimResource
 		this.waiting_queue = new ArrayDeque<WaitingProcess>();
 	}
 
-	protected void fromWaitingToReady(WaitingProcess waiting_process) {
+	protected void fromWaitingToReady(WaitingProcess waiting_process, IResourceInstance current) {
 		main_resource.getScheduler().fromWaitingToReady(waiting_process,
-				waiting_queue);
+				waiting_queue, current);
 	}
 
 	protected void fromRunningToWaiting(WaitingProcess waiting_process,

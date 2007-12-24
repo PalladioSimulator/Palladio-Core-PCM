@@ -4,6 +4,7 @@ import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 
 public class ProcessWithPriority extends PreemptiveProcess {
 
@@ -80,5 +81,14 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	@Override
 	public String toString() {
 		return getName() + " (" + MathTools.round( getTimeslice().getRemainingTime(), 0.1) +", " + getDynamicPriority() + ")";
+	}
+	
+	@Override
+	public IActiveProcess createNewInstance(ISchedulableProcess process) {
+		ProcessWithPriority p = new ProcessWithPriority(process,staticPriority);
+		p.dynamicPriority = staticPriority;
+		p.priorityUpdateStrategy = this.priorityUpdateStrategy;
+		p.setTimeSlice(this.getTimeslice().clone());
+		return p;
 	}
 }

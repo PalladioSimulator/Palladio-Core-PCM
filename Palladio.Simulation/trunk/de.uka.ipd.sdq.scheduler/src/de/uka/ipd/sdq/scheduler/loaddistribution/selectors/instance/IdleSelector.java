@@ -18,28 +18,29 @@ public class IdleSelector extends AbstractInstanceSelector  {
 	}
 
 	@Override
-	public IResourceInstance selectInstanceFor(IActiveProcess process) {
-		List<IResourceInstance> idleInstances = getIdleInstances();
-		process.removeNonAffineInstances(idleInstances);
-		
-		if (!process.hasIdealInstance())
-			selectIdealInstance(process);
-		
-		if(!idleInstances.isEmpty()){
-			if(idleInstances.contains(process.getIdealInstance())){
-				return process.getIdealInstance();
-			}
-			if(process.hasLastInstance() && idleInstances.contains(process.getLastInstance())){
-				return process.getLastInstance();
-			}
-			return idleInstances.get(0);
-		}
-		return process.getIdealInstance();
+	public IResourceInstance selectInstanceFor(IActiveProcess process, IResourceInstance current) {
+		return current;
+//		List<IResourceInstance> idleInstances = getIdleInstances();
+//		process.removeNonAffineInstances(idleInstances);
+//		
+//		if (!process.hasIdealInstance())
+//			selectIdealInstance(process);
+//		
+//		if(!idleInstances.isEmpty()){
+//			if(idleInstances.contains(process.getIdealInstance())){
+//				return process.getIdealInstance();
+//			}
+//			if(process.hasLastInstance() && idleInstances.contains(process.getLastInstance())){
+//				return process.getLastInstance();
+//			}
+//			return idleInstances.get(0);
+//		}
+//		return process.getIdealInstance();
 	}
 
-	private void selectIdealInstance(IActiveProcess process) {
-		ideal_instance_selector.selectInstanceFor(process);
-	}
+//	private void selectIdealInstance(IActiveProcess process) {
+//		ideal_instance_selector.selectInstanceFor(process);
+//	}
 	
 	public List<IResourceInstance> getIdleInstances() {
 		List<IResourceInstance> idleInstances = new ArrayList<IResourceInstance>();

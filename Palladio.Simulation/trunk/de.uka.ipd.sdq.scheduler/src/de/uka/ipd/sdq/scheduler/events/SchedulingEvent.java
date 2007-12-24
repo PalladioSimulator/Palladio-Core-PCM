@@ -31,6 +31,7 @@ public class SchedulingEvent extends Event {
 	@Override
 	public void actions() {
 		logger.debug("Scheduling Event handler triggered");
+		containingResource.getScheduler().schedule(instance);
 		containingResource.getScheduler().schedule(instance,true);
 		this.schedule(containingResource.getScheduler().getInterval());
 	}

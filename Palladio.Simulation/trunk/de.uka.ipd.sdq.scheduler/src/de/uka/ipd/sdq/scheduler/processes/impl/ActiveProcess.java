@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.SingleResourceInsta
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class ActiveProcess implements IActiveProcess {
 	
@@ -184,7 +185,7 @@ public class ActiveProcess implements IActiveProcess {
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setCurrentDemand(double)
 	 */
 	public void setCurrentDemand(double currentDemand) {
-		assert MathTools.equalsDouble(this.currentDemand, 0.0);
+		assert MathTools.equalsDouble(this.currentDemand, 0.0) : this.currentDemand;
 		this.currentDemand = currentDemand;
 	}
 
@@ -205,13 +206,6 @@ public class ActiveProcess implements IActiveProcess {
 		if(MathTools.equalsDouble(currentDemand, 0))
 			currentDemand = 0;
 	}
-
-//	protected void passTimeScheduling(double passedTime) {
-//		currentDemand -= passedTime;
-//		if(MathTools.equalsDouble(currentDemand, 0))
-//			currentDemand = 0;
-//	}
-
 	
 
 	// /////////////////////////////////////////////////////////////////////
@@ -261,7 +255,12 @@ public class ActiveProcess implements IActiveProcess {
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setIdealInstance(de.uka.ipd.sdq.scheduler.resources.IResourceInstance)
 	 */
 	public void setIdealInstance(IResourceInstance instance) {
-		idealInstanceConstraint = new SingleResourceInstanceConstraint(instance);
+		if (instance != null) {
+			idealInstanceConstraint = new SingleResourceInstanceConstraint(instance);
+		} else {
+			idealInstanceConstraint = null;
+		}
+
 
 	}
 
@@ -294,7 +293,11 @@ public class ActiveProcess implements IActiveProcess {
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setLastInstance(de.uka.ipd.sdq.scheduler.resources.IResourceInstance)
 	 */
 	public void setLastInstance(IResourceInstance instance) {
-		lastInstanceConstraint = new SingleResourceInstanceConstraint(instance);
+		if (instance != null){
+			lastInstanceConstraint = new SingleResourceInstanceConstraint(instance);
+		} else {
+			lastInstanceConstraint = null;
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -338,8 +341,9 @@ public class ActiveProcess implements IActiveProcess {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#scheduleProceedEvent()
 	 */
-	public void scheduleProceedEvent() {
+	public void scheduleProceedEvent(IScheduler scheduler) {
 		cancelProceedEvent();
+		proceedEvent.setScheduler(scheduler);
 		proceedEvent.schedule(getCurrentDemand());
 	}
 	
@@ -363,6 +367,11 @@ public class ActiveProcess implements IActiveProcess {
 	 */
 	public void setDelayedAction(IDelayedAction action) {
 		this.proceedEvent.setDelayedAction(action);
+	}
+
+	@Override
+	public IActiveProcess createNewInstance(ISchedulableProcess process) {
+		return new ActiveProcess(process);
 	}
 
 

@@ -2,14 +2,12 @@ package de.uka.ipd.sdq.scheduler.strategy.impl;
 
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
-import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public class PreemptiveScheduler extends AbstractScheduler {
-
 	
 	public PreemptiveScheduler(SimActiveResource resource,
 			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting,
@@ -19,7 +17,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	}
 
 	
-	public void schedule(IResourceInstance instance, boolean quantum_finished) {
+	public void schedule(IResourceInstance instance) {
 		
 		// Balance the runqueue of this instance with the runqueues of other
 		// instances. This might change the state of the instance's runqueue.
@@ -33,51 +31,48 @@ public class PreemptiveScheduler extends AbstractScheduler {
 
 		// Update the timing variables and priority of the process. Possibly
 		// pending events of the process are canceled.
-		toNow(running_process, quantum_finished);
+		toNow(running_process);
 		
 		if (running_process == null){
-			scheduleNextProcess(instance, quantum_finished);
+			scheduleNextProcess(instance);
 		} else if ( running_process.getTimeslice().completelyFinished()) {
-			unschedule(running_process, false);
-			scheduleNextProcess(instance, quantum_finished);
+			unschedule(running_process, false, instance);
+			scheduleNextProcess(instance);
 		} else if ( running_process.getTimeslice().partFinished()) {
-			unschedule(running_process, false);
-			scheduleNextProcess(instance, quantum_finished);
+			unschedule(running_process, false, instance);
+			scheduleNextProcess(instance);
 		} else {
 			ProcessWithPriority next_process = (ProcessWithPriority) queueing_strategy.getNextProcessFor(instance);
 			if ( hasHigherPriority(next_process,running_process) ) {
-				unschedule(running_process, true);
-				scheduleNextProcess(next_process, instance, quantum_finished);
+				unschedule(running_process, true, instance);
+				scheduleNextProcess(next_process, instance);
 			}
 		}
 		scheduleNextEvent(instance);
 	}
 
-	private void scheduleNextProcess(ProcessWithPriority next_process, IResourceInstance instance, boolean quantum_finished) {
+	private void scheduleNextProcess(ProcessWithPriority next_process, IResourceInstance instance) {
 		if (next_process != null) {
 			next_process.toNow();
 			fromReadyToRunningOn(next_process, instance);
 		}
 	}
 
-	private void scheduleNextProcess(IResourceInstance instance, boolean quantum_finished) {
+	private void scheduleNextProcess(IResourceInstance instance) {
 		ProcessWithPriority next_process = (ProcessWithPriority) queueing_strategy.getNextProcessFor(instance);
-		scheduleNextProcess(next_process, instance, quantum_finished);
+		scheduleNextProcess(next_process, instance);
 	}
 
-	private void toNow(ProcessWithPriority process, boolean quantum_finished) {
-		if (process != null ) {
+	private void toNow(ProcessWithPriority process) {
+		if (process != null){
 			process.toNow();
-			if (quantum_finished){
-				process.getTimeslice().quantumFinished();
-			}
 		}
 	}
 
 	private void unschedule(ProcessWithPriority running_process,
-			boolean next_has_higher_priority) {
+			boolean next_has_higher_priority, IResourceInstance current) {
 		if (running_process != null) {
-			fromRunningToReady(running_process, next_has_higher_priority
+			fromRunningToReady(running_process, current, next_has_higher_priority
 					&& !running_process.getTimeslice().partFinished());
 			if (running_process.getTimeslice().completelyFinished()){
 				running_process.update();
@@ -107,8 +102,19 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		ProcessWithPriority running = (ProcessWithPriority) instance
 				.getRunningProcess();
 		if (running != null) {
-				running.scheduleProceedEvent();
-		} 
+			running.toNow();
+			double remainingTime = running.getTimeslice().getRemainingTime();
+			double currentDemand = running.getCurrentDemand();
+			if ( currentDemand < remainingTime )
+				running.scheduleProceedEvent(this);
+			else
+				instance.scheduleSchedulingEvent(remainingTime);
+		} else {
+			if (!queueing_strategy.isIdle(instance))
+				instance.scheduleSchedulingEvent(0);
+			else
+				instance.scheduleSchedulingEvent(scheduling_interval);
+		}
 	}
 
 	
@@ -117,14 +123,17 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	}
 
 	
-	protected void initialiseProcess(IActiveProcess process) {
-		PreemptiveProcess preemptiveProcess = (PreemptiveProcess) process;
-		preemptiveProcess.getTimeslice().fullReset();
-	}
-
-	
 	public double getInterval() {
 		return scheduling_interval;
 	}
+	
+	@Override
+	public void removeProcess(IActiveProcess process, IResourceInstance current) {
+		super.removeProcess(process, current);
+		if (process.getSchedulableProcess().isFinished()){
+			this.resource.unregisterProcess(process);
+		}
+	}
+
 
 }

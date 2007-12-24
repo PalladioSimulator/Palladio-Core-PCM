@@ -14,6 +14,11 @@ public class SimResourceInstance implements IResourceInstance {
 	private IRunningProcess running_process;
 	private SchedulingEvent scheduling_event;
 	private boolean scheduling_event_scheduled;
+	private double time_running;
+	private double time_idle;
+	private double last_running;
+	private double last_idle;
+
 	
 	public SimResourceInstance(int number, IActiveResource containing_resource) {
 		super();
@@ -23,6 +28,10 @@ public class SimResourceInstance implements IResourceInstance {
 		// this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
 		this.running_process = null;
 		this.scheduling_event_scheduled = false;
+		this.time_idle = 0;
+		this.time_running = 0;
+		this.last_idle = 0;
+		this.last_running = 0;
 	}
 
 	public IRunningProcess getRunningProcess() {
@@ -30,6 +39,13 @@ public class SimResourceInstance implements IResourceInstance {
 	}
 	
 	public void release() {
+		double now = Sim.time();
+		if (running_process == null){
+			time_idle += now - last_idle;
+		} else {
+			time_running += now - last_running;
+		}
+		last_idle = now;
 		this.running_process = null;
 	}
 
@@ -41,6 +57,13 @@ public class SimResourceInstance implements IResourceInstance {
 		assert !this.processAssigned() : "There is already a process executing on resource instance "
 				+ this;
 		running_process = process;
+		double now = Sim.time();
+		time_idle += now - last_idle;
+		if (process == null){
+			last_idle = now;
+		} else {
+			last_running = now;
+		}
 	}
 
 	public String getName() {
@@ -98,4 +121,9 @@ public class SimResourceInstance implements IResourceInstance {
 		this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
 		scheduling_event.schedule(0);
 	}
+	
+	public void stop(){
+		System.out.println("Utilisation of " + getName() + ": " + (time_running / (time_idle + time_running)));
+	}
+
 }

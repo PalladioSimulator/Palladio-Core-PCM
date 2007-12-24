@@ -76,5 +76,7 @@ public interface IResourceInstance {
 	public abstract double getNextSchedEventTime();
 
 	public abstract void start();
+	
+	public abstract void stop();
 
 }

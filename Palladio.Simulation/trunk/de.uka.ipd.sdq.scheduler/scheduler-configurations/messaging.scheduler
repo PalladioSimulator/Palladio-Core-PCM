@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scheduler:SystemConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scheduler="http://sdq.ipd.uka.de/scheduler/1.0">
+  <processConfiguration id="_4eCrYK_4EdyKkNjaCjIKLw" priority="AVERAGE" name="Arrival"/>
+  <activeResourceConfiguration id="_lVFrEWt8EdyvvbyE4XoDrQ" name="CPU">
+    <schedulerConfiguration href="Library.scheduler#_H-tHMGw9Edy7W-_0jjzZwQ"/>
+  </activeResourceConfiguration>
+  <activeResourceConfiguration id="_EGFZQYisEdyT5rQezr07bQ" replicas="-1" name="DelayServer"/>
+  <passiveResourceConfiguration id="_G7MxIq_8Edyl-b95DfPYWA" name="MessageConsumer" managingResource="_lVFrEWt8EdyvvbyE4XoDrQ"/>
+</scheduler:SystemConfiguration>

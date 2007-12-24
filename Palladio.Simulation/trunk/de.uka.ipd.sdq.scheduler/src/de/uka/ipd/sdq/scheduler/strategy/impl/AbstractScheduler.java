@@ -28,17 +28,19 @@ public abstract class AbstractScheduler implements IScheduler {
 		this.in_front_after_waiting = in_front_after_waiting;
 	}
 
-	/**
-	 * Template Method.
-	 * 
-	 * @param process
-	 */
-	protected abstract void initialiseProcess(IActiveProcess process);
-
 	
-	public void addProcess(IActiveProcess process) {
-		queueing_strategy.addProcess(process, false);
-		initialiseProcess(process);
+	public void addProcess(IActiveProcess process, IResourceInstance current) {
+		queueing_strategy.addProcess(process, current, false);
+	}
+	
+	public void removeProcess(IActiveProcess process, IResourceInstance current){
+		if (process.isRunning()){
+			fromRunningToReady(process, current, true);
+			queueing_strategy.removePendingProcess(process);
+			process.getLastInstance().schedulingInterrupt(0, false);
+		} else {
+			queueing_strategy.removePendingProcess(process);
+		}
 	}
 
 	/**
@@ -68,7 +70,7 @@ public abstract class AbstractScheduler implements IScheduler {
 	 * 
 	 * @param process
 	 */
-	protected void fromRunningToReady(IActiveProcess process, boolean inFront) {
+	protected void fromRunningToReady(IActiveProcess process, IResourceInstance current, boolean inFront) {
 		LoggingWrapper.log(" From RUNNING to READY Process " + process);
 		assert process.isRunning() : "Process must be in running state to return to pending queue!";
 		assert queueing_strategy.runningOn(process).equals(
@@ -76,7 +78,7 @@ public abstract class AbstractScheduler implements IScheduler {
 		assert process.getLastInstance().getRunningProcess().equals(process) : "Inconsistent running state!";
 		stopProcess(process);
 		process.setReady();
-		queueing_strategy.addProcess(process, inFront);
+		queueing_strategy.addProcess(process, current, inFront);
 	}
 
 	
@@ -105,7 +107,7 @@ public abstract class AbstractScheduler implements IScheduler {
 
 	
 	public void fromWaitingToReady(WaitingProcess waiting_process,
-			Deque<WaitingProcess> waitingQueue) {
+			Deque<WaitingProcess> waitingQueue, IResourceInstance current) {
 		LoggingWrapper.log("From WAITING to READY Process "
 				+ waiting_process.getProcess());
 		IActiveProcess process = waiting_process.getProcess();
@@ -113,7 +115,7 @@ public abstract class AbstractScheduler implements IScheduler {
 
 		waitingQueue.remove(waiting_process);
 		process.setReady();
-		queueing_strategy.addProcess(process, in_front_after_waiting);
+		queueing_strategy.addProcess(process, current, in_front_after_waiting);
 		process.getLastInstance().schedulingInterrupt(0, true);
 	}
 }

@@ -23,14 +23,14 @@ public interface IScheduler {
 	 * @param instance
 	 *            Resource instance requesting scheduling.
 	 */
-	public abstract void schedule(IResourceInstance instance, boolean quantum_finished);
+	public abstract void schedule(IResourceInstance instance);
 
 	/**
 	 * Registers a new process and adds it to the scheduler's runqueue(s).
 	 * 
 	 * @param process
 	 */
-	public abstract void addProcess(IActiveProcess process);
+	public abstract void addProcess(IActiveProcess process, IResourceInstance current);
 
 	/**
 	 * Notifies the scheduler, that a process finished its waiting period and
@@ -43,7 +43,7 @@ public interface IScheduler {
 	 *            Queue where the process is waiting.
 	 */
 	public abstract void fromWaitingToReady(WaitingProcess waiting_process,
-			Deque<WaitingProcess> waiting_queue);
+			Deque<WaitingProcess> waiting_queue, IResourceInstance current);
 
 	/**
 	 * Notifies the scheduler, that a running process has to change its state to
@@ -79,5 +79,7 @@ public interface IScheduler {
 	public abstract boolean isIdle(IResourceInstance instance);
 
 	public abstract double getInterval();
+
+	public abstract void removeProcess(IActiveProcess lookUp, IResourceInstance current);
 
 }

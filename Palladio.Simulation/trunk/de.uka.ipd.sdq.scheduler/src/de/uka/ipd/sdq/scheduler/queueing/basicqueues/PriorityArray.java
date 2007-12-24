@@ -150,7 +150,11 @@ public class PriorityArray implements IProcessQueue {
 	}
 
 	public IActiveProcess getNextRunnableProcess() {
-		return getNonEmptyQueueWithHighestPriority().getNextRunnableProcess();
+		IProcessQueue queue = getNonEmptyQueueWithHighestPriority();
+		if (queue != null){
+			return queue.getNextRunnableProcess();
+		}
+		return null;
 	}
 
 	/**

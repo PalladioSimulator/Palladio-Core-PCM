@@ -23,8 +23,6 @@ import scheduler.configuration.QueueingConfiguration;
 import scheduler.configuration.SchedulerConfiguration;
 import scheduler.configuration.TimeSliceConfiguration;
 import scheduler.configuration.util.ConfigurationSwitch;
-import umontreal.iro.lecuyer.simevents.Simulator;
-import umontreal.iro.lecuyer.simprocs.ThreadProcessSimulator;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
@@ -60,6 +58,7 @@ import de.uka.ipd.sdq.scheduler.queueing.runqueues.ActiveExpiredRunQueue;
 import de.uka.ipd.sdq.scheduler.queueing.runqueues.SingleRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimDelayResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimFairPassiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimUnfairPassiveResource;
@@ -67,7 +66,6 @@ import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 import de.uka.ipd.sdq.scheduler.strategy.impl.PreemptiveScheduler;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 import de.uka.ipd.sdq.scheduler.timeslice.impl.ContinuousTimeSlice;
-import de.uka.ipd.sdq.scheduler.timeslice.impl.DiscreteTimeSlice;
 import de.uka.ipd.sdq.scheduler.timeslice.impl.PriorityDependentTimeSlice;
 
 /**
@@ -88,24 +86,35 @@ public class SchedulingFactory implements ISchedulingFactory {
 	private Map<String, ActiveProcess> process_map = new Hashtable<String, ActiveProcess>();
 	private Map<String, PriorityManagerImpl> manager_map = new Hashtable<String, PriorityManagerImpl>();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.scheduler.builder.ISchedulingFactory#createActiveResource(scheduler.configuration.ActiveResourceConfiguration)
 	 */
 	public IActiveResource createActiveResource(
 			ActiveResourceConfiguration configuration) {
-		SimActiveResource resource = (SimActiveResource)active_resource_map.get(configuration
-				.getId());
+		IActiveResource resource = (SimActiveResource) active_resource_map
+				.get(configuration.getId());
 		if (resource == null) {
-			resource = new SimActiveResource(configuration.getReplicas(),
-					configuration.getName(), configuration.getId());
-			IScheduler scheduler = createScheduler(configuration.getSchedulerConfiguration(), resource);
-			resource.setScheduler(scheduler);
+			if (configuration.getReplicas() < 0) {
+				resource = new SimDelayResource(configuration.getName(),
+						configuration.getId());
+			} else {
+//				resource = new SimProcessorSharingResource(configuration.getName(), configuration.getId(), configuration.getReplicas()); 
+				resource = new SimActiveResource(configuration.getReplicas(),
+						configuration.getName(), configuration.getId());
+				IScheduler scheduler = createScheduler(configuration
+						.getSchedulerConfiguration(), resource);
+				((SimActiveResource) resource).setScheduler(scheduler);
+			}
 			active_resource_map.put(configuration.getId(), resource);
 		}
 		return resource;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.scheduler.builder.ISchedulingFactory#createPassiveResource(scheduler.configuration.PassiveResourceConfiguration)
 	 */
 	public IPassiveResource createPassiveResource(
@@ -146,16 +155,20 @@ public class SchedulingFactory implements ISchedulingFactory {
 
 		String id = containing_resource.getId() + index;
 
-		IResourceInstance instance = resource_instance_map.get(id );
+		IResourceInstance instance = resource_instance_map.get(id);
 		if (instance == null) {
-			instance = new SimResourceInstance(index , containing_resource);
-			resource_instance_map.put(id , instance);
+			instance = new SimResourceInstance(index, containing_resource);
+			resource_instance_map.put(id, instance);
 		}
 		return instance;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.scheduler.builder.ISchedulingFactory#createRunningProcess(de.uka.ipd.sdq.scheduler.ISchedulableProcess, scheduler.configuration.ProcessConfiguration, scheduler.configuration.ActiveResourceConfiguration)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.uka.ipd.sdq.scheduler.builder.ISchedulingFactory#createRunningProcess(de.uka.ipd.sdq.scheduler.ISchedulableProcess,
+	 *      scheduler.configuration.ProcessConfiguration,
+	 *      scheduler.configuration.ActiveResourceConfiguration)
 	 */
 	public IRunningProcess createRunningProcess(ISchedulableProcess process,
 			ProcessConfiguration configuration,
@@ -165,37 +178,49 @@ public class SchedulingFactory implements ISchedulingFactory {
 		ActiveProcess active_process = process_map.get(id);
 
 		if (active_process == null) {
-			if (resourceConfiguration.getSchedulerConfiguration()
-					.getPriorityConfiguration() != null) {
-				IPriority prio = getPriority(configuration.getPriority(),
-						resourceConfiguration.getSchedulerConfiguration()
-								.getPriorityConfiguration().getRange());
-				active_process = new ProcessWithPriority(process, prio);
-				IPriorityUpdateStrategy updateStrategy = createPriorityUpdadateStrategy(resourceConfiguration.getSchedulerConfiguration().getPriorityConfiguration().getBoostConfiguration(), active_process);
-				((ProcessWithPriority)active_process).setPriorityUpdateStrategy(updateStrategy);
+			if (resourceConfiguration.getReplicas() > 0) {
+
+				if (resourceConfiguration.getSchedulerConfiguration()
+						.getPriorityConfiguration() != null) {
+					IPriority prio = getPriority(configuration.getPriority(),
+							resourceConfiguration.getSchedulerConfiguration()
+									.getPriorityConfiguration().getRange());
+					active_process = new ProcessWithPriority(process, prio);
+					IPriorityUpdateStrategy updateStrategy = createPriorityUpdadateStrategy(
+							resourceConfiguration.getSchedulerConfiguration()
+									.getPriorityConfiguration()
+									.getBoostConfiguration(), active_process);
+					((ProcessWithPriority) active_process)
+							.setPriorityUpdateStrategy(updateStrategy);
+				}
+				if (resourceConfiguration.getSchedulerConfiguration()
+						.getPreemptionConfiguration() != null) {
+					if (active_process == null)
+						active_process = new PreemptiveProcess(process);
+					ITimeSlice timeslice = createTimeSlice(
+							resourceConfiguration.getSchedulerConfiguration()
+									.getPreemptionConfiguration(),
+							active_process);
+					timeslice.fullReset();
+					((PreemptiveProcess) active_process)
+							.setTimeSlice(timeslice);
+				} else {
+					active_process = new ActiveProcess(process);
+				}
+				process_map.put(id, active_process);
 			}
-			if (resourceConfiguration.getSchedulerConfiguration()
-					.getPreemptionConfiguration() != null) {
-				if (active_process == null)
-					active_process = new PreemptiveProcess(process);
-				ITimeSlice timeslice = createTimeSlice(resourceConfiguration
-						.getSchedulerConfiguration()
-						.getPreemptionConfiguration(), active_process);
-				((PreemptiveProcess) active_process).setTimeSlice(timeslice);
-			} else {
-				active_process = new ActiveProcess(process);
-			}
-			process_map.put(id, active_process);
 		}
 
 		return active_process;
 	}
 
 	private IPriorityUpdateStrategy createPriorityUpdadateStrategy(
-			PriorityBoostConfiguration boostConfiguration, IActiveProcess process) {
+			PriorityBoostConfiguration boostConfiguration,
+			IActiveProcess process) {
 		if (boostConfiguration instanceof DynamicPriorityBoostConfiguratioin) {
 			DynamicPriorityBoostConfiguratioin dynamic = (DynamicPriorityBoostConfiguratioin) boostConfiguration;
-			return new SleepAverageDependentUpdate(process, dynamic.getMaxSleepAverage().getValue(), dynamic.getMaxBonus());
+			return new SleepAverageDependentUpdate(process, dynamic
+					.getMaxSleepAverage().getValue(), dynamic.getMaxBonus());
 		}
 		return null;
 	}
@@ -237,8 +262,8 @@ public class SchedulingFactory implements ISchedulingFactory {
 				double timeslice = configuration.getTimeslice().getValue();
 				int granularity = configuration.getGranularity();
 				// TODO tatsächliche Konfiguration auslesen.
-				return new DiscreteTimeSlice();
-				//return new ContinuousTimeSlice(timeslice,granularity);
+				// return new DiscreteTimeSlice();
+				return new ContinuousTimeSlice(timeslice, granularity);
 			}
 
 			@Override
@@ -262,14 +287,17 @@ public class SchedulingFactory implements ISchedulingFactory {
 		return null;
 	}
 
-	private IScheduler createScheduler(SchedulerConfiguration configuration, IActiveResource scheduled_resource) {
+	private IScheduler createScheduler(SchedulerConfiguration configuration,
+			IActiveResource scheduled_resource) {
 		IScheduler scheduler = scheduler_map.get(configuration.getId());
 
 		if (scheduler == null) {
 			if (configuration.getPreemptionConfiguration() != null) {
-				scheduler = createPreemptiveScheduler(configuration, scheduled_resource);
+				scheduler = createPreemptiveScheduler(configuration,
+						scheduled_resource);
 			} else {
-				scheduler = createFCFSScheduler(configuration, scheduled_resource);
+				scheduler = createFCFSScheduler(configuration,
+						scheduled_resource);
 			}
 			scheduler_map.put(configuration.getId(), scheduler);
 		}
@@ -386,9 +414,9 @@ public class SchedulingFactory implements ISchedulingFactory {
 				break;
 			}
 			boost = new de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost(
-					update_strategy, configuration.getBonus(), (int)configuration
-							.getTimePenalty().getValue(), configuration
-							.isResetTimeslice());
+					update_strategy, configuration.getBonus(),
+					(int) configuration.getTimePenalty().getValue(),
+					configuration.isResetTimeslice());
 		}
 		return boost;
 	}

@@ -74,44 +74,24 @@ public class ContinuousTimeSlice implements ITimeSlice {
 		substractTime(time);
 	}
 
-//	
-//	public void subTimeProcessing(double time) {
-//		substractTime(time);
-//	}
-//
-//	
-//	public void subTimeScheduling(double time) {
-//		substractTime(time);
-//	}
-
 	
 	public void setExpired() {
 		this.remaining_part = 0;
 		this.remaining_time = 0;
 		
 	}
-
-//	
-//	public void setTo(double d) {
-//		remaining_part = d;
-//		remaining_time = d;
-//	}
-//
-//	
-//	public double getRemainingQuantumTime() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	
-//	public void resetQuantum() {
-//		// TODO Auto-generated method stub
-//		
-//	}
+	
+	@Override
+	public ITimeSlice clone() {
+		ContinuousTimeSlice cts = new ContinuousTimeSlice();
+		cts.part = this.part;
+		cts.timeslice = this.timeslice;
+		cts.remaining_part = this.remaining_part;
+		cts.remaining_time = this.remaining_time;
+		return cts;
+	}
 
 	
 	public void quantumFinished() {
-		// TODO Auto-generated method stub
-		
 	}
 }

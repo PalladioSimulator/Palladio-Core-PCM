@@ -6,6 +6,7 @@ import umontreal.iro.lecuyer.simevents.Event;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 /**
  * Event to proceed the activity of a process. This event requires, that at the
@@ -46,7 +47,15 @@ public class ProceedEvent extends Event {
 			// once the action has been successfully executed it is removed.
 			if (action.perform())
 				action = null;
-		} else
+		} else {
 			process.getSchedulableProcess().activate();
+			if (process.getSchedulableProcess().isFinished()){
+				scheduler.removeProcess(process, process.getIdealInstance());
+			}
+		}
+	}
+
+	public void setScheduler(IScheduler scheduler) {
+		this.scheduler = scheduler;
 	}
 }

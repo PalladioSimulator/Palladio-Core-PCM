@@ -61,7 +61,7 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 			IActiveProcess process = waiting_process.getProcess();
 			process.setCurrentDemand(acquisition_demand);
 			process.setDelayedAction(new UnfairAccessAction(waiting_process));
-			fromWaitingToReady(waiting_process);
+			fromWaitingToReady(waiting_process, process.getLastInstance());
 		}
 	}
 

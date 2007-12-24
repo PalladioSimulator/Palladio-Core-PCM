@@ -65,4 +65,14 @@ public class DiscreteTimeSlice implements ITimeSlice {
 	public void quantumFinished() {
 		current_value -= per_quantum;
 	}
+
+	@Override
+	public void substractTime(double time) {
+		// TODO Auto-generated method stub
+	}
+	
+	@Override
+	public DiscreteTimeSlice clone() {
+		return null;
+	}
 }

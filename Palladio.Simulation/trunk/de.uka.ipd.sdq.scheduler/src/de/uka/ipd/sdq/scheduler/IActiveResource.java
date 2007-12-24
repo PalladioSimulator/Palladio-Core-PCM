@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler;
 
-import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 /**
  * An active resource can execute demands of schedulable processes. Active
@@ -17,15 +16,6 @@ public interface IActiveResource {
 	 * Processes the specified demand of the process.
 	 */
 	public abstract void process(ISchedulableProcess process, double demand);
-
-	/**
-	 * Before a process can issue demands to the resource it needs to be
-	 * registered. After registration the process is blocked.
-	 * 
-	 * @param process
-	 *            Process to execute on the resource.
-	 */
-	public abstract void registerNewProcess(IRunningProcess process);
 
 	/**
 	 * Creates the initial events for the resource.
@@ -45,5 +35,9 @@ public interface IActiveResource {
 	 * @return
 	 */
 	public abstract String getName();
+
+	public abstract void stop();
+
+	public abstract void registerProcess(IRunningProcess runningProcess);
 
 }

@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
+import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public class SimFairPassiveResource extends SimAbstractPassiveResource {
@@ -43,14 +44,14 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 		LoggingWrapper.log("Process " + process + " releases " + num + " of "
 				+ this);
 		capacity += num;
-		notifyWaitingProcesses();
+		notifyWaitingProcesses(process.getLastInstance());
 	}
 
-	private void notifyWaitingProcesses() {
+	private void notifyWaitingProcesses(IResourceInstance current) {
 		WaitingProcess waitingProcess = waiting_queue.peek();
 		if (waitingProcess != null) {
 			if (tryToDequeueProcess(waitingProcess))
-				fromWaitingToReady(waitingProcess);
+				fromWaitingToReady(waitingProcess, current);
 		}
 	}
 

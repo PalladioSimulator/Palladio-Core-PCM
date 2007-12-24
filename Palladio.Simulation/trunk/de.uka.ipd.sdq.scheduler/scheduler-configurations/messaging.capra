@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<capra:CapraModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:capra="http://sdq.ipd.uka.de/Capra/1.0" xmlns:capra.core="http://sdq.ipd.uka.de/Capra/Core/1.0" xmlns:capra.extension="http://sdq.ipd.uka.de/Capra/Extensions/1.0" xmlns:capra.measurement="http://sdq.ipd.uka.de/Capra/Measurements/1.0" xmlns:capra.resources="http://sdq.ipd.uka.de/Capra/Resources/1.0" xmlns:probfunction="http://sdq.ipd.uka.de/ProbFunction/1.0">
+  <processes numReplicas="1">
+    <processvariable name="Arrival">
+      <process xsi:type="capra.core:ProbabilisticPrefix">
+        <action xsi:type="capra.core:DemandAction" identifier="//@identifiers.1">
+          <resourceUsage resource="//@resources.1">
+            <usageTime xsi:type="probfunction:BoxedPDF">
+              <samples value="1.0" probability="0.00158"/>
+              <samples value="2.0" probability="0.00279"/>
+              <samples value="3.0" probability="0.00511"/>
+              <samples value="4.0" probability="0.00775"/>
+              <samples value="5.0" probability="0.00877"/>
+              <samples value="6.0" probability="0.01172"/>
+              <samples value="7.0" probability="0.03181"/>
+              <samples value="8.0" probability="0.08562"/>
+              <samples value="9.0" probability="0.07443"/>
+              <samples value="10.0" probability="0.08271"/>
+              <samples value="11.0" probability="0.07582"/>
+              <samples value="12.0" probability="0.0429"/>
+              <samples value="13.0" probability="0.04225"/>
+              <samples value="14.0" probability="0.04163"/>
+              <samples value="15.0" probability="0.03856"/>
+              <samples value="16.0" probability="0.0328"/>
+              <samples value="17.0" probability="0.03243"/>
+              <samples value="18.0" probability="0.02719"/>
+              <samples value="19.0" probability="0.02536"/>
+              <samples value="20.0" probability="0.02173"/>
+              <samples value="21.0" probability="0.01848"/>
+              <samples value="22.0" probability="0.01671"/>
+              <samples value="23.0" probability="0.01674"/>
+              <samples value="24.0" probability="0.0133"/>
+              <samples value="25.0" probability="0.01026"/>
+              <samples value="26.0" probability="0.00924"/>
+              <samples value="27.0" probability="0.00902"/>
+              <samples value="28.0" probability="0.00772"/>
+              <samples value="29.0" probability="0.00577"/>
+              <samples value="30.0" probability="0.0053"/>
+              <samples value="31.0" probability="0.00453"/>
+              <samples value="32.0" probability="0.00375"/>
+              <samples value="33.0" probability="0.00319"/>
+              <samples value="34.0" probability="0.00298"/>
+              <samples value="35.0" probability="0.00294"/>
+              <samples value="37.0" probability="0.00546"/>
+              <samples value="38.0" probability="0.00279"/>
+              <samples value="39.0" probability="0.00223"/>
+              <samples value="40.0" probability="0.00276"/>
+              <samples value="42.0" probability="0.00502"/>
+              <samples value="43.0" probability="0.00273"/>
+              <samples value="44.0" probability="0.00307"/>
+              <samples value="45.0" probability="0.00409"/>
+              <samples value="46.0" probability="0.0057"/>
+              <samples value="47.0" probability="0.00654"/>
+              <samples value="48.0" probability="0.0075"/>
+              <samples value="49.0" probability="0.00778"/>
+              <samples value="50.0" probability="0.00682"/>
+              <samples value="51.0" probability="0.00728"/>
+              <samples value="52.0" probability="0.00697"/>
+              <samples value="53.0" probability="0.00549"/>
+              <samples value="54.0" probability="0.00505"/>
+              <samples value="55.0" probability="0.00536"/>
+              <samples value="56.0" probability="0.00657"/>
+              <samples value="57.0" probability="0.00496"/>
+              <samples value="58.0" probability="0.00524"/>
+              <samples value="59.0" probability="0.00465"/>
+              <samples value="60.0" probability="0.00477"/>
+              <samples value="61.0" probability="0.00384"/>
+              <samples value="62.0" probability="0.00381"/>
+              <samples value="63.0" probability="0.00409"/>
+              <samples value="64.0" probability="0.00307"/>
+              <samples value="65.0" probability="0.00301"/>
+              <samples value="66.0" probability="0.00325"/>
+              <samples value="67.0" probability="0.00232"/>
+              <samples value="68.0" probability="0.00254"/>
+              <samples value="69.0" probability="0.00211"/>
+              <samples value="70.0" probability="0.00167"/>
+              <samples value="71.0" probability="0.0018"/>
+              <samples value="72.0" probability="0.00143"/>
+              <samples value="73.0" probability="0.00146"/>
+              <samples value="74.0" probability="0.00152"/>
+              <samples value="75.0" probability="0.00102"/>
+              <samples value="76.0" probability="0.00105"/>
+              <samples value="77.0" probability="8.1E-4"/>
+              <samples value="78.0" probability="6.5E-4"/>
+              <samples value="79.0" probability="0.00108"/>
+              <samples value="80.0" probability="6.2E-4"/>
+              <samples value="81.0" probability="5.0E-4"/>
+              <samples value="82.0" probability="5.9E-4"/>
+              <samples value="83.0" probability="5.6E-4"/>
+              <samples value="84.0" probability="5.3E-4"/>
+              <samples value="85.0" probability="3.7E-4"/>
+              <samples value="86.0" probability="3.1E-4"/>
+              <samples value="87.0" probability="2.5E-4"/>
+              <samples value="88.0" probability="6.5E-4"/>
+              <samples value="89.0" probability="4.0E-4"/>
+              <samples value="90.0" probability="2.8E-4"/>
+              <samples value="91.0" probability="3.4E-4"/>
+              <samples value="92.0" probability="7.1E-4"/>
+              <samples value="93.0" probability="2.8E-4"/>
+              <samples value="94.0" probability="1.5E-4"/>
+              <samples value="95.0" probability="2.5E-4"/>
+              <samples value="96.0" probability="5.0E-4"/>
+              <samples value="97.0" probability="3.4E-4"/>
+              <samples value="98.0" probability="2.5E-4"/>
+              <samples value="99.0" probability="2.2E-4"/>
+              <samples value="100.0" probability="9.0E-5"/>
+              <samples value="102.0" probability="4.3E-4"/>
+              <samples value="103.0" probability="2.5E-4"/>
+              <samples value="104.0" probability="3.7E-4"/>
+              <samples value="105.0" probability="2.2E-4"/>
+              <samples value="107.0" probability="3.1E-4"/>
+              <samples value="109.0" probability="4.3E-4"/>
+              <samples value="110.0" probability="1.5E-4"/>
+              <samples value="111.0" probability="2.2E-4"/>
+              <samples value="112.0" probability="1.2E-4"/>
+              <samples value="113.0" probability="6.0E-5"/>
+              <samples value="114.0" probability="1.5E-4"/>
+              <samples value="115.0" probability="9.0E-5"/>
+              <samples value="116.0" probability="1.5E-4"/>
+              <samples value="117.0" probability="9.0E-5"/>
+              <samples value="118.0" probability="1.2E-4"/>
+              <samples value="119.0" probability="1.5E-4"/>
+              <samples value="120.0" probability="9.0E-5"/>
+              <samples value="121.0" probability="6.0E-5"/>
+              <samples value="122.0" probability="1.2E-4"/>
+              <samples value="123.0" probability="9.0E-5"/>
+              <samples value="124.0" probability="1.2E-4"/>
+              <samples value="125.0" probability="1.9E-4"/>
+              <samples value="126.0" probability="9.0E-5"/>
+              <samples value="127.0" probability="1.5E-4"/>
+              <samples value="128.0" probability="9.0E-5"/>
+              <samples value="130.0" probability="6.0E-5"/>
+              <samples value="131.0" probability="6.0E-5"/>
+              <samples value="132.0" probability="9.0E-5"/>
+              <samples value="133.0" probability="6.0E-5"/>
+              <samples value="134.0" probability="1.9E-4"/>
+              <samples value="135.0" probability="6.0E-5"/>
+              <samples value="138.0" probability="3.7E-4"/>
+              <samples value="139.0" probability="3.0E-5"/>
+              <samples value="141.0" probability="1.9E-4"/>
+              <samples value="143.0"/>
+              <samples value="144.0" probability="6.0E-5"/>
+              <samples value="145.0" probability="3.0E-5"/>
+              <samples value="146.0" probability="9.0E-5"/>
+              <samples value="147.0" probability="3.0E-5"/>
+              <samples value="148.0" probability="9.0E-5"/>
+              <samples value="149.0" probability="3.0E-5"/>
+              <samples value="150.0" probability="9.0E-5"/>
+              <samples value="151.0"/>
+              <samples value="152.0" probability="3.0E-5"/>
+              <samples value="153.0" probability="9.0E-5"/>
+              <samples value="155.0" probability="1.2E-4"/>
+              <samples value="156.0" probability="3.0E-5"/>
+              <samples value="157.0" probability="6.0E-5"/>
+              <samples value="158.0" probability="1.2E-4"/>
+              <samples value="159.0" probability="3.0E-5"/>
+              <samples value="161.0" probability="1.2E-4"/>
+              <samples value="163.0"/>
+              <samples value="164.0" probability="6.0E-5"/>
+              <samples value="165.0" probability="9.0E-5"/>
+              <samples value="167.0" probability="6.0E-5"/>
+              <samples value="168.0" probability="6.0E-5"/>
+              <samples value="169.0" probability="3.0E-5"/>
+              <samples value="171.0" probability="1.2E-4"/>
+              <samples value="172.0" probability="9.0E-5"/>
+              <samples value="173.0" probability="3.0E-5"/>
+              <samples value="177.0"/>
+              <samples value="178.0" probability="3.0E-5"/>
+              <samples value="179.0"/>
+              <samples value="180.0" probability="6.0E-5"/>
+              <samples value="181.0" probability="3.0E-5"/>
+              <samples value="182.0" probability="6.0E-5"/>
+              <samples value="183.0" probability="3.0E-5"/>
+              <samples value="184.0" probability="6.0E-5"/>
+              <samples value="185.0" probability="9.0E-5"/>
+              <samples value="186.0"/>
+              <samples value="187.0" probability="3.0E-5"/>
+              <samples value="188.0"/>
+              <samples value="189.0" probability="3.0E-5"/>
+              <samples value="190.0" probability="6.0E-5"/>
+              <samples value="191.0" probability="3.0E-5"/>
+              <samples value="192.0" probability="6.0E-5"/>
+              <samples value="195.0"/>
+              <samples value="197.0" probability="6.0E-5"/>
+              <samples value="198.0"/>
+              <samples value="199.0" probability="3.0E-5"/>
+              <samples value="200.0"/>
+              <samples value="201.0" probability="3.0E-5"/>
+              <samples value="203.0"/>
+              <samples value="204.0" probability="3.0E-5"/>
+              <samples value="207.0"/>
+              <samples value="208.0" probability="3.0E-5"/>
+              <samples value="209.0"/>
+              <samples value="210.0" probability="3.0E-5"/>
+              <samples value="213.0"/>
+              <samples value="214.0" probability="6.0E-5"/>
+              <samples value="215.0"/>
+              <samples value="216.0" probability="9.0E-5"/>
+              <samples value="218.0" probability="1.2E-4"/>
+              <samples value="223.0"/>
+              <samples value="224.0" probability="6.0E-5"/>
+              <samples value="233.0"/>
+              <samples value="235.0" probability="6.0E-5"/>
+              <samples value="236.0"/>
+              <samples value="237.0" probability="3.0E-5"/>
+              <samples value="238.0"/>
+              <samples value="239.0" probability="3.0E-5"/>
+              <samples value="240.0"/>
+              <samples value="241.0" probability="3.0E-5"/>
+              <samples value="244.0"/>
+              <samples value="245.0" probability="3.0E-5"/>
+              <samples value="250.0"/>
+              <samples value="252.0" probability="6.0E-5"/>
+              <samples value="254.0"/>
+              <samples value="255.0" probability="6.0E-5"/>
+              <samples value="258.0"/>
+              <samples value="259.0" probability="9.0E-5"/>
+              <samples value="264.0"/>
+              <samples value="266.0" probability="6.0E-5"/>
+              <samples value="267.0"/>
+              <samples value="268.0" probability="3.0E-5"/>
+              <samples value="273.0"/>
+              <samples value="274.0" probability="9.0E-5"/>
+              <samples value="275.0"/>
+              <samples value="277.0" probability="6.0E-5"/>
+              <samples value="279.0"/>
+              <samples value="280.0" probability="3.0E-5"/>
+              <samples value="288.0"/>
+              <samples value="291.0" probability="9.0E-5"/>
+              <samples value="294.0"/>
+              <samples value="295.0" probability="3.0E-5"/>
+              <samples value="305.0"/>
+              <samples value="306.0" probability="3.0E-5"/>
+              <samples value="308.0"/>
+              <samples value="309.0" probability="6.0E-5"/>
+              <samples value="323.0"/>
+              <samples value="324.0" probability="3.0E-5"/>
+              <samples value="328.0"/>
+              <samples value="329.0" probability="3.0E-5"/>
+              <samples value="340.0"/>
+              <samples value="341.0" probability="3.0E-5"/>
+              <samples value="346.0"/>
+              <samples value="347.0" probability="3.0E-5"/>
+              <samples value="350.0"/>
+              <samples value="351.0" probability="3.0E-5"/>
+              <samples value="352.0"/>
+              <samples value="353.0" probability="3.0E-5"/>
+              <samples value="363.0"/>
+              <samples value="364.0" probability="3.0E-5"/>
+              <samples value="397.0"/>
+              <samples value="398.0" probability="3.0E-5"/>
+              <samples value="407.0"/>
+              <samples value="408.0" probability="3.0E-5"/>
+              <samples value="416.0"/>
+              <samples value="417.0" probability="3.0E-5"/>
+              <samples value="463.0"/>
+              <samples value="464.0" probability="3.0E-5"/>
+              <samples value="642.0"/>
+              <samples value="643.0" probability="3.0E-5"/>
+              <samples value="999.0"/>
+              <samples value="1000.0" probability="3.0E-5"/>
+            </usageTime>
+          </resourceUsage>
+        </action>
+        <targetOptions>
+          <process xsi:type="capra.core:ParallelComposition">
+            <processes xsi:type="capra.core:ProcessVariableUsage" processVariable="//@processes.0/@processvariable"/>
+            <processes xsi:type="capra.core:ProbabilisticPrefix">
+              <action xsi:type="capra.measurement:TimeProbe" sensorsToStart="//@sensors.0"/>
+              <targetOptions>
+                <process xsi:type="capra.core:ProbabilisticPrefix">
+                  <action xsi:type="capra.core:DemandAction" identifier="//@identifiers.0">
+                    <resourceUsage resource="//@resources.0">
+                      <usageTime xsi:type="probfunction:BoxedPDF">
+                        <samples value="1.0" probability="1.0"/>
+                        <samples value="2.0"/>
+                      </usageTime>
+                    </resourceUsage>
+                  </action>
+                  <targetOptions>
+                    <process xsi:type="capra.core:ProbabilisticPrefix">
+                      <action xsi:type="capra.extension:AcquireAction" number="1" resource="//@resources.2"/>
+                      <targetOptions>
+                        <process xsi:type="capra.core:ProbabilisticPrefix">
+                          <action xsi:type="capra.core:DemandAction" identifier="//@identifiers.0">
+                            <resourceUsage resource="//@resources.0">
+                              <usageTime xsi:type="probfunction:BoxedPDF">
+                                <samples value="9.0"/>
+                                <samples value="10.0" probability="0.11096"/>
+                                <samples value="11.0" probability="0.41297"/>
+                                <samples value="12.0" probability="0.20302"/>
+                                <samples value="13.0" probability="0.06501"/>
+                                <samples value="14.0" probability="0.00381"/>
+                                <samples value="44.0"/>
+                                <samples value="45.0" probability="0.01699"/>
+                                <samples value="46.0" probability="0.08599"/>
+                                <samples value="47.0" probability="0.06865"/>
+                                <samples value="48.0" probability="0.02947"/>
+                                <samples value="49.0" probability="0.00312"/>
+                                <samples value="1000.0"/>
+                              </usageTime>
+                            </resourceUsage>
+                          </action>
+                          <targetOptions>
+                            <process xsi:type="capra.core:ProbabilisticPrefix">
+                              <action xsi:type="capra.measurement:TimeProbe" sensorsToStart="//@sensors.1" sensorsToStop="//@sensors.0"/>
+                              <targetOptions>
+                                <process xsi:type="capra.core:ProbabilisticPrefix">
+                                  <action xsi:type="capra.core:DemandAction" identifier="//@identifiers.2">
+                                    <resourceUsage resource="//@resources.0">
+                                      <usageTime xsi:type="probfunction:BoxedPDF">
+                                        <samples value="2.0"/>
+                                        <samples value="3.0" probability="0.75691"/>
+                                        <samples value="4.0" probability="0.22663"/>
+                                        <samples value="5.0" probability="0.01481"/>
+                                        <samples value="6.0" probability="0.00165"/>
+                                        <samples value="1000.0"/>
+                                      </usageTime>
+                                    </resourceUsage>
+                                  </action>
+                                  <targetOptions>
+                                    <process xsi:type="capra.core:ProbabilisticPrefix">
+                                      <action xsi:type="capra.measurement:TimeProbe" sensorsToStop="//@sensors.1"/>
+                                      <targetOptions>
+                                        <process xsi:type="capra.core:ProbabilisticPrefix">
+                                          <action xsi:type="capra.extension:ReleaseAction" number="1" resource="//@resources.2"/>
+                                          <targetOptions>
+                                            <process xsi:type="capra.core:SuccessfulTermination"/>
+                                          </targetOptions>
+                                        </process>
+                                      </targetOptions>
+                                    </process>
+                                  </targetOptions>
+                                </process>
+                              </targetOptions>
+                            </process>
+                          </targetOptions>
+                        </process>
+                      </targetOptions>
+                    </process>
+                  </targetOptions>
+                </process>
+              </targetOptions>
+            </processes>
+          </process>
+        </targetOptions>
+      </process>
+    </processvariable>
+  </processes>
+  <resources xsi:type="capra.resources:ProcessingResource" name="CPU"/>
+  <resources xsi:type="capra.resources:ProcessingResource" name="DelayServer" capacity="-1"/>
+  <resources xsi:type="capra.extension:StrongSemaphore" name="MessageConsumer"/>
+  <identifiers xsi:type="capra.core:DemandIdentifier" name="deliver"/>
+  <identifiers xsi:type="capra.core:DemandIdentifier" name="delay"/>
+  <identifiers xsi:type="capra.core:DemandIdentifier" name="onMessage"/>
+  <sensors xsi:type="capra.measurement:TimeSpanSensor" name="DeliveryTime" startMeasurement="//@processes.0/@processvariable/@process/@targetOptions.0/@process/@processes.1/@action" stopMeasurement="//@processes.0/@processvariable/@process/@targetOptions.0/@process/@processes.1/@targetOptions.0/@process/@targetOptions.0/@process/@targetOptions.0/@process/@targetOptions.0/@process/@action">
+    <timeSpanRecorders xsi:type="capra.measurement:FullTimeSpanRecorder"/>
+  </sensors>
+  <sensors xsi:type="capra.measurement:TimeSpanSensor" name="ExecutionTime" startMeasurement="//@processes.0/@processvariable/@process/@targetOptions.0/@process/@processes.1/@targetOptions.0/@process/@targetOptions.0/@process/@targetOptions.0/@process/@targetOptions.0/@process/@action" stopMeasurement="//@processes.0/@processvariable/@process/@targetOptions.0/@process/@processes.1/@targetOptions.0/@process/@targetOptions.0/@process/@targetOptions.0/@process/@targetOptions.0/@process/@targetOptions.0/@process/@targetOptions.0/@process/@action">
+    <timeSpanRecorders xsi:type="capra.measurement:FullTimeSpanRecorder"/>
+  </sensors>
+</capra:CapraModel>

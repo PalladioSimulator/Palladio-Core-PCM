@@ -3,10 +3,12 @@ package de.uka.ipd.sdq.scheduler.processes;
 import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
+import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.events.IDelayedAction;
 import de.uka.ipd.sdq.scheduler.processes.impl.PROCESS_STATE;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 /**
  * Not externally visible methods for running processes.
@@ -174,7 +176,8 @@ public interface IActiveProcess extends IRunningProcess {
 	 * Schedules a proceed event for the process at the time the current demand
 	 * is expired.
 	 */
-	public abstract void scheduleProceedEvent();
+	public abstract void scheduleProceedEvent(IScheduler scheduler);
+
 
 	/**
 	 * Cancels an already scheduled ProceedEvent, e.g. if the process is
@@ -199,5 +202,7 @@ public interface IActiveProcess extends IRunningProcess {
 	 * Updates the process's timeslice and priority, if there is such.
 	 */
 	public abstract void update();
+
+	public abstract IActiveProcess createNewInstance(ISchedulableProcess process);
 
 }

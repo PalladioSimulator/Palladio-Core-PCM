@@ -25,7 +25,7 @@ public interface IQueueingStrategy {
 	 *            If true, the process is added at the beginning of its queue,
 	 *            otherwise at its end.
 	 */
-	public abstract void addProcess(IActiveProcess process, boolean inFront);
+	public abstract void addProcess(IActiveProcess process, IResourceInstance current, boolean inFront);
 
 	/**
 	 * Depending on the underlying implementation the load is balanced between

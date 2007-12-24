@@ -7,18 +7,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import umontreal.iro.lecuyer.simevents.Sim;
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.loaddistribution.ILoadBalancer;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public abstract class AbstractLoadBalancer implements ILoadBalancer {
-
-	/**
-	 * Indicates whether all instances should be balanced or only the specified
-	 * and busiest one.
-	 */
-	protected boolean do_global_balance;
 
 	/**
 	 * Minimum time that needs to pass between two executions of the load
@@ -30,14 +25,8 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 * If !do_global_balance, this table is used to track the time that passed
 	 * since the last execution of a load balancer for an instance.
 	 */
-	protected Hashtable<IResourceInstance, Double> last_balanced_table;
+	protected Hashtable<IResourceInstance, Double> last_load;
 
-	/**
-	 * If do_global_balance, this value is used to track the time passed since
-	 * the last balancing.
-	 */
-	protected double last_balanced;
-	
 	/**
 	 * Holder of the runqueues that need to be balanced.
 	 */
@@ -55,11 +44,6 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 * they are returned in reverse order.
 	 */
 	protected boolean queue_ascending;
-
-	/**
-	 * Gives the maximum number of iterations for a global balancing.
-	 */
-	protected int max_iterations;
 
 	/**
 	 * Creates a new instance of a load balancer.
@@ -86,23 +70,20 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 *            Gives the maximum number of iterations for a global balancing.
 	 */
 	protected AbstractLoadBalancer(double balance_interval,
-			boolean do_global_balance, boolean prio_increasing, boolean queue_ascending, int max_iterations) {
+			boolean do_global_balance, boolean prio_increasing,
+			boolean queue_ascending, int max_iterations) {
 		super();
 		this.balance_interval = balance_interval;
-		this.do_global_balance = do_global_balance;
 		this.prio_increasing = prio_increasing;
 		this.queue_ascending = queue_ascending;
-		this.max_iterations = max_iterations;
 		this.queue_holder = null;
-		this.last_balanced = 0;
-		this.last_balanced_table = new Hashtable<IResourceInstance, Double>();
+		this.last_load = new Hashtable<IResourceInstance, Double>();
 	}
-	
-	
-	public void setQueueHolder(MultipleQueuesStrategy queue_holder){
+
+	public void setQueueHolder(MultipleQueuesStrategy queue_holder) {
 		this.queue_holder = queue_holder;
 		for (IResourceInstance instance : queue_holder.getResourceInstances()) {
-			this.last_balanced_table.put(instance, 0.0);
+			this.last_load.put(instance, 0.0);
 		}
 	}
 
@@ -118,18 +99,11 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 			IResourceInstance secondInstance);
 
 	public void balance(IResourceInstance instance) {
-		double now = Sim.time();
-		if (do_global_balance) {
-			if (now - last_balanced >= balance_interval) {
-				doGlobalBalance();
-				last_balanced = now;
-			}
-		} else {
-			if (now - last_balanced_table.get(instance) >= balance_interval) {
-				doBalance(instance);
-				last_balanced_table.put(instance, now);
-			}
+		double load = queue_holder.getRunQueueFor(instance).getCurrentLoad();
+		if (MathTools.less(0, Math.abs(load - last_load.get(instance)))) {
+			doBalance(instance);
 		}
+		last_load.put(instance, load);
 	}
 
 	/**
@@ -151,8 +125,8 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 			queue_holder.move(iterator.next(), src, dest);
 		}
 
-		src.schedulingInterrupt(0,false);
-		dest.schedulingInterrupt(0,false);
+		src.schedulingInterrupt(0, false);
+		dest.schedulingInterrupt(0, false);
 	}
 
 	/**
@@ -196,12 +170,12 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	}
 
 	/**
-	 * Returns the laziest queue in the given list.
+	 * Returns the idlest queue in the given list.
 	 * 
 	 * @param runQueues
 	 * @return
 	 */
-	protected IResourceInstance getLaziest(
+	protected IResourceInstance getIdlest(
 			Collection<IResourceInstance> instance_list) {
 		IResourceInstance laziest = null;
 		for (IResourceInstance instance : instance_list) {
@@ -249,31 +223,16 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	protected void doBalance(IResourceInstance instance) {
 		IResourceInstance busiest = getBusiest(queue_holder
 				.getResourceInstances());
+		IResourceInstance idlest = getIdlest(queue_holder
+				.getResourceInstances());
 		if (!busiest.equals(instance) && !isBalanced(busiest, instance)
 				&& load(busiest) > 1) {
 			int max_processes_needed = numProcessedNeeded(busiest, instance);
 			balanceTwoInstances(busiest, instance, max_processes_needed);
-		}
-	}
-
-	/**
-	 * Performs a global load balancing of all instances. The laziest and
-	 * busiest instance are selected and balanced until all instances are balanced or the
-	 * maximum of iterations is reached.
-	 */
-	protected void doGlobalBalance() {
-		IResourceInstance busiest = getBusiest(queue_holder
-				.getResourceInstances());
-		IResourceInstance laziest = getLaziest(queue_holder
-				.getResourceInstances());
-		int i = 0;
-		while (!busiest.equals(laziest) && !isBalanced(busiest, laziest)
-				&& load(busiest) > 1 && i < max_iterations) {
-			int max_processes_needed = numProcessedNeeded(busiest, laziest);
-			balanceTwoInstances(busiest, laziest, max_processes_needed);
-			busiest = getBusiest(queue_holder.getResourceInstances());
-			laziest = getLaziest(queue_holder.getResourceInstances());
-			i++;
+		} else if (!idlest.equals(instance) && !isBalanced(idlest, instance)
+				&& load(instance) > 1) {
+			int max_processes_needed = numProcessedNeeded(instance, idlest);
+			balanceTwoInstances(instance, idlest, max_processes_needed);
 		}
 	}
 }

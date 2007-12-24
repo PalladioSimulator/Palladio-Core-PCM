@@ -5,8 +5,10 @@ import java.util.Collection;
 import java.util.Hashtable;
 import java.util.List;
 
+import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.loaddistribution.ILoadBalancer;
+import de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance.IdleSelector;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
@@ -53,11 +55,15 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	 * A process is added after its creation or after waiting.
 	 */
 	
-	public void addProcess(IActiveProcess process, boolean inFront) {
+	public void addProcess(IActiveProcess process, IResourceInstance current, boolean inFront) {
 		IResourceInstance instance = process.getLastInstance();
 		if (instance == null) {
-			instance = instanceSelector.selectInstanceFor(process);
+			instance = instanceSelector.selectInstanceFor(process,current);
 			process.setLastInstance(instance);
+			process.setIdealInstance(instance);
+			if (instanceSelector instanceof IdleSelector) {
+				balance(instance);
+			}
 		}
 		getRunQueueFor(instance).addProcess(process, inFront);
 	}
@@ -79,12 +85,15 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		assert getRunQueueFor(src).contains(process) : "Process '" + process
 				+ "' is not in the runqueue of '" + src + "'";
 		assert process.getRunQueue() == getRunQueueFor(src) : "Invalid state of runqueues!";
+		
+		LoggingWrapper.log("Moving " + process + " from " + src + " to " + dest);
 
 		getRunQueueFor(src).removeProcess(process);
 		getRunQueueFor(dest).addProcess(process, false);
 		// Set the ideal instance of the process to the new resource instance.
 		// TODO Is this necessary?
 		process.setIdealInstance(dest);
+		process.setLastInstance(dest);
 	}
 
 	

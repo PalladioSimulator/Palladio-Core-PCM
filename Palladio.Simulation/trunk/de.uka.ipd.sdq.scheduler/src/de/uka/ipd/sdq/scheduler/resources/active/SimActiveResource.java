@@ -6,22 +6,20 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessRegistry;
-import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
-public class SimActiveResource extends AbstractSimResource implements
-		IActiveResource {
+public class SimActiveResource extends AbstractActiveResource {
 
 	private IScheduler scheduler;
 	private List<IResourceInstance> instanceList;
 	private ProcessRegistry processRegistry;
+	private IResourceInstance main_instance;
 
 	public static final Logger logger = Logger.getLogger("Scheduler");
 
@@ -32,6 +30,7 @@ public class SimActiveResource extends AbstractSimResource implements
 		for (int i = 0; i < capacity; i++) {
 			instanceList.add(factory.createResourceInstance(i, this));
 		}
+		main_instance = instanceList.get(0);
 	}
 
 	public IScheduler getScheduler() {
@@ -43,11 +42,23 @@ public class SimActiveResource extends AbstractSimResource implements
 	}
 
 	public IActiveProcess lookUp(ISchedulableProcess process) {
-		return processRegistry.lookUp(process);
+		IActiveProcess p = processRegistry.lookUp(process);
+		if (p == null){
+			ISchedulableProcess parent = process;
+			IActiveProcess pparent = null;
+			do{
+				parent = parent.getParent();
+				pparent = processRegistry.lookUp(parent);
+			} while (pparent == null && parent != null);
+			assert pparent != null;
+			p = pparent.createNewInstance(process);
+			processRegistry.registerProcess(p);
+		}
+		return p;
 	}
 
-	public void process(ISchedulableProcess sched_process, double demand) {
-		IActiveProcess process = processRegistry.lookUp(sched_process);
+	public void doProcessing(ISchedulableProcess sched_process, double demand) {
+		IActiveProcess process = lookUp(sched_process);
 		
 		LoggingWrapper.log(" Process " + process + " demands "
 				+ MathTools.round(demand, 0.01));
@@ -55,19 +66,6 @@ public class SimActiveResource extends AbstractSimResource implements
 		process.setCurrentDemand(demand);
 		scheduler.scheduleNextEvent(process.getLastInstance());
 		sched_process.passivate();
-	}
-
-	/**
-	 * Before a process can issue demands to the resource it needs to be
-	 * registered. After registration the process is blocked.
-	 * 
-	 * @param process
-	 *            Process to execute on the resource.
-	 */
-	public void registerNewProcess(IRunningProcess process) {
-		processRegistry.registerProcess((IActiveProcess) process);
-		scheduler.addProcess((IActiveProcess) process);
-		process.getSchedulableProcess().passivate();
 	}
 
 	public void start() {
@@ -83,5 +81,37 @@ public class SimActiveResource extends AbstractSimResource implements
 	public void setScheduler(IScheduler scheduler) {
 		this.scheduler = scheduler;
 	}
+
+	@Override
+	protected void dequeue(ISchedulableProcess process) {
+		IActiveProcess myProcess = lookUp(process);
+		scheduler.removeProcess(myProcess, myProcess.getLastInstance());
+		myProcess.setIdealInstance(null);
+		myProcess.setLastInstance(null);
+	}
+
+	@Override
+	protected void enqueue(ISchedulableProcess process) {
+		IActiveProcess p = lookUp(process);
+		scheduler.addProcess(p, main_instance);
+		p.getLastInstance().schedulingInterrupt(0, false);
+	}
+
+	@Override
+	public void stop() {
+		for( IResourceInstance ri : instanceList) {
+			ri.stop();
+		}
+	}
+	
+	@Override
+	public void registerProcess(IRunningProcess runningProcess) {
+		processRegistry.registerProcess((IActiveProcess)runningProcess);
+	}
+
+	public void unregisterProcess(IActiveProcess process) {
+		processRegistry.unregisterProcess(process.getSchedulableProcess());
+	}
+
 
 }

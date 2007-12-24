@@ -28,10 +28,10 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	}
 
 	
-	public void addProcess(IActiveProcess process, boolean inFront) {
+	public void addProcess(IActiveProcess process, IResourceInstance current, boolean inFront) {
 		IResourceInstance instance = process.getLastInstance();
 		if (instance == null) {
-			instance = idealInstanceSelector.selectInstanceFor(process);
+			instance = idealInstanceSelector.selectInstanceFor(process, current);
 			process.setLastInstance(instance);
 		}
 		runQueue.addProcess(process, inFront);
