@@ -32,6 +32,6 @@ public class SchedulingInterruptEvent extends Event {
 	@Override
 	public void actions() {
 		logger.debug("Scheduling Interrupt Event handler triggered");
-		containingResource.getScheduler().schedule(instance,quantum_finished);
+		containingResource.getScheduler().schedule(instance/*,quantum_finished*/);
 	}
 }

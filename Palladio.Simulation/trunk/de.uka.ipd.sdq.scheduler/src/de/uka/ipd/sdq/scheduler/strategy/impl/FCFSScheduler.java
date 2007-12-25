@@ -35,7 +35,7 @@ public class FCFSScheduler extends AbstractScheduler {
 	
 	public void scheduleNextEvent(IResourceInstance instance) {
 		// TODO Auto-generated method stub
-		return 0;
+		//return 0;
 	}
 
 

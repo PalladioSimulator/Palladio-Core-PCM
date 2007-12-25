@@ -27,6 +27,7 @@ public class ProceedEvent extends Event {
 
 	IActiveProcess process;
 	private IDelayedAction action;
+	private IScheduler scheduler;
 	static Logger logger = Logger.getLogger(ProceedEvent.class);
 
 	public ProceedEvent(IActiveProcess process) {

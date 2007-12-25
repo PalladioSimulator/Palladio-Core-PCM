@@ -23,6 +23,7 @@ import scheduler.configuration.QueueingConfiguration;
 import scheduler.configuration.SchedulerConfiguration;
 import scheduler.configuration.TimeSliceConfiguration;
 import scheduler.configuration.util.ConfigurationSwitch;
+import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;

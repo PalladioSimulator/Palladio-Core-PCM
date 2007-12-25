@@ -32,7 +32,7 @@ public class SchedulingEvent extends Event {
 	public void actions() {
 		logger.debug("Scheduling Event handler triggered");
 		containingResource.getScheduler().schedule(instance);
-		containingResource.getScheduler().schedule(instance,true);
+		containingResource.getScheduler().schedule(instance/*,true*/);
 		this.schedule(containingResource.getScheduler().getInterval());
 	}
 }
