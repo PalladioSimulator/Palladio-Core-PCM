@@ -17,7 +17,6 @@ public abstract class AbstractActiveResource extends AbstractSimResource impleme
 		super(capacity, name, id);
 	}
 
-	@Override
 	public final void process(ISchedulableProcess process, double demand) {
 		AbstractActiveResource last = getLastResource(process);
 		if (!this.equals(last)){
