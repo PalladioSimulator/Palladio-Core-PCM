@@ -104,7 +104,7 @@ public class ExactCPUResource extends AbstractScheduledResource {
 		pc.setPriority(PriorityClass.DEFAULT);
 		IRunningProcess rp = SchedulingFactory.eINSTANCE.createRunningProcess
 			(thread, pc, config);
-		myCPU.registerNewProcess(rp);
+		myCPU.registerProcess(rp);
 		myCPU.process(thread, demand);
 	}
 

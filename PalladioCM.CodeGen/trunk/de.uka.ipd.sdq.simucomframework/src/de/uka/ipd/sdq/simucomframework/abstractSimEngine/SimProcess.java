@@ -43,4 +43,14 @@ implements ISimProcessDelegate, ISchedulableProcess {
 	public String getId() {
 		return Thread.currentThread().getName();
 	}
+	
+	public ISchedulableProcess getParent(){
+		// TODO: What is expected here?
+		return null;
+	}
+	
+	public boolean isFinished() {
+		return isTerminated();
+	}
+
 }
