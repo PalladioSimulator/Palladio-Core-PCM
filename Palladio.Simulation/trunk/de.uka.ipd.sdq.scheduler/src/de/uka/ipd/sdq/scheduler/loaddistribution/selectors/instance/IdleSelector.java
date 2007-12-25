@@ -17,7 +17,6 @@ public class IdleSelector extends AbstractInstanceSelector  {
 		ideal_instance_selector = new RoundRobinSelector(resource);
 	}
 
-	@Override
 	public IResourceInstance selectInstanceFor(IActiveProcess process, IResourceInstance current) {
 		return current;
 //		List<IResourceInstance> idleInstances = getIdleInstances();

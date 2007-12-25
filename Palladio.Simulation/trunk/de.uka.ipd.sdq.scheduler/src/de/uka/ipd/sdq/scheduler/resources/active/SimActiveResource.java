@@ -82,7 +82,6 @@ public class SimActiveResource extends AbstractActiveResource {
 		this.scheduler = scheduler;
 	}
 
-	@Override
 	protected void dequeue(ISchedulableProcess process) {
 		IActiveProcess myProcess = lookUp(process);
 		scheduler.removeProcess(myProcess, myProcess.getLastInstance());
@@ -90,21 +89,18 @@ public class SimActiveResource extends AbstractActiveResource {
 		myProcess.setLastInstance(null);
 	}
 
-	@Override
 	protected void enqueue(ISchedulableProcess process) {
 		IActiveProcess p = lookUp(process);
 		scheduler.addProcess(p, main_instance);
 		p.getLastInstance().schedulingInterrupt(0, false);
 	}
 
-	@Override
 	public void stop() {
 		for( IResourceInstance ri : instanceList) {
 			ri.stop();
 		}
 	}
 	
-	@Override
 	public void registerProcess(IRunningProcess runningProcess) {
 		processRegistry.registerProcess((IActiveProcess)runningProcess);
 	}

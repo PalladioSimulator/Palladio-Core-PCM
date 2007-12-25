@@ -369,7 +369,6 @@ public class ActiveProcess implements IActiveProcess {
 		this.proceedEvent.setDelayedAction(action);
 	}
 
-	@Override
 	public IActiveProcess createNewInstance(ISchedulableProcess process) {
 		return new ActiveProcess(process);
 	}

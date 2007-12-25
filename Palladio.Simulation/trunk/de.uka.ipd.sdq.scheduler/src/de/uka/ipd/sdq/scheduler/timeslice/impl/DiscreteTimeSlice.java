@@ -66,7 +66,6 @@ public class DiscreteTimeSlice implements ITimeSlice {
 		current_value -= per_quantum;
 	}
 
-	@Override
 	public void substractTime(double time) {
 		// TODO Auto-generated method stub
 	}

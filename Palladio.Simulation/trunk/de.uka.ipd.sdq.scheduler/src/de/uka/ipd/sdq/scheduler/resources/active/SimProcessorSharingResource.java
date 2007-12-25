@@ -27,7 +27,6 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 			this.process = process;
 		}
 
-		@Override
 		public void actions() {
 			ISchedulableProcess last = process;
 			toNow();
@@ -84,17 +83,14 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 	}
 
 
-	@Override
 	public void start() {
 	}
 
 
-	@Override
 	protected void dequeue(ISchedulableProcess process) {
 	}
 
 
-	@Override
 	protected void doProcessing(ISchedulableProcess process, double demand) {
 		toNow();
 		LoggingWrapper.log(process + " demands " + demand);
@@ -103,17 +99,14 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		process.passivate();
 	}
 
-	@Override
 	protected void enqueue(ISchedulableProcess process) {
 	}
 
 
-	@Override
 	public void stop() {
 		
 	}
 
-	@Override
 	public void registerProcess(IRunningProcess runningProcess) {
 	}
 

@@ -16,8 +16,6 @@ public class RoundRobinSelector extends AbstractInstanceSelector {
 		reset();
 	}
 
-
-	@Override
 	public IResourceInstance selectInstanceFor(IActiveProcess process, IResourceInstance running_on) {
 		IResourceInstance result = null;
 		while(result == null){
