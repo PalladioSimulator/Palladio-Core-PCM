@@ -66,17 +66,16 @@ public interface IResourceInstance {
 	 */
 	public abstract void cancelSchedulingEvent();
 
-	/**
-	 * Checks if a SchedulingEvent for this instance is currently scheduled.
-	 * 
-	 * @return True, if a SchedulingEvent is pending, false otherwise.
-	 */
-	public abstract boolean schedulingEventScheduled();
-
 	public abstract double getNextSchedEventTime();
 
 	public abstract void start();
 	
 	public abstract void stop();
+
+	public abstract void setIsScheduling(boolean b);
+
+	public abstract boolean isScheduling();
+
+	public abstract void schedulePostSchedulingEvent(double overhead);
 
 }

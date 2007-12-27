@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.scheduler.events;
 import org.apache.log4j.Logger;
 
 import umontreal.iro.lecuyer.simevents.Event;
-import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;

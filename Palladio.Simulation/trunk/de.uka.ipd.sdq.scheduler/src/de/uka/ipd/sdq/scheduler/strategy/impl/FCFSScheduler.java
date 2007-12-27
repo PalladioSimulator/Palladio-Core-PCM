@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
-import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
@@ -41,6 +40,13 @@ public class FCFSScheduler extends AbstractScheduler {
 
 	
 	public void schedule(IResourceInstance instance, boolean quantum_finished) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void postSchedule(IResourceInstance instance) {
 		// TODO Auto-generated method stub
 		
 	}

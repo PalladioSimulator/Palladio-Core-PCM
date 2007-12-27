@@ -3,9 +3,8 @@ package de.uka.ipd.sdq.scheduler;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import umontreal.iro.lecuyer.simevents.Sim;
-
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 
 public class LoggingWrapper {
 	
@@ -20,7 +19,7 @@ public class LoggingWrapper {
 	}
 	
 	public static void log(String string) {
-		logger.info(MathTools.round(Sim.time(), 0.01) + " " + string);
+		//logger.info(MathTools.round(SchedulingFactory.getUsedSimulator().time(), 0.01) + " " + string);
 	}
 
 }

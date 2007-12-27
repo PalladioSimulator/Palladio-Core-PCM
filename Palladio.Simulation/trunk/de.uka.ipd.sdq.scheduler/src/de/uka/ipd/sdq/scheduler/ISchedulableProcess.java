@@ -34,7 +34,14 @@ public interface ISchedulableProcess {
 	 */
 	public abstract String getName();
 
-	public abstract ISchedulableProcess getParent();
+	/**
+	 * @return Returns the original process that 
+	 * spawned many other processes including this one.
+	 * Its IRunningProcess serves as a prototype for the newly 
+	 * spawned processes. The original Ancestor has to point 
+	 * to itself.  
+	 */
+	public abstract ISchedulableProcess getAncestor();
 
 	public abstract boolean isFinished();
 }

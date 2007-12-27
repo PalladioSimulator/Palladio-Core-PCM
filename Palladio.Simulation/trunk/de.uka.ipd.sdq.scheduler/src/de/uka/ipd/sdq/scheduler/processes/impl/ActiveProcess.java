@@ -3,12 +3,13 @@ package de.uka.ipd.sdq.scheduler.processes.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import umontreal.iro.lecuyer.simevents.Sim;
+import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.events.IDelayedAction;
 import de.uka.ipd.sdq.scheduler.events.ProceedEvent;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.MultipleResourceInstancesConstraint;
 import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.SingleResourceInstanceConstraint;
@@ -42,6 +43,7 @@ public class ActiveProcess implements IActiveProcess {
 		this.processStateSensorList = new ArrayList<IProcessStateSensor>();
 		this.runqueue = null;
 		this.state = PROCESS_STATE.READY;
+		this.simulator = SchedulingFactory.getUsedSimulator();
 	}
 
 	// /////////////////////////////////////////////////////////////////////
@@ -190,7 +192,7 @@ public class ActiveProcess implements IActiveProcess {
 	}
 
 	public void toNow() {
-		double currentTime = Sim.time();
+		double currentTime = simulator.time();
 		if (isRunning()) {
 			double passedTime = currentTime - lastUpdateTime;
 			if (passedTime > MathTools.EPSILON_ERROR) {
@@ -337,6 +339,7 @@ public class ActiveProcess implements IActiveProcess {
 	// /////////////////////////////////////////////////////////////////////
 
 	private ProceedEvent proceedEvent = null;
+	private Simulator simulator = null;
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#scheduleProceedEvent()

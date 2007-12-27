@@ -46,11 +46,14 @@ public class SimActiveResource extends AbstractActiveResource {
 		if (p == null){
 			ISchedulableProcess parent = process;
 			IActiveProcess pparent = null;
+			int i=0;
 			do{
-				parent = parent.getParent();
+				parent = parent.getAncestor();
 				pparent = processRegistry.lookUp(parent);
+				i++;
 			} while (pparent == null && parent != null);
 			assert pparent != null;
+			assert i < 2;
 			p = pparent.createNewInstance(process);
 			processRegistry.registerProcess(p);
 		}

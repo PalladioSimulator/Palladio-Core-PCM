@@ -1,10 +1,12 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
-import umontreal.iro.lecuyer.simevents.Sim;
+import umontreal.iro.lecuyer.simevents.Event;
+import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
 import de.uka.ipd.sdq.scheduler.events.SchedulingInterruptEvent;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class SimResourceInstance implements IResourceInstance {
@@ -13,11 +15,13 @@ public class SimResourceInstance implements IResourceInstance {
 	private IActiveResource containing_resource;
 	private IRunningProcess running_process;
 	private SchedulingEvent scheduling_event;
-	private boolean scheduling_event_scheduled;
 	private double time_running;
 	private double time_idle;
 	private double last_running;
 	private double last_idle;
+	private Simulator simulator;
+	private boolean isScheduling;
+	private PostSchedulingEvent postSchedulingEvent;
 
 	
 	public SimResourceInstance(int number, IActiveResource containing_resource) {
@@ -27,11 +31,12 @@ public class SimResourceInstance implements IResourceInstance {
 		// Initialise this at start instead of container for multiple Simulation runs with different simulator instances...
 		// this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
 		this.running_process = null;
-		this.scheduling_event_scheduled = false;
 		this.time_idle = 0;
 		this.time_running = 0;
 		this.last_idle = 0;
 		this.last_running = 0;
+		this.simulator = SchedulingFactory.getUsedSimulator();
+		this.isScheduling = false;
 	}
 
 	public IRunningProcess getRunningProcess() {
@@ -39,7 +44,7 @@ public class SimResourceInstance implements IResourceInstance {
 	}
 	
 	public void release() {
-		double now = Sim.time();
+		double now = simulator.time();
 		if (running_process == null){
 			time_idle += now - last_idle;
 		} else {
@@ -57,7 +62,7 @@ public class SimResourceInstance implements IResourceInstance {
 		assert !this.processAssigned() : "There is already a process executing on resource instance "
 				+ this;
 		running_process = process;
-		double now = Sim.time();
+		double now = simulator.time();
 		time_idle += now - last_idle;
 		if (process == null){
 			last_idle = now;
@@ -73,7 +78,6 @@ public class SimResourceInstance implements IResourceInstance {
 	public void scheduleSchedulingEvent(double time) {
 		cancelSchedulingEvent();
 		scheduling_event.schedule(time);
-		scheduling_event_scheduled = true;
 	}
 	
 	public void schedulingInterrupt(double time, boolean quantum_expired){
@@ -82,7 +86,6 @@ public class SimResourceInstance implements IResourceInstance {
 
 	public void cancelSchedulingEvent() {
 		scheduling_event.cancel();
-		scheduling_event_scheduled = false;
 	}
 
 	@Override
@@ -108,22 +111,35 @@ public class SimResourceInstance implements IResourceInstance {
 		return getId().hashCode();
 	}
 
-	public boolean schedulingEventScheduled() {
-		return scheduling_event_scheduled;
-	}
-
 	public double getNextSchedEventTime() {
-		double time = scheduling_event.time() - Sim.time();
+		double time = scheduling_event.time() - simulator.time();
 		return time;
 	}
 
 	public void start() {
 		this.scheduling_event = new SchedulingEvent((SimActiveResource)containing_resource,this);
+		this.postSchedulingEvent = new PostSchedulingEvent((SimActiveResource)containing_resource,this);
 		scheduling_event.schedule(0);
 	}
 	
 	public void stop(){
 		System.out.println("Utilisation of " + getName() + ": " + (time_running / (time_idle + time_running)));
+	}
+
+	@Override
+	public void setIsScheduling(boolean b) {
+		isScheduling = b;
+	}
+
+	@Override
+	public boolean isScheduling() {
+		return isScheduling;
+	}
+
+	@Override
+	public void schedulePostSchedulingEvent(double overhead) {
+		postSchedulingEvent.cancel();
+		postSchedulingEvent.schedule(overhead);
 	}
 
 }

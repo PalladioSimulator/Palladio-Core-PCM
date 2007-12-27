@@ -3,11 +3,12 @@ package de.uka.ipd.sdq.scheduler.resources.active;
 import java.util.Hashtable;
 
 import umontreal.iro.lecuyer.simevents.Event;
-import umontreal.iro.lecuyer.simevents.Sim;
+import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 
 public class SimProcessorSharingResource extends AbstractActiveResource {
 	
@@ -15,7 +16,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		ISchedulableProcess process;
 		
 		public ProcessingFinishedEvent(ISchedulableProcess process) {
-			super();
+			super(SchedulingFactory.getUsedSimulator());
 			this.process = process;
 		}
 		
@@ -41,9 +42,11 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 	private ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(null);
 	private Hashtable<ISchedulableProcess,Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
 	private double last_time; 
+	private Simulator simulator;
 
 	public SimProcessorSharingResource(String name, String id, int i) {
 		super(i, name, id);
+		this.simulator = SchedulingFactory.getUsedSimulator();
 	}
 
 
@@ -64,7 +67,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 
 
 	private void toNow() {
-		double now = Sim.time();
+		double now = simulator.time();
 		double passed_time = now - last_time;
 		if (MathTools.less(0, passed_time)){
 			passed_time /= getSpeed(); 

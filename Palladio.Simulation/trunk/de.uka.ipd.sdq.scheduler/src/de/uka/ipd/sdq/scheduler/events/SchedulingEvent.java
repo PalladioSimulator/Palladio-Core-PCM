@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.events;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import umontreal.iro.lecuyer.simevents.Event;
@@ -22,6 +23,10 @@ public class SchedulingEvent extends Event {
 
 	static Logger logger = Logger.getLogger(SchedulingEvent.class);
 	
+	static{
+		logger.setLevel(Level.INFO);
+	}
+	
 	public SchedulingEvent(SimActiveResource containingResource, IResourceInstance instance) {
 		super(SchedulingFactory.getUsedSimulator());
 		this.containingResource = containingResource;
@@ -30,9 +35,7 @@ public class SchedulingEvent extends Event {
 
 	@Override
 	public void actions() {
-		logger.debug("Scheduling Event handler triggered");
+		logger.debug(simulator().time() + " Scheduling Event handler triggered");
 		containingResource.getScheduler().schedule(instance);
-		containingResource.getScheduler().schedule(instance/*,true*/);
-		this.schedule(containingResource.getScheduler().getInterval());
 	}
 }

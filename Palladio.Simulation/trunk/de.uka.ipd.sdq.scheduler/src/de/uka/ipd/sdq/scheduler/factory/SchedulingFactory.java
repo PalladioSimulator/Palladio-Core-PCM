@@ -60,6 +60,7 @@ import de.uka.ipd.sdq.scheduler.queueing.runqueues.SingleRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimDelayResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimProcessorSharingResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimFairPassiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimUnfairPassiveResource;
@@ -101,12 +102,15 @@ public class SchedulingFactory implements ISchedulingFactory {
 				resource = new SimDelayResource(configuration.getName(),
 						configuration.getId());
 			} else {
-//				resource = new SimProcessorSharingResource(configuration.getName(), configuration.getId(), configuration.getReplicas()); 
-				resource = new SimActiveResource(configuration.getReplicas(),
-						configuration.getName(), configuration.getId());
-				IScheduler scheduler = createScheduler(configuration
-						.getSchedulerConfiguration(), resource);
-				((SimActiveResource) resource).setScheduler(scheduler);
+				if (configuration.getName().equals("HDD")){
+					resource = new SimProcessorSharingResource(configuration.getName(), configuration.getId(), configuration.getReplicas()); 
+				} else{
+					resource = new SimActiveResource(configuration.getReplicas(),
+							configuration.getName(), configuration.getId());
+					IScheduler scheduler = createScheduler(configuration
+							.getSchedulerConfiguration(), resource);
+					((SimActiveResource) resource).setScheduler(scheduler);
+				}
 			}
 			active_resource_map.put(configuration.getId(), resource);
 		}

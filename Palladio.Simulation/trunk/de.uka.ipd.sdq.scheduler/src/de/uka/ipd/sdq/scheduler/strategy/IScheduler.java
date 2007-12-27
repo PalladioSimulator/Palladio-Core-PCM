@@ -6,6 +6,7 @@ import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
 
 /**
@@ -81,5 +82,7 @@ public interface IScheduler {
 	public abstract double getInterval();
 
 	public abstract void removeProcess(IActiveProcess lookUp, IResourceInstance current);
+
+	public abstract void postSchedule(IResourceInstance instance);
 
 }

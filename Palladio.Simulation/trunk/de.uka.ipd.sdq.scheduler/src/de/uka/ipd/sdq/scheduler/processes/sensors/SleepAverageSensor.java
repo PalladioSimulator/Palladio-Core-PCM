@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.scheduler.processes.sensors;
 
 import umontreal.iro.lecuyer.simevents.Sim;
+import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.IProcessStateSensor;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PROCESS_STATE;
 
@@ -11,8 +13,10 @@ public class SleepAverageSensor implements IProcessStateSensor {
 	private double lastUpdateTime;
 	private double sleep_average;
 	private double max_sleep_average;
+	private Simulator simulator;
 	
 	public SleepAverageSensor(IActiveProcess process, double max_sleep_average){
+		this.simulator = SchedulingFactory.getUsedSimulator();
 		this.sleep_average = 0;
 		this.lastUpdateTime = 0;
 		this.last_state = process.getState();
@@ -29,7 +33,7 @@ public class SleepAverageSensor implements IProcessStateSensor {
 	}
 
 	public void update(PROCESS_STATE new_state) {
-		double currentTime = Sim.time();
+		double currentTime = simulator.time();
 		double passedTime = currentTime - lastUpdateTime;
 		
 		// Process was waiting, but is finished now

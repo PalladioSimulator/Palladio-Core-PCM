@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.strategy.impl;
 
+import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
@@ -9,15 +10,20 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public class PreemptiveScheduler extends AbstractScheduler {
 	
+	private double overhead;
+
 	public PreemptiveScheduler(SimActiveResource resource,
 			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting,
 			double scheduling_interval) {
 		super(resource, queueingStrategy, in_front_after_waiting);
 		this.scheduling_interval = scheduling_interval;
+		this.overhead = 0.01;
 	}
 
 	
 	public void schedule(IResourceInstance instance) {
+		if (instance.isScheduling())
+			return;
 		
 		// Balance the runqueue of this instance with the runqueues of other
 		// instances. This might change the state of the instance's runqueue.
@@ -34,20 +40,32 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		toNow(running_process);
 		
 		if (running_process == null){
-			scheduleNextProcess(instance);
 		} else if ( running_process.getTimeslice().completelyFinished()) {
 			unschedule(running_process, false, instance);
-			scheduleNextProcess(instance);
 		} else if ( running_process.getTimeslice().partFinished()) {
 			unschedule(running_process, false, instance);
-			scheduleNextProcess(instance);
 		} else {
-			ProcessWithPriority next_process = (ProcessWithPriority) queueing_strategy.getNextProcessFor(instance);
-			if ( hasHigherPriority(next_process,running_process) ) {
+//			ProcessWithPriority next_process = (ProcessWithPriority) queueing_strategy.getNextProcessFor(instance);
+//			if ( hasHigherPriority(next_process,running_process) ) {
 				unschedule(running_process, true, instance);
-				scheduleNextProcess(next_process, instance);
-			}
+//			}
 		}
+		schedulePostSchedulingEvent(instance);
+	}
+	
+	
+	private void schedulePostSchedulingEvent(IResourceInstance instance) {
+		instance.setIsScheduling(true);
+		instance.schedulePostSchedulingEvent(overhead);
+	}
+
+
+	public void postSchedule(IResourceInstance instance){
+		assert instance.getRunningProcess() == null : instance.getRunningProcess();
+		assert instance.isScheduling();
+		instance.setIsScheduling(false);
+		
+		scheduleNextProcess(instance);
 		scheduleNextEvent(instance);
 	}
 
@@ -130,7 +148,11 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	@Override
 	public void removeProcess(IActiveProcess process, IResourceInstance current) {
 		super.removeProcess(process, current);
-		if (process.getSchedulableProcess().isFinished()){
+		ISchedulableProcess sProcess = process.getSchedulableProcess();
+		if (sProcess.isFinished()
+				// do NOT remove the originally defined processes as they
+				// serve as prototypes for all spawned processes.
+				&& sProcess.getAncestor() != sProcess){
 			this.resource.unregisterProcess(process);
 		}
 	}
