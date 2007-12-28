@@ -44,7 +44,7 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		return Thread.currentThread().getName();
 	}
 	
-	public ISchedulableProcess getParent(){
+	public ISchedulableProcess getAncestor(){
 		// TODO: What is expected here?
 		return null;
 	}
