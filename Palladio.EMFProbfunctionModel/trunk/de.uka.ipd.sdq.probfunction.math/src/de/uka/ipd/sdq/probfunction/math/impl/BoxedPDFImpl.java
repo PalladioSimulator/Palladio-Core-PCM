@@ -334,8 +334,20 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 	public IProbabilityDensityFunction shiftDomain(double scalar)
 			throws DomainNotNumbersException {
-		// TODO Auto-generated method stub
-		return null;
+		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
+		for(IContinuousSample s : this.samples){
+			IContinuousSample nsample = pfFactory.createContinuousSample(s.getValue() + scalar, s.getProbability());
+			newSamples.add(nsample);
+		}
+		IBoxedPDF result = null;
+		
+		try {
+			result = pfFactory.createBoxedPDF(newSamples, this.getUnit());
+		} catch (DoubleSampleException e) {
+			e.printStackTrace();
+		}
+		
+		return  result;
 	}
 
 }

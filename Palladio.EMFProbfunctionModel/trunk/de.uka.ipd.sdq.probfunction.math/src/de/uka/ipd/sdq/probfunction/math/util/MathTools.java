@@ -32,9 +32,11 @@ public class MathTools {
 	 * @return Returns the greatest common divisor of all numbers
 	 */
 	public static double gcd(List<Double> numbers) {
-		if (numbers.size() < 2)
+		if (numbers.size() < 1)
 			throw new IllegalArgumentException(
-					"number of digit must be greater than 2");
+					"number of digit must be greater than 0");
+		if(numbers.size() < 2) 
+			return numbers.get(0);
 
 		double gcd = gcd(numbers.get(0), numbers.get(1));
 		for (int i = 2; i < numbers.size(); i++)
@@ -182,15 +184,13 @@ public class MathTools {
 	 * @return
 	 */
 	public static List<Double> computeCumulativeProbabilities(List<Double> probabilityList) {
-		List<Double> resultList = new ArrayList<Double>();
+		List<Double> resultList = new ArrayList<Double>(probabilityList.size());
 		if (probabilityList == null || probabilityList.size() == 0)
 			throw new IllegalArgumentException("ProbabilityList is empty or null!");
-		resultList.add(probabilityList.get(0));
-
-		for (int i = 1; i < probabilityList.size(); i++) {
-			if (equalsDouble(1.0, resultList.get(i - 1)))
-				break;
-			resultList.add(resultList.get(i - 1) + probabilityList.get(i));
+		double prob = 0;
+		for(Double d : probabilityList){
+			prob += d;
+			resultList.add(prob);
 		}
 		return resultList;
 	}
