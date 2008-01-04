@@ -125,18 +125,15 @@ public class SimResourceInstance implements IResourceInstance {
 	public void stop(){
 		System.out.println("Utilisation of " + getName() + ": " + (time_running / (time_idle + time_running)));
 	}
-
-	@Override
+	
 	public void setIsScheduling(boolean b) {
 		isScheduling = b;
 	}
 
-	@Override
 	public boolean isScheduling() {
 		return isScheduling;
 	}
-
-	@Override
+	
 	public void schedulePostSchedulingEvent(double overhead) {
 		postSchedulingEvent.cancel();
 		postSchedulingEvent.schedule(overhead);
