@@ -1,15 +1,15 @@
 Please provide the mapping of subfolders to parts of PCM / Palladio in this file.
 
 Java2PCM						Eclipse plugins: Reverse engineering of RDSEFFs from Java source code. Based on work of Thomas Kappler.
-Palladio.Benchmark				TODO
+Palladio.Benchmark				Project which simulates resource demands on physical hardware, used by ProtoCom as well as Capra-Validations
 Palladio.ByCounter				TODO: Michael
 Palladio.CoreServices 			Core-Plugins which are needed more than once by other plugins
 Palladio.EMFAnalyticalModel 	Contains the current Version of the process algebra.
 Palladio.EMFComponentModel 		The EMF based PCM plugins containing the PCM Meta-Model
 Palladio.EMFProbfunctionModel 	Package to model probability distributions and perform basic computations on them
-Palladio.EMFUnits				TODO
+Palladio.EMFUnits				EMF Meta-Model for modelling units for stochatic expressions in the PCM
 Palladio.Examples 				Examples for the PCM and its tools
-Palladio.FeatureModelling		TODO
+Palladio.FeatureModelling		EMF Meta-Model for Feature Diagrams and Feature Configurations
 Palladio.PluginBuilder			Central project for configuring the PCM / PCM Bench nightly build
 Palladio.RSA-Models 			All RSA model files
 Palladio.SensorFactory 			Framework to place and store sensors in Simulations or to instrument code
