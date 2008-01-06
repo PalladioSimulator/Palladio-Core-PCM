@@ -26,6 +26,12 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.stoex"/>
+      <param name="project.name" value="de.uka.ipd.sdq.stoex"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
       <param name="element.id" value="uc.ac.ucl.ee.flanagan"/>
       <param name="project.name" value="uc.ac.ucl.ee.flanagan"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
@@ -92,8 +98,32 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.pcmbench.ui"/>
+      <param name="project.name" value="de.uka.ipd.sdq.pcmbench.ui"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.dialogs"/>
+      <param name="project.name" value="de.uka.ipd.sdq.dialogs"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <param name="project.name" value="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.pcmbench.help"/>
+      <param name="project.name" value="de.uka.ipd.sdq.pcmbench.help"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.pcmbench.propertytabs"/>
+      <param name="project.name" value="de.uka.ipd.sdq.pcmbench.propertytabs"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
     </antcall>
     <antcall target="svn.co">
@@ -106,6 +136,24 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.branding"/>
       <param name="project.name" value="de.uka.ipd.sdq.branding"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.stoex"/>
+      <param name="project.name" value="de.uka.ipd.sdq.stoex"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.stoex.analyser"/>
+      <param name="project.name" value="de.uka.ipd.sdq.stoex.analyser"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.stoex.edit"/>
+      <param name="project.name" value="de.uka.ipd.sdq.stoex.edit"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
     </antcall>
     <antcall target="svn.co">
@@ -133,6 +181,12 @@
       <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
     </antcall>
     <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.errorhandling"/>
+      <param name="project.name" value="de.uka.ipd.sdq.errorhandling"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
       <param name="target" value="features"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcm.diagram.feature"/>
       <param name="project.name" value="de.uka.ipd.sdq.pcm.diagram.feature"/>
@@ -152,8 +206,26 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.dialogs"/>
+      <param name="project.name" value="de.uka.ipd.sdq.dialogs"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.pcm.gmf.allocation"/>
       <param name="project.name" value="de.uka.ipd.sdq.pcm.gmf.allocation_new"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.pcmbench.tabs"/>
+      <param name="project.name" value="de.uka.ipd.sdq.pcmbench.tabs"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.pcmbench"/>
+      <param name="project.name" value="de.uka.ipd.sdq.pcmbench"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
     </antcall>
     <antcall target="svn.co">
@@ -352,6 +424,30 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.codegen.simucontroller"/>
       <param name="project.name" value="de.uka.ipd.sdq.codegen.simucontroller"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.completions"/>
+      <param name="project.name" value="de.uka.ipd.sdq.completions"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.completions.edit"/>
+      <param name="project.name" value="de.uka.ipd.sdq.completions.edit"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.completions.editor"/>
+      <param name="project.name" value="de.uka.ipd.sdq.completions.editor"/>
+      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.dialogs"/>
+      <param name="project.name" value="de.uka.ipd.sdq.dialogs"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
     </antcall>
     <antcall target="svn.co">
