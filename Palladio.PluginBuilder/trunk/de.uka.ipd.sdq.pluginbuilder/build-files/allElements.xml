@@ -34,6 +34,10 @@
 			<property name="type" value="feature" />
 			<property name="id" value="de.uka.ipd.sdq.tests" />
 		</ant>
+		<ant antfile="${genericTargets}" target="${target}">
+			<property name="type" value="feature" />
+			<property name="id" value="test_feature" />
+		</ant>
 		
 	</target>
 
@@ -76,6 +80,11 @@
 		</ant>
 	</target>
 	<target name="assemble.de.uka.ipd.sdq.tests">
+		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+			<property name="zipargs" value="" />
+		</ant>
+	</target>
+	<target name="assemble.test_feature">
 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
 			<property name="zipargs" value="" />
 		</ant>
@@ -133,5 +142,9 @@
  			<property name="archiveName" value="${archiveNamePrefix}-macosx.carbon.ppc.zip"/>
 		</ant>
 	</target>
-	
+	<target name="assemble.org.eclipse.pde.build.container.feature.macosx.carbon.x86">
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">			
+ 			<property name="archiveName" value="${archiveNamePrefix}-macosx.carbon.x86.zip"/>
+		</ant>
+	</target>	
 </project>
