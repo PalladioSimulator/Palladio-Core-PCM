@@ -103,7 +103,7 @@
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
 			failonerror="true" errorproperty="build.stderr"
-			error="/ant-java-error.txt"> <!-- error added by kelsaka for debuggin -->
+			error="/ant-java-error.txt"> <!-- error added by kelsaka for debugging -->
 			<arg value="-ws" />
 			<arg value="${ws}" />
 			<arg value="-os" />
@@ -116,6 +116,7 @@
 			<arg value="-data" />
 			<arg value="${buildDirectory}/workspace" />
 			<arg value="${verboseAnt}"/>
+			<arg value="-verbose" />  <!-- added by kelsaka for debugging -->
 			<jvmarg value="-Dbasews=${ws}" />
 			<jvmarg value="-Dbaseos=${os}" />
 			<jvmarg value="-Dbasearch=${arch}" />
