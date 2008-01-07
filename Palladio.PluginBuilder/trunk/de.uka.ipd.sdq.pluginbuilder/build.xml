@@ -102,7 +102,8 @@
 	<target name="-build.internal">
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
-			failonerror="true" errorproperty="build.stderr">
+			failonerror="true" errorproperty="build.stderr"
+			error="/ant-java-error.txt"> <!-- error added by kelsaka for debuggin -->
 			<arg value="-ws" />
 			<arg value="${ws}" />
 			<arg value="-os" />
