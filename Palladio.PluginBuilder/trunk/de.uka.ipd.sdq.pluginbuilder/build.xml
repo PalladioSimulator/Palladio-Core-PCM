@@ -102,8 +102,7 @@
 	<target name="-build.internal">
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
-			failonerror="true" errorproperty="build.stderr"
-			error="/ant-java-error.txt"> <!-- error added by kelsaka for debugging -->
+			failonerror="true" errorproperty="build.stderr">
 			<arg value="-ws" />
 			<arg value="${ws}" />
 			<arg value="-os" />
@@ -117,6 +116,8 @@
 			<arg value="${buildDirectory}/workspace" />
 			<arg value="${verboseAnt}"/>
 			<arg value="-verbose" />  <!-- added by kelsaka for debugging -->
+			<arg value="-init" />  <!-- added by kelsaka for debugging -->
+			<arg value="-clean" />  <!-- added by kelsaka for debugging -->
 			<jvmarg value="-Dbasews=${ws}" />
 			<jvmarg value="-Dbaseos=${os}" />
 			<jvmarg value="-Dbasearch=${arch}" />
@@ -131,9 +132,9 @@
 			<jvmarg value="-DbuildType=${buildType}"/>
 			<jvmarg value="-DfetchTag=${fetchTag}"/>
 			<jvmarg value="${varjvmargs1}"/>
-			<jvmarg value="${varjvmargs2}"/>
-	
-		 <jvmarg value="-Dtest.eclipse.zip=${test.eclipse.zip}"/>
+			<jvmarg value="${varjvmargs2}"/>	
+		    
+		    <jvmarg value="-Dtest.eclipse.zip=${test.eclipse.zip}"/>
 
 			<classpath>
 				<pathelement location="${equinoxjar}" />
