@@ -600,17 +600,5 @@
       <param name="project.name" value="/de.uka.ipd.sdq.simucomframework.variables.tests"/>
       <param name="url" value="svn://i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/trunk"/>
     </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="features"/>
-      <param name="element.id" value="test_feature"/>
-      <param name="project.name" value="/test-feature"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="test_plugin"/>
-      <param name="project.name" value="/test-plugin"/>
-      <param name="url" value="svn://i43pc13.ipd.uka.de/code"/>
-    </antcall>
   </target>
 </project>
