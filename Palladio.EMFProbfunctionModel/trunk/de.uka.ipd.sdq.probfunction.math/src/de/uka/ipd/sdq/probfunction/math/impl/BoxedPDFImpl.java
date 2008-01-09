@@ -213,10 +213,12 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return samples.get(rank).getProbability();
 	}
 
+	@Override
 	public boolean isInFrequencyDomain() {
 		return false;
 	}
 
+	@Override
 	public boolean isInTimeDomain() {
 		return true;
 	}
