@@ -60,6 +60,7 @@ import de.uka.ipd.sdq.scheduler.queueing.runqueues.SingleRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimDelayResource;
+import de.uka.ipd.sdq.scheduler.resources.active.SimFCFSResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimProcessorSharingResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimFairPassiveResource;
@@ -80,7 +81,7 @@ import de.uka.ipd.sdq.scheduler.timeslice.impl.PriorityDependentTimeSlice;
 public class SchedulingFactory implements ISchedulingFactory {
 
 	private static Simulator usedSimulator = Simulator.defaultSimulator;
-	
+
 	private Map<String, IActiveResource> active_resource_map = new Hashtable<String, IActiveResource>();
 	private Map<String, IPassiveResource> passive_resource_map = new Hashtable<String, IPassiveResource>();
 	private Map<String, IResourceInstance> resource_instance_map = new Hashtable<String, IResourceInstance>();
@@ -95,22 +96,26 @@ public class SchedulingFactory implements ISchedulingFactory {
 	 */
 	public IActiveResource createActiveResource(
 			ActiveResourceConfiguration configuration) {
-		IActiveResource resource = (SimActiveResource) active_resource_map
+		IActiveResource resource = (IActiveResource) active_resource_map
 				.get(configuration.getId());
 		if (resource == null) {
-			if (configuration.getReplicas() < 0) {
+			if (configuration.getReplicas() == -1) {
 				resource = new SimDelayResource(configuration.getName(),
 						configuration.getId());
+			} else if (configuration.getReplicas() == -2) {
+				resource = new SimProcessorSharingResource(configuration
+						.getName(), configuration.getId(), configuration
+						.getReplicas());
+			} else if (configuration.getReplicas() == -3) {
+				resource = new SimFCFSResource(configuration
+						.getName(), configuration.getId(), configuration
+						.getReplicas());
 			} else {
-				if (configuration.getName().equals("HDD")){
-					resource = new SimProcessorSharingResource(configuration.getName(), configuration.getId(), configuration.getReplicas()); 
-				} else{
-					resource = new SimActiveResource(configuration.getReplicas(),
-							configuration.getName(), configuration.getId());
-					IScheduler scheduler = createScheduler(configuration
-							.getSchedulerConfiguration(), resource);
-					((SimActiveResource) resource).setScheduler(scheduler);
-				}
+				resource = new SimActiveResource(configuration.getReplicas(),
+						configuration.getName(), configuration.getId());
+				IScheduler scheduler = createScheduler(configuration
+						.getSchedulerConfiguration(), resource);
+				((SimActiveResource) resource).setScheduler(scheduler);
 			}
 			active_resource_map.put(configuration.getId(), resource);
 		}
@@ -475,7 +480,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 		return usedSimulator;
 	}
 
-	public void resetFactory(){
+	public void resetFactory() {
 		this.active_resource_map.clear();
 		this.manager_map.clear();
 		this.passive_resource_map.clear();

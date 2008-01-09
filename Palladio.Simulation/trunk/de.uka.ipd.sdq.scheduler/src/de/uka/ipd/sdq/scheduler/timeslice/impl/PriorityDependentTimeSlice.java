@@ -8,6 +8,7 @@ public class PriorityDependentTimeSlice extends ContinuousTimeSlice {
 	public PriorityDependentTimeSlice(ProcessWithPriority process, double basic_timeslice, double min_timeslice, int granularity) {
 		double computed_timeslice = computeTicksFromPriority(process
 				.getStaticPriority(), basic_timeslice);
+		System.out.println(computed_timeslice);
 		this.timeslice = Math.max(computed_timeslice, min_timeslice);
 		this.part = this.timeslice / granularity;
 	}
@@ -19,11 +20,11 @@ public class PriorityDependentTimeSlice extends ContinuousTimeSlice {
 	 * @param process
 	 * @return
 	 */
-	private double computeTicksFromPriority(IPriority prio, double basic_timeslice) {
+	public static double computeTicksFromPriority(IPriority prio, double basic_timeslice) {
 		double basic = getBasicTimeSlice(prio, basic_timeslice);
 		IPriority max_prio = prio.getManager().getHighestPriority();
 		IPriority min_prio = prio.getManager().getLowestPriority();
-		int distance = min_prio.distance(prio);
+		int distance = min_prio.distance(prio) + 1;
 		double factor = (min_prio.distance(max_prio) + 1) / 2;
 		return basic * distance / factor;
 	}
@@ -34,7 +35,7 @@ public class PriorityDependentTimeSlice extends ContinuousTimeSlice {
 	 * @param static_prio
 	 * @return
 	 */
-	private double getBasicTimeSlice(IPriority static_prio, double basicTimeslice) {
+	public static double getBasicTimeSlice(IPriority static_prio, double basicTimeslice) {
 		IPriority default_prio = static_prio.getManager().getDefaultPriority();
 		if (static_prio.greaterThan(default_prio)) {
 			return basicTimeslice * 4;

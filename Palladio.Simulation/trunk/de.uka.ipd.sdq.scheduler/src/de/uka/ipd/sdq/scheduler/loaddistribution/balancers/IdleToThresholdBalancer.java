@@ -53,6 +53,7 @@ public class IdleToThresholdBalancer extends AbstractLoadBalancer {
 		this.threshold = threshold;
 	}
 
+	@Override
 	protected boolean isBalanced(IResourceInstance firstInstance,
 			IResourceInstance secondInstance) {
 

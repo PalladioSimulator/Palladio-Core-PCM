@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.scheduler;
 
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+
 /**
  * Process that can be scheduled for execution on an active resource or can
  * acquire and release passive resources.
@@ -44,4 +46,6 @@ public interface ISchedulableProcess {
 	public abstract ISchedulableProcess getAncestor();
 
 	public abstract boolean isFinished();
+
+	public abstract void setMainResource(SimActiveResource resource);
 }

@@ -53,6 +53,7 @@ public class ToThresholdBalancer extends AbstractLoadBalancer {
 		this.threshold = threshold;
 	}
 
+	@Override
 	protected boolean isBalanced(IResourceInstance firstInstance,
 			IResourceInstance secondInstance) {
 		double firstLoad = load(firstInstance);

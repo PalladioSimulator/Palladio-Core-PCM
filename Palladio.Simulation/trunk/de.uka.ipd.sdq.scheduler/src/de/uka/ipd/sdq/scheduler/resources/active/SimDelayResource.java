@@ -15,15 +15,18 @@ public class SimDelayResource extends AbstractActiveResource {
 	public void start() {
 	}
 
+	@Override
 	protected void dequeue(ISchedulableProcess process) {
 	}
 
+	@Override
 	protected void doProcessing(ISchedulableProcess process, double demand) {
-		LoggingWrapper.log(process + " sleeps for " + demand);
+		LoggingWrapper.log("Delay: " + process + " demands " + demand);
 		new DelayEvent(process).schedule(demand);
 		process.passivate();
 	}
 
+	@Override
 	protected void enqueue(ISchedulableProcess process) {
 	}
 
@@ -33,7 +36,6 @@ public class SimDelayResource extends AbstractActiveResource {
 	}
 
 	public void registerProcess(IRunningProcess runningProcess) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -26,7 +26,7 @@ public class SimActiveResource extends AbstractActiveResource {
 	public SimActiveResource(int capacity, String name, String id) {
 		super(capacity, name, id);
 		this.instanceList = new ArrayList<IResourceInstance>();
-		this.processRegistry = new ProcessRegistry();
+		this.processRegistry = new ProcessRegistry(this);
 		for (int i = 0; i < capacity; i++) {
 			instanceList.add(factory.createResourceInstance(i, this));
 		}
@@ -60,6 +60,7 @@ public class SimActiveResource extends AbstractActiveResource {
 		return p;
 	}
 
+	@Override
 	public void doProcessing(ISchedulableProcess sched_process, double demand) {
 		IActiveProcess process = lookUp(sched_process);
 		
@@ -85,6 +86,7 @@ public class SimActiveResource extends AbstractActiveResource {
 		this.scheduler = scheduler;
 	}
 
+	@Override
 	protected void dequeue(ISchedulableProcess process) {
 		IActiveProcess myProcess = lookUp(process);
 		scheduler.removeProcess(myProcess, myProcess.getLastInstance());
@@ -92,6 +94,7 @@ public class SimActiveResource extends AbstractActiveResource {
 		myProcess.setLastInstance(null);
 	}
 
+	@Override
 	protected void enqueue(ISchedulableProcess process) {
 		IActiveProcess p = lookUp(process);
 		scheduler.addProcess(p, main_instance);

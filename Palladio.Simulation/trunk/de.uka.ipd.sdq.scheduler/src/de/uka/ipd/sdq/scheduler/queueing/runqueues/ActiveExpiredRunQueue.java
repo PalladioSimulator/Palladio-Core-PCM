@@ -22,6 +22,7 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	/**
 	 * Adds a new process to the end of the expired priority array.
 	 */
+	@Override
 	public void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
 		if (process instanceof PreemptiveProcess) {
 			PreemptiveProcess preemptiveProcess = (PreemptiveProcess) process;
@@ -35,11 +36,13 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		}
 	}
 
+	@Override
 	protected int numWaitingProcesses() {
 		return activePriorityArray.size()
 				+ expiredPriorityArray.size();
 	}
 
+	@Override
 	public IActiveProcess getNextRunnableProcess(IResourceInstance instance) {
 		if (activeQueueEmpty())
 			switchActiveAndExpired();
@@ -62,6 +65,7 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		expiredPriorityArray = temp;
 	}
 
+	@Override
 	public boolean removePendingProcess(IActiveProcess process) {
 		return activePriorityArray.remove(process) ||
 			   expiredPriorityArray.remove(process);
@@ -97,6 +101,7 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		return result;
 	}
 
+	@Override
 	public boolean containsPending(IActiveProcess process) {
 		return activePriorityArray.contains(process) || expiredPriorityArray.contains(process);
 	}

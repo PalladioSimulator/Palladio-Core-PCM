@@ -17,7 +17,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 			double scheduling_interval) {
 		super(resource, queueingStrategy, in_front_after_waiting);
 		this.scheduling_interval = scheduling_interval;
-		this.overhead = 0.01;
+		this.overhead = 0.001;
 	}
 
 	
