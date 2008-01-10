@@ -46,6 +46,4 @@ public interface ISchedulableProcess {
 	public abstract ISchedulableProcess getAncestor();
 
 	public abstract boolean isFinished();
-
-	public abstract void setMainResource(SimActiveResource resource);
 }
