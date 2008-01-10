@@ -27,6 +27,7 @@ extends AbstractCompositeStructureBuilder {
 		return completion;
 	}
 
+	@Override
 	public void build() {
 		super.build();
 		myProvidedRole = addProvidedRole(connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),"ProvidedRole");

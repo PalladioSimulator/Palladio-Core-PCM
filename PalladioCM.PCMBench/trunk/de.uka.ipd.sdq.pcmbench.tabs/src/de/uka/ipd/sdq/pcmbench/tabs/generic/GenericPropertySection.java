@@ -42,6 +42,7 @@ public class GenericPropertySection extends AbstractPropertySection {
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
 	 *      org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
 	 */
+	@Override
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage tabbedPropertySheetPage) {
 

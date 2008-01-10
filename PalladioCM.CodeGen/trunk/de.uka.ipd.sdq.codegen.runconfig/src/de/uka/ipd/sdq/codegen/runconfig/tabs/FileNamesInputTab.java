@@ -415,6 +415,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		return true;
 	}
 
+	@Override
 	public boolean canSave() {
 		return true;
 	}
