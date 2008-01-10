@@ -1,9 +1,7 @@
 package de.uka.ipd.sdq.capra.simulator.actions;
 
-import java.util.Hashtable;
-
+import de.uka.ipd.sdq.capra.simulator.expressions.IFinishingListener;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
-import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
 import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 
@@ -22,7 +20,7 @@ public class SimReleaseAction implements SimAction {
 	}
 
 	@Override
-	public SimCapraExpression getNext() {
+	public SimCapraExpression getNext(SimCapraProcess process) {
 		return null;
 	}
 
@@ -36,18 +34,27 @@ public class SimReleaseAction implements SimAction {
 	}
 
 	@Override
-	public void useSensorInstances(
-			Hashtable<String, SimSensorInstance> sensorInstanceTable) {
-	}
-
-	@Override
 	public void execute(SimCapraProcess capraProcess) {
 		resource.release(capraProcess, numberReleased);
 		capraProcess.activate();
 	}
 	
+	@Override
 	public SimReleaseAction clone(){
 		return new SimReleaseAction(resource,numberReleased);
+	}
+
+	@Override
+	public void setVarUsages(String name, SimCapraExpression behaviour) {
+	}
+
+	@Override
+	public boolean hasNext() {
+		return false;
+	}
+
+	@Override
+	public void addFinishingListener(IFinishingListener listener) {
 	}
 
 }

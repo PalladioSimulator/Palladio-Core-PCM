@@ -29,6 +29,7 @@ public class SimInternalSelector implements Cloneable{
 		return expression;
 	}
 	
+	@Override
 	public SimInternalSelector clone(){
 		SimCapraExpression newExpression = expression.clone();
 		return new SimInternalSelector(probability, newExpression);

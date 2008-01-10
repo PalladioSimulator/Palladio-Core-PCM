@@ -15,6 +15,8 @@ import de.uka.ipd.sdq.capra.resources.Resource;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.scheduler.strategy.impl.PreemptiveScheduler;
 
 /**
  * Manages a set of resource. It follows the builder pattern.
@@ -24,17 +26,29 @@ import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
  */
 public class ResourceManager {
 	
-	ISchedulingFactory schedulingFactory = ISchedulingFactory.eINSTANCE;
+	private ISchedulingFactory schedulingFactory = null;
 	private Map<String, PassiveResourceConfiguration> passive_resource_config_map = new Hashtable<String, PassiveResourceConfiguration>();
 	private Map<String, ActiveResourceConfiguration> active_resource_config_map = new Hashtable<String, ActiveResourceConfiguration>();
 	private Map<String, IPassiveResource> passive_resource_map = new Hashtable<String, IPassiveResource>();
 	private Map<String, IActiveResource> active_resource_map = new Hashtable<String, IActiveResource>();
 
+	
+	public ResourceManager(ISchedulingFactory schedulingFactory){
+		this.schedulingFactory = schedulingFactory;
+	}
+	
 	public void start(){
 		for (IActiveResource resource : active_resource_map.values()) {
 			resource.start();
 		}
 	}
+	
+	public void stop() {
+		for (IActiveResource resource : active_resource_map.values()) {
+			resource.stop();
+		}
+	}
+	
 	
 	public void loadActiveResourceConfigurations(
 			EList<ActiveResourceConfiguration> activeResourceConfigurationList) {
@@ -133,4 +147,17 @@ public class ResourceManager {
 			ActiveResourceConfiguration resource_config) {
 		return this.active_resource_map.get(resource_config.getName());
 	}
+
+	public SimActiveResource getMainResource() {
+		for(IActiveResource ar : this.active_resource_map.values()){
+			if (ar instanceof SimActiveResource) {
+				SimActiveResource sar = (SimActiveResource) ar;
+				if (sar.getScheduler() instanceof PreemptiveScheduler) {
+					return sar;
+				}
+			}
+		}
+		return null;
+	}
+
 }

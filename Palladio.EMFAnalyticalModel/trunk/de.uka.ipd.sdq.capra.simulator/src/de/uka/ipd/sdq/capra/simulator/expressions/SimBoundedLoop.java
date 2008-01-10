@@ -4,7 +4,7 @@ import java.util.Hashtable;
 
 import umontreal.iro.lecuyer.probdist.DiscreteDistribution;
 import umontreal.iro.lecuyer.randvar.RandomVariateGen;
-import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 import de.uka.ipd.sdq.capra.simulator.tools.RandomStreamProvider;
 
 /**
@@ -29,7 +29,7 @@ public class SimBoundedLoop implements SimCapraExpression {
 	}
 
 	@Override
-	public SimCapraExpression getNext() {
+	public SimCapraExpression getNext(SimCapraProcess process) {
 		SimCapraExpression result = null;
 		if (numIterations == 0){
 			result = targetProcess;
@@ -51,12 +51,6 @@ public class SimBoundedLoop implements SimCapraExpression {
 	}
 
 	@Override
-	public void useSensorInstances(
-			Hashtable<String, SimSensorInstance> sensorInstanceTable) {
-		repeatedProcess.useSensorInstances(sensorInstanceTable);
-		targetProcess.useSensorInstances(sensorInstanceTable);
-	}
-	
 	public SimBoundedLoop clone(){
 		SimBoundedLoop loop = new SimBoundedLoop();
 		loop.targetProcess = this.targetProcess.clone();
@@ -64,4 +58,21 @@ public class SimBoundedLoop implements SimCapraExpression {
 		loop.numIterationsGen = this.numIterationsGen;
 		return loop;
 	}
+
+	@Override
+	public void setVarUsages(String name, SimCapraExpression behaviour) {
+		targetProcess.setVarUsages(name, behaviour);
+		repeatedProcess.setVarUsages(name, behaviour);
+	}
+
+	@Override
+	public boolean hasNext() {
+		return this.numIterations >= 0;
+	}
+
+	@Override
+	public void addFinishingListener(IFinishingListener listener) {
+		targetProcess.addFinishingListener(listener);
+	}
+
 }

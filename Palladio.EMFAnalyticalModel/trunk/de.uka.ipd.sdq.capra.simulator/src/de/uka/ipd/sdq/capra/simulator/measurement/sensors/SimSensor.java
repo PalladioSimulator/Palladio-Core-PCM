@@ -1,14 +1,12 @@
 package de.uka.ipd.sdq.capra.simulator.measurement.sensors;
 
-import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
+import de.uka.ipd.sdq.capra.simulator.tools.CapraExperimentManager;
 
 public interface SimSensor {
 	
-	void storeData(ExperimentManager expManager);
+	void storeData(CapraExperimentManager expManager);
 	
 	String getName();
-
-	SimSensorInstance createInstance();
 
 	void finishMeasurements();
 }

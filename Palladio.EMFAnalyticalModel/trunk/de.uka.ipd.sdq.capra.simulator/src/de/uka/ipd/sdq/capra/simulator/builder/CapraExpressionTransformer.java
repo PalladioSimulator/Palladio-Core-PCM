@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.capra.simulator.builder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +16,8 @@ import de.uka.ipd.sdq.capra.core.InputEventAction;
 import de.uka.ipd.sdq.capra.core.InternalSelector;
 import de.uka.ipd.sdq.capra.core.ParallelComposition;
 import de.uka.ipd.sdq.capra.core.ProbabilisticPrefix;
+import de.uka.ipd.sdq.capra.core.ProcessVariable;
+import de.uka.ipd.sdq.capra.core.ProcessVariableUsage;
 import de.uka.ipd.sdq.capra.core.Renaming;
 import de.uka.ipd.sdq.capra.core.Restriction;
 import de.uka.ipd.sdq.capra.core.SuccessfulTermination;
@@ -28,6 +31,8 @@ import de.uka.ipd.sdq.capra.simulator.actions.SimSuccessfulTermination;
 import de.uka.ipd.sdq.capra.simulator.actions.SimTimeProbe;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimInternalSelector;
+import de.uka.ipd.sdq.capra.simulator.expressions.SimParallelComposition;
+import de.uka.ipd.sdq.capra.simulator.expressions.SimProcessVariableUsage;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
@@ -84,9 +89,14 @@ public class CapraExpressionTransformer {
 		return factory.createInternalSelector(probability, simExpression);
 	}
 
-	public SimCapraExpression transformCapraExpression(
-			CapraExpression capraExpression) {
-		return expressionVisitor.visit(capraExpression);
+	private SimCapraExpression transformCapraExpression(
+			CapraExpression expression) {
+		return expressionVisitor.visit(expression);
+	}
+
+	public SimCapraExpression transformProcessBehaviour(
+			ProcessVariable pv) {
+		return transformCapraExpression(pv.getProcess());
 	}
 
 	public SimCapraExpression transformDemandAction(DemandAction demandAction) {
@@ -190,12 +200,13 @@ public class CapraExpressionTransformer {
 
 	public SimCapraExpression transformParallelComposition(
 			ParallelComposition parallelComposition) {
-		for (CapraExpression expression : parallelComposition.getProcesses()) {
-//			SimCapraProcess process = new SimCapraProcess();
+		List<SimCapraExpression> behaviourList = new ArrayList<SimCapraExpression>();
+		for (CapraExpression expression : parallelComposition.getParallelProcesses()) {
+			SimCapraExpression e = transformCapraExpression(expression);
+			behaviourList.add(e);
 		} 
-		
-		// TODO Auto-generated method stub
-		return null;
+		SimCapraExpression target = transformCapraExpression(parallelComposition.getTargetProcess());
+		return new SimParallelComposition(behaviourList, target, parallelComposition.isIsSynchronised());
 	}
 
 	public SimCapraExpression transformRenaming(Renaming renaming) {
@@ -218,5 +229,11 @@ public class CapraExpressionTransformer {
 		int numberReleased = releaseAction.getNumber();
 		IPassiveResource resource = resourceManager.getPassiveResource(releaseAction.getResource());
 		return factory.createReleaseAction(resource, numberReleased);
+	}
+
+	public SimCapraExpression transformProcessVariableUsage(
+			ProcessVariableUsage pvu) {
+		SimProcessVariableUsage simPVU = new SimProcessVariableUsage(pvu.getProcessVariable().getName());
+		return simPVU;
 	}
 }

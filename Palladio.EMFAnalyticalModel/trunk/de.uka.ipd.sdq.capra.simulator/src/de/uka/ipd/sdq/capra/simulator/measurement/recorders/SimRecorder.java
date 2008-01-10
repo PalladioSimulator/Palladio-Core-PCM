@@ -1,10 +1,10 @@
 package de.uka.ipd.sdq.capra.simulator.measurement.recorders;
 
-import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
+import de.uka.ipd.sdq.capra.simulator.tools.CapraExperimentManager;
 
 public interface SimRecorder extends Cloneable {
 
-	void storeData(ExperimentManager expManager);
+	void storeData(CapraExperimentManager expManager);
 	
 	SimRecorder clone();
 

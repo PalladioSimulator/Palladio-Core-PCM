@@ -1,19 +1,21 @@
 package de.uka.ipd.sdq.capra.simulator.expressions;
 
-import java.util.Hashtable;
-
-import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 
 public interface SimCapraExpression extends Cloneable {
 		
 	SimCapraExpression clone();
 
-	void useSensorInstances(Hashtable<String,SimSensorInstance> sensorInstanceTable);
-
-	SimCapraExpression getNext();
+	SimCapraExpression getNext(SimCapraProcess process);
 
 	boolean isAction();
 
 	void reset();
+
+	void setVarUsages(String name, SimCapraExpression behaviour);
+
+	boolean hasNext();
+
+	void addFinishingListener(IFinishingListener listener);
 
 }

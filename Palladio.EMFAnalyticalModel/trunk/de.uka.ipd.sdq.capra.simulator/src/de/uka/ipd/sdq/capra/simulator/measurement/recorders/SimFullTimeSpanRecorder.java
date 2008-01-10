@@ -1,34 +1,33 @@
 package de.uka.ipd.sdq.capra.simulator.measurement.recorders;
 
-import umontreal.iro.lecuyer.stat.Tally;
-import umontreal.iro.lecuyer.stat.TallyStore;
-import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
+import cern.colt.list.DoubleArrayList;
+import de.uka.ipd.sdq.capra.simulator.tools.CapraExperimentManager;
 
 public class SimFullTimeSpanRecorder implements SimTimeSpanRecorder {
 	
-	private TallyStore store;
+	private DoubleArrayList durationList = new DoubleArrayList();
+	private DoubleArrayList timeList = new DoubleArrayList();
+	private String name;
 	
 	public SimFullTimeSpanRecorder(String name) {
 		super();
-		store = new TallyStore();
-		store.setName(name);
+		this.name = name;
 	}
 
 	@Override
-	public void addTimeSpan(double timeSpan) {
-		store.add(timeSpan);
+	public void addTimeSpan(double timeSpan, double time) {
+		durationList.add(timeSpan);
+		timeList.add(time);
 	}
 	
-	public Tally getTally(){
-		return store;
-	}
 
 	@Override
-	public void storeData(ExperimentManager expManager) {
-		expManager.storeTimeSpans(store.getName(), store.getArray().elements(),store.getArray().size());		
+	public void storeData(CapraExperimentManager expManager) {
+		expManager.storeTimeSpans(name, durationList.elements(), timeList.elements(), durationList.size());		
 	}
 	
+	@Override
 	public SimFullTimeSpanRecorder clone(){
-		return new SimFullTimeSpanRecorder(store.getName());
+		return new SimFullTimeSpanRecorder(name);
 	}
 }

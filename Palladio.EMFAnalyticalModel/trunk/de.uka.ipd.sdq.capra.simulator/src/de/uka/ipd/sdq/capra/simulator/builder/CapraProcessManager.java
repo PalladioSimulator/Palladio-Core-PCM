@@ -13,11 +13,13 @@ import scheduler.configuration.ProcessConfiguration;
 import de.uka.ipd.sdq.capra.ReplicatedProcess;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 import de.uka.ipd.sdq.capra.simulator.processes.SimProcessGroup;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 /**
  * Manages the processes in a system. Following the builder pattern.
@@ -27,7 +29,7 @@ import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
  */
 public class CapraProcessManager {
 	
-	private ISchedulingFactory schedulingFactory = ISchedulingFactory.eINSTANCE;
+	private ISchedulingFactory schedulingFactory = null;
 	private Map<String, ProcessConfiguration> config_map = new Hashtable<String, ProcessConfiguration>();
 	private List<SimProcessGroup> process_group_list = new ArrayList<SimProcessGroup>();
 	private CapraExpressionFactory expressionFactory = new CapraExpressionFactory();
@@ -35,9 +37,10 @@ public class CapraProcessManager {
 	private SensorManager sensorManager;
 	private Map<String, List<IRunningProcess>> running_process_map = new Hashtable<String, List<IRunningProcess>>();
 	
-	public CapraProcessManager(ResourceManager resourceManager, SensorManager sensorManager) {
+	public CapraProcessManager(ResourceManager resourceManager, SensorManager sensorManager, ISchedulingFactory schedulingFactory) {
 		expressionTransformer = new CapraExpressionTransformer(resourceManager, sensorManager, expressionFactory);
 		this.sensorManager = sensorManager;
+		this.schedulingFactory = schedulingFactory;
 	}
 	
 	public void loadProcessConfigurations(
@@ -52,6 +55,14 @@ public class CapraProcessManager {
 			SimProcessGroup processGroup = createProcessGroup(replicatedProcess);
 			addProcessGroup(processGroup);
 		}
+		// initialize References
+		for (SimProcessGroup pg : process_group_list) {
+			String name = pg.getName();
+			SimCapraExpression behaviour = pg.getProcesses()[0].getBehaviour();
+			for (SimCapraProcess process : pg.getProcesses()) {
+				process.getBehaviour().setVarUsages(name, behaviour);
+			}
+		}
 	}
 
 	public void registerTo(IActiveResource resource, ActiveResourceConfiguration resource_config) {
@@ -59,7 +70,7 @@ public class CapraProcessManager {
 			ProcessConfiguration process_config = getConfigFor(processGroup);
 			for (ISchedulableProcess process : processGroup.getProcesses()) {
 				IRunningProcess runningProcess = schedulingFactory.createRunningProcess(process, process_config, resource_config);
-				resource.registerNewProcess(runningProcess);
+				resource.registerProcess(runningProcess);
 				addRunningProcess(runningProcess, resource);
 			}
 		}
@@ -78,7 +89,7 @@ public class CapraProcessManager {
 	private SimProcessGroup createProcessGroup(
 			ReplicatedProcess replicatedProcess) {
 		ProcessConfiguration config = getConfigFor(replicatedProcess);
-		SimCapraExpression behaviour = expressionTransformer.transformCapraExpression(replicatedProcess.getProcessvariable().getProcess());
+		SimCapraExpression behaviour = expressionTransformer.transformProcessBehaviour(replicatedProcess.getProcessvariable());
 		String name = config.getName();
 		String id = config.getId();
 		int numReplicas = config.getReplicas();
@@ -119,4 +130,5 @@ public class CapraProcessManager {
 		}
 		return result;
 	}
+
 }

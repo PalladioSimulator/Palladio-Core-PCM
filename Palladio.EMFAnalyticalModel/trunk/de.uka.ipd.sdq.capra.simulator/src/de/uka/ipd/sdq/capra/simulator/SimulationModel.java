@@ -3,15 +3,17 @@ package de.uka.ipd.sdq.capra.simulator;
 import scheduler.SystemConfiguration;
 import scheduler.configuration.ActiveResourceConfiguration;
 import umontreal.iro.lecuyer.simevents.Event;
-import umontreal.iro.lecuyer.simevents.Sim;
+import umontreal.iro.lecuyer.simevents.Simulator;
 import umontreal.iro.lecuyer.simprocs.SimProcess;
 import de.uka.ipd.sdq.capra.CapraModel;
 import de.uka.ipd.sdq.capra.simulator.builder.CapraProcessManager;
 import de.uka.ipd.sdq.capra.simulator.builder.ResourceManager;
 import de.uka.ipd.sdq.capra.simulator.builder.SensorManager;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
+import de.uka.ipd.sdq.capra.simulator.tools.CapraExperimentManager;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
-import de.uka.ipd.sdq.sensorframework.util.ExperimentManager;
+import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 
 /**
  * @author     jens.happe
@@ -20,12 +22,14 @@ public class SimulationModel {
 	private ResourceManager resourceManager;
 	private CapraProcessManager processManager;
 	private SensorManager sensorManager;
+	private Simulator simulator;
 	
-	public SimulationModel(){
+	public SimulationModel(ISchedulingFactory schedulingFactory){
 		super();
-		resourceManager = new ResourceManager();
+		resourceManager = new ResourceManager(schedulingFactory);
 		sensorManager = new SensorManager();
-		processManager = new CapraProcessManager(resourceManager, sensorManager);
+		processManager = new CapraProcessManager(resourceManager, sensorManager,schedulingFactory);
+		simulator = SchedulingFactory.getUsedSimulator();
 	}
 
 	public ResourceManager getResourceManager() {
@@ -42,26 +46,34 @@ public class SimulationModel {
 	
 	public void init(){
 		SimProcess.init();
+		simulator.init();
 	}
 	
 	public void simulate(double timeHorizon){
 		new EndOfSimEvent().schedule(timeHorizon);
 		processManager.start();
 		resourceManager.start();
-		Sim.start();
+		simulator.start();
 	}
 	
-	public void storeData(ExperimentManager expManager){
+	public void storeData(CapraExperimentManager expManager){
 		for (SimSensor s : sensorManager.getSensors()) {
 			s.storeData(expManager);
 		}
 	}
 	
 	private class EndOfSimEvent extends Event {
+		
+		public EndOfSimEvent(){
+			super(SchedulingFactory.getUsedSimulator());
+		}
+		
 		@Override
 		public void actions() {
+			resourceManager.stop();
 			sensorManager.finishMeasurements();
-			Sim.stop();
+			
+			simulator.stop();
 		}
 	}
 

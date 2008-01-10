@@ -18,6 +18,10 @@ public class RandomStreamProvider {
 	 */
 	private static RandomStream timeStream = new MRG32k3a();
 	
+	static{
+		timeStream.resetNextSubstream();
+	}
+	
 	/**
 	 * @return
 	 * @uml.property  name="selectionStream"

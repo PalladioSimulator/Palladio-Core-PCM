@@ -7,6 +7,8 @@ import de.uka.ipd.sdq.capra.core.Choice;
 import de.uka.ipd.sdq.capra.core.DemandAction;
 import de.uka.ipd.sdq.capra.core.ParallelComposition;
 import de.uka.ipd.sdq.capra.core.ProbabilisticPrefix;
+import de.uka.ipd.sdq.capra.core.ProcessVariable;
+import de.uka.ipd.sdq.capra.core.ProcessVariableUsage;
 import de.uka.ipd.sdq.capra.core.Renaming;
 import de.uka.ipd.sdq.capra.core.Restriction;
 import de.uka.ipd.sdq.capra.core.SuccessfulTermination;
@@ -46,10 +48,6 @@ public class CapraExpressionVisitor {
 	}
 	
 	
-	/**
-	 * @uml.property  name="cSwitch"
-	 * @uml.associationEnd  
-	 */
 	private CoreSwitch<SimCapraExpression> cSwitch = new CoreSwitch<SimCapraExpression>(){
 		@Override
 		public SimCapraExpression caseDemandAction(DemandAction object) {
@@ -92,6 +90,13 @@ public class CapraExpressionVisitor {
 		@Override
 		public SimCapraExpression caseRestriction(Restriction object) {
 			return expressionTransformer.transformRestriction(object);
+		}
+		
+		
+		@Override
+		public SimCapraExpression caseProcessVariableUsage(
+				ProcessVariableUsage object) {
+			return expressionTransformer.transformProcessVariableUsage(object);
 		}
 	};
 	

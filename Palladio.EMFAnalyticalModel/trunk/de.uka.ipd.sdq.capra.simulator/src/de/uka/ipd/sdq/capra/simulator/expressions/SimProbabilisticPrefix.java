@@ -1,11 +1,9 @@
 package de.uka.ipd.sdq.capra.simulator.expressions;
 
-import java.util.Hashtable;
-
 import umontreal.iro.lecuyer.rng.MRG32k3a;
 import umontreal.iro.lecuyer.rng.RandomStream;
 import de.uka.ipd.sdq.capra.simulator.actions.SimAction;
-import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensorInstance;
+import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 
 /**
  * @author     jens.happe
@@ -42,20 +40,13 @@ public class SimProbabilisticPrefix implements SimCapraExpression {
 	}
 
 
+	@Override
 	public SimProbabilisticPrefix clone(){
 		SimInternalSelector[] newTargetOptions = new SimInternalSelector[targetOptions.length];
 		for (int i=0; i<targetOptions.length; i++) {
 			newTargetOptions[i] = targetOptions[i].clone();
 		}
 		return new SimProbabilisticPrefix(action.clone(), newTargetOptions);
-	}
-
-	@Override
-	public void useSensorInstances(Hashtable<String,SimSensorInstance> sensorInstanceTable) {
-		action.useSensorInstances(sensorInstanceTable);
-		for (SimInternalSelector selector : targetOptions) {
-			selector.getCapraExpression().useSensorInstances(sensorInstanceTable);
-		}
 	}
 
 	@Override
@@ -77,7 +68,7 @@ public class SimProbabilisticPrefix implements SimCapraExpression {
 	 * @uml.property  name="next"
 	 */
 	@Override
-	public SimCapraExpression getNext() {
+	public SimCapraExpression getNext(SimCapraProcess process) {
 		SimCapraExpression result = null;
 		switch (next) {
 		case 1:
@@ -95,6 +86,25 @@ public class SimProbabilisticPrefix implements SimCapraExpression {
 	@Override
 	public boolean isAction() {
 		return false;
+	}
+
+	@Override
+	public void setVarUsages(String name, SimCapraExpression behaviour) {
+		for (SimInternalSelector option : targetOptions) {
+			option.getCapraExpression().setVarUsages(name, behaviour);
+		}
+	}
+
+	@Override
+	public boolean hasNext() {
+		return next < 3;
+	}
+
+	@Override
+	public void addFinishingListener(IFinishingListener listener) {
+		for (SimInternalSelector option : targetOptions) {
+			option.getCapraExpression().addFinishingListener(listener);
+		}
 	}
 
 }
