@@ -26,7 +26,7 @@ public class SimActiveResource extends AbstractActiveResource {
 	public SimActiveResource(int capacity, String name, String id) {
 		super(capacity, name, id);
 		this.instanceList = new ArrayList<IResourceInstance>();
-		this.processRegistry = new ProcessRegistry(this);
+		this.processRegistry = new ProcessRegistry();
 		for (int i = 0; i < capacity; i++) {
 			instanceList.add(factory.createResourceInstance(i, this));
 		}
