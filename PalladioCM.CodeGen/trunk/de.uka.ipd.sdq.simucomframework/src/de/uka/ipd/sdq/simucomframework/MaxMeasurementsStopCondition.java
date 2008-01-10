@@ -15,6 +15,7 @@ public class MaxMeasurementsStopCondition extends Condition {
 		max_measurements = myModel.getConfig().getMaxMeasurementsCount();
 	}
 
+	@Override
 	public boolean check() {
 		return (max_measurements > 0) && (myModel.getMainMeasurementsCount()>=max_measurements);
 	}

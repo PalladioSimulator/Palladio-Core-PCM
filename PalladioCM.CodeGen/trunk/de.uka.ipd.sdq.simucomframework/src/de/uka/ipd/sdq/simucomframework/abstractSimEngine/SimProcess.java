@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public abstract class SimProcess extends SimulationElement 
@@ -53,4 +54,8 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		return isTerminated();
 	}
 
+	public void setMainResource(SimActiveResource resource) {
+		// TODO: What does this method do?
+	}
+	
 }
