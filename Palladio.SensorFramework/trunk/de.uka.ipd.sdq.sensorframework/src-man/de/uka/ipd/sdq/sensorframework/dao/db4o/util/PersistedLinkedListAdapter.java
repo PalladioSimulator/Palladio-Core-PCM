@@ -11,6 +11,7 @@ public class PersistedLinkedListAdapter<T extends IByteSerialisable> extends Abs
 		delegate = persistedLinkedList;
 	}
 
+	@Override
 	public boolean add(T e) {
 		return delegate.add(e);
 	}
