@@ -35,7 +35,9 @@ public class SimDemandAction implements SimAction {
 	
 	@Override
 	public void execute(SimCapraProcess process) {
-		process.setLastResource((SimActiveResource)resource);
+		if (resource instanceof SimActiveResource){
+			process.setLastResource((SimActiveResource)resource);
+		}
 		resource.process(process, getNextSample());
 	}
 	
