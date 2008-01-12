@@ -82,8 +82,10 @@ public abstract class AbstractScheduledResource extends Entity {
 		case FCFS:
 			result = new FCFSStrategy((SimuComModel)this.getModel());
 			logger.info("Using FIFO Scheduler for Active Resource "+this.getName());
+			break;
 		case DELAY:
 			result = new DelayStrategy();
+			logger.info("Using Delay Scheduler for Active Resource "+this.getName());
 			break;
 		}
 		return result;
