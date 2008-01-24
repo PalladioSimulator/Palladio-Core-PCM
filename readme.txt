@@ -1,8 +1,8 @@
 Please provide the mapping of subfolders to parts of PCM / Palladio in this file.
 
+Capra-Validations				???
 Java2PCM						Eclipse plugins: Reverse engineering of RDSEFFs from Java source code. Based on work of Thomas Kappler.
-Palladio.Benchmark				Project which simulates resource demands on physical hardware, used by ProtoCom as well as Capra-Validations
-Palladio.ByCounter				TODO: Michael
+Palladio.Benchmark				Project which simulates resource demands on physical hardware, used by ProtoCom as well as Palladio.ByCounter				Runtime counting of bytecode instructions and method invocations in Java bytecode (stand-alone project)
 Palladio.CoreServices 			Core-Plugins which are needed more than once by other plugins
 Palladio.EMFAnalyticalModel 	Contains the current Version of the process algebra.
 Palladio.EMFComponentModel 		The EMF based PCM plugins containing the PCM Meta-Model
