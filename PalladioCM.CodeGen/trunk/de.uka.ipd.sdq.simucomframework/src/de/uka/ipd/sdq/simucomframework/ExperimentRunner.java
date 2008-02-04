@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
@@ -9,6 +11,8 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  *
  */
 public class ExperimentRunner {
+	private static Logger logger = 
+		Logger.getLogger(ExperimentRunner.class.getName());
 	
 	/**
 	 * Run the given simulation model until the given simulation time
@@ -30,7 +34,14 @@ public class ExperimentRunner {
 
 		model.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(model));
 		
+		// measure elapsed time for the simulation
+		double startTime = System.nanoTime();
+		
 		model.getSimulationControl().start();
+		
+		// log elapsed time
+		double elapsedTime = System.nanoTime() - startTime;
+		logger.warn("Simulation completed in " + (elapsedTime/1000000.0) + "ms.");
 		
 		// stop all threads still alive and close all output files
 		// TODO: Move me: exp.finish();
