@@ -95,7 +95,7 @@
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_Lt09lKYqEdunyPSYvCWVNg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Lt09lKYqEdunyPSYvCWVNg" predecessor_AbstractAction="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_M_VoyqYqEdunyPSYvCWVNg">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
+          <requiredResource_ParametricResourceDemand href="platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="0.00000000511 * ( fileToMark.BYTESIZE )"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -170,7 +170,7 @@
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_XztR5LuBEdudN7w1caiLFg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_XztR5LuBEdudN7w1caiLFg" entityName="queryDB" predecessor_AbstractAction="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_fNuMY7uBEdudN7w1caiLFg">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
+          <requiredResource_ParametricResourceDemand href="platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="0.00000149 * StoredFiles.NUMBER_OF_ELEMENTS + 0.0096"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -178,7 +178,7 @@
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__fg_4KYkEduWZfldHy3B1Q" entityName="SelectFiles" predecessor_AbstractAction="_lnM28buBEdudN7w1caiLFg" successor_AbstractAction="_l_CvMLuBEdudN7w1caiLFg">
             <resourceDemand_Action>
-              <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
+              <requiredResource_ParametricResourceDemand href="platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
               <specification_ParametericResourceDemand specification="0.00000004 * ( StoredFiles.INNER.BYTESIZE ) + 0.08"/>
             </resourceDemand_Action>
           </steps_Behaviour>
