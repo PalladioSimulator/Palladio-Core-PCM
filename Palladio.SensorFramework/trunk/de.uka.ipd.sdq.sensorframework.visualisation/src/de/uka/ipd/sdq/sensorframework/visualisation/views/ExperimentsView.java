@@ -6,8 +6,15 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.preference.IPreferenceNode;
+import org.eclipse.jface.preference.IPreferencePage;
+import org.eclipse.jface.preference.PreferenceDialog;
+import org.eclipse.jface.preference.PreferenceManager;
+import org.eclipse.jface.preference.PreferenceNode;
 import org.eclipse.jface.util.LocalSelectionTransfer;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -22,29 +29,34 @@ import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.AddNewDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.OpenDatasourceWizard;
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 
 /**
- * This sample class demonstrates how to plug-in a new workbench view. The view
- * shows data obtained from the model. The sample creates a dummy model on the
- * fly, but a real implementation would connect to the model available either in
- * this or another plug-in (e.g. the workspace). The view is connected to the
- * model using a content provider.
+ * The view shows data obtained from the 'SensorfFctory' model. The view is
+ * connected to the model using a content provider.
+ * 
+ * @author Roman Andrej
  */
-
 public class ExperimentsView extends ViewPart {
 	private TreeViewer viewer;
+	
+	/** Define elements, which can be deleted. */
+	private IDAOFactory selectedFactory = null;
+	private Experiment selectedExperiment = null;
 
-//	private DrillDownAdapter drillDownAdapter;
-//	private ExperimentsAdapter experimentsAdapter;
-
+	/** Define the actions for menu manager. */
 	private Action reloadView;
 	private Action collapseAll;
 	private Action expandAll;
-	private Action configDataSet;
+	private Action newDataSet;
 	private Action openDataSet;
+	private Action deleteDataSet;
+	private Action properties;
 	
 
 	public ExperimentsView() {
@@ -53,16 +65,14 @@ public class ExperimentsView extends ViewPart {
 	class NameSorter extends ViewerSorter {
 	}
 
-	/**
-	 * This is a callback that will allow us to create the viewer and initialize
-	 * it.
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
 	 */
+	@Override
 	public void createPartControl(Composite parent) {
 		int ops = DND.DROP_COPY | DND.DROP_MOVE;
 
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-//		drillDownAdapter = new DrillDownAdapter(viewer);
-//		experimentsAdapter = new ExperimentsAdapter(viewer);
 		viewer.setContentProvider(new TreeContentProvider());
 		viewer.setLabelProvider(new TreeLabelProvider());
 		viewer.setSorter(new NameSorter());
@@ -72,6 +82,17 @@ public class ExperimentsView extends ViewPart {
 				LocalSelectionTransfer.getTransfer()};
 		viewer.addDragSupport(ops, transfers, new TreeDragSourceListener(viewer));
 		viewer.addDoubleClickListener(new DoubleClickListener());
+		viewer.addSelectionChangedListener(new ISelectionChangedListener (){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+			 */
+			public void selectionChanged(SelectionChangedEvent event) {
+				IStructuredSelection selection = (IStructuredSelection) event.getSelection();
+				Object selectedObject = selection.getFirstElement();
+				setSelectedElement(selectedObject);
+			}
+		});
 		
 		makeActions();
 		hookContextMenu();
@@ -91,43 +112,61 @@ public class ExperimentsView extends ViewPart {
 		getSite().registerContextMenu(menuMgr, viewer);
 	}
 
+	/**
+	 * Contributes actions to the action bars.
+	 */
 	private void contributeToActionBars() {
 		IActionBars bars = getViewSite().getActionBars();
 		fillLocalPullDown(bars.getMenuManager());
 		fillLocalToolBar(bars.getToolBarManager());
 	}
 
+	/**
+	 * Fills the action bar menu with the list of resolvers to be selected
+	 * 
+	 * @param manager -
+	 *            The menu manager to add the actions to.
+	 */
 	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(configDataSet);
+		manager.add(newDataSet);
 		manager.add(openDataSet);
+		manager.add(deleteDataSet);
 		manager.add(new Separator());
 		manager.add(reloadView);
 	}
 
+	/**
+	 * Fill context for the tree view pop-up menu.
+	 * 
+	 * @param menu -
+	 *            the menu manager.
+	 */
 	private void fillContextMenu(IMenuManager manager) {
-		manager.add(configDataSet);
-		manager.add(openDataSet);
+		manager.add(deleteDataSet);
 		manager.add(new Separator());
 		manager.add(reloadView);
-//		drillDownAdapter.addNavigationActions(manager);
-//		manager.add(new Separator());
-//		experimentsAdapter.addNavigationActions(manager);
+		manager.add(new Separator());
+		manager.add(properties);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
+	/**
+	 * Adds actions to the local toolbar.
+	 * 
+	 * @param manager -
+	 *            the local toolbar manager.
+	 */
 	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(configDataSet);
+		manager.add(newDataSet);
 		manager.add(openDataSet);
+		manager.add(deleteDataSet);
 		manager.add(new Separator());
 		manager.add(reloadView);
 		manager.add(new Separator());
 		manager.add(collapseAll);
 		manager.add(expandAll);
 		manager.add(new Separator());
-//		drillDownAdapter.addNavigationActions(manager);
-//		manager.add(new Separator());
-//		experimentsAdapter.addNavigationActions(manager);
 	}
 
 	private void makeActions() {
@@ -163,20 +202,26 @@ public class ExperimentsView extends ViewPart {
 		expandAll.setToolTipText("Expand All");
 		expandAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/expandall.gif"));
 		
-		/** Config DataSet action*/
-		configDataSet = new Action() {
+		/** New DataSet action. */
+		newDataSet = new Action() {
 			public void run() {
-				ConfigureDatasourceDialog dialog = new ConfigureDatasourceDialog(
-						getSite().getShell(), "Confugure Datasources..." ,false);
-				if (dialog.open() == Dialog.OK)
-					viewer.refresh();
+				AddNewDatasourceWizard wizard = new AddNewDatasourceWizard();
+				// Instantiates the wizard container with the wizard and opens
+				// it
+				WizardDialog dialog = new WizardDialog(getSite().getShell(),
+						wizard);
+				dialog.create();
+				dialog.setTitle(ConfigureDatasourceDialog.ADD_WIZARD_TITLE);
+				dialog.open();
+				viewer.refresh();
 			}
 		};
-		configDataSet.setText("Config Datasources");
-		configDataSet.setToolTipText("Config Datasources");
-		configDataSet.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/config_obj.png"));
+		newDataSet.setText("New Data Source");
+		newDataSet.setToolTipText("New Data Source");
+		newDataSet.setImageDescriptor(SimuPlugin
+				.getImageDescriptor("/icons/add_obj.gif"));
 		
-		/** Open DataSet action*/
+		/** Open DataSet action */
 		openDataSet = new Action() {
 			public void run() {
 
@@ -193,12 +238,77 @@ public class ExperimentsView extends ViewPart {
 				viewer.refresh();
 			}
 		};
-		openDataSet.setText("Open Datasource");
-		openDataSet.setToolTipText("Open existing Datasource");
-		openDataSet.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/add_datasource.gif"));
+		openDataSet.setText("Open");
+		openDataSet.setToolTipText("Open a Data Source");
+		openDataSet.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/data_source_folder.gif"));
+		
+		/** Delete DataSet/Experiment action. */
+		deleteDataSet = new Action() {
+			public void run() {
+
+				if (selectedFactory != null) {
+					SensorFrameworkDataset.singleton().removeDataSource(
+							selectedFactory);
+					viewer.refresh();
+				}
+				if (selectedExperiment != null) {
+					SensorFrameworkDataset.singleton().getMemoryDataset()
+							.createExperimentDAO().removeExperiment(
+									selectedExperiment, true);
+					viewer.refresh();
+				}
+			}
+		};
+		deleteDataSet.setText("Delete");
+		deleteDataSet.setToolTipText("Delete a Data Source/Experiment");
+		deleteDataSet.setImageDescriptor(SimuPlugin
+				.getImageDescriptor("/icons/remove_obj.gif"));
+		deleteDataSet.setEnabled(false);
+		
+		/** Properties action. */
+		properties = new Action() {
+			public void run() {
+
+				IPreferencePage page = new DAOFactoryPreferencePage(selectedFactory);
+				page.setTitle("General Information");
+				//IPreferencePage page = new StringVariablePreferencePage();
+				PreferenceManager mgr = new PreferenceManager();
+				IPreferenceNode node = new PreferenceNode("1", page);
+				mgr.addToRoot(node);
+				PreferenceDialog dialog = new PreferenceDialog(getSite()
+						.getShell(), mgr);
+				dialog.create();
+				dialog.setMessage(page.getTitle());
+				dialog.open();
+
+			}
+		};
+		properties.setText("Properties");
+		properties.setEnabled(false);
 	
 	}
+	
+	/** Set a instance of, in viewer selected element. */
+	private void setSelectedElement(Object selected) {
 
+		selectedFactory = null;
+		selectedExperiment = null;
+
+		if (selected instanceof IDAOFactory) {
+			selectedFactory = (IDAOFactory) selected;
+			deleteDataSet.setEnabled(true);
+			properties.setEnabled(true);
+		} else if (selected instanceof ExperimentAndDAO) {
+			ExperimentAndDAO experimentAndDAO = (ExperimentAndDAO) selected;
+			selectedExperiment = experimentAndDAO.getExperiment();
+			deleteDataSet.setEnabled(true);
+			properties.setEnabled(false);
+		} else {
+			deleteDataSet.setEnabled(false);
+			properties.setEnabled(false);
+		}
+	}
+	
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */
