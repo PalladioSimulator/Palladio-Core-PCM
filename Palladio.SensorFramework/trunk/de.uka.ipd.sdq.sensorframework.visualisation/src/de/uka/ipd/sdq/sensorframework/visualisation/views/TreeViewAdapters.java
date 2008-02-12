@@ -160,6 +160,7 @@ class ExperimentsAdapter implements ISelectionChangedListener {
 			setEnabled(true);
 		}
 		
+		@Override
 		public void run() {
 			List<ExperimentAndDAO> exAndDAOs = getSelectedExperimentAndDAOs();
 			
@@ -186,6 +187,7 @@ class ExperimentsAdapter implements ISelectionChangedListener {
 			setEnabled(true);
 		}
 
+		@Override
 		public void run() {
 			//check if only a single element has been selected
 			if (getCurrentSelection().size() != 1) {

@@ -173,6 +173,7 @@ public class ExperimentsView extends ViewPart {
 		
 		/** Reload viewer action*/
 		reloadView = new Action() {
+			@Override
 			public void run() {
 				SensorFrameworkDataset.singleton().reload();
 				viewer.refresh();
@@ -184,6 +185,7 @@ public class ExperimentsView extends ViewPart {
 
 		/** Collapse all action*/
 		collapseAll = new Action() {
+			@Override
 			public void run() {
 				viewer.collapseAll();
 			}
@@ -194,6 +196,7 @@ public class ExperimentsView extends ViewPart {
 		
 		/** Expand all action*/
 		expandAll = new Action() {
+			@Override
 			public void run() {
 				viewer.expandAll();
 			}
@@ -204,6 +207,7 @@ public class ExperimentsView extends ViewPart {
 		
 		/** New DataSet action. */
 		newDataSet = new Action() {
+			@Override
 			public void run() {
 				AddNewDatasourceWizard wizard = new AddNewDatasourceWizard();
 				// Instantiates the wizard container with the wizard and opens
@@ -223,6 +227,7 @@ public class ExperimentsView extends ViewPart {
 		
 		/** Open DataSet action */
 		openDataSet = new Action() {
+			@Override
 			public void run() {
 
 				OpenDatasourceWizard wizard = new OpenDatasourceWizard();
@@ -244,6 +249,7 @@ public class ExperimentsView extends ViewPart {
 		
 		/** Delete DataSet/Experiment action. */
 		deleteDataSet = new Action() {
+			@Override
 			public void run() {
 
 				if (selectedFactory != null) {
@@ -251,8 +257,9 @@ public class ExperimentsView extends ViewPart {
 							selectedFactory);
 					viewer.refresh();
 				}
-				if (selectedExperiment != null) {
-					SensorFrameworkDataset.singleton().getMemoryDataset()
+				if (selectedFactory != null && selectedExperiment != null) {
+					long id = selectedFactory.getID();
+					SensorFrameworkDataset.singleton().getDataSourceByID(id)
 							.createExperimentDAO().removeExperiment(
 									selectedExperiment, true);
 					viewer.refresh();
@@ -267,6 +274,7 @@ public class ExperimentsView extends ViewPart {
 		
 		/** Properties action. */
 		properties = new Action() {
+			@Override
 			public void run() {
 
 				IPreferencePage page = new DAOFactoryPreferencePage(selectedFactory);
@@ -312,6 +320,7 @@ public class ExperimentsView extends ViewPart {
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */
+	@Override
 	public void setFocus() {
 		viewer.getControl().setFocus();
 	}

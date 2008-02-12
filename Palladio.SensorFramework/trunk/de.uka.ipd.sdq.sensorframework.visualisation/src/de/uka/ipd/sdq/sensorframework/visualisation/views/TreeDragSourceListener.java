@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;

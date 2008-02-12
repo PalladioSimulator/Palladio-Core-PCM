@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.util.LocalSelectionTransfer;
@@ -31,7 +30,6 @@ import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.ViewDropTargetListener;
 
 public abstract class AbstractReportView extends EditorPart implements
@@ -44,6 +42,7 @@ public abstract class AbstractReportView extends EditorPart implements
 		super();
 	}
 
+	@Override
 	public void createPartControl(Composite parent) {
 		getSite().setSelectionProvider(new ISelectionProvider() {
 
@@ -84,6 +83,7 @@ public abstract class AbstractReportView extends EditorPart implements
 				this.getEditorInput()));
 	}
 
+	@Override
 	public Object getAdapter(Class adapter) {
 		if (adapter == IPropertySheetPage.class)
 			return new TabbedPropertySheetPage(this);
@@ -94,16 +94,20 @@ public abstract class AbstractReportView extends EditorPart implements
 		return ABSTRACT_EDITOR_ID;
 	}
 
+	@Override
 	public void setFocus() {
 		// TODO !!
 	}
 
+	@Override
 	public void doSave(IProgressMonitor monitor) {
 	}
 
+	@Override
 	public void doSaveAs() {
 	}
 
+	@Override
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
 		setSite(site);
@@ -117,10 +121,12 @@ public abstract class AbstractReportView extends EditorPart implements
 		myInput.addObserver(this);
 	}
 
+	@Override
 	public boolean isDirty() {
 		return false;
 	}
 
+	@Override
 	public boolean isSaveAsAllowed() {
 		return false;
 	}

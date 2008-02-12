@@ -125,6 +125,7 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 		});
 		editors[SENSORS_COLUMN_INDEX] = new DialogCellEditor(table) {
 
+			@Override
 			protected Object openDialogBox(Control cellEditorWindow) {
 				SensorsDialog dialog = new SensorsDialog(cellEditorWindow
 						.getShell(), selectedEntry);
@@ -170,6 +171,7 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				ExperimentRunsDialog dialog = new ExperimentRunsDialog(
 						e.display.getActiveShell());

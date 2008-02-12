@@ -89,7 +89,7 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 
 				IStructuredSelection sel = (IStructuredSelection) event
 						.getSelection();
-				Object objeckt = (Object) sel.getFirstElement();
+				Object objeckt = sel.getFirstElement();
 
 				if (objeckt instanceof TreeObject) {
 					selectedObject = (TreeObject) objeckt;
