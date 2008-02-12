@@ -50,27 +50,30 @@ public class DB4OSensorDAO implements ISensorDAO {
 		return result;
 	}
 
-	public synchronized Collection<Sensor> findBySensorName(final String searchKey) {
+	public synchronized Collection<Sensor> findBySensorName(
+			final String searchKey) {
 		List<Sensor> resultList = db.query(new Predicate<Sensor>() {
-	          public boolean match(Sensor s) {
-	              return s.getSensorName().equals(searchKey);
-	          }
-		});  
+			@Override
+			public boolean match(Sensor s) {
+				return s.getSensorName().equals(searchKey);
+			}
+		});
 		return Collections.unmodifiableCollection(resultList);
 	}
 
 	public synchronized Sensor get(final long id) {
 		List<Sensor> resultList = db.query(new Predicate<Sensor>() {
-	          public boolean match(Sensor s) {
-	              if (s instanceof TimeSpanSensor) {
-	            	  return ((TimeSpanSensor)s).getSensorID() == id;
-	              }
-	              if (s instanceof StateSensor) {
-	            	  return ((StateSensor)s).getSensorID() == id;
-	              }
-	              return false;
-	          }
-		});  
+			@Override
+			public boolean match(Sensor s) {
+				if (s instanceof TimeSpanSensor) {
+					return ((TimeSpanSensor) s).getSensorID() == id;
+				}
+				if (s instanceof StateSensor) {
+					return ((StateSensor) s).getSensorID() == id;
+				}
+				return false;
+			}
+		});
 		return resultList.get(0);
 	}
 

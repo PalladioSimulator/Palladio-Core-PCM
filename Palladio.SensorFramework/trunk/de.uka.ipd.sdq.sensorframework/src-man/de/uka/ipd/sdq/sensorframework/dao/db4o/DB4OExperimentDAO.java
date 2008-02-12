@@ -50,7 +50,8 @@ public class DB4OExperimentDAO implements IExperimentDAO {
 
 	public synchronized Collection<Experiment> findByExperimentName(final String searchKey) {
 		List<Experiment> resultList = db.query(new Predicate<Experiment>() {
-		          public boolean match(Experiment experiment) {
+		          @Override
+				public boolean match(Experiment experiment) {
 		              return experiment.getExperimentName().equals(searchKey);
 		          }
 		});  

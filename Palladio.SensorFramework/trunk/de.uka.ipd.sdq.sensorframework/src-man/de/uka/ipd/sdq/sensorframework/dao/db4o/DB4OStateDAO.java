@@ -38,24 +38,27 @@ public class DB4OStateDAO implements IStateDAO {
 		return result;
 	}
 
-	public synchronized Collection<State> findByStateLiteral(final String searchKey) {
+	public synchronized Collection<State> findByStateLiteral(
+			final String searchKey) {
 		List<State> resultList = db.query(new Predicate<State>() {
-	          public boolean match(State s) {
-	              return s.getStateLiteral().equals(searchKey);
-	          }
-		});  
+			@Override
+			public boolean match(State s) {
+				return s.getStateLiteral().equals(searchKey);
+			}
+		});
 		return Collections.unmodifiableCollection(resultList);
 	}
 
 	private HashMap<Long, State> cache = new HashMap<Long, State>();
 	
 	public synchronized State get(final long id) {
-		if (!cache.containsKey(id)){
+		if (!cache.containsKey(id)) {
 			List<State> resultList = db.query(new Predicate<State>() {
-			          public boolean match(State state) {
-			              return state.getStateID() == id;
-			          }
-			});  
+				@Override
+				public boolean match(State state) {
+					return state.getStateID() == id;
+				}
+			});
 			cache.put(id, resultList.get(0));
 		}
 		return cache.get(id);

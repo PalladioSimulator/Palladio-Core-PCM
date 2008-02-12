@@ -14,7 +14,7 @@ public interface IAdapterFactory {
 	 * @param targetClass The class of the required adapter output
 	 * @return true if this factory can create adapters of the required type, false otherwise
 	 */
-	boolean canAdapt(Object adaptee, Class targetClass);
+	boolean canAdapt(Object adaptee, Class<?> targetClass);
 	
 	/**
 	 * Factory method. Creates a new adapter of this factory's type

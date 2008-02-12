@@ -16,14 +16,17 @@ public class PersistedLinkedListAdapter<T extends IByteSerialisable> extends Abs
 		return delegate.add(e);
 	}
 
+	@Override
 	public T get(int index) {
 		return (T)delegate.get(index);
 	}
 
+	@Override
 	public Iterator iterator() {
 		return delegate.iterator();
 	}
 
+	@Override
 	public int size() {
 		return delegate.size();
 	}

@@ -21,106 +21,111 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  */
 public class ExperimentImpl implements Experiment, NamedSerializable {
 
-    private static final long serialVersionUID = 1L;
-    protected transient IDAOFactory factory;
-    private long experimentID;
-    private String experimentName;
-    private Collection<Sensor> sensors;
-    private Collection<ExperimentRun> experimentRuns;
+	private static final long serialVersionUID = 1L;
+	protected transient IDAOFactory factory;
+	private long experimentID;
+	private String experimentName;
+	private Collection<Sensor> sensors;
+	private Collection<ExperimentRun> experimentRuns;
 
-    public ExperimentImpl(IDAOFactory factory) {
-	this.factory = factory;
-	sensors = new ArrayList<Sensor>();
-	experimentRuns = new ArrayList<ExperimentRun>();
-    }
+	public ExperimentImpl(IDAOFactory factory) {
+		this.factory = factory;
+		sensors = new ArrayList<Sensor>();
+		experimentRuns = new ArrayList<ExperimentRun>();
+	}
 
-    public long getExperimentID() {
-	return experimentID;
-    }
+	public long getExperimentID() {
+		return experimentID;
+	}
 
-    public void setExperimentID(long experimentID) {
-	this.experimentID = experimentID;
-    }
+	public void setExperimentID(long experimentID) {
+		this.experimentID = experimentID;
+	}
 
-    public String getExperimentName() {
-	return experimentName;
-    }
+	public String getExperimentName() {
+		return experimentName;
+	}
 
-    public void setExperimentName(String experimentName) {
-	this.experimentName = experimentName;
-    }
+	public void setExperimentName(String experimentName) {
+		this.experimentName = experimentName;
+	}
 
-    public Collection<Sensor> getSensors() {
-	return sensors;
-    }
+	public Collection<Sensor> getSensors() {
+		return sensors;
+	}
 
-    public void setSensors(Collection<Sensor> sensors) {
-	this.sensors = sensors;
-    }
+	public void setSensors(Collection<Sensor> sensors) {
+		this.sensors = sensors;
+	}
 
-    public void setFactory(FileDAOFactory factory) {
-	this.factory = factory;
-	for (ExperimentRun er : experimentRuns)
-	    ((ExperimentRunImpl) er).setFactory(factory);
-    }
+	public void setFactory(FileDAOFactory factory) {
+		this.factory = factory;
+		for (ExperimentRun er : experimentRuns)
+			((ExperimentRunImpl) er).setFactory(factory);
+	}
 
-    public Collection<ExperimentRun> getExperimentRuns() {
-	return experimentRuns;
-    }
+	public IDAOFactory getFactory() {
+		return factory;
+	}
 
-    public void setExperimentRuns(Collection<ExperimentRun> experimentRuns) {
-	this.experimentRuns = experimentRuns;
-    }
+	public Collection<ExperimentRun> getExperimentRuns() {
+		return experimentRuns;
+	}
 
-    public TimeSpanSensor addTimeSpanSensor(String sensorName) {
-	TimeSpanSensor tss = factory.createSensorDAO().addTimeSpanSensor(
-		sensorName);
-	sensors.add(tss);
-	return tss;
-    }
+	public void setExperimentRuns(Collection<ExperimentRun> experimentRuns) {
+		this.experimentRuns = experimentRuns;
+	}
 
-    public ExperimentRun addExperimentRun(String experimentdatetime) {
-	ExperimentRun expRun = factory.createExperimentRunDAO()
-		.addExperimentRun(experimentdatetime);
-	experimentRuns.add(expRun);
-	return expRun;
-    }
+	public TimeSpanSensor addTimeSpanSensor(String sensorName) {
+		TimeSpanSensor tss = factory.createSensorDAO().addTimeSpanSensor(
+				sensorName);
+		sensors.add(tss);
+		return tss;
+	}
 
-    public void addExperimentRun(ExperimentRun experimentRun) {
-	experimentRuns.add(experimentRun);
-    }
+	public ExperimentRun addExperimentRun(String experimentdatetime) {
+		ExperimentRun expRun = factory.createExperimentRunDAO()
+				.addExperimentRun(experimentdatetime);
+		experimentRuns.add(expRun);
+		return expRun;
+	}
 
-    public void addSensor(Sensor value) {
-	sensors.add(value);
-    }
+	public void addExperimentRun(ExperimentRun experimentRun) {
+		experimentRuns.add(experimentRun);
+	}
 
-    public StateSensor addStateSensor(State p_initialstate, String p_sensorname) {
-	StateSensor stsen = factory.createSensorDAO().addStateSensor(
-		p_initialstate, p_sensorname);
-	sensors.add(stsen);
-	return stsen;
-    }
+	public void addSensor(Sensor value) {
+		sensors.add(value);
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-	if (!(obj instanceof ExperimentImpl))
-	    return false;
-	ExperimentImpl exp = (ExperimentImpl) obj;
+	public StateSensor addStateSensor(State p_initialstate, String p_sensorname) {
+		StateSensor stsen = factory.createSensorDAO().addStateSensor(
+				p_initialstate, p_sensorname);
+		sensors.add(stsen);
+		return stsen;
+	}
 
-	if (!(experimentID == exp.getExperimentID() && experimentName
-		.equals(exp.getExperimentName())))
-	    return false;
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof ExperimentImpl))
+			return false;
+		ExperimentImpl exp = (ExperimentImpl) obj;
 
-	if (!(experimentRuns.equals(exp.getExperimentRuns())))
-	    return false;
+		if (!(experimentID == exp.getExperimentID() && experimentName
+				.equals(exp.getExperimentName())))
+			return false;
 
-	if (!(sensors.equals(exp.getSensors())))
-	    return false;
+		if (!(experimentRuns.equals(exp.getExperimentRuns())))
+			return false;
 
-	return true;
-    }
+		if (!(sensors.equals(exp.getSensors())))
+			return false;
 
-    public String getFileName() {
-	return FileDAOFactory.EXP_FILE_NAME_PREFIX + getExperimentID();
-    }
+		return true;
+	}
+
+	public String getFileName() {
+		return FileDAOFactory.EXP_FILE_NAME_PREFIX + getExperimentID();
+	}
+
 }

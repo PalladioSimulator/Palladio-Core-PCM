@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
