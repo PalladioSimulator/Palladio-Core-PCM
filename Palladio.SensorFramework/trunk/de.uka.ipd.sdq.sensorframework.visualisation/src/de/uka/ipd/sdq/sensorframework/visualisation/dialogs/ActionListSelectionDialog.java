@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
 
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
