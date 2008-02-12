@@ -57,17 +57,17 @@ public class DAOFactoryPreferencePage extends PreferencePage {
 		namevalueLabel.setLayoutData(gd_namevalueLabel);
 		namevalueLabel.setText(factory.getName());
 
-		// Description
-		final Label descriptionLabel = new Label(container, SWT.NONE);
-		final GridData gd_descriptionLabel = new GridData(width, heigth);
-		descriptionLabel.setLayoutData(gd_descriptionLabel);
-		descriptionLabel.setText("Description:");
-
-		final Label descriptionvalueLabel = new Label(container, SWT.NONE);
-		final GridData gd_descriptionvalueLabel = new GridData(SWT.FILL, SWT.CENTER, false, false);
-		gd_descriptionLabel.heightHint = heigth;
-		descriptionvalueLabel.setLayoutData(gd_descriptionvalueLabel);
-		descriptionvalueLabel.setText(factory.getDescription());
+//		// Description
+//		final Label descriptionLabel = new Label(container, SWT.NONE);
+//		final GridData gd_descriptionLabel = new GridData(width, heigth);
+//		descriptionLabel.setLayoutData(gd_descriptionLabel);
+//		descriptionLabel.setText("Description:");
+//
+//		final Label descriptionvalueLabel = new Label(container, SWT.NONE);
+//		final GridData gd_descriptionvalueLabel = new GridData(SWT.FILL, SWT.CENTER, false, false);
+//		gd_descriptionLabel.heightHint = heigth;
+//		descriptionvalueLabel.setLayoutData(gd_descriptionvalueLabel);
+//		descriptionvalueLabel.setText(factory.getDescription());
 
 		// Persistent Info
 		final Label locationPathLabel = new Label(container, SWT.NONE);

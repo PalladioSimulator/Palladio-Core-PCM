@@ -29,6 +29,7 @@ import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.AddNewDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.OpenDatasourceWizard;
@@ -47,7 +48,7 @@ public class ExperimentsView extends ViewPart {
 	
 	/** Define elements, which can be deleted. */
 	private IDAOFactory selectedFactory = null;
-	private Experiment selectedExperiment = null;
+	private ExperimentImpl selectedExperiment = null;
 
 	/** Define the actions for menu manager. */
 	private Action reloadView;
@@ -252,13 +253,15 @@ public class ExperimentsView extends ViewPart {
 			@Override
 			public void run() {
 
+				// selected element in 'ExperimentView' DAOFactory
 				if (selectedFactory != null) {
 					SensorFrameworkDataset.singleton().removeDataSource(
 							selectedFactory);
 					viewer.refresh();
 				}
-				if (selectedFactory != null && selectedExperiment != null) {
-					long id = selectedFactory.getID();
+				// selected element in 'ExperimentView' is Experiment
+				if (selectedExperiment != null) {
+					long id = selectedExperiment.getFactory().getID();
 					SensorFrameworkDataset.singleton().getDataSourceByID(id)
 							.createExperimentDAO().removeExperiment(
 									selectedExperiment, true);
@@ -279,7 +282,6 @@ public class ExperimentsView extends ViewPart {
 
 				IPreferencePage page = new DAOFactoryPreferencePage(selectedFactory);
 				page.setTitle("General Information");
-				//IPreferencePage page = new StringVariablePreferencePage();
 				PreferenceManager mgr = new PreferenceManager();
 				IPreferenceNode node = new PreferenceNode("1", page);
 				mgr.addToRoot(node);
@@ -308,7 +310,7 @@ public class ExperimentsView extends ViewPart {
 			properties.setEnabled(true);
 		} else if (selected instanceof ExperimentAndDAO) {
 			ExperimentAndDAO experimentAndDAO = (ExperimentAndDAO) selected;
-			selectedExperiment = experimentAndDAO.getExperiment();
+			selectedExperiment = (ExperimentImpl) experimentAndDAO.getExperiment();
 			deleteDataSet.setEnabled(true);
 			properties.setEnabled(false);
 		} else {
