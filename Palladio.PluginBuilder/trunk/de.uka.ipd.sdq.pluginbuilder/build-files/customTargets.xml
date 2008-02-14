@@ -188,8 +188,7 @@
 	<!-- Call External post build file if available -->
 	<!-- ==================================================== -->
 	<target name="callExternalPostBuild" if="is.External.Postbuild">
-		<ant antfile="${buildHome}/build-files/postBuild.xml"/>
-		<ant antfile="${buildHome}/build-files/postBuildLog.xml"/> <!-- added by kelsaka --> 
+		<ant antfile="${buildHome}/build-files/postBuild.xml"/> 
 	</target>
 	
 	<target name="noDefault">
