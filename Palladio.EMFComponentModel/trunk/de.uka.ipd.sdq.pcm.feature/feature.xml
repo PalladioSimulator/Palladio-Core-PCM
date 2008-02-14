@@ -6,15 +6,15 @@
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
-   <description url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
+   <description url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
       This feature installed the Palladio Component Model based on EMF. With this feature it is possible to model, persist and visualize instances of the Palladio Component Model. A basic graphical Service Effect Editor is also provided.
    </description>
 
-   <copyright url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
+   <copyright url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
       This plugin is protected by copyright held by the members of the Palladio Research Group, University of Karlsruhe.
    </copyright>
 
-   <license url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
+   <license url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
       Eclipse Public License - v 1.0
 
 THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE PUBLIC LICENSE (&quot;AGREEMENT&quot;). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT&apos;S ACCEPTANCE OF THIS AGREEMENT.
@@ -104,7 +104,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </license>
 
    <url>
-      <update label="Palladio Component Model Update Site" url="http://i43pc12.ipd.uka.de/eclipse/PCM/"/>
+      <update label="Palladio Component Model Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>
 
    <includes
@@ -271,6 +271,13 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <plugin
          id="de.uka.ipd.sdq.errorhandling"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.pcm.resources"
          download-size="0"
          install-size="0"
          version="0.0.0"
