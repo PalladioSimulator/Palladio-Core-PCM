@@ -5,4 +5,4 @@ Bundle-SymbolicName: de.uka.ipd.sdq.pcm.resources
 Bundle-Version: 1.0.0
 Bundle-Activator: de.uka.sdq.pcm.resources.Activator
 Require-Bundle: org.eclipse.core.runtime
-Eclipse-LazyStart: true
+Eclipse-LazyStart: false
