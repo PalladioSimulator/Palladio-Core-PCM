@@ -40,8 +40,8 @@
     			&lt;/body&gt;
     		&lt;/html&gt;
 		</echo>   	    	
-    	<copy file="${buildDirectory}/updateSite/build-log.html"
-    		tofile="${UpdateSiteStagingLocation}/.build-log.txt" />
+    	<copy file="${buildDirectory}/build-log.txt"
+    		tofile="${UpdateSiteStagingLocation}/build-log.txt" />
     	
     </target>
     

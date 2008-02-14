@@ -145,7 +145,7 @@
 	    <echo>${build.stderr}</echo>
 		
 		<!-- added by kelsaka: log output -->
-		<echo file="${buildDirectory}/updateSite/build-log.html" >
+		<echo file="${buildDirectory}/build-log.txt" >
 			${build.stderr}
 		</echo>		
 		
