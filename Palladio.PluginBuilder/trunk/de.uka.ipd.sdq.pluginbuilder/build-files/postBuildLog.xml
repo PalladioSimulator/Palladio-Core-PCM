@@ -27,6 +27,7 @@
 	
     <!-- replace at least yourFeature, categoryName and categoryDef --> 
     <target name="-createNightlyBuildLog" if="isNightlyBuild">
+    	<echo>updating update site with build log</echo>
     	<echo file="${UpdateSiteStagingLocation}/.build-log.html">
     		&lt;html&gt;
     			&lt;head&gt;
