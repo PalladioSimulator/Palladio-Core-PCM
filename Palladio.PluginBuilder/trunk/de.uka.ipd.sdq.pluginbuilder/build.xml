@@ -143,8 +143,14 @@
 			</classpath>
 		</java>
 	    <echo>${build.stderr}</echo>
+		
+		<!-- added by kelsaka: log output -->
+		<echo file="${buildDirectory}/updateSite/build-log.html" >
+			${build.stderr}
+		</echo>		
+		
 		<condition property="is.build.error" value="true">
-			<contains string="${build.stderr}" substring="BUILD FAILED"/>
+			<contains string="${build.stderr}" substring="BUILD FAILED"/>			
 		</condition>
 		<fail message="PDE Build failed" if="is.build.error"/>
 		
