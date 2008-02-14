@@ -97,7 +97,7 @@
         	&lt;/description&gt;
         	&lt;/category-def&gt;
         	&lt;/site&gt;
-        </echo>
+        </echo>  	
     </target>
     
 </project>

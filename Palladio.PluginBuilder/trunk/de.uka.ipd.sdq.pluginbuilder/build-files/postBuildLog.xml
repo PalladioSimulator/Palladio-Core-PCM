@@ -1,0 +1,48 @@
+<project name="Run as part of postBuild" default="main">
+    
+    <target name="main">
+        <antcall target="-generateNightlyBuildLog"/>
+    </target>
+    
+    <!--======================================================-->
+    <!-- UpdateSite Export target, to be called from allElements  -->
+    <!-- ==================================================== -->
+    <target name="nightlyBuildLogExport">
+        <ant antfile="build.xml" dir="${buildDirectory}/features/${id}/" target="build.update.jar">
+        </ant>
+    </target>
+    
+    <target name="-generateNightlyBuildLog">
+        <!-- Create the directory structure -->
+        <mkdir dir="${UpdateSiteStagingLocation}"/>
+        <!-- Build the jar files -->
+        <ant antfile="${builder}/customTargets.xml" target="allElements">
+            <property name="genericTargets" value="${builder}/postBuildLog.xml"/>
+            <property name="target" value="nightlyBuildLogExport"/>
+        </ant>
+        <!-- site.xml files for integration and release builds are handled elsewhere -->
+        <antcall target="-createNightlyBuildLog"/>
+        <delete dir="${buildDirectory}/temp.updatesite"/>
+    </target>
+	
+    <!-- replace at least yourFeature, categoryName and categoryDef --> 
+    <target name="-createNightlyBuildLog" if="isNightlyBuild">
+    	<echo file="${UpdateSiteStagingLocation}/.build-log.html">
+    		&lt;html&gt;
+    			&lt;head&gt;
+    				&lt;title&gt;PCM Nightly Build Log&quot;&lt;/title&gt;
+    			&lt;/head&gt;
+    			&lt;body&gt;
+    				&lt;p&gt;
+    					currently not supported...
+    		
+    				&lt;/p&gt;
+    			&lt;/body&gt;
+    		&lt;/html&gt;
+		</echo>   	    	
+    	<copy file="${buildDirectory}/updateSite/build-log.html"
+    		tofile="${UpdateSiteStagingLocation}/.build-log.txt" />
+    	
+    </target>
+    
+</project>
