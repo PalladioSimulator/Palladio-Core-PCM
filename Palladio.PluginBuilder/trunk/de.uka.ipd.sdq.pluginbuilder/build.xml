@@ -64,6 +64,7 @@
 	</target>
 	
 	<target name="-build" depends="-properties,-clean,-prepare.build.host">
+		<echo>-build</echo>
 		<condition property="no.rcp.build" value="true">
 			<not>
 				<equals arg1="${pluginbuilder.is.rcpbuild}" arg2="true"/>
@@ -78,6 +79,7 @@
 	</target>
 	
 	<target name="-build.rcp.internal" unless="no.rcp.build">
+		<echo>build.rcp.internal</echo>
 		<antcall target="-build.internal"> 
 			<param name="buildfile" value="${productbuildfile}"/>
 			<param name="varjvmargs1" value="-Dno.postBuild=true"/>
@@ -100,6 +102,7 @@
 	</target>
 
 	<target name="-build.internal">
+		<echo>Eclipe build task (-build.internal)</echo>
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
 			failonerror="true" errorproperty="build.stderr"> <!--  output="${buildDirectory}/java-build-log-console.txt" -->
@@ -168,6 +171,7 @@
 	</target>
 	
 	<target name="main" description="Run the main target of customTargets.xml.">
+		<echo>in main task</echo>
 		<property name="buildTarget" value="main"/>
 		<antcall target="-build"/>
 	</target>
