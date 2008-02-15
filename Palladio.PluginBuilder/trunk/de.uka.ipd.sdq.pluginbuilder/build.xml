@@ -146,10 +146,11 @@
 			</classpath>
 		</java>
 	    <echo>${build.stderr}</echo>
+		<echo file="${buildDirectory}/build.stderr.txt">${build.stderr}</echo>
 		
 		<!-- added by kelsaka: log output start -->
-		<delete file="${buildDirectory}/java-build-log.txt"/>
-		<echo file="${buildDirectory}/java-build-log.txt" message="Error output of the Eclipse build java task. If this file has no content below, there have been no errors. --- ${build.stderr}" />
+		<!-- <delete file="${buildDirectory}/java-build-log.txt"/>
+		<echo file="${buildDirectory}/java-build-log.txt" message="Error output of the Eclipse build java task. If this file has no content below, there have been no errors. - - ${build.stderr}" /> -->
 		<!-- added by kelsaka: log output end -->
 		
 		<condition property="is.build.error" value="true">
