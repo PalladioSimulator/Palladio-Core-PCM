@@ -102,7 +102,7 @@
 	<target name="-build.internal">
 		<property name="buildResultsDirectory" value="${buildDirectory}/results" />
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" 
-			failonerror="true" errorproperty="build.stderr">
+			failonerror="true" errorproperty="build.stderr" output="${buildDirectory}/java-build-log-console.txt">
 			<arg value="-ws" />
 			<arg value="${ws}" />
 			<arg value="-os" />
@@ -144,10 +144,10 @@
 		</java>
 	    <echo>${build.stderr}</echo>
 		
-		<!-- added by kelsaka: log output -->
-		<echo file="${buildDirectory}/java-build-log.txt">
-			${build.stderr}
-		</echo>		
+		<!-- added by kelsaka: log output start -->
+		<delete file="${buildDirectory}/java-build-log.txt"/>
+		<echo file="${buildDirectory}/java-build-log.txt" message="Java Compiler error output ${build.stderr}" />
+		<!-- added by kelsaka: log output end -->
 		
 		<condition property="is.build.error" value="true">
 			<contains string="${build.stderr}" substring="BUILD FAILED"/>			
