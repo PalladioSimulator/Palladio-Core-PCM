@@ -6,10 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.errorhandling.Activator
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf,
  org.eclipse.emf.ecore,
- org.eclipse.jface,
- org.eclipse.ui
+ org.eclipse.ui;resolution:=optional
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.errorhandling,
  de.uka.ipd.sdq.errorhandling.dialogs.issues

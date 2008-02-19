@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.errorhandling.ErrorhandlingDialogImages;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 
 public class IssuesDialog extends Dialog {

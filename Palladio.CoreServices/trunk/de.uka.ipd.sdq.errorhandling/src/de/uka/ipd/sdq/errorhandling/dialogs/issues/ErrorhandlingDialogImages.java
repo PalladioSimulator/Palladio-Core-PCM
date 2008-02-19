@@ -1,8 +1,10 @@
-package de.uka.ipd.sdq.errorhandling;
+package de.uka.ipd.sdq.errorhandling.dialogs.issues;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+
+import de.uka.ipd.sdq.errorhandling.Activator;
 
 /**
  * @author roman Compilation of the pictures used in
