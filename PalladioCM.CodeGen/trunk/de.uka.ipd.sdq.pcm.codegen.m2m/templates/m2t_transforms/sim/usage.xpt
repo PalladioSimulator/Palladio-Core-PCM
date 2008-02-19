@@ -12,7 +12,7 @@
 		package main;
 		
 		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
-				implements de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl{
+				implements de.uka.ipd.sdq.simucomframework.ISimuComControl {
 			
 			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {
 				«LET this.usageScenario_UsageModel.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
