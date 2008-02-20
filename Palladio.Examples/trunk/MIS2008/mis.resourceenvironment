@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <resourceContainer_ResourceEnvironment id="_8-cpgNo_EdyxgfK4Hy_RFA" entityName="WebServer">
+    <activeResourceSpecifications_ResourceContainer>
+      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+      <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_EX6xcdpAEdyxgfK4Hy_RFA" entityName="SchedulerServer">
+    <activeResourceSpecifications_ResourceContainer>
+      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+      <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_L0Dy4dpAEdyxgfK4Hy_RFA" entityName="ApplicationServer">
+    <activeResourceSpecifications_ResourceContainer>
+      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+      <processingRate_ProcessingResourceSpecification specification="2.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_U2Nv4dpAEdyxgfK4Hy_RFA" entityName="DBServer">
+    <activeResourceSpecifications_ResourceContainer>
+      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+      <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</pcm.resourceenvironment:ResourceEnvironment>

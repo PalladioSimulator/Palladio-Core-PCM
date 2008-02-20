@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_6SRzoNo-EdyxgfK4Hy_RFA" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_64Q1kNo-EdyxgfK4Hy_RFA" type="2001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_64Q1kdo-EdyxgfK4Hy_RFA" fontName="Segoe UI"/>
+    <element xmi:type="pcm.seff:StartAction" href="mis.repository#_64NyQNo-EdyxgfK4Hy_RFA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_64Q1kto-EdyxgfK4Hy_RFA" x="310" y="50"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_7MyUENo-EdyxgfK4Hy_RFA" type="2006">
+    <children xmi:type="notation:Node" xmi:id="_7My7INo-EdyxgfK4Hy_RFA" type="5012"/>
+    <children xmi:type="notation:Node" xmi:id="_7My7Ido-EdyxgfK4Hy_RFA" type="7012">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_7My7Ito-EdyxgfK4Hy_RFA"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_7My7I9o-EdyxgfK4Hy_RFA" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_7My7JNo-EdyxgfK4Hy_RFA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_7My7Jdo-EdyxgfK4Hy_RFA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_7MyUEdo-EdyxgfK4Hy_RFA" fontName="Segoe UI"/>
+    <element xmi:type="pcm.seff:InternalAction" href="mis.repository#_7MxF8No-EdyxgfK4Hy_RFA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7MyUEto-EdyxgfK4Hy_RFA" x="236" y="152"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_-cJMANo-EdyxgfK4Hy_RFA" type="2002">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_-cJMAdo-EdyxgfK4Hy_RFA" fontName="Segoe UI"/>
+    <element xmi:type="pcm.seff:StopAction" href="mis.repository#_-cH94No-EdyxgfK4Hy_RFA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-cJMAto-EdyxgfK4Hy_RFA" x="264" y="306"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_6SRzodo-EdyxgfK4Hy_RFA"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="mis.repository#_z_UAwto-EdyxgfK4Hy_RFA"/>
+  <edges xmi:type="notation:Edge" xmi:id="_-z9PENo-EdyxgfK4Hy_RFA" type="4001" source="_64Q1kNo-EdyxgfK4Hy_RFA" target="_7MyUENo-EdyxgfK4Hy_RFA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_-z9PEdo-EdyxgfK4Hy_RFA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_-z9PEto-EdyxgfK4Hy_RFA" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-z9PE9o-EdyxgfK4Hy_RFA" points="[-1, 9, 12, -111]$[59, 111, 72, -9]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__LSxANo-EdyxgfK4Hy_RFA" type="4001" source="_7MyUENo-EdyxgfK4Hy_RFA" target="_-cJMANo-EdyxgfK4Hy_RFA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="__LSxAdo-EdyxgfK4Hy_RFA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__LSxAto-EdyxgfK4Hy_RFA" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__LSxA9o-EdyxgfK4Hy_RFA" points="[-9, 44, 4, -112]$[-2, 164, 11, 8]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__LUmMNo-EdyxgfK4Hy_RFA" id="(0.3916084,0.22807017)"/>
+  </edges>
+</notation:Diagram>
