@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 public class SimulateJob implements IJob {
 
 	/** PID-Plug-In ID */
-	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
+	private static final String PID = "de.uka.ipd.sdq.simucomframework";
 
 	/** EPID - Extension Point ID */
 	private static final String EPID = "controller";

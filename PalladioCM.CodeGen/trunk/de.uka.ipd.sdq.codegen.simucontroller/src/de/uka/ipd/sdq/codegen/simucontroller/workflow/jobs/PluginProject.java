@@ -218,7 +218,7 @@ public class PluginProject {
 		out.println("<?xml version='1.0'?>"); 			//$NON-NLS-1$
 		out.println("<plugin>"); 						//$NON-NLS-1$
 		out.println("   <extension"); 					//$NON-NLS-1$
-		out.println("         point=\"de.uka.ipd.sdq.codegen.simucontroller.controller\">"); //$NON-NLS-1$
+		out.println("         point=\"de.uka.ipd.sdq.simucomframework.controller\">"); //$NON-NLS-1$
 		out.println("      <actionDelegate");			 //$NON-NLS-1$
 		out.println("            class=\"main.SimuComControl\""); //$NON-NLS-1$
 		out.println("            id=\"de.uka.ipd.sdq.codegen.simucominstance.actionDelegate\">"); //$NON-NLS-1$
