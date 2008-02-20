@@ -1,5 +1,11 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.net.URI;
+
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -9,6 +15,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import edu.rice.cs.util.jar.JarBuilder;
 
 
 public class CompilePluginCodeJob implements IJob {
@@ -59,6 +66,35 @@ public class CompilePluginCodeJob implements IJob {
 			}
 		} catch (CoreException e) {
 			throw new JobFailedException("Compile Plugin failed. Error finding project markers.", e);
+		}
+		URI location = null;
+		try {
+			// location The location identifier of the bundle to install.
+			location = project.getLocationURI();
+		} catch (Exception e) {
+			throw new JobFailedException("Getting project location failed", e);
+		}
+		try {
+			String jarLocation = new File(location).getAbsolutePath() + File.separator + "simucominstance.jar";
+			JarBuilder builder = new JarBuilder(new File(jarLocation));
+			builder.addDirectoryRecursive(new File(location).listFiles(new FilenameFilter(){
+				@Override
+				public boolean accept(File dir, String name) {
+					return name.contains("bin");
+				}
+			})[0], "");
+			builder.addDirectoryRecursive(new File(location),"",new FileFilter(){
+				@Override
+				public boolean accept(File pathname) {
+					return pathname.getName().toUpperCase().contains("META-INF") || pathname.getName().toUpperCase().contains("MANIFEST") || pathname.getName().contains("plugin.xml");
+				}
+			});
+			builder.close();
+			project.refreshLocal(IResource.DEPTH_INFINITE, null);
+		} catch (IOException e) {
+			throw new JobFailedException("Compile Plugin failed. Error creating JAR archive.", e);
+		} catch (CoreException e) {
+			throw new JobFailedException("Compile Plugin failed. Error creating JAR archive.", e);
 		}
 	}
 
