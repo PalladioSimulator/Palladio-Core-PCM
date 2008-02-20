@@ -78,13 +78,11 @@ public class CompilePluginCodeJob implements IJob {
 			String jarLocation = new File(location).getAbsolutePath() + File.separator + "simucominstance.jar";
 			JarBuilder builder = new JarBuilder(new File(jarLocation));
 			builder.addDirectoryRecursive(new File(location).listFiles(new FilenameFilter(){
-				@Override
 				public boolean accept(File dir, String name) {
 					return name.contains("bin");
 				}
 			})[0], "");
 			builder.addDirectoryRecursive(new File(location),"",new FileFilter(){
-				@Override
 				public boolean accept(File pathname) {
 					return pathname.getName().toUpperCase().contains("META-INF") || pathname.getName().toUpperCase().contains("MANIFEST") || pathname.getName().contains("plugin.xml");
 				}
