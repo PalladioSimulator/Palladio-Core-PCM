@@ -26,12 +26,13 @@ import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
 
 public class OperationsEditorSection extends EditorSection {
 	
-	public OperationsEditorSection(Composite composite) {
-		super(composite);
-	}
 
+	/** In Viewer selected signature. */
 	private Signature selectedSignature;
+	/** The TableViewer cell editors. */
 	private CellEditor[] editors;
+	/** Define the TypeDialogCellEditor. */
+	private TypeDialogCellEditor typeCellEditor;
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int RETURNTYPE_COLUMN_INDEX = 1;
@@ -52,6 +53,10 @@ public class OperationsEditorSection extends EditorSection {
 	public static String[] columnNames = new String[] { OPERATIONS_ICON_COLUMN,RETURNTYPE_COLUMN,
 			SERVICENAME_COLUMN, OWNEDPARAMETER_COLUMN, EXEPTIONTYPE_COLUM };
 
+	/** Constructor */
+	public OperationsEditorSection(Composite composite) {
+		super(composite);
+	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.EditorSection#createTable(org.eclipse.swt.widgets.Composite, org.eclipse.swt.widgets.ToolBar)
@@ -108,7 +113,10 @@ public class OperationsEditorSection extends EditorSection {
 		textEditor = new TextCellEditor(table);
 		// editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
 
-		editors[RETURNTYPE_COLUMN_INDEX] = new TypeDialogCellEditor(viewer, selectedSignature);
+		// Set the TypeDialogCellEditor
+		typeCellEditor = new TypeDialogCellEditor(viewer);
+		
+		editors[RETURNTYPE_COLUMN_INDEX] = typeCellEditor;
 
 		editors[PARAMETER_COLUMN_INDEX] = new DialogCellEditor(table) {
 			@Override
@@ -137,9 +145,7 @@ public class OperationsEditorSection extends EditorSection {
 						.getFirstElement();
 
 				if (input instanceof Signature) {
-					selectedSignature = (Signature) input;
-					getDeleteButton().setEnabled(true);
-
+					setSelectedSignature((Signature) input);
 				} else {
 					getDeleteButton().setEnabled(false);
 				}
@@ -157,4 +163,9 @@ public class OperationsEditorSection extends EditorSection {
 		return new AddActionListener((Interface) input);
 	}
 
+	/** The method set in TableViewer selected signature to 'TypeDialogCellEditor'. */
+	public void setSelectedSignature(Signature selectedSignature) {
+		this.selectedSignature = selectedSignature;
+		this.typeCellEditor.setSignature(selectedSignature);
+	}
 }

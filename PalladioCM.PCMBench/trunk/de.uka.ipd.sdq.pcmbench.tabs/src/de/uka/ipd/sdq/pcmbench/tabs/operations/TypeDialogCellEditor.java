@@ -55,16 +55,16 @@ public class TypeDialogCellEditor extends DialogCellEditor {
      */
     private Object value = null;
 	
+    /** The value must by set in subclass. */
     private Signature signature;
     
 
 	/* @See org.eclipse.jface.viewers.DialogCellEditor#DialogCellEditor(org.eclipse.swt.widgets.Control
 	 *      parent)
 	 */
-	public TypeDialogCellEditor(TableViewer viewer, Signature selectedSignature) {
+	public TypeDialogCellEditor(TableViewer viewer) {
 		super(viewer.getTable(), SWT.DEL);
 		this.viewer = viewer;
-		this.signature = selectedSignature;
 	}
 	
 	/* (non-Javadoc)
@@ -91,7 +91,6 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 
 		return dialog.getResult();
 	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -213,4 +212,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 		super.doSetValue(value);
 	}
 
+	public void setSignature(Signature signature){
+		this.signature = signature;
+	}
 }
