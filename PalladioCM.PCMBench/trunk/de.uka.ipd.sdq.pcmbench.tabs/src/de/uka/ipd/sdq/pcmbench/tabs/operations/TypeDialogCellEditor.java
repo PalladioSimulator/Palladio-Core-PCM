@@ -123,6 +123,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.KeyListener#keyReleased(org.eclipse.swt.events.KeyEvent)
 			 */
+			@Override
 			public void keyReleased(KeyEvent e) {
 				if (e.character == '\u001b') { // Escape
 					fireCancelEditor();
@@ -135,6 +136,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
+			@Override
 			public void widgetSelected(SelectionEvent event) {
 				// Remove the button's focus listener since it's guaranteed
 				// to lose focus when the dialog opens

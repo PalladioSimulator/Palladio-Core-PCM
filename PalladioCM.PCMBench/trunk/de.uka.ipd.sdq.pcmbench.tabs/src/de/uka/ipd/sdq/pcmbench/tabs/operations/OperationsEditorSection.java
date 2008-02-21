@@ -3,7 +3,9 @@ package de.uka.ipd.sdq.pcmbench.tabs.operations;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
@@ -129,10 +131,18 @@ public class OperationsEditorSection extends EditorSection {
 			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
 			 */
 			public void selectionChanged(SelectionChangedEvent event) {
-				if (!event.getSelection().isEmpty())
+				ISelection selection = event.getSelection();
+
+				Object input = ((IStructuredSelection) selection)
+						.getFirstElement();
+
+				if (input instanceof Signature) {
+					selectedSignature = (Signature) input;
 					getDeleteButton().setEnabled(true);
-				else
+
+				} else {
 					getDeleteButton().setEnabled(false);
+				}
 			}
 		});
 		

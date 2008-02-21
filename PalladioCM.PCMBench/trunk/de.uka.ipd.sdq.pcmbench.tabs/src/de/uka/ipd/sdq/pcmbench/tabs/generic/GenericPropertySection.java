@@ -74,6 +74,7 @@ public class GenericPropertySection extends AbstractPropertySection {
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
 	 *      org.eclipse.jface.viewers.ISelection)
 	 */
+	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 		Assert.isTrue(selection instanceof IStructuredSelection);
@@ -97,6 +98,7 @@ public class GenericPropertySection extends AbstractPropertySection {
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
+	@Override
 	public void refresh() {
 		editorSection.refresh();
 	}
@@ -104,6 +106,7 @@ public class GenericPropertySection extends AbstractPropertySection {
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#shouldUseExtraSpace()
 	 */
+	@Override
 	public boolean shouldUseExtraSpace() {
 		return true;
 	}

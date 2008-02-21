@@ -74,6 +74,7 @@ extends AbstractPropertySection {
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart,
 	 *      org.eclipse.jface.viewers.ISelection)
 	 */
+	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 		page.selectionChanged(part, selection);
@@ -82,6 +83,7 @@ extends AbstractPropertySection {
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#dispose()
 	 */
+	@Override
 	public void dispose() {
 		super.dispose();
 
@@ -95,6 +97,7 @@ extends AbstractPropertySection {
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
+	@Override
 	public void refresh() {
 		page.refresh();
 	}
@@ -102,6 +105,7 @@ extends AbstractPropertySection {
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#shouldUseExtraSpace()
 	 */
+	@Override
 	public boolean shouldUseExtraSpace() {
 		return true;
 	}

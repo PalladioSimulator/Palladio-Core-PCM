@@ -67,6 +67,7 @@ implements
 	 * @see org.eclipse.jface.viewers.LabelProvider#getImage(java.lang.Object)
 	 * GetImage is delegated to the PCM.Edit label provider
 	 */
+	@Override
 	public Image getImage(Object element) {
 		if (element instanceof IStructuredSelection) {
 			IStructuredSelection selection = (IStructuredSelection) element;
@@ -83,6 +84,7 @@ implements
 	 * GetText delegated to the PCM.Edit LabelProvider. If the object is an
 	 * entity we change the label to include the UUID of the object
 	 */
+	@Override
 	public String getText(Object element) {
 		if (element instanceof IStructuredSelection) {
 			IStructuredSelection selection = (IStructuredSelection) element;
@@ -100,6 +102,7 @@ implements
 		return super.getText(element);
 	}
 
+	@Override
 	public void dispose() {
 		labelProvider.dispose();
 	}

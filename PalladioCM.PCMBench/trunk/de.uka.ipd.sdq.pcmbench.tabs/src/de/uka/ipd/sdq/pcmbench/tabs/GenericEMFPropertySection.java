@@ -87,6 +87,7 @@ public abstract class GenericEMFPropertySection extends AbstractPropertySection 
 	 * The model object which should be edited in the tab sheet is passed in here
 	 * @see org.eclipse.ui.views.properties.tabbed.ITabbedPropertySection#setInput(org.eclipse.ui.IWorkbenchPart, org.eclipse.jface.viewers.ISelection)
 	 */
+	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 		Assert.isTrue(selection instanceof IStructuredSelection);
