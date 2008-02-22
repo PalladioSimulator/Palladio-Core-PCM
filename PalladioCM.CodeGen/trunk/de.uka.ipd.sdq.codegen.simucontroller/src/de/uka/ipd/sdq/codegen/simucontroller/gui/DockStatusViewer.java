@@ -120,11 +120,9 @@ public class DockStatusViewer extends Composite implements Observer {
 		// Disable the check that prevents subclassing of SWT components
 	}
 
-	@Override
 	public void update(Observable o, Object arg) {
 		PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable(){
 
-			@Override
 			public void run() {
 				dockIdLabel.setText(model.getID());
 				remoteLocationLabel.setText(model.getRemoteMaschineURI() == null ? "<local>" : model.getRemoteMaschineURI());

@@ -90,13 +90,11 @@ public class DockStatusViewPart extends ViewPart implements Observer {
 		// Set the focus
 	}
 
-	@Override
 	public void update(Observable o, Object arg) {
 		if (arg instanceof DockAddedEvent) {
 			final DockAddedEvent addedEvent = (DockAddedEvent) arg;
 			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable(){
 
-				@Override
 				public void run() {
 					DockStatusViewPart.this.viewers.put(addedEvent.getAddedDock().getID(), 
 							new DockStatusViewer(addedEvent.getAddedDock(),container,SWT.NONE));
@@ -110,7 +108,6 @@ public class DockStatusViewPart extends ViewPart implements Observer {
 			final DockDeletedEvent deleteEvent = (DockDeletedEvent) arg;
 			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable(){
 
-				@Override
 				public void run() {
 					DockStatusViewer viewer = DockStatusViewPart.this.viewers.get(deleteEvent.getDeletedDock().getID());
 					DockStatusViewPart.this.viewers.remove(deleteEvent.getDeletedDock().getID());

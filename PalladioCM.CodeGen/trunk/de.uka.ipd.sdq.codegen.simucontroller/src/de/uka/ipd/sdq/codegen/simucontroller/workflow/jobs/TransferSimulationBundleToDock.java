@@ -80,7 +80,6 @@ public class TransferSimulationBundleToDock implements IJob {
 	private void showSimuDockView() {
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable(){
 
-			@Override
 			public void run() {
 				IViewPart viewer;
 				try {

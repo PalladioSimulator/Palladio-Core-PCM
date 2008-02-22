@@ -61,7 +61,6 @@ public class DockModel extends Observable implements EventHandler {
 		try {
 			context.addServiceListener(new ServiceListener(){
 
-				@Override
 				public void serviceChanged(ServiceEvent event) {
 					if (event.getServiceReference().getProperty("objectClass").equals(SimulationDockService.class.getName())){
 						if (event.getType() == ServiceEvent.REGISTERED) {
@@ -76,7 +75,6 @@ public class DockModel extends Observable implements EventHandler {
 			});
 			context.registerService(ServiceDiscoveryListener.class.getName(), new ServiceDiscoveryListener(){
 
-				@Override
 				public void announceService(String iface, URI uri) {
 					System.out.println("Found: "+iface+" "+uri);
 					ServiceReference sRef = context.getServiceReference(RemoteOSGiService.class.getName());
@@ -89,7 +87,6 @@ public class DockModel extends Observable implements EventHandler {
 					remoteService.close();
 				}
 
-				@Override
 				public void discardService(String iface, URI uri) {
 					System.out.println("Lost: "+iface+" "+uri);
 					DockStatusModel dock = DockModel.this.getDockByURI(uri);
