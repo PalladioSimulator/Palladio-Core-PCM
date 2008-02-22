@@ -12,5 +12,5 @@ public interface IStatusObserver {
 	 * @param percentDone Percentage of the maximum simulation time which has
 	 * passed
 	 */
-	void updateStatus(int percentDone);
+	void updateStatus(int percentDone, double currentSimTime, long measurementsTaken);
 }

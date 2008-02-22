@@ -43,8 +43,12 @@ public abstract class AbstractMain {
 		model.getSimulationControl().addTimeObserver(new Observer(){
 
 			public void update(Observable clock, Object data) {
+				int timePercent = (int)(model.getSimulationControl().getCurrentSimulationTime() * 100 / SIM_STOP_TIME);
+				int measurementsPercent = (int)(model.getMainMeasurementsCount() * 100 / model.getConfig().getMaxMeasurementsCount());
 				statusObserver.updateStatus(
-						(int)(model.getSimulationControl().getCurrentSimulationTime() * 100 / SIM_STOP_TIME));
+						timePercent < measurementsPercent ? measurementsPercent : timePercent,
+						model.getSimulationControl().getCurrentSimulationTime(),
+						model.getMainMeasurementsCount());
 			}
 			
 		});

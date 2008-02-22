@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -7,8 +8,13 @@ import java.util.Map;
  * 
  * The class encapsulates all configuration options for SimuCom.
  */
-public class SimuComConfig {
+public class SimuComConfig implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3364130550065874984L;
+	
 	public static final String DATASOURCE_ID = "datasourceID";
 	public static final String SHOULD_THROW_EXCEPTION = "shouldThrowException";
 	public static final String RUN_NUMBER = "runNo";
