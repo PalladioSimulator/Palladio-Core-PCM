@@ -48,6 +48,7 @@
 			/* All resources are located on this machine, regardless of their resource container
 			 * in the model */
 			public static void setUpResources(){
+				de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy strategy = null;
 		   		«EXPAND ResourceContainerInit FOREACH this.resourceContainer_ResourceEnvironment SEPARATOR " "»
 			}
 		}
@@ -68,16 +69,15 @@ Refactor!
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
-	de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy strategy = null;
 	if ("«this.activeResourceType_ActiveResourceSpecification.entityName»".toLowerCase().contains("cpu")) {
 	  strategy = new de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.FibonacciDemand();
-	  strategy.initialiseStrategy(«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»);
+	  strategy.initializeStrategy(de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum.MEDIUM,«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»);
 	  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
 	    .registerStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.CPU, 
 	    	strategy);
 	} else if ("«this.activeResourceType_ActiveResourceSpecification.entityName»".toLowerCase().contains("hdd")) { 
 	  strategy = new de.uka.ipd.sdq.measurement.strategies.activeresource.hdd.ReadLargeChunksDemand("C://temp"); 
-	  strategy.initialiseStrategy(«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»);
+	  strategy.initializeStrategy(de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum.MEDIUM,«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»);
 	  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
 	    .registerStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.HDD, 
 	    	strategy);

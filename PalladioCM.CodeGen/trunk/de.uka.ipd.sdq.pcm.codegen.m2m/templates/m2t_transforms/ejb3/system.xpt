@@ -93,7 +93,7 @@
 			<injection-target-class>
 				«a.encapsulatedComponent_ChildComponentContext.fqnContext()»
 			</injection-target-class>
-			<injection-target-name>«this.requiredInterface__RequiredRole.javaName().toFirstLower()»</injection-target-name>
+			<injection-target-name>Role«this.javaName()»</injection-target-name>
 		</injection-target>		
 	«ENDIF»
 </ejb-ref>

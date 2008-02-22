@@ -74,7 +74,11 @@
 
 
 «DEFINE WorkloadDriver(UsageScenario u) FOR ClosedWorkload»
-	for (int i = 0; i < «this.population»; i++) {
+	int count = «this.population»;
+	if (cmdLine.hasOption("c")) {
+		count = (Integer)cmdLine.getOptionObject("c");
+	}
+	for (int i = 0; i < count; i++) {
 		threads.add(new «u.javaName()»Thread(expRun, timeSensor));
 	}
 «ENDDEFINE»
