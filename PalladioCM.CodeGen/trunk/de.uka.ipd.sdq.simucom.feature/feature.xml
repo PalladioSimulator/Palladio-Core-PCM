@@ -252,12 +252,11 @@ litigation.
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.junit4"/>
       <import plugin="org.apache.log4j"/>
-      <import plugin="org.eclipse.emf"/>
+      <import plugin="ca.umontreal.iro.lecuyer.ssj"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
       <import plugin="org.antlr" version="3.0.0" match="perfect"/>
-      <import plugin="ca.umontreal.iro.lecuyer.ssj"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.debug.ui"/>
@@ -266,9 +265,11 @@ litigation.
       <import plugin="org.eclipse.pde.ui"/>
       <import plugin="org.eclipse.pde.core"/>
       <import plugin="org.eclipse.emf.common.ui"/>
+      <import plugin="org.eclipse.emf"/>
       <import plugin="org.openarchitectureware.core.expressions"/>
       <import plugin="de.uka.ipd.sdq.errorhandling"/>
       <import plugin="de.uka.ipd.sdq.sensorframework.dialogs"/>
+      <import plugin="org.eclipse.ui.console"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit"/>
@@ -280,7 +281,14 @@ litigation.
       <import plugin="com.db4o"/>
       <import plugin="org.hibernate"/>
       <import plugin="org.eclipse.ui.views"/>
-      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.openarchitectureware.util.stdlib"/>
+      <import plugin="de.uka.ipd.sdq.pcm.dialogs"/>
+      <import plugin="org.eclipse.osgi.services"/>
+      <import plugin="de.uka.ipd.sdq.units"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.equinox.log"/>
+      <import plugin="org.eclipse.equinox.event"/>
    </requires>
 
    <plugin
@@ -437,6 +445,34 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.featuremodel.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.ethz.iks.r_osgi.remote"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.ethz.iks.r_osgi.service_discovery.slp"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch.ethz.iks.slp"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.simucomframework.simulationdock"
          download-size="0"
          install-size="0"
          version="0.0.0"
