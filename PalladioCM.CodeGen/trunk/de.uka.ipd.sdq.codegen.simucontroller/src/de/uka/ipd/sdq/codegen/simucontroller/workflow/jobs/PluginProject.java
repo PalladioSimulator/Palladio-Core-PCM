@@ -267,10 +267,12 @@ public class PluginProject {
 		out.println("Bundle-Name: SimuCom Instance Plug-in"); //$NON-NLS-1$
 		out.println("Bundle-SymbolicName: " + project.getName() + ";singleton:=true"); //$NON-NLS-1$
 		out.println("Bundle-Version: 1.0.0"); //$NON-NLS-1$
+		out.println("Bundle-Activator: main.SimuComControl");
 		out.println("Require-Bundle: de.uka.ipd.sdq.simucomframework,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.sensorframework,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.simucomframework.variables,"); //$NON-NLS-1$
 		out.println(" org.apache.log4j,"); //$NON-NLS-1$
+		out.println(" org.eclipse.osgi,"); //$NON-NLS-1$
 		out.println(" de.desmoj,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.scheduler"); //$NON-NLS-1$
 		out.println("Eclipse-LazyStart: true"); //$NON-NLS-1$

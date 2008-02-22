@@ -30,7 +30,10 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.sensorframework.dialogs,
  org.eclipse.ui.console,
  de.uka.ipd.sdq.pcm.dialogs,
- de.uka.ipd.sdq.dialogs
+ de.uka.ipd.sdq.dialogs,
+ de.uka.ipd.sdq.simucomframework.simulationdock,
+ org.eclipse.osgi.services,
+ ch.ethz.iks.r_osgi.remote
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.actions,
  de.uka.ipd.sdq.codegen.simucontroller.runconfig

@@ -46,7 +46,7 @@ public class SimuComJob extends Job implements IStatusObserver {
 		return Status.OK_STATUS;
 	}
 
-	public void updateStatus(final int percentDone) {
+	public void updateStatus(final int percentDone, double currentTime, long measurementsTaken) {
 		if (lastProgress < percentDone) {
 			monitor.worked(percentDone - lastProgress);
 			lastProgress = percentDone;

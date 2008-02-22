@@ -24,6 +24,16 @@
 	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTabGroup">
 	    </launchConfigurationTabGroup>
 	</extension>
+ <extension
+       point="org.eclipse.ui.views">
+    <view
+          allowMultiple="false"
+          class="de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart"
+          icon="icons/screen_blue_small.gif"
+          id="de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart"
+          name="Simulation Dock Status">
+    </view>
+ </extension>
 
 	
 </plugin>

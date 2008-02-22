@@ -54,11 +54,11 @@ public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 		GenerateOAWCodeJob generatePluginCodeJob = new GenerateOAWCodeJob(p);
 		this.addJob(generatePluginCodeJob);
 
-		this.addJob(new CompilePluginCodeJob(createPluginProjectJob));
-		this.addJob(new LoadPluginJob(createPluginProjectJob));
-
 		SimuComConfig simuConfig = new SimuComConfig(properties);
-		this.addJob(new SimulateJob(simuConfig));
+		this.addJob(new CompilePluginCodeJob(createPluginProjectJob));
+		//this.addJob(new LoadPluginJob(createPluginProjectJob));
+		//this.addJob(new SimulateJob(simuConfig));
+		this.addJob(new TransferSimulationBundleToDock(createPluginProjectJob,simuConfig));
 	}
 
 	public String getName() {

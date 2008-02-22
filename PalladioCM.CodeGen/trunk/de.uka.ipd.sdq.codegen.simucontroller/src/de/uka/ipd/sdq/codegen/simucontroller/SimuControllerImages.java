@@ -20,6 +20,8 @@ public class SimuControllerImages {
 	public static final String SIMU_GENERATE  	= "new_plugin";
 	public static final String SIMU_DELETE  	= "del_plugin";
 	public static final String SIMUCOM_CONF  	= "simucom_conf";
+	public static final String MASCHINE			= "pc_box2";
+	public static final String MASCHINE_BUSY	= "screen_blue";
 	
 	// For the toolbar images
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -31,6 +33,14 @@ public class SimuControllerImages {
 
 	static {
 		String iconPath = "icons/";
+
+		imageRegistry.put(MASCHINE,
+				 getImageDescriptor(iconPath + MASCHINE + ".gif")
+		);
+
+		imageRegistry.put(MASCHINE_BUSY,
+				 getImageDescriptor(iconPath + MASCHINE_BUSY + ".gif")
+		);
 		
 		imageRegistry.put(CONFIGURATION,
 				 getImageDescriptor(iconPath + CONFIGURATION + ".gif")
