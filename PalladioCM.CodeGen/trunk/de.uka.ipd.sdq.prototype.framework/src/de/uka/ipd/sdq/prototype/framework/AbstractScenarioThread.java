@@ -41,8 +41,9 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 		if (cmdLine.hasOption("u")){
 			warmupRuns = Integer.parseInt(cmdLine.getOptionValue('u'));
 		}
-		logger.info("Warmup");
+		logger.info("Warmup - Cyles: "+warmupRuns);
 		for (int i=0; i<warmupRuns; i++){
+			logger.info("Warmup started, cycle: "+i);
 			usageScenario.run();
 		}
 		logger.info("Warmup finished");
