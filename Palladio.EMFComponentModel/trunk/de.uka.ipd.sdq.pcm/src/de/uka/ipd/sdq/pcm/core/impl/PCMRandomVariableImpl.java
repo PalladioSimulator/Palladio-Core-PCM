@@ -130,6 +130,8 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
 	@Override
 	public Expression basicGetExpression() {
+		if (specification == null)
+			return null;
 		MyPCMStoExLexer lexer = new MyPCMStoExLexer(new ANTLRStringStream(this.getSpecification()));
 		MyPCMStoExParser parser = new MyPCMStoExParser(new CommonTokenStream(lexer));
 		Expression e;
