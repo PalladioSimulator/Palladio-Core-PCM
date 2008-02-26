@@ -15,13 +15,14 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
-// Manually written open policy to open the StoEx Dialog. It's
-// called via a CustomBehaviour in the genmap
+/** 
+ * Manually written open policy to open the StoEx Dialog. It's
+ * called via a CustomBehaviour in the genmap
+ */
 public class OpenStoExDialog extends OpenEditPolicy {
 
 	private EStructuralFeature randomVariableFeature;
@@ -35,29 +36,36 @@ public class OpenStoExDialog extends OpenEditPolicy {
 		super();
 		this.randomVariableFeature = null;
 	}
-	
+
 	protected RandomVariable getRandomVariable(EObject parent) {
 		// Default Implementation. Override as necessary
-		if (randomVariableFeature == null)
-			return (RandomVariable)parent;
-		else
-			return (RandomVariable)parent.eGet(randomVariableFeature);
+		if (randomVariableFeature == null && parent instanceof RandomVariable) {
+			return (RandomVariable) parent;
+		} else if (randomVariableFeature == null
+				&& parent instanceof VariableCharacterisation) {
+			return ((VariableCharacterisation) parent)
+					.getSpecification_VariableCharacterisation();
+		} else {
+			return (RandomVariable) parent.eGet(randomVariableFeature);
+		}
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy#getOpenCommand(org.eclipse.gef.Request)
+	 */
 	@Override
 	protected Command getOpenCommand(Request request) {
 		IGraphicalEditPart host = (IGraphicalEditPart) getHost();
-		RandomVariable rv = getRandomVariable(((View)host.getModel()).getElement());
+		RandomVariable rv = getRandomVariable(((View) host.getModel())
+				.getElement());
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				getExpectedType(rv),rv);
+				getExpectedType(rv), rv);
 		dialog.setInitialExpression(rv);
 		dialog.open();
 		if (dialog.getReturnCode() == Dialog.OK) {
-			SetRequest setRequest = new SetRequest(
-					rv, 
-					StoexPackage.eINSTANCE.getRandomVariable_Specification(), 
-					dialog.getResultText());
+			SetRequest setRequest = new SetRequest(rv, StoexPackage.eINSTANCE
+					.getRandomVariable_Specification(), dialog.getResultText());
 			SetValueCommand cmd = new SetValueCommand(setRequest);
 			return new ICommandProxy(cmd);
 		}
@@ -65,11 +73,11 @@ public class OpenStoExDialog extends OpenEditPolicy {
 	}
 
 	protected TypeEnum getExpectedType(RandomVariable rv) {
-		TypeEnum expectedType = TypeEnum.ANY; 
-		if (rv instanceof VariableCharacterisation){
-			expectedType = StochasticExpressionEditDialog.getTypeFromVariableCharacterisation((VariableCharacterisation) rv);
+		TypeEnum expectedType = TypeEnum.ANY;
+		if (rv instanceof VariableCharacterisation) {
+			expectedType = StochasticExpressionEditDialog
+					.getTypeFromVariableCharacterisation((VariableCharacterisation) rv);
 		}
 		return expectedType;
 	}
-
 }
