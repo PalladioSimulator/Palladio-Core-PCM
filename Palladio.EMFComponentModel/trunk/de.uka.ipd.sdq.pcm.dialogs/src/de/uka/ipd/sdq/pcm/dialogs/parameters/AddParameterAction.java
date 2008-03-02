@@ -36,6 +36,7 @@ public class AddParameterAction extends SelectionAdapter{
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
+	@Override
 	public void widgetSelected(SelectionEvent e) {
 		Assert.isNotNull(parentSignature);
 

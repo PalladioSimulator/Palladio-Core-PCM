@@ -296,6 +296,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		return result;
 	}
 	
+	@Override
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
 		newShell.setText(getTitle());

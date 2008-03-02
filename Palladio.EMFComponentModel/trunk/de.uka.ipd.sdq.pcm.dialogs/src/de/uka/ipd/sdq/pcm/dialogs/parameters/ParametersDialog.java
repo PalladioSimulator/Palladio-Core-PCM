@@ -73,7 +73,7 @@ public class ParametersDialog extends TitleAreaDialog {
 		Composite container = new Composite(area, SWT.NONE);
 		container.setLayout(new FormLayout());
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
-		
+
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(Parameter.class);
 		ArrayList<Object> additionalReferences = new ArrayList<Object>();
@@ -82,10 +82,9 @@ public class ParametersDialog extends TitleAreaDialog {
 		adapterFactory
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
-		CreateEditorContents editorContents = CreateEditorContents.create(
-				container, TransactionUtil.getEditingDomain(signature));
+		CreateEditorContents editorContents = CreateEditorContents
+				.create(container);
 
-		
 		editorContents
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
 						new FilteredItemsAdapterFactory(adapterFactory,
@@ -98,13 +97,15 @@ public class ParametersDialog extends TitleAreaDialog {
 		editorContents.setViewerCellModifier(new ParametersCellModifier(
 				editorContents.getViewer(), TransactionUtil
 						.getEditingDomain(signature)));
+		editorContents.createNameColumnCellEditor();
+		editorContents.createTypeColumnCellEditor(TransactionUtil
+				.getEditingDomain(signature));
 		editorContents.setAddButtonActionListener(new AddParameterAction(
 				signature));
 
 		DeleteParameterAction deleteParameterAction = new DeleteParameterAction(
 				signature);
-		UpParameterAction upParameterAction = new UpParameterAction(
-				signature);
+		UpParameterAction upParameterAction = new UpParameterAction(signature);
 		DownParameterAction downParameterAction = new DownParameterAction(
 				signature);
 
@@ -117,14 +118,16 @@ public class ParametersDialog extends TitleAreaDialog {
 		editorContents.setViewerSelectionChangedListener(downParameterAction);
 
 		editorContents.setViewerInput(signature);
-		
-		/**create separatot to button area */
+
+		/** create separatot to button area */
 		((CreateEditorContents) editorContents).createSeparator(parent);
-		
+
 		return area;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override

@@ -161,6 +161,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		collectionButton.setLayoutData(new GridData(129, SWT.DEFAULT));
 		collectionButton.setText("CollectionDataType");
 		collectionButton.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				setTopCollectionLayout();
 				validateInput();
@@ -172,6 +173,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		compositeButton = new Button(choiceTypeGroup, SWT.RADIO);
 		compositeButton.setText("CompositeDataType");
 		compositeButton.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				setTopCompositeLayout();
 				validateInput();
@@ -234,6 +236,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		typeButton.setLayoutData(new GridData(SWT.DEFAULT, 20));
 		typeButton.setText("Select...");
 		typeButton.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				typeField.setText(getSelectedInnerType(e));
 			}

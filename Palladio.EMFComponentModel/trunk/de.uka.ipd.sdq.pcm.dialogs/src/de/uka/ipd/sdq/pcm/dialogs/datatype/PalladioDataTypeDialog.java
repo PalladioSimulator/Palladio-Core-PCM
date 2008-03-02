@@ -175,7 +175,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		adapterFactory
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
-		editorContents = CreateEditorContents.create(group, editingDomain);
+		editorContents = CreateEditorContents.create(group);
 		editorContents
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
 						adapterFactory));
@@ -186,6 +186,8 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 										adapterFactory))));
 		editorContents.setViewerCellModifier(new InnerDeclarationCellModifier(
 				this, editingDomain));
+		editorContents.createNameColumnCellEditor();
+		editorContents.createTypeColumnCellEditor(editingDomain);
 		editorContents
 				.setAddButtonActionListener(new AddInnerDeclarationAction(this,
 						editingDomain));

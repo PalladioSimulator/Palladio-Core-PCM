@@ -61,10 +61,12 @@ public class StochasticExpressionEditDialog extends
 		newText = ex.getSpecification();
 	}
 
+	@Override
 	public Expression getResult() {
 		return (Expression)super.getResult();
 	}
 
+	@Override
 	public String getResultText() {
 		return super.getResultText();
 	}

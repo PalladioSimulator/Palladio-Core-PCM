@@ -44,7 +44,8 @@ public class CreateEditorContents {
 	// local value
 	private TableViewer viewer;
 	private ToolItem addItem,deleteItem,downItem,upItem;
-	private TransactionalEditingDomain editingDomain;
+	private Table table;
+	//private TransactionalEditingDomain editingDomain;
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int CONTEXT_COLUMN_INDEX = 1;
@@ -62,17 +63,29 @@ public class CreateEditorContents {
 	// Set column names of Tabele
 	private static String[] columnNames = new String[] { ATTRIBUTE_ICON_COLUMN,
 			CONTEXT_COLUMN, NAME_COLUMN, TYPE_COLUMN };
+	
+	/**
+	 * Create the cell editors for Name, Type column
+	 */
+	private CellEditor[] editors = new CellEditor[columnNames.length];
 
-	private CreateEditorContents(Composite composite, TransactionalEditingDomain editingDomain) {
-		this.editingDomain = editingDomain;
+	private CreateEditorContents(Composite composite) {
 		init(composite);
 	}
 
 	/** Factory Method */
-	public static CreateEditorContents create(Composite composite, TransactionalEditingDomain editingDomain){
-		return new CreateEditorContents(composite,editingDomain);
+	public static CreateEditorContents create(Composite composite){
+		return new CreateEditorContents(composite);
 	}
 	
+	public void createNameColumnCellEditor(){
+		editors[NAME_COLUMN_INDEX] = new TextCellEditor(table);
+	}
+
+	public void createTypeColumnCellEditor(TransactionalEditingDomain editingDomain) {
+		editors[TYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table,
+				editingDomain);
+	}
 	
 	public void setViewerContentProvider(IContentProvider contentProvider){
 		viewer.setContentProvider(contentProvider);
@@ -158,21 +171,12 @@ public class CreateEditorContents {
 
 		viewer = new TableViewer(composite, SWT.FULL_SELECTION
 				| SWT.BORDER);
-		Table table = viewer.getTable();
+		table = viewer.getTable();
 		table.setLayoutData(fdTableViewer);
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
-
+		// set column editoren
 		viewer.setColumnProperties(columnNames);
-
-		/**
-		 * Create the cell editors for Name, Type column
-		 */
-		CellEditor[] editors = new CellEditor[columnNames.length];
-
-		editors[NAME_COLUMN_INDEX] = new TextCellEditor(table);
-		editors[TYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table,editingDomain);
-
 		// Assign the cell editors to the viewer
 		viewer.setCellEditors(editors);
 

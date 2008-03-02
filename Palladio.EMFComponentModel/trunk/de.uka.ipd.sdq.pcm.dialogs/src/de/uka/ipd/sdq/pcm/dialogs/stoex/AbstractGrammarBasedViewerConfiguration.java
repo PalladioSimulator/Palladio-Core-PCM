@@ -64,6 +64,7 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
 		return reconciler;
 	}
 
+	@Override
 	public IAnnotationHover getAnnotationHover(ISourceViewer sourceViewer) {
 		return new AnnotationHover(annotationModel);
 	}
@@ -72,6 +73,7 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
 		return new ANTLRTokenScannerAdapter(myLexerClass,myMapper);
 	}
 
+	@Override
 	public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
 		if (myAssistant == null){
 			myAssistant = new ContentAssistant();
