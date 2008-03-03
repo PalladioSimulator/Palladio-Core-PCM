@@ -174,7 +174,6 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		}
 	}
 
-	@Override
 	public void stopSimulation() {
 		((ISimuComControl)service.getService()).stopSimulation();
 	}
