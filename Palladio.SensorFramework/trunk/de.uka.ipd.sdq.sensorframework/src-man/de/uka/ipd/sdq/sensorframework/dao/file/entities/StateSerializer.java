@@ -16,7 +16,6 @@ public class StateSerializer implements ISerialiser {
 		}
 	}
 	
-	@Override
 	public Object[] deserialise(byte[] bytes) {
 		State[] states = new State[(int)(bytes.length / getElementLenght())];
 		int blockPos = 0;
@@ -32,12 +31,10 @@ public class StateSerializer implements ISerialiser {
 		return states;
 	}
 
-	@Override
 	public long getElementLenght() {
 		return 8;
 	}
 
-	@Override
 	public byte[] serialise(Object[] objects, int count) {
 		byte[] block = new byte[(int)(count*getElementLenght())];
 		int blockPos = 0;
