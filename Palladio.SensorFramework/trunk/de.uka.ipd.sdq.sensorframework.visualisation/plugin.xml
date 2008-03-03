@@ -27,31 +27,46 @@
 	    <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
 	       <propertyContributor
-              contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView"
+              contributorId="de.uka.ipd.sdq.sensorframework.visualisation.AbstractReportView"
               labelProvider="de.uka.ipd.sdq.sensorframework.visualisation.tabs.TabbedLabelProvider"
               typeMapper="de.uka.ipd.sdq.sensorframework.visualisation.tabs.PropertyTypeMapper">
 		       		<propertyCategory category="sensors"/>
+           <propertyCategory
+                 category="filters">
+           </propertyCategory>
 	       </propertyContributor>
 	    </extension>
 	    
 	    <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
 	       <propertyTabs 
-	       		contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView">
+	       		contributorId="de.uka.ipd.sdq.sensorframework.visualisation.AbstractReportView">
 	       		<propertyTab
 	            	category="sensors"
-	               	id="SensorsTab"
+	               	id="de.uka.ipd.sdq.sensorframework.visualisation.SensorsTab"
 	            	label="Sensors"/>
+          <propertyTab
+                afterTab="de.uka.ipd.sdq.sensorframework.visualisation.SensorsTab"
+                category="filters"
+                id="de.uka.ipd.sdq.sensorframework.visualisation.FiltersTab"
+                label="Filters">
+          </propertyTab>
 	       </propertyTabs>
 	   </extension>
 	   <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	       <propertySections contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView">
+	       <propertySections contributorId="de.uka.ipd.sdq.sensorframework.visualisation.AbstractReportView">
 	          <propertySection
-                 class="de.uka.ipd.sdq.sensorframework.visualisation.tabs.SensorsPropertySection"
+                 class="de.uka.ipd.sdq.sensorframework.visualisation.tabs.sensors.SensorsPropertySection"
                  filter="de.uka.ipd.sdq.sensorframework.visualisation.tabs.TabFilter"
                  id="SensorsSection"
-                 tab="SensorsTab">
+                 tab="de.uka.ipd.sdq.sensorframework.visualisation.SensorsTab">
+           </propertySection>
+           <propertySection
+                 class="de.uka.ipd.sdq.sensorframework.visualisation.tabs.filters.FiltersPropertySection"
+                 filter="de.uka.ipd.sdq.sensorframework.visualisation.tabs.TabFilter"
+                 id="FiltersSection"
+                 tab="de.uka.ipd.sdq.sensorframework.visualisation.FiltersTab">
            </propertySection>
 	      </propertySections>
 	   </extension>

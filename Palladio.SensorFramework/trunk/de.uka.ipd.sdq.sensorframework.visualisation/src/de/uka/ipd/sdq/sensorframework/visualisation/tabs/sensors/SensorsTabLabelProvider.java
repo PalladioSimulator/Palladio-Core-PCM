@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.sensorframework.visualisation.tabs;
+package de.uka.ipd.sdq.sensorframework.visualisation.tabs.sensors;
 
 import java.util.Collection;
 
@@ -10,7 +10,7 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
+import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationImages;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 
 /**
@@ -24,7 +24,7 @@ public class SensorsTabLabelProvider implements ITableLabelProvider {
 	 */
 	public Image getColumnImage(Object element, int columnIndex) {
 		if (columnIndex == SensorsPropertySection.ICON_COLUMN_INDEX)
-			return SimuImages.imageRegistry.get(SimuImages.RUN);
+			return VisualisationImages.imageRegistry.get(VisualisationImages.RUN);
 		return null;
 	}
 

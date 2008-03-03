@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ViewAndAdapterFactory;
 
@@ -19,7 +20,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ViewAndAdapterFactor
  * Sensor->View makes. Sensor->View - that only Views for sensors can be
  * selected that can represent this sensor
  * 
- * @author roman
+ * @author Roman Andrej
  * 
  */
 public class SensorValidationToView {
@@ -53,7 +54,7 @@ public class SensorValidationToView {
 	public static boolean canViewSensor(
 			SensorAndMeasurements sensorAndMeasurements) {
 
-		String activeEditorId = SimuPlugin.getDefault().getWorkbench()
+		String activeEditorId = VisualisationPlugin.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor()
 				.getSite().getId();
 		Object[] views = findViews(sensorAndMeasurements);
@@ -84,7 +85,7 @@ public class SensorValidationToView {
 	public static void showMessage(Shell shell) {
 		String msg = "This View do not support the representation of the selected sensor!";
 
-		String editorName = SimuPlugin.getDefault().getWorkbench()
+		String editorName = VisualisationPlugin.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor()
 				.getTitle();
 
@@ -92,17 +93,38 @@ public class SensorValidationToView {
 	}
 	
 	/**
+	 * The method get a selected action from 'ActionListSelectionDialog'.
+	 * 
 	 * @return - choose Action from ActionListSelectionDialog
 	 */
 	public static ViewAndAdapterFactory getSelectedAction(Shell shell,
 			Object[] elements) {
-		ActionListSelectionDialog dialog = new ActionListSelectionDialog(shell);
+		ActionListSelectionDialog dialog = new ActionListSelectionDialog(shell,
+				new DialogLabelProvider());
 
 		dialog.setElements(elements);
 		dialog.open();
 		Object[] results = dialog.getResult();
 		if (results != null)
-			return (ViewAndAdapterFactory)results[0];
-		else return null;
+			return (ViewAndAdapterFactory) results[0];
+		else
+			return null;
+	}
+}
+
+/** The Class define the LabelProvider for ActionListSelectionDialog. */
+class DialogLabelProvider extends LabelProvider {
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.viewers.LabelProvider#getText(java.lang.Object)
+	 */
+	@Override
+	public String getText(Object element) {
+		if (element instanceof ViewAndAdapterFactory) {
+			ViewAndAdapterFactory viewAndAdapter = (ViewAndAdapterFactory) element;
+			String displayName = viewAndAdapter.getView().getAttribute("displayName");
+			return displayName.replace("{0}",viewAndAdapter.getFactory() == null ? "" : viewAndAdapter.getFactory().getMetricLabel());
+		}
+		return super.getText(element);
 	}
 }

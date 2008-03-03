@@ -7,18 +7,20 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class SimuPlugin extends AbstractUIPlugin {
+public class VisualisationPlugin extends AbstractUIPlugin {
 	
 	// The plug-in ID
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.sensorframework.visualisation";
+	// The filtered measurements factory ID
+	public static final String FILTER_FACTORY_ID = "FilteredMeasurementsFactory";
 
 	// The shared instance
-	private static SimuPlugin plugin;
+	private static VisualisationPlugin plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public SimuPlugin() {
+	public VisualisationPlugin() {
 		plugin = this;
 	}
 
@@ -46,7 +48,7 @@ public class SimuPlugin extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static SimuPlugin getDefault() {
+	public static VisualisationPlugin getDefault() {
 		return plugin;
 	}
 

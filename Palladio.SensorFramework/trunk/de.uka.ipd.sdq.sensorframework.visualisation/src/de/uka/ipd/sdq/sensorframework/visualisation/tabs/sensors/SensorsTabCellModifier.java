@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.sensorframework.visualisation.tabs;
+package de.uka.ipd.sdq.sensorframework.visualisation.tabs.sensors;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,11 +12,11 @@ import org.eclipse.jface.viewers.ICellModifier;
  * @author admin
  *
  */
-public class SensorsCellModifier implements ICellModifier {
+public class SensorsTabCellModifier implements ICellModifier {
 
 	private List<String> columnNames;
 	
-	public SensorsCellModifier() {
+	public SensorsTabCellModifier() {
 		this.columnNames = Arrays.asList(SensorsPropertySection
 				.columnNames);
 	}

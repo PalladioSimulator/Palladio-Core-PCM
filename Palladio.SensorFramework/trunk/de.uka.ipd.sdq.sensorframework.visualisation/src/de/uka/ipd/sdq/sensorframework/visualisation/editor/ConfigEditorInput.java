@@ -16,11 +16,15 @@ import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
+import de.uka.ipd.sdq.sensorframework.filter.FiltersManager;
+import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 
-/** @author roman */
+/** @author Roman Andrej */
 public class ConfigEditorInput extends Observable
 		implements IEditorInput, IPersistableElement,IAdaptable, Observer {
+	
+	/** Create the filter manager instance. */
+	private FiltersManager filtersManager = new FiltersManager();
 	
 	private List<ConfigEntry> configEntrys;
 	private String adapterFactoryID;
@@ -159,14 +163,20 @@ public class ConfigEditorInput extends Observable
 	 * Return absolute path of the config file. It develops out location in the
 	 * local file system of the plug-in state area for this plug-in and defined
 	 * name.
+	 * 
+	 * @return path to configurations file.
 	 */
-	static String getPathToConfigFile() {
-		IPath path = SimuPlugin.getDefault().getStateLocation();
+	public static String getPathToConfigFile() {
+		IPath path = VisualisationPlugin.getDefault().getStateLocation();
 
 		return path.toPortableString() + "/" + "persistable_element.xml";
 	}
 
 	public String getAdapterFactoryID() {
 		return this.adapterFactoryID;
+	}
+
+	public FiltersManager getFiltersManager() {
+		return filtersManager;
 	}
 }

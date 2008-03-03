@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DatasourceListLabelProvide
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
+import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationImages;
 
 /**
  * The label provider to define how model objects should be presented in the
@@ -63,34 +63,34 @@ public class TreeLabelProvider extends LabelProvider {
 	public Image getImage(Object obj) {
 
 		if (obj instanceof ExperimentAndDAO)
-			return SimuImages.imageRegistry.get(SimuImages.EXPERIMENT);
+			return VisualisationImages.imageRegistry.get(VisualisationImages.EXPERIMENT);
 
 		if (obj instanceof TreeContainer){
 			String icon = "";
 			TreeContainer container = (TreeContainer) obj;
 			switch (container.getType()) {
 			case TreeContentProvider.EXPERIMENT_RUNS:
-				icon = SimuImages.RUNS;
+				icon = VisualisationImages.RUNS;
 				break;
 			case TreeContentProvider.SENSORS:
-				icon = SimuImages.SENSORS;
+				icon = VisualisationImages.SENSORS;
 				break;
 			}
-			return SimuImages.imageRegistry.get(icon);
+			return VisualisationImages.imageRegistry.get(icon);
 		}
 
 		if (obj instanceof TreeObject) {
 			TreeObject object = (TreeObject) obj;
 
 			if (object.getObject() instanceof ExperimentRun)
-				return SimuImages.imageRegistry.get(SimuImages.RUN);
+				return VisualisationImages.imageRegistry.get(VisualisationImages.RUN);
 
 			if (object.getObject() instanceof Sensor)
-				return SimuImages.imageRegistry.get(SimuImages.SENSOR);
+				return VisualisationImages.imageRegistry.get(VisualisationImages.SENSOR);
 		}
 		
 		if (obj instanceof IDAOFactory)
-			return SimuImages.imageRegistry.get(SimuImages.TREEROOT);
+			return VisualisationImages.imageRegistry.get(VisualisationImages.TREEROOT);
 
 		return PlatformUI.getWorkbench().getSharedImages().getImage(
 				ISharedImages.IMG_OBJ_ELEMENT);

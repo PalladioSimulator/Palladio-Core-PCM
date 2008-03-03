@@ -35,13 +35,19 @@ import de.uka.ipd.sdq.sensorframework.visualisation.views.ViewDropTargetListener
 public abstract class AbstractReportView extends EditorPart implements
 		ITabbedPropertySheetPageContributor, Observer {
 
-	public static String ABSTRACT_EDITOR_ID = "de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView";
+	/** Contributor identifier. */
+	public static String ABSTRACT_EDITOR_ID = "de.uka.ipd.sdq.sensorframework.visualisation.AbstractReportView";
+
+	/** Editor input. */
 	private ConfigEditorInput myInput;
-	
+
 	public AbstractReportView() {
 		super();
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
+	 */
 	@Override
 	public void createPartControl(Composite parent) {
 		getSite().setSelectionProvider(new ISelectionProvider() {
@@ -68,6 +74,7 @@ public abstract class AbstractReportView extends EditorPart implements
 		setViewerInput();
 	}
 
+	/** The method define a 'Template method' pattern. */
 	protected abstract void createReportControls(Composite parent);
 
 	private void addDropSupport(Control control) {
@@ -83,6 +90,9 @@ public abstract class AbstractReportView extends EditorPart implements
 				this.getEditorInput()));
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#getAdapter(java.lang.Class)
+	 */
 	@Override
 	public Object getAdapter(Class adapter) {
 		if (adapter == IPropertySheetPage.class)
@@ -90,23 +100,15 @@ public abstract class AbstractReportView extends EditorPart implements
 		return super.getAdapter(adapter);
 	}
 
+	/** The method return the contributor identifier for 'ConfigEditorInput'. */
 	public String getContributorId() {
 		return ABSTRACT_EDITOR_ID;
 	}
 
-	@Override
-	public void setFocus() {
-		// TODO !!
-	}
 
-	@Override
-	public void doSave(IProgressMonitor monitor) {
-	}
-
-	@Override
-	public void doSaveAs() {
-	}
-
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#init(org.eclipse.ui.IEditorSite, org.eclipse.ui.IEditorInput)
+	 */
 	@Override
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
@@ -114,21 +116,14 @@ public abstract class AbstractReportView extends EditorPart implements
 		setInput(input);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#setInput(org.eclipse.ui.IEditorInput)
+	 */
 	@Override
 	protected void setInput(IEditorInput input) {
 		super.setInput(input);
 		myInput = (ConfigEditorInput) input;
 		myInput.addObserver(this);
-	}
-
-	@Override
-	public boolean isDirty() {
-		return false;
-	}
-
-	@Override
-	public boolean isSaveAsAllowed() {
-		return false;
 	}
 
 	public void update(Observable o, Object arg) {
@@ -138,30 +133,74 @@ public abstract class AbstractReportView extends EditorPart implements
 
 	private void setViewerInput() {
 		ArrayList<SensorAndMeasurements> list = new ArrayList<SensorAndMeasurements>();
-		
+
 		for (ConfigEntry re : myInput.getConfigEntrys()) {
 			for (Sensor s : re.getSensors()) {
 				try {
-					list.add(re.getExperimentRun()
-							.getMeasurementsOfSensor(s));
+					list.add(re.getExperimentRun().getMeasurementsOfSensor(s));
 				} catch (Exception e1) {
 					showMessage(s.getSensorName(),
 							"Missing the Measurements of sensor!");
 				}
 			}
 		}
-		IAdapterFactory myFactory = AdapterRegistry.singleton().getFactoryByID(myInput.getAdapterFactoryID());
+		// get the adapter factory for input
+		IAdapterFactory adapterFactory = AdapterRegistry.singleton()
+				.getFactoryByID(myInput.getAdapterFactoryID());
+
 		ArrayList<IAdapter> input = new ArrayList<IAdapter>();
 		for (SensorAndMeasurements sam : list)
-			input.add(myFactory.getAdapter(sam));
+			input.add(adapterFactory.getAdapter(myInput
+					// set the empty filter of the measurements 
+					.getFiltersManager().getFilteredMeasurements(sam)));
 		this.setInput(input);
 	}
 
 	protected abstract void setInput(List<IAdapter> list);
 	
-	/** show exception message */
+	/** Show exception message. */
 	private void showMessage(String title, String message) {
 		MessageDialog.openInformation(this.getEditorSite().getShell(), title,
 				message);
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#doSave(org.eclipse.core.runtime.IProgressMonitor)
+	 */
+	@Override
+	public void doSave(IProgressMonitor monitor) {
+		// The implementation is not necessary.
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#doSaveAs()
+	 */
+	@Override
+	public void doSaveAs() {
+		// The implementation is not necessary.
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
+	 */
+	@Override
+	public void setFocus() {
+		// The implementation is not necessary.
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#isDirty()
+	 */
+	@Override
+	public boolean isDirty() {
+		return false;
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#isSaveAsAllowed()
+	 */
+	@Override
+	public boolean isSaveAsAllowed() {
+		return false;
 	}
 }

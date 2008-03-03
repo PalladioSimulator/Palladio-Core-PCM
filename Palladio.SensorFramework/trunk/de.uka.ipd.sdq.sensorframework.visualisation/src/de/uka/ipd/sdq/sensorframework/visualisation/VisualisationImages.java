@@ -4,7 +4,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 
 
-public class SimuImages {
+public class VisualisationImages {
 
 	public static final String RUN = "lrun_obj";
 	public static final String SENSOR = "sensor_obj";
@@ -14,6 +14,8 @@ public class SimuImages {
 	public static final String TREEROOT = "tree_root";
 	public static final String DELETE = "delete_obj";
 	public static final String ADD = "add_obj";
+	public static final String UP = "up_obj";
+	public static final String DOWN = "down_obj";
 	
 	// Names of images used to represent checkboxes
 	public static final String CHECKED_IMAGE 	= "checked";
@@ -61,6 +63,12 @@ public class SimuImages {
 		imageRegistry.put(ADD,
 				getImageDescriptor(iconPath + ADD + ".gif")
 			);
+		imageRegistry.put(UP,
+				getImageDescriptor(iconPath + UP + ".gif")
+			);
+		imageRegistry.put(DOWN,
+				getImageDescriptor(iconPath + DOWN + ".gif")
+			);
 	}
 	
 	/**
@@ -68,6 +76,6 @@ public class SimuImages {
      *@return an image descriptor, or null if no image could be found
 	 */
 	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
-		return SimuPlugin.getImageDescriptor(imageFilePath);
+		return VisualisationPlugin.getImageDescriptor(imageFilePath);
 	}
 }

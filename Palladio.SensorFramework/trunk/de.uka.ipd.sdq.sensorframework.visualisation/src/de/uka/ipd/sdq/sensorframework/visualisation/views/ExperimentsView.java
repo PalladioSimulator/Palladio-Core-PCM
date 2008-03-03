@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.OpenDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 
 /**
  * The view shows data obtained from the 'SensorfFctory' model. The view is
@@ -182,7 +182,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		reloadView.setText("Reload View");
 		reloadView.setToolTipText("Reload View");
-		reloadView.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/db_reload_obj.gif"));
+		reloadView.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/db_reload_obj.gif"));
 
 		/** Collapse all action*/
 		collapseAll = new Action() {
@@ -193,7 +193,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		collapseAll.setText("Collapse All");
 		collapseAll.setToolTipText("Collapse All");
-		collapseAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/collapseall.gif"));
+		collapseAll.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/collapseall.gif"));
 		
 		/** Expand all action*/
 		expandAll = new Action() {
@@ -204,7 +204,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		expandAll.setText("Expand All");
 		expandAll.setToolTipText("Expand All");
-		expandAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/expandall.gif"));
+		expandAll.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/expandall.gif"));
 		
 		/** New DataSet action. */
 		newDataSet = new Action() {
@@ -223,7 +223,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		newDataSet.setText("New Data Source");
 		newDataSet.setToolTipText("New Data Source");
-		newDataSet.setImageDescriptor(SimuPlugin
+		newDataSet.setImageDescriptor(VisualisationPlugin
 				.getImageDescriptor("/icons/add_obj.gif"));
 		
 		/** Open DataSet action */
@@ -246,7 +246,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		openDataSet.setText("Open");
 		openDataSet.setToolTipText("Open a Data Source");
-		openDataSet.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/data_source_folder.gif"));
+		openDataSet.setImageDescriptor(VisualisationPlugin.getImageDescriptor("/icons/data_source_folder.gif"));
 		
 		/** Delete DataSet/Experiment action. */
 		deleteDataSet = new Action() {
@@ -271,7 +271,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		deleteDataSet.setText("Delete");
 		deleteDataSet.setToolTipText("Delete a Data Source/Experiment");
-		deleteDataSet.setImageDescriptor(SimuPlugin
+		deleteDataSet.setImageDescriptor(VisualisationPlugin
 				.getImageDescriptor("/icons/remove_obj.gif"));
 		deleteDataSet.setEnabled(false);
 		

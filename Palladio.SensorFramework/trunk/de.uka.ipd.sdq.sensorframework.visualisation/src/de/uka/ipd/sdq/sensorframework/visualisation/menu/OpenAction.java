@@ -4,7 +4,7 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 
-import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 
 public class OpenAction extends Action {
@@ -20,7 +20,7 @@ public class OpenAction extends Action {
 	
 	@Override
 	public void run() {
-		IWorkbenchPage page = SimuPlugin.getDefault().getWorkbench()
+		IWorkbenchPage page = VisualisationPlugin.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage();
 
 		try {
