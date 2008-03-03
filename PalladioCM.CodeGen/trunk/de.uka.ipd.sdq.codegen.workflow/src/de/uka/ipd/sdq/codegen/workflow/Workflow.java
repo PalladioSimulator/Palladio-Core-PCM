@@ -4,14 +4,18 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
 /**
- * Implementation of a workflow.
+ * Implementation of a workflow. A workflow is a special composite job which executes all other jobs while displaying the progress in a progress
+ * bar to the user.
  * The given Progress Monitor will receive updates before and after a
  * job is executed.
  * 
  * @author Philipp Meier
+ * 		   Steffen Becker
  */
-public class Workflow extends OrderPreservingCompositeJob
-	implements IWorkflow {
+public class Workflow 
+	extends OrderPreservingCompositeJob
+	implements ICompositeJob {
+	
 	private IProgressMonitor myMonitor;
 
 	/** 
