@@ -32,7 +32,7 @@ public class SimuComJob extends Job implements IStatusObserver {
 		lastProgress = 0;
 		monitor.beginTask("Simulation Run", 100);
 		try {
-			status = control.startSimulation(config, this);
+			status = control.startSimulation(config, this, false);
 		} catch (Exception e) {
 			this.status = SimuComStatus.ERROR;
 			this.errorThrowable = e;

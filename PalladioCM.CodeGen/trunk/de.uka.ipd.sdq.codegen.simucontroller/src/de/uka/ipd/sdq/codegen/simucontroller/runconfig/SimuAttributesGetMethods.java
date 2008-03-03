@@ -19,11 +19,8 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  */
 public class SimuAttributesGetMethods extends AttributesGetMethods {
 
-	private ILaunchConfiguration configuration;
-
 	public SimuAttributesGetMethods(ILaunchConfiguration configuration) {
 		super(configuration);
-		this.configuration = configuration;
 	}
 	
 	/**

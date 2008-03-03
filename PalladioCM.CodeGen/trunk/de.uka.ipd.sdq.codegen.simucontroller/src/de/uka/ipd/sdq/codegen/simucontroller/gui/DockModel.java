@@ -2,10 +2,13 @@ package de.uka.ipd.sdq.codegen.simucontroller.gui;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Observable;
+import java.util.concurrent.PriorityBlockingQueue;
 
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
@@ -26,95 +29,174 @@ import ch.ethz.iks.r_osgi.service_discovery.ServiceDiscoveryListener;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 
+/**
+ * The dock model class is used to store the central model of the simulation docks. A simulation dock is an OSGi service capable of 
+ * accepting a simulation bundle. It simulates the bundle informing is dock model via OSGi events of its progress. The dock model
+ * uses the events to synchronize its view. It also uses remote OSGi events to discover new remote docks. 
+ * @author Steffen Becker
+ *
+ */
 public class DockModel extends Observable implements EventHandler {
+	
+	/**
+	 * A hashmap for mapping dock IDs to the respective dock models. Used when events arrive to retrieve the affected dock. 
+	 */
 	private HashMap<String,DockStatusModel> clientDocks = new HashMap<String, DockStatusModel>();
 	
-	public DockModel(BundleContext context) {
-		findExisitingDocks(context);
-		addListeners(context);
-		registerEventListener(context);
-	}
+	/**
+	 * A priority queue of available docks. Used in {@link getBestFreeDock} to retrieve the best available next dock. 
+	 */
+	private PriorityBlockingQueue<DockStatusModel> freeDocks = new PriorityBlockingQueue<DockStatusModel>(10,new Comparator<DockStatusModel>(){
 
-	private void registerEventListener(BundleContext context) {
-		String[] topics = new String[] { "de/uka/ipd/sdq/simucomframework/simucomdock/*" };
-		Hashtable ht = new Hashtable();
-		ht.put(EventConstants.EVENT_TOPIC, topics);
-		ServiceRegistration eventListener = context.registerService(
-				EventHandler.class.getName(), this, ht);
-	}
+		/** Basis sorting strategy: Prefer remote docks over local docks
+		 * @param o1 First argument
+		 * @param o2 Second argument
+		 * @return The sort order of the arguments
+		 */
+		public int compare(DockStatusModel o1, DockStatusModel o2) {
+			if (o1.isRemote())
+				return -1;
+			if (o2.isRemote())
+				return 1;
+			return 0;
+		}
+		
+	});
 
-	public synchronized DockStatusModel addDock(SimulationDockService service) {
-		return addDock(service,null);
-	}
+	/**
+	 * The event listener registered with OSGi by this model
+	 */
+	private ServiceRegistration eventListener = null;
+
+	/**
+	 * Context object for OSGi interaction 
+	 */
+	private BundleContext context = null;
+
+	/**
+	 * Listener for local dock service discoveries 
+	 */
+	private ServiceListener localServiceListener;
+
+	/**
+	 * Listener for remote dock discoveries 
+	 */
+	private ServiceRegistration remoteServiceListener;
 	
-	public synchronized DockStatusModel addDock(SimulationDockService service, String remoteMaschineURI) {
-		DockStatusModel result = new DockStatusModel(service,remoteMaschineURI);
-		
-		clientDocks.put(result.getID(),result);
-		setChanged();
-		notifyObservers(new DockAddedEvent(result));
-		
-		return result;
+	/**
+	 * Constructor of the dock model
+	 * @param context The bundle context of the plugin which contains the dock model. Used to interact with OSGi's event service and remote
+	 * OSGi
+	 */
+	public DockModel(BundleContext context) {
+		this.context = context;
+		findExisitingDocks();
+		addListeners();
+		registerEventListener();
 	}
 
-	private void addListeners(final BundleContext context) {
+	/**
+	 * Unregister the listener
+	 * @see java.lang.Object#finalize()
+	 */
+	@Override
+	protected void finalize() throws Throwable {
+		context.removeServiceListener(localServiceListener);
+		remoteServiceListener.unregister();
+		eventListener.unregister();
+		super.finalize();
+	}
+
+
+	/**
+	 * Register the local and remote listener for discovering dock events
+	 */
+	private void addListeners() {
 		try {
-			context.addServiceListener(new ServiceListener(){
-
-				public void serviceChanged(ServiceEvent event) {
-					if (event.getServiceReference().getProperty("objectClass").equals(SimulationDockService.class.getName())){
-						if (event.getType() == ServiceEvent.REGISTERED) {
-							System.out.println("New Dock appeared");
-						}
-						if (event.getType() == ServiceEvent.UNREGISTERING) {
-							System.out.println("Dock vanished");
-						}
-					}
-				}
-				
-			});
-			context.registerService(ServiceDiscoveryListener.class.getName(), new ServiceDiscoveryListener(){
-
-				public void announceService(String iface, URI uri) {
-					System.out.println("Found: "+iface+" "+uri);
-					ServiceReference sRef = context.getServiceReference(RemoteOSGiService.class.getName());
-					ServiceTracker remoteService = new ServiceTracker(context,sRef,null);
-					remoteService.open();
-					RemoteOSGiService roserv = (RemoteOSGiService) remoteService.getService();
-					RemoteServiceReference[] rserv = roserv.connect(uri);
-					SimulationDockService service = (SimulationDockService) roserv.getRemoteService(rserv[0]);
-					DockModel.this.addDock(service,uri.toString());
-					remoteService.close();
-				}
-
-				public void discardService(String iface, URI uri) {
-					System.out.println("Lost: "+iface+" "+uri);
-					DockStatusModel dock = DockModel.this.getDockByURI(uri);
-					DockModel.this.removeDock(dock);
-				}}
-			, new Hashtable());
+			localServiceListener = createServiceListener();
+			context.addServiceListener(localServiceListener);
+			
+			remoteServiceListener = context.registerService(
+					ServiceDiscoveryListener.class.getName(), 
+					createRemoteServiceListener(context),
+					new Hashtable<String, String[]>());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException("Unable to register dock listners ",e);
 		}
 	}
 
-	protected void removeDock(DockStatusModel dock) {
-		clientDocks.remove(dock.getID());
-		setChanged();
-		notifyObservers(new DockDeletedEvent(dock));
+	private ServiceDiscoveryListener createRemoteServiceListener(
+			final BundleContext context) {
+		return new ServiceDiscoveryListener(){
+
+			public void announceService(String iface, URI uri) {
+				ServiceReference sRef = context.getServiceReference(RemoteOSGiService.class.getName());
+				ServiceTracker remoteService = new ServiceTracker(context,sRef,null);
+				remoteService.open();
+				RemoteOSGiService roserv = (RemoteOSGiService) remoteService.getService();
+				RemoteServiceReference[] rserv = roserv.connect(uri);
+				SimulationDockService service = (SimulationDockService) roserv.getRemoteService(rserv[0]);
+				DockModel.this.addDock(service,uri.toString());
+				remoteService.close();
+			}
+
+			public void discardService(String iface, URI uri) {
+				DockStatusModel dock = DockModel.this.getDockByURI(uri);
+				DockModel.this.removeDock(dock);
+			}};
 	}
 
+	private ServiceListener createServiceListener() {
+		return new ServiceListener(){
+
+			public void serviceChanged(ServiceEvent event) {
+				if (event.getServiceReference().getProperty("objectClass").equals(SimulationDockService.class.getName())){
+					if (event.getType() == ServiceEvent.REGISTERED) {
+						// TODO
+					}
+					if (event.getType() == ServiceEvent.UNREGISTERING) {
+						// TODO
+					}
+				}
+			}
+			
+		};
+	}
+
+	/** Called by service unregister events to remove the dock from this model
+	 * @param dock The dock which has been removed externally
+	 */
+	protected void removeDock(DockStatusModel dock) {
+		synchronized(clientDocks){
+			clientDocks.remove(dock.getID());
+			if (freeDocks.contains(dock)) {
+				freeDocks.remove(dock);
+			} else {
+				// TODO: Lost a busy dock....
+			}
+			setChanged();
+			notifyObservers(new DockDeletedEvent(dock));
+		}
+	}
+
+	/** Retrieve a dock status model by the docks URI. Returns null if the dock is unknown or a local dock.
+	 * @param uri The URI of the dock to retrieve
+	 * @return The requested dock or null if the dock does not exist or is local
+	 */
 	protected DockStatusModel getDockByURI(URI uri) {
-		for (DockStatusModel m : clientDocks.values()) {
-			if (m.getRemoteMaschineURI() != null && m.getRemoteMaschineURI().equals(uri.toString())) {
-				return m;
+		synchronized(clientDocks){
+			for (DockStatusModel m : clientDocks.values()) {
+				if (m.getRemoteMaschineURI() != null && m.getRemoteMaschineURI().equals(uri.toString())) {
+					return m;
+				}
 			}
 		}
 		return null;
 	}
 
-	private void findExisitingDocks(BundleContext context) {
+	/** Initialise this dock model's status when this dock model is first initialised
+	 */
+	private void findExisitingDocks() {
 		// Initially get all local Docks
 		try {
 			ServiceReference[] services = context.getAllServiceReferences(SimulationDockService.class.getName(), null);
@@ -127,50 +209,49 @@ public class DockModel extends Observable implements EventHandler {
 		}
 	}
 
+	/** Returns a collection of all docks currently known in this dock model
+	 * @return A collection of all docks currently known in this dock model
+	 */
 	public Collection<DockStatusModel> getAllDocks() {
-		return this.clientDocks.values();
-	}
-
-	public DockStatusModel getBestFreeDock() {
-		List<DockStatusModel> remote = findIdle(getRemoteDocks());
-		List<DockStatusModel> local = findIdle(getLocalDocks());
-		if (remote.size() >= 1)
-			return remote.get(0);
-		else
-			return local.get(0);
-	}
-	
-	private List<DockStatusModel> findIdle(List<DockStatusModel> docks) {
-		ArrayList<DockStatusModel> localDocks = new ArrayList<DockStatusModel>();
-		for (DockStatusModel m : docks) {
-			if (m.isIdle()) {
-				localDocks.add(m);
-			}
+		synchronized(clientDocks){
+			return Collections.unmodifiableCollection(this.clientDocks.values());
 		}
-		return localDocks;
 	}
 
+	/** Gets the next best free dock from the list of unused docks. Waits for a dock to become available if all docks are busy.
+	 * The dock is removed from the list of free docks.
+	 * 
+	 * @return The next best dock available to process a request
+	 * @throws InterruptedException Execption when the thread is terminated
+	 */
+	public DockStatusModel getBestFreeDock() throws InterruptedException {
+		DockStatusModel result = freeDocks.take();
+		return result;
+	}
+
+	/** Return a list of all local docks
+	 * @return A list of local docks
+	 */
 	public List<DockStatusModel> getLocalDocks() {
-		return findDocksByDistance(false);
+		return Collections.unmodifiableList(findDocksByDistance(false));
 	}
 
+	/** Return a list of all remote docks
+	 * @return A list of remote docks
+	 */
 	public List<DockStatusModel> getRemoteDocks() {
-		return findDocksByDistance(true);
+		return Collections.unmodifiableList(findDocksByDistance(true));
+	}
+
+	private List<DockStatusModel> findDocksByDistance(boolean remote) {
+		return null;
 	}
 	
-	private List<DockStatusModel> findDocksByDistance(boolean remote) {
-		ArrayList<DockStatusModel> localDocks = new ArrayList<DockStatusModel>();
-		for (DockStatusModel m : clientDocks.values()) {
-			if (m.isRemote() == remote) {
-				localDocks.add(m);
-			}
-		}
-		return localDocks;
-	}
-
-	/*
+	/**
 	 * Method to handle OSGi Events sent by the SimulationDock to inform about
-	 * status updates (non-Javadoc)
+	 * status updates (non-Javadoc).
+	 * 
+	 * The method is not intended to be called directly!
 	 * 
 	 * @see org.osgi.service.event.EventHandler#handleEvent(org.osgi.service.event.Event)
 	 */
@@ -184,13 +265,66 @@ public class DockModel extends Observable implements EventHandler {
 		}
 		if (event.getTopic().endsWith("DOCK_BUSY")) {
 			dock.setIdle(false);
+			synchronized(freeDocks){
+				if (freeDocks.contains(dock)) {
+					freeDocks.remove(dock);
+				}
+			}
 		}
 		if (event.getTopic().endsWith("DOCK_IDLE")) {
 			dock.setIdle(true);
+			freeDocks.put(dock);
 		}
 	}
 
+	/** Return the dock status model with of the dock with the given ID
+	 * @param dockId ID of the dock to retrieve. The dock with the given ID has to exist
+	 * @return The model of the requested dock
+	 */
 	public DockStatusModel getDockById(String dockId) {
-		return clientDocks.get(dockId);
+		synchronized (clientDocks) {
+			if (!clientDocks.containsKey(dockId))
+				throw new IllegalArgumentException("Dock model does not contain dock with ID "+dockId);
+			return clientDocks.get(dockId);
+		}
 	}
+
+	/** Registers this object as event listener for dock events raised by local and remote simulation docks
+	 */
+	private void registerEventListener() {
+		String[] topics = new String[] { "de/uka/ipd/sdq/simucomframework/simucomdock/*" };
+		Hashtable<String, String[]> ht = new Hashtable<String, String[]>();
+		ht.put(EventConstants.EVENT_TOPIC, topics);
+		eventListener = context.registerService(
+				EventHandler.class.getName(), this, ht);
+	}
+
+	/** 
+	 * Adds a new dock. Called by discovery events of local docks.
+	 * @param service The reference to the simulation dock's public interface
+	 * @return A new dock status model representing the newly discovered dock
+	 */
+	private DockStatusModel addDock(SimulationDockService service) {
+		return addDock(service,null);
+	}
+	
+	/** 
+	 * Adds a new dock. Called by discovery events of remote docks.
+	 * @param service The reference to the simulation dock's public interface
+	 * @param remoteMaschineURI The URI of the remote service
+	 * @return A new dock status model representing the newly discovered dock
+	 */
+	private DockStatusModel addDock(SimulationDockService service, String remoteMaschineURI) {
+		DockStatusModel result = new DockStatusModel(service,remoteMaschineURI);
+		
+		synchronized (clientDocks) {  // Only one thread my update the client dock list
+			clientDocks.put(result.getID(),result);
+			freeDocks.put(result);
+			setChanged();
+			notifyObservers(new DockAddedEvent(result));
+		}
+		
+		return result;
+	}
+	
 }

@@ -26,7 +26,7 @@ import org.eclipse.pde.internal.core.natures.PDE;
 import org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer;
 
 /**
- * The Klass is responsible for the generation of a container Plug-In. That
+ * This class is responsible for the generation of a container Plug-In. That
  * means, a project is generated, with that Java-Nature and Plugin-Nature and
  * also a src folder. Thereby all configuration elements are along-generated,
  * Plug in necessarily also (MANIFEST.MF, plugin.xml, build.properties).
@@ -45,7 +45,7 @@ public class PluginProject {
 	/**
 	 * name of generated instance
 	 */
-	public static String PROJECT_ID = "de.uka.ipd.sdq.codegen.simucominstance";
+	// public static String PROJECT_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 
 	private PluginProject(){
 		
@@ -78,12 +78,12 @@ public class PluginProject {
 	/**
 	 * clears the simulation plugin folder
 	 */	
-	private void clearPluginFolder() {
+	private void clearPluginFolder(String projectId) {
 		File pluginFolder = ResourcesPlugin
 		.getWorkspace()
 		.getRoot()
 		.getRawLocation()
-		.append(PROJECT_ID)
+		.append(projectId)
 		.toFile();
 	
 		deleteFolder(pluginFolder);
@@ -94,9 +94,9 @@ public class PluginProject {
 	 * if it exists
 	 * @throws CoreException 
 	 */
-	private void deleteSimulationProject(IProgressMonitor monitor) throws CoreException {
+	private void deleteSimulationProject(String projectId, IProgressMonitor monitor) throws CoreException {
 		for (IProject project:ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-			if (project.getName().equals(PROJECT_ID)) {
+			if (project.getName().equals(projectId)) {
 				IResource[] projects = {project};
 				ResourcesPlugin.getWorkspace().delete(projects, true, monitor);
 			}
@@ -108,25 +108,26 @@ public class PluginProject {
 	 * 
 	 * @return a handle to the project to be used for the simulation
 	 */
-	private IProject createSimulationProject() {
+	private IProject createSimulationProject(String projectId) {
 						
 		return ResourcesPlugin.getWorkspace().getRoot().getProject(
-				PROJECT_ID);
+				projectId);
 	}
 	
 	/**
-	 * The function implements all steps, which are necessary for the production
+	 * The function implements all steps, which are necessary for the creation of
 	 * a Plugin Project
-	 * 
+	 * @param projectId The ID of the new project
+	 * @param monitor The progress monitor which displays progress
 	 * @return - container project (Plug-In)
 	 */
-	public IProject createContainerPlugin(IProgressMonitor monitor) throws CoreException {
+	public IProject createContainerPlugin(String projectId, IProgressMonitor monitor) throws CoreException {
 
 		// remove any existing project references and files
-		deleteSimulationProject(monitor);		
-		clearPluginFolder();
+		deleteSimulationProject(projectId,monitor);		
+		clearPluginFolder(projectId);
 		
-		IProject project = createSimulationProject();
+		IProject project = createSimulationProject(projectId);
 
 		IFolder srcFolder = project.getFolder("src");
 		IFolder manifestFolder = project.getFolder("META-INF");

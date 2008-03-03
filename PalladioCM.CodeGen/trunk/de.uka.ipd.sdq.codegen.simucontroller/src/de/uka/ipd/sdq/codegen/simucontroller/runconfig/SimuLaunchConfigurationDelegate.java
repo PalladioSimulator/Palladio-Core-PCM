@@ -3,12 +3,15 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
+import de.uka.ipd.sdq.codegen.runconfig.AttributesGetMethods;
 import de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.MultipleSimulationRunsCompositeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
+import de.uka.ipd.sdq.codegen.workflow.jobs.CheckOAWConstraintsJob;
 
 /**
  * The class adapts defined functionality in the LaunchConfigurationDelegate for
@@ -25,7 +28,7 @@ public class SimuLaunchConfigurationDelegate extends
 	 * @see de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#creataAttributesGetMethods(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
 	@Override
-	protected SimuAttributesGetMethods creataAttributesGetMethods(
+	protected SimuAttributesGetMethods createAttributesGetMethods(
 			ILaunchConfiguration configuration) {
 		return new SimuAttributesGetMethods(configuration);
 	}
@@ -36,11 +39,19 @@ public class SimuLaunchConfigurationDelegate extends
 	@Override
 	protected IJob createRunCompositeJob(SimuAttributesGetMethods attributes)
 			throws JobFailedException, CoreException {
-		if (!attributes.getOAWWorkflowProperties().get(ConstantsContainer.VARIABLE_TEXT).equals("") ) {
-			return new MultipleSimulationRunsCompositeJob(attributes);
+		OrderPreservingCompositeJob result = new OrderPreservingCompositeJob();
+		
+		CheckOAWConstraintsJob checkOAWConstraintsJob = new CheckOAWConstraintsJob(
+				attributes.getFiles(), attributes.isShouldThrowException());
+		result.addJob(checkOAWConstraintsJob);
+		
+		if (!attributes.getOAWWorkflowProperties(1).get(ConstantsContainer.VARIABLE_TEXT).equals("") ) {
+			result.addJob(new MultipleSimulationRunsCompositeJob(attributes));
 		} else {
-			return new SimulationRunCompositeJob(attributes);
+			result.addJob(new SimulationRunCompositeJob(attributes));
 		}
+		
+		return result;
 	}
 
 

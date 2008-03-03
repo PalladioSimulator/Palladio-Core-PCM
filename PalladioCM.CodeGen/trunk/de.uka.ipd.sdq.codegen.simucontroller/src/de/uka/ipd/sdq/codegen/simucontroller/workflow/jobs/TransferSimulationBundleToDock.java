@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusModel;
 import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
+import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
@@ -39,42 +40,36 @@ import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl;
  */
 public class TransferSimulationBundleToDock implements IJob {
 
-	private CreatePluginProjectJob myCreatePluginProjectJob;
+	/**
+	 * This job's parent job which creates a JAR archive of the simulation bundle 
+	 */
+	private IJobWithResult<byte[]> myCreatePluginProjectJob;
+	
+	/**
+	 * Configuration object for the simulation 
+	 */
 	private SimuComConfig myConfig;
-	private DockStatusModel dockViewModel;
 
 	public TransferSimulationBundleToDock(
-			CreatePluginProjectJob createPluginProjectJob,
+			IJobWithResult<byte[]> createPluginJarJob,
 			SimuComConfig simuConfig) {
-		myCreatePluginProjectJob = createPluginProjectJob;
+		myCreatePluginProjectJob = createPluginJarJob;
 		myConfig = simuConfig;
 	}
 
 	public void execute() throws JobFailedException {
 		assert (myCreatePluginProjectJob != null);
 
-		IProject project = myCreatePluginProjectJob.getProject();
-		assert (project != null);
-
-		String location = null;
-		try {
-			location = new File(project.getLocationURI()).getAbsolutePath()
-					+ File.separator + "simucominstance.jar";
-		} catch (Exception e) {
-			throw new JobFailedException("Getting project location failed", e);
-		}
-
-		BundleContext bundleContext = null;
-		try {
-			bundleContext = SimuControllerPlugin.getDefault().getBundle()
-					.getBundleContext();
-
-		} catch (Exception e) {
-			throw new JobFailedException("Getting bundle context failed", e);
-		}
 		showSimuDockView();
-		SimuControllerPlugin.getDockModel().getBestFreeDock().getService().simulate(myConfig,
-				loadBundle(location));
+		try {
+			DockStatusModel dock = SimuControllerPlugin.getDockModel().getBestFreeDock();
+			dock.getService().simulate(
+					myConfig,
+					myCreatePluginProjectJob.getResult(),
+					dock.isRemote());
+		} catch (InterruptedException e) {
+			throw new JobFailedException("Job failed while waiting for a dock to become available",e);
+		}
 	}
 
 	private void showSimuDockView() {
@@ -93,20 +88,6 @@ public class TransferSimulationBundleToDock implements IJob {
 			}
 			
 		});
-	}
-
-	private byte[] loadBundle(String location) {
-		byte[] result = null;
-		try {
-			File bundleFile = new File(location);
-			result = new byte[(int) bundleFile.length()];
-			FileInputStream fis = new FileInputStream(bundleFile);
-			fis.read(result);
-			fis.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return result;
 	}
 
 	public String getName() {

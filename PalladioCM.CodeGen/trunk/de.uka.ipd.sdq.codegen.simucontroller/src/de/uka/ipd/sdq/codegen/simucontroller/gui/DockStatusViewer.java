@@ -9,10 +9,13 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
@@ -40,7 +43,7 @@ public class DockStatusViewer extends Composite implements Observer {
 	 * @param parent
 	 * @param style
 	 */
-	public DockStatusViewer(DockStatusModel model, Composite parent, int style) {
+	public DockStatusViewer(final DockStatusModel model, Composite parent, int style) {
 		super(parent, style);
 		this.model = model;
 		model.addObserver(this);
@@ -111,6 +114,14 @@ public class DockStatusViewer extends Composite implements Observer {
 			}
 			
 		});
+
+		final Button stopButton = new Button(composite, SWT.NONE);
+		stopButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(final SelectionEvent e) {
+				model.getService().stopSimulation();
+			}
+		});
+		stopButton.setText("Stop!");
 		
 		update(model,null);
 	}

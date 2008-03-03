@@ -21,8 +21,10 @@ public class CreatePluginProjectJob implements IJob {
 
 	private IProject myProject;
 	private boolean deleteProject;
+	private String myProjectId;
 
-	public CreatePluginProjectJob(boolean deleteProject) {
+	public CreatePluginProjectJob(String projectId, boolean deleteProject) {
+		this.myProjectId = projectId;
 		this.deleteProject = deleteProject;
 	}
 
@@ -43,6 +45,7 @@ public class CreatePluginProjectJob implements IJob {
 			
 		try {			
 			myProject = PluginProject.createInstance().createContainerPlugin(
+					myProjectId,
 					new NullProgressMonitor());
 		} catch (CoreException e) {
 			throw new JobFailedException("Creating plugin project failed", e);
@@ -58,7 +61,7 @@ public class CreatePluginProjectJob implements IJob {
 		.getWorkspace()
 		.getRoot()
 		.getRawLocation()
-		.append(PluginProject.PROJECT_ID)
+		.append(myProjectId)
 		.toFile();
 		
 		return pluginFolder.exists();
@@ -134,7 +137,7 @@ public class CreatePluginProjectJob implements IJob {
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 					"Simulation project folder already exists",
 					null,
-					"The folder used for the simulation project already exists. Should " + PluginProject.PROJECT_ID + " and all of its contents be deleted?",
+					"The folder used for the simulation project already exists. Should " + myProjectId + " and all of its contents be deleted?",
 					MessageDialog.QUESTION,
 					options,
 					1
