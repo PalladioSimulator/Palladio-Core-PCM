@@ -28,16 +28,17 @@ public abstract class AbstractMain {
 	 * observer
 	 * @param statusObserver Observer to notify about the simulation's progress
 	 * @param config Configuration options for the simulation
+	 * @param isRemoteRun True if this simulation runs remotely and has no access to the local sensorframework
 	 * @return A status code indicating success or failure of the simulation
 	 */
-	protected SimuComStatus run(final IStatusObserver statusObserver, SimuComConfig config)
+	protected SimuComStatus run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun)
 	{
 		initializeLogger(config);
 		
 		final long SIM_STOP_TIME = config.getSimuTime();
 		
 		model = 
-			SimuComFactory.getSimuComModel(config); 
+			SimuComFactory.getSimuComModel(config,isRemoteRun); 
 		model.initialiseResourceContainer(getResourceContainerFactory());
 		model.setUsageScenarios(getWorkloads());
 		model.getSimulationControl().addTimeObserver(new Observer(){
@@ -96,8 +97,9 @@ public abstract class AbstractMain {
 	}
 
 	public de.uka.ipd.sdq.simucomframework.SimuComStatus startSimulation(
-			de.uka.ipd.sdq.simucomframework.SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer) {
-		return run(observer,config);
+			de.uka.ipd.sdq.simucomframework.SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer,
+			boolean isRemoteRun) {
+		return run(observer,config,isRemoteRun);
 	}	
 
 	public void stopSimulation() {

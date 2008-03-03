@@ -25,7 +25,7 @@ public class SimuComFactory {
 	 * @param showInTrance Should desmoj trace our experiment
 	 * @return The created simulation model 
 	 */
-	public static SimuComModel getSimuComModel(SimuComConfig config) {
+	public static SimuComModel getSimuComModel(SimuComConfig config, boolean isRemote) {
 		ISimEngineFactory factory = null;
 		
 		for(IConfigurationElement configurationElement : Platform.getExtensionRegistry().
@@ -43,7 +43,7 @@ public class SimuComFactory {
 			return null;
 		else {
 			SimuComModel model = new SimuComModel( 
-					config, factory);
+					config, factory, isRemote);
 			
 			return model;
 		}

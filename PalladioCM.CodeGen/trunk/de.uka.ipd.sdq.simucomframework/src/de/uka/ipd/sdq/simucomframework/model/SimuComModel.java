@@ -1,8 +1,10 @@
 package de.uka.ipd.sdq.simucomframework.model;
 
+import java.io.File;
 import java.util.Date;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
@@ -37,12 +39,15 @@ public class SimuComModel {
 	private ISimEngineFactory simulationEngineFactory;
 	private ISimulationControlDelegate simControl;
 	
-	public SimuComModel(SimuComConfig config, ISimEngineFactory factory) {
+	public SimuComModel(SimuComConfig config, ISimEngineFactory factory, boolean isRemoteRun) {
 		this.config = config;
 		this.simulationEngineFactory = factory;
 		this.simControl = factory.createSimulationControl(this);
 		resourceRegistry = new ResourceRegistry(this);
-		initialiseNewSensorframework(config);
+		if (!isRemoteRun)
+			initialiseNewSensorframework();
+		else
+			initialiseTempSensorframework();
 	}
 
 	public void doInitialSchedules() {
@@ -121,7 +126,7 @@ public class SimuComModel {
 		return config;
 	}
 
-	private void initialiseNewSensorframework(SimuComConfig config) {
+	private void initialiseNewSensorframework() {
 		this.daoFactory = SensorFrameworkDataset.singleton().getDataSourceByID(config.getDatasourceID()); 
 		if (daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).size() == 1){
 			experiment = daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).
@@ -133,6 +138,15 @@ public class SimuComModel {
 		run = experiment.addExperimentRun("Run "+new Date());
 	}
 
+	
+	private void initialiseTempSensorframework() {
+		//TODO!!!!
+		this.daoFactory = new FileDAOFactory("C:/temp/test");
+		experiment = daoFactory.createExperimentDAO().addExperiment(
+				this.getConfig().getNameExperimentRun());
+		run = experiment.addExperimentRun("Run "+new Date());
+	}
+	
 	/**
 	 * @return The datasource of the sensorframework used to record simulation
 	 * run results

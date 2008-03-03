@@ -17,7 +17,6 @@ public class SimuComConfig implements Serializable {
 	
 	public static final String DATASOURCE_ID = "datasourceID";
 	public static final String SHOULD_THROW_EXCEPTION = "shouldThrowException";
-	public static final String RUN_NUMBER = "runNo";
 	public static final String MAXIMUM_MEASUREMENT_COUNT = "maximumMeasurementCount";
 	/** SimuCom configuration tab */
 	public static String EXPERIMENT_RUN = "experimentRun";
@@ -35,7 +34,7 @@ public class SimuComConfig implements Serializable {
 	/**
 	 * @param a map which maps configuation option IDs to their values
 	 */
-	public SimuComConfig(Map<String,Object> configuration){
+	public SimuComConfig(Map<String,Object> configuration, int runNo){
 		try {
 			this.nameExperimentRun = (String) configuration.get(
 					EXPERIMENT_RUN);
@@ -47,8 +46,7 @@ public class SimuComConfig implements Serializable {
 					VERBOSE_LOGGING);
 			this.datasourceID = (Integer)configuration.get(
 					DATASOURCE_ID);
-			this.runNumber = (Integer)configuration.get(
-					RUN_NUMBER);
+			this.runNumber = runNo;
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config", e);
 		}
