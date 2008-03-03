@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.util.Collection;
 
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
@@ -17,61 +18,79 @@ import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.dao.memory.MemoryDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsFilter;
+import de.uka.ipd.sdq.sensorframework.filter.FilterRegistry;
 
 /**
  * The activator class controls the plug-in life cycle
  */
 public class Activator extends Plugin {
 
-	// The plug-in ID
+	/** The plug-in ID. */
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.sensorframework";
+	
+	/** EPID - Filter extension Point ID. */
+	private static final String ADAPTER_EPID = "de.uka.ipd.sdq.sensorframework.adapter";
+	
+	/** EPID - Filter extension Point ID. */
+	private static final String FILTER_EPID = "de.uka.ipd.sdq.sensorframework.filter";
 
-	// The shared instance
+	/** The shared instance. */
 	private static Activator plugin;
 	
-	/**
-	 * The constructor
-	 */
+	/** The constructor. */
 	public Activator() {
 		plugin = this;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/* (non-Javadoc)
 	 * @see org.eclipse.core.runtime.Plugins#start(org.osgi.framework.BundleContext)
 	 */
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-		
-		for(IConfigurationElement configurationElement : Platform.getExtensionRegistry().
-				getConfigurationElementsFor("de.uka.ipd.sdq.sensorframework.adapter")){
-		            
-			IAdapterFactory factory = (IAdapterFactory)configurationElement.createExecutableExtension("class");
-            AdapterRegistry.singleton().addAdapterFactory(factory);
+		IExtensionRegistry registry = Platform.getExtensionRegistry();
+
+		for (IConfigurationElement configurationElement : registry
+				.getConfigurationElementsFor(ADAPTER_EPID)) {
+
+			IAdapterFactory factory = (IAdapterFactory) configurationElement
+					.createExecutableExtension("class");
+			AdapterRegistry.singleton().addAdapterFactory(factory);
 		}
+
+		for (IConfigurationElement configurationElement : registry
+				.getConfigurationElementsFor(FILTER_EPID)) {
+
+			AbstractMeasurementsFilter filter = (AbstractMeasurementsFilter) configurationElement
+					.createExecutableExtension("class");
+			String filterName = configurationElement
+					.getAttribute("displayName");
+			FilterRegistry.singleton().addFilter(filterName, filter);
+		}
+
 		try {
-			File f = context.getDataFile("de.uka.ipd.sdq.sensorframework");
-			FileInputStream fis = new FileInputStream(f);
+			File file = context.getDataFile(PLUGIN_ID);
+			FileInputStream fis = new FileInputStream(file);
 			DataInputStream dos = new DataInputStream(fis);
-			while(fis.available() > 0) {
+			while (fis.available() > 0) {
 				long id = dos.readLong();
 				String className = dos.readUTF();
 				String config = dos.readUTF();
-				
-				IDAOFactory factory = (IDAOFactory)Class.forName(className).getConstructor(String.class).
-					newInstance(config);
-				factory.setID((int)id);
+
+				IDAOFactory factory = (IDAOFactory) Class.forName(className)
+						.getConstructor(String.class).newInstance(config);
+				factory.setID((int) id);
 				SensorFrameworkDataset.singleton().addDataSource(factory);
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			if (SensorFrameworkDataset.singleton().getDataSources().size() == 0)
-				SensorFrameworkDataset.singleton().addDataSource(new MemoryDAOFactory(0));
+				SensorFrameworkDataset.singleton().addDataSource(
+						new MemoryDAOFactory(0));
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
+	/* (non-Javadoc)
 	 * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
 	 */
 	@Override
@@ -89,7 +108,7 @@ public class Activator extends Plugin {
 		}
 		super.stop(context);
 	}
-
+	
 	/**
 	 * Returns the shared instance
 	 *
@@ -98,5 +117,4 @@ public class Activator extends Plugin {
 	public static Activator getDefault() {
 		return plugin;
 	}
-
 }
