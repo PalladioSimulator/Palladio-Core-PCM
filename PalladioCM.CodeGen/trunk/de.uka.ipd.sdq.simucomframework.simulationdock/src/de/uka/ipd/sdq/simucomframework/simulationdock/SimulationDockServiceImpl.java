@@ -25,12 +25,13 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 
 	private BundleContext context;
 	private String myID = EcoreUtil.generateUUID();
+	private ServiceTracker service;
 
 	public SimulationDockServiceImpl(BundleContext context) {
 		this.context = context;
 	}
 	
-	public void simulate(SimuComConfig config, byte[] simulationBundle) {
+	public void simulate(SimuComConfig config, byte[] simulationBundle, boolean isRemoteRun) {
 		ServiceReference eventServiceRef = context.getServiceReference(EventAdmin.class.getName());
 		ServiceTracker eventService = new ServiceTracker(context,eventServiceRef,null);
 		eventService.open();
@@ -40,21 +41,25 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 
 		ensurePluginLoaded(context, "org.eclipse.equinox.event");
 		unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
-		loadAndSimulateBundle(config, simulationBundle, eventAdmin);
-		
-		postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
-		eventService.close();
+		try {
+			loadAndSimulateBundle(config, simulationBundle, eventAdmin, isRemoteRun);
+		} catch (Exception e) {
+			throw new RuntimeException("Simulation failed",e);
+		} finally {
+			postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
+			eventService.close();
+		}
 	}
 
 	private void loadAndSimulateBundle(SimuComConfig config,
-			byte[] simulationBundle, EventAdmin eventAdmin) {
+			byte[] simulationBundle, EventAdmin eventAdmin, boolean isRemoteRun) {
 		String bundleLocation = persistBundleInTempDir(simulationBundle);
 		Bundle simulationBundleRef = null;
 		try {
 			simulationBundleRef = context.installBundle(new File(bundleLocation).toURI().toString());
 			simulationBundleRef.start();
 			
-			simulate(config, simulationBundleRef, eventAdmin);
+			simulate(config, simulationBundleRef, eventAdmin, isRemoteRun);
 
 			simulationBundleRef.stop();
 		} catch (BundleException e) {
@@ -70,30 +75,35 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		}
 	}
 
-	private void simulate(SimuComConfig config, Bundle simulationBundleRef, final EventAdmin eventAdmin) {
+	private void simulate(SimuComConfig config, Bundle simulationBundleRef, final EventAdmin eventAdmin, boolean isRemoteRun) {
 		ServiceReference[] services = simulationBundleRef.getRegisteredServices();
 		assert services.length == 1;
 		
-		ServiceTracker service = new ServiceTracker(context,services[0],null);
+		service = new ServiceTracker(context,services[0],null);
 		service.open();
 		postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
-		((ISimuComControl)service.getService()).startSimulation(config, new IStatusObserver(){
-			int lastPercent = 0;
-			
-			public void updateStatus(int percentDone, double currentTime, long measurementsTaken) {
-				if (percentDone > lastPercent){
-					Hashtable properties = new Hashtable();
-					properties.put("PERCENT_DONE", percentDone);
-					properties.put("CURRENT_TIME", currentTime);
-					properties.put("MEASUREMENTS_TAKEN", measurementsTaken);
-					postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/UPDATE_SIM_STATUS",properties);
-					lastPercent = percentDone;
+		try {
+			((ISimuComControl)service.getService()).startSimulation(config, new IStatusObserver(){
+				int lastPercent = 0;
+				
+				public void updateStatus(int percentDone, double currentTime, long measurementsTaken) {
+					if (percentDone > lastPercent){
+						Hashtable properties = new Hashtable();
+						properties.put("PERCENT_DONE", percentDone);
+						properties.put("CURRENT_TIME", currentTime);
+						properties.put("MEASUREMENTS_TAKEN", measurementsTaken);
+						postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/UPDATE_SIM_STATUS",properties);
+						lastPercent = percentDone;
+					}
 				}
-			}
-			
-		});
-		service.close();
-		postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STOPPED");
+				
+			},isRemoteRun);
+		} catch (Exception ex) {
+			throw new RuntimeException(ex);
+		} finally {
+			service.close();
+			postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STOPPED");
+		}
 	}
 
 	private void postEvent(EventAdmin eventAdmin, String topic) {
@@ -162,6 +172,11 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void stopSimulation() {
+		((ISimuComControl)service.getService()).stopSimulation();
 	}
 
 }
