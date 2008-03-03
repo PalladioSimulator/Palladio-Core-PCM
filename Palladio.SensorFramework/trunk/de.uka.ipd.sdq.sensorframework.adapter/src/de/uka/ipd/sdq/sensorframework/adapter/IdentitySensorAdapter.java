@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.util.Properties;
 
-import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
 public class IdentitySensorAdapter implements IAdapter {
 

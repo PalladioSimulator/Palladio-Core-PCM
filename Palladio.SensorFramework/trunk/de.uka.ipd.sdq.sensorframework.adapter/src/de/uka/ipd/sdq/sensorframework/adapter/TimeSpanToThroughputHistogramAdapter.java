@@ -8,7 +8,6 @@ import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 
 public class TimeSpanToThroughputHistogramAdapter implements IAdapter {
 

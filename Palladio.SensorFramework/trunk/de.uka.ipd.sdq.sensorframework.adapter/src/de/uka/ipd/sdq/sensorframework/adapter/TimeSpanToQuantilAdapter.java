@@ -2,16 +2,10 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.util.Properties;
 
-import com.sun.corba.se.spi.protocol.ClientDelegateFactory;
-
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries;
-import de.uka.ipd.sdq.sensorframework.adapter.internal.OutlierRemovingAdapterTimeSpanSensor;
-import de.uka.ipd.sdq.sensorframework.adapter.internal.WarmupRemovingAdapterTimeSpanSensor;
-import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 
 public class TimeSpanToQuantilAdapter implements IAdapter {
 

@@ -3,41 +3,69 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 import java.util.Properties;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries;
-import de.uka.ipd.sdq.sensorframework.adapter.internal.OutlierRemovingAdapterTimeSpanSensor;
-import de.uka.ipd.sdq.sensorframework.adapter.internal.WarmupRemovingAdapterTimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 
 public class TimeSpanToTimeSeriesAdapter implements IAdapter {
 
-	private static final String OUTLIER_REMOVAL = "OUTLIER_REMOVAL";
-	private SensorAndMeasurements myValues;
-	private Properties myProperties = new Properties();
+	//private FilteredMeasurementsCollection measurements;
+	private SensorAndMeasurements values;
 
-	public TimeSpanToTimeSeriesAdapter(SensorAndMeasurements myValues) {
+	//private static final String ACTIVEDE_FILTERS = "ACTIVEDE_FILTERS";
+	private Properties properties = new Properties();
+
+	public TimeSpanToTimeSeriesAdapter(SensorAndMeasurements values) {
 		super();
-		this.myValues = myValues;
-		myProperties.put(OUTLIER_REMOVAL,true);
+		//properties.put(ACTIVEDE_FILTERS,true);
+		//this.measurements =  new FilteredMeasurementsCollection(values);
+		this.values = values;
 	}
 
 	public Object getAdaptedObject() {
-		SensorAndMeasurements values = (Boolean)myProperties.get(OUTLIER_REMOVAL) ? 
-				(SensorAndMeasurements) new OutlierRemovingAdapterTimeSpanSensor((SensorAndMeasurements) new WarmupRemovingAdapterTimeSpanSensor(myValues).getAdaptedObject()).getAdaptedObject() 
-				: myValues;
-		TimeSeries series = new TimeSeries( values.getSensor().getSensorName() );
+		// SensorAndMeasurements sensorAndMeasurements = (Boolean) properties
+		// .get(ACTIVEDE_FILTERS) ? (SensorAndMeasurements) measurements
+		// .getAdaptedObject() : values;
+		//
+		// TimeSeries series = new TimeSeries(sensorAndMeasurements.getSensor()
+		// .getSensorName());
+		// for (Measurement m : sensorAndMeasurements.getMeasurements()) {
+		// series.add(m.getMeasurementID(), ((TimeSpanMeasurement) m)
+		// .getTimeSpan());
+		// }
+		//		
+
+		TimeSeries series = new TimeSeries(values.getSensor().getSensorName());
 		for (Measurement m : values.getMeasurements()) {
-			series.add(m.getMeasurementID(), ((TimeSpanMeasurement)m).getTimeSpan());
+			series.add(m.getMeasurementID(), ((TimeSpanMeasurement) m)
+					.getTimeSpan());
 		}
+
 		return series;
 	}
 
+	
+//	public FilteredMeasurementsCollection getMeasurements() {
+//		return measurements;
+//	}
+//
+//	public void setMeasurements(FilteredMeasurementsCollection measurements) {
+//		this.measurements = measurements;
+//	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorframework.adapter.IAdapter#getProperties()
+	 */
+	@Override
 	public Properties getProperties() {
-		return myProperties;
+		return properties;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorframework.adapter.IAdapter#setProperties(java.util.Properties)
+	 */
+	@Override
 	public void setProperties(Properties newProperties) {
-		myProperties = newProperties;
+		this.properties = newProperties;
 	}
-
 }

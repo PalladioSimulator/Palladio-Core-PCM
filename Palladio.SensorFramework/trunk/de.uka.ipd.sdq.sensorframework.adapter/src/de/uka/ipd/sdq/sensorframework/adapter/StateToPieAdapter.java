@@ -2,18 +2,11 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.text.Format;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Map.Entry;
 
-import sun.nio.cs.HistoricallyNamedCharset;
-
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.PieEntity;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
@@ -21,7 +14,6 @@ import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
-import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 
 public class StateToPieAdapter implements IAdapter {
 

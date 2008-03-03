@@ -1,13 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
 public class TimeSpanSensorToQuantilFactory implements IAdapterFactory {
 
-	public boolean canAdapt(Object adaptee, Class targetClass) {
+	public boolean canAdapt(Object adaptee, Class<?> targetClass) {
 		if (adaptee instanceof SensorAndMeasurements){
 			SensorAndMeasurements sam = (SensorAndMeasurements) adaptee;
 			if (sam.getSensor() instanceof TimeSpanSensor && TimeSeries.class == targetClass)
