@@ -60,7 +60,7 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 		Workflow workflow = new Workflow(monitor);
 		
 		/** create the instance of type T */
-		attributes = creataAttributesGetMethods(configuration);
+		attributes = createAttributesGetMethods(configuration);
 
 		WorkflowExceptionHandler handler = new WorkflowExceptionHandler(
 				attributes.isShouldThrowException(configuration));
@@ -120,5 +120,5 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 	 * The method create the instance of generic type T. The type defines that
 	 * access methods on ILaunchConfiguration-Object
 	 */
-	protected abstract T creataAttributesGetMethods(ILaunchConfiguration configuration);
+	protected abstract T createAttributesGetMethods(ILaunchConfiguration configuration);
 }

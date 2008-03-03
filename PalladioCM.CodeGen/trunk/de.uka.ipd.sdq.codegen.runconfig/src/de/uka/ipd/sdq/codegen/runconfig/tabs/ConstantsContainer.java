@@ -34,7 +34,7 @@ public class ConstantsContainer {
 	public static final String[] USAGEMODEL_EXTENSION = new String[] { "*.usagemodel" };
 
 	/** Configuration tab*/
-	public static final String OUTPUT_PATH = "outpath";
+	public static final String PLUGIN_ID = "outpath";
 	public static final String DELETE_PLUGIN = "clear";
 	
 	public static final String VARIABLE_TEXT = "variable";
@@ -52,8 +52,7 @@ public class ConstantsContainer {
 	public static final String EJBSOUT_PATH = "ejbsOutpath";
 	public static final String MWREPOSITORY_FILE = "mwRepositoryFile";
 	public static final String FEATURE_CONFIG = "featureConfig";
+	public static final String RUN_NO = "runNo";
 
-	public static String WORKSPACE_LOCATION = ResourcesPlugin.getWorkspace()
-			.getRoot().getLocation().toString()
-			+ "/de.uka.ipd.sdq.codegen.simucominstance/src";
+	public static String SIMUCOM_DEFAULT_PROJECT_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 }

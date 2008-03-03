@@ -35,8 +35,6 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 
 	private Text outputPathField;
 	private Label locationLabel;
-	private Button workspaceButton;
-	private Button fileSystemButton;
 	
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
@@ -64,7 +62,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 
 		/** Create outPath section */
 		final Group outputPathGroup = new Group(container, SWT.NONE);
-		outputPathGroup.setText("Output Path");
+		outputPathGroup.setText("Plugin ID");
 		final GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 4;
 		outputPathGroup.setLayout(gridLayout);
@@ -85,11 +83,11 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 			 */
 			public void widgetSelected(SelectionEvent e) {
 				setElementsEnabled(false);
-				outputPathField.setText(ConstantsContainer.WORKSPACE_LOCATION);
+				outputPathField.setText(ConstantsContainer.SIMUCOM_DEFAULT_PROJECT_ID);
 
 				if (!defaultLocationButton.getSelection()) {
 					setElementsEnabled(true);
-					outputPathField.setText("");
+					outputPathField.setSelection(0);
 
 				}
 			}
@@ -104,39 +102,8 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 				false);
 		gridData.widthHint = 20;
 		outputPathField.setLayoutData(gridData);
-		outputPathField.setText(ConstantsContainer.WORKSPACE_LOCATION);
+		outputPathField.setText(ConstantsContainer.SIMUCOM_DEFAULT_PROJECT_ID);
 		outputPathField.addModifyListener(modifyListener);
-		
-		/** clear button */
-		workspaceButton = new Button(outputPathGroup, SWT.NONE);
-		workspaceButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false,
-				false));
-		workspaceButton.setText("Workspace...");
-		workspaceButton.addSelectionListener(new SelectionAdapter() {
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				String pluginPath = openResourceDialog(e);
-				outputPathField.setText(ConstantsContainer.WORKSPACE_LOCATION
-						+ pluginPath);
-				// ConstantsContainer.setGeneretePluginPath(pluginPath);
-			}
-		});
-		fileSystemButton = new Button(outputPathGroup, SWT.NONE);
-		fileSystemButton.setLayoutData(new GridData());
-		fileSystemButton.setText("File System...");
-		fileSystemButton.addSelectionListener(new SelectionAdapter() {
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				String pluginPath = openDirectoryDialog(e);
-				outputPathField.setText(pluginPath);
-				//ConstantsContainer.setGeneretePluginPath(pluginPath);
-			}
-		});
-
 
 		// disabled widget
 		setElementsEnabled(false);
@@ -149,8 +116,6 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 	private void setElementsEnabled(boolean enable) {
 		locationLabel.setEnabled(enable);
 		outputPathField.setEnabled(enable);
-		workspaceButton.setEnabled(enable);
-		fileSystemButton.setEnabled(enable);
 	}
 
 	/* (non-Javadoc)
@@ -166,7 +131,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
 			outputPathField.setText(configuration.getAttribute(
-					ConstantsContainer.OUTPUT_PATH, ConstantsContainer.WORKSPACE_LOCATION));
+					ConstantsContainer.PLUGIN_ID, ConstantsContainer.SIMUCOM_DEFAULT_PROJECT_ID));
 		} catch (CoreException e) {
 			RunConfigPlugin.errorLogger(getName(),"Location", e.getMessage());
 		}
@@ -176,7 +141,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(ConstantsContainer.OUTPUT_PATH,
+		configuration.setAttribute(ConstantsContainer.PLUGIN_ID,
 				outputPathField.getText());
 	}
 
