@@ -2,17 +2,17 @@ import uml;
 import Persistence;
 
 List[Property] getAllAssociationProperties(Class c):
-	c.attribute.select(p|!PrimitiveType.isInstance(p.type) && p.aggregation.toString() != "composite").
+	c.attribute.select(p|!PrimitiveType.isInstance(p.type) && !p.isMultivalued() && p.aggregation.toString() != "composite").
 		union(c.superClass.getAllAssociationProperties());
-
+ 
 List[Property] getAllPrimitiveProperties(Class c):
-	c.attribute.select(p|PrimitiveType.isInstance(p.type) && !Key.isInstance(p)).
+	c.attribute.select(p|PrimitiveType.isInstance(p.type) && !Key.isInstance(p) && !p.isMultivalued()).
 		union(c.superClass.getAllPrimitiveProperties());
 	
 List[Property] getAllProperties(Class c):
 	c.getAllAssociationProperties().union(c.getAllPrimitiveProperties());
 		
-List[Class] getAllSubtypes(Class c):
+List[Class] getAllSubtypes(Type c):
 	{c}.union(c.getModel().eAllContents.typeSelect(Class).select(oc|oc.superClass.contains(c)));
 	
 hasReturnParameter(Operation o):

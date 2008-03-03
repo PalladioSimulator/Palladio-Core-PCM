@@ -3,13 +3,17 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.uka.ipd.sdq.sensorframework.dao.file.FileManager;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
+import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
+import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 
 /**
  * @author ihssane
@@ -18,11 +22,12 @@ import de.uka.ipd.sdq.sensorframework.entities.State;
 public class StateSensorAndMeasurement extends AbstractSensorAndMeasurements {
 
 	private static final long serialVersionUID = -7553464522648015852L;
-	private List<State> states;
+	private BackgroundMemoryList<State> states;
 
-	public StateSensorAndMeasurement(ExperimentRun er, Sensor sensor) {
-		super(er, sensor);
-		states = new ArrayList<State>();
+	public StateSensorAndMeasurement(FileManager fm, ExperimentRun er, Sensor sensor) throws IOException {
+		super(fm, er, sensor);
+		states = new BackgroundMemoryList<State>(getMeasurementsFileName(),new StateSerializer((StateSensor) sensor));
+		fm.addOpenList(states);
 	}
 
 	public void addState(double et, State state) {
@@ -52,4 +57,14 @@ public class StateSensorAndMeasurement extends AbstractSensorAndMeasurements {
 		return (super.equals(obj)) && (getStates().equals(sam.getStates()));
 	}
 
+	@Override
+	public void store() {
+		super.store();
+		try {
+			states.flush();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 }

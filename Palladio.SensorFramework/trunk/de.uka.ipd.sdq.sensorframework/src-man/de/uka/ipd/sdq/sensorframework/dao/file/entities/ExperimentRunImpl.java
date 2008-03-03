@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,7 +31,16 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 	private transient FileDAOFactory factory;
 	private long experimentRunID;
 	private String experimentDateTime;
+	
+	/**
+	 * Contains the measurements and event times for each sensor in this experiment run.
+	 * Hashes sensor ID on the sensor's measurements 
+	 */
 	private transient HashMap<Long, AbstractSensorAndMeasurements> measurementsForSensor;
+	
+	/**
+	 * IDs of the sensors defineded for this experiment run 
+	 */
 	public List<Long> sensorIDs;
 
 	public ExperimentRunImpl(){
@@ -82,8 +92,9 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 		for (long l : sensorIDs) {
 			AbstractSensorAndMeasurements sam = measurementsForSensor.get(l);
 			if (sam == null)
-				sam = factory.getFileManager().loadMeasurementForSensor(
-						getExperimentRunID(), l);
+				sam = createMeasurementStorage(factory.createSensorDAO().get(l), sam);
+				//sam = factory.getFileManager().loadMeasurementForSensor(
+				//		getExperimentRunID(), l);
 			result.add(sam);
 		}
 		return result;
@@ -97,16 +108,18 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 			measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 
 		if (!sensorIDs.contains(p_sensor.getSensorID())) {
-			sam = new StateSensorAndMeasurement(this, p_sensor);
+			try {
+				sam = new StateSensorAndMeasurement(((FileDAOFactory)factory).getFileManager(),this, p_sensor);
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 			sensorIDs.add(p_sensor.getSensorID());
 			measurementsForSensor.put(p_sensor.getSensorID(), sam);
 		}
 
 		sam = measurementsForSensor.get(p_sensor.getSensorID());
 		if (sam == null) {
-			sam = factory.getFileManager().loadMeasurementForSensor(
-					getExperimentRunID(), p_sensor.getSensorID());
-		}
+			sam = createMeasurementStorage(p_sensor, sam);		}
 		((StateSensorAndMeasurement) sam).addState(p_eventtime, p_sensorstate);
 
 		return factory.createMeasurementDAO().addStateMeasurement(p_sensor,
@@ -120,16 +133,19 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 			measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 
 		if (!sensorIDs.contains(p_sensor.getSensorID())) {
-			sam = new TimeSpanSensorAndMeasurement(this, p_sensor);
+			
+			try {
+				sam = new TimeSpanSensorAndMeasurement(((FileDAOFactory)factory).getFileManager(),this, p_sensor);
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 			sensorIDs.add(p_sensor.getSensorID());
 			measurementsForSensor.put(p_sensor.getSensorID(), sam);
 		}
 
 		sam = measurementsForSensor.get(p_sensor.getSensorID());
 		if (sam == null) {
-			sam = factory.getFileManager().loadMeasurementForSensor(
-					getExperimentRunID(), p_sensor.getSensorID());
-		}
+			sam = createMeasurementStorage(p_sensor, sam);		}
 		((TimeSpanSensorAndMeasurement) sam).addTimeSpan(p_eventtime, p_timespan);
 
 		return factory.createMeasurementDAO().addTimeSpanMeasurement(p_sensor,
@@ -147,9 +163,8 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 
 	public SensorAndMeasurements getMeasurementsOfSensor(Sensor sensor) {
 		if (!sensorIDs.contains(sensor.getSensorID())) {
-			System.err.println("Error: No Measuremts for Sensor: "
+			throw new IllegalArgumentException("Error: No Measuremts for Sensor: "
 					+ sensor.getSensorName() + " found");
-			return null;
 		}
 		if (measurementsForSensor == null)
 			measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
@@ -157,11 +172,27 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 		AbstractSensorAndMeasurements sam = measurementsForSensor.get(sensor
 				.getSensorID());
 		if (sam == null) {
-			sam = factory.getFileManager().loadMeasurementForSensor(
-					getExperimentRunID(), sensor.getSensorID());
+			sam = createMeasurementStorage(sensor, sam);
 		}
-
 		return new SensorAndMeasurements(sensor, sam.getMeasurements());
+	}
+
+	private AbstractSensorAndMeasurements createMeasurementStorage(
+			Sensor sensor, AbstractSensorAndMeasurements sam) {
+		try{
+//			sam = factory.getFileManager().loadMeasurementForSensor(
+//					getExperimentRunID(), sensor.getSensorID());
+			if (sensor instanceof TimeSpanSensor)
+				sam = new TimeSpanSensorAndMeasurement(((FileDAOFactory)factory).getFileManager(),this,sensor);
+			else if (sensor instanceof StateSensor)
+				sam = new StateSensorAndMeasurement(((FileDAOFactory)factory).getFileManager(),this,sensor);
+			else
+				throw new RuntimeException("Invalid sensor found, fix implementation!");
+		}catch(IOException e){
+			throw new RuntimeException(e);
+		}
+		measurementsForSensor.put(sensor.getSensorID(), sam);
+		return sam;
 	}
 
 	@Override

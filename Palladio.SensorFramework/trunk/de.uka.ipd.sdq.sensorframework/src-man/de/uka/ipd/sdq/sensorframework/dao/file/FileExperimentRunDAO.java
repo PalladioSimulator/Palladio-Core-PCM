@@ -69,7 +69,11 @@ public class FileExperimentRunDAO implements IExperimentRunDAO {
 
 	public void store(ExperimentRun er) {
 		ExperimentRunImpl myEr = (ExperimentRunImpl) er;
+		// StB: Not needed any longer when using the background memory list implementation
+		//		for (AbstractSensorAndMeasurements sam : myEr.getCachedSensorAndMeasurements())
+		//			factory.getFileManager().serializeToFile(sam);
 		for (AbstractSensorAndMeasurements sam : myEr.getCachedSensorAndMeasurements())
-			factory.getFileManager().serializeToFile(sam);
+			sam.store();
+
 	}
 }

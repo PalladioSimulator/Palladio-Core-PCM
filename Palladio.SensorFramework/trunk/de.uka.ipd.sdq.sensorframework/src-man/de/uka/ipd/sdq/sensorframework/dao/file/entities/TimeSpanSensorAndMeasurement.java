@@ -3,14 +3,18 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import cern.colt.list.DoubleArrayList;
 
+import de.uka.ipd.sdq.sensorframework.dao.file.FileManager;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
+import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
 
 /**
  * @author ihssane
@@ -18,12 +22,23 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
  */
 public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements {
 
-	private static final long serialVersionUID = 3516448762554779531L;
-	private DoubleArrayList timeSpans;
+	@Override
+	public void store() {
+		super.store();
+		try {
+			timeSpans.flush();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-	public TimeSpanSensorAndMeasurement(ExperimentRun er, Sensor sensor) {
-		super(er, sensor);
-		timeSpans = new DoubleArrayList();
+	private static final long serialVersionUID = 3516448762554779531L;
+	private BackgroundMemoryList<Double> timeSpans;
+
+	public TimeSpanSensorAndMeasurement(FileManager fm, ExperimentRun er, Sensor sensor) throws IOException {
+		super(fm, er, sensor);
+		timeSpans = new BackgroundMemoryList<Double>(getMeasurementsFileName(),new DoubleSerialiser());
+		fm.addOpenList(timeSpans);
 	}
 
 	public synchronized void addTimeSpan(double et, double ts) {

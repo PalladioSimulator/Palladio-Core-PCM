@@ -3,15 +3,20 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import cern.colt.list.DoubleArrayList;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
+import de.uka.ipd.sdq.sensorframework.dao.file.FileManager;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
+import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
 
 /**
  * @author ihssane
@@ -19,14 +24,35 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
  */
 public abstract class AbstractSensorAndMeasurements implements NamedSerializable {
 
+	protected static final String EVENT_TIME_SUFFIX = "ET";
+	protected static final String MEASUREMENTS_SUFFIX = "MEAS";
+	
 	protected ExperimentRun experimentRun;
 	protected Sensor sensor;
-	protected DoubleArrayList eventTimes;
+	protected BackgroundMemoryList<Double> eventTimes;
+	private FileManager fm;
 
-	public AbstractSensorAndMeasurements(ExperimentRun exprun, Sensor sensor) {
+	public AbstractSensorAndMeasurements(FileManager fm, ExperimentRun exprun, Sensor sensor) throws IOException {
 		this.sensor = sensor;
 		this.experimentRun = exprun;
-		eventTimes = new DoubleArrayList();
+		this.fm = fm;
+		eventTimes = new BackgroundMemoryList<Double>(getEventTimeFileName(), new DoubleSerialiser());
+		fm.addOpenList(eventTimes);
+	}
+
+	protected String getEventTimeFileName() {
+		return fm.getRootDirectory() + File.separator +
+		FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
+		+ experimentRun.getExperimentRunID() + "_"
+		+ sensor.getSensorID() + "_" +
+		EVENT_TIME_SUFFIX + ".ser";
+	}
+
+	protected String getMeasurementsFileName() {
+		return fm.getRootDirectory() + File.separator + FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
+		+ experimentRun.getExperimentRunID() + "_"
+		+ sensor.getSensorID() + "_" +
+		MEASUREMENTS_SUFFIX + ".ser";
 	}
 
 	public Sensor getSensor() {
@@ -43,5 +69,13 @@ public abstract class AbstractSensorAndMeasurements implements NamedSerializable
 		return FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
 				+ experimentRun.getExperimentRunID() + "_"
 				+ sensor.getSensorID();
+	}
+
+	public void store() {
+		try {
+			eventTimes.flush();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

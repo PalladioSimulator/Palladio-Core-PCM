@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
@@ -10,6 +13,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IMeasurementDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
+import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 
 /**
  * @author ihssane
@@ -37,7 +41,7 @@ public class FileDAOFactory implements IDAOFactory {
 	private IDGenerator idGen;
 	private FileManager fileManager;
 	private long factoryID;
-
+	
 	public FileDAOFactory(long id, String rootDirectory) {
 		this.factoryID = id;
 		fileManager = new FileManager(rootDirectory, this);
@@ -91,6 +95,7 @@ public class FileDAOFactory implements IDAOFactory {
 	}
 
 	public void finalizeAndClose() {
+		fileManager.closeAllLists();
 		fileManager.serializeToFile(idGen);
 	}
 
@@ -132,5 +137,5 @@ public class FileDAOFactory implements IDAOFactory {
 		fileManager = new FileManager(oldFilename, this);
 		idGen = createIdGenerator();
 	}
-
+	
 }

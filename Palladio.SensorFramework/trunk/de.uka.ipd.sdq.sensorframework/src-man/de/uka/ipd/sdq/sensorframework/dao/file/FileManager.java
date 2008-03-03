@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.AbstractSensorAndMeasurements;
@@ -19,6 +20,7 @@ import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
+import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 
 /**
  * @author ihssane
@@ -30,6 +32,7 @@ public class FileManager {
 
 	private String rootDirectory;
 	private FileDAOFactory factory;
+	private ArrayList<BackgroundMemoryList<?>> openLists = new ArrayList<BackgroundMemoryList<?>>();
 
 	public FileManager(String rootDirectory, FileDAOFactory factory) {
 		checkPath(rootDirectory);
@@ -120,11 +123,12 @@ public class FileManager {
 		return result;
 	}
 
-	public AbstractSensorAndMeasurements loadMeasurementForSensor(long exprunID,
-			long sensorID) {
-		return (AbstractSensorAndMeasurements) deserializeFromFile(FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
-				+ exprunID + "_" + sensorID);
-	}
+	// Not needed for Background memory lists
+//	public AbstractSensorAndMeasurements loadMeasurementForSensor(long exprunID,
+//			long sensorID) {
+//		return (AbstractSensorAndMeasurements) deserializeFromFile(FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
+//				+ exprunID + "_" + sensorID);
+//	}
 
 	public Experiment getExperiment(File file) {
 		Experiment exp = (Experiment) deserializeFromFile(file);
@@ -146,4 +150,19 @@ public class FileManager {
 	public String getRootDirectory() {
 		return rootDirectory;
 	}
+	
+	public void addOpenList(BackgroundMemoryList<?> list) {
+		openLists.add(list);
+	}
+	
+	public void closeAllLists() {
+		for (BackgroundMemoryList<?> list : openLists) {
+			try {
+				list.close();
+			} catch (IOException e) {
+			}
+		}
+		openLists.clear();
+	}
+	
 }

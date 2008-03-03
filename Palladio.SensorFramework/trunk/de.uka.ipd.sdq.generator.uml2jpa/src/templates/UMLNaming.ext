@@ -34,8 +34,20 @@ cached String fqn (Classifier cls) :
 cached String implfqn (Classifier cls) :
 	packageName(cls).length>0 ? packageName(cls)+".impl."+cls.name+"Impl" : cls.name+"Impl";
 
+cached String ensureObjectType (String t) :
+	let s = t :
+		s == "double" ? "Double" :
+		(s == "int" ? "Integer" :
+		s);
+		
 //Liefert den Namen des Interfaces zurück
 cached String iffqn (Classifier cls) :
+	let s = iffqn_original(cls) :
+		s == "JavaPrimitiveTypes.double" ? "double" :
+		s;
+
+//Liefert den Namen des Interfaces zurück
+cached String iffqn_original (Classifier cls) :
 	packageName(cls).length>0 ? packageName(cls)+"."+cls.name : cls.name;
 
 // Name der abstrakten Baseclass
@@ -49,4 +61,14 @@ cached String abstractbasefqn (Classifier cls) :
 // Name der abstrakten Baseclass
 cached String daoiffqn (Classifier cls) :
 	packageName(cls).length>0 ? packageName(cls)+".dao.I"+cls.name+"DAO" : cls.name;
+
+String typeDecl(Type t) :
+	t.fqn();
 	
+String typeDecl(Class c) :
+	c.iffqn();
+
+String typeDecl(PrimitiveType pt):
+	pt.name == "Integer" ? "int" : 
+	 (pt.name == "Double" ? "double" : 
+	 (pt.name == "String" ? "String" : pt.name));	
