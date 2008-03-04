@@ -17,24 +17,10 @@ public class TimeSpanToTimeSeriesAdapter implements IAdapter {
 
 	public TimeSpanToTimeSeriesAdapter(SensorAndMeasurements values) {
 		super();
-		//properties.put(ACTIVEDE_FILTERS,true);
-		//this.measurements =  new FilteredMeasurementsCollection(values);
 		this.values = values;
 	}
 
 	public Object getAdaptedObject() {
-		// SensorAndMeasurements sensorAndMeasurements = (Boolean) properties
-		// .get(ACTIVEDE_FILTERS) ? (SensorAndMeasurements) measurements
-		// .getAdaptedObject() : values;
-		//
-		// TimeSeries series = new TimeSeries(sensorAndMeasurements.getSensor()
-		// .getSensorName());
-		// for (Measurement m : sensorAndMeasurements.getMeasurements()) {
-		// series.add(m.getMeasurementID(), ((TimeSpanMeasurement) m)
-		// .getTimeSpan());
-		// }
-		//		
-
 		TimeSeries series = new TimeSeries(values.getSensor().getSensorName());
 		for (Measurement m : values.getMeasurements()) {
 			series.add(m.getMeasurementID(), ((TimeSpanMeasurement) m)
@@ -44,19 +30,10 @@ public class TimeSpanToTimeSeriesAdapter implements IAdapter {
 		return series;
 	}
 
-	
-//	public FilteredMeasurementsCollection getMeasurements() {
-//		return measurements;
-//	}
-//
-//	public void setMeasurements(FilteredMeasurementsCollection measurements) {
-//		this.measurements = measurements;
-//	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.sensorframework.adapter.IAdapter#getProperties()
 	 */
-	@Override
 	public Properties getProperties() {
 		return properties;
 	}
@@ -64,7 +41,6 @@ public class TimeSpanToTimeSeriesAdapter implements IAdapter {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.sensorframework.adapter.IAdapter#setProperties(java.util.Properties)
 	 */
-	@Override
 	public void setProperties(Properties newProperties) {
 		this.properties = newProperties;
 	}
