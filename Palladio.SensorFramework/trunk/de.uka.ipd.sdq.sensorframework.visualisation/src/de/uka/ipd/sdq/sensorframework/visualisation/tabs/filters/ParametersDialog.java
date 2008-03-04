@@ -70,7 +70,6 @@ public class ParametersDialog extends TitleAreaDialog {
 					/* (non-Javadoc)
 					 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 					 */
-					@Override
 					public Object[] getElements(Object inputElement) {
 						if (inputElement instanceof AbstractMeasurementsFilter) {
 							AbstractMeasurementsFilter filter = (AbstractMeasurementsFilter) inputElement;
@@ -82,7 +81,6 @@ public class ParametersDialog extends TitleAreaDialog {
 					/* (non-Javadoc)
 					 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 					 */
-					@Override
 					public void dispose() {
 						// The implementation is not necessary.
 					}
@@ -90,7 +88,6 @@ public class ParametersDialog extends TitleAreaDialog {
 					/* (non-Javadoc)
 					 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
 					 */
-					@Override
 					public void inputChanged(Viewer viewer, Object oldInput,
 							Object newInput) {
 						// The implementation is not necessary.
