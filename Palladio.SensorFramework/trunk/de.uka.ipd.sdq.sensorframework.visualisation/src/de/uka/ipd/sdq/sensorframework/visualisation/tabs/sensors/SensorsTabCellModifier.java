@@ -40,8 +40,7 @@ public class SensorsTabCellModifier implements ICellModifier {
 	 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object, java.lang.String, java.lang.Object)
 	 */
 	public void modify(Object element, String property, Object value) {
-		// TODO Auto-generated method stub
-
+		// The implementation is not necessary.
 	}
 
 }
