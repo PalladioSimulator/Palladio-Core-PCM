@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.Abst
 
 public abstract class AbstractJFreeChartWidthReport extends AbstractReportView implements IVisualisation<Histogram>{
 
-	AbstractJFreeChartWidthViewer myViewer;
+	AbstractJFreeChartWidthViewer viewer;
 	protected Text widthInput;
 	protected double histogramWidth = 1.0;
 	public static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
@@ -36,34 +36,39 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 	
 	protected abstract AbstractJFreeChartWidthViewer createViewer(Composite parent, int flags);
 
-	public void createReportControls(Composite parent) {
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView#createReportControls(org.eclipse.swt.widgets.Composite)
+	 */
+	@Override
+	protected void createReportControls(Composite parent) {
 		GridLayout gridLayout = new GridLayout();
 		gridLayout.numColumns = 1;
-	   	parent.setLayout(gridLayout);
-		Composite histogramWidthPanel = new Composite(parent,SWT.NONE);
+		parent.setLayout(gridLayout);
+		Composite histogramWidthPanel = new Composite(parent, SWT.NONE);
 		GridData data = new GridData();
 		data.grabExcessHorizontalSpace = true;
 		histogramWidthPanel.setLayoutData(data);
-	    RowLayout rowLayout = new RowLayout();
-	    rowLayout.wrap = false;
-	    rowLayout.pack = true;
-	    histogramWidthPanel.setLayout(rowLayout);
-		Label label = new Label(histogramWidthPanel,SWT.CENTER);
+		RowLayout rowLayout = new RowLayout();
+		rowLayout.wrap = false;
+		rowLayout.pack = true;
+		histogramWidthPanel.setLayout(rowLayout);
+		Label label = new Label(histogramWidthPanel, SWT.CENTER);
 		label.setText("Sampling Rate");
-		label.setLayoutData(new RowData(SWT.DEFAULT,SWT.DEFAULT));
-		widthInput = new Text(histogramWidthPanel,SWT.BORDER);
+		label.setLayoutData(new RowData(SWT.DEFAULT, SWT.DEFAULT));
+		widthInput = new Text(histogramWidthPanel, SWT.BORDER);
 		widthInput.setText("1");
 		widthInput.setLayoutData(new RowData(60, SWT.DEFAULT));
 		Listener listener = new Listener() {
-	
+
 			public void handleEvent(Event event) {
 				switch (event.type) {
 				case SWT.KeyDown:
 					if (event.character == SWT.CR)
-						setHistogramWidth(Double.parseDouble(widthInput.getText()));
+						setHistogramWidth(Double.parseDouble(widthInput
+								.getText()));
 					break;
 				case SWT.FocusOut:
-						setHistogramWidth(Double.parseDouble(widthInput.getText()));
+					setHistogramWidth(Double.parseDouble(widthInput.getText()));
 					break;
 				}
 			}
@@ -71,14 +76,14 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 		};
 		widthInput.addListener(SWT.KeyDown, listener);
 		widthInput.addListener(SWT.FocusOut, listener);
-		
-		myViewer = createViewer(parent,SWT.NONE);
+
+		viewer = createViewer(parent, SWT.NONE);
 		GridData data2 = new GridData();
 		data2.grabExcessHorizontalSpace = true;
 		data2.grabExcessVerticalSpace = true;
 		data2.verticalAlignment = GridData.FILL;
 		data2.horizontalAlignment = GridData.FILL;
-		myViewer.setLayoutData(data2);
+		viewer.setLayoutData(data2);
 		histogramWidthPanel.setLayoutData(data);
 	}
 
@@ -87,17 +92,17 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 		((ConfigEditorInput)getEditorInput()).notifyObserver();
 	}
 	
-	public void addInput(Collection<Histogram> c) {
-	}
-
-	public void deleteInput(Collection<Histogram> c) {
-	}
-
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#setInput(java.util.Collection)
+	 */
 	public void setInput(Collection<Histogram> c) {
-		myViewer.setData(c);
+		viewer.setData(c);
 		this.widthInput.setText(""+histogramWidth);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView#setInput(java.util.List)
+	 */
 	@Override
 	protected void setInput(List<IAdapter> list) {
 		ArrayList<Histogram> viewerInput = new ArrayList<Histogram>();
@@ -110,5 +115,27 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 			viewerInput.add((Histogram) a.getAdaptedObject());
 		}
 		this.setInput(viewerInput);
-	}	
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
+	 */
+	@Override
+	public void setFocus() {
+		viewer.setFocus();
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#addInput(java.util.Collection)
+	 */
+	public void addInput(Collection<Histogram> c) {
+		// The implementation is not necessary.
+	}
+	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#deleteInput(java.util.Collection)
+	 */
+	public void deleteInput(Collection<Histogram> c) {
+		// The implementation is not necessary.
+	}
 }
