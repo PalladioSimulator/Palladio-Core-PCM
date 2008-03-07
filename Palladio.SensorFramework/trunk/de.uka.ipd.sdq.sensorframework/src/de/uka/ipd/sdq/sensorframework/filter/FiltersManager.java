@@ -15,6 +15,10 @@ public class FiltersManager {
 	/** List with active filters. */
 	private ArrayList<AbstractMeasurementsFilter> filters = 
 					new ArrayList<AbstractMeasurementsFilter>();
+	
+	/** Define just now active filter. */
+	private static AbstractMeasurementsFilter activeFilter;
+	
 	/** Filters count value. */
 	private static int count = 0;
 	
@@ -27,17 +31,16 @@ public class FiltersManager {
 			Collection<Measurement> measuremts) {
 
 		// Exit constraint.
-		if (filters.isEmpty() || count == filters.size()){
+		if (filters.isEmpty() || count == filters.size()) {
 			resetCount();
 			return measuremts;
 		}
 
-		// get the filter from list
-		AbstractMeasurementsFilter filter = filters.get(count++);
+		activeFilter = filters.get(count++);
 		// set the measurements
-		filter.setOriginalMeasurements(measuremts);
+		activeFilter.setOriginalMeasurements(measuremts);
 
-		return filteringTheMeasurements(filter);
+		return filteringTheMeasurements(activeFilter);
 	}
 
 	public void addFilter(AbstractMeasurementsFilter filter) {
@@ -54,5 +57,7 @@ public class FiltersManager {
 
 	public static void resetCount() {
 		count = 0;
+		if (activeFilter != null)
+			activeFilter.resetFilteredItems();
 	}
 }

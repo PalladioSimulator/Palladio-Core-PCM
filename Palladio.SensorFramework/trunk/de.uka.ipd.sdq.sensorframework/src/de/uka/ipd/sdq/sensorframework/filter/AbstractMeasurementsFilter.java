@@ -69,6 +69,10 @@ public abstract class AbstractMeasurementsFilter extends
 		this.originalMeasurements = originalMeasurements;
 	}
 	
+	public void resetFilteredItems(){
+		filteredItems = null;
+	}
+	
 	/**
 	 * Get the parameter used to configure the filter
 	 * 
@@ -84,4 +88,5 @@ public abstract class AbstractMeasurementsFilter extends
 	 *            The new properties to be used in this adapter
 	 */
 	abstract public void setParameter(FilterParameter<?> parameter);
+	
 }
