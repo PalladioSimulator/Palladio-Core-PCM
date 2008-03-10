@@ -49,7 +49,6 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#addInput(java.util.Collection)
 	 */
-	@Override
 	public void addInput(Collection<SensorAndMeasurements> c) {
 		// The implementation is not necessary.
 	}
@@ -57,7 +56,6 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#deleteInput(java.util.Collection)
 	 */
-	@Override
 	public void deleteInput(Collection<SensorAndMeasurements> c) {
 		// The implementation is not necessary.
 	}
