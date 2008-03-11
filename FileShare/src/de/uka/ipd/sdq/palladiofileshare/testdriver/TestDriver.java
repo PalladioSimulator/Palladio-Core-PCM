@@ -4,18 +4,25 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessFacade;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.FileType;
 
 public class TestDriver {
 
-	private static final int numberOfUploads = 100;	
-	private static final String uploadFilesLocation = "./testFiles/";
+	private static Logger logger = Logger.getLogger("TestDriver");
+
+	private static final int numberOfUploads = 2;	
+	/**
+	 * needs to terminate with a "/"
+	 */
+	private static final String uploadFilesLocation = "testFiles/";
 	private static final String[] uploadFiles = {
 			"small.txt",
 			"long.txt",
 			"small.jpg",
-			"large.txt",
+			"large.jpg",
 			"small.zip",
 			"large.zip"
 		};
@@ -27,10 +34,13 @@ public class TestDriver {
 	}
 	
 	public static void main(String args[]) {
+		logger.info("Starting TestDriver");
 		new TestDriver().start();		
+		logger.info("Finished TestDriver");
 	}
 	
 	public void start() {
+		
 		for(int x = 0; x < numberOfUploads; x++) {
 			businessFacade.uploadFile(createTestData(), FileType.Archive);
 		}
@@ -47,8 +57,8 @@ public class TestDriver {
 					new FileInputStream(uploadFilesLocation + uploadFiles[x]);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
-			}		
-		
+				logger.error(e);
+			}				
 		}
 		return streams;
 	}
