@@ -7,7 +7,7 @@ import java.io.InputStream;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessRunner;
-import de.uka.ipd.sdq.palladiofileshare.businesslogic.Dispatcher;
+import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessFacade;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.FileType;
 
 public class TestDriver {
@@ -42,7 +42,7 @@ public class TestDriver {
 	public void start() {
 		
 		for(int x = 0; x < numberOfUploads; x++) {
-			Dispatcher.uploadFile(createTestData(), FileType.COMPRESSED);			
+			BusinessFacade.uploadFile(createTestData(), FileType.COMPRESSED);			
 		}
 		
 	}

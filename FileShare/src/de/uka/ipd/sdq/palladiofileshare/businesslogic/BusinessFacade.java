@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 import java.io.InputStream;
 
 
-public class Dispatcher {		
+public class BusinessFacade {		
 	
 	public static void uploadFile(InputStream[] inputStream, int fileType) {
 		
