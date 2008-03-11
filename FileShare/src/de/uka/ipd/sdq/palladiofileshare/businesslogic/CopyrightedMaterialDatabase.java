@@ -16,28 +16,8 @@ public class CopyrightedMaterialDatabase {
 	
 	public CopyrightedMaterialDatabase() {
 		this.copyrightedHashs = new HashSet<byte[]>();
-		initCopyrightedHashs();
-	}
-	
-	private void initCopyrightedHashs() {		
-		Random r = new Random();
-
-		for(int x = 0; x < numberOfCopyrightedMaterials; x++) {			
-			byte[] randomBytes = {0x0000,0x0000};
-			MessageDigest md;
-			
-			try {
-				md = MessageDigest.getInstance("SHA");
-
-				r.nextBytes(randomBytes);
-				md.update(randomBytes);
-				this.copyrightedHashs.add(md.digest());
-			} catch (NoSuchAlgorithmException e) {
-				e.printStackTrace();
-				logger.error(e);
-			}
-		}
-	}
+		copyrightedHashs = Util.initHashSetWithHashs(numberOfCopyrightedMaterials);
+	}	
 
 	public boolean isCopyrightedMaterial(byte[] hash) {	
 		return this.copyrightedHashs.contains(hash);		
