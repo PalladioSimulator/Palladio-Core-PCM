@@ -6,7 +6,6 @@ import java.io.InputStream;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessRunner;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessFacade;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.FileType;
 

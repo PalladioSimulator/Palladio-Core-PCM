@@ -14,10 +14,8 @@ public class BusinessCore {
 	private Storage storageSubSystem;
 		
 	public BusinessCore() {
-		logger.debug("Init DBs start");
-		this.copyDB = new CopyrightedMaterialDatabase();
-		this.fileDB = new ExistingFilesDatabase();
-		logger.debug("Init DBs end");
+		this.copyDB = CopyrightedMaterialDatabase.getSingleton();
+		this.fileDB = ExistingFilesDatabase.getSingleton();
 	}
 
 	/**
