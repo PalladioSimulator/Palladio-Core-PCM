@@ -13,7 +13,7 @@ public class TestDriver {
 
 	private static Logger logger = Logger.getLogger("TestDriver");
 
-	private static final int numberOfUploads = 2;	
+	private static final int numberOfUploads = 100;	
 	/**
 	 * needs to terminate with a "/"
 	 */

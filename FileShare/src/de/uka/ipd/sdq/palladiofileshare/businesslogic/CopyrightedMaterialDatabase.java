@@ -6,8 +6,11 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 public class CopyrightedMaterialDatabase {
 	
+	private static Logger logger = Logger.getLogger("CopyrightedMaterialDatabase");
 	private static final int numberOfCopyrightedMaterials = 10000;
 	private Set<byte[]> copyrightedHashs;
 	
@@ -31,6 +34,7 @@ public class CopyrightedMaterialDatabase {
 				this.copyrightedHashs.add(md.digest());
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
+				logger.error(e);
 			}
 		}
 	}
