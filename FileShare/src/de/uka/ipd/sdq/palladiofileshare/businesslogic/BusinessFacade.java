@@ -14,18 +14,25 @@ public class BusinessFacade {
 	private Storage storageSubSystem;
 	
 	public BusinessFacade() {
+		logger.debug("Init DBs start");
 		this.copyDB = new CopyrightedMaterialDatabase();
 		this.fileDB = new ExistingFilesDatabase();
+		logger.debug("Init DBs end");
 	}
 
-	public void uploadFile(InputStream[] inputStream, FileType fileType) {
+	/**
+	 * 
+	 * @param inputStream
+	 * @param fileType FileType static ints
+	 */
+	public void uploadFile(InputStream[] inputStream, int fileType) {
 		byte[] fileHash;
 		InputStream currentInputStream;
 		
 		for(int x = 0; x < inputStream.length; x++) {
 			currentInputStream = inputStream[x];
 			
-			if(fileType != FileType.Archive)
+			if(fileType != FileType.COMPRESSED)
 			{
 				compress(currentInputStream);
 				fileHash = md5(currentInputStream);				

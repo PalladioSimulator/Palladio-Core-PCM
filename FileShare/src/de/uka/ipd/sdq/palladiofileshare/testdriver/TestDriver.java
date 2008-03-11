@@ -42,7 +42,7 @@ public class TestDriver {
 	public void start() {
 		
 		for(int x = 0; x < numberOfUploads; x++) {
-			businessFacade.uploadFile(createTestData(), FileType.Archive);
+			businessFacade.uploadFile(createTestData(), FileType.COMPRESSED);
 		}
 		
 	}

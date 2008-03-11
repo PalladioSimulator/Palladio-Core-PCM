@@ -1,9 +1,6 @@
 package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 import org.apache.log4j.Logger;

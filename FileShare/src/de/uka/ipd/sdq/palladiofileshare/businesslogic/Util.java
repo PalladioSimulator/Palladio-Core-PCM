@@ -17,7 +17,8 @@ public class Util {
 		Random r = new Random();
 
 		for(int x = 0; x < amountOfData; x++) {			
-			byte[] randomBytes = {0x0000,0x0000};
+			//FIXME: adapt to size of used hash algorithm: 
+			byte[] randomBytes = {0x0000,0x0000,0x0000,0x0000,0x0000};
 			MessageDigest md;
 			
 			try {
