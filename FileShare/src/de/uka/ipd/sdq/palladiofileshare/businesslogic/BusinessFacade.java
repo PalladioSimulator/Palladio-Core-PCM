@@ -1,22 +1,17 @@
 package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.Storage;
+import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.StorageFile;
+
 public class BusinessFacade {
 	
-	private static Logger logger = Logger.getLogger("BusinessFacade");
+	public static Logger logger = Logger.getLogger("BusinessFacade");
 	private CopyrightedMaterialDatabase copyDB;
-	
-	/**
-	 * needs to terminate with a "/"
-	 */
-	private static final String fileStorageLocation = "uploadedFileStorage/";
+	private Storage storageSubSystem;
 	
 	public BusinessFacade() {
 		this.copyDB = new CopyrightedMaterialDatabase();
@@ -41,39 +36,11 @@ public class BusinessFacade {
 			if(isCopyrightedMaterial(fileHash)) {
 				//reject file // do not store
 			} else {
-				storeFile(null, fileHash);
+				storageSubSystem.storeFile(new StorageFile(null, fileHash));
 			}
 		}
 	}
 	
-	private void storeFile(byte[] stream, byte[] fileHash) {
-		try {
-			String hashString = createString(fileHash);
-			FileOutputStream fileOutStream =
-				new FileOutputStream(fileStorageLocation + hashString);
-			
-			try {
-				fileOutStream.write(stream);
-			} catch (IOException e) {
-				e.printStackTrace();
-				logger.error(e);	
-			}			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			logger.error(e);			
-		}		
-	}
-
-	private String createString(byte[] fileHash) {
-		StringBuilder string = new StringBuilder("f");		
-						
-		for(int x = 0; x < fileHash.length; x++) {			
-			string.append(fileHash[x]);
-		}
-		
-		return string.toString();
-	}
-
 	private byte[] md5(InputStream inputStream) {		
 		return null;
 	}

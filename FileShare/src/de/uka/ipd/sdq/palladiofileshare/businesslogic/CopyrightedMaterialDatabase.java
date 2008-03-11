@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 public class CopyrightedMaterialDatabase {
 	
 	private static Logger logger = Logger.getLogger("CopyrightedMaterialDatabase");
-	private static final int numberOfCopyrightedMaterials = 10000;
+	private static final int numberOfCopyrightedMaterials = 100000;
 	private Set<byte[]> copyrightedHashs;
 	
 	public CopyrightedMaterialDatabase() {
