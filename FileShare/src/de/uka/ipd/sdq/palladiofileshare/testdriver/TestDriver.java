@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessFacade;
+import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessCore;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.FileType;
 
 public class TestDriver {
@@ -27,10 +27,10 @@ public class TestDriver {
 			"large.zip"
 		};
 	
-	private BusinessFacade businessFacade;
+	private BusinessCore businessFacade;
 	
 	public TestDriver() {
-		businessFacade = new BusinessFacade();
+		businessFacade = new BusinessCore();
 	}
 	
 	public static void main(String args[]) {

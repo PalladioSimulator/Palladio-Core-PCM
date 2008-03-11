@@ -6,14 +6,14 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.Storage;
 
-public class BusinessFacade {
+public class BusinessCore {
 	
 	private static Logger logger = Logger.getLogger("BusinessFacade");
 	private CopyrightedMaterialDatabase copyDB;
 	private ExistingFilesDatabase fileDB;
 	private Storage storageSubSystem;
-	
-	public BusinessFacade() {
+		
+	public BusinessCore() {
 		logger.debug("Init DBs start");
 		this.copyDB = new CopyrightedMaterialDatabase();
 		this.fileDB = new ExistingFilesDatabase();
@@ -32,7 +32,7 @@ public class BusinessFacade {
 		for(int x = 0; x < inputStream.length; x++) {
 			currentInputStream = inputStream[x];
 			
-			if(fileType != FileType.COMPRESSED)
+			if(fileType == FileType.TEXT)
 			{
 				compress(currentInputStream);
 				fileHash = md5(currentInputStream);				
