@@ -5,6 +5,8 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
+
 public class CopyrightedMaterialDatabase {
 	
 	private static Logger logger = Logger.getLogger("CopyrightedMaterialDatabase");

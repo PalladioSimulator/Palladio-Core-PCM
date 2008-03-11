@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.palladiofileshare.businesslogic;
+package de.uka.ipd.sdq.palladiofileshare.businesslogic.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
