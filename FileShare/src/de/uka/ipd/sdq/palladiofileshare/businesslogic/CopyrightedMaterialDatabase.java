@@ -20,7 +20,7 @@ public class CopyrightedMaterialDatabase {
 		Random r = new Random();
 
 		for(int x = 0; x < numberOfCopyrightedMaterials; x++) {			
-			byte[] randomBytes = null;
+			byte[] randomBytes = {0x0000,0x0000};
 			MessageDigest md;
 			
 			try {

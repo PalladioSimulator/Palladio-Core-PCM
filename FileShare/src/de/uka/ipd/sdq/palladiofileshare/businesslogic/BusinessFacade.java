@@ -12,26 +12,29 @@ public class BusinessFacade {
 
 	public void uploadFile(InputStream[] inputStream, FileType fileType) {
 		byte[] fileHash;
+		InputStream currentInputStream;
 		
-		if(fileType != FileType.Archive)
-		{
-			compress(null);
-			fileHash = md5(null);
+		for(int x = 0; x < inputStream.length; x++) {
+			currentInputStream = inputStream[x];
 			
-		} else {
-			fileHash = md5(null);
-			compress(null);
-		}	
-		
-		if(isCopyrightedMaterial(fileHash)) {
-			//reject file // do not store
-		} else {
-			//store file
+			if(fileType != FileType.Archive)
+			{
+				compress(currentInputStream);
+				fileHash = md5(currentInputStream);				
+			} else {
+				fileHash = md5(currentInputStream);
+				compress(currentInputStream);
+			}	
+			
+			if(isCopyrightedMaterial(fileHash)) {
+				//reject file // do not store
+			} else {
+				//store file
+			}
 		}
 	}
 	
-	private byte[] md5(InputStream inputStream) {
-		
+	private byte[] md5(InputStream inputStream) {		
 		return null;
 	}
 
@@ -42,7 +45,4 @@ public class BusinessFacade {
 	private boolean isCopyrightedMaterial(byte[] hash) {
 		return this.copyDB.isCopyrightedMaterial(hash);		
 	}
-
-	
-
 }
