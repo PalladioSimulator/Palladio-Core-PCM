@@ -5,16 +5,17 @@ import java.io.InputStream;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.Storage;
-import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.StorageFile;
 
 public class BusinessFacade {
 	
-	public static Logger logger = Logger.getLogger("BusinessFacade");
+	private static Logger logger = Logger.getLogger("BusinessFacade");
 	private CopyrightedMaterialDatabase copyDB;
+	private ExistingFilesDatabase fileDB;
 	private Storage storageSubSystem;
 	
 	public BusinessFacade() {
 		this.copyDB = new CopyrightedMaterialDatabase();
+		this.fileDB = new ExistingFilesDatabase();
 	}
 
 	public void uploadFile(InputStream[] inputStream, FileType fileType) {
@@ -34,9 +35,12 @@ public class BusinessFacade {
 			}	
 			
 			if(isCopyrightedMaterial(fileHash)) {
+				logger.debug("Copyrighted file found.");
 				//reject file // do not store
 			} else {
-				storageSubSystem.storeFile(new StorageFile(null, fileHash));
+				if(!isFileExistingInDB(fileHash)) {
+					storageSubSystem.storeFile(null, fileHash);
+				}
 			}
 		}
 	}
@@ -50,8 +54,11 @@ public class BusinessFacade {
 	}
 	
 	private boolean isCopyrightedMaterial(byte[] hash) {
-		return this.copyDB.isCopyrightedMaterial(hash);		
+		return this.copyDB.isCopyrightedMaterial(hash);	
 	}
 	
+	private boolean isFileExistingInDB(byte[] hash) {
+		return this.fileDB.existsInDatabase(hash);				
+	}
 
 }

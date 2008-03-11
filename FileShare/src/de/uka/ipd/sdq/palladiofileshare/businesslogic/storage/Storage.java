@@ -4,31 +4,34 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessFacade;
+import org.apache.log4j.Logger;
 
 public class Storage {	
 	
+	private static Logger logger = Logger.getLogger("Storage");
 	/**
 	 * needs to terminate with a "/"
 	 */
 	private static final String fileStorageLocation = "uploadedFileStorage/";
 
-	public void storeFile(StorageFile parameterObject) {
+	public void storeFile(byte[] stream, byte[] fileHash) {
+
 		try {
-			String hashString = createString(parameterObject.getFileHash());
+			String hashString = createString(fileHash);
 			FileOutputStream fileOutStream =
 				new FileOutputStream(fileStorageLocation + hashString);
 			
 			try {
-				fileOutStream.write(parameterObject.getStream());
+				fileOutStream.write(stream);
 			} catch (IOException e) {
 				e.printStackTrace();
-				BusinessFacade.logger.error(e);	
+				logger.error(e);	
 			}			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			BusinessFacade.logger.error(e);			
-		}		
+			logger.error(e);			
+		}
+		
 	}
 
 	private String createString(byte[] fileHash) {
