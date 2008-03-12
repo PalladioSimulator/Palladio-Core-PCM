@@ -10,6 +10,7 @@ import java.util.Iterator;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.palladiofileshare.algorithms.compress.CompressionRunner;
+import de.uka.ipd.sdq.palladiofileshare.algorithms.hash.Hash;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.IStorage;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.Storage;
 
@@ -22,16 +23,11 @@ public class BusinessCore {
 	private static final int SIZE_OF_LARGE_FILES = 50000;
 	private static Logger logger = Logger.getLogger(BusinessCore.class);
 	
-	/** see Javadocs under docs/technotes/guides/security/StandardNames.html#MessageDigest 
-	 * for details of algorithms; for message digest, the following are available
-	 * MD5, MD5, SHA-1, SHA-256, SHA-384, SHA-512
-	 */
-	private static final String MESSAGE_DIGEST_TYPE = "SHA-512";
-	
 	// sub-components (internal)
 	private CopyrightedMaterialDatabase copyDB;
 	private ExistingFilesDatabase fileDB;
 	private CompressionRunner compression;
+	private Hash hash;
 	
 	// other components
 	private IStorage storageSubSystemSmallFiles;
@@ -41,6 +37,7 @@ public class BusinessCore {
 		this.copyDB = CopyrightedMaterialDatabase.getSingleton();
 		this.fileDB = ExistingFilesDatabase.getSingleton();
 		this.compression = new CompressionRunner();
+		this.hash = new Hash();
 		this.storageSubSystemLargeFiles = new Storage();
 		this.storageSubSystemSmallFiles = new Storage();
 	}
@@ -85,15 +82,7 @@ public class BusinessCore {
 	}
 
 	private MessageDigest getMessageDigest(byte[] inputBytes) {		
-		MessageDigest md;
-		try {
-			md = MessageDigest.getInstance(MESSAGE_DIGEST_TYPE);
-			md.update(inputBytes);
-			return md;
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			return null;
-		}
+		return hash.getMessageDigest(inputBytes);
 	}
 
 	private byte[] compress(byte[] inputFile) {				
