@@ -17,13 +17,13 @@ public class BusinessRunner implements Runnable{
 	 * @param inputStreams
 	 * @param fileType
 	 */
-	public void uploadFile(InputStream[] inputStreams, int fileType) {
+	public void uploadFiles(InputStream[] inputStreams, int fileType) {
 		this.businessCore.uploadFiles(inputStreams, fileType);		
 	}
 
 	@Override
 	public void run() {
-		uploadFile(inputStreams, fileType);
+		uploadFiles(inputStreams, fileType);
 	}
 
 	public InputStream[] getInputStreams() {
