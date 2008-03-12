@@ -37,5 +37,4 @@ public class ExistingFilesDatabase {
 	public boolean existsInDatabase(byte[] fileHash) {
 		return fileHashes.contains(fileHash);
 	}
-	
 }

@@ -5,10 +5,10 @@ import java.io.InputStream;
 
 public class BusinessFacade implements IBusinessFacade {		
 	
-	public static void uploadFiles(InputStream[] inputStream, int fileType) {
+	public static void uploadFiles(byte[][] inputFiles, int fileType) {
 		
 		BusinessRunner businessFacade = new BusinessRunner();
-		businessFacade.setInputStreams(inputStream);
+		businessFacade.setInputStreams(inputFiles);
 		businessFacade.setFileType(fileType);
 		
         Thread t = new Thread(businessFacade);        

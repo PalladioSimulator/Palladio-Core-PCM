@@ -1,8 +1,12 @@
 package de.uka.ipd.sdq.palladiofileshare.testdriver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
@@ -46,20 +50,47 @@ public class TestDriver {
 		
 	}
 	
-	private InputStream[] createTestData() {
+	private byte[][] createTestData() {
 		int numberOfFiles = uploadFiles.length;
-		InputStream[] streams = new FileInputStream[numberOfFiles];
+		byte[][] inputFiles = new byte[numberOfFiles][];
 		
 		for(int x = 0; x < numberOfFiles; x++) {		
-			try {
-				streams[x] =
-					new FileInputStream(uploadFilesLocation + uploadFiles[x]);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				logger.error(e);
-			}				
+			inputFiles[x] =
+					fillBuffer(uploadFilesLocation + uploadFiles[x]);
 		}
-		return streams;
+		return inputFiles;
 	}
 	
+    private static byte[] fillBuffer(String fileName) {
+        try {
+            FileInputStream sif = new FileInputStream(fileName);
+            int length = (int) new File(fileName).length();
+            int counter = 0;
+            
+            // Only allocate size of input file rather than MAX - kmd
+            // If compressed file is larger than input file this allocation
+            // will fail and out of bound exception will occur
+            // In real lie, compress will no do any compression as no
+            // space is saved.-- kaivalya
+            byte[] result = new byte[length];
+            
+            int bytes_read;
+            while ((bytes_read = sif.read(result, counter,
+                    (length - counter))) > 0) {
+                counter += bytes_read;
+            }
+            
+            sif.close(); // release resources
+            
+            if (counter != length) {
+                logger.error(
+                        "ERROR reading test input file");
+            }
+            return result;
+        } catch (IOException e) {
+        	logger.error(e);
+        }
+        
+        return null;
+    }    
 }

@@ -5,7 +5,7 @@ import java.io.InputStream;
 public class BusinessRunner implements Runnable{
 
 	private BusinessCore businessCore;
-	private InputStream[] inputStreams;
+	private byte[][] inputFiles;
 	private int fileType;
 	
 	public BusinessRunner() {
@@ -17,21 +17,21 @@ public class BusinessRunner implements Runnable{
 	 * @param inputStreams
 	 * @param fileType
 	 */
-	public void uploadFiles(InputStream[] inputStreams, int fileType) {
+	public void uploadFiles(byte[][] inputStreams, int fileType) {
 		this.businessCore.uploadFiles(inputStreams, fileType);		
 	}
 
 	@Override
 	public void run() {
-		uploadFiles(inputStreams, fileType);
+		uploadFiles(inputFiles, fileType);
 	}
 
-	public InputStream[] getInputStreams() {
-		return inputStreams;
+	public byte[][] getInputStreams() {
+		return inputFiles;
 	}
 
-	public void setInputStreams(InputStream[] inputStreams) {
-		this.inputStreams = inputStreams;
+	public void setInputStreams(byte[][] inputFiles) {
+		this.inputFiles = inputFiles;
 	}
 
 	public int getFileType() {

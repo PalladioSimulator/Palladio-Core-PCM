@@ -50,20 +50,14 @@ public class BusinessCore {
 	 * @param inputStream
 	 * @param fileType FileType static ints
 	 */
-	public void uploadFiles(InputStream[] inputStream, int fileType) {
+	public void uploadFiles(byte[][] inputStreams, int fileType) {
 		
 		byte[] fileHashAsBytes;		
 		byte[] inputFile;
 		byte[] compressedFile;
 		
-		for(int x = 0; x < inputStream.length; x++) {
-			inputFile = fillBuffer(inputStream[x]);
-			try {
-				inputStream[x].close();
-			} catch (IOException e) {
-				e.printStackTrace();
-				logger.error(e);
-			} 
+		for(int x = 0; x < inputStreams.length; x++) {			
+			inputFile = inputStreams[x];
 			
 			if(fileType == FileType.TEXT)
 			{
@@ -76,13 +70,14 @@ public class BusinessCore {
 			fileHash = this.getMessageDigest(compressedFile);
 			fileHashAsBytes = fileHash.digest();
 			
-			if(isCopyrightedMaterial(fileHashAsBytes)) { //TODO
+			if(isCopyrightedMaterial(fileHashAsBytes)) {
 				logger.debug("Copyrighted file found. File not stored.");
 				//reject file // do not store
 			} else {
-				if(isFileExistingInDB(fileHashAsBytes)) { //TODO
+				if(isFileExistingInDB(fileHashAsBytes)) { 
 					logger.debug("File already in DB.");
 				} else {
+					addFileToFileExistingDB(fileHashAsBytes);
 					this.storeFileWithStrategy(compressedFile, fileHashAsBytes);					
 				}
 			}
@@ -113,6 +108,10 @@ public class BusinessCore {
 		return this.fileDB.existsInDatabase(hash);				
 	}
 	
+	private void addFileToFileExistingDB(byte[] hash) {
+		this.fileDB.addNewFileHash(hash);				
+	}
+	
 	private void storeFileWithStrategy(byte[] file, byte[] fileHash) {
 		if(file.length > SIZE_OF_LARGE_FILES) {
 			logger.debug("Writing large file to storage system.");
@@ -122,41 +121,4 @@ public class BusinessCore {
 			this.storageSubSystemSmallFiles.storeFile(file, fileHash);
 		}
 	}
-
-	
-    private static byte[] fillBuffer(InputStream sif) {
-        try {
-            ArrayList<Byte> resultList = new ArrayList<Byte>();
-                       
-            int value;
-            
-            whileloop:
-            while(true) {
-            	value = sif.read();
-            	if(value == -1) {
-            		break whileloop;            		
-            	} else {
-            		resultList.add(new Integer(value).byteValue());
-            	}
-            }            
-            return convertToByteArray(resultList);
-        } catch (IOException e) {            
-            logger.error(e);
-        }
-        logger.error("INVALID STATE");
-        return null;
-    }
-    
-    private static byte[] convertToByteArray(ArrayList<Byte> list) {
-    	byte[] byteArray = new byte[list.size()];
-    	
-    	Iterator<Byte> listIterator = list.iterator();
-    	int x = 0;
-    	while(listIterator.hasNext()) {
-    		byteArray[x] = listIterator.next(); 
-    		x++;
-    	}
-    	
-    	return byteArray;    	
-    }
 }
