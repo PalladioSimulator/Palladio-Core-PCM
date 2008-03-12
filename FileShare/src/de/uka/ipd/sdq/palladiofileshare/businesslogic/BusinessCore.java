@@ -4,6 +4,9 @@ import java.io.InputStream;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.palladiofileshare.algorithms.compress.Compress;
+import de.uka.ipd.sdq.palladiofileshare.algorithms.compress.OutputBuffer;
+import de.uka.ipd.sdq.palladiofileshare.algorithms.compress.Source;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.IStorage;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.Storage;
 
@@ -70,9 +73,28 @@ public class BusinessCore {
 		return null;
 	}
 
-	private byte[] compress(InputStream inputStream) {
+	private byte[] compress(InputStream inputStream) {		
+		
+		byte[][] COMPRESS_BUFFERS = null; //FIXME: see Harness.java: prepareBuffers
+	    byte[][] DECOMPRESS_BUFFERS = null; //FIXME: see Harness.java: prepareBuffers
+	    Compress CB = new Compress();
+	    int btid = 0; //FIXME: see Harness.java
+		
+		Source source = null; //TODO: inputStream --> source
+        OutputBuffer comprBuffer, decomprBufer;
+        comprBuffer = CB.performAction(source.getBuffer(),
+                source.getLength(),
+                CB.COMPRESS,
+                COMPRESS_BUFFERS[btid - 1]);
+        decomprBufer = CB.performAction(COMPRESS_BUFFERS[btid - 1],
+                comprBuffer.getLength(),
+                CB.UNCOMPRESS,
+                DECOMPRESS_BUFFERS[btid - 1]);
+		
+		
 		return null;
 	}
+	
 	
 	private boolean isCopyrightedMaterial(byte[] hash) {
 		return this.copyDB.isCopyrightedMaterial(hash);	
