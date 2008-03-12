@@ -20,7 +20,8 @@ public class CompressionRunner {
 	public byte[] compress(InputStream inputStream) {				
 		prepareBuffers(inputStream);
 
-		int threadID = (int)Thread.currentThread().getId();				
+		//int threadID = (int)Thread.currentThread().getId();				
+		int threadID = 1; //TODO: check use of threads
 		return runCompress(threadID).getBuffer();
 	}
 

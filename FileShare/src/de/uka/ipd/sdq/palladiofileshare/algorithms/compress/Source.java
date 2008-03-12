@@ -20,7 +20,7 @@ public class Source {
     public Source(InputStream fileName) {
         buffer = fillBuffer(fileName);
         length = buffer.length;
-        MAX_LENGTH = Math.max(length, MAX_LENGTH);
+        MAX_LENGTH = Math.max(length, MAX_LENGTH);        
         CRC32 crc32 = new CRC32();
         crc32.update(buffer, 0, length);
         crc = crc32.getValue();
@@ -46,7 +46,7 @@ public class Source {
             while( (value = sif.read()) != -1 ) {            	            	
             	resultList.add(new Integer(value).byteValue());
             }                    
-   
+               
             return convertToByteArray(resultList);
         } catch (IOException e) {
             e.printStackTrace();
