@@ -8,7 +8,7 @@ public class BusinessFacade implements IBusinessFacade {
 	public static void uploadFiles(InputStream[] inputStream, int fileType) {
 		
 		BusinessRunner businessFacade = new BusinessRunner();
-		businessFacade.setInputStream(inputStream);
+		businessFacade.setInputStreams(inputStream);
 		businessFacade.setFileType(fileType);
 		
         Thread t = new Thread(businessFacade);        
