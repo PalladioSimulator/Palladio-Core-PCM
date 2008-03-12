@@ -35,6 +35,29 @@ public class Util {
 		return hashSet;
 	}
 	
+	public static Set<String> initHashSetWithStrings(int amountOfData) {	
+		Set<String> hashSet = new HashSet<String>();
+		Random r = new Random();
+
+		for(int x = 0; x < amountOfData; x++) {			
+			//FIXME: adapt to size of used hash algorithm: 
+			byte[] randomBytes = {0x0000,0x0000,0x0000,0x0000,0x0000};
+			MessageDigest md;
+			
+			try {
+				md = MessageDigest.getInstance("SHA");
+
+				r.nextBytes(randomBytes);
+				md.update(randomBytes);
+				hashSet.add(md.digest() + "");
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+				logger.error(e);
+			}
+		}
+		return hashSet;
+	}
+	
 	/**
 	 * creates a string unique for file and thread
 	 * @param fileHash
