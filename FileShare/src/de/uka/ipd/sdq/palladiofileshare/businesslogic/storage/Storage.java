@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
+
 public class Storage implements IStorage {	
 	
 	private static Logger logger = Logger.getLogger(Storage.class);
@@ -20,7 +22,7 @@ public class Storage implements IStorage {
 	public void storeFile(byte[] stream, byte[] fileHash) {
 
 		try {
-			String hashString = createString(fileHash);
+			String hashString = Util.createString(fileHash);
 			FileOutputStream fileOutStream =
 				new FileOutputStream(fileStorageLocation + hashString);
 			
@@ -37,19 +39,6 @@ public class Storage implements IStorage {
 		
 	}
 
-	/**
-	 * creates a string unique for file and thread
-	 * @param fileHash
-	 * @return
-	 */
-	private String createString(byte[] fileHash) {		
-		StringBuilder string = new StringBuilder("f" + Thread.currentThread().getId());		
-						
-		for(int x = 0; (x < fileHash.length && x < 40) ; x++) {			
-			string.append(fileHash[x]);
-		}
-		
-		return string.toString();
-	}
+	
 
 }

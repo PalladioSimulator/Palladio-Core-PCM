@@ -34,4 +34,19 @@ public class Util {
 		}
 		return hashSet;
 	}
+	
+	/**
+	 * creates a string unique for file and thread
+	 * @param fileHash
+	 * @return
+	 */
+	public static String createString(byte[] fileHash) {		
+		StringBuilder string = new StringBuilder("f" + Thread.currentThread().getId());		
+						
+		for(int x = 0; (x < fileHash.length && x < 40) ; x++) {			
+			string.append(fileHash[x]);
+		}
+		
+		return string.toString();
+	}
 }
