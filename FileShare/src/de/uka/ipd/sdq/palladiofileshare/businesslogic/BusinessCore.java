@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import org.apache.log4j.Logger;
 
@@ -17,6 +19,12 @@ public class BusinessCore {
 	 */
 	private static final int SIZE_OF_LARGE_FILES = 50000;
 	private static Logger logger = Logger.getLogger(BusinessCore.class);
+	
+	/** see Javadocs under docs/technotes/guides/security/StandardNames.html#MessageDigest 
+	 * for details of algorithms; for message digest, the following are available
+	 * MD5, MD5, SHA-1, SHA-256, SHA-384, SHA-512
+	 */
+	private static final String MESSAGE_DIGEST_TYPE = "SHA-512";
 	
 	// sub-components (internal)
 	private CopyrightedMaterialDatabase copyDB;
@@ -41,8 +49,10 @@ public class BusinessCore {
 	 * @param fileType FileType static ints
 	 */
 	public void uploadFiles(InputStream[] inputStream, int fileType) {
-		byte[] fileHash;
-		byte[] file;
+		MessageDigest fileHash;
+		byte[] fileHashAsBytes;
+		byte[] uncompressedFile;
+		byte[] compressedFile;
 		InputStream currentInputStream;
 		
 		for(int x = 0; x < inputStream.length; x++) {
@@ -50,18 +60,20 @@ public class BusinessCore {
 			
 			if(fileType == FileType.TEXT)
 			{
-				file = this.compress(currentInputStream);
-				fileHash = this.md5(currentInputStream);				
+				uncompressedFile = null; //TODO: generate from inputStream param
+				compressedFile = this.compress(uncompressedFile); //TODO
 			} else {
-				fileHash = this.md5(currentInputStream);
-				file = this.compress(currentInputStream);
+				compressedFile = null; //TODO: generate from inputStream param
+				//makes no sense according to whiteboard... file = this.compress(currentInputStream);
 			}	
+			fileHash = this.getMessageDigest(compressedFile);
+			fileHashAsBytes = fileHash.digest();
 			
-			if(isCopyrightedMaterial(fileHash)) {
+			if(isCopyrightedMaterial(fileHash)) { //TODO
 				logger.debug("Copyrighted file found. File not stored.");
 				//reject file // do not store
 			} else {
-				if(isFileExistingInDB(fileHash)) {
+				if(isFileExistingInDB(fileHash)) { //TODO
 					logger.debug("File already in DB.");
 				} else {
 					this.storeFileWithStrategy(file, fileHash);					
@@ -73,12 +85,42 @@ public class BusinessCore {
 			} catch (IOException e) {
 				e.printStackTrace();
 				logger.error(e);
+			} finally {
+				//TODO
 			}
 		}
 	}
 	
-	private byte[] md5(InputStream inputStream) {		
-		return null; //TODO: add implementation
+	private MessageDigest getMessageHash(byte[] inputBytes) {		
+		return this.getMessageDigest(inputBytes);
+	}
+
+	private byte[] getMessageHashAsByteArray(byte[] inputBytes) {		
+		return this.getMessageDigestAsByteArray(inputBytes);
+	}
+
+	private MessageDigest getMessageDigest(byte[] inputBytes) {		
+		MessageDigest md;
+		try {
+			md = MessageDigest.getInstance(MESSAGE_DIGEST_TYPE);
+			md.update(inputBytes);
+			return md;
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	private byte[] getMessageDigestAsByteArray(byte[] inputBytes) {		
+		MessageDigest md;
+		try {
+			md = MessageDigest.getInstance(MESSAGE_DIGEST_TYPE);
+			md.update(inputBytes);
+			return md.digest();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	private byte[] compress(InputStream inputStream) {				
