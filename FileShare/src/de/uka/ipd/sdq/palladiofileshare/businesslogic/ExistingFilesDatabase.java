@@ -12,12 +12,12 @@ public class ExistingFilesDatabase {
 	private static ExistingFilesDatabase singleton;
 	private static Logger logger = Logger.getLogger(ExistingFilesDatabase.class);
 	private static final int numberOfFilesInDB = 100000;
-	private static Set<String> fileHashes;
+	private static Set<Integer> fileHashes;
 	
 	private ExistingFilesDatabase() {	
 		logger.debug("Init ExistingFilesDatabase start");
-		fileHashes = new HashSet<String>();
-		fileHashes = Util.initHashSetWithStrings(numberOfFilesInDB);
+		fileHashes = new HashSet<Integer>();
+		fileHashes = Util.initHashSetWithInteger(numberOfFilesInDB);
 		logger.debug("Init ExistingFilesDatabase end");
 	}
 	
@@ -29,12 +29,12 @@ public class ExistingFilesDatabase {
 	}
 	
 	public void addNewFileHash(byte[] fileHash) {
-		if(!fileHashes.contains(Util.createString(fileHash))) {
-			fileHashes.add(Util.createString(fileHash));
+		if(!fileHashes.contains(Util.createIntegerHash(fileHash))) {
+			fileHashes.add(Util.createIntegerHash(fileHash));
 		}
 	}
 
 	public boolean existsInDatabase(byte[] fileHash) {
-		return fileHashes.contains(Util.createString(fileHash));
+		return fileHashes.contains(Util.createIntegerHash(fileHash));
 	}
 }

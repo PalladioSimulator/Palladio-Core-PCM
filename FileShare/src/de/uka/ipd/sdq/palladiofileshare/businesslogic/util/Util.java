@@ -58,6 +58,29 @@ public class Util {
 		return hashSet;
 	}
 	
+	public static Set<Integer> initHashSetWithInteger(int amountOfData) {	
+		Set<Integer> hashSet = new HashSet<Integer>();
+		Random r = new Random();
+
+		for(int x = 0; x < amountOfData; x++) {			
+			//FIXME: adapt to size of used hash algorithm: 
+			byte[] randomBytes = {0x0000,0x0000,0x0000,0x0000,0x0000};
+			MessageDigest md;
+			
+			try {
+				md = MessageDigest.getInstance("SHA");
+
+				r.nextBytes(randomBytes);
+				md.update(randomBytes);
+				hashSet.add(createIntegerHash(md.digest()));
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+				logger.error(e);
+			}
+		}
+		return hashSet;
+	}
+	
 	/**
 	 * creates a string unique for file and thread
 	 * @param fileHash
@@ -71,5 +94,20 @@ public class Util {
 		}
 		
 		return string.toString();
+	}
+	
+	/**
+	 * creates a string unique for file and thread
+	 * @param fileHash
+	 * @return
+	 */
+	public static Integer createIntegerHash(byte[] fileHash) {		
+		
+		int returnValue = 0;
+		for(int x = 0; (x < fileHash.length && x < 128) ; x++) {			
+			returnValue += Byte.valueOf(fileHash[x]);
+		}
+		
+		return returnValue;
 	}
 }
