@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.log4j.Logger;
@@ -66,6 +67,13 @@ public class BusinessCore {
 					this.storeFileWithStrategy(file, fileHash);					
 				}
 			}
+						
+			try {
+				currentInputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				logger.error(e);
+			}
 		}
 	}
 	
@@ -74,7 +82,7 @@ public class BusinessCore {
 	}
 
 	private byte[] compress(InputStream inputStream) {				
-		return compression.compress(inputStream, 0); //FIXME: indicate bytesize of file
+		return compression.compress(inputStream);
 	}	
 	
 	private boolean isCopyrightedMaterial(byte[] hash) {

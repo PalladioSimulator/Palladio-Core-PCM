@@ -18,8 +18,8 @@ public class CompressionRunner {
     public static byte[][] DECOMPRESS_BUFFERS;
     public static Compress CB;
 	
-	public byte[] compress(InputStream inputStream, int inputByteSize) {				
-		prepareBuffers(inputStream, inputByteSize);
+	public byte[] compress(InputStream inputStream) {				
+		prepareBuffers(inputStream);
 
 		int threadID = (int)Thread.currentThread().getId();
 		runCompress(threadID);
@@ -44,10 +44,10 @@ public class CompressionRunner {
         logger.info(decomprBufer.getLength() + " " + decomprBufer.getCRC());	    
 	}
 	
-    static void prepareBuffers(InputStream inputStream, int inputByteSize) {
+    static void prepareBuffers(InputStream inputStream) {
         CB = new Compress();
         
-    	SOURCE = new Source(inputStream, inputByteSize);
+    	SOURCE = new Source(inputStream);
 
         //DECOMPRESS_BUFFERS = new byte[Launch.currentNumberBmThreads][Source.MAX_LENGTH];
         //COMPRESS_BUFFERS = new byte[Launch.currentNumberBmThreads][Source.MAX_LENGTH];
