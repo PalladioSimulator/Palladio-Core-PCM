@@ -18,7 +18,7 @@ public class CopyrightedMaterialDatabase {
 		logger.debug("Init CopyrightedMaterialDatabase start");
 		this.copyrightedHashs = new HashSet<byte[]>();
 		copyrightedHashs = Util.initHashSetWithHashs(numberOfCopyrightedMaterials);
-		logger.debug("Init CopyrightedMaterialDatabase start");
+		logger.debug("Init CopyrightedMaterialDatabase end");
 	}
 	
 	public static CopyrightedMaterialDatabase getSingleton() {

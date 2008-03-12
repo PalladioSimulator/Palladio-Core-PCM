@@ -29,4 +29,8 @@ public final class OutputBuffer {
             buffer[cnt++] = buf[i];
         }
     }
+    
+    public byte[] getBuffer() {
+    	return buffer;
+    }
 }
