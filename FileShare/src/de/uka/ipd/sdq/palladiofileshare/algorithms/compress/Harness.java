@@ -15,10 +15,17 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.zip.CRC32;
 
+import org.apache.log4j.Logger;
+
+import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessCore;
+
 //import spec.harness.Context;
 //import spec.harness.Launch;
 
 public final class Harness {
+	
+	private static Logger logger = Logger.getLogger(Harness.class);
+	
     public static final String[] FILES_NAMES = new String[] {
         "resources/compress/input/202.tar",
         "resources/compress/input/205.tar",
@@ -39,7 +46,7 @@ public final class Harness {
     public static Compress CB;
     
     public void runCompress(int btid) {
-        //spec.harness.Context.getOut().println("Loop count = " + LOOP_COUNT);
+    	logger.info("Loop count = " + LOOP_COUNT);
         for (int i = 0; i < LOOP_COUNT; i++) {
             for (int j = 0; j < FILES_NUMBER; j++) {
                 Source source = SOURCES[j];
@@ -52,9 +59,9 @@ public final class Harness {
                         comprBuffer.getLength(),
                         CB.UNCOMPRESS,
                         DECOMPRESS_BUFFERS[btid - 1]);
-                //Context.getOut().print(source.getLength() + " " + source.getCRC() + " ");
-                //Context.getOut().print(comprBuffer.getLength() + comprBuffer.getCRC() + " ");
-                //Context.getOut().println(decomprBufer.getLength() + " " + decomprBufer.getCRC());
+                logger.info(source.getLength() + " " + source.getCRC() + " ");
+                logger.info(comprBuffer.getLength() + comprBuffer.getCRC() + " ");                
+                logger.info(decomprBufer.getLength() + " " + decomprBufer.getCRC());
             }
         }
     }
