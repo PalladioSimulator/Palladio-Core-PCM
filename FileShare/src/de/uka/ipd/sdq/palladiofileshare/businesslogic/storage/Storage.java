@@ -37,10 +37,15 @@ public class Storage implements IStorage {
 		
 	}
 
-	private String createString(byte[] fileHash) {
-		StringBuilder string = new StringBuilder("f");		
+	/**
+	 * creates a string unique for file and thread
+	 * @param fileHash
+	 * @return
+	 */
+	private String createString(byte[] fileHash) {		
+		StringBuilder string = new StringBuilder("f" + Thread.currentThread().getId());		
 						
-		for(int x = 0; x < fileHash.length; x++) {			
+		for(int x = 0; (x < fileHash.length && x < 40) ; x++) {			
 			string.append(fileHash[x]);
 		}
 		
