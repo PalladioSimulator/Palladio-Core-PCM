@@ -4,18 +4,27 @@ import java.io.InputStream;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.IStorage;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.Storage;
 
 public class BusinessCore {
 	
+	/**
+	 * Size in bytes; if larger than this value, a different 
+	 * storage system is used
+	 */
+	private static final int SIZE_OF_LARGE_FILES = 50000;
 	private static Logger logger = Logger.getLogger("BusinessFacade");
 	private CopyrightedMaterialDatabase copyDB;
 	private ExistingFilesDatabase fileDB;
-	private Storage storageSubSystem;
+	private IStorage storageSubSystemSmallFiles;
+	private IStorage storageSubSystemLargeFiles;
 		
 	public BusinessCore() {
 		this.copyDB = CopyrightedMaterialDatabase.getSingleton();
 		this.fileDB = ExistingFilesDatabase.getSingleton();
+		this.storageSubSystemLargeFiles = new Storage();
+		this.storageSubSystemSmallFiles = new Storage();
 	}
 
 	/**
@@ -25,6 +34,7 @@ public class BusinessCore {
 	 */
 	public void uploadFile(InputStream[] inputStream, int fileType) {
 		byte[] fileHash;
+		byte[] file;
 		InputStream currentInputStream;
 		
 		for(int x = 0; x < inputStream.length; x++) {
@@ -32,19 +42,21 @@ public class BusinessCore {
 			
 			if(fileType == FileType.TEXT)
 			{
-				compress(currentInputStream);
-				fileHash = md5(currentInputStream);				
+				file = this.compress(currentInputStream);
+				fileHash = this.md5(currentInputStream);				
 			} else {
-				fileHash = md5(currentInputStream);
-				compress(currentInputStream);
+				file = fileHash = this.md5(currentInputStream);
+				this.compress(currentInputStream);
 			}	
 			
 			if(isCopyrightedMaterial(fileHash)) {
-				logger.debug("Copyrighted file found.");
+				logger.debug("Copyrighted file found. File not stored.");
 				//reject file // do not store
 			} else {
-				if(!isFileExistingInDB(fileHash)) {
-					storageSubSystem.storeFile(null, fileHash);
+				if(isFileExistingInDB(fileHash)) {
+					logger.debug("File already in DB.");
+				} else {
+					this.storeFileWithStrategy(file, fileHash);					
 				}
 			}
 		}
@@ -54,8 +66,8 @@ public class BusinessCore {
 		return null;
 	}
 
-	private void compress(InputStream inputStream) {
-		
+	private byte[] compress(InputStream inputStream) {
+		return null;
 	}
 	
 	private boolean isCopyrightedMaterial(byte[] hash) {
@@ -64,6 +76,16 @@ public class BusinessCore {
 	
 	private boolean isFileExistingInDB(byte[] hash) {
 		return this.fileDB.existsInDatabase(hash);				
+	}
+	
+	private void storeFileWithStrategy(byte[] file, byte[] fileHash) {
+		if(file.length > SIZE_OF_LARGE_FILES) {
+			logger.debug("Writing large file to storage system.");
+			this.storageSubSystemLargeFiles.storeFile(file, fileHash);
+		} else {
+			logger.debug("Writing small file to storage system.");
+			this.storageSubSystemSmallFiles.storeFile(file, fileHash);
+		}
 	}
 
 }

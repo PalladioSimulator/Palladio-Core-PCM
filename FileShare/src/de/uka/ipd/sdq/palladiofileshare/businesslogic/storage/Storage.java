@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
-public class Storage {	
+public class Storage implements IStorage {	
 	
 	private static Logger logger = Logger.getLogger("Storage");
 	/**
@@ -14,6 +14,9 @@ public class Storage {
 	 */
 	private static final String fileStorageLocation = "uploadedFileStorage/";
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.IStorage#storeFile(byte[], byte[])
+	 */
 	public void storeFile(byte[] stream, byte[] fileHash) {
 
 		try {
