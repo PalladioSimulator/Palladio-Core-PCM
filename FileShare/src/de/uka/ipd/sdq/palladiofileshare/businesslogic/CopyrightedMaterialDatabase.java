@@ -16,7 +16,7 @@ public class CopyrightedMaterialDatabase {
 	
 	private CopyrightedMaterialDatabase() {
 		logger.debug("Init CopyrightedMaterialDatabase start");
-		this.copyrightedHashs = new HashSet<byte[]>();
+		copyrightedHashs = new HashSet<byte[]>();
 		copyrightedHashs = Util.initHashSetWithHashs(numberOfCopyrightedMaterials);
 		logger.debug("Init CopyrightedMaterialDatabase end");
 	}
@@ -29,6 +29,6 @@ public class CopyrightedMaterialDatabase {
 	}
 
 	public boolean isCopyrightedMaterial(byte[] hash) {	
-		return this.copyrightedHashs.contains(hash);		
+		return copyrightedHashs.contains(hash);		
 	}
 }
