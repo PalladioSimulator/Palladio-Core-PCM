@@ -12,7 +12,7 @@ public class CopyrightedMaterialDatabase {
 	private static Logger logger = Logger.getLogger(CopyrightedMaterialDatabase.class);
 	private static CopyrightedMaterialDatabase singleton;
 	private static final int numberOfCopyrightedMaterials = 100000;
-	private Set<byte[]> copyrightedHashs;
+	private static Set<byte[]> copyrightedHashs;
 	
 	private CopyrightedMaterialDatabase() {
 		logger.debug("Init CopyrightedMaterialDatabase start");

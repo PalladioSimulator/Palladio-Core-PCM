@@ -12,7 +12,7 @@ public class ExistingFilesDatabase {
 	private static ExistingFilesDatabase singleton;
 	private static Logger logger = Logger.getLogger(ExistingFilesDatabase.class);
 	private static final int numberOfFilesInDB = 100000;
-	private Set<byte[]> fileHashes;
+	private static Set<byte[]> fileHashes;
 	
 	private ExistingFilesDatabase() {	
 		logger.debug("Init ExistingFilesDatabase start");
