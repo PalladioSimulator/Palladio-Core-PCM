@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.palladiofileshare.algorithms.compress;
 
-import java.io.InputStream;
-
 import org.apache.log4j.Logger;
 
 /**

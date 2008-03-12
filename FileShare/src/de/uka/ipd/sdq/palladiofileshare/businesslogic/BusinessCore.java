@@ -1,11 +1,6 @@
 package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 

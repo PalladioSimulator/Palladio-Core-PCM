@@ -32,8 +32,6 @@
 
 package de.uka.ipd.sdq.palladiofileshare.algorithms.compress;
 
-import java.util.zip.CRC32;
-
 public final class Compress {
     public final static int COMPRESS = 0;
     public final static int UNCOMPRESS = 1;
