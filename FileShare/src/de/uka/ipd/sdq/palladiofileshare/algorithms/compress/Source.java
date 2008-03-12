@@ -1,16 +1,8 @@
 package de.uka.ipd.sdq.palladiofileshare.algorithms.compress;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.zip.CRC32;
 
-import org.apache.log4j.Logger;
-
 public class Source {
-	
-	private static Logger logger = Logger.getLogger(Source.class);
 	
     private byte[] buffer;
     private long crc;
