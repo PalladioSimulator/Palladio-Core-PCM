@@ -14,9 +14,13 @@ public class BusinessCore {
 	 * storage system is used
 	 */
 	private static final int SIZE_OF_LARGE_FILES = 50000;
-	private static Logger logger = Logger.getLogger("BusinessFacade");
+	private static Logger logger = Logger.getLogger(BusinessCore.class);
+	
+	// sub-components (internal)
 	private CopyrightedMaterialDatabase copyDB;
 	private ExistingFilesDatabase fileDB;
+	
+	// other components
 	private IStorage storageSubSystemSmallFiles;
 	private IStorage storageSubSystemLargeFiles;
 		

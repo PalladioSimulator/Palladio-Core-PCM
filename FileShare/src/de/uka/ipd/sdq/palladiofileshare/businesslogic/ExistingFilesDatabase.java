@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 public class ExistingFilesDatabase {
 
 	private static ExistingFilesDatabase singleton;
-	private static Logger logger = Logger.getLogger("ExistingFilesDatabase");
+	private static Logger logger = Logger.getLogger(ExistingFilesDatabase.class);
 	private static final int numberOfFilesInDB = 100000;
 	private Set<byte[]> fileHashes;
 	

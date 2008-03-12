@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 public class Storage implements IStorage {	
 	
-	private static Logger logger = Logger.getLogger("Storage");
+	private static Logger logger = Logger.getLogger(Storage.class);
 	/**
 	 * needs to terminate with a "/"
 	 */

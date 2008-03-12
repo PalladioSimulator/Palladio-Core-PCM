@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
 public class CopyrightedMaterialDatabase {
 		
-	private static Logger logger = Logger.getLogger("CopyrightedMaterialDatabase");
+	private static Logger logger = Logger.getLogger(CopyrightedMaterialDatabase.class);
 	private static CopyrightedMaterialDatabase singleton;
 	private static final int numberOfCopyrightedMaterials = 100000;
 	private Set<byte[]> copyrightedHashs;

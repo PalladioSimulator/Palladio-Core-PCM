@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.FileType;
 
 public class TestDriver {
 
-	private static Logger logger = Logger.getLogger("TestDriver");
+	private static Logger logger = Logger.getLogger(TestDriver.class);
 
 	private static final int numberOfUploads = 100;	
 	/**

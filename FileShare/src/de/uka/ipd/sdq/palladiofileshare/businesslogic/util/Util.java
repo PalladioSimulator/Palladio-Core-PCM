@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 
 public class Util {
 
-	private static Logger logger = Logger.getLogger("Util");
+	private static Logger logger = Logger.getLogger(Util.class);
 	
 	public static Set<byte[]> initHashSetWithHashs(int amountOfData) {	
 		Set<byte[]> hashSet = new HashSet<byte[]>();
