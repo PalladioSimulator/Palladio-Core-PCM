@@ -18,7 +18,7 @@ public class BusinessRunner implements Runnable{
 	 * @param fileType
 	 */
 	public void uploadFile(InputStream[] inputStream, int fileType) {
-		this.businessCore.uploadFile(inputStream, fileType);		
+		this.businessCore.uploadFiles(inputStream, fileType);		
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class BusinessCore {
 	 * @param inputStream
 	 * @param fileType FileType static ints
 	 */
-	public void uploadFile(InputStream[] inputStream, int fileType) {
+	public void uploadFiles(InputStream[] inputStream, int fileType) {
 		byte[] fileHash;
 		byte[] file;
 		InputStream currentInputStream;
