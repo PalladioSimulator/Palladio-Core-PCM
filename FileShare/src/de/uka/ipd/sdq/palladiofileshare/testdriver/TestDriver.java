@@ -41,7 +41,7 @@ public class TestDriver {
 	public void start() {
 		
 		for(int x = 0; x < numberOfUploads; x++) {
-			BusinessFacade.uploadFile(createTestData(), FileType.COMPRESSED);			
+			BusinessFacade.uploadFiles(createTestData(), FileType.COMPRESSED);			
 		}
 		
 	}

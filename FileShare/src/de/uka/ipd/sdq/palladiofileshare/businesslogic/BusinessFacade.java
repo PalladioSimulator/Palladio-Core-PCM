@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 public class BusinessFacade implements IBusinessFacade {		
 	
-	public static void uploadFile(InputStream[] inputStream, int fileType) {
+	public static void uploadFiles(InputStream[] inputStream, int fileType) {
 		
 		BusinessRunner businessFacade = new BusinessRunner();
 		businessFacade.setInputStream(inputStream);

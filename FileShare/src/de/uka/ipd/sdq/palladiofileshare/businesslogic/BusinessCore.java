@@ -53,8 +53,8 @@ public class BusinessCore {
 				file = this.compress(currentInputStream);
 				fileHash = this.md5(currentInputStream);				
 			} else {
-				file = fileHash = this.md5(currentInputStream);
-				this.compress(currentInputStream);
+				fileHash = this.md5(currentInputStream);
+				file = this.compress(currentInputStream);
 			}	
 			
 			if(isCopyrightedMaterial(fileHash)) {
