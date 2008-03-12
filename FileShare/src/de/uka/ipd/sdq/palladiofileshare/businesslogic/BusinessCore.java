@@ -74,7 +74,7 @@ public class BusinessCore {
 	}
 
 	private byte[] compress(InputStream inputStream) {				
-		return compression.compress(inputStream);
+		return compression.compress(inputStream, 0); //FIXME: indicate bytesize of file
 	}	
 	
 	private boolean isCopyrightedMaterial(byte[] hash) {

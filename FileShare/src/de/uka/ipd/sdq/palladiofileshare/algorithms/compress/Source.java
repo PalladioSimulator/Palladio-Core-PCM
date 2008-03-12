@@ -1,8 +1,7 @@
 package de.uka.ipd.sdq.palladiofileshare.algorithms.compress;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.zip.CRC32;
 
 public class Source {
@@ -11,8 +10,8 @@ public class Source {
     private int length;
     static int MAX_LENGTH;
     
-    public Source(String fileName) {
-        buffer = fillBuffer(fileName);
+    public Source(InputStream fileName, int inputByteSize) {
+        buffer = fillBuffer(fileName, inputByteSize);
         length = buffer.length;
         MAX_LENGTH = Math.max(length, MAX_LENGTH);
         CRC32 crc32 = new CRC32();
@@ -32,10 +31,11 @@ public class Source {
         return buffer;
     }
     
-    private static byte[] fillBuffer(String fileName) {
-        try {
-            FileInputStream sif = new FileInputStream(fileName);
-            int length = (int) new File(fileName).length();
+    private static byte[] fillBuffer(InputStream sif, int inputByteSize) {
+        try {        	
+            //FileInputStream sif = new FileInputStream(fileName);
+        	// (int) new File(fileName).length();
+            int length = inputByteSize; 
             int counter = 0;
             
             // Only allocate size of input file rather than MAX - kmd
