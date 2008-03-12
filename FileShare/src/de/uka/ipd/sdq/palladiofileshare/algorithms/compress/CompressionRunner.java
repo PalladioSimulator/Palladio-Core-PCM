@@ -17,8 +17,8 @@ public class CompressionRunner {
     public static byte[][] DECOMPRESS_BUFFERS;
     public static Compress CB;
 	
-	public byte[] compress(InputStream inputStream) {				
-		prepareBuffers(inputStream);
+	public byte[] compress(byte[] inputFile) {				
+		prepareBuffers(inputFile);
 
 		//int threadID = (int)Thread.currentThread().getId();				
 		int threadID = 1; //TODO: check use of threads
@@ -43,10 +43,10 @@ public class CompressionRunner {
         return comprBuffer;
 	}
 	
-    static void prepareBuffers(InputStream inputStream) {
+    static void prepareBuffers(byte[] inputFile) {
         CB = new Compress();
         
-    	SOURCE = new Source(inputStream);
+    	SOURCE = new Source(inputFile);
 
         //DECOMPRESS_BUFFERS = new byte[Launch.currentNumberBmThreads][Source.MAX_LENGTH];
         //COMPRESS_BUFFERS = new byte[Launch.currentNumberBmThreads][Source.MAX_LENGTH];

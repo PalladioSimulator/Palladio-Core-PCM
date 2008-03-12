@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 
@@ -49,54 +51,42 @@ public class BusinessCore {
 	 * @param fileType FileType static ints
 	 */
 	public void uploadFiles(InputStream[] inputStream, int fileType) {
-		MessageDigest fileHash;
-		byte[] fileHashAsBytes;
-		byte[] uncompressedFile;
+		
+		byte[] fileHashAsBytes;		
+		byte[] inputFile;
 		byte[] compressedFile;
-		InputStream currentInputStream;
 		
 		for(int x = 0; x < inputStream.length; x++) {
-			currentInputStream = inputStream[x];
-			
-			if(fileType == FileType.TEXT)
-			{
-				uncompressedFile = null; //TODO: generate from inputStream param
-				compressedFile = this.compress(uncompressedFile); //TODO
-			} else {
-				compressedFile = null; //TODO: generate from inputStream param
-				//makes no sense according to whiteboard... file = this.compress(currentInputStream);
-			}	
-			fileHash = this.getMessageDigest(compressedFile);
-			fileHashAsBytes = fileHash.digest();
-			
-			if(isCopyrightedMaterial(fileHash)) { //TODO
-				logger.debug("Copyrighted file found. File not stored.");
-				//reject file // do not store
-			} else {
-				if(isFileExistingInDB(fileHash)) { //TODO
-					logger.debug("File already in DB.");
-				} else {
-					this.storeFileWithStrategy(file, fileHash);					
-				}
-			}
-						
+			inputFile = fillBuffer(inputStream[x]);
 			try {
-				currentInputStream.close();
+				inputStream[x].close();
 			} catch (IOException e) {
 				e.printStackTrace();
 				logger.error(e);
-			} finally {
-				//TODO
+			} 
+			
+			if(fileType == FileType.TEXT)
+			{
+				compressedFile = this.compress(inputFile);
+			} else {
+				compressedFile = inputFile; //do nothing
+			}
+			
+			MessageDigest fileHash;
+			fileHash = this.getMessageDigest(compressedFile);
+			fileHashAsBytes = fileHash.digest();
+			
+			if(isCopyrightedMaterial(fileHashAsBytes)) { //TODO
+				logger.debug("Copyrighted file found. File not stored.");
+				//reject file // do not store
+			} else {
+				if(isFileExistingInDB(fileHashAsBytes)) { //TODO
+					logger.debug("File already in DB.");
+				} else {
+					this.storeFileWithStrategy(compressedFile, fileHashAsBytes);					
+				}
 			}
 		}
-	}
-	
-	private MessageDigest getMessageHash(byte[] inputBytes) {		
-		return this.getMessageDigest(inputBytes);
-	}
-
-	private byte[] getMessageHashAsByteArray(byte[] inputBytes) {		
-		return this.getMessageDigestAsByteArray(inputBytes);
 	}
 
 	private MessageDigest getMessageDigest(byte[] inputBytes) {		
@@ -111,20 +101,8 @@ public class BusinessCore {
 		}
 	}
 
-	private byte[] getMessageDigestAsByteArray(byte[] inputBytes) {		
-		MessageDigest md;
-		try {
-			md = MessageDigest.getInstance(MESSAGE_DIGEST_TYPE);
-			md.update(inputBytes);
-			return md.digest();
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	private byte[] compress(InputStream inputStream) {				
-		return compression.compress(inputStream);
+	private byte[] compress(byte[] inputFile) {				
+		return compression.compress(inputFile);
 	}	
 	
 	private boolean isCopyrightedMaterial(byte[] hash) {
@@ -145,4 +123,40 @@ public class BusinessCore {
 		}
 	}
 
+	
+    private static byte[] fillBuffer(InputStream sif) {
+        try {
+            ArrayList<Byte> resultList = new ArrayList<Byte>();
+                       
+            int value;
+            
+            whileloop:
+            while(true) {
+            	value = sif.read();
+            	if(value == -1) {
+            		break whileloop;            		
+            	} else {
+            		resultList.add(new Integer(value).byteValue());
+            	}
+            }            
+            return convertToByteArray(resultList);
+        } catch (IOException e) {            
+            logger.error(e);
+        }
+        logger.error("INVALID STATE");
+        return null;
+    }
+    
+    private static byte[] convertToByteArray(ArrayList<Byte> list) {
+    	byte[] byteArray = new byte[list.size()];
+    	
+    	Iterator<Byte> listIterator = list.iterator();
+    	int x = 0;
+    	while(listIterator.hasNext()) {
+    		byteArray[x] = listIterator.next(); 
+    		x++;
+    	}
+    	
+    	return byteArray;    	
+    }
 }

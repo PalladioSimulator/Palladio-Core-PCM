@@ -17,8 +17,8 @@ public class Source {
     private int length;
     static int MAX_LENGTH;
     
-    public Source(InputStream fileName) {
-        buffer = fillBuffer(fileName);
+    public Source(byte[] inputFile) {
+        buffer = inputFile;
         length = buffer.length;
         MAX_LENGTH = Math.max(length, MAX_LENGTH);        
         CRC32 crc32 = new CRC32();
@@ -38,27 +38,6 @@ public class Source {
         return buffer;
     }
     
-    private static byte[] fillBuffer(InputStream sif) {
-        try {
-            ArrayList<Byte> resultList = new ArrayList<Byte>();
-                       
-            int value;
-            whileloop:
-            while(true) {
-            	value = sif.read();
-            	if(value == -1) {
-            		break whileloop;            		
-            	} else {
-            		resultList.add(new Integer(value).byteValue());
-            	}
-            }                                
-            resultList.toArray(new Byte[0]);
-        } catch (IOException e) {
-            e.printStackTrace();
-            logger.error(e);
-        }
-        
-        return null;
-    }
+
     
 }
