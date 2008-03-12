@@ -39,15 +39,20 @@ public class Source {
     }
     
     private static byte[] fillBuffer(InputStream sif) {
-        try {        	    
+        try {
             ArrayList<Byte> resultList = new ArrayList<Byte>();
                        
             int value;
-            while( (value = sif.read()) != -1 ) {            	            	
-            	resultList.add(new Integer(value).byteValue());
-            }                    
-               
-            return convertToByteArray(resultList);
+            whileloop:
+            while(true) {
+            	value = sif.read();
+            	if(value == -1) {
+            		break whileloop;            		
+            	} else {
+            		resultList.add(new Integer(value).byteValue());
+            	}
+            }                                
+            resultList.toArray(new Byte[0]);
         } catch (IOException e) {
             e.printStackTrace();
             logger.error(e);
@@ -56,16 +61,4 @@ public class Source {
         return null;
     }
     
-    static private byte[] convertToByteArray(ArrayList<Byte> list) {
-    	byte[] byteArray = new byte[list.size()];
-    	
-    	Iterator<Byte> listIterator = list.iterator();
-    	int x = 0;
-    	while(listIterator.hasNext()) {
-    		byteArray[x] = listIterator.next(); 
-    		x++;
-    	}
-    	
-    	return byteArray;    	
-    }
 }
