@@ -89,7 +89,13 @@
          </advice>
           <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.VariableCharacterisationAdvice">
-         </advice>          
+         </advice> 
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTimeActionAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.ArrivalRateActionAdvice">
+         </advice>           
        </binding>
    </extension>
 </plugin>
