@@ -181,14 +181,6 @@ public abstract class AbstractReportView extends EditorPart implements
 	}
 
 	/* (non-Javadoc)
-	 * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
-	 */
-	@Override
-	public void setFocus() {
-		// The implementation is not necessary.
-	}
-	
-	/* (non-Javadoc)
 	 * @see org.eclipse.ui.part.EditorPart#isDirty()
 	 */
 	@Override

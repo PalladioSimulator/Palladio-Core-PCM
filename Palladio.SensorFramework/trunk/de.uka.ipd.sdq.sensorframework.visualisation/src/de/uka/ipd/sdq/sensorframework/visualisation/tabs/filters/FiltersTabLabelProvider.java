@@ -40,6 +40,9 @@ public class FiltersTabLabelProvider implements ITableLabelProvider {
 		case FiltersPropertySection.PARAMETER_TYPE_COLUMN_INDEX:
 			result = entry.getParameter().getValue().getClass().getSimpleName();
 			break;
+		case FiltersPropertySection.PARAMETER_DESCRIPTION_COLUMN_INDEX:
+			result = entry.getParameter().getDescription();
+			break;
 		case FiltersPropertySection.PARAMETER_VALUE_COLUMN_INDEX:
 			result = String.valueOf(entry.getParameter().getValue());
 			break;

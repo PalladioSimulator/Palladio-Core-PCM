@@ -20,13 +20,12 @@ import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
  */
 public class FiltersTabCellModifier implements ICellModifier {
 
+	private FiltersPropertySection section;
 	private List<String> columnNames;
-	private AbstractMeasurementsFilter filter;
 	
-	public FiltersTabCellModifier(String[] columnNames,
-			AbstractMeasurementsFilter filter) {
-		this.columnNames = Arrays.asList(columnNames);
-		this.filter = filter;
+	public FiltersTabCellModifier(FiltersPropertySection section) {
+		this.section = section;
+		this.columnNames = Arrays.asList(FiltersPropertySection.columnNames);
 	}
 
 	/* (non-Javadoc)
@@ -53,7 +52,7 @@ public class FiltersTabCellModifier implements ICellModifier {
 
 		TableItem item = (TableItem) element;
 	
-		filter = (AbstractMeasurementsFilter) item.getData();
+		AbstractMeasurementsFilter filter = (AbstractMeasurementsFilter) item.getData();
 
 		switch (columnIndex) {
 		case FiltersPropertySection.ICON_COLUMN_INDEX: // ICON_COLUMN
@@ -62,15 +61,24 @@ public class FiltersTabCellModifier implements ICellModifier {
 			break;
 		case FiltersPropertySection.PARAMETER_TYPE_COLUMN_INDEX: // PARAMETER_TYPE_COLUMN
 			break;
+		case FiltersPropertySection.PARAMETER_DESCRIPTION_COLUMN_INDEX: // PARAMETER_DESCRIPTION
+			break;
 		case FiltersPropertySection.PARAMETER_VALUE_COLUMN_INDEX: // PARAMETER_VALUE_COLUMN
-			setParameter(((String) value).trim());
+			setParameter(filter, ((String) value).trim());
 			break;
 		default:
 		}
 	}
 	
-	/** The methode set the new parameter to the filter. */
-	private void setParameter(String input) {
+	/**
+	 * The method set the new parameter value to the filter.
+	 * 
+	 * @param selected
+	 *            filter
+	 * @param new
+	 *            parameter value
+	 */
+	private void setParameter(AbstractMeasurementsFilter filter, String input) {
 		Object value = filter.getParameter().getValue();
 
 		try {
@@ -82,6 +90,8 @@ public class FiltersTabCellModifier implements ICellModifier {
 						parameterValue, filter.getParameter().getDescription());
 				// set parameter
 				filter.setParameter(parameter);
+				// refresh section viewer
+				section.refresh();
 			}
 
 			if (value instanceof Long) {
@@ -92,7 +102,10 @@ public class FiltersTabCellModifier implements ICellModifier {
 						parameterValue, filter.getParameter().getDescription());
 				// set parameter
 				filter.setParameter(parameter);
+				// refresh section viewer
+				section.refresh();
 			}
+			
 		} catch (NumberFormatException e) {
 
 			MessageDialog.openInformation(getShell(),

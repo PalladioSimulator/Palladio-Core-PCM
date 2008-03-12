@@ -48,7 +48,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int FILTERNAME_COLUMN_INDEX = 1;
 	public static final int PARAMETER_TYPE_COLUMN_INDEX = 2;
-	public static final int PARAMETER_VALUE_COLUMN_INDEX = 3;
+	public static final int PARAMETER_DESCRIPTION_COLUMN_INDEX = 3;
+	public static final int PARAMETER_VALUE_COLUMN_INDEX = 4;
 
 	/**
 	 * Columns of a table, which is used into ParameterEditDialog.
@@ -56,13 +57,13 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	public final static String ICON_COLUMN = "";
 	public final static String FILTERNAME_COLUMN = "Filter name";
 	public final static String PARAMETER_TYPE_COLUMN = "Parameter type";
+	public final static String PARAMETER_DESCRIPTION_COLUMN = "Description";
 	public final static String PARAMETER_VALUE_COLUMN = "Value";
-	
 	/** ToolBar width. */
 	private final int toolbarWidth = 23;
 
 	// Set column names of Tabele
-	protected static String[] columnNames = new String[] { ICON_COLUMN, FILTERNAME_COLUMN, PARAMETER_TYPE_COLUMN, PARAMETER_VALUE_COLUMN };
+	protected static String[] columnNames = new String[] { ICON_COLUMN, FILTERNAME_COLUMN, PARAMETER_TYPE_COLUMN,PARAMETER_DESCRIPTION_COLUMN, PARAMETER_VALUE_COLUMN };
 
 	// style the style of table to construct
 	int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
@@ -96,7 +97,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		viewer.setColumnProperties(columnNames);
 		viewer.setContentProvider(new FiltersTabContentProvider());
 		viewer.setLabelProvider(new FiltersTabLabelProvider());
-		viewer.setCellModifier(new FiltersTabCellModifier(columnNames, selectedFilter));
+		
+		viewer.setCellModifier(new FiltersTabCellModifier(this));
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
 				Object object = ((IStructuredSelection) viewer.getSelection())
@@ -129,6 +131,11 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		final TableColumn parametersColumn = new TableColumn(table, SWT.CENTER);
 		parametersColumn.setWidth(100);
 		parametersColumn.setText(PARAMETER_TYPE_COLUMN);
+		
+		// create parameter description column
+		final TableColumn parameterDescColumn = new TableColumn(table, SWT.CENTER);
+		parameterDescColumn.setWidth(140);
+		parameterDescColumn.setText(PARAMETER_DESCRIPTION_COLUMN);
 		
 		// create parameter value column
 		final TableColumn parameterValueColumn = new TableColumn(table, SWT.CENTER);
