@@ -19,8 +19,8 @@ public class TestDriver {
 	private static Random random;
 
 	private static final int randomSeed = 12345;
-	private static final int numberOfUsers = 10;
-	private static final int userArrivalDelayMs = 4000;
+	private static final int numberOfUsers = 30;
+	private static final int userArrivalDelayMs = 2000;
 	/**
 	 * needs to terminate with a "/"
 	 */
@@ -57,7 +57,8 @@ public class TestDriver {
 				logger.error(e);
 			}
 			
-			TestDataStruct testData = createTestDataStruct();
+			//TestDataStruct testData = createTestDataStruct();
+			TestDataStruct testData = createSingleFileTestDataStruct();
 			BusinessFacade.uploadFiles(
 				testData.getInputFiles(), testData.getInputFileTypes());			
 		}
@@ -72,6 +73,7 @@ public class TestDriver {
 	 * Might contain duplicate files.
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	private TestDataStruct createTestDataStruct() {		
 		int numberOfAllFiles = uploadFiles.length;
 		int numberOfFilesForUpload = random.nextInt(numberOfAllFiles);
@@ -101,6 +103,36 @@ public class TestDriver {
 		testData.setInputFileTypes(inputFileTypes);		
 		return testData;
 	}
+	
+	/**
+	 * Creates a one file selection from the list of files.
+	 * @return
+	 */
+	@SuppressWarnings("unused")
+	private TestDataStruct createSingleFileTestDataStruct() {		
+		int numberOfAllFiles = uploadFiles.length;
+		int numberOfFilesForUpload = 1;
+	
+		byte[][] inputFiles = new byte[numberOfFilesForUpload][];
+		int[] inputFileTypes = new int[numberOfFilesForUpload];	
+				
+		//random pick from list of all files
+		int selectedFile = random.nextInt(numberOfAllFiles);
+		inputFiles[0] =
+				fillBuffer(uploadFilesLocation + uploadFiles[selectedFile]);
+		if(uploadFiles[selectedFile].endsWith(".txt")) {
+			inputFileTypes[0] =
+				FileType.TEXT;
+		} else {
+			inputFileTypes[0] =
+				FileType.COMPRESSED;
+		}
+		
+		TestDataStruct testData = new TestDataStruct();
+		testData.setInputFiles(inputFiles);
+		testData.setInputFileTypes(inputFileTypes);		
+		return testData;
+	}	
 		
 	/**
 	 * from SPEC

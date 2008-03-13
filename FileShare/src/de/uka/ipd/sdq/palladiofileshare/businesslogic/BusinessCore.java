@@ -77,7 +77,7 @@ public class BusinessCore {
 		byte[] compressedFile;
 		
 		for(int x = 0; x < inputFiles.length; x++) {			
-			inputFile = inputFiles[x];
+			inputFile = inputFiles[x];						
 			
 			if(inputFileTypes[x] == FileType.TEXT) {
 
