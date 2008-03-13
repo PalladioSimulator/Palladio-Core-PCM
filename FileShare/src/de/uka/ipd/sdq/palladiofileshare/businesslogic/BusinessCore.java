@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 
-import java.security.MessageDigest;
-
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.logger.Log;
@@ -25,7 +23,8 @@ public class BusinessCore {
 	private static Logger logger = Logger.getLogger(BusinessCore.class);
 	
 	// KK-Log:
-	private de.uka.ipd.sdq.logger.Logger kkLogger = Log.getLogger("BusinessCore", this.getClass().getName());
+	private de.uka.ipd.sdq.logger.Logger kkLogger =
+		Log.getLogger("BusinessCore", this.getClass().getName());
 	
 	// sub-components (internal)
 	private CopyrightedMaterialDatabase copyDB;
@@ -56,8 +55,12 @@ public class BusinessCore {
 	 */
 	public void uploadFiles(byte[][] inputFiles, int[] inputFileTypes) {				
 		kkLogger.newMethodInvocation();
-		kkLogger.addLogEntryData(LogType.MethodCall, LogDataType.ParameterValue, "inputFiles.length", inputFiles.length);
-		kkLogger.addLogEntryData(LogType.MethodCall, LogDataType.ParameterValue, "inputFileTypes.length", inputFiles.length);
+		kkLogger.addLogEntryData(LogType.MethodCall,
+			LogDataType.ParameterValue, "inputFiles.length",
+			inputFiles.length);
+		kkLogger.addLogEntryData(LogType.MethodCall,
+			LogDataType.ParameterValue, "inputFileTypes.length",
+			inputFiles.length);
 		
 		byte[] fileHashAsBytes;		
 		byte[] inputFile;
@@ -93,19 +96,23 @@ public class BusinessCore {
 
 	private byte[] getMessageDigest(byte[] inputBytes) {
 		// KK-Log:
-		kkLogger.addLogEntryData(LogType.BeforeExternalAction, LogDataType.ParameterValue, "inputFile.length", inputBytes.length);
+		kkLogger.addLogEntryData(LogType.BeforeExternalAction,
+			LogDataType.ParameterValue, "inputFile.length", inputBytes.length);
 
 		return hash.getMessageDigest(inputBytes);		
 	}
 
 	private byte[] compress(byte[] inputFile) {		
 		// KK-Log:
-		kkLogger.addLogEntryData(LogType.BeforeExternalAction, LogDataType.ParameterValue, "inputFile.length", inputFile.length);
+		kkLogger.addLogEntryData(LogType.BeforeExternalAction,
+			LogDataType.ParameterValue, "inputFile.length", inputFile.length);
 		
 		byte[] compressedFile = compression.compress(inputFile);
 		
 		// KK-Log:
-		kkLogger.addLogEntryData(LogType.AfterExternalAction, LogDataType.ParameterValue, "compressedFile.length", compressedFile.length);
+		kkLogger.addLogEntryData(LogType.AfterExternalAction,
+			LogDataType.ParameterValue, "compressedFile.length",
+				compressedFile.length);
 		
 		return compressedFile;
 	}	
@@ -114,7 +121,8 @@ public class BusinessCore {
 
 		boolean isCopyrighted = this.copyDB.isCopyrightedMaterial(hash);		
 		// KK-Log:
-		kkLogger.addLogEntryData(LogType.AfterExternalAction, LogDataType.ParameterValue, "isCopyrighted", isCopyrighted);
+		kkLogger.addLogEntryData(LogType.AfterExternalAction,
+			LogDataType.ParameterValue, "isCopyrighted", isCopyrighted);
 		
 		return isCopyrighted;
 	}
@@ -123,7 +131,8 @@ public class BusinessCore {
 		
 		boolean isFileInDB = this.fileDB.existsInDatabase(hash);
 		// KK-Log:
-		kkLogger.addLogEntryData(LogType.AfterExternalAction, LogDataType.ParameterValue, "isFileInDB", isFileInDB);
+		kkLogger.addLogEntryData(LogType.AfterExternalAction,
+			LogDataType.ParameterValue, "isFileInDB", isFileInDB);
 
 		return isFileInDB;
 	}
@@ -134,17 +143,20 @@ public class BusinessCore {
 	
 	private void storeFileWithStrategy(byte[] file, byte[] fileHash) {
 		// KK-Log:
-		kkLogger.addLogEntryData(LogType.BeforeReturn, LogDataType.ParameterValue, "file.length", file.length);
+		kkLogger.addLogEntryData(LogType.BeforeReturn,
+			LogDataType.ParameterValue, "file.length", file.length);
 
 		if(file.length > SIZE_OF_LARGE_FILES) {
 			// KK-Log:
-			kkLogger.addLogEntryData(LogType.BranchSelection, LogDataType.Timestamp, "storage if: large", 1);
+			kkLogger.addLogEntryData(LogType.BranchSelection,
+				LogDataType.Timestamp, "storage if: large", 1);
 			
 			logger.debug("Writing large file to storage system.");
 			this.storageSubSystemLargeFiles.storeFile(file, fileHash);
 		} else {
 			// KK-Log:
-			kkLogger.addLogEntryData(LogType.BranchSelection, LogDataType.Timestamp, "storage else: small", 0);
+			kkLogger.addLogEntryData(LogType.BranchSelection,
+				LogDataType.Timestamp, "storage else: small", 0);
 			
 			logger.debug("Writing small file to storage system.");
 			this.storageSubSystemSmallFiles.storeFile(file, fileHash);
