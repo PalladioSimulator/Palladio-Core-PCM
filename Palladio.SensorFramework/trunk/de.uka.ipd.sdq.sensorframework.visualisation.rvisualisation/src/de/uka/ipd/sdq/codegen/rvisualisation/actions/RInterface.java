@@ -117,18 +117,20 @@ public class RInterface {
 				engineAvailable = true;
 			}
 		} catch (UnsatisfiedLinkError e) {
+			String libraryPath=System.getProperty("java.library.path");
 			RVisualisationPlugin
 					.log(
 							IStatus.ERROR,
-							"No jri.dll found or R not loadable. Ensure jri.dll is in java.library.path variable part of the JVM and " +
-							"R is on the system path.");
+							"No jri.dll not loadable. The JRI provided with this package is designed for R 2.6.1, check the detailed " +
+							"error message if a version conflict may have occured. Ensure jri.dll is in java.library.path variable part of the JVM and " +
+							"R is on the system path. Details: java.library.path=" + libraryPath +";errorMessage=" + e.getCause());
 			new MessageDialog(
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 							.getShell(),
 					"Error loading R",
 					null,
-					"Could not load R. You need to install R including rJava on your machine. Put R's binary "
-							+ "folder into your system path. Ensure jri.dll is in java.library.path variable of the JVM.",
+					"Could not load R 2.6.1. You need to install the correct Version of R including rJava on your machine. Put R's binary "
+							+ "folder into your system path. Check the error log for a detailed message.",
 					MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 		}
 	}
