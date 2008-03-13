@@ -23,8 +23,7 @@ public class Hash {
 	private String messageDigestType;
 	
 	public Hash(){
-		this.messageDigestType = MESSAGE_DIGEST_TYPE_SHA_512;
-		PropertyConfigurator.configure("log4j.properties");
+		this.messageDigestType = MESSAGE_DIGEST_TYPE_SHA_512;		
 		log = Logger.getLogger(Hash.class);
 	}
 	private Logger log;
