@@ -19,7 +19,8 @@ public class TestDriver {
 	private static Random random;
 
 	private static final int randomSeed = 12345;
-	private static final int numberParallelUsers = 5;	
+	private static final int numberParallelUsers = 5;
+	private static final int userArrivalDelayMs = 1000;
 	/**
 	 * needs to terminate with a "/"
 	 */
@@ -48,9 +49,14 @@ public class TestDriver {
 		logger.info("Finished TestDriver");
 	}
 	
-	public void start() {
-		
+	public void start() {		
 		for(int x = 0; x < numberParallelUsers; x++) {
+			try {
+				Thread.sleep(userArrivalDelayMs);
+			} catch (InterruptedException e) {
+				logger.error(e);
+			}
+			
 			TestDataStruct testData = createTestDataStruct();
 			BusinessFacade.uploadFiles(
 				testData.getInputFiles(), testData.getInputFileTypes());			
