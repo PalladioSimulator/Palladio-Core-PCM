@@ -38,8 +38,8 @@ public class CompressionRunner {
 	            comprBuffer.getLength(),
 	            CB.UNCOMPRESS,
 	            DECOMPRESS_BUFFERS[btid - 1]);*/
-        logger.info(SOURCE.getLength() + " " + SOURCE.getCRC() + " ");
-        logger.info(comprBuffer.getLength() + comprBuffer.getCRC() + " ");                
+        logger.debug(SOURCE.getLength() + " " + SOURCE.getCRC() + " ");
+        logger.debug(comprBuffer.getLength() + comprBuffer.getCRC() + " ");                
         //logger.info(decomprBufer.getLength() + " " + decomprBufer.getCRC());
     
         return comprBuffer;

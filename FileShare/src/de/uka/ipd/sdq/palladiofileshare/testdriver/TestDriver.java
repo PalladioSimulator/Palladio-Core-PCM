@@ -20,7 +20,7 @@ public class TestDriver {
 
 	private static final int randomSeed = 12345;
 	private static final int numberOfUsers = 10;
-	private static final int userArrivalDelayMs = 1000;
+	private static final int userArrivalDelayMs = 2000;
 	/**
 	 * needs to terminate with a "/"
 	 */
