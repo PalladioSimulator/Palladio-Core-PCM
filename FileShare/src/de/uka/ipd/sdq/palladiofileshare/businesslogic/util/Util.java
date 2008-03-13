@@ -12,10 +12,11 @@ import org.apache.log4j.Logger;
 public class Util {
 
 	private static Logger logger = Logger.getLogger(Util.class);
+	private static int randomSeed = 1234;
 		
 	public static Set<Integer> initHashSetWithInteger(int amountOfData) {	
 		Set<Integer> hashSet = new HashSet<Integer>();
-		Random r = new Random();
+		Random r = new Random(randomSeed);
 
 		for(int x = 0; x < amountOfData; x++) {			
 			//FIXME: adapt to size of used hash algorithm: 
