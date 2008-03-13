@@ -27,7 +27,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          id="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramEditorID"
          name="%editorName"
          icon="icons/obj16/EntityDiagramFile.gif"
-         extensions="composite_diagram"
+         extensions="composite_diagram, system_diagram"
          default="true"
          class="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramEditor"
          matchingStrategy="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelMatchingStrategy"

@@ -106,7 +106,7 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 	 */
 	public void addPages() {
 		diagramModelFilePage = new PalladioComponentModelCreationWizardPage(
-				"DiagramModelFile", getSelection(), "composite_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DiagramModelFile", getSelection(), "system_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage.setTitle("Create CompositeModel Diagram");
 		diagramModelFilePage
 				.setDescription("Select file that will contain diagram model.");
