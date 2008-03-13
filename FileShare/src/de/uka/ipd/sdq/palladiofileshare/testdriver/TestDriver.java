@@ -19,7 +19,7 @@ public class TestDriver {
 	private static Random random;
 
 	private static final int randomSeed = 12345;
-	private static final int numberParallelUsers = 5;
+	private static final int numberOfUsers = 10;
 	private static final int userArrivalDelayMs = 1000;
 	/**
 	 * needs to terminate with a "/"
@@ -50,7 +50,7 @@ public class TestDriver {
 	}
 	
 	public void start() {		
-		for(int x = 0; x < numberParallelUsers; x++) {
+		for(int x = 0; x < numberOfUsers; x++) {
 			try {
 				Thread.sleep(userArrivalDelayMs);
 			} catch (InterruptedException e) {
@@ -147,8 +147,7 @@ public class TestDriver {
 		try {
 			Thread.sleep(100000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e);
 		}
 		// KK-Log:
 		// Specific Setup
