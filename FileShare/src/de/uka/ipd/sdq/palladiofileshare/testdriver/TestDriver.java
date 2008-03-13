@@ -7,6 +7,10 @@ import java.util.Random;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.logger.Log;
+import de.uka.ipd.sdq.logger.LogFilter;
+import de.uka.ipd.sdq.logger.LogPrinterFactory;
+import de.uka.ipd.sdq.logger.enums.LogEntryItemType;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessFacade;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.FileType;
 
@@ -51,8 +55,11 @@ public class TestDriver {
 				testData.getInputFiles(), testData.getInputFileTypes());			
 		}
 		
+		//KK-Log:
+		finishKKLogging();		
 	}
-	
+
+
 	/**
 	 * Creates a selection of n files from the list of files.
 	 * Might contain duplicate files.
@@ -126,4 +133,20 @@ public class TestDriver {
         
         return null;
     }    
+    
+    /**
+     * KK: Parameter logging
+     */
+	private void finishKKLogging() {
+		// KK-Log:
+		// Specific Setup
+		LogFilter logFilter = new LogFilter(true);
+		        	
+		// Outputs
+		//Log.WriteToConsole(LogPrinterFactory.getScreenOutput(), logFilter);
+		//Log.WriteToFile(LogPrinterFactory.getScreenOutput(), logFilter, new File("out.csv"));
+		Log.WriteToFile(LogPrinterFactory.getCSVOutput(), logFilter, new java.io.File("c:\\out.csv"));
+		    		    	
+		Log.invalidateCache();		
+	}
 }
