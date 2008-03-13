@@ -10,14 +10,15 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.logger.Log;
 import de.uka.ipd.sdq.logger.LogFilter;
 import de.uka.ipd.sdq.logger.LogPrinterFactory;
-import de.uka.ipd.sdq.logger.enums.LogEntryItemType;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.BusinessFacade;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.FileType;
 
 public class TestDriver {
 
 	private static Logger logger = Logger.getLogger(TestDriver.class);
+	private static Random random;
 
+	private static final int randomSeed = 12345;
 	private static final int numberParallelUsers = 5;	
 	/**
 	 * needs to terminate with a "/"
@@ -36,9 +37,9 @@ public class TestDriver {
 			"medium.zip",
 			"large.zip"
 		};
-	
-	
+		
 	public TestDriver() {	
+		random = new Random(randomSeed);
 	}
 	
 	public static void main(String args[]) {
@@ -65,8 +66,7 @@ public class TestDriver {
 	 * Might contain duplicate files.
 	 * @return
 	 */
-	private TestDataStruct createTestDataStruct() {
-		Random random = new Random();
+	private TestDataStruct createTestDataStruct() {		
 		int numberOfAllFiles = uploadFiles.length;
 		int numberOfFilesForUpload = random.nextInt(numberOfAllFiles);
 		if(numberOfFilesForUpload == 0) {
