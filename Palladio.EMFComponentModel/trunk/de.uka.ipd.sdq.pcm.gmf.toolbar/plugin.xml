@@ -13,7 +13,7 @@
                label="New &amp;Repository Diagram"
                icon="icons/RepositoryDiagramFile.gif"
                class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewRepositoryDiagramAction"
-               tooltip="Create a new Repository Diagram and empty Repository Model."
+               tooltip="Create a new Repository Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewRepositoryDiagramActionID">
          </action>
@@ -21,7 +21,7 @@
                label="New &amp;Composite Diagram"
                icon="icons/CompositeDiagramFile.gif"
                class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewCompositeDiagramAction"
-               tooltip="Create a new Composite Diagram and empty System Model."
+               tooltip="Create a new System Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewCompositeDiagramActionID">
          </action>
@@ -29,7 +29,7 @@
                label="New &amp;Allocation Diagram"
                icon="icons/AllocationDiagramFile.gif"
                class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewAllocationDiagramAction"
-               tooltip="Create a new Allocation Diagram and empty Allocation Model."
+               tooltip="Create a new Allocation Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewAllocationDiagramActionID">
          </action>
@@ -37,7 +37,7 @@
                label="New &amp;Usage Diagram"
                icon="icons/UsageDiagramFile.gif"
                class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewUsageDiagramAction"
-               tooltip="Create a new Usage Diagram and empty Usage Model."
+               tooltip="Create a new Usage Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewUsageDiagramActionID">
          </action>
