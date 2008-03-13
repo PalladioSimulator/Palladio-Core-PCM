@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.palladiofileshare.testdriver;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Random;
 
 import org.apache.log4j.Logger;
 
@@ -33,8 +34,7 @@ public class TestDriver {
 		};
 	
 	
-	public TestDriver() {
-	
+	public TestDriver() {	
 	}
 	
 	public static void main(String args[]) {
@@ -46,33 +46,54 @@ public class TestDriver {
 	public void start() {
 		
 		for(int x = 0; x < numberParallelUsers; x++) {
-			BusinessFacade.uploadFiles(createTestData(), createTestDataFilesTypes());			
+			TestDataStruct testData = createTestDataStruct();
+			BusinessFacade.uploadFiles(
+				testData.getInputFiles(), testData.getInputFileTypes());			
 		}
 		
 	}
 	
-	private byte[][] createTestData() {
-		int numberOfFiles = uploadFiles.length;
-		byte[][] inputFiles = new byte[numberOfFiles][];
-		
-		for(int x = 0; x < numberOfFiles; x++) {		
+	/**
+	 * Creates a selection of n files from the list of files.
+	 * Might contain duplicate files.
+	 * @return
+	 */
+	private TestDataStruct createTestDataStruct() {
+		Random random = new Random();
+		int numberOfAllFiles = uploadFiles.length;
+		int numberOfFilesForUpload = random.nextInt(numberOfAllFiles);
+		if(numberOfFilesForUpload == 0) {
+			numberOfFilesForUpload = 1;
+		}
+	
+		byte[][] inputFiles = new byte[numberOfFilesForUpload][];
+		int[] inputFileTypes = new int[numberOfFilesForUpload];	
+				
+		for(int x = 0; x < numberOfFilesForUpload; x++) {
+			//random pick from list of all files
+			int selectedFile = random.nextInt(numberOfAllFiles);
 			inputFiles[x] =
-					fillBuffer(uploadFilesLocation + uploadFiles[x]);
-		}
-		return inputFiles;
-	}
-	
-	private int[] createTestDataFilesTypes() {
-		int numberOfFiles = uploadFiles.length;
-		int[] inputFileTypes = new int[numberOfFiles];
-		
-		for(int x = 0; x < numberOfFiles; x++) {		
-			inputFileTypes[x] =
+					fillBuffer(uploadFilesLocation + uploadFiles[selectedFile]);
+			if(uploadFiles[selectedFile].endsWith(".txt")) {
+				inputFileTypes[x] =
+					FileType.TEXT;
+			} else {
+				inputFileTypes[x] =
 					FileType.COMPRESSED;
+			}
 		}
-		return inputFileTypes;
+		
+		TestDataStruct testData = new TestDataStruct();
+		testData.setInputFiles(inputFiles);
+		testData.setInputFileTypes(inputFileTypes);		
+		return testData;
 	}
-	
+		
+	/**
+	 * from SPEC
+	 * @param fileName
+	 * @return
+	 */
     private static byte[] fillBuffer(String fileName) {
         try {
             FileInputStream sif = new FileInputStream(fileName);

@@ -42,7 +42,7 @@ public class BusinessCore {
 	 * @param inputStream
 	 * @param fileType FileType static ints
 	 */
-	public void uploadFiles(byte[][] inputFiles, int[] fileTypes) {
+	public void uploadFiles(byte[][] inputFiles, int[] inputFileTypes) {
 		
 		byte[] fileHashAsBytes;		
 		byte[] inputFile;
@@ -51,10 +51,12 @@ public class BusinessCore {
 		for(int x = 0; x < inputFiles.length; x++) {			
 			inputFile = inputFiles[x];
 			
-			if(fileTypes[x] == FileType.TEXT)
+			if(inputFileTypes[x] == FileType.TEXT)
 			{
+				logger.debug("Non-Compressed file. Compressing.");
 				compressedFile = this.compress(inputFile);
 			} else {
+				logger.debug("Compressed file. Doing nothing.");
 				compressedFile = inputFile; //do nothing
 			}
 			
