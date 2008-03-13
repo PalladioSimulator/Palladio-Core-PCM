@@ -12,12 +12,12 @@ public class CopyrightedMaterialDatabase {
 	private static Logger logger = Logger.getLogger(CopyrightedMaterialDatabase.class);
 	private static CopyrightedMaterialDatabase singleton;
 	private static final int numberOfCopyrightedMaterials = 100000;
-	private static Set<byte[]> copyrightedHashs;
+	private static Set<Integer> copyrightedHashs;
 	
 	private CopyrightedMaterialDatabase() {
 		logger.debug("Init CopyrightedMaterialDatabase start");
-		copyrightedHashs = new HashSet<byte[]>();
-		copyrightedHashs = Util.initHashSetWithHashs(numberOfCopyrightedMaterials);
+		copyrightedHashs = new HashSet<Integer>();
+		copyrightedHashs = Util.initHashSetWithInteger(numberOfCopyrightedMaterials);
 		logger.debug("Init CopyrightedMaterialDatabase end");
 	}
 	
@@ -29,6 +29,6 @@ public class CopyrightedMaterialDatabase {
 	}
 
 	public boolean isCopyrightedMaterial(byte[] hash) {	
-		return copyrightedHashs.contains(hash);		
+		return copyrightedHashs.contains(Util.createIntegerHash(hash));		
 	}
 }
