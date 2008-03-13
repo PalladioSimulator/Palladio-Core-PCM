@@ -138,10 +138,16 @@ public class TestDriver {
      * KK: Parameter logging
      */
 	private void finishKKLogging() {
+		try {
+			Thread.sleep(100000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// KK-Log:
 		// Specific Setup
-		LogFilter logFilter = new LogFilter(true);
-		        	
+		LogFilter logFilter = new LogFilter(true);		
+		
 		// Outputs
 		//Log.WriteToConsole(LogPrinterFactory.getScreenOutput(), logFilter);
 		//Log.WriteToFile(LogPrinterFactory.getScreenOutput(), logFilter, new File("out.csv"));
