@@ -42,16 +42,16 @@ public class BusinessCore {
 	 * @param inputStream
 	 * @param fileType FileType static ints
 	 */
-	public void uploadFiles(byte[][] inputStreams, int fileType) {
+	public void uploadFiles(byte[][] inputFiles, int[] fileTypes) {
 		
 		byte[] fileHashAsBytes;		
 		byte[] inputFile;
 		byte[] compressedFile;
 		
-		for(int x = 0; x < inputStreams.length; x++) {			
-			inputFile = inputStreams[x];
+		for(int x = 0; x < inputFiles.length; x++) {			
+			inputFile = inputFiles[x];
 			
-			if(fileType == FileType.TEXT)
+			if(fileTypes[x] == FileType.TEXT)
 			{
 				compressedFile = this.compress(inputFile);
 			} else {

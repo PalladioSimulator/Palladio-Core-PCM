@@ -13,7 +13,7 @@ public class TestDriver {
 
 	private static Logger logger = Logger.getLogger(TestDriver.class);
 
-	private static final int numberOfUploads = 10;	
+	private static final int numberParallelUsers = 10;	
 	/**
 	 * needs to terminate with a "/"
 	 */
@@ -45,8 +45,8 @@ public class TestDriver {
 	
 	public void start() {
 		
-		for(int x = 0; x < numberOfUploads; x++) {
-			BusinessFacade.uploadFiles(createTestData(), FileType.COMPRESSED);			
+		for(int x = 0; x < numberParallelUsers; x++) {
+			BusinessFacade.uploadFiles(createTestData(), createTestDataFilesTypes());			
 		}
 		
 	}
@@ -60,6 +60,17 @@ public class TestDriver {
 					fillBuffer(uploadFilesLocation + uploadFiles[x]);
 		}
 		return inputFiles;
+	}
+	
+	private int[] createTestDataFilesTypes() {
+		int numberOfFiles = uploadFiles.length;
+		int[] inputFileTypes = new int[numberOfFiles];
+		
+		for(int x = 0; x < numberOfFiles; x++) {		
+			inputFileTypes[x] =
+					FileType.COMPRESSED;
+		}
+		return inputFileTypes;
 	}
 	
     private static byte[] fillBuffer(String fileName) {

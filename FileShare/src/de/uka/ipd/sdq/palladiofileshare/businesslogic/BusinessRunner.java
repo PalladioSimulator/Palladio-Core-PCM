@@ -4,7 +4,7 @@ public class BusinessRunner implements Runnable{
 
 	private BusinessCore businessCore;
 	private byte[][] inputFiles;
-	private int fileType;
+	private int[] fileTypes;
 	
 	public BusinessRunner() {
 		this.businessCore = new BusinessCore();
@@ -15,13 +15,13 @@ public class BusinessRunner implements Runnable{
 	 * @param inputStreams
 	 * @param fileType
 	 */
-	public void uploadFiles(byte[][] inputStreams, int fileType) {
-		this.businessCore.uploadFiles(inputStreams, fileType);		
+	public void uploadFiles(byte[][] inputStreams, int[] fileTypes) {
+		this.businessCore.uploadFiles(inputStreams, fileTypes);		
 	}
 
 	@Override
 	public void run() {
-		uploadFiles(inputFiles, fileType);
+		uploadFiles(inputFiles, fileTypes);
 	}
 
 	public byte[][] getInputStreams() {
@@ -32,12 +32,12 @@ public class BusinessRunner implements Runnable{
 		this.inputFiles = inputFiles;
 	}
 
-	public int getFileType() {
-		return fileType;
+	public int[] getFileType() {
+		return fileTypes;
 	}
 
-	public void setFileType(int fileType) {
-		this.fileType = fileType;
+	public void setFileTypes(int[] fileTypes) {
+		this.fileTypes = fileTypes;
 	}
 	
 }
