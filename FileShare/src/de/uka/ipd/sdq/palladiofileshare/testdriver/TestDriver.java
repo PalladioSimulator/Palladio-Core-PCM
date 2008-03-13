@@ -14,7 +14,7 @@ public class TestDriver {
 
 	private static Logger logger = Logger.getLogger(TestDriver.class);
 
-	private static final int numberParallelUsers = 10;	
+	private static final int numberParallelUsers = 5;	
 	/**
 	 * needs to terminate with a "/"
 	 */
