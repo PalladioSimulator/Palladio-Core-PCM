@@ -19,11 +19,16 @@ public class TestDriver {
 	 */
 	private static final String uploadFilesLocation = "testFiles/";
 	private static final String[] uploadFiles = {
-			"small.txt",
+			"tiny.txt",
+		    "small.txt",
+		    "medium.txt",
 			"long.txt",
+			"superlong.txt",
 			"small.jpg",
+			"medium.jpg",
 			"large.jpg",
 			"small.zip",
+			"medium.zip",
 			"large.zip"
 		};
 	
