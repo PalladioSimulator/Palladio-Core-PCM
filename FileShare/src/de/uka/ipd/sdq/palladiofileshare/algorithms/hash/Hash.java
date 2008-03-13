@@ -54,7 +54,7 @@ public class Hash {
 	 * @param inputBytes
 	 * @return
 	 */
-	private byte[] getMessageDigest(byte[] inputBytes) {		
+	public byte[] getMessageDigest(byte[] inputBytes) {		
 		MessageDigest md;
 		try {
 			md = MessageDigest.getInstance(this.messageDigestType);
