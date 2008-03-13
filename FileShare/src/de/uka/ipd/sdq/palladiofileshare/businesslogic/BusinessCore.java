@@ -57,10 +57,20 @@ public class BusinessCore {
 		kkLogger.newMethodInvocation();
 		kkLogger.addLogEntryData(LogType.MethodCall,
 			LogDataType.ParameterValue, "inputFiles.length",
-			inputFiles.length);
+			inputFiles.length);		
+		for(int x = 0; x < inputFiles.length; x++) {
+			kkLogger.addLogEntryData(LogType.MethodCall,
+				LogDataType.ParameterValue, "file-length " + x,
+				inputFiles[x].length);
+		}		
 		kkLogger.addLogEntryData(LogType.MethodCall,
 			LogDataType.ParameterValue, "inputFileTypes.length",
 			inputFiles.length);
+		for(int x = 0; x < inputFileTypes.length; x++) {
+			kkLogger.addLogEntryData(LogType.MethodCall,
+				LogDataType.ParameterValue, "file-type " + x,
+				inputFileTypes[x]);
+		}
 		
 		byte[] fileHashAsBytes;		
 		byte[] inputFile;
@@ -69,71 +79,106 @@ public class BusinessCore {
 		for(int x = 0; x < inputFiles.length; x++) {			
 			inputFile = inputFiles[x];
 			
-			if(inputFileTypes[x] == FileType.TEXT)
-			{
+			if(inputFileTypes[x] == FileType.TEXT) {
+
+				// KK-Log:
+				kkLogger.addLogEntryData(LogType.BranchSelection,
+					LogDataType.Timestamp, "true: TEXT file", true);
+				
+				// KK-Log:
+				kkLogger.addLogEntryData(LogType.BeforeExternalAction,
+					LogDataType.ParameterValue, "inputFile.length", inputFile.length);
+				
 				logger.debug("Non-Compressed file. Compressing.");
 				compressedFile = this.compress(inputFile);
+				
+				// KK-Log:
+				kkLogger.addLogEntryData(LogType.AfterExternalAction,
+					LogDataType.ParameterValue, "compressedFile.length",
+						compressedFile.length);
+
 			} else {
+				
+				// KK-Log:
+				kkLogger.addLogEntryData(LogType.BranchSelection,
+					LogDataType.Timestamp, "false: COMPRESSED file", false);
+				
 				logger.debug("Compressed file. Doing nothing.");
 				compressedFile = inputFile; //do nothing
 			}
 			
-			fileHashAsBytes = this.getMessageDigest(compressedFile);
+			// KK-Log:
+			kkLogger.addLogEntryData(LogType.BeforeExternalAction,
+				LogDataType.ParameterValue, "compressedFile.length", compressedFile.length);
+			fileHashAsBytes = this.getMessageDigest(compressedFile);			
 			
-			if(isCopyrightedMaterial(fileHashAsBytes)) {
+			boolean isCopyrighted = isCopyrightedMaterial(fileHashAsBytes);
+			// KK-Log:
+			kkLogger.addLogEntryData(LogType.AfterExternalAction,
+				LogDataType.ParameterValue, "isCopyrighted", isCopyrighted);
+
+			if(isCopyrighted) {
+				
 				logger.debug("Copyrighted file found. File not stored.");
 				//reject file // do not store
-			} else {
-				if(isFileExistingInDB(fileHashAsBytes)) { 
+
+			} else {	
+				
+				boolean isFileInDB = isFileExistingInDB(fileHashAsBytes);
+				// KK-Log:
+				kkLogger.addLogEntryData(LogType.AfterExternalAction,
+					LogDataType.ParameterValue, "isFileInDB", isFileInDB);
+
+				if(isFileInDB) { 
+					
 					logger.debug("File already in DB.");
-				} else {
+
+				} else {		
+					
 					addFileToFileExistingDB(fileHashAsBytes);
-					this.storeFileWithStrategy(compressedFile, fileHashAsBytes);					
+					// KK-Log:
+					kkLogger.addLogEntryData(LogType.BeforeReturn,
+						LogDataType.ParameterValue, "compressedFile.length", compressedFile.length);
+
+					if(compressedFile.length > SIZE_OF_LARGE_FILES) {
+						
+						// KK-Log:
+						kkLogger.addLogEntryData(LogType.BranchSelection,
+							LogDataType.Timestamp, "storage if: large", 1);
+						
+						logger.debug("Writing large file to storage system.");
+						storeLargeFile(compressedFile, fileHashAsBytes);
+
+					} else {
+						
+						// KK-Log:
+						kkLogger.addLogEntryData(LogType.BranchSelection,
+							LogDataType.Timestamp, "storage else: small", 0);
+						
+						logger.debug("Writing small file to storage system.");
+						storeSmallFile(compressedFile, fileHashAsBytes);
+					}
 				}
 			}
 		}
 	}
 
 	private byte[] getMessageDigest(byte[] inputBytes) {
-		// KK-Log:
-		kkLogger.addLogEntryData(LogType.BeforeExternalAction,
-			LogDataType.ParameterValue, "inputFile.length", inputBytes.length);
-
 		return hash.getMessageDigest(inputBytes);		
 	}
 
-	private byte[] compress(byte[] inputFile) {		
-		// KK-Log:
-		kkLogger.addLogEntryData(LogType.BeforeExternalAction,
-			LogDataType.ParameterValue, "inputFile.length", inputFile.length);
-		
-		byte[] compressedFile = compression.compress(inputFile);
-		
-		// KK-Log:
-		kkLogger.addLogEntryData(LogType.AfterExternalAction,
-			LogDataType.ParameterValue, "compressedFile.length",
-				compressedFile.length);
-		
+	private byte[] compress(byte[] inputFile) {				
+		byte[] compressedFile = compression.compress(inputFile);	
 		return compressedFile;
 	}	
 	
 	private boolean isCopyrightedMaterial(byte[] hash) {
-
-		boolean isCopyrighted = this.copyDB.isCopyrightedMaterial(hash);		
-		// KK-Log:
-		kkLogger.addLogEntryData(LogType.AfterExternalAction,
-			LogDataType.ParameterValue, "isCopyrighted", isCopyrighted);
-		
+		boolean isCopyrighted = this.copyDB.isCopyrightedMaterial(hash);				
 		return isCopyrighted;
 	}
 	
-	private boolean isFileExistingInDB(byte[] hash) {
-		
+	private boolean isFileExistingInDB(byte[] hash) {		
 		boolean isFileInDB = this.fileDB.existsInDatabase(hash);
-		// KK-Log:
-		kkLogger.addLogEntryData(LogType.AfterExternalAction,
-			LogDataType.ParameterValue, "isFileInDB", isFileInDB);
-
 		return isFileInDB;
 	}
 	
@@ -141,25 +186,11 @@ public class BusinessCore {
 		this.fileDB.addNewFileHash(hash);				
 	}
 	
-	private void storeFileWithStrategy(byte[] file, byte[] fileHash) {
-		// KK-Log:
-		kkLogger.addLogEntryData(LogType.BeforeReturn,
-			LogDataType.ParameterValue, "file.length", file.length);
-
-		if(file.length > SIZE_OF_LARGE_FILES) {
-			// KK-Log:
-			kkLogger.addLogEntryData(LogType.BranchSelection,
-				LogDataType.Timestamp, "storage if: large", 1);
-			
-			logger.debug("Writing large file to storage system.");
-			this.storageSubSystemLargeFiles.storeFile(file, fileHash);
-		} else {
-			// KK-Log:
-			kkLogger.addLogEntryData(LogType.BranchSelection,
-				LogDataType.Timestamp, "storage else: small", 0);
-			
-			logger.debug("Writing small file to storage system.");
-			this.storageSubSystemSmallFiles.storeFile(file, fileHash);
-		}
+	private void storeLargeFile(byte[] file, byte[] fileHash) {
+		this.storageSubSystemLargeFiles.storeFile(file, fileHash);
+	}
+	
+	private void storeSmallFile(byte[] file, byte[] fileHash) {
+		this.storageSubSystemSmallFiles.storeFile(file, fileHash);
 	}
 }
