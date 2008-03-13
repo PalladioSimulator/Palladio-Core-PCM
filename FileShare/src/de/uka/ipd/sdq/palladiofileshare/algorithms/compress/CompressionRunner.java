@@ -8,14 +8,14 @@ import org.apache.log4j.Logger;
  *
  */
 public class CompressionRunner {    
-	private static Logger logger = Logger.getLogger(CompressionRunner.class);
+	private Logger logger = Logger.getLogger(CompressionRunner.class);
 	
-    public static Source SOURCE;
-    public static byte[][] COMPRESS_BUFFERS;
-    public static byte[][] DECOMPRESS_BUFFERS;
-    public static Compress CB;
+    public Source SOURCE;
+    public byte[][] COMPRESS_BUFFERS;
+    public byte[][] DECOMPRESS_BUFFERS;
+    public Compress CB;
 	
-	static void prepareBuffers(byte[] inputFile) {
+	void prepareBuffers(byte[] inputFile) {
         CB = new Compress();
         
     	SOURCE = new Source(inputFile);
@@ -26,7 +26,7 @@ public class CompressionRunner {
         COMPRESS_BUFFERS = new byte[20][Source.MAX_LENGTH]; //FIXME: 20
     }
 
-	static OutputBuffer runCompress(int btid) {		
+	OutputBuffer runCompress(int btid) {		
     	
 	    @SuppressWarnings("unused")
 		OutputBuffer comprBuffer, decomprBufer;
