@@ -32,61 +32,17 @@
 
 package de.uka.ipd.sdq.palladiofileshare.algorithms.compress;
 
-public final class Compress {
-    public final static int COMPRESS = 0;
-    public final static int UNCOMPRESS = 1;
-    final static int BITS = 16; /* always set to 16 for SPEC95 */
-    final static int INIT_BITS = 9; /* initial number of bits/code */
-    final static int HSIZE = 69001; /* 95% occupancy */
-    final static int SUFFIX_TAB_SZ = 65536; /* 2**BITS */
-    final static int STACK_SZ = 8000; /* decompression stack size */
-    final static byte magic_header[] = { (byte) 037, (byte) 0235 }; /* 1F 9D */
-    
-    /* Defines for third byte of header */
-    final static int BIT_MASK = 0x1f;
-    final static int BLOCK_MASK = 0x80;
-    
-        /*
-         * Masks 0x40 and 0x20 are free. I think 0x20 should mean that there is a
-         * fourth header byte (for expansion).
-         */
-    
-        /*
-         * the next two codes should not be changed lightly, as they must not lie
-         * within the contiguous general code space.
-         */
-    final static int FIRST = 257; /* first free entry */
-    final static int CLEAR = 256; /* table clear output code */
-    
-    final static byte lmask[] = { (byte) 0xff, (byte) 0xfe, (byte) 0xfc,
-    (byte) 0xf8, (byte) 0xf0, (byte) 0xe0,
-    (byte) 0xc0, (byte) 0x80, (byte) 0x00 };
-    
-    final static byte rmask[] = { (byte) 0x00, (byte) 0x01, (byte) 0x03,
-    (byte) 0x07, (byte) 0x0f, (byte) 0x1f,
-    (byte) 0x3f, (byte) 0x7f,	(byte) 0xff };
-    
-    public static OutputBuffer performAction(byte[] src, int srcLength,
-            int action, byte[] dst) {
-        
-        InputBuffer in = new InputBuffer(srcLength, src);
-        OutputBuffer out = new OutputBuffer(dst);
-        
-        if (action == COMPRESS) {
-            new Compressor(in, out).compress();
-        } else {
-            new Decompressor(in, out).decompress();
-        }
-        return out;
-    }
-}
-
-
 final class CodeTable {
     private short tab[];
     
     public CodeTable() {
         tab = new short[Compress.HSIZE];
+    }
+    
+    public void clear(int size) {
+        for (int code = 0; code < size; code++) {
+            tab[code] = 0;
+        }
     }
     
     public int of(int i) {
@@ -95,12 +51,6 @@ final class CodeTable {
     
     public void set(int i, int v) {
         tab[i] = (short) v;
-    }
-    
-    public void clear(int size) {
-        for (int code = 0; code < size; code++) {
-            tab[code] = 0;
-        }
     }
 }
 
@@ -142,6 +92,68 @@ class CompBase {
 }
 
 
+public final class Compress {
+    public final static int COMPRESS = 0;
+    public final static int UNCOMPRESS = 1;
+    
+    final static int BITS = 16; /* always set to 16 for SPEC95 */
+    final static int INIT_BITS = 9; /* initial number of bits/code */
+    final static int HSIZE = 69001; /* 95% occupancy */
+    final static int SUFFIX_TAB_SZ = 65536; /* 2**BITS */
+    final static int STACK_SZ = 8000; /* decompression stack size */
+    final static byte magic_header[] = { (byte) 037, (byte) 0235 }; /* 1F 9D */
+    
+    /* Defines for third byte of header */
+    final static int BIT_MASK = 0x1f;
+    final static int BLOCK_MASK = 0x80;
+    
+        /*
+         * Masks 0x40 and 0x20 are free. I think 0x20 should mean that there is a
+         * fourth header byte (for expansion).
+         */
+    
+        /*
+         * the next two codes should not be changed lightly, as they must not lie
+         * within the contiguous general code space.
+         */
+    final static int FIRST = 257; /* first free entry */
+    final static int CLEAR = 256; /* table clear output code */
+    
+    final static byte lmask[] = { (byte) 0xff, (byte) 0xfe, (byte) 0xfc,
+    (byte) 0xf8, (byte) 0xf0, (byte) 0xe0,
+    (byte) 0xc0, (byte) 0x80, (byte) 0x00 };
+    
+    final static byte rmask[] = { (byte) 0x00, (byte) 0x01, (byte) 0x03,
+    (byte) 0x07, (byte) 0x0f, (byte) 0x1f,
+    (byte) 0x3f, (byte) 0x7f,	(byte) 0xff };
+    
+    /** The method called by the business logic
+     * @param src
+     * @param srcLength
+     * @param action
+     * @param dst
+     * @return
+     */
+    public static OutputBuffer performAction(
+    		byte[] src, 
+    		int srcLength,
+            int action, 
+            byte[] dst
+      ) {
+        
+        InputBuffer in = new InputBuffer(srcLength, src);
+        OutputBuffer out = new OutputBuffer(dst);
+        
+        if (action == COMPRESS) {
+            new Compressor(in, out).compress();
+        } else {
+            new Decompressor(in, out).decompress();
+        }
+        return out;
+    }
+}
+
+
 /*
  * compress (Originally: stdin to stdout -- Changed by SPEC to: memory to
  * memory)
@@ -160,6 +172,40 @@ class CompBase {
  */
 
 final class Compressor extends CompBase {
+    static final class HashTable { // moved 4/15/98 dm/kmd
+        /*
+         * Use protected instead of private to allow access by parent class of inner
+         * class. wnb 4/17/98
+         */
+        
+        protected int tab[]; // for dynamic table sizing */
+        
+        protected int size;
+        
+        public HashTable() {
+            size = Compress.HSIZE;
+            tab = new int[size];
+        }
+        
+        public void clear() {
+            for (int i = 0; i < size; i++) {
+                tab[i] = -1;
+            }
+        }
+        
+        public int hsize() {
+            return size;
+        }
+        
+        public int of(int i) {
+            return tab[i];
+        }
+        
+        public void set(int i, int v) {
+            tab[i] = v;
+        }
+    }
+    
     private final static int CHECK_GAP = 10000; /* ratio check interval */
     
     private int ratio;
@@ -203,6 +249,40 @@ final class Compressor extends CompBase {
         output.writeByte(Compress.magic_header[0]);
         output.writeByte(Compress.magic_header[1]);
         output.writeByte((byte) (maxBits | blockCompress));
+    }
+    
+        /*
+         * Output the given code. Inputs: code: A n_bits-bit integer. If == -1, then
+         * EOF. This assumes that n_bits = < (long)wordsize - 1. Outputs: Outputs
+         * code to the file. Assumptions: Chars are 8 bits long. Algorithm: Maintain
+         * a BITS character long buffer (so that 8 codes will fit in it exactly).
+         */
+    
+    /* table clear for block compress */
+    private void clBlock() {
+        int rat;
+        
+        checkpoint = inCount + CHECK_GAP;
+        
+        if (inCount > 0x007fffff) { /* shift will overflow */
+            rat = bytesOut >> 8;
+            if (rat == 0) { /* Don't divide by zero */
+                rat = 0x7fffffff;
+            } else {
+                rat = inCount / rat;
+            }
+        } else {
+            rat = (inCount << 8) / bytesOut; /* 8 fractional bits */
+        }
+        if (rat > ratio) {
+            ratio = rat;
+        } else {
+            ratio = 0;
+            htab.clear();
+            freeEntry = Compress.FIRST;
+            clearFlag = 1;
+            output((int) Compress.CLEAR);
+        }
     }
     
     public void compress() {
@@ -267,13 +347,6 @@ final class Compressor extends CompBase {
         
         return;
     }
-    
-        /*
-         * Output the given code. Inputs: code: A n_bits-bit integer. If == -1, then
-         * EOF. This assumes that n_bits = < (long)wordsize - 1. Outputs: Outputs
-         * code to the file. Assumptions: Chars are 8 bits long. Algorithm: Maintain
-         * a BITS character long buffer (so that 8 codes will fit in it exactly).
-         */
     
     private void output(int code) {
         int rOff = offset, bits = bitsNumber;
@@ -355,67 +428,6 @@ final class Compressor extends CompBase {
         }
     }
     
-    /* table clear for block compress */
-    private void clBlock() {
-        int rat;
-        
-        checkpoint = inCount + CHECK_GAP;
-        
-        if (inCount > 0x007fffff) { /* shift will overflow */
-            rat = bytesOut >> 8;
-            if (rat == 0) { /* Don't divide by zero */
-                rat = 0x7fffffff;
-            } else {
-                rat = inCount / rat;
-            }
-        } else {
-            rat = (inCount << 8) / bytesOut; /* 8 fractional bits */
-        }
-        if (rat > ratio) {
-            ratio = rat;
-        } else {
-            ratio = 0;
-            htab.clear();
-            freeEntry = Compress.FIRST;
-            clearFlag = 1;
-            output((int) Compress.CLEAR);
-        }
-    }
-    
-    static final class HashTable { // moved 4/15/98 dm/kmd
-        /*
-         * Use protected instead of private to allow access by parent class of inner
-         * class. wnb 4/17/98
-         */
-        
-        protected int tab[]; // for dynamic table sizing */
-        
-        protected int size;
-        
-        public HashTable() {
-            size = Compress.HSIZE;
-            tab = new int[size];
-        }
-        
-        public int of(int i) {
-            return tab[i];
-        }
-        
-        public void set(int i, int v) {
-            tab[i] = v;
-        }
-        
-        public int hsize() {
-            return size;
-        }
-        
-        public void clear() {
-            for (int i = 0; i < size; i++) {
-                tab[i] = -1;
-            }
-        }
-    }
-    
 }
 
 /*
@@ -426,6 +438,54 @@ final class Compressor extends CompBase {
  */
 
 final class Decompressor extends CompBase {
+    static final class DeStack { // moved 4/15/98 dm/kmd
+        /*
+         * Use protected instead of private to allow access by parent class of inner
+         * class. wnb 4/17/98
+         */
+        
+        protected byte tab[];
+        
+        protected int index;
+        
+        public DeStack() {
+            tab = new byte[Compress.STACK_SZ];
+        }
+        
+        public boolean isEmpty() {
+            return index == 0;
+        }
+        
+        public byte pop() {
+            return tab[--index];
+        }
+        
+        public void push(byte c) {
+            tab[index++] = c;
+        }
+    }
+    
+    static final class SuffixTable {
+        protected byte tab[];
+        public SuffixTable() {
+            tab = new byte[Compress.SUFFIX_TAB_SZ];
+        }
+        
+        public void init(int size) {
+            for (int code = 0; code < size; code++) {
+                tab[code] = (byte) code;
+            }
+        }
+        
+        public byte of(int i) {
+            return tab[i];
+        }
+        
+        public void set(int i, byte v) {
+            tab[i] = v;
+        }
+    }
+    
     private int size;
     
     private CodeTable tabPrefix;
@@ -433,6 +493,11 @@ final class Decompressor extends CompBase {
     private SuffixTable tabSuffix;
     
     private DeStack deStack;
+    
+        /*
+         * Read one code from the standard input. If EOF, return -1. Inputs: stdin
+         * Outputs: code or -1 is returned.
+         */
     
     public Decompressor(InputBuffer in, OutputBuffer out) {
         super(in, out);
@@ -469,6 +534,7 @@ final class Decompressor extends CompBase {
         tabPrefix.clear(256);
         tabSuffix.init(256);
     }
+    
     
     public void decompress() {
         int code, oldcode, incode;
@@ -527,10 +593,6 @@ final class Decompressor extends CompBase {
         }
     }
     
-        /*
-         * Read one code from the standard input. If EOF, return -1. Inputs: stdin
-         * Outputs: code or -1 is returned.
-         */
     
     private int getCode() {
         int code;
@@ -590,56 +652,6 @@ final class Decompressor extends CompBase {
         offset += bitsNumber;
         
         return code;
-    }
-    
-    
-    static final class DeStack { // moved 4/15/98 dm/kmd
-        /*
-         * Use protected instead of private to allow access by parent class of inner
-         * class. wnb 4/17/98
-         */
-        
-        protected byte tab[];
-        
-        protected int index;
-        
-        public DeStack() {
-            tab = new byte[Compress.STACK_SZ];
-        }
-        
-        public void push(byte c) {
-            tab[index++] = c;
-        }
-        
-        public byte pop() {
-            return tab[--index];
-        }
-        
-        public boolean isEmpty() {
-            return index == 0;
-        }
-    }
-    
-    
-    static final class SuffixTable {
-        protected byte tab[];
-        public SuffixTable() {
-            tab = new byte[Compress.SUFFIX_TAB_SZ];
-        }
-        
-        public byte of(int i) {
-            return tab[i];
-        }
-        
-        public void set(int i, byte v) {
-            tab[i] = v;
-        }
-        
-        public void init(int size) {
-            for (int code = 0; code < size; code++) {
-                tab[code] = (byte) code;
-            }
-        }
     }
 }
 

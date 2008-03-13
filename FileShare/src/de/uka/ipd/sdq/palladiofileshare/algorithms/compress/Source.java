@@ -4,10 +4,10 @@ import java.util.zip.CRC32;
 
 public class Source {
 	
+    static int MAX_LENGTH;
     private byte[] buffer;
     private long crc;
     private int length;
-    static int MAX_LENGTH;
     
     public Source(byte[] inputFile) {
         buffer = inputFile;
@@ -18,16 +18,16 @@ public class Source {
         crc = crc32.getValue();
     }
     
+    public byte[] getBuffer() {
+        return buffer;
+    }
+    
     public long getCRC() {
         return crc;
     }
     
     public int getLength() {
         return length;
-    }
-    
-    public byte[] getBuffer() {
-        return buffer;
     }
     
 

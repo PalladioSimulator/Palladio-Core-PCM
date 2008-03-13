@@ -15,20 +15,24 @@ public class CompressionRunner {
     public static byte[][] DECOMPRESS_BUFFERS;
     public static Compress CB;
 	
-	public byte[] compress(byte[] inputFile) {				
-		prepareBuffers(inputFile);
+	static void prepareBuffers(byte[] inputFile) {
+        CB = new Compress();
+        
+    	SOURCE = new Source(inputFile);
 
-		//int threadID = (int)Thread.currentThread().getId();				
-		int threadID = 1; //TODO: check use of threads
-		return runCompress(threadID).getBuffer();
-	}
+        //DECOMPRESS_BUFFERS = new byte[Launch.currentNumberBmThreads][Source.MAX_LENGTH];
+        //COMPRESS_BUFFERS = new byte[Launch.currentNumberBmThreads][Source.MAX_LENGTH];
+        DECOMPRESS_BUFFERS = new byte[20][Source.MAX_LENGTH]; //FIXME: 20
+        COMPRESS_BUFFERS = new byte[20][Source.MAX_LENGTH]; //FIXME: 20
+    }
 
 	static OutputBuffer runCompress(int btid) {		
     	
-	    OutputBuffer comprBuffer, decomprBufer;
-	    comprBuffer = CB.performAction(SOURCE.getBuffer(),
+	    @SuppressWarnings("unused")
+		OutputBuffer comprBuffer, decomprBufer;
+	    comprBuffer = Compress.performAction(SOURCE.getBuffer(),
 	    		SOURCE.getLength(),
-	            CB.COMPRESS,
+	    		Compress.COMPRESS,
 	            COMPRESS_BUFFERS[btid - 1]);
 	    /*decomprBufer = CB.performAction(COMPRESS_BUFFERS[btid - 1],
 	            comprBuffer.getLength(),
@@ -41,16 +45,13 @@ public class CompressionRunner {
         return comprBuffer;
 	}
 	
-    static void prepareBuffers(byte[] inputFile) {
-        CB = new Compress();
-        
-    	SOURCE = new Source(inputFile);
+    public byte[] compress(byte[] inputFile) {				
+		prepareBuffers(inputFile);
 
-        //DECOMPRESS_BUFFERS = new byte[Launch.currentNumberBmThreads][Source.MAX_LENGTH];
-        //COMPRESS_BUFFERS = new byte[Launch.currentNumberBmThreads][Source.MAX_LENGTH];
-        DECOMPRESS_BUFFERS = new byte[20][Source.MAX_LENGTH]; //FIXME: 20
-        COMPRESS_BUFFERS = new byte[20][Source.MAX_LENGTH]; //FIXME: 20
-    }
+		//int threadID = (int)Thread.currentThread().getId();				
+		int threadID = 1; //TODO: check use of threads
+		return runCompress(threadID).getBuffer();
+	}
 
 	
 }

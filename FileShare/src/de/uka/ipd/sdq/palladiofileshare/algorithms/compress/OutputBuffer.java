@@ -10,14 +10,18 @@ public final class OutputBuffer {
         buffer = b;
     }
     
-    public int getLength() {
-        return cnt;
+    public byte[] getBuffer() {
+    	return buffer;
     }
     
     public long getCRC() {
         CRC32 crc32 = new CRC32();
         crc32.update(buffer, 0, cnt);
         return crc32.getValue();
+    }
+    
+    public int getLength() {
+        return cnt;
     }
     
     public void writeByte(byte c) {
@@ -28,9 +32,5 @@ public final class OutputBuffer {
         for (int i = 0; i < n; i++) {
             buffer[cnt++] = buf[i];
         }
-    }
-    
-    public byte[] getBuffer() {
-    	return buffer;
     }
 }
