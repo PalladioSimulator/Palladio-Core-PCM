@@ -75,9 +75,7 @@ public class BusinessCore {
 				compressedFile = inputFile; //do nothing
 			}
 			
-			MessageDigest fileHash;
-			fileHash = this.getMessageDigest(compressedFile);
-			fileHashAsBytes = fileHash.digest();
+			fileHashAsBytes = this.getMessageDigest(compressedFile);
 			
 			if(isCopyrightedMaterial(fileHashAsBytes)) {
 				logger.debug("Copyrighted file found. File not stored.");
@@ -93,8 +91,11 @@ public class BusinessCore {
 		}
 	}
 
-	private MessageDigest getMessageDigest(byte[] inputBytes) {		
-		return hash.getMessageDigest(inputBytes);
+	private byte[] getMessageDigest(byte[] inputBytes) {
+		// KK-Log:
+		kkLogger.addLogEntryData(LogType.BeforeExternalAction, LogDataType.ParameterValue, "inputFile.length", inputBytes.length);
+
+		return hash.getMessageDigest(inputBytes);		
 	}
 
 	private byte[] compress(byte[] inputFile) {		
