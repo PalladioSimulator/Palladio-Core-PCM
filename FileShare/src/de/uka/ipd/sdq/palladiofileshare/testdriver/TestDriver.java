@@ -19,8 +19,8 @@ public class TestDriver {
 	private static Random random;
 
 	private static final int randomSeed = 12345; //default: 12345
-	private static final int numberOfUsers = 1; //30
-	private static final int userArrivalDelayMs = 2000;
+	private static final int numberOfUsers = 20; //default: 30
+	private static final int userArrivalDelayMs = 5000;
 	/**
 	 * needs to terminate with a "/"
 	 */
@@ -57,8 +57,8 @@ public class TestDriver {
 				logger.error(e);
 			}
 			
-			//TestDataStruct testData = createTestDataStruct(); //default
-			TestDataStruct testData = createSingleFileTestDataStruct();
+			TestDataStruct testData = createTestDataStruct(); //default
+			//TestDataStruct testData = createSingleFileTestDataStruct();
 			BusinessFacade.uploadFiles(
 				testData.getInputFiles(), testData.getInputFileTypes());			
 		}
