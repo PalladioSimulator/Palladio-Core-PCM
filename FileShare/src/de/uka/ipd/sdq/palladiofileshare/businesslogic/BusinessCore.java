@@ -87,14 +87,14 @@ public class BusinessCore {
 				
 				// KK-Log:
 				kkLogger.addLogEntryData(LogType.BeforeExternalAction,
-					LogDataType.ParameterValue, "inputFile.length", inputFile.length);
+					LogDataType.ParameterValue, "compressFile.In.length", inputFile.length);
 				
 				logger.debug("Non-Compressed file. Compressing.");
 				compressedFile = this.compress(inputFile);
 				
 				// KK-Log:
 				kkLogger.addLogEntryData(LogType.AfterExternalAction,
-					LogDataType.ParameterValue, "compressedFile.length",
+					LogDataType.ParameterValue, "compressFile.Out.length",
 						compressedFile.length);
 
 			} else {

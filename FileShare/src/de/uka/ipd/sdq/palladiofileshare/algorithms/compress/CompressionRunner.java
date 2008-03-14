@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.palladiofileshare.algorithms.compress;
 
+import java.util.Arrays;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -50,7 +52,9 @@ public class CompressionRunner {
 
 		//int threadID = (int)Thread.currentThread().getId();				
 		int threadID = 1; //TODO: check use of threads
-		return runCompress(threadID).getBuffer();
+		OutputBuffer outBuffer = runCompress(threadID);
+		byte[] returnBytes = Arrays.copyOf(outBuffer.getBuffer(), outBuffer.getLength());
+		return returnBytes;
 	}
 
 	
