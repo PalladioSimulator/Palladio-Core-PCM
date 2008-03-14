@@ -11,6 +11,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.views.properties.tabbed,
  de.uka.ipd.sdq.sensorframework
 Eclipse-LazyStart: true
-Bundle-NativeCode: lib/R.dll;processor="x86";osname="Win32",lib/jri.dll;processor="x86";osname="Win32"
+Bundle-NativeCode: lib/Rblas.dll;processor="x86";osname="Win32",
+ lib/graphapp.dll;processor="x86";osname="Win32",
+ lib/iconv.dll;processor="x86";osname="Win32",
+ lib/R.dll;processor="x86";osname="Win32",
+ lib/jri.dll;processor="x86";osname="Win32"
 Bundle-ClassPath: lib/JRI.jar,
  .

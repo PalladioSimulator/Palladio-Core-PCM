@@ -71,6 +71,9 @@ public class RInterface {
 
 	static {
 		try {
+			System.loadLibrary("Rblas");
+			System.loadLibrary("iconv");
+			System.loadLibrary("graphapp");
 			System.loadLibrary("R");
 			System.loadLibrary("jri");
 			// just making sure we have the right version of everything
