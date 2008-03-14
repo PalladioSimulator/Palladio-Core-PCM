@@ -123,7 +123,7 @@ public class RInterface {
 							IStatus.ERROR,
 							"No jri.dll not loadable. The JRI provided with this package is designed for R 2.6.1, check the detailed " +
 							"error message if a version conflict may have occured. Ensure jri.dll is in java.library.path variable part of the JVM and " +
-							"R is on the system path. Details: java.library.path=" + libraryPath +";errorMessage=" + e.getCause());
+							"R is on the system path. Details: java.library.path=" + libraryPath +";errorMessage=" + e.getMessage());
 			new MessageDialog(
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 							.getShell(),
