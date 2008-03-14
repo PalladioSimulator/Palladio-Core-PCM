@@ -71,6 +71,7 @@ public class RInterface {
 
 	static {
 		try {
+			System.loadLibrary("R");
 			System.loadLibrary("jri");
 			// just making sure we have the right version of everything
 			if (!Rengine.versionCheck()) {
@@ -88,7 +89,7 @@ public class RInterface {
 						MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 			} else {
 				RVisualisationPlugin.log(IStatus.INFO,
-						"Creating Rengine (with arguments)");
+						"Creating Rengine (with arguments), java.library.path=" + System.getProperty("java.library.path"));
 
 				// 1) we pass the arguments from the command line
 				// 2) we won't use the main loop at first, we'll start it later
