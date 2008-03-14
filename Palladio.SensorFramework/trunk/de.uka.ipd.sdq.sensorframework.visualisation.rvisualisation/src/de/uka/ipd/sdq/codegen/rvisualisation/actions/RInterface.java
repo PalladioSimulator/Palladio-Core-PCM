@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.codegen.rvisualisation.actions;
 
 import java.awt.FileDialog;
 import java.awt.Frame;
+import java.net.URL;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -71,11 +72,8 @@ public class RInterface {
 
 	static {
 		try {
-			System.loadLibrary("Rblas");
-			System.loadLibrary("iconv");
-			System.loadLibrary("graphapp");
-			System.loadLibrary("R");
 			System.loadLibrary("jri");
+
 			// just making sure we have the right version of everything
 			if (!Rengine.versionCheck()) {
 				RVisualisationPlugin
