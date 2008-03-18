@@ -8,19 +8,27 @@
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
   <resourceContainer_ResourceEnvironment id="_2mkAAKYVEduWZfldHy3B1Q" entityName="AppServer">
-    <activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
       <activeResourceType_ActiveResourceSpecification href="platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
       <processingRate_ProcessingResourceSpecification specification="1.0"/>
     </activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="1"/>
+    </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_35HNAKYVEduWZfldHy3B1Q" entityName="AudioDB">
-    <activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
       <activeResourceType_ActiveResourceSpecification href="platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
       <processingRate_ProcessingResourceSpecification specification="1.0"/>
     </activeResourceSpecifications_ResourceContainer>
     <activeResourceSpecifications_ResourceContainer>
       <activeResourceType_ActiveResourceSpecification href="platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
       <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="1"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
 </pcm.resourceenvironment:ResourceEnvironment>
