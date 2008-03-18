@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 
 /**
  * Installs a Plug-In from the specified location string with use a bundeles
@@ -49,6 +50,9 @@ public class TransferSimulationBundleToDock implements IJob {
 					dock.isRemote());
 		} catch (InterruptedException e) {
 			throw new JobFailedException("Job failed while waiting for a dock to become available",e);
+		}
+		catch (Exception e) {
+			throw new JobFailedException("Job failed.",e);
 		}
 	}
 

@@ -37,6 +37,9 @@ import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
  */
 public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 
+	private static final String PCM_GLASSFISHREPOSITORY_FILE_URI = "pathmap://PCM_MODELS/Glassfish.repository";
+	private static final String PCM_RESOURCETYPE_FILE_URI = "pathmap://PCM_MODELS/Palladio.resourcetype";
+	
 	/** input fields */
 	private Text textResourceType;
 	private Text textRepository;
@@ -369,9 +372,9 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
-			"platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Palladio.resourcetype");
+			PCM_RESOURCETYPE_FILE_URI);
 		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
-			"platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/Glassfish.repository");
+			PCM_GLASSFISHREPOSITORY_FILE_URI);
 	}
 
 	

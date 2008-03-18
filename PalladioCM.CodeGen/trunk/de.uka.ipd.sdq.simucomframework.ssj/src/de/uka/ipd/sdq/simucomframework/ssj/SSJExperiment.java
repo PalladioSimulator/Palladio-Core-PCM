@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 
 import umontreal.iro.lecuyer.simevents.Event;
 import umontreal.iro.lecuyer.simevents.Simulator;
+import umontreal.iro.lecuyer.simevents.eventlist.SplayTree;
 import umontreal.iro.lecuyer.simprocs.ProcessSimulator;
 import umontreal.iro.lecuyer.simprocs.ThreadProcessSimulator;
 
@@ -26,7 +27,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	public SSJExperiment(final SimuComModel model) {
 		model.setSimulationControl(this);
 		simulator = new ThreadProcessSimulator();
-		simulator.init();
+		simulator.init(new SplayTree());
 		SchedulingFactory.setUsedSimulator(simulator);
 		ISchedulingFactory.eINSTANCE.resetFactory();
 		

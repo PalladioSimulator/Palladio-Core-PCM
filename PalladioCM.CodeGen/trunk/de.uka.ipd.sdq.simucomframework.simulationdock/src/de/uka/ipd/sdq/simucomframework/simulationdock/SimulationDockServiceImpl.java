@@ -20,6 +20,7 @@ import org.osgi.util.tracker.ServiceTracker;
 import de.uka.ipd.sdq.simucomframework.ISimuComControl;
 import de.uka.ipd.sdq.simucomframework.IStatusObserver;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 
 public class SimulationDockServiceImpl implements SimulationDockService {
 
@@ -60,16 +61,17 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 			simulationBundleRef.start();
 			
 			simulate(config, simulationBundleRef, eventAdmin, isRemoteRun);
-
-			simulationBundleRef.stop();
 		} catch (BundleException e) {
-			e.printStackTrace();
+			throw new RuntimeException("OSGi failure",e);
 		} finally {
 			if (simulationBundleRef != null) {
 				try {
+					if (simulationBundleRef.getState() == Bundle.ACTIVE)
+						simulationBundleRef.stop();
+
 					simulationBundleRef.uninstall();
 				} catch (BundleException e) {
-					e.printStackTrace();
+					throw new RuntimeException("OSGi failure",e);
 				}
 			}
 		}
@@ -83,7 +85,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		service.open();
 		postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
 		try {
-			((ISimuComControl)service.getService()).startSimulation(config, new IStatusObserver(){
+			SimuComStatus result = ((ISimuComControl)service.getService()).startSimulation(config, new IStatusObserver(){
 				int lastPercent = 0;
 				
 				public void updateStatus(int percentDone, double currentTime, long measurementsTaken) {
@@ -98,6 +100,9 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 				}
 				
 			},isRemoteRun);
+			if (result == SimuComStatus.ERROR) {
+				throw new RuntimeException("Simulation failed.",((ISimuComControl)service.getService()).getErrorThrowable());
+			}
 		} catch (Exception ex) {
 			throw new RuntimeException(ex);
 		} finally {
@@ -127,7 +132,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 			fos.write(simulationBundle);
 			fos.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException("OSGi failure",e);
 		}
 		return tempFile.getAbsolutePath();
 	}
@@ -136,38 +141,28 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		return myID;
 	}
 
-	private void ensurePluginLoaded(BundleContext context, String bundleName) {
+	private void unloadPluginIfExists(BundleContext context, String bundleName) {
 		for (Bundle b : context.getBundles()) {
 			if (b.getSymbolicName() != null && b.getSymbolicName().equals(bundleName)) {
 				if (b.getState() != Bundle.ACTIVE){
 					try {
 						b.uninstall();
 					} catch (BundleException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						throw new RuntimeException("OSGi failure",e);
 					}
 				}
 			}
 		}
 	}
 	
-	private void unloadPluginIfExists(BundleContext context, String bundleName) {
+	private void ensurePluginLoaded(BundleContext context, String bundleName) {
 		for (Bundle b : context.getBundles()) {
 			if (b.getSymbolicName() != null && b.getSymbolicName().equals(bundleName)) {
 				if (b.getState() != Bundle.ACTIVE){
 					try {
 						b.start();
-						while (b.getState() != Bundle.ACTIVE){
-							try {
-								Thread.sleep(50);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
 					} catch (BundleException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						throw new RuntimeException("OSGi failure",e);
 					}
 				}
 			}
