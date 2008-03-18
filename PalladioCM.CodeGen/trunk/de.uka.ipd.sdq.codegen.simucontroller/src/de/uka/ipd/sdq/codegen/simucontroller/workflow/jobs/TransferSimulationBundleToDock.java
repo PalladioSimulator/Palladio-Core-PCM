@@ -1,26 +1,8 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Hashtable;
-
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.views.IViewDescriptor;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleException;
-import org.osgi.framework.ServiceReference;
-import org.osgi.framework.ServiceRegistration;
-import org.osgi.service.event.Event;
-import org.osgi.service.event.EventConstants;
-import org.osgi.service.event.EventHandler;
-import org.osgi.util.tracker.ServiceTracker;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusModel;
@@ -30,8 +12,6 @@ import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
-import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl;
 
 /**
  * Installs a Plug-In from the specified location string with use a bundeles

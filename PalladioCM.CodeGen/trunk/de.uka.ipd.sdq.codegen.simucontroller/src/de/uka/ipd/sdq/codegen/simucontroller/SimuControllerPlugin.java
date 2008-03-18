@@ -1,8 +1,5 @@
 package de.uka.ipd.sdq.codegen.simucontroller;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
-
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
@@ -10,12 +7,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.BundleListener;
-import org.osgi.framework.ServiceReference;
-import org.osgi.util.tracker.ServiceTracker;
 
-import ch.ethz.iks.r_osgi.RemoteOSGiService;
-import ch.ethz.iks.r_osgi.URI;
-import ch.ethz.iks.r_osgi.service_discovery.ServiceDiscoveryHandler;
 import de.uka.ipd.sdq.codegen.simucontroller.gui.DockModel;
 
 /**

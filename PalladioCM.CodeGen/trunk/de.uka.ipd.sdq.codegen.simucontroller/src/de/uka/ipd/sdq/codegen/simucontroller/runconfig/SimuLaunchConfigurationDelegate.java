@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.codegen.runconfig.AttributesGetMethods;
 import de.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.MultipleSimulationRunsCompositeJob;

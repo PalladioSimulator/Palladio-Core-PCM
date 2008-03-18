@@ -1,11 +1,9 @@
 package de.uka.ipd.sdq.codegen.simucontroller.gui;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Observable;
 import java.util.Observer;
 
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
@@ -23,8 +21,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 import swing2swt.layout.BorderLayout;
+import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 
 public class DockStatusViewer extends Composite implements Observer {
 

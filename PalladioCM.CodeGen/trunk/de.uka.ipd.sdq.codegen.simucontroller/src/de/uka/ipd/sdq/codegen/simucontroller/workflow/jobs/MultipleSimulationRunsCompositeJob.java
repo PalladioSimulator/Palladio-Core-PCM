@@ -2,14 +2,12 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Properties;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
 
 import org.eclipse.core.runtime.CoreException;
 
@@ -20,7 +18,6 @@ import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
 import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
-import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 public class MultipleSimulationRunsCompositeJob extends
 		OrderPreservingCompositeJob {

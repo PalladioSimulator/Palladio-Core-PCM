@@ -2,14 +2,10 @@ package de.uka.ipd.sdq.simucomframework.resources;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
-import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
-import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.Entity;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEventDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;

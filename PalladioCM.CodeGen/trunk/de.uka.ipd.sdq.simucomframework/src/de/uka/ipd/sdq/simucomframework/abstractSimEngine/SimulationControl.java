@@ -2,8 +2,6 @@ package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 
 import java.util.Observer;
 
-import de.uka.ipd.sdq.simucomframework.MaxMeasurementsStopCondition;
-
 public class SimulationControl implements ISimulationControlDelegate {
 	ISimulationControlDelegate delegate = null;
 

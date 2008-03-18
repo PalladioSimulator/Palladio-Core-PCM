@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.io.File;
 
-import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;

@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.simucomframework.resources;
 
-import scheduler.SchedulerFactory;
 import scheduler.configuration.ActiveResourceConfiguration;
 import scheduler.configuration.ConfigurationFactory;
 import scheduler.configuration.PreemptionConfiguration;
@@ -12,7 +11,6 @@ import scheduler.configuration.PriorityConfiguration;
 import scheduler.configuration.PriorityRange;
 import scheduler.configuration.ProcessConfiguration;
 import scheduler.configuration.ProcessSelection;
-import scheduler.configuration.QueueingConfiguration;
 import scheduler.configuration.ResourceInstanceSelection;
 import scheduler.configuration.RunQueueType;
 import scheduler.configuration.SchedulerConfiguration;
@@ -21,7 +19,6 @@ import scheduler.configuration.TimeSliceConfiguration;
 import scheduler.configuration.TimeValue;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
-import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;

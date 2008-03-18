@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.simucomframework;
 
 import java.util.HashMap;
 
-import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;

@@ -3,8 +3,6 @@ package de.uka.ipd.sdq.codegen.simucontroller.gui;
 import java.io.Serializable;
 import java.util.Observable;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 
 public class DockStatusModel extends Observable implements Serializable

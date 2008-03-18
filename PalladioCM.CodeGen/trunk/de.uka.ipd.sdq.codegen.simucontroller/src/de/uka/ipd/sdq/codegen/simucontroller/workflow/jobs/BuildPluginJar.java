@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import org.eclipse.core.resources.IProject;
-
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;

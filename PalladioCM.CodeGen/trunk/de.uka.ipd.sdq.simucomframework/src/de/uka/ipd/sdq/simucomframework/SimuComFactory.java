@@ -4,9 +4,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 
-import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
-import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
-import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 

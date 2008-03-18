@@ -22,18 +22,13 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import sun.management.counter.Variability;
-
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
-import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
  * The class extends ConfigurationTab by CheckBox. User can decide whether that

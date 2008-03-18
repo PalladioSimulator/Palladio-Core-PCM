@@ -24,8 +24,8 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DatasourceListLabelProvider;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
+import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DatasourceListLabelProvider;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 

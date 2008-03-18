@@ -1,8 +1,6 @@
 package de.uka.ipd.sdq.codegen.simucontroller.gui;
 
-import java.util.Dictionary;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -13,21 +11,8 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceEvent;
-import org.osgi.framework.ServiceListener;
-import org.osgi.framework.ServiceReference;
-import org.osgi.util.tracker.ServiceTracker;
-
-import ch.ethz.iks.r_osgi.RemoteOSGiService;
-import ch.ethz.iks.r_osgi.RemoteServiceReference;
-import ch.ethz.iks.r_osgi.URI;
-import ch.ethz.iks.r_osgi.service_discovery.ServiceDiscoveryHandler;
-import ch.ethz.iks.r_osgi.service_discovery.ServiceDiscoveryListener;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
-import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 
 public class DockStatusViewPart extends ViewPart implements Observer {
 

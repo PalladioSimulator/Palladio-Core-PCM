@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.codegen.simucontroller.gui;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,8 +24,6 @@ import ch.ethz.iks.r_osgi.RemoteOSGiService;
 import ch.ethz.iks.r_osgi.RemoteServiceReference;
 import ch.ethz.iks.r_osgi.URI;
 import ch.ethz.iks.r_osgi.service_discovery.ServiceDiscoveryListener;
-
-import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 
 /**

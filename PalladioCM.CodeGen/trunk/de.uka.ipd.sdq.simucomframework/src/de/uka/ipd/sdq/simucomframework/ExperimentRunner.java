@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.simucomframework;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**

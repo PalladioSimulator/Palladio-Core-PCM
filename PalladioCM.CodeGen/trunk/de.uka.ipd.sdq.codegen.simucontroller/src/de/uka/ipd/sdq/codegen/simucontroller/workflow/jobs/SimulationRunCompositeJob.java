@@ -8,7 +8,6 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuAttributesGetMethods;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.OrderPreservingCompositeJob;
-import de.uka.ipd.sdq.codegen.workflow.jobs.CheckOAWConstraintsJob;
 import de.uka.ipd.sdq.codegen.workflow.jobs.GenerateOAWCodeJob;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 

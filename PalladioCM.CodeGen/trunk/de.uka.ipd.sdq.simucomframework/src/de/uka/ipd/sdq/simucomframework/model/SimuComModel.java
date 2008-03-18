@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.model;
 
-import java.io.File;
 import java.util.Date;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
@@ -12,7 +11,6 @@ import de.uka.ipd.sdq.simucomframework.ResourceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
-import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDelegate;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
