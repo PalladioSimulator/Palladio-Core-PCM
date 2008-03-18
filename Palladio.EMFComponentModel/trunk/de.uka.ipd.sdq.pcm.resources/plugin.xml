@@ -5,7 +5,7 @@
      point="org.eclipse.emf.ecore.uri_mapping">
     <mapping
        source="pathmap://PCM_MODELS/"
-       target="platform:/plugins/de.uka.ipd.sdq.pcm.resources/defaultModels/">
+       target="platform:/plugin/de.uka.ipd.sdq.pcm.resources/defaultModels/">
     </mapping>
   </extension>
 </plugin>
