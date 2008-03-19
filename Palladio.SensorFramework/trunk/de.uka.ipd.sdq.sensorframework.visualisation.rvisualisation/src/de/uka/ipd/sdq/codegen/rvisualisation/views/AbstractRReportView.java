@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
+import org.rosuda.JRI.Rengine;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RInterface;
@@ -83,6 +84,11 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	}
 
 	protected String getRVector(SensorAndMeasurements sm, int i) {
+//		Rengine re;
+//		double sensor[] = {130.0, 121.3, 120.5};
+//		long xp5 = re.rniPutDoubleArray(sensor);
+//		re.rniAssign("sensor0", xp5, 0);
+		
 		File temp;
 		try {
 			temp = File.createTempFile("data", ".txt");
@@ -91,11 +97,12 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 			StringBuffer result = new StringBuffer();
 			for (Measurement time : sm.getMeasurements()) {
 				TimeSpanMeasurement tsm = (TimeSpanMeasurement) time;
-				result.append(tsm.getTimeSpan());
+				result.append(String.valueOf(tsm.getTimeSpan()).replace('.', ','));
 				result.append(" ");
 			}
 			fw.write(result.toString());
 			fw.close();
+//			return "";
 			return "sensor" + i + "<-scan(\""
 					+ temp.getAbsolutePath().replace(File.separator, "\\\\")
 					+ "\")";
