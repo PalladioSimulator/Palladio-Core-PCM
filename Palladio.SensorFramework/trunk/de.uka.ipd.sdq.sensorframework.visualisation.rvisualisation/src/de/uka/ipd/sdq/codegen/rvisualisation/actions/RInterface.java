@@ -61,6 +61,9 @@ class TextConsole implements RMainLoopCallbacks {
 	public void rWriteConsole(Rengine arg0, String arg1, int arg2) {
 		// TODO Auto-generated method stub
 		
+		RVisualisationPlugin.log(IStatus.INFO,
+				"RInterface::TextConsole::rWriteConsole arg1=" + arg1 + ",arg2=" + arg2);
+		
 	}
 }
 
