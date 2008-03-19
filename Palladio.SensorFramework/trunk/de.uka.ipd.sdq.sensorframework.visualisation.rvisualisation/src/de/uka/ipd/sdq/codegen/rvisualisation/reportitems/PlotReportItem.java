@@ -38,6 +38,9 @@ public class PlotReportItem implements IReportItem {
 		}catch(Exception e){
 			RVisualisationPlugin.log(IStatus.ERROR, "Could not create temp file. "+e.getClass().getCanonicalName());
 		}
+		RVisualisationPlugin.log(IStatus.INFO,
+				"PlotReportItem::executeRCommands(RInterface re), rCommand=" + rCommand);
+
 		re.execute(rCommand);
 	}
 

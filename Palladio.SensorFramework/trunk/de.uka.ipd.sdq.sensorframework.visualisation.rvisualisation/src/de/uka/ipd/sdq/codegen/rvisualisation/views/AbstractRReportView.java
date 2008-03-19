@@ -70,9 +70,9 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 
 			HTMLVisitor visitor = new HTMLVisitor();
 			for (IReportItem item : items) {
-				System.out.println("Exec command");
+//				System.out.println("Exec command");
 				item.executeRCommands(t);
-				System.out.println("Render");
+//				System.out.println("Render");
 				item.visit(visitor);
 			}
 			browser.setText(visitor.getHTML());

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import org.eclipse.core.runtime.IStatus;
+
+import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RInterface;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.PlotReportItem;
@@ -31,6 +34,8 @@ public class RReportView extends AbstractRReportView {
 			SensorAndMeasurements sm = it.next();
 			
 			String rCommand = getRVector(sm,i) + "\n";
+			RVisualisationPlugin.log(IStatus.INFO,
+					"Executing R command: " + rCommand);
 			t.execute(rCommand);
 			
 			data.add("density(sensor"+i+")");

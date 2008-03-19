@@ -38,6 +38,7 @@ public class RDistributionComparisonView extends AbstractRReportView {
 			for (int i = 0; i < 2; i++) {
 				sm[i] = it.next();
 				String rCommand = getRVector(sm[i], i) + "\n";
+				
 				t.execute(rCommand);
 				data.add("density(sensor" + i + ")");
 
