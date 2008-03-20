@@ -46,9 +46,9 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 			}
 		//} catch (SimFinishedException ex) {
 		} catch (Exception e) {
-			this.getModel().getSimulationControl().stop();
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
 					e);
+			this.getModel().getSimulationControl().stop();
 		}
 	}
 

@@ -9,7 +9,6 @@ Export-Package: de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.simucomframework.model,
  de.uka.ipd.sdq.simucomframework.resources,
  de.uka.ipd.sdq.simucomframework.sensors,
- de.uka.ipd.sdq.simucomframework.swingui,
  de.uka.ipd.sdq.simucomframework.usage
 Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.sensorframework,
