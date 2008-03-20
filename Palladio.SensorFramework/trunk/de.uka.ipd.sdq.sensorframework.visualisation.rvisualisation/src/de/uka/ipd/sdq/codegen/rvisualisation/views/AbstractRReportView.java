@@ -101,9 +101,10 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 		if (rCommand == "")
 			return "";
 		else {
-			return "sensor" + sensorNumber + "<-" + rCommand + "\n";
-//			RConnection.getRConnection().assign("sensor"+sensorNumber, mmt);
-//			return "";
+			// activate to use file transfer. only possible in debug mode.
+//			return "sensor" + sensorNumber + "<-" + rCommand + "\n";
+			RConnection.getRConnection().assign("sensor"+sensorNumber, mmt);
+			return "";
 		}
 	}
 	
@@ -114,7 +115,7 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	 * @param measurements Measurements for a sensor.
 	 * @return R command to read measurements. Can be used to store data in a r vector.
 	 */
-	public String exportMeasurementsToR(SensorAndMeasurements measurements) {
+	protected String exportMeasurementsToR(SensorAndMeasurements measurements) {
 		File temporaryFile;
 		try {
 			temporaryFile = File.createTempFile("data", ".txt");
@@ -122,6 +123,9 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 			FileWriter temporaryFileWriter = new FileWriter(temporaryFile);
 			StringBuffer result = new StringBuffer();
 			mmt = new double[measurements.getMeasurements().size()];
+			if (measurements.getMeasurements().size() == Integer.MAX_VALUE)
+				RVisualisationPlugin.log(IStatus.ERROR,
+						"Too much measurements. Results might be inaccurate.");
 			int position = 0;
 			
 			for (Measurement time : measurements.getMeasurements()) {
