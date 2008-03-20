@@ -11,7 +11,7 @@ import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
@@ -36,7 +36,7 @@ import org.eclipse.swt.widgets.Tree;
 
 import de.uka.ipd.sdq.dialogs.DialogsImages;
 
-/** @author admin roman */
+/** @author Roman Andrej */
 public abstract class SelectEObjectDialog extends TitleAreaDialog {
 
 	/** input dialog resource name (Repository,System,..) */
@@ -51,6 +51,7 @@ public abstract class SelectEObjectDialog extends TitleAreaDialog {
 	private ToolItem addItem, editItem, deleteItem;
 	private TreeViewer viewer;
 	private EObject selection;
+	private EObject rootOfSelection;
 	private Class<?> providedService;
 	private Label label;
 	private Button OKbutton,CANCELbutton;
@@ -95,16 +96,19 @@ public abstract class SelectEObjectDialog extends TitleAreaDialog {
 		viewer = new TreeViewer(container, SWT.BORDER);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
-				IStructuredSelection sel = (IStructuredSelection) event
-						.getSelection();
+				ITreeSelection sel = (ITreeSelection) event.getSelection();
+				// in the tree selected object
 				selection = (EObject) sel.getFirstElement();
-				
+				// root element of tree (tree contains the selected object)
+				rootOfSelection = (EObject) sel.getPaths()[0].getFirstSegment();
+				// set label text
 				label.setText(((AdapterFactoryLabelProvider) viewer
 						.getLabelProvider()).getText(selection));
-				
-				if (selection != null && isInstanceOfProvidedService(selection))
+
+				if (selection != null && rootOfSelection != null
+						&& isInstanceOfProvidedService(selection))
 					setOkButtonEnabled(true);
-				else  {
+				else {
 					setOkButtonEnabled(false);
 				}
 			}
@@ -366,6 +370,10 @@ public abstract class SelectEObjectDialog extends TitleAreaDialog {
 	
 	public EObject getResult() {
 		return selection;
+	}
+	
+	public EObject getRootOfResult() {
+		return rootOfSelection;
 	}
 
 	protected void setResourceName(String resourceName) {
