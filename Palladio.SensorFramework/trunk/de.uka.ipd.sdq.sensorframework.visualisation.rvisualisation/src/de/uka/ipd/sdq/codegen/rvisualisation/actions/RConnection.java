@@ -123,6 +123,11 @@ public class RConnection {
 	 * gathered and logged with level debug.
 	 */
 	private void logEnvironmentalInformation() {
+//		old <- Sys.getlocale()
+//		Sys.setlocale(locale = "")
+//		Sys.localeconv()
+//		Sys.setlocale(locale = old)
+		REXP result2 = rengine.eval("Sys.setlocale(locale =\"C\")");
 		REXP result = rengine.eval("Sys.localeconv()");
 		String locales[] = result.asStringArray();
 		String locale = "";

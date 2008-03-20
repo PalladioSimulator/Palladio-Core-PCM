@@ -101,9 +101,9 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 		if (rCommand == "")
 			return "";
 		else {
-			//return "sensor" + sensorNumber + "<-" + rCommand + "\n";
-			RConnection.getRConnection().assign("sensor"+sensorNumber, mmt);
-			return "";
+			return "sensor" + sensorNumber + "<-" + rCommand + "\n";
+//			RConnection.getRConnection().assign("sensor"+sensorNumber, mmt);
+//			return "";
 		}
 	}
 	
