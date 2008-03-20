@@ -40,6 +40,7 @@ import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab.WorkspaceButtonSe
  */
 public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 
+	private static final String DEFAULT_CONNECTOR_FEATURE_CONFIG = "pathmap://PCM_MODELS/ConnectorConfig.featureconfig";
 	private Button simulateLinkingResourcesButton;
 	private Combo lookupOptions;
 	private Text textFeatureConfig;
@@ -229,7 +230,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(ConstantsContainer.COMPONENT_LOOKUP,
 				ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal());
 		configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
-				"platform:/plugin/de.uka.ipd.sdq.pcm.codegen.m2m/defaultModels/ConnectorConfig.featureconfig");
+				DEFAULT_CONNECTOR_FEATURE_CONFIG);
 	}
 	
 	/** Button SelectionListener - call a WorkspaceResourceDialog */

@@ -47,6 +47,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		} catch (Exception e) {
 			throw new RuntimeException("Simulation failed",e);
 		} finally {
+			unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
 			postEvent(eventAdmin,"de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
 			eventService.close();
 		}
@@ -144,12 +145,13 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 	private void unloadPluginIfExists(BundleContext context, String bundleName) {
 		for (Bundle b : context.getBundles()) {
 			if (b.getSymbolicName() != null && b.getSymbolicName().equals(bundleName)) {
-				if (b.getState() != Bundle.ACTIVE){
-					try {
-						b.uninstall();
-					} catch (BundleException e) {
-						throw new RuntimeException("OSGi failure",e);
+				try {
+					if (b.getState() == Bundle.ACTIVE){
+						b.stop();
 					}
+					b.uninstall();
+				} catch (BundleException e) {
+					throw new RuntimeException("OSGi failure",e);
 				}
 			}
 		}
