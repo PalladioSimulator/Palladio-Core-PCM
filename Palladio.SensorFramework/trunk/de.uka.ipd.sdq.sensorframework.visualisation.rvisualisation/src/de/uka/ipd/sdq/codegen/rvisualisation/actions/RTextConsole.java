@@ -10,6 +10,7 @@ public class RTextConsole implements RMainLoopCallbacks {
 
 	protected String myTextOutput = "";
 	protected String outputHistory = "";
+	protected String lastMessage = "";
 
 	public void rWriteConsole(Rengine re, String text) {
 		myTextOutput += text + "\n";
@@ -51,6 +52,15 @@ public class RTextConsole implements RMainLoopCallbacks {
 	}
 
 	public void rWriteConsole(Rengine arg0, String message, int arg2) {
-		outputHistory += message;
+		lastMessage  = message;
+		outputHistory += lastMessage;
+		
+	}
+
+	/**
+	 * @return the last message on the R console.
+	 */
+	public String getLastMessage() {
+		return lastMessage;
 	}
 }

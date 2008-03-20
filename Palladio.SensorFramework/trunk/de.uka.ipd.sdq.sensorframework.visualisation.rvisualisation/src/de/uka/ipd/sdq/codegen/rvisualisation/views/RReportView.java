@@ -34,9 +34,10 @@ public class RReportView extends AbstractRReportView {
 			SensorAndMeasurements sm = it.next();
 			
 			String rCommand = storeMeasurementsInRVector(sm,i) + "\n";
-			RVisualisationPlugin.log(IStatus.INFO,
-					"Executing R command: " + rCommand);
 			t.execute(rCommand);
+			if (!t.getLastConsoleMessage().equalsIgnoreCase("Read " + sm.getMeasurements().size() + " items\n"))
+				RVisualisationPlugin.log(IStatus.WARNING,
+						"Storing Measurments in R might be wrong. Last message on the console is: " + t.getLastConsoleMessage());
 			
 			data.add("density(sensor"+i+")");
 			items.add(new DensityPlotReportItem(new String[]{"density(sensor"+i+")"}, sm.getSensor().getSensorName(), "Response Time"));

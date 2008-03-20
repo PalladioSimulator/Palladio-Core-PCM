@@ -72,7 +72,7 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 			if (c.isEmpty()){
 				browser.setText("<html><body><h1>Error! </h1>At least the measurements for one sensor must be available!</body></html>");
 			} else {
-				RConnection rConnection = new RConnection();
+				RConnection rConnection = RConnection.getRConnection();
 				ArrayList<IReportItem> items = prepareReportItems(c, rConnection);
 	
 				HTMLVisitor visitor = new HTMLVisitor();

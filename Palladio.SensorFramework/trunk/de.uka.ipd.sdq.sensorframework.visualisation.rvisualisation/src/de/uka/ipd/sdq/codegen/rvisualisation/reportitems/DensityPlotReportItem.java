@@ -73,10 +73,7 @@ public class DensityPlotReportItem implements IReportItem {
 		}
 		rCommand += "graphics.off()\n";
 		
-		if (!rConnection.execute(rCommand).isEmpty())
-			RVisualisationPlugin.log(
-					IStatus.WARNING,
-					"Generation of the graphic " + description + "failed.");			
+		rConnection.execute(rCommand);
 	}
 
 	/**

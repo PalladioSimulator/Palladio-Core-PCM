@@ -12,7 +12,7 @@ import org.rosuda.JRI.Rengine;
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 
 public class RConnection {
-	protected static Logger logger = Logger.getLogger("R Visualization");
+	protected static Logger logger = Logger.getLogger(RConnection.class.getName());
 
 	private static RTextConsole rConsole = new RTextConsole();
 	private static Rengine rengine = null;
@@ -31,6 +31,9 @@ public class RConnection {
 	/**Initializes the connection to a R engine.
 	 */
 	protected void initalizeConnection() {
+		if (rConnection != null)
+			return;
+		
 		checkPathValidity();
 
 		// initialize connection
@@ -119,7 +122,7 @@ public class RConnection {
 	/**This method is used for debugging purposes. Information about the R environment is
 	 * gathered and logged with level debug.
 	 */
-	private static void logEnvironmentalInformation() {
+	private void logEnvironmentalInformation() {
 		REXP result = rengine.eval("Sys.localeconv()");
 		logger.debug("RInterface::debugEnvironemnt() Localization Information:\n" + 
 				result.toString());
@@ -161,5 +164,13 @@ public class RConnection {
 	 */
 	public static RConnection getRConnection() {
 		return rConnection;
+	}
+	
+	/**
+	 * @return the last message on the console of the connected R engine.
+	 */
+	public String getLastConsoleMessage() {
+		return rConsole.getLastMessage();
+		
 	}
 }

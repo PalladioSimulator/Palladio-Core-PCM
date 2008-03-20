@@ -2,8 +2,10 @@ package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
 
 import java.util.Vector;
 
+import org.eclipse.core.runtime.IStatus;
 import org.rosuda.JRI.REXP;
 
+import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 
 /**Report item used to display statistical values. The last result 
@@ -61,6 +63,12 @@ public class StatisticsReportItem implements IReportItem {
 		Vector<REXP> result = rConnection.execute(rCommands);
 		if (!result.isEmpty())
 			statisticalValue = result.lastElement();
+		else
+			RVisualisationPlugin.log(
+					IStatus.WARNING,
+					"The calculation of the statistic report item \"" + contentDescription + "\" yield to no result. " +
+					"Most probably data import or the calculation in R went wrong. " +
+					"Details: lastConsoleMessage=" + rConnection.getLastConsoleMessage());			
 	}
 
 }
