@@ -67,10 +67,13 @@ public class DensityPlotReportItem implements IReportItem {
 		}
 		rCommand = "png(\"" + temporaryGraphicsFile.getAbsolutePath().replace(File.separator, "\\\\") +
 			"\",height=" + graphicsHeight + ",width=" + graphicsWidth + ",pointsize=" + graphicsTextSize +")\n";
+		
+		// draw content
 		rCommand += "plot("+this.rDataVector[0]+",xlab=\"" + xAxisLabel + "\",main=\""+this.description+"\")\n";
 		for(int i = 1; i<rDataVector.length; i++){
 			rCommand += "lines("+this.rDataVector[i]+")\n";
 		}
+		
 		rCommand += "graphics.off()\n";
 		
 		rConnection.execute(rCommand);
