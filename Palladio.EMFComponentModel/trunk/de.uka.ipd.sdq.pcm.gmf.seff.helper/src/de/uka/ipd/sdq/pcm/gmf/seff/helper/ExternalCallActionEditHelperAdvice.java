@@ -58,10 +58,10 @@ public class ExternalCallActionEditHelperAdvice extends
 		
 		// set the signature for ExternalCallAction 
 		Signature signature = (Signature) dialog.getResult();
-
+		
 		// set the required role for ExternalCallAction 
 		if (dialog.getViewerRootElement() instanceof RequiredRole) {
-			requiredRole = (RequiredRole) dialog.getViewerRootElement();
+			requiredRole = (RequiredRole) dialog.getRootOfResult();
 		}
 
 		// create and execute the ExternalCallActionConfigureCommand command
