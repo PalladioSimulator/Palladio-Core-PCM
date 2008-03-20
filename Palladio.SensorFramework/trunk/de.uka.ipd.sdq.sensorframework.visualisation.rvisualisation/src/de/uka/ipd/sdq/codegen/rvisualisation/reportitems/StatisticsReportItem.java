@@ -1,42 +1,66 @@
 package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
 
+import java.util.Vector;
+
 import org.rosuda.JRI.REXP;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RInterface;
+import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 
+/**Report item used to display statistical values. The last result 
+ * returned from R is considered to be the value of interest.
+ * @author groenda (comments, refactoring)
+ */
 public class StatisticsReportItem implements IReportItem {
 
-	private REXP x;
+	private REXP statisticalValue;
 	private String rCommands;
-	private String myDescription;
+	private String contentDescription;
 
+	/**Initializes a new report item.
+	 * @param rCommands R commands that lead to the calculation of the statistical value.
+	 * @param description Description of this report item.
+	 */
 	public StatisticsReportItem(String rCommands, String description){
 		this.rCommands = rCommands;
-		this.myDescription = description;
+		this.contentDescription = description;
 	}
 	
+	/**
+	 * @return the statistical value.
+	 */
 	public String getResult() {
-		if (x.rtype == REXP.INTSXP)
-			return "" + x.asInt();
-		else if (x.rtype == REXP.REALSXP)
-			return "" + x.asDouble();
-		else if (x.rtype == REXP.STRSXP)
-			return "" + x.asString();
+		if (statisticalValue.rtype == REXP.INTSXP)
+			return "" + statisticalValue.asInt();
+		else if (statisticalValue.rtype == REXP.REALSXP)
+			return "" + statisticalValue.asDouble();
+		else if (statisticalValue.rtype == REXP.STRSXP)
+			return "" + statisticalValue.asString();
 		else
 			return "N/A";
 	}
 	
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem#getDescription()
+	 */
 	public String getDescription(){
-		return myDescription;
+		return contentDescription;
 	}
 	
-	public void visit(IReportRenderingVisitor v) {
-		v.visitStatisticsItem(this);
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem#visit(de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportRenderingVisitor)
+	 */
+	public void visit(IReportRenderingVisitor renderingVisitor) {
+		renderingVisitor.visitStatisticsItem(this);
 	}
 
-	public void executeRCommands(RInterface re) {
-		re.execute(rCommands);
-		x = re.getLastResult();
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem#executeRCommands(de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection)
+	 */
+	public void generateData(RConnection rConnection) {
+		Vector<REXP> result = rConnection.execute(rCommands);
+		if (!result.isEmpty())
+			statisticalValue = result.lastElement();
 	}
 
 }

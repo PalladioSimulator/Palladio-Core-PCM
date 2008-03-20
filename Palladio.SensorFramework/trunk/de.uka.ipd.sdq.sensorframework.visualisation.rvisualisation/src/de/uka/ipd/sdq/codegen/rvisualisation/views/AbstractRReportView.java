@@ -12,10 +12,9 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
-import org.rosuda.JRI.Rengine;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RInterface;
+import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.visitor.HTMLVisitor;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
@@ -25,6 +24,9 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 
+/**Abstract class with basic capabilities to show reports containing data of the sensorframework in R.
+ * @author groenda
+ */
 public abstract class AbstractRReportView extends AbstractReportView implements
 		IVisualisation<SensorAndMeasurements> {
 
@@ -33,6 +35,7 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView#createReportControls(org.eclipse.swt.widgets.Composite)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void createReportControls(Composite parent) {
 		browser = new Browser(parent, SWT.BORDER);
@@ -65,53 +68,67 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#setInput(java.util.Collection)
 	 */
 	public void setInput(Collection<SensorAndMeasurements> c) {
-		RInterface t = new RInterface();
-		if (RInterface.isEngineAvailable()) {
-			ArrayList<IReportItem> items = prepareReportItems(c, t);
-
-			HTMLVisitor visitor = new HTMLVisitor();
-			for (IReportItem item : items) {
-//				System.out.println("Exec command");
-				item.executeRCommands(t);
-//				System.out.println("Render");
-				item.visit(visitor);
+		if (RConnection.isEngineAvailable()) {
+			if (c.isEmpty()){
+				browser.setText("<html><body><h1>Error! </h1>At least the measurements for one sensor must be available!</body></html>");
+			} else {
+				RConnection rConnection = new RConnection();
+				ArrayList<IReportItem> items = prepareReportItems(c, rConnection);
+	
+				HTMLVisitor visitor = new HTMLVisitor();
+				for (IReportItem item : items) {
+					item.generateData(rConnection);
+					item.visit(visitor);
+				}
+				browser.setText(visitor.getHTML());
 			}
-			browser.setText(visitor.getHTML());
 		} else {
-			browser
-					.setText("<html><body><h1>Error! R-Engine unavailable!</h1></body></html>");
+			browser.setText("<html><body><h1>Error! </h1>Connection to R engine is not available!</body></html>");
 		}
 	}
 
-	protected String getRVector(SensorAndMeasurements sm, int i) {
-//		Rengine re;
-//		double sensor[] = {130.0, 121.3, 120.5};
-//		long xp5 = re.rniPutDoubleArray(sensor);
-//		re.rniAssign("sensor0", xp5, 0);
-		
-		File temp;
+	/**Export the measurements of a sensor to R. Therefore a temporary file is created and 
+	 * the R command line to import this data is returned.
+	 * @param measurements Measurements for a sensor.
+	 * @param sensorNumber number of the sensor vector in R.
+	 * @return R command to read measurements. It is stored in the vector <code>sensor<code>i.
+	 */
+	protected String storeMeasurementsInRVector(SensorAndMeasurements measurements, int sensorNumber) {
+		String rCommand = exportMeasurementsToR(measurements);
+		if (rCommand == "")
+			return "";
+		else
+			return "sensor" + sensorNumber + "<-" + rCommand;
+	}
+
+	/**Export the measurements of a sensor to R. Therefore a temporary file is created and 
+	 * the R command line to import this data is returned.
+	 * @param measurements Measurements for a sensor.
+	 * @return R command to read measurements. Can be used to store data in a r vector.
+	 */
+	public String exportMeasurementsToR(SensorAndMeasurements measurements) {
+		File temporaryFile;
 		try {
-			temp = File.createTempFile("data", ".txt");
-			temp.deleteOnExit();
-			FileWriter fw = new FileWriter(temp);
+			temporaryFile = File.createTempFile("data", ".txt");
+			temporaryFile.deleteOnExit();
+			FileWriter temporaryFileWriter = new FileWriter(temporaryFile);
 			StringBuffer result = new StringBuffer();
-			for (Measurement time : sm.getMeasurements()) {
+			for (Measurement time : measurements.getMeasurements()) {
 				TimeSpanMeasurement tsm = (TimeSpanMeasurement) time;
-				result.append(String.valueOf(tsm.getTimeSpan()).replace('.', ','));
+				//result.append(String.valueOf(tsm.getTimeSpan()).replace('.', ','));
+				result.append(tsm.getTimeSpan());
 				result.append(" ");
 			}
-			fw.write(result.toString());
-			fw.close();
-//			return "";
-			return "sensor" + i + "<-scan(\""
-					+ temp.getAbsolutePath().replace(File.separator, "\\\\")
-					+ "\")";
+			temporaryFileWriter.write(result.toString());
+			temporaryFileWriter.close();
+			return "scan(\"" + temporaryFile.getAbsolutePath().replace(File.separator, "\\\\")
+					+ "\", dec = \".\")";
 		} catch (IOException e) {
 			RVisualisationPlugin.log(IStatus.ERROR,
 					"Failed to transfer sensordata to R. Details: "
 							+ e.getMessage());
 		}
-		return null;
+		return "";
 	}
 
 	/* (non-Javadoc)
@@ -138,6 +155,6 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	 * @return
 	 */
 	abstract protected ArrayList<IReportItem> prepareReportItems(
-			Collection<SensorAndMeasurements> c, RInterface t);
+			Collection<SensorAndMeasurements> c, RConnection t);
 
 }

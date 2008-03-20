@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  de.uka.ipd.sdq.sensorframework.visualisation,
  org.eclipse.ui.views.properties.tabbed,
- de.uka.ipd.sdq.sensorframework
+ de.uka.ipd.sdq.sensorframework,
+ org.apache.log4j
 Eclipse-LazyStart: true
 Bundle-NativeCode: lib/jri.dll;processor="x86";osname="Win32"
 Bundle-ClassPath: lib/JRI.jar,

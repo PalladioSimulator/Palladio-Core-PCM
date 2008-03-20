@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.codegen.rvisualisation.visitor;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportRenderingVisitor;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.PlotReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticReportItem;
+import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.DensityPlotReportItem;
+import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StatisticsReportItem;
 
 public class HTMLVisitor implements IReportRenderingVisitor {
@@ -14,7 +14,7 @@ public class HTMLVisitor implements IReportRenderingVisitor {
 		return "<html><body>"+content+"</body></html>";
 	}
 	
-	public void visitStaticItem(StaticReportItem staticReportItem) {
+	public void visitStaticItem(StaticTextReportItem staticReportItem) {
 		String result = "";
 		if (staticReportItem.isHeading())
 			result += "<h2>";
@@ -30,7 +30,7 @@ public class HTMLVisitor implements IReportRenderingVisitor {
 		content += result;
 	}
 
-	public void visitPlotItem(PlotReportItem plotReportItem) {
+	public void visitPlotItem(DensityPlotReportItem plotReportItem) {
 		if (plotReportItem.getFilename()!= null)
 			content += "<img src=\"file:///"+plotReportItem.getFilename()+"\"/><br/>";
 	}
