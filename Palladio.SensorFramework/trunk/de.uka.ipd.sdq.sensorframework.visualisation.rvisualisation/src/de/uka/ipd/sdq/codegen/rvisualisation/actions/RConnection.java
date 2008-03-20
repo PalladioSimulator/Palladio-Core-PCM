@@ -124,6 +124,10 @@ public class RConnection {
 	 */
 	private void logEnvironmentalInformation() {
 		REXP result = rengine.eval("Sys.localeconv()");
+		RVisualisationPlugin.log(
+				IStatus.WARNING,
+				"RInterface::debugEnvironemnt() Localization Information:\n" + 
+				result.toString());
 		logger.debug("RInterface::debugEnvironemnt() Localization Information:\n" + 
 				result.toString());
 	}

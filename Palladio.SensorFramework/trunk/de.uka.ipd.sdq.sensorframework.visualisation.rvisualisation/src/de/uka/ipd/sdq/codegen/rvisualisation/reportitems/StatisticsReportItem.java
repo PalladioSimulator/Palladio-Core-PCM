@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
  */
 public class StatisticsReportItem implements IReportItem {
 
-	private REXP statisticalValue;
+	private REXP statisticalValue = new REXP();
 	private String rCommands;
 	private String contentDescription;
 
@@ -63,12 +63,14 @@ public class StatisticsReportItem implements IReportItem {
 		Vector<REXP> result = rConnection.execute(rCommands);
 		if (!result.isEmpty())
 			statisticalValue = result.lastElement();
-		else
+		else {
+			statisticalValue = new REXP();
 			RVisualisationPlugin.log(
 					IStatus.WARNING,
 					"The calculation of the statistic report item \"" + contentDescription + "\" yield to no result. " +
 					"Most probably data import or the calculation in R went wrong. " +
-					"Details: lastConsoleMessage=" + rConnection.getLastConsoleMessage());			
+					"Details: lastConsoleMessage=" + rConnection.getLastConsoleMessage());
+		}
 	}
 
 }
