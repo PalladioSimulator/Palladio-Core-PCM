@@ -62,7 +62,6 @@ public class StaticTextReportItem implements IReportItem {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem#getDescription()
 	 */
-	@Override
 	public String getDescription() {
 		return "Textual Description";
 	}

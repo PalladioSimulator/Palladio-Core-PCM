@@ -89,7 +89,6 @@ public class DensityPlotReportItem implements IReportItem {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem#getDescription()
 	 */
-	@Override
 	public String getDescription() {
 		return description;
 	}
