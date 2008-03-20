@@ -122,7 +122,7 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 			temporaryFileWriter.write(result.toString());
 			temporaryFileWriter.close();
 			return "scan(file=\"" + temporaryFile.getAbsolutePath().replace(File.separator, "\\\\")
-					+ "\", dec=\",\")";
+					+ "\""; //, dec=\",\")
 		} catch (IOException e) {
 			RVisualisationPlugin.log(IStatus.ERROR,
 					"Error accessing temporary file to transfer sensordata to R. Details: "
