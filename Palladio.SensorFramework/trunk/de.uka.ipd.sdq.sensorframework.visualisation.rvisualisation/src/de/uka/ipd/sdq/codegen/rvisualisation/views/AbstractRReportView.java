@@ -7,11 +7,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Vector;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
+import org.rosuda.JRI.REXP;
+import org.rosuda.JRI.RVector;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
@@ -97,9 +100,14 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 		String rCommand = exportMeasurementsToR(measurements);
 		if (rCommand == "")
 			return "";
-		else
-			return "sensor" + sensorNumber + "<-" + rCommand;
+		else {
+			//return "sensor" + sensorNumber + "<-" + rCommand + "\n";
+			RConnection.getRConnection().assign("sensor"+sensorNumber, mmt);
+			return "";
+		}
 	}
+	
+	double mmt[];
 
 	/**Export the measurements of a sensor to R. Therefore a temporary file is created and 
 	 * the R command line to import this data is returned.
@@ -113,16 +121,20 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 			temporaryFile.deleteOnExit();
 			FileWriter temporaryFileWriter = new FileWriter(temporaryFile);
 			StringBuffer result = new StringBuffer();
+			mmt = new double[measurements.getMeasurements().size()];
+			int position = 0;
+			
 			for (Measurement time : measurements.getMeasurements()) {
 				TimeSpanMeasurement tsm = (TimeSpanMeasurement) time;
-				result.append(String.valueOf(tsm.getTimeSpan()).replace('.', ','));
-				//result.append(tsm.getTimeSpan());
+//				result.append(String.valueOf(tsm.getTimeSpan()).replace('.', ','));
+				result.append(tsm.getTimeSpan());
 				result.append(" ");
+				mmt[position++] = tsm.getTimeSpan();
 			}
 			temporaryFileWriter.write(result.toString());
 			temporaryFileWriter.close();
 			return "scan(file=\"" + temporaryFile.getAbsolutePath().replace(File.separator, "\\\\")
-					+ "\""; //, dec=\",\")
+					+ "\", dec=\".\")";
 		} catch (IOException e) {
 			RVisualisationPlugin.log(IStatus.ERROR,
 					"Error accessing temporary file to transfer sensordata to R. Details: "

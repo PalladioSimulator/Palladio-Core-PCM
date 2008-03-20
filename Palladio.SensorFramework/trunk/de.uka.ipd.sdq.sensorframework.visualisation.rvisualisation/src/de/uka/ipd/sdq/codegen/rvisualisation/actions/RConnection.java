@@ -124,12 +124,17 @@ public class RConnection {
 	 */
 	private void logEnvironmentalInformation() {
 		REXP result = rengine.eval("Sys.localeconv()");
+		String locales[] = result.asStringArray();
+		String locale = "";
+		for (int number = 0; number < locales.length; number++)
+			locale += locales[number] + "\n";
+		
 		RVisualisationPlugin.log(
-				IStatus.WARNING,
+				IStatus.INFO,
 				"R localization Information:\n" + 
-				result.toString());
+				locale);
 		logger.debug("R localization Information:\n" + 
-				result.toString());
+				locale);
 	}
 
 	/**Executes the command(s) in R.
@@ -154,6 +159,10 @@ public class RConnection {
 		}
 
 		return resultExpArray;
+	}
+	
+	public void assign(String name, double[] array) {
+		rengine.assign(name, array);
 	}
 
 	/**checks if an R engine could be found and the connection is established.
