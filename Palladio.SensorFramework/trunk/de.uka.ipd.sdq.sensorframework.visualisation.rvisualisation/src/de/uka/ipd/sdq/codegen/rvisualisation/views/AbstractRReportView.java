@@ -115,14 +115,14 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 			StringBuffer result = new StringBuffer();
 			for (Measurement time : measurements.getMeasurements()) {
 				TimeSpanMeasurement tsm = (TimeSpanMeasurement) time;
-				//result.append(String.valueOf(tsm.getTimeSpan()).replace('.', ','));
-				result.append(tsm.getTimeSpan());
+				result.append(String.valueOf(tsm.getTimeSpan()).replace('.', ','));
+				//result.append(tsm.getTimeSpan());
 				result.append(" ");
 			}
 			temporaryFileWriter.write(result.toString());
 			temporaryFileWriter.close();
 			return "scan(file=\"" + temporaryFile.getAbsolutePath().replace(File.separator, "\\\\")
-					+ "\", sep=\"\", dec=\".\")";
+					+ "\", dec=\",\")";
 		} catch (IOException e) {
 			RVisualisationPlugin.log(IStatus.ERROR,
 					"Error accessing temporary file to transfer sensordata to R. Details: "
