@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * @author admin
  *
  */
-public class ReleaseActionEditHelperAdvice extends AbstractEditHelperAdvice
+public class AcquireActionEditHelperAdvice extends AbstractEditHelperAdvice
 		implements IEditHelperAdvice {
 	
 	/* (non-Javadoc)
@@ -56,15 +56,16 @@ public class ReleaseActionEditHelperAdvice extends AbstractEditHelperAdvice
 		ICommand cmd = new SetValueCommand(
 				new SetRequest(
 						request.getElementToConfigure(), 
-						SeffPackage.eINSTANCE.getReleaseAction_PassiveResource_ReleaseAction(),
+						SeffPackage.eINSTANCE.getAcquireAction_Passiveresource_AcquireAction(),
 						resource));
 		return cmd;
 	}
-	
+
 	private EObject searchBasicComponent(EObject elementToConfigure) {
 		EObject o = elementToConfigure;
 		while (!(o instanceof BasicComponent))
 			o = o.eContainer();
 		return o;
-	}	
+	}
+
 }
