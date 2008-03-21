@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabe
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 
 import java.util.ArrayList;

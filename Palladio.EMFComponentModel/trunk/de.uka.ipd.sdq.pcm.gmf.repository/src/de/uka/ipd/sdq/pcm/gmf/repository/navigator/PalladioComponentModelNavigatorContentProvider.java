@@ -26,6 +26,7 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentPassiveResourceCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
@@ -33,6 +34,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
@@ -317,6 +319,12 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					BasicComponentSEFFCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ResourceDemandingSEFFEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					PassiveResourceEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getOutgoingLinksByType(

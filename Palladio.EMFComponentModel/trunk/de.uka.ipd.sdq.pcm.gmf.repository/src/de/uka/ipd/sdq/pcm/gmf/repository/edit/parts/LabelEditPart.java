@@ -19,7 +19,6 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
-import org.eclipse.gmf.runtime.common.ui.services.parser.CommonParserHint;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
@@ -27,16 +26,13 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
-import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
@@ -56,13 +52,14 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserP
 /**
  * @generated
  */
-public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
-		implements ITextAwareEditPart {
+public class LabelEditPart extends
+		org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart implements
+		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6104;
+	public static final int VISUAL_ID = 4006;
 
 	/**
 	 * @generated
@@ -90,14 +87,14 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	static {
 		registerSnapBackPosition(
 				PalladioComponentModelVisualIDRegistry
-						.getType(de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesParentStereotypeLabelEditPart.VISUAL_ID),
+						.getType(de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.LabelEditPart.VISUAL_ID),
 				new Point(0, 40));
 	}
 
 	/**
 	 * @generated
 	 */
-	public ProvidesParentStereotypeLabelEditPart(View view) {
+	public LabelEditPart(View view) {
 		super(view);
 	}
 
@@ -164,7 +161,7 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public void setLabel(WrapLabel figure) {
+	public void setLabel(IFigure figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -190,7 +187,9 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-		return (View) getModel();
+
+		EObject element = resolveSemanticElement();
+		return element != null ? element : (View) getModel();
 	}
 
 	/**
@@ -304,9 +303,9 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = CommonParserHint.DESCRIPTION;
+			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104,
+					PalladioComponentModelElementTypes.RequiredRole_4102,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -563,8 +562,15 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		// Parent should assign one using setLabel() method
-		return null;
+		IFigure label = createFigurePrim();
+		defaultText = getLabelTextHelper(label);
+		return label;
 	}
 
+	/**
+	 * @generated
+	 */
+	protected IFigure createFigurePrim() {
+		return new Label();
+	}
 }

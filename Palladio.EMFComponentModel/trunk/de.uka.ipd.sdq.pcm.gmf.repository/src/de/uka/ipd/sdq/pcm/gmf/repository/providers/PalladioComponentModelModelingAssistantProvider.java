@@ -53,6 +53,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
+			types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
 			return types;
 		}
 		if (editPart instanceof RepositoryEditPart) {

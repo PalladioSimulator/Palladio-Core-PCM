@@ -190,9 +190,7 @@ public class CompleteParentStereotypeLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return (View) getModel();
 	}
 
 	/**
@@ -306,7 +304,7 @@ public class CompleteParentStereotypeLabelEditPart extends LabelEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
+			String parserHint = CommonParserHint.DESCRIPTION;
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 					PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103,
 					getParserElement(), parserHint);

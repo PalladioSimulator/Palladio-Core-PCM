@@ -106,10 +106,39 @@
               href="repository.gmfgraph#SEFFLabel"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.1">
+        <containmentFeature
+            href="../../pcm.ecore#//repository/BasicComponent/passiveResource_BasicComponent"/>
+        <childrenFeature
+            href="../../pcm.ecore#//repository/BasicComponent/passiveResource_BasicComponent"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//repository/PassiveResource"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              editorPattern="">
+            <diagramLabel
+                href="repository.gmfgraph#PassiveResourceLabel"/>
+            <features
+                href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.11"/>
+          <diagramNode
+              href="repository.gmfgraph#PassiveResourceLabel"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.1/@ownedChild/@children.0">
         <compartment
             href="repository.gmfgraph#SEFFCompartment"/>
+      </compartments>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.1">
+        <compartment
+            href="repository.gmfgraph#PassiveResourceCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -176,6 +205,7 @@
     <domainMetaElement
         href="../../pcm.ecore#//repository/ProvidedRole"/>
     <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
           href="repository.gmfgraph#ProvidesStereotypeLabel"/>
@@ -195,6 +225,7 @@
     <domainMetaElement
         href="../../pcm.ecore#//repository/RequiredRole"/>
     <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
           href="repository.gmfgraph#RequiresStereotypeLabel"/>
@@ -212,6 +243,7 @@
   </links>
   <links>
     <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
           href="repository.gmfgraph#CompleteParentStereotypeLabel"/>
@@ -227,6 +259,7 @@
   </links>
   <links>
     <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
           href="repository.gmfgraph#ProvidesParentStereotypeLabel"/>

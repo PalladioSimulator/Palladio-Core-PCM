@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentPassiveResourceCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
@@ -23,6 +24,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeP
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.LabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
@@ -33,6 +36,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
@@ -168,6 +174,12 @@ public class PalladioComponentModelVisualIDRegistry {
 				return ResourceDemandingSEFFEditPart.VISUAL_ID;
 			}
 			break;
+		case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
+			if (RepositoryPackage.eINSTANCE.getPassiveResource().isSuperTypeOf(
+					domainElement.eClass())) {
+				return PassiveResourceEditPart.VISUAL_ID;
+			}
+			break;
 		case RepositoryEditPart.VISUAL_ID:
 			if (RepositoryPackage.eINSTANCE.getInterface().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -230,6 +242,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (BasicComponentSEFFCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			if (CompleteComponentTypeEntityNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -248,6 +263,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			break;
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 			if (ResourceDemandingSEFFEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
+			if (PassiveResourceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

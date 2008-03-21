@@ -213,13 +213,19 @@
       <accessors
           figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="PassiveResourceLabel">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="PassiveResourceLabelFigure"
+          text="PassiveResource"/>
+    </descriptors>
   </figures>
   <nodes
       name="Interface"
       figure="InterfaceFigure"/>
   <nodes
-      name="ChildComponentContext"
-      figure="ChildComponentContextFigure"/>
+      name="ChildComponentContext"/>
   <nodes
       name="CompleteComponentType"
       figure="CompleteComponentTypeFigure"/>
@@ -262,6 +268,9 @@
       collapsible="true"/>
   <compartments
       name="SEFFCompartment"
+      figure="BasicComponentFigure"/>
+  <compartments
+      name="PassiveResourceCompartment"
       figure="BasicComponentFigure"/>
   <labels
       name="SignatureServiceName"
@@ -344,4 +353,6 @@
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
   </labels>
+  <labels
+      name="PassiveResourceLabel"/>
 </gmfgraph:Canvas>

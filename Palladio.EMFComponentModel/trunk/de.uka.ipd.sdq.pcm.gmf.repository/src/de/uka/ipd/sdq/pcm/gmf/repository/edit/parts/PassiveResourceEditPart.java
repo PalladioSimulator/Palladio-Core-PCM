@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.draw2d.ConnectionLocator;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -15,28 +14,30 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
+import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DirectEditRequest;
+import org.eclipse.gef.requests.SelectionRequest;
 import org.eclipse.gef.tools.DirectEditManager;
-import org.eclipse.gmf.runtime.common.ui.services.parser.CommonParserHint;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
+import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
-import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
@@ -48,21 +49,22 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PassiveResourceItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 
 /**
  * @generated
  */
-public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
-		implements ITextAwareEditPart {
+public class PassiveResourceEditPart extends CompartmentEditPart implements
+		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6104;
+	public static final int VISUAL_ID = 3103;
 
 	/**
 	 * @generated
@@ -87,18 +89,19 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	static {
-		registerSnapBackPosition(
-				PalladioComponentModelVisualIDRegistry
-						.getType(de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesParentStereotypeLabelEditPart.VISUAL_ID),
-				new Point(0, 40));
+	public PassiveResourceEditPart(View view) {
+		super(view);
 	}
 
 	/**
 	 * @generated
 	 */
-	public ProvidesParentStereotypeLabelEditPart(View view) {
-		super(view);
+	public DragTracker getDragTracker(Request request) {
+		if (request instanceof SelectionRequest
+				&& ((SelectionRequest) request).getLastButtonPressed() == 3) {
+			return null;
+		}
+		return new DragEditPartsTrackerEx(this);
 	}
 
 	/**
@@ -106,15 +109,14 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new PassiveResourceItemSemanticEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new PalladioComponentModelTextNonResizableEditPolicy());
+		installEditPolicy(EditPolicy.COMPONENT_ROLE,
+				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
-	}
-
-	/**
-	 * @generated
-	 */
-	public int getKeyPoint() {
-		return ConnectionLocator.MIDDLE;
 	}
 
 	/**
@@ -164,7 +166,7 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public void setLabel(WrapLabel figure) {
+	public void setLabel(IFigure figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -190,14 +192,19 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-		return (View) getModel();
+		return resolveSemanticElement();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		return null;
+		EObject parserElement = getParserElement();
+		if (parserElement == null) {
+			return null;
+		}
+		return PalladioComponentModelElementTypes.getImage(parserElement
+				.eClass());
 	}
 
 	/**
@@ -245,7 +252,7 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -304,9 +311,9 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = CommonParserHint.DESCRIPTION;
+			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104,
+					PalladioComponentModelElementTypes.PassiveResource_3103,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
@@ -519,6 +526,22 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
+	protected void addNotationalListeners() {
+		super.addNotationalListeners();
+		addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeNotationalListeners() {
+		super.removeNotationalListeners();
+		removeListenerFilter("PrimaryView"); //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
 		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -563,8 +586,15 @@ public class ProvidesParentStereotypeLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		// Parent should assign one using setLabel() method
-		return null;
+		IFigure label = createFigurePrim();
+		defaultText = getLabelTextHelper(label);
+		return label;
 	}
 
+	/**
+	 * @generated
+	 */
+	protected IFigure createFigurePrim() {
+		return new Label();
+	}
 }

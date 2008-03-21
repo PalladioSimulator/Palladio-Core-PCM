@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabe
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 
 import java.util.ArrayList;

@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
@@ -186,6 +187,31 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser passiveResource_3103Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getPassiveResource_3103Parser() {
+		if (passiveResource_3103Parser == null) {
+			passiveResource_3103Parser = createPassiveResource_3103Parser();
+		}
+		return passiveResource_3103Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createPassiveResource_3103Parser() {
+		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+				.getNamedElement_EntityName(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case InterfaceEntityNameEditPart.VISUAL_ID:
@@ -200,6 +226,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getSignature_3101Parser();
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_3102Parser();
+		case PassiveResourceEditPart.VISUAL_ID:
+			return getPassiveResource_3103Parser();
 		}
 		return null;
 	}

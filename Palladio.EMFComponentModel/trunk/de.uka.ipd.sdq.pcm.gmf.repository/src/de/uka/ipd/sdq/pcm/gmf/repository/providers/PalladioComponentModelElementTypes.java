@@ -58,34 +58,47 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType Interface_2101 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.Interface_2101"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType BasicComponent_2102 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.BasicComponent_2102"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType CompleteComponentType_2103 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2103"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType ProvidesComponentType_2104 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_2104"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType CompositeComponent_2105 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType Signature_3101 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.Signature_3101"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType ResourceDemandingSEFF_3102 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFF_3102"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType PassiveResource_3103 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.PassiveResource_3103"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType ProvidedRole_4101 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ProvidedRole_4101"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -236,6 +249,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(ResourceDemandingSEFF_3102, SeffPackage.eINSTANCE
 					.getResourceDemandingSEFF());
 
+			elements.put(PassiveResource_3103, RepositoryPackage.eINSTANCE
+					.getPassiveResource());
+
 			elements.put(ProvidedRole_4101, RepositoryPackage.eINSTANCE
 					.getProvidedRole());
 
@@ -278,6 +294,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(CompositeComponent_2105);
 			KNOWN_ELEMENT_TYPES.add(Signature_3101);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_3102);
+			KNOWN_ELEMENT_TYPES.add(PassiveResource_3103);
 			KNOWN_ELEMENT_TYPES.add(ProvidedRole_4101);
 			KNOWN_ELEMENT_TYPES.add(RequiredRole_4102);
 			KNOWN_ELEMENT_TYPES

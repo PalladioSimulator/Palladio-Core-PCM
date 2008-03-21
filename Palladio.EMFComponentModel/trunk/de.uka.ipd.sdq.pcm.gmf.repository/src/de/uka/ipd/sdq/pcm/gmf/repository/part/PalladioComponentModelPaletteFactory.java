@@ -46,6 +46,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createSEFF9CreationTool());
 		paletteContainer.add(createCompleteParentType10CreationTool());
 		paletteContainer.add(createProvidesParentType11CreationTool());
+		paletteContainer.add(createPassiveResource12CreationTool());
 		return paletteContainer;
 	}
 
@@ -226,6 +227,22 @@ public class PalladioComponentModelPaletteFactory {
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPassiveResource12CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.PassiveResource12CreationTool_title,
+				Messages.PassiveResource12CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.PassiveResource_3103));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

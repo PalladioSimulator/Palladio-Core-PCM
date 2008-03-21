@@ -190,9 +190,7 @@ public class RequiresStereotypeLabelEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected EObject getParserElement() {
-
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		return (View) getModel();
 	}
 
 	/**
@@ -306,7 +304,7 @@ public class RequiresStereotypeLabelEditPart extends LabelEditPart implements
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
+			String parserHint = CommonParserHint.DESCRIPTION;
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 					PalladioComponentModelElementTypes.RequiredRole_4102,
 					getParserElement(), parserHint);

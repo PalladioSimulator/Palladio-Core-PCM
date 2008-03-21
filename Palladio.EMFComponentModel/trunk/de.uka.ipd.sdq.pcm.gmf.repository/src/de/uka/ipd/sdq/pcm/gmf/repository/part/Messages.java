@@ -361,12 +361,27 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String PassiveResource12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String PassiveResource12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String InterfaceSignatureListEditPart_title;
 
 	/**
 	 * @generated
 	 */
 	public static String BasicComponentSEFFCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String BasicComponentPassiveResourceCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -426,17 +441,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ProvidedRole_4101_source;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_ProvidedRole_4101_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RequiredRole_4102_source;
+	public static String NavigatorGroupName_ProvidedRole_4101_source;
 
 	/**
 	 * @generated
@@ -446,12 +456,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_source;
+	public static String NavigatorGroupName_RequiredRole_4102_source;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CompleteComponentTypeParentProvidesComponentTypes_4104_target;
 
 	/**
 	 * @generated
@@ -492,11 +512,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String PalladioComponentModelModelingAssistantProviderMessage;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_CompleteComponentTypeParentProvidesComponentTypes_4104_target;
 
 	//TODO: put accessor fields manually	
 }

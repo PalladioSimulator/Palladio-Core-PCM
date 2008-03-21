@@ -68,11 +68,18 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ResourceDemandingSEFFEditPart.VISUAL_ID:
 				return new ResourceDemandingSEFFEditPart(view);
 
+			case PassiveResourceEditPart.VISUAL_ID:
+				return new PassiveResourceEditPart(view);
+
 			case InterfaceSignatureListEditPart.VISUAL_ID:
 				return new InterfaceSignatureListEditPart(view);
 
 			case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 				return new BasicComponentSEFFCompartmentEditPart(view);
+
+			case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
+				return new BasicComponentPassiveResourceCompartmentEditPart(
+						view);
 
 			case ProvidedRoleEditPart.VISUAL_ID:
 				return new ProvidedRoleEditPart(view);

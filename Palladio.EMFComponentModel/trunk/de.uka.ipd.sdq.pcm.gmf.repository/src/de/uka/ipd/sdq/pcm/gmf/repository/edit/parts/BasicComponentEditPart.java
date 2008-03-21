@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenDiagramEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenSeffDiagramEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
@@ -76,6 +77,13 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 								if (type == PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102) {
 									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
 											.getType(BasicComponentSEFFCompartmentEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == PalladioComponentModelElementTypes.PassiveResource_3103) {
+									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+											.getType(BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
