@@ -234,14 +234,14 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(BasicComponent_2102, RepositoryPackage.eINSTANCE
 					.getBasicComponent());
 
+			elements.put(CompositeComponent_2105, RepositoryPackage.eINSTANCE
+					.getCompositeComponent());
+
 			elements.put(CompleteComponentType_2103,
 					RepositoryPackage.eINSTANCE.getCompleteComponentType());
 
 			elements.put(ProvidesComponentType_2104,
 					RepositoryPackage.eINSTANCE.getProvidesComponentType());
-
-			elements.put(CompositeComponent_2105, RepositoryPackage.eINSTANCE
-					.getCompositeComponent());
 
 			elements.put(Signature_3101, RepositoryPackage.eINSTANCE
 					.getSignature());
@@ -289,9 +289,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(Repository_1000);
 			KNOWN_ELEMENT_TYPES.add(Interface_2101);
 			KNOWN_ELEMENT_TYPES.add(BasicComponent_2102);
+			KNOWN_ELEMENT_TYPES.add(CompositeComponent_2105);
 			KNOWN_ELEMENT_TYPES.add(CompleteComponentType_2103);
 			KNOWN_ELEMENT_TYPES.add(ProvidesComponentType_2104);
-			KNOWN_ELEMENT_TYPES.add(CompositeComponent_2105);
 			KNOWN_ELEMENT_TYPES.add(Signature_3101);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_3102);
 			KNOWN_ELEMENT_TYPES.add(PassiveResource_3103);

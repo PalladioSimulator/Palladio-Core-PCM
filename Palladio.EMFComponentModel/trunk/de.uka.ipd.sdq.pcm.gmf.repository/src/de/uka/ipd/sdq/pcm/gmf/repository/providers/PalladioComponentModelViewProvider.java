@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentP
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
@@ -50,6 +51,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypePar
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteParentStereotypeLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteParentStereotypeLabelViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompositeComponentEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompositeComponentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ImplementationComponentTypeParentCompleteComponentTypesViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceEntityNameViewFactory;
@@ -146,9 +148,9 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				switch (visualID) {
 				case InterfaceEditPart.VISUAL_ID:
 				case BasicComponentEditPart.VISUAL_ID:
+				case CompositeComponentEditPart.VISUAL_ID:
 				case CompleteComponentTypeEditPart.VISUAL_ID:
 				case ProvidesComponentTypeEditPart.VISUAL_ID:
-				case CompositeComponentEditPart.VISUAL_ID:
 				case SignatureEditPart.VISUAL_ID:
 				case ResourceDemandingSEFFEditPart.VISUAL_ID:
 				case PassiveResourceEditPart.VISUAL_ID:
@@ -171,6 +173,13 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 				case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
 					if (BasicComponentEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case CompositeComponentEntityNameEditPart.VISUAL_ID:
+					if (CompositeComponentEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -244,6 +253,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return BasicComponentViewFactory.class;
 		case BasicComponentEntityNameEditPart.VISUAL_ID:
 			return BasicComponentEntityNameViewFactory.class;
+		case CompositeComponentEditPart.VISUAL_ID:
+			return CompositeComponentViewFactory.class;
+		case CompositeComponentEntityNameEditPart.VISUAL_ID:
+			return CompositeComponentEntityNameViewFactory.class;
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			return CompleteComponentTypeViewFactory.class;
 		case CompleteComponentTypeEntityNameEditPart.VISUAL_ID:
@@ -252,8 +265,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ProvidesComponentTypeViewFactory.class;
 		case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
 			return ProvidesComponentTypeEntityNameViewFactory.class;
-		case CompositeComponentEditPart.VISUAL_ID:
-			return CompositeComponentViewFactory.class;
 		case SignatureEditPart.VISUAL_ID:
 			return SignatureViewFactory.class;
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:

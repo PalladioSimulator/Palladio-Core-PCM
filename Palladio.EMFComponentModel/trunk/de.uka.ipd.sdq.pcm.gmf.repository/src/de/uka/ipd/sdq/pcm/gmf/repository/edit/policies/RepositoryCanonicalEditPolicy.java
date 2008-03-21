@@ -105,9 +105,9 @@ public class RepositoryCanonicalEditPolicy extends
 		switch (visualID) {
 		case InterfaceEditPart.VISUAL_ID:
 		case BasicComponentEditPart.VISUAL_ID:
+		case CompositeComponentEditPart.VISUAL_ID:
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
-		case CompositeComponentEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != PalladioComponentModelVisualIDRegistry
 							.getNodeVisualID((View) getHost().getModel(), view
@@ -250,6 +250,12 @@ public class RepositoryCanonicalEditPolicy extends
 					.getBasicComponent_2102ContainedLinks(view));
 			break;
 		}
+		case CompositeComponentEditPart.VISUAL_ID: {
+			domain2NotationMap.put(view.getElement(), view);
+			result.addAll(PalladioComponentModelDiagramUpdater
+					.getCompositeComponent_2105ContainedLinks(view));
+			break;
+		}
 		case CompleteComponentTypeEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater
@@ -260,12 +266,6 @@ public class RepositoryCanonicalEditPolicy extends
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater
 					.getProvidesComponentType_2104ContainedLinks(view));
-			break;
-		}
-		case CompositeComponentEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getCompositeComponent_2105ContainedLinks(view));
 			break;
 		}
 		case SignatureEditPart.VISUAL_ID: {

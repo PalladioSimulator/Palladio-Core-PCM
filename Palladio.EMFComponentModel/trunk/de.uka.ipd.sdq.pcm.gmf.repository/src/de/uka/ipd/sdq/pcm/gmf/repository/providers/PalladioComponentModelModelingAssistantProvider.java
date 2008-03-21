@@ -61,11 +61,11 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.Interface_2101);
 			types.add(PalladioComponentModelElementTypes.BasicComponent_2102);
 			types
+					.add(PalladioComponentModelElementTypes.CompositeComponent_2105);
+			types
 					.add(PalladioComponentModelElementTypes.CompleteComponentType_2103);
 			types
 					.add(PalladioComponentModelElementTypes.ProvidesComponentType_2104);
-			types
-					.add(PalladioComponentModelElementTypes.CompositeComponent_2105);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

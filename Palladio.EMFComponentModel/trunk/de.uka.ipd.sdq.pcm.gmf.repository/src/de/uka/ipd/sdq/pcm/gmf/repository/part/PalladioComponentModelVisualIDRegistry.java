@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentP
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
@@ -189,6 +190,10 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return BasicComponentEditPart.VISUAL_ID;
 			}
+			if (RepositoryPackage.eINSTANCE.getCompositeComponent()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return CompositeComponentEditPart.VISUAL_ID;
+			}
 			if (RepositoryPackage.eINSTANCE.getCompleteComponentType()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return CompleteComponentTypeEditPart.VISUAL_ID;
@@ -196,10 +201,6 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (RepositoryPackage.eINSTANCE.getProvidesComponentType()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return ProvidesComponentTypeEditPart.VISUAL_ID;
-			}
-			if (RepositoryPackage.eINSTANCE.getCompositeComponent()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return CompositeComponentEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -246,6 +247,11 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case CompositeComponentEditPart.VISUAL_ID:
+			if (CompositeComponentEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			if (CompleteComponentTypeEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -278,13 +284,13 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (BasicComponentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (CompositeComponentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (CompleteComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ProvidesComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (CompositeComponentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

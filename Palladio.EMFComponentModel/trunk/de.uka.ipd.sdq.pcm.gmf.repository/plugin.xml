@@ -365,6 +365,16 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"
+               name="%metatype.name.CompositeComponent_2105"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="CompositeComponent"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.CompositeComponentEditHelper">
+            <param name="semanticHint" value="2105"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
+         <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2103"
                name="%metatype.name.CompleteComponentType_2103"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -381,16 +391,6 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
                eclass="ProvidesComponentType"
                edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.ProvidesComponentTypeEditHelper">
             <param name="semanticHint" value="2104"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"
-               name="%metatype.name.CompositeComponent_2105"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="CompositeComponent"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.CompositeComponentEditHelper">
-            <param name="semanticHint" value="2105"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
@@ -478,9 +478,9 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Repository_1000"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Interface_2101"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.BasicComponent_2102"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2103"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_2104"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Signature_3101"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFF_3102"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.PassiveResource_3103"/>

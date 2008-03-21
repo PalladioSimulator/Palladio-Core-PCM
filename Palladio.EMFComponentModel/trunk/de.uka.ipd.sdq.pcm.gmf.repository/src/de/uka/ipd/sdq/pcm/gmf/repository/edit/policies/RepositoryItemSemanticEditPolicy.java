@@ -44,6 +44,14 @@ public class RepositoryItemSemanticEditPolicy extends
 			}
 			return getGEFWrapper(new BasicComponentCreateCommand(req));
 		}
+		if (PalladioComponentModelElementTypes.CompositeComponent_2105 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(RepositoryPackage.eINSTANCE
+						.getRepository_Components__Repository());
+			}
+			return getGEFWrapper(new CompositeComponentCreateCommand(req));
+		}
 		if (PalladioComponentModelElementTypes.CompleteComponentType_2103 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
@@ -59,14 +67,6 @@ public class RepositoryItemSemanticEditPolicy extends
 						.getRepository_Components__Repository());
 			}
 			return getGEFWrapper(new ProvidesComponentTypeCreateCommand(req));
-		}
-		if (PalladioComponentModelElementTypes.CompositeComponent_2105 == req
-				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(RepositoryPackage.eINSTANCE
-						.getRepository_Components__Repository());
-			}
-			return getGEFWrapper(new CompositeComponentCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

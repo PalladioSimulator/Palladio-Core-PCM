@@ -242,15 +242,15 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
+					CompositeComponentEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
 					CompleteComponentTypeEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
 					ProvidesComponentTypeEditPart.VISUAL_ID);
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(view),
-					CompositeComponentEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(view),
@@ -364,6 +364,51 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
+		case CompositeComponentEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_CompositeComponent_2105_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_CompositeComponent_2105_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getOutgoingLinksByType(Collections
+					.singleton(view), ProvidedRoleEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view), RequiredRoleEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
 		case CompleteComponentTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
@@ -434,51 +479,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case CompositeComponentEditPart.VISUAL_ID: {
-			Collection result = new ArrayList();
-			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_CompositeComponent_2105_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_CompositeComponent_2105_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getOutgoingLinksByType(Collections
-					.singleton(view), ProvidedRoleEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view), RequiredRoleEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(view),
-					CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID);
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(view),
-					CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID);
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			return result.toArray();
-		}
-
 		case ProvidedRoleEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
@@ -496,15 +496,15 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
+					CompositeComponentEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					CompleteComponentTypeEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					ProvidesComponentTypeEditPart.VISUAL_ID);
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					CompositeComponentEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {
@@ -533,15 +533,15 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
+					CompositeComponentEditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					CompleteComponentTypeEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					ProvidesComponentTypeEditPart.VISUAL_ID);
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					CompositeComponentEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {
@@ -566,11 +566,11 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					CompleteComponentTypeEditPart.VISUAL_ID);
+					CompositeComponentEditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					CompositeComponentEditPart.VISUAL_ID);
+					CompleteComponentTypeEditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
@@ -603,6 +603,10 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
+					CompositeComponentEditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(view),
 					CompleteComponentTypeEditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
@@ -610,20 +614,16 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					ProvidesComponentTypeEditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(view),
-					CompositeComponentEditPart.VISUAL_ID);
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					BasicComponentEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					CompleteComponentTypeEditPart.VISUAL_ID);
+					CompositeComponentEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
-					CompositeComponentEditPart.VISUAL_ID);
+					CompleteComponentTypeEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {

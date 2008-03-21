@@ -14,6 +14,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -23,6 +24,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.CompositeComponentItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -108,6 +110,55 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof CompositeComponentEntityNameEditPart) {
+			((CompositeComponentEntityNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureCompositeComponent_Name_LabelFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+
+		return super.getContentPaneFor(editPart);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
@@ -138,6 +189,11 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(getMapMode().DPtoLP(5));
+			nodeShape.setLayoutManager(layout);
+		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -154,11 +210,19 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+				.getType(CompositeComponentEntityNameEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
 	public class CompositeComponentFigure extends RectangleFigure {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureEntityEntityName8Figure;
+		private WrapLabel fFigureCompositeComponent_Name_LabelFigure;
 
 		/**
 		 * @generated
@@ -172,18 +236,11 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureEntityEntityName8Figure = new WrapLabel();
-			fFigureEntityEntityName8Figure.setText("<...>");
+			fFigureCompositeComponent_Name_LabelFigure = new WrapLabel();
+			fFigureCompositeComponent_Name_LabelFigure.setText("<...>");
 
-			this.add(fFigureEntityEntityName8Figure);
+			this.add(fFigureCompositeComponent_Name_LabelFigure);
 
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureEntityEntityName8Figure() {
-			return fFigureEntityEntityName8Figure;
 		}
 
 		/**
@@ -203,6 +260,13 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureCompositeComponent_Name_LabelFigure() {
+			return fFigureCompositeComponent_Name_LabelFigure;
 		}
 
 	}

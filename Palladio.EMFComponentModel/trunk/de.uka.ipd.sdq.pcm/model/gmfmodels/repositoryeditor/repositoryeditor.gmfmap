@@ -149,6 +149,28 @@
         href="../../pcm.ecore#//repository/Repository/components__Repository"/>
     <ownedChild>
       <domainMetaElement
+          href="../../pcm.ecore#//repository/CompositeComponent"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="repository.gmfgraph#CompositeComponent_Name_Label"/>
+        <features
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.5"/>
+      <diagramNode
+          href="repository.gmfgraph#CompositeComponent"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <childrenFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <ownedChild>
+      <domainMetaElement
           href="../../pcm.ecore#//repository/CompleteComponentType"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
@@ -184,21 +206,6 @@
           href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="repository.gmfgraph#ProvidesComponentType"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
-    <childrenFeature
-        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
-    <ownedChild>
-      <domainMetaElement
-          href="../../pcm.ecore#//repository/CompositeComponent"/>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.5"/>
-      <diagramNode
-          href="repository.gmfgraph#CompositeComponent"/>
     </ownedChild>
   </nodes>
   <links>

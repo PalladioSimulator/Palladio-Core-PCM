@@ -32,6 +32,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentP
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
@@ -128,15 +129,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case BasicComponentEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?BasicComponent", PalladioComponentModelElementTypes.BasicComponent_2102); //$NON-NLS-1$
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompositeComponent", PalladioComponentModelElementTypes.CompositeComponent_2105); //$NON-NLS-1$
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompleteComponentType", PalladioComponentModelElementTypes.CompleteComponentType_2103); //$NON-NLS-1$
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidesComponentType", PalladioComponentModelElementTypes.ProvidesComponentType_2104); //$NON-NLS-1$
-		case CompositeComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompositeComponent", PalladioComponentModelElementTypes.CompositeComponent_2105); //$NON-NLS-1$
 		case SignatureEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Signature", PalladioComponentModelElementTypes.Signature_3101); //$NON-NLS-1$
@@ -218,12 +219,12 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getInterface_2101Text(view);
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102Text(view);
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getCompositeComponent_2105Text(view);
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			return getCompleteComponentType_2103Text(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getProvidesComponentType_2104Text(view);
-		case CompositeComponentEditPart.VISUAL_ID:
-			return getCompositeComponent_2105Text(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101Text(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
@@ -350,17 +351,22 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getCompositeComponent_2105Text(View view) {
-		CompositeComponent domainModelElement = (CompositeComponent) view
-				.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getId();
+		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+				PalladioComponentModelElementTypes.CompositeComponent_2105,
+				(view.getElement() != null ? view.getElement() : view),
+				PalladioComponentModelVisualIDRegistry
+						.getType(CompositeComponentEntityNameEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
 		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin
-					.getInstance()
-					.logError(
-							"No domain element for view with visualID = " + 2105); //$NON-NLS-1$
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5105); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**

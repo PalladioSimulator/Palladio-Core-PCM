@@ -195,17 +195,17 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
+			if (visualID == CompositeComponentEditPart.VISUAL_ID) {
+				result.add(new PalladioComponentModelNodeDescriptor(
+						childElement, visualID));
+				continue;
+			}
 			if (visualID == CompleteComponentTypeEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
 			}
 			if (visualID == ProvidesComponentTypeEditPart.VISUAL_ID) {
-				result.add(new PalladioComponentModelNodeDescriptor(
-						childElement, visualID));
-				continue;
-			}
-			if (visualID == CompositeComponentEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -225,12 +225,12 @@ public class PalladioComponentModelDiagramUpdater {
 			return getInterface_2101ContainedLinks(view);
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102ContainedLinks(view);
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getCompositeComponent_2105ContainedLinks(view);
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			return getCompleteComponentType_2103ContainedLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getProvidesComponentType_2104ContainedLinks(view);
-		case CompositeComponentEditPart.VISUAL_ID:
-			return getCompositeComponent_2105ContainedLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101ContainedLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
@@ -254,12 +254,12 @@ public class PalladioComponentModelDiagramUpdater {
 			return getInterface_2101IncomingLinks(view);
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102IncomingLinks(view);
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getCompositeComponent_2105IncomingLinks(view);
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			return getCompleteComponentType_2103IncomingLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getProvidesComponentType_2104IncomingLinks(view);
-		case CompositeComponentEditPart.VISUAL_ID:
-			return getCompositeComponent_2105IncomingLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101IncomingLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
@@ -283,12 +283,12 @@ public class PalladioComponentModelDiagramUpdater {
 			return getInterface_2101OutgoingLinks(view);
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102OutgoingLinks(view);
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getCompositeComponent_2105OutgoingLinks(view);
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			return getCompleteComponentType_2103OutgoingLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getProvidesComponentType_2104OutgoingLinks(view);
-		case CompositeComponentEditPart.VISUAL_ID:
-			return getCompositeComponent_2105OutgoingLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101OutgoingLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:

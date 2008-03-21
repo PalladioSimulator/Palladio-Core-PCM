@@ -47,6 +47,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case BasicComponentEntityNameEditPart.VISUAL_ID:
 				return new BasicComponentEntityNameEditPart(view);
 
+			case CompositeComponentEditPart.VISUAL_ID:
+				return new CompositeComponentEditPart(view);
+
+			case CompositeComponentEntityNameEditPart.VISUAL_ID:
+				return new CompositeComponentEntityNameEditPart(view);
+
 			case CompleteComponentTypeEditPart.VISUAL_ID:
 				return new CompleteComponentTypeEditPart(view);
 
@@ -58,9 +64,6 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
 				return new ProvidesComponentTypeEntityNameEditPart(view);
-
-			case CompositeComponentEditPart.VISUAL_ID:
-				return new CompositeComponentEditPart(view);
 
 			case SignatureEditPart.VISUAL_ID:
 				return new SignatureEditPart(view);

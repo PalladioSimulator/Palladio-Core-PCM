@@ -126,7 +126,7 @@
           name="CompositeComponentFigure">
         <children
             xsi:type="gmfgraph:Label"
-            name="EntityEntityName8Figure"
+            name="CompositeComponent_Name_LabelFigure"
             text="&lt;...>"/>
       </actualFigure>
       <accessors
@@ -299,7 +299,7 @@
       figure="CompleteComponentTypeFigure"
       accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels
-      name="EntityEntityName8"
+      name="CompositeComponent_Name_Label"
       figure="CompositeComponentFigure"
       accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels

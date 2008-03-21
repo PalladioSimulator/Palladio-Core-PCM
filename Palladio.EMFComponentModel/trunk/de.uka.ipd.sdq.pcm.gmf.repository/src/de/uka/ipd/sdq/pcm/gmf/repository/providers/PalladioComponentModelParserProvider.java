@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
@@ -137,6 +138,31 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser compositeComponentEntityName_5105Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCompositeComponentEntityName_5105Parser() {
+		if (compositeComponentEntityName_5105Parser == null) {
+			compositeComponentEntityName_5105Parser = createCompositeComponentEntityName_5105Parser();
+		}
+		return compositeComponentEntityName_5105Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createCompositeComponentEntityName_5105Parser() {
+		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+				.getNamedElement_EntityName(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser signature_3101Parser;
 
 	/**
@@ -218,6 +244,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getInterfaceEntityName_5101Parser();
 		case BasicComponentEntityNameEditPart.VISUAL_ID:
 			return getBasicComponentEntityName_5102Parser();
+		case CompositeComponentEntityNameEditPart.VISUAL_ID:
+			return getCompositeComponentEntityName_5105Parser();
 		case CompleteComponentTypeEntityNameEditPart.VISUAL_ID:
 			return getCompleteComponentTypeEntityName_5103Parser();
 		case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
