@@ -23,7 +23,6 @@ public class DeleteComponentParameterAction extends SelectionChangedListener imp
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
-	@Override
 	public void widgetSelected(SelectionEvent e) {
 		final VariableUsage variableUsage = (VariableUsage) getSelectedElement();
 		final AssemblyContext context = (AssemblyContext) variableUsage
@@ -48,7 +47,6 @@ public class DeleteComponentParameterAction extends SelectionChangedListener imp
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetDefaultSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
-	@Override
 	public void widgetDefaultSelected(SelectionEvent e) {
 		// The implementation is not necessary.
 	}
