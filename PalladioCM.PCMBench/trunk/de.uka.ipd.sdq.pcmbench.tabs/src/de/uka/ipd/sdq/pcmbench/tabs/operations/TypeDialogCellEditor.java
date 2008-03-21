@@ -1,12 +1,8 @@
 package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
 
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.DialogCellEditor;
-import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
@@ -20,20 +16,13 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
-import de.uka.ipd.sdq.pcm.dialogs.datatype.CallDataTypeDialog;
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * @author Roman Andrej
  * 
  */
-public class TypeDialogCellEditor extends DialogCellEditor {
+public abstract class TypeDialogCellEditor extends DialogCellEditor {
 
-	 /** The TableViewer */
-    private TableViewer viewer;
-    
 	 /** The editor control. */
     private Composite editor;
 
@@ -54,46 +43,21 @@ public class TypeDialogCellEditor extends DialogCellEditor {
      * The value of this cell editor; initially <code>null</code>.
      */
     private Object value = null;
-	
-    /** The value must by set in subclass. */
-    private Signature signature;
     
 
 	/* @See org.eclipse.jface.viewers.DialogCellEditor#DialogCellEditor(org.eclipse.swt.widgets.Control
 	 *      parent)
 	 */
-	public TypeDialogCellEditor(TableViewer viewer) {
-		super(viewer.getTable(), SWT.DEL);
-		this.viewer = viewer;
+	public TypeDialogCellEditor(Composite composite,
+			DeleteCellValueListener cellValueListener) {
+		super(composite, SWT.DEL);
+		
+		if (delButton != null) {
+			delButton.addSelectionListener(cellValueListener);
+		}
 	}
 	
 	/* (non-Javadoc)
-	 * @see org.eclipse.jface.viewers.DialogCellEditor#openDialogBox(org.eclipse.swt.widgets.Control)
-	 */
-	@Override
-	protected Object openDialogBox(Control cellEditorWindow) {
-		TransactionalEditingDomain editingDomain = TransactionUtil
-				.getEditingDomain(signature);
-
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(DataType.class);
-		filterList.add(Repository.class);
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
-
-		CallDataTypeDialog dialog = new CallDataTypeDialog(cellEditorWindow
-				.getShell(), filterList, additionalReferences, editingDomain
-				.getResourceSet());
-		dialog.setProvidedService(DataType.class);
-		dialog.open();
-
-		if (!(dialog.getResult() instanceof DataType))
-			return null;
-
-		return dialog.getResult();
-	}
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see org.eclipse.jface.viewers.DialogCellEditor#createControl(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
@@ -109,16 +73,15 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 		contents = createContents(editor);
 		updateContents(value);
 
-
 		delButton = new Button(editor, SWT.DOWN);
 		delButton.setText("X");
 		delButton.setFont(font);
-		delButton.addSelectionListener(new DeleteCellValueListener(viewer, signature));
 
 		selButton = createButton(editor);
 		selButton.setFont(font);
 		editor.setLayout(new DialogCellLayout(contents, selButton, delButton));
 		selButton.addKeyListener(new KeyAdapter() {
+
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.KeyListener#keyReleased(org.eclipse.swt.events.KeyEvent)
 			 */
@@ -132,6 +95,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 
 		selButton.addFocusListener(getButtonFocusListener());
 		selButton.addSelectionListener(new SelectionAdapter() {
+	
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
@@ -202,17 +166,10 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 	@Override
 	protected void doSetFocus() {
 		 selButton.setFocus();
-	        
-	     // add a FocusListener to the button
-	     //selButton.addFocusListener(getButtonFocusListener());
 	}
 
 	@Override
 	protected void doSetValue(Object value) {
 		super.doSetValue(value);
-	}
-
-	public void setSignature(Signature signature){
-		this.signature = signature;
 	}
 }

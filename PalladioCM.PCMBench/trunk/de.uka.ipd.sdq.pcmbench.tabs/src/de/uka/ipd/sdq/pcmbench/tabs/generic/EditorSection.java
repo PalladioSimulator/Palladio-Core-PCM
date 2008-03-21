@@ -1,8 +1,17 @@
 package de.uka.ipd.sdq.pcmbench.tabs.generic;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IContentProvider;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionListener;
@@ -15,37 +24,34 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsImages;
-import de.uka.ipd.sdq.pcmbench.tabs.operations.DeleteActionListener;
 
-public abstract class EditorSection {
-	
+/**
+ * @author Roman Andrej 
+ */
+public abstract class EditorSection implements Observer {
+
+	/** Define the value for TableSection. */
 	private Composite composite;
 	private ToolItem addButton, deleteButton;
-	private TableViewer viewer;
-	
-	/**
-	 * defined the selected listener value
-	 */
-	protected DeleteActionListener deleteActionListener;
-	
+	/** TableViewer */
+	protected TableViewer viewer;
+	/** Define selected element in the section. */
+	private EObject selectedObject = null;
+
 	public EditorSection(Composite composite) {
 		composite.getParent().setLayoutData(
 				new GridData(SWT.FILL, SWT.FILL, true, true));
 		this.composite = composite;
-		
-		createSection();
+
+		createEditorSection();
 	}
 
-	private void createSection() {
-		ToolBar toolBar = createToolBar(composite);
-		Table table = createTable(composite, toolBar);
-		viewer = createViewer(table);
+	private void createEditorSection() {
+		createTableSection(createToolBar());
 	}
-	
-	protected abstract Table createTable(Composite composite, ToolBar toolBar);
-	protected abstract TableViewer createViewer(Table table); 
-	
-	protected ToolBar createToolBar(Composite composite) {
+
+
+	protected ToolBar createToolBar() {
 
 		ToolBar toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT
 				| SWT.RIGHT);
@@ -60,62 +66,157 @@ public abstract class EditorSection {
 		addButton = new ToolItem(toolBar, SWT.PUSH);
 		addButton.setImage(PCMBenchTabsImages.imageRegistry
 				.get(PCMBenchTabsImages.ADD_SIGN));
-//		make in subclass		
-//		addButton
-//				.addSelectionListener(...);
+		addButton
+				.addSelectionListener(createAddButtonActionListener());
 
 		/** Create Delete-Button by ToolBar */
 		deleteButton = new ToolItem(toolBar, SWT.PUSH);
 		deleteButton.setImage(PCMBenchTabsImages.imageRegistry
 				.get(PCMBenchTabsImages.DELETE_SIGN));
-		deleteActionListener = new DeleteActionListener();
-		deleteButton
-				.addSelectionListener(deleteActionListener);
 		deleteButton.setEnabled(false);
 
 		return toolBar;
 	}
 	
+	/** Create the section with Table and TableViewer. */
+	protected void createTableSection(ToolBar toolBar){
+		
+		// style the style of table to construct
+		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
+				| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
+		// Width board inside table and toolbar
+		int widthBoard = 6;
+
+		Table table = new Table(composite, style);
+
+		// create table layout
+		FormData data = new FormData();
+		data.left = new FormAttachment(0, 0);
+		data.right = new FormAttachment(toolBar, widthBoard);
+		data.top = new FormAttachment(0, 0);
+		data.bottom = new FormAttachment(100, 0);
+
+		table.setLayoutData(data);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
+		
+		
+		viewer = new TableViewer(table);
+		viewer.setUseHashlookup(true);
+		viewer.setColumnProperties(getTableColumnNames());
+		viewer.setCellEditors(createViewerCellEditors(table));
+		viewer.setCellModifier(createViewerCellModifier());
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+			 */
+			public void selectionChanged(SelectionChangedEvent event) {
+				Object input = ((IStructuredSelection) event.getSelection())
+						.getFirstElement();
+
+				if (input instanceof EObject) {
+					setDeleteButtonEnabled(true);
+					selectedObject = (EObject) input;
+				} else {
+					setDeleteButtonEnabled(false);
+				}
+			}
+		});
+		
+		// define the listener for Delete-Button
+		setDeleteButtonListener(viewer);
+		// create column
+		createTableColumns(table);
+		
+	}
+	
+	/** Create the table columns. */
+	protected abstract void createTableColumns(Table table);
+	
+	/**
+	 * Create a SelectionListener for the Add-Button and set him to TableViewer
+	 * as 'SelectionChangedListener'. Thus those becomes available element,
+	 * which was selected in the TableViewer, for the DeleteAction
+	 * 
+	 * @param viewer
+	 *            instance of TableViewer
+	 */
+	protected void setDeleteButtonListener(TableViewer viewer) {
+		SelectionListener listener = createDeleteButtonListener();
+		viewer
+				.addSelectionChangedListener((ISelectionChangedListener) listener);
+		Assert.isNotNull(addButton);
+		deleteButton.addSelectionListener(listener);
+	}
+	
+	/** Set a SelectionListener for the Delete-Button */
+	protected abstract SelectionListener createDeleteButtonListener();
+	
+	protected abstract String[] getTableColumnNames();
+	
+	/** Create a CellEditors for Viewer. */
+	protected abstract CellEditor[] createViewerCellEditors(Table table);
+	
+	protected abstract ICellModifier createViewerCellModifier();
+	
+	/** Set a CellModifier for TabelViewer. */
+	public void setViewerCellModifier(ICellModifier modifier){
+		Assert.isNotNull(viewer);
+		viewer.setCellModifier(modifier);
+	}
+	
+	public void addViewerSelectionChangedListener(ISelectionChangedListener listener){
+		Assert.isNotNull(viewer);
+		viewer.addSelectionChangedListener(listener);
+	}
+	
 	/** Create a SelectionListener for the Add-Button */
-	protected abstract SelectionListener createAddButtonActionListener(Object input);
+	protected abstract SelectionListener createAddButtonActionListener();
 	
 	/** Set a input for the TableViewer */
 	public void setViewerInput(Object input) {
 		Assert.isNotNull(viewer);
 		viewer.setInput(input);
-		
-		// initialization the selected listener for Add-Button with input object
-		addButton.addSelectionListener(createAddButtonActionListener(input));
 	}
 	
+	
 	/** Set a ContentProvider for the TableViewer */
-	public void setViewerContentProvider(IContentProvider contentProvider){
+	public void setViewerContentProvider(IContentProvider contentProvider) {
 		Assert.isNotNull(viewer);
 		viewer.setContentProvider(contentProvider);
 	}
-	
+
 	/** Set a LabelProvider for the TableViewer */
-	public void setViewerLabelProvider(IBaseLabelProvider labelProvider){
+	public void setViewerLabelProvider(IBaseLabelProvider labelProvider) {
 		Assert.isNotNull(viewer);
 		viewer.setLabelProvider(labelProvider);
 	}
-	
-	public void refresh(){
+
+	public void refresh() {
 		Assert.isNotNull(viewer);
 		viewer.refresh();
 	}
 
-	/**
-	 * @return the addButton
-	 */
-	public ToolItem getAddButton() {
-		return addButton;
+	private void setDeleteButtonEnabled(boolean enabled) {
+		deleteButton.setEnabled(enabled);
 	}
 
-	/**
-	 * @return the deleteButton
+	public EObject getSelectedObject() {
+		return selectedObject;
+	}
+	
+	public TableViewer getViewer(){
+		return viewer;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
-	public ToolItem getDeleteButton() {
-		return deleteButton;
+	@Override
+	public void update(Observable o, Object arg) {
+		if (viewer != null){
+			viewer.refresh();
+		}
 	}
 }

@@ -8,22 +8,15 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.ToolBar;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
@@ -38,8 +31,6 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
  */
 public class ComponentParametersEditorSection extends EditorSection {
 	
-	private VariableUsage selectedVariableUsage;
-
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int VARIABLE_COLUMN_INDEX = 1;
 	public static final int STOEX_COLUMN_INDEX = 2;
@@ -51,35 +42,38 @@ public class ComponentParametersEditorSection extends EditorSection {
 	public final static String VARIABLE_COLUMN 			= "Variable Name";
 	public final static String STOEX_COLUMN 			= "Specification";
 	
-	//	 Set column names of Tabele
+	/** Set column names of Tabele. */
 	public static String[] columnNames = new String[] { PARAMETERS_ICON_COLUMN,
 			VARIABLE_COLUMN, STOEX_COLUMN };
+	/** Define the listener for Add-Button. */
+	private AddComponentParameterAction addButtonListener;
 	
 	public ComponentParametersEditorSection(Composite composite) {
 		super(composite);
 	}
-
+	
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.EditorSection#createTable(org.eclipse.swt.widgets.Composite, org.eclipse.swt.widgets.ToolBar)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createAddButtonActionListener(java.lang.Object)
 	 */
 	@Override
-	protected Table createTable(Composite composite, ToolBar toolBar) {
-		// style the style of table to construct
-		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
-				| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
+	protected SelectionListener createAddButtonActionListener() {
+		addButtonListener = new AddComponentParameterAction();
+		return addButtonListener;
+	}
 
-		Table table = new Table(composite, style);
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createDeleteButtonListener()
+	 */
+	@Override
+	protected SelectionListener createDeleteButtonListener() {
+		return new DeleteComponentParameterAction();
+	}
 
-		FormData formData = new FormData();
-		formData.left = new FormAttachment(0, 0);
-		formData.right = new FormAttachment(toolBar, 6);
-		formData.top = new FormAttachment(0, 0);
-		formData.bottom = new FormAttachment(100, 0);
-
-		table.setLayoutData(formData);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-		
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createTableColumns(org.eclipse.swt.widgets.Table)
+	 */
+	@Override
+	protected void createTableColumns(Table table) {
 		final TableColumn iconColumn = new TableColumn(table, SWT.NONE);
 		iconColumn.setWidth(25);
 		iconColumn.setText(PARAMETERS_ICON_COLUMN);
@@ -91,21 +85,13 @@ public class ComponentParametersEditorSection extends EditorSection {
 		final TableColumn stoexColumn = new TableColumn(table, SWT.CENTER);
 		stoexColumn.setWidth(100);
 		stoexColumn.setText(STOEX_COLUMN);
-		
-		return table;
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.EditorSection#createViewer(org.eclipse.swt.widgets.Table)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createViewerCellEditors(org.eclipse.swt.widgets.Table)
 	 */
 	@Override
-	protected TableViewer createViewer(Table table) {
-		
-		final TableViewer viewer = new TableViewer(table);
-		viewer.setUseHashlookup(true);
-		viewer.setColumnProperties(columnNames);
-
-		// Create the cell editors
+	protected CellEditor[] createViewerCellEditors(Table table) {
 		CellEditor[] editors = new CellEditor[columnNames.length];
 
 		CellEditor textEditor = new TextCellEditor(table);
@@ -118,8 +104,8 @@ public class ComponentParametersEditorSection extends EditorSection {
 			 */
 			@Override
 			protected Object openDialogBox(Control cellEditorWindow) {
-				Assert.isNotNull(selectedVariableUsage);
-				EList<VariableCharacterisation> characterisations = selectedVariableUsage
+				Assert.isNotNull(getSelectedVariableUsage());
+				EList<VariableCharacterisation> characterisations = getSelectedVariableUsage()
 						.getVariableCharacterisation_VariableUsage();
 				RandomVariable randVar = (RandomVariable) characterisations
 						.get(0).getSpecification_VariableCharacterisation();
@@ -136,34 +122,22 @@ public class ComponentParametersEditorSection extends EditorSection {
 				return null;
 			}
 		};
+		return editors;
+	}
 
-		// Assign the cell editors to the viewe
-		viewer.setCellEditors(editors);
-		viewer.setCellModifier(new ComponentParametersCellModifier());
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			public void selectionChanged(SelectionChangedEvent event) {
-				if (!event.getSelection().isEmpty()) {
-					getDeleteButton().setEnabled(true);
-					
-					IStructuredSelection selection = (IStructuredSelection) event
-							.getSelection();
-					Object selected = selection.getFirstElement();
-					
-					Assert.isTrue(selected instanceof VariableUsage);
-
-					selectedVariableUsage = (VariableUsage) selected;
-				} else
-					getDeleteButton().setEnabled(false);
-			}
-		});
-		return viewer;
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#getTableColumnNames()
+	 */
+	@Override
+	protected String[] getTableColumnNames() {
+		return columnNames;
 	}
 
 	/**
 	 * @return the selectedVariableUsage
 	 */
 	public VariableUsage getSelectedVariableUsage() {
-		return selectedVariableUsage;
+		return (VariableUsage) getSelectedObject();
 	}
 	
 	protected TypeEnum getExpectedType(RandomVariable rv) {
@@ -175,10 +149,20 @@ public class ComponentParametersEditorSection extends EditorSection {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createAddButtonActionListener(java.lang.Object)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createViewerCellModifier()
 	 */
 	@Override
-	protected SelectionListener createAddButtonActionListener(Object input) {
-		return new AddComponentParameterAction((AssemblyContext) input);
+	protected ICellModifier createViewerCellModifier() {
+		ComponentParametersCellModifier cellModifier = new ComponentParametersCellModifier();
+		// Add EditorSection as Observer to cellModifier
+		cellModifier.addObserver(this);
+		return cellModifier;
+	}
+
+	/**
+	 * @return the addButtonListener
+	 */
+	public AddComponentParameterAction getAddButtonListener() {
+		return addButtonListener;
 	}
 }

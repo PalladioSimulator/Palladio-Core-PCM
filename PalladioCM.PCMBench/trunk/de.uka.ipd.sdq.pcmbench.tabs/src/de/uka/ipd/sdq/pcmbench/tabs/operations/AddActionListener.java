@@ -13,16 +13,11 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 
 public class AddActionListener extends SelectionAdapter {
 
-	private Interface selectedInterface;
-
 	/**
-	 * The transactional editing domain which is used to get the commands and alter the model 
+	 * Define the selected interface. The variable is set not during the class
+	 * production, separates later.
 	 */
-	protected TransactionalEditingDomain editingDomain = null;
-
-	public AddActionListener(Interface selectedInterface) {
-		this.selectedInterface = selectedInterface;
-	}
+	private Interface selectedInterface;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
@@ -30,7 +25,13 @@ public class AddActionListener extends SelectionAdapter {
 	@Override
 	public void widgetSelected(SelectionEvent e) {
 		Assert.isNotNull(selectedInterface);
-		editingDomain = TransactionUtil.getEditingDomain(selectedInterface);
+
+		/**
+		 * The transactional editing domain which is used to get the commands
+		 * and alter the model
+		 */
+		TransactionalEditingDomain editingDomain = TransactionUtil
+				.getEditingDomain(selectedInterface);
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
@@ -47,5 +48,19 @@ public class AddActionListener extends SelectionAdapter {
 
 		recCommand.setDescription("Add new signature");
 		editingDomain.getCommandStack().execute(recCommand);
+	}
+
+	/**
+	 * @return the selectedInterface
+	 */
+	public Interface getSelectedInterface() {
+		return selectedInterface;
+	}
+
+	/**
+	 * @param selectedInterface the selectedInterface to set
+	 */
+	public void setSelectedInterface(Interface selectedInterface) {
+		this.selectedInterface = selectedInterface;
 	}
 }

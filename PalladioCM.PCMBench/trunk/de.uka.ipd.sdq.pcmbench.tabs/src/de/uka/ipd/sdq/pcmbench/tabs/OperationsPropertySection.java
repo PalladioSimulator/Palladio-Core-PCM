@@ -16,6 +16,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
@@ -32,7 +33,7 @@ public class OperationsPropertySection extends AbstractPropertySection {
 	 * The Property Sheet Page used to display the standard properties
 	 */
 	private ComposedAdapterFactory adapterFactory;
-	private OperationsEditorSection sectionTable;
+	private OperationsEditorSection propertySection;
 
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
@@ -55,11 +56,11 @@ public class OperationsPropertySection extends AbstractPropertySection {
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-		sectionTable = new OperationsEditorSection(composite);
-		sectionTable
+		propertySection = new OperationsEditorSection(composite);
+		propertySection
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
 						adapterFactory));
-		sectionTable
+		propertySection
 				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
 						new OperationsTabItemProviderAdapterFactory(
 								new PalladioItemProviderAdapterFactory(
@@ -88,7 +89,10 @@ public class OperationsPropertySection extends AbstractPropertySection {
 		}
 		
 		Assert.isTrue(input instanceof EObject);
-		sectionTable.setViewerInput(input);
+		// set input for 'TableViewer'
+		propertySection.setViewerInput(input);
+		// set in the diagram selected object to the add button action listener.
+		propertySection.getAddButtonListener().setSelectedInterface((Interface) input);
 	}
 
 	/**
@@ -96,7 +100,7 @@ public class OperationsPropertySection extends AbstractPropertySection {
 	 */
 	@Override
 	public void refresh() {
-		sectionTable.refresh();
+		propertySection.refresh();
 	}
 
 	/**

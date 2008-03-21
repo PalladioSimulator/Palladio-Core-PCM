@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcmbench.tabs.parameters;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Observable;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -22,7 +23,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * @author Roman Andrej
  *
  */
-public class ComponentParametersCellModifier implements ICellModifier {
+public class ComponentParametersCellModifier extends Observable implements ICellModifier {
 
 	private List<String> columnNames;
 	private VariableUsage variableUsage;
@@ -57,25 +58,25 @@ public class ComponentParametersCellModifier implements ICellModifier {
 	 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object, java.lang.String, java.lang.Object)
 	 */
 	public void modify(Object element, String property, Object value) {
-			// Find the index of the column
-			int columnIndex = columnNames.indexOf(property);
+		// Find the index of the column
+		int columnIndex = columnNames.indexOf(property);
 
-			Assert.isNotNull(element);
-			TableItem item = (TableItem) element;
-			
-			variableUsage = (VariableUsage) item.getData();
-			
-			switch (columnIndex) {
-			case ComponentParametersEditorSection.ICON_COLUMN_INDEX:
-				break;
-			case ComponentParametersEditorSection.VARIABLE_COLUMN_INDEX:
-				break;
-			case ComponentParametersEditorSection.STOEX_COLUMN_INDEX:
-				setSpecification(((String) value).trim());
-				break;
-			default:
-				break;
-			}
+		Assert.isNotNull(element);
+		TableItem item = (TableItem) element;
+
+		variableUsage = (VariableUsage) item.getData();
+
+		switch (columnIndex) {
+		case ComponentParametersEditorSection.ICON_COLUMN_INDEX:
+			break;
+		case ComponentParametersEditorSection.VARIABLE_COLUMN_INDEX:
+			break;
+		case ComponentParametersEditorSection.STOEX_COLUMN_INDEX:
+			setSpecification(((String) value).trim());
+			break;
+		default:
+			break;
+		}
 
 	}
 	
@@ -85,19 +86,27 @@ public class ComponentParametersCellModifier implements ICellModifier {
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				PCMRandomVariable randomVariable = CoreFactory.eINSTANCE.createPCMRandomVariable();
+				PCMRandomVariable randomVariable = CoreFactory.eINSTANCE
+						.createPCMRandomVariable();
 				VariableCharacterisation characterisation = variableUsage
 						.getVariableCharacterisation_VariableUsage().get(0);
 				randomVariable.setSpecification(value);
-				characterisation.setSpecification_VariableCharacterisation(randomVariable);
+				characterisation
+						.setSpecification_VariableCharacterisation(randomVariable);
 			}
 		};
 
-		// if (!value.equals(signature.getServiceName())) {
-		// recCommand.setDescription("Edit Signature Property");
 		recCommand.setLabel("Set specification");
 		editingDomain.getCommandStack().execute(recCommand);
-		// }
-
+		notifyObservers();
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.util.Observable#notifyObservers()
+	 */
+	@Override
+	public void notifyObservers() {
+		setChanged();
+		super.notifyObservers();
 	}
 }

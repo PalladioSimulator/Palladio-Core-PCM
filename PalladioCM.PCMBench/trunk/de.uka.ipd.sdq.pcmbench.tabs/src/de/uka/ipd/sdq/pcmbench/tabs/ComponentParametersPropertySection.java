@@ -19,6 +19,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ComponentParametersEditorSection;
@@ -35,7 +36,7 @@ public class ComponentParametersPropertySection extends AbstractPropertySection 
 	 * The Property Sheet Page used to display the standard properties
 	 */
 	private ComposedAdapterFactory adapterFactory;
-	private ComponentParametersEditorSection editorSection;
+	private ComponentParametersEditorSection propertySection;
 	
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
@@ -58,10 +59,10 @@ public class ComponentParametersPropertySection extends AbstractPropertySection 
 		adapterFactory
 		.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		
-		editorSection = new ComponentParametersEditorSection(composite);
-		editorSection.setViewerContentProvider(new AdapterFactoryContentProvider(
+		propertySection = new ComponentParametersEditorSection(composite);
+		propertySection.setViewerContentProvider(new AdapterFactoryContentProvider(
 				adapterFactory));
-		editorSection.setViewerLabelProvider(new AdapterFactoryLabelProvider(
+		propertySection.setViewerLabelProvider(new AdapterFactoryLabelProvider(
 				new ParametersTabItemProviderAdapterFactory(
 						new PalladioItemProviderAdapterFactory(adapterFactory))));
 
@@ -87,6 +88,9 @@ public class ComponentParametersPropertySection extends AbstractPropertySection 
 		}
 		
 		Assert.isTrue(input instanceof EObject);
-		editorSection.setViewerInput(input);
+		// set input for 'TableViewer'
+		propertySection.setViewerInput(input);
+		// set in the diagram selected object to the add button action listener.
+		propertySection.getAddButtonListener().setContext((AssemblyContext) input);
 	}
 }

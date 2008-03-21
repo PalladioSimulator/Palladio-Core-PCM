@@ -1,38 +1,30 @@
 package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
+
+import java.util.ArrayList;
+
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.swt.widgets.ToolBar;
 
+import de.uka.ipd.sdq.pcm.dialogs.datatype.CallDataTypeDialog;
 import de.uka.ipd.sdq.pcm.dialogs.parameters.ParametersDialog;
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.DataType;
+import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
 
-public class OperationsEditorSection extends EditorSection {
-	
-
-	/** In Viewer selected signature. */
-	private Signature selectedSignature;
-	/** The TableViewer cell editors. */
-	private CellEditor[] editors;
-	/** Define the TypeDialogCellEditor. */
-	private TypeDialogCellEditor typeCellEditor;
+public class OperationsEditorSection extends EditorSection{
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int RETURNTYPE_COLUMN_INDEX = 1;
@@ -52,6 +44,9 @@ public class OperationsEditorSection extends EditorSection {
 	//	 Set column names of Tabele
 	public static String[] columnNames = new String[] { OPERATIONS_ICON_COLUMN,RETURNTYPE_COLUMN,
 			SERVICENAME_COLUMN, OWNEDPARAMETER_COLUMN, EXEPTIONTYPE_COLUM };
+	
+	/** Define the Add-Button listener. Listener must by later initialized. */
+	private AddActionListener addButtonListener;
 
 	/** Constructor */
 	public OperationsEditorSection(Composite composite) {
@@ -59,26 +54,77 @@ public class OperationsEditorSection extends EditorSection {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.EditorSection#createTable(org.eclipse.swt.widgets.Composite, org.eclipse.swt.widgets.ToolBar)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createViewerCellEditors(org.eclipse.swt.widgets.Table)
 	 */
 	@Override
-	protected Table createTable(Composite composite, ToolBar toolBar) {
+	protected CellEditor[] createViewerCellEditors(Table table) {
+		CellEditor[] editors = new CellEditor[columnNames.length];
 
-		// style the style of table to construct
-		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
-				| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
+		editors[SIGNATURENAME_COLUMN_INDEX] = new TextCellEditor(table);
 
-		Table table = new Table(composite, style);
+		// create 'DeleteCellValueListener' and as SelectionListener to the 'TableVewer'
+		DeleteCellValueListener cellValueListener = new DeleteCellValueListener(viewer);
+		viewer.addSelectionChangedListener(cellValueListener);
 
-		FormData data = new FormData();
-		data.left = new FormAttachment(0, 0);
-		data.right = new FormAttachment(toolBar, 6);
-		data.top = new FormAttachment(0, 0);
-		data.bottom = new FormAttachment(100, 0);
+		editors[RETURNTYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table,
+				cellValueListener) {
+			
+			/* (non-Javadoc)
+			 * @see org.eclipse.jface.viewers.DialogCellEditor#openDialogBox(org.eclipse.swt.widgets.Control)
+			 */
+			@Override
+			protected Object openDialogBox(Control cellEditorWindow) {
+				TransactionalEditingDomain editingDomain = TransactionUtil
+						.getEditingDomain(getSelectedSignature());
 
-		table.setLayoutData(data);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
+				ArrayList<Object> filterList = new ArrayList<Object>();
+				filterList.add(DataType.class);
+				filterList.add(Repository.class);
+				ArrayList<Object> additionalReferences = new ArrayList<Object>();
+
+				CallDataTypeDialog dialog = new CallDataTypeDialog(
+						cellEditorWindow.getShell(), filterList,
+						additionalReferences, editingDomain.getResourceSet());
+				dialog.setProvidedService(DataType.class);
+				dialog.open();
+
+				if (!(dialog.getResult() instanceof DataType))
+					return null;
+
+				return dialog.getResult();
+			}
+		};
+
+		editors[PARAMETER_COLUMN_INDEX] = new DialogCellEditor(table) {
+			@Override
+			protected Object openDialogBox(Control cellEditorWindow) {
+				ParametersDialog dialog = new ParametersDialog(cellEditorWindow
+						.getShell(), getSelectedSignature());
+				if (dialog.open() == Dialog.OK)
+					viewer.refresh();
+				return null;
+			}
+		};
+
+		return editors;
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createViewerCellModifier()
+	 */
+	@Override
+	protected ICellModifier createViewerCellModifier() {
+		OperationsCellModifier cellModifier = new OperationsCellModifier();
+		// Add EditorSection as Observer to cellModifier
+		cellModifier.addObserver(this);
+		return cellModifier;
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createTableColumns(org.eclipse.swt.widgets.Table)
+	 */
+	@Override
+	protected void createTableColumns(Table table) {
 		// 1st column
 		TableColumn column = new TableColumn(table, SWT.CENTER, 0);
 		column.setText("");
@@ -90,82 +136,43 @@ public class OperationsEditorSection extends EditorSection {
 			column.setText((String) columnNames[i]);
 			column.setWidth(140);
 		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createAddButtonActionListener()
+	 */
+	@Override
+	protected SelectionListener createAddButtonActionListener() {
+		// the value must by initialized! (don't return new AddActionListener()) 
+		this.addButtonListener = new AddActionListener();
 		
-		return table;
+		return addButtonListener;
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.EditorSection#createViewer(org.eclipse.swt.widgets.Table)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createDeleteButtonListener()
 	 */
 	@Override
-	protected TableViewer createViewer(Table table) {
-
-		final TableViewer viewer = new TableViewer(table);
-		viewer.setUseHashlookup(true);
-		viewer.setColumnProperties(columnNames);
-
-		// Create the cell editors
-		editors = new CellEditor[columnNames.length];
-
-		CellEditor textEditor = new TextCellEditor(table);
-		editors[SIGNATURENAME_COLUMN_INDEX] = textEditor;
-
-		textEditor = new TextCellEditor(table);
-		// editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
-
-		// Set the TypeDialogCellEditor
-		typeCellEditor = new TypeDialogCellEditor(viewer);
-		
-		editors[RETURNTYPE_COLUMN_INDEX] = typeCellEditor;
-
-		editors[PARAMETER_COLUMN_INDEX] = new DialogCellEditor(table) {
-			@Override
-			protected Object openDialogBox(Control cellEditorWindow) {
-				ParametersDialog dialog = new ParametersDialog(cellEditorWindow
-						.getShell(), selectedSignature);
-				if (dialog.open() == Dialog.OK)
-					viewer.refresh();
-				return null;
-			}
-		};
-
-		// Assign the cell editors to the viewe
-		viewer.setCellEditors(editors);
-		viewer.setCellModifier(new OperationsCellModifier(viewer));
-		viewer.addSelectionChangedListener(deleteActionListener);
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			/* (non-Javadoc)
-			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
-			 */
-			public void selectionChanged(SelectionChangedEvent event) {
-				ISelection selection = event.getSelection();
-
-				Object input = ((IStructuredSelection) selection)
-						.getFirstElement();
-
-				if (input instanceof Signature) {
-					setSelectedSignature((Signature) input);
-				} else {
-					getDeleteButton().setEnabled(false);
-				}
-			}
-		});
-		
-		return viewer;
+	protected SelectionListener createDeleteButtonListener() {
+		return new DeleteActionListener();
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createAddButtonActionListener(java.lang.Object)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#getViewerColumnProperties()
 	 */
 	@Override
-	protected SelectionListener createAddButtonActionListener(Object input) {
-		return new AddActionListener((Interface) input);
+	protected String[] getTableColumnNames() {
+		return columnNames;
 	}
 
-	/** The method set in TableViewer selected signature to 'TypeDialogCellEditor'. */
-	public void setSelectedSignature(Signature selectedSignature) {
-		this.selectedSignature = selectedSignature;
-		this.typeCellEditor.setSignature(selectedSignature);
+	public Signature getSelectedSignature() {
+		return (Signature) getSelectedObject();
+	}
+
+	/**
+	 * @return the addButtonListener
+	 */
+	public AddActionListener getAddButtonListener() {
+		return addButtonListener;
 	}
 }

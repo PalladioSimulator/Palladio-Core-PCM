@@ -33,9 +33,6 @@ public class AddComponentParameterAction extends SelectionAdapter {
 	 */
 	private TransactionalEditingDomain editingDomain = null;
 	
-	public AddComponentParameterAction(AssemblyContext context) {
-		this.context = context;
-	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
@@ -83,4 +80,11 @@ public class AddComponentParameterAction extends SelectionAdapter {
 		editingDomain.getCommandStack().execute(recCommand);
 	}
 
+
+	/**
+	 * @param context the context to set
+	 */
+	public void setContext(AssemblyContext context) {
+		this.context = context;
+	}
 }
