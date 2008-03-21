@@ -136,14 +136,26 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
-		if (domainElement == null
-				|| !RepositoryEditPart.MODEL_ID
-						.equals(de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
-								.getModelID(containerView))) {
+		if (domainElement == null) {
 			return -1;
 		}
-		switch (de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
-				.getVisualID(containerView)) {
+		String containerModelID = de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
+				.getModelID(containerView);
+		if (!RepositoryEditPart.MODEL_ID.equals(containerModelID)) {
+			return -1;
+		}
+		int containerVisualID;
+		if (RepositoryEditPart.MODEL_ID.equals(containerModelID)) {
+			containerVisualID = de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
+					.getVisualID(containerView);
+		} else {
+			if (containerView instanceof Diagram) {
+				containerVisualID = RepositoryEditPart.VISUAL_ID;
+			} else {
+				return -1;
+			}
+		}
+		switch (containerVisualID) {
 		case InterfaceSignatureListEditPart.VISUAL_ID:
 			if (RepositoryPackage.eINSTANCE.getSignature().isSuperTypeOf(
 					domainElement.eClass())) {

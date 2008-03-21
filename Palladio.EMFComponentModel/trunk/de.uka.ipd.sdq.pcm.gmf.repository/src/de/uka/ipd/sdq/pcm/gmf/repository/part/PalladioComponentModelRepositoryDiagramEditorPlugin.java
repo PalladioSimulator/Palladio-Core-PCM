@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
@@ -41,6 +42,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
+import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -129,6 +131,7 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	 * @generated
 	 */
 	protected void fillItemProviderFactories(List factories) {
+		factories.add(new CoreItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());
@@ -143,8 +146,9 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 		factories.add(new QosannotationsItemProviderAdapterFactory());
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
-		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new StoexItemProviderAdapterFactory());
+		factories.add(new UnitsItemProviderAdapterFactory());
+		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}
