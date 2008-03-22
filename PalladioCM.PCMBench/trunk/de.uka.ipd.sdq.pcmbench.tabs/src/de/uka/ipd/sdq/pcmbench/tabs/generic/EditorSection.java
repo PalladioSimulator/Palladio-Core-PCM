@@ -213,7 +213,6 @@ public abstract class EditorSection implements Observer {
 	/* (non-Javadoc)
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
-	@Override
 	public void update(Observable o, Object arg) {
 		if (viewer != null){
 			viewer.refresh();

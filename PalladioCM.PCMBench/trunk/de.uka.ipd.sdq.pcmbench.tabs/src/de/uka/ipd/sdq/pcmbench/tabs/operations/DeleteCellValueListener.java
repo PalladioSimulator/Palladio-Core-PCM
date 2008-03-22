@@ -52,7 +52,6 @@ public class DeleteCellValueListener extends SelectionChangedListener implements
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetDefaultSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
-	@Override
 	public void widgetDefaultSelected(SelectionEvent e) {
 		// The implementation is not necessary.
 	}
