@@ -8,7 +8,6 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
-import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionListener;
@@ -23,6 +22,7 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
+import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 
 public class OperationsEditorSection extends EditorSection{
 
@@ -108,16 +108,13 @@ public class OperationsEditorSection extends EditorSection{
 
 		return editors;
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createViewerCellModifier()
 	 */
 	@Override
-	protected ICellModifier createViewerCellModifier() {
-		OperationsCellModifier cellModifier = new OperationsCellModifier();
-		// Add EditorSection as Observer to cellModifier
-		cellModifier.addObserver(this);
-		return cellModifier;
+	protected ObservableCellModifier createViewerCellModifier() {
+		return new OperationsCellModifier();
 	}
 
 	/* (non-Javadoc)

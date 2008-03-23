@@ -2,17 +2,16 @@ package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Observable;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.TableItem;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 
 /**
  * @author Roman Andrej
@@ -21,7 +20,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * user modifes a cell in the tableViewer
  */
 
-public class OperationsCellModifier extends Observable implements ICellModifier {
+public class OperationsCellModifier extends ObservableCellModifier {
 
 	private List<String> columnNames;
 	private Signature signature;
@@ -113,14 +112,5 @@ public class OperationsCellModifier extends Observable implements ICellModifier 
 			notifyObservers();
 		}
 		
-	}
-
-	/* (non-Javadoc)
-	 * @see java.util.Observable#notifyObservers()
-	 */
-	@Override
-	public void notifyObservers() {
-		setChanged();
-		super.notifyObservers();
 	}
 }

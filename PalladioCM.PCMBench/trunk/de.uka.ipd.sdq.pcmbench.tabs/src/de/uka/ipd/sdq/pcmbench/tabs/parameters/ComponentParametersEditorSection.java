@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
-import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionListener;
@@ -22,6 +21,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
+import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
@@ -94,9 +94,8 @@ public class ComponentParametersEditorSection extends EditorSection {
 	protected CellEditor[] createViewerCellEditors(Table table) {
 		CellEditor[] editors = new CellEditor[columnNames.length];
 
-		CellEditor textEditor = new TextCellEditor(table);
-		editors[VARIABLE_COLUMN_INDEX] = textEditor;
-
+		editors[VARIABLE_COLUMN_INDEX] = new TextCellEditor(table);
+		
 		editors[STOEX_COLUMN_INDEX] = new DialogCellEditor(table) {
 
 			/* (non-Javadoc)
@@ -147,16 +146,13 @@ public class ComponentParametersEditorSection extends EditorSection {
 		}
 		return expectedType;
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createViewerCellModifier()
 	 */
 	@Override
-	protected ICellModifier createViewerCellModifier() {
-		ComponentParametersCellModifier cellModifier = new ComponentParametersCellModifier();
-		// Add EditorSection as Observer to cellModifier
-		cellModifier.addObserver(this);
-		return cellModifier;
+	protected ObservableCellModifier createViewerCellModifier() {
+		return new ComponentParametersCellModifier();
 	}
 
 	/**
