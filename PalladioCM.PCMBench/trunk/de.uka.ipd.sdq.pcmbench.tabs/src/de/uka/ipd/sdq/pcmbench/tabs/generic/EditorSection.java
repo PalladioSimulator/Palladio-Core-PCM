@@ -105,7 +105,6 @@ public abstract class EditorSection implements Observer {
 		viewer.setUseHashlookup(true);
 		viewer.setColumnProperties(getTableColumnNames());
 		viewer.setCellEditors(createViewerCellEditors(table));
-		viewer.setCellModifier(createViewerCellModifier());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			/* (non-Javadoc)
@@ -126,6 +125,8 @@ public abstract class EditorSection implements Observer {
 		
 		// define the listener for Delete-Button
 		setDeleteButtonListener(viewer);
+		// set CellModifier for Viewer
+		setViewerCellModifier(viewer);
 		// create column
 		createTableColumns(table);
 		
@@ -150,6 +151,18 @@ public abstract class EditorSection implements Observer {
 		deleteButton.addSelectionListener(listener);
 	}
 	
+	/**
+	 * Create a ICellModifier for TableViewer with 'EditorSection' as Observer for him.
+	 * 
+	 * @param viewer
+	 *            instance of TableViewer
+	 */
+	protected void setViewerCellModifier(TableViewer viewer) {
+		ObservableCellModifier cellModifier = createViewerCellModifier();
+		cellModifier.addObserver(this);
+		viewer.setCellModifier(cellModifier);
+	}
+	
 	/** Set a SelectionListener for the Delete-Button */
 	protected abstract SelectionListener createDeleteButtonListener();
 	
@@ -158,7 +171,7 @@ public abstract class EditorSection implements Observer {
 	/** Create a CellEditors for Viewer. */
 	protected abstract CellEditor[] createViewerCellEditors(Table table);
 	
-	protected abstract ICellModifier createViewerCellModifier();
+	protected abstract ObservableCellModifier createViewerCellModifier();
 	
 	/** Set a CellModifier for TabelViewer. */
 	public void setViewerCellModifier(ICellModifier modifier){
