@@ -86,7 +86,7 @@ public class TestDriver {
 				
 		for(int x = 0; x < numberOfFilesForUpload; x++) {
 			//random pick from list of all files
-			int selectedFile = random.nextInt(numberOfAllFiles);
+			int selectedFile = 0; // MKrandom.nextInt(numberOfAllFiles);
 			inputFiles[x] =
 					fillBuffer(uploadFilesLocation + uploadFiles[selectedFile]);
 			if(uploadFiles[selectedFile].endsWith(".txt")) {
