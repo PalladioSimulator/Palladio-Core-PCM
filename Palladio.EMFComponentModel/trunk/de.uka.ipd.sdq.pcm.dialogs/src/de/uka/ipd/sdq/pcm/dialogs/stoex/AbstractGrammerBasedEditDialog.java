@@ -48,7 +48,6 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
 
 /**
  * @author Snowball
- * 
  */
 public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
@@ -70,23 +69,34 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	protected Parameter[] context = null;
 
 	/**
+	 * Constructor.
+	 * 
 	 * @param parent
+	 *            shell
 	 */
 	public AbstractGrammerBasedEditDialog(Shell parent) {
 		super(parent);
 		newText = getInitialText();
 		this.context = new Parameter[]{};
+		// make the possible change dialogue size.
+		this.setShellStyle(SWT.RESIZE|SWT.MAX);
 	}
 
 	/**
+	 * Constructor.
+	 * 
 	 * @param parent
-	 * @param context - A list of parameters used in code completion
+	 *            shell
+	 * @param context -
+	 *            A list of parameters used in code completion
 	 */
 	public AbstractGrammerBasedEditDialog(Shell parent, Parameter[] context) {
 		super(parent);
 		newText = getInitialText();
 		this.context = context;
+		// make the possible change dialogue size.
 		setShellStyle(SWT.RESIZE|SWT.MAX);
+		// activate help
 		this.setHelpAvailable(true);
 	}
 
