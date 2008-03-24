@@ -66,6 +66,13 @@ public class ByteArrayVector extends Vector<byte[]> {
 			return foundIndex;
 		}
 	}
+	
+	/**
+	 * @deprecated
+	 */
+	public int indexOf(Object o){
+		return firstIndexOf(o);
+	}
 
 	private void test() {
 		this.add(new byte[]{1});
