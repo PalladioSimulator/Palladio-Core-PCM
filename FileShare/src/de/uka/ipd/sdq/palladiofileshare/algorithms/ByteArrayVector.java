@@ -9,15 +9,47 @@ public class ByteArrayVector extends Vector<byte[]> {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private static boolean equal(byte[] left, byte[] right){
+		if (left==null && right==null){
+			return true;
+		}else if(left.length!=right.length){
+			return false;
+		}else{
+			for(int i=0; i<left.length; i++){
+				if(left[i]!=right[i]){
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+	
 	public static void main(String args[]){
 		ByteArrayVector bav = new ByteArrayVector();
 		bav.test();
+	}
+	
+	public boolean add(byte[] addedElement){
+		return this.add(addedElement, false);
 	}
 	
 	public boolean add(byte[] addedElement, boolean verbose){
 		super.add(addedElement);
 		if(verbose) System.out.println("Added "+SimpleLZW.convertByteArrayToString(addedElement));
 		return true;
+	}
+	
+	public boolean contains(Object o){
+		if(o instanceof byte[]){
+			int firstIndex = this.firstIndexOf(o);
+			if (firstIndex<0){
+				return false;
+			}else{
+				return true;
+			}
+		}else {
+			return false;
+		}
 	}
 	
 	public boolean equals(Object o){
@@ -34,23 +66,6 @@ public class ByteArrayVector extends Vector<byte[]> {
 				}
 			}
 			return true;
-		}
-	}
-	
-	public boolean add(byte[] addedElement){
-		return this.add(addedElement, false);
-	}
-	
-	public boolean contains(Object o){
-		if(o instanceof byte[]){
-			int firstIndex = this.firstIndexOf(o);
-			if (firstIndex<0){
-				return false;
-			}else{
-				return true;
-			}
-		}else {
-			return false;
 		}
 	}
 	
@@ -81,21 +96,6 @@ public class ByteArrayVector extends Vector<byte[]> {
 				}
 			}
 			return foundIndex;
-		}
-	}
-	
-	private static boolean equal(byte[] left, byte[] right){
-		if (left==null && right==null){
-			return true;
-		}else if(left.length!=right.length){
-			return false;
-		}else{
-			for(int i=0; i<left.length; i++){
-				if(left[i]!=right[i]){
-					return false;
-				}
-			}
-			return true;
 		}
 	}
 	

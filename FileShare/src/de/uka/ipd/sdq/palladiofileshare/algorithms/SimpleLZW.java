@@ -26,7 +26,6 @@ public class SimpleLZW {
 	 * @return
 	 * @deprecated because untested
 	 */
-	@SuppressWarnings("unused")
 	private static final char[] convertByteArrayToCharArray_MK(byte[] input, boolean verbose){
 		char[] ret = new char[input.length/2]; //TODO check input size
 		int i = 0;
@@ -48,7 +47,6 @@ public class SimpleLZW {
 	 * @return
 	 * @deprecated because untested
 	 */
-	@SuppressWarnings("unused")
 	private static final int[] convertByteArrayToIntArray_MK(byte[] input, boolean verbose){
 		int[] ret = new int[input.length/2]; //TODO check input size
 		int i = 0;
@@ -87,6 +85,22 @@ public class SimpleLZW {
 		}
 		sb.append((int) input[input.length-1]);
 		return sb.toString();
+	}
+	
+	/**
+	 * @param input
+	 * @return
+	 * @deprecated because undocumented mapping and because untested
+	 */
+	@SuppressWarnings("unused")
+	private static final byte[] convertCharArrayToByteArray_MK(char[] input){
+		byte[] ret = new byte[input.length*2];
+		int i = 0;
+		for (; i < input.length; i++) {
+			ret[2*i] = (byte) (input[i]/256-128);
+			ret[(2*i)+1] = (byte) (input[i]%256-128);
+		}
+		return ret;
 	}
 	
 	/**
@@ -155,6 +169,15 @@ public class SimpleLZW {
 		return ret;
 	}
 	
+	@SuppressWarnings("unused")
+	private static final String convertIntArrayToString(int[] input){
+		StringBuffer sb = new StringBuffer();
+		for (int j = 0; j < input.length; j++) {
+			sb.append(input[j]);
+		}
+		return sb.toString();
+	}
+	
 	private static final String convertIntArrayToString(int[] input, String separator){
 		StringBuffer sb = new StringBuffer();
 		for (int j = 0; j < input.length-1; j++) {
@@ -217,11 +240,11 @@ public class SimpleLZW {
 
 		byte[] window = new byte[]{}; //aka wc in the algorithm
 		byte[] prevWindow = new byte[]{}; //aka w in the algorithm
-		byte currentByte = 0;
+		byte currentByte = 0; //b could be reused
 		int currentByteIndex = 0;
 		
 		while(currentByteIndex<origLength){//TODO remove temp
-			if(verbose) System.out.println("====Step "+currentByteIndex+" =============");
+//			if(verbose) System.out.println("====Step "+currentByteIndex+" =============");
 			currentByte = input[currentByteIndex];
 			window = new byte[prevWindow.length+1];
 			for(int i=0; i<prevWindow.length; i++){
@@ -231,7 +254,7 @@ public class SimpleLZW {
 			if(dictionary.contains(window)){
 				prevWindow = window;
 			}else{
-				dictionary.add(window, true);
+				dictionary.add(window, verbose);
 				compressedChar[nextCompressedIndex] = (char) dictionary.indexOf(prevWindow);
 				nextCompressedIndex++;
 				prevWindow = new byte[]{currentByte};
@@ -246,7 +269,7 @@ public class SimpleLZW {
 
 		char[] retChar = new char[compressedLength];
 		System.arraycopy(compressedChar, 0, retChar, 0, compressedLength);
-		return convertCharArrayToByteArray_MK(retChar, true);
+		return convertCharArrayToByteArray_MK(retChar, verbose);
 	}
 
 	/**
@@ -255,7 +278,8 @@ public class SimpleLZW {
 	 * @return
 	 * @deprecated contains int version as well...
 	 */
-	public static final byte[] lzwcompress_old(byte[] input, boolean verbose){
+	@SuppressWarnings("unused")
+	private static final byte[] lzwcompress_old(byte[] input, boolean verbose){
 //		System.out.println((int) new Character('A'));
 //		System.out.println(this.MK_map((byte) 1));
 //		System.out.println(this.MK_map((byte) 26));
@@ -385,15 +409,19 @@ public class SimpleLZW {
 	}
 
 	public static void main(String[] args) throws IOException {
-		byte[] compressed = SimpleLZW.lzwcompress(
-				new byte[]{20,15,2,5,15,18,14,15,20,20,15,2,5,15,18,20,15,2,5,15,18,14,15,20}, 
-				true);
-		System.out.println(convertByteArrayToString(compressed, " "));
-		char[] compressed_char = convertByteArrayToCharArray_MK(compressed, true);
-		System.out.println(convertCharArrayToString(compressed_char, " "));
-		int[] compressed_int = convertByteArrayToIntArray_MK(compressed, true);
-		System.out.println(convertIntArrayToString(compressed_int, " "));
-		//TEST OK SimpleLZW.convertCharArrayToByteArray_MK(new char[]{1000, 'M','i','K','u'},true);
+		byte[] input = new byte[]{20,15,2,5,15,18,14,15,20,20,15,2,5,15,18,20,15,2,5,15,18,14,15,20};
+		System.out.println("Original data:\n"+convertByteArrayToString(input, " "));
+		
+		byte[] compressed = SimpleLZW.lzwcompress(input, false);
+		System.out.println("Compressed data:\n"+convertByteArrayToString(compressed, " "));
+		
+		char[] compressed_char = convertByteArrayToCharArray_MK(compressed, false);
+		System.out.println("Compressed data as bytes converted to chars:\n"+convertCharArrayToString(compressed_char, " "));
+		
+		int[] compressed_int = convertByteArrayToIntArray_MK(compressed, false);
+		System.out.println("Compressed data as bytes converted to pseudo-ints (coded in two bytes each) :\n"+convertIntArrayToString(compressed_int, " "));
+		
+//TEST OK SimpleLZW.convertCharArrayToByteArray_MK(new char[]{1000, 'M','i','K','u'},true);
 		
 //		for(char c = Character.MIN_VALUE; c<Character.MAX_VALUE; c++){
 //			if(c%256==0) System.out.println("");
