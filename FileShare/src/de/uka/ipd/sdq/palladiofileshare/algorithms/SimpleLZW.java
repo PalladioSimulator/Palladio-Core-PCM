@@ -3,13 +3,12 @@ package de.uka.ipd.sdq.palladiofileshare.algorithms;
 import java.io.IOException;
 import java.util.Vector;
 
-import com.sun.org.apache.xalan.internal.xsltc.dom.BitArray;
-
 public class SimpleLZW {
 
 	public static void main(String[] args) throws IOException {
 		SimpleLZW slzw = new SimpleLZW();
 		slzw.compress(null);
+		if(1==1) return;
 		String original = "TOBEORNOTTOBEORTOBEORNOT";
 		String compressed = "";
 		String word = "";
@@ -60,65 +59,127 @@ public class SimpleLZW {
 		System.out.println(compressed);
 	}
 	
+	public static String byteArrayToString(byte[] input){
+		StringBuffer sb = new StringBuffer();
+		for (int j = 0; j < input.length; j++) {
+			sb.append((int) input[j]);
+		}
+		return sb.toString();
+	}
+	
+	public static String byteArrayToLetterString(byte[] input){
+		StringBuffer sb = new StringBuffer();
+		for (int j = 0; j < input.length; j++) {
+			sb.append((char) (64+input[j]));
+		}
+		return sb.toString();
+	}
+	
 	public byte[] compress(byte[] input){
-		byte[] original = new byte[]{20,15,2,5,15,18,14,15,20,20,15,2,5,15,18,20,15,2,5,15,18,14,15,20};
-		int lastIndex = original.length - 1;
+//		System.out.println((int) new Character('A'));
+//		System.out.println(this.MK_map((byte) 1));
+//		System.out.println(this.MK_map((byte) 26));
 		
-		Vector<byte[]> dictionary = new Vector<byte[]>(); //am Ende verwerfen
-		char[] compressed = new char[original.length];
+		byte[] original = new byte[]{20,15,2,5,15,18,14,15,20,20,15,2,5,15,18,20,15,2,5,15,18,14,15,20};
+//		int lastIndex = original.length - 1;
+		int origLength = original.length;
+		System.out.println("ORIGINAL: "+byteArrayToString(original));
+		System.out.println("ORIGINAL: "+byteArrayToLetterString(original)+" (MK mapping)");
+		
+		ByteArrayVector dictionary = new ByteArrayVector(); //am Ende verwerfen
+		byte b = Byte.MIN_VALUE; 
+		for(int i=0; i<256; i++){
+//			System.out.println("Adding "+b);
+			dictionary.add(new byte[]{b});
+			b++;
+		}
+		System.out.println(dictionary.size()+" dict entries");
+//		System.out.println(dictionary.contains(new byte[]{20}));
+		
+		char[] compressed = new char[original.length]; //TODO make this an integer array?
 //		int outputLength = 0;
 
-		byte[] window = null;
-		byte[] prevWindow = null;
-		int leftWindowBoundIncl=0;
-		int windowLength = 1;
-//		byte nextByte;
+		byte[] window = new byte[]{}; //aka wc in the algorithm
+		byte[] prevWindow = new byte[]{}; //aka w in the algorithm
+		byte currentByte = 0;
+		int currentByteIndex = 0;
+//		int leftWindowBoundIncl=0;
+//		int windowLength = 0;
+//		int TEMP_outputLength=0;
 
-//		for(int i=Byte.MIN_VALUE; i<=Byte.MAX_VALUE; i++){
-//			System.out.println(i); //TODO reflect in the dictionary
-//		}
-//		char[] test = new char[]{0,'A','a',0xFFFF};
-//		for(char c : test){
-//			System.out.println(new Integer(c));
-//		}
-		
-		
-		for (int i = 0; i < original.length; i++) {
-//			nextByte = original[i];
-			if(windowLength==1){
+		while(currentByteIndex<origLength){//TODO remove temp
+			System.out.println("====Step "+currentByteIndex+" =============");
+			currentByte = original[currentByteIndex];
+			window = new byte[prevWindow.length+1];
+			for(int i=0; i<prevWindow.length; i++){
+				window[i] = prevWindow[i];
+			}
+			window[window.length-1] = currentByte;
+			if(dictionary.contains(window)){
+				System.out.println(/*"\n"+*/byteArrayToString(window)+" contained in dict");
 				prevWindow = window;
-				windowLength++;
-				System.arraycopy(original, leftWindowBoundIncl, window, 0, windowLength);
-				//do not output anything
-				
-				//this is contained in the dict "by default"...
 			}else{
-				if (!dictionary.contains(window)){
-					dictionary.add(window);
-					leftWindowBoundIncl++; //=prevWindow.length;
-//					windowLength = 2;
-//					
-//					compressed
-//					
-//					
-					System.out.println("Not found "+window);
-//					word = word + nextChar;
-//					if (i == lastIndex) {//cannot be removed if  
-//						System.out.println("Last word... "+word);
-//						compressed = compressed + "|" + dictionary.indexOf(word);
-//					}
-				} else {
-					
-//					System.out.println("Not found "+(word+nextChar)+", adding "+(word+nextChar)+" to compressed and "+dictionary.indexOf(word)+" to output");
-//					dictionary.add(word + nextChar);
-//					compressed = compressed + "|" + dictionary.indexOf(word);
-//					word = nextChar + "";
-				}
-		}
-		}
-
-		System.out.println(compressed);
+				System.out.println(/*"\n"+*/byteArrayToString(window)+" NOT contained in dict");
+				dictionary.add(window, true);
+				System.out.println("TODO: output code for "+byteArrayToLetterString(prevWindow));
+				prevWindow = new byte[]{currentByte};
+			}
+			currentByteIndex++;
+		}				
+		System.out.println("TODO: output code for "+byteArrayToLetterString(prevWindow));
+//
+//			
+//			this.arraycopy(original, leftWindowBoundIncl, window, 0, windowLength);
+//			
+//			
+//			windowLength++;
+//			window = new byte[windowLength];
+//			this.arraycopy(original, leftWindowBoundIncl, window, 0, windowLength);
+//			System.out.println("WINDOW: "+byteArrayToString(window));
+//				System.out.println("\n"+byteArrayToString(window)+" contained in dict (left bound "+leftWindowBoundIncl+", length "+windowLength+")");
+//				prevWindow = window;
+//			}else{
+//				System.out.println("\n"+byteArrayToString(window)+" NOT yet contained in dict (left bound "+leftWindowBoundIncl+", length "+windowLength+")");
+//				System.out.println("Output: "+this.byteArrayToLetterString(prevWindow));
+//				leftWindowBoundIncl+=(windowLength-1);
+//				windowLength = 1;//or 1?
+//			}
+//			currentByteIndex++;
+//		}
+//		while(leftWindowBoundIncl+windowLength<=origLength && TEMP_outputLength<50){//TODO remove temp
+//			System.out.println("=================");
+//			windowLength++;
+//			window = new byte[windowLength];
+//			this.arraycopy(original, leftWindowBoundIncl, window, 0, windowLength);
+//			System.out.println("WINDOW: "+byteArrayToString(window));
+//			if(dictionary.contains(window)){
+//				System.out.println("\n"+byteArrayToString(window)+" contained in dict (left bound "+leftWindowBoundIncl+", length "+windowLength+")");
+//				prevWindow = window;
+//			}else{
+//				System.out.println("\n"+byteArrayToString(window)+" NOT yet contained in dict (left bound "+leftWindowBoundIncl+", length "+windowLength+")");
+//				dictionary.add(window, true);
+//				System.out.println("Output: "+this.byteArrayToLetterString(prevWindow));
+//				leftWindowBoundIncl+=(windowLength-1);
+//				windowLength = 1;//or 1?
+//			}
+//			TEMP_outputLength++;
+//		}
 		return null;
+	}
+
+	private void arraycopy(byte[] src, int srcPos, byte[] dest, int destPos, int length) {
+		System.out.println("Copying " + length +" bytes starting from index " + srcPos +
+				" (incl.) of array with length "+src.length);
+		System.arraycopy(src, srcPos, dest, destPos, length);
+		
+	}
+	
+	private Character MK_map(byte b){
+		if(b>0 && b<27){
+			return ((char) (64+b));
+		}else{
+			return null;
+		}
 	}
 
 }
