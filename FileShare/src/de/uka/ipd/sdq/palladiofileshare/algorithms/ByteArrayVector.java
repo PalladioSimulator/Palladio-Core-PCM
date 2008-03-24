@@ -16,8 +16,25 @@ public class ByteArrayVector extends Vector<byte[]> {
 	
 	public boolean add(byte[] addedElement, boolean verbose){
 		super.add(addedElement);
-		if(verbose) System.out.println("Added "+SimpleLZW.byteArrayToString(addedElement));
+		if(verbose) System.out.println("Added "+SimpleLZW.convertByteArrayToString(addedElement));
 		return true;
+	}
+	
+	public boolean equals(Object o){
+		if(!(o instanceof ByteArrayVector)){
+			return false;
+		}else{
+			ByteArrayVector bav = (ByteArrayVector) o;
+			if(bav.size() != this.size()){
+				return false;
+			}
+			for(int i=0; i<this.size(); i++){
+				if(! ByteArrayVector.equal(this.get(i), bav.get(i))){
+					return false;
+				}
+			}
+			return true;
+		}
 	}
 	
 	public boolean add(byte[] addedElement){
@@ -64,6 +81,21 @@ public class ByteArrayVector extends Vector<byte[]> {
 				}
 			}
 			return foundIndex;
+		}
+	}
+	
+	private static boolean equal(byte[] left, byte[] right){
+		if (left==null && right==null){
+			return true;
+		}else if(left.length!=right.length){
+			return false;
+		}else{
+			for(int i=0; i<left.length; i++){
+				if(left[i]!=right[i]){
+					return false;
+				}
+			}
+			return true;
 		}
 	}
 	
