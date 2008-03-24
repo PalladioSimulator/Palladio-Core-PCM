@@ -1,18 +1,32 @@
 package de.uka.ipd.sdq.palladiofileshare.algorithms;
 
 import java.io.IOException;
-import java.util.Vector;
 
 public class SimpleLZW {
 
-	private static void arraycopy(byte[] src, int srcPos, byte[] dest, int destPos, int length) {
-		System.out.println("Copying " + length +" bytes starting from index " + srcPos +
-				" (incl.) of array with length "+src.length);
-		System.arraycopy(src, srcPos, dest, destPos, length);
-		
+	@SuppressWarnings("unused")
+	private static void arraycopy(
+			byte[] src, 
+			int srcPos, 
+			byte[] dest, 
+			int destPos, 
+			int length) {
+		System.out.println("Copying " + length +" bytes starting from index " + 
+				srcPos + " (incl.) of array with length "+src.length);
+		System.arraycopy(
+				src, 
+				srcPos, 
+				dest, 
+				destPos, 
+				length);
 	}
 	
-	public static final String byteArrayToLetterString(byte[] input){
+	/**Uses "my own" encoding: A=1, ..., Z=26
+	 * @param input
+	 * @return
+	 * @deprecated because using own "standards"
+	 */
+	private static final String byteArrayToLetterString_MK(byte[] input){
 		StringBuffer sb = new StringBuffer();
 		for (int j = 0; j < input.length; j++) {
 			sb.append((char) (64+input[j]));
@@ -23,12 +37,13 @@ public class SimpleLZW {
 	public static final String byteArrayToString(byte[] input){
 		StringBuffer sb = new StringBuffer();
 		for (int j = 0; j < input.length; j++) {
-			sb.append((int) input[j]);
+			sb.append((int) input[j]);//TODO research whether char would be more appropriate...
 		}
 		return sb.toString();
 	}
 	
-	public static final String charArrayToLetterString(char[] input){
+	@SuppressWarnings("unused")
+	private static final String charArrayToString(char[] input){//TODO delegate
 		StringBuffer sb = new StringBuffer();
 		for (int j = 0; j < input.length; j++) {
 			sb.append(input[j]);
@@ -36,7 +51,7 @@ public class SimpleLZW {
 		return sb.toString();
 	}
 	
-	public static final String charArrayToString(char[] input, String separator){
+	private static final String charArrayToString(char[] input, String separator){
 		StringBuffer sb = new StringBuffer();
 		for (int j = 0; j < input.length-1; j++) {
 			sb.append(input[j]+separator);
@@ -45,7 +60,87 @@ public class SimpleLZW {
 		return sb.toString();
 	}
 	
-	public static final int[] compress(byte[] input, boolean verbose){
+	/**
+	 * @param input
+	 * @return
+	 * @deprecated because unfinished
+	 */
+	@SuppressWarnings("unused")
+	private static final byte[] convertCharArrayToByteArray_MK(char[] input, boolean verbose){
+		byte[] ret = new byte[input.length*2];
+		int i = 0;
+		int left  = 0;
+		int right = 0;
+		for (; i < input.length; i++) {
+			left = input[i]/256;
+			right = input[i]%256;
+			ret[2*i] = (byte) left;
+			ret[(2*i)+1] = (byte) right;
+			if(verbose) System.out.println(input[i]+" (aka "+((int) input[i])+ ") converted to ["+left+","+right+"]");
+		}
+		return ret;
+	}
+	
+	/**
+	 * @param input
+	 * @return
+	 * @deprecated because unfinished
+	 */
+	private static final byte[] convertIntArrayToByteArray_MK(int[] input, boolean verbose){
+		byte[] ret = new byte[input.length*4];
+		int dividerA = 256*256*256;
+		int dividerB = 256*256;
+		int dividerC = 256;
+		int a, b, c, d;
+		for (int i = 0; i < input.length; i++) {
+			a = input[i]/dividerA;
+			b = input[i]/dividerB;
+			c = input[i]/dividerC;
+			d = input[i]%dividerC;
+			ret[(4*i)+0] = (byte) a;
+			ret[(4*i)+1] = (byte) b;
+			ret[(4*i)+2] = (byte) c;
+			ret[(4*i)+3] = (byte) d;
+			if(verbose) System.out.println(input[i]+" (aka "+((int) input[i])+ ") " +
+					"converted to ["+a+","+b+","+c+","+d+","+"]");
+		}
+		return ret;
+	}
+	
+	/**
+	 * @param b
+	 * @return
+	 * @deprecated because statically coded and undocumented
+	 */
+	@SuppressWarnings("unused")
+	private static final Character getCharFromByte_MK(byte b){
+		if(b>0 && b<27){
+			return ((char) (64+b));
+		}else{
+			return null;
+		}
+	}
+
+	@SuppressWarnings("unused")
+	private static final String intArrayToString(int[] input){
+		StringBuffer sb = new StringBuffer();
+		for (int j = 0; j < input.length; j++) {
+			sb.append(input[j]);
+		}
+		return sb.toString();
+	}
+	
+	private static final String intArrayToString(int[] input, String separator){
+		StringBuffer sb = new StringBuffer();
+		for (int j = 0; j < input.length-1; j++) {
+			sb.append(input[j]+separator);
+		}
+		sb.append(input[input.length-1]);
+		return sb.toString();
+	}
+
+	@SuppressWarnings("deprecation")
+	public static final byte[] lzwcompress(byte[] input, boolean verbose){
 //		System.out.println((int) new Character('A'));
 //		System.out.println(this.MK_map((byte) 1));
 //		System.out.println(this.MK_map((byte) 26));
@@ -58,7 +153,7 @@ public class SimpleLZW {
 //		int lastIndex = original.length - 1;
 		int origLength = original.length;
 		if(verbose) System.out.println("ORIGINAL: "+byteArrayToString(original));
-		if(verbose) System.out.println("ORIGINAL: "+byteArrayToLetterString(original)+" (MK mapping)");
+		if(verbose) System.out.println("ORIGINAL: "+byteArrayToLetterString_MK(original)+" (MK mapping)");
 		
 		ByteArrayVector dictionary = new ByteArrayVector(); //am Ende verwerfen
 		byte b = Byte.MIN_VALUE; 
@@ -102,7 +197,7 @@ public class SimpleLZW {
 //				if(verbose) System.out.println("TEMP: indexOf "+byteArrayToLetterString(prevWindow)+": "+dictionary.indexOf(prevWindow));
 				compressedInt[nextCompressedIndex] = dictionary.indexOf(prevWindow);
 				compressedChar[nextCompressedIndex] = (char) dictionary.indexOf(prevWindow);
-				if(verbose) System.out.println("Output code for "+byteArrayToLetterString(prevWindow)+": "+compressedInt[nextCompressedIndex]);
+				if(verbose) System.out.println("Output code for "+byteArrayToLetterString_MK(prevWindow)+": "+compressedInt[nextCompressedIndex]);
 				nextCompressedIndex++;
 				prevWindow = new byte[]{currentByte};
 			}
@@ -111,7 +206,7 @@ public class SimpleLZW {
 //		if(verbose) System.out.println("TEMP: indexOf "+byteArrayToLetterString(prevWindow)+": "+dictionary.indexOf(prevWindow));
 		compressedInt[nextCompressedIndex] = dictionary.indexOf(prevWindow);
 		compressedChar[nextCompressedIndex] = (char) dictionary.indexOf(prevWindow);
-		if(verbose) System.out.println("Output code for "+byteArrayToLetterString(prevWindow)+": "+compressedInt[nextCompressedIndex]);
+		if(verbose) System.out.println("Output code for "+byteArrayToLetterString_MK(prevWindow)+": "+compressedInt[nextCompressedIndex]);
 		compressedLength = nextCompressedIndex+1;
 		nextCompressedIndex = -1;
 		
@@ -133,7 +228,7 @@ public class SimpleLZW {
 		if(verbose) System.out.println(charArrayToString(retChar, " ")+": compressed data AS CHAR (truncated)");
 		if(verbose) System.out.println(intArrayToString(retInt, " ")+": compressed data AS INT (truncated)");
 
-		return retInt;
+		return convertIntArrayToByteArray_MK(retInt, true);
 		
 //
 //			
@@ -173,122 +268,65 @@ public class SimpleLZW {
 //			TEMP_outputLength++;
 //		}
 	}
-	
-	public static final String intArrayToLetterString(int[] input){
-		StringBuffer sb = new StringBuffer();
-		for (int j = 0; j < input.length; j++) {
-			sb.append(input[j]);
-		}
-		return sb.toString();
-	}
-	
-	public static final String intArrayToString(int[] input, String separator){
-		StringBuffer sb = new StringBuffer();
-		for (int j = 0; j < input.length-1; j++) {
-			sb.append(input[j]+separator);
-		}
-		sb.append(input[input.length-1]);
-		return sb.toString();
-	}
 
 	public static void main(String[] args) throws IOException {
-		SimpleLZW slzw = new SimpleLZW();
-		slzw.compress(null, true);
-		for(char c = Character.MIN_VALUE; c<Character.MAX_VALUE; c++){
-			if(c%256==0) System.out.println("");
-			System.out.print(c/*+" "*/);
-		}
+		SimpleLZW.lzwcompress(null, true);
+		//TEST OK SimpleLZW.convertCharArrayToByteArray_MK(new char[]{1000, 'M','i','K','u'},true);
 		
-		if(1==1) return;
-		String original = "TOBEORNOTTOBEORTOBEORNOT";
-		String compressed = "";
-		String word = "";
-		char nextChar;
-		Vector<String> dictionary = new Vector<String>();
-		for(int i=0; i<0xFFFF; i++){
-			dictionary.add(((char) i)+"");
-		}
-//		for
-		char[] test = new char[]{0,'A','a',0xFFFF};
-		for(char c : test){
-			System.out.println(new Integer(c));
-		}
-//		System.out.println(new Integer("0xFFFF",16));
-//		System.out.println(new Character());
-//		Byte.MIN_VALUE;
-//		BitArray
-
-		// BufferedReader in = new BufferedReader(new
-		// FileReader("dictionary.txt"));
-		// String t = in.readLine();
-		// 
-		// while (t != null)
-		// {
-		// dictionary.addElement(t);
-		// t = in.readLine();
-		// }
-		// 
-		int lastIndex = original.length() - 1;
-		for (int i = 0; i < original.length(); i++) {
-			nextChar = original.charAt(i);
-			
-			if (dictionary.contains(word + nextChar)) {
-				System.out.println("Found "+(word+nextChar));
-				word = word + nextChar;
-				if (i == lastIndex) {//cannot be removed if  
-					System.out.println("Last word... "+word);
-					compressed = compressed + "|" + dictionary.indexOf(word);
-				}
-			} else {
-				System.out.println("Not found "+(word+nextChar)+", adding "+(word+nextChar)+" to compressed and "+dictionary.indexOf(word)+" to output");
-				dictionary.add(word + nextChar);
-				compressed = compressed + "|" + dictionary.indexOf(word);
-				word = nextChar + "";
-			}
-		}
-
-		System.out.println(compressed);
-	}
-	
-	/**
-	 * @param input
-	 * @return
-	 * @deprecated because unfinished
-	 */
-	private static final byte[] MK_convertCharArrayToByteArray(char[] input){
-		byte[] ret = new byte[input.length*4];
-		for (int i = 0; i < input.length; i++) {
-			
-		}
-		
-		return null;
-	}
-
-	/**
-	 * @param input
-	 * @return
-	 * @deprecated because unfinished
-	 */
-	private static final byte[] MK_convertIntArrayToByteArray(int[] input){
-		byte[] ret = new byte[input.length*4];
-		for (int i = 0; i < input.length; i++) {
-			
-		}
-		
-		return null;
-	}
-
-	/**
-	 * @param b
-	 * @return
-	 * @deprecated because statically coded and undocumented
-	 */
-	private static final Character MK_mapByteToChar(byte b){
-		if(b>0 && b<27){
-			return ((char) (64+b));
-		}else{
-			return null;
-		}
+//		for(char c = Character.MIN_VALUE; c<Character.MAX_VALUE; c++){
+//			if(c%256==0) System.out.println("");
+//			System.out.print(c/*+" "*/);
+//		}
+//		
+//		if(1==1) return;
+//		String original = "TOBEORNOTTOBEORTOBEORNOT";
+//		String compressed = "";
+//		String word = "";
+//		char nextChar;
+//		Vector<String> dictionary = new Vector<String>();
+//		for(int i=0; i<0xFFFF; i++){
+//			dictionary.add(((char) i)+"");
+//		}
+////		for
+//		char[] test = new char[]{0,'A','a',0xFFFF};
+//		for(char c : test){
+//			System.out.println(new Integer(c));
+//		}
+////		System.out.println(new Integer("0xFFFF",16));
+////		System.out.println(new Character());
+////		Byte.MIN_VALUE;
+////		BitArray
+//
+//		// BufferedReader in = new BufferedReader(new
+//		// FileReader("dictionary.txt"));
+//		// String t = in.readLine();
+//		// 
+//		// while (t != null)
+//		// {
+//		// dictionary.addElement(t);
+//		// t = in.readLine();
+//		// }
+//		// 
+//		int lastIndex = original.length() - 1;
+//		for (int i = 0; i < original.length(); i++) {
+//			nextChar = original.charAt(i);
+//			
+//			if (dictionary.contains(word + nextChar)) {
+//				System.out.println("Found "+(word+nextChar));
+//				word = word + nextChar;
+//				if (i == lastIndex) {//cannot be removed if  
+//					System.out.println("Last word... "+word);
+//					compressed = compressed + "|" + dictionary.indexOf(word);
+//				}
+//			} else {
+//				System.out.println("Not found "+(word+nextChar)+", adding "+(word+nextChar)+" to compressed and "+dictionary.indexOf(word)+" to output");
+//				dictionary.add(word + nextChar);
+//				compressed = compressed + "|" + dictionary.indexOf(word);
+//				word = nextChar + "";
+//			}
+//		}
+//
+//		System.out.println(compressed);
 	}
 
 }
