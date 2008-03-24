@@ -14,9 +14,9 @@ public class ByteArrayVector extends Vector<byte[]> {
 		bav.test();
 	}
 	
-	public boolean add(byte[] addedElement, boolean loud){
+	public boolean add(byte[] addedElement, boolean verbose){
 		super.add(addedElement);
-		if(loud) System.out.println("Added "+SimpleLZW.byteArrayToString(addedElement));
+		if(verbose) System.out.println("Added "+SimpleLZW.byteArrayToString(addedElement));
 		return true;
 	}
 	
