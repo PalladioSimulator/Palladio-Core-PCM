@@ -264,8 +264,12 @@ public class SimpleLZW {
 		compressedChar[nextCompressedIndex] = (char) dictionary.indexOf(prevWindow);
 		compressedLength = nextCompressedIndex+1;
 //		nextCompressedIndex = -1;
-//		double neededBits=Math.log(dictionary.size())/Math.log(2.0D);
-//		int reallyNeededBits = (int) Math.ceil(neededBits);
+		if(verbose){
+			double neededBits=Math.log(dictionary.size())/Math.log(2.0D);
+			int reallyNeededBits = (int) Math.ceil(neededBits);
+			System.out.println(dictionary.size()+": dict size (code in "+reallyNeededBits+")");
+		}
+		
 
 		char[] retChar = new char[compressedLength];
 		System.arraycopy(compressedChar, 0, retChar, 0, compressedLength);
