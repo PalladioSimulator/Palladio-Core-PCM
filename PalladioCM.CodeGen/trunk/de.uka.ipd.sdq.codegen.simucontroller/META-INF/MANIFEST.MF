@@ -35,7 +35,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.osgi.services,
  ch.ethz.iks.r_osgi.remote
 Eclipse-LazyStart: true
-Export-Package: de.uka.ipd.sdq.codegen.simucontroller.runconfig
+Export-Package: de.uka.ipd.sdq.codegen.simucontroller.runconfig,
+ de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs
 Bundle-Vendor: sdq.ipd.uka.de
 
 
