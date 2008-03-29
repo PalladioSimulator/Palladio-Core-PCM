@@ -283,6 +283,11 @@
       figure="BasicComponentFigure"
       collapsible="true"
       needsTitle="true"/>
+  <compartments
+      name="ComponentParameterVariableCharacterisationCompartment">
+    <figure
+        href="../seffeditor/seffeditor.gmfgraph#ParametricParameterUsageFigure"/>
+  </compartments>
   <labels
       name="SignatureServiceName"
       figure="SignatureServiceNameFigure"/>
@@ -372,5 +377,10 @@
         href="../seffeditor/seffeditor.gmfgraph#ParametricParameterUsageFigure"/>
     <accessor
         href="../seffeditor/seffeditor.gmfgraph#//@figures.0/@descriptors.0/@accessors.0"/>
+  </labels>
+  <labels
+      name="VariableCharacterisationLabel">
+    <figure
+        href="../seffeditor/seffeditor.gmfgraph#VariableCharacterisationLabelFigure"/>
   </labels>
 </gmfgraph:Canvas>

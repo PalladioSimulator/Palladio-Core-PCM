@@ -433,6 +433,16 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="3104"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.repository.VariableCharacterisation_3105"
+               name="%metatype.name.VariableCharacterisation_3105"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="VariableCharacterisation"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.VariableCharacterisationEditHelper">
+            <param name="semanticHint" value="3105"/>
+         </metamodelType>
+      </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.ProvidedRole_4101"
@@ -495,6 +505,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFF_3102"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.PassiveResource_3103"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.VariableUsage_3104"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.VariableCharacterisation_3105"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ProvidedRole_4101"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.RequiredRole_4102"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ImplementationComponentTypeParentCompleteComponentTypes_4103"/>

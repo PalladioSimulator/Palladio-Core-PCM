@@ -42,6 +42,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
@@ -485,6 +487,18 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
 			}
+			return result.toArray();
+		}
+
+		case VariableUsageEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					VariableCharacterisationEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			return result.toArray();
 		}
 

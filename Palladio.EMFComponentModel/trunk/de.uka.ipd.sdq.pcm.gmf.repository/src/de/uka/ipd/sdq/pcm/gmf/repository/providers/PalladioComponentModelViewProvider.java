@@ -39,6 +39,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel3EditPart;
@@ -72,6 +74,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiredRoleViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiresStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceDemandingSEFFViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.SignatureViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableCharacterisationViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageComponentParameterVariableCharacterisationCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabel3ViewFactory;
@@ -159,6 +163,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case ResourceDemandingSEFFEditPart.VISUAL_ID:
 				case PassiveResourceEditPart.VISUAL_ID:
 				case VariableUsageEditPart.VISUAL_ID:
+				case VariableCharacterisationEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != PalladioComponentModelVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -206,6 +211,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case WrapLabelEditPart.VISUAL_ID:
+				case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
 					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -288,6 +294,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return VariableUsageViewFactory.class;
 		case WrapLabelEditPart.VISUAL_ID:
 			return WrapLabelViewFactory.class;
+		case VariableCharacterisationEditPart.VISUAL_ID:
+			return VariableCharacterisationViewFactory.class;
 		case InterfaceSignatureListEditPart.VISUAL_ID:
 			return InterfaceSignatureListViewFactory.class;
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
@@ -296,6 +304,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return BasicComponentPassiveResourceCompartmentViewFactory.class;
 		case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
 			return BasicComponentComponentParameterCompartmentViewFactory.class;
+		case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
+			return VariableUsageComponentParameterVariableCharacterisationCompartmentViewFactory.class;
 		case ProvidesStereotypeLabelEditPart.VISUAL_ID:
 			return ProvidesStereotypeLabelViewFactory.class;
 		case RequiresStereotypeLabelEditPart.VISUAL_ID:

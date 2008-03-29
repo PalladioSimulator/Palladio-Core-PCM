@@ -103,6 +103,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType VariableCharacterisation_3105 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.VariableCharacterisation_3105"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ProvidedRole_4101 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ProvidedRole_4101"); //$NON-NLS-1$
 
 	/**
@@ -261,6 +266,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(VariableUsage_3104, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
+			elements.put(VariableCharacterisation_3105,
+					ParameterPackage.eINSTANCE.getVariableCharacterisation());
+
 			elements.put(ProvidedRole_4101, RepositoryPackage.eINSTANCE
 					.getProvidedRole());
 
@@ -305,6 +313,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_3102);
 			KNOWN_ELEMENT_TYPES.add(PassiveResource_3103);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3104);
+			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3105);
 			KNOWN_ELEMENT_TYPES.add(ProvidedRole_4101);
 			KNOWN_ELEMENT_TYPES.add(RequiredRole_4102);
 			KNOWN_ELEMENT_TYPES

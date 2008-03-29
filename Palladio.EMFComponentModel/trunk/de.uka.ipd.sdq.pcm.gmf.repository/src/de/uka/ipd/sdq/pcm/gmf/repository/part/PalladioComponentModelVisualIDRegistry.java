@@ -38,6 +38,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel3EditPart;
@@ -190,6 +192,12 @@ public class PalladioComponentModelVisualIDRegistry {
 				return VariableUsageEditPart.VISUAL_ID;
 			}
 			break;
+		case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
+			if (ParameterPackage.eINSTANCE.getVariableCharacterisation()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return VariableCharacterisationEditPart.VISUAL_ID;
+			}
+			break;
 		case RepositoryEditPart.VISUAL_ID:
 			if (RepositoryPackage.eINSTANCE.getInterface().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -278,6 +286,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case InterfaceSignatureListEditPart.VISUAL_ID:
 			if (SignatureEditPart.VISUAL_ID == nodeVisualID) {
@@ -296,6 +307,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			break;
 		case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
 			if (VariableUsageEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
+			if (VariableCharacterisationEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

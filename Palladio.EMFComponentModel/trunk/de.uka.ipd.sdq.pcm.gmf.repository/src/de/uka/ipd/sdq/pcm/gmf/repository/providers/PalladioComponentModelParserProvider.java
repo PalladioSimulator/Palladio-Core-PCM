@@ -24,8 +24,10 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -238,6 +240,31 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser variableCharacterisation_3105Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getVariableCharacterisation_3105Parser() {
+		if (variableCharacterisation_3105Parser == null) {
+			variableCharacterisation_3105Parser = createVariableCharacterisation_3105Parser();
+		}
+		return variableCharacterisation_3105Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createVariableCharacterisation_3105Parser() {
+		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
+				.getVariableCharacterisation_Type(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case InterfaceEntityNameEditPart.VISUAL_ID:
@@ -256,6 +283,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getResourceDemandingSEFF_3102Parser();
 		case PassiveResourceEditPart.VISUAL_ID:
 			return getPassiveResource_3103Parser();
+		case VariableCharacterisationEditPart.VISUAL_ID:
+			return getVariableCharacterisation_3105Parser();
 		}
 		return null;
 	}

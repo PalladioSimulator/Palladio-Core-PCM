@@ -47,6 +47,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelLinkDescriptor;
@@ -291,6 +292,12 @@ public class RepositoryCanonicalEditPolicy extends
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater
 					.getVariableUsage_3104ContainedLinks(view));
+			break;
+		}
+		case VariableCharacterisationEditPart.VISUAL_ID: {
+			domain2NotationMap.put(view.getElement(), view);
+			result.addAll(PalladioComponentModelDiagramUpdater
+					.getVariableCharacterisation_3105ContainedLinks(view));
 			break;
 		}
 		case ProvidedRoleEditPart.VISUAL_ID: {

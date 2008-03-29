@@ -24,11 +24,13 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 
@@ -54,6 +56,16 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
 			types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
+			return types;
+		}
+		if (editPart instanceof VariableUsageEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3105);
+			return types;
+		}
+		if (editPart instanceof BasicComponentComponentParameterCompartmentEditPart) {
+			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3104);
 			return types;
 		}

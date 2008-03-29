@@ -80,6 +80,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case WrapLabelEditPart.VISUAL_ID:
 				return new WrapLabelEditPart(view);
 
+			case VariableCharacterisationEditPart.VISUAL_ID:
+				return new VariableCharacterisationEditPart(view);
+
 			case InterfaceSignatureListEditPart.VISUAL_ID:
 				return new InterfaceSignatureListEditPart(view);
 
@@ -92,6 +95,10 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
 				return new BasicComponentComponentParameterCompartmentEditPart(
+						view);
+
+			case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
+				return new VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart(
 						view);
 
 			case ProvidedRoleEditPart.VISUAL_ID:

@@ -149,6 +149,34 @@
               href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.12"/>
           <diagramNode
               href="repository.gmfgraph#ComponentParameterNode"/>
+          <children
+              compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            <childrenFeature
+                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../pcm.ecore#//parameter/VariableCharacterisation"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="repository.gmfgraph#VariableCharacterisationLabel"/>
+                <features
+                    href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.13"/>
+              <diagramNode
+                  href="repository.gmfgraph#VariableCharacterisationLabel"/>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0">
+            <compartment
+                href="repository.gmfgraph#ComponentParameterVariableCharacterisationCompartment"/>
+          </compartments>
         </ownedChild>
       </children>
       <compartments
