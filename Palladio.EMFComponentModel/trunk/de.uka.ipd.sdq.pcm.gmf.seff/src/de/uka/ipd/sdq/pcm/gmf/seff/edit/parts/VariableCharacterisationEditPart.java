@@ -482,7 +482,8 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	 */
 	protected void addSemanticListeners() {
 		VariableCharacterisation characterisation = (VariableCharacterisation) resolveSemanticElement();
-		addListenerFilter("SemanticModel", this, characterisation.getSpecification_VariableCharacterisation());
+		addListenerFilter("SemanticModel", this, characterisation
+				.getSpecification_VariableCharacterisation());
 		addListenerFilter("SemanticModel2", this, characterisation);
 	}
 

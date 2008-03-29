@@ -80,8 +80,7 @@ public abstract class PalladioComponentModelAbstractExpression {
 			PalladioComponentModelSeffDiagramEditorPlugin
 					.getInstance()
 					.logError(
-							"Expression problem:" + message + "body:" + body, throwable); //$NON-NLS-1$ //$NON-NLS-2$
-
+							"Expression problem: " + message + " body: " + body, throwable); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -206,6 +205,7 @@ public abstract class PalladioComponentModelAbstractExpression {
 	public static final PalladioComponentModelAbstractExpression createNullExpression(
 			EClassifier context) {
 		return new PalladioComponentModelAbstractExpression(context) {
+
 			protected Object doEvaluate(Object context, Map env) {
 				// TODO - log entry about not provider available for this expression
 				return null;

@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapter
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
@@ -146,6 +147,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 	 * @generated
 	 */
 	protected void fillItemProviderFactories(List factories) {
+		factories.add(new CoreItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());

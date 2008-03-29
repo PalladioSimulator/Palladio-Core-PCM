@@ -267,9 +267,10 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			fFigureVariableUsageReferenceLabelFigure = new WrapLabel();
-			fFigureVariableUsageReferenceLabelFigure.setText(
-					new PCMStoExPrettyPrintVisitor().prettyPrint(
-					((VariableUsage)resolveSemanticElement()).getNamedReference_VariableUsage()));
+			fFigureVariableUsageReferenceLabelFigure
+					.setText(new PCMStoExPrettyPrintVisitor()
+							.prettyPrint(((VariableUsage) resolveSemanticElement())
+									.getNamedReference_VariableUsage()));
 
 			this.add(fFigureVariableUsageReferenceLabelFigure);
 

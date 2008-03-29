@@ -188,14 +188,26 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
-		if (domainElement == null
-				|| !ResourceDemandingSEFFEditPart.MODEL_ID
-						.equals(de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
-								.getModelID(containerView))) {
+		if (domainElement == null) {
 			return -1;
 		}
-		switch (de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
-				.getVisualID(containerView)) {
+		String containerModelID = de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
+				.getModelID(containerView);
+		if (!ResourceDemandingSEFFEditPart.MODEL_ID.equals(containerModelID)) {
+			return -1;
+		}
+		int containerVisualID;
+		if (ResourceDemandingSEFFEditPart.MODEL_ID.equals(containerModelID)) {
+			containerVisualID = de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
+					.getVisualID(containerView);
+		} else {
+			if (containerView instanceof Diagram) {
+				containerVisualID = ResourceDemandingSEFFEditPart.VISUAL_ID;
+			} else {
+				return -1;
+			}
+		}
+		switch (containerVisualID) {
 		case LoopActionEditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
 					.isSuperTypeOf(domainElement.eClass())) {

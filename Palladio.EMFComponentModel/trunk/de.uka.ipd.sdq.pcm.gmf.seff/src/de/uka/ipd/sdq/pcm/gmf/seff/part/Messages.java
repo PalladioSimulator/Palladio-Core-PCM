@@ -346,12 +346,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String AquireAction9CreationTool_title;
+	public static String AcquireAction9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String AquireAction9CreationTool_desc;
+	public static String AcquireAction9CreationTool_desc;
 
 	/**
 	 * @generated

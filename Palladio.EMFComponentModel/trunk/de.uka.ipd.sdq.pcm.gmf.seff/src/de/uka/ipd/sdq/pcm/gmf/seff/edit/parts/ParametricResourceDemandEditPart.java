@@ -122,9 +122,11 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, 
+		installEditPolicy(
+				EditPolicyRoles.OPEN_ROLE,
 				new OpenStoExDialog(
-						SeffPackage.eINSTANCE.getParametricResourceDemand_Specification_ParametericResourceDemand()));
+						SeffPackage.eINSTANCE
+								.getParametricResourceDemand_Specification_ParametericResourceDemand()));
 	}
 
 	/**
@@ -224,9 +226,10 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		String text = null;
 		if (resolveSemanticElement() instanceof ParametricResourceDemand) {
 			ParametricResourceDemand demand = (ParametricResourceDemand) resolveSemanticElement();
-			if (demand.getRequiredResource_ParametricResourceDemand() != null){
-				text = new PCMStoExPrettyPrintVisitor().prettyPrint(
-						demand.getSpecification_ParametericResourceDemand().getExpression());
+			if (demand.getRequiredResource_ParametricResourceDemand() != null) {
+				text = new PCMStoExPrettyPrintVisitor().prettyPrint(demand
+						.getSpecification_ParametericResourceDemand()
+						.getExpression());
 				if (text == null)
 					text = "";
 				else
