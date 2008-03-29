@@ -49,11 +49,15 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.VariableCharacterisationItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
+import de.uka.ipd.sdq.stoex.Expression;
 
 /**
  * @generated
@@ -117,6 +121,7 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenStoExDialog());
 	}
 
 	/**
@@ -208,15 +213,20 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
 		String text = null;
-		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
+		VariableCharacterisation vc = (VariableCharacterisation) this
+				.resolveSemanticElement();
+		text = vc.getType().getLiteral() + " = ";
+		if (vc.getSpecification_VariableCharacterisation() != null) {
+			Expression expression = vc
+					.getSpecification_VariableCharacterisation()
+					.getExpression();
+			if (expression != null)
+				text += new PCMStoExPrettyPrintVisitor()
+						.prettyPrint(expression);
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -252,7 +262,7 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -472,33 +482,21 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		if (getParser() instanceof ISemanticParser) {
-			EObject element = resolveSemanticElement();
-			parserElements = ((ISemanticParser) getParser())
-					.getSemanticElementsBeingParsed(element);
-			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter(
-						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
-			}
-		} else {
-			super.addSemanticListeners();
-		}
+		VariableCharacterisation characterisation = (VariableCharacterisation) resolveSemanticElement();
+		addListenerFilter("SemanticModel", this, characterisation
+				.getSpecification_VariableCharacterisation());
+		addListenerFilter("SemanticModel2", this, characterisation);
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		if (parserElements != null) {
-			for (int i = 0; i < parserElements.size(); i++) {
-				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
-			}
-		} else {
-			super.removeSemanticListeners();
-		}
+		removeListenerFilter("SemanticModel");
+		removeListenerFilter("SemanticModel2");
 	}
 
 	/**
@@ -540,7 +538,7 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -563,21 +561,7 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 						feature)) {
 			refreshFont();
 		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
+			refreshLabel();
 		}
 		super.handleNotificationEvent(event);
 	}

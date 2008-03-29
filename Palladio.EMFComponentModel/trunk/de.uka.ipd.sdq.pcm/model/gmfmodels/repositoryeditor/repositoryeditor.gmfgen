@@ -203,6 +203,7 @@
         graphicalNodeEditPolicyClassName="VariableCharacterisationGraphicalNodeEditPolicy"
         createCommandClassName="VariableCharacterisationCreateCommand"
         containers="//@diagram/@compartments.4"
+        labelReadOnly="true"
         labelElementIcon="true">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -215,6 +216,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
