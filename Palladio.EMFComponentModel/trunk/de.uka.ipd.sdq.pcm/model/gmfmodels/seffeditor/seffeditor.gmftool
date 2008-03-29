@@ -83,8 +83,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="AquireAction"
-          description="AquireAction">
+          title="AcquireAction"
+          description="AcquireAction">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
