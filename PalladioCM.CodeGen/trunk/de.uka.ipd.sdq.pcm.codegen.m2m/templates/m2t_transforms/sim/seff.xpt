@@ -94,6 +94,9 @@
 			new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame = 
 			ctx.getStack().currentStackFrame();
+		if (this.myDefaultComponentStackFrame.getContents().size() > 0) {
+			methodBodyStackFrame.addVariables(this.myDefaultComponentStackFrame);
+		}
 		if (this.myComponentStackFrame.getContents().size() > 0) {
 			methodBodyStackFrame.addVariables(this.myComponentStackFrame);
 		}
