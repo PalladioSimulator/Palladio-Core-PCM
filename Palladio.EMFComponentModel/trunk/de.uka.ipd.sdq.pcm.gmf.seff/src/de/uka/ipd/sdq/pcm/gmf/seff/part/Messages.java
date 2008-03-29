@@ -266,102 +266,102 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String StopAction1CreationTool_title;
+	public static String StartAction1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String StopAction1CreationTool_desc;
+	public static String StartAction1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String StartAction2CreationTool_title;
+	public static String StopAction2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String StartAction2CreationTool_desc;
+	public static String StopAction2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String LoopAction3CreationTool_title;
+	public static String InternalAction3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String LoopAction3CreationTool_desc;
+	public static String InternalAction3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String InternalAction4CreationTool_title;
+	public static String ExternalCallAction4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String InternalAction4CreationTool_desc;
+	public static String ExternalCallAction4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ExternalCallAction5CreationTool_title;
+	public static String SetVariableAction5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ExternalCallAction5CreationTool_desc;
+	public static String SetVariableAction5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String BranchAction6CreationTool_title;
+	public static String AcquireAction6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BranchAction6CreationTool_desc;
+	public static String AcquireAction6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CollectionIteratorAction7CreationTool_title;
+	public static String ReleaseAction7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CollectionIteratorAction7CreationTool_desc;
+	public static String ReleaseAction7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SetVariableAction8CreationTool_title;
+	public static String LoopAction8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SetVariableAction8CreationTool_desc;
+	public static String LoopAction8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String AcquireAction9CreationTool_title;
+	public static String CollectionIteratorAction9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String AcquireAction9CreationTool_desc;
+	public static String CollectionIteratorAction9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ReleaseAction10CreationTool_title;
+	public static String BranchAction10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ReleaseAction10CreationTool_desc;
+	public static String BranchAction10CreationTool_desc;
 
 	/**
 	 * @generated

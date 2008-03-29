@@ -2160,19 +2160,14 @@
           collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="StopAction"
-            description="Create new StopAction"
-            genNodes="//@diagram/@topLevelNodes.1 //@diagram/@childNodes.6"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="StartAction"
             description="Create new StartAction"
             genNodes="//@diagram/@topLevelNodes.0 //@diagram/@childNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="LoopAction"
-            description="Create new LoopAction"
-            genNodes="//@diagram/@topLevelNodes.3 //@diagram/@childNodes.7"/>
+            title="StopAction"
+            description="Create new StopAction"
+            genNodes="//@diagram/@topLevelNodes.1 //@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="InternalAction"
@@ -2183,16 +2178,6 @@
             title="ExternalCallAction"
             description="Create new ExternalCallAction"
             genNodes="//@diagram/@topLevelNodes.2 //@diagram/@childNodes.13"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="BranchAction"
-            description="Create new BranchAction"
-            genNodes="//@diagram/@childNodes.10 //@diagram/@topLevelNodes.4"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="CollectionIteratorAction"
-            description="Create new CollectionIteratorAction"
-            genNodes="//@diagram/@childNodes.18 //@diagram/@topLevelNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="SetVariableAction"
@@ -2208,6 +2193,21 @@
             title="ReleaseAction"
             description="ReleaseAction"
             genNodes="//@diagram/@childNodes.15 //@diagram/@topLevelNodes.9"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="LoopAction"
+            description="Create new LoopAction"
+            genNodes="//@diagram/@topLevelNodes.3 //@diagram/@childNodes.7"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="CollectionIteratorAction"
+            description="Create new CollectionIteratorAction"
+            genNodes="//@diagram/@childNodes.18 //@diagram/@topLevelNodes.6"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="BranchAction"
+            description="Create new BranchAction"
+            genNodes="//@diagram/@childNodes.10 //@diagram/@topLevelNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ForkAction"

@@ -15,7 +15,7 @@
           href="../../pcm.ecore#//seff/StartAction"/>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="seffeditor.gmfgraph#StartActionNode"/>
     </ownedChild>
@@ -30,7 +30,7 @@
           href="../../pcm.ecore#//seff/StopAction"/>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="seffeditor.gmfgraph#StopActionNode"/>
     </ownedChild>
@@ -55,7 +55,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="seffeditor.gmfgraph#ExternalCallActionNode"/>
       <children
@@ -197,7 +197,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.7"/>
       <diagramNode
           href="seffeditor.gmfgraph#LoopNode"/>
       <children>
@@ -327,7 +327,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.9"/>
       <diagramNode
           href="seffeditor.gmfgraph#BranchNode"/>
       <children
@@ -619,7 +619,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.3"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="seffeditor.gmfgraph#InternalActionNode"/>
       <children
@@ -674,7 +674,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.8"/>
       <diagramNode
           href="seffeditor.gmfgraph#CollectionIteratorNode"/>
       <children>
@@ -796,7 +796,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="seffeditor.gmfgraph#SetVariableActionNode"/>
       <children
@@ -876,7 +876,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.8"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.5"/>
       <diagramNode
           href="seffeditor.gmfgraph#AquireNode"/>
     </ownedChild>
@@ -898,7 +898,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.0/@tools.9"/>
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
           href="seffeditor.gmfgraph#ReleaseNode"/>
     </ownedChild>

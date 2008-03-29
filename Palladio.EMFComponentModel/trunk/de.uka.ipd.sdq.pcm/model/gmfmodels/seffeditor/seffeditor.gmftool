@@ -11,15 +11,6 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="StopAction"
-          description="Create new StopAction">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="StartAction"
           description="Create new StartAction">
         <smallIcon
@@ -29,8 +20,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="LoopAction"
-          description="Create new LoopAction">
+          title="StopAction"
+          description="Create new StopAction">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -49,24 +40,6 @@
           xsi:type="gmftool:CreationTool"
           title="ExternalCallAction"
           description="Create new ExternalCallAction">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="BranchAction"
-          description="Create new BranchAction">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="CollectionIteratorAction"
-          description="Create new CollectionIteratorAction">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -94,6 +67,33 @@
           xsi:type="gmftool:CreationTool"
           title="ReleaseAction"
           description="ReleaseAction">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="LoopAction"
+          description="Create new LoopAction">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="CollectionIteratorAction"
+          description="Create new CollectionIteratorAction">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="BranchAction"
+          description="Create new BranchAction">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
