@@ -126,6 +126,10 @@
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.eclipse.draw2d.Label"/>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenCapacityDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/repository/PassiveResource"/>

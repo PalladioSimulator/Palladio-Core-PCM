@@ -51,6 +51,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.pcm.stochasticexpressions
+ de.uka.ipd.sdq.pcm.stochasticexpressions,
+ de.uka.ipd.sdq.pcm.dialogs
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: J2SE-1.4

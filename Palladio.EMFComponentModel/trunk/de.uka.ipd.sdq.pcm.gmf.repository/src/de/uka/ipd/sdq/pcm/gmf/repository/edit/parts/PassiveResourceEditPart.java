@@ -12,6 +12,7 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.DragTracker;
@@ -49,6 +50,8 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenCapacityDialog;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PassiveResourceItemSemanticEditPolicy;
@@ -120,6 +123,7 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenCapacityDialog());
 	}
 
 	/**
@@ -219,22 +223,19 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements
 			PassiveResource pr = (PassiveResource) resolveSemanticElement();
 			if (pr.getCapacity_PassiveResource() != null) {
 				stoex = new PCMStoExPrettyPrintVisitor().prettyPrint(pr
-						.getCapacity_PassiveResource()
-						.getExpression());
+						.getCapacity_PassiveResource().getExpression());
 			}
 			text = pr.getEntityName();
 			if (stoex == null)
 				stoex = "not set";
-			text += " <Capacity: "
-					+ stoex + ">";
-		
+			text += " <Capacity: " + stoex + ">";
+
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
 		return text;
 	}
-
 
 	/**
 	 * @generated
@@ -483,34 +484,32 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements
 		getFigure().setForegroundColor(color);
 	}
 
+	private EContentAdapter changeListener = null;
+	private EObject adaptedElement = null;
+
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		if (getParser() instanceof ISemanticParser) {
-			EObject element = resolveSemanticElement();
-			parserElements = ((ISemanticParser) getParser())
-					.getSemanticElementsBeingParsed(element);
-			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter(
-						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
+		PassiveResource element = (PassiveResource) resolveSemanticElement();
+		changeListener = new EContentAdapter() {
+
+			@Override
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				refreshLabel();
 			}
-		} else {
-			super.addSemanticListeners();
-		}
+
+		};
+		adaptedElement = element;
+		element.eAdapters().add(changeListener);
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		if (parserElements != null) {
-			for (int i = 0; i < parserElements.size(); i++) {
-				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
-			}
-		} else {
-			super.removeSemanticListeners();
-		}
+		adaptedElement.eAdapters().remove(changeListener);
 	}
 
 	/**
