@@ -54,6 +54,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTex
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PassiveResourceItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -208,21 +211,30 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
-		String text = null;
-		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
+		String stoex = null, text = null;
+		if (resolveSemanticElement() instanceof PassiveResource) {
+			PassiveResource pr = (PassiveResource) resolveSemanticElement();
+			if (pr.getCapacity_PassiveResource() != null) {
+				stoex = new PCMStoExPrettyPrintVisitor().prettyPrint(pr
+						.getCapacity_PassiveResource()
+						.getExpression());
+			}
+			text = pr.getEntityName();
+			if (stoex == null)
+				stoex = "not set";
+			text += " <Capacity: "
+					+ stoex + ">";
+		
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
 		return text;
 	}
+
 
 	/**
 	 * @generated
