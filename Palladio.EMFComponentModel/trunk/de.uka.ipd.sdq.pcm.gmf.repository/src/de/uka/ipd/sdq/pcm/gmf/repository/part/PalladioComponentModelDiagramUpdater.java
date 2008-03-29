@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentPassiveResourceCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
@@ -32,7 +33,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
@@ -71,6 +74,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getBasicComponentSEFFCompartment_7102SemanticChildren(view);
 		case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
 			return getBasicComponentPassiveResourceCompartment_7103SemanticChildren(view);
+		case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
+			return getBasicComponentComponentParameterCompartment_7104SemanticChildren(view);
 		case RepositoryEditPart.VISUAL_ID:
 			return getRepository_1000SemanticChildren(view);
 		}
@@ -167,6 +172,36 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getBasicComponentComponentParameterCompartment_7104SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		BasicComponent modelElement = (BasicComponent) containerView
+				.getElement();
+		List result = new LinkedList();
+		for (Iterator it = modelElement
+				.getComponentParameterUsage_ImplementationComponentType()
+				.iterator(); it.hasNext();) {
+			VariableUsage childElement = (VariableUsage) it.next();
+			int visualID = PalladioComponentModelVisualIDRegistry
+					.getNodeVisualID(view, childElement);
+			if (visualID == VariableUsageEditPart.VISUAL_ID) {
+				result.add(new PalladioComponentModelNodeDescriptor(
+						childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getRepository_1000SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.EMPTY_LIST;
@@ -237,6 +272,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getResourceDemandingSEFF_3102ContainedLinks(view);
 		case PassiveResourceEditPart.VISUAL_ID:
 			return getPassiveResource_3103ContainedLinks(view);
+		case VariableUsageEditPart.VISUAL_ID:
+			return getVariableUsage_3104ContainedLinks(view);
 		case ProvidedRoleEditPart.VISUAL_ID:
 			return getProvidedRole_4101ContainedLinks(view);
 		case RequiredRoleEditPart.VISUAL_ID:
@@ -266,6 +303,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getResourceDemandingSEFF_3102IncomingLinks(view);
 		case PassiveResourceEditPart.VISUAL_ID:
 			return getPassiveResource_3103IncomingLinks(view);
+		case VariableUsageEditPart.VISUAL_ID:
+			return getVariableUsage_3104IncomingLinks(view);
 		case ProvidedRoleEditPart.VISUAL_ID:
 			return getProvidedRole_4101IncomingLinks(view);
 		case RequiredRoleEditPart.VISUAL_ID:
@@ -295,6 +334,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getResourceDemandingSEFF_3102OutgoingLinks(view);
 		case PassiveResourceEditPart.VISUAL_ID:
 			return getPassiveResource_3103OutgoingLinks(view);
+		case VariableUsageEditPart.VISUAL_ID:
+			return getVariableUsage_3104OutgoingLinks(view);
 		case ProvidedRoleEditPart.VISUAL_ID:
 			return getProvidedRole_4101OutgoingLinks(view);
 		case RequiredRoleEditPart.VISUAL_ID:
@@ -400,6 +441,13 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getPassiveResource_3103ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getVariableUsage_3104ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -524,6 +572,13 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getVariableUsage_3104IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getProvidedRole_4101IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -625,6 +680,13 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getPassiveResource_3103OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getVariableUsage_3104OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

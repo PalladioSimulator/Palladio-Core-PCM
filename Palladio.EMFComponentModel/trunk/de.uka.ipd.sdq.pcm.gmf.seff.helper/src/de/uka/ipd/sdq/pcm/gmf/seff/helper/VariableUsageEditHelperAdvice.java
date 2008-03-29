@@ -21,6 +21,7 @@ import org.eclipse.ui.PlatformUI;
 import de.uka.ipd.sdq.pcm.dialogs.datatype.DataTypeContainer;
 import de.uka.ipd.sdq.pcm.dialogs.datatype.InnerDeclarationContainer;
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.dialogs.variablenames.SetOutputVariableNameDialog;
 import de.uka.ipd.sdq.pcm.dialogs.variableusage.VariableUsageInputParameterContentProvider;
 import de.uka.ipd.sdq.pcm.dialogs.variableusage.VariableUsageItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.dialogs.variableusage.VariableUsageOutputParameterContentProvider;
@@ -82,7 +83,7 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		}
 		
 		AbstractNamedReference namedReference = 
-			getOutputVariableReference(enteredName);
+			dialog.getOutputVariableReference();
 
 		ICommand cmd = new SetValueCommand(new SetRequest(request
 				.getElementToConfigure(), ParameterPackage.eINSTANCE
@@ -91,18 +92,6 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		return cmd;
 	}
 
-	private AbstractNamedReference getOutputVariableReference(String enteredName) {
-		String[] enteredNameSplitted = enteredName.split("\\.");
-		AbstractNamedReference namedReference = referenceFactory(
-				enteredNameSplitted[enteredNameSplitted.length - 1], true);
-
-		for (int i=enteredNameSplitted.length-2; i>=0; i--){
-			NamespaceReference nr = (NamespaceReference)referenceFactory(enteredNameSplitted[i], false);
-			nr.setInnerReference_NamespaceReference(namedReference);
-			namedReference = nr;
-		}
-		return namedReference;
-	}
 
 	private ICommand caseSetVariableAction(ConfigureRequest request) {
 		ArrayList<Object> filterList = new ArrayList<Object>();
@@ -275,6 +264,15 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		return namedReference;
 	}
 
+	private ExternalCallAction getCall(EObject a) {
+		EObject container = a;
+		while (!(container instanceof ExternalCallAction))
+			container = container.eContainer();
+		if (!(container instanceof ExternalCallAction))
+			return null;
+		return (ExternalCallAction) container;
+	}
+	
 	/**
 	 * Create the AbstractNamedReference and set a string parameter
 	 */
@@ -290,14 +288,5 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		}
 		parameterReference.setReferenceName(string);
 		return parameterReference;
-	}
-
-	private ExternalCallAction getCall(EObject a) {
-		EObject container = a;
-		while (!(container instanceof ExternalCallAction))
-			container = container.eContainer();
-		if (!(container instanceof ExternalCallAction))
-			return null;
-		return (ExternalCallAction) container;
 	}
 }

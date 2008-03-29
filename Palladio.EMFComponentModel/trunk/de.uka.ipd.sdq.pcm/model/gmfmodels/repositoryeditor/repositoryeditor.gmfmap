@@ -130,6 +130,27 @@
               href="repository.gmfgraph#PassiveResourceLabel"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.2">
+        <containmentFeature
+            href="../../pcm.ecore#//repository/ImplementationComponentType/componentParameterUsage_ImplementationComponentType"/>
+        <childrenFeature
+            href="../../pcm.ecore#//repository/ImplementationComponentType/componentParameterUsage_ImplementationComponentType"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//parameter/VariableUsage"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="../seffeditor/seffeditor.gmfgraph#VariableUsageReferenceLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.12"/>
+          <diagramNode
+              href="repository.gmfgraph#ComponentParameterNode"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.1/@ownedChild/@children.0">
         <compartment
@@ -139,6 +160,11 @@
           children="//@nodes.1/@ownedChild/@children.1">
         <compartment
             href="repository.gmfgraph#PassiveResourceCompartment"/>
+      </compartments>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.2">
+        <compartment
+            href="repository.gmfgraph#ComponentParameterCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>

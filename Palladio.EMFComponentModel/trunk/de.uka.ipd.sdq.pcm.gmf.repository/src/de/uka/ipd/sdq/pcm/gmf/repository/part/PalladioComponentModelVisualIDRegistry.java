@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentPassiveResourceCompartmentEditPart;
@@ -37,9 +38,11 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
@@ -181,6 +184,12 @@ public class PalladioComponentModelVisualIDRegistry {
 				return PassiveResourceEditPart.VISUAL_ID;
 			}
 			break;
+		case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
+			if (ParameterPackage.eINSTANCE.getVariableUsage().isSuperTypeOf(
+					domainElement.eClass())) {
+				return VariableUsageEditPart.VISUAL_ID;
+			}
+			break;
 		case RepositoryEditPart.VISUAL_ID:
 			if (RepositoryPackage.eINSTANCE.getInterface().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -246,6 +255,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case CompositeComponentEditPart.VISUAL_ID:
 			if (CompositeComponentEntityNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -262,6 +274,11 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case VariableUsageEditPart.VISUAL_ID:
+			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case InterfaceSignatureListEditPart.VISUAL_ID:
 			if (SignatureEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -274,6 +291,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			break;
 		case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
 			if (PassiveResourceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
+			if (VariableUsageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

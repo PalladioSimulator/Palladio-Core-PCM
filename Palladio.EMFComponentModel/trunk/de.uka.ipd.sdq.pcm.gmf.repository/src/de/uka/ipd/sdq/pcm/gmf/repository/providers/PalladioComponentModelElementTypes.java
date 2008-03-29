@@ -20,6 +20,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -93,6 +94,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType PassiveResource_3103 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.PassiveResource_3103"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType VariableUsage_3104 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.VariableUsage_3104"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -252,6 +258,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(PassiveResource_3103, RepositoryPackage.eINSTANCE
 					.getPassiveResource());
 
+			elements.put(VariableUsage_3104, ParameterPackage.eINSTANCE
+					.getVariableUsage());
+
 			elements.put(ProvidedRole_4101, RepositoryPackage.eINSTANCE
 					.getProvidedRole());
 
@@ -295,6 +304,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(Signature_3101);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_3102);
 			KNOWN_ELEMENT_TYPES.add(PassiveResource_3103);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_3104);
 			KNOWN_ELEMENT_TYPES.add(ProvidedRole_4101);
 			KNOWN_ELEMENT_TYPES.add(RequiredRole_4102);
 			KNOWN_ELEMENT_TYPES

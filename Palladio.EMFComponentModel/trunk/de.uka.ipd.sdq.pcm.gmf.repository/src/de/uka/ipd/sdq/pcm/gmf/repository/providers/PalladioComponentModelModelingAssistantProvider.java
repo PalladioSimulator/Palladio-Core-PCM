@@ -54,6 +54,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
 			types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3104);
 			return types;
 		}
 		if (editPart instanceof RepositoryEditPart) {

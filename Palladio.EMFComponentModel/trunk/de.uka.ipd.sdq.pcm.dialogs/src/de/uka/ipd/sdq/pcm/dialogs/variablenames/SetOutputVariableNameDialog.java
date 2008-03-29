@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcm.gmf.seff.helper;
+package de.uka.ipd.sdq.pcm.dialogs.variablenames;
 
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
@@ -12,6 +12,10 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 public class SetOutputVariableNameDialog extends TitleAreaDialog {
 
@@ -69,6 +73,36 @@ public class SetOutputVariableNameDialog extends TitleAreaDialog {
 		// TODO Auto-generated method stub
 		super.cancelPressed();
 		result = null;
+	}
+
+	public AbstractNamedReference getOutputVariableReference() {
+		String[] enteredNameSplitted = result.split("\\.");
+		AbstractNamedReference namedReference = referenceFactory(
+				enteredNameSplitted[enteredNameSplitted.length - 1], true);
+
+		for (int i=enteredNameSplitted.length-2; i>=0; i--){
+			NamespaceReference nr = (NamespaceReference)referenceFactory(enteredNameSplitted[i], false);
+			nr.setInnerReference_NamespaceReference(namedReference);
+			namedReference = nr;
+		}
+		return namedReference;
+	}
+
+	/**
+	 * Create the AbstractNamedReference and set a string parameter
+	 */
+	private AbstractNamedReference referenceFactory(String string,
+			boolean shouldGenerateVariableReference) {
+		AbstractNamedReference parameterReference = null;
+		if (shouldGenerateVariableReference) {
+			parameterReference = StoexFactory.eINSTANCE
+					.createVariableReference();
+		} else {
+			parameterReference = StoexFactory.eINSTANCE
+					.createNamespaceReference();
+		}
+		parameterReference.setReferenceName(string);
+		return parameterReference;
 	}
 
 }

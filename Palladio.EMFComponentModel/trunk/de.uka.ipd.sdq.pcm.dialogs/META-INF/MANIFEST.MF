@@ -8,6 +8,7 @@ Export-Package: de.uka.ipd.sdq.pcm.dialogs.datatype,
  de.uka.ipd.sdq.pcm.dialogs.parameters,
  de.uka.ipd.sdq.pcm.dialogs.selection,
  de.uka.ipd.sdq.pcm.dialogs.stoex,
+ de.uka.ipd.sdq.pcm.dialogs.variablenames,
  de.uka.ipd.sdq.pcm.dialogs.variableusage
 Require-Bundle: org.antlr,
  de.uka.ipd.sdq.stoex,

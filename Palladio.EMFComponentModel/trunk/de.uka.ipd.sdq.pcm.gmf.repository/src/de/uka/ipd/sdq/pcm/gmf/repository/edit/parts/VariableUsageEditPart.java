@@ -3,7 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
-import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -14,34 +14,29 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenDiagramEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenSeffDiagramEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.VariableUsageItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
  */
-public class BasicComponentEditPart extends ShapeNodeEditPart {
+public class VariableUsageEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2102;
+	public static final int VISUAL_ID = 3104;
 
 	/**
 	 * @generated
@@ -56,7 +51,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public BasicComponentEditPart(View view) {
+	public VariableUsageEditPart(View view) {
 		super(view);
 	}
 
@@ -64,51 +59,13 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(BasicComponentSEFFCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == PalladioComponentModelElementTypes.PassiveResource_3103) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == PalladioComponentModelElementTypes.VariableUsage_3104) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new BasicComponentItemSemanticEditPolicy());
+				new VariableUsageItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenSeffDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// XXX need an SCR to runtime to have another abstract superclass that
+		// would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -142,25 +99,24 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		BasicComponentFigure figure = new BasicComponentFigure();
+		ParametricParameterUsageFigure figure = new ParametricParameterUsageFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public BasicComponentFigure getPrimaryShape() {
-		return (BasicComponentFigure) primaryShape;
+	public ParametricParameterUsageFigure getPrimaryShape() {
+		return (ParametricParameterUsageFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof BasicComponentEntityNameEditPart) {
-			((BasicComponentEntityNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureBasicComponent_Name_LabelFigure());
+		if (childEditPart instanceof WrapLabelEditPart) {
+			((WrapLabelEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureVariableUsageReferenceLabelFigure());
 			return true;
 		}
 		return false;
@@ -214,8 +170,8 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model so
+	 * you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -229,9 +185,11 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
+	 * Default implementation treats passed figure as content pane. Respects
+	 * layout one may have set for generated figure.
+	 * 
+	 * @param nodeShape
+	 *            instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -258,42 +216,40 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(BasicComponentEntityNameEditPart.VISUAL_ID));
+				.getType(WrapLabelEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class BasicComponentFigure extends RectangleFigure {
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureBasicComponent_Name_LabelFigure;
+	public class ParametricParameterUsageFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		public BasicComponentFigure() {
+		private WrapLabel fFigureVariableUsageReferenceLabelFigure;
+
+		/**
+		 * @generated
+		 */
+		public ParametricParameterUsageFigure() {
+			this.setBackgroundColor(ColorConstants.cyan);
 			createContents();
 		}
 
 		/**
-		 * @generated
+		 * @generated not
 		 */
 		private void createContents() {
 
-			fFigureBasicComponent_Name_LabelFigure = new WrapLabel();
-			fFigureBasicComponent_Name_LabelFigure.setText("<...>");
+			fFigureVariableUsageReferenceLabelFigure = new WrapLabel();
+			fFigureVariableUsageReferenceLabelFigure
+					.setText(new PCMStoExPrettyPrintVisitor()
+							.prettyPrint(((VariableUsage) resolveSemanticElement())
+									.getNamedReference_VariableUsage()));
 
-			this.add(fFigureBasicComponent_Name_LabelFigure);
+			this.add(fFigureVariableUsageReferenceLabelFigure);
 
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureBasicComponent_Name_LabelFigure() {
-			return fFigureBasicComponent_Name_LabelFigure;
 		}
 
 		/**
@@ -313,6 +269,13 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureVariableUsageReferenceLabelFigure() {
+			return fFigureVariableUsageReferenceLabelFigure;
 		}
 
 	}

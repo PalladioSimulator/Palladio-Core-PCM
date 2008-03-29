@@ -238,6 +238,11 @@
   <nodes
       name="ProvidesComponentType"
       figure="ProvidesComponentTypeFigure"/>
+  <nodes
+      name="ComponentParameterNode">
+    <figure
+        href="../seffeditor/seffeditor.gmfgraph#ParametricParameterUsageFigure"/>
+  </nodes>
   <connections
       name="RequiredRole"
       figure="RequiredRoleFigure"/>
@@ -271,7 +276,13 @@
       figure="BasicComponentFigure"/>
   <compartments
       name="PassiveResourceCompartment"
-      figure="BasicComponentFigure"/>
+      figure="BasicComponentFigure"
+      needsTitle="true"/>
+  <compartments
+      name="ComponentParameterCompartment"
+      figure="BasicComponentFigure"
+      collapsible="true"
+      needsTitle="true"/>
   <labels
       name="SignatureServiceName"
       figure="SignatureServiceNameFigure"/>
@@ -355,4 +366,11 @@
   </labels>
   <labels
       name="PassiveResourceLabel"/>
+  <labels
+      name="VariableUsageReferenceLabel">
+    <figure
+        href="../seffeditor/seffeditor.gmfgraph#ParametricParameterUsageFigure"/>
+    <accessor
+        href="../seffeditor/seffeditor.gmfgraph#//@figures.0/@descriptors.0/@accessors.0"/>
+  </labels>
 </gmfgraph:Canvas>

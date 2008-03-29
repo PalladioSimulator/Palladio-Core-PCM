@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentPassiveResourceCompartmentEditPart;
@@ -38,10 +39,12 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentComponentParameterCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentPassiveResourceCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentSEFFCompartmentViewFactory;
@@ -69,6 +72,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiredRoleViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiresStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceDemandingSEFFViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.SignatureViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabel3ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabelViewFactory;
@@ -154,6 +158,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case SignatureEditPart.VISUAL_ID:
 				case ResourceDemandingSEFFEditPart.VISUAL_ID:
 				case PassiveResourceEditPart.VISUAL_ID:
+				case VariableUsageEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != PalladioComponentModelVisualIDRegistry
 									.getNodeVisualID(containerView,
@@ -172,6 +177,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case BasicComponentEntityNameEditPart.VISUAL_ID:
 				case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 				case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
+				case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
 					if (BasicComponentEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -194,6 +200,13 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 					break;
 				case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
 					if (ProvidesComponentTypeEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case WrapLabelEditPart.VISUAL_ID:
+					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
@@ -271,12 +284,18 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ResourceDemandingSEFFViewFactory.class;
 		case PassiveResourceEditPart.VISUAL_ID:
 			return PassiveResourceViewFactory.class;
+		case VariableUsageEditPart.VISUAL_ID:
+			return VariableUsageViewFactory.class;
+		case WrapLabelEditPart.VISUAL_ID:
+			return WrapLabelViewFactory.class;
 		case InterfaceSignatureListEditPart.VISUAL_ID:
 			return InterfaceSignatureListViewFactory.class;
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 			return BasicComponentSEFFCompartmentViewFactory.class;
 		case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
 			return BasicComponentPassiveResourceCompartmentViewFactory.class;
+		case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
+			return BasicComponentComponentParameterCompartmentViewFactory.class;
 		case ProvidesStereotypeLabelEditPart.VISUAL_ID:
 			return ProvidesStereotypeLabelViewFactory.class;
 		case RequiresStereotypeLabelEditPart.VISUAL_ID:

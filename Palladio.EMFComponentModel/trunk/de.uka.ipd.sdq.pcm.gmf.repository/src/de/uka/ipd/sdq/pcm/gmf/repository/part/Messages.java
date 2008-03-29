@@ -371,6 +371,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ComponentParameter13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ComponentParameter13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String InterfaceSignatureListEditPart_title;
 
 	/**
@@ -382,6 +392,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String BasicComponentPassiveResourceCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String BasicComponentComponentParameterCompartmentEditPart_title;
 
 	/**
 	 * @generated
