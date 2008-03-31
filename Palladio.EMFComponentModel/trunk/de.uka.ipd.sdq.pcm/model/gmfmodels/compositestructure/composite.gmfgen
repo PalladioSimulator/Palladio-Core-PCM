@@ -2,7 +2,7 @@
 <gmfgen:GenEditorGenerator xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgen="http://www.eclipse.org/gmf/2005/GenModel/2.0" packageNamePrefix="de.uka.ipd.sdq.pcm.gmf.composite"
+    xmlns:gmfgen="http://www.eclipse.org/gmf/2006/GenModel" packageNamePrefix="de.uka.ipd.sdq.pcm.gmf.composite"
     modelID="CompositeModel"
     diagramFileExtension="composite_diagram"
     domainFileExtension="repository"
@@ -393,8 +393,7 @@
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
-          xsi:type="gmfgen:TypeLinkModelFacet"
-          createCommandClassName="AssemblyConnectorTypeLinkCreateCommand">
+          xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
             href="../../pcm.genmodel#//pcm/core/composition/AssemblyConnector"/>
         <containmentMetaFeature
@@ -426,8 +425,7 @@
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
-          xsi:type="gmfgen:TypeLinkModelFacet"
-          createCommandClassName="RequiredDelegationConnectorTypeLinkCreateCommand">
+          xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
             href="../../pcm.genmodel#//pcm/core/composition/RequiredDelegationConnector"/>
         <containmentMetaFeature
@@ -459,8 +457,7 @@
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
       <modelFacet
-          xsi:type="gmfgen:TypeLinkModelFacet"
-          createCommandClassName="ProvidedDelegationConnectorTypeLinkCreateCommand">
+          xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
             href="../../pcm.genmodel#//pcm/core/composition/ProvidedDelegationConnector"/>
         <containmentMetaFeature
@@ -539,31 +536,31 @@
     </palette>
     <preferencePages
         xsi:type="gmfgen:GenStandardPreferencePage"
-        iD="de.uka.ipd.sdq.pcm.diagram.general"
-        name="PalladioComponentModel Diagram">
+        iD="de.uka.ipd.sdq.pcm.diagram.composite"
+        name="PCM Composite Diagram">
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.appearance"
+          iD="de.uka.ipd.sdq.pcm.diagram.composite.appearance"
           name="Appearance"
           kind="Appearance"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.connections"
+          iD="de.uka.ipd.sdq.pcm.diagram.composite.connections"
           name="Connections"
           kind="Connections"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.printing"
+          iD="de.uka.ipd.sdq.pcm.diagram.composite.printing"
           name="Printing"
           kind="Printing"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.rulersAndGrid"
+          iD="de.uka.ipd.sdq.pcm.diagram.composite.rulersAndGrid"
           name="Rulers And Grid"
           kind="RulersAndGrid"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.pathmaps"
+          iD="de.uka.ipd.sdq.pcm.diagram.composite.pathmaps"
           name="Pathmaps"
           kind="Pathmaps"/>
     </preferencePages>
