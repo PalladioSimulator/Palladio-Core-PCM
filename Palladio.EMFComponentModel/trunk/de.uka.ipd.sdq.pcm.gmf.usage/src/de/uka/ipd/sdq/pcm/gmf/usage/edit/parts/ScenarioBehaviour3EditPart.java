@@ -57,6 +57,7 @@ public class ScenarioBehaviour3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ScenarioBehaviour3ItemSemanticEditPolicy());

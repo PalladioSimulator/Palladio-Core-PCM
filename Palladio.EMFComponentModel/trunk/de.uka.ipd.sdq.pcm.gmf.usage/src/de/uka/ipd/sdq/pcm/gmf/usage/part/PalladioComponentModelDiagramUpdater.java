@@ -891,9 +891,6 @@ public class PalladioComponentModelDiagramUpdater {
 			AbstractUserAction source) {
 		Collection result = new LinkedList();
 		AbstractUserAction destination = source.getSuccessor();
-		if (destination == null) {
-			return result;
-		}
 		result
 				.add(new PalladioComponentModelLinkDescriptor(
 						source,

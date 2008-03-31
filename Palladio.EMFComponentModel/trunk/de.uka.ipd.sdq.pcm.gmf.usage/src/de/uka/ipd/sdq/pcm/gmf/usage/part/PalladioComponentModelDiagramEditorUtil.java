@@ -51,9 +51,9 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
-
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
@@ -65,6 +65,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * @generated
  */
 public class PalladioComponentModelDiagramEditorUtil {
+
 	/**
 	 * @generated
 	 */
@@ -163,15 +164,16 @@ public class PalladioComponentModelDiagramEditorUtil {
 
 	/**
 	 * This method should be called within a workspace modify operation since it creates resources.
-	 * @generated not
+	 * @generated
 	 */
-	public static Resource createDiagram(
-			org.eclipse.emf.common.util.URI diagramURI,
-			org.eclipse.emf.common.util.URI modelURI,
+	public static Resource createDiagram(URI diagramURI, URI modelURI,
 			IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
-		progressMonitor.beginTask("Creating diagram and model files", 3);
+		progressMonitor
+				.beginTask(
+						Messages.PalladioComponentModelDiagramEditorUtil_CreateDiagramProgressTask,
+						3);
 		final Resource diagramResource = editingDomain.getResourceSet()
 				.createResource(diagramURI);
 		final Resource modelResource = editingDomain.getResourceSet()
@@ -179,47 +181,32 @@ public class PalladioComponentModelDiagramEditorUtil {
 		final String diagramName = diagramURI.lastSegment();
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
 				editingDomain,
-				"Creating diagram and model", Collections.EMPTY_LIST) { //$NON-NLS-1$
+				Messages.PalladioComponentModelDiagramEditorUtil_CreateDiagramCommandLabel,
+				Collections.EMPTY_LIST) {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
-				UsageModel model = createInitialModel();
-				UsageScenario scenario = UsagemodelFactory.eINSTANCE
-						.createUsageScenario();
-
-				//set default scenario name
-				scenario.setEntityName("defaultUsageScenario"); //$NON-NLS-1$
-
-				ScenarioBehaviour behaviour = UsagemodelFactory.eINSTANCE
-						.createScenarioBehaviour();
-				behaviour.getActions_ScenarioBehaviour().add(
-						UsagemodelFactory.eINSTANCE.createStart());
-				behaviour.getActions_ScenarioBehaviour().add(
-						UsagemodelFactory.eINSTANCE.createStop());
-
-				//set default scenario behaviour name
-				behaviour.setEntityName("defaultUsageScenarioBehaviour"); //$NON-NLS-1$
-
-				scenario.setScenarioBehaviour_UsageScenario(behaviour);
-				model.getUsageScenario_UsageModel().add(scenario);
+				UsageScenario model = createInitialModel();
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService
 						.createDiagram(
-								scenario,
+								model,
 								UsageScenarioEditPart.MODEL_ID,
 								PalladioComponentModelUsageDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				if (diagram != null) {
 					diagramResource.getContents().add(diagram);
 					diagram.setName(diagramName);
-					diagram.setElement(scenario);
+					diagram.setElement(model);
 				}
 
 				try {
-					Map options = new HashMap();
-					options.put(XMIResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
-					modelResource.save(options);
-					diagramResource.save(options);
+					modelResource
+							.save(de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDiagramEditorUtil
+									.getSaveOptions());
+					diagramResource
+							.save(de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDiagramEditorUtil
+									.getSaveOptions());
 				} catch (IOException e) {
 
 					PalladioComponentModelUsageDiagramEditorPlugin
@@ -246,10 +233,10 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 * Create a new instance of domain element associated with canvas.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated not
+	 * @generated
 	 */
-	private static UsageModel createInitialModel() {
-		return UsagemodelFactory.eINSTANCE.createUsageModel();
+	private static UsageScenario createInitialModel() {
+		return UsagemodelFactory.eINSTANCE.createUsageScenario();
 	}
 
 	/**
@@ -259,17 +246,6 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 * @generated
 	 */
 	private static void attachModelToResource(UsageScenario model,
-			Resource resource) {
-		resource.getContents().add(model);
-	}
-
-	/**
-	 * Store model element in the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated not
-	 */
-	private static void attachModelToResource(UsageModel model,
 			Resource resource) {
 		resource.getContents().add(model);
 	}

@@ -246,17 +246,102 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Usage1Group_title;
+	public static String UserActions1Group_title;
 
 	/**
 	 * @generated
 	 */
-	public static String VariableCharacterisation1CreationTool_title;
+	public static String UserActions1Group_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String VariableCharacterisation1CreationTool_desc;
+	public static String Links2Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Links2Group_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Internals3Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Internals3Group_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Workloads4Group_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Workloads4Group_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Start1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Start1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Stop2CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Stop2CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String EntryLevelSystemCall3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String EntryLevelSystemCall3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Loop4CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Loop4CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Branch5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Branch5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String UsageFlow1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String UsageFlow1CreationTool_desc;
 
 	/**
 	 * @generated
@@ -271,102 +356,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ScenarioBehaviour3CreationTool_title;
+	public static String VariableCharacterisation3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ScenarioBehaviour3CreationTool_desc;
+	public static String VariableCharacterisation3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Stop4CreationTool_title;
+	public static String ScenarioBehaviour1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Stop4CreationTool_desc;
+	public static String ScenarioBehaviour1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Start5CreationTool_title;
+	public static String BranchTransition2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Start5CreationTool_desc;
+	public static String BranchTransition2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String OpenWorkload6CreationTool_title;
+	public static String OpenWorkload1CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String OpenWorkload6CreationTool_desc;
+	public static String OpenWorkload1CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Loop7CreationTool_title;
+	public static String ClosedWorkload2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Loop7CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String EntryLevelSystemCall8CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String EntryLevelSystemCall8CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ClosedWorkload9CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ClosedWorkload9CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String Branch10CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String Branch10CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String BranchTransition11CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String BranchTransition11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String UsageFlow12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String UsageFlow12CreationTool_desc;
+	public static String ClosedWorkload2CreationTool_desc;
 
 	/**
 	 * @generated

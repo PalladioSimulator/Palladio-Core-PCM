@@ -6,32 +6,16 @@
   <palette
       title="usagemodelPalette"
       description="Tools for usage modelling"
-      default="//@palette/@tools.0/@tools.2">
+      default="//@palette/@tools.2/@tools.0">
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="usage">
+        title="User Actions"
+        description="Provides Actions For Users"
+        collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="VariableCharacterisation"
-          description="Create new VariableCharacterisation">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="VariableUsage"
-          description="Create new VariableUsage">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ScenarioBehaviour"
-          description="Create new ScenarioBehaviour">
+          title="Start"
+          description="Create new Start">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -48,17 +32,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Start"
-          description="Create new Start">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="OpenWorkload"
-          description="Create new OpenWorkload">
+          title="EntryLevelSystemCall"
+          description="Create new EntryLevelSystemCall">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -75,26 +50,56 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="EntryLevelSystemCall"
-          description="Create new EntryLevelSystemCall">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ClosedWorkload"
-          description="Create new ClosedWorkload">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="Branch"
           description="Create new Branch">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Links"
+        description="Provides Links and Annotations"
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="UsageFlow"
+          description="">
+        <smallIcon
+            xsi:type="gmftool:BundleImage"
+            path="/icons/full/ctool16/ControlFlow.gif"
+            bundle="de.uka.ipd.sdq.pcm.edit"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="VariableUsage"
+          description="Create new VariableUsage">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="VariableCharacterisation"
+          description="Create new VariableCharacterisation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Internals"
+        description="Provides Child Elements "
+        collapsible="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ScenarioBehaviour"
+          description="Create new ScenarioBehaviour">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -109,14 +114,29 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Workloads"
+        description="Provides Different Workload Specifications"
+        collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="UsageFlow"
-          description="">
+          title="OpenWorkload"
+          description="Create new OpenWorkload">
         <smallIcon
-            xsi:type="gmftool:BundleImage"
-            path="/icons/full/ctool16/ControlFlow.gif"
-            bundle="de.uka.ipd.sdq.pcm.edit"/>
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ClosedWorkload"
+          description="Create new ClosedWorkload">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
       </tools>
     </tools>
   </palette>
