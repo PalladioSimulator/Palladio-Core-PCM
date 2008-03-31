@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
@@ -63,6 +64,15 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 	@Override
 	public String getText(Object object) {
 		String result = "";
+		if (object instanceof PCMRandomVariable) {
+			String label = ((PCMRandomVariable)object).getSpecification();
+			if (label == null) label = "";
+
+			String containingFeature = ((PCMRandomVariable)object).eContainingFeature().getName();
+			containingFeature = containingFeature.split("_")[0];
+			containingFeature = containingFeature.substring(0, 1).toUpperCase() + containingFeature.substring(1);
+			return containingFeature + ": " + label + " <PCM Random Variable>";
+		}
 		if (object instanceof AssemblyContext) {
 			AssemblyContext ctx = (AssemblyContext)object;
 			result = ctx.getEntityName();
