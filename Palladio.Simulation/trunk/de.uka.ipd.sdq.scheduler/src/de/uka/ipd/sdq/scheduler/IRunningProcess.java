@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.scheduler;
 
+import de.uka.ipd.sdq.scheduler.sensors.IProcessStateSensor;
+
 
 /**
  * In oder to be scheduled properly, processes need some additional

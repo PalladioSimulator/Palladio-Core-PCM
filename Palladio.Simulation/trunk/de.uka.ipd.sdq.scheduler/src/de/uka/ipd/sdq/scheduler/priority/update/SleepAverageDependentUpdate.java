@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.scheduler.priority.update;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
-import de.uka.ipd.sdq.scheduler.processes.sensors.SleepAverageSensor;
+import de.uka.ipd.sdq.scheduler.sensors.impl.SleepAverageSensor;
 
 
 public class SleepAverageDependentUpdate implements IPriorityUpdateStrategy {

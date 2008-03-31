@@ -5,7 +5,6 @@ import java.util.List;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.events.IDelayedAction;
-import de.uka.ipd.sdq.scheduler.processes.impl.PROCESS_STATE;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;

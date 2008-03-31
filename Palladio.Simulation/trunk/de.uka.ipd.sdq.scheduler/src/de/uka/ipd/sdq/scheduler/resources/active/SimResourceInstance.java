@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.scheduler.resources.active;
 import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
+import de.uka.ipd.sdq.scheduler.events.PostSchedulingEvent;
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
 import de.uka.ipd.sdq.scheduler.events.SchedulingInterruptEvent;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;

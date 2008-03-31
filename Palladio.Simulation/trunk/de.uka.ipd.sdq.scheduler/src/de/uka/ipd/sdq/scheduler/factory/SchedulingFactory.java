@@ -68,7 +68,6 @@ import de.uka.ipd.sdq.scheduler.resources.passive.SimUnfairPassiveResource;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 import de.uka.ipd.sdq.scheduler.strategy.impl.PreemptiveScheduler;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
-import de.uka.ipd.sdq.scheduler.timeslice.impl.ContinuousTimeSlice;
 import de.uka.ipd.sdq.scheduler.timeslice.impl.PriorityDependentTimeSlice;
 import de.uka.ipd.sdq.scheduler.timeslice.impl.QuantumTimeSlice;
 

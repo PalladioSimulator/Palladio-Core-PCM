@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.scheduler.processes.impl;
+package de.uka.ipd.sdq.scheduler.processes;
 
 public enum PROCESS_STATE {
 	/**

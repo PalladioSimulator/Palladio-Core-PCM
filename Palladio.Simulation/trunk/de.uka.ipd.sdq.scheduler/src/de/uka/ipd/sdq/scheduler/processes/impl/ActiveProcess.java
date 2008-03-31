@@ -5,7 +5,6 @@ import java.util.List;
 
 import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import de.uka.ipd.sdq.scheduler.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.events.IDelayedAction;
 import de.uka.ipd.sdq.scheduler.events.ProceedEvent;
@@ -14,8 +13,10 @@ import de.uka.ipd.sdq.scheduler.loaddistribution.IResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.MultipleResourceInstancesConstraint;
 import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.SingleResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.PROCESS_STATE;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.sensors.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class ActiveProcess implements IActiveProcess {

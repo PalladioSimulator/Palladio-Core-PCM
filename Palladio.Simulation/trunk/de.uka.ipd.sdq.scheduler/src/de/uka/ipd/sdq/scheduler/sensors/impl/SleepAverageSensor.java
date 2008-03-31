@@ -1,10 +1,10 @@
-package de.uka.ipd.sdq.scheduler.processes.sensors;
+package de.uka.ipd.sdq.scheduler.sensors.impl;
 
 import umontreal.iro.lecuyer.simevents.Simulator;
-import de.uka.ipd.sdq.scheduler.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
-import de.uka.ipd.sdq.scheduler.processes.impl.PROCESS_STATE;
+import de.uka.ipd.sdq.scheduler.processes.PROCESS_STATE;
+import de.uka.ipd.sdq.scheduler.sensors.IProcessStateSensor;
 
 public class SleepAverageSensor implements IProcessStateSensor {
 
