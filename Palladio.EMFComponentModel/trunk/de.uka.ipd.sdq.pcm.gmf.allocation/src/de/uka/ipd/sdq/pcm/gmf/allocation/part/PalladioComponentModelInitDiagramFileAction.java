@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.allocation.part;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -15,6 +16,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
@@ -35,7 +37,7 @@ public class PalladioComponentModelInitDiagramFileAction implements
 	/**
 	 * @generated
 	 */
-	private org.eclipse.emf.common.util.URI domainModelURI;
+	private URI domainModelURI;
 
 	/**
 	 * @generated
@@ -56,8 +58,8 @@ public class PalladioComponentModelInitDiagramFileAction implements
 		}
 		IFile file = (IFile) ((IStructuredSelection) selection)
 				.getFirstElement();
-		domainModelURI = org.eclipse.emf.common.util.URI
-				.createPlatformResourceURI(file.getFullPath().toString(), true);
+		domainModelURI = URI.createPlatformResourceURI(file.getFullPath()
+				.toString(), true);
 		action.setEnabled(true);
 	}
 

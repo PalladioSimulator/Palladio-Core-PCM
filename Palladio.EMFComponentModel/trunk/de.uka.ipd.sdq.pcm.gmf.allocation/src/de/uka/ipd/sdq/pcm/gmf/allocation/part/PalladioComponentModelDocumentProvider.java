@@ -6,16 +6,20 @@ package de.uka.ipd.sdq.pcm.gmf.allocation.part;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceStatus;
 import org.eclipse.core.resources.IStorage;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -26,14 +30,17 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.AbstractDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.DiagramDocument;
@@ -42,9 +49,11 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocu
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.util.DiagramIOUtil;
+import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.operation.IRunnableContext;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
@@ -67,7 +76,13 @@ public class PalladioComponentModelDocumentProvider extends
 							IStatus.ERROR,
 							PalladioComponentModelAllocationDiagramEditorPlugin.ID,
 							0,
-							"Incorrect element used: " + element + " instead of org.eclipse.ui.part.FileEditorInput or org.eclipse.emf.common.ui.URIEditorInput", null)); //$NON-NLS-1$ //$NON-NLS-2$
+							NLS
+									.bind(
+											Messages.PalladioComponentModelDocumentProvider_IncorrectInputError,
+											new Object[] {
+													element,
+													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+							null));
 		}
 		IEditorInput editorInput = (IEditorInput) element;
 		IDiagramDocument document = (IDiagramDocument) createDocument(editorInput);
@@ -89,7 +104,13 @@ public class PalladioComponentModelDocumentProvider extends
 							IStatus.ERROR,
 							PalladioComponentModelAllocationDiagramEditorPlugin.ID,
 							0,
-							"Incorrect element used: " + element + " instead of org.eclipse.ui.part.FileEditorInput or org.eclipse.emf.common.ui.URIEditorInput", null)); //$NON-NLS-1$ //$NON-NLS-2$
+							NLS
+									.bind(
+											Messages.PalladioComponentModelDocumentProvider_IncorrectInputError,
+											new Object[] {
+													element,
+													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+							null));
 		}
 		IDocument document = createEmptyDocument();
 		setDocumentContent(document, (IEditorInput) element);
@@ -196,8 +217,7 @@ public class PalladioComponentModelDocumentProvider extends
 					getProgressMonitor());
 			document.setContent(diagram);
 		} else if (element instanceof URIEditorInput) {
-			org.eclipse.emf.common.util.URI uri = ((URIEditorInput) element)
-					.getURI();
+			URI uri = ((URIEditorInput) element).getURI();
 			Resource resource = null;
 			try {
 				resource = domain.getResourceSet().getResource(
@@ -218,10 +238,6 @@ public class PalladioComponentModelDocumentProvider extends
 						throw e;
 					}
 				}
-				if (resource == null) {
-					throw new RuntimeException(
-							"Unable to load diagram resource");
-				}
 				if (uri.fragment() != null) {
 					EObject rootElement = resource.getEObject(uri.fragment());
 					if (rootElement instanceof Diagram) {
@@ -238,7 +254,8 @@ public class PalladioComponentModelDocumentProvider extends
 						}
 					}
 				}
-				throw new RuntimeException("Diagram is not present in resource");
+				throw new RuntimeException(
+						Messages.PalladioComponentModelDocumentProvider_NoDiagramInResourceError);
 			} catch (Exception e) {
 				CoreException thrownExcp = null;
 				if (e instanceof CoreException) {
@@ -249,8 +266,10 @@ public class PalladioComponentModelDocumentProvider extends
 							new Status(
 									IStatus.ERROR,
 									PalladioComponentModelAllocationDiagramEditorPlugin.ID,
-									0, msg != null ? msg
-											: "Error loading diagram", e)); //$NON-NLS-1$
+									0,
+									msg != null ? msg
+											: Messages.PalladioComponentModelDocumentProvider_DiagramLoadingError,
+									e));
 				}
 				throw thrownExcp;
 			}
@@ -260,7 +279,13 @@ public class PalladioComponentModelDocumentProvider extends
 							IStatus.ERROR,
 							PalladioComponentModelAllocationDiagramEditorPlugin.ID,
 							0,
-							"Incorrect element used: " + element + " instead of org.eclipse.ui.part.FileEditorInput or org.eclipse.emf.common.ui.URIEditorInput", null)); //$NON-NLS-1$ //$NON-NLS-2$
+							NLS
+									.bind(
+											Messages.PalladioComponentModelDocumentProvider_IncorrectInputError,
+											new Object[] {
+													element,
+													"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+							null));
 		}
 	}
 
@@ -344,8 +369,11 @@ public class PalladioComponentModelDocumentProvider extends
 					updateCache(element);
 				} catch (CoreException ex) {
 					PalladioComponentModelAllocationDiagramEditorPlugin
-							.getInstance().logError(
-									Messages.DocumentProvider_isModifiable, ex);
+							.getInstance()
+							.logError(
+									Messages.PalladioComponentModelDocumentProvider_isModifiable,
+									ex);
+					// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
 				}
 			}
 			return info.isReadOnly();
@@ -370,8 +398,11 @@ public class PalladioComponentModelDocumentProvider extends
 					updateCache(element);
 				} catch (CoreException ex) {
 					PalladioComponentModelAllocationDiagramEditorPlugin
-							.getInstance().logError(
-									Messages.DocumentProvider_isModifiable, ex);
+							.getInstance()
+							.logError(
+									Messages.PalladioComponentModelDocumentProvider_isModifiable,
+									ex);
+					// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
 				}
 			}
 			return info.isModifiable();
@@ -559,27 +590,36 @@ public class PalladioComponentModelDocumentProvider extends
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
 			if (!overwrite && !info.isSynchronized()) {
-				throw new CoreException(new Status(IStatus.ERROR,
-						PalladioComponentModelAllocationDiagramEditorPlugin.ID,
-						IStatus.OK,
-						"The file has been changed on the file system", null)); //$NON-NLS-1$
+				throw new CoreException(
+						new Status(
+								IStatus.ERROR,
+								PalladioComponentModelAllocationDiagramEditorPlugin.ID,
+								IResourceStatus.OUT_OF_SYNC_LOCAL,
+								Messages.PalladioComponentModelDocumentProvider_UnsynchronizedFileSaveError,
+								null));
 			}
 			info.stopResourceListening();
 			fireElementStateChanging(element);
 			List resources = info.getResourceSet().getResources();
 			try {
-				monitor.beginTask("Saving diagram", resources.size() + 1);
-				Map options = new HashMap();
-				options.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE,
-						Boolean.TRUE);
+				monitor
+						.beginTask(
+								Messages.PalladioComponentModelDocumentProvider_SaveDiagramTask,
+								resources.size() + 1); //"Saving diagram"
 				for (Iterator it = resources.iterator(); it.hasNext();) {
 					Resource nextResource = (Resource) it.next();
-					monitor.setTaskName("Saving " + nextResource.getURI());
+					monitor
+							.setTaskName(NLS
+									.bind(
+											Messages.PalladioComponentModelDocumentProvider_SaveNextResourceTask,
+											nextResource.getURI()));
 					if (nextResource.isLoaded()
-							&& (!nextResource.isTrackingModification() || nextResource
-									.isModified())) {
+							&& !info.getEditingDomain()
+									.isReadOnly(nextResource)) {
 						try {
-							nextResource.save(options);
+							nextResource
+									.save(PalladioComponentModelDiagramEditorUtil
+											.getSaveOptions());
 						} catch (IOException e) {
 							fireElementStateChangeFailed(element);
 							throw new CoreException(
@@ -593,12 +633,80 @@ public class PalladioComponentModelDocumentProvider extends
 					monitor.worked(1);
 				}
 				monitor.done();
+				info.setModificationStamp(computeModificationStamp(info));
 			} catch (RuntimeException x) {
 				fireElementStateChangeFailed(element);
 				throw x;
 			} finally {
 				info.startResourceListening();
 			}
+		} else {
+			URI newResoruceURI;
+			List affectedFiles = null;
+			if (element instanceof FileEditorInput) {
+				IFile newFile = ((FileEditorInput) element).getFile();
+				affectedFiles = Collections.singletonList(newFile);
+				newResoruceURI = URI.createPlatformResourceURI(newFile
+						.getFullPath().toString(), true);
+			} else if (element instanceof URIEditorInput) {
+				newResoruceURI = ((URIEditorInput) element).getURI();
+			} else {
+				fireElementStateChangeFailed(element);
+				throw new CoreException(
+						new Status(
+								IStatus.ERROR,
+								PalladioComponentModelAllocationDiagramEditorPlugin.ID,
+								0,
+								NLS
+										.bind(
+												Messages.PalladioComponentModelDocumentProvider_IncorrectInputError,
+												new Object[] {
+														element,
+														"org.eclipse.ui.part.FileEditorInput", "org.eclipse.emf.common.ui.URIEditorInput" }), //$NON-NLS-1$ //$NON-NLS-2$ 
+								null));
+			}
+			if (false == document instanceof IDiagramDocument) {
+				fireElementStateChangeFailed(element);
+				throw new CoreException(
+						new Status(
+								IStatus.ERROR,
+								PalladioComponentModelAllocationDiagramEditorPlugin.ID,
+								0,
+								"Incorrect document used: " + document + " instead of org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument", null)); //$NON-NLS-1$ //$NON-NLS-2$
+			}
+			IDiagramDocument diagramDocument = (IDiagramDocument) document;
+			final Resource newResource = diagramDocument.getEditingDomain()
+					.getResourceSet().createResource(newResoruceURI);
+			final Diagram diagramCopy = (Diagram) EcoreUtil
+					.copy(diagramDocument.getDiagram());
+			try {
+				new AbstractTransactionalCommand(
+						diagramDocument.getEditingDomain(),
+						NLS
+								.bind(
+										Messages.PalladioComponentModelDocumentProvider_SaveAsOperation,
+										diagramCopy.getName()), affectedFiles) {
+					protected CommandResult doExecuteWithResult(
+							IProgressMonitor monitor, IAdaptable info)
+							throws ExecutionException {
+						newResource.getContents().add(diagramCopy);
+						return CommandResult.newOKCommandResult();
+					}
+				}.execute(monitor, null);
+				newResource.save(PalladioComponentModelDiagramEditorUtil
+						.getSaveOptions());
+			} catch (ExecutionException e) {
+				fireElementStateChangeFailed(element);
+				throw new CoreException(new Status(IStatus.ERROR,
+						PalladioComponentModelAllocationDiagramEditorPlugin.ID,
+						0, e.getLocalizedMessage(), null));
+			} catch (IOException e) {
+				fireElementStateChangeFailed(element);
+				throw new CoreException(new Status(IStatus.ERROR,
+						PalladioComponentModelAllocationDiagramEditorPlugin.ID,
+						0, e.getLocalizedMessage(), null));
+			}
+			newResource.unload();
 		}
 	}
 
@@ -615,8 +723,9 @@ public class PalladioComponentModelDocumentProvider extends
 				PalladioComponentModelAllocationDiagramEditorPlugin
 						.getInstance()
 						.logError(
-								Messages.DocumentProvider_handleElementContentChanged,
+								Messages.PalladioComponentModelDocumentProvider_handleElementContentChanged,
 								ex);
+				// Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
 			}
 		}
 		changedResource.unload();
@@ -639,13 +748,10 @@ public class PalladioComponentModelDocumentProvider extends
 	/**
 	 * @generated
 	 */
-	protected void handleElementMoved(IEditorInput input,
-			org.eclipse.emf.common.util.URI uri) {
+	protected void handleElementMoved(IEditorInput input, URI uri) {
 		if (input instanceof FileEditorInput) {
-			IFile newFile = ResourcesPlugin.getWorkspace().getRoot()
-					.getFile(
-							new Path(org.eclipse.emf.common.util.URI.decode(uri
-									.path())).removeFirstSegments(1));
+			IFile newFile = ResourcesPlugin.getWorkspace().getRoot().getFile(
+					new Path(URI.decode(uri.path())).removeFirstSegments(1));
 			fireElementMoved(input, newFile == null ? null
 					: new FileEditorInput(newFile));
 			return;
@@ -760,8 +866,15 @@ public class PalladioComponentModelDocumentProvider extends
 		/**
 		 * @generated
 		 */
+		public TransactionalEditingDomain getEditingDomain() {
+			return myDocument.getEditingDomain();
+		}
+
+		/**
+		 * @generated
+		 */
 		public ResourceSet getResourceSet() {
-			return myDocument.getEditingDomain().getResourceSet();
+			return getEditingDomain().getResourceSet();
 		}
 
 		/**
@@ -817,8 +930,8 @@ public class PalladioComponentModelDocumentProvider extends
 		 * @generated
 		 */
 		public final void startResourceListening() {
-			mySynchronizer = new WorkspaceSynchronizer(myDocument
-					.getEditingDomain(), new SynchronizerDelegate());
+			mySynchronizer = new WorkspaceSynchronizer(getEditingDomain(),
+					new SynchronizerDelegate());
 		}
 
 		/**
@@ -917,7 +1030,7 @@ public class PalladioComponentModelDocumentProvider extends
 			 * @generated
 			 */
 			public boolean handleResourceMoved(Resource resource,
-					final org.eclipse.emf.common.util.URI newURI) {
+					final URI newURI) {
 				synchronized (ResourceSetInfo.this) {
 					if (ResourceSetInfo.this.fCanBeSaved) {
 						ResourceSetInfo.this.setUnSynchronized(resource);

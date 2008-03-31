@@ -41,5 +41,6 @@ public class AllocationEditPart extends DiagramEditPart {
 				new AllocationItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new AllocationCanonicalEditPolicy());
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}
 }

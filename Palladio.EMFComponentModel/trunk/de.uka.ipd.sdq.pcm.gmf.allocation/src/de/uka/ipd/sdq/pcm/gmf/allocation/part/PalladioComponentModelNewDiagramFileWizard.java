@@ -17,6 +17,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -29,6 +30,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
@@ -57,18 +59,22 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
-	public PalladioComponentModelNewDiagramFileWizard(
-			org.eclipse.emf.common.util.URI domainModelURI,
+	public PalladioComponentModelNewDiagramFileWizard(URI domainModelURI,
 			EObject diagramRoot, TransactionalEditingDomain editingDomain) {
 		assert domainModelURI != null : "Domain model uri must be specified"; //$NON-NLS-1$
 		assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
 		assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
 
 		myFileCreationPage = new WizardNewFileCreationPage(
-				"Initialize new diagram file", StructuredSelection.EMPTY);
-		myFileCreationPage.setTitle("Diagram file");
-		myFileCreationPage.setDescription("Create new diagram based on "
-				+ AllocationEditPart.MODEL_ID + " model content");
+				Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageName,
+				StructuredSelection.EMPTY);
+		myFileCreationPage
+				.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageTitle);
+		myFileCreationPage
+				.setDescription(NLS
+						.bind(
+								Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageDescription,
+								AllocationEditPart.MODEL_ID));
 		IPath filePath;
 		String fileName = domainModelURI.trimFileExtension().lastSegment();
 		if (domainModelURI.isPlatformResource()) {
@@ -78,18 +84,19 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			filePath = new Path(domainModelURI.trimSegments(1).toFileString());
 		} else {
 			// TODO : use some default path
-			throw new IllegalArgumentException("Unsupported URI: "
-					+ domainModelURI);
+			throw new IllegalArgumentException(
+					"Unsupported URI: " + domainModelURI); //$NON-NLS-1$
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
 		myFileCreationPage.setFileName(PalladioComponentModelDiagramEditorUtil
 				.getUniqueFileName(filePath, fileName, "allocation_diagram")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
-				"Select diagram root element");
-		diagramRootElementSelectionPage.setTitle("Diagram root element");
+				Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName);
 		diagramRootElementSelectionPage
-				.setDescription("Select semantic model element to be depicted on diagram");
+				.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageTitle);
+		diagramRootElementSelectionPage
+				.setDescription(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageDescription);
 		diagramRootElementSelectionPage.setModelElement(diagramRoot);
 
 		myEditingDomain = editingDomain;
@@ -109,21 +116,17 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	public boolean performFinish() {
 		List affectedFiles = new LinkedList();
 		IFile diagramFile = myFileCreationPage.createNewFile();
-		try {
-			diagramFile.setCharset("UTF-8", new NullProgressMonitor()); //$NON-NLS-1$
-		} catch (CoreException e) {
-			PalladioComponentModelAllocationDiagramEditorPlugin.getInstance()
-					.logError("Unable to set charset for diagram file", e); //$NON-NLS-1$
-		}
+		PalladioComponentModelDiagramEditorUtil.setCharset(diagramFile);
 		affectedFiles.add(diagramFile);
-		org.eclipse.emf.common.util.URI diagramModelURI = org.eclipse.emf.common.util.URI
-				.createPlatformResourceURI(
-						diagramFile.getFullPath().toString(), true);
+		URI diagramModelURI = URI.createPlatformResourceURI(diagramFile
+				.getFullPath().toString(), true);
 		ResourceSet resourceSet = myEditingDomain.getResourceSet();
 		final Resource diagramResource = resourceSet
 				.createResource(diagramModelURI);
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
-				myEditingDomain, "Initializing diagram contents", affectedFiles) { //$NON-NLS-1$
+				myEditingDomain,
+				Messages.PalladioComponentModelNewDiagramFileWizard_InitDiagramCommand,
+				affectedFiles) {
 
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
@@ -133,7 +136,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 								.getModelElement());
 				if (diagramVID != AllocationEditPart.VISUAL_ID) {
 					return CommandResult
-							.newErrorCommandResult("Incorrect model object stored as a root resource object"); //$NON-NLS-1$
+							.newErrorCommandResult(Messages.PalladioComponentModelNewDiagramFileWizard_IncorrectRootError);
 				}
 				Diagram diagram = ViewService
 						.createDiagram(
@@ -148,7 +151,8 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 		try {
 			OperationHistoryFactory.getOperationHistory().execute(command,
 					new NullProgressMonitor(), null);
-			diagramResource.save(Collections.EMPTY_MAP);
+			diagramResource.save(PalladioComponentModelDiagramEditorUtil
+					.getSaveOptions());
 			PalladioComponentModelDiagramEditorUtil
 					.openDiagram(diagramResource);
 		} catch (ExecutionException e) {
@@ -183,7 +187,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 		 * @generated
 		 */
 		protected String getSelectionTitle() {
-			return "Select diagram root element:";
+			return Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 		}
 
 		/**
@@ -191,7 +195,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 		 */
 		protected boolean validatePage() {
 			if (selectedModelElement == null) {
-				setErrorMessage("Diagram root element is not selected");
+				setErrorMessage(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageNoSelectionMessage);
 				return false;
 			}
 			boolean result = ViewService
@@ -202,7 +206,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 									AllocationEditPart.MODEL_ID,
 									PalladioComponentModelAllocationDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
 			setErrorMessage(result ? null
-					: "Invalid diagram root element is selected");
+					: Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
 			return result;
 		}
 	}

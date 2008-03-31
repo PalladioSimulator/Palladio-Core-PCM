@@ -65,11 +65,9 @@ public class PalladioComponentModelReorientConnectionViewCommand extends
 		assert null != edgeAdaptor : "Null child in PalladioComponentModelReorientConnectionViewCommand"; //$NON-NLS-1$
 		Edge edge = (Edge) getEdgeAdaptor().getAdapter(Edge.class);
 		assert null != edge : "Null edge in PalladioComponentModelReorientConnectionViewCommand"; //$NON-NLS-1$
-
 		View tempView = edge.getSource();
 		edge.setSource(edge.getTarget());
 		edge.setTarget(tempView);
-
 		return CommandResult.newOKCommandResult();
 	}
 }

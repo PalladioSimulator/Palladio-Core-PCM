@@ -104,7 +104,7 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle("New allocation Diagram");
+		setWindowTitle(Messages.PalladioComponentModelCreationWizardTitle);
 		setDefaultPageImageDescriptor(PalladioComponentModelAllocationDiagramEditorPlugin
 				.getBundledImageDescriptor("icons/wizban/NewAllocationWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);

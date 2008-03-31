@@ -48,6 +48,7 @@ import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.ShowInContext;
 
 /**
  * @generated
@@ -63,8 +64,20 @@ public class PalladioComponentModelAllocationDiagramEditor extends
 	/**
 	 * @generated
 	 */
+	public static final String CONTEXT_ID = "de.uka.ipd.sdq.pcm.gmf.allocation.ui.diagramContext"; //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public PalladioComponentModelAllocationDiagramEditor() {
 		super(true);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected String getContextID() {
+		return CONTEXT_ID;
 	}
 
 	/**
@@ -168,9 +181,10 @@ public class PalladioComponentModelAllocationDiagramEditor extends
 			return;
 		}
 		if (provider.isDeleted(input) && original != null) {
-			String message = NLS.bind(
-					"The original file ''{0}'' has been deleted.", original
-							.getName());
+			String message = NLS
+					.bind(
+							Messages.PalladioComponentModelAllocationDiagramEditor_SavingDeletedFile,
+							original.getName());
 			dialog.setErrorMessage(null);
 			dialog.setMessage(message, IMessageProvider.WARNING);
 		}
@@ -199,8 +213,10 @@ public class PalladioComponentModelAllocationDiagramEditor extends
 		for (int i = 0; i < editorRefs.length; i++) {
 			if (matchingStrategy.matches(editorRefs[i], newInput)) {
 				MessageDialog
-						.openWarning(shell, "Problem During Save As...",
-								"Save could not be completed. Target file is already open in another editor.");
+						.openWarning(
+								shell,
+								Messages.PalladioComponentModelAllocationDiagramEditor_SaveAsErrorTitle,
+								Messages.PalladioComponentModelAllocationDiagramEditor_SaveAsErrorMessage);
 				return;
 			}
 		}
@@ -214,8 +230,12 @@ public class PalladioComponentModelAllocationDiagramEditor extends
 		} catch (CoreException x) {
 			IStatus status = x.getStatus();
 			if (status == null || status.getSeverity() != IStatus.CANCEL) {
-				ErrorDialog.openError(shell, "Save Problems",
-						"Could not save file.", x.getStatus());
+				ErrorDialog
+						.openError(
+								shell,
+								Messages.PalladioComponentModelAllocationDiagramEditor_SaveErrorTitle,
+								Messages.PalladioComponentModelAllocationDiagramEditor_SaveErrorMessage,
+								x.getStatus());
 			}
 		} finally {
 			provider.changed(newInput);
@@ -226,6 +246,14 @@ public class PalladioComponentModelAllocationDiagramEditor extends
 		if (progressMonitor != null) {
 			progressMonitor.setCanceled(!success);
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public ShowInContext getShowInContext() {
+		return new ShowInContext(getEditorInput(), getGraphicalViewer()
+				.getSelection());
 	}
 
 }

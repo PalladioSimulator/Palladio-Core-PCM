@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -53,6 +54,7 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelParserProvider;
 
 /**
  * @generated
@@ -192,6 +194,7 @@ public class AllocationComponentLabelEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
+
 		EObject element = resolveSemanticElement();
 		return element != null ? element : (View) getModel();
 	}
@@ -206,9 +209,12 @@ public class AllocationComponentLabelEditPart extends CompartmentEditPart
 		}
 		AllocationContext ctx = (AllocationContext) resolveSemanticElement();
 		if (ctx.getAssemblyContext_AllocationContext() != null) {
-			if (ctx.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext() != null){
-				return PalladioComponentModelElementTypes.getImage(
-						ctx.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().eClass());
+			if (ctx.getAssemblyContext_AllocationContext()
+					.getEncapsulatedComponent_ChildComponentContext() != null) {
+				return PalladioComponentModelElementTypes.getImage(ctx
+						.getAssemblyContext_AllocationContext()
+						.getEncapsulatedComponent_ChildComponentContext()
+						.eClass());
 			}
 		}
 		return PalladioComponentModelElementTypes.getImage(parserElement
@@ -222,9 +228,15 @@ public class AllocationComponentLabelEditPart extends CompartmentEditPart
 		String text = "";
 		AllocationContext ctx = (AllocationContext) resolveSemanticElement();
 		if (ctx.getAssemblyContext_AllocationContext() != null) {
-			text += "<" + ctx.getAssemblyContext_AllocationContext().getEntityName() + ">";
-			if (ctx.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext() != null){
-				text = ctx.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getEntityName() + " " +text;
+			text += "<"
+					+ ctx.getAssemblyContext_AllocationContext()
+							.getEntityName() + ">";
+			if (ctx.getAssemblyContext_AllocationContext()
+					.getEncapsulatedComponent_ChildComponentContext() != null) {
+				text = ctx.getAssemblyContext_AllocationContext()
+						.getEncapsulatedComponent_ChildComponentContext()
+						.getEntityName()
+						+ " " + text;
 			}
 		}
 		if (text == null || text.length() == 0) {
@@ -250,7 +262,7 @@ public class AllocationComponentLabelEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	public String getEditText() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
 		}
 		return getParser().getEditString(
@@ -302,7 +314,7 @@ public class AllocationComponentLabelEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return null;
 		}
 		return getParser().getCompletionProcessor(
@@ -322,16 +334,9 @@ public class AllocationComponentLabelEditPart extends CompartmentEditPart
 	public IParser getParser() {
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
-			ParserHintAdapter hintAdapter = new ParserHintAdapter(
-					getParserElement(), parserHint) {
-
-				public Object getAdapter(Class adapter) {
-					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.AllocationContext_3001;
-					}
-					return super.getAdapter(adapter);
-				}
-			};
+			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+					PalladioComponentModelElementTypes.AllocationContext_3001,
+					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
 		return parser;

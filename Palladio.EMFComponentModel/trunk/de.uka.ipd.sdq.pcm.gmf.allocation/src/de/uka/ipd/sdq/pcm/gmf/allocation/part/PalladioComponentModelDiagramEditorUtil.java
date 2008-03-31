@@ -24,12 +24,14 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
@@ -47,8 +49,11 @@ import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.FileEditorInput;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
@@ -61,16 +66,36 @@ public class PalladioComponentModelDiagramEditorUtil {
 	/**
 	 * @generated
 	 */
-	public static boolean openDiagram(Resource diagram)
-			throws PartInitException {
-		return EditUIUtil.openEditor((EObject) diagram.getContents().get(0));
+	public static Map getSaveOptions() {
+		Map saveOptions = new HashMap();
+		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED,
+				Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+		return saveOptions;
 	}
 
 	/**
 	 * @generated
 	 */
-	private static void setCharset(org.eclipse.emf.common.util.URI uri) {
-		IFile file = getFile(uri);
+	public static boolean openDiagram(Resource diagram)
+			throws PartInitException {
+		String path = diagram.getURI().toPlatformString(true);
+		IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot()
+				.findMember(new Path(path));
+		if (workspaceResource instanceof IFile) {
+			IWorkbenchPage page = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage();
+			return null != page.openEditor(new FileEditorInput(
+					(IFile) workspaceResource),
+					PalladioComponentModelAllocationDiagramEditor.ID);
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static void setCharset(IFile file) {
 		if (file == null) {
 			return;
 		}
@@ -82,22 +107,6 @@ public class PalladioComponentModelDiagramEditorUtil {
 					.logError(
 							"Unable to set charset for file " + file.getFullPath(), e); //$NON-NLS-1$
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public static IFile getFile(org.eclipse.emf.common.util.URI uri) {
-		if (uri.toString().startsWith("platform:/resource")) { //$NON-NLS-1$
-			String path = uri.toString().substring(
-					"platform:/resource".length()); //$NON-NLS-1$
-			IResource workspaceResource = ResourcesPlugin.getWorkspace()
-					.getRoot().findMember(new Path(path));
-			if (workspaceResource instanceof IFile) {
-				return (IFile) workspaceResource;
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -148,69 +157,6 @@ public class PalladioComponentModelDiagramEditorUtil {
 		dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x),
 				500);
 		dialog.open();
-	}
-
-	/**
-	 * This method should be called within a workspace modify operation since it creates resources.
-	 * @generated
-	 */
-	public static Resource createDiagram(
-			org.eclipse.emf.common.util.URI diagramURI,
-			org.eclipse.emf.common.util.URI modelURI,
-			IProgressMonitor progressMonitor) {
-		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
-				.createEditingDomain();
-		progressMonitor.beginTask("Creating diagram and model files", 3);
-		final Resource diagramResource = editingDomain.getResourceSet()
-				.createResource(diagramURI);
-		final Resource modelResource = editingDomain.getResourceSet()
-				.createResource(modelURI);
-		final String diagramName = diagramURI.lastSegment();
-		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
-				editingDomain,
-				"Creating diagram and model", Collections.EMPTY_LIST) { //$NON-NLS-1$
-			protected CommandResult doExecuteWithResult(
-					IProgressMonitor monitor, IAdaptable info)
-					throws ExecutionException {
-				Allocation model = createInitialModel();
-				attachModelToResource(model, modelResource);
-
-				Diagram diagram = ViewService
-						.createDiagram(
-								model,
-								AllocationEditPart.MODEL_ID,
-								PalladioComponentModelAllocationDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-				if (diagram != null) {
-					diagramResource.getContents().add(diagram);
-					diagram.setName(diagramName);
-					diagram.setElement(model);
-				}
-
-				try {
-					Map options = new HashMap();
-					options.put(XMIResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
-					modelResource.save(options);
-					diagramResource.save(options);
-				} catch (IOException e) {
-
-					PalladioComponentModelAllocationDiagramEditorPlugin
-							.getInstance()
-							.logError(
-									"Unable to store model and diagram resources", e); //$NON-NLS-1$
-				}
-				return CommandResult.newOKCommandResult();
-			}
-		};
-		try {
-			OperationHistoryFactory.getOperationHistory().execute(command,
-					new SubProgressMonitor(progressMonitor, 1), null);
-		} catch (ExecutionException e) {
-			PalladioComponentModelAllocationDiagramEditorPlugin.getInstance()
-					.logError("Unable to create model and diagram", e); //$NON-NLS-1$
-		}
-		setCharset(modelURI);
-		setCharset(diagramURI);
-		return diagramResource;
 	}
 
 	/**
@@ -275,8 +221,8 @@ public class PalladioComponentModelDiagramEditorUtil {
 			PalladioComponentModelAllocationDiagramEditorPlugin.getInstance()
 					.logError("Unable to create model and diagram", e); //$NON-NLS-1$
 		}
-		setCharset(modelURI);
-		setCharset(diagramURI);
+		setCharset(WorkspaceSynchronizer.getFile(modelResource));
+		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
 		return diagramResource;
 	}
 
@@ -288,10 +234,10 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 */
 	private static Allocation createInitialModel() {
 		Allocation alloc = AllocationFactory.eINSTANCE.createAllocation();
-		
+
 		//set default entity name
 		alloc.setEntityName("defaultAllocation"); //$NON-NLS-1$
-		
+
 		return alloc;
 	}
 

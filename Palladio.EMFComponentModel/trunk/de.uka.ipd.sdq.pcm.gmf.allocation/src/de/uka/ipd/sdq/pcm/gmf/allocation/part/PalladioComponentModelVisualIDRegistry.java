@@ -54,7 +54,8 @@ public class PalladioComponentModelVisualIDRegistry {
 				return -1;
 			}
 		}
-		return getVisualID(view.getType());
+		return de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry
+				.getVisualID(view.getType());
 	}
 
 	/**
@@ -104,21 +105,12 @@ public class PalladioComponentModelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getDiagramVisualID(domainElement, domainElementMetaclass);
-	}
-
-	/**
-	 * @generated
-	 */
-	private static int getDiagramVisualID(EObject domainElement,
-			EClass domainElementMetaclass) {
 		if (AllocationPackage.eINSTANCE.getAllocation().isSuperTypeOf(
-				domainElementMetaclass)
-				&& isDiagramAllocation_1000((Allocation) domainElement)) {
+				domainElement.eClass())
+				&& isDiagram((Allocation) domainElement)) {
 			return AllocationEditPart.VISUAL_ID;
 		}
-		return getUnrecognizedDiagramID(domainElement);
+		return -1;
 	}
 
 	/**
@@ -128,24 +120,15 @@ public class PalladioComponentModelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getNodeVisualID(containerView, domainElement,
-				domainElementMetaclass, null);
-	}
-
-	/**
-	 * @generated
-	 */
-	public static int getNodeVisualID(View containerView,
-			EObject domainElement, EClass domainElementMetaclass,
-			String semanticHint) {
-		String containerModelID = getModelID(containerView);
+		String containerModelID = de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry
+				.getModelID(containerView);
 		if (!AllocationEditPart.MODEL_ID.equals(containerModelID)) {
 			return -1;
 		}
 		int containerVisualID;
 		if (AllocationEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = getVisualID(containerView);
+			containerVisualID = de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry
+					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
 				containerVisualID = AllocationEditPart.VISUAL_ID;
@@ -153,48 +136,72 @@ public class PalladioComponentModelVisualIDRegistry {
 				return -1;
 			}
 		}
-		int nodeVisualID = semanticHint != null ? getVisualID(semanticHint)
-				: -1;
+		switch (containerVisualID) {
+		case ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
+			if (AllocationPackage.eINSTANCE.getAllocationContext()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return AllocationContextEditPart.VISUAL_ID;
+			}
+			break;
+		case AllocationEditPart.VISUAL_ID:
+			if (ResourceenvironmentPackage.eINSTANCE.getResourceContainer()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ResourceContainerEditPart.VISUAL_ID;
+			}
+			break;
+		}
+		return -1;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static boolean canCreateNode(View containerView, int nodeVisualID) {
+		String containerModelID = de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry
+				.getModelID(containerView);
+		if (!AllocationEditPart.MODEL_ID.equals(containerModelID)) {
+			return false;
+		}
+		int containerVisualID;
+		if (AllocationEditPart.MODEL_ID.equals(containerModelID)) {
+			containerVisualID = de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry
+					.getVisualID(containerView);
+		} else {
+			if (containerView instanceof Diagram) {
+				containerVisualID = AllocationEditPart.VISUAL_ID;
+			} else {
+				return false;
+			}
+		}
 		switch (containerVisualID) {
 		case ResourceContainerEditPart.VISUAL_ID:
 			if (ResourceContainerEntityNameEditPart.VISUAL_ID == nodeVisualID) {
-				return ResourceContainerEntityNameEditPart.VISUAL_ID;
+				return true;
 			}
 			if (ResourceContainerAllocationCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return ResourceContainerAllocationCompartmentEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedResourceContainer_2002ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case AllocationContextEditPart.VISUAL_ID:
 			if (AllocationContextEntityNameEditPart.VISUAL_ID == nodeVisualID) {
-				return AllocationContextEntityNameEditPart.VISUAL_ID;
+				return true;
 			}
 			if (AllocationComponentLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return AllocationComponentLabelEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedAllocationContext_3001ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
-			if ((semanticHint == null || AllocationContextEditPart.VISUAL_ID == nodeVisualID)
-					&& AllocationPackage.eINSTANCE.getAllocationContext()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeAllocationContext_3001((AllocationContext) domainElement))) {
-				return AllocationContextEditPart.VISUAL_ID;
+			if (AllocationContextEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedResourceContainerAllocationCompartment_7002ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case AllocationEditPart.VISUAL_ID:
-			if ((semanticHint == null || ResourceContainerEditPart.VISUAL_ID == nodeVisualID)
-					&& ResourceenvironmentPackage.eINSTANCE
-							.getResourceContainer().isSuperTypeOf(
-									domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceContainer_2002((ResourceContainer) domainElement))) {
-				return ResourceContainerEditPart.VISUAL_ID;
+			if (ResourceContainerEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedAllocation_1000ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		}
-		return -1;
+		return false;
 	}
 
 	/**
@@ -204,113 +211,16 @@ public class PalladioComponentModelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getLinkWithClassVisualID(domainElement, domainElementMetaclass);
+		return -1;
 	}
 
 	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 * 
 	 * @generated
 	 */
-	public static int getLinkWithClassVisualID(EObject domainElement,
-			EClass domainElementMetaclass) {
-		{
-			return getUnrecognizedLinkWithClassID(domainElement);
-		}
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isDiagramAllocation_1000(Allocation element) {
+	private static boolean isDiagram(Allocation element) {
 		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedDiagramID(EObject domainElement) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeResourceContainer_2002(
-			ResourceContainer element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeAllocationContext_3001(
-			AllocationContext element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedResourceContainer_2002ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedAllocationContext_3001ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedResourceContainerAllocationCompartment_7002ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedAllocation_1000ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedLinkWithClassID(EObject domainElement) {
-		return -1;
 	}
 }

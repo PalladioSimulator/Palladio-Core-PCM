@@ -26,7 +26,7 @@ public class AllocationItemSemanticEditPolicy extends
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (PalladioComponentModelElementTypes.ResourceContainer_2002 == req
 				.getElementType()) {
-			return getMSLWrapper(new ResourceContainerCreateCommand(req));
+			return getGEFWrapper(new ResourceContainerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -37,7 +37,7 @@ public class AllocationItemSemanticEditPolicy extends
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
 		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
 				.getEditingDomain();
-		return getMSLWrapper(new DuplicateAnythingCommand(editingDomain, req));
+		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 
 	/**

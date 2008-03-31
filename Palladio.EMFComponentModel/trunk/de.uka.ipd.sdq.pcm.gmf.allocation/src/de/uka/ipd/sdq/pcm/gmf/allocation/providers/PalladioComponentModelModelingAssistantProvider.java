@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerAllocationCompartmentEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.allocation.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelAllocationDiagramEditorPlugin;
 
 /**
@@ -59,6 +60,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 * @generated
 	 */
 	public List getRelTypesOnSource(IAdaptable source) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -66,6 +69,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 * @generated
 	 */
 	public List getRelTypesOnTarget(IAdaptable target) {
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -74,6 +79,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 */
 	public List getRelTypesOnSourceAndTarget(IAdaptable source,
 			IAdaptable target) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -82,6 +91,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 */
 	public List getTypesForSource(IAdaptable target,
 			IElementType relationshipType) {
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -90,6 +101,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 */
 	public List getTypesForTarget(IAdaptable source,
 			IElementType relationshipType) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -157,8 +170,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 						.getInstance().getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
 				shell, labelProvider);
-		dialog.setMessage("Available domain model elements:");
-		dialog.setTitle("Select domain model element");
+		dialog
+				.setMessage(Messages.PalladioComponentModelModelingAssistantProviderMessage);
+		dialog
+				.setTitle(Messages.PalladioComponentModelModelingAssistantProviderTitle);
 		dialog.setMultipleSelection(false);
 		dialog.setElements(elements);
 		EObject selected = null;
