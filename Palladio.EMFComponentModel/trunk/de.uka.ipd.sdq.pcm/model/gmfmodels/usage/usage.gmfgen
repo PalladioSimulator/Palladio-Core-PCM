@@ -815,31 +815,31 @@
     </palette>
     <preferencePages
         xsi:type="gmfgen:GenStandardPreferencePage"
-        iD="de.uka.ipd.sdq.pcm.diagram.general"
-        name="PalladioComponentModel Diagram">
+        iD="de.uka.ipd.sdq.pcm.diagram.usage"
+        name="PCM UsageModel Diagram">
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.appearance"
+          iD="de.uka.ipd.sdq.pcm.diagram.usage.appearance"
           name="Appearance"
           kind="Appearance"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.connections"
+          iD="de.uka.ipd.sdq.pcm.diagram.usage.connections"
           name="Connections"
           kind="Connections"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.printing"
+          iD="de.uka.ipd.sdq.pcm.diagram.usage.printing"
           name="Printing"
           kind="Printing"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.rulersAndGrid"
+          iD="de.uka.ipd.sdq.pcm.diagram.usage.rulersAndGrid"
           name="Rulers And Grid"
           kind="RulersAndGrid"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.pathmaps"
+          iD="de.uka.ipd.sdq.pcm.diagram.usage.pathmaps"
           name="Pathmaps"
           kind="Pathmaps"/>
     </preferencePages>

@@ -2262,31 +2262,31 @@
     </palette>
     <preferencePages
         xsi:type="gmfgen:GenStandardPreferencePage"
-        iD="de.uka.ipd.sdq.pcm.diagram.general"
-        name="PalladioComponentModel Diagram">
+        iD="de.uka.ipd.sdq.pcm.diagram.seff"
+        name="PCM SEFF Diagram">
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.appearance"
+          iD="de.uka.ipd.sdq.pcm.diagram.seff.appearance"
           name="Appearance"
           kind="Appearance"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.connections"
+          iD="de.uka.ipd.sdq.pcm.diagram.seff.connections"
           name="Connections"
           kind="Connections"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.printing"
+          iD="de.uka.ipd.sdq.pcm.diagram.seff.printing"
           name="Printing"
           kind="Printing"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.rulersAndGrid"
+          iD="de.uka.ipd.sdq.pcm.diagram.seff.rulersAndGrid"
           name="Rulers And Grid"
           kind="RulersAndGrid"/>
       <children
           xsi:type="gmfgen:GenStandardPreferencePage"
-          iD="de.uka.ipd.sdq.pcm.diagram.pathmaps"
+          iD="de.uka.ipd.sdq.pcm.diagram.seff.pathmaps"
           name="Pathmaps"
           kind="Pathmaps"/>
     </preferencePages>
