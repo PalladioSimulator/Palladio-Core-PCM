@@ -75,14 +75,10 @@ public class DiscreteTimeSlice implements ITimeSlice {
 		return null;
 	}
 
-
-	@Override
 	public void halfReset() {
 		current_value = value / 2;
 	}
 
-
-	@Override
 	public void enoughTime() {
 		// TODO Auto-generated method stub
 		

@@ -112,7 +112,6 @@ public class QuantumTimeSlice implements ITimeSlice {
 	public void quantumFinished() {
 	}
 
-	@Override
 	public void halfReset() {
 		int factor = 0;
 		if (remaining_quanta > 4)
@@ -123,7 +122,6 @@ public class QuantumTimeSlice implements ITimeSlice {
 		remaining_time = timeslice/2 * factor;
 	}
 
-	@Override
 	public void enoughTime() {
 		if (remaining_quanta < 2) {
 			remaining_part = 0;

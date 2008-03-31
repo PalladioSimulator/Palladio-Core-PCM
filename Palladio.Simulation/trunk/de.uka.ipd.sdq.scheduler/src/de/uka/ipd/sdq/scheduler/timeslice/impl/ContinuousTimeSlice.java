@@ -95,7 +95,6 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	public void quantumFinished() {
 	}
 
-	@Override
 	public void halfReset() {
 		if (remaining_time < timeslice/2){
 			remaining_time = timeslice / 2;
@@ -103,7 +102,6 @@ public class ContinuousTimeSlice implements ITimeSlice {
 		}
 	}
 
-	@Override
 	public void enoughTime() {
 		
 	}
