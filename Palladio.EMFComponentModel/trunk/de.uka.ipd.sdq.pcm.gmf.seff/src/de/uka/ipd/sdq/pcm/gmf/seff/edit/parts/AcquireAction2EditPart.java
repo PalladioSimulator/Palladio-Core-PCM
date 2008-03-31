@@ -56,6 +56,7 @@ public class AcquireAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new AcquireAction2ItemSemanticEditPolicy());
@@ -236,7 +237,7 @@ public class AcquireAction2EditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			WrapLabel aquireStereotypeLabel0 = new WrapLabel();
-			aquireStereotypeLabel0.setText("<<Aquire>>");
+			aquireStereotypeLabel0.setText("<<Acquire>>");
 
 			this.add(aquireStereotypeLabel0);
 

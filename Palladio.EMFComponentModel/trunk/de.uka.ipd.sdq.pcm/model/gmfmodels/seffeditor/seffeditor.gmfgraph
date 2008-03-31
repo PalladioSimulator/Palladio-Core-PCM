@@ -92,7 +92,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="AquireStereotypeLabel"
-            text="&lt;&lt;Aquire>>"/>
+            text="&lt;&lt;Acquire>>"/>
         <children
             xsi:type="gmfgraph:Label"
             name="AquireNameLabelFigure"
