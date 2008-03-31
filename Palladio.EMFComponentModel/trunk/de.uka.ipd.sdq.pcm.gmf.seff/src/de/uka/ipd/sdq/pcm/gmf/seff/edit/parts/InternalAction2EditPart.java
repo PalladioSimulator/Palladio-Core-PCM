@@ -85,7 +85,6 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 						return null;
 					}
 				});
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new InternalAction2ItemSemanticEditPolicy());

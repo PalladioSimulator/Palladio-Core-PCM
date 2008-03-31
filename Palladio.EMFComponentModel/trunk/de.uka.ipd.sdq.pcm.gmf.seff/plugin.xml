@@ -146,38 +146,38 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
    <extension point="org.eclipse.ui.preferencePages">
       <?gmfgen generated="true"?>
       <page
-            id="de.uka.ipd.sdq.pcm.diagram.general"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.general"
+            id="de.uka.ipd.sdq.pcm.diagram.seff"
+            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
-            id="de.uka.ipd.sdq.pcm.diagram.appearance"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.appearance"
-            category="de.uka.ipd.sdq.pcm.diagram.general"
+            id="de.uka.ipd.sdq.pcm.diagram.seff.appearance"
+            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.appearance"
+            category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramAppearancePreferencePage">
       </page>
       <page
-            id="de.uka.ipd.sdq.pcm.diagram.connections"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.connections"
-            category="de.uka.ipd.sdq.pcm.diagram.general"
+            id="de.uka.ipd.sdq.pcm.diagram.seff.connections"
+            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.connections"
+            category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramConnectionsPreferencePage">
       </page>
       <page
-            id="de.uka.ipd.sdq.pcm.diagram.printing"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.printing"
-            category="de.uka.ipd.sdq.pcm.diagram.general"
+            id="de.uka.ipd.sdq.pcm.diagram.seff.printing"
+            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.printing"
+            category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramPrintingPreferencePage">
       </page>
       <page
-            id="de.uka.ipd.sdq.pcm.diagram.rulersAndGrid"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.rulersAndGrid"
-            category="de.uka.ipd.sdq.pcm.diagram.general"
+            id="de.uka.ipd.sdq.pcm.diagram.seff.rulersAndGrid"
+            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.rulersAndGrid"
+            category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramRulersAndGridPreferencePage">
       </page>
       <page
-            id="de.uka.ipd.sdq.pcm.diagram.pathmaps"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.pathmaps"
-            category="de.uka.ipd.sdq.pcm.diagram.general"
+            id="de.uka.ipd.sdq.pcm.diagram.seff.pathmaps"
+            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.seff.pathmaps"
+            category="de.uka.ipd.sdq.pcm.diagram.seff"
             class="org.eclipse.gmf.runtime.emf.ui.preferences.PathmapsPreferencePage">
       </page>
    </extension>

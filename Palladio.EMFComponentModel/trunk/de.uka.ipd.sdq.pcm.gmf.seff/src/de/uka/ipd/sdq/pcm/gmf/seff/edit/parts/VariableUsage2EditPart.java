@@ -87,7 +87,6 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 						return null;
 					}
 				});
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new VariableUsage2ItemSemanticEditPolicy());
