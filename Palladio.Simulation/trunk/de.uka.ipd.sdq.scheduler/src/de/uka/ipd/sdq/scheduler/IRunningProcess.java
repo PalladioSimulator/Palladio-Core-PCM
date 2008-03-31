@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.scheduler;
 
 
 /**
- * In oder to be scheduled properly processes, processes need some additional
+ * In oder to be scheduled properly, processes need some additional
  * runtime information. Runnable processes provide exactly this necessary
  * information. All processes that implement the ISchedulableProcess can be
  * wrapped by this class.

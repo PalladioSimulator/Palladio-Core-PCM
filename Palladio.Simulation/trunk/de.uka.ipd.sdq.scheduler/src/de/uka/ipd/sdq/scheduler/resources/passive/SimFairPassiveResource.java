@@ -58,8 +58,8 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 	private void grantAccess(PreemptiveProcess process, int num) {
 		LoggingWrapper.log("Process " + process + " acquires " + num + " of "
 				+ this);
-		boostPriority(process);
 		punish(process);
+		boostPriority(process);
 		capacity -= num;
 		assert capacity >= 0 : "More resource than available have been acquired!";
 	}

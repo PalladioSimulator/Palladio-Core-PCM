@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler.priority.boost;
 
-import sun.security.util.PendingException;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
@@ -26,11 +25,16 @@ public class StaticPriorityBoost implements IPriorityBoost {
 
 	
 	public void boost(ProcessWithPriority process) {
-		if (reset_timeslice && priorityChanges(process)){
-			process.getTimeslice().fullReset();
+		//if (reset_timeslice && priorityChanges(process)){
+		if (priorityChanges(process) || reset_timeslice){
+			if (reset_timeslice){
+				process.getTimeslice().halfReset();
+			} else {
+				process.getTimeslice().enoughTime();
+			}
+			process.setToStaticPriorityWithBonus(bonus);
+			process.setPriorityUpdateStrategy(update_strategy);
 		}
-		process.setToStaticPriorityWithBonus(bonus);
-		process.setPriorityUpdateStrategy(update_strategy);
 	}
 	
 	

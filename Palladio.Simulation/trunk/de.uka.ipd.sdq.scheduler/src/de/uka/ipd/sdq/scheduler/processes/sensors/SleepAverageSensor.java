@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler.processes.sensors;
 
-import umontreal.iro.lecuyer.simevents.Sim;
 import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
@@ -40,7 +39,7 @@ public class SleepAverageSensor implements IProcessStateSensor {
 		if (last_state == PROCESS_STATE.WAITING &&
 			new_state != PROCESS_STATE.WAITING) {
 			// sleepAverage cannot exceed its maximum value
-			sleep_average = Math.min(max_sleep_average, sleep_average + passedTime);
+			sleep_average = Math.min(max_sleep_average, sleep_average + 8 * passedTime);
 		}
 		
 		// Process was running, but is finished now

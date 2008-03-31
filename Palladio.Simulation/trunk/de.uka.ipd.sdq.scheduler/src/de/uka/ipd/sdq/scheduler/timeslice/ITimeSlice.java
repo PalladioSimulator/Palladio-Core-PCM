@@ -48,4 +48,8 @@ public interface ITimeSlice extends Cloneable {
 
 	public abstract ITimeSlice clone();
 
+	public abstract void halfReset();
+
+	public abstract void enoughTime();
+
 }

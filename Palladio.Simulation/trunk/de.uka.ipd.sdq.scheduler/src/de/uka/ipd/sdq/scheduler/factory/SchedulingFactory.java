@@ -70,6 +70,7 @@ import de.uka.ipd.sdq.scheduler.strategy.impl.PreemptiveScheduler;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 import de.uka.ipd.sdq.scheduler.timeslice.impl.ContinuousTimeSlice;
 import de.uka.ipd.sdq.scheduler.timeslice.impl.PriorityDependentTimeSlice;
+import de.uka.ipd.sdq.scheduler.timeslice.impl.QuantumTimeSlice;
 
 /**
  * Creates instances of active and passive resources with different scheduling
@@ -273,7 +274,8 @@ public class SchedulingFactory implements ISchedulingFactory {
 				int granularity = configuration.getGranularity();
 				// TODO tatsächliche Konfiguration auslesen.
 				// return new DiscreteTimeSlice();
-				return new ContinuousTimeSlice(timeslice, granularity);
+				// return new ContinuousTimeSlice(timeslice, granularity);
+				return new QuantumTimeSlice(timeslice, granularity);
 			}
 
 			@Override
@@ -414,10 +416,10 @@ public class SchedulingFactory implements ISchedulingFactory {
 			IPriorityUpdateStrategy update_strategy = null;
 			switch (configuration.getDegradation()) {
 			case RESET:
-				update_strategy = new DecayToBaseUpdate();
+				update_strategy = new SetToBaseUpdate();
 				break;
 			case SLOW_DECAY:
-				update_strategy = new SetToBaseUpdate();
+				update_strategy = new DecayToBaseUpdate();
 				break;
 			default:
 				assert false : "Undefinded Priority Update Configuration.";

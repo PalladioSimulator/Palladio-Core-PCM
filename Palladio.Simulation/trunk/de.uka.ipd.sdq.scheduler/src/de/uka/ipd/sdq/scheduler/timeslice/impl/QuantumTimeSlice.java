@@ -4,27 +4,31 @@ import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
 
-public class ContinuousTimeSlice implements ITimeSlice {
-	
+public class QuantumTimeSlice implements ITimeSlice {
+		
 	protected double remaining_time;
 	protected double timeslice;
+	protected int	 remaining_quanta;
+	protected int	 quanta = 6;
 	
 	protected double part;
 	protected double remaining_part;
 	
-	public ContinuousTimeSlice(double timeslice, int granularity) {
+	public QuantumTimeSlice(double timeslice, int granularity) {
 		super();
 		this.timeslice = timeslice;
 		this.part = timeslice / granularity;
 		this.remaining_time = 0;
 		this.remaining_part = 0;
+		this.remaining_quanta = 0;
 	}
 	
-	protected ContinuousTimeSlice(){
+	protected QuantumTimeSlice(){
 		this.timeslice = 0;
 		this.part = 0;
 		this.remaining_time = 0;
 		this.remaining_part = 0;
+		this.remaining_quanta = 0;
 	}
 
 	public double getTimeUntilNextInterruption() {
@@ -44,6 +48,14 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	public void substractTime(double time) {
 		remaining_time -= time;
 		remaining_part -= time;
+		
+		double half = timeslice / 2;
+		if (remaining_time <= half && (remaining_time + time) > half){
+			remaining_quanta -= (quanta / 2);
+			if (MathTools.equalsDouble(remaining_time, 0)){
+				remaining_quanta = 0;
+			}
+		}
 		assert MathTools.lessOrEqual(0.0, remaining_time) : "Timeslice exceeded: " + remaining_time;
 		assert MathTools.lessOrEqual(0.0, remaining_part) : "Part exceeded: " + remaining_part;
 	}
@@ -51,8 +63,10 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	
 	public void reset() {
 		remaining_part = part;
-		if ( MathTools.equalsDouble( remaining_time, 0.0) )
+		if ( MathTools.equalsDouble( remaining_time, 0.0) ){
 			remaining_time = timeslice;
+			remaining_quanta = quanta;
+		}
 		if (remaining_part > remaining_time)
 			remaining_time = remaining_part;
 	}
@@ -61,6 +75,7 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	public void fullReset() {
 		remaining_time = timeslice;
 		remaining_part = part;
+		remaining_quanta = quanta;
 	}
 
 	
@@ -70,24 +85,26 @@ public class ContinuousTimeSlice implements ITimeSlice {
 
 	
 	public void punish(int penalty) {
-		double time = Math.min(penalty, remaining_time);
-		substractTime(time);
+		remaining_quanta--;
 	}
 
 	
 	public void setExpired() {
 		this.remaining_part = 0;
 		this.remaining_time = 0;
+		this.remaining_quanta = 0;
 		
 	}
 	
 	@Override
 	public ITimeSlice clone() {
-		ContinuousTimeSlice cts = new ContinuousTimeSlice();
+		QuantumTimeSlice cts = new QuantumTimeSlice();
 		cts.part = this.part;
 		cts.timeslice = this.timeslice;
+		cts.quanta = this.quanta;
 		cts.remaining_part = this.remaining_part;
 		cts.remaining_time = this.remaining_time;
+		cts.remaining_quanta = this.remaining_quanta;
 		return cts;
 	}
 
@@ -97,14 +114,20 @@ public class ContinuousTimeSlice implements ITimeSlice {
 
 	@Override
 	public void halfReset() {
-		if (remaining_time < timeslice/2){
-			remaining_time = timeslice / 2;
-			remaining_part = part / 2;
-		}
+		int factor = 0;
+		if (remaining_quanta > 4)
+			factor = 2;
+		else if (remaining_quanta > 1)
+			factor = 1;
+		remaining_part = part/2 * factor;
+		remaining_time = timeslice/2 * factor;
 	}
 
 	@Override
 	public void enoughTime() {
-		
+		if (remaining_quanta < 2) {
+			remaining_part = 0;
+			remaining_time = 0;
+		}
 	}
 }

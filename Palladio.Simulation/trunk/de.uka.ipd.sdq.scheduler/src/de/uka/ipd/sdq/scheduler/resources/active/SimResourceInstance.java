@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
-import umontreal.iro.lecuyer.simevents.Event;
 import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;

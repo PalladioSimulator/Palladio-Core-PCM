@@ -11,7 +11,7 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	private IPriority staticPriority;
 	private IPriority dynamicPriority;
 	private IPriorityUpdateStrategy priorityUpdateStrategy;
-	private static boolean in_front_if_priority_changed = false;
+	private static boolean in_front_if_priority_changed = true;
 
 	public ProcessWithPriority(ISchedulableProcess process,
 			IPriority staticPriority) {

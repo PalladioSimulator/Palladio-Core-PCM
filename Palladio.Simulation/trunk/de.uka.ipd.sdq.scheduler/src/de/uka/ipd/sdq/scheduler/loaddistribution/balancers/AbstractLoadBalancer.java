@@ -6,7 +6,6 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
-import umontreal.iro.lecuyer.simevents.Sim;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.loaddistribution.ILoadBalancer;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
