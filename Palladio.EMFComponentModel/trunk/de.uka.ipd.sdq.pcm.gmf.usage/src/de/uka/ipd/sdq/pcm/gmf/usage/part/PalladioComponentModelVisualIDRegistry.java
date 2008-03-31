@@ -152,14 +152,26 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
-		if (domainElement == null
-				|| !UsageScenarioEditPart.MODEL_ID
-						.equals(de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
-								.getModelID(containerView))) {
+		if (domainElement == null) {
 			return -1;
 		}
-		switch (de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
-				.getVisualID(containerView)) {
+		String containerModelID = de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+				.getModelID(containerView);
+		if (!UsageScenarioEditPart.MODEL_ID.equals(containerModelID)) {
+			return -1;
+		}
+		int containerVisualID;
+		if (UsageScenarioEditPart.MODEL_ID.equals(containerModelID)) {
+			containerVisualID = de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+					.getVisualID(containerView);
+		} else {
+			if (containerView instanceof Diagram) {
+				containerVisualID = UsageScenarioEditPart.VISUAL_ID;
+			} else {
+				return -1;
+			}
+		}
+		switch (containerVisualID) {
 		case LoopEditPart.VISUAL_ID:
 			if (UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
 					.isSuperTypeOf(domainElement.eClass())) {
