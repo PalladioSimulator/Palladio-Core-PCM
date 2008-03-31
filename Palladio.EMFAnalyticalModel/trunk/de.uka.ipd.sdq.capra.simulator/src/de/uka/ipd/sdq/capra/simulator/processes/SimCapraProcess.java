@@ -174,11 +174,11 @@ public class SimCapraProcess implements ISchedulableProcess, Cloneable {
 		return  parent;
 	}
 
-	public void setLastResource(SimActiveResource resource) {
+	public void setMainResource(SimActiveResource resource) {
 		last_resource = resource;
 	}
 	
-	public SimActiveResource getLastResource(){
+	public SimActiveResource getMainResource(){
 		return last_resource;
 	}
 

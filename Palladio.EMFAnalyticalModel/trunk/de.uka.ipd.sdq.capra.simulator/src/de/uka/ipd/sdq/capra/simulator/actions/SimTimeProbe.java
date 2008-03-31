@@ -6,6 +6,7 @@ import java.util.List;
 import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.capra.simulator.expressions.IFinishingListener;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
+import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimLocalTimeSpanSensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
 import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;

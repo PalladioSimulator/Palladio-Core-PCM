@@ -37,7 +37,7 @@ public class SimParallelComposition implements SimCapraExpression,
 
 	@Override
 	public SimCapraExpression getNext(SimCapraProcess process) {
-		SimActiveResource last_resource = process.getLastResource();
+		SimActiveResource last_resource = process.getMainResource();
 		assert last_resource != null;
 		switch (next) {
 		case 0:

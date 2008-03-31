@@ -32,7 +32,9 @@ public class SensorTransformer {
 
 	public SimSensor transformTimeSpanSensor(TimeSpanSensor timeSpanSensor) {
 		String name = timeSpanSensor.getName();
-		SimTimeSpanSensor sensor = factory.createTimeSpanSensor(name);
+		
+		//SimTimeSpanSensor sensor = factory.createLocalTimeSpanSensor(name);
+		SimTimeSpanSensor sensor = factory.createGlobalTimeSpanSensor(name);
 		
 		for (TimeSpanRecorder recorder : timeSpanSensor.getTimeSpanRecorders()) {
 			SimTimeSpanRecorder simRecorder = transformTimeSpanRecorder(recorder);
