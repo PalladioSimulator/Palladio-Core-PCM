@@ -25,9 +25,6 @@ Adaptiert wurde:
         <module name="JavadocType"/>
         <module name="JavadocVariable"/>
         <module name="JavadocStyle"/>
-		<module name="RequireThis">
-    		<property name="checkMethods" value="false"/>
-		</module>        
 		<module name="ConstantName"/>
         <module name="LocalFinalVariableName"/>
         <module name="LocalVariableName"/>
