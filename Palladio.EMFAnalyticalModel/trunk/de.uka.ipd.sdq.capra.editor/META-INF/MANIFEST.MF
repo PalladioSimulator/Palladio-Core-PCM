@@ -21,5 +21,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
- de.uka.ipd.sdq.units.edit;visibility:=reexport
+ de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ de.uka.ipd.sdq.scheduler.configuration,
+ de.uka.ipd.sdq.scheduler.configuration.edit
 Eclipse-LazyStart: true
