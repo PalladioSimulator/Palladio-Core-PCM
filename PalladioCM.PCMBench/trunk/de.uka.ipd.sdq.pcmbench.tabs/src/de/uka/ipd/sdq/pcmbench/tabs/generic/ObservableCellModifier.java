@@ -21,4 +21,15 @@ public abstract class ObservableCellModifier extends Observable implements
 		setChanged();
 		super.notifyObservers();
 	}
+
+	/* (non-Javadoc)
+	 * @see java.util.Observable#notifyObservers(java.lang.Object)
+	 */
+	@Override
+	public void notifyObservers(Object arg) {
+		setChanged();
+		super.notifyObservers(arg);
+	}
+	
+	
 }

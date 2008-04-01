@@ -63,17 +63,21 @@ public abstract class EditorSection implements Observer {
 		toolBar.setLayoutData(formData);
 
 		/** Create Add-Button by ToolBar */
-		addButton = new ToolItem(toolBar, SWT.PUSH);
-		addButton.setImage(PCMBenchTabsImages.imageRegistry
-				.get(PCMBenchTabsImages.ADD_SIGN));
-		addButton
-				.addSelectionListener(createAddButtonActionListener());
+		if (canAddButonCreated()) {
+			addButton = new ToolItem(toolBar, SWT.PUSH);
+			addButton.setImage(PCMBenchTabsImages.imageRegistry
+					.get(PCMBenchTabsImages.ADD_SIGN));
+			addButton.addSelectionListener(createAddButtonActionListener());
+		}
+		
 
 		/** Create Delete-Button by ToolBar */
-		deleteButton = new ToolItem(toolBar, SWT.PUSH);
-		deleteButton.setImage(PCMBenchTabsImages.imageRegistry
-				.get(PCMBenchTabsImages.DELETE_SIGN));
-		deleteButton.setEnabled(false);
+		if (canDeleteButonCreated()) {
+			deleteButton = new ToolItem(toolBar, SWT.PUSH);
+			deleteButton.setImage(PCMBenchTabsImages.imageRegistry
+					.get(PCMBenchTabsImages.DELETE_SIGN));
+			deleteButton.setEnabled(false);
+		}
 
 		return toolBar;
 	}
@@ -115,8 +119,8 @@ public abstract class EditorSection implements Observer {
 						.getFirstElement();
 
 				if (input instanceof EObject) {
-					setDeleteButtonEnabled(true);
 					selectedObject = (EObject) input;
+					setDeleteButtonEnabled(inputValidation(selectedObject));
 				} else {
 					setDeleteButtonEnabled(false);
 				}
@@ -130,10 +134,13 @@ public abstract class EditorSection implements Observer {
 		// create column
 		createTableColumns(table);
 		
+		
 	}
 	
 	/** Create the table columns. */
 	protected abstract void createTableColumns(Table table);
+	
+	protected abstract boolean inputValidation(EObject eObject);
 	
 	/**
 	 * Create a SelectionListener for the Add-Button and set him to TableViewer
@@ -147,8 +154,9 @@ public abstract class EditorSection implements Observer {
 		SelectionListener listener = createDeleteButtonListener();
 		viewer
 				.addSelectionChangedListener((ISelectionChangedListener) listener);
-		Assert.isNotNull(addButton);
-		deleteButton.addSelectionListener(listener);
+		if (canDeleteButonCreated()) {
+			deleteButton.addSelectionListener(listener);
+		}
 	}
 	
 	/**
@@ -167,6 +175,9 @@ public abstract class EditorSection implements Observer {
 	protected abstract SelectionListener createDeleteButtonListener();
 	
 	protected abstract String[] getTableColumnNames();
+	
+	protected abstract boolean canAddButonCreated();
+	protected abstract boolean canDeleteButonCreated();
 	
 	/** Create a CellEditors for Viewer. */
 	protected abstract CellEditor[] createViewerCellEditors(Table table);
@@ -211,7 +222,7 @@ public abstract class EditorSection implements Observer {
 		viewer.refresh();
 	}
 
-	private void setDeleteButtonEnabled(boolean enabled) {
+	protected void setDeleteButtonEnabled(boolean enabled) {
 		deleteButton.setEnabled(enabled);
 	}
 

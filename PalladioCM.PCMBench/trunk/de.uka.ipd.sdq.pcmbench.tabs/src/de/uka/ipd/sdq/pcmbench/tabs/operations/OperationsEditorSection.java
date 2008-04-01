@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.pcmbench.tabs.operations;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
@@ -160,6 +161,30 @@ public class OperationsEditorSection extends EditorSection{
 	@Override
 	protected String[] getTableColumnNames() {
 		return columnNames;
+	}
+	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#canAddButonCreated()
+	 */
+	@Override
+	protected boolean canAddButonCreated() {
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#canDeleteButonCreated()
+	 */
+	@Override
+	protected boolean canDeleteButonCreated() {
+		return true;
+	}
+	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#inputValidation(org.eclipse.emf.ecore.EObject)
+	 */
+	@Override
+	protected boolean inputValidation(EObject object) {
+		return true;
 	}
 
 	public Signature getSelectedSignature() {

@@ -8,13 +8,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
@@ -23,7 +27,9 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ComponentParametersEditorSection;
+import de.uka.ipd.sdq.pcmbench.tabs.parameters.ParameterContentProvider;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ParametersTabItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.tabs.parameters.VariableUsageWrapper;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
@@ -60,8 +66,10 @@ public class ComponentParametersPropertySection extends AbstractPropertySection 
 		.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		
 		propertySection = new ComponentParametersEditorSection(composite);
-		propertySection.setViewerContentProvider(new AdapterFactoryContentProvider(
-				adapterFactory));
+//		propertySection.setViewerContentProvider(new AdapterFactoryContentProvider(
+//				adapterFactory));
+		propertySection.setViewerContentProvider(new ParameterContentProvider());
+//		propertySection.setViewerLabelProvider(new ParameterLabelProvider());
 		propertySection.setViewerLabelProvider(new AdapterFactoryLabelProvider(
 				new ParametersTabItemProviderAdapterFactory(
 						new PalladioItemProviderAdapterFactory(adapterFactory))));
@@ -90,7 +98,32 @@ public class ComponentParametersPropertySection extends AbstractPropertySection 
 		Assert.isTrue(input instanceof EObject);
 		// set input for 'TableViewer'
 		propertySection.setViewerInput(input);
-		// set in the diagram selected object to the add button action listener.
-		propertySection.getAddButtonListener().setContext((AssemblyContext) input);
+		Table table = propertySection.getViewer().getTable();
+		// set in the diagram selected object to the TableViever cell modifier.
+		propertySection.getCellModifier().setContext((AssemblyContext) input);
+		
+		setColorOfTableItems(propertySection.getViewer().getTable());
 	}
+	
+	private void setColorOfTableItems(Table table) {
+
+		// set color for items
+		Display display = table.getDisplay();
+		Color gray = display.getSystemColor(SWT.COLOR_GRAY);
+
+		TableItem[] items = table.getItems();
+
+		for (int i = 0; i < items.length; i++) {
+			TableItem item = items[i];
+
+			VariableUsageWrapper wrapper = (VariableUsageWrapper) item
+					.getData();
+
+			if (!wrapper.isEdited()) {
+				item.setForeground(gray);
+			}
+
+		}
+	}
+	
 }

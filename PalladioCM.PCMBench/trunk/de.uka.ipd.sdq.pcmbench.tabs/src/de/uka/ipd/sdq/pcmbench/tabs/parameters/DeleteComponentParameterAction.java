@@ -1,35 +1,48 @@
 package de.uka.ipd.sdq.pcmbench.tabs.parameters;
 
+import java.util.Observable;
+
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcmbench.tabs.generic.SelectionChangedListener;
 
-public class DeleteComponentParameterAction extends SelectionChangedListener implements SelectionListener{
+public class DeleteComponentParameterAction extends Observable implements
+		SelectionListener, ISelectionChangedListener {
 
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
+	private EObject selectedElement = null;
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
 	 */
-	private TransactionalEditingDomain editingDomain = null;
-	
+	public void selectionChanged(SelectionChangedEvent event) {
+		IStructuredSelection sel = (IStructuredSelection) event.getSelection();
+		Object selection = (Object) sel.getFirstElement();
+		this.selectedElement = (EObject) selection;
+	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
-		final VariableUsage variableUsage = (VariableUsage) getSelectedElement();
+		final VariableUsageWrapper wrapper = (VariableUsageWrapper) selectedElement;
+		final VariableUsage variableUsage = wrapper.getVariableUsage();
 		final AssemblyContext context = (AssemblyContext) variableUsage
 				.eContainer();
 
 		Assert.isNotNull(context);
-		editingDomain = TransactionUtil.getEditingDomain(context);
+
+		TransactionalEditingDomain editingDomain = TransactionUtil
+				.getEditingDomain(context);
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
@@ -41,7 +54,21 @@ public class DeleteComponentParameterAction extends SelectionChangedListener imp
 
 		recCommand.setDescription("Delete ...");
 		editingDomain.getCommandStack().execute(recCommand);
+		
+		// set TabelItem not edited
+		wrapper.setEdited(false);
+		// update observer
+		notifyObservers(wrapper);
 
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.util.Observable#notifyObservers(java.lang.Object)
+	 */
+	@Override
+	public void notifyObservers(Object arg) {
+		setChanged();
+		super.notifyObservers(arg);
 	}
 
 	/* (non-Javadoc)
@@ -50,5 +77,4 @@ public class DeleteComponentParameterAction extends SelectionChangedListener imp
 	public void widgetDefaultSelected(SelectionEvent e) {
 		// The implementation is not necessary.
 	}
-
 }

@@ -56,16 +56,16 @@ public class ParametersTabItemProvider extends ItemProviderDecorator implements
 	@Override
 	public String getColumnText(Object element, int columnIndex) {
 		String result = "";
-		VariableUsage variable = (VariableUsage) element;
+		VariableUsageWrapper variable = (VariableUsageWrapper) element;
 
 		switch (columnIndex) {
 		case ComponentParametersEditorSection.ICON_COLUMN_INDEX:
 			break;
 		case ComponentParametersEditorSection.VARIABLE_COLUMN_INDEX:
-			result = print.prettyPrint(variable);
+			result = print.prettyPrint(variable.getVariableUsage());
 			break;
 		case ComponentParametersEditorSection.STOEX_COLUMN_INDEX:
-			result = getSpecification(variable);
+			result = getSpecification(variable.getVariableUsage());
 			break;
 		default:
 			break;
