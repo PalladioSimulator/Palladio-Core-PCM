@@ -16,4 +16,6 @@ public interface ISimulationControlDelegate {
 
 	public abstract void addTimeObserver(Observer observer);
 
+	public abstract boolean isRunning();
+
 }

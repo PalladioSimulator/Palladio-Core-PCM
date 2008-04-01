@@ -73,7 +73,7 @@ public class SimuComConfig implements Serializable {
 	}
 
 	public String getEngine() {
-		return "de.uka.ipd.sdq.simucomframework.desmoj.DesmoJSimEngineFactory";
+		return "de.uka.ipd.sdq.simucomframework.ssj.SSJSimEngineFactory";
 	}
 
 }

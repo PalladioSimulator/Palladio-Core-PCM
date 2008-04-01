@@ -14,6 +14,7 @@ import desmoj.core.simulator.SimTime;
 public class DesmoJExperiment implements ISimulationControlDelegate {
 
 	private DesmoJModel model;
+	private boolean isRunning;
 
 	public DesmoJExperiment(SimuComModel model) {
 		this.model = new DesmoJModel(model);
@@ -40,19 +41,28 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 		Logger.getLogger(DesmoJExperiment.class.getName());
 
 	public void start() {
+		this.isRunning = true;
+		
 		double start = System.nanoTime();
 		logger.warn("Starting simulation...");
 		model.getExperiment().start();
 		logger.warn("Simulation terminated. Took "+((System.nanoTime()-start)/Math.pow(10,9))+" real time seconds.");
+		
+		this.isRunning = false;
 	}
 
 	public void stop() {
+		this.isRunning = false;
 		model.getExperiment().stop();
 		model.getExperiment().finish();
 	}
 
 	public Model getDesmoJModel() {
 		return model;
+	}
+
+	public boolean isRunning() {
+		return this.isRunning;
 	}
 
 }

@@ -23,6 +23,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	private ArrayList<Condition> stopConditions = new ArrayList<Condition>();
 	private ArrayList<Observer> timeObservers = new ArrayList<Observer>();
 	double lastNotificationTime = 0.0;
+	private boolean isRunning;
 	
 	public SSJExperiment(final SimuComModel model) {
 		model.setSimulationControl(this);
@@ -31,14 +32,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		SchedulingFactory.setUsedSimulator(simulator);
 		ISchedulingFactory.eINSTANCE.resetFactory();
 		
-		new Event(simulator) {
-
-			@Override
-			public void actions() {
-				model.doInitialSchedules();
-			}
-			
-		}.schedule(0);
+		createStartEvent(model).schedule(0);
 	}
 
 	public void addStopCondition(Condition maxMeasurementsStopCondition) {
@@ -54,15 +48,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		}
 		for(Condition c : stopConditions) {
 			if (c.check()) {
-				new Event(simulator) {
-
-					@Override
-					public void actions() {
-						simulator.stop();
-						simulator.killAll();
-					}
-					
-				}.schedule(0);
+				createStopEvent().schedule(0);
 				return;
 			}
 		}
@@ -77,33 +63,62 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	}
 
 	public void setMaxSimTime(long simTime) {
-		new Event(simulator) {
-
-			@Override
-			public void actions() {
-				simulator.stop();
-				simulator.killAll();
-			}
-			
-		}.schedule(simTime);
+		createStopEvent().schedule(simTime);
 	}
 
 	protected static Logger logger = 
 		Logger.getLogger(SSJExperiment.class.getName());
 	
 	public void start() {
+		this.isRunning = true;
+		
 		double start = System.nanoTime();
 		logger.warn("Starting simulation...");
 		simulator.start();
 		logger.warn("Simulation terminated. Took "+((System.nanoTime()-start)/Math.pow(10,9))+" real time seconds.");
+		
+		this.isRunning = false;
 	}
 
 	public void stop() {
-		simulator.stop();
-		simulator.killAll();
+		this.isRunning = false;
+		
+		logger.info("Simulation stop requested!");
+		createStopEvent().schedule(0);
+		logger.info("Scheduled Simulation Stop Event now");
 	}
 
 	public ProcessSimulator getSimulator(){
 		return simulator;
+	}
+
+	public boolean isRunning() {
+		return this.isRunning;
+	}
+
+	private Event createStopEvent() {
+		return new Event(simulator) {
+
+			@Override
+			public void actions() {
+				logger.debug("Executing Stop Event");
+				simulator.stop();
+				// Removed the following line because it deadlocked SSJ
+				// simulator.killAll();
+			}
+			
+		};
+	}
+
+	private Event createStartEvent(final SimuComModel model) {
+		return new Event(simulator) {
+
+			@Override
+			public void actions() {
+				logger.debug("Executing Initial Event");
+				model.doInitialSchedules();
+			}
+			
+		};
 	}
 }

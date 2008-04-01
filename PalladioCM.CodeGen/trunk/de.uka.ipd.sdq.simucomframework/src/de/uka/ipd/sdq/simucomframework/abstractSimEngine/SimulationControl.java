@@ -28,5 +28,9 @@ public class SimulationControl implements ISimulationControlDelegate {
 	public void stop() {
 		delegate.stop();
 	}
+
+	public boolean isRunning() {
+		return delegate.isRunning();
+	}
 	
 }

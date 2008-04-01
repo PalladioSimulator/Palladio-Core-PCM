@@ -42,7 +42,7 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 	public void lifeCycle() {
 		try {
 			logger.info("Open Workload User Generator starting...");
-			while(true) {
+			while(getModel().getSimulationControl().isRunning()) {
 				generateUser();
 				waitForNextUser();
 				if (Thread.activeCount() > USER_THRESHOLD) {
@@ -52,10 +52,13 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 			}
 //		} catch (SimFinishedException ex) {
 		} catch (Exception e) {
-			this.getModel().getSimulationControl().stop();
+			logger.warn("Simulation caused an exception. Caught it in Closed User Lifecycle Method",e);
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
 					e);
+			logger.debug("Trying to stop simulation now...");
+			this.getModel().getSimulationControl().stop();	
 		}
+		logger.info("Terminating Open Workload Generator "+this.getName());
 	}
 
 	private void waitForNextUser() {

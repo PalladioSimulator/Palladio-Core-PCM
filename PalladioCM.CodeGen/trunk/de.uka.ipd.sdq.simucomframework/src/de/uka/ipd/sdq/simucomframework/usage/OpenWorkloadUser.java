@@ -31,13 +31,15 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 		try {
 			logger.debug(this.getName()+" started! I'm alive!!!");
 			scenarioRunner(this);
-			logger.debug(this.getName()+" done! I'm dying!!!");
 //		} catch (SimFinishedException ex) {
 		} catch (Exception e) {
-			this.getModel().getSimulationControl().stop();
+			logger.warn("Simulation caused an exception. Caught it in Closed User Lifecycle Method",e);
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
 					e);
+			logger.debug("Trying to stop simulation now...");
+			this.getModel().getSimulationControl().stop();
 		}
+		logger.debug(this.getName()+" done! I'm dying!!!");
 	}
 
 	/* (non-Javadoc)

@@ -41,15 +41,18 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	public void lifeCycle() {
 		logger.info("Starting user "+this.getName());
 		try {
-			while (true) {
+			while (getModel().getSimulationControl().isRunning()) {
 				scenarioRunner(this);
 			}
 		//} catch (SimFinishedException ex) {
 		} catch (Exception e) {
+			logger.warn("Simulation caused an exception. Caught it in Closed User Lifecycle Method",e);
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
 					e);
+			logger.debug("Trying to stop simulation now...");
 			this.getModel().getSimulationControl().stop();
 		}
+		logger.info("Terminating user "+this.getName());
 	}
 
 	/* (non-Javadoc)
