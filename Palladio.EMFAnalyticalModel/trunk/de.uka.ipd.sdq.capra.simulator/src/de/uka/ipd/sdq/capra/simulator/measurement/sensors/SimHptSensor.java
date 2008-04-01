@@ -16,10 +16,12 @@ public class SimHptSensor extends SimTimeSpanSensor {
 	
 	private Map<ISchedulableProcess, HptSensor> processStorage = new Hashtable<ISchedulableProcess, HptSensor>();
 	private SimActiveResource resource;
+	private double threshold;
 	
-	public SimHptSensor(String name, SimActiveResource resource) {
+	public SimHptSensor(String name, SimActiveResource resource, double threshold) {
 		super(name);
 		this.resource = resource;
+		this.threshold = threshold;
 	}
 	
 	@Override
@@ -41,7 +43,7 @@ public class SimHptSensor extends SimTimeSpanSensor {
 		HptSensor s = null;
 		if ((s = processStorage.get(p)) == null){
 			IActiveProcess ap = resource.lookUp(p);
-			s = new HptSensor(ap);
+			s = new HptSensor(ap,threshold);
 			ap.addStateSensor(s);
 			processStorage.put(p, s);
 		}
@@ -51,7 +53,8 @@ public class SimHptSensor extends SimTimeSpanSensor {
 	@Override
 	public void notifyStop(double time, ISchedulableProcess p){
 		HptSensor s = processStorage.get(p);
-		assert (s != null) : "No state sensor for: " + name +" Process: " + p + " Started Measurements: " + this.processStorage;	
+		assert (s != null) : "No state sensor for: " + name +" Process: " + p + " Started Measurements: " + this.processStorage;
+		s.stop();
 		addTimeSpan(s.getHpt(), s.getHptStart());
 	}
 }

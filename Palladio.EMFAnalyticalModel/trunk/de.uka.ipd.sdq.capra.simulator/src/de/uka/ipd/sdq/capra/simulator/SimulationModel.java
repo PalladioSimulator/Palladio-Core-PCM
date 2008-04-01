@@ -27,7 +27,7 @@ public class SimulationModel {
 	public SimulationModel(ISchedulingFactory schedulingFactory){
 		super();
 		resourceManager = new ResourceManager(schedulingFactory);
-		sensorManager = new SensorManager();
+		sensorManager = new SensorManager(resourceManager);
 		processManager = new CapraProcessManager(resourceManager, sensorManager,schedulingFactory);
 		simulator = SchedulingFactory.getUsedSimulator();
 	}

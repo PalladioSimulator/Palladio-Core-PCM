@@ -13,12 +13,20 @@ import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
 public class SensorManager {
 	
 	private SensorFactory factory = new SensorFactory();
-	private SensorTransformer transformer = new SensorTransformer(factory);
-	private SensorVisitor visitor = new SensorVisitor(transformer);
+	private SensorTransformer transformer = null;
+	private SensorVisitor visitor = null;
 	private Map<String, SimSensor> sensor_map = new Hashtable<String, SimSensor>();
+	
+	
+
+	public SensorManager(ResourceManager resourceManager) {
+		super();
+		transformer = new SensorTransformer(factory, resourceManager);
+		visitor = new SensorVisitor(transformer,resourceManager);
+		
+	}
 
 	public void loadSensors(EList<Sensor> sensors) {
-		
 		for (Sensor sensor : sensors) {
 			SimSensor s =  visitor.visitSensor(sensor);
 			addSensor(s);

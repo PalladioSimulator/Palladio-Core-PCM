@@ -4,12 +4,14 @@ import de.uka.ipd.sdq.capra.measurement.CountingSensor;
 import de.uka.ipd.sdq.capra.measurement.FinalValueRecorder;
 import de.uka.ipd.sdq.capra.measurement.FullStateRecorder;
 import de.uka.ipd.sdq.capra.measurement.FullTimeSpanRecorder;
+import de.uka.ipd.sdq.capra.measurement.GlobalTimeSpanSensor;
 import de.uka.ipd.sdq.capra.measurement.HistogramRecorder;
+import de.uka.ipd.sdq.capra.measurement.InterruptionTimeSpanSensor;
+import de.uka.ipd.sdq.capra.measurement.LocalTimeSpanSensor;
 import de.uka.ipd.sdq.capra.measurement.Recorder;
 import de.uka.ipd.sdq.capra.measurement.Sensor;
 import de.uka.ipd.sdq.capra.measurement.StateSensor;
 import de.uka.ipd.sdq.capra.measurement.SteadyStateRecorder;
-import de.uka.ipd.sdq.capra.measurement.TimeSpanSensor;
 import de.uka.ipd.sdq.capra.measurement.util.MeasurementSwitch;
 import de.uka.ipd.sdq.capra.simulator.measurement.recorders.SimRecorder;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
@@ -21,9 +23,11 @@ import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
  */
 public class SensorVisitor {
 	private SensorTransformer sensorTransformer;
+	private ResourceManager resourceManager;
 	
-	public SensorVisitor(SensorTransformer sensorTransformer) {
+	public SensorVisitor(SensorTransformer sensorTransformer, ResourceManager resourceManager) {
 		this.sensorTransformer = sensorTransformer;
+		this.resourceManager = resourceManager;
 	}
 	
 	public SimSensor visitSensor(Sensor sensor) {
@@ -73,14 +77,22 @@ public class SensorVisitor {
 		}
 	};
 
-	/**
-	 * @uml.property  name="sSwitch"
-	 * @uml.associationEnd  
-	 */
+	
 	private MeasurementSwitch<SimSensor> sSwitch = new MeasurementSwitch<SimSensor>(){
 		@Override
-		public SimSensor caseTimeSpanSensor(TimeSpanSensor object) {
-			return sensorTransformer.transformTimeSpanSensor(object);
+		public SimSensor caseGlobalTimeSpanSensor(GlobalTimeSpanSensor object) {
+			return sensorTransformer.transformGlobalTimeSpanSensor(object);
+		}
+		
+		@Override
+		public SimSensor caseLocalTimeSpanSensor(LocalTimeSpanSensor object) {
+			return sensorTransformer.transformLocalTimeSpanSensor(object);
+		}
+		
+		@Override
+		public SimSensor caseInterruptionTimeSpanSensor(
+				InterruptionTimeSpanSensor object) {
+			return sensorTransformer.transformInterruptionTimeSpanSensor(object);
 		}
 		
 		@Override
