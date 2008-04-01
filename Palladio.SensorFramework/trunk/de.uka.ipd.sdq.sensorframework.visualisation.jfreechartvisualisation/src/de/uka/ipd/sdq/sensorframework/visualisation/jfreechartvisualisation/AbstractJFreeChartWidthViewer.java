@@ -28,6 +28,7 @@ public abstract class AbstractJFreeChartWidthViewer extends
 		}
 		initChart();
 		
+		this.setChart(chart);
 		this.forceRedraw();
 		
 		lastData = data;

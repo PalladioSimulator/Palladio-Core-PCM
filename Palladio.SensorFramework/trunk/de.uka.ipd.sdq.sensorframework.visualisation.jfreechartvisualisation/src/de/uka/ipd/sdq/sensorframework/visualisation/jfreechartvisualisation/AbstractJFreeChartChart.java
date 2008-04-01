@@ -123,6 +123,7 @@ class SaveSVGAsAction extends Action {
 }
 
 public abstract class AbstractJFreeChartChart<T> extends ChartComposite {
+	protected JFreeChart chart;
 	
 	@Override
 	protected Menu createPopupMenu(boolean arg0, boolean arg1, boolean arg2,
@@ -138,7 +139,6 @@ public abstract class AbstractJFreeChartChart<T> extends ChartComposite {
 		super(parent, style);
 		// final Graphics2DRenderer renderer = new Graphics2DRenderer();
 		initChart();
-		
 
 //	    
 //		addPaintListener(new PaintListener() {

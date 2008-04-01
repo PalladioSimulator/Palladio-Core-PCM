@@ -5,6 +5,7 @@ import java.awt.BasicStroke;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Composite;
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
@@ -44,9 +45,9 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implement
 
 	@SuppressWarnings("deprecation")
 	protected void initChart() {
-		this.chart = ChartFactory.createXYLineChart("CDF", "Time", "Probability", densityDataset, PlotOrientation.VERTICAL, true, true, true);
-
+		chart = ChartFactory.createXYLineChart("Cumulative Distribution Function", "Time", "Probability", densityDataset, PlotOrientation.VERTICAL, true, true, true);
 		XYPlot plot = (XYPlot)chart.getPlot();
+		
 		plot.getRangeAxis().setAutoRange(true);
 		plot.getRenderer().setStroke(new BasicStroke(3));
 	}

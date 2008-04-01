@@ -37,6 +37,7 @@ public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart<TimeSeri
 		for (TimeSeries timeSeries : data)
 			dataset.addSeries(getSeries(timeSeries));
 		initChart();
+		this.setChart(chart);
 		this.forceRedraw();
 	}
 

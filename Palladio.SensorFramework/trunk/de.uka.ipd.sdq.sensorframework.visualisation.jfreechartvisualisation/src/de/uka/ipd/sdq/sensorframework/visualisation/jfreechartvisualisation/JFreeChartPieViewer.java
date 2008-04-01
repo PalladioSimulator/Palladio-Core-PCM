@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.eclipse.swt.widgets.Composite;
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
@@ -35,6 +36,8 @@ public class JFreeChartPieViewer extends AbstractJFreeChartChart<Pie> {
 		}
 		initChart();
 		chart.setTitle(pie.getLabel());
+		this.setChart(chart);
+
 		this.forceRedraw();
 	}
 }
