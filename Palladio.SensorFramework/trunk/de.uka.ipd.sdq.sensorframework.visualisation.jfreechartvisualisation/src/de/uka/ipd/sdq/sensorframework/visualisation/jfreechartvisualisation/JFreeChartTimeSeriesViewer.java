@@ -28,7 +28,7 @@ public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart<TimeSeri
 	}
 	
 	protected void initChart() {
-		chart = ChartFactory.createScatterPlot("Time Series", "#measurement", "time", dataset, PlotOrientation.VERTICAL, true, true, true);
+		chart = ChartFactory.createScatterPlot("Time Series", "Number of Measurement", "Time", dataset, PlotOrientation.VERTICAL, true, true, true);
 	}
 
 	public void setData(Collection<TimeSeries> data){
@@ -42,8 +42,11 @@ public class JFreeChartTimeSeriesViewer extends AbstractJFreeChartChart<TimeSeri
 
 	private XYSeries getSeries(TimeSeries ts) {
 		XYSeries series = new XYSeries(ts.getLabel(),true, false);
-		for (TimeSeriesEntity te : ts.getValues()){
-			series.add(te.getXValue(), te.getYValue());
+		// patched to show ascending number of measurements, starting by 1
+		long number = 1;
+		for (TimeSeriesEntity te : ts.getValues()) {
+			//series.add(te.getXValue(), te.getYValue());
+			series.add(number++, te.getYValue());
 		}
 		return series;
 	}

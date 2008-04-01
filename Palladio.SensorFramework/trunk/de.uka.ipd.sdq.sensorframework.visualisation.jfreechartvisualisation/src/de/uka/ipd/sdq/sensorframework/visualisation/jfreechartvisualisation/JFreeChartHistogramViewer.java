@@ -38,7 +38,7 @@ public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer
 	}
 
 	protected void initChart() {
-		JFreeChart chart = ChartFactory.createHistogram("Histogram","Time [s]","Probability", densityDataset,PlotOrientation.VERTICAL,true,true,true);
+		JFreeChart chart = ChartFactory.createHistogram("Histogram","Time","Probability", densityDataset,PlotOrientation.VERTICAL,true,true,true);
 
 		XYPlot plot = (XYPlot)chart.getPlot();
 		plot.getRangeAxis().setAutoRange(true);

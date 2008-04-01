@@ -17,10 +17,18 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
+import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.Measurement;
+import de.uka.ipd.sdq.sensorframework.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 import de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.AbstractJFreeChartWidthViewer;
 
 public abstract class AbstractJFreeChartWidthReport extends AbstractReportView implements IVisualisation<Histogram>{
@@ -56,7 +64,7 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 		label.setText("Sampling Rate");
 		label.setLayoutData(new RowData(SWT.DEFAULT, SWT.DEFAULT));
 		widthInput = new Text(histogramWidthPanel, SWT.BORDER);
-		widthInput.setText("1");
+		widthInput.setText(Double.toString(histogramWidth));
 		widthInput.setLayoutData(new RowData(60, SWT.DEFAULT));
 		Listener listener = new Listener() {
 
@@ -110,6 +118,29 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 			Properties p = a.getProperties();
 			if (p == null)
 				p = new Properties();
+			// Check if there are at least to different buckets for the histogram
+			// as JFreeChart otherwise displays a bar from -0.5 to 0.5 and small 
+			// values cannot be restored, as the range is fixed by then.
+			if (((Histogram) a.getAdaptedObject()).getEntityList().size() == 1) {
+				TimeSpanMeasurement timeSpanMeasurement = null;
+				double minValue = Double.MAX_VALUE, maxValue = Double.MIN_VALUE;
+				List<ConfigEntry> entries = ((ConfigEditorInput)getEditorInput()).getConfigEntrys();
+				for (ConfigEntry entry : entries) {
+//					IDAOFactory sdjklf = entry.getDatasource();
+					ExperimentRun experimentRun = entry.getExperimentRun();
+					List<Sensor> sensors = entry.getSensors();
+					for (Sensor sensor : sensors) {
+						SensorAndMeasurements sam = experimentRun.getMeasurementsOfSensor(sensor);
+						Collection<Measurement> measurements = sam.getMeasurements();
+						for (Measurement measurement : measurements) {
+							timeSpanMeasurement = (TimeSpanMeasurement) measurement;
+							minValue = (minValue < timeSpanMeasurement.getTimeSpan()) ? minValue : timeSpanMeasurement.getTimeSpan();  
+							maxValue = (maxValue > timeSpanMeasurement.getTimeSpan()) ? maxValue : timeSpanMeasurement.getTimeSpan();  
+						}
+					}
+				}
+				histogramWidth = (maxValue-minValue)/2;
+			}
 			p.put(HISTOGRAM_WIDTH, histogramWidth);
 			a.setProperties(p);
 			viewerInput.add((Histogram) a.getAdaptedObject());
