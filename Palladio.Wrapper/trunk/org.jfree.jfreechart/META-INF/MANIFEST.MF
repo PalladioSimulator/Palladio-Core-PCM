@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jfreechart Plug-in
 Bundle-SymbolicName: org.jfree.jfreechart
-Bundle-Version: 1.0.6
-Bundle-ClassPath: jfreechart-1.0.6-swt.jar,
- jcommon-1.0.10.jar,
- jfreechart-1.0.6.jar
+Bundle-Version: 1.0.9
+Bundle-ClassPath: jcommon-1.0.12.jar,
+ jfreechart-1.0.9.jar,
+ jfreechart-1.0.9-swt.jar
 Bundle-Vendor: org.jfree
 Export-Package: com.keypoint,
  org.jfree,
