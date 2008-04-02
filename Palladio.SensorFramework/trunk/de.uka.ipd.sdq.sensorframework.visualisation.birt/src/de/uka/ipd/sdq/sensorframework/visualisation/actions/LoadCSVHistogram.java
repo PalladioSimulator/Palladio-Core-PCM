@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramBucketInformation;
 
 public class LoadCSVHistogram extends Action {
 	private Histogram histogram = null;
@@ -48,7 +48,7 @@ public class LoadCSVHistogram extends Action {
 				String[] parts = row.split(";");
 				double x = Double.parseDouble(parts[0].replace(',','.'));
 				double y = Double.parseDouble(parts[1].replace(',','.'));
-				h.addEntity(new HistogramEntity(y, x));
+				h.addEntity(new HistogramBucketInformation(y, x));
 			}
 		} catch(Exception e) {
 			return null;

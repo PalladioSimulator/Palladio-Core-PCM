@@ -41,7 +41,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramBucketInformation;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.visualisation.actions.ConfigureBirtViewerAction;
 import de.uka.ipd.sdq.sensorframework.visualisation.actions.ExportAsPNGAction;
@@ -91,7 +91,7 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 	public ChartWithAxes createEmptyChart() {
 		createChart();
 		initialisePlot();
-		cwa.getTitle().getLabel().getCaption().setValue("Response Time Histogram");
+		cwa.getTitle().getTitle().getCaption().setValue("Response Time Histogram");
 		
 		configureLegend();
 		configureXAxis();
@@ -164,15 +164,15 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		
 		for (IAdapter histAdapter : adapters) {
 			Histogram hist = (Histogram) histAdapter.getAdaptedObject();
-			double[] values = new double[hist.getEntityList().size()];
-			double[] probabilities = new double[hist.getEntityList().size()];
+			double[] values = new double[hist.getBucketInformation().size()];
+			double[] probabilities = new double[hist.getBucketInformation().size()];
 			int i = 0;
-			for (HistogramEntity e : hist.getEntityList()) {
+			for (HistogramBucketInformation e : hist.getBucketInformation()) {
 				values[i] = e.getValue();
 				probabilities[i] = e.getProbability();
 				i++;
 			}
-			addHistogram(values, probabilities, hist.getLabel());
+			addHistogram(values, probabilities, hist.getTitle());
 		}
 		viewer.redraw();
 	}
@@ -185,8 +185,8 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		series.setDataSet(orthovalues);
 		series.setSeriesIdentifier(label);
 		series.getDataDefinition().add(QueryImpl.create(""));
-		series.getLabel().getCaption().setValue(label);
-		series.getLabel().setVisible(false);
+		series.getTitle().getCaption().setValue(label);
+		series.getTitle().setVisible(false);
 		series.setStacked(true);
 		
 		SeriesDefinition sdY = SeriesDefinitionImpl.create();
@@ -231,15 +231,15 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 
 	@Override
 	public void addHistogram(Histogram histogram) {
-		double[] values = new double[histogram.getEntityList().size()];
-		double[] probabilities = new double[histogram.getEntityList().size()];
+		double[] values = new double[histogram.getBucketInformation().size()];
+		double[] probabilities = new double[histogram.getBucketInformation().size()];
 		int i = 0;
-		for (HistogramEntity e : histogram.getEntityList()) {
+		for (HistogramBucketInformation e : histogram.getBucketInformation()) {
 			values[i] = e.getValue();
 			probabilities[i] = e.getProbability();
 			i++;
 		}
-		addHistogram(values, probabilities, histogram.getLabel());
+		addHistogram(values, probabilities, histogram.getTitle());
 		viewer.redraw();
 	}
 }
