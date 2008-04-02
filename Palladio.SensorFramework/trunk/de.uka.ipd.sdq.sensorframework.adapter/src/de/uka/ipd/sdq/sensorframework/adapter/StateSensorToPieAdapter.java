@@ -38,18 +38,23 @@ public class StateSensorToPieAdapter extends DataAdapter {
 	 */
 	public Object getAdaptedObject() {
 		HashMap<String, Double> newPie = new HashMap<String, Double>(); 
-		double sum = calculateOccurenceCounts(newPie);
+		double sum = calculateTimeSums(newPie);
 		
 		return createPie(newPie, sum);
 	}
 	
-	private Pie createPie(final HashMap<String, Double> newPie, 
+	/** Takes sum of the time in which all states were active and creates a Pie from it 
+	 * @param timeSums A map which associates to each state the sum of the time this state has been active
+	 * @param sum Total sum of times 
+	 * @return A pie representation of the data
+	 */
+	private Pie createPie(final HashMap<String, Double> timeSums, 
 			final double sum) {
 		Pie p = new Pie((
 				(StateSensor) samInformation.getSensor()).getSensorName());
 		DecimalFormat df = 
 			new DecimalFormat("#0.0", new DecimalFormatSymbols(Locale.US));
-		for (Entry < String, Double > e : newPie.entrySet()) {
+		for (Entry < String, Double > e : timeSums.entrySet()) {
 			if (e.getValue() > 0.0) {
 				p.addEntity(new PieEntity(e.getValue(), e.getKey() 
 					+ " (" + df.format(e.getValue() * FACTOR_PERCENT / sum) 
@@ -59,10 +64,15 @@ public class StateSensorToPieAdapter extends DataAdapter {
 		return p;
 	}
 
-	private double calculateOccurenceCounts(final HashMap<String, Double> newPie) {
+	/** Creates a map of states associated to the time the respective state was active in the complete set of 
+	 * state measurements
+	 * @param timeSums The hashmap to fill with data
+	 * @return The total sum of all the time spend in all states
+	 */
+	private double calculateTimeSums(final HashMap<String, Double> timeSums) {
 		for (State state : (
 				(StateSensor) samInformation.getSensor()).getSensorStates()) {
-			newPie.put(state.getStateLiteral(), 0.0);
+			timeSums.put(state.getStateLiteral(), 0.0);
 		}
 		double lastChangeTime = 0.0; 
 		State lastState = 
@@ -70,11 +80,11 @@ public class StateSensorToPieAdapter extends DataAdapter {
 		double sum = 0;
 		for (Measurement m : samInformation.getMeasurements()) {
 			StateMeasurement sm = (StateMeasurement) m;
-			Double oldValue = newPie.get(lastState.getStateLiteral());
+			Double oldValue = timeSums.get(lastState.getStateLiteral());
 			double diff = sm.getEventTime() - lastChangeTime;
 			double newValue = oldValue + diff;
 			sum += diff;
-			newPie.put(lastState.getStateLiteral(), newValue);
+			timeSums.put(lastState.getStateLiteral(), newValue);
 
 			lastChangeTime = sm.getEventTime();
 			lastState = sm.getSensorState();
