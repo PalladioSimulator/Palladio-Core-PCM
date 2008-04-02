@@ -146,8 +146,10 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	 */
 	private LinkingResource findLinkingResource(AssemblyConnector con) {
 		for (LinkingResource lr : models.getAllocation().getTargetResourceEnvironment_Allocation().getLinkingresource()){
-			if (lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector())) &&
-					lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getProvidingChildComponentContext_CompositeAssemblyConnector())))
+			if ((lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector())) &&
+					lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getProvidingChildComponentContext_CompositeAssemblyConnector()))) || // Respect bidirectional links 
+				(lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector())) && 
+						lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getProvidingChildComponentContext_CompositeAssemblyConnector()))))
 				return lr;
 		}
 		if (findContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector()) != findContainer(con.getProvidingChildComponentContext_CompositeAssemblyConnector()))
