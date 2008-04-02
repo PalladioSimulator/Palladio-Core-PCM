@@ -4,11 +4,14 @@ import java.io.PrintStream;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.debug.core.DebugEvent;
+import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
+import org.eclipse.debug.core.model.ITerminate;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.MessageConsole;
@@ -53,7 +56,7 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 	 */
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-
+		launch.addProcess(new SimProcess(launch));
 		PrintStream outStream = System.out;
 		PrintStream errStream = System.err;
 		System.setOut(getPrintStream());
@@ -89,6 +92,8 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 
 		System.setOut(outStream);
 		System.setErr(errStream);
+		// Singnal execution terminatation 
+		launch.getProcesses()[0].terminate();
 	}
 	
 	private MessageConsole getConsole() {
