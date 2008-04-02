@@ -24,7 +24,7 @@ public class MemoryExperimentRunDAO implements IExperimentRunDAO {
 	public synchronized ExperimentRun addExperimentRun(String p_experimentdatetime) {
 		ExperimentRun result = new ExperimentRunImpl(this.myFactory);
 		result.setExperimentRunID(nextID++);
-		result.setExperimentDateTime(new Date().toString());
+		result.setExperimentDateTime(p_experimentdatetime);
 		
 		index.put(result.getExperimentRunID(),result);
 		return result;
