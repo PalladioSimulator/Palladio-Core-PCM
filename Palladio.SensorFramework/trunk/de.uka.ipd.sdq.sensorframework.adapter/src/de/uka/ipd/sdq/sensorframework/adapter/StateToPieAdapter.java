@@ -25,8 +25,24 @@ public class StateToPieAdapter implements IAdapter {
 	}
 
 	public Object getAdaptedObject() {
-		Pie p = new Pie(((StateSensor)myValues.getSensor()).getSensorName());
 		HashMap<String, Double> newPie = new HashMap<String, Double>(); 
+		double sum = calculateOccurenceCounts(newPie);
+		
+		return createPie(newPie, sum);
+	}
+
+	private Pie createPie(HashMap<String, Double> newPie, double sum) {
+		Pie p = new Pie(((StateSensor)myValues.getSensor()).getSensorName());
+		DecimalFormat df = new DecimalFormat("#0.0", new DecimalFormatSymbols(Locale.US));
+		for(Entry<String,Double>e:newPie.entrySet()){
+			if (e.getValue() > 0.0) {
+				p.addEntity(new PieEntity(e.getValue(),e.getKey()+" ("+df.format(e.getValue()*100/sum)+"%)"));
+			}
+		}
+		return p;
+	}
+
+	private double calculateOccurenceCounts(HashMap<String, Double> newPie) {
 		for(State state : ((StateSensor)myValues.getSensor()).getSensorStates())
 			newPie.put(state.getStateLiteral(), 0.0);
 		double lastChangeTime = 0.0; State lastState = ((StateSensor)myValues.getSensor()).getInitialState();
@@ -42,11 +58,7 @@ public class StateToPieAdapter implements IAdapter {
 			lastChangeTime = sm.getEventTime();
 			lastState = sm.getSensorState();
 		}
-		DecimalFormat df = new DecimalFormat("#0.0", new DecimalFormatSymbols(Locale.US));
-		for(Entry<String,Double>e:newPie.entrySet()){
-			p.addEntity(new PieEntity(e.getValue(),e.getKey()+" ("+df.format(e.getValue()*100/sum)+"%)"));
-		}
-		return p;
+		return sum;
 	}
 
 	public Properties getProperties() {
