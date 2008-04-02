@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Hashtable;
 
+import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -21,9 +22,13 @@ import de.uka.ipd.sdq.simucomframework.ISimuComControl;
 import de.uka.ipd.sdq.simucomframework.IStatusObserver;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 
 public class SimulationDockServiceImpl implements SimulationDockService {
 
+	protected static Logger logger = 
+		Logger.getLogger(SimulationDockServiceImpl.class.getName());
+	
 	private BundleContext context;
 	private String myID = EcoreUtil.generateUUID();
 	private ServiceTracker service;
@@ -39,6 +44,8 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		eventService = new ServiceTracker(context,eventServiceRef,null);
 		eventService.open();
 		eventAdmin = (EventAdmin)eventService.getService();
+		
+		logger.debug("Simulation Dock Started");
 	}
 	
 	@Override
@@ -114,7 +121,10 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 						}
 					}
 					
-					postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_RESUMED");
+					if (SimulationDockServiceImpl.this.suspended){
+						postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_RESUMED");
+						logger.debug("------------------------- Simulation Resumed ----------------------------------");
+					}
 					
 					if (percentDone > lastPercent ||  (config.isDebug() && SimulationDockServiceImpl.this.suspended)){
 						Hashtable properties = new Hashtable();

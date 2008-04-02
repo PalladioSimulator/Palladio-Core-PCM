@@ -104,6 +104,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 				logger.debug("Executing Stop Event");
 				simulator.stop();
 				// Removed the following line because it deadlocked SSJ
+				// And even worse, it does not kill all threads.... :-(
 				// simulator.killAll();
 			}
 			

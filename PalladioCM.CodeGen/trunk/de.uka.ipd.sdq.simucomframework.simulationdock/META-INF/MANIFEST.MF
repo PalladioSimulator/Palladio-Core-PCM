@@ -12,4 +12,5 @@ Export-Package: de.uka.ipd.sdq.simucomframework.simulationdock
 Require-Bundle: de.uka.ipd.sdq.simucomframework,
  org.eclipse.osgi.services,
  ch.ethz.iks.r_osgi.remote,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ org.apache.log4j
