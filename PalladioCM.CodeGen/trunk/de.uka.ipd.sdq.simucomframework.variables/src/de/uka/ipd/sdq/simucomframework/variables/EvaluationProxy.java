@@ -43,4 +43,11 @@ public class EvaluationProxy {
 	public String getStoEx() {
 		return stoex;
 	}
+
+	@Override
+	public String toString() {
+		return "EvaluationProxy<"+this.getStoEx()+">";
+	}
+	
+	
 }
