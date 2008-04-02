@@ -8,7 +8,7 @@ import java.util.List;
 import org.eclipse.swt.widgets.Composite;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
-import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
+import de.uka.ipd.sdq.sensorframework.adapter.DataAdapter;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 import de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.JFreeChartPieViewer;
@@ -50,9 +50,9 @@ public class JFreeChartPieReport extends AbstractReportView implements
 	 * @see de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView#setInput(java.util.List)
 	 */
 	@Override
-	protected void setInput(List<IAdapter> list) {
+	protected void setInput(List<DataAdapter> list) {
 		ArrayList<Pie> viewerInput = new ArrayList<Pie>();
-		for (IAdapter a : list)
+		for (DataAdapter a : list)
 			viewerInput.add((Pie) a.getAdaptedObject());
 		this.setInput(viewerInput);
 	}	

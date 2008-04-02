@@ -9,4 +9,13 @@ public class TimeSpanMeasurementImpl extends de.uka.ipd.sdq.sensorframework.enti
 		super(myFactory);
 		// TODO Auto-generated constructor stub
 	}
+	
+	/** {@inheritDoc}
+	 */
+	public void setTimeSpan(double value) {
+		if (value < 0)
+			throw new RuntimeException("TimeSpan Measurements are not allowed to be smaller than 0.");
+		
+		super.setTimeSpan(value);
+	}
 }

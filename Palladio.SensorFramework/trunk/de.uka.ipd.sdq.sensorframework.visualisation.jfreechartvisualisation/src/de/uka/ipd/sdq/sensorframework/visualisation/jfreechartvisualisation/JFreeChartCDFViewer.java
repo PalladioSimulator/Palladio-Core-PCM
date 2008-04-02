@@ -11,7 +11,7 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramBucketInformation;
 
 
 public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implements IHistogramAccepter {
@@ -31,9 +31,9 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implement
 	 * @see de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.IHistogramAccepter#addHistogram(de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram)
 	 */
 	public void addHistogram(Histogram histogram) {
-		XYSeries density = new XYSeries(histogram.getLabel(),true,false);
+		XYSeries density = new XYSeries(histogram.getTitle(),true,false);
 		double sum = 0;
-		for (HistogramEntity e : histogram.getEntityList()) {
+		for (HistogramBucketInformation e : histogram.getBucketInformation()) {
 			sum += e.getProbability();
 			density.add(e.getValue(), sum);
 		}
@@ -55,10 +55,15 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implement
 	protected XYSeries computeDensities(Histogram hist) {
 		double sum = 0;
 		XYSeries density;
-		density = new XYSeries(hist.getLabel(),true,false);
-		for (HistogramEntity e : hist.getEntityList()) {
-			sum += e.getProbability();
-			density.add(e.getValue(), sum);
+		density = new XYSeries(hist.getTitle(),true,false);
+		for (HistogramBucketInformation bucketInformation : hist.getBucketInformation()) {
+			if (sum == 0) // is only executed the first time in the loop.
+				density.add(bucketInformation.getValue(), sum);
+			sum += bucketInformation.getProbability();
+			if (sum != 0)
+				density.add(bucketInformation.getValue() + hist.getBucketWidth(), sum);
+//			if (sum == 1)
+//				density.add(bucketInformation.getValue() + hist.getBucketWidth(), sum);
 		}
 		return density;
 	}

@@ -64,7 +64,7 @@
                acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
                acceptsMultiple="true"
                class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartCDFReport"
-               displayName="JFreeChart {0} CDF"
+               displayName="JFreeChart {0} Histogram-based CDF"
                editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartCDFReport">
          </Visualisation>
       </extension>

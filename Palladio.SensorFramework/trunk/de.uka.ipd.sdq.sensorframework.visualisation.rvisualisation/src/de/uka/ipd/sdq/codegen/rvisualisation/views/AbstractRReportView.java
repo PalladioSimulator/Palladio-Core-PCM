@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.visitor.HTMLVisitor;
-import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
+import de.uka.ipd.sdq.sensorframework.adapter.DataAdapter;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 
 /**Abstract class with basic capabilities to show reports containing 
- * data of the sensorframework in R.
+ * data of the SensorFramework in R.
  * @author groenda
  */
 public abstract class AbstractRReportView extends AbstractReportView implements
@@ -68,10 +68,13 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	public void setInput(final Collection < SensorAndMeasurements > c) {
 		if (RConnection.isEngineAvailable()) {
 			if (c.isEmpty()) {
-				browser.setText("<html><body><h1>Error! </h1>At least the measurements for one sensor must be available!</body></html>");
+				browser.setText("<html><body><h1>Error! </h1>At least "
+						+ "the measurements for one sensor must be "
+						+ "available!</body></html>");
 			} else {
 				RConnection rConnection = RConnection.getRConnection();
-				ArrayList<IReportItem> items = prepareReportItems(c, rConnection);
+				ArrayList<IReportItem> items = 
+					prepareReportItems(c, rConnection);
 	
 				HTMLVisitor visitor = new HTMLVisitor();
 				for (IReportItem item : items) {
@@ -81,7 +84,8 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 				browser.setText(visitor.getHTML());
 			}
 		} else {
-			browser.setText("<html><body><h1>Error! </h1>Connection to R engine is not available!</body></html>");
+			browser.setText("<html><body><h1>Error! </h1>Connection to R "
+					+ "engine is not available!</body></html>");
 		}
 	}
 
@@ -93,16 +97,20 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	 * 
 	 * @param measurements Measurements for a sensor.
 	 * @param sensorNumber number of the sensor vector in R.
-	 * @return R command to read measurements. It is stored in the vector <code>sensor</code>i.
+	 * @return R command to read measurements. 
+	 *         It is stored in the vector <code>sensor</code>i.
 	 */
-	protected String storeMeasurementsInRVector(final SensorAndMeasurements measurements, final int sensorNumber) {
+	protected String storeMeasurementsInRVector(
+			final SensorAndMeasurements measurements, final int sensorNumber) {
 		String rCommand = exportMeasurementsToR(measurements);
 		if (rCommand == "") {
 			return "";
 		} else {
-//			// activate to use file transfer. only possible in plug-in debug mode of eclipse.
+//			// activate to use file transfer. only possible in plug-in debug 
+//			// mode of eclipse.
 //			return "sensor" + sensorNumber + "<-" + rCommand + "\n";
-			RConnection.getRConnection().assign("sensor" + sensorNumber, measurementsArray);
+			RConnection.getRConnection().assign(
+					"sensor" + sensorNumber, measurementsArray);
 			return "";
 		}
 	}
@@ -118,16 +126,19 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	 * that can be used by other methods in this class.
 	 * 
 	 * @param measurements Measurements for a sensor.
-	 * @return R command to read measurements. Can be used to store data in a r vector.
+	 * @return R command to read measurements. 
+	 *         Can be used to store data in a r vector.
 	 */
-	protected String exportMeasurementsToR(final SensorAndMeasurements measurements) {
+	protected String exportMeasurementsToR(
+			final SensorAndMeasurements measurements) {
 		File temporaryFile;
 		try {
 			temporaryFile = File.createTempFile("data", ".txt");
 			temporaryFile.deleteOnExit();
 			FileWriter temporaryFileWriter = new FileWriter(temporaryFile);
 			StringBuffer result = new StringBuffer();
-			measurementsArray = new double[measurements.getMeasurements().size()];
+			measurementsArray = 
+				new double[measurements.getMeasurements().size()];
 			if (measurements.getMeasurements().size() == Integer.MAX_VALUE) {
 				RVisualisationPlugin.log(IStatus.ERROR,
 						"Too much measurements. Results might be inaccurate.");
@@ -143,12 +154,13 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 			temporaryFileWriter.write(result.toString());
 			temporaryFileWriter.close();
 			return "scan(file=\"" 
-				+ temporaryFile.getAbsolutePath().replace(File.separator, "\\\\")
+				+ temporaryFile.getAbsolutePath().replace(File.separator, 
+						"\\\\")
 				+ "\", dec=\".\")";
 		} catch (IOException e) {
 			RVisualisationPlugin.log(IStatus.ERROR,
-				"Error accessing temporary file to transfer sensordata to R. Details: "
-				+ e.getMessage());
+				"Error accessing temporary file to transfer sensordata "
+				+ "to R. Details: "	+ e.getMessage());
 		}
 		return "";
 	}
@@ -157,9 +169,10 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	/** {@inheritDoc}
 	 */
 	@Override
-	protected void setInput(final List < IAdapter > list) {
-		ArrayList<SensorAndMeasurements> viewerInput = new ArrayList<SensorAndMeasurements>();
-		for (IAdapter a : list) {
+	protected void setInput(final List < DataAdapter > list) {
+		ArrayList<SensorAndMeasurements> viewerInput = 
+			new ArrayList<SensorAndMeasurements>();
+		for (DataAdapter a : list) {
 			viewerInput.add((SensorAndMeasurements) a.getAdaptedObject());
 		}
 		this.setInput(viewerInput);
@@ -176,6 +189,7 @@ public abstract class AbstractRReportView extends AbstractReportView implements
 	 * @return List of Items.
 	 */
 	protected abstract ArrayList<IReportItem> prepareReportItems(
-			Collection<SensorAndMeasurements> measurements, RConnection rConnection);
+			Collection<SensorAndMeasurements> measurements, 
+			RConnection rConnection);
 
 }

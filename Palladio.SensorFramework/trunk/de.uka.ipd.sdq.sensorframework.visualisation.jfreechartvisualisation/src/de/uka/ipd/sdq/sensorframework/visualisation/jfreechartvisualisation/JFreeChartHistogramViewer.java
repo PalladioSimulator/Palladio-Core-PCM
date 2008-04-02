@@ -3,13 +3,12 @@ package de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Composite;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramBucketInformation;
 
 
 public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer
@@ -28,8 +27,8 @@ public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer
 	}
 
 	public void addHistogram(Histogram histogram) {
-		XYSeries density = new XYSeries(histogram.getLabel(),true,false);
-		for (HistogramEntity e : histogram.getEntityList())
+		XYSeries density = new XYSeries(histogram.getTitle(),true,false);
+		for (HistogramBucketInformation e : histogram.getBucketInformation())
 			density.add(e.getValue(), e.getProbability());
 		densityDataset.addSeries(density);
 		densityDataset.setAutoWidth(true);
@@ -49,9 +48,9 @@ public class JFreeChartHistogramViewer extends AbstractJFreeChartWidthViewer
 	
 	protected XYSeries computeDensities(Histogram hist) {
 		XYSeries density;
-		density = new XYSeries(hist.getLabel(),true,false);
-		for (HistogramEntity e : hist.getEntityList()) {
-			density.add(e.getValue(), e.getProbability());
+		density = new XYSeries(hist.getTitle(),true,false);
+		for (HistogramBucketInformation bucketInformation : hist.getBucketInformation()) {
+			density.add(bucketInformation.getValue() + hist.getBucketWidth() / 2, bucketInformation.getProbability());
 		}
 		return density;
 	}

@@ -26,6 +26,7 @@ import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributo
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
+import de.uka.ipd.sdq.sensorframework.adapter.DataAdapter;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
@@ -40,6 +41,9 @@ public abstract class AbstractReportView extends EditorPart implements
 
 	/** Editor input. */
 	private ConfigEditorInput myInput;
+	
+	/** List of all data adapters used by this report. */
+	private ArrayList<DataAdapter> dataAdapters = null;
 
 	public AbstractReportView() {
 		super();
@@ -126,9 +130,16 @@ public abstract class AbstractReportView extends EditorPart implements
 		myInput.addObserver(this);
 	}
 
+	/** {@inheritDoc}
+	 */
 	public void update(Observable o, Object arg) {
 		getSite().getPage().activate(this);
-		setViewerInput();
+		if (arg != null) {
+			if (arg == DataAdapter.SETTINGS_CHANGED)
+				setInput(dataAdapters);
+			if (ConfigEditorInput.class.isInstance(arg))
+					setViewerInput();
+		}
 	}
 
 	private void setViewerInput() {
@@ -148,15 +159,23 @@ public abstract class AbstractReportView extends EditorPart implements
 		IAdapterFactory adapterFactory = AdapterRegistry.singleton()
 				.getFactoryByID(myInput.getAdapterFactoryID());
 
-		ArrayList<IAdapter> input = new ArrayList<IAdapter>();
-		for (SensorAndMeasurements sam : list)
-			input.add(adapterFactory.getAdapter(myInput
+		/* Add the data sources to this report an observe changes at
+		 * the adapters and their settings.
+		 */
+		dataAdapters = new ArrayList<DataAdapter>();
+		DataAdapter usedAdapter = null;
+		for (SensorAndMeasurements sam : list) {
+			usedAdapter = adapterFactory.getAdapter(myInput
 					// set the empty filter of the measurements 
-					.getFiltersManager().getFilteredMeasurements(sam)));
-		this.setInput(input);
+					.getFiltersManager().getFilteredMeasurements(sam));
+			usedAdapter.addObserver(this);
+			dataAdapters.add(usedAdapter);
+		}
+		
+		this.setInput(dataAdapters);
 	}
 
-	protected abstract void setInput(List<IAdapter> list);
+	protected abstract void setInput(List<DataAdapter> list);
 	
 	/** Show exception message. */
 	private void showMessage(String title, String message) {

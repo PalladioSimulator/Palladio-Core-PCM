@@ -1,27 +1,25 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
-import java.util.Properties;
+/**Provides an adapter that allows mapping the identity.
+ * @author groenda
+ */
+public class IdentitySensorAdapter extends DataAdapter {
 
-
-public class IdentitySensorAdapter implements IAdapter {
-
-	private Properties p = new Properties();
+	/** Object to adapt. */
 	private Object o;
 	
-	public IdentitySensorAdapter(Object adaptee) {
+	/**Initializes a new adapter which provides access to the
+	 * provided object.
+	 * @param adaptee The object to adapt. 
+	 */
+	public IdentitySensorAdapter(final Object adaptee) {
+		super();
 		this.o = adaptee;
 	}
 
+	/** {@inheritDoc}
+	 */
 	public Object getAdaptedObject() {
 		return o;
 	}
-
-	public Properties getProperties() {
-		return p;
-	}
-
-	public void setProperties(Properties newProperties) {
-		p = newProperties;
-	}
-
 }

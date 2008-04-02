@@ -3,8 +3,9 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 import java.util.Properties;
 
 /**
- * Interface for Dataadapter in the sensorframework. Dataadapter read data from a datasource and convert them to data structures
- * displayable by visualisations. Adpater are created by their respective AdapterFactory. 
+ * Interface for DataAdapter in the SensorFramework. DataAdapter can read data 
+ * from a data source and convert them to data structures usable by 
+ * visualizations. Adapter are created by their respective AdapterFactory. 
  * @author Steffen
  *
  */

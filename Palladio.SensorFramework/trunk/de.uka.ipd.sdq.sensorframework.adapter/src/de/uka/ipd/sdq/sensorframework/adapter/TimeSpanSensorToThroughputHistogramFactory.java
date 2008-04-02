@@ -15,7 +15,7 @@ public class TimeSpanSensorToThroughputHistogramFactory implements IAdapterFacto
 		return false;
 	}
 	
-	public IAdapter getAdapter(Object adaptee) {
+	public DataAdapter getAdapter(Object adaptee) {
 		return new TimeSpanToThroughputHistogramAdapter((SensorAndMeasurements) adaptee);
 	}
 

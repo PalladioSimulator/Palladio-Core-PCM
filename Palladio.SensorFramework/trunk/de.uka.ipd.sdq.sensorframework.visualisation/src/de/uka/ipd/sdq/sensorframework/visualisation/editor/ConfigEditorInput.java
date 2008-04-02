@@ -40,7 +40,7 @@ public class ConfigEditorInput extends Observable
 		addConfigEntry(configEntry);
 	}
 	
-	/** Edit command of ConfigEctry	 */
+	/** Edit command of ConfigEntry */
 	public void editConfigEntry(IDAOFactory datasource, ExperimentRun run, Experiment experiment, Sensor sensor, String adapterFactoryID) {
 		ConfigEntry configEntry = getConfigEntryToRun(run);
 		
@@ -123,6 +123,7 @@ public class ConfigEditorInput extends Observable
 	/* (non-Javadoc)
 	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
 	 */
+	@SuppressWarnings("unchecked")
 	public Object getAdapter(Class adapter) {
 		if (adapter == ConfigEditorInput.class)
 			return this;
@@ -146,16 +147,24 @@ public class ConfigEditorInput extends Observable
 		{
 			ConfigEditorInputFactory.saveState(memento, this);
 		} catch (Exception e) {
-			// ignore errors if they happen, most likly the corresponding sensor enties have been deleted meanwhile
+			/* ignore errors if they happen, most likely the corresponding  
+			 * sensor entities have been deleted meanwhile
+			 */
 		}
 	}
 
-	public void notifyObserver(){
+	/**Set the status of this class to changed and notifies all
+	 * listening observers.
+	 */
+	private void notifyObserver() {
 		setChanged();
-		notifyObservers();
+		notifyObservers(this);
 	}
 
+	/** {@inheritDoc}
+	 */
 	public void update(Observable o, Object arg) {
+		// call the local method.
 		notifyObserver();
 	}
 	

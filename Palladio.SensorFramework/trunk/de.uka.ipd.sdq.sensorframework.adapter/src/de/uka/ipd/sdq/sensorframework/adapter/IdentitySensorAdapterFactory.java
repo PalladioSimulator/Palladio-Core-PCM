@@ -13,7 +13,7 @@ public class IdentitySensorAdapterFactory implements IAdapterFactory {
 		return false;
 	}
 
-	public IAdapter getAdapter(Object adaptee) {
+	public DataAdapter getAdapter(Object adaptee) {
 		return new IdentitySensorAdapter(adaptee);
 	}
 

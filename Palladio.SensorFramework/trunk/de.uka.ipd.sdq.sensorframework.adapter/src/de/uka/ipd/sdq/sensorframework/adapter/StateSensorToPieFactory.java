@@ -16,8 +16,8 @@ public class StateSensorToPieFactory implements IAdapterFactory {
 		return false;
 	}
 	
-	public IAdapter getAdapter(Object adaptee) {
-		return new StateToPieAdapter((SensorAndMeasurements) adaptee);
+	public DataAdapter getAdapter(Object adaptee) {
+		return new StateSensorToPieAdapter((SensorAndMeasurements) adaptee);
 	}
 
 	public String getMetricLabel() {

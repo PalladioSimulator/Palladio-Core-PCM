@@ -1,77 +1,152 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.util.HashMap;
-import java.util.Properties;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramBucketInformation;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 
-public class TimeSpanToHistogramAdapter implements IAdapter {
+/**Adapter for TimeSpanSensors to Histograms.
+ * @author groenda
+ */
+public class TimeSpanToHistogramAdapter extends DataAdapter {
 
+	/** The identifier for the property "Histogram Width". */
 	public static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
-	private static final String ACTIVEDE_FILTERS = "ACTIVEDE_FILTERS";
-	private SensorAndMeasurements myValues;
-	//private FilteredMeasurementsCollection measurements;
-	private Properties properties = new Properties();
+	
+//	private static final String ACTIVEDE_FILTERS = "ACTIVEDE_FILTERS";
+//	private FilteredMeasurementsCollection measurements;
+	/** Information about the TimeSpanSensor and the measurements. */
+	private SensorAndMeasurements samInformation;
 
+	/**Initializes a new adapter for the provided TimeSpanSensor.
+	 * @param sensorAndMeasurements Information about the TimeSpanSensor and the measurements.
+	 */
 	public TimeSpanToHistogramAdapter(
-			SensorAndMeasurements sensorAndMeasurements) {
-		this.myValues = sensorAndMeasurements;
-		this.properties.put(HISTOGRAM_WIDTH, 1.0);
-		//this.properties.put(ACTIVEDE_FILTERS, false);
-		//this.measurements = new FilteredMeasurementsCollection(sensorAndMeasurements);
+			final SensorAndMeasurements sensorAndMeasurements) {
+		super();
+		this.samInformation = sensorAndMeasurements;
+
+		/* Check if there would be at least to different buckets for the
+		 * histogram as JFreeChart otherwise displays a bar with default
+		 * width and the small values are very difficult to identify.
+		 */
+		TimeSpanMeasurement timeSpanMeasurement = null;
+		double minValue = Double.MAX_VALUE, maxValue = Double.MIN_VALUE;
+		for (Measurement measurement : samInformation.getMeasurements()) {
+			timeSpanMeasurement = (TimeSpanMeasurement) measurement;
+			minValue = (minValue < timeSpanMeasurement.getTimeSpan()) 
+					? minValue : timeSpanMeasurement.getTimeSpan();  
+			maxValue = (maxValue > timeSpanMeasurement.getTimeSpan()) 
+					? maxValue : timeSpanMeasurement.getTimeSpan();  
+		}
+		if (maxValue - minValue < Histogram.DEFAULT_BUCKET_WIDTH) {
+			this.adapterProperties.put(HISTOGRAM_WIDTH, 
+					(maxValue - minValue) / 2);
+		} else {
+			this.adapterProperties.put(HISTOGRAM_WIDTH, 
+					Histogram.DEFAULT_BUCKET_WIDTH);
+		}
+		
+//		this.properties.put(ACTIVEDE_FILTERS, false);
+//		this.measurements = new FilteredMeasurementsCollection(
+//				sensorAndMeasurements);
 	}
 
+	/** {@inheritDoc}
+	 */
 	public Object getAdaptedObject() {
-
 //		SensorAndMeasurements values = (Boolean) properties
 //				.get(ACTIVEDE_FILTERS) ? (SensorAndMeasurements) measurements
 //				.getAdaptedObject() : myValues;
 
-		int maxHistClass = 0;
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		double histWidth = (Double) properties.get(HISTOGRAM_WIDTH);
-		if (histWidth == 0) {
+		double histWidth = (Double) adapterProperties.get(HISTOGRAM_WIDTH);
+		if (histWidth <= 0) {
 			throw new RuntimeException("Histogram width must be > 0");
 		}
-		Histogram hist = new Histogram(myValues.getSensor().getSensorName());
-		for (Measurement m : myValues.getMeasurements()) {
-			TimeSpanMeasurement tsm = (TimeSpanMeasurement) m;
-			int histogramClass = (int) ((tsm.getTimeSpan() + histWidth / 2) / histWidth);
-			Object o = map.get(histogramClass);
-			if (o != null) {
-				Integer oldValue = (Integer) o;
-				map.put(histogramClass, oldValue + 1);
-			} else
-				map.put(histogramClass, 1);
-			if (maxHistClass < histogramClass)
-				maxHistClass = histogramClass;
-		}
+		
+		Histogram histogram = new Histogram(
+				samInformation.getSensor().getSensorName(), histWidth);
+		HashMap<Integer, Integer> histClasses = new HashMap<Integer, Integer>();
+		
+		int maxHistClass = 
+			assignMeasurementsToClasses(histClasses, histWidth);
+		storeClassifiedMeasurementsInHistogram(
+				histogram, histClasses, maxHistClass);
+		
+		return histogram;
+	}
+
+	/**Stores the classified measurements in a histogram.
+	 * @param histogram The histogram in which the information is stored.
+	 * @param histClasses The classes and the frequency of the measurements 
+	 *        per class.
+	 * @param maxHistClass The class with the higher number in which the 
+	 *        frequency is greater than 0.
+	 */
+	private void storeClassifiedMeasurementsInHistogram(Histogram histogram, 
+			final HashMap<Integer, Integer> histClasses, 
+			final int maxHistClass) {
+		double histWidth = histogram.getBucketWidth();
 		boolean firstValueFound = false;
 		for (int i = 0; i <= maxHistClass; i++) {
-			Object o = map.get(i);
-			if (o != null) {
-				firstValueFound = true;
-				hist.addEntity(new HistogramEntity((Integer) o
-						/ (double) myValues.getMeasurements().size(), i
-						* histWidth));
+			Integer histClass = histClasses.get(i);
+			if (histClass == null) {
+				/* only append classes with 0 probability if there is at least 
+				 * one class with probability >=0 in the left hand side of the 
+				 * current class.
+				 */
+				if (firstValueFound) {
+					histogram.addEntity(new HistogramBucketInformation(0.0, 
+							i * histWidth));
+				}
 			} else {
-				if (firstValueFound)
-					hist.addEntity(new HistogramEntity(0.0, i * histWidth));
+				firstValueFound = true;
+				// calculate probability and store class
+				histogram.addEntity(new HistogramBucketInformation(
+						histClass.doubleValue() 
+						/ (double) samInformation.getMeasurements().size(), 
+						i	* histWidth));
 			}
 		}
-		return hist;
 	}
 
-	public Properties getProperties() {
-		return properties;
-	}
-
-	public void setProperties(Properties newProperties) {
-		this.properties = newProperties;
+	/**Assigns the measurement to histogram classes.
+	 * The number of measurements is stored for each of the classes.
+	 * @param histClasses Receives the number of measurements for each class.
+	 * @param histWidth width of the classes of a histogram.
+	 * @return number of the highest class.
+	 */
+	private int assignMeasurementsToClasses(
+			HashMap<Integer, Integer> histClasses, final double histWidth) {
+		int maxHistClass = 0;
+		int histogramClassNumber;
+		for (Measurement measurement : samInformation.getMeasurements()) {
+			TimeSpanMeasurement tsm = (TimeSpanMeasurement) measurement;
+			/* checks to which class the measurement belongs.
+			 * The class number always starts at 0, which means the interval
+			 * [0..histWidth/2). Uses integer rounding and comparison for
+			 * performance reasons instead of the easier to understand Floor()
+			 */
+			histogramClassNumber = (int) (tsm.getTimeSpan() / histWidth);
+			// increases number of measurements for the class
+			Integer classNumber = histClasses.get(histogramClassNumber);
+			if (classNumber == null) {
+				histClasses.put(histogramClassNumber, 1);
+			} else {
+				histClasses.put(histogramClassNumber, classNumber.intValue() 
+						+ 1);
+			}
+			/*Store the number of the highest class in which a measurement was 
+			 * found
+			 */
+			if (maxHistClass < histogramClassNumber) {
+				maxHistClass = histogramClassNumber;
+			}
+		}
+		return maxHistClass;
 	}
 
 //	public FilteredMeasurementsCollection getMeasurements() {

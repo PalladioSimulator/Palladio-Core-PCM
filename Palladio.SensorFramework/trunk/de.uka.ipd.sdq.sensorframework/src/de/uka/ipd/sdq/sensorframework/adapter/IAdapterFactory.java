@@ -18,15 +18,15 @@ public interface IAdapterFactory {
 	
 	/**
 	 * Factory method. Creates a new adapter of this factory's type
-	 * @param adaptee The datasource to adapt
-	 * @return An adapter which adapts the given datasource
+	 * @param adaptee The data source to adapt
+	 * @return A data adapter which adapts the given data source
 	 */
-	IAdapter getAdapter(Object adaptee); 
+	DataAdapter getAdapter(Object adaptee); 
 	
 
 	/**
 	 * Get a descriptive label of the metric computed by adapters created by this factory, e.g., ResponseTime or Throughput
-	 * @return A label describing the calulated metric
+	 * @return A label describing the calculated metric
 	 */
 	String getMetricLabel();	
 	

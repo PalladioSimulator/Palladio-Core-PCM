@@ -17,26 +17,24 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.adapter.DataAdapter;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
-import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorframework.entities.Measurement;
-import de.uka.ipd.sdq.sensorframework.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
-import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorframework.adapter.TimeSpanToHistogramAdapter;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 import de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.AbstractJFreeChartWidthViewer;
 
+/**Report for Histograms.
+ * Provides the basic possibilities to generate histograms and change their classes width.
+ * @author groenda
+ */
 public abstract class AbstractJFreeChartWidthReport extends AbstractReportView implements IVisualisation<Histogram>{
 
 	AbstractJFreeChartWidthViewer viewer;
 	protected Text widthInput;
-	protected double histogramWidth = 1.0;
-	public static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
+	protected double histogramWidth = Double.NaN;
+	private List<DataAdapter> adapterList = null;
 	
 	public AbstractJFreeChartWidthReport() {
 		super();
@@ -44,8 +42,7 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 	
 	protected abstract AbstractJFreeChartWidthViewer createViewer(Composite parent, int flags);
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView#createReportControls(org.eclipse.swt.widgets.Composite)
+	/** {@inheritDoc}
 	 */
 	@Override
 	protected void createReportControls(Composite parent) {
@@ -72,11 +69,12 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 				switch (event.type) {
 				case SWT.KeyDown:
 					if (event.character == SWT.CR)
-						setHistogramWidth(Double.parseDouble(widthInput
-								.getText()));
+						updateHistogramWidth(Double.parseDouble(widthInput
+							.getText()));
 					break;
 				case SWT.FocusOut:
-					setHistogramWidth(Double.parseDouble(widthInput.getText()));
+					updateHistogramWidth(Double.parseDouble(widthInput
+							.getText()));
 					break;
 				}
 			}
@@ -95,76 +93,80 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 		histogramWidthPanel.setLayoutData(data);
 	}
 
-	private void setHistogramWidth(double newWidth) {
+	/**Updates the histogram width after a change on the gui.
+	 * @param newWidth The new width to set.
+	 */
+	private void updateHistogramWidth(double newWidth) {
 		this.histogramWidth = newWidth;
-		((ConfigEditorInput)getEditorInput()).notifyObserver();
+
+		// Set new histogram width on all adapters of this report
+		for (DataAdapter adapter : adapterList) {
+			Properties adapterProperties = adapter.getProperties();
+			adapterProperties.put(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH, 
+					histogramWidth);
+			adapter.setProperties(adapterProperties);
+		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#setInput(java.util.Collection)
+	/** {@inheritDoc}
 	 */
-	public void setInput(Collection<Histogram> c) {
-		viewer.setData(c);
+	public void setInput(Collection<Histogram> histograms) {
+		viewer.setData(histograms);
 		this.widthInput.setText(""+histogramWidth);
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView#setInput(java.util.List)
+	/** {@inheritDoc}
 	 */
 	@Override
-	protected void setInput(List<IAdapter> list) {
-		ArrayList<Histogram> viewerInput = new ArrayList<Histogram>();
-		for (IAdapter a : list) {
-			Properties p = a.getProperties();
-			if (p == null)
-				p = new Properties();
-			// Check if there are at least to different buckets for the histogram
-			// as JFreeChart otherwise displays a bar from -0.5 to 0.5 and small 
-			// values cannot be restored, as the range is fixed by then.
-			if (((Histogram) a.getAdaptedObject()).getEntityList().size() == 1) {
-				TimeSpanMeasurement timeSpanMeasurement = null;
-				double minValue = Double.MAX_VALUE, maxValue = Double.MIN_VALUE;
-				List<ConfigEntry> entries = ((ConfigEditorInput)getEditorInput()).getConfigEntrys();
-				for (ConfigEntry entry : entries) {
-//					IDAOFactory sdjklf = entry.getDatasource();
-					ExperimentRun experimentRun = entry.getExperimentRun();
-					List<Sensor> sensors = entry.getSensors();
-					for (Sensor sensor : sensors) {
-						SensorAndMeasurements sam = experimentRun.getMeasurementsOfSensor(sensor);
-						Collection<Measurement> measurements = sam.getMeasurements();
-						for (Measurement measurement : measurements) {
-							timeSpanMeasurement = (TimeSpanMeasurement) measurement;
-							minValue = (minValue < timeSpanMeasurement.getTimeSpan()) ? minValue : timeSpanMeasurement.getTimeSpan();  
-							maxValue = (maxValue > timeSpanMeasurement.getTimeSpan()) ? maxValue : timeSpanMeasurement.getTimeSpan();  
-						}
-					}
-				}
-				histogramWidth = (maxValue-minValue)/2;
+	protected void setInput(List<DataAdapter> list) {
+		adapterList = list; 
+		ArrayList<Histogram> histogramList = new ArrayList<Histogram>();
+		// Determine minimal histogram width for all histograms
+		double minimalWidth = Double.MAX_VALUE;
+		double currentWidth = 0;
+		boolean allSameWidth = true;
+		for (DataAdapter adapter : list) {
+			Properties histogramProperties = adapter.getProperties();
+			assert(histogramProperties != null);
+			currentWidth = (Double) histogramProperties.get(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH);
+			if (minimalWidth > currentWidth) {
+				if (minimalWidth != Double.MAX_VALUE)
+					allSameWidth = false;
+				minimalWidth = currentWidth;
 			}
-			p.put(HISTOGRAM_WIDTH, histogramWidth);
-			a.setProperties(p);
-			viewerInput.add((Histogram) a.getAdaptedObject());
 		}
-		this.setInput(viewerInput);
+		
+		/* Set all histograms to the same histogram width and add histograms
+		 * to the current view.
+		 */
+		for (DataAdapter adapter : list) {
+			if (!allSameWidth) {
+				Properties adapterProperties = adapter.getProperties();
+				adapterProperties.put(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH, minimalWidth);
+				adapter.setProperties(adapterProperties);
+			}
+			histogramList.add((Histogram) adapter.getAdaptedObject());
+		}
+		histogramWidth = minimalWidth; // is now true
+
+		this.setInput(histogramList);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
+
+	/** {@inheritDoc}
 	 */
 	@Override
 	public void setFocus() {
 		viewer.setFocus();
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#addInput(java.util.Collection)
+	/** {@inheritDoc}
 	 */
 	public void addInput(Collection<Histogram> c) {
 		// The implementation is not necessary.
 	}
 	
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation#deleteInput(java.util.Collection)
+	/** {@inheritDoc}
 	 */
 	public void deleteInput(Collection<Histogram> c) {
 		// The implementation is not necessary.

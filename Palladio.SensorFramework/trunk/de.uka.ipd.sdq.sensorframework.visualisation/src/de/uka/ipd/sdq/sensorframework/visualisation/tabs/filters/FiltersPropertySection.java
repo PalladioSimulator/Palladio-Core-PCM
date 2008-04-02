@@ -253,8 +253,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 */
 	@Override
 	public void refresh() {
-		// sent message to observer
-		configObject.notifyObserver();
+		// send message to observer
+		configObject.update(null, null);
 		// refresh TableViewer (FilterTab)
 		viewer.refresh();
 	}

@@ -15,7 +15,7 @@ public class TimeSpanSensorToTimeSeriesFactory implements IAdapterFactory {
 		return false;
 	}
 
-	public IAdapter getAdapter(Object adaptee) {
+	public DataAdapter getAdapter(Object adaptee) {
 		return new TimeSpanToTimeSeriesAdapter((SensorAndMeasurements) adaptee);
 	}
 
