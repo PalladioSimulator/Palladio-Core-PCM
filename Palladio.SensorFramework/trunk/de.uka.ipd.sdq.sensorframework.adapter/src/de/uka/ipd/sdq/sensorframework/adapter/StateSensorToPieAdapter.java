@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 public class StateSensorToPieAdapter extends DataAdapter {
 
 	/** Factor to display values in percent. */
-	private static final int PERCENT_FACTOR = 100;
+	private static final int FACTOR_PERCENT = 100;
 	
 	/** Information about the StateSensor and the measurements. */
 	private SensorAndMeasurements samInformation;
@@ -37,15 +37,36 @@ public class StateSensorToPieAdapter extends DataAdapter {
 	/** {@inheritDoc}
 	 */
 	public Object getAdaptedObject() {
-		Pie p = new Pie(((StateSensor) 
-				samInformation.getSensor()).getSensorName());
 		HashMap<String, Double> newPie = new HashMap<String, Double>(); 
-		for (State state : ((StateSensor) 
-				samInformation.getSensor()).getSensorStates()) {
+		double sum = calculateOccurenceCounts(newPie);
+		
+		return createPie(newPie, sum);
+	}
+	
+	private Pie createPie(final HashMap<String, Double> newPie, 
+			final double sum) {
+		Pie p = new Pie((
+				(StateSensor) samInformation.getSensor()).getSensorName());
+		DecimalFormat df = 
+			new DecimalFormat("#0.0", new DecimalFormatSymbols(Locale.US));
+		for (Entry < String, Double > e : newPie.entrySet()) {
+			if (e.getValue() > 0.0) {
+				p.addEntity(new PieEntity(e.getValue(), e.getKey() 
+					+ " (" + df.format(e.getValue() * FACTOR_PERCENT / sum) 
+					+ "%)"));
+			}
+		}
+		return p;
+	}
+
+	private double calculateOccurenceCounts(final HashMap<String, Double> newPie) {
+		for (State state : (
+				(StateSensor) samInformation.getSensor()).getSensorStates()) {
 			newPie.put(state.getStateLiteral(), 0.0);
 		}
-		double lastChangeTime = 0.0; State lastState = ((StateSensor) 
-				samInformation.getSensor()).getInitialState();
+		double lastChangeTime = 0.0; 
+		State lastState = 
+			((StateSensor) samInformation.getSensor()).getInitialState();
 		double sum = 0;
 		for (Measurement m : samInformation.getMeasurements()) {
 			StateMeasurement sm = (StateMeasurement) m;
@@ -58,12 +79,6 @@ public class StateSensorToPieAdapter extends DataAdapter {
 			lastChangeTime = sm.getEventTime();
 			lastState = sm.getSensorState();
 		}
-		DecimalFormat df = new DecimalFormat("#0.0", 
-				new DecimalFormatSymbols(Locale.US));
-		for (Entry < String, Double > e : newPie.entrySet()) {
-			p.addEntity(new PieEntity(e.getValue(), e.getKey() + " (" 
-					+ df.format(e.getValue() * PERCENT_FACTOR / sum) + "%)"));
-		}
-		return p;
+		return sum;
 	}
 }
