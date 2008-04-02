@@ -29,7 +29,6 @@ import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.AddNewDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.OpenDatasourceWizard;
@@ -48,7 +47,7 @@ public class ExperimentsView extends ViewPart {
 	
 	/** Define elements, which can be deleted. */
 	private IDAOFactory selectedFactory = null;
-	private ExperimentImpl selectedExperiment = null;
+	private Experiment selectedExperiment = null;
 
 	/** Define the actions for menu manager. */
 	private Action reloadView;
@@ -260,10 +259,8 @@ public class ExperimentsView extends ViewPart {
 					viewer.refresh();
 				}
 				// selected element in 'ExperimentView' is Experiment
-				if (selectedExperiment != null) {
-					long id = selectedExperiment.getFactory().getID();
-					SensorFrameworkDataset.singleton().getDataSourceByID(id)
-							.createExperimentDAO().removeExperiment(
+				if (selectedExperiment != null && selectedFactory != null) {
+					selectedFactory.createExperimentDAO().removeExperiment(
 									selectedExperiment, true);
 					viewer.refresh();
 				}
@@ -310,7 +307,8 @@ public class ExperimentsView extends ViewPart {
 			properties.setEnabled(true);
 		} else if (selected instanceof ExperimentAndDAO) {
 			ExperimentAndDAO experimentAndDAO = (ExperimentAndDAO) selected;
-			selectedExperiment = (ExperimentImpl) experimentAndDAO.getExperiment();
+			selectedExperiment = (Experiment) experimentAndDAO.getExperiment();
+			selectedFactory = experimentAndDAO.getDatasource();
 			deleteDataSet.setEnabled(true);
 			properties.setEnabled(false);
 		} else {
