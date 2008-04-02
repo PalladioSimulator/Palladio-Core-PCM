@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
@@ -124,23 +126,26 @@ public abstract class AbstractScheduledResource extends Entity {
 	 */
 	public void consumeResource(SimProcess thread, double demand)
 	{
-		double calculatedDemand = calculateDemand(demand);
-		if (calculatedDemand < 0)
-			throw new NegativeDemandIssuedException("A negative demand occured. Demand was "+demand);
-		experimentRun.addTimeSpanMeasurement(
-				demandTimeSensor, this.getModel().getSimulationControl().getCurrentSimulationTime(), 
-				demand);
-		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculatedDemand,this,this.getModel().getSimulationControl().getCurrentSimulationTime());
-		if (job.getDemand() > ((SimuComModel)this.getModel()).getConfig().getSimuTime())
-			throw new DemandTooLargeException("A demand calculated from a processing rate and a demand in the design model ("+
-					demand+") has been issued to resource "+
-					this.getName()+" which is larger than the total simulation time ("+
-					((SimuComModel)this.getModel()).getConfig().getSimuTime()+"). Check your models.");
-		ISimEventDelegate ev = new JobArrivalEvent(this.getModel(),
-				job,"Arrival Event");
-		ev.schedule(job, 0);
-		logger.debug("Thread "+thread.getName()+" requested processing of demand "+calculatedDemand);
-		thread.passivate();
+		if (this.getModel().getSimulationControl().isRunning()) {
+			double calculatedDemand = calculateDemand(demand);
+			logger.info("Resource " + this.getName() + " loaded with "+calculatedDemand);
+			if (calculatedDemand < 0)
+				throw new NegativeDemandIssuedException("A negative demand occured. Demand was "+demand);
+			experimentRun.addTimeSpanMeasurement(
+					demandTimeSensor, this.getModel().getSimulationControl().getCurrentSimulationTime(), 
+					demand);
+			JobAndDemandStruct job = new JobAndDemandStruct(thread,calculatedDemand,this,this.getModel().getSimulationControl().getCurrentSimulationTime());
+			if (job.getDemand() > ((SimuComModel)this.getModel()).getConfig().getSimuTime())
+				throw new DemandTooLargeException("A demand calculated from a processing rate and a demand in the design model ("+
+						demand+") has been issued to resource "+
+						this.getName()+" which is larger than the total simulation time ("+
+						((SimuComModel)this.getModel()).getConfig().getSimuTime()+"). Check your models.");
+			ISimEventDelegate ev = new JobArrivalEvent(this.getModel(),
+					job,"Arrival Event");
+			ev.schedule(job, 0);
+			logger.debug("Thread "+thread.getName()+" requested processing of demand "+calculatedDemand);
+			thread.passivate();
+		}
 	}
 
 	/**
@@ -150,8 +155,10 @@ public abstract class AbstractScheduledResource extends Entity {
 	 */
 	public JobAndDemandStruct removeFinishedJob() {
 		JobAndDemandStruct job = myStrategy.removeFinishedJob();
-		experimentRun.addTimeSpanMeasurement(waitTimeSensor, this.getModel().getSimulationControl().getCurrentSimulationTime(), 
-				job.getWaitTime(this.getModel().getSimulationControl().getCurrentSimulationTime()));
+		if (this.getModel().getSimulationControl().isRunning()) {
+			experimentRun.addTimeSpanMeasurement(waitTimeSensor, this.getModel().getSimulationControl().getCurrentSimulationTime(), 
+					job.getWaitTime(this.getModel().getSimulationControl().getCurrentSimulationTime()));
+		}
 		return job;
 	}
 

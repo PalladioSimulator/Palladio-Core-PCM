@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Scheduler strategy for resources which exist in unlimited amounts. It
@@ -48,6 +49,12 @@ public class DelayStrategy implements ISchedulingStrategy {
 			throw new RuntimeException("Job finished, but demand > 0");
 		jobs.remove(currentMin);
 		return currentMin;
+	}
+
+	public List<JobAndDemandStruct> removeRemainingJobs() {
+		List<JobAndDemandStruct> remainingJobs = new ArrayList<JobAndDemandStruct>(this.jobs);
+		this.jobs.clear();
+		return remainingJobs;
 	}
 
 }

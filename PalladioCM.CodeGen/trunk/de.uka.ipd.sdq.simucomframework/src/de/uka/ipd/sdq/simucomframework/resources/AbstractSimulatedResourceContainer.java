@@ -45,7 +45,6 @@ public abstract class AbstractSimulatedResourceContainer {
 	 * responsible itself for converting this demand into time spans
 	 */
 	public void loadActiveResource(SimProcess requestingProcess, String typeID, double demand) {
-		logger.info(typeID + " loaded with "+demand);
 		AbstractScheduledResource resource = activeResources.get(typeID);
 		if (resource == null) {
 			logger.error("Resource container is missing a resource which was attempted to be loaded"+

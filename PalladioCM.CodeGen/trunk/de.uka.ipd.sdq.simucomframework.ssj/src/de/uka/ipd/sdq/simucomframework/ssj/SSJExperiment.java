@@ -24,6 +24,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	private ArrayList<Observer> timeObservers = new ArrayList<Observer>();
 	double lastNotificationTime = 0.0;
 	private boolean isRunning;
+	private SimuComModel model;
 	
 	public SSJExperiment(final SimuComModel model) {
 		model.setSimulationControl(this);
@@ -32,11 +33,12 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		SchedulingFactory.setUsedSimulator(simulator);
 		ISchedulingFactory.eINSTANCE.resetFactory();
 		
+		this.model = model;
 		createStartEvent(model).schedule(0);
 	}
 
-	public void addStopCondition(Condition maxMeasurementsStopCondition) {
-		stopConditions.add(maxMeasurementsStopCondition);
+	public void addStopCondition(Condition condition) {
+		stopConditions.add(condition);
 	}
 
 	public void checkStopConditions(){
@@ -55,7 +57,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	}
 	
 	public void addTimeObserver(Observer observer) {
-		timeObservers .add(observer);
+		timeObservers.add(observer);
 	}
 
 	public double getCurrentSimulationTime() {
@@ -84,7 +86,9 @@ public class SSJExperiment implements ISimulationControlDelegate {
 		this.isRunning = false;
 		
 		logger.info("Simulation stop requested!");
-		createStopEvent().schedule(0);
+		// createStopEvent().schedule(0);
+		this.model.getResourceRegistry().deactivateAllActiveResources();
+		this.model.getResourceRegistry().deactivateAllPassiveResources();
 		logger.info("Scheduled Simulation Stop Event now");
 	}
 
@@ -101,11 +105,10 @@ public class SSJExperiment implements ISimulationControlDelegate {
 
 			@Override
 			public void actions() {
-				logger.debug("Executing Stop Event");
-				simulator.stop();
-				// Removed the following line because it deadlocked SSJ
-				// And even worse, it does not kill all threads.... :-(
-				// simulator.killAll();
+				if (isRunning()){
+					logger.debug("Executing Stop Event");
+					stop();
+				}
 			}
 			
 		};

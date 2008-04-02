@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -49,4 +51,10 @@ public class FCFSStrategy implements ISchedulingStrategy {
 		return runQueue.size();
 	}
 
+	public List<JobAndDemandStruct> removeRemainingJobs() {
+		List<JobAndDemandStruct> remainingJobs = new ArrayList<JobAndDemandStruct>(this.runQueue);
+		this.runQueue.clear();
+		return remainingJobs;
+	}
+	
 }

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.util.List;
+
 
 /**
  * Interface for Scheduling Strategies
@@ -48,5 +50,10 @@ public interface ISchedulingStrategy {
 	 * processor
 	 */
 	int getTotalJobCount();
+	
+	/** Remove all remaining jobs at this resource and return. Called at simulation end.
+	 * @return All jobs still waiting at this resource
+	 */
+	List<JobAndDemandStruct> removeRemainingJobs();
 
 }

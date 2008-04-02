@@ -23,33 +23,34 @@ public class SimulatedPassiveResource extends SimProcess {
 		super (myModel, resourceID);
 		associatedQueue = new ConcurrentLinkedQueue<SimProcess>();
 			
-//			new ProcessQueue(
-//				myModel, 
-//				resourceID+" WaitQueue",
-//				true,
-//				true);
 		available = capacity;
 		this.resourceID = resourceID;
 		logger.debug("Simulated Passive Resource "+resourceID+" created.");
+		
+		myModel.getResourceRegistry().addPassiveResourceToRegistry(this);
 	}
 	
 	public void acquire(SimProcess thread)
 	{
-		logger.debug("Simulated thread "+thread.getName()+" requests Passive Resource "+this.resourceID);
-		associatedQueue.add(thread);
-		this.scheduleAt(0);
-		thread.passivate();
+		if (this.getModel().getSimulationControl().isRunning()){
+			logger.debug("Simulated thread "+thread.getName()+" requests Passive Resource "+this.resourceID);
+			associatedQueue.add(thread);
+			this.scheduleAt(0);
+			thread.passivate();
+		}
 	}
 
 	public void release()
 	{
-		available++;
-		this.scheduleAt(0);
+		if (this.getModel().getSimulationControl().isRunning()){
+			available++;
+			this.scheduleAt(0);
+		}
 	}
 
 	@Override
 	public void lifeCycle() {
-		while(true)
+		while(this.getModel().getSimulationControl().isRunning())
 		{
 			if (associatedQueue.size()==0)
 			{
@@ -72,9 +73,21 @@ public class SimulatedPassiveResource extends SimProcess {
 				}
 			}
 		}
+		while (available > 0)
+		{
+			available--;
+			SimProcess next = associatedQueue.peek();
+			associatedQueue.remove(next);
+			logger.debug("Simulated Process "+next.getName()+" acquired stopped Passive Resource "+resourceID+". It continues execution now...");
+			next.scheduleAt(0);
+		}
 	}
 
 	public void activateResource() {
 		this.scheduleAt(0);
+	}
+
+	public void deactivateResource() {
+		this.activate();
 	}
 }

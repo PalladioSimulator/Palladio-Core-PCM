@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDeleg
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
+import de.uka.ipd.sdq.simucomframework.sensors.SimuComExperimentRunDecorator;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 /**
@@ -133,7 +134,7 @@ public class SimuComModel {
 			experiment = daoFactory.createExperimentDAO().addExperiment(
 				this.getConfig().getNameExperimentRun());
 		}
-		run = experiment.addExperimentRun("Run "+new Date());
+		run = new SimuComExperimentRunDecorator(this,experiment.addExperimentRun("Run "+new Date()));
 	}
 
 	
@@ -142,7 +143,7 @@ public class SimuComModel {
 		this.daoFactory = new FileDAOFactory("C:/temp/test");
 		experiment = daoFactory.createExperimentDAO().addExperiment(
 				this.getConfig().getNameExperimentRun());
-		run = experiment.addExperimentRun("Run "+new Date());
+		run = new SimuComExperimentRunDecorator(this,experiment.addExperimentRun("Run "+new Date()));
 	}
 	
 	/**

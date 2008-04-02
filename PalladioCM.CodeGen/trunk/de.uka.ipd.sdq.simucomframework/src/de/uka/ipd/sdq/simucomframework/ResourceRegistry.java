@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
+import de.uka.ipd.sdq.simucomframework.resources.SimulatedPassiveResource;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 
 /**
@@ -20,6 +21,8 @@ public class ResourceRegistry {
 	private HashMap<String, AbstractSimulatedResourceContainer> resourceContainerHash = new HashMap<String, AbstractSimulatedResourceContainer>();
 	
 	private SimuComModel myModel = null;
+
+	private ArrayList<SimulatedPassiveResource> passiveResources = new ArrayList<SimulatedPassiveResource>();
 
 	public ResourceRegistry(SimuComModel model) {
 		this.myModel = model;
@@ -101,6 +104,16 @@ public class ResourceRegistry {
 			resources.addAll(src.getActiveResources());
 		for (AbstractScheduledResource sar : resources) {
 			sar.deactivateResource();
+		}
+	}
+
+	public void addPassiveResourceToRegistry(SimulatedPassiveResource spr){
+		this.passiveResources.add(spr);
+	}
+	
+	public void deactivateAllPassiveResources() {
+		for (SimulatedPassiveResource spr : passiveResources ) {
+			spr.deactivateResource();
 		}
 	}
 
