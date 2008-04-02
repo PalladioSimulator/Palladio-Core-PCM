@@ -84,8 +84,8 @@ public class ConfigureBirtViewerAction extends Action implements IAction {
 			BarSeries series = (BarSeries) BarSeriesImpl.create();
 			series.setDataSet(orthovalues);
 			series.getDataDefinition().add(q);
-			series.getTitle().getCaption().setValue("Sensor");
-			series.getTitle().setVisible(true);
+			series.getLabel().getCaption().setValue("Sensor");
+			series.getLabel().setVisible(true);
 			((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().add(series);
 
 			//series.setSeriesIdentifier(s.getSensorName() + " [ID:"

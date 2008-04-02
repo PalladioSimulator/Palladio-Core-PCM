@@ -5,7 +5,7 @@ import org.eclipse.birt.chart.device.IDisplayServer;
 import org.eclipse.birt.chart.exception.ChartException;
 import org.eclipse.birt.chart.factory.GeneratedChartState;
 import org.eclipse.birt.chart.factory.Generator;
-import org.eclipse.birt.chart.internal.log.DefaultLoggerImpl;
+//import org.eclipse.birt.chart.internal.log.DefaultLoggerImpl;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.model.attribute.Bounds;
 import org.eclipse.birt.chart.model.attribute.impl.BoundsImpl;
@@ -51,7 +51,7 @@ public class ExportAsSVGAction extends Action implements IAction {
 			gr.render(idr, gcs);
 
 		} catch (ChartException pex) {
-			DefaultLoggerImpl.instance().log(pex);
+//			DefaultLoggerImpl.instance().log(pex);
 		}
 	}
 

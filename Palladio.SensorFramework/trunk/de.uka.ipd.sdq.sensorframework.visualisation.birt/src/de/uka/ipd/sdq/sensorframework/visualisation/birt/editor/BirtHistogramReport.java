@@ -10,6 +10,7 @@ import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributo
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
+import de.uka.ipd.sdq.sensorframework.adapter.DataAdapter;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.birt.HistogramChartVisualization;
@@ -55,7 +56,13 @@ public class BirtHistogramReport extends AbstractReportView implements
 	}
 
 	@Override
-	protected void setInput(List<IAdapter> list) {
+	protected void setInput(List<DataAdapter> list) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setFocus() {
 		// TODO Auto-generated method stub
 		
 	}

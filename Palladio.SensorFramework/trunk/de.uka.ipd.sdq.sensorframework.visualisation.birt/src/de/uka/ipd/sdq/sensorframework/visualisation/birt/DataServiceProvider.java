@@ -173,4 +173,22 @@ public class DataServiceProvider implements IDataServiceProvider {
 		return false;
 	}
 
+	@Override
+	public String[] getAllReportItemReferences() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getReportItemReference() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setReportItemReference(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

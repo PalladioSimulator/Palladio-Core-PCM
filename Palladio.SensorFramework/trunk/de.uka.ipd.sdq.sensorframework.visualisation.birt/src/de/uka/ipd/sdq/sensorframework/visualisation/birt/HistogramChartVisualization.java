@@ -7,7 +7,7 @@ import java.util.Collection;
 
 import org.eclipse.birt.chart.device.IDeviceRenderer;
 import org.eclipse.birt.chart.exception.ChartException;
-import org.eclipse.birt.chart.internal.log.DefaultLoggerImpl;
+//import org.eclipse.birt.chart.internal.log.DefaultLoggerImpl;
 import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.attribute.AxisType;
 import org.eclipse.birt.chart.model.attribute.ChartDimension;
@@ -84,14 +84,15 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 			viewer.setMenu(menu);
 
 		} catch (ChartException pex) {
-			DefaultLoggerImpl.instance().log(pex);
+//			DefaultLoggerImpl.instance().log(pex);
+			throw new RuntimeException(pex.getLocalizedMessage());
 		}
 	}
 
 	public ChartWithAxes createEmptyChart() {
 		createChart();
 		initialisePlot();
-		cwa.getTitle().getTitle().getCaption().setValue("Response Time Histogram");
+		cwa.getTitle().getLabel().getCaption().setValue("Response Time Histogram");
 		
 		configureLegend();
 		configureXAxis();
@@ -185,8 +186,8 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		series.setDataSet(orthovalues);
 		series.setSeriesIdentifier(label);
 		series.getDataDefinition().add(QueryImpl.create(""));
-		series.getTitle().getCaption().setValue(label);
-		series.getTitle().setVisible(false);
+		series.getLabel().getCaption().setValue(label);
+		series.getLabel().setVisible(false);
 		series.setStacked(true);
 		
 		SeriesDefinition sdY = SeriesDefinitionImpl.create();
