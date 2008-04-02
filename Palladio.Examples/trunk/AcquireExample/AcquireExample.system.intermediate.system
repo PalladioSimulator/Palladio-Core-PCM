@@ -4,12 +4,12 @@
     <encapsulatedComponent_ChildComponentContext href="file:/C:/Users/Snowball/workspace_pcm/AcquireExample/AcquireExample.repository#_k8LTsP1nEdyHRtyNpj5nfQ"/>
     <configParameterUsages_AssemblyContext>
       <variableCharacterisation_VariableUsage type="VALUE">
-        <specification_VariableCharacterisation specification="-1"/>
+        <specification_VariableCharacterisation specification="1"/>
       </variableCharacterisation_VariableUsage>
       <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="lockCount"/>
     </configParameterUsages_AssemblyContext>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_RX-QEP1uEdyTbeisQrFYxA" entityName="AssCtx Middleware aMaschine">
+  <childComponentContexts_ComposedStructure id="_pB2wcP-oEdy2edEEJlmdug" entityName="AssCtx Middleware aMaschine">
     <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
   </childComponentContexts_ComposedStructure>
   <providedDelegationConnectors_ComposedStructure id="_hmacUP1oEdyHRtyNpj5nfQ" entityName="ProvDelegation Provided_ILock -> Provided_ILock_Impl" outerProvidedRole_ProvidedDelegationConnector="_Z1xxkP1oEdyHRtyNpj5nfQ" childComponentContext_ProvidedDelegationConnector="_dFi5MP1oEdyHRtyNpj5nfQ">

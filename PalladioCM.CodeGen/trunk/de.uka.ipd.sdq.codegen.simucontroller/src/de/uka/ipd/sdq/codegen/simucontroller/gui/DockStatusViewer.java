@@ -23,25 +23,27 @@ import org.eclipse.ui.PlatformUI;
 
 import swing2swt.layout.BorderLayout;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
+import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 
 public class DockStatusViewer extends Composite implements Observer {
 
-	private Image image;
-	private DockStatusModel model;
+	private Image idle_image;
+	private DockModel model;
 	private Label simTimeLabel;
 	private Label measurementsLabel;
 	private ProgressBar progressBar;
 	private Label remoteLocationLabel;
 	private Label dockIdLabel;
-	private Image image_busy;
-	private Canvas c;
+	private Image running_image;
+	private Image pause_image;
+	private Canvas iconCanvas;
 
 	/**
 	 * Create the composite
 	 * @param parent
 	 * @param style
 	 */
-	public DockStatusViewer(final DockStatusModel model, Composite parent, int style) {
+	public DockStatusViewer(final DockModel model, Composite parent, int style) {
 		super(parent, style);
 		this.model = model;
 		model.addObserver(this);
@@ -51,7 +53,7 @@ public class DockStatusViewer extends Composite implements Observer {
 		final Composite composite = new Composite(this, SWT.NONE);
 		composite.setLayout(new FillLayout());
 
-		c = new Canvas(composite, SWT.NONE);
+		iconCanvas = new Canvas(composite, SWT.NONE);
 
 		final Composite composite_1 = new Composite(this, SWT.NONE);
 		composite_1.setLayoutData(BorderLayout.SOUTH);
@@ -102,13 +104,22 @@ public class DockStatusViewer extends Composite implements Observer {
 		progressBar.setLayoutData(gd_progressBar);
 		//
 		
-		image = SimuControllerImages.imageRegistry.get(SimuControllerImages.MASCHINE);
-		image_busy = SimuControllerImages.imageRegistry.get(SimuControllerImages.MASCHINE_BUSY);
-		c.addPaintListener(new PaintListener(){
+		idle_image = SimuControllerImages.imageRegistry.get(SimuControllerImages.MASCHINE);
+		running_image = SimuControllerImages.imageRegistry.get(SimuControllerImages.MASCHINE_BUSY);
+		pause_image = SimuControllerImages.imageRegistry.get(SimuControllerImages.MASCHINE_PAUSE);
+		iconCanvas.addPaintListener(new PaintListener(){
 
 			public void paintControl(PaintEvent e) {
+				Image image = null;
+				
+				if (DockStatusViewer.this.model.isIdle())
+					image = idle_image;
+				else if (DockStatusViewer.this.model.isSuspended() && !DockStatusViewer.this.model.isStepping())
+					image = pause_image;
+				else
+					image = running_image;
 				if (!image.isDisposed())
-					e.gc.drawImage(DockStatusViewer.this.model.isIdle() ? image : image_busy, 0, 0);
+					e.gc.drawImage(image, 0, 0);
 			}
 			
 		});
@@ -138,7 +149,7 @@ public class DockStatusViewer extends Composite implements Observer {
 				measurementsLabel.setText(model.getMeasurementCount()+"");
 				simTimeLabel.setText(new DecimalFormat("0.#").format(model.getSimTime()));
 				progressBar.setSelection(model.getPercentDone());
-				c.redraw();
+				iconCanvas.redraw();
 			}
 			
 		});

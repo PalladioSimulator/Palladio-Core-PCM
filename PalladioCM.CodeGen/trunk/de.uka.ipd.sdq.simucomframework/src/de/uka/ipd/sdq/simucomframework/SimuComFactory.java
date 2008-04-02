@@ -37,7 +37,7 @@ public class SimuComFactory {
 			}
 		}
 		if (factory == null)
-			return null;
+			throw new RuntimeException("No Simulation Engine available. Please install at least one engine.");
 		else {
 			SimuComModel model = new SimuComModel( 
 					config, factory, isRemote);

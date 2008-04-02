@@ -18,10 +18,15 @@ public interface SimulationDockService {
 	 * @return The ID of the simulation dock
 	 */
 	String getDockId();
-
 	
 	/**
 	 * Cancels the running simulation 
 	 */
 	void stopSimulation();
+	
+	void suspend();
+	
+	void resume();
+
+	void step();
 }

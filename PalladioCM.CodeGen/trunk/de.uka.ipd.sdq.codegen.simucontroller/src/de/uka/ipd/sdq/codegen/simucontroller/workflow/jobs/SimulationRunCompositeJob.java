@@ -3,7 +3,10 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.model.IDebugTarget;
 
+import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugTarget;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuAttributesGetMethods;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
@@ -20,9 +23,10 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  */
 public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 
-	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes)
+	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes,
+			boolean isDebug, ILaunch launch)
 	throws JobFailedException, CoreException {
-		this(attributes,1);
+		this(attributes,1,isDebug,launch);
 	}
 	
 	/**
@@ -34,7 +38,8 @@ public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 	 * @throws CoreException
 	 * @throws JobFailedException
 	 */
-	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes, int runNo)
+	public SimulationRunCompositeJob(SimuAttributesGetMethods attributes, int runNo,
+			boolean isDebug, ILaunch launch)
 			throws JobFailedException, CoreException {
 
 		// 2. Create new Eclipse plugin project
@@ -56,10 +61,8 @@ public class SimulationRunCompositeJob extends OrderPreservingCompositeJob {
 		this.addJob(buildBundleJob);
 		
 		// 6. Transfer the JAR to a free simulation dock and simulate it
-		SimuComConfig simuConfig = new SimuComConfig(attributes.getSimuComProperties(),runNo);
-		//this.addJob(new LoadPluginJob(createPluginProjectJob));
-		//this.addJob(new SimulateJob(simuConfig));
-		this.addJob(new TransferSimulationBundleToDock(buildBundleJob,simuConfig));
+		SimuComConfig simuConfig = new SimuComConfig(attributes.getSimuComProperties(),runNo,isDebug);
+		this.addJob(new TransferSimulationBundleToDock(buildBundleJob,simuConfig,launch));
 	}
 
 	public String getName() {

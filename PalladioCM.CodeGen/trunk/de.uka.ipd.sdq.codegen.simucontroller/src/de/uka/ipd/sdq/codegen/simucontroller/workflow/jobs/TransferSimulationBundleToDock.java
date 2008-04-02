@@ -1,11 +1,13 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
+import org.eclipse.debug.core.ILaunch;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
-import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusModel;
+import de.uka.ipd.sdq.codegen.simucontroller.debug.SimulationDebugTarget;
+import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart;
 import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
@@ -13,6 +15,7 @@ import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 
 /**
  * Installs a Plug-In from the specified location string with use a bundeles
@@ -31,20 +34,32 @@ public class TransferSimulationBundleToDock implements IJob {
 	 */
 	private SimuComConfig myConfig;
 
+	private ILaunch launch;
+
+	private boolean isDebug;
+
 	public TransferSimulationBundleToDock(
 			IJobWithResult<byte[]> createPluginJarJob,
-			SimuComConfig simuConfig) {
+			SimuComConfig simuConfig, ILaunch launch) {
 		myCreatePluginProjectJob = createPluginJarJob;
 		myConfig = simuConfig;
+		this.launch = launch;
+		this.isDebug = simuConfig.isDebug();
 	}
 
 	public void execute() throws JobFailedException {
+		SimulationDebugTarget target = null;
 		assert (myCreatePluginProjectJob != null);
 
 		showSimuDockView();
 		try {
-			DockStatusModel dock = SimuControllerPlugin.getDockModel().getBestFreeDock();
-			dock.getService().simulate(
+			DockModel dock = SimuControllerPlugin.getDockModel().getBestFreeDock();
+			SimulationDockService simService = dock.getService();
+			if (isDebug) {
+				target  = new SimulationDebugTarget(launch,dock);
+				launch.addDebugTarget(target);
+			}
+			simService.simulate(
 					myConfig,
 					myCreatePluginProjectJob.getResult(),
 					dock.isRemote());
@@ -53,6 +68,21 @@ public class TransferSimulationBundleToDock implements IJob {
 		}
 		catch (Exception e) {
 			throw new JobFailedException("Job failed.",e);
+		}
+		finally {
+			if (isDebug) {
+				if (target != null) {
+					// Wait for termination, needed as termination is reported via async events by the dock
+					while (!target.isTerminated()) {
+						try {
+							Thread.sleep(100);
+						} catch (InterruptedException e) {
+						}
+					}
+					target.dispose();
+					launch.removeDebugTarget(target);
+				}
+			}
 		}
 	}
 

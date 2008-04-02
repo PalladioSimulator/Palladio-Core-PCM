@@ -4,7 +4,7 @@
     <encapsulatedComponent_ChildComponentContext href="AcquireExample.repository#_k8LTsP1nEdyHRtyNpj5nfQ"/>
     <configParameterUsages_AssemblyContext>
       <variableCharacterisation_VariableUsage type="VALUE">
-        <specification_VariableCharacterisation specification="-1"/>
+        <specification_VariableCharacterisation specification="1"/>
       </variableCharacterisation_VariableUsage>
       <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="lockCount"/>
     </configParameterUsages_AssemblyContext>

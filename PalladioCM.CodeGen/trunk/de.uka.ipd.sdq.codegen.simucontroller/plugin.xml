@@ -5,7 +5,7 @@
 	    <launchConfigurationType
            delegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuLaunchConfigurationDelegate"
            id="de.uka.ipd.sdq.simucontroller.SimuLaunching"
-           modes="run"
+           modes="run, debug"
            name="SimuBench"
            public="true">        
 	    </launchConfigurationType>

@@ -36,7 +36,7 @@ public class MultipleSimulationRunsCompositeJob extends
 		double max = Double.parseDouble(p.get(ConstantsContainer.MAXIMUM_TEXT));
 		int i = 1;
 		for (; current <= max; current += step) {
-			this.addJob(new SimulationRunCompositeJob(attributes,i));
+			this.addJob(new SimulationRunCompositeJob(attributes,i,false,null));
 			i++;
 		}
 	}

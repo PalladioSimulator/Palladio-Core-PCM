@@ -30,11 +30,12 @@ public class SimuComConfig implements Serializable {
 	private long datasourceID;
 	private Integer runNumber;
 	private Long maxMeasurementsCount;
+	private boolean isDebug;
 
 	/**
 	 * @param a map which maps configuation option IDs to their values
 	 */
-	public SimuComConfig(Map<String,Object> configuration, int runNo){
+	public SimuComConfig(Map<String,Object> configuration, int runNo, boolean debug){
 		try {
 			this.nameExperimentRun = (String) configuration.get(
 					EXPERIMENT_RUN);
@@ -47,6 +48,7 @@ public class SimuComConfig implements Serializable {
 			this.datasourceID = (Integer)configuration.get(
 					DATASOURCE_ID);
 			this.runNumber = runNo;
+			this.isDebug = debug;
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config", e);
 		}
@@ -72,6 +74,10 @@ public class SimuComConfig implements Serializable {
 		return this.datasourceID;
 	}
 
+	public boolean isDebug() {
+		return this.isDebug;
+	}
+	
 	public String getEngine() {
 		return "de.uka.ipd.sdq.simucomframework.ssj.SSJSimEngineFactory";
 	}

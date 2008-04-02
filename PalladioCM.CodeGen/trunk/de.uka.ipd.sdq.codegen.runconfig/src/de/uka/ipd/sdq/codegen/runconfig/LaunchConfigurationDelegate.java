@@ -6,6 +6,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
@@ -65,8 +67,12 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 		WorkflowExceptionHandler handler = new WorkflowExceptionHandler(
 				attributes.isShouldThrowException(configuration));
 
+		boolean isDebug = mode.equals(ILaunchManager.DEBUG_MODE);
+				
 		try {
-			workflow.addJob(createRunCompositeJob(attributes));
+			IJob myJob = createRunCompositeJob(attributes, isDebug, launch);
+			workflow.addJob(myJob);
+	
 			// execute all steps
 			workflow.run();
 		} catch (JobFailedException e) {
@@ -112,9 +118,12 @@ public abstract class LaunchConfigurationDelegate<T extends AttributesGetMethods
 	 * @param attributes -
 	 *            the generic type must be AttributesGetMethods or a subclass at
 	 *            least.
+	 * @param isDebug 
+	 * 			whether the Job created should be debugable
+	 * @param launch 
 	 */
 	protected abstract IJob createRunCompositeJob(
-			T attributes) throws JobFailedException, CoreException;
+			T attributes, boolean isDebug, ILaunch launch) throws JobFailedException, CoreException;
 	
 	/**
 	 * The method create the instance of generic type T. The type defines that

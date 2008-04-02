@@ -124,12 +124,13 @@ public abstract class AbstractScheduledResource extends Entity {
 	 */
 	public void consumeResource(SimProcess thread, double demand)
 	{
-		if (demand < 0)
+		double calculatedDemand = calculateDemand(demand);
+		if (calculatedDemand < 0)
 			throw new NegativeDemandIssuedException("A negative demand occured. Demand was "+demand);
 		experimentRun.addTimeSpanMeasurement(
 				demandTimeSensor, this.getModel().getSimulationControl().getCurrentSimulationTime(), 
 				demand);
-		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculateDemand(demand),this,this.getModel().getSimulationControl().getCurrentSimulationTime());
+		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculatedDemand,this,this.getModel().getSimulationControl().getCurrentSimulationTime());
 		if (job.getDemand() > ((SimuComModel)this.getModel()).getConfig().getSimuTime())
 			throw new DemandTooLargeException("A demand calculated from a processing rate and a demand in the design model ("+
 					demand+") has been issued to resource "+
@@ -138,7 +139,7 @@ public abstract class AbstractScheduledResource extends Entity {
 		ISimEventDelegate ev = new JobArrivalEvent(this.getModel(),
 				job,"Arrival Event");
 		ev.schedule(job, 0);
-		logger.debug("Thread "+thread.getName()+" requested processing of demand "+demand);
+		logger.debug("Thread "+thread.getName()+" requested processing of demand "+calculatedDemand);
 		thread.passivate();
 	}
 

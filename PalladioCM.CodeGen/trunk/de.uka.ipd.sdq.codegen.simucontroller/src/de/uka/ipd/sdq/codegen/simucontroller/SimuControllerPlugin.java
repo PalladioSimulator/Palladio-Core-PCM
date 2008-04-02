@@ -8,7 +8,7 @@ import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.BundleListener;
 
-import de.uka.ipd.sdq.codegen.simucontroller.gui.DockModel;
+import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DocksModel;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -21,7 +21,7 @@ public class SimuControllerPlugin extends AbstractUIPlugin {
 	// The shared instance
 	private static SimuControllerPlugin plugin;
 
-	private static DockModel dockModel = null;;
+	private static DocksModel dockModel = null;;
 	
 	/**
 	 * The constructor
@@ -51,7 +51,7 @@ public class SimuControllerPlugin extends AbstractUIPlugin {
 		ensurePluginLoaded(context,"ch.ethz.iks.r_osgi.remote");
 		ensurePluginLoaded(context,"ch.ethz.iks.r_osgi.service_discovery.slp");
 		
-		dockModel = new DockModel(context);	
+		dockModel = new DocksModel(context);	
 	}
 
 	private void ensurePluginLoaded(BundleContext context, String bundleName) {
@@ -97,7 +97,7 @@ public class SimuControllerPlugin extends AbstractUIPlugin {
 		plugin.getLog().log(new Status(severity,PLUGIN_ID,message));
 	}
 
-	public static DockModel getDockModel() {
+	public static DocksModel getDockModel() {
 		return dockModel;
 	}
 

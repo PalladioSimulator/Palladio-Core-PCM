@@ -22,6 +22,7 @@ public class SimuControllerImages {
 	public static final String SIMUCOM_CONF  	= "simucom_conf";
 	public static final String MASCHINE			= "pc_box2";
 	public static final String MASCHINE_BUSY	= "screen_blue";
+	public static final String MASCHINE_PAUSE = "screen_pause";
 	
 	// For the toolbar images
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -40,6 +41,10 @@ public class SimuControllerImages {
 
 		imageRegistry.put(MASCHINE_BUSY,
 				 getImageDescriptor(iconPath + MASCHINE_BUSY + ".gif")
+		);
+
+		imageRegistry.put(MASCHINE_PAUSE,
+				 getImageDescriptor(iconPath + MASCHINE_PAUSE + ".gif")
 		);
 		
 		imageRegistry.put(CONFIGURATION,
