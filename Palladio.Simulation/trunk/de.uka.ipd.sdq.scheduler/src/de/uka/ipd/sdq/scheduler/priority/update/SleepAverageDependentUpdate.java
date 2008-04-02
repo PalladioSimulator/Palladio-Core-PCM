@@ -13,12 +13,15 @@ public class SleepAverageDependentUpdate implements IPriorityUpdateStrategy {
 	// parameters according to the Linux 2.6.18 scheduler.
 	private double max_sleep_average;
 	private int max_bonus;
+
+	private int threshold;
 	
-	public SleepAverageDependentUpdate(IActiveProcess process, double max_sleep_average, int max_bonus) {
+	public SleepAverageDependentUpdate(IActiveProcess process, double max_sleep_average, int max_bonus, int threshold) {
 		sleepAverageSensor = new SleepAverageSensor(process, max_sleep_average);
 		process.addStateSensor(sleepAverageSensor);
 		this.max_bonus = max_bonus;
 		this.max_sleep_average = max_sleep_average;
+		this.threshold = threshold;
 	}
 
 	/**
@@ -29,6 +32,10 @@ public class SleepAverageDependentUpdate implements IPriorityUpdateStrategy {
 		int current_bonus =  (int) Math.round((sleep_average / max_sleep_average) * max_bonus);
 		current_bonus -= max_bonus / 2;
 		process.setToStaticPriorityWithBonus(current_bonus);
+		
+		if (process.getTimeslice().completelyFinished() && current_bonus > threshold)
+			process.getTimeslice().reset();
+		
 		return true;
 	}
 }

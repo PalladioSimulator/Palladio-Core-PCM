@@ -90,11 +90,14 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	private void unschedule(ProcessWithPriority running_process,
 			boolean next_has_higher_priority, IResourceInstance current) {
 		if (running_process != null) {
-			fromRunningToReady(running_process, current, next_has_higher_priority
-					&& !running_process.getTimeslice().partFinished());
 			if (running_process.getTimeslice().completelyFinished()){
 				running_process.update();
+				fromRunningToReady(running_process, current, next_has_higher_priority
+						&& !running_process.getTimeslice().partFinished());
 				running_process.getTimeslice().reset();
+			} else {
+				fromRunningToReady(running_process, current, next_has_higher_priority
+						&& !running_process.getTimeslice().partFinished());
 			}
 		}
 	}

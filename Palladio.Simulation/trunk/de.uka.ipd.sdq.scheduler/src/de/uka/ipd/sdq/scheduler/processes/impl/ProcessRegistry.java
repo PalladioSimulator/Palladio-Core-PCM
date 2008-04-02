@@ -30,5 +30,14 @@ public class ProcessRegistry {
 	public void unregisterProcess(ISchedulableProcess process){
 		registry.remove(process);
 	}
+
+	public IActiveProcess findProcess(String processName) {
+		for (IActiveProcess p: registry.values()){
+			if (p.getName().startsWith(processName))
+				return p;
+		}
+		assert false : "Cannot find process: " + processName;  
+		return null;
+	}
 	
 }

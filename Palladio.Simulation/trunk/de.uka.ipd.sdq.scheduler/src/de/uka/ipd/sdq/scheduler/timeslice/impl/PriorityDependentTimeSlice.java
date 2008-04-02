@@ -8,7 +8,6 @@ public class PriorityDependentTimeSlice extends ContinuousTimeSlice {
 	public PriorityDependentTimeSlice(ProcessWithPriority process, double basic_timeslice, double min_timeslice, int granularity) {
 		double computed_timeslice = computeTicksFromPriority(process
 				.getStaticPriority(), basic_timeslice);
-		System.out.println(computed_timeslice);
 		this.timeslice = Math.max(computed_timeslice, min_timeslice);
 		this.part = this.timeslice / granularity;
 	}

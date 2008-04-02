@@ -16,16 +16,18 @@ public class HptSensor implements IProcessStateSensor {
 	private double threshold;
 	private double hptStart;
 	
-	public HptSensor(IActiveProcess process){
+	public HptSensor(IActiveProcess process, double threshold){
 		this.simulator = SchedulingFactory.getUsedSimulator();
 		this.lastUpdateTime = 0;
 		this.last_state = process.getState();
+		this.threshold = threshold;
 	}
 	
 	public void start(){
 		isHpt = true;
 		hpt = 0.0;
 		hptStart = simulator.time();
+		lastUpdateTime = hptStart;
 	}
 	
 	public double getHpt() {
@@ -37,30 +39,41 @@ public class HptSensor implements IProcessStateSensor {
 	}
 
 	public void stop() {
+		double currentTime = simulator.time();
+		double passedTime = currentTime - lastUpdateTime;
+		
+		if (last_state == PROCESS_STATE.RUNNING){
+			if (isHpt ){
+				hpt  += passedTime;
+			}
+		}
+		lastUpdateTime = currentTime;
 		isHpt = false;
 	}
 
 	public void update(PROCESS_STATE new_state) {
-		double currentTime = simulator.time();
-		double passedTime = currentTime - lastUpdateTime;
-		
-		// Process was running, but is finished now
-		if (last_state == PROCESS_STATE.RUNNING &&
-			new_state != PROCESS_STATE.RUNNING) {
-			if (isHpt ){
-				hpt  += passedTime;
+		if (isHpt){
+			double currentTime = simulator.time();
+			double passedTime = currentTime - lastUpdateTime;
+			
+			// Process was running, but is finished now
+			if (last_state == PROCESS_STATE.RUNNING &&
+				new_state != PROCESS_STATE.RUNNING) {
+				if (isHpt ){
+					hpt  += passedTime;
+				}
+				lastUpdateTime = currentTime;
 			}
-			lastUpdateTime = currentTime;
-		}
 
-		// Process was not running, but starts now
-		if (last_state != PROCESS_STATE.RUNNING &&
-			new_state == PROCESS_STATE.RUNNING) {
-			if (passedTime > threshold){
-				isHpt = false;
+			// Process was not running, but starts now
+			if (last_state != PROCESS_STATE.RUNNING &&
+				new_state == PROCESS_STATE.RUNNING) {
+				if (passedTime > threshold){
+					isHpt = false;
+				}
+				lastUpdateTime = currentTime;
 			}
-			lastUpdateTime = currentTime;
+			last_state = new_state;
 		}
-		last_state = new_state;
 	}
 }

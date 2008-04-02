@@ -16,7 +16,7 @@ public class SleepAverageSensor implements IProcessStateSensor {
 	
 	public SleepAverageSensor(IActiveProcess process, double max_sleep_average){
 		this.simulator = SchedulingFactory.getUsedSimulator();
-		this.sleep_average = 0;
+		this.sleep_average = max_sleep_average;
 		this.lastUpdateTime = 0;
 		this.last_state = process.getState();
 		this.max_sleep_average = max_sleep_average;

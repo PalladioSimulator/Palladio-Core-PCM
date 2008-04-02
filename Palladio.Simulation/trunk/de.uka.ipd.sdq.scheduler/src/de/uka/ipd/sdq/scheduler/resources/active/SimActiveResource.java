@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,8 +12,11 @@ import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessRegistry;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
+import de.uka.ipd.sdq.scheduler.resources.passive.WaitingProcess;
+import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
 public class SimActiveResource extends AbstractActiveResource {
@@ -20,6 +25,7 @@ public class SimActiveResource extends AbstractActiveResource {
 	private List<IResourceInstance> instanceList;
 	private ProcessRegistry processRegistry;
 	private IResourceInstance main_instance;
+	private Deque<WaitingProcess> waiting_queue = new ArrayDeque<WaitingProcess>();
 
 	public static final Logger logger = Logger.getLogger("Scheduler");
 
@@ -88,17 +94,43 @@ public class SimActiveResource extends AbstractActiveResource {
 
 	@Override
 	protected void dequeue(ISchedulableProcess process) {
-		IActiveProcess myProcess = lookUp(process);
-		scheduler.removeProcess(myProcess, myProcess.getLastInstance());
-		myProcess.setIdealInstance(null);
-		myProcess.setLastInstance(null);
+		ActiveProcess myProcess = (ActiveProcess)lookUp(process);
+		WaitingProcess waiting_process = new WaitingProcess(myProcess,0);
+		scheduler.fromRunningToWaiting(waiting_process, waiting_queue, false);
+//		myProcess.setIdealInstance(null);
+//		myProcess.setLastInstance(null);
 	}
 
 	@Override
 	protected void enqueue(ISchedulableProcess process) {
-		IActiveProcess p = lookUp(process);
-		scheduler.addProcess(p, main_instance);
-		p.getLastInstance().schedulingInterrupt(0, false);
+		WaitingProcess waiting_process = lookUpWaitingProcess(process);
+		
+		if (waiting_process != null) {
+			IResourceInstance instance = getInstanceFor(waiting_process.getProcess());
+			scheduler.fromWaitingToReady(waiting_process, waiting_queue, instance);
+		} else {
+			IActiveProcess p = lookUp(process);
+			IResourceInstance instance = getInstanceFor(p);
+			scheduler.addProcess(p, instance);
+			instance.schedulingInterrupt(0, false);
+		}
+	}
+
+	private IResourceInstance getInstanceFor(IActiveProcess process) {
+		IResourceInstance instance = main_instance;
+		if (process.hasIdealInstance())
+			instance = process.getIdealInstance();
+		if (process.hasLastInstance())
+			instance = process.getLastInstance();
+		return instance;
+	}
+
+	private WaitingProcess lookUpWaitingProcess(ISchedulableProcess process) {
+		for (WaitingProcess p : waiting_queue){
+			if (p.getProcess().getSchedulableProcess().equals(process))
+				return p;
+		}
+		return null;
 	}
 
 	public void stop() {
@@ -113,6 +145,17 @@ public class SimActiveResource extends AbstractActiveResource {
 
 	public void unregisterProcess(IActiveProcess process) {
 		processRegistry.unregisterProcess(process.getSchedulableProcess());
+	}
+
+	public void addObserver(IActiveResourceStateSensor observer) {
+		for(IResourceInstance instance : this.instanceList){
+			instance.addObserver(observer);
+		}
+		
+	}
+
+	public IActiveProcess findProcess(String processName) {
+		return processRegistry.findProcess(processName);
 	}
 
 

@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.scheduler.resources;
 
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
+import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 
 /**
  * This class represents an instance of an active resources. It got a unique ID
@@ -77,5 +78,9 @@ public interface IResourceInstance {
 	public abstract boolean isScheduling();
 
 	public abstract void schedulePostSchedulingEvent(double overhead);
+
+	public abstract void addObserver(IActiveResourceStateSensor observer);
+	
+	public abstract void removeObserver(IActiveResourceStateSensor observer);
 
 }

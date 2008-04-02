@@ -230,7 +230,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 		if (boostConfiguration instanceof DynamicPriorityBoostConfiguratioin) {
 			DynamicPriorityBoostConfiguratioin dynamic = (DynamicPriorityBoostConfiguratioin) boostConfiguration;
 			return new SleepAverageDependentUpdate(process, dynamic
-					.getMaxSleepAverage().getValue(), dynamic.getMaxBonus());
+					.getMaxSleepAverage().getValue(), dynamic.getMaxBonus(), dynamic.getThreshold());
 		}
 		return null;
 	}
