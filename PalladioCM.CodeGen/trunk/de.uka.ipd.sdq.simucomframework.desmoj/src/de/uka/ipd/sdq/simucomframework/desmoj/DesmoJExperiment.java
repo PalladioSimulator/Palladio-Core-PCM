@@ -77,7 +77,8 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 		
 		this.addTimeObserver(new Observer(){
 
-			@Override
+			/** {@inheritDoc}
+			 */
 			public void update(Observable o, Object arg) {
 				checkStopConditions();
 			}
