@@ -94,6 +94,9 @@ public class ExperimentRunImpl extends AbstractFileEntity implements ExperimentR
 
 	public StateMeasurement addStateMeasurement(StateSensor p_sensor,
 			State p_sensorstate, double p_eventtime) {
+		if (p_sensor == null || p_sensorstate == null)
+			throw new IllegalArgumentException("p_sensor or p_sensorstate is null, eventtime is " + p_eventtime);
+		
 		AbstractSensorAndMeasurements sam = null;
 
 		if (measurementsForSensor == null)

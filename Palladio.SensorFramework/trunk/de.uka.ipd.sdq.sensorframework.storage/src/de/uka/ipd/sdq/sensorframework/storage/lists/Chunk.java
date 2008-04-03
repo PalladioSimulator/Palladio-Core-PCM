@@ -52,6 +52,8 @@ public class Chunk<T> {
 	}
 
 	public void add(T d){
+		if (d == null)
+			throw new IllegalArgumentException("Background memory list does not support null values.");
 		data[nextFreeElement++] = d;
 		changed = true;
 	}

@@ -27,6 +27,8 @@ public class StateSerializer implements ISerialiser {
 			}
 			blockPos += 8;
 			states[j] = hashMap.get(l);
+			if (states[j] == null)
+				throw new RuntimeException("State could not be deserialized as it returned null values for states.");
 		}
 		return states;
 	}
