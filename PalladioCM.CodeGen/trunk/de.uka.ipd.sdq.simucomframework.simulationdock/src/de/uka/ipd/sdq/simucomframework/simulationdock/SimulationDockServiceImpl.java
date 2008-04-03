@@ -32,11 +32,10 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 	private BundleContext context;
 	private String myID = EcoreUtil.generateUUID();
 	private ServiceTracker service;
-	private boolean suspended;
-	private Object suspendedBarrier = new Object();
-	private boolean isStepping;
 	private ServiceTracker eventService;
 	private EventAdmin eventAdmin;
+
+	private DebugObserver debugObserver;
 
 	public SimulationDockServiceImpl(BundleContext context) {
 		this.context = context;
@@ -57,10 +56,15 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 	public void simulate(SimuComConfig config, byte[] simulationBundle, boolean isRemoteRun) {
 		postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_BUSY");
 
+		if (config.isDebug()) {
+			this.debugObserver = new DebugObserver(eventAdmin,this);
+		} else {
+			this.debugObserver = null;
+		}
+
 		ensurePluginLoaded(context, "org.eclipse.equinox.event");
 		unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
 		try {
-			this.suspended = config.isDebug();
 			loadAndSimulateBundle(config, simulationBundle, eventAdmin, isRemoteRun);
 		} catch (Exception e) {
 			throw new RuntimeException("Simulation failed",e);
@@ -103,42 +107,15 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		service.open();
 		postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
 		try {
-			SimuComStatus result = ((ISimuComControl)service.getService()).startSimulation(config, new IStatusObserver(){
-				int lastPercent = 0;
-				
-				public void updateStatus(int percentDone, double currentTime, long measurementsTaken) {
-					if (config.isDebug()) {
-						if (isStepping) {
-							isStepping = false;
-							postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/PERFORMED_STEP");
-						}
-	
-						synchronized(SimulationDockServiceImpl.this.suspendedBarrier) {
-							while (SimulationDockServiceImpl.this.suspended && !isStepping) {
-								try {
-									postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_SUSPENDED");
-									SimulationDockServiceImpl.this.suspendedBarrier.wait();
-								} catch (InterruptedException e) { }
-							}
-						}
-						
-						if (SimulationDockServiceImpl.this.suspended){
-							postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_RESUMED");
-							logger.debug("------------------------- Simulation Resumed ----------------------------------");
-						}
-					}
-					
-					if (percentDone > lastPercent ||  (config.isDebug() && SimulationDockServiceImpl.this.suspended)){
-						Hashtable properties = new Hashtable();
-						properties.put("PERCENT_DONE", percentDone);
-						properties.put("CURRENT_TIME", currentTime);
-						properties.put("MEASUREMENTS_TAKEN", measurementsTaken);
-						postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/UPDATE_SIM_STATUS",properties);
-						lastPercent = percentDone;
-					}
-				}
-				
-			}, isRemoteRun);
+			DispatchingSimulationObserver simulationObservers = new DispatchingSimulationObserver();
+			if (debugObserver != null) {
+				simulationObservers.addObserver(debugObserver);
+			}
+			simulationObservers.addObserver(new SimulationProgressReportingObserver(config,eventAdmin,this));
+			
+			SimuComStatus result = ((ISimuComControl)service.getService()).startSimulation(
+					config, simulationObservers, isRemoteRun);
+			
 			if (result == SimuComStatus.ERROR) {
 				throw new RuntimeException("Simulation failed.",((ISimuComControl)service.getService()).getErrorThrowable());
 			}
@@ -151,17 +128,15 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 	}
 
 	public void suspend() {
-		this.suspended = true;
-		synchronized (this.suspendedBarrier) {
-			this.suspendedBarrier.notifyAll();
-		}
+		if (debugObserver == null)
+			throw new IllegalStateException("Suspend only available in debug mode");
+		debugObserver.suspend();
 	}
 
 	public void resume() {
-		this.suspended = false;
-		synchronized (this.suspendedBarrier) {
-			this.suspendedBarrier.notifyAll();
-		}
+		if (debugObserver == null)
+			throw new IllegalStateException("Suspend only available in debug mode");
+		debugObserver.resume();
 	}
 
 	private void postEvent(String topic) {
@@ -228,12 +203,8 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 	}
 
 	public void step() {
-		if (suspended && !isStepping) {
-			this.isStepping = true;
-			postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/STARTED_STEP");
-			synchronized (this.suspendedBarrier) {
-				this.suspendedBarrier.notifyAll();
-			}
-		}
+		if (debugObserver == null)
+			throw new IllegalStateException("Stepping only available in debug mode");
+		debugObserver.step();
 	}
 }
