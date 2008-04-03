@@ -255,11 +255,7 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_yFk14FTREdyhzLu0DNQDaw" name="configuration">
-      <eAnnotations xmi:id="_yFum4FTREdyhzLu0DNQDaw" source="uml2.diagrams" references="_yFum4VTREdyhzLu0DNQDaw">
-        <contents xmi:type="notation:Diagram" xmi:id="_yFum4VTREdyhzLu0DNQDaw" type="Freeform" name="Hauptseite">
-          <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_yFum4lTREdyhzLu0DNQDaw"/>
-          <element xsi:nil="true"/>
-        </contents>
+      <eAnnotations xmi:id="_yFum4FTREdyhzLu0DNQDaw" source="uml2.diagrams">
         <contents xmi:type="notation:Diagram" xmi:id="_ry3_MFTFEdy5rcqbvO-azg" type="Class" name="ResourceDecoration">
           <children xmi:id="_xrk38VTFEdy5rcqbvO-azg" element="_xrk38FTFEdy5rcqbvO-azg">
             <children xmi:id="_xrk39FTFEdy5rcqbvO-azg" type="ImageCompartment">
@@ -772,7 +768,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_AxitV1TNEdy5rcqbvO-azg"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_AxY8UlTNEdy5rcqbvO-azg" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AxY8U1TNEdy5rcqbvO-azg" x="2881" y="6772"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AxY8U1TNEdy5rcqbvO-azg" x="2853" y="6340"/>
           </children>
           <children xmi:id="_I8kOAFTNEdy5rcqbvO-azg" element="_I8bEEFTNEdy5rcqbvO-azg">
             <children xmi:id="_I8kOA1TNEdy5rcqbvO-azg" type="ImageCompartment">
@@ -2089,6 +2085,9 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Nbbac1TXEdyhzLu0DNQDaw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NbbaclTXEdyhzLu0DNQDaw" value="1"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_vn3_YP_uEdyIs6RFxigGQg" name="threshold" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Enumeration" xmi:id="_J0qeAFSpEdywv4JH0AaZwg" name="InstanceToBalance">
         <ownedLiteral xmi:id="_N7OqwFSpEdywv4JH0AaZwg" name="CURRENT"/>
@@ -2259,6 +2258,11 @@
         </ownedAttribute>
         <ownedAttribute xmi:id="_idS6AFVAEdyLNvYPOpb52w" name="name" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_flIsQFcQEdyvkLRvq0u_1A" name="affinityList" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jDwvQVcQEdyvkLRvq0u_1A" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jDwvQFcQEdyvkLRvq0u_1A"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_F4nxIFSnEdywv4JH0AaZwg" name="SchedulerConfiguration">
