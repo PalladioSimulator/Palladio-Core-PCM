@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -38,6 +39,8 @@ public abstract class AbstractScheduledResource extends Entity {
 	//private State busyState;
 	private ExperimentRun experimentRun = null;
 	protected ISchedulingStrategy myStrategy = null;
+	
+	private HashMap<String, State> statesCache = new HashMap<String, State>();
 
 	private double lastTimeOfAdjustingJobs;
 
@@ -189,9 +192,13 @@ public abstract class AbstractScheduledResource extends Entity {
 			} else {
 				String stateLiteral = "Busy "+Integer.toString(myStrategy.getTotalJobCount())+" Job(s)";
 				lastCount = myStrategy.getTotalJobCount();
-				State nrState = SensorHelper.createOrReuseState(((SimuComModel)this.getModel()).getDAOFactory(), stateLiteral);
-				if (!stateSensor.getSensorStates().contains(nrState)) 
-					stateSensor.addSensorState(nrState);
+				if (!statesCache.containsKey(stateLiteral)) {
+					State newState = SensorHelper.createOrReuseState(((SimuComModel)this.getModel()).getDAOFactory(),stateLiteral); 
+					statesCache.put(stateLiteral, newState);
+					if (!stateSensor.getSensorStates().contains(newState)) 
+						stateSensor.addSensorState(newState);
+				}
+				State nrState = statesCache.get(stateLiteral);
 				experimentRun.addStateMeasurement(stateSensor, nrState, this.getModel().getSimulationControl().getCurrentSimulationTime());
 			}
 		}
