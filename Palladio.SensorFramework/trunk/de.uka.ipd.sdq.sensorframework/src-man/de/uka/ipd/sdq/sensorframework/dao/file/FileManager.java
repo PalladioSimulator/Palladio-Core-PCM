@@ -111,14 +111,14 @@ public class FileManager {
 				result = (NamedSerializable) o.readObject();
 				result.setFactory(this.factory);
 			} catch (IOException e) {
-				System.err.println(e);
+				throw new RuntimeException("Sensorframework File Provider failed loading an entity",e);
 			} catch (ClassNotFoundException e) {
-				System.err.println(e);
+				throw new RuntimeException("Sensorframework File Provider failed loading an entity",e);
 			} finally {
 				try {
 					fis.close();
 				} catch (Exception e) {
-					System.err.println(e);
+					throw new RuntimeException("Sensorframework File Provider failed loading an entity",e);
 				}
 			}
 		}
