@@ -69,6 +69,7 @@ public class DynamicPriorityBoostConfiguratioinItemProvider
 			super.getPropertyDescriptors(object);
 
 			addMaxBonusPropertyDescriptor(object);
+			addThresholdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +88,28 @@ public class DynamicPriorityBoostConfiguratioinItemProvider
 				 getString("_UI_DynamicPriorityBoostConfiguratioin_maxBonus_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DynamicPriorityBoostConfiguratioin_maxBonus_feature", "_UI_DynamicPriorityBoostConfiguratioin_type"),
 				 ConfigurationPackage.Literals.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Threshold feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addThresholdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DynamicPriorityBoostConfiguratioin_threshold_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DynamicPriorityBoostConfiguratioin_threshold_feature", "_UI_DynamicPriorityBoostConfiguratioin_type"),
+				 ConfigurationPackage.Literals.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD,
 				 true,
 				 false,
 				 false,
@@ -161,6 +184,7 @@ public class DynamicPriorityBoostConfiguratioinItemProvider
 
 		switch (notification.getFeatureID(DynamicPriorityBoostConfiguratioin.class)) {
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS:
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:

@@ -70,6 +70,7 @@ public class ProcessConfigurationItemProvider
 			addPriorityPropertyDescriptor(object);
 			addReplicasPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addAffinityListPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -141,6 +142,28 @@ public class ProcessConfigurationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Affinity List feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAffinityListPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProcessConfiguration_affinityList_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessConfiguration_affinityList_feature", "_UI_ProcessConfiguration_type"),
+				 ConfigurationPackage.Literals.PROCESS_CONFIGURATION__AFFINITY_LIST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ProcessConfiguration.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,6 +203,7 @@ public class ProcessConfigurationItemProvider
 			case ConfigurationPackage.PROCESS_CONFIGURATION__PRIORITY:
 			case ConfigurationPackage.PROCESS_CONFIGURATION__REPLICAS:
 			case ConfigurationPackage.PROCESS_CONFIGURATION__NAME:
+			case ConfigurationPackage.PROCESS_CONFIGURATION__AFFINITY_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
