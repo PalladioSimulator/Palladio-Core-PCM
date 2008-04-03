@@ -107,23 +107,25 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 				int lastPercent = 0;
 				
 				public void updateStatus(int percentDone, double currentTime, long measurementsTaken) {
-					if (isStepping) {
-						isStepping = false;
-						postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/PERFORMED_STEP");
-					}
-
-					synchronized(SimulationDockServiceImpl.this.suspendedBarrier) {
-						while (SimulationDockServiceImpl.this.suspended && !isStepping) {
-							try {
-								postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_SUSPENDED");
-								SimulationDockServiceImpl.this.suspendedBarrier.wait();
-							} catch (InterruptedException e) { }
+					if (config.isDebug()) {
+						if (isStepping) {
+							isStepping = false;
+							postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/PERFORMED_STEP");
 						}
-					}
-					
-					if (SimulationDockServiceImpl.this.suspended){
-						postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_RESUMED");
-						logger.debug("------------------------- Simulation Resumed ----------------------------------");
+	
+						synchronized(SimulationDockServiceImpl.this.suspendedBarrier) {
+							while (SimulationDockServiceImpl.this.suspended && !isStepping) {
+								try {
+									postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_SUSPENDED");
+									SimulationDockServiceImpl.this.suspendedBarrier.wait();
+								} catch (InterruptedException e) { }
+							}
+						}
+						
+						if (SimulationDockServiceImpl.this.suspended){
+							postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_RESUMED");
+							logger.debug("------------------------- Simulation Resumed ----------------------------------");
+						}
 					}
 					
 					if (percentDone > lastPercent ||  (config.isDebug() && SimulationDockServiceImpl.this.suspended)){
@@ -136,7 +138,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 					}
 				}
 				
-			},isRemoteRun);
+			}, isRemoteRun);
 			if (result == SimuComStatus.ERROR) {
 				throw new RuntimeException("Simulation failed.",((ISimuComControl)service.getService()).getErrorThrowable());
 			}
