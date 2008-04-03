@@ -6,32 +6,28 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.WeakHashMap;
 import java.util.Map.Entry;
 
 import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
-import de.uka.ipd.sdq.sensorframework.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.entities.State;
-import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
-interface IRemovalNotifier {
+interface IRemovalNotifier<K, V> {
 
-	void notifyRemoval(Entry eldest);
+	void notifyRemoval(Entry<K, V> eldest);
 	
 }
 
-class LRUHashMap<K,V> extends LinkedHashMap<K,V> {
+class LRUHashMap < K, V > extends LinkedHashMap < K, V > {
 	private static final long serialVersionUID = 1L;
 	private int capacity;
-	private IRemovalNotifier parent;
+	private IRemovalNotifier<K, V> parent;
 	
-	public LRUHashMap(int capacity, IRemovalNotifier parent) {
+	public LRUHashMap(int capacity, IRemovalNotifier<K, V> parent) {
 		this.capacity = capacity;
 		this.parent = parent;
 	}
-	protected boolean removeEldestEntry(Map.Entry eldest) {
+	protected boolean removeEldestEntry(Map.Entry < K, V > eldest) {
 		boolean shouldRemove = size() > capacity;
 		if (shouldRemove && parent != null) {
 			parent.notifyRemoval(eldest);
@@ -40,7 +36,7 @@ class LRUHashMap<K,V> extends LinkedHashMap<K,V> {
 	}
 }
 
-public abstract class AbstractFileDAO<T> implements IRemovalNotifier {
+public abstract class AbstractFileDAO<T> implements IRemovalNotifier<Long, T> {
 
 	/**
 	 * Configuration for the LRU cache used to store elements 
@@ -71,6 +67,7 @@ public abstract class AbstractFileDAO<T> implements IRemovalNotifier {
 		this.entitiesCache = new LRUHashMap<Long, T>(MAX_CACHE_SIZE,this);
 	}
 
+	@SuppressWarnings("unchecked")
 	public void store(T s) {
 		NamedSerializable serialiseable = (NamedSerializable) s;
 		factory.getFileManager().serializeToFile(serialiseable);
