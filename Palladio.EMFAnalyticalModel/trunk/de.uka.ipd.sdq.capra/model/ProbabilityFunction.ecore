@@ -7,19 +7,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="samples" ordered="false"
         upperBound="-1" eType="#//ContinuousSample" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityDensityFunction" abstract="true"
+      eSuperTypes="#//ProbabilityFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunction" abstract="true"
+      eSuperTypes="file:/D:/code/Palladio.EMFAnalyticalModel/de.uka.ipd.sdq.capra/model//Units.ecore#//UnitCarryingElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContinuousSample">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" ordered="false"
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunction" abstract="true"
-      eSuperTypes="file:/D:/code/Palladio.EMFAnalyticalModel/de.uka.ipd.sdq.capra/model//Units.ecore#//UnitCarryingElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityMassFunction" eSuperTypes="#//ProbabilityFunction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="samples" unique="false"
-        upperBound="-1" eType="#//Sample" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderedDomain" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sample">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" ordered="false"
@@ -51,6 +47,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityDensityFunction" abstract="true"
-      eSuperTypes="#//ProbabilityFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityMassFunction" eSuperTypes="#//ProbabilityFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="samples" unique="false"
+        upperBound="-1" eType="#//Sample" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderedDomain" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
 </ecore:EPackage>

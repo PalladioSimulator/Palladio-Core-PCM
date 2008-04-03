@@ -7,9 +7,13 @@
   <foreignModel>Capra.ecore</foreignModel>
   <genPackages prefix="Capra" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="Capra.ecore#/">
-    <genClasses ecoreClass="Capra.ecore#//ReplicatedProcess">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//ReplicatedProcess/numReplicas"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//ReplicatedProcess/processvariable"/>
+    <genClasses ecoreClass="Capra.ecore#//ExperimentSeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//ExperimentSeries/experiment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//ExperimentSeries/systemConfigurationFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//ExperimentSeries/schedulerLibraryFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//ExperimentSeries/outputDirectory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//ExperimentSeries/summaryFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//ExperimentSeries/capraFile"/>
     </genClasses>
     <genClasses ecoreClass="Capra.ecore#//CapraModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//CapraModel/processes"/>
@@ -17,11 +21,31 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//CapraModel/identifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//CapraModel/sensors"/>
     </genClasses>
+    <nestedGenPackages prefix="Experiment" basePackage="de.uka.ipd.sdq.capra" disposableProviderFactory="true"
+        ecorePackage="Capra.ecore#//experiment">
+      <genClasses ecoreClass="Capra.ecore#//experiment/ResourceUsageSpecification">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference Capra.ecore#//experiment/ResourceUsageSpecification/variable"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//experiment/ResourceUsageSpecification/resourceUsageSpecification"/>
+      </genClasses>
+      <genClasses ecoreClass="Capra.ecore#//experiment/Experiment">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//experiment/Experiment/resourceUsageSpecification"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//experiment/Experiment/name"/>
+      </genClasses>
+    </nestedGenPackages>
     <nestedGenPackages prefix="Core" basePackage="de.uka.ipd.sdq.capra" disposableProviderFactory="true"
         ecorePackage="Capra.ecore#//core">
+      <genClasses ecoreClass="Capra.ecore#//core/ReplicatedProcess">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//core/ReplicatedProcess/numReplicas"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/ReplicatedProcess/processvariable"/>
+      </genClasses>
+      <genClasses ecoreClass="Capra.ecore#//core/ProcessVariable">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/ProcessVariable/process"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//core/ProcessVariable/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="Capra.ecore#//core/CapraExpression"/>
       <genClasses image="false" ecoreClass="Capra.ecore#//core/InstantaneousAction"/>
       <genClasses image="false" ecoreClass="Capra.ecore#//core/Action"/>
-      <genClasses image="false" ecoreClass="Capra.ecore#//core/CapraExpression"/>
       <genClasses image="false" ecoreClass="Capra.ecore#//core/Terminal"/>
       <genClasses image="false" ecoreClass="Capra.ecore#//core/Operator"/>
       <genClasses image="false" ecoreClass="Capra.ecore#//core/EventAction">
@@ -38,12 +62,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/DemandAction/resourceUsage"/>
       </genClasses>
       <genClasses ecoreClass="Capra.ecore#//core/DemandIdentifier"/>
-      <genClasses ecoreClass="Capra.ecore#//core/ResourceUsage">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference Capra.ecore#//core/ResourceUsage/resource"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/ResourceUsage/usageTime"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//core/ResourceUsage/usageTimeSpecification"/>
-      </genClasses>
+      <genClasses ecoreClass="Capra.ecore#//core/AbstractResourceUsage"/>
       <genClasses ecoreClass="Capra.ecore#//core/SuccessfulTermination"/>
       <genClasses ecoreClass="Capra.ecore#//core/ProbabilisticPrefix">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/ProbabilisticPrefix/action"/>
@@ -78,6 +97,12 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference Capra.ecore#//core/Restriction/restrictedIdentifiers"/>
       </genClasses>
+      <genClasses ecoreClass="Capra.ecore#//core/ResourceUsage">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference Capra.ecore#//core/ResourceUsage/resource"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/ResourceUsage/usageTime"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//core/ResourceUsage/usageTimeSpecification"/>
+      </genClasses>
       <genClasses ecoreClass="Capra.ecore#//core/Renaming">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/Renaming/renamedProcess"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/Renaming/mapping"/>
@@ -93,9 +118,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference Capra.ecore#//core/ProcessVariableUsage/processVariable"/>
       </genClasses>
-      <genClasses ecoreClass="Capra.ecore#//core/ProcessVariable">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//core/ProcessVariable/process"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//core/ProcessVariable/name"/>
+      <genClasses ecoreClass="Capra.ecore#//core/VariableResourceUsage">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//core/VariableResourceUsage/name"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Resources" basePackage="de.uka.ipd.sdq.capra" disposableProviderFactory="true"
@@ -190,7 +214,7 @@
       <genClasses ecoreClass="Capra.ecore#//measurement/Condition"/>
       <genClasses ecoreClass="Capra.ecore#//measurement/VisitProbe"/>
       <genClasses ecoreClass="Capra.ecore#//measurement/StateSensor">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//measurement/StateSensor/stateRecorders"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//measurement/StateSensor/stateRecorder"/>
       </genClasses>
       <genClasses image="false" ecoreClass="Capra.ecore#//measurement/StateRecorder">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Capra.ecore#//measurement/StateRecorder/stateSensor"/>
@@ -214,8 +238,19 @@
       <genClasses ecoreClass="Capra.ecore#//measurement/LocalTimeSpanSensor"/>
       <genClasses ecoreClass="Capra.ecore#//measurement/InterruptionTimeSpanSensor">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//measurement/InterruptionTimeSpanSensor/threshold"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="Capra.ecore#//measurement/ResourceSensor">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference Capra.ecore#//measurement/InterruptionTimeSpanSensor/observedResource"/>
+            ecoreFeature="ecore:EReference Capra.ecore#//measurement/ResourceSensor/observedResource"/>
+      </genClasses>
+      <genClasses ecoreClass="Capra.ecore#//measurement/ProcessorShareSensor">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference Capra.ecore#//measurement/ProcessorShareSensor/observedProcess"/>
+      </genClasses>
+      <genClasses ecoreClass="Capra.ecore#//measurement/ResourceUtilisationSensor"/>
+      <genClasses ecoreClass="Capra.ecore#//measurement/IntervalStateRecorder">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Capra.ecore#//measurement/IntervalStateRecorder/timeInterval"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//measurement/IntervalStateRecorder/percent"/>
       </genClasses>
       <genClasses image="false" ecoreClass="Capra.ecore#//measurement/Sensor">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Capra.ecore#//measurement/Sensor/name"/>
