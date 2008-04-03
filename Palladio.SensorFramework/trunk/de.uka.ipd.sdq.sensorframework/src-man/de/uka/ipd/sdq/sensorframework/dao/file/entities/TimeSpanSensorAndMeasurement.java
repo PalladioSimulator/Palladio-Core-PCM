@@ -22,16 +22,6 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
  */
 public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements {
 
-	@Override
-	public void store() {
-		super.store();
-		try {
-			timeSpans.flush();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 	private static final long serialVersionUID = 3516448762554779531L;
 	private BackgroundMemoryList<Double> timeSpans;
 
@@ -79,7 +69,14 @@ public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements 
 		}
 	}
 
-	public void serializeChildren() {
-		// Nothing to serialize here
+	@Override
+	public void store() {
+		super.store();
+		try {
+			timeSpans.flush();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
+	
 }

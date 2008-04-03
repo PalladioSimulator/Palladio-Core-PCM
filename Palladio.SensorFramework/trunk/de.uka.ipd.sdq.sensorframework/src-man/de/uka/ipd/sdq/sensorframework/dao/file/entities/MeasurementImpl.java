@@ -11,28 +11,28 @@ import de.uka.ipd.sdq.sensorframework.entities.Measurement;
  */
 public class MeasurementImpl implements Measurement {
 
-    protected long measurementID;
-    protected double eventTime;
+	protected long measurementID;
+	protected double eventTime;
 
-    public MeasurementImpl(long id, double eventTime) {
-	this.eventTime = eventTime;
-	this.measurementID = id;
-    }
+	public MeasurementImpl(long id, double eventTime) {
+		this.eventTime = eventTime;
+		this.measurementID = id;
+	}
 
-    public double getEventTime() {
-	return eventTime;
-    }
+	public double getEventTime() {
+		return eventTime;
+	}
 
-    public long getMeasurementID() {
-	return measurementID;
-    }
+	public long getMeasurementID() {
+		return measurementID;
+	}
 
-    public void setEventTime(double value) {
-	this.eventTime = value;
-    }
+	public void setEventTime(double value) {
+		this.eventTime = value;
+	}
 
-    public void setMeasurementID(long value) {
-	this.measurementID = value;
-    }
+	public void setMeasurementID(long value) {
+		this.measurementID = value;
+	}
 
 }
