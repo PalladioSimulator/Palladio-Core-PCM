@@ -98,6 +98,15 @@ public class FileDAOFactory implements IDAOFactory {
 	public void finalizeAndClose() {
 		fileManager.closeAllLists();
 		fileManager.serializeToFile(idGen);
+		
+		if (this.experimentDAO != null)
+			((FileExperimentDAO)this.experimentDAO).dispose();
+		if (this.sensorDAO != null)
+			((FileSensorDAO)this.sensorDAO).dispose();
+		if (this.stateDAO != null)
+			((FileStateDAO)this.stateDAO).dispose();
+		if (this.experimentRunDAO != null)
+			((FileExperimentRunDAO)this.experimentRunDAO).dispose();
 	}
 
 	public FileManager getFileManager() {

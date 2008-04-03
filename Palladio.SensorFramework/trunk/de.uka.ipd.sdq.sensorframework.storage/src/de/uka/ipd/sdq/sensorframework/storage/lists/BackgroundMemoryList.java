@@ -45,6 +45,9 @@ implements List<T> {
 	}
 
 	public T get(int index) {
+		if (this.isClosed)
+			throw new IllegalStateException("Tryed to get data from a closed background list");
+		
 		try{
 			if (index >= size())
 				throw new ArrayIndexOutOfBoundsException("Read behind background list length");

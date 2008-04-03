@@ -184,13 +184,22 @@ public abstract class AbstractSerialiserTests extends TestCase {
 	}
 
 	public void testTimeSpanMeasurements() throws IOException {
+		testTimeSpanMeasurementsInternal(CREATE_COUNT);
+	}
+
+	public void testTimeSpanMeasurementsLarge() throws IOException {
+		testTimeSpanMeasurementsInternal(CREATE_COUNT*12345 + 123);
+	}
+	
+	
+	private void testTimeSpanMeasurementsInternal(final int createCount) throws IOException {
 		// store some additional data
 		IDAOFactory factory = createCleanDAOFactory();
 		IExperimentDAO experimentDAO = factory.createExperimentDAO();
 		Experiment e = experimentDAO.addExperiment("Test2");
 		addTimeSpanSensors(factory, e);
 		addExperimentRuns(factory, e);
-		addTimeSpanMeasurements(factory,e);
+		addTimeSpanMeasurements(factory,e,createCount);
 		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
@@ -209,19 +218,27 @@ public abstract class AbstractSerialiserTests extends TestCase {
 			Assert.assertTrue(tsm.getEventTime() > 0);
 			count++;
 		}
-		Assert.assertEquals(CREATE_COUNT, count);
-		Assert.assertEquals(CREATE_COUNT, sam.getMeasurements().size());
+		Assert.assertEquals(createCount, count);
+		Assert.assertEquals(createCount, sam.getMeasurements().size());
 		factory.finalizeAndClose();
 	}
 	
 	public void testStateMeasurements() throws IOException {
+		testStateMeasurementsInternal(CREATE_COUNT);
+	}
+
+	public void testStateMeasurementsLarge() throws IOException {
+		testStateMeasurementsInternal(CREATE_COUNT*12345 + 123);
+	}
+	
+	private void testStateMeasurementsInternal(int createCount) throws IOException {
 		// store some additional data
 		IDAOFactory factory = createCleanDAOFactory();
 		IExperimentDAO experimentDAO = factory.createExperimentDAO();
 		Experiment e = experimentDAO.addExperiment("Test2");
 		addStateSensors(factory, e);
 		addExperimentRuns(factory, e);
-		addStateMeasurements(factory,e);
+		addStateMeasurements(factory,e,createCount);
 		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
@@ -241,24 +258,24 @@ public abstract class AbstractSerialiserTests extends TestCase {
 			Assert.assertTrue(sm.getEventTime() > 0);
 			count++;
 		}
-		Assert.assertEquals(CREATE_COUNT, count);
-		Assert.assertEquals(CREATE_COUNT, sam.getMeasurements().size());
+		Assert.assertEquals(createCount, count);
+		Assert.assertEquals(createCount, sam.getMeasurements().size());
 		factory.finalizeAndClose();
 	}
 	
 	
-	private void addTimeSpanMeasurements(IDAOFactory factory, Experiment e) {
+	private void addTimeSpanMeasurements(IDAOFactory factory, Experiment e, int create_count) {
 		TimeSpanSensor tss = (TimeSpanSensor) e.getSensors().iterator().next();
 		ExperimentRun er = e.getExperimentRuns().iterator().next();
-		for (int i = 0; i < CREATE_COUNT; i++) {
+		for (int i = 0; i < create_count; i++) {
 			er.addTimeSpanMeasurement(tss, i + 1, i + 1);
 		}
 	}
 
-	private void addStateMeasurements(IDAOFactory factory, Experiment e) {
+	private void addStateMeasurements(IDAOFactory factory, Experiment e, int createCount) {
 		StateSensor ssensor = (StateSensor) e.getSensors().iterator().next();
 		ExperimentRun er = e.getExperimentRuns().iterator().next();
-		for (int i = 0; i < CREATE_COUNT; i++) {
+		for (int i = 0; i < createCount; i++) {
 			er.addStateMeasurement(ssensor, ssensor.getInitialState(), i + 1);
 		}
 	}
