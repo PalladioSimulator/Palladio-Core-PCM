@@ -135,7 +135,7 @@ public abstract class AbstractScheduledResource extends Entity {
 					demandTimeSensor, this.getModel().getSimulationControl().getCurrentSimulationTime(), 
 					demand);
 			JobAndDemandStruct job = new JobAndDemandStruct(thread,calculatedDemand,this,this.getModel().getSimulationControl().getCurrentSimulationTime());
-			if (job.getDemand() > ((SimuComModel)this.getModel()).getConfig().getSimuTime())
+			if (job.getDemand() > ((SimuComModel)this.getModel()).getConfig().getSimuTime() && (this.getModel().getConfig().getSimuTime() > 0))
 				throw new DemandTooLargeException("A demand calculated from a processing rate and a demand in the design model ("+
 						demand+") has been issued to resource "+
 						this.getName()+" which is larger than the total simulation time ("+

@@ -37,7 +37,7 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 			for(Condition c : stopConditions) {
 				if (c.check()) {
 					logger.debug("Scheduling stop event as a stop condition is true.");
-					createStopCondition().schedule(e, SimTime.NOW);
+					createStopCondition().schedule(e, new SimTime(0));
 					return;
 				}
 			}
@@ -49,6 +49,7 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 
 			@Override
 			public void eventRoutine(Entity arg0) {
+				logger.debug("createStopCondition()::eventRountine(..) reached.");
 				stop();
 			}
 			
@@ -65,7 +66,8 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 	public void setMaxSimTime(long simTime) {
 		if (simTime > 0) {
 			//model.getExperiment().stop(new SimTime(simTime));
-			createStopCondition().schedule(null, new SimTime(simTime));
+			Entity e = new Entity(model, "StopEntity", false){};
+			createStopCondition().schedule(e, new SimTime(simTime));
 		}
 	}
 
