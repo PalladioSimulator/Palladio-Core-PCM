@@ -108,6 +108,8 @@ public class ExperimentImpl extends AbstractFileEntity implements Experiment, Se
 		ExperimentRun expRun = factory.createExperimentRunDAO()
 				.addExperimentRun(experimentdatetime);
 		experimentRuns.add(expRun.getExperimentRunID());
+		((ExperimentRunImpl)expRun).setParentExperimentID(this.getID());
+		
 		return expRun;
 	}
 

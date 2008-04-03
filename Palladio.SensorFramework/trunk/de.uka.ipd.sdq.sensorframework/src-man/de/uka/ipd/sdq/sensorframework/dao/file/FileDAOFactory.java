@@ -150,6 +150,7 @@ public class FileDAOFactory implements IDAOFactory {
 		// This code is only a temporary solution to the reload problem. It
 		// can cause problems on concurrent access.
 		String oldFilename = fileManager.getRootDirectory();
+		fileManager.closeAllLists();
 		
 		/* Reset all DAOs */
 		experimentDAO = null;

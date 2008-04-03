@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
 
 /**
- * @author ihssane
+ * @author ihssane, Steffen
  * 
  */
 public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements {
