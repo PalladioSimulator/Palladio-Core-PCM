@@ -26,6 +26,9 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
  */
 public class FileDAOFactory implements IDAOFactory {
 
+	/**
+	 * Constants for the filenames used to store the entities
+	 */
 	public static final String EXP_FILE_NAME_PREFIX = "experiment";
 	public static final String EXPRUN_FILE_NAME_PREFIX = "exprun";
 	public static final String SENSOR_FILE_NAME_PREFIX = "sensor";
@@ -33,9 +36,11 @@ public class FileDAOFactory implements IDAOFactory {
 	public static final String IDGEN_FILE_NAME_PREFIX = "id_generator";
 	public static final String SUFFIX = ".ser";
 
+	/**
+	 * DAOs for single entity classes
+	 */
 	private IExperimentDAO experimentDAO;
 	private IExperimentRunDAO experimentRunDAO;
-	private IMeasurementDAO measurementDAO;
 	private ISensorDAO sensorDAO;
 	private IStateDAO stateDAO;
 
@@ -43,16 +48,26 @@ public class FileDAOFactory implements IDAOFactory {
 	private FileManager fileManager;
 	private long factoryID;
 	
+	/** Constructor for a FileDAOFactory with automatically determined ID
+	 * @param rootDirectory The directory in which to store the data
+	 */
+	public FileDAOFactory(String rootDirectory) {
+		this(-1,rootDirectory);
+	}
+	
+	/** Constructor for a FileDAOFactory with given ID. Used by Sensorframework startup code to reinitialise the
+	 * SensorframworkDataSet
+	 * @param rootDirectory The directory in which to store the data
+	 */
 	public FileDAOFactory(long id, String rootDirectory) {
 		this.factoryID = id;
 		fileManager = new FileManager(rootDirectory, this);
 		idGen = createIdGenerator();
 	}
 
-	public FileDAOFactory(String rootDirectory) {
-		this(-1,rootDirectory);
-	}
-	
+	/** Create or load the ID generator class
+	 * @return ID generator used to generate IDs of the elements
+	 */
 	private IDGenerator createIdGenerator() {
 		IDGenerator result = (IDGenerator) fileManager.deserializeFromFile(FileDAOFactory.IDGEN_FILE_NAME_PREFIX);
 		if (result == null){
@@ -78,9 +93,7 @@ public class FileDAOFactory implements IDAOFactory {
 	}
 
 	public IMeasurementDAO createMeasurementDAO() {
-		if (this.measurementDAO == null)
-			this.measurementDAO = new FileMeasurementDAO(this, idGen);
-		return this.measurementDAO;
+		throw new UnsupportedOperationException();
 	}
 
 	public ISensorDAO createSensorDAO() {
@@ -122,7 +135,7 @@ public class FileDAOFactory implements IDAOFactory {
 	}
 
 	public String getName() {
-		return "File datasource";
+		return "File Datasource";
 	}
 
 	public String getPersistendInfo() {
@@ -141,7 +154,6 @@ public class FileDAOFactory implements IDAOFactory {
 		/* Reset all DAOs */
 		experimentDAO = null;
 		experimentRunDAO = null;
-		measurementDAO = null;
 		sensorDAO = null;
 		stateDAO = null;
 

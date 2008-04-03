@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
-public abstract class AbstractFileEntity implements NamedSerializable {
+public abstract class AbstractFileEntity implements SerializableEntity {
 	
 	/**
 	 * File DAO which controls this entity 

@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * @author ihssane
  * 
  */
-public class StateImpl extends AbstractFileEntity implements State, NamedSerializable {
+public class StateImpl extends AbstractFileEntity implements State, SerializableEntity {
 
 	private static final long serialVersionUID = -458584924706735994L;
 	private long stateID;

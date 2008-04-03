@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * @author ihssane
  * 
  */
-public class ExperimentImpl extends AbstractFileEntity implements Experiment, NamedSerializable {
+public class ExperimentImpl extends AbstractFileEntity implements Experiment, SerializableEntity {
 
 	/**
 	 * Serialisation ID

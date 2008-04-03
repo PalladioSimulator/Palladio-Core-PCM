@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
  * @author ihssane
  * 
  */
-public abstract class AbstractSensorAndMeasurements extends AbstractFileEntity implements NamedSerializable {
+public abstract class AbstractSensorAndMeasurements extends AbstractFileEntity implements SerializableEntity {
 
 	protected static final String EVENT_TIME_SUFFIX = "ET";
 	protected static final String MEASUREMENTS_SUFFIX = "MEAS";

@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * @author ihssane
  * 
  */
-public abstract class SensorImpl extends AbstractFileEntity implements Sensor, NamedSerializable {
+public abstract class SensorImpl extends AbstractFileEntity implements Sensor, SerializableEntity {
 
 	protected long sensorID;
 	protected String sensorName;

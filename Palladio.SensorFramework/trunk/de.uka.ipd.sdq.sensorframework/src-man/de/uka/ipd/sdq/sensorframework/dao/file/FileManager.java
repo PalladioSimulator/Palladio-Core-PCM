@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.AbstractSensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.SerializableEntity;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
@@ -32,8 +32,20 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
  */
 public class FileManager {
 
+	/**
+	 * Directory in which this file provider stores its data
+	 */
 	private String rootDirectory;
+	
+	/**
+	 * The parent DAOFactory which stores its data using this class
+	 */
 	private FileDAOFactory factory;
+	
+	/**
+	 * A registry of open BackgroundMemoryLists. Used to finally close all open lists on closing this
+	 * file provider 
+	 */
 	private ArrayList<BackgroundMemoryList<?>> openLists = new ArrayList<BackgroundMemoryList<?>>();
 
 	public FileManager(String rootDirectory, FileDAOFactory factory) {
@@ -42,6 +54,9 @@ public class FileManager {
 		this.factory = factory;
 	}
 
+	/** Test whether the given path exists and is a directory
+	 * @param path The path to test
+	 */
 	private void checkPath(String path) {
 		File f = new File(path);
 		if (!f.isDirectory())
@@ -49,35 +64,20 @@ public class FileManager {
 					+ " is not a directory!");
 	}
 
-	/**
-	 * returns an Array of files with extension ".ser", which in the root
-	 * directory located and their name contains the given pattern. if the
-	 * pattern is an empty string, all files in the root directory are returned.
-	 * 
+	/** Delete the given file
+	 * @param filename Name of the file to delete
+	 * @return true if deletion was successful
 	 */
-	public File[] listFiles(final String pattern) {
-		File path = new File(rootDirectory);
-		return path.listFiles(new FilenameFilter() {
-
-			public boolean accept(File dir, String name) {
-				return name.toLowerCase().endsWith(FileDAOFactory.SUFFIX)
-						&& name.toLowerCase().contains(pattern);
-			}
-
-		});
-	}
-
 	public boolean removeFile(String filename) {
 		File path = new File(new File(this.rootDirectory), filename
 				.endsWith(".ser") ? filename : filename + ".ser");
 		return path.delete();
 	}
 
-	public boolean removeFile(NamedSerializable ser) {
-		File f = new File(new File(rootDirectory), ser.getFileName());
-		return f.delete();
-	}
-
+	/** Write the given serializable into the given file using Java's object serialisation mechanism
+	 * @param filename Name of the file in which the data is written
+	 * @param ser The object to persist
+	 */
 	public void serializeToFile(String filename, Serializable ser) {
 		OutputStream fos = null;
 		File path = new File(new File(this.rootDirectory), filename
@@ -97,11 +97,19 @@ public class FileManager {
 		}
 	}
 
+	/** Read the object stored in the given file
+	 * @param fileName The file from which to read the data
+	 * @return The object persisted in the given file
+	 */
 	public Serializable deserializeFromFile(String fileName) {
 		File path = new File(new File(this.rootDirectory), fileName + FileDAOFactory.SUFFIX);
 		return deserializeFromFile(path);
 	}
 
+	/** Read the object stored in the given file
+	 * @param file The file from which to read the data
+	 * @return The object persisted in the given file
+	 */
 	public Serializable deserializeFromFile(File file) {
 		Serializable result = null;
 		InputStream fis = null;
@@ -129,10 +137,16 @@ public class FileManager {
 		return rootDirectory;
 	}
 	
+	/** Add a new BackgroundMemoryList to this class's registry of open lists
+	 * @param list The list to add to the registry for closing on termination
+	 */
 	public void addOpenList(BackgroundMemoryList<?> list) {
 		openLists.add(list);
 	}
 	
+	/**
+	 * Closes all lists registered in this class' registry of open background lists
+	 */
 	public void closeAllLists() {
 		for (BackgroundMemoryList<?> list : openLists) {
 			try {
