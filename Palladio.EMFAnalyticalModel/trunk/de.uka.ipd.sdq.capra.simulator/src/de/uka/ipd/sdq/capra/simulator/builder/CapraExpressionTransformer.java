@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.capra.core.Action;
 import de.uka.ipd.sdq.capra.core.BoundedLoop;
 import de.uka.ipd.sdq.capra.core.CapraExpression;
 import de.uka.ipd.sdq.capra.core.Choice;
+import de.uka.ipd.sdq.capra.core.CorePackage;
 import de.uka.ipd.sdq.capra.core.DemandAction;
 import de.uka.ipd.sdq.capra.core.ExternalSelector;
 import de.uka.ipd.sdq.capra.core.InputEventAction;
@@ -19,8 +20,12 @@ import de.uka.ipd.sdq.capra.core.ProbabilisticPrefix;
 import de.uka.ipd.sdq.capra.core.ProcessVariable;
 import de.uka.ipd.sdq.capra.core.ProcessVariableUsage;
 import de.uka.ipd.sdq.capra.core.Renaming;
+import de.uka.ipd.sdq.capra.core.ResourceUsage;
 import de.uka.ipd.sdq.capra.core.Restriction;
 import de.uka.ipd.sdq.capra.core.SuccessfulTermination;
+import de.uka.ipd.sdq.capra.core.VariableResourceUsage;
+import de.uka.ipd.sdq.capra.experiment.Experiment;
+import de.uka.ipd.sdq.capra.experiment.ResourceUsageSpecification;
 import de.uka.ipd.sdq.capra.extension.AcquireAction;
 import de.uka.ipd.sdq.capra.extension.ReleaseAction;
 import de.uka.ipd.sdq.capra.measurement.Sensor;
@@ -51,13 +56,15 @@ public class CapraExpressionTransformer {
 	private CapraExpressionVisitor expressionVisitor;
 	private SensorManager sensorManager;
 	private ResourceManager resourceManager;
+	private Experiment experiment;
 
-	public CapraExpressionTransformer(ResourceManager resourceManager, SensorManager sensorManager, CapraExpressionFactory factory) {
+	public CapraExpressionTransformer(ResourceManager resourceManager, SensorManager sensorManager, CapraExpressionFactory factory, Experiment exp) {
 		super();
 		this.resourceManager = resourceManager;
 		this.factory = factory;
 		this.sensorManager = sensorManager;
 		this.expressionVisitor = new CapraExpressionVisitor(this);
+		this.experiment = exp;
 	}
 
 	public SimCapraExpression transformProbabilisticPrefix(
@@ -101,13 +108,31 @@ public class CapraExpressionTransformer {
 
 	public SimCapraExpression transformDemandAction(DemandAction demandAction) {
 		String name = demandAction.getIdentifier().getName();
-		IActiveResource resource = resourceManager.getActiveResource(demandAction.getResourceUsage().getResource());
-		ManagedPDF mPDF = new ManagedPDF(demandAction.getResourceUsage()
-				.getUsageTime());
+		ResourceUsage ru;
+		
+		if (demandAction.getResourceUsage().eClass().getClassifierID() == CorePackage.RESOURCE_USAGE){
+			ru = (ResourceUsage)demandAction.getResourceUsage();
+		} else {
+			VariableResourceUsage vru = (VariableResourceUsage)demandAction.getResourceUsage();
+			ru = getSpecification(experiment, vru);
+		}
+		
+		IActiveResource resource = resourceManager.getActiveResource(ru.getResource());
+		ManagedPDF mPDF = new ManagedPDF(ru.getUsageTime());
 		ISamplePDF sPDF = mPDF.getSamplePdfTimeDomain();
 		DiscreteDistribution distribution = transformPDF(sPDF);
 		double sampleWidth = sPDF.getDistance();
 		return factory.createDemandAction(name, distribution, sampleWidth, resource);
+	}
+
+	private ResourceUsage getSpecification(Experiment exp,
+			VariableResourceUsage vru) {
+		for (ResourceUsageSpecification ruSpec : exp.getResourceUsageSpecification()) {
+			if(ruSpec.getVariable().getName().equals(vru.getName())){
+				return ruSpec.getResourceUsageSpecification();
+			}
+		}
+		return null;
 	}
 
 	public DiscreteDistribution transformPDF(ISamplePDF sPDF) {
@@ -236,4 +261,9 @@ public class CapraExpressionTransformer {
 		SimProcessVariableUsage simPVU = new SimProcessVariableUsage(pvu.getProcessVariable().getName());
 		return simPVU;
 	}
+
+	public Experiment getExperiment() {
+		return experiment;
+	}
+
 }

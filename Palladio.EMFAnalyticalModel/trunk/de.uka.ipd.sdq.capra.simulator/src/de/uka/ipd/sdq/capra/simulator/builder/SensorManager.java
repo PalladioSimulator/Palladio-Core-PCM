@@ -7,6 +7,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.capra.measurement.Sensor;
+import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimProcessSensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
 
@@ -50,5 +51,20 @@ public class SensorManager {
 			sensor.finishMeasurements();
 		}
 		
+	}
+
+	public void initialiseProcesses() {
+		for( SimSensor s : this.sensor_map.values()){
+			if (s instanceof SimProcessSensor) {
+				SimProcessSensor ps = (SimProcessSensor) s;
+				ps.initialiseProcess();
+			}
+		}
+	}
+
+	public void start() {
+		for( SimSensor s : this.sensor_map.values()){
+			s.start();
+		}
 	}
 }

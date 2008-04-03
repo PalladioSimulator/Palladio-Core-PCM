@@ -10,7 +10,8 @@ import org.eclipse.emf.common.util.EList;
 
 import scheduler.configuration.ActiveResourceConfiguration;
 import scheduler.configuration.ProcessConfiguration;
-import de.uka.ipd.sdq.capra.ReplicatedProcess;
+import de.uka.ipd.sdq.capra.core.ReplicatedProcess;
+import de.uka.ipd.sdq.capra.experiment.Experiment;
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
 import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 import de.uka.ipd.sdq.capra.simulator.processes.SimCapraProcess;
@@ -19,7 +20,6 @@ import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
-import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 /**
  * Manages the processes in a system. Following the builder pattern.
@@ -34,12 +34,10 @@ public class CapraProcessManager {
 	private List<SimProcessGroup> process_group_list = new ArrayList<SimProcessGroup>();
 	private CapraExpressionFactory expressionFactory = new CapraExpressionFactory();
 	private CapraExpressionTransformer expressionTransformer;
-	private SensorManager sensorManager;
 	private Map<String, List<IRunningProcess>> running_process_map = new Hashtable<String, List<IRunningProcess>>();
 	
-	public CapraProcessManager(ResourceManager resourceManager, SensorManager sensorManager, ISchedulingFactory schedulingFactory) {
-		expressionTransformer = new CapraExpressionTransformer(resourceManager, sensorManager, expressionFactory);
-		this.sensorManager = sensorManager;
+	public CapraProcessManager(ResourceManager resourceManager, SensorManager sensorManager, Experiment exp, ISchedulingFactory schedulingFactory) {
+		expressionTransformer = new CapraExpressionTransformer(resourceManager, sensorManager, expressionFactory, exp);
 		this.schedulingFactory = schedulingFactory;
 	}
 	
@@ -93,8 +91,7 @@ public class CapraProcessManager {
 		String name = config.getName();
 		String id = config.getId();
 		int numReplicas = config.getReplicas();
-		Collection<SimSensor> sensorColl = sensorManager.getSensors();
-		SimProcessGroup processGroup = new SimProcessGroup(behaviour,name, id, numReplicas, sensorColl );
+		SimProcessGroup processGroup = new SimProcessGroup(behaviour,name, id, numReplicas);
 		return processGroup;
 	}
 

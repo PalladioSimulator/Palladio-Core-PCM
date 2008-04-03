@@ -7,8 +7,11 @@ import de.uka.ipd.sdq.capra.measurement.FullTimeSpanRecorder;
 import de.uka.ipd.sdq.capra.measurement.GlobalTimeSpanSensor;
 import de.uka.ipd.sdq.capra.measurement.HistogramRecorder;
 import de.uka.ipd.sdq.capra.measurement.InterruptionTimeSpanSensor;
+import de.uka.ipd.sdq.capra.measurement.IntervalStateRecorder;
 import de.uka.ipd.sdq.capra.measurement.LocalTimeSpanSensor;
+import de.uka.ipd.sdq.capra.measurement.ProcessorShareSensor;
 import de.uka.ipd.sdq.capra.measurement.Recorder;
+import de.uka.ipd.sdq.capra.measurement.ResourceUtilisationSensor;
 import de.uka.ipd.sdq.capra.measurement.Sensor;
 import de.uka.ipd.sdq.capra.measurement.StateSensor;
 import de.uka.ipd.sdq.capra.measurement.SteadyStateRecorder;
@@ -75,6 +78,12 @@ public class SensorVisitor {
 		public SimRecorder caseSteadyStateRecorder(SteadyStateRecorder object) {
 			return sensorTransformer.transformSteadyStateRecorder(object);
 		}
+		
+		@Override
+		public SimRecorder caseIntervalStateRecorder(
+				IntervalStateRecorder object) {
+			return sensorTransformer.transformIntervalStateRecorder(object);
+		}
 	};
 
 	
@@ -103,6 +112,17 @@ public class SensorVisitor {
 		@Override
 		public SimSensor caseCountingSensor(CountingSensor object) {
 			return sensorTransformer.transformCountingSensor(object);
+		}
+		
+		@Override
+		public SimSensor caseResourceUtilisationSensor(
+				ResourceUtilisationSensor object) {
+			return sensorTransformer.transformResourceUtilisationSensor(object);
+		}
+		
+		@Override
+		public SimSensor caseProcessorShareSensor(ProcessorShareSensor object) {
+			return sensorTransformer.transformProcessorShareSensor(object);
 		}
 	};
 }

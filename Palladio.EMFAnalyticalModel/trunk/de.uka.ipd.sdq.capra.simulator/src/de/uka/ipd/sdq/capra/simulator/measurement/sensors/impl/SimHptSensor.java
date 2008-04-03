@@ -1,9 +1,11 @@
-package de.uka.ipd.sdq.capra.simulator.measurement.sensors;
+package de.uka.ipd.sdq.capra.simulator.measurement.sensors.impl;
 
 import java.util.Hashtable;
 import java.util.Map;
 
+import de.uka.ipd.sdq.capra.simulator.measurement.recorders.SimRecorder;
 import de.uka.ipd.sdq.capra.simulator.measurement.recorders.SimTimeSpanRecorder;
+import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimTimeSpanSensor;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
@@ -12,7 +14,7 @@ import de.uka.ipd.sdq.scheduler.sensors.impl.HptSensor;
 /**
  * @author  jens.happe
  */
-public class SimHptSensor extends SimTimeSpanSensor {
+public class SimHptSensor extends AbstractSensor implements SimTimeSpanSensor {
 	
 	private Map<ISchedulableProcess, HptSensor> processStorage = new Hashtable<ISchedulableProcess, HptSensor>();
 	private SimActiveResource resource;
@@ -26,8 +28,8 @@ public class SimHptSensor extends SimTimeSpanSensor {
 	
 	@Override
 	public void addTimeSpan(double timeSpan, double time){
-		for (SimTimeSpanRecorder recorder : recorderList) {
-			recorder.addTimeSpan(timeSpan, time);
+		for (SimRecorder recorder : recorderList) {
+			((SimTimeSpanRecorder)recorder).addTimeSpan(timeSpan, time);
 		}
 	}
 
@@ -56,5 +58,10 @@ public class SimHptSensor extends SimTimeSpanSensor {
 		assert (s != null) : "No state sensor for: " + name +" Process: " + p + " Started Measurements: " + this.processStorage;
 		s.stop();
 		addTimeSpan(s.getHpt(), s.getHptStart());
+	}
+
+	@Override
+	public void start() {
+		
 	}
 }

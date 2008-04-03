@@ -1,9 +1,6 @@
 package de.uka.ipd.sdq.capra.simulator.processes;
 
-import java.util.Collection;
-
 import de.uka.ipd.sdq.capra.simulator.expressions.SimCapraExpression;
-import de.uka.ipd.sdq.capra.simulator.measurement.sensors.SimSensor;
 
 /**
  * @author  jens.happe
@@ -15,7 +12,7 @@ public class SimProcessGroup {
 	
 	private String id;
 
-	public SimProcessGroup(SimCapraExpression behaviour, String name, String id, int numReplicas, Collection<SimSensor> sensorColl){
+	public SimProcessGroup(SimCapraExpression behaviour, String name, String id, int numReplicas){
 		super();
 		this.name = name;
 		this.id = id;

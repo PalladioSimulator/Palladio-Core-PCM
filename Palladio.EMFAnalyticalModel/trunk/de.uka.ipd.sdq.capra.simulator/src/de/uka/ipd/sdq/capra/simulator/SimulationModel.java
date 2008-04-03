@@ -6,6 +6,7 @@ import umontreal.iro.lecuyer.simevents.Event;
 import umontreal.iro.lecuyer.simevents.Simulator;
 import umontreal.iro.lecuyer.simprocs.SimProcess;
 import de.uka.ipd.sdq.capra.CapraModel;
+import de.uka.ipd.sdq.capra.experiment.Experiment;
 import de.uka.ipd.sdq.capra.simulator.builder.CapraProcessManager;
 import de.uka.ipd.sdq.capra.simulator.builder.ResourceManager;
 import de.uka.ipd.sdq.capra.simulator.builder.SensorManager;
@@ -24,11 +25,11 @@ public class SimulationModel {
 	private SensorManager sensorManager;
 	private Simulator simulator;
 	
-	public SimulationModel(ISchedulingFactory schedulingFactory){
+	public SimulationModel(ISchedulingFactory schedulingFactory, Experiment exp){
 		super();
 		resourceManager = new ResourceManager(schedulingFactory);
 		sensorManager = new SensorManager(resourceManager);
-		processManager = new CapraProcessManager(resourceManager, sensorManager,schedulingFactory);
+		processManager = new CapraProcessManager(resourceManager, sensorManager, exp ,schedulingFactory);
 		simulator = SchedulingFactory.getUsedSimulator();
 	}
 
@@ -53,6 +54,7 @@ public class SimulationModel {
 		new EndOfSimEvent().schedule(timeHorizon);
 		processManager.start();
 		resourceManager.start();
+		sensorManager.start();
 		simulator.start();
 	}
 	
@@ -91,8 +93,9 @@ public class SimulationModel {
 	public void loadCapraModel(CapraModel capraModel) {
 		this.resourceManager.loadResources( capraModel.getResources() );
 		this.sensorManager.loadSensors(capraModel.getSensors());
-		this.processManager.loadProcesses( capraModel.getProcesses() );
+		this.processManager.loadProcesses( capraModel.getProcesses());
 		registerProcesses();
+		sensorManager.initialiseProcesses();
 	}
 
 	private void registerProcesses() {
