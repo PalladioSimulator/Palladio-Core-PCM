@@ -31,16 +31,20 @@ public class DesmoJExperiment implements ISimulationControlDelegate {
 		stopConditions.add(condition);
 	}
 
+	double lastStopConditionEvaluationSimTime = 0;
 	public void checkStopConditions(){
-		if (isRunning()){
-			Entity e = new Entity(model, "StopEntity", false){};
-			for(Condition c : stopConditions) {
-				if (c.check()) {
-					logger.debug("Scheduling stop event as a stop condition is true.");
-					createStopCondition().schedule(e, new SimTime(0));
-					return;
+		if (lastStopConditionEvaluationSimTime < this.getCurrentSimulationTime()) {
+			if (isRunning()){
+				Entity e = new Entity(model, "StopEntity", false){};
+				for(Condition c : stopConditions) {
+					if (c.check()) {
+						logger.debug("Scheduling stop event as a stop condition is true.");
+						createStopCondition().schedule(e, new SimTime(0));
+						return;
+					}
 				}
 			}
+			lastStopConditionEvaluationSimTime = this.getCurrentSimulationTime();
 		}
 	}
 
