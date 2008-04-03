@@ -69,4 +69,9 @@ public class MemoryExperimentDAO implements IExperimentDAO {
 		}
 		index.remove(experiment.getExperimentID());
 	}
+	
+	public void storeAll() {
+		// Nothing to do here
+	}
+	
 }

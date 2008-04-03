@@ -149,14 +149,6 @@ public class ExperimentImpl extends AbstractFileEntity implements Experiment, Na
 		return FileDAOFactory.EXP_FILE_NAME_PREFIX + getExperimentID();
 	}
 
-	@Override
-	public void serializeChildren() {
-		for (ExperimentRun er : this.getExperimentRuns())
-			factory.createExperimentRunDAO().store(er);
-		for (Sensor s : this.getSensors())
-			factory.createSensorDAO().store(s);
-	}
-
 	public long getID() {
 		return this.getExperimentID();
 	}

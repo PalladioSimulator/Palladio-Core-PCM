@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateSensorImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanSensorImpl;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
@@ -34,8 +33,8 @@ public class FileSensorDAO extends AbstractFileDAO<Sensor> implements ISensorDAO
 		stsen.setSensorName(p_sensorname);
 		stsen.setSensorID(idGen.getNextSensorID());
 
-		store(stsen);
-
+		this.putEntity(stsen);
+		
 		return stsen;
 	}
 
@@ -44,7 +43,7 @@ public class FileSensorDAO extends AbstractFileDAO<Sensor> implements ISensorDAO
 		result.setSensorID(idGen.getNextSensorID());
 		result.setSensorName(p_sensorname);
 
-		store(result);
+		this.putEntity(result);
 		
 		return result;
 	}

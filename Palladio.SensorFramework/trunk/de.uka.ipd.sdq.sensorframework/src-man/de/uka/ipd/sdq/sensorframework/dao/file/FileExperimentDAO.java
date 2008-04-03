@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
@@ -31,7 +30,7 @@ public class FileExperimentDAO extends AbstractFileDAO<Experiment> implements IE
 		exp.setExperimentID(idGen.getNextExperimentID());
 		exp.setExperimentName(p_experimentname);
 
-		store(exp);
+		this.putEntity(exp);
 		
 		return exp;
 	}

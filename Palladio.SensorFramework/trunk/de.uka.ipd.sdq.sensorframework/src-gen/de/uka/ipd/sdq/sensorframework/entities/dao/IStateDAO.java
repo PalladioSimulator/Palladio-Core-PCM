@@ -20,5 +20,5 @@ public interface IStateDAO {
 
 	java.util.Collection<de.uka.ipd.sdq.sensorframework.entities.State> getStates();
 
-	void store(State st);
+	void storeAll();
 }

@@ -5,13 +5,14 @@ package de.uka.ipd.sdq.sensorframework.dialogs.dataset;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorframework.dao.db4o.DB4ODAOFactory;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
+import de.uka.ipd.sdq.sensorframework.dialogs.SensorFrameworkDialogPlugin;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
@@ -61,27 +62,22 @@ public class OpenDatasourceWizard extends Wizard {
 		IPath path = null;
 
 		if (selectDatasourceTypePage.getResult().equals(
-				WizardSelectDatasourcePage.DB4O_DATASRC)) {
-			path = db40DatasourceLoadPage.getFileFullPath();
-			factory = new DB4ODAOFactory(path.toOSString());
-
-		} else if (selectDatasourceTypePage.getResult().equals(
 				WizardSelectDatasourcePage.FILE_DATASRC)) {
 			path = fileDatasourceLoadPage.getFileFullPath();
 
 			try {
 				factory = new FileDAOFactory(path.toOSString());
-			} catch (Exception e) {
+				SensorFrameworkDataset.singleton().addDataSource(factory);
+			} catch (Throwable e) {
 				MessageDialog.openError(getShell(), "File DAO factory error.",
 						e.getMessage());
+				SensorFrameworkDialogPlugin.log(IStatus.ERROR, e.getMessage());
 				return false;
 			}
 
 		} else {
 			return false;
 		}
-
-		SensorFrameworkDataset.singleton().addDataSource(factory);
 
 		return true;
 	}
@@ -92,10 +88,6 @@ public class OpenDatasourceWizard extends Wizard {
 	 */
 	@Override
 	public boolean canFinish() {
-		if (selectDatasourceTypePage.getResult().equals(
-				WizardSelectDatasourcePage.DB4O_DATASRC)) {
-			return db40DatasourceLoadPage.isPageComplete();
-		}
 		if (selectDatasourceTypePage.getResult().equals(
 				WizardSelectDatasourcePage.FILE_DATASRC)) {
 			return fileDatasourceLoadPage.isPageComplete();
@@ -113,17 +105,10 @@ public class OpenDatasourceWizard extends Wizard {
 		if (page instanceof WizardSelectDatasourcePage) {
 			WizardSelectDatasourcePage data_type_page = (WizardSelectDatasourcePage) page;
 			if (data_type_page.getResult().equals(
-					WizardSelectDatasourcePage.DB4O_DATASRC)) {
-				return db40DatasourceLoadPage;
-			} else if (data_type_page.getResult().equals(
 					WizardSelectDatasourcePage.FILE_DATASRC)) {
 				return fileDatasourceLoadPage;
 			}
 		}
 		return null;
-	}
-	
-	private void showMessage(String message) {
-		MessageDialog.openError(getShell(), "File DAO factory error.", message);
 	}
 }

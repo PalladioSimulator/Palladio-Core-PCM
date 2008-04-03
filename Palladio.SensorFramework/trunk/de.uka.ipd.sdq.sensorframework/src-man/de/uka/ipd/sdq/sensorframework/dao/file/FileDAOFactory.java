@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.sensorframework.dao.file;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
@@ -31,6 +30,7 @@ public class FileDAOFactory implements IDAOFactory {
 	public static final String EXPRUN_FILE_NAME_PREFIX = "exprun";
 	public static final String SENSOR_FILE_NAME_PREFIX = "sensor";
 	public static final String STATE_FILE_NAME_PREFIX = "state";
+	public static final String IDGEN_FILE_NAME_PREFIX = "id_generator";
 	public static final String SUFFIX = ".ser";
 
 	private IExperimentDAO experimentDAO;
@@ -54,7 +54,7 @@ public class FileDAOFactory implements IDAOFactory {
 	}
 	
 	private IDGenerator createIdGenerator() {
-		IDGenerator result = (IDGenerator) fileManager.deserializeFromFile(IDGenerator.FILE_NAME);
+		IDGenerator result = (IDGenerator) fileManager.deserializeFromFile(FileDAOFactory.IDGEN_FILE_NAME_PREFIX);
 		if (result == null){
 			result = new IDGenerator();
 		}
@@ -97,7 +97,7 @@ public class FileDAOFactory implements IDAOFactory {
 
 	public void finalizeAndClose() {
 		fileManager.closeAllLists();
-		fileManager.serializeToFile(idGen);
+		fileManager.serializeToFile(FileDAOFactory.IDGEN_FILE_NAME_PREFIX,idGen);
 		
 		if (this.experimentDAO != null)
 			((FileExperimentDAO)this.experimentDAO).dispose();
@@ -134,6 +134,8 @@ public class FileDAOFactory implements IDAOFactory {
 	}
 
 	public void reload() {
+		// This code is only a temporary solution to the reload problem. It
+		// can cause problems on concurrent access.
 		String oldFilename = fileManager.getRootDirectory();
 		
 		/* Reset all DAOs */
@@ -146,6 +148,18 @@ public class FileDAOFactory implements IDAOFactory {
 		// StB: This is not safe for concurrent access, but an inital simple implementation
 		fileManager = new FileManager(oldFilename, this);
 		idGen = createIdGenerator();
+	}
+
+	public void store() {
+		fileManager.serializeToFile(FileDAOFactory.IDGEN_FILE_NAME_PREFIX,idGen);
+		if (this.experimentDAO != null)
+			((FileExperimentDAO)this.experimentDAO).storeAll();
+		if (this.sensorDAO != null)
+			((FileSensorDAO)this.sensorDAO).storeAll();
+		if (this.stateDAO != null)
+			((FileStateDAO)this.stateDAO).storeAll();
+		if (this.experimentRunDAO != null)
+			((FileExperimentRunDAO)this.experimentRunDAO).storeAll();
 	}
 	
 }

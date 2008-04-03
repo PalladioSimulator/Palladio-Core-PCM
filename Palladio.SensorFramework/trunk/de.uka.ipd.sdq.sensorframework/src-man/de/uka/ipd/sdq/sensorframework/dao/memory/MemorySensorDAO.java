@@ -81,4 +81,9 @@ public class MemorySensorDAO implements ISensorDAO {
 
 	public void store(Sensor s) {
 	}
+	
+	public void storeAll() {
+		// Nothing to do here
+	}
+	
 }

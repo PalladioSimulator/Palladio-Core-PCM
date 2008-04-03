@@ -208,9 +208,6 @@ class ExperimentsAdapter implements ISelectionChangedListener {
 		    if (dlg.open() == Window.OK) {
 		        experiment.setExperimentName(dlg.getValue());
 		        
-		        //persist the experiment
-		        expAndDAOs.get(0).getDatasource().createExperimentDAO().store(experiment);
-		        
 		        myChildTree.refresh();
 		    }
 		}

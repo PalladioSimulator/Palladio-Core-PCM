@@ -55,5 +55,10 @@ public class MemoryExperimentRunDAO implements IExperimentRunDAO {
 		}
 		index.remove(experimentRun.getExperimentRunID());		
 	}
+	
+	public void storeAll() {
+		// Nothing to do here
+	}
+	
 
 }

@@ -10,5 +10,8 @@ Require-Bundle: de.uka.ipd.sdq.sensorframework,
  org.eclipse.core.runtime,
  org.eclipse.ui.ide,
  org.eclipse.core.filesystem,
- org.eclipse.pde.ui
+ org.eclipse.pde.ui,
+ de.uka.ipd.sdq.dialogs,
+ de.uka.ipd.sdq.errorhandling
 Bundle-Vendor: sdq.ipd.uka.de
+Bundle-Activator: de.uka.ipd.sdq.sensorframework.dialogs.SensorFrameworkDialogPlugin

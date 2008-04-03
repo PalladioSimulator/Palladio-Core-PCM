@@ -27,5 +27,5 @@ public interface ISensorDAO {
 	
 	void removeSensor(de.uka.ipd.sdq.sensorframework.entities.Sensor sensor, boolean doCascade);
 
-	void store(Sensor s);
+	void storeAll();
 }

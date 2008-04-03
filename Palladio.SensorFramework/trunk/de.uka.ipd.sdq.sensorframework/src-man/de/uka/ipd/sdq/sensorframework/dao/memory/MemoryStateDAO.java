@@ -71,4 +71,8 @@ public class MemoryStateDAO implements IStateDAO {
 	public void store(State st) {
 	}
 
+	public void storeAll() {
+		// Nothing to do here
+	}
+	
 }

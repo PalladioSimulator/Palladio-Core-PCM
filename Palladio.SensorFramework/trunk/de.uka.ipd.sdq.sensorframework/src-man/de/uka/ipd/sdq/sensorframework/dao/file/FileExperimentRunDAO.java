@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 
-import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentRunImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.AbstractSensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
@@ -31,9 +30,9 @@ public class FileExperimentRunDAO extends AbstractFileDAO<ExperimentRun> impleme
 		ExperimentRunImpl expRun = new ExperimentRunImpl(factory);
 		expRun.setExperimentRunID(idGen.getNextExperimentRunID());
 		expRun.setExperimentDateTime(p_experimentdatetime);
-
-		store(expRun);
 		
+		this.putEntity(expRun);
+
 		return expRun;
 	}
 

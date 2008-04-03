@@ -1,12 +1,10 @@
-package de.uka.ipd.sdq.sensorframework.dao.db4o;
+package de.uka.ipd.sdq.sensorframework.dao.file;
 
-import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
+import java.io.Serializable;
 
-public class IDGenerator implements NamedSerializable {
+public class IDGenerator implements Serializable {
 
 	private static final long serialVersionUID = -4845947012172760482L;
-	public static final String FILE_NAME = "id_generator";
 
 	private long nextExperimentID = 0;
 	private long nextExperimentRunID = 0;
@@ -32,20 +30,5 @@ public class IDGenerator implements NamedSerializable {
 
 	public long getNextStateID() {
 		return nextStateID++;
-	}
-
-	public String getFileName() {
-		return FILE_NAME;
-	}
-
-	public void serializeChildren() {
-		// No children to serialise here
-	}
-
-	public void setFactory(FileDAOFactory factory) {
-	}
-
-	public long getID() {
-		throw new UnsupportedOperationException();
 	}
 }

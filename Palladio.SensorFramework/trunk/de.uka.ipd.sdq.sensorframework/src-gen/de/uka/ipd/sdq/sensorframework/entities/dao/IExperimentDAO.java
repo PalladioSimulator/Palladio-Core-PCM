@@ -24,5 +24,5 @@ public interface IExperimentDAO {
 	java.util.Collection<de.uka.ipd.sdq.sensorframework.entities.Experiment> getExperiments();
 
 
-	void store(Experiment e);
+	void storeAll();
 } 

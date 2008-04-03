@@ -27,7 +27,6 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		IExperimentDAO experimentDAO = factory.createExperimentDAO();
 		for (int i=0; i < CREATE_COUNT; i++) {
 			Experiment e = experimentDAO.addExperiment("Test"+i);
-			experimentDAO.store(e);
 		}
 		factory.finalizeAndClose();
 		
@@ -40,8 +39,9 @@ public abstract class AbstractSerialiserTests extends TestCase {
 			Assert.assertEquals(0,e.getSensors().size());
 			Assert.assertEquals(0,e.getExperimentRuns().size());
 		}
-		factory.finalizeAndClose();
+		Assert.assertEquals(10, experimentDAO.getExperiments().size());
 		Assert.assertEquals(10, count);
+		factory.finalizeAndClose();
 	}
 
 	public void testExperimentStoreAfterReload() throws IOException {
@@ -53,7 +53,6 @@ public abstract class AbstractSerialiserTests extends TestCase {
 			factory = createDAOFactory();
 			IExperimentDAO experimentDAO = factory.createExperimentDAO();
 			Experiment e = experimentDAO.addExperiment("Test"+i);
-			experimentDAO.store(e);
 			factory.finalizeAndClose();
 		}
 		
@@ -77,7 +76,6 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		Experiment e = experimentDAO.addExperiment("Test");
 		addTimeSpanSensors(factory, e);
 		addStateSensors(factory, e);
-		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
 		// load it again
@@ -108,7 +106,6 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		IExperimentDAO experimentDAO = factory.createExperimentDAO();
 		Experiment e = experimentDAO.addExperiment("Test");
 		addStateSensors(factory, e);
-		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
 		// load it again
@@ -126,7 +123,6 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		addTimeSpanSensors(factory, e);
 		addStateSensors(factory, e);
 		addExperimentRuns(factory, e);
-		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
 		// load it again
@@ -149,7 +145,6 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		IExperimentDAO experimentDAO = factory.createExperimentDAO();
 		Experiment e = experimentDAO.addExperiment("Test");
 		addExperimentRuns(factory, e);
-		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
 		// load it again
@@ -169,7 +164,6 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		addTimeSpanSensors(factory, e);
 		addStateSensors(factory, e);
 		addExperimentRuns(factory, e);
-		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
 		// load it again
@@ -200,12 +194,12 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		addTimeSpanSensors(factory, e);
 		addExperimentRuns(factory, e);
 		addTimeSpanMeasurements(factory,e,createCount);
-		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
 		// load it again
 		factory = createDAOFactory();
 		experimentDAO = factory.createExperimentDAO();
+		e = experimentDAO.getExperiments().iterator().next();
 		TimeSpanSensor tss = (TimeSpanSensor) e.getSensors().iterator().next();
 		ExperimentRun er = e.getExperimentRuns().iterator().next();
 		SensorAndMeasurements sam = er.getMeasurementsOfSensor(tss);
@@ -239,12 +233,12 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		addStateSensors(factory, e);
 		addExperimentRuns(factory, e);
 		addStateMeasurements(factory,e,createCount);
-		experimentDAO.store(e);
 		factory.finalizeAndClose();
 		
 		// load it again
 		factory = createDAOFactory();
 		experimentDAO = factory.createExperimentDAO();
+		e = experimentDAO.getExperiments().iterator().next();
 		StateSensor ssensor = (StateSensor) e.getSensors().iterator().next();
 		ExperimentRun er = e.getExperimentRuns().iterator().next();
 		SensorAndMeasurements sam = er.getMeasurementsOfSensor(ssensor);

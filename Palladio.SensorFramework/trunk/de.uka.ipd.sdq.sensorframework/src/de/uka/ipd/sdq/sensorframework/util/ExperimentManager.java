@@ -68,7 +68,7 @@ public class ExperimentManager {
 	}	
 
 	public void close(){
-		factory.createExperimentDAO().store(experiment);
+		factory.finalizeAndClose();
 	}
 	
 	

@@ -17,5 +17,5 @@ public interface IExperimentRunDAO {
 
 	java.util.Collection<de.uka.ipd.sdq.sensorframework.entities.ExperimentRun> getExperimentRuns();
 
-	void store(ExperimentRun er);
+	void storeAll();
 }

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateImpl;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
@@ -28,9 +27,9 @@ public class FileStateDAO extends AbstractFileDAO<State> implements IStateDAO {
 		State state = new StateImpl(this.factory);
 		state.setStateID(idGen.getNextStateID());
 		state.setStateLiteral(p_stateliteral);
-
-		store(state);
 		
+		this.putEntity(state);
+
 		return state;
 	}
 

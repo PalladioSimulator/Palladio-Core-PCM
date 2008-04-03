@@ -102,4 +102,8 @@ public class MemoryDAOFactory implements IDAOFactory {
 	public void reload() {
 		// Nothing to do here
 	}
+
+	public void store() {
+		// Nothing to do here
+	}
 }

@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
@@ -77,39 +78,38 @@ public class FileManager {
 		return f.delete();
 	}
 
-	public void serializeToFile(NamedSerializable ser) {
+	public void serializeToFile(String filename, Serializable ser) {
 		OutputStream fos = null;
-		File path = new File(new File(this.rootDirectory), ser.getFileName()
-				+ ".ser");
+		File path = new File(new File(this.rootDirectory), filename
+				+ FileDAOFactory.SUFFIX);
 		try {
 			fos = new FileOutputStream(path);
 			ObjectOutputStream o = new ObjectOutputStream(fos);
 			o.writeObject(ser);
 		} catch (IOException e) {
-			System.err.println(e);
+			throw new RuntimeException("Serialisation of DAO failed.");
 		} finally {
 			try {
 				fos.close();
 			} catch (Exception e) {
-				System.err.println(e);
+				throw new RuntimeException("Serialisation of DAO failed.");
 			}
 		}
 	}
 
-	public NamedSerializable deserializeFromFile(String fileName) {
+	public Serializable deserializeFromFile(String fileName) {
 		File path = new File(new File(this.rootDirectory), fileName + FileDAOFactory.SUFFIX);
 		return deserializeFromFile(path);
 	}
 
-	public NamedSerializable deserializeFromFile(File file) {
+	public Serializable deserializeFromFile(File file) {
+		Serializable result = null;
 		InputStream fis = null;
-		NamedSerializable result = null;
 		if (file.exists()) {
 			try {
 				fis = new FileInputStream(file);
 				ObjectInputStream o = new ObjectInputStream(fis);
-				result = (NamedSerializable) o.readObject();
-				result.setFactory(this.factory);
+				result = (Serializable) o.readObject();
 			} catch (IOException e) {
 				throw new RuntimeException("Sensorframework File Provider failed loading an entity",e);
 			} catch (ClassNotFoundException e) {
@@ -123,30 +123,6 @@ public class FileManager {
 			}
 		}
 		return result;
-	}
-
-	// Not needed for Background memory lists
-//	public AbstractSensorAndMeasurements loadMeasurementForSensor(long exprunID,
-//			long sensorID) {
-//		return (AbstractSensorAndMeasurements) deserializeFromFile(FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
-//				+ exprunID + "_" + sensorID);
-//	}
-
-	public Experiment getExperiment(File file) {
-		Experiment exp = (Experiment) deserializeFromFile(file);
-		((ExperimentImpl) exp).setFactory(factory);
-
-		return exp;
-	}
-
-	public Sensor getSensor(File file) {
-		Sensor sensor = (Sensor) deserializeFromFile(file);
-		return sensor;
-	}
-
-	public State getState(File file) {
-		State state = (State) deserializeFromFile(file);
-		return state;
 	}
 
 	public String getRootDirectory() {

@@ -37,7 +37,7 @@ public class DialogsImages {
 	 */
 	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
 		return AbstractUIPlugin.imageDescriptorFromPlugin(
-				SensorframeworkDialogsPluginActivator.PLUGIN_ID, imageFilePath);
+				SensorFrameworkDialogPlugin.PLUGIN_ID, imageFilePath);
 	}
 
 }

@@ -14,7 +14,6 @@ public class WizardSelectDatasourcePage extends WizardPage {
 
 	/**String constants for existing data sources */
 	public static String MEMORY_DATASRC = "Memory Datasource";
-	public static String DB4O_DATASRC = "DB4O Datasource";
 	public static String FILE_DATASRC = "File Datasource";
 	
 	private Combo myCombo;
@@ -80,8 +79,6 @@ public class WizardSelectDatasourcePage extends WizardPage {
 	private void populateComboBox() {
 		if (memoryEntry)
 			myCombo.add(MEMORY_DATASRC);
-		if (db40Entry)
-			myCombo.add(DB4O_DATASRC);
 		if (fileEntry)
 			myCombo.add(FILE_DATASRC);
 	}
@@ -94,8 +91,7 @@ public class WizardSelectDatasourcePage extends WizardPage {
 	public boolean canFlipToNextPage() {
 		boolean canFlip = !myCombo.getText().equals("");
 		canFlip = canFlip
-				&& (myCombo.getText().equals(DB4O_DATASRC) || myCombo
-						.getText().equals(FILE_DATASRC));
+				&& (myCombo.getText().equals(FILE_DATASRC));
 
 		return super.canFlipToNextPage() && canFlip;
 	}

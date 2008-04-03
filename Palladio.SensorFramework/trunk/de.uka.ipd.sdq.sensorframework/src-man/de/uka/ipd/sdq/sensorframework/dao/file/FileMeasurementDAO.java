@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.sensorframework.dao.file;
 
 import java.util.Collection;
 
-import de.uka.ipd.sdq.sensorframework.dao.db4o.IDGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateMeasurementImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanMeasurementImpl;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;

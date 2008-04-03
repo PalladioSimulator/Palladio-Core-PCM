@@ -43,11 +43,11 @@ public class SensorFrameworkDataset {
 			nextID += 1;
 		}
 		else {
-			if(factory.getID() > nextID) {
-				long nextID = 0;
+			if(factory.getID() >= nextID) {
+				this.nextID = 0;
 				for (IDAOFactory f : datasources) {
 					if (f.getID() >= nextID)
-						nextID = f.getID() + 1;
+						this.nextID = f.getID() + 1;
 				}
 			}
 		}

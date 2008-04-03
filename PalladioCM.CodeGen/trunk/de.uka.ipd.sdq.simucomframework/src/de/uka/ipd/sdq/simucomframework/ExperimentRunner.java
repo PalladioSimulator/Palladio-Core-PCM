@@ -46,6 +46,6 @@ public class ExperimentRunner {
 		// TODO: Move me: exp.finish();
 		model.getResourceRegistry().deactivateAllActiveResources();
 
-		model.getDAOFactory().createExperimentDAO().store(model.getExperimentDatastore());
+		model.getDAOFactory().store();
 	}
 }

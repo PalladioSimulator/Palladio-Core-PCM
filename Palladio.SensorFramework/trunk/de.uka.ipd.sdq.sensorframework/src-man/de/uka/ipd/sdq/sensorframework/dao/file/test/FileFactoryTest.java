@@ -49,7 +49,7 @@ public class FileFactoryTest {
 		for (double d : m2s1)
 			er2.addTimeSpanMeasurement(s1, d, d);
 
-		f.createExperimentDAO().store(e);
+		f.finalizeAndClose();
 	}
 
 	@Test
@@ -134,13 +134,13 @@ public class FileFactoryTest {
 	public void addExperiment() {
 		f = SensorFrameworkDataset.singleton().getDataSourceByID(2);
 		Experiment e2 = f.createExperimentDAO().addExperiment("Test2");
-		f.createExperimentDAO().store(e2);
 
 		assertEquals(2, f.createExperimentDAO().getExperiments().size());
 		assertEquals(1, e2.getExperimentID());
 
 		f.createExperimentDAO().removeExperiment(e2, false);
 		assertEquals(1, f.createExperimentDAO().getExperiments().size());
+		f.finalizeAndClose();
 
 	}
 

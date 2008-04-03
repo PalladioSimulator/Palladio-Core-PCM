@@ -65,9 +65,4 @@ public class StateSensorImpl extends SensorImpl implements StateSensor {
 		return true;
 	}
 
-	public void serializeChildren() {
-		for (State s : this.getSensorStates())
-			factory.createStateDAO().store(s);
-	}
-
 }

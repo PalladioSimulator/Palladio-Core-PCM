@@ -23,7 +23,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 
-import de.uka.ipd.sdq.sensorframework.dao.db4o.DB4ODAOFactory;
 import de.uka.ipd.sdq.sensorframework.dao.memory.MemoryDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
@@ -178,14 +177,6 @@ public class DatasourceDialog extends TitleAreaDialog {
 			MemoryDAOFactory memoryDAO = (MemoryDAOFactory) selection;
 			setTitle("Description:");
 			setMessage(memoryDAO.getDescription());
-		}
-		
-		if (selection instanceof DB4ODAOFactory) {
-			DB4ODAOFactory dbDAO = (DB4ODAOFactory) selection;
-			String file = dbDAO.getFileName();
-			setTitle("Description:");
-			setMessage(dbDAO.getDescription() + ". Object Database (.."
-					+ file.substring(file.length() - 40, file.length()) + ").");
 		}
 	}
 	
