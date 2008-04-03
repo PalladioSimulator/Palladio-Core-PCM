@@ -5,46 +5,52 @@ package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 
 /**
- * @author ihssane
+ * @author ihssane, Steffen
  * 
  */
 public class StateSensorImpl extends SensorImpl implements StateSensor {
 
 	private static final long serialVersionUID = -1981199624361875277L;
-	private State initialState;
-	private Collection<State> sensorStates;
+	private Long initialStateID;
+	private ArrayList<Long> sensorStateIDs;
 
 	public StateSensorImpl(FileDAOFactory factory) {
 		super(factory);
-		sensorStates = new ArrayList<State>();
+		sensorStateIDs = new ArrayList<Long>();
 	}
 
 	public void addSensorState(State value) {
-		sensorStates.add(value);
+		sensorStateIDs.add(value.getStateID());
 	}
 
 	public State addState(String p_stateliteral) {
 		State state = factory.createStateDAO().addState(p_stateliteral);
-		sensorStates.add(state);
+		sensorStateIDs.add(state.getStateID());
 		return state;
 	}
 
 	public State getInitialState() {
-		return initialState;
+		return factory.createStateDAO().get(initialStateID);
 	}
 
 	public Collection<State> getSensorStates() {
-		return sensorStates;
+		ArrayList<State> result = new ArrayList<State>();
+		for (Long id : this.sensorStateIDs) {
+			result.add(factory.createStateDAO().get(id));
+		}
+		return Collections.unmodifiableCollection(result);
 	}
 
 	public void setInitialState(State value) {
-		this.initialState = value;
+		this.initialStateID = value.getStateID();
 	}
 
 	@Override
@@ -57,6 +63,11 @@ public class StateSensorImpl extends SensorImpl implements StateSensor {
 			return false;
 
 		return true;
+	}
+
+	public void serializeChildren() {
+		for (State s : this.getSensorStates())
+			factory.createStateDAO().store(s);
 	}
 
 }

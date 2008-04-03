@@ -28,4 +28,8 @@ public class TimeSpanSensorImpl extends SensorImpl implements TimeSpanSensor {
 	    return false;
 	return true;
     }
+
+	public void serializeChildren() {
+		// Nothing to serialize here
+	}
 }

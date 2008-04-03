@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 
 /**
@@ -58,7 +59,7 @@ public class FileManager {
 		return path.listFiles(new FilenameFilter() {
 
 			public boolean accept(File dir, String name) {
-				return name.toLowerCase().endsWith(".ser")
+				return name.toLowerCase().endsWith(FileDAOFactory.SUFFIX)
 						&& name.toLowerCase().contains(pattern);
 			}
 
@@ -95,19 +96,20 @@ public class FileManager {
 		}
 	}
 
-	public Object deserializeFromFile(String fileName) {
-		File path = new File(new File(this.rootDirectory), fileName + ".ser");
+	public NamedSerializable deserializeFromFile(String fileName) {
+		File path = new File(new File(this.rootDirectory), fileName + FileDAOFactory.SUFFIX);
 		return deserializeFromFile(path);
 	}
 
-	private Object deserializeFromFile(File file) {
+	public NamedSerializable deserializeFromFile(File file) {
 		InputStream fis = null;
-		Object result = null;
+		NamedSerializable result = null;
 		if (file.exists()) {
 			try {
 				fis = new FileInputStream(file);
 				ObjectInputStream o = new ObjectInputStream(fis);
-				result = o.readObject();
+				result = (NamedSerializable) o.readObject();
+				result.setFactory(this.factory);
 			} catch (IOException e) {
 				System.err.println(e);
 			} catch (ClassNotFoundException e) {
@@ -163,6 +165,10 @@ public class FileManager {
 			}
 		}
 		openLists.clear();
+	}
+
+	public IDAOFactory getDAOFactory() {
+		return this.factory;
 	}
 	
 }

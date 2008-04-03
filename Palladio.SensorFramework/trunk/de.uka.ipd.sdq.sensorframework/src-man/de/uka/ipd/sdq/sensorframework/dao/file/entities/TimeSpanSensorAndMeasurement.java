@@ -79,4 +79,7 @@ public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements 
 		}
 	}
 
+	public void serializeChildren() {
+		// Nothing to serialize here
+	}
 }

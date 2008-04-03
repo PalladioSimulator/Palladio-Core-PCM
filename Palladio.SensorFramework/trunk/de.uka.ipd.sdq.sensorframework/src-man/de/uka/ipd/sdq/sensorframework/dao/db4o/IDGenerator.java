@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.sensorframework.dao.db4o;
 
+import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.NamedSerializable;
 
 public class IDGenerator implements NamedSerializable {
@@ -35,5 +36,16 @@ public class IDGenerator implements NamedSerializable {
 
 	public String getFileName() {
 		return FILE_NAME;
+	}
+
+	public void serializeChildren() {
+		// No children to serialise here
+	}
+
+	public void setFactory(FileDAOFactory factory) {
+	}
+
+	public long getID() {
+		throw new UnsupportedOperationException();
 	}
 }

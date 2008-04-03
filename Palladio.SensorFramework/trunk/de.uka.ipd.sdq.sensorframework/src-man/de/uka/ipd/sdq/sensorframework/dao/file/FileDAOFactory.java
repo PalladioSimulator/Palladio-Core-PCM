@@ -29,8 +29,9 @@ public class FileDAOFactory implements IDAOFactory {
 
 	public static final String EXP_FILE_NAME_PREFIX = "experiment";
 	public static final String EXPRUN_FILE_NAME_PREFIX = "exprun";
-	public static final String SENSO_FILE_NAME_PREFIX = "sensor";
+	public static final String SENSOR_FILE_NAME_PREFIX = "sensor";
 	public static final String STATE_FILE_NAME_PREFIX = "state";
+	public static final String SUFFIX = ".ser";
 
 	private IExperimentDAO experimentDAO;
 	private IExperimentRunDAO experimentRunDAO;

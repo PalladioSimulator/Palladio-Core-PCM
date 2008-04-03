@@ -3,8 +3,12 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
@@ -19,19 +23,37 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * @author ihssane
  * 
  */
-public class ExperimentImpl implements Experiment, NamedSerializable {
+public class ExperimentImpl extends AbstractFileEntity implements Experiment, NamedSerializable {
 
-	private static final long serialVersionUID = 1L;
-	protected transient IDAOFactory factory;
+	/**
+	 * Serialisation ID
+	 */
+	private static final long serialVersionUID = 2145970711062278629L;
+
+	/**
+	 * ID of this Experiment
+	 */
 	private long experimentID;
+
+	/**
+	 * Name of this experiment
+	 */
 	private String experimentName;
-	private Collection<Sensor> sensors;
-	private Collection<ExperimentRun> experimentRuns;
+
+	/**
+	 * Collection of IDs of sensors in this experiment.
+	 */
+	private Collection<Long> sensors;
+
+	/**
+	 * Collection of IDs of ExperimentRuns of this experiment.
+	 */
+	private Collection<Long> experimentRuns;
 
 	public ExperimentImpl(IDAOFactory factory) {
-		this.factory = factory;
-		sensors = new ArrayList<Sensor>();
-		experimentRuns = new ArrayList<ExperimentRun>();
+		super(factory);
+		sensors = new ArrayList<Long>();
+		experimentRuns = new ArrayList<Long>();
 	}
 
 	public long getExperimentID() {
@@ -50,58 +72,57 @@ public class ExperimentImpl implements Experiment, NamedSerializable {
 		this.experimentName = experimentName;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.uka.ipd.sdq.sensorframework.entities.Experiment#getSensors()
+	 */
 	public Collection<Sensor> getSensors() {
-		return sensors;
-	}
-
-	public void setSensors(Collection<Sensor> sensors) {
-		this.sensors = sensors;
+		ArrayList<Sensor> result = new ArrayList<Sensor>();
+		for (Long id : sensors) {
+			result.add(factory.createSensorDAO().get(id));
+		}
+		return Collections.unmodifiableCollection(result);
 	}
 
 	public void setFactory(FileDAOFactory factory) {
 		this.factory = factory;
-		for (ExperimentRun er : experimentRuns)
-			((ExperimentRunImpl) er).setFactory(factory);
-	}
-
-	public IDAOFactory getFactory() {
-		return factory;
 	}
 
 	public Collection<ExperimentRun> getExperimentRuns() {
-		return experimentRuns;
-	}
-
-	public void setExperimentRuns(Collection<ExperimentRun> experimentRuns) {
-		this.experimentRuns = experimentRuns;
+		ArrayList<ExperimentRun> result = new ArrayList<ExperimentRun>();
+		for (Long id : experimentRuns) {
+			result.add(factory.createExperimentRunDAO().get(id));
+		}
+		return Collections.unmodifiableCollection(result);
 	}
 
 	public TimeSpanSensor addTimeSpanSensor(String sensorName) {
 		TimeSpanSensor tss = factory.createSensorDAO().addTimeSpanSensor(
 				sensorName);
-		sensors.add(tss);
+		sensors.add(tss.getSensorID());
 		return tss;
 	}
 
 	public ExperimentRun addExperimentRun(String experimentdatetime) {
 		ExperimentRun expRun = factory.createExperimentRunDAO()
 				.addExperimentRun(experimentdatetime);
-		experimentRuns.add(expRun);
+		experimentRuns.add(expRun.getExperimentRunID());
 		return expRun;
 	}
 
 	public void addExperimentRun(ExperimentRun experimentRun) {
-		experimentRuns.add(experimentRun);
+		experimentRuns.add(experimentRun.getExperimentRunID());
 	}
 
 	public void addSensor(Sensor value) {
-		sensors.add(value);
+		sensors.add(value.getSensorID());
 	}
 
 	public StateSensor addStateSensor(State p_initialstate, String p_sensorname) {
 		StateSensor stsen = factory.createSensorDAO().addStateSensor(
 				p_initialstate, p_sensorname);
-		sensors.add(stsen);
+		sensors.add(stsen.getSensorID());
 		return stsen;
 	}
 
@@ -126,6 +147,18 @@ public class ExperimentImpl implements Experiment, NamedSerializable {
 
 	public String getFileName() {
 		return FileDAOFactory.EXP_FILE_NAME_PREFIX + getExperimentID();
+	}
+
+	@Override
+	public void serializeChildren() {
+		for (ExperimentRun er : this.getExperimentRuns())
+			factory.createExperimentRunDAO().store(er);
+		for (Sensor s : this.getSensors())
+			factory.createSensorDAO().store(s);
+	}
+
+	public long getID() {
+		return this.getExperimentID();
 	}
 
 }

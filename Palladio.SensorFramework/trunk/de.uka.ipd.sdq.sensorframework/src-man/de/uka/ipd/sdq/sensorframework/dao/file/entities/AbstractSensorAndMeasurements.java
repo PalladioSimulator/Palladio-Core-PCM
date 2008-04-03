@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
  * @author ihssane
  * 
  */
-public abstract class AbstractSensorAndMeasurements implements NamedSerializable {
+public abstract class AbstractSensorAndMeasurements extends AbstractFileEntity implements NamedSerializable {
 
 	protected static final String EVENT_TIME_SUFFIX = "ET";
 	protected static final String MEASUREMENTS_SUFFIX = "MEAS";
@@ -33,6 +33,7 @@ public abstract class AbstractSensorAndMeasurements implements NamedSerializable
 	private FileManager fm;
 
 	public AbstractSensorAndMeasurements(FileManager fm, ExperimentRun exprun, Sensor sensor) throws IOException {
+		super(fm.getDAOFactory());
 		this.sensor = sensor;
 		this.experimentRun = exprun;
 		this.fm = fm;
@@ -77,5 +78,9 @@ public abstract class AbstractSensorAndMeasurements implements NamedSerializable
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public long getID() {
+		throw new UnsupportedOperationException();
 	}
 }

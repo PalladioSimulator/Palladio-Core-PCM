@@ -16,24 +16,15 @@ import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
 
 /**
- * @author ihssane
+ * @author ihssane, Steffen
  * 
  * Data Access Object (DAO) for persistence of ExperimentRun Objects.
  * 
  */
-public class FileExperimentRunDAO implements IExperimentRunDAO {
-
-	public static final String FILE_NAME_PREFIX = "exprun";
-
-	private HashMap<Long, ExperimentRun> experimentRuns;
-	private FileDAOFactory factory;
-	private IDGenerator idGen;
+public class FileExperimentRunDAO extends AbstractFileDAO<ExperimentRun> implements IExperimentRunDAO {
 
 	public FileExperimentRunDAO(FileDAOFactory factory, IDGenerator idGen) {
-		this.factory = factory;
-		this.idGen = idGen;
-		experimentRuns = new HashMap<Long, ExperimentRun>();
-		loadExperimentRuns();
+		super(factory,idGen,FileDAOFactory.EXPRUN_FILE_NAME_PREFIX);
 	}
 
 	public ExperimentRun addExperimentRun(String p_experimentdatetime) {
@@ -41,42 +32,17 @@ public class FileExperimentRunDAO implements IExperimentRunDAO {
 		expRun.setExperimentRunID(idGen.getNextExperimentRunID());
 		expRun.setExperimentDateTime(p_experimentdatetime);
 
-		experimentRuns.put(expRun.getExperimentRunID(), expRun);
+		store(expRun);
+		
 		return expRun;
 	}
 
-	public void loadExperimentRuns() {
-		for (Experiment exp : factory.createExperimentDAO().getExperiments()) {
-			for (ExperimentRun run : exp.getExperimentRuns())
-				experimentRuns.put(run.getExperimentRunID(), run);
-		}
-	}
-
-	public ExperimentRun get(long id) {
-		return experimentRuns.get(id);
-	}
-
 	public Collection<ExperimentRun> getExperimentRuns() {
-		return Collections.unmodifiableCollection(experimentRuns.values());
+		return Collections.unmodifiableCollection(getAllEntities());
 	}
 
 	public void removeExperimentRun(ExperimentRun experimentRun,
 			boolean doCascade) {
-		experimentRuns.remove(experimentRun.getExperimentRunID());
-		factory.getFileManager().removeFile((NamedSerializable) experimentRun);
-		// TODO lösche auch bei Experiment !
-	}
-
-	public void store(ExperimentRun er) {
-		ExperimentRunImpl myEr = (ExperimentRunImpl) er;
-		// StB: Not needed any longer when using the background memory list
-		// implementation
-		// for (AbstractSensorAndMeasurements sam :
-		// myEr.getCachedSensorAndMeasurements())
-		// factory.getFileManager().serializeToFile(sam);
-		for (AbstractSensorAndMeasurements sam : myEr
-				.getCachedSensorAndMeasurements())
-			sam.store();
-
+		this.removeEntity(experimentRun, doCascade);
 	}
 }

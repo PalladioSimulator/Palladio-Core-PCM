@@ -20,15 +20,15 @@ import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
- * @author ihssane
+ * @author ihssane, Steffen
  * 
  */
-public class ExperimentRunImpl implements ExperimentRun, Serializable {
+public class ExperimentRunImpl extends AbstractFileEntity implements ExperimentRun, Serializable {
 
 	private static final long serialVersionUID = 6496657460961660218L;
-	private transient FileDAOFactory factory;
 	private long experimentRunID;
 	private String experimentDateTime;
 	
@@ -39,24 +39,16 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 	private transient HashMap<Long, AbstractSensorAndMeasurements> measurementsForSensor;
 	
 	/**
-	 * IDs of the sensors defineded for this experiment run 
+	 * IDs of the sensors defined for this experiment run 
 	 */
 	public List<Long> sensorIDs;
-
-	public ExperimentRunImpl(){
-		measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
-	}
 	
-	public ExperimentRunImpl(FileDAOFactory factory) {
-		this.factory = factory;
+	public ExperimentRunImpl(IDAOFactory factory) {
+		super(factory);
 		measurementsForSensor = new HashMap<Long, AbstractSensorAndMeasurements>();
 		sensorIDs = new ArrayList<Long>();
 	}
-
-	public void setFactory(FileDAOFactory factory) {
-		this.factory = factory;
-	}
-
+	
 	public long getExperimentRunID() {
 		return experimentRunID;
 	}
@@ -74,7 +66,7 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 	}
 
 	public void addMeasurement(Measurement value) {
-		return;
+		throw new UnsupportedOperationException();
 	}
 
 	public Collection<AbstractSensorAndMeasurements> getCachedSensorAndMeasurements() {
@@ -210,5 +202,21 @@ public class ExperimentRunImpl implements ExperimentRun, Serializable {
 		if (!(getSensorAndMeasurements().equals(er.getSensorAndMeasurements())))
 			return false;
 		return true;
+	}
+
+	@Override
+	public void serializeChildren() {
+		for (AbstractSensorAndMeasurements sam : this
+				.getCachedSensorAndMeasurements())
+			sam.store();
+	}
+
+	@Override
+	public String getFileName() {
+		return FileDAOFactory.EXPRUN_FILE_NAME_PREFIX + getExperimentRunID();
+	}
+
+	public long getID() {
+		return this.getExperimentRunID();
 	}
 }

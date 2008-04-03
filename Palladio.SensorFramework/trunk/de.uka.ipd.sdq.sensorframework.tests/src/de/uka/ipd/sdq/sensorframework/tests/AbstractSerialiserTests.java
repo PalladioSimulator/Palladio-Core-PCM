@@ -4,9 +4,13 @@ import java.io.IOException;
 
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.State;
+import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
+import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
@@ -178,7 +182,87 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		Assert.assertEquals(2, count);
 		factory.finalizeAndClose();
 	}
+
+	public void testTimeSpanMeasurements() throws IOException {
+		// store some additional data
+		IDAOFactory factory = createCleanDAOFactory();
+		IExperimentDAO experimentDAO = factory.createExperimentDAO();
+		Experiment e = experimentDAO.addExperiment("Test2");
+		addTimeSpanSensors(factory, e);
+		addExperimentRuns(factory, e);
+		addTimeSpanMeasurements(factory,e);
+		experimentDAO.store(e);
+		factory.finalizeAndClose();
+		
+		// load it again
+		factory = createDAOFactory();
+		experimentDAO = factory.createExperimentDAO();
+		TimeSpanSensor tss = (TimeSpanSensor) e.getSensors().iterator().next();
+		ExperimentRun er = e.getExperimentRuns().iterator().next();
+		SensorAndMeasurements sam = er.getMeasurementsOfSensor(tss);
+		Assert.assertEquals(tss, sam.getSensor());
+		int count = 0;
+		for (Measurement m : sam.getMeasurements()) {
+			Assert.assertTrue(m instanceof TimeSpanMeasurement);
+			TimeSpanMeasurement tsm = (TimeSpanMeasurement) m;
+			Assert.assertTrue(tsm.getTimeSpan() > 0);
+			Assert.assertTrue(tsm.getEventTime() > 0);
+			count++;
+		}
+		Assert.assertEquals(CREATE_COUNT, count);
+		Assert.assertEquals(CREATE_COUNT, sam.getMeasurements().size());
+		factory.finalizeAndClose();
+	}
 	
+	public void testStateMeasurements() throws IOException {
+		// store some additional data
+		IDAOFactory factory = createCleanDAOFactory();
+		IExperimentDAO experimentDAO = factory.createExperimentDAO();
+		Experiment e = experimentDAO.addExperiment("Test2");
+		addStateSensors(factory, e);
+		addExperimentRuns(factory, e);
+		addStateMeasurements(factory,e);
+		experimentDAO.store(e);
+		factory.finalizeAndClose();
+		
+		// load it again
+		factory = createDAOFactory();
+		experimentDAO = factory.createExperimentDAO();
+		StateSensor ssensor = (StateSensor) e.getSensors().iterator().next();
+		ExperimentRun er = e.getExperimentRuns().iterator().next();
+		SensorAndMeasurements sam = er.getMeasurementsOfSensor(ssensor);
+		Assert.assertEquals(ssensor, sam.getSensor());
+		int count = 0;
+		for (Measurement m : sam.getMeasurements()) {
+			Assert.assertTrue(m instanceof StateMeasurement);
+			StateMeasurement sm = (StateMeasurement) m;
+			Assert.assertNotNull(sm.getSensorState());
+			Assert.assertEquals(sm.getSensorState(), ssensor.getInitialState());
+			Assert.assertTrue(sm.getEventTime() > 0);
+			count++;
+		}
+		Assert.assertEquals(CREATE_COUNT, count);
+		Assert.assertEquals(CREATE_COUNT, sam.getMeasurements().size());
+		factory.finalizeAndClose();
+	}
+	
+	
+	private void addTimeSpanMeasurements(IDAOFactory factory, Experiment e) {
+		TimeSpanSensor tss = (TimeSpanSensor) e.getSensors().iterator().next();
+		ExperimentRun er = e.getExperimentRuns().iterator().next();
+		for (int i = 0; i < CREATE_COUNT; i++) {
+			er.addTimeSpanMeasurement(tss, i + 1, i + 1);
+		}
+	}
+
+	private void addStateMeasurements(IDAOFactory factory, Experiment e) {
+		StateSensor ssensor = (StateSensor) e.getSensors().iterator().next();
+		ExperimentRun er = e.getExperimentRuns().iterator().next();
+		for (int i = 0; i < CREATE_COUNT; i++) {
+			er.addStateMeasurement(ssensor, ssensor.getInitialState(), i + 1);
+		}
+	}
+
 	private void addExperimentRuns(IDAOFactory factory, Experiment e) {
 		for (int i=0; i < CREATE_COUNT; i++) {
 			ExperimentRun run = factory.createExperimentRunDAO().addExperimentRun("Date"+i);

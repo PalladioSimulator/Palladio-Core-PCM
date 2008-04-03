@@ -23,7 +23,7 @@ public class TestHibernateMain {
 		StateSensor stateSen = e.addStateSensor(idleState,"AStateSensor");
 		stateSen.addSensorState(busyState);
 		stateSen.addSensorState(idleState);
-		f.createStateDAO().store(stateSen);
+		f.createSensorDAO().store(stateSen);
 		boolean flag = false; double valueSum = 0;
 		long start = System.nanoTime();
 		for (int i=0; i<200000; i++) {

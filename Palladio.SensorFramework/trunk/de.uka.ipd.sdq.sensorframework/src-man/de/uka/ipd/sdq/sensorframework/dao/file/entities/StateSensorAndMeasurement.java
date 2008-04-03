@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileManager;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
@@ -65,6 +66,13 @@ public class StateSensorAndMeasurement extends AbstractSensorAndMeasurements {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public void serializeChildren() {
+		// Nothing to serialize here
+	}
+
+	public void setFactory(FileDAOFactory factory) {
 	}
 	
 }
