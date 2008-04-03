@@ -120,14 +120,15 @@ public abstract class AbstractFileDAO<T> implements IRemovalNotifier {
 	}
 	
 	public void removeEntity(T entity, boolean doCascade) {
-		if (entity == null)
-			throw new IllegalArgumentException("Entity can not be null");
-
-		if (doCascade == true) {
-			// TODO!
-		}
-		// TODO! entitiesCache.remove(entity.getSensorID());
-		factory.getFileManager().removeFile((NamedSerializable) entity);
+		throw new UnsupportedOperationException();
+//		if (entity == null)
+//			throw new IllegalArgumentException("Entity can not be null");
+//
+//		if (doCascade == true) {
+//			// TODO!
+//		}
+//		// TODO! entitiesCache.remove(entity.getSensorID());
+//		factory.getFileManager().removeFile((NamedSerializable) entity);
 	}
 	
 	@SuppressWarnings("unchecked")
