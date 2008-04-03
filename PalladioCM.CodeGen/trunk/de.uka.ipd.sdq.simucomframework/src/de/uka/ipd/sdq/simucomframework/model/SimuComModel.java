@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDelegate;
+import de.uka.ipd.sdq.simucomframework.exceptions.DatasourceConfigurationInvalidException;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
@@ -126,7 +127,9 @@ public class SimuComModel {
 	}
 
 	private void initialiseNewSensorframework() {
-		this.daoFactory = SensorFrameworkDataset.singleton().getDataSourceByID(config.getDatasourceID()); 
+		this.daoFactory = SensorFrameworkDataset.singleton().getDataSourceByID(config.getDatasourceID());
+		if (this.daoFactory == null)
+			throw new DatasourceConfigurationInvalidException();
 		if (daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).size() == 1){
 			experiment = daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).
 							iterator().next();
