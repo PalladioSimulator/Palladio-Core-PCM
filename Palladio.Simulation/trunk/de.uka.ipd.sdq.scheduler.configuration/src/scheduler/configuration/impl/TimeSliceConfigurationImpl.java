@@ -42,7 +42,7 @@ public abstract class TimeSliceConfigurationImpl extends EObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int GRANULARITY_EDEFAULT = 0;
+	protected static final int GRANULARITY_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getGranularity() <em>Granularity</em>}' attribute.

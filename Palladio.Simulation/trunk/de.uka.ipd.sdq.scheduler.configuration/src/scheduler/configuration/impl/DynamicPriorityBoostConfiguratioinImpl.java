@@ -27,6 +27,7 @@ import scheduler.configuration.TimeValue;
  * <ul>
  *   <li>{@link scheduler.configuration.impl.DynamicPriorityBoostConfiguratioinImpl#getMaxBonus <em>Max Bonus</em>}</li>
  *   <li>{@link scheduler.configuration.impl.DynamicPriorityBoostConfiguratioinImpl#getMaxSleepAverage <em>Max Sleep Average</em>}</li>
+ *   <li>{@link scheduler.configuration.impl.DynamicPriorityBoostConfiguratioinImpl#getThreshold <em>Threshold</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +63,26 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 	 * @ordered
 	 */
 	protected TimeValue maxSleepAverage;
+
+	/**
+	 * The default value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getThreshold()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int THRESHOLD_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getThreshold()
+	 * @generated
+	 * @ordered
+	 */
+	protected int threshold = THRESHOLD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,6 +172,27 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getThreshold() {
+		return threshold;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setThreshold(int newThreshold) {
+		int oldThreshold = threshold;
+		threshold = newThreshold;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD, oldThreshold, threshold));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -172,6 +214,8 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 				return new Integer(getMaxBonus());
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
 				return getMaxSleepAverage();
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
+				return new Integer(getThreshold());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -189,6 +233,9 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 				return;
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
 				setMaxSleepAverage((TimeValue)newValue);
+				return;
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
+				setThreshold(((Integer)newValue).intValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -208,6 +255,9 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
 				setMaxSleepAverage((TimeValue)null);
 				return;
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
+				setThreshold(THRESHOLD_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -224,6 +274,8 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 				return maxBonus != MAX_BONUS_EDEFAULT;
 			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE:
 				return maxSleepAverage != null;
+			case ConfigurationPackage.DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD:
+				return threshold != THRESHOLD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -240,6 +292,8 @@ public class DynamicPriorityBoostConfiguratioinImpl extends PriorityBoostConfigu
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (maxBonus: ");
 		result.append(maxBonus);
+		result.append(", threshold: ");
+		result.append(threshold);
 		result.append(')');
 		return result.toString();
 	}

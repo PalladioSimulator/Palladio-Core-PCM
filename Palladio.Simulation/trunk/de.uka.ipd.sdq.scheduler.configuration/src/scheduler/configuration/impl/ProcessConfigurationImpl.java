@@ -8,12 +8,15 @@ package scheduler.configuration.impl;
 
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import scheduler.configuration.ConfigurationPackage;
 import scheduler.configuration.PriorityClass;
 import scheduler.configuration.ProcessConfiguration;
@@ -28,6 +31,7 @@ import scheduler.configuration.ProcessConfiguration;
  *   <li>{@link scheduler.configuration.impl.ProcessConfigurationImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link scheduler.configuration.impl.ProcessConfigurationImpl#getReplicas <em>Replicas</em>}</li>
  *   <li>{@link scheduler.configuration.impl.ProcessConfigurationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link scheduler.configuration.impl.ProcessConfigurationImpl#getAffinityList <em>Affinity List</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +97,16 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAffinityList() <em>Affinity List</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAffinityList()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Integer> affinityList;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,6 +195,18 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Integer> getAffinityList() {
+		if (affinityList == null) {
+			affinityList = new EDataTypeUniqueEList<Integer>(Integer.class, this, ConfigurationPackage.PROCESS_CONFIGURATION__AFFINITY_LIST);
+		}
+		return affinityList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -190,6 +216,8 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 				return new Integer(getReplicas());
 			case ConfigurationPackage.PROCESS_CONFIGURATION__NAME:
 				return getName();
+			case ConfigurationPackage.PROCESS_CONFIGURATION__AFFINITY_LIST:
+				return getAffinityList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -199,6 +227,7 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -210,6 +239,10 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 				return;
 			case ConfigurationPackage.PROCESS_CONFIGURATION__NAME:
 				setName((String)newValue);
+				return;
+			case ConfigurationPackage.PROCESS_CONFIGURATION__AFFINITY_LIST:
+				getAffinityList().clear();
+				getAffinityList().addAll((Collection<? extends Integer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,6 +265,9 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 			case ConfigurationPackage.PROCESS_CONFIGURATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case ConfigurationPackage.PROCESS_CONFIGURATION__AFFINITY_LIST:
+				getAffinityList().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +286,8 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 				return replicas != REPLICAS_EDEFAULT;
 			case ConfigurationPackage.PROCESS_CONFIGURATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ConfigurationPackage.PROCESS_CONFIGURATION__AFFINITY_LIST:
+				return affinityList != null && !affinityList.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -270,6 +308,8 @@ public class ProcessConfigurationImpl extends IdentifierImpl implements ProcessC
 		result.append(replicas);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", affinityList: ");
+		result.append(affinityList);
 		result.append(')');
 		return result.toString();
 	}

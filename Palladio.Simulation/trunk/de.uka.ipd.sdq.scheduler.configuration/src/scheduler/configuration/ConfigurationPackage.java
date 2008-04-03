@@ -158,13 +158,22 @@ public interface ConfigurationPackage extends EPackage {
 	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Dynamic Priority Boost Configuratioin</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN_FEATURE_COUNT = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 2;
+	int DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN_FEATURE_COUNT = PRIORITY_BOOST_CONFIGURATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link scheduler.configuration.impl.LoadBalancingImpl <em>Load Balancing</em>}' class.
@@ -828,13 +837,22 @@ public interface ConfigurationPackage extends EPackage {
 	int PROCESS_CONFIGURATION__NAME = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Affinity List</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_CONFIGURATION__AFFINITY_LIST = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Process Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_CONFIGURATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
+	int PROCESS_CONFIGURATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link scheduler.configuration.impl.SingleQueueConfigurationImpl <em>Single Queue Configuration</em>}' class.
@@ -1145,6 +1163,17 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDynamicPriorityBoostConfiguratioin_MaxSleepAverage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link scheduler.configuration.DynamicPriorityBoostConfiguratioin#getThreshold <em>Threshold</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Threshold</em>'.
+	 * @see scheduler.configuration.DynamicPriorityBoostConfiguratioin#getThreshold()
+	 * @see #getDynamicPriorityBoostConfiguratioin()
+	 * @generated
+	 */
+	EAttribute getDynamicPriorityBoostConfiguratioin_Threshold();
 
 	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.PriorityBoostConfiguration <em>Priority Boost Configuration</em>}'.
@@ -1705,6 +1734,17 @@ public interface ConfigurationPackage extends EPackage {
 	EAttribute getProcessConfiguration_Name();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link scheduler.configuration.ProcessConfiguration#getAffinityList <em>Affinity List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Affinity List</em>'.
+	 * @see scheduler.configuration.ProcessConfiguration#getAffinityList()
+	 * @see #getProcessConfiguration()
+	 * @generated
+	 */
+	EAttribute getProcessConfiguration_AffinityList();
+
+	/**
 	 * Returns the meta object for class '{@link scheduler.configuration.SingleQueueConfiguration <em>Single Queue Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1987,6 +2027,14 @@ public interface ConfigurationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE = eINSTANCE.getDynamicPriorityBoostConfiguratioin_MaxSleepAverage();
+
+		/**
+		 * The meta object literal for the '<em><b>Threshold</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD = eINSTANCE.getDynamicPriorityBoostConfiguratioin_Threshold();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.PriorityBoostConfigurationImpl <em>Priority Boost Configuration</em>}' class.
@@ -2431,6 +2479,14 @@ public interface ConfigurationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROCESS_CONFIGURATION__NAME = eINSTANCE.getProcessConfiguration_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Affinity List</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESS_CONFIGURATION__AFFINITY_LIST = eINSTANCE.getProcessConfiguration_AffinityList();
 
 		/**
 		 * The meta object literal for the '{@link scheduler.configuration.impl.SingleQueueConfigurationImpl <em>Single Queue Configuration</em>}' class.

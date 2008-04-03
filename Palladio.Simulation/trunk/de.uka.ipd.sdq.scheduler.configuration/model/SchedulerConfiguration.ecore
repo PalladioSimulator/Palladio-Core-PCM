@@ -30,6 +30,8 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="maxSleepAverage" ordered="false"
           lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PriorityBoostConfiguration" abstract="true"/>
     <eClassifiers xsi:type="ecore:EEnum" name="InstanceToBalance">
@@ -87,7 +89,8 @@
         eSuperTypes="#//configuration/TimeSliceConfiguration"/>
     <eClassifiers xsi:type="ecore:EClass" name="TimeSliceConfiguration" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="granularity" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="timeslice" ordered="false"
           lowerBound="1" eType="#//configuration/TimeValue" containment="true"/>
     </eClassifiers>
@@ -183,6 +186,8 @@
           defaultValueLiteral="1"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="affinityList" ordered="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleQueueConfiguration" eSuperTypes="#//configuration/QueueingConfiguration">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="processSelection" ordered="false"

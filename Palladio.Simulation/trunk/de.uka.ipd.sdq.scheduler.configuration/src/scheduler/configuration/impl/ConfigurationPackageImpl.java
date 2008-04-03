@@ -391,6 +391,15 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDynamicPriorityBoostConfiguratioin_Threshold() {
+		return (EAttribute)dynamicPriorityBoostConfiguratioinEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPriorityBoostConfiguration() {
 		return priorityBoostConfigurationEClass;
 	}
@@ -859,6 +868,15 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getProcessConfiguration_AffinityList() {
+		return (EAttribute)processConfigurationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSingleQueueConfiguration() {
 		return singleQueueConfigurationEClass;
 	}
@@ -1077,6 +1095,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		dynamicPriorityBoostConfiguratioinEClass = createEClass(DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN);
 		createEAttribute(dynamicPriorityBoostConfiguratioinEClass, DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_BONUS);
 		createEReference(dynamicPriorityBoostConfiguratioinEClass, DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__MAX_SLEEP_AVERAGE);
+		createEAttribute(dynamicPriorityBoostConfiguratioinEClass, DYNAMIC_PRIORITY_BOOST_CONFIGURATIOIN__THRESHOLD);
 
 		priorityBoostConfigurationEClass = createEClass(PRIORITY_BOOST_CONFIGURATION);
 
@@ -1143,6 +1162,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		createEAttribute(processConfigurationEClass, PROCESS_CONFIGURATION__PRIORITY);
 		createEAttribute(processConfigurationEClass, PROCESS_CONFIGURATION__REPLICAS);
 		createEAttribute(processConfigurationEClass, PROCESS_CONFIGURATION__NAME);
+		createEAttribute(processConfigurationEClass, PROCESS_CONFIGURATION__AFFINITY_LIST);
 
 		singleQueueConfigurationEClass = createEClass(SINGLE_QUEUE_CONFIGURATION);
 		createEAttribute(singleQueueConfigurationEClass, SINGLE_QUEUE_CONFIGURATION__PROCESS_SELECTION);
@@ -1222,6 +1242,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEClass(dynamicPriorityBoostConfiguratioinEClass, DynamicPriorityBoostConfiguratioin.class, "DynamicPriorityBoostConfiguratioin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDynamicPriorityBoostConfiguratioin_MaxBonus(), ecorePackage.getEInt(), "maxBonus", null, 1, 1, DynamicPriorityBoostConfiguratioin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getDynamicPriorityBoostConfiguratioin_MaxSleepAverage(), this.getTimeValue(), null, "maxSleepAverage", null, 1, 1, DynamicPriorityBoostConfiguratioin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDynamicPriorityBoostConfiguratioin_Threshold(), ecorePackage.getEInt(), "threshold", null, 1, 1, DynamicPriorityBoostConfiguratioin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(priorityBoostConfigurationEClass, PriorityBoostConfiguration.class, "PriorityBoostConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1244,7 +1265,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEClass(predefinedTimeSliceConfigurationEClass, PredefinedTimeSliceConfiguration.class, "PredefinedTimeSliceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(timeSliceConfigurationEClass, TimeSliceConfiguration.class, "TimeSliceConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimeSliceConfiguration_Granularity(), ecorePackage.getEInt(), "granularity", null, 1, 1, TimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getTimeSliceConfiguration_Granularity(), ecorePackage.getEInt(), "granularity", "1", 1, 1, TimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getTimeSliceConfiguration_Timeslice(), this.getTimeValue(), null, "timeslice", null, 1, 1, TimeSliceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(preemptionConfigurationEClass, PreemptionConfiguration.class, "PreemptionConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1288,6 +1309,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 		initEAttribute(getProcessConfiguration_Priority(), this.getPriorityClass(), "priority", null, 1, 1, ProcessConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProcessConfiguration_Replicas(), ecorePackage.getEInt(), "replicas", "1", 1, 1, ProcessConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProcessConfiguration_Name(), ecorePackage.getEString(), "name", null, 1, 1, ProcessConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getProcessConfiguration_AffinityList(), ecorePackage.getEInt(), "affinityList", null, 0, -1, ProcessConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(singleQueueConfigurationEClass, SingleQueueConfiguration.class, "SingleQueueConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSingleQueueConfiguration_ProcessSelection(), this.getProcessSelection(), "processSelection", null, 1, 1, SingleQueueConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

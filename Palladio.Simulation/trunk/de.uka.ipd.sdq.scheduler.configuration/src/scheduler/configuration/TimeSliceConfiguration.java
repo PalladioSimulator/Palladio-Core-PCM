@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface TimeSliceConfiguration extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Granularity</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Granularity</em>' attribute isn't clear,
@@ -37,7 +38,7 @@ public interface TimeSliceConfiguration extends EObject {
 	 * @return the value of the '<em>Granularity</em>' attribute.
 	 * @see #setGranularity(int)
 	 * @see scheduler.configuration.ConfigurationPackage#getTimeSliceConfiguration_Granularity()
-	 * @model required="true" ordered="false"
+	 * @model default="1" required="true" ordered="false"
 	 * @generated
 	 */
 	int getGranularity();

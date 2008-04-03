@@ -68,6 +68,7 @@
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/maxBonus"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/maxSleepAverage"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/threshold"/>
       </genClasses>
       <genClasses image="false" ecoreClass="SchedulerConfiguration.ecore#//configuration/PriorityBoostConfiguration"/>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/LoadBalancing">
@@ -134,6 +135,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/priority"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/replicas"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/affinityList"/>
       </genClasses>
       <genClasses ecoreClass="SchedulerConfiguration.ecore#//configuration/SingleQueueConfiguration">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SchedulerConfiguration.ecore#//configuration/SingleQueueConfiguration/processSelection"/>
