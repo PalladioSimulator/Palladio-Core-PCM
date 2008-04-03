@@ -9,6 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.capra.core.provider,
+ de.uka.ipd.sdq.capra.experiment.provider,
  de.uka.ipd.sdq.capra.extension.provider,
  de.uka.ipd.sdq.capra.measurement.provider,
  de.uka.ipd.sdq.capra.provider,
