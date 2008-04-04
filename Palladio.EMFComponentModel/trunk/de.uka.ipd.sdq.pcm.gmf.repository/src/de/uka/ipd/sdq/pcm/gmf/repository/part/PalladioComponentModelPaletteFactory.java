@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
+import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
@@ -25,31 +26,136 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
-		paletteRoot.add(createPcm1Group());
+		paletteRoot.add(createBasicModelElements1Group());
+		paletteRoot.add(createInternalElements2Group());
+		paletteRoot.add(createComponentTypes3Group());
 	}
 
 	/**
-	 * Creates "pcm" palette tool group
+	 * Creates "Basic Model Elements" palette tool group
 	 * @generated
 	 */
-	private PaletteContainer createPcm1Group() {
-		PaletteGroup paletteContainer = new PaletteGroup(
-				Messages.Pcm1Group_title);
-		paletteContainer.add(createSignature1CreationTool());
-		paletteContainer.add(createRequiredRole2CreationTool());
-		paletteContainer.add(createInterface3CreationTool());
-		paletteContainer.add(createProvidedRole4CreationTool());
-		paletteContainer.add(createCompleteComponentType5CreationTool());
-		paletteContainer.add(createCompositeComponent6CreationTool());
-		paletteContainer.add(createBasicComponent7CreationTool());
-		paletteContainer.add(createProvidesComponentType8CreationTool());
-		paletteContainer.add(createSEFF9CreationTool());
-		paletteContainer.add(createCompleteParentType10CreationTool());
-		paletteContainer.add(createProvidesParentType11CreationTool());
-		paletteContainer.add(createPassiveResource12CreationTool());
-		paletteContainer.add(createComponentParameter13CreationTool());
-		paletteContainer.add(createVariableCharacterisation14CreationTool());
+	private PaletteContainer createBasicModelElements1Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.BasicModelElements1Group_title);
+		paletteContainer.setDescription(Messages.BasicModelElements1Group_desc);
+		paletteContainer.add(createInterface1CreationTool());
+		paletteContainer.add(createBasicComponent2CreationTool());
+		paletteContainer.add(createCompositeComponent3CreationTool());
+		paletteContainer.add(createRequiredRole4CreationTool());
+		paletteContainer.add(createProvidedRole5CreationTool());
 		return paletteContainer;
+	}
+
+	/**
+	 * Creates "Internal Elements" palette tool group
+	 * @generated
+	 */
+	private PaletteContainer createInternalElements2Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.InternalElements2Group_title);
+		paletteContainer.setDescription(Messages.InternalElements2Group_desc);
+		paletteContainer.add(createSignature1CreationTool());
+		paletteContainer.add(createSEFF2CreationTool());
+		paletteContainer.add(createPassiveResource3CreationTool());
+		paletteContainer.add(createComponentParameter4CreationTool());
+		paletteContainer.add(createVariableCharacterisation5CreationTool());
+		return paletteContainer;
+	}
+
+	/**
+	 * Creates "Component Types" palette tool group
+	 * @generated
+	 */
+	private PaletteContainer createComponentTypes3Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(
+				Messages.ComponentTypes3Group_title);
+		paletteContainer.setDescription(Messages.ComponentTypes3Group_desc);
+		paletteContainer.add(createProvidesComponentType1CreationTool());
+		paletteContainer.add(createCompleteComponentType2CreationTool());
+		paletteContainer.add(createConformsProvidedType3CreationTool());
+		paletteContainer.add(createConformsCompleteType4CreationTool());
+		return paletteContainer;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createInterface1CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.Interface_2101);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.Interface1CreationTool_title,
+				Messages.Interface1CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.Interface_2101));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createBasicComponent2CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.BasicComponent_2102);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.BasicComponent2CreationTool_title,
+				Messages.BasicComponent2CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.BasicComponent_2102));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCompositeComponent3CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.CompositeComponent_2105);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.CompositeComponent3CreationTool_title,
+				Messages.CompositeComponent3CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.CompositeComponent_2105));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRequiredRole4CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.RequiredRole_4102);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.RequiredRole4CreationTool_title,
+				Messages.RequiredRole4CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.RequiredRole_4102));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createProvidedRole5CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.ProvidedRole_4101);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.ProvidedRole5CreationTool_title,
+				Messages.ProvidedRole5CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidedRole_4101));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
 	}
 
 	/**
@@ -71,127 +177,13 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRequiredRole2CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.RequiredRole_4102);
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.RequiredRole2CreationTool_title,
-				Messages.RequiredRole2CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.RequiredRole_4102));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createInterface3CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.Interface_2101);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.Interface3CreationTool_title,
-				Messages.Interface3CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.Interface_2101));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createProvidedRole4CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.ProvidedRole_4101);
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.ProvidedRole4CreationTool_title,
-				Messages.ProvidedRole4CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidedRole_4101));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createCompleteComponentType5CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types
-				.add(PalladioComponentModelElementTypes.CompleteComponentType_2103);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CompleteComponentType5CreationTool_title,
-				Messages.CompleteComponentType5CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentType_2103));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createCompositeComponent6CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.CompositeComponent_2105);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CompositeComponent6CreationTool_title,
-				Messages.CompositeComponent6CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.CompositeComponent_2105));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createBasicComponent7CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.BasicComponent_2102);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.BasicComponent7CreationTool_title,
-				Messages.BasicComponent7CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.BasicComponent_2102));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createProvidesComponentType8CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types
-				.add(PalladioComponentModelElementTypes.ProvidesComponentType_2104);
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ProvidesComponentType8CreationTool_title,
-				Messages.ProvidesComponentType8CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidesComponentType_2104));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createSEFF9CreationTool() {
+	private ToolEntry createSEFF2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.SEFF9CreationTool_title,
-				Messages.SEFF9CreationTool_desc, types);
+				Messages.SEFF2CreationTool_title,
+				Messages.SEFF2CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102));
@@ -202,46 +194,12 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCompleteParentType10CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types
-				.add(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.CompleteParentType10CreationTool_title,
-				Messages.CompleteParentType10CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createProvidesParentType11CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types
-				.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.ProvidesParentType11CreationTool_title,
-				Messages.ProvidesParentType11CreationTool_desc, types);
-		entry
-				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createPassiveResource12CreationTool() {
+	private ToolEntry createPassiveResource3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.PassiveResource12CreationTool_title,
-				Messages.PassiveResource12CreationTool_desc, types);
+				Messages.PassiveResource3CreationTool_title,
+				Messages.PassiveResource3CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.PassiveResource_3103));
@@ -252,12 +210,12 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createComponentParameter13CreationTool() {
+	private ToolEntry createComponentParameter4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(PalladioComponentModelElementTypes.VariableUsage_3104);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ComponentParameter13CreationTool_title,
-				Messages.ComponentParameter13CreationTool_desc, types);
+				Messages.ComponentParameter4CreationTool_title,
+				Messages.ComponentParameter4CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3104));
@@ -268,16 +226,84 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createVariableCharacterisation14CreationTool() {
+	private ToolEntry createVariableCharacterisation5CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
 				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3105);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.VariableCharacterisation14CreationTool_title,
-				Messages.VariableCharacterisation14CreationTool_desc, types);
+				Messages.VariableCharacterisation5CreationTool_title,
+				Messages.VariableCharacterisation5CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.VariableCharacterisation_3105));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createProvidesComponentType1CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.ProvidesComponentType_2104);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ProvidesComponentType1CreationTool_title,
+				Messages.ProvidesComponentType1CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidesComponentType_2104));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCompleteComponentType2CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.CompleteComponentType_2103);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.CompleteComponentType2CreationTool_title,
+				Messages.CompleteComponentType2CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentType_2103));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createConformsProvidedType3CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.ConformsProvidedType3CreationTool_title,
+				Messages.ConformsProvidedType3CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createConformsCompleteType4CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.ConformsCompleteType4CreationTool_title,
+				Messages.ConformsCompleteType4CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

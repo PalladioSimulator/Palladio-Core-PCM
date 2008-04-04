@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
  * @generated
  */
 public class BasicComponentComponentParameterCompartmentEditPart extends
-		ShapeCompartmentEditPart {
+		ListCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -34,6 +34,13 @@ public class BasicComponentComponentParameterCompartmentEditPart extends
 	 */
 	public BasicComponentComponentParameterCompartmentEditPart(View view) {
 		super(view);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean hasModelChildrenChanged(Notification evt) {
+		return false;
 	}
 
 	/**

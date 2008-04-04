@@ -734,8 +734,7 @@
         canonicalEditPolicyClassName="BasicComponentComponentParameterCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.3"
         title="ComponentParameterCompartment"
-        node="//@diagram/@topLevelNodes.1"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.1">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -772,17 +771,9 @@
     </compartments>
     <palette>
       <groups
-          title="pcm">
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Signature"
-            description="Create new Signature"
-            genNodes="//@diagram/@childNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="RequiredRole"
-            description="Create new RequiredRole"
-            genLinks="//@diagram/@links.1"/>
+          title="Basic Model Elements"
+          description="Basic Component Modelling Elements"
+          collapse="true">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Interface"
@@ -790,14 +781,9 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ProvidedRole"
-            description="Create new ProvidedRole"
-            genLinks="//@diagram/@links.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="CompleteComponentType"
-            description="Create new CompleteComponentType"
-            genNodes="//@diagram/@topLevelNodes.3"/>
+            title="BasicComponent"
+            description="Create new BasicComponent"
+            genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="CompositeComponent"
@@ -805,29 +791,29 @@
             genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="BasicComponent"
-            description="Create new BasicComponent"
-            genNodes="//@diagram/@topLevelNodes.1"/>
+            title="RequiredRole"
+            description="Create new RequiredRole"
+            genLinks="//@diagram/@links.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ProvidesComponentType"
-            description="Create new ProvidesComponentType"
-            genNodes="//@diagram/@topLevelNodes.4"/>
+            title="ProvidedRole"
+            description="Create new ProvidedRole"
+            genLinks="//@diagram/@links.0"/>
+      </groups>
+      <groups
+          title="Internal Elements"
+          description="Provides elements for intra component modelling"
+          collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Signature"
+            description="Create new Signature"
+            genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="SEFF"
             description="SEFF"
             genNodes="//@diagram/@childNodes.1"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Complete Parent Type"
-            description="Complete Parent Type"
-            genLinks="//@diagram/@links.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="Provides Parent Type"
-            description="Provides Parent Type"
-            genLinks="//@diagram/@links.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Passive Resource"
@@ -843,6 +829,31 @@
             title="Variable Characterisation"
             description="Variable Characterisation"
             genNodes="//@diagram/@childNodes.4"/>
+      </groups>
+      <groups
+          title="Component Types"
+          description="Provides Advanced Component Modelling Concepts"
+          collapse="true">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ProvidesComponentType"
+            description="Create new ProvidesComponentType"
+            genNodes="//@diagram/@topLevelNodes.4"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="CompleteComponentType"
+            description="Create new CompleteComponentType"
+            genNodes="//@diagram/@topLevelNodes.3"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Conforms Provided Type"
+            description="Create a conformance link to a provided type"
+            genLinks="//@diagram/@links.3"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="Conforms Complete Type"
+            description="Create a conformance link to a complete type"
+            genLinks="//@diagram/@links.2"/>
       </groups>
     </palette>
     <preferencePages

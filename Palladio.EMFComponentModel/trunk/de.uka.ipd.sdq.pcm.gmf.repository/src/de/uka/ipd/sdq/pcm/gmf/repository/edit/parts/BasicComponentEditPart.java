@@ -88,6 +88,13 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 											: compartmentEditPart
 													.getCommand(request);
 								}
+								if (type == PalladioComponentModelElementTypes.VariableUsage_3104) {
+									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+											.getType(BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
 							}
 							return super.getCommand(request);
 						}

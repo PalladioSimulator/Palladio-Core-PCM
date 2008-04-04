@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.2"/>
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="repository.gmfgraph#Interface"/>
       <children
@@ -44,7 +44,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.0"/>
+              href="repositoryeditor.gmftool#//@palette/@tools.1/@tools.0"/>
           <diagramNode
               href="repository.gmfgraph#SignatureServiceName"/>
         </ownedChild>
@@ -75,7 +75,7 @@
           href="../seffeditor/seffeditor.gmfmap#//@diagram"/>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.6"/>
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="repository.gmfgraph#BasicComponent"/>
       <children
@@ -101,7 +101,7 @@
               href="../seffeditor/seffeditor.gmfmap#//@diagram"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.8"/>
+              href="repositoryeditor.gmftool#//@palette/@tools.1/@tools.1"/>
           <diagramNode
               href="repository.gmfgraph#SEFFLabel"/>
         </ownedChild>
@@ -125,7 +125,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.11"/>
+              href="repositoryeditor.gmftool#//@palette/@tools.1/@tools.2"/>
           <diagramNode
               href="repository.gmfgraph#PassiveResourceLabel"/>
         </ownedChild>
@@ -146,7 +146,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.12"/>
+              href="repositoryeditor.gmftool#//@palette/@tools.1/@tools.3"/>
           <diagramNode
               href="repository.gmfgraph#ComponentParameterNode"/>
           <children
@@ -168,7 +168,7 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.13"/>
+                  href="repositoryeditor.gmftool#//@palette/@tools.1/@tools.4"/>
               <diagramNode
                   href="repository.gmfgraph#VariableCharacterisationLabel"/>
             </ownedChild>
@@ -214,7 +214,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.5"/>
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="repository.gmfgraph#CompositeComponent"/>
     </ownedChild>
@@ -236,7 +236,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.4"/>
+          href="repositoryeditor.gmftool#//@palette/@tools.2/@tools.1"/>
       <diagramNode
           href="repository.gmfgraph#CompleteComponentType"/>
     </ownedChild>
@@ -258,7 +258,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.7"/>
+          href="repositoryeditor.gmftool#//@palette/@tools.2/@tools.0"/>
       <diagramNode
           href="repository.gmfgraph#ProvidesComponentType"/>
     </ownedChild>
@@ -276,7 +276,7 @@
         href="../../pcm.ecore#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.3"/>
+        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.4"/>
     <diagramLink
         href="repository.gmfgraph#ProvidedRole"/>
     <linkMetaFeature
@@ -296,7 +296,7 @@
         href="../../pcm.ecore#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.1"/>
+        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.3"/>
     <diagramLink
         href="repository.gmfgraph#RequiredRole"/>
     <linkMetaFeature
@@ -312,7 +312,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.9"/>
+        href="repositoryeditor.gmftool#//@palette/@tools.2/@tools.3"/>
     <diagramLink
         href="repository.gmfgraph#ParentCompleteTypeConnection"/>
     <linkMetaFeature
@@ -328,7 +328,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.10"/>
+        href="repositoryeditor.gmftool#//@palette/@tools.2/@tools.2"/>
     <diagramLink
         href="repository.gmfgraph#ParentProvidesTypeConnection"/>
     <linkMetaFeature
