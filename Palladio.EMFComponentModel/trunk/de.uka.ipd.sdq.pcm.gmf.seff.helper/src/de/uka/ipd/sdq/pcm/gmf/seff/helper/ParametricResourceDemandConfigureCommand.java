@@ -50,10 +50,10 @@ public class ParametricResourceDemandConfigureCommand extends
 					.newErrorCommandResult("Set RequiredResource for the ParametricResourceDemand failed!");
 		}
 		commandResult = setSpecification_ParametricResourceDemand(monitor, info);
-//		if (!isOK(commandResult)) {
-//			return CommandResult
-//					.newErrorCommandResult("Set Action for the ParametricResourceDemand failed!");
-//		}
+		if (!isOK(commandResult)) {
+			return CommandResult
+					.newErrorCommandResult("Set Action for the ParametricResourceDemand failed!");
+		}
 		return CommandResult.newOKCommandResult();
 	}
 

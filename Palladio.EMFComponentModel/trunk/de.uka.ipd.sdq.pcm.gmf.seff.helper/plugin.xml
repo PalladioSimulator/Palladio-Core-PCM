@@ -6,7 +6,7 @@
       <metamodel
             nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <adviceBinding 
-               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourseDemandingEditHelperAdvice"
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourceDemandingBehaviourEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorActionAdvice"
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013">
@@ -30,7 +30,7 @@
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017">
          </adviceBinding>
          <adviceBinding 
-               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourseDemandingEditHelperAdvice"
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourceDemandingBehaviourEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.LoopActionAdvice"
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2004">
@@ -48,13 +48,13 @@
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_3008">
          </adviceBinding>
           <adviceBinding 
-               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourseDemandingEditHelperAdvice"
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourceDemandingBehaviourEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransitionAdvice"
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_3010">
          </adviceBinding>
           <adviceBinding 
-               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourseDemandingEditHelperAdvice"
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourceDemandingBehaviourEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransitionAdvice"
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017">

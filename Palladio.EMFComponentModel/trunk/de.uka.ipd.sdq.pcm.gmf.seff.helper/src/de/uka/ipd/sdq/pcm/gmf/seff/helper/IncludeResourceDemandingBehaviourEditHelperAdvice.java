@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
  * @author admin
  *
  */
-public class IncludeResourseDemandingEditHelperAdvice extends
+public class IncludeResourceDemandingBehaviourEditHelperAdvice extends
 		AbstractEditHelperAdvice implements IEditHelperAdvice {
 
 	/* (non-Javadoc)
