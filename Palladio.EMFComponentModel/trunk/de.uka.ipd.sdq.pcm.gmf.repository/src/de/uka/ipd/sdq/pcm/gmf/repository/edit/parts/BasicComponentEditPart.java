@@ -94,6 +94,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 						return null;
 					}
 				});
+
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new BasicComponentItemSemanticEditPolicy());
