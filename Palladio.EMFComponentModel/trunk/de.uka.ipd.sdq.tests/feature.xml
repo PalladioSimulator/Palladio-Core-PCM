@@ -18,11 +18,16 @@
    </license>
 
    <requires>
+      <import plugin="org.junit"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework.variables"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework.storage"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="org.antlr"/>
       <import plugin="de.uka.ipd.sdq.stoex"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
-      <import plugin="org.junit4"/>
+      <import plugin="de.uka.ipd.sdq.pcm"/>
    </requires>
 
    <plugin
