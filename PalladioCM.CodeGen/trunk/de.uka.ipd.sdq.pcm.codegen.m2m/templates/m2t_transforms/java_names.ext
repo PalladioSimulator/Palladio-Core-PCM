@@ -7,6 +7,10 @@ import usagemodel;
 import allocation;
 import completions;
 
+String removeAllSpecialChars(String s) : 
+   JAVA de.uka.sdq.pcm.transformations.Helper.removeAllSpecialChars(java.lang.String)
+;
+
 // Generate a java name by replacing all characters which are not java conform
 javaName(Entity e) :
     e.entityName.replaceAll('"','_').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
@@ -22,7 +26,7 @@ javaVariableName(String s) :
    .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_").replaceAll("-","_").replaceAll("\\(","_").replaceAll("\\)","_");
 
 specificationString(String s) :
-   s.replaceAll('"','\\\\"');
+   s.replaceAll('"','\\\\"').removeAllSpecialChars();
  
 String javaSignature(Signature s) :
    s.serviceName;  // + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
