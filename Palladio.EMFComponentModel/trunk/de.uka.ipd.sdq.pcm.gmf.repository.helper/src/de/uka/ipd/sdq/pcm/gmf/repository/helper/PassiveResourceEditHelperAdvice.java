@@ -35,6 +35,8 @@ implements IEditHelperAdvice {
 		if (dialog.getReturnCode() == Dialog.CANCEL)
 			return new CanceledCommand();
 
+		rv.setSpecification(dialog.getResultText());
+		
 		ICommand cmd = new SetValueCommand(
 				new SetRequest((PassiveResource)request
 					.getElementToConfigure(),
