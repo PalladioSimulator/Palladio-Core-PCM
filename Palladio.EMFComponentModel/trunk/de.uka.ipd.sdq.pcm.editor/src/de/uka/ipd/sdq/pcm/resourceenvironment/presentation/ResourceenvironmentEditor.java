@@ -935,6 +935,12 @@ public class ResourceenvironmentEditor
 			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+
+		Resource extraResource = editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"), true);
+		try {
+			extraResource.load(new HashMap<Object, Object>());
+		} catch (IOException e) {
+		}
 	}
 
 	/**

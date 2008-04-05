@@ -911,7 +911,7 @@ public class RepositoryEditor
 	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public void createModel() {
 		// Assumes that the input is a file object.
@@ -935,6 +935,18 @@ public class RepositoryEditor
 			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+		
+		Resource extraResource = editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"), true);
+		try {
+			extraResource.load(new HashMap<Object, Object>());
+		} catch (IOException e) {
+		}
+		extraResource = editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository"), true);
+		try {
+			extraResource.load(new HashMap<Object, Object>());
+		} catch (IOException e) {
+		}
+		
 	}
 
 	/**
