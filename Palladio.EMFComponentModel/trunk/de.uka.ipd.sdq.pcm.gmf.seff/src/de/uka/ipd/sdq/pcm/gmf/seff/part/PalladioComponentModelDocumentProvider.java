@@ -160,7 +160,7 @@ public class PalladioComponentModelDocumentProvider extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	private TransactionalEditingDomain createEditingDomain() {
 		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
@@ -199,7 +199,10 @@ public class PalladioComponentModelDocumentProvider extends
 			}
 
 		});
-
+		
+		editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"), true);
+		editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository"), true);
+		
 		return editingDomain;
 	}
 
