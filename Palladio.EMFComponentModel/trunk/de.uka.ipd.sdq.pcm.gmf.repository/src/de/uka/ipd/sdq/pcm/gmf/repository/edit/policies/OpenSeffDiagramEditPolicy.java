@@ -41,6 +41,8 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramEditorUtil;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
  * @generated
@@ -90,7 +92,7 @@ public class OpenSeffDiagramEditPolicy extends OpenEditPolicy {
 		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
 
 		/**
-		 * @generated
+		 * @generated not
 		 */
 		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 				IAdaptable info) throws ExecutionException {
@@ -101,7 +103,9 @@ public class OpenSeffDiagramEditPolicy extends OpenEditPolicy {
 				}
 				URI uri = EcoreUtil.getURI(diagram);
 				String editorName = uri.lastSegment()
-						+ "#" + diagram.eResource().getContents().indexOf(diagram); //$NON-NLS-1$
+						+ "#" + 
+						((BasicComponent)((ResourceDemandingSEFF)diagram.getElement()).eContainer()).getEntityName() + "." +
+						((ResourceDemandingSEFF)diagram.getElement()).getDescribedService__SEFF().getServiceName(); //$NON-NLS-1$
 				IEditorInput editorInput = new URIEditorInput(uri, editorName);
 				IWorkbenchPage page = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getActivePage();
