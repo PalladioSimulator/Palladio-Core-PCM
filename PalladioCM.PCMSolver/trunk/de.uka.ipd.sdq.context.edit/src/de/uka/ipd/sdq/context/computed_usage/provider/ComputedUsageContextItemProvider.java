@@ -162,7 +162,7 @@ public class ComputedUsageContextItemProvider
 		switch (notification.getFeatureID(ComputedUsageContext.class)) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT:
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT:
-			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT:
+			case ComputedUsagePackage.Comp.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

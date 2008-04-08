@@ -345,7 +345,7 @@ public class ComputedAllocationPackageImpl extends EPackageImpl implements Compu
 
 		initEClass(resourceDemandEClass, ResourceDemand.class, "ResourceDemand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceDemand_ParametricResourceDemand_ResourceDemand(), theSeffPackage.getParametricResourceDemand(), null, "parametricResourceDemand_ResourceDemand", null, 1, 1, ResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceDemand_Specification_ResourceDemand(), theStoexPackage.getPCMRandomVariable(), null, "specification_ResourceDemand", null, 1, 1, ResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceDemand_Specification_ResourceDemand(), theStoexPackage.getRandomVariable(), null, "specification_ResourceDemand", null, 1, 1, ResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(computedAllocationEClass, ComputedAllocation.class, "ComputedAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComputedAllocation_ComputedAllocationContexts_ComputedAllocation(), this.getComputedAllocationContext(), null, "computedAllocationContexts_ComputedAllocation", null, 0, -1, ComputedAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

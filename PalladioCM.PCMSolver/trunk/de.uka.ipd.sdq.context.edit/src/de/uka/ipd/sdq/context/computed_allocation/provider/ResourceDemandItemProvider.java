@@ -179,7 +179,7 @@ public class ResourceDemandItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ComputedAllocationPackage.Literals.RESOURCE_DEMAND__SPECIFICATION_RESOURCE_DEMAND,
-				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
+				 StoexFactory.eINSTANCE.createRandomVariable()));
 	}
 
 	/**

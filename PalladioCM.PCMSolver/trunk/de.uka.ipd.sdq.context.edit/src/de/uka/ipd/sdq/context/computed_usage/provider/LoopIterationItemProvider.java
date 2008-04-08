@@ -177,7 +177,7 @@ public class LoopIterationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ComputedUsagePackage.Literals.LOOP_ITERATION__SPECIFICATION_LOOP_ITERATION,
-				 StoexFactory.eINSTANCE.createPCMRandomVariable()));
+				 StoexFactory.eINSTANCE.createRandomVariable()));
 	}
 
 	/**

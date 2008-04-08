@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
 
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 
-import de.uka.ipd.sdq.stoex.PCMRandomVariable;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -61,7 +61,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * @generated
 	 * @ordered
 	 */
-	protected PCMRandomVariable specification_ResourceDemand;
+	protected RandomVariable specification_ResourceDemand;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,7 +124,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PCMRandomVariable getSpecification_ResourceDemand() {
+	public RandomVariable getSpecification_ResourceDemand() {
 		return specification_ResourceDemand;
 	}
 
@@ -133,8 +133,8 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSpecification_ResourceDemand(PCMRandomVariable newSpecification_ResourceDemand, NotificationChain msgs) {
-		PCMRandomVariable oldSpecification_ResourceDemand = specification_ResourceDemand;
+	public NotificationChain basicSetSpecification_ResourceDemand(RandomVariable newSpecification_ResourceDemand, NotificationChain msgs) {
+		RandomVariable oldSpecification_ResourceDemand = specification_ResourceDemand;
 		specification_ResourceDemand = newSpecification_ResourceDemand;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ComputedAllocationPackage.RESOURCE_DEMAND__SPECIFICATION_RESOURCE_DEMAND, oldSpecification_ResourceDemand, newSpecification_ResourceDemand);
@@ -148,7 +148,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSpecification_ResourceDemand(PCMRandomVariable newSpecification_ResourceDemand) {
+	public void setSpecification_ResourceDemand(RandomVariable newSpecification_ResourceDemand) {
 		if (newSpecification_ResourceDemand != specification_ResourceDemand) {
 			NotificationChain msgs = null;
 			if (specification_ResourceDemand != null)
@@ -202,7 +202,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 				setParametricResourceDemand_ResourceDemand((ParametricResourceDemand)newValue);
 				return;
 			case ComputedAllocationPackage.RESOURCE_DEMAND__SPECIFICATION_RESOURCE_DEMAND:
-				setSpecification_ResourceDemand((PCMRandomVariable)newValue);
+				setSpecification_ResourceDemand((RandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -219,7 +219,7 @@ public class ResourceDemandImpl extends EObjectImpl implements ResourceDemand {
 				setParametricResourceDemand_ResourceDemand((ParametricResourceDemand)null);
 				return;
 			case ComputedAllocationPackage.RESOURCE_DEMAND__SPECIFICATION_RESOURCE_DEMAND:
-				setSpecification_ResourceDemand((PCMRandomVariable)null);
+				setSpecification_ResourceDemand((RandomVariable)null);
 				return;
 		}
 		super.eUnset(featureID);
