@@ -434,6 +434,12 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.simucomframework.simucomstatus"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.simucomframework.simucomstatus"/>
+      <param name="url" value="svn://klaus@141.3.52.13/code/PalladioCM.CodeGen/trunk"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.simucomframework.simulationdock"/>
       <param name="project.name" value="/de.uka.ipd.sdq.simucomframework.simulationdock"/>
       <param name="url" value="svn://klaus@141.3.52.13/code/PalladioCM.CodeGen/trunk"/>
