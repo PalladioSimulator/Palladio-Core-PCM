@@ -48,10 +48,12 @@ public class SimulatedPassiveResource extends SimProcess {
 	}
 
 	private void updateSimProcessStatus(SimProcess thread) {
-		WaitForAcquire action = SimucomstatusFactory.eINSTANCE.createWaitForAcquire();
-		action.setActionStartTime(this.getModel().getSimulationControl().getCurrentSimulationTime());
-		action.setResource(this.resourceStatus);
-		thread.getSimProcessStatus().setCurrentAction(action);	
+		if (this.getModel().getConfig().isDebug()) {
+			WaitForAcquire action = SimucomstatusFactory.eINSTANCE.createWaitForAcquire();
+			action.setActionStartTime(this.getModel().getSimulationControl().getCurrentSimulationTime());
+			action.setResource(this.resourceStatus);
+			thread.getSimProcessStatus().setCurrentAction(action);	
+		}
 	}
 
 	public void release()
