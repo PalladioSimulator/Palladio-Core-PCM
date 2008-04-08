@@ -15,4 +15,6 @@ Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
  org.apache.log4j,
  org.eclipse.core.runtime,
  de.uka.ipd.sdq.scheduler,
- de.uka.ipd.sdq.scheduler.configuration
+ de.uka.ipd.sdq.scheduler.configuration,
+ de.uka.ipd.sdq.simucomframework.simucomstatus,
+ org.eclipse.emf.ecore.change

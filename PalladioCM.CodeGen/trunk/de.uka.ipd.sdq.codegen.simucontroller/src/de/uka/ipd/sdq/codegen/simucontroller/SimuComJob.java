@@ -8,7 +8,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import de.uka.ipd.sdq.simucomframework.ISimuComControl;
 import de.uka.ipd.sdq.simucomframework.IStatusObserver;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.SimuComResult;
 
 public class SimuComJob extends Job implements IStatusObserver {
 
@@ -16,7 +16,7 @@ public class SimuComJob extends Job implements IStatusObserver {
 	private IProgressMonitor monitor;
 	private int lastProgress;
 	
-	private SimuComStatus status;
+	private SimuComResult status;
 	private SimuComConfig config;
 	private Throwable errorThrowable;
 
@@ -34,13 +34,13 @@ public class SimuComJob extends Job implements IStatusObserver {
 		try {
 			status = control.startSimulation(config, this, false);
 		} catch (Exception e) {
-			this.status = SimuComStatus.ERROR;
+			this.status = SimuComResult.ERROR;
 			this.errorThrowable = e;
 			return Status.CANCEL_STATUS;
 		} finally {
 			monitor.done();
 		}
-		if (status == SimuComStatus.ERROR){
+		if (status == SimuComResult.ERROR){
 			this.errorThrowable = control.getErrorThrowable();
 		}
 		return Status.OK_STATUS;
@@ -61,7 +61,7 @@ public class SimuComJob extends Job implements IStatusObserver {
 		return errorThrowable;
 	}
 
-	public SimuComStatus getStatus() {
+	public SimuComResult getStatus() {
 		return status;
 	}
 }

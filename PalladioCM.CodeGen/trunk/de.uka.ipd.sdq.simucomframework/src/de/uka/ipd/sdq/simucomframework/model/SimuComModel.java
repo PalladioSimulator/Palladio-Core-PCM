@@ -2,6 +2,12 @@ package de.uka.ipd.sdq.simucomframework.model;
 
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.change.util.ChangeRecorder;
+import org.eclipse.emf.ecore.util.EContentAdapter;
+
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
@@ -9,14 +15,21 @@ import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.ResourceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDelegate;
+import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.DatasourceConfigurationInvalidException;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.sensors.SimuComExperimentRunDecorator;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.Action;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusPackage;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimulatedResources;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 /**
@@ -27,9 +40,12 @@ import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
  */
 public class SimuComModel {
 
+	protected static Logger logger = 
+		Logger.getLogger(SimuComModel.class.getName());
+	
 	protected ResourceRegistry resourceRegistry = null;
 	private IWorkloadDriver[] workloadDrivers;
-	private SimuComStatus status = SimuComStatus.OK;
+	private SimuComResult status = SimuComResult.OK;
 	private Throwable errorMessage = null;
 	private SimuComConfig config;
 	private Experiment experiment = null;
@@ -38,16 +54,44 @@ public class SimuComModel {
 	private long mainMeasurementsCount;
 	private ISimEngineFactory simulationEngineFactory;
 	private ISimulationControlDelegate simControl;
+	private SimuComStatus simulationStatus = null;
 	
-	public SimuComModel(SimuComConfig config, ISimEngineFactory factory, boolean isRemoteRun) {
+	public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory, boolean isRemoteRun) {
 		this.config = config;
 		this.simulationEngineFactory = factory;
 		this.simControl = factory.createSimulationControl(this);
 		resourceRegistry = new ResourceRegistry(this);
+		this.simulationStatus = status;
 		if (!isRemoteRun)
 			initialiseNewSensorframework();
 		else
 			initialiseTempSensorframework();
+	}
+
+	private void initialiseSimStatus() {
+		if (this.config.getVerboseLogging()) {
+			EContentAdapter contentAdapter = new EContentAdapter() {
+
+				/* (non-Javadoc)
+				 * @see org.eclipse.emf.ecore.util.EContentAdapter#notifyChanged(org.eclipse.emf.common.notify.Notification)
+				 */
+				@Override
+				public void notifyChanged(Notification notification) {
+					super.notifyChanged(notification);
+					if (notification.getEventType() == Notification.SET) {
+						if (notification.getFeature() == SimucomstatusPackage.eINSTANCE.getProcess_CurrentAction()) {
+							Process p = (Process) notification.getNotifier();
+							Action a = (Action) notification.getNewValue();
+							logger.debug("Process "+p.getId()+" changed currentAction to "+a.getClass().getName());
+						}
+					} else 
+						logger.debug("Simulation Status Updated");
+				}
+				
+			};
+			simulationStatus.eAdapters().add(contentAdapter);
+		}
+		
 	}
 
 	public void doInitialSchedules() {
@@ -99,7 +143,7 @@ public class SimuComModel {
 	 * @param error The new status
 	 * @param t The exception message if any, null otherwise
 	 */
-	public void setStatus(SimuComStatus error, Throwable t) {
+	public void setStatus(SimuComResult error, Throwable t) {
 		this.status = error;
 		this.errorMessage = t;
 	}
@@ -107,7 +151,7 @@ public class SimuComModel {
 	/**
 	 * @return The simulation status
 	 */
-	public SimuComStatus getErrorStatus(){
+	public SimuComResult getErrorStatus(){
 		return status;
 	}
 	
@@ -194,5 +238,9 @@ public class SimuComModel {
 
 	public ISimEngineFactory getSimEngineFactory() {
 		return this.simulationEngineFactory;
+	}
+
+	public SimuComStatus getSimulationStatus() {
+		return simulationStatus;
 	}
 }

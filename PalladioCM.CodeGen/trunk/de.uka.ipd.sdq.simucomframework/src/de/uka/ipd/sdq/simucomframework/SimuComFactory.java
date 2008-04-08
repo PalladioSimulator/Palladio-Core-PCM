@@ -6,6 +6,7 @@ import org.eclipse.core.runtime.Platform;
 
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 
 /**
  * Factory for creating simulation objects. The created objects are already attached
@@ -22,7 +23,7 @@ public class SimuComFactory {
 	 * @param showInTrance Should desmoj trace our experiment
 	 * @return The created simulation model 
 	 */
-	public static SimuComModel getSimuComModel(SimuComConfig config, boolean isRemote) {
+	public static SimuComModel getSimuComModel(SimuComConfig config, SimuComStatus simuComStatus, boolean isRemote) {
 		ISimEngineFactory factory = null;
 		
 		for(IConfigurationElement configurationElement : Platform.getExtensionRegistry().
@@ -40,7 +41,7 @@ public class SimuComFactory {
 			throw new RuntimeException("No Simulation Engine available. Please install at least one engine.");
 		else {
 			SimuComModel model = new SimuComModel( 
-					config, factory, isRemote);
+					config, simuComStatus, factory, isRemote);
 			
 			return model;
 		}

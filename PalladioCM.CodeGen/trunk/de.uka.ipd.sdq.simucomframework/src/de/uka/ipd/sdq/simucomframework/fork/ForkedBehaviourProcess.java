@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.simucomframework.fork;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
-import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimProcessDelegate;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -78,22 +78,13 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 	}
 
 	@Override
-	public void lifeCycle() {
-		try {
-			executeBehaviour();
-//		} catch(SimFinishedException ex) {
-//			return;
-		} catch(Exception ex) {
-			logger.error("Error in executing forked behaviour!",ex);
-			((SimuComModel)this.getModel()).setStatus(SimuComStatus.ERROR, ex);
-			this.getModel().getSimulationControl().stop();
-		}
+	protected void internalLifeCycle() {
+		executeBehaviour();
 		if (!isAsync)
 			myParent.scheduleAt(0);
 		else
 			logger.debug("Asynch behaviour finished at simtime "+getModel().getSimulationControl().getCurrentSimulationTime());
 	}
-
 	
 	/**
 	 * Template method filled by the generate with the parallel behaviour specified

@@ -9,15 +9,21 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.model.IDebugElement;
 import org.eclipse.debug.core.model.IDebugTarget;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
+
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusPackage;
 
 /**
  * @author Snowball
  *
  */
-public class SimulationDebugElement extends PlatformObject implements IDebugElement {
+public abstract class SimulationDebugElement extends PlatformObject implements IDebugElement, Adapter {
 	
 	protected IDebugTarget myDebugTarget = null;
 	protected ILaunch launch = null;
+	private Notifier adapterTarget;
 
 	public SimulationDebugElement(IDebugTarget myDebugTarget, ILaunch launch) {
 		super();
@@ -73,5 +79,18 @@ public class SimulationDebugElement extends PlatformObject implements IDebugElem
 	protected void fireEvent(Object source, int eventKind) {
 		DebugPlugin.getDefault().fireDebugEventSet(new DebugEvent[] {new DebugEvent(source,eventKind)});
 	}
-	
+
+	public Notifier getTarget() {
+		return this.adapterTarget;
+	}
+
+	public boolean isAdapterForType(Object type) {
+		return true;
+	}
+
+	public abstract void notifyChanged(Notification notification);
+
+	public void setTarget(Notifier newTarget) {
+		this.adapterTarget = newTarget;
+	}	
 }

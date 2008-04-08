@@ -13,4 +13,5 @@ Require-Bundle: de.uka.ipd.sdq.simucomframework,
  org.eclipse.osgi.services,
  ch.ethz.iks.r_osgi.remote,
  org.eclipse.emf.ecore,
- org.apache.log4j
+ org.apache.log4j,
+ de.uka.ipd.sdq.simucomframework.simucomstatus

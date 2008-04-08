@@ -7,6 +7,10 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.PassiveResource;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForAcquire;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForDemand;
 
 public class SimulatedPassiveResource extends SimProcess {
 
@@ -17,6 +21,8 @@ public class SimulatedPassiveResource extends SimProcess {
 	int available;
 
 	private String resourceID;
+
+	private PassiveResource resourceStatus;
 	
 	public SimulatedPassiveResource(SimuComModel myModel, String resourceID, int capacity)
 	{
@@ -36,8 +42,16 @@ public class SimulatedPassiveResource extends SimProcess {
 			logger.debug("Simulated thread "+thread.getName()+" requests Passive Resource "+this.resourceID);
 			associatedQueue.add(thread);
 			this.scheduleAt(0);
+			updateSimProcessStatus(thread);
 			thread.passivate();
 		}
+	}
+
+	private void updateSimProcessStatus(SimProcess thread) {
+		WaitForAcquire action = SimucomstatusFactory.eINSTANCE.createWaitForAcquire();
+		action.setActionStartTime(this.getModel().getSimulationControl().getCurrentSimulationTime());
+		action.setResource(this.resourceStatus);
+		thread.getSimProcessStatus().setCurrentAction(action);	
 	}
 
 	public void release()
@@ -49,7 +63,7 @@ public class SimulatedPassiveResource extends SimProcess {
 	}
 
 	@Override
-	public void lifeCycle() {
+	protected void internalLifeCycle() {
 		while(this.getModel().getSimulationControl().isRunning())
 		{
 			if (associatedQueue.size()==0)
@@ -81,6 +95,28 @@ public class SimulatedPassiveResource extends SimProcess {
 			logger.debug("Simulated Process "+next.getName()+" acquired stopped Passive Resource "+resourceID+". It continues execution now...");
 			next.scheduleAt(0);
 		}
+	}
+	
+	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess#addProcessToSimStatus()
+	 */
+	@Override
+	protected void addProcessToSimStatus() {
+		logger.info("Starting passive resource "+this.getName());
+
+		resourceStatus = SimucomstatusFactory.eINSTANCE.createPassiveResource();
+		this.getModel().getSimulationStatus().getResourceStatus().getPassiveResources().add(resourceStatus);
+		resourceStatus.setId(this.getName());
+		resourceStatus.setInitialResourceCount(this.available);
+	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess#removeProcessFromSimStatus()
+	 */
+	@Override
+	protected void removeProcessFromSimStatus() {
+		this.getModel().getSimulationStatus().getResourceStatus().getPassiveResources().remove(resourceStatus);
 	}
 
 	public void activateResource() {

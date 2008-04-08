@@ -21,8 +21,9 @@ import org.osgi.util.tracker.ServiceTracker;
 import de.uka.ipd.sdq.simucomframework.ISimuComControl;
 import de.uka.ipd.sdq.simucomframework.IStatusObserver;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 
 public class SimulationDockServiceImpl implements SimulationDockService {
 
@@ -54,7 +55,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 	}
 
 	public void simulate(SimuComConfig config, byte[] simulationBundle, boolean isRemoteRun) {
-		postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_BUSY");
+		sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_BUSY");
 
 		if (config.isDebug()) {
 			this.debugObserver = new DebugObserver(eventAdmin,this);
@@ -70,7 +71,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 			throw new RuntimeException("Simulation failed",e);
 		} finally {
 			unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
-			postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
+			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
 		}
 	}
 
@@ -105,25 +106,25 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		
 		service = new ServiceTracker(context,services[0],null);
 		service.open();
-		postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
 		try {
 			DispatchingSimulationObserver simulationObservers = new DispatchingSimulationObserver();
+			simulationObservers.addObserver(new SimulationProgressReportingObserver(config,eventAdmin,this));
 			if (debugObserver != null) {
 				simulationObservers.addObserver(debugObserver);
 			}
-			simulationObservers.addObserver(new SimulationProgressReportingObserver(config,eventAdmin,this));
 			
-			SimuComStatus result = ((ISimuComControl)service.getService()).startSimulation(
+			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
+			SimuComResult result = ((ISimuComControl)service.getService()).startSimulation(
 					config, simulationObservers, isRemoteRun);
 			
-			if (result == SimuComStatus.ERROR) {
+			if (result == SimuComResult.ERROR) {
 				throw new RuntimeException("Simulation failed.",((ISimuComControl)service.getService()).getErrorThrowable());
 			}
 		} catch (Exception ex) {
 			throw new RuntimeException(ex);
 		} finally {
 			service.close();
-			postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STOPPED");
+			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STOPPED");
 		}
 	}
 
@@ -139,16 +140,16 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		debugObserver.resume();
 	}
 
-	private void postEvent(String topic) {
-		postEvent(topic, new Hashtable());
+	private void sendEvent(String topic) {
+		sendEvent(topic, new Hashtable());
 	}
 	
-	private void postEvent(String topic, Hashtable newProperties) {
+	private void sendEvent(String topic, Hashtable newProperties) {
 		Hashtable properties = new Hashtable();
 		properties.put("DOCK_ID", SimulationDockServiceImpl.this.getDockId());
 		properties.putAll(newProperties);
 		Event event = new Event(topic, properties);
-		eventAdmin.postEvent(event);
+		eventAdmin.sendEvent(event);
 	}
 	
 	private String persistBundleInTempDir(byte[] simulationBundle) {
@@ -200,11 +201,18 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 
 	public void stopSimulation() {
 		((ISimuComControl)service.getService()).stopSimulation();
+		if (debugObserver != null) {
+			debugObserver.resume();
+		}
 	}
 
 	public void step() {
 		if (debugObserver == null)
 			throw new IllegalStateException("Stepping only available in debug mode");
 		debugObserver.step();
+	}
+
+	public SimuComStatus getSimuComStatus() {
+		return ((ISimuComControl)service.getService()).getStatus();
 	}
 }

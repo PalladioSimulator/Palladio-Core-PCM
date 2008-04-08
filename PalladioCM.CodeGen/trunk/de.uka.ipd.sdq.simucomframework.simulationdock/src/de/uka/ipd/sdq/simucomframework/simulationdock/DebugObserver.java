@@ -36,6 +36,13 @@ public class DebugObserver implements IStatusObserver {
 
 	public void resume() {
 		this.suspended = false;
+		postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_RESUMED");
+
+		if (this.isStepping) {
+			isStepping = false;
+			postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/PERFORMED_STEP");
+		}
+		
 		synchronized (this.suspendedBarrier) {
 			this.suspendedBarrier.notifyAll();
 		}
@@ -83,7 +90,7 @@ public class DebugObserver implements IStatusObserver {
 		properties.put("DOCK_ID", myDock.getDockId());
 		properties.putAll(newProperties);
 		Event event = new Event(topic, properties);
-		eventAdmin.postEvent(event);
+		eventAdmin.sendEvent(event);
 	}
 	
 }

@@ -37,6 +37,7 @@ public class DockStatusViewer extends Composite implements Observer {
 	private Image running_image;
 	private Image pause_image;
 	private Canvas iconCanvas;
+	private int lastUIUpdate = -1;
 
 	/**
 	 * Create the composite
@@ -61,7 +62,7 @@ public class DockStatusViewer extends Composite implements Observer {
 
 		final Group statusGroup = new Group(composite_1, SWT.NONE);
 		final GridLayout gridLayout = new GridLayout();
-		gridLayout.marginRight = 10;
+		gridLayout.marginRight = 100;
 		gridLayout.numColumns = 4;
 		statusGroup.setLayout(gridLayout);
 		statusGroup.setText("Status");
@@ -141,17 +142,26 @@ public class DockStatusViewer extends Composite implements Observer {
 	}
 
 	public void update(Observable o, Object arg) {
-		PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable(){
-
-			public void run() {
-				dockIdLabel.setText(model.getID());
-				remoteLocationLabel.setText(model.getRemoteMaschineURI() == null ? "<local>" : model.getRemoteMaschineURI());
-				measurementsLabel.setText(model.getMeasurementCount()+"");
-				simTimeLabel.setText(new DecimalFormat("0.#").format(model.getSimTime()));
-				progressBar.setSelection(model.getPercentDone());
-				iconCanvas.redraw();
-			}
-			
-		});
+		if (model.getPercentDone() != lastUIUpdate  || model.isStepping() || model.isSuspended() || model.isIdle()) {
+			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable(){
+	
+				public void run() {
+					if (!dockIdLabel.isDisposed())
+						dockIdLabel.setText(model.getID());
+					if (!remoteLocationLabel.isDisposed())
+						remoteLocationLabel.setText(model.getRemoteMaschineURI() == null ? "<local>" : model.getRemoteMaschineURI());
+					if (!measurementsLabel.isDisposed())
+						measurementsLabel.setText(model.getMeasurementCount()+"");
+					if (!simTimeLabel.isDisposed())
+						simTimeLabel.setText(new DecimalFormat("0.#").format(model.getSimTime()));
+					if (!progressBar.isDisposed())
+						progressBar.setSelection(model.getPercentDone());
+					if (!iconCanvas.isDisposed())
+						iconCanvas.redraw();
+				}
+				
+			});
+		}
+		lastUIUpdate = model.getPercentDone();
 	}
 }

@@ -13,6 +13,7 @@ import org.eclipse.debug.core.model.IBreakpoint;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
+import org.eclipse.emf.common.notify.Notification;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
@@ -129,7 +130,7 @@ public class SimulationDebugThread extends SimulationDebugElement implements
 	 * @see org.eclipse.debug.core.model.IStep#canStepOver()
 	 */
 	public boolean canStepOver() {
-		return true;
+		return myDebugTarget.isSuspended();
 	}
 
 	/* (non-Javadoc)
@@ -206,7 +207,11 @@ public class SimulationDebugThread extends SimulationDebugElement implements
 					fireEvent(this, DebugEvent.STEP_OVER);
 				}
 				if (dockEvent instanceof DockSimTimeChangedEvent) {
-					fireEvent(this, DebugEvent.CHANGE);
+					if (this.getDebugTarget().isSuspended()){ 
+						// Only in suspend mode update the UI, otherwise too many event will cause a
+						// deadlock of the debug view
+						fireEvent(this, DebugEvent.CHANGE);
+					}
 				}
 				if (dockEvent instanceof DockSimulationTerminatedEvent) {
 					this.isTerminated = true;
@@ -220,6 +225,10 @@ public class SimulationDebugThread extends SimulationDebugElement implements
 		this.myDock.deleteObserver(this);
 		this.myDock = null;
 		this.myDebugTarget = null;
+	}
+
+	@Override
+	public void notifyChanged(Notification notification) {
 	}
 
 }

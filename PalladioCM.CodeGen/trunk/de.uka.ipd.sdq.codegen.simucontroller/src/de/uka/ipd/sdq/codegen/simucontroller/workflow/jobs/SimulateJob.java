@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.codegen.workflow.IJob;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.simucomframework.ISimuComControl;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.SimuComResult;
 
 public class SimulateJob implements IJob {
 
@@ -50,7 +50,7 @@ public class SimulateJob implements IJob {
 		} catch (Exception e) {
 			throw new JobFailedException("Simulation failed ", e);
 		}
-		if (job.getStatus() == SimuComStatus.ERROR)
+		if (job.getStatus() == SimuComResult.ERROR)
 			throw new JobFailedException("Simulation run failed",job.getErrorThrowable());
 	}
 

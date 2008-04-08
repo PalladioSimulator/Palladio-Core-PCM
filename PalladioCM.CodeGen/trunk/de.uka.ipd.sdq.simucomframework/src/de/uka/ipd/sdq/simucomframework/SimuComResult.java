@@ -5,7 +5,7 @@ package de.uka.ipd.sdq.simucomframework;
  * @author Steffen Becker
  *
  */
-public enum SimuComStatus {
+public enum SimuComResult {
 	/**
 	 * Simulation caused an error most likly by raising an exception 
 	 */

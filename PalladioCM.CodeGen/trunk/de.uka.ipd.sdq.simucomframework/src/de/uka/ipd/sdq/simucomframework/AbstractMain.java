@@ -10,6 +10,9 @@ import org.apache.log4j.Priority;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimulatedResources;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 /**
@@ -20,6 +23,8 @@ import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
  */
 public abstract class AbstractMain {
 	private SimuComModel model = null;
+	private boolean isRemoteRun = false;
+	private SimuComStatus simuComStatus;
 	private static Logger logger = 
 		Logger.getLogger(AbstractMain.class.getName());
 
@@ -31,14 +36,16 @@ public abstract class AbstractMain {
 	 * @param isRemoteRun True if this simulation runs remotely and has no access to the local sensorframework
 	 * @return A status code indicating success or failure of the simulation
 	 */
-	protected SimuComStatus run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun)
+	protected SimuComResult run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun)
 	{
 		initializeLogger(config);
+		
+		this.isRemoteRun  = isRemoteRun;
 		
 		final long SIM_STOP_TIME = config.getSimuTime();
 		
 		model = 
-			SimuComFactory.getSimuComModel(config,isRemoteRun); 
+			SimuComFactory.getSimuComModel(config,getStatus(),isRemoteRun); 
 		model.initialiseResourceContainer(getResourceContainerFactory());
 		model.setUsageScenarios(getWorkloads());
 		model.getSimulationControl().addTimeObserver(new Observer(){
@@ -53,6 +60,7 @@ public abstract class AbstractMain {
 			}
 			
 		});
+		getStatus().setCurrentSimulationTime(0);
 		ExperimentRunner.run(model, SIM_STOP_TIME);
 		return model.getErrorStatus();
 	}
@@ -89,14 +97,14 @@ public abstract class AbstractMain {
 	}
 	
 	/**
-	 * @return An error object in case an exception occured during simulation 
+	 * @return An error object in case an exception occurred during simulation 
 	 * execution
 	 */
 	public Throwable getErrorThrowable(){
 		return model.getErrorThrowable();
 	}
 
-	public de.uka.ipd.sdq.simucomframework.SimuComStatus startSimulation(
+	public de.uka.ipd.sdq.simucomframework.SimuComResult startSimulation(
 			de.uka.ipd.sdq.simucomframework.SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer,
 			boolean isRemoteRun) {
 		return run(observer,config,isRemoteRun);
@@ -120,4 +128,14 @@ public abstract class AbstractMain {
 	 * @return A factory which is used to create the simulated resource environment
 	 */
 	protected abstract IResourceContainerFactory getResourceContainerFactory();
+	
+	public SimuComStatus getStatus() {
+		if (this.simuComStatus == null) {
+			this.simuComStatus = SimucomstatusFactory.eINSTANCE.createSimuComStatus();
+			this.simuComStatus.setProcessStatus(SimucomstatusFactory.eINSTANCE.createSimulatedProcesses());
+			this.simuComStatus.setResourceStatus(SimucomstatusFactory.eINSTANCE.createSimulatedResources());
+		}
+		return this.simuComStatus;
+	}
+	
 }

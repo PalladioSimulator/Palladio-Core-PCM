@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.codegen.simucontroller.dockmodel;
 import java.io.Serializable;
 import java.util.Observable;
 
+import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockBusyEvent;
+import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockIdleEvent;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockPerformedDebugStepEvent;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockResumedEvent;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockSimTimeChangedEvent;
@@ -32,7 +34,8 @@ public class DockModel extends Observable implements Serializable
 	private boolean isStepping = false;
 	private boolean isSuspended = false;
 	
-	private transient SimulationDockService service; 
+	private transient SimulationDockService service;
+	private boolean isStarted; 
 
 	public DockModel(SimulationDockService service) {
 		this(service,null);
@@ -86,9 +89,9 @@ public class DockModel extends Observable implements Serializable
 			this.percentDone = 0;
 			setChanged();
 			if (idle) 
-				notifyObservers(new DockSimulationTerminatedEvent(this));
+				notifyObservers(new DockIdleEvent(this));
 			else
-				notifyObservers(new DockSimulationStartedEvent(this));
+				notifyObservers(new DockBusyEvent(this));
 		}
 	}
 	
@@ -135,6 +138,17 @@ public class DockModel extends Observable implements Serializable
 				notifyObservers(new DockSuspendedEvent(this));
 			else
 				notifyObservers(new DockResumedEvent(this));
+		}
+	}
+
+	public void setStarted(boolean started) {
+		if (this.isStarted != started) {
+			this.isStarted = started;
+			setChanged();
+			if (isStarted)
+				notifyObservers(new DockSimulationStartedEvent(this));
+			else
+				notifyObservers(new DockSimulationTerminatedEvent(this));
 		}
 	}
 	

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
+
 
 
 /**
@@ -19,7 +21,7 @@ public interface ISimuComControl {
 	 * local sensor factory storages
 	 * @return The result of the simulation run
 	 */
-	public SimuComStatus startSimulation(SimuComConfig config, IStatusObserver statusObserver, boolean useOwnSensorstorage);
+	public SimuComResult startSimulation(SimuComConfig config, IStatusObserver statusObserver, boolean useOwnSensorstorage);
 	
 	/**
 	 * Cancels a running simulation 
@@ -31,4 +33,6 @@ public interface ISimuComControl {
 	 * @return The exception which caused the simulation to terminate
 	 */
 	public Throwable getErrorThrowable();
+
+	public SimuComStatus getStatus();
 }

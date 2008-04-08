@@ -279,7 +279,11 @@ public class DocksModel extends Observable implements EventHandler {
 			dock.setIsStepping(false);
 		}
 		if (event.getTopic().endsWith("SIM_STARTED")) {
+			dock.setStarted(true);
 			dock.setIsSuspended(false);
+		}
+		if (event.getTopic().endsWith("SIM_STOPPED")) {
+			dock.setStarted(false);
 		}
 		if (event.getTopic().endsWith("SIM_SUSPENDED")) {
 			dock.setIsSuspended(true);

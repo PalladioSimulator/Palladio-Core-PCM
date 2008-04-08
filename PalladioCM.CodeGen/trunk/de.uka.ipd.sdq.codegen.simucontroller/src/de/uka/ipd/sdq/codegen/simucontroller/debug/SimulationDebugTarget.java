@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.codegen.simucontroller.debug;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -15,12 +16,19 @@ import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IMemoryBlock;
 import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.IThread;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockEvent;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockResumedEvent;
+import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockSimulationStartedEvent;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockSimulationTerminatedEvent;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockSuspendedEvent;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusPackage;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 
 /**
@@ -33,6 +41,8 @@ public class SimulationDebugTarget extends SimulationDebugElement implements IDe
 	private SimulationDebugThread myEventProcessorThread = null;
 	private DockModel myDock;
 	private boolean isTerminated;
+	private ArrayList<IThread> runningSimThreads = new ArrayList<IThread>();
+	private SimuComStatus simulationStatus;
 
 	public SimulationDebugTarget(ILaunch launch,
 			DockModel dock) {
@@ -55,14 +65,19 @@ public class SimulationDebugTarget extends SimulationDebugElement implements IDe
 	 * @see org.eclipse.debug.core.model.IDebugTarget#getProcess()
 	 */
 	public IProcess getProcess() {
-		return null;
+		return launch.getProcesses()[0];
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.core.model.IDebugTarget#getThreads()
 	 */
 	public IThread[] getThreads() throws DebugException {
-		return new IThread[]{myEventProcessorThread};
+		ArrayList<IThread> result = new ArrayList<IThread>();
+		if (!this.isTerminated) {
+			result.add(myEventProcessorThread);
+			result.addAll(runningSimThreads);
+		}
+		return result.toArray(new IThread[]{});
 	}
 
 	/* (non-Javadoc)
@@ -76,7 +91,6 @@ public class SimulationDebugTarget extends SimulationDebugElement implements IDe
 	 * @see org.eclipse.debug.core.model.IDebugTarget#supportsBreakpoint(org.eclipse.debug.core.model.IBreakpoint)
 	 */
 	public boolean supportsBreakpoint(IBreakpoint breakpoint) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -126,7 +140,14 @@ public class SimulationDebugTarget extends SimulationDebugElement implements IDe
 	 * @see org.eclipse.debug.core.model.ISuspendResume#resume()
 	 */
 	public void resume() throws DebugException {
-		simControl.resume();
+		// Do not execute resume in a UI thread
+		new Thread(new Runnable(){
+
+			public void run() {
+				simControl.resume();
+			}
+			
+		}).run();
 	}
 
 	/* (non-Javadoc)
@@ -207,16 +228,49 @@ public class SimulationDebugTarget extends SimulationDebugElement implements IDe
 		if (arg instanceof DockEvent) {
 			DockEvent dockEvent = (DockEvent) arg;
 			if (dockEvent.comesFrom(this.myDock)) {
-				if (dockEvent instanceof DockResumedEvent) {
-					// fireEvent(this, DebugEvent.RESUME);
-				}
-				if (dockEvent instanceof DockSuspendedEvent) {
-					// fireEvent(this, DebugEvent.SUSPEND);
-				}
 				if (dockEvent instanceof DockSimulationTerminatedEvent) {
 					this.isTerminated = true;
+					if (!this.myDock.isRemote()) {
+						this.simulationStatus.eAdapters().remove(this);
+						this.simulationStatus.getProcessStatus().eAdapters().remove(this);
+						this.simulationStatus.getResourceStatus().eAdapters().remove(this);
+					}
 					fireEvent(this, DebugEvent.TERMINATE);
 				}
+				if (dockEvent instanceof DockSimulationStartedEvent) {
+					if (!this.myDock.isRemote()) {
+						this.simulationStatus = this.simControl.getSimuComStatus();
+						this.simulationStatus.eAdapters().add(this);
+						this.simulationStatus.getProcessStatus().eAdapters().add(this);
+						this.simulationStatus.getResourceStatus().eAdapters().add(this);
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	public void notifyChanged(Notification notification) {
+		if (notification.getEventType() == Notification.ADD) {
+			if (notification.getFeature() == SimucomstatusPackage.eINSTANCE.getSimulatedProcesses_Processes()) {
+				this.runningSimThreads.add(new SimuComProcessDebugThread(this,launch,(Process)notification.getNewValue()));
+				fireEvent(this, DebugEvent.CHANGE);
+			}
+		}
+		if (notification.getEventType() == Notification.REMOVE) {
+			if (notification.getFeature() == SimucomstatusPackage.eINSTANCE.getSimulatedProcesses_Processes()) {
+				SimuComProcessDebugThread candidate = null;
+				for (IThread thread : runningSimThreads) {
+					if (thread instanceof SimuComProcessDebugThread) {
+						candidate = (SimuComProcessDebugThread) thread;
+						if (candidate.getProcess() == notification.getOldValue()){
+							break;
+						}
+					}
+				}
+				this.runningSimThreads.remove(candidate);
+				candidate.dispose();
+				fireEvent(this, DebugEvent.CHANGE);
 			}
 		}
 	}

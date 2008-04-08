@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
-import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
@@ -38,21 +38,10 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	 * @see desmoj.core.simulator.SimProcess#lifeCycle()
 	 */
 	@Override
-	public void lifeCycle() {
-		logger.info("Starting user "+this.getName());
-		try {
-			while (getModel().getSimulationControl().isRunning()) {
-				scenarioRunner(this);
-			}
-		//} catch (SimFinishedException ex) {
-		} catch (Exception e) {
-			logger.warn("Simulation caused an exception. Caught it in Closed User Lifecycle Method",e);
-			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
-					e);
-			logger.debug("Trying to stop simulation now...");
-			this.getModel().getSimulationControl().stop();
+	protected void internalLifeCycle() {
+		while (getModel().getSimulationControl().isRunning()) {
+			scenarioRunner(this);
 		}
-		logger.info("Terminating user "+this.getName());
 	}
 
 	/* (non-Javadoc)

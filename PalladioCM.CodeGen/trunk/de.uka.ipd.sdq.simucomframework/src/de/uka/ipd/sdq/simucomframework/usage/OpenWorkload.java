@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
-import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
@@ -39,26 +39,15 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 	}
 
 	@Override
-	public void lifeCycle() {
-		try {
-			logger.info("Open Workload User Generator starting...");
-			while(getModel().getSimulationControl().isRunning()) {
-				generateUser();
-				waitForNextUser();
-				if (Thread.activeCount() > USER_THRESHOLD) {
-					logger.error("Too many users spawned! Check your workload settings!");
-					throw new RuntimeException("Too many users spawned");
-				}
+	protected void internalLifeCycle() {
+		while(getModel().getSimulationControl().isRunning()) {
+			generateUser();
+			waitForNextUser();
+			if (Thread.activeCount() > USER_THRESHOLD) {
+				logger.error("Too many users spawned! Check your workload settings!");
+				throw new RuntimeException("Too many users spawned");
 			}
-//		} catch (SimFinishedException ex) {
-		} catch (Exception e) {
-			logger.warn("Simulation caused an exception. Caught it in Closed User Lifecycle Method",e);
-			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
-					e);
-			logger.debug("Trying to stop simulation now...");
-			this.getModel().getSimulationControl().stop();	
 		}
-		logger.info("Terminating Open Workload Generator "+this.getName());
 	}
 
 	private void waitForNextUser() {
