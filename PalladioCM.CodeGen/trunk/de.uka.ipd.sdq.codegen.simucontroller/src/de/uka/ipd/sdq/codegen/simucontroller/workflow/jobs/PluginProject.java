@@ -270,6 +270,7 @@ public class PluginProject {
 		out.println("Bundle-Version: 1.0.0"); //$NON-NLS-1$
 		out.println("Bundle-Activator: main.SimuComControl");
 		out.println("Require-Bundle: de.uka.ipd.sdq.simucomframework,"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.simucomframework.simucomstatus,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.sensorframework,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.simucomframework.variables,"); //$NON-NLS-1$
 		out.println(" org.apache.log4j,"); //$NON-NLS-1$
