@@ -7,7 +7,7 @@ package de.uka.ipd.sdq.context.computed_usage;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 
-import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -71,12 +71,12 @@ public interface LoopIteration extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specification Loop Iteration</em>' containment reference.
-	 * @see #setSpecification_LoopIteration(RandomVariable)
+	 * @see #setSpecification_LoopIteration(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.context.computed_usage.ComputedUsagePackage#getLoopIteration_Specification_LoopIteration()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	RandomVariable getSpecification_LoopIteration();
+	PCMRandomVariable getSpecification_LoopIteration();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.context.computed_usage.LoopIteration#getSpecification_LoopIteration <em>Specification Loop Iteration</em>}' containment reference.
@@ -86,6 +86,6 @@ public interface LoopIteration extends EObject {
 	 * @see #getSpecification_LoopIteration()
 	 * @generated
 	 */
-	void setSpecification_LoopIteration(RandomVariable value);
+	void setSpecification_LoopIteration(PCMRandomVariable value);
 
 } // LoopIteration

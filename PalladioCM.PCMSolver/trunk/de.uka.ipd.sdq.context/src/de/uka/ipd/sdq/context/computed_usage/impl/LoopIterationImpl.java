@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 
-import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -61,7 +61,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * @generated
 	 * @ordered
 	 */
-	protected RandomVariable specification_LoopIteration;
+	protected PCMRandomVariable specification_LoopIteration;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,7 +124,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RandomVariable getSpecification_LoopIteration() {
+	public PCMRandomVariable getSpecification_LoopIteration() {
 		return specification_LoopIteration;
 	}
 
@@ -133,8 +133,8 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSpecification_LoopIteration(RandomVariable newSpecification_LoopIteration, NotificationChain msgs) {
-		RandomVariable oldSpecification_LoopIteration = specification_LoopIteration;
+	public NotificationChain basicSetSpecification_LoopIteration(PCMRandomVariable newSpecification_LoopIteration, NotificationChain msgs) {
+		PCMRandomVariable oldSpecification_LoopIteration = specification_LoopIteration;
 		specification_LoopIteration = newSpecification_LoopIteration;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ComputedUsagePackage.LOOP_ITERATION__SPECIFICATION_LOOP_ITERATION, oldSpecification_LoopIteration, newSpecification_LoopIteration);
@@ -148,7 +148,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSpecification_LoopIteration(RandomVariable newSpecification_LoopIteration) {
+	public void setSpecification_LoopIteration(PCMRandomVariable newSpecification_LoopIteration) {
 		if (newSpecification_LoopIteration != specification_LoopIteration) {
 			NotificationChain msgs = null;
 			if (specification_LoopIteration != null)
@@ -202,7 +202,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 				setLoopaction_LoopIteration((AbstractLoopAction)newValue);
 				return;
 			case ComputedUsagePackage.LOOP_ITERATION__SPECIFICATION_LOOP_ITERATION:
-				setSpecification_LoopIteration((RandomVariable)newValue);
+				setSpecification_LoopIteration((PCMRandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -219,7 +219,7 @@ public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 				setLoopaction_LoopIteration((AbstractLoopAction)null);
 				return;
 			case ComputedUsagePackage.LOOP_ITERATION__SPECIFICATION_LOOP_ITERATION:
-				setSpecification_LoopIteration((RandomVariable)null);
+				setSpecification_LoopIteration((PCMRandomVariable)null);
 				return;
 		}
 		super.eUnset(featureID);

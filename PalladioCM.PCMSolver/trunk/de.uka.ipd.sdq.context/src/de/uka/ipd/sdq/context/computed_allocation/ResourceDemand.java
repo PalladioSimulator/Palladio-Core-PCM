@@ -7,7 +7,7 @@ package de.uka.ipd.sdq.context.computed_allocation;
 
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 
-import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -76,7 +76,7 @@ public interface ResourceDemand extends EObject {
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	RandomVariable getSpecification_ResourceDemand();
+	PCMRandomVariable getSpecification_ResourceDemand();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.context.computed_allocation.ResourceDemand#getSpecification_ResourceDemand <em>Specification Resource Demand</em>}' containment reference.
@@ -86,6 +86,6 @@ public interface ResourceDemand extends EObject {
 	 * @see #getSpecification_ResourceDemand()
 	 * @generated
 	 */
-	void setSpecification_ResourceDemand(RandomVariable value);
+	void setSpecification_ResourceDemand(PCMRandomVariable value);
 
 } // ResourceDemand
