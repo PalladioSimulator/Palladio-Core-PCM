@@ -20,9 +20,6 @@ public class ExperimentRunner {
 	 * @param simTime Maximum simulation time to run the simulation for
 	 */
 	public static void run(SimuComModel model, long simTime) {
-		// Experiment exp = model.getExperiment();
-		// set experiment parameters
-		// exp.setShowProgressBar(false); // display a progress bar (or not)
 		
 		if (model.getConfig().getMaxMeasurementsCount() <= 0 && simTime <= 0)
 			model.getSimulationControl().setMaxSimTime(0); 
@@ -42,9 +39,8 @@ public class ExperimentRunner {
 		double elapsedTime = System.nanoTime() - startTime;
 		logger.warn("Simulation completed in " + (elapsedTime/1000000.0) + "ms.");
 		
-		// stop all threads still alive and close all output files
-		// TODO: Move me: exp.finish();
 		model.getResourceRegistry().deactivateAllActiveResources();
+		model.getResourceRegistry().deactivateAllPassiveResources();
 
 		model.getDAOFactory().store();
 	}

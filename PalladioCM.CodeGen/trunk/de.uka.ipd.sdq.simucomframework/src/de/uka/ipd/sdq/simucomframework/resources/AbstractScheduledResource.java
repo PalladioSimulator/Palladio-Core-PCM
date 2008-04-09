@@ -54,6 +54,8 @@ public abstract class AbstractScheduledResource extends Entity {
 
 	private boolean isDebug;
 
+	private boolean isStopped = false;
+
 	public AbstractScheduledResource(SimuComModel myModel, String id,
 			String description, SchedulingStrategy strategy) {
 		super(myModel, id);
@@ -300,11 +302,14 @@ public abstract class AbstractScheduledResource extends Entity {
 	 * been stopped
 	 */
 	public void deactivateResource() {
-		logger.debug("Stopping Resource " + this.getName());
-		experimentRun.addStateMeasurement(stateSensor, idleState, getModel()
-				.getSimulationControl().getCurrentSimulationTime());
-		this.getModel().getSimulationStatus().getResourceStatus()
-				.getActiveResources().remove(myResourceStatus);
+		if (!this.isStopped ){
+			logger.debug("Stopping Resource " + this.getName());
+			this.isStopped = true;
+			experimentRun.addStateMeasurement(stateSensor, idleState, getModel()
+					.getSimulationControl().getCurrentSimulationTime());
+			this.getModel().getSimulationStatus().getResourceStatus()
+					.getActiveResources().remove(myResourceStatus);
+		}
 	}
 
 	/**

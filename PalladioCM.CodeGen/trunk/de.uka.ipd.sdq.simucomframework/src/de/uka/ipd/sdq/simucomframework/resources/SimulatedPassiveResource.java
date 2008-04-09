@@ -89,12 +89,12 @@ public class SimulatedPassiveResource extends SimProcess {
 				}
 			}
 		}
-		while (available > 0)
+		// This resource is stopped now
+		// Wake up waiting processes so that the can terminate
+		SimProcess next = null;
+		while ((next = associatedQueue.peek()) != null)
 		{
-			available--;
-			SimProcess next = associatedQueue.peek();
 			associatedQueue.remove(next);
-			logger.debug("Simulated Process "+next.getName()+" acquired stopped Passive Resource "+resourceID+". It continues execution now...");
 			next.scheduleAt(0);
 		}
 	}
@@ -126,6 +126,8 @@ public class SimulatedPassiveResource extends SimProcess {
 	}
 
 	public void deactivateResource() {
-		this.activate();
+		if (!this.isTerminated()){
+			this.activate();
+		}
 	}
 }

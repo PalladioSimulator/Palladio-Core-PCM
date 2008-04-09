@@ -65,6 +65,7 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 	private ISimProcessDelegate myParent;
 	protected String assemblyContextID;
 	private boolean isAsync;
+	private boolean isTerminated = false;
 
 	private static Logger logger = 
 		Logger.getLogger(ForkedBehaviourProcess.class.getName());
@@ -80,6 +81,7 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 	@Override
 	protected void internalLifeCycle() {
 		executeBehaviour();
+		this.isTerminated  = true;
 		if (!isAsync)
 			myParent.scheduleAt(0);
 		else
@@ -96,4 +98,12 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 		return isAsync;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess#isTerminated()
+	 */
+	@Override
+	public boolean isTerminated() {
+		return this.isTerminated;
+	}
+	
 }

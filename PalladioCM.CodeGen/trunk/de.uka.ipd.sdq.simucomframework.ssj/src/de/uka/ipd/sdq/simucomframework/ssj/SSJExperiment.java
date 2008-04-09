@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SSJExperiment implements ISimulationControlDelegate {
 	
-	private ThreadProcessSimulator simulator;
+	private Simulator simulator;
 	private ArrayList<Condition> stopConditions = new ArrayList<Condition>();
 	private ArrayList<Observer> timeObservers = new ArrayList<Observer>();
 	double lastNotificationTime = 0.0;
@@ -28,7 +28,7 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	
 	public SSJExperiment(final SimuComModel model) {
 		model.setSimulationControl(this);
-		simulator = new ThreadProcessSimulator();
+		simulator = new Simulator();
 		simulator.init(new SplayTree());
 		SchedulingFactory.setUsedSimulator(simulator);
 		ISchedulingFactory.eINSTANCE.resetFactory();
@@ -83,16 +83,18 @@ public class SSJExperiment implements ISimulationControlDelegate {
 	}
 
 	public void stop() {
-		this.isRunning = false;
-		
-		logger.info("Simulation stop requested!");
-		// createStopEvent().schedule(0);
-		this.model.getResourceRegistry().deactivateAllActiveResources();
-		this.model.getResourceRegistry().deactivateAllPassiveResources();
-		logger.info("Scheduled Simulation Stop Event now");
+		if (this.isRunning) {
+			this.isRunning = false;
+			
+			logger.info("Simulation stop requested!");
+			// createStopEvent().schedule(0);
+			this.model.getResourceRegistry().deactivateAllActiveResources();
+			this.model.getResourceRegistry().deactivateAllPassiveResources();
+			logger.info("Scheduled Simulation Stop Event now");
+		}
 	}
 
-	public ProcessSimulator getSimulator(){
+	public Simulator getSimulator(){
 		return simulator;
 	}
 
