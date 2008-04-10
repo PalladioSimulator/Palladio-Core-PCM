@@ -3,11 +3,13 @@ package de.uka.ipd.sdq.codegen.rvisualisation.views;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StatisticsReportItem;
+import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
 /**Report that displays the total resource demands for sensors.
@@ -25,6 +27,7 @@ public class RDemandTimeReportView extends AbstractRReportView {
 	 * @param t The connection to the R-Engine.
 	 * @return List of items with statistical information.
 	 */
+	@Override
 	protected ArrayList<IReportItem> prepareReportItems(
 			final Collection<SensorAndMeasurements> c, final RConnection t) {
 		ArrayList<IReportItem> items = new ArrayList<IReportItem>();
@@ -44,8 +47,4 @@ public class RDemandTimeReportView extends AbstractRReportView {
 		} 
 		return items;
 	}
-
-
-
-
 }

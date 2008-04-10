@@ -8,15 +8,15 @@ import org.rosuda.JRI.REXP;
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 
+public class StatisticsReportItem extends AbstractRReportItem {
 /**Report item used to display statistical values. The last result 
  * returned from R is considered to be the value of interest.
  * @author groenda (comments, refactoring)
  */
-public class StatisticsReportItem implements IReportItem {
 
-	private REXP statisticalValue = new REXP();
-	private String rCommands;
-	private String contentDescription;
+	protected REXP statisticalValue = new REXP();
+	protected String rCommands;
+	protected String contentDescription;
 
 	/**Initializes a new report item.
 	 * @param rCommands R commands that lead to the calculation of the statistical value.

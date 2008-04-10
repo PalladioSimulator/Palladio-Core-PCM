@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.codegen.rvisualisation.visitor;
 
+import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.AbstractPlotReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportRenderingVisitor;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.DensityPlotReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
@@ -31,6 +32,12 @@ public class HTMLVisitor implements IReportRenderingVisitor {
 	}
 
 	public void visitPlotItem(DensityPlotReportItem plotReportItem) {
+		if (plotReportItem.getFilename()!= null)
+			content += "<img src=\"file:///"+plotReportItem.getFilename()+"\"/><br/>";
+	}
+
+	@Override
+	public void visitAbstractPlotItem(AbstractPlotReportItem plotReportItem) {
 		if (plotReportItem.getFilename()!= null)
 			content += "<img src=\"file:///"+plotReportItem.getFilename()+"\"/><br/>";
 	}

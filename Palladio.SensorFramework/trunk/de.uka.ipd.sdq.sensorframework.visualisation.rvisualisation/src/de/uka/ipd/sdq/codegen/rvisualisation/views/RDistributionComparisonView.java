@@ -15,6 +15,7 @@ public class RDistributionComparisonView extends AbstractRReportView {
 
 	public static final String RREPORTVIEW_ID = "de.uka.ipd.sdq.codegen.rvisualization.views.RDistributionComparison";
 
+	@Override
 	protected ArrayList<IReportItem> prepareReportItems(
 			Collection<SensorAndMeasurements> c, RConnection t) {
 		ArrayList<IReportItem> items = new ArrayList<IReportItem>();

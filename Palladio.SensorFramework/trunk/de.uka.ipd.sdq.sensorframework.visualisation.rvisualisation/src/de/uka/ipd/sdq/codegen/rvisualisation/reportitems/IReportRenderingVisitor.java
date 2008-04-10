@@ -8,4 +8,6 @@ public interface IReportRenderingVisitor {
 
 	void visitPlotItem(DensityPlotReportItem plotReportItem);
 
+	void visitAbstractPlotItem(AbstractPlotReportItem histogramReportItem);
+
 }

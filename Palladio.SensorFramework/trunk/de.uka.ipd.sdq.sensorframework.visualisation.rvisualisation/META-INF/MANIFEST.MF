@@ -15,3 +15,9 @@ Eclipse-LazyStart: true
 Bundle-NativeCode: lib/jri.dll;processor="x86";osname="Win32"
 Bundle-ClassPath: lib/JRI.jar,
  .
+Export-Package: de.uka.ipd.sdq.codegen.rvisualisation,
+ de.uka.ipd.sdq.codegen.rvisualisation.actions,
+ de.uka.ipd.sdq.codegen.rvisualisation.reportitems,
+ de.uka.ipd.sdq.codegen.rvisualisation.views,
+ de.uka.ipd.sdq.codegen.rvisualisation.visitor,
+ org.rosuda.JRI
