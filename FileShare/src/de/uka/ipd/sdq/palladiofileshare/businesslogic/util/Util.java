@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.palladiofileshare.businesslogic.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
@@ -65,5 +66,60 @@ public class Util {
 		}
 		
 		return string.toString();
+	}
+
+	public static ArrayList<Byte[]> initialiseRandomByteArrays(
+			int nrOfRandomDatasets, 
+			boolean constantRandomDatasetSize,
+			int initialRandomDatasetSize,
+			int maximumRandomDatasetSizeIfVariableSize) {
+		ArrayList<Byte[]> ret = new ArrayList<Byte[]>();
+		int datasetSize = initialRandomDatasetSize;
+		Random rd = new Random();
+		for(int i=0; i<nrOfRandomDatasets; i++){
+			if(!constantRandomDatasetSize){
+				datasetSize = 
+					initialRandomDatasetSize
+						+rd.nextInt
+						(
+								maximumRandomDatasetSizeIfVariableSize
+								  -initialRandomDatasetSize
+						);
+			}
+			Byte[] nextEntry = new Byte[datasetSize];
+			for(int j=0; j<nextEntry.length; j++){
+				nextEntry[j] = new Integer(-128+rd.nextInt(256)).byteValue();
+			}
+			ret.add(nextEntry);
+		}
+		return ret;
+	}
+	
+	public static ArrayList<byte[]> initialiseRandomPrimitiveByteArrays(
+			int nrOfRandomDatasets, 
+			boolean constantRandomDatasetSize,
+			int initialRandomDatasetSize,
+			int maximumRandomDatasetSizeIfVariableSize) {
+		ArrayList<byte[]> ret = new ArrayList<byte[]>();
+		int datasetSize = initialRandomDatasetSize;
+		Random rd = new Random();
+		for(int i=0; i<nrOfRandomDatasets; i++){
+			if(!constantRandomDatasetSize){
+				datasetSize = 
+					initialRandomDatasetSize
+						+rd.nextInt
+						(
+								maximumRandomDatasetSizeIfVariableSize
+								  -initialRandomDatasetSize
+						);
+			}
+			byte[] nextEntry = new byte[datasetSize];
+			rd.nextBytes(nextEntry);
+//			for(int j=0; j<nextEntry.length; j++){
+//				nextEntry[j] = new Integer(-128+rd.nextInt(256)).byteValue();
+//			}
+			ret.add(nextEntry);
+		}
+		return ret;
 	}
 }
