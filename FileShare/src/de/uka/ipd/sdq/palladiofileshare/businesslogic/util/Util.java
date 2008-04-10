@@ -15,6 +15,36 @@ public class Util {
 	private static Logger logger = Logger.getLogger(Util.class);
 	private static int randomSeed = 1234;
 		
+	/**
+	 * creates a string unique for file and thread
+	 * @param fileHash
+	 * @return
+	 */
+	public static Integer createIntegerHash(byte[] fileHash) {				
+		Byte[] fileHash2 = new Byte[fileHash.length];
+		
+		for(int x = 0; x < fileHash.length; x++) {
+			fileHash2[x] = new Byte(fileHash[x]);		
+		}
+		
+		return Arrays.deepHashCode(fileHash2);
+	}
+	
+	/**
+	 * creates a string unique for file and thread
+	 * @param fileHash
+	 * @return
+	 */
+	public static String createString(byte[] fileHash) {		
+		StringBuilder string = new StringBuilder("f" + Thread.currentThread().getId());		
+						
+		for(int x = 0; (x < fileHash.length && x < 40) ; x++) {			
+			string.append(fileHash[x]);
+		}
+		
+		return string.toString();
+	}
+		
 	public static Set<Integer> initHashSetWithInteger(int amountOfData) {	
 		Set<Integer> hashSet = new HashSet<Integer>();
 		Random r = new Random(randomSeed);
@@ -36,36 +66,6 @@ public class Util {
 			}
 		}
 		return hashSet;
-	}
-	
-	/**
-	 * creates a string unique for file and thread
-	 * @param fileHash
-	 * @return
-	 */
-	public static Integer createIntegerHash(byte[] fileHash) {				
-		Byte[] fileHash2 = new Byte[fileHash.length];
-		
-		for(int x = 0; x < fileHash.length; x++) {
-			fileHash2[x] = new Byte(fileHash[x]);		
-		}
-		
-		return Arrays.deepHashCode(fileHash2);
-	}
-		
-	/**
-	 * creates a string unique for file and thread
-	 * @param fileHash
-	 * @return
-	 */
-	public static String createString(byte[] fileHash) {		
-		StringBuilder string = new StringBuilder("f" + Thread.currentThread().getId());		
-						
-		for(int x = 0; (x < fileHash.length && x < 40) ; x++) {			
-			string.append(fileHash[x]);
-		}
-		
-		return string.toString();
 	}
 
 	public static ArrayList<Byte[]> initialiseRandomByteArrays(

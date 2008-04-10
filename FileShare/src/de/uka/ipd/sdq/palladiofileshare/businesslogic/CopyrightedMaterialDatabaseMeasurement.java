@@ -47,6 +47,7 @@ public class CopyrightedMaterialDatabaseMeasurement {
 		long start;
 		long stop;
 		long runningSum = 0L;
+		int positiveReturns = 0;
 		for(int i=0; i<nrOfMeasurements; i++){
 			currDataset = datasets.get(rd.nextInt(nrOfRandomDatasets));
 			currHash = ourHasher.getMessageDigest(currDataset);
@@ -55,6 +56,7 @@ public class CopyrightedMaterialDatabaseMeasurement {
 			results[i] = cmd.isCopyrightedMaterial(currHash);
 			stop = System.nanoTime();
 
+			if(results[i]) positiveReturns++;
 			measurements[i] = stop-start;
 			runningSum +=measurements[i]; //Annahme: kein Überlauf
 		}
@@ -64,7 +66,7 @@ public class CopyrightedMaterialDatabaseMeasurement {
 				runningSum/nrOfMeasurements,
 				measurements[measurements.length-1]};
 		int realMaximumRandomDatasetSize = initialRandomDatasetSize;
-		if(constantRandomDatasetSize){
+		if(!constantRandomDatasetSize){
 			realMaximumRandomDatasetSize = maximumRandomDatasetSizeIfVariableSize; 
 		}
 		System.out.println("Results of benchmarking "+
@@ -72,11 +74,12 @@ public class CopyrightedMaterialDatabaseMeasurement {
 				"randomly chosen byte arrays from a pool of size "+
 				nrOfRandomDatasets+" (where the size of entries in the pool " +
 				"varies from "+initialRandomDatasetSize+" to "+
-				realMaximumRandomDatasetSize+": "+
+				realMaximumRandomDatasetSize+"): "+
 				"minimum: "+summary[0]+", "+
 				"median: "+summary[1]+", "+
 				"mean: "+summary[2]+", "+
-				"maximum: "+summary[3]+".");
+				"maximum: "+summary[3]+" " +
+				"(positive returns: "+positiveReturns+").");
 		return summary;
 	}
 }

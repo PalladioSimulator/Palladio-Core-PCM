@@ -28,9 +28,12 @@ public class ExistingFilesDatabase {
 		return singleton;		
 	}
 	
-	public void addNewFileHash(byte[] fileHash) {
+	public boolean addNewFileHash(byte[] fileHash) {
 		if(!fileHashes.contains(Util.createIntegerHash(fileHash))) {
 			fileHashes.add(Util.createIntegerHash(fileHash));
+			return true;
+		}else{
+			return false;
 		}
 	}
 
