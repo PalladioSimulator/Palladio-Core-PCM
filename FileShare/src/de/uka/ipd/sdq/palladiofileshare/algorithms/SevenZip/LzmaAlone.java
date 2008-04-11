@@ -1,5 +1,14 @@
 package de.uka.ipd.sdq.palladiofileshare.algorithms.SevenZip;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import de.uka.ipd.sdq.palladiofileshare.algorithms.SevenZip.Compression.LZMA.Decoder;
+import de.uka.ipd.sdq.palladiofileshare.algorithms.SevenZip.Compression.LZMA.Encoder;
+
 public class LzmaAlone
 {
 	static public class CommandLine
@@ -185,22 +194,22 @@ public class LzmaAlone
 				dictionary = params.DictionarySize;
 			if (params.MatchFinder > 1)
 				throw new Exception("Unsupported match finder");
-			de.uka.ipd.sdq.palladiofileshare.algorithms.SevenZip.LzmaBench.LzmaBenchmark(params.NumBenchmarkPasses, dictionary);
+			LzmaBench.LzmaBenchmark(params.NumBenchmarkPasses, dictionary);
 		}
 		else if (params.Command == CommandLine.kEncode || params.Command == CommandLine.kDecode)
 		{
-			java.io.File inFile = new java.io.File(params.InFile);
-			java.io.File outFile = new java.io.File(params.OutFile);
+			File inFile = new File(params.InFile);
+			File outFile = new File(params.OutFile);
 			
-			java.io.BufferedInputStream inStream  = new java.io.BufferedInputStream(new java.io.FileInputStream(inFile));
-			java.io.BufferedOutputStream outStream = new java.io.BufferedOutputStream(new java.io.FileOutputStream(outFile));
+			BufferedInputStream inStream  = new BufferedInputStream(new FileInputStream(inFile));
+			BufferedOutputStream outStream = new BufferedOutputStream(new FileOutputStream(outFile));
 			
 			boolean eos = false;
 			if (params.Eos)
 				eos = true;
 			if (params.Command == CommandLine.kEncode)
 			{
-				de.uka.ipd.sdq.palladiofileshare.algorithms.SevenZip.Compression.LZMA.Encoder encoder = new de.uka.ipd.sdq.palladiofileshare.algorithms.SevenZip.Compression.LZMA.Encoder();
+				Encoder encoder = new Encoder();
 				if (!encoder.SetAlgorithm(params.Algorithm))
 					throw new Exception("Incorrect compression mode");
 				if (!encoder.SetDictionarySize(params.DictionarySize))
@@ -228,7 +237,7 @@ public class LzmaAlone
 				byte[] properties = new byte[propertiesSize];
 				if (inStream.read(properties, 0, propertiesSize) != propertiesSize)
 					throw new Exception("input .lzma file is too short");
-				de.uka.ipd.sdq.palladiofileshare.algorithms.SevenZip.Compression.LZMA.Decoder decoder = new de.uka.ipd.sdq.palladiofileshare.algorithms.SevenZip.Compression.LZMA.Decoder();
+				Decoder decoder = new Decoder();
 				if (!decoder.SetDecoderProperties(properties))
 					throw new Exception("Incorrect stream properties");
 				long outSize = 0;
