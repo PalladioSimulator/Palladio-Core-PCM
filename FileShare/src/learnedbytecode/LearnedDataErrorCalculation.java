@@ -16,12 +16,12 @@ public class LearnedDataErrorCalculation {
 	private LearnedBytecode learnedBytecode;
 	
 	public LearnedDataErrorCalculation() {
-		learnedBytecode = new LearnedBytecode();
+		reInit();
 	}
 	
 	public static void main(String[] args) {
 		LearnedDataErrorCalculation lerr = new LearnedDataErrorCalculation();
-		System.out.println("error for 1: " + lerr.calculateErrorForOneFileAllBytecodes(1));
+		System.out.println("error for 6: " + lerr.calculateErrorForOneFileAllBytecodes(1));
 	}
 	
 	/**
@@ -36,6 +36,8 @@ public class LearnedDataErrorCalculation {
 		double measuredResult;
 		for(int i = 0; i < LearnedBytecode.LEARNED_BYTECODES.length; i++) {
 
+			reInit();
+			
 			learnedResult = 
 				learnedBytecode.getLearnedData(
 						getCell(rowNumber, 1),
@@ -46,10 +48,29 @@ public class LearnedDataErrorCalculation {
 			measuredResult = getCell(rowNumber,
 					bytecodeNumerOfSet + LearnedBytecode.LEARNED_BYTECODES[i]);
 			
-			error += Math.abs(learnedResult - measuredResult) / measuredResult;
+			System.out.println(learnedResult + " " + measuredResult);
+			
+			error += Math.abs(learnedResult - measuredResult);
 		}
-		
 		return error;
+	}
+	
+	public double getLearnedData(int rowNumber, int bytecode) {
+		return
+			learnedBytecode.getLearnedData(
+					getCell(rowNumber, 1),
+					getCell(rowNumber, 2),
+					bytecode
+				);
+	}
+	
+	public double getMeasuredData(int rowNumber, int bytecode) {
+		return
+			getCell(rowNumber, bytecodeNumerOfSet + bytecode);
+	}
+	
+	private void reInit() {
+		learnedBytecode = new LearnedBytecode();
 	}
 	
 	private int getCell(int row, int column) {
