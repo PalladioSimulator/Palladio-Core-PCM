@@ -81,6 +81,30 @@ public class LearnedDataErrorCalculation {
 		throw new RuntimeException("should not happen. Row / Column not found");
 	}
 	
+	private String getCell_String(int row, int column) {
+
+		try {
+			reader = new CSVReader(new FileReader(csvFile), ';');
+		
+			String [] nextLine;
+			int currentLine = 0;
+			while ((nextLine = reader.readNext()) != null) {
+	
+				if(currentLine == row) {
+					return nextLine[column];
+				}
+			        
+			    currentLine++;
+			}	
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		throw new RuntimeException("should not happen. Row / Column not found");
+	}
+	
 	/**
 	 * @param rowNumber  row of the file entry (0 row is heading)
 	 * @param bytecode
@@ -105,6 +129,17 @@ public class LearnedDataErrorCalculation {
 		reInit();
 		return
 			getCell(rowNumber, bytecodeNumerOfSet + bytecode);
+	}
+	
+	/**
+	 * @param rowNumber  row of the file entry (0 row is heading)
+	 * @param bytecode
+	 * @return
+	 */
+	public String getMeasuredData_String(int rowNumber, int bytecode) {
+		reInit();
+		return
+			getCell_String(rowNumber, bytecodeNumerOfSet + bytecode);
 	}
 	
 	private void reInit() {

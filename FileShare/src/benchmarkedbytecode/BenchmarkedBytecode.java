@@ -9,7 +9,7 @@ import au.com.bytecode.opencsv.CSVReader;
 
 public class BenchmarkedBytecode {
 
-	private static float[][][] benchmarkResults = {
+	private static double[][][] benchmarkResults = {
 		//first dimension: platform
 		//second dimension: isJitted or not
 		//third dimension: instruction value
@@ -21,15 +21,15 @@ public class BenchmarkedBytecode {
 	    	{1,1,1,1,1, 1,1,1,1,1, 6,7,8,9, }  //MICHAEL, UNJITTED
 	    }};
 	
-	private static final int IS_JITTED = 0;
+	public static final int IS_JITTED = 0;
 	
-	private static final int IS_NOT_JITTED = 1;
+	public static final int IS_NOT_JITTED = 1;
 	
-	private static final int KLAUS_ACER = 0;
+	public static final int KLAUS_ACER = 0;
 	
-	private static final int MICHAEL_LENOVO = 1;
+	public static final int MICHAEL_LENOVO = 1;
 	
-	public static float getBenchmarkedData(
+	public double getBenchmarkedData(
 			int platformindex, 
 			int isJitted, 
 			int buildingBlockIndex //bytecode instruction or method
@@ -77,18 +77,27 @@ public class BenchmarkedBytecode {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println( getBenchmarkedData(KLAUS_ACER,      IS_JITTED,     50) );
-		System.out.println( getBenchmarkedData(KLAUS_ACER,      IS_NOT_JITTED, 51) );
-		System.out.println( getBenchmarkedData(MICHAEL_LENOVO, IS_JITTED,     58) );
-		System.out.println( getBenchmarkedData(MICHAEL_LENOVO, IS_NOT_JITTED, 132) );
-		
 		BenchmarkedBytecode bb = new BenchmarkedBytecode();
+		System.out.println( bb.getBenchmarkedData(KLAUS_ACER,      IS_JITTED,     50) );
+		System.out.println( bb.getBenchmarkedData(KLAUS_ACER,      IS_NOT_JITTED, 51) );
+		System.out.println( bb.getBenchmarkedData(MICHAEL_LENOVO, IS_JITTED,     58) );
+		System.out.println( bb.getBenchmarkedData(MICHAEL_LENOVO, IS_NOT_JITTED, 132) );
+		
 		bb.readBenchmarkResultsFromFile(MICHAEL_LENOVO,IS_NOT_JITTED);
-		System.out.println( getBenchmarkedData(MICHAEL_LENOVO, IS_NOT_JITTED, 2) );
-		System.out.println( getBenchmarkedData(MICHAEL_LENOVO, IS_NOT_JITTED, 4) );
+		System.out.println( bb.getBenchmarkedData(MICHAEL_LENOVO, IS_NOT_JITTED, 2) );
+		System.out.println( bb.getBenchmarkedData(MICHAEL_LENOVO, IS_NOT_JITTED, 4) );
 	}
 	
 	CSVReader reader;
+	
+	public BenchmarkedBytecode(int platformID, int isJitted) {
+		super();
+		this.readBenchmarkResultsFromFile(platformID, isJitted);
+	}
+	
+	public BenchmarkedBytecode() {
+		super();
+	}
 	
 	/** TODO test decimalseparation...
 	 * @param platformID
@@ -111,13 +120,14 @@ public class BenchmarkedBytecode {
 			int currLineNr = 0;
 			String currInstructionName;
 			int currInstructionOpcode;
-			float currInstructionDuration;
-			while ((currLine = reader.readNext()) != null && currLineNr < benchmarkResults[0][0].length) {
+			double currInstructionDuration;
+			while ((currLine = reader.readNext()) != null 
+					&& currLineNr < benchmarkResults[0][0].length) {
 				System.out.println("Line "+currLineNr+": "+Arrays.toString(currLine));
 				
 				currInstructionName 	= currLine[0];
 				currInstructionOpcode 	= new Integer(currLine[1]).intValue();
-				currInstructionDuration = new Float(currLine[2]).floatValue();
+				currInstructionDuration = new Double(currLine[2]).doubleValue();
 				benchmarkResults[platformID][isJitted][currLineNr] = currInstructionDuration;
 				System.out.println("Opcode "+currInstructionName+" " +
 						"(opcode number "+currInstructionOpcode+"): " +

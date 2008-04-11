@@ -15,6 +15,7 @@ public class LearnedBytecode {
 		4,   //ICONST_1
 		17,  //SIPUSH
 		21,  //ILOAD
+		
 		25,  //ALOAD
 		50,  //AALOAD
 		51,  //BALOAD
@@ -25,6 +26,7 @@ public class LearnedBytecode {
 		//85,  //CASTORE
 		//87, //POP
 		132, //IINC
+		
 		160, //IF_ICMPNE
 		161, //IC_ICMPLT
 		//167, //GOTO
