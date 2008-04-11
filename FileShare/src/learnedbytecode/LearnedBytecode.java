@@ -7,6 +7,8 @@ import com.bestcode.mathparser.IMathParser;
 import com.bestcode.mathparser.MathParserFactory;
 
 public class LearnedBytecode {
+	
+	public static int[] LEARNED_BYTECODES = {2,3,4,17,21,25,50,51,58,132,160,161,188,190};
 
 	private static IMathParser parser = MathParserFactory.create();
 	
