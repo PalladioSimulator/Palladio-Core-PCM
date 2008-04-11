@@ -40,6 +40,11 @@ public class LearnedBytecode {
 		System.out.println( new LearnedBytecode().getLearnedData(12000, 1, 50) );
 	}
 	
+	public LearnedBytecode() {
+		// init only once
+		initParser();
+	}
+	
 	private IMathParser parser = MathParserFactory.create();
 	
 	private double bc132(long X1, int X2) {
@@ -111,19 +116,10 @@ public class LearnedBytecode {
       	return evalExpression(X1, X2, exp);
 	}
 
-	private double evalExpression(long X1, int X2, String exp) {
-		double result = 0;
-					
-		parser.setExpression(exp);
-				
-		try {
-			parser.createFunc("MyIfThenElse", new IfThenElse());
-			parser.createFunc("MyIf", new IfThen());
-			//parser.setExpression("SIN");
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+	private double evalExpression(long X1, int X2, String exp) {	
+		double result = 0;							
 		
+		parser.setExpression(exp);
 		try {
 //			parser.setX(X1);
 //			parser.setY(X2);
@@ -133,8 +129,6 @@ public class LearnedBytecode {
 			e.printStackTrace();
 		}
 				
-		parser.setOptimizationOn(true);
-		
 		try {
 			result = parser.getValue();			
 		} catch(Exception ex) {
@@ -142,6 +136,17 @@ public class LearnedBytecode {
 		}
 		
       	return result;	
+	}
+
+	private void initParser() {
+		try {
+			parser.createFunc("MyIfThenElse", new IfThenElse());
+			parser.createFunc("MyIf", new IfThen());
+			//parser.setExpression("SIN");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		parser.setOptimizationOn(true);
 	}
 	
 	public double getLearnedData(long filesize, int isCompressed, int bytecode) {
