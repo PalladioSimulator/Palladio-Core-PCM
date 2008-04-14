@@ -7,29 +7,29 @@ import org.eclipse.ui.IObjectActionDelegate;
  * Baseclass for the inizialize diagram actions.
  * A factory method is used to retrieve the init diagram action
  * of the appropriate package.
- * 
+ *
  * @author Philipp Meier
  */
-public abstract class BaseInitializeDiagramAction 
+public abstract class BaseInitializeDiagramAction
 	extends BaseDiagramAction {
-	
-	public void run(IAction action) {
-		
+
+	public void run(final IAction action) {
+
 		IObjectActionDelegate initAction = getInitAction();
-		assert(action != null);
-		
+		assert (action != null);
+
 		initAction.selectionChanged(
-				action, 
+				action,
 				getWindow().getSelectionService().getSelection());
 		initAction.setActivePart(
-				action, 
+				action,
 				getWindow().getPartService().getActivePart());
-		initAction.run(action);	
+		initAction.run(action);
 	}
-	
+
 	/**
-	 * template method for the init actino to run
+	 * Template method for the init actin to run.
 	 * @return the init action to run. must not be null
 	 */
-	abstract protected IObjectActionDelegate getInitAction();
+	protected abstract IObjectActionDelegate getInitAction();
 }

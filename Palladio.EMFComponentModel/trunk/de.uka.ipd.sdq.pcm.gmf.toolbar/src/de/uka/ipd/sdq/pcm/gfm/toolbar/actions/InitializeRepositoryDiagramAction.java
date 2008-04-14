@@ -5,7 +5,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import de.uka.ipd.sdq.pcm.gfm.toolbar.BaseInitializeDiagramAction;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelInitDiagramFileAction;
 
-public class InitializeRepositoryDiagramAction 
+public class InitializeRepositoryDiagramAction
 		extends BaseInitializeDiagramAction {
 
 	protected IObjectActionDelegate getInitAction() {

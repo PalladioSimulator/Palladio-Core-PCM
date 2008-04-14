@@ -5,7 +5,7 @@ import org.eclipse.ui.INewWizard;
 import de.uka.ipd.sdq.pcm.gfm.toolbar.BaseNewDiagramAction;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelCreationWizard;
 
-public class NewUsageDiagramAction 
+public class NewUsageDiagramAction
 	extends BaseNewDiagramAction {
 
 	protected INewWizard getNewWizard() {

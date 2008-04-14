@@ -5,7 +5,7 @@ import org.eclipse.ui.INewWizard;
 import de.uka.ipd.sdq.pcm.gfm.toolbar.BaseNewDiagramAction;
 import de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizard;
 
-public class NewResourceDiagramAction 
+public class NewResourceDiagramAction
 	extends BaseNewDiagramAction {
 
 	protected INewWizard getNewWizard() {
