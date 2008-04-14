@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcm.gfm.toolbar;
+package de.uka.ipd.sdq.pcm.gmf.toolbar;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;

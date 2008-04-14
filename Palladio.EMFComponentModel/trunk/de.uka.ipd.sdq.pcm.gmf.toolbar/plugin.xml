@@ -10,7 +10,7 @@
             label="PCM Wizards"
             visible="true">
          <action
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewResourceDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewResourceDiagramAction"
                icon="icons/ResourceDiagramFile.gif"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewResourceDiagramActionID"
                label="New &amp;Resource Diagram"
@@ -20,7 +20,7 @@
          <action
                label="New &amp;Repository Diagram"
                icon="icons/RepositoryDiagramFile.gif"
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewRepositoryDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewRepositoryDiagramAction"
                tooltip="Create a new Repository Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewRepositoryDiagramActionID">
@@ -28,7 +28,7 @@
          <action
                label="New &amp;Composite Diagram"
                icon="icons/CompositeDiagramFile.gif"
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewCompositeDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewCompositeDiagramAction"
                tooltip="Create a new System Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewCompositeDiagramActionID">
@@ -36,7 +36,7 @@
          <action
                label="New &amp;Allocation Diagram"
                icon="icons/AllocationDiagramFile.gif"
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewAllocationDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewAllocationDiagramAction"
                tooltip="Create a new Allocation Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewAllocationDiagramActionID">
@@ -44,13 +44,13 @@
          <action
                label="New &amp;Usage Diagram"
                icon="icons/UsageDiagramFile.gif"
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewUsageDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewUsageDiagramAction"
                tooltip="Create a new Usage Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewUsageDiagramActionID">
          </action>
           <action
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeRepositoryDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeRepositoryDiagramAction"
                enablesFor="1"
                icon="icons/RepositoryDiagramFile.gif"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeRepositoryDiagramActionID"
@@ -63,7 +63,7 @@
                </selection>  
          </action>
          <action
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeSeffDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeSeffDiagramAction"
                enablesFor="1"
                icon="icons/SeffDiagramFile.gif"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeSeffDiagramActionID"
@@ -76,7 +76,7 @@
                </selection>  
          </action>
           <action
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeCompositeDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeCompositeDiagramAction"
                enablesFor="1"
                icon="icons/CompositeDiagramFile.gif"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeCompositeDiagramActionID"
@@ -93,7 +93,7 @@
                </selection>  
          </action>
           <action
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeAllocationDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeAllocationDiagramAction"
                enablesFor="1"
                icon="icons/AllocationDiagramFile.gif"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeAllocationDiagramActionID"
@@ -106,7 +106,7 @@
                </selection>  
          </action>
           <action
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeUsageDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeUsageDiagramAction"
                enablesFor="1"
                icon="icons/UsageDiagramFile.gif"
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeUsageDiagramActionID"
