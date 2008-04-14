@@ -11,18 +11,28 @@ import org.rosuda.JRI.Rengine;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 
+/**Encapsulate the access to the R engine.
+ * Is responsible for the initialization of the R engine and the execution
+ * of R commands.
+ * @author groenda
+ */
 public class RConnection {
-	protected static Logger logger = Logger.getLogger(RConnection.class.getName());
+	/** The logger used by this class. */
+	private static Logger logger = 
+		Logger.getLogger(RConnection.class.getName());
 
+	/** The text console of the connected R engine. */
 	private static RTextConsole rConsole = new RTextConsole();
+	/** The R engine that is used by this class. */
 	private static Rengine rengine = null;
+	/** Global connection to the R engine. */
 	private static RConnection rConnection = null;
 
 	static {
 		rConnection = new RConnection();
 	}
-	/**Constructs
-	 * 
+	
+	/**Initializes the connection to the R engine.
 	 */
 	public RConnection() {
 		initalizeConnection();
@@ -31,8 +41,9 @@ public class RConnection {
 	/**Initializes the connection to a R engine.
 	 */
 	protected void initalizeConnection() {
-		if (rConnection != null)
+		if (rConnection != null) {
 			return;
+		}
 		
 		checkPathValidity();
 
@@ -42,19 +53,26 @@ public class RConnection {
 		} catch (UnsatisfiedLinkError ule) {
 			RVisualisationPlugin.log(
 					IStatus.ERROR,
-					"Could not load the dynamic link libaries that are necessary to connect the sensorframework " + 
-					" to R 2.6. The JRI provided with this package is designed for R 2.6.1, check the detailed " +
-					"error message if a version conflict may have occured. Ensure jri.dll is within the java.library.path variable and " +
-					"R's bin directory is on the system path. Details: java.library.path=" + System.getProperty("java.library.path") +
-					";errorMessage=" + ule.getMessage());
+					"Could not load the dynamic link libaries that are "
+					+ "necessary to connect the sensorframework " 
+					+ " to R 2.6. The JRI provided with this package is "
+					+ "designed for R 2.6.1, check the detailed " 
+					+ "error message if a version conflict may have occured."
+					+ "Ensure jri.dll is within the java.library.path "
+					+ "variable and R's bin directory is on the system "
+					+ "path. Details: java.library.path=" 
+					+ System.getProperty("java.library.path")
+					+ ";errorMessage=" + ule.getMessage());
 			new MessageDialog(
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 					.getShell(),
 					"Error loading R",
 					null,
-					"Could not load R 2.6. You need to install the correct Version of R on your machine. Put R's binary "
-					+ "folder into your system path, so the dynamic link libraries can be found. " +
-					"Check the error log for a detailed message.",
+					"Could not load R 2.6. You need to install the correct "
+					+ "Version of R on your machine. Put R's binary "
+					+ "folder into your system path, so the dynamic link "
+					+ "libraries can be found. "
+					+ "Check the error log for a detailed message.",
 					MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 			return;
 		}
@@ -64,13 +82,15 @@ public class RConnection {
 			RVisualisationPlugin
 			.log(
 					IStatus.ERROR,
-					"Creating R engine ** Version mismatch - Java files don't match library version.");
+					"Creating R engine ** Version mismatch - Java files don't "
+					+ "match library version.");
 			new MessageDialog(
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 					.getShell(),
 					"Error loading R",
 					null,
-					"Could not load R. The version of the java files and the library versions dont match.",
+					"Could not load R. The version of the java files and the "
+					+ "library versions dont match.",
 					MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 			return;
 		}
@@ -88,7 +108,8 @@ public class RConnection {
 			RVisualisationPlugin
 			.log(
 					IStatus.ERROR,
-					"Creating R engine ** Waiting for the R engine to come up failed.");
+					"Creating R engine ** Waiting for the R engine to come up "
+					+ "failed.");
 			new MessageDialog(
 					PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getShell(),
@@ -100,55 +121,60 @@ public class RConnection {
 			return;
 		}
 		
-		RVisualisationPlugin.log(IStatus.INFO, "Connection to R established successfully.");
+		RVisualisationPlugin.log(IStatus.INFO, "Connection to R established "
+				+ "successfully.");
 		logEnvironmentalInformation();
 	}
 
 	/**Checks if the java.library.path is valid for system.loadLibrary().
 	 */
 	private void checkPathValidity() {
+		//TODO: Check me!
 		String libraryPath = System.getProperty("java.library.path");
-		String libraryPaths[] = libraryPath.split(";");
+		String[] libraryPaths = libraryPath.split(";");
 		for (String path : libraryPaths) {
-			if (path.contains(" ") && !path.startsWith("\"") && !path.endsWith("\""))
+			if (path.contains(" ") && !path.startsWith("\"") 
+					&& !path.endsWith("\"")) {
 				RVisualisationPlugin.log(
 					IStatus.WARNING,
-					"The environment variable java.library.path contains unescaped spaced. " +
-					"This may lead to errors loading the necessary dynamic link libraries of R. " +
-					"Details: java.library.path=" + libraryPath);
+					"The environment variable java.library.path contains "
+					+ " unescaped spaced. This may lead to errors loading "
+					+ "the necessary dynamic link libraries of R. "
+					+ "Details: java.library.path=" + libraryPath);
+			}
 		}
 	}
 
-	/**This method is used for debugging purposes. Information about the R environment is
-	 * gathered and logged with level debug.
+	/**This method is used for debugging purposes. Information about the R 
+	 * environment is gathered and logged with level debug.
 	 */
 	private void logEnvironmentalInformation() {
-//		old <- Sys.getlocale()
-//		Sys.setlocale(locale = "")
-//		Sys.localeconv()
-//		Sys.setlocale(locale = old)
-		REXP result2 = rengine.eval("Sys.setlocale(locale =\"C\")");
 		REXP result = rengine.eval("Sys.localeconv()");
-		String locales[] = result.asStringArray();
+		String[] locales = result.asStringArray();
 		String locale = "";
-		for (int number = 0; number < locales.length; number++)
+		for (int number = 0; number < locales.length; number++) {
 			locale += locales[number] + "\n";
+		}
 		
 		RVisualisationPlugin.log(
 				IStatus.INFO,
-				"R localization Information:\n" + 
-				locale);
-		logger.debug("R localization Information:\n" + 
-				locale);
+				"R localization Information:\n" 
+				+ locale);
+		logger.debug("R localization Information:\n" 
+				+ locale);
 	}
 
 	/**Executes the command(s) in R.
-	 * @param rCommands One or more valid commands in R, separated by <code>\n</code>.
+	 * @param rCommands One or more valid commands in R, separated by 
+	 *        <code>\n</code>.
 	 * @return result Result returned from R. Empty if no result was returned.
 	 */
-	public Vector<REXP> execute(String rCommands) {
-		if (!isEngineAvailable())
-			throw new UnsupportedOperationException("Tried to execute command in R without having a R engine available.");
+	public Vector<REXP> execute(final String rCommands) {
+		if (!isEngineAvailable()) {
+			throw new UnsupportedOperationException(
+					"Tried to execute command in R without having a R engine"
+					+ " available.");
+		}
 		
 		String[] commands = rCommands.split("\n");
 		String result = "";
@@ -166,7 +192,11 @@ public class RConnection {
 		return resultExpArray;
 	}
 	
-	public void assign(String name, double[] array) {
+	/**Stores an array in a R variable.
+	 * @param name Name of the R variable in which the array is stored.
+	 * @param array Array to store in an R variable.
+	 */
+	public void assign(final String name, final double[] array) {
 		rengine.assign(name, array);
 	}
 

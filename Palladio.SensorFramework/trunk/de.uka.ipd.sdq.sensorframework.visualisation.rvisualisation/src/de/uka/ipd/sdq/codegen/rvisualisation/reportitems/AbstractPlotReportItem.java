@@ -10,25 +10,41 @@ import org.eclipse.core.runtime.IStatus;
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 
+/**
+ * @author groenda
+ *
+ */
 public abstract class AbstractPlotReportItem extends AbstractRReportItem {
 
-	private int bmpSize = 500;
+	// Graphics Output
+	/**Size of the graphic in pixel. */
+	private int graphicSize = 500;
+	
 	private String outputDir = "";
-	private Map<String, String> dataCommandTable = new Hashtable<String, String>();
-	private Map<String, String> nameTable = new Hashtable<String, String>();
-	private File tempFile = null;
 	private File pdfFile = null;
 	protected String pdfFileName;
+	
+	private Map<String, String> dataCommandTable = new Hashtable<String, String>();
+	private Map<String, String> nameTable = new Hashtable<String, String>();
+	
+	private File tempFile = null;
 	private LegendPosition legendPosition = LegendPosition.topright;
 	private String[] colors = new String[] { "black", "lightgray", "darkgray", "gray" };
 	protected String xlabel = "Time [ms]";
 	private boolean genPDF = true;
 	private String description;
 
+	/**Position of the legend relative to the plot.
+	 * @author happe
+	 * @author groenda
+	 */
 	public enum LegendPosition {
 		top, topright, right, bottomright, bottom, bottomleft, left, topleft, center
 	}
 
+	/**Overwrite this method to generate custom plots.
+	 * @return The R command which execution leads to the creation of the plot.
+	 */
 	protected abstract String generatePlotCommand();
 
 	public AbstractPlotReportItem(boolean genPDF, String description) {
@@ -90,8 +106,8 @@ public abstract class AbstractPlotReportItem extends AbstractRReportItem {
 			} else {
 				rCommand += "bmp(\""
 						+ tempFile.getAbsolutePath().replace(File.separator,
-								"\\\\") + "\",height=" + bmpSize + ",width="
-						+ bmpSize + ")\n";
+								"\\\\") + "\",height=" + graphicSize + ",width="
+						+ graphicSize + ")\n";
 				rCommand += generatePlotCommand();
 				rCommand += "dev.off()\n";
 			}
@@ -168,5 +184,4 @@ public abstract class AbstractPlotReportItem extends AbstractRReportItem {
 	public void setXlabel(String xlabel) {
 		this.xlabel = xlabel;
 	}
-
 }
