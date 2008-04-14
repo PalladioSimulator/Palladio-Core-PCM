@@ -10,6 +10,14 @@
             label="PCM Wizards"
             visible="true">
          <action
+               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewResourceDiagramAction"
+               icon="icons/ResourceDiagramFile.gif"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewResourceDiagramActionID"
+               label="New &amp;Resource Diagram"
+               toolbarPath="newDiagramGroup"
+               tooltip="Create a new Resource Model from scratch.">
+         </action>
+         <action
                label="New &amp;Repository Diagram"
                icon="icons/RepositoryDiagramFile.gif"
                class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewRepositoryDiagramAction"
