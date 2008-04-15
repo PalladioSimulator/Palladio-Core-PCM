@@ -43,7 +43,6 @@ public class HTMLVisitor implements IReportRenderingVisitor {
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public void visitGraphicReportItem(
 			final AbstractPlotReportItem plotReportItem) {
 		// include generated graphics
