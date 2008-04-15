@@ -3,13 +3,11 @@ package de.uka.ipd.sdq.codegen.rvisualisation.views;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.RCommandRReportItem;
-import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
+import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
 /**Report that displays the total resource demands for sensors.

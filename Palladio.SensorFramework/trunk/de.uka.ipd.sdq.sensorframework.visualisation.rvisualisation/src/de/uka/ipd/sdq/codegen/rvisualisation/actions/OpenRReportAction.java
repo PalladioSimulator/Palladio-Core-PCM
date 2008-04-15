@@ -10,7 +10,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.jface.dialogs.MessageDialog;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
-import de.uka.ipd.sdq.codegen.rvisualisation.views.RReportView;
+import de.uka.ipd.sdq.codegen.rvisualisation.views.RTimeSeriesReportView;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 
 /**
@@ -54,14 +54,14 @@ public class OpenRReportAction implements IWorkbenchWindowActionDelegate {
 		
 		try {
 			page.openEditor(new ConfigEditorInput(adapterFactoryID), 
-					RReportView.RREPORTVIEW_ID);
+					RTimeSeriesReportView.RREPORTVIEW_ID);
 		} catch (PartInitException e) {
 			logger.error("Could not generate R report for the ID " 
-					+ RReportView.RREPORTVIEW_ID + " and data adapter factory "
+					+ RTimeSeriesReportView.RREPORTVIEW_ID + " and data adapter factory "
 					+ "with ID " + adapterFactoryID + ".", e);
 			MessageDialog.openError(parentWorkbenchWindow.getShell(), "Could "
 					+ "not generate R report", 
-					"The R report for the ID " + RReportView.RREPORTVIEW_ID 
+					"The R report for the ID " + RTimeSeriesReportView.RREPORTVIEW_ID 
 					+ " and data adapter factory " + "with ID " 
 					+ adapterFactoryID + "could not be generated. Details were"
 					+ " written to the logfile.");

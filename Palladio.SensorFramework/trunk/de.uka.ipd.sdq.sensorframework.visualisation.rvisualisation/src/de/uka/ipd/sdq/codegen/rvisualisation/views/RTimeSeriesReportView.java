@@ -12,15 +12,21 @@ import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.CdfReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.HistogramReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.PdfReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.RCommandRReportItem;
+import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.SummaryReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.AbstractPlotReportItem.LegendPosition;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
-public class RReportView extends AbstractRReportView {
+/**View for a set of time series.
+ * Displays a Histogram, CDF, PDF, number of measurements, mean,
+ * and the standard deviation for the series.
+ * @author groenda
+ */
+public class RTimeSeriesReportView extends AbstractRReportView {
 
-	public static final String RREPORTVIEW_ID = "de.uka.ipd.sdq.codegen.rvisualization.views.ReportView";
+	/** Identifier to allow the use of this View. */
+	public static final String RREPORTVIEW_ID = 
+		"de.uka.ipd.sdq.codegen.rvisualization.views.ReportView";
 
 
 	/**
