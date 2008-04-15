@@ -139,8 +139,9 @@ public class RConnection {
 			RVisualisationPlugin
 			.log(
 					IStatus.ERROR,
-					"Library \"" + packageName + "\" is not available. Please install"
-					+ " the \"" + packageName + "\" package in your R installation.");
+					"Library \"" + packageName + "\" is not available. Please "
+					+ "install the \"" + packageName + "\" package in your R "
+					+ "installation.");
 			new MessageDialog(
 					PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getShell(),
@@ -178,15 +179,16 @@ public class RConnection {
 			for (String conflictPath : conflictingPaths) {
 				formattedPath += "'" + conflictPath + "', ";
 			}
+			// cut last ", "
 			formattedPath = 
-				formattedPath.substring(0, formattedPath.length() - 2); // cut ", "
+				formattedPath.substring(0, formattedPath.length() - 2); 
 			RVisualisationPlugin.log(
 					IStatus.WARNING,
 					"The environment variable java.library.path contains "
-					+ " unescaped spaced. This may lead to errors loading "
-					+ "the necessary dynamic link libraries of R.\n"
+					+ " unescaped spaces. This may lead to errors loading "
+					+ "the necessary dynamic link libraries of R.\n\n"
 					+ "Conflicting parts of the java.library.path are: " 
-					+ formattedPath + "\n"
+					+ formattedPath + "\n\n"
 					+ "A possible solution is to set the library path to"
 					+ " point to the path containing jri.dll via the -D"
 					+ " command line switch of the java VM of by setting"
