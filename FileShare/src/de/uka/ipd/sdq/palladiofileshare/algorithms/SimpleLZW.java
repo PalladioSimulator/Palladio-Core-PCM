@@ -110,7 +110,7 @@ public class SimpleLZW {
 	 * @return
 	 * @deprecated because untested
 	 */
-	private static final byte[] convertCharArrayToByteArray_MK(char[] input, boolean verbose) {
+	private static final byte[] convertCharArrayToByteArray(char[] input, boolean verbose) {
 		byte[] ret = new byte[input.length * 2];
 		int i = 0;
 		// int left = 0;
@@ -140,7 +140,7 @@ public class SimpleLZW {
 //		return sb.toString();
 //	}
 	
-	private static final byte[] lzwcompress_inlined(byte[] input, int maxDictSize) {
+	public static final byte[] lzwcompress_inlined(byte[] input, int maxDictSize) {
 		if (maxDictSize > 256 * 256) {
 			System.err.println("Dictionary too large to be hold in chars... " +
 					"EXITING BEFORE COMPRESSION STARTS...");
@@ -285,7 +285,7 @@ public class SimpleLZW {
 //		System.out.println("arraycopy: "+(arraycopyStop-arraycopyStart));
 		
 //		long conversionStart = System.nanoTime();
-		byte[] resultByteArray = convertCharArrayToByteArray_MK(retChar, false);
+		byte[] resultByteArray = convertCharArrayToByteArray(retChar, false);
 //		long conversionStop = System.nanoTime();
 //		System.out.println("conversion: "+(conversionStop-conversionStart));
 		

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.palladiofileshare.algorithms;
+package de.uka.ipd.sdq.palladiofileshare.legacy.algorithms;
 
 import java.util.BitSet;
 

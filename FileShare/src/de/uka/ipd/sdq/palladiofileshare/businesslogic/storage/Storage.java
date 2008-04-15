@@ -10,11 +10,12 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
 public class Storage implements IStorage {	
 	
-	private static Logger logger = Logger.getLogger(Storage.class);
 	/**
 	 * needs to terminate with a "/"
 	 */
 	private static final String fileStorageLocation = "uploadedFileStorage/";
+	
+	private static Logger logger = Logger.getLogger(Storage.class);
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.IStorage#storeFile(byte[], byte[])
@@ -36,9 +37,5 @@ public class Storage implements IStorage {
 			e.printStackTrace();
 			logger.error(e);			
 		}
-		
 	}
-
-	
-
 }
