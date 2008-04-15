@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
  * @author groenda (comments)
  */
 public interface IReportItem {
-	/**Initializes generation of the data for the report item. 
+	/**Initializes the generation of data for the report item. 
 	 * @param rConnection connection to the R engine used for the generation
 	 */
 	void generateData(RConnection rConnection);

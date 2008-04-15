@@ -5,16 +5,20 @@ import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 /**Report item containing static text.
  * @author groenda
  */
-public class StaticTextReportItem implements IReportItem {
+public class StaticTextReportItem extends AbstractRReportItem {
 
+	/** The static text represented by this report item. */
 	private String myText;
+	/** Determines if this static text represents a heading. */
 	private boolean isHeading;
 
 	/**Initializes a new report item containing static text.
-	 * @param text static text of this item.
-	 * @param isHeading <code>true</code> if this text should be a heading.
+	 * @param text The static text of this item.
+	 * @param isHeading <code>true</code> if this static text is a heading.
 	 */
-	public StaticTextReportItem(String text, boolean isHeading){
+	public StaticTextReportItem(final String text, final boolean isHeading) {
+		super("Static text");
+		
 		setText(text);
 		this.isHeading = isHeading;
 	}
@@ -23,47 +27,41 @@ public class StaticTextReportItem implements IReportItem {
 	 * 
 	 */
 	public StaticTextReportItem() {
-		this("",false);
+		this("", false);
 	}
 	
 	/**
-	 * @return the static text that is this report item.
+	 * @return The static text that is represented by this report item.
 	 */
-	public String getText(){
+	public String getText() {
 		return myText;
 	}
 	
-	public void setText(String newText){
-		if (newText!=null)
+	/**Set the static text of this report item.
+	 * @param newText The new static text to set.
+	 */
+	public void setText(final String newText) {
+		if (newText != null) {
 			myText = newText;
+		}
 	}
 	
-	/**
+	/**Checks if the static text is a heading.
 	 * @return <code>true</code> if the text is a heading.
 	 */
 	public boolean isHeading() {
 		return isHeading;
 	}
 	
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem#visit(de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportRenderingVisitor)
+	/** {@inheritDoc}
 	 */
-	public void visit(IReportRenderingVisitor renderingVisitor) {
-		renderingVisitor.visitStaticItem(this);
+	public void visit(final IReportRenderingVisitor renderingVisitor) {
+		renderingVisitor.visitStaticTextReportItem(this);
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem#generateData(de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection)
+	/** {@inheritDoc}
 	 */
-	public void generateData(RConnection re) {
+	public void generateData(final RConnection re) {
 		// No implementation needed
 	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem#getDescription()
-	 */
-	public String getDescription() {
-		return "Textual Description";
-	}
-
 }

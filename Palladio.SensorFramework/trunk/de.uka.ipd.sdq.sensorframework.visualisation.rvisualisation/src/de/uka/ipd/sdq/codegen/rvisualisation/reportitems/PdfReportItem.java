@@ -1,42 +1,63 @@
 package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
 
 
-public class PdfReportItem extends AbstractPlotReportItem implements IReportItem {
+/**Report item that displays probability distribution functions.
+ * @author groenda
+ */
+public class PdfReportItem extends AbstractPlotReportItem {
+	/** Default label for the x axis. */
+	public static final String DEFAULT_X_AXIS_LABEL = "";
+	
+	/** Label of the x axis. */
+	private String xAxisLabel = DEFAULT_X_AXIS_LABEL;
 
-	private boolean outlierRemoval;
-
-	public PdfReportItem(boolean genPDF, boolean outlierRemoval, String description) {
-		super(genPDF, description);
-		pdfFileName = "pdf.pdf";
-		this.outlierRemoval = outlierRemoval;
+	/**Constructs a new report item containing a plotted pdf graphic.
+	 * The graphic is stored in a temporary file. This is accessible via the 
+	 * getFilename method.
+	 * @param title Title of the plotted graphic.
+	 * @param xAxisLabel Label for the x axis.
+	 */
+	public PdfReportItem(final String title, final String xAxisLabel) {
+		super(title);
+		this.xAxisLabel = xAxisLabel;
 	}
 
+	/**Constructs a new report item containing a plotted pdf graphic.
+	 * The graphic is stored in a temporary file. This is accessible via the 
+	 * getFilename method.
+	 * @param title Title of the plotted graphic.
+	 * @param height height of the plotted graphic.
+	 * @param width width of the plotted graphics.
+	 * @param fontSize the default pointsize of plotted text, interpreted at 
+	 *        72 dpi, so one point is approximately one pixel.
+	 * @param xAxisLabel Label for the x axis.
+	 */
+	public PdfReportItem(final String title, final int height, 
+			final int width, final int fontSize, final String xAxisLabel) {
+		super(title, height, width, fontSize);
+		this.xAxisLabel = DEFAULT_X_AXIS_LABEL;
+	}
+
+	/** {@inheritDoc}
+	 */
 	@Override
 	protected String generatePlotCommand() {
-
 		int pos = 0;
-		String outlier = "";
-		String plot = "";
+		String rCommand = "";
 
-		for (String id : getDataList()) {
+		for (String id : getDataSeries()) {
 			String data = getDataCommand(id);
-			
-			String odata = outlierRemoval ? data + "_" : data;
-			outlier += outlierRemoval ? outlierRemovalCommands(data, odata) : "";
-
 			if (pos == 0) {
-				plot += "plot(density(" + odata + "), "
+				rCommand += "plot(density(" + data + "), "
 						+ "do.points=FALSE, " + "verticals=TRUE, "
-						+ "main=\"Probability Density Function\", "
-						+ "xlab=\"" + xlabel + "\", " + "ylab=\"f(t)\")\n";
+						+ "main=\"" + getDescription() + "\", "
+						+ "xlab=\"" + xAxisLabel + "\", " + "ylab=\"f(t)\")\n";
 			} else {
-				plot += "lines(density(" + odata + "),type=\"s\", lty=" + (pos+1) +")\n";
+				rCommand += "lines(density(" + data + "),type=\"s\", lty=" 
+						+ (pos + 1) + ")\n";
 			}
-
 			pos++;
 		}
-
-		String rCommand = outlier + plot;
 		rCommand += generateLinesLegend();
 		return rCommand;
 	}

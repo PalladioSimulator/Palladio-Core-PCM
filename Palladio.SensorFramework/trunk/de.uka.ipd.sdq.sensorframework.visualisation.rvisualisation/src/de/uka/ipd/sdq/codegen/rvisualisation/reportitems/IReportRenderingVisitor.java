@@ -1,13 +1,23 @@
 package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
 
+/** Visitor for R reports.
+ * @author groenda
+ */
 public interface IReportRenderingVisitor {
 
-	void visitStaticItem(StaticTextReportItem staticReportItem);
+	/**Visitor for static report items.
+	 * @param staticReportItem The report item to visit.
+	 */
+	void visitStaticTextReportItem(StaticTextReportItem staticReportItem);
 
-	void visitStatisticsItem(StatisticsReportItem statisticsReportItem);
+	/**Visitor for static report items.
+	 * @param statisticsReportItem The report item to visit.
+	 */
+	void visitGeneratedTextReportItem(RCommandRReportItem statisticsReportItem);
 
-	void visitPlotItem(DensityPlotReportItem plotReportItem);
-
-	void visitAbstractPlotItem(AbstractPlotReportItem histogramReportItem);
+	/**Visitor for graphical report items.
+	 * @param histogramReportItem The report item to visit.
+	 */
+	void visitGraphicReportItem(AbstractPlotReportItem histogramReportItem);
 
 }

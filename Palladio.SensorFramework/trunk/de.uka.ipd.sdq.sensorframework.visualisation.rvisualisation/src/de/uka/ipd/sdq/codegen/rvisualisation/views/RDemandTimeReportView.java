@@ -8,7 +8,7 @@ import java.util.List;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StatisticsReportItem;
+import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.RCommandRReportItem;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
@@ -42,7 +42,7 @@ public class RDemandTimeReportView extends AbstractRReportView {
 			t.execute(rCommand);
 			
 			rCommand = "sum(sensor" + i + ")\n";
-			items.add(new StatisticsReportItem(rCommand, 
+			items.add(new RCommandRReportItem(rCommand, 
 					"Resource demand of " + sm.getSensor().getSensorName()));
 		} 
 		return items;
