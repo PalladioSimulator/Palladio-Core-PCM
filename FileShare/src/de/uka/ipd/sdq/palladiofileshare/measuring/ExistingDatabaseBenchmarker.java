@@ -8,9 +8,9 @@ import de.uka.ipd.sdq.palladiofileshare.algorithms.Hash;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.ExistingFilesDatabase;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
-public class ExistingFilesDatabaseMeasurement {
+public class ExistingDatabaseBenchmarker {
 	public static void main(String args[]){
-		ExistingFilesDatabaseMeasurement cmdm = new ExistingFilesDatabaseMeasurement();
+		ExistingDatabaseBenchmarker cmdm = new ExistingDatabaseBenchmarker();
 		cmdm.addNewFileHash_measure(20, false, 25000, 350000, 400);
 		cmdm.existsInDatabase_measure(20, false, 25000, 350000, 400);
 	}
@@ -22,7 +22,7 @@ public class ExistingFilesDatabaseMeasurement {
 	Hash ourHasher;
 	Random rd;
 	
-	public ExistingFilesDatabaseMeasurement(){
+	public ExistingDatabaseBenchmarker(){
 		//TODO
 	}
 	

@@ -4,7 +4,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 public class Hash {
 
@@ -18,7 +17,10 @@ public class Hash {
 	private static final String MESSAGE_DIGEST_TYPE_SHA_256 = "SHA-256";
 	private static final String MESSAGE_DIGEST_TYPE_SHA_384 = "SHA-384";
 	private static final String MESSAGE_DIGEST_TYPE_SHA_512 = "SHA-512";
-	private static final String DEFAULT_MESSAGE_DIGEST = MESSAGE_DIGEST_TYPE_SHA_512;
+	
+	private static final String MESSAGE_DIGEST_TYPE_DEFAULT = MESSAGE_DIGEST_TYPE_SHA_512;
+
+	private Logger log;
 	
 	private String messageDigestType;
 	
@@ -26,7 +28,6 @@ public class Hash {
 		this.messageDigestType = MESSAGE_DIGEST_TYPE_SHA_512;		
 		log = Logger.getLogger(Hash.class);
 	}
-	private Logger log;
 	
 	public Hash(String messageDigestType){
 		this();
@@ -44,8 +45,8 @@ public class Hash {
 			this.messageDigestType = MESSAGE_DIGEST_TYPE_SHA_512;
 		} else {
 			log.error("No message digest algorithm called "+messageDigestType+";" +
-					" taking "+DEFAULT_MESSAGE_DIGEST+" instead");
-			this.messageDigestType = DEFAULT_MESSAGE_DIGEST;
+					" taking "+MESSAGE_DIGEST_TYPE_DEFAULT+" instead");
+			this.messageDigestType = MESSAGE_DIGEST_TYPE_DEFAULT;
 		}
 	}
 
@@ -68,7 +69,7 @@ public class Hash {
 	/**TODO
 	 * @return the (final static) message digest type represented by this object
 	 */
-	private String getMessageDigestType(){
+	public String getMessageDigestType(){
 		return this.messageDigestType;
 	}
 }

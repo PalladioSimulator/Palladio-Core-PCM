@@ -1,5 +1,7 @@
 package prediction;
 
+import java.util.Arrays;
+
 import benchmarkedbytecode.BenchmarkedBytecode;
 import learnedbytecode.LearnedBytecode;
 import learnedbytecode.LearnedDataErrorCalculation;
@@ -8,10 +10,23 @@ public class BytecodePerformancePredictor {
 
 	public static void main(String args[]){
 		BytecodePerformancePredictor bpp = new BytecodePerformancePredictor();
-		bpp.predict(
-				BenchmarkedBytecode.MICHAEL_LENOVO, 
+		long[] allResults = new long[20];
+		long[] allCounts  = new long[20];
+		long[] currResult;
+//		double[] allResults = new double[20];
+//		double[] currResult;
+		for(int i=1; i<21; i++){
+			currResult= bpp.predict_long(
+					BenchmarkedBytecode.MICHAEL_LENOVO, 
 				BenchmarkedBytecode.IS_NOT_JITTED, 
-				2);
+				i //rownumber == fileindex+1 --> it starts from 1!
+			);
+			allResults[i-1] = currResult[0];
+			allCounts[i-1] = currResult[1];
+		}
+		System.out.println("=============\n" +
+				"Predicted results: "+Arrays.toString(allResults)+"\n"+
+				"Learned cesults: "+Arrays.toString(allCounts));
 	}
 	
 	public double[] predict(
@@ -33,6 +48,8 @@ public class BytecodePerformancePredictor {
 		String currFilename = ldec.getMeasuredData_String(rowNumber,-3);
 		int currIsCompressed = new Double(ldec.getMeasuredData(rowNumber,-1)).intValue();;
 		long currFilesize = new Double(ldec.getMeasuredData(rowNumber,-2)).longValue();
+		
+		long totalSumOfEvalutedInstructions = 0L;
 //		int currIsCompressed = new Double(ldec.getMeasuredData(rowNumber,-1)).intValue();;
 		
 		System.out.println("Starting prediction for platform "+platformID+", "+
@@ -45,6 +62,7 @@ public class BytecodePerformancePredictor {
 					currFilesize, 
 					currIsCompressed, 
 					currInstructionOpcode);
+			totalSumOfEvalutedInstructions+=currInstructionCount;
 			
 			currInstructionDuration = bb.getBenchmarkedData(
 					platformindex, 
@@ -54,7 +72,18 @@ public class BytecodePerformancePredictor {
 					currInstructionCount+" times "+currInstructionDuration+" ns");
 			prediction += currInstructionCount*currInstructionDuration;
 		}
-		System.out.println("Prediction result: "+prediction+" ns");
-		return new double[]{prediction};
+		System.out.println(prediction+" ns: " + "prediction result");
+		System.out.println(totalSumOfEvalutedInstructions+" learned instructions evaluated)");
+		System.out.println(((long) prediction)+" ns: " + "prediction result as long");
+		return new double[]{prediction,totalSumOfEvalutedInstructions};
+	}
+	
+	public long[] predict_long(
+			int platformID, 
+			int isJitted, 
+			int rowNumber //one greater than the file index
+		){
+		double[] doubleRes = this.predict(platformID, isJitted, rowNumber); 
+		return new long[]{((long) doubleRes[0]), ((long) doubleRes[1])};
 	}
 }

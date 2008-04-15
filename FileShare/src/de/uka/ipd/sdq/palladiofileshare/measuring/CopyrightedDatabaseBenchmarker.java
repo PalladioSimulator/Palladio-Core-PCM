@@ -8,9 +8,9 @@ import de.uka.ipd.sdq.palladiofileshare.algorithms.Hash;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.CopyrightedMaterialDatabase;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
-public class CopyrightedMaterialDatabaseMeasurement {
+public class CopyrightedDatabaseBenchmarker {
 	public static void main(String args[]){
-		CopyrightedMaterialDatabaseMeasurement cmdm = new CopyrightedMaterialDatabaseMeasurement();
+		CopyrightedDatabaseBenchmarker cmdm = new CopyrightedDatabaseBenchmarker();
 		cmdm.isCopyrightedMaterial_measure(20, false, 25000, 350000, 400);
 	}
 	
@@ -21,7 +21,7 @@ public class CopyrightedMaterialDatabaseMeasurement {
 	Hash ourHasher;
 	Random rd;
 	
-	public CopyrightedMaterialDatabaseMeasurement(){
+	public CopyrightedDatabaseBenchmarker(){
 		//TODO
 	}
 	

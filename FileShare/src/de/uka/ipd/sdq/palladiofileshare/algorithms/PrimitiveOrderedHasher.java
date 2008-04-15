@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.palladiofileshare;
+package de.uka.ipd.sdq.palladiofileshare.algorithms;
 
 import java.util.BitSet;
 
@@ -129,19 +129,19 @@ public class PrimitiveOrderedHasher {
 		byte[] D = new byte[]{-100,100};
 		
 		byte[] E = new byte[]{-50,-100};
-		byte[] F = new byte[]{-50,-50};
-		byte[] G = new byte[]{-50,50};
-		byte[] H = new byte[]{-50,100};
+//		byte[] F = new byte[]{-50,-50};
+//		byte[] G = new byte[]{-50,50};
+//		byte[] H = new byte[]{-50,100};
 		
 		byte[] I = new byte[]{50,-100};
-		byte[] J = new byte[]{50,-50};
-		byte[] K = new byte[]{50,50};
-		byte[] L = new byte[]{50,-100};
-		
-		byte[] M = new byte[]{100,-100};
-		byte[] N = new byte[]{100,-50};
-		byte[] O = new byte[]{100,50};
-		byte[] P = new byte[]{100,-100};
+//		byte[] J = new byte[]{50,-50};
+//		byte[] K = new byte[]{50,50};
+//		byte[] L = new byte[]{50,-100};
+//		
+//		byte[] M = new byte[]{100,-100};
+//		byte[] N = new byte[]{100,-50};
+//		byte[] O = new byte[]{100,50};
+//		byte[] P = new byte[]{100,-100};
 		
 		System.out.println("Should be  0: "+this.compareBitSets(this.getHash(A), this.getHash(B)));
 		System.out.println("Should be -2: "+this.compareBitSets(this.getHash(A), this.getHash(C)));
