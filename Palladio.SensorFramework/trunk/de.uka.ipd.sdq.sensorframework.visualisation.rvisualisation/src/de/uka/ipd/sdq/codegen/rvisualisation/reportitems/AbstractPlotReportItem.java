@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
@@ -28,7 +29,9 @@ public abstract class AbstractPlotReportItem extends AbstractRReportItem {
 	private Map<String, String> nameTable = new Hashtable<String, String>();
 	
 	/** The temporary graphic file. */
-	private File temporaryFile = null;
+	private File temporaryRasterGraphicFile = null;
+	/** The temporary graphic file. */
+	private File temporaryVectorGraphicFile = null;
 	/** Position of the legend relative to the graphic. */
 	private LegendPosition legendPosition = DEFAULT_LEGEND_POSITION;
 	/** The colors to use in the graphic. */
@@ -77,27 +80,6 @@ public abstract class AbstractPlotReportItem extends AbstractRReportItem {
 		this.fontSize = fontSize;
 	}
 
-	/**Exports the plot as vector graphic in the PDF format.
-	 * @param pdfFile The file to which the graphic is saved.
-	 * @param rConnection The connection to the R engine.
-	 */
-	public void exportVectorGraphic(final File pdfFile, 
-			final RConnection rConnection) {
-		String rCommand = "";
-		try {
-			rCommand += "pdf(\""
-					+ pdfFile.getAbsolutePath().replace(File.separator,
-							"\\\\") + "\")\n";
-			rCommand += generatePlotCommand();
-			rCommand += "dev.off()\n";
-		} catch (Exception e) {
-			RVisualisationPlugin.log(IStatus.ERROR,
-					"Could not create PDF file. "
-							+ e.getClass().getCanonicalName());
-		}
-		rConnection.execute(rCommand);
-	}
-	
 	/**Adds a new data set to the plot.
 	 * @param id Identifier for the data series.
 	 * @param displayName The display name for the data series. 
@@ -149,33 +131,66 @@ public abstract class AbstractPlotReportItem extends AbstractRReportItem {
 		v.visitGraphicReportItem(this);
 	}
 
-	/**Returns the complete path to the temporary file containing the graphic.
+	/**Returns the complete path to the temporary file containing the 
+	 * raster graphic.
 	 * @return The complete path.
 	 */
-	public String getTemporaryFilename() {
+	public String getTemporaryRasterGraphicFilename() {
 		if (dataCommandTable.size() == 0) {
 			return null;
 		} else {
-			return temporaryFile.getAbsolutePath();
+			return temporaryRasterGraphicFile.getAbsolutePath();
 		}
 	}
 
+	/**Returns the complete path to the temporary file containing the 
+	 * vector graphic.
+	 * @return The complete path.
+	 */
+	public String getTemporaryVectorGraphicFilename() {
+		if (dataCommandTable.size() == 0) {
+			return null;
+		} else {
+			return temporaryVectorGraphicFile.getAbsolutePath();
+		}
+	}
+	
 	/**Overwrite this method to generate custom graphics.
 	 * @return The R command which execution leads to the creation of the plot.
 	 */
 	protected abstract String generatePlotCommand();
 
-	/** {@inheritDoc}
+	/**Exports the plot as vector graphic in the PDF format.
+	 * @param pdfFile The file to which the graphic is saved.
+	 * @param rConnection The connection to the R engine.
 	 */
-	@Override
-	public void generateData(final RConnection connection) {
+	public void generateVectorGraphic(final File pdfFile, 
+			final RConnection rConnection) {
 		String rCommand = "";
 		try {
-			temporaryFile = File.createTempFile("pcm_pic", ".png");
-			temporaryFile.deleteOnExit();
+			rCommand += "pdf(\""
+					+ pdfFile.getAbsolutePath().replace(File.separator,
+							"\\\\") + "\")\n";
+			rCommand += generatePlotCommand();
+			rCommand += "dev.off()\n";
+		} catch (Exception e) {
+			RVisualisationPlugin.log(IStatus.ERROR,
+					"Could not create PDF file. "
+							+ e.getClass().getCanonicalName());
+		}
+		rConnection.execute(rCommand);
+	}
 
+	/**Exports the plot as raster graphic in the PNG format.
+	 * @param pngFile The file to which the graphic is saved.
+	 * @param rConnection The connection to the R engine.
+	 */
+	public void generateRasterGraphic(final File pngFile, 
+			final RConnection rConnection) {
+		String rCommand = "";
+		try {
 			rCommand += "png(\""
-					+ temporaryFile.getAbsolutePath().replace(File.separator,
+					+ pngFile.getAbsolutePath().replace(File.separator,
 							"\\\\") + "\",height=" + graphicsHeight + ",width="
 					+ graphicsWidth + ",pointsize=" + fontSize + ")\n";
 			rCommand += generatePlotCommand();
@@ -185,8 +200,38 @@ public abstract class AbstractPlotReportItem extends AbstractRReportItem {
 					"Could not create temporary graphic file. "
 							+ e.getClass().getCanonicalName());
 		}
-		connection.execute(rCommand);
+		rConnection.execute(rCommand);
 	}
+
+	/** {@inheritDoc}
+	 */
+	@Override
+	public void generateData(final RConnection connection) {
+		// generate raster image
+		try {
+			temporaryRasterGraphicFile = 
+				File.createTempFile("pcm_pic", ".png");
+			temporaryRasterGraphicFile.deleteOnExit();
+			generateRasterGraphic(temporaryRasterGraphicFile, connection);
+		} catch (IOException e) {
+			RVisualisationPlugin.log(IStatus.ERROR,
+					"Could not create temporary raster graphic file. "
+							+ e.getClass().getCanonicalName());
+		}
+		
+		// generate vector image
+		try {
+			temporaryVectorGraphicFile = 
+				File.createTempFile("pcm_pic", ".pdf");
+			temporaryVectorGraphicFile.deleteOnExit();
+			generateVectorGraphic(temporaryVectorGraphicFile, connection);
+		} catch (IOException e) {
+			RVisualisationPlugin.log(IStatus.ERROR,
+					"Could not create temporary vector graphic file. "
+							+ e.getClass().getCanonicalName());
+		}
+	}
+
 
 	/**Returns the R commands which generate a line legend in R.
 	 * @return The necessary R commands.

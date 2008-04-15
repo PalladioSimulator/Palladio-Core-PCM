@@ -47,9 +47,12 @@ public class HTMLVisitor implements IReportRenderingVisitor {
 	public void visitGraphicReportItem(
 			final AbstractPlotReportItem plotReportItem) {
 		// include generated graphics
-		if (plotReportItem.getTemporaryFilename() != null) {
-			content += "<img src=\"file:///" 
-				+ plotReportItem.getTemporaryFilename()	+ "\"/><br/>";
+		if (plotReportItem.getTemporaryRasterGraphicFilename() != null) {
+			content += "<a href=\"file:///" 
+				+ plotReportItem.getTemporaryVectorGraphicFilename() + "\">"
+				+ "<img src=\"file:///" 
+				+ plotReportItem.getTemporaryRasterGraphicFilename() + "\"/>"
+				+ "</a><br/>";
 		}
 	}
 
