@@ -124,24 +124,74 @@ public class RConnection {
 		RVisualisationPlugin.log(IStatus.INFO, "Connection to R established "
 				+ "successfully.");
 		logEnvironmentalInformation();
+		checkPackageAvailability();
+	}
+
+	/**Checks the availability of the package with the given name in R.
+	 * If it is not available an error message is logged and displayed.
+	 * @param packageName The name of the R package.
+	 */
+	private void checkPackageAvailability(final String packageName) {
+		String previousMessage = getLastConsoleMessage();
+		rengine.eval("library(" + packageName + ")");
+		String result = getLastConsoleMessage();
+		if (!previousMessage.equals(result)) {
+			RVisualisationPlugin
+			.log(
+					IStatus.ERROR,
+					"Library \"" + packageName + "\" is not available. Please install"
+					+ " the \"" + packageName + "\" package in your R installation.");
+			new MessageDialog(
+					PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getShell(),
+					"Library \"" + packageName + "\" is not available in R",
+					null,
+					"The library \"" + packageName + "\" is not available. "
+					+ "Please install the \"" + packageName + "\" package in "
+					+ "your R installation or"
+					+ " the R reports will not work properly.",
+					MessageDialog.ERROR, new String[] { "OK" }, 0).open();
+		}
+	}
+
+	/**Checks the availability of all necessary packages.
+	 * If some are not available an error message is logged.
+	 */
+	private void checkPackageAvailability() {
+		checkPackageAvailability("plotrix");
 	}
 
 	/**Checks if the java.library.path is valid for system.loadLibrary().
 	 */
 	private void checkPathValidity() {
-		//TODO: Check me!
 		String libraryPath = System.getProperty("java.library.path");
 		String[] libraryPaths = libraryPath.split(";");
+		Vector<String> conflictingPaths = new Vector<String>();
 		for (String path : libraryPaths) {
 			if (path.contains(" ") && !path.startsWith("\"") 
 					&& !path.endsWith("\"")) {
-				RVisualisationPlugin.log(
+				conflictingPaths.add(path);
+			}
+		}
+		if (!conflictingPaths.isEmpty()) {
+			String formattedPath = "";
+			for (String conflictPath : conflictingPaths) {
+				formattedPath += "'" + conflictPath + "', ";
+			}
+			formattedPath = 
+				formattedPath.substring(0, formattedPath.length() - 2); // cut ", "
+			RVisualisationPlugin.log(
 					IStatus.WARNING,
 					"The environment variable java.library.path contains "
 					+ " unescaped spaced. This may lead to errors loading "
-					+ "the necessary dynamic link libraries of R. "
-					+ "Details: java.library.path=" + libraryPath);
-			}
+					+ "the necessary dynamic link libraries of R.\n"
+					+ "Conflicting parts of the java.library.path are: " 
+					+ formattedPath + "\n"
+					+ "A possible solution is to set the library path to"
+					+ " point to the path containing jri.dll via the -D"
+					+ " command line switch of the java VM of by setting"
+					+ " it via the eclipse.ini file. However, this does"
+					+ " not work in all cases.");
 		}
 	}
 
