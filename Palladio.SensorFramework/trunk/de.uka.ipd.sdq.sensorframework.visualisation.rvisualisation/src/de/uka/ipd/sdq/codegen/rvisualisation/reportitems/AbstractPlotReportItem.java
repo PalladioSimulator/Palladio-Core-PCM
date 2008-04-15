@@ -205,7 +205,6 @@ public abstract class AbstractPlotReportItem extends AbstractRReportItem {
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public void generateData(final RConnection connection) {
 		// generate raster image
 		try {
