@@ -5,10 +5,10 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.logger.Log;
 import de.uka.ipd.sdq.logger.enums.LogDataType;
 import de.uka.ipd.sdq.logger.enums.LogType;
-import de.uka.ipd.sdq.palladiofileshare.algorithms.compress.CompressionRunner;
 import de.uka.ipd.sdq.palladiofileshare.algorithms.hash.Hash;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.IStorage;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.Storage;
+import de.uka.ipd.sdq.palladiofileshare.legacy.algorithms.compress.CompressionRunner;
 
 public class BusinessCore {
 	
