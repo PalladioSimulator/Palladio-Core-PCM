@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.palladiofileshare.algorithms.hash;
+package de.uka.ipd.sdq.palladiofileshare.algorithms;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

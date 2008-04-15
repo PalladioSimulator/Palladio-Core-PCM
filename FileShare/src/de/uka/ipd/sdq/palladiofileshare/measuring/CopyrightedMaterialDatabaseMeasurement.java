@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-import de.uka.ipd.sdq.palladiofileshare.algorithms.hash.Hash;
+import de.uka.ipd.sdq.palladiofileshare.algorithms.Hash;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.CopyrightedMaterialDatabase;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
