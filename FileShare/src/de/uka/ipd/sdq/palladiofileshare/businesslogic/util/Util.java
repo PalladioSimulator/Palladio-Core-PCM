@@ -45,6 +45,21 @@ public class Util {
 		return string.toString();
 	}
 		
+	/**
+	 * creates a string unique for file and thread
+	 * @param fileHash
+	 * @return
+	 */
+	public static String createString_MK(byte[] fileHash) {		
+		StringBuilder string = new StringBuilder("f_" + System.nanoTime()+".PFSfile");		
+						
+//		for(int x = 0; (x < fileHash.length && x < 40) ; x++) {			
+//			string.append(fileHash[x]);
+//		}
+		
+		return string.toString();
+	}
+		
 	public static Set<Integer> initHashSetWithInteger(int amountOfData) {	
 		Set<Integer> hashSet = new HashSet<Integer>();
 		Random r = new Random(randomSeed);

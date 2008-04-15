@@ -1,5 +1,9 @@
 package de.uka.ipd.sdq.palladiofileshare.measuring;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,6 +24,7 @@ public class StorageBenchmarker {
 		sb.run();
 	}
 	
+	long nrOfBytesToBeWritten;
 	byte[] currFileHash;
 	List<Long> currMeasurementsList;
 	int nrOfFilesizeIncreaseSteps;
@@ -37,13 +42,33 @@ public class StorageBenchmarker {
 		super();
 		this.currMeasurementsList = new ArrayList<Long>();
 		this.nrOfFilesizeIncreaseSteps = 20;
-		this.nrOfMeasurementsPerFilesize = 100;
+		this.nrOfMeasurementsPerFilesize = 200;
 		this.rd = new Random();
 		this.resultsList = new ArrayList<Long>();
 		this.startingFileSize = 10000;
 		this.storage = new Storage();
 		this.varyFilesize = true;
 		this.widthOfFilesizeIncreaseStep = 2500;
+		
+		if(varyFilesize){
+			nrOfBytesToBeWritten = (startingFileSize+
+				(nrOfFilesizeIncreaseSteps*widthOfFilesizeIncreaseStep))*
+				nrOfFilesizeIncreaseSteps/2*nrOfMeasurementsPerFilesize;
+		} else {
+			nrOfBytesToBeWritten = startingFileSize*
+				nrOfMeasurementsPerFilesize;
+		}
+		File f = new File(".");
+		System.out.println(nrOfBytesToBeWritten+
+				" bytes to be written, "+
+				nrOfMeasurementsPerFilesize+
+				" measurements per filesize, etc. - "+
+				f.getFreeSpace() + " free space");
+		if(nrOfBytesToBeWritten > f.getFreeSpace()/2){
+			System.out.println("Writing would occupy more than 50% of " +
+					"free disk space, aborting..."); 
+			return;
+		}
 	}
 
 	private void run() {
@@ -51,6 +76,8 @@ public class StorageBenchmarker {
 		int currFilesize;
 		int currFileIndex;
 		byte[][] randomByteArrays = new byte[5][];
+		StringBuffer upperCSVline = new StringBuffer();
+		StringBuffer lowerCSVline = new StringBuffer();
 		for(int i=0; i<= nrOfFilesizeIncreaseSteps; i++){
 			currFilesize = startingFileSize+i*widthOfFilesizeIncreaseStep;
 			for(int j=0; j<randomByteArrays.length; j++){
@@ -68,9 +95,24 @@ public class StorageBenchmarker {
 				currMeasurementsList.add(stop-start);
 			}
 			Collections.sort(currMeasurementsList);
-			long result = currMeasurementsList.get(currMeasurementsList.size()/2-1);
+			long result = currMeasurementsList.get(currMeasurementsList.size()/2);
 			resultsList.add(result);
 			System.out.println(result+" ns: filesize "+currFilesize);
+			upperCSVline.append(currFilesize+",");
+			lowerCSVline.append(result+",");
+		}
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream(
+					this.getClass().getName()+
+					"."+System.nanoTime()+".csv");
+			fos.write((upperCSVline.toString()+"\n").getBytes());
+			fos.write((lowerCSVline.toString()+"\n").getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
