@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.eclipse.core.runtime.IStatus;
-
-import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.CdfReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.HistogramReportItem;
@@ -67,12 +64,14 @@ public class RTimeSeriesReportView extends AbstractRReportView {
 			
 			String rCommand = storeMeasurementsInRVector(sm, i) + "\n";
 			t.execute(rCommand);
+			/* Comment in if file transfer is used for the measurements
 			if (!t.getLastConsoleMessage().equalsIgnoreCase("Read " 
 					+ sm.getMeasurements().size() + " items\n")) {
 				RVisualisationPlugin.log(IStatus.WARNING,
 					"Storing Measurements in R might be wrong. Last message "
 					+ "on the console is: " + t.getLastConsoleMessage());
 			}
+			*/
 			
 			items.add(new SummaryReportItem("sensor" + i, 
 				sm.getSensor().getSensorName()));
