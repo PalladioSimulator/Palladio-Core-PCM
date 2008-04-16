@@ -7,9 +7,15 @@ public class BusinessFacade implements IBusinessFacade {
 	 * @param inputFiles
 	 * @param fileTypes type per file in array inputfiles
 	 */
-	public static void uploadFiles(byte[][] inputFiles, int[] fileTypes) {
+	public static void uploadFiles(
+			long uploadId,
+			byte[][] inputFiles, 
+			int[] fileTypes,
+			boolean measure) {
 		
 		BusinessRunner businessFacade = new BusinessRunner();
+		businessFacade.setUploadId(uploadId);
+		businessFacade.setMeasure(measure);
 		businessFacade.setInputStreams(inputFiles);
 		businessFacade.setFileTypes(fileTypes);
 		
