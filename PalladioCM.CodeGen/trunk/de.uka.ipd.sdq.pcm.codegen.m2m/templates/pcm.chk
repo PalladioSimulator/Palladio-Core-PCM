@@ -78,3 +78,6 @@ context ProvidesComponentType ERROR 'Required Roles must have unique names for C
 	
 context RandomVariable ERROR 'Random variable without specification is invalid':
 	this.specification != null && this.specification != "";
+	
+context Signature ERROR 'Signature contains invalid characters, use only uppercase and lowercase alphabetical characters':
+	!(this.serviceName.contains("(") || this.serviceName.contains(")") || this.serviceName.contains(",") || this.serviceName.contains(":") || this.serviceName.contains(";"));
