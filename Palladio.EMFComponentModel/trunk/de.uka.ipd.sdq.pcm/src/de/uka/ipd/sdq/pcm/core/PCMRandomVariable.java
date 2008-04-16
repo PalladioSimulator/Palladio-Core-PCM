@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>PCM Random Variable</b></em>'.
+ * A 'PCM Random Variable' is different from 'Random Variables' in the fact
+ * that it has to have all characterisations for/of a variable. 
  * <!-- end-user-doc -->
  *
  *
