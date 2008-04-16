@@ -6,18 +6,18 @@
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
-               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RTimeSeriesReportView"
-               displayName="R TimeSensor Report"
-               editorID="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView">
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlReportView"
+               displayName="R Time Sensor Report"
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlView">
          </Visualisation>
       </extension>
       <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RTimeSeriesReportView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlReportView"
                icon="icons/sample.gif"
-               id="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView"
-               name="R Report">
+               id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlView"
+               name="R Time Sensor Report">
          </editor>
       </extension>
 
@@ -26,17 +26,17 @@
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
-               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RDemandTimeReportView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DemandTimeHtmlReportView"
                displayName="R Total Demand Report"
-               editorID="de.uka.ipd.sdq.codegen.rvisualization.views.DemandTimeReportView">
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DemandTimeHtmlView">
          </Visualisation>
       </extension>
       <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RDemandTimeReportView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DemandTimeHtmlReportView"
                icon="icons/sample.gif"
-               id="de.uka.ipd.sdq.codegen.rvisualization.views.DemandTimeReportView"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DemandTimeHtmlView"
                name="R Total Demand Report">
          </editor>
       </extension>
@@ -46,19 +46,18 @@
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
-               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RDistributionComparisonView"
-               displayName="R Distribution Comparison"
-               editorID="de.uka.ipd.sdq.codegen.rvisualization.views.RDistributionComparison">
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DistributionComparisonHtmlReportView"
+               displayName="R Distribution Comparison Report"
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DistributionComparisonHtmlView">
          </Visualisation>
       </extension>
-      
       <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RDistributionComparisonView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DistributionComparisonHtmlReportView"
                icon="icons/sample.gif"
-               id="de.uka.ipd.sdq.codegen.rvisualization.views.RDistributionComparison"
-               name="R Distribution Comparison">
+               id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DistributionComparisonHtmlView"
+               name="R Distribution Comparison Report">
          </editor>
       </extension>
 
