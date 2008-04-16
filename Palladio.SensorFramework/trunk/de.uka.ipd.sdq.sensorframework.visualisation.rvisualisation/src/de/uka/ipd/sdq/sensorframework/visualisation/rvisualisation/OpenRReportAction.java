@@ -11,7 +11,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 
 import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
-import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RTimeSeriesReportView;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlReportView;
 
 /**
  * Our sample action implements workbench action delegate.
@@ -54,14 +54,16 @@ public class OpenRReportAction implements IWorkbenchWindowActionDelegate {
 		
 		try {
 			page.openEditor(new ConfigEditorInput(adapterFactoryID), 
-					RTimeSeriesReportView.RREPORTVIEW_ID);
+					TimeSeriesHtmlReportView.RREPORTVIEW_ID);
 		} catch (PartInitException e) {
 			logger.error("Could not generate R report for the ID " 
-					+ RTimeSeriesReportView.RREPORTVIEW_ID + " and data adapter factory "
+					+ TimeSeriesHtmlReportView.RREPORTVIEW_ID + " and data "
+					+ "adapter factory "
 					+ "with ID " + adapterFactoryID + ".", e);
 			MessageDialog.openError(parentWorkbenchWindow.getShell(), "Could "
 					+ "not generate R report", 
-					"The R report for the ID " + RTimeSeriesReportView.RREPORTVIEW_ID 
+					"The R report for the ID " 
+					+ TimeSeriesHtmlReportView.RREPORTVIEW_ID 
 					+ " and data adapter factory " + "with ID " 
 					+ adapterFactoryID + "could not be generated. Details were"
 					+ " written to the logfile.");
