@@ -30,7 +30,9 @@ public class Storage implements IStorage {
 			boolean measure) {
 		long start = 0L;
 		long stop = 0L;
-		start = System.nanoTime();
+		if(measure) {
+			start = System.nanoTime();
+		}
 		try {
 //			String hashString = Util.createString(fileHash); //TODO check why an error occurs
 			String hashString = Util.createString_MK(fileHash);
@@ -46,7 +48,11 @@ public class Storage implements IStorage {
 			e.printStackTrace();
 			logger.error(e);			
 		}
-		stop = System.nanoTime();
-		return stop-start;
+		if(measure){
+			stop = System.nanoTime();
+			return (stop-start);
+		} else {
+			return -1;
+		}
 	}
 }
