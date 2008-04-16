@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,8 +8,8 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.IStatus;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
+import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
 
 /**Report item to display generated graphics.
  * @author groenda

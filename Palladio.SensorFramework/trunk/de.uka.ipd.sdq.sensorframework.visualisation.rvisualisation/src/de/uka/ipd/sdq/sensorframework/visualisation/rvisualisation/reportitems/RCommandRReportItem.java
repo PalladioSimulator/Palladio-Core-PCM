@@ -1,12 +1,12 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems;
 
 import java.util.Vector;
 
 import org.eclipse.core.runtime.IStatus;
 import org.rosuda.JRI.REXP;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
+import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
 
 /**Report item used to display statistical values. The last result 
  * returned from R is considered to be the value of interest.

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.actions;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation;
 
 import org.apache.log4j.Logger;
 import org.eclipse.jface.action.IAction;
@@ -9,9 +9,9 @@ import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.jface.dialogs.MessageDialog;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
-import de.uka.ipd.sdq.codegen.rvisualisation.views.RTimeSeriesReportView;
+import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RTimeSeriesReportView;
 
 /**
  * Our sample action implements workbench action delegate.

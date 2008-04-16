@@ -1,19 +1,19 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.views;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.RCommandRReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.RCommandRReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.StaticTextReportItem;
 
 /**Report that displays the total resource demands for sensors.
  * @author groenda
  */
-public class RDemandTimeReportView extends AbstractRReportView {
+public class RDemandTimeReportView extends AbstractRHtmlReportView {
 
 	/** Identifier to allow the use of this View. */
 	public static final String RREPORTVIEW_ID = 

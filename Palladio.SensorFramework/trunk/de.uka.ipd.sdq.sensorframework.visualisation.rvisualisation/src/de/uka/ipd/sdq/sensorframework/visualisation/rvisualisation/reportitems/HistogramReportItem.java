@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems;
 
 
 

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems;
 
 /**Represents a report item containing a density plot graphic.
  * @author groenda (comments, refactoring)

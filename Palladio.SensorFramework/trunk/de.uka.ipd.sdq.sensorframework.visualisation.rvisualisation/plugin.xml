@@ -6,7 +6,7 @@
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
-               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RTimeSeriesReportView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RTimeSeriesReportView"
                displayName="R TimeSensor Report"
                editorID="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView">
          </Visualisation>
@@ -14,7 +14,7 @@
       <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RTimeSeriesReportView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RTimeSeriesReportView"
                icon="icons/sample.gif"
                id="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView"
                name="R Report">
@@ -26,7 +26,7 @@
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
-               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDemandTimeReportView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RDemandTimeReportView"
                displayName="R Total Demand Report"
                editorID="de.uka.ipd.sdq.codegen.rvisualization.views.DemandTimeReportView">
          </Visualisation>
@@ -34,7 +34,7 @@
       <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDemandTimeReportView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RDemandTimeReportView"
                icon="icons/sample.gif"
                id="de.uka.ipd.sdq.codegen.rvisualization.views.DemandTimeReportView"
                name="R Total Demand Report">
@@ -46,7 +46,7 @@
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
                acceptsMultiple="true"
-               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDistributionComparisonView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RDistributionComparisonView"
                displayName="R Distribution Comparison"
                editorID="de.uka.ipd.sdq.codegen.rvisualization.views.RDistributionComparison">
          </Visualisation>
@@ -55,7 +55,7 @@
       <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RDistributionComparisonView"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports.RDistributionComparisonView"
                icon="icons/sample.gif"
                id="de.uka.ipd.sdq.codegen.rvisualization.views.RDistributionComparison"
                name="R Distribution Comparison">

@@ -1,20 +1,20 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.views;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.DensityPlotReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.RCommandRReportItem;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.DensityPlotReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.RCommandRReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.StaticTextReportItem;
 
 /**View for comparing distributions.
  * @author groenda
  */
-public class RDistributionComparisonView extends AbstractRReportView {
+public class RDistributionComparisonView extends AbstractRHtmlReportView {
 
 	/** Identifier for this kind of view. */
 	public static final String RREPORTVIEW_ID = 

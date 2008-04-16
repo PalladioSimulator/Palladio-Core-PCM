@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Rvisualisation Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin
+Bundle-Activator: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -15,9 +15,8 @@ Eclipse-LazyStart: true
 Bundle-NativeCode: lib/jri.dll;processor="x86";osname="Win32"
 Bundle-ClassPath: lib/JRI.jar,
  .
-Export-Package: de.uka.ipd.sdq.codegen.rvisualisation,
- de.uka.ipd.sdq.codegen.rvisualisation.actions,
- de.uka.ipd.sdq.codegen.rvisualisation.reportitems,
- de.uka.ipd.sdq.codegen.rvisualisation.views,
- de.uka.ipd.sdq.codegen.rvisualisation.visitor,
+Export-Package: de.uka.ipd.sdq.sensorframework.rvisualisation.utils,
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation,
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports,
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems,
  org.rosuda.JRI

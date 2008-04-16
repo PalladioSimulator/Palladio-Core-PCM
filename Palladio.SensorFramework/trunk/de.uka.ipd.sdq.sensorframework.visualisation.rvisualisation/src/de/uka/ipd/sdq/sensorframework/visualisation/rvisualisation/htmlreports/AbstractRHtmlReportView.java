@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.views;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,22 +13,21 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.widgets.Composite;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.visitor.HTMLVisitor;
 import de.uka.ipd.sdq.sensorframework.adapter.DataAdapter;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
+import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportItem;
 
 /**Abstract class with basic capabilities to show reports containing 
  * data of the SensorFramework in R.
  * @author groenda
  */
-public abstract class AbstractRReportView extends AbstractReportView implements
+public abstract class AbstractRHtmlReportView extends AbstractReportView implements
 	IVisualisation < SensorAndMeasurements > {
 
 	/**Reference to the browser window in which the report is displayed.

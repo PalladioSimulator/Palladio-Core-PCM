@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.actions;
+package de.uka.ipd.sdq.sensorframework.rvisualisation.utils;
 
 import java.util.Vector;
 
@@ -9,7 +9,7 @@ import org.eclipse.ui.PlatformUI;
 import org.rosuda.JRI.REXP;
 import org.rosuda.JRI.Rengine;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
 
 /**Encapsulate the access to the R engine.
  * Is responsible for the initialization of the R engine and the execution

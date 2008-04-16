@@ -1,9 +1,9 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.visitor;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.AbstractPlotReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportRenderingVisitor;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.RCommandRReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.AbstractPlotReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportRenderingVisitor;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.RCommandRReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.StaticTextReportItem;
 
 /**Visitor that generates HTML code for the report items of a report.
  * @author groenda

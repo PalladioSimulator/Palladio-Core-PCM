@@ -1,6 +1,6 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.reportitems;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
+import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 
 /**Abstract class describing R report item which are generated.
  * @author groenda

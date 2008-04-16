@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.actions;
+package de.uka.ipd.sdq.sensorframework.rvisualisation.utils;
 
 import java.awt.FileDialog;
 import java.awt.Frame;

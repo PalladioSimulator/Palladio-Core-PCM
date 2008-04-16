@@ -1,25 +1,25 @@
-package de.uka.ipd.sdq.codegen.rvisualisation.views;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.htmlreports;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.codegen.rvisualisation.actions.RConnection;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.CdfReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.HistogramReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.IReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.PdfReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.RCommandRReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticTextReportItem;
-import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.SummaryReportItem;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.CdfReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.HistogramReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.PdfReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.RCommandRReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.StaticTextReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.SummaryReportItem;
 
 /**View for a set of time series.
  * Displays a Histogram, CDF, PDF, number of measurements, mean,
  * and the standard deviation for the series.
  * @author groenda
  */
-public class RTimeSeriesReportView extends AbstractRReportView {
+public class RTimeSeriesReportView extends AbstractRHtmlReportView {
 
 	/** Identifier to allow the use of this View. */
 	public static final String RREPORTVIEW_ID = 

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualisation;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation;
 
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -10,9 +10,9 @@ import org.osgi.framework.BundleContext;
  */
 public class RVisualisationPlugin extends AbstractUIPlugin {
 
-	/** The plug-in identifier of the R visualisation plug-in. */
+	/** The plug-in identifier of the R visualization plug-in. */
 	public static final String PLUGIN_ID = 
-		"de.uka.ipd.sdq.codegen.rvisualisation";
+		"de.uka.ipd.sdq.sensorframework.rvisualisation";
 
 	/** The shared plug-in instance. */
 	private static RVisualisationPlugin plugin;
