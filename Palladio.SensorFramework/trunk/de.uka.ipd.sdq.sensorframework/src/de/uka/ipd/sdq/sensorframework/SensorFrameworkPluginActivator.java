@@ -1,3 +1,4 @@
+package de.uka.ipd.sdq.sensorframework;
 
 
 import java.io.DataInputStream;
@@ -9,8 +10,10 @@ import java.util.Collection;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleContext;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
@@ -24,7 +27,7 @@ import de.uka.ipd.sdq.sensorframework.filter.FilterRegistry;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends Plugin {
+public class SensorFrameworkPluginActivator extends Plugin {
 
 	/** The plug-in ID. */
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.sensorframework";
@@ -36,11 +39,10 @@ public class Activator extends Plugin {
 	private static final String FILTER_EPID = "de.uka.ipd.sdq.sensorframework.filter";
 
 	/** The shared instance. */
-	private static Activator plugin;
+	private static SensorFrameworkPluginActivator plugin;
 	
 	/** The constructor. */
-	public Activator() {
-		plugin = this;
+	public SensorFrameworkPluginActivator() {
 	}
 
 	/* (non-Javadoc)
@@ -49,6 +51,7 @@ public class Activator extends Plugin {
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+		plugin = this;
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 
 		for (IConfigurationElement configurationElement : registry
@@ -84,6 +87,7 @@ public class Activator extends Plugin {
 				SensorFrameworkDataset.singleton().addDataSource(factory);
 			}
 		} catch (Exception e) {
+			log(IStatus.ERROR, "Restoring Dataset Configuration failed. Resetting configuration...", e);
 			if (SensorFrameworkDataset.singleton().getDataSources().size() == 0)
 				SensorFrameworkDataset.singleton().addDataSource(
 						new MemoryDAOFactory(0));
@@ -97,14 +101,24 @@ public class Activator extends Plugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		File f = context.getDataFile("de.uka.ipd.sdq.sensorframework");
-		f.delete();
-		DataOutputStream dos = new DataOutputStream(new FileOutputStream(f));
-		Collection<IDAOFactory> sources = SensorFrameworkDataset.singleton().getDataSources();
-		for (IDAOFactory source : sources) {
-			source.finalizeAndClose();
-			dos.writeLong(source.getID());
-			dos.writeUTF(source.getClass().getName());
-	 		dos.writeUTF(source.getPersistendInfo());
+		try {
+			f.delete();
+			DataOutputStream dos = new DataOutputStream(new FileOutputStream(f));
+			Collection<IDAOFactory> sources = SensorFrameworkDataset.singleton().getDataSources();
+			for (IDAOFactory source : sources) {
+				try {
+					source.finalizeAndClose();
+				} catch (Exception e) {
+					log(IStatus.ERROR, "Failed to close datasource with ID "+source.getID(),e);
+				}
+				dos.writeLong(source.getID());
+				dos.writeUTF(source.getClass().getName());
+		 		dos.writeUTF(source.getPersistendInfo());
+			}
+			dos.close();
+		} catch (Exception e) {
+			log(IStatus.ERROR, "Saving Dataset Configuration failed.",e);
+			f.deleteOnExit();
 		}
 		super.stop(context);
 	}
@@ -114,7 +128,13 @@ public class Activator extends Plugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static SensorFrameworkPluginActivator getDefault() {
 		return plugin;
+	}
+	
+	public static void log(int severity, String message, Throwable t) {
+		if (plugin != null) {
+			plugin.getLog().log(new Status(severity,PLUGIN_ID,message,t));
+		}
 	}
 }

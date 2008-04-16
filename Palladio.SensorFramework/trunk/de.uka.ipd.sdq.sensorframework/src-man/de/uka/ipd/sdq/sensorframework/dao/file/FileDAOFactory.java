@@ -6,6 +6,10 @@ package de.uka.ipd.sdq.sensorframework.dao.file;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.eclipse.core.runtime.IStatus;
+
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkPluginActivator;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
@@ -146,21 +150,37 @@ public class FileDAOFactory implements IDAOFactory {
 		factoryID = i;
 	}
 
+	// This code is only a temporary solution to the reload problem. It
+	// can cause problems on concurrent access.
 	public void reload() {
-		// This code is only a temporary solution to the reload problem. It
-		// can cause problems on concurrent access.
-		String oldFilename = fileManager.getRootDirectory();
-		fileManager.closeAllLists();
+		String oldFilename = "";
+		boolean failed = false;
 		
+		try {
+			oldFilename = fileManager.getRootDirectory();
+			fileManager.closeAllLists();
+		}
+		catch (Exception ex) {
+			SensorFrameworkPluginActivator.log(IStatus.ERROR, "Closing the open File Provider failed", ex);
+			failed = true;
+		}
+
 		/* Reset all DAOs */
 		experimentDAO = null;
 		experimentRunDAO = null;
 		sensorDAO = null;
 		stateDAO = null;
 
-		// StB: This is not safe for concurrent access, but an inital simple implementation
-		fileManager = new FileManager(oldFilename, this);
-		idGen = createIdGenerator();
+		try {
+			// StB: This is not safe for concurrent access, but an initial simple implementation
+			fileManager = new FileManager(oldFilename, this);
+			idGen = createIdGenerator();
+		} catch (Exception ex) {
+			SensorFrameworkPluginActivator.log(IStatus.ERROR, "Closing the open File Provider failed", ex);
+			failed = true;
+		}
+		if (failed)
+			throw new RuntimeException("Reloading the file provider with ID "+this.getID()+" failed. Consult the Error Log for Details.");
 	}
 
 	public void store() {

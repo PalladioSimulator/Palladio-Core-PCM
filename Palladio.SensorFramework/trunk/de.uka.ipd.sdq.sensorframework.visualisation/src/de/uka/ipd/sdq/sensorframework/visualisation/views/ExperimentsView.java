@@ -6,6 +6,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPreferenceNode;
 import org.eclipse.jface.preference.IPreferencePage;
 import org.eclipse.jface.preference.PreferenceDialog;
@@ -25,6 +26,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.UIPlugin;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
@@ -175,7 +178,13 @@ public class ExperimentsView extends ViewPart {
 		reloadView = new Action() {
 			@Override
 			public void run() {
-				SensorFrameworkDataset.singleton().reload();
+				try {
+					SensorFrameworkDataset.singleton().reload();
+				} catch (Exception ex) {
+					MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+							"Reloading the Sensor Dataset Failed", 
+							"Reloading the Sensor Dataset Failed. Error Message given: "+ex.getMessage());
+				}
 				viewer.refresh();
 			}
 		};

@@ -89,9 +89,13 @@ implements List<T> {
 	}
 
 	public void close() throws IOException {
-		currentChunk.persist();
-		raf.close();
-		isClosed = true;
+		if (!isClosed){
+			if (currentChunk != null) {
+				currentChunk.persist();
+			}
+			raf.close();
+			isClosed = true;
+		}
 	}
 
 	public void flush() throws IOException {

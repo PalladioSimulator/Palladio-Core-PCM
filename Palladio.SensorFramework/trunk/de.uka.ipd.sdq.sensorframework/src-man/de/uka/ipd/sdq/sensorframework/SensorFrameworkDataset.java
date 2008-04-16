@@ -59,7 +59,19 @@ public class SensorFrameworkDataset {
 	}
 
 	public void reload() {
-		for (IDAOFactory f : datasources)
-			f.reload();
+		String errorMessage = "";
+		boolean failed = false;
+		for (IDAOFactory f : datasources) {
+			try {
+				f.reload();
+			} catch (Exception e) {
+				failed = true;
+				errorMessage += ">"+e.getMessage()+"< ";
+				this.removeDataSource(f);
+			}
+		}
+		if (failed) {
+			throw new RuntimeException("Some Datasources failed to reload. Please see Error Log for details. Details: "+errorMessage);
+		}
 	}
 }
