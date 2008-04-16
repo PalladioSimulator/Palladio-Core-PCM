@@ -8,8 +8,8 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.IStatus;
 
-import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
 
 /**Report item to display generated graphics.
  * @author groenda

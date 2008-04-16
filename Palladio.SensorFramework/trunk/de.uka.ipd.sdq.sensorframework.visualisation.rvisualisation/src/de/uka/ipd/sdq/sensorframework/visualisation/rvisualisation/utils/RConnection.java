@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.sensorframework.rvisualisation.utils;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils;
 
 import java.util.Vector;
 

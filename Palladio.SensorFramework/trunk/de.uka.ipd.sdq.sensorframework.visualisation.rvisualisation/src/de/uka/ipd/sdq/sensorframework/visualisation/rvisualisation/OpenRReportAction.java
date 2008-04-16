@@ -9,8 +9,8 @@ import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.jface.dialogs.MessageDialog;
 
-import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlReportView;
 
 /**

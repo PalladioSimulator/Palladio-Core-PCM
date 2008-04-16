@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems;
 
-import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
 
 /**Abstract class describing R report item which are generated.
  * @author groenda

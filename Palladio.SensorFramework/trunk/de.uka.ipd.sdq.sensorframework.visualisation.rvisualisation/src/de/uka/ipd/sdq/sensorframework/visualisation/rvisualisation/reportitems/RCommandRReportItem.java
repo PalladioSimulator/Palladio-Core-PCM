@@ -5,8 +5,8 @@ import java.util.Vector;
 import org.eclipse.core.runtime.IStatus;
 import org.rosuda.JRI.REXP;
 
-import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
 
 /**Report item used to display statistical values. The last result 
  * returned from R is considered to be the value of interest.

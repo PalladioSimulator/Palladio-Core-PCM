@@ -13,7 +13,9 @@ import de.uka.ipd.sdq.sensorframework.adapter.DataAdapter;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports.RReport;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
 
 /**Abstract class with basic capabilities to show reports containing 
  * data of the SensorFramework in R.

@@ -5,10 +5,10 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.RCommandRReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.StaticTextReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
 
 /**Report that displays the total resource demands for sensors.
  * @author groenda

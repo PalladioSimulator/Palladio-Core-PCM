@@ -11,9 +11,9 @@ import org.eclipse.core.runtime.IStatus;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
-import de.uka.ipd.sdq.sensorframework.rvisualisation.utils.RConnection;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportItem;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
 
 /**Abstract class for R reports.
  * The interface of this class is used by the viewers to access the reports.

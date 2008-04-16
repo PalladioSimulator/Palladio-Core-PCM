@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views2;
+package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views;
 
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports.DistributionComparisonReport;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports.RReport;
