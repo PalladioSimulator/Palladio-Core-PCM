@@ -7,7 +7,7 @@ public class BusinessFacade implements IBusinessFacade {
 	 * @param inputFiles
 	 * @param fileTypes type per file in array inputfiles
 	 */
-	public static void uploadFiles(
+	public void uploadFiles(
 			long uploadId,
 			byte[][] inputFiles, 
 			int[] fileTypes,
