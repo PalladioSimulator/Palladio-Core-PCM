@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.palladiofileshare.measuring;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,16 +12,93 @@ import java.util.Random;
 public class JITSpeedupQuantifier {
 	
 	public static void main(String args[]) {
+		JITSpeedupQuantifier jsq = new JITSpeedupQuantifier();
+		jsq.run();
+	}
+	
+	public void run(){
 		JITSpeedupQuantifier durchschuss;
 		durchschuss = new JITSpeedupQuantifier();
+		List<Long> summary = new ArrayList<Long>();
+		List<Long> currReturn;
 		System.out.println("DecimalsComputations_efficient_noinit");
-		durchschuss.measureManyDecimalsComputations_efficient_noinit   (3000, 20000, 20000);
+		currReturn = durchschuss.measureManyDecimalsComputations_efficient_noinit   (3000, 20000, 20000);
+		Collections.sort(currReturn);
+		summary.add(currReturn.get(0));
+		summary.add(currReturn.get(currReturn.size()/2));
+		summary.add(currReturn.get(currReturn.size()-1));
+		
 		System.out.println("DecimalsComputations_inefficient_noinit");
-		durchschuss.measureManyDecimalsComputations_inefficient_noinit (3000, 20000, 20000);
+		currReturn = durchschuss.measureManyDecimalsComputations_inefficient_noinit (3000, 20000, 20000);
+		Collections.sort(currReturn);
+		summary.add(currReturn.get(0));
+		summary.add(currReturn.get(currReturn.size()/2));
+		summary.add(currReturn.get(currReturn.size()-1));
+		
 		System.out.println("FibonacciComputations_efficient_noinit");
-		durchschuss.measureManyFibonacciComputations_efficient_noinit  (3000, 20000, 20000);
+		currReturn = durchschuss.measureManyFibonacciComputations_efficient_noinit  (3000, 20000, 20000);
+		Collections.sort(currReturn);
+		summary.add(currReturn.get(0));
+		summary.add(currReturn.get(currReturn.size()/2));
+		summary.add(currReturn.get(currReturn.size()-1));
+		
 		System.out.println("FibonacciComputations_inefficient_noinit");
-		durchschuss.measureManyFibonacciComputations_inefficient_noinit(3000, 20000, 20000);
+		currReturn = durchschuss.measureManyFibonacciComputations_inefficient_noinit(3000, 20000, 20000);
+		Collections.sort(currReturn);
+		summary.add(currReturn.get(0));
+		summary.add(currReturn.get(currReturn.size()/2));
+		summary.add(currReturn.get(currReturn.size()-1));
+
+		printSummaryToCMD(summary);
+		
+		writeCSV(summary);
+	}
+
+	private void printSummaryToCMD(List<Long> summary) {
+		System.out.println("\n\n\n");
+		System.out.println("["+summary.get(0)+";"+summary.get(1)+";"+summary.get(2)+"] :");
+		System.out.println("DecimalsComputations_efficient_noinit");
+		System.out.println("["+summary.get(3)+";"+summary.get(4)+";"+summary.get(5)+"] :");
+		System.out.println("DecimalsComputations_inefficient_noinit");
+		System.out.println("["+summary.get(6)+";"+summary.get(7)+";"+summary.get(8)+"] :");
+		System.out.println("FibonacciComputations_efficient_noinit");
+		System.out.println("["+summary.get(9)+";"+summary.get(10)+";"+summary.get(11)+"] :");
+		System.out.println("FibonacciComputations_inefficient_noinit");
+	}
+
+	private void writeCSV(List<Long> summary) {
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream(
+					this.getClass().getName()+
+					"."+System.nanoTime()+".csv");
+			fos.write(new String("Algo;min;median;max;\n").getBytes());
+			fos.write(new String(
+					"DecimalsComputations_efficient_noinit;"+
+							summary.get(0)+";"+
+							summary.get(1)+";"+
+							summary.get(2)+";\n").getBytes());
+			fos.write(new String(
+					"DecimalsComputations_inefficient_noinit;"+
+							summary.get(3)+";"+
+							summary.get(4)+";"+
+							summary.get(5)+";\n").getBytes());
+			fos.write(new String(
+					"FibonacciComputations_efficient_noinit;"+
+							summary.get(6)+";"+
+							summary.get(7)+";"+
+							summary.get(8)+";\n").getBytes());
+			fos.write(new String(
+					"FibonacciComputations_inefficient_noinit;"+
+							summary.get(9)+";"+
+							summary.get(10)+";"+
+							summary.get(11)+";\n").getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	long[] currRet;
@@ -119,9 +199,9 @@ public class JITSpeedupQuantifier {
 			measurements.add(currRet[0]);
 			resultDummies.add(currRet[1]);
 		}
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				measurements.get(rd.nextInt(measurements.size())));
 
 		resultDummies = new ArrayList<Long>(nrOfMeasurements);
@@ -138,7 +218,7 @@ public class JITSpeedupQuantifier {
 		System.out.println("["+measurements.get(0)+","+
 				measurements.get(nrOfMeasurements-1)+"]"+
 				"median: "+measurements.get(nrOfMeasurements/2));
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
 		return measurements;
 	}
@@ -158,9 +238,9 @@ public class JITSpeedupQuantifier {
 			measurements.add(currRet[0]);
 			resultDummies.add(currRet[1]);
 		}
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				measurements.get(rd.nextInt(measurements.size())));
 		resultDummies = new ArrayList<Long>(nrOfMeasurements);
 		measurements = new ArrayList<Long>(nrOfMeasurements);
@@ -176,7 +256,7 @@ public class JITSpeedupQuantifier {
 		System.out.println("["+measurements.get(0)+","+
 				measurements.get(nrOfMeasurements-1)+"]"+
 				"median: "+measurements.get(nrOfMeasurements/2));
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
 		return measurements;
 	}
@@ -196,9 +276,9 @@ public class JITSpeedupQuantifier {
 			measurements.add(currRet[0]);
 			resultDummies.add(currRet[1]);
 		}
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				measurements.get(rd.nextInt(measurements.size())));
 		resultDummies = new ArrayList<Long>(nrOfMeasurements);
 		measurements = new ArrayList<Long>(nrOfMeasurements);
@@ -214,7 +294,7 @@ public class JITSpeedupQuantifier {
 		System.out.println("["+measurements.get(0)+","+
 				measurements.get(nrOfMeasurements-1)+"]"+
 				"median: "+measurements.get(nrOfMeasurements/2));
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
 		return measurements;
 	}
@@ -234,9 +314,9 @@ public class JITSpeedupQuantifier {
 			measurements.add(currRet[0]);
 			resultDummies.add(currRet[1]);
 		}
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				measurements.get(rd.nextInt(measurements.size())));
 		resultDummies = new ArrayList<Long>(nrOfMeasurements);
 		measurements = new ArrayList<Long>(nrOfMeasurements);
@@ -252,7 +332,7 @@ public class JITSpeedupQuantifier {
 		System.out.println("["+measurements.get(0)+","+
 				measurements.get(nrOfMeasurements-1)+"]"+
 				"median: "+measurements.get(nrOfMeasurements/2));
-		System.out.println("Ouput (just for preventing JIT optimisations): "+
+		System.out.println("Output (just for preventing JIT optimisations): "+
 				resultDummies.get(rd.nextInt(resultDummies.size())));
 		return measurements;
 	}
