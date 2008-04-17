@@ -141,7 +141,7 @@ public class RConnection {
 					IStatus.ERROR,
 					"Library \"" + packageName + "\" is not available. Please "
 					+ "install the \"" + packageName + "\" package in your R "
-					+ "installation.");
+					+ "installation.\n Error details: " + result);
 			new MessageDialog(
 					PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getShell(),
