@@ -215,6 +215,13 @@ public class RConnection {
 		for (int number = 0; number < sEnvContent.length; number++) {
 			locale += sEnvNames[number] + " = " + sEnvContent[number] + "\n";
 		}
+		REXP locales = rengine.eval("Sys.getlocale()");
+		String[] sLocales = locales.asStringArray();
+		locale += "\nLocalization information:\n";
+		for (int number = 0; number < sLocales.length; number++) {
+			locale += sLocales[number] + "\n";
+		}
+
 		System.out.println("Environmental information:\n" + locale);
 		logger.debug("R localization Information:\n" 
 				+ locale);
