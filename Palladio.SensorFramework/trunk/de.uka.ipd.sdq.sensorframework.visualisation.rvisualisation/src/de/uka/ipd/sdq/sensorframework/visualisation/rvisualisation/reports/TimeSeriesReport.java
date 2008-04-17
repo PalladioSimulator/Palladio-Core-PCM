@@ -3,8 +3,10 @@ package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Vector;
 
 import org.eclipse.core.runtime.IStatus;
+import org.rosuda.JRI.REXP;
 
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
@@ -53,13 +55,20 @@ public class TimeSeriesReport extends RReport {
 			SensorAndMeasurements sm = it.next();
 			
 			String rCommand = storeMeasurementsInRVector(sm, i) + "\n";
-			t.execute(rCommand);
+			Vector<REXP> result = t.execute(rCommand);
 			// Comment in if file transfer is used for the measurements
 			if (!t.getLastConsoleMessage().equalsIgnoreCase("Read " 
 					+ sm.getMeasurements().size() + " items\n")) {
+				String rResults = "";
+				for (REXP currentResult : result) {
+					rResults += "String: " + currentResult.asString() 
+						+ ", SymbolName: " + currentResult.asSymbolName() 
+						+ ", Type: " + currentResult.getType()+ "\n";
+				}
 				RVisualisationPlugin.log(IStatus.ERROR,
 					"Storing Measurements in R is most likely wrong. Last message "
-					+ "on the console was: " + t.getLastConsoleMessage());
+					+ "on the console was: " + t.getLastConsoleMessage()
+					+ "\nR returned:\n" + rResults);
 			}
 			
 			items.add(new SummaryReportItem("sensor" + i, 
