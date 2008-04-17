@@ -58,8 +58,8 @@ public abstract class RReport {
 					"sensor" + sensorNumber, measurementsArray);
 //			// activate to use file transfer as well. only possible in plug-in  
 //			// debug mode of eclipse.
-//			return "sensor" + sensorNumber + "<-" + rCommand + "\n";
-			return "";
+			return "sensor" + sensorNumber + "<-" + rCommand + "\n";
+//			return "";
 		}
 	}
 	
@@ -113,7 +113,7 @@ public abstract class RReport {
 			return "scan(file=\"" 
 				+ temporaryFile.getAbsolutePath().replace(File.separator, 
 						"\\\\")
-				+ "\", dec=\".\")";
+				+ "\", dec=\".\", what=numeric(0))";
 		} catch (IOException e) {
 			RVisualisationPlugin.log(IStatus.ERROR,
 				"Error accessing temporary file to transfer sensordata "
