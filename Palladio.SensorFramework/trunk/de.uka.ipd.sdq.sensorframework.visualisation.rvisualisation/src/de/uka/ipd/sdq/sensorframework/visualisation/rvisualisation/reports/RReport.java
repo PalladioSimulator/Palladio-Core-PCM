@@ -54,8 +54,8 @@ public abstract class RReport {
 		if (rCommand == "") {
 			return "";
 		} else {
-			RConnection.getRConnection().assign(
-					"sensor" + sensorNumber, measurementsArray);
+//			RConnection.getRConnection().assign(
+//					"sensor" + sensorNumber, measurementsArray);
 //			// activate to use file transfer as well. only possible in plug-in  
 //			// debug mode of eclipse.
 			return "sensor" + sensorNumber + "<-" + rCommand + "\n";

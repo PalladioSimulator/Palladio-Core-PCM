@@ -209,6 +209,9 @@ public class RConnection {
 	private void logEnvironmentalInformation() {
 		rengine.eval("Sys.setlocale(\"LC_ALL\", \"German_Germany.1252\")");
 		rengine.eval("Sys.setlocale(\"LC_NUMERIC\", \"C\")");
+		rengine.eval("usrLib <- strsplit(Sys.getenv(\"R_LIBS_USER\"), Sys.getenv(\"R_USER\"))[[1]][2]");
+		rengine.eval("Sys.setenv(\"R_USER\"=paste(Sys.getenv(\"HOMEDRIVE\"), Sys.getenv(\"HOMEPATH\"), sep=\"\"))");
+		rengine.eval("Sys.setenv(\"R_LIBS_USER\"=paste(Sys.getenv(\"R_USER\"), usrLib, sep=\"\"))");
 
 		REXP envContent = rengine.eval("Sys.getenv()");
 		REXP envNames = rengine.eval("names(s <- Sys.getenv())");
