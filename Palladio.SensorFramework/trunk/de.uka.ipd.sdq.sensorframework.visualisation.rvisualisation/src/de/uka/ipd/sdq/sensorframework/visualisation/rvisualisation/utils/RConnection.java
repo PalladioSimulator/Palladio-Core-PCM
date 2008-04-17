@@ -141,7 +141,12 @@ public class RConnection {
 					IStatus.ERROR,
 					"Library \"" + packageName + "\" is not available. Please "
 					+ "install the \"" + packageName + "\" package in your R "
-					+ "installation.\n Error details: " + result);
+					+ "installation.\n Error details: " + result + "\n"
+					+ "Possible Solution: \n"
+					+ "If you are using Windows Vista check if the package is "
+					+ "in the installation path of R and not in the user path."
+					+ "This can be achieved by executing the R command "
+					+ "\"library\".");
 			new MessageDialog(
 					PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getShell(),
@@ -150,7 +155,8 @@ public class RConnection {
 					"The library \"" + packageName + "\" is not available. "
 					+ "Please install the \"" + packageName + "\" package in "
 					+ "your R installation or"
-					+ " the R reports will not work properly.",
+					+ " the R reports will not work properly. Check the PDE "
+					+ "error log for more information.",
 					MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 		}
 	}
