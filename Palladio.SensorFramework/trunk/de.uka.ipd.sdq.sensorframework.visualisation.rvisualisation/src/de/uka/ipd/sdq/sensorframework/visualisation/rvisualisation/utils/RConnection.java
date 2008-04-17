@@ -207,6 +207,9 @@ public class RConnection {
 	 * environment is gathered and logged with level debug.
 	 */
 	private void logEnvironmentalInformation() {
+		rengine.eval("Sys.setlocale(\"LC_ALL\", \"German_Germany.1252\")");
+		rengine.eval("Sys.setlocale(\"LC_NUMERIC\", \"C\")");
+
 		REXP envContent = rengine.eval("Sys.getenv()");
 		REXP envNames = rengine.eval("names(s <- Sys.getenv())");
 		String[] sEnvContent = envContent.asStringArray();

@@ -113,7 +113,7 @@ public abstract class RReport {
 			return "scan(file=\"" 
 				+ temporaryFile.getAbsolutePath().replace(File.separator, 
 						"\\\\")
-				+ "\", dec=\".\", what=numeric(0))";
+				+ "\")";
 		} catch (IOException e) {
 			RVisualisationPlugin.log(IStatus.ERROR,
 				"Error accessing temporary file to transfer sensordata "
