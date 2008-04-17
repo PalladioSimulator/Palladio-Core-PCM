@@ -61,6 +61,9 @@ public class RVisualisationPlugin extends AbstractUIPlugin {
 	 * @param message The message itself.
 	 */
 	public static void log(final int severity, final String message) {
+		Status status = new Status(severity, PLUGIN_ID, message, 
+				new Throwable());
+		plugin.getLog().log(status);
 		plugin.getLog().log(new Status(severity, PLUGIN_ID, message));
 	}
 }

@@ -207,17 +207,15 @@ public class RConnection {
 	 * environment is gathered and logged with level debug.
 	 */
 	private void logEnvironmentalInformation() {
-		REXP result = rengine.eval("Sys.localeconv()");
-		String[] locales = result.asStringArray();
+		REXP envContent = rengine.eval("Sys.getenv()");
+		REXP envNames = rengine.eval("names(s <- Sys.getenv())");
+		String[] sEnvContent = envContent.asStringArray();
+		String[] sEnvNames = envNames.asStringArray();
 		String locale = "";
-		for (int number = 0; number < locales.length; number++) {
-			locale += locales[number] + "\n";
+		for (int number = 0; number < sEnvContent.length; number++) {
+			locale += sEnvNames[number] + " = " + sEnvContent[number] + "\n";
 		}
-		
-		RVisualisationPlugin.log(
-				IStatus.INFO,
-				"R localization Information:\n" 
-				+ locale);
+		System.out.println("Environmental information:\n" + locale);
 		logger.debug("R localization Information:\n" 
 				+ locale);
 	}
