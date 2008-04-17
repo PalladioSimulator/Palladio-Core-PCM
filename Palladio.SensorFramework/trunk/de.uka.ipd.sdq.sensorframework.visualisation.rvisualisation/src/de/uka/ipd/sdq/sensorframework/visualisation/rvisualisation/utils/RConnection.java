@@ -225,6 +225,13 @@ public class RConnection {
 		System.out.println("Environmental information:\n" + locale);
 		logger.debug("R localization Information:\n" 
 				+ locale);
+		new MessageDialog(
+				PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getShell(),
+				"Environmental Information",
+				null,
+				locale,
+				MessageDialog.INFORMATION, new String[] { "OK" }, 0).open();
 	}
 
 	/**Executes the command(s) in R.
