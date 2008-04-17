@@ -57,19 +57,19 @@ public class TimeSeriesReport extends RReport {
 			String rCommand = storeMeasurementsInRVector(sm, i) + "\n";
 			Vector<REXP> result = t.execute(rCommand);
 			// Comment in if file transfer is used for the measurements
-			if (!t.getLastConsoleMessage().equalsIgnoreCase("Read " 
-					+ sm.getMeasurements().size() + " items\n")) {
-				String rResults = "";
+//			if (!t.getLastConsoleMessage().equalsIgnoreCase("Read " 
+//					+ sm.getMeasurements().size() + " items\n")) {
+				String rResults = "Executing command: '" + rCommand + "' with ";
 				for (REXP currentResult : result) {
 					rResults += "String: " + currentResult.asString() 
 						+ ", SymbolName: " + currentResult.asSymbolName() 
-						+ ", Type: " + currentResult.getType()+ "\n";
+						+ ", Type: " + currentResult.getType() + "\n";
 				}
-				RVisualisationPlugin.log(IStatus.ERROR,
-					"Storing Measurements in R is most likely wrong. Last message "
+				RVisualisationPlugin.log(IStatus.INFO,
+					"Storing Measurements in R via file is most likely wrong. Last message "
 					+ "on the console was: " + t.getLastConsoleMessage()
-					+ "\nR returned:\n" + rResults);
-			}
+					+ "R returned:\n" + rResults);
+//			}
 			
 			items.add(new SummaryReportItem("sensor" + i, 
 				sm.getSensor().getSensorName()));
