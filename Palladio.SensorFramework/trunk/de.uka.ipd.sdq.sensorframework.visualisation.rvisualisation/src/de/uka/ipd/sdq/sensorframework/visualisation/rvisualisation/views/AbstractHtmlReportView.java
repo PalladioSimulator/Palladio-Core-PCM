@@ -30,7 +30,7 @@ public abstract class AbstractHtmlReportView extends AbstractReportView
 	/**Used to ask for the report that should be displayed.
 	 * @return The report that should be displayed by this view.
 	 */
-	abstract RReport getReport();
+	abstract public RReport getReport();
 	
 	/** {@inheritDoc}
 	 */

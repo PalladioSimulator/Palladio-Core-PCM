@@ -18,7 +18,7 @@ public class TimeSeriesHtmlReportView extends AbstractHtmlReportView {
 	/** {@inheritDoc}
 	 */
 	@Override
-	RReport getReport() {
+	public RReport getReport() {
 		return report;
 	}
 }

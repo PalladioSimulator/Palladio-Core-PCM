@@ -18,7 +18,7 @@ public class DistributionComparisonHtmlReportView extends
 	/** {@inheritDoc}
 	 */
 	@Override
-	RReport getReport() {
+	public RReport getReport() {
 		return report;
 	}
 }

@@ -17,7 +17,7 @@ public class DemandTimeHtmlReportView extends AbstractHtmlReportView {
 	/** {@inheritDoc}
 	 */
 	@Override
-	RReport getReport() {
+	public RReport getReport() {
 		return report;
 	}
 }

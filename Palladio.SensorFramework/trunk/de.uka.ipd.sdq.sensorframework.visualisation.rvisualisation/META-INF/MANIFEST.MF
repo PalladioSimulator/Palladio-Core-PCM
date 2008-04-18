@@ -17,6 +17,7 @@ Bundle-ClassPath: lib/JRI.jar,
  .
 Export-Package: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems,
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views,
  org.rosuda.JRI
