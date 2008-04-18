@@ -123,7 +123,7 @@ public class RConnection {
 		
 		RVisualisationPlugin.log(IStatus.INFO, "Connection to R established "
 				+ "successfully.");
-		logEnvironmentalInformation();
+		prepareEnvironment();
 		checkPackageAvailability();
 	}
 
@@ -203,19 +203,27 @@ public class RConnection {
 		}
 	}
 
-	/**This method is used for debugging purposes. Information about the R 
-	 * environment is gathered and logged with level debug.
+	/**This method is used to prepare the R environment. Additionally,
+	 * Information about the R environment is gathered and logged with 
+	 * level debug.
 	 */
-	private void logEnvironmentalInformation() {
+	private void prepareEnvironment() {
 		rengine.eval("Sys.setlocale(\"LC_ALL\", \"German_Germany.1252\")");
 		rengine.eval("Sys.setlocale(\"LC_NUMERIC\", \"C\")");
-		// does not work in the plugin, therefore its hardcoded
-//		rengine.eval("usrLib <- substring(strsplit(Sys.getenv(\"R_LIBS_USER\"),
-//			Sys.getenv(\"R_USER\"))[[1]][2],2)");
-		rengine.eval("Sys.setenv(\"R_USER\"=paste(Sys.getenv(\"HOMEDRIVE\"), "
-				+ "Sys.getenv(\"HOMEPATH\"), sep=\"\"))");
+		rengine.eval("rUser <- chartr(\"\\\\\", \"/\", "
+				+ "Sys.getenv(\"R_USER\"))");
+		rengine.eval("rLibs <- chartr(\"\\\\\", \"/\", "
+				+ "Sys.getenv(\"R_LIBS_USER\"))");
+		rengine.eval("homedrive <- chartr(\"\\\\\", \"/\", "
+				+ "Sys.getenv(\"HOMEDRIVE\"))");
+		rengine.eval("homepath <- chartr(\"\\\\\", \"/\", "
+				+ "Sys.getenv(\"HOMEPATH\"))");
+		rengine.eval("usrLibPath <- substring(strsplit(rLibs, "
+				+ "rUser)[[1]][2],2)");
+		rengine.eval("Sys.setenv(\"R_USER\"=paste(homedrive, homepath, "
+				+ "sep=\"\"))");
 		rengine.eval("Sys.setenv(\"R_LIBS_USER\"=paste(Sys.getenv(\"R_USER\"), "
-				+ "\"R/win-library/2.6\", sep=\"\")[[1]])");
+				+ "usrLibPath, sep=\"\")[[1]])");
 
 		REXP envContent = rengine.eval("Sys.getenv()");
 		REXP envNames = rengine.eval("names(s <- Sys.getenv())");
@@ -234,6 +242,7 @@ public class RConnection {
 
 		logger.debug("Environmental Information:\n" 
 				+ locale);
+		// MessageBox needed, as PDE log only allows few characters.
 //		new MessageDialog(
 //				PlatformUI.getWorkbench()
 //				.getActiveWorkbenchWindow().getShell(),
