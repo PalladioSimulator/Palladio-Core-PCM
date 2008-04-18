@@ -13,13 +13,15 @@ public class SleepAverageSensor implements IProcessStateSensor {
 	private double sleep_average;
 	private double max_sleep_average;
 	private Simulator simulator;
+	private int max_bonus;
 	
-	public SleepAverageSensor(IActiveProcess process, double max_sleep_average){
+	public SleepAverageSensor(IActiveProcess process, double max_sleep_average, int max_bonus){
 		this.simulator = SchedulingFactory.getUsedSimulator();
 		this.sleep_average = max_sleep_average;
 		this.lastUpdateTime = 0;
 		this.last_state = process.getState();
 		this.max_sleep_average = max_sleep_average;
+		this.max_bonus = max_bonus;
 	}
 	
 
@@ -39,13 +41,17 @@ public class SleepAverageSensor implements IProcessStateSensor {
 		if (last_state == PROCESS_STATE.WAITING &&
 			new_state != PROCESS_STATE.WAITING) {
 			// sleepAverage cannot exceed its maximum value
-			sleep_average = Math.min(max_sleep_average, sleep_average + 8 * passedTime);
+			sleep_average = Math.min(max_sleep_average, sleep_average + passedTime); // 8 *
 		}
 		
 		// Process was running, but is finished now
 		if (last_state == PROCESS_STATE.RUNNING &&
 			new_state != PROCESS_STATE.RUNNING) {
-			// sleepAverage cannot be less than zero.
+			// corresponds to Linux scheduler code (2.6.22.17)
+			// sched.c, line 3622 
+			// run_time /= (CURRENT_BONUS(prev) ? : 1);
+			int div = getCurrentBonus(); 
+			passedTime /= (div > 0 ? div : 1);
 			sleep_average = Math.max(0, sleep_average - passedTime);
 		}
 		
@@ -58,5 +64,16 @@ public class SleepAverageSensor implements IProcessStateSensor {
 		}
 		
 		last_state = new_state;
+	}
+
+
+	public int getCurrentBonus() {
+		// corresponds to Linux scheduler code (2.6.22.17)
+		// sched.c, line 142
+		// #define CURRENT_BONUS(p) \
+		// 		(NS_TO_JIFFIES((p)->sleep_avg) * MAX_BONUS / \
+		// 		MAX_SLEEP_AVG)
+
+		return (int) Math.round((sleep_average / max_sleep_average) * max_bonus);	
 	}
 }

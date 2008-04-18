@@ -96,10 +96,7 @@ public class ContinuousTimeSlice implements ITimeSlice {
 	}
 
 	public void halfReset() {
-		if (remaining_time < timeslice/2){
-			remaining_time = timeslice / 2;
-			remaining_part = part / 2;
-		}
+
 	}
 
 	public void enoughTime() {

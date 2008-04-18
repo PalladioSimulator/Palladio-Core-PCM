@@ -96,6 +96,9 @@ public class PreemptiveScheduler extends AbstractScheduler {
 						&& !running_process.getTimeslice().partFinished());
 				running_process.getTimeslice().reset();
 			} else {
+				if (running_process.getTimeslice().partFinished()){
+					running_process.getTimeslice().reset();
+				}
 				fromRunningToReady(running_process, current, next_has_higher_priority
 						&& !running_process.getTimeslice().partFinished());
 			}
@@ -124,7 +127,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 				.getRunningProcess();
 		if (running != null) {
 			running.toNow();
-			double remainingTime = running.getTimeslice().getRemainingTime();
+			double remainingTime = running.getTimeslice().getTimeUntilNextInterruption();
 			double currentDemand = running.getCurrentDemand();
 			if ( currentDemand < remainingTime )
 				running.scheduleProceedEvent(this);
