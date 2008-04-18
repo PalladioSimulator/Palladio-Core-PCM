@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -77,6 +78,24 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 			AssemblyContext ctx = (AssemblyContext)object;
 			result = ctx.getEntityName();
 			result += ctx.getEncapsulatedComponent_ChildComponentContext() == null ? "" : " <Component: "+ctx.getEncapsulatedComponent_ChildComponentContext().getEntityName()+">";
+		} else if (object instanceof ProcessingResourceSpecification) { 
+			ProcessingResourceSpecification spec = (ProcessingResourceSpecification) object;
+			result += "Processing Resource ";
+			if (spec.getActiveResourceType_ActiveResourceSpecification() != null)
+				result += spec.getActiveResourceType_ActiveResourceSpecification().getEntityName() + ": ";
+			else
+				result += "<unset>: ";
+			result += "Rate: ";
+			if (spec.getProcessingRate_ProcessingResourceSpecification() != null)
+				if (spec.getProcessingRate_ProcessingResourceSpecification().getSpecification() != null) {
+					result += spec.getProcessingRate_ProcessingResourceSpecification().getSpecification() + " ";
+				}
+				else {
+					result += "N/A ";
+				}
+			else
+				result += "N/A ";
+			result += "Scheduling: "+spec.getSchedulingPolicy().getLiteral();
 		} else if (object instanceof Entity) {
 			result = ((Entity)object).getEntityName();
 		} else if (object instanceof ResourceDemandingSEFF){
