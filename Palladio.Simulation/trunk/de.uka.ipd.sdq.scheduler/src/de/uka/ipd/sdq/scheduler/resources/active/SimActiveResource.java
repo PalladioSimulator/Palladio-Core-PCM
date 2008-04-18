@@ -54,7 +54,7 @@ public class SimActiveResource extends AbstractActiveResource {
 			IActiveProcess pparent = null;
 			int i=0;
 			do{
-				parent = parent.getAncestor();
+				parent = parent.getRootProcess();
 				pparent = processRegistry.lookUp(parent);
 				i++;
 			} while (pparent == null && parent != null);

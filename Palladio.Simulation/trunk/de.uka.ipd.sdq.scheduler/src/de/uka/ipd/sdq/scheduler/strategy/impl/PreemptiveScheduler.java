@@ -158,7 +158,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		if (sProcess.isFinished()
 				// do NOT remove the originally defined processes as they
 				// serve as prototypes for all spawned processes.
-				&& sProcess.getAncestor() != sProcess){
+				&& sProcess.getRootProcess() != sProcess){
 			this.resource.unregisterProcess(process);
 		}
 	}

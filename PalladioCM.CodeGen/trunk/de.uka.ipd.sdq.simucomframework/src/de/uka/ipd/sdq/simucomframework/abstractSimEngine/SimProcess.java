@@ -104,17 +104,13 @@ implements ISimProcessDelegate, ISchedulableProcess {
 		return Thread.currentThread().getName();
 	}
 	
-	public ISchedulableProcess getAncestor(){
+	public ISchedulableProcess getRootProcess(){
 		// TODO: What is expected here?
 		return null;
 	}
 	
 	public boolean isFinished() {
 		return isTerminated();
-	}
-
-	public void setMainResource(SimActiveResource resource) {
-		// TODO: What does this method do?
 	}
 
 	public Process getSimProcessStatus() {

@@ -12,40 +12,37 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 public interface ISchedulableProcess {
 
 	/**
-	 * Notifies the process to continue its execution. Is only called if the
+	 * Notifies the process to resume its execution. Is only called if the
 	 * process has been passivated before.
 	 */
 	public abstract void activate();
 
 	/**
-	 * Notifies the process to stop its execution.
+	 * Notifies the process to suspend its execution.
 	 */
 	public abstract void passivate();
 	
 	/**
-	 * Unique identifier of the resource.
+	 * Unique identifier of the process.
 	 * 
-	 * @return
+	 * @return A unique ID identifying this process
 	 */
 	public abstract String getId();
 
 	/**
-	 * Name of the resource.
-	 * 
-	 * @return
-	 */
-	public abstract String getName();
+	 * Returns the root process that 
+	 * spawned this processes (directly or indirectly).
+	 * The root process is used to create this
+	 * process' scheduling meta-data.
+	 * The root process has to point 
+	 * to itself.  
+	 * @return ISchedulableProcess which is the root process 	 
+	 * */
+	public abstract ISchedulableProcess getRootProcess();
 
 	/**
-	 * @return Returns the original process that 
-	 * spawned many other processes including this one.
-	 * Its IRunningProcess serves as a prototype for the newly 
-	 * spawned processes. The original Ancestor has to point 
-	 * to itself.  
+	 * Return whether this process is finished
+	 * @return true if the process has finished its execution
 	 */
-	public abstract ISchedulableProcess getAncestor();
-
 	public abstract boolean isFinished();
-
-	public abstract void setMainResource(SimActiveResource resource);
 }

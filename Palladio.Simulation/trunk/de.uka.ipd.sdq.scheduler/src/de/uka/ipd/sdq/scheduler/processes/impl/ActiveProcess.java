@@ -70,7 +70,8 @@ public class ActiveProcess implements IActiveProcess {
 	}
 
 	public String getName() {
-		return process.getName();
+		//TODO!!
+		return "todo";
 	}
 	
 	public String getId(){
