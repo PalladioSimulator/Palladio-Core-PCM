@@ -209,9 +209,10 @@ public class RConnection {
 	private void logEnvironmentalInformation() {
 		rengine.eval("Sys.setlocale(\"LC_ALL\", \"German_Germany.1252\")");
 		rengine.eval("Sys.setlocale(\"LC_NUMERIC\", \"C\")");
-		rengine.eval("usrLib <- strsplit(Sys.getenv(\"R_LIBS_USER\"), Sys.getenv(\"R_USER\"))[[1]][2]");
+		// does not work in the plugin, therefore its hardcoded
+//		rengine.eval("usrLib <- substring(strsplit(Sys.getenv(\"R_LIBS_USER\"), Sys.getenv(\"R_USER\"))[[1]][2],2)");
 		rengine.eval("Sys.setenv(\"R_USER\"=paste(Sys.getenv(\"HOMEDRIVE\"), Sys.getenv(\"HOMEPATH\"), sep=\"\"))");
-		rengine.eval("Sys.setenv(\"R_LIBS_USER\"=paste(Sys.getenv(\"R_USER\"), usrLib, sep=\"\"))");
+		rengine.eval("Sys.setenv(\"R_LIBS_USER\"=paste(Sys.getenv(\"R_USER\"), \"R/win-library/2.6\", sep=\"\")[[1]])");
 
 		REXP envContent = rengine.eval("Sys.getenv()");
 		REXP envNames = rengine.eval("names(s <- Sys.getenv())");
@@ -228,7 +229,7 @@ public class RConnection {
 			locale += sLocales[number] + "\n";
 		}
 
-		System.out.println("Environmental information:\n" + locale);
+//		System.out.println("Environmental information:\n" + locale);
 		logger.debug("R localization Information:\n" 
 				+ locale);
 		new MessageDialog(

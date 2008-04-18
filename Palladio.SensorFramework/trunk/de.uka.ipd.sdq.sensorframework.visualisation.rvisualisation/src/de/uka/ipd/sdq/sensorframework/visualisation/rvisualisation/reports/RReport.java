@@ -47,31 +47,28 @@ public abstract class RReport {
 	 */
 	protected String storeMeasurementsInRVector(
 			final SensorAndMeasurements measurements, final int sensorNumber) {
-		String rCommand = 
-			exportMeasurementsToRByFile(measurements);
-		double[] measurementsArray = exportMeasurementsToRByMemory(measurements);
+//		// Activate to transfer data via memory
+//		double[] measurementsArray = prepareExportToRByMemory(measurements);
+//		RConnection.getRConnection().assign(
+//				"sensor" + sensorNumber, measurementsArray);
+//		return "";
 		
-		if (rCommand == "") {
-			return "";
-		} else {
-//			RConnection.getRConnection().assign(
-//					"sensor" + sensorNumber, measurementsArray);
-//			// activate to use file transfer as well. only possible in plug-in  
-//			// debug mode of eclipse.
-			return "sensor" + sensorNumber + "<-" + rCommand + "\n";
-//			return "";
+		// Activate to transfer data via temporary file
+		String rCommand = prepareExportToRByFile(measurements);
+		if (rCommand != "") {
+			rCommand = "sensor" + sensorNumber + " <- " + rCommand + "\n";
 		}
+		return rCommand;
 	}
 	
-	/**Export the measurements of a sensor to R. Therefore an 
-	 * array is filled with the measurements and transfered to
-	 * R via the memory. 
+	/**Prepares the export the measurements of a sensor to R. Therefore an 
+	 * array is filled with the measurements. 
 	 * 
 	 * @param measurements Measurements for a sensor.
 	 * @return R command to read measurements. 
 	 *         Can be used to store data in a r vector.
 	 */
-	private double[] exportMeasurementsToRByMemory(
+	private double[] prepareExportToRByMemory(
 			final SensorAndMeasurements measurements) {
 		double[] measurementsArray = 
 			new double[measurements.getMeasurements().size()];
@@ -87,15 +84,15 @@ public abstract class RReport {
 		return measurementsArray;
 	}
 
-	/**Export the measurements of a sensor to R. Therefore a temporary 
-	 * file is created and the R command line to import this data is 
-	 * returned. 
+	/**Prepares the export the measurements of a sensor to R. Therefore 
+	 * a temporary file is created and the R command line to import this 
+	 * data is returned. 
 	 * 
 	 * @param measurements Measurements for a sensor.
 	 * @return R command to read measurements. 
 	 *         Can be used to store data in a r vector.
 	 */
-	private String exportMeasurementsToRByFile(
+	private String prepareExportToRByFile(
 			final SensorAndMeasurements measurements) {
 		File temporaryFile;
 		try {
