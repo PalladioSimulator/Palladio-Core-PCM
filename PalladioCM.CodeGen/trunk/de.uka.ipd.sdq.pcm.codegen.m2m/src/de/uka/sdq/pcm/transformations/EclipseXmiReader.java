@@ -45,10 +45,13 @@ public class EclipseXmiReader extends XmiReader {
 		ResourceSet rs = new ResourceSetImpl();
     	URI fileURI = URI.createURI(this.modelFile);
     	
-    	if (fileURI.isFile()) {
-    		final File f = loadFile(issues);
-        	fileURI = URI.createFileURI(f.getAbsolutePath());
-    	}
+    	// Check this: removed this code as it does not make sense in
+    	// the Eclipse file reader. Has to be tested under Windows and
+    	// under different situations. As it is now, it works with Linux
+    	//if (!fileURI.isFile()) {
+    	//	final File f = loadFile(issues);
+        //	fileURI = URI.createFileURI(f.getAbsolutePath());
+    	//}
     	
         Resource r = null;
         try {
