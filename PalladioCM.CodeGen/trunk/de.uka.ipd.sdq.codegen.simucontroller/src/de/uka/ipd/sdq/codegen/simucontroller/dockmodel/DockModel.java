@@ -61,7 +61,7 @@ public class DockModel extends Observable implements Serializable
 	}
 	
 	public void setPercentDone(int percentDone) {
-		if (this.percentDone != percentDone) {
+		if (!this.isIdle() && this.percentDone != percentDone) {
 			this.percentDone = percentDone;
 			setChanged();
 			notifyObservers();
@@ -69,16 +69,19 @@ public class DockModel extends Observable implements Serializable
 	}
 
 	public void setSimTime(double simTime) {
-		if (this.simTime != simTime) {
+		if (!this.isIdle() && this.simTime != simTime) {
 			this.simTime = simTime;
+			setChanged();
 			notifyObservers(new DockSimTimeChangedEvent(this,simTime));
 		}
 	}
 	
 	public void setMeasurementCount(long measurementCount) {
-		this.measurementCount = measurementCount;
-		setChanged();
-		notifyObservers();
+		if (!this.isIdle()) {
+			this.measurementCount = measurementCount;
+			setChanged();
+			notifyObservers();
+		}
 	}
 	
 	public void setIdle(boolean idle) {
