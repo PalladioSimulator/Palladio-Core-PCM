@@ -45,13 +45,12 @@ public class EclipseXmiReader extends XmiReader {
 		ResourceSet rs = new ResourceSetImpl();
     	URI fileURI = URI.createURI(this.modelFile);
     	
-    	// Check this: removed this code as it does not make sense in
-    	// the Eclipse file reader. Has to be tested under Windows and
-    	// under different situations. As it is now, it works with Linux
-    	//if (!fileURI.isFile()) {
-    	//	final File f = loadFile(issues);
-        //	fileURI = URI.createFileURI(f.getAbsolutePath());
-    	//}
+    	if (fileURI.isFile()) { // Do not execute the following for PATHMAP URIs
+    		// Make sure, regardless how we reference a local file, it has always the SAME URI
+    		// Otherwise its contents will be recognized as different model elements
+    		final File f = new File(fileURI.toFileString());
+        	fileURI = URI.createFileURI(f.getAbsolutePath());
+    	}
     	
         Resource r = null;
         try {
