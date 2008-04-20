@@ -5,7 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
@@ -22,22 +25,48 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.FileType;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.IBusinessFacade;
 
 public class TestDriver {
+	
+	public class MeasurementResultByFileId{
+		public long durationPartOne;
+		public long durationPartTwo;
+		public String fileId;
+		public int fileIsCompressed;
+		public long uploadId;
+		
+		public MeasurementResultByFileId(
+				long uploadId,
+				String fileId,
+				int fileIsCompressed,
+				long durationPartOne,
+				long durationPartTwo){
+			this.uploadId = uploadId;
+			this.fileId = fileId;
+			this.fileIsCompressed = fileIsCompressed;
+			this.durationPartOne = durationPartOne;
+			this.durationPartTwo = durationPartTwo;
+		}
+	}
+			
 
+	private static final int DEFAULT_NUMBER_OF_USERS = 1; //default: 30
+	
+	private static final int DEFAULT_RANDOM_SEED = 12345; //default: 12345
+	
 	private static IBusinessFacade facade;
 	
 	private static Logger logger = Logger.getLogger(TestDriver.class);
 	
 	private static int numberOfOpenUploads = 0;
 	
-	private static final int numberOfUsers = 1/*20*/; //default: 30 //TODO CAPS for CONSTANTS!
+	private static int numberOfUsers = DEFAULT_NUMBER_OF_USERS;
 	
 	private static Random random;
-	
-	private static final int randomSeed = 12345; //default: 12345
+
+	private static TestDriver singletonTestDriver;
 
 	//List because each TestDataStruct contains several files
-	private static Map<TestDataStruct,long[]> totalMeasurements;
-
+	private static Map<TestDataStruct, long[]> totalMeasurements;
+		
 	private static final String[] uploadableFiles = {
 			"j0.jpg",
 			"j1.jpg",
@@ -71,7 +100,7 @@ public class TestDriver {
 //			"medium.zip",
 //			"large.zip"
 		};
-		
+	
 	/**
 	 * needs to terminate with a "/"
 	 */
@@ -117,6 +146,13 @@ public class TestDriver {
         return null;
     }
 
+	public static TestDriver getInstance() {
+		if(singletonTestDriver==null){
+			singletonTestDriver = new TestDriver();
+		}
+		return singletonTestDriver;
+	}
+
 	public static void main(String args[]) {
 		
 		boolean measure = true;
@@ -126,7 +162,7 @@ public class TestDriver {
 		boolean monitor = false;
 		logger.info("Starting TestDriver (measure: "+measure+", " +
 				"monitor: "+monitor+")");
-		new TestDriver().start(measure, monitor);		
+		TestDriver.getInstance().start(measure, monitor);		
 		logger.info("Finished TestDriver");
 	}
 
@@ -160,84 +196,16 @@ public class TestDriver {
     		}
     	}
     	if(numberOfOpenUploads==0){ //write CSV file here
-    		reportCompletedMeasurements(uploadId);
+    		TestDriver.getInstance().reportCompletedMeasurements(uploadId);
     	}
     }	
 		
-	/**
-	 * CSV-Schema: uploadId, fileId (oder "all"), isCompressed ("mixed" falls "all"), first measurement, second measurement (falls nicht "all")
-	 * @param uploadId
-	 */
-	private static void reportCompletedMeasurements(long uploadId){
-		FileOutputStream fos;
-		try {
-			fos = new FileOutputStream(
-					"TotalMeasurements."+System.currentTimeMillis()+".csv");
-			TestDataStruct currKey;
-			Set<TestDataStruct> keySet;
-			TestDataStruct[] keyArray;
-			int i;
-			logger.debug("Last upload finished, now reporting...");
-			keySet = totalMeasurements.keySet();
-			keyArray = keySet.toArray(new TestDataStruct[]{});
-			
-			StringBuffer csvSB = new StringBuffer();
-			
-			long currUploadId;
-			long[] currValues;
-			byte[][] currFiles;
-			String[] currFileIds;
-			int[] currFileTypes;
-	
-			for(i=0; i<keyArray.length; i++){
-				currKey = keyArray[i];
-				currValues = totalMeasurements.get(currKey);
-				
-				currUploadId = currKey.getUploadId();
-				currFiles = currKey.getInputFiles();
-				currFileIds = currKey.getInputFileIds();
-				currFileTypes = currKey.getInputFileTypes();
-				
-				csvSB.append(
-						currUploadId+";"+
-						-1+";"+
-						-1+";"+
-						currValues[currValues.length-1]+";"+
-						-1+";"+
-						"\n");
-				
-				int isCompressedInt;
-				for(int j=0; j<currFiles.length; j++){
-					if(currFileTypes[j]==FileType.COMPRESSED){
-						isCompressedInt = 1;
-					}else{
-						isCompressedInt = 0;
-					}
-					csvSB.append(
-							currUploadId+";"+
-							currFileIds[j]+";"+
-							isCompressedInt+";"+
-							currValues[2*j]+";"+
-							currValues[2*j+1]+";"+
-							"\n");
-				}
-			}
-			System.out.println(csvSB.toString());
-			fos.write(csvSB.toString().getBytes());
-			fos.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}    
-    
 	public TestDriver() {	
-		random = new Random(randomSeed);
+		random = new Random(DEFAULT_RANDOM_SEED);
 		facade = new BusinessFacade();
 		totalMeasurements = new HashMap<TestDataStruct, long[]>(numberOfUsers);
-	} 
-	
+	}    
+    
 	//	/**
 //	 * Creates a one file selection from the list of files.
 //	 * @return
@@ -307,7 +275,7 @@ public class TestDriver {
 				inputFileTypes);
 		return testData;//TODO log this instance!
 	}
-	
+
 	/**
      * KK: Parameter logging
      */
@@ -327,6 +295,195 @@ public class TestDriver {
 		Log.WriteToFile(LogPrinterFactory.getCSVOutput(), logFilter, new java.io.File("c:\\out.csv"));
 		    		    	
 		Log.invalidateCache();		
+	} 
+	
+/**Format of the CSV file: 
+	 * 		fileId, compressed, 
+	 * 		min one, avg one , median one , max one, 
+	 * 		min two, avg two , median two , max two, 
+	 * 		then one-by-one: upload id, duration part one, duration part two 
+	 * @param resultsByFileId
+	 */
+	private void printResultsByFileId(
+			Map<String, List<MeasurementResultByFileId>> resultsByFileId) {
+		StringBuffer csvSB = new StringBuffer();
+		csvSB.append(
+				"\"File ID\";"+
+				"\"Compressed\";"+
+				"\"Min of 1st measurement\";"+
+				"\"Avg of 1st measurement\";"+
+				"\"Med of 1st measurement\";"+
+				"\"Max of 1st measurement\";"+
+				"\"Min of 2nd measurement\";"+
+				"\"Avg of 2nd measurement\";"+
+				"\"Med of 2nd measurement\";"+
+				"\"Max of 2nd measurement\";");
+		for(int i=0; i<numberOfUsers; i++){
+			csvSB.append(
+					"\"Upload ID\";"+
+					"\"1st part\";"+
+					"\"2nd part\";");
+		}
+		csvSB.append("\n");
+
+		String currKey;
+		List<MeasurementResultByFileId> currValue;
+		int currIsCompressed;
+		Set<String> keySet = resultsByFileId.keySet();
+		String[] keySetArray = keySet.toArray(new String[]{});
+		for(int i=0; i<keySetArray.length; i++){
+			currKey = keySetArray[i];//file name
+			currValue = resultsByFileId.get(currKey);//List of MeasurementResultByFileId
+			logger.debug(currValue.size()+" results for key "+currKey);
+			if(currValue.size()==0){
+				csvSB.append(
+						"\""+currKey+"\";");
+			}else{
+				currIsCompressed = currValue.get(0).fileIsCompressed;
+				
+				List<Long> durationsOne = new ArrayList<Long>();
+				List<Long> durationsTwo = new ArrayList<Long>();
+				long sumDurationsOne = 0L;
+				long sumDurationsTwo = 0L;
+				for(MeasurementResultByFileId value : currValue){
+					durationsOne.add(value.durationPartOne);
+					sumDurationsOne += value.durationPartOne;
+					durationsTwo.add(value.durationPartOne);
+					sumDurationsTwo += value.durationPartOne;
+				}
+				Collections.sort(durationsOne);
+				long minOne = durationsOne.get(0);
+				long avgOne = sumDurationsOne/currValue.size();
+				long medOne = durationsOne.get(durationsOne.size()/2);
+				long maxOne = durationsOne.get(durationsOne.size()-1);
+				Collections.sort(durationsTwo);
+				long minTwo = durationsTwo.get(0);
+				long avgTwo = sumDurationsTwo/currValue.size();
+				long medTwo = durationsTwo.get(durationsOne.size()/2);
+				long maxTwo = durationsTwo.get(durationsOne.size()-1);
+				csvSB.append(
+						"\""+currKey+"\";"+
+						currIsCompressed+";"+
+						minOne+";"+
+						avgOne+";"+
+						medOne+";"+
+						maxOne+";"+
+						minTwo+";"+
+						avgTwo+";"+
+						medTwo+";"+
+						maxTwo+";");
+				for(MeasurementResultByFileId value : currValue){
+					csvSB.append(
+							value.uploadId+";"+
+							value.durationPartOne+";"+
+							value.durationPartTwo+";");
+				}
+			}
+			csvSB.append("\n");
+		}
+		
+		System.out.println(csvSB.toString());
+		
+		try {
+			FileOutputStream fos = new FileOutputStream(
+					"TotalMeasurements."+System.currentTimeMillis()+".byFile.csv");
+			fos.write(csvSB.toString().getBytes());
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * CSV-Schema: uploadId, fileId (oder "all"), isCompressed ("mixed" falls "all"), 
+	 * first measurement, second measurement (falls nicht "all")
+	 * @param uploadId
+	 */
+	private void reportCompletedMeasurements(long uploadId){
+		FileOutputStream fos;
+		Map<String , List<MeasurementResultByFileId>> resultsByFileId;
+		resultsByFileId = new HashMap<String, List<MeasurementResultByFileId>>();
+		for(int i=0; i<uploadableFiles.length; i++){
+			resultsByFileId.put(uploadableFiles[i], new ArrayList<MeasurementResultByFileId>());
+		}
+		
+		try {
+			fos = new FileOutputStream(
+					"TotalMeasurements."+System.currentTimeMillis()+".csv");
+			TestDataStruct currKey;
+			Set<TestDataStruct> keySet;
+			TestDataStruct[] keyArray;
+			int i;
+			logger.debug("Last upload finished, now reporting...");
+			keySet = totalMeasurements.keySet();
+			keyArray = keySet.toArray(new TestDataStruct[]{});
+			
+			StringBuffer csvSB = new StringBuffer();
+			csvSB.append(
+					"\"Upload ID\";"+
+					"\"File ID\";"+
+					"\"is compressed\";"+
+					"\"first meas.\";"+
+					"\"second meas.\";\n");
+			
+			long currUploadId;
+			long[] currValues;
+			byte[][] currFiles;
+			String[] currFileIds;
+			int[] currFileTypes;
+	
+			for(i=0; i<keyArray.length; i++){
+				currKey = keyArray[i];
+				currValues = totalMeasurements.get(currKey);
+				
+				currUploadId = currKey.getUploadId();
+				currFiles = currKey.getInputFiles();
+				currFileIds = currKey.getInputFileIds();
+				currFileTypes = currKey.getInputFileTypes();
+				
+				csvSB.append(
+						currUploadId+";"+
+						"all"+";"+
+						-1+";"+
+						currValues[currValues.length-1]+";"+
+						-1+";"+
+						"\n");
+				
+				int isCompressedInt;
+				for(int j=0; j<currFiles.length; j++){
+					if(currFileTypes[j]==FileType.COMPRESSED){
+						isCompressedInt = 1;
+					}else{
+						isCompressedInt = 0;
+					}
+					csvSB.append(
+							currUploadId+";"+
+							currFileIds[j]+";"+
+							isCompressedInt+";"+
+							currValues[2*j]+";"+
+							currValues[2*j+1]+";"+
+							"\n");
+					resultsByFileId.get(currFileIds[j]).add(
+							new MeasurementResultByFileId(
+									currUploadId,
+									currFileIds[j],
+									isCompressedInt,
+									currValues[2*j],
+									currValues[2*j+1]
+							)
+						);
+				}
+			}
+			System.out.println(csvSB.toString());
+			this.printResultsByFileId(resultsByFileId);
+			fos.write(csvSB.toString().getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
     
     /**
