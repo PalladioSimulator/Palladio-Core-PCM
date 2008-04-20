@@ -7,46 +7,49 @@ package de.uka.ipd.sdq.palladiofileshare.businesslogic;
 public class BusinessRunner implements Runnable{
 
 	private BusinessCore businessCore;
-	private int[] fileTypes;
-	private byte[][] inputFiles;
 	private boolean measure;
+	private boolean monitor;
+	private String[] uploadFileIds;
+	private byte[][] uploadFiles;
+	private int[] uploadFileTypes;
 	private long uploadId;
 	
 	public BusinessRunner() {
 		this.businessCore = new BusinessCore();
-		this.fileTypes = null;
-		this.inputFiles = null;
 		this.measure = false;
+		this.monitor = false;
 		this.uploadId = -1L;
+		this.uploadFiles = null;
+		this.uploadFileIds = null;
+		this.uploadFileTypes = null;
 	}
 	
-	public int[] getFileType() {
-		return fileTypes;
-	}
-
-	public byte[][] getInputStreams() {
-		return inputFiles;
+	public BusinessRunner(
+			long uploadId, 
+			byte[][] uploadFiles,
+			String[] uploadFileIds,
+			int[] uploadFileTypes,
+			boolean measure, 
+			boolean monitor) {
+		this.businessCore = new BusinessCore();
+		this.uploadId = uploadId;
+		this.uploadFiles = uploadFiles;
+		this.uploadFileIds = uploadFileIds;
+		this.uploadFileTypes = uploadFileTypes;
+		this.measure = measure;
+		this.monitor = monitor;
 	}
 
 	@Override
 	public void run() {
-		uploadFiles(inputFiles, fileTypes, this.measure, this.uploadId);
-	}
-
-	public void setFileTypes(int[] fileTypes) {
-		this.fileTypes = fileTypes;
-	}
-
-	public void setInputStreams(byte[][] inputFiles) {
-		this.inputFiles = inputFiles;
-	}
-
-	public void setMeasure(boolean measure) {
-		this.measure = measure;
-	}
-
-	public void setUploadId(long uploadId) {
-		this.uploadId = uploadId;
+		uploadFiles(
+				this.uploadId,
+				this.uploadFiles, 
+				this.uploadFileIds, 
+				this.uploadFileTypes, 
+				this.measure, 
+				this.monitor 
+				);
 	}
 
 	/**
@@ -55,15 +58,21 @@ public class BusinessRunner implements Runnable{
 	 * @param fileType
 	 */
 	public void uploadFiles(
-			byte[][] inputStreams, 
-			int[] fileTypes,
+			long uploadId,
+			byte[][] uploadFiles, 
+			String[] uploadFileIds,
+			int[] uploadFileTypes,
 			boolean measure,
-			long uploadId) {
+			boolean monitor
+			) {
 		this.businessCore.uploadFiles(
-				inputStreams, 
-				fileTypes,
+				uploadId,
+				uploadFiles, 
+				uploadFileIds, 
+				uploadFileTypes,
 				measure,
-				uploadId);		
+				monitor
+				);		
 	}
-	
+
 }
