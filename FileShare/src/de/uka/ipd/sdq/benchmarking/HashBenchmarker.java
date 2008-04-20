@@ -32,7 +32,8 @@ public class HashBenchmarker {
 	 * The relative path to the "master CSV file, i.e. to the file which is 
 	 * not overwritten, but rather extended by appending new results
 	 */
-	private static final String DEFAULT_MASTER_CSV_FILE = "./results/Master.HashMeasurements.csv";
+	private static final String DEFAULT_MASTER_CSV_FILE 
+		= "./results/HashBenchmarker.Master.csv";
 	
 	/**
 	 * This field maps the hash algorithm names (e.g. "SHA-512") to the 
@@ -336,7 +337,9 @@ public class HashBenchmarker {
 			boolean masterFileExists = masterFile.exists();
 			log.debug(masterFile.length());
 			fwMaster = new FileWriter(masterFilePath, true);
-			fwPiece = new FileWriter("./results/"+(System.currentTimeMillis()+".digestmeasurement.csv"), true);
+			fwPiece = new FileWriter(
+				("./results/HashBenchmarker."+System.currentTimeMillis()+".csv"), 
+				true);
 			
 			StringBuffer sb = new StringBuffer();
 			sb.append("\"Platform description\"" + sepChar +
