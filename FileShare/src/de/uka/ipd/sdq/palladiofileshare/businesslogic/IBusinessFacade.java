@@ -8,6 +8,8 @@ public interface IBusinessFacade {
 	public abstract void uploadFiles(
 			long uploadId,
 			byte[][] inputFiles, 
+			String[] inputFileIds, 
 			int[] fileTypes,
-			boolean measure);
+			boolean measure,
+			boolean monitor);
 }
