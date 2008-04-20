@@ -137,7 +137,7 @@ public class BusinessCore {
 		long start = 0L;
 		long stop = 0L;
 		long innerStart = 0L;
-		long innerBeforeSecondLookupAndSaving = -1L;
+		long innerBeforeLookupAndSaving = -1L;
 		long innerStop = 0L;
 		if(measure){
 			start = System.nanoTime();
@@ -191,6 +191,8 @@ public class BusinessCore {
 			}
 			fileHashAsBytes = this.getMessageDigest(compressedFile);			
 			
+			if(measure) innerBeforeLookupAndSaving = System.nanoTime();//TODO document
+			
 			boolean isCopyrighted = isCopyrightedMaterial(fileHashAsBytes);
 			if(monitor){
 				// KK-Log:
@@ -198,8 +200,6 @@ public class BusinessCore {
 					LogDataType.ParameterValue, "isCopyrighted", isCopyrighted);
 			}
 
-			if(measure) innerBeforeSecondLookupAndSaving = System.nanoTime();//TODO document
-			
 			if(isCopyrighted) {
 				
 				if(monitor) logger.debug("Copyrighted file found. File not stored.");
@@ -249,8 +249,8 @@ public class BusinessCore {
 			}
 			if(measure) innerStop = System.nanoTime();//TODO document
 			
-			if(measure) measurements[2*x] = innerBeforeSecondLookupAndSaving-innerStart;
-			if(measure) measurements[2*x+1] = innerStop - innerBeforeSecondLookupAndSaving;
+			if(measure) measurements[2*x] = innerBeforeLookupAndSaving-innerStart;
+			if(measure) measurements[2*x+1] = innerStop - innerBeforeLookupAndSaving;
 		}
 		if(measure){
 			stop = System.nanoTime();
