@@ -15,7 +15,7 @@ public class BusinessRunner implements Runnable{
 	private long uploadId;
 	
 	public BusinessRunner() {
-		this.businessCore = new BusinessCore();
+		this.businessCore = new BusinessCore(-1L);
 		this.measure = false;
 		this.monitor = false;
 		this.uploadId = -1L;
@@ -31,7 +31,7 @@ public class BusinessRunner implements Runnable{
 			int[] uploadFileTypes,
 			boolean measure, 
 			boolean monitor) {
-		this.businessCore = new BusinessCore();
+		this.businessCore = new BusinessCore(uploadId);
 		this.uploadId = uploadId;
 		this.uploadFiles = uploadFiles;
 		this.uploadFileIds = uploadFileIds;
