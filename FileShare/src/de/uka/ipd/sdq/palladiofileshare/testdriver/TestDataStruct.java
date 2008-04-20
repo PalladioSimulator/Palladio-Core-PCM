@@ -26,6 +26,19 @@ public class TestDataStruct {
 			String[] inputFileIds,
 			byte[][] inputFiles,
 			int[] inputFileTypes) {
+		if(!(inputFileIds!=null
+				&& inputFiles!=null
+				&& inputFileTypes!=null
+				&& inputFileIds.length==inputFiles.length
+				&& inputFileIds.length==inputFileTypes.length)){
+			System.out.println("Parameters for TestDataStruct are (partially) " +
+					"null or have different size, not creating the instance!");
+			this.uploadId = Long.MIN_VALUE;
+			this.inputFileIds = null;
+			this.inputFiles = null;
+			this.inputFileTypes = null;
+			return;
+		}
 		try {
 			Thread.sleep(50); //make sure test data struct ids are not identical
 		} catch (InterruptedException e) {
@@ -54,14 +67,71 @@ public class TestDataStruct {
 	}
 	
 	public void setInputFileIds(String[] inputFileIds) {
+		if(inputFileIds==null 
+				|| !(
+						inputFileIds.length==this.inputFiles.length
+						&& inputFileIds.length==this.inputFileTypes.length
+					)
+			){
+			System.out.println("inputFileIds parameters for TestDataStruct " +
+					"are null or have different size " +
+					"than other existing parameters" +
+			"size --> parameter is not accepted!");
+			return;
+		}
 		this.inputFileIds = inputFileIds;
 	}
-
+	
 	public void setInputFiles(byte[][] inputFiles) {
+		if(inputFiles==null 
+				|| !(
+						inputFiles.length==this.inputFileIds.length
+						&& inputFiles.length==this.inputFileTypes.length
+					)
+			){
+			System.out.println("inputFiles parameters for TestDataStruct " +
+					"are null or have different size " +
+					"than other existing parameters" +
+					"size --> parameter is not accepted!");
+			return;
+		}
 		this.inputFiles = inputFiles;
-	}	
+	}
 
 	public void setInputFileTypes(int[] inputFileTypes) {
+		if(inputFileTypes==null 
+				|| !(
+						inputFileTypes.length==this.inputFiles.length
+						&& inputFileTypes.length==this.inputFileIds.length
+					)
+			){
+			System.out.println("inputFileTypes parameters for TestDataStruct " +
+					"are null or have different size " +
+					"than other existing parameters" + "size " +
+					"--> parameter is not accepted!");
+			return;
+		}
 		this.inputFileTypes = inputFileTypes;
+	}	
+
+	public String toString(){
+		if(!(inputFileIds!=null
+				&& inputFiles!=null
+				&& inputFileTypes!=null
+				&& this.inputFileIds.length==this.inputFiles.length
+				&& this.inputFileIds.length==this.inputFileTypes.length)){
+			System.out.println("Corrupt instance of TestDataStruct!");
+			return null;
+		}
+		StringBuffer sb = new StringBuffer();
+		sb.append("TestDataStruct with upload id "+this.uploadId+" and " +
+				this.inputFileIds.length+" elements: [");
+		for(int i=0; i<this.inputFiles.length; i++){
+			sb.append(inputFileIds[i]+"("+inputFiles[i].length+","+
+					inputFileTypes+"),");
+		}
+		sb.append("]");
+		return sb.toString();
+		
 	}	
 }
