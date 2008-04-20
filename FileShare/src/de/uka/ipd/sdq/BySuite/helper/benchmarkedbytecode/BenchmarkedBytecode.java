@@ -1,4 +1,4 @@
-package benchmarkedbytecode;
+package de.uka.ipd.sdq.BySuite.helper.benchmarkedbytecode;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

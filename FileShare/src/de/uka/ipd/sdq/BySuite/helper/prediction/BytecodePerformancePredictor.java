@@ -1,10 +1,10 @@
-package prediction;
+package de.uka.ipd.sdq.BySuite.helper.prediction;
 
 import java.util.Arrays;
 
-import benchmarkedbytecode.BenchmarkedBytecode;
-import learnedbytecode.LearnedBytecode;
-import learnedbytecode.LearnedDataErrorCalculation;
+import de.uka.ipd.sdq.BySuite.helper.benchmarkedbytecode.BenchmarkedBytecode;
+import de.uka.ipd.sdq.BySuite.helper.learnedbytecode.LearnedBytecode;
+import de.uka.ipd.sdq.BySuite.helper.learnedbytecode.LearnedDataErrorCalculation;
 
 public class BytecodePerformancePredictor {
 

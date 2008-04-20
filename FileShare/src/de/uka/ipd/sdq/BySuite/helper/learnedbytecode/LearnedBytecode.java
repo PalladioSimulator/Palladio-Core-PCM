@@ -1,7 +1,7 @@
-package learnedbytecode;
+package de.uka.ipd.sdq.BySuite.helper.learnedbytecode;
 
-import mathparser.IfThen;
-import mathparser.IfThenElse;
+import de.uka.ipd.sdq.BySuite.helper.mathparser.IfThen;
+import de.uka.ipd.sdq.BySuite.helper.mathparser.IfThenElse;
 
 import com.bestcode.mathparser.IMathParser;
 import com.bestcode.mathparser.MathParserFactory;

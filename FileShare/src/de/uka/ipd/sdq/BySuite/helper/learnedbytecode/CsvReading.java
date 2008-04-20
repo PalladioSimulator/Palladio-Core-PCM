@@ -1,4 +1,4 @@
-package learnedbytecode;
+package de.uka.ipd.sdq.BySuite.helper.learnedbytecode;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
