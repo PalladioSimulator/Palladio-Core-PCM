@@ -305,7 +305,8 @@ public class TestDriver {
 	 * @param resultsByFileId
 	 */
 	private void printResultsByFileId(
-			Map<String, List<MeasurementResultByFileId>> resultsByFileId) {
+			Map<String, List<MeasurementResultByFileId>> resultsByFileId,
+			long fileNameRoot) {
 		StringBuffer csvSB = new StringBuffer();
 		csvSB.append(
 				"\"File ID\";"+
@@ -386,7 +387,7 @@ public class TestDriver {
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(
-					"TotalMeasurements."+System.currentTimeMillis()+".byFile.csv");
+					"TotalMeasurements."+fileNameRoot+".byFile.csv");
 			fos.write(csvSB.toString().getBytes());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -408,9 +409,10 @@ public class TestDriver {
 			resultsByFileId.put(uploadableFiles[i], new ArrayList<MeasurementResultByFileId>());
 		}
 		
+		long fileNameRoot = System.currentTimeMillis();
 		try {
 			fos = new FileOutputStream(
-					"TotalMeasurements."+System.currentTimeMillis()+".csv");
+					"TotalMeasurements."+fileNameRoot+".csv");
 			TestDataStruct currKey;
 			Set<TestDataStruct> keySet;
 			TestDataStruct[] keyArray;
@@ -476,7 +478,7 @@ public class TestDriver {
 				}
 			}
 			System.out.println(csvSB.toString());
-			this.printResultsByFileId(resultsByFileId);
+			this.printResultsByFileId(resultsByFileId, fileNameRoot);
 			fos.write(csvSB.toString().getBytes());
 			fos.close();
 		} catch (FileNotFoundException e) {
