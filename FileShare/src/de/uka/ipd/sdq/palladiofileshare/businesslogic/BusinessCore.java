@@ -137,7 +137,7 @@ public class BusinessCore {
 		long start = 0L;
 		long stop = 0L;
 		long innerStart = 0L;
-		long innerBeforeSaving = -1L;
+		long innerBeforeSecondLookupAndSaving = -1L;
 		long innerStop = 0L;
 		if(measure){
 			start = System.nanoTime();
@@ -147,7 +147,7 @@ public class BusinessCore {
 		byte[] compressedFile;
 		
 		for(int x = 0; x < uploadFiles.length; x++) {			
-			if(measure) innerStart = System.nanoTime();
+			if(measure) innerStart = System.nanoTime();//TODO document
 			inputFile = uploadFiles[x];						
 			
 			if(uploadFileTypes[x] == FileType.TEXT) {
@@ -198,11 +198,12 @@ public class BusinessCore {
 					LogDataType.ParameterValue, "isCopyrighted", isCopyrighted);
 			}
 
+			if(measure) innerBeforeSecondLookupAndSaving = System.nanoTime();//TODO document
+			
 			if(isCopyrighted) {
 				
 				if(monitor) logger.debug("Copyrighted file found. File not stored.");
 				//does not store the file, i.e. does NOTHING 
-				if(measure) innerBeforeSaving = System.nanoTime();
 			} else {	
 				
 				boolean isFileInDB = isFileExistingInDB(fileHashAsBytes);
@@ -211,7 +212,6 @@ public class BusinessCore {
 					kkLogger.addLogEntryData(LogType.AfterExternalAction,
 						LogDataType.ParameterValue, "isFileInDB", isFileInDB);
 				}
-				if(measure) innerBeforeSaving = System.nanoTime();
 				if(isFileInDB) { 
 					
 					if (monitor) logger.debug("File already in DB.");
@@ -246,10 +246,11 @@ public class BusinessCore {
 						storeSmallFile(compressedFile, fileHashAsBytes);
 					}
 				}
-				if(measure) innerStop = System.nanoTime();
-				if(measure) measurements[2*x] = innerBeforeSaving-innerStart;
-				if(measure) measurements[2*x+1] = innerStop - innerBeforeSaving;
 			}
+			if(measure) innerStop = System.nanoTime();//TODO document
+			
+			if(measure) measurements[2*x] = innerBeforeSecondLookupAndSaving-innerStart;
+			if(measure) measurements[2*x+1] = innerStop - innerBeforeSecondLookupAndSaving;
 		}
 		if(measure){
 			stop = System.nanoTime();

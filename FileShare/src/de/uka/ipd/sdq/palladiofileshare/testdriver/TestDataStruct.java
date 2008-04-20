@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.palladiofileshare.testdriver;
 
-public class TestDataStruct {
+public class TestDataStruct implements Comparable<TestDataStruct> {
 	
 	private String[] inputFileIds;
 	private byte[][] inputFiles;
@@ -16,7 +16,7 @@ public class TestDataStruct {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.uploadId = System.currentTimeMillis();
+		this.uploadId = System.currentTimeMillis()-1200000000000L;
 		this.inputFiles = new byte[0][];
 		this.inputFileIds = new String[0];
 		this.inputFileTypes = new int[0];
@@ -44,7 +44,7 @@ public class TestDataStruct {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.uploadId = System.currentTimeMillis();
+		this.uploadId = System.currentTimeMillis()-1200000000000L;
 		this.inputFiles = inputFiles;
 		this.inputFileIds = inputFileIds;
 		this.inputFileTypes = inputFileTypes;
@@ -133,5 +133,16 @@ public class TestDataStruct {
 		sb.append("]");
 		return sb.toString();
 		
+	}
+
+	@Override
+	public int compareTo(TestDataStruct o) {
+		if(this.uploadId<o.uploadId){
+			return -1;
+		}else if(this.uploadId>o.uploadId){
+			return 1;
+		}else{
+			return 0;
+		}
 	}	
 }

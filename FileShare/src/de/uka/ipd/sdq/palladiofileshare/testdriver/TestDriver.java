@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -48,7 +49,7 @@ public class TestDriver {
 	}
 			
 
-	private static final int DEFAULT_NUMBER_OF_USERS = 1; //default: 30
+	private static final int DEFAULT_NUMBER_OF_USERS = 10; //default: 30
 	
 	private static final int DEFAULT_RANDOM_SEED = 12345; //default: 12345
 	
@@ -308,30 +309,52 @@ public class TestDriver {
 			Map<String, List<MeasurementResultByFileId>> resultsByFileId,
 			long fileNameRoot) {
 		StringBuffer csvSB = new StringBuffer();
-		csvSB.append(
-				"\"File ID\";"+
-				"\"Compressed\";"+
-				"\"Min of 1st measurement\";"+
-				"\"Avg of 1st measurement\";"+
-				"\"Med of 1st measurement\";"+
-				"\"Max of 1st measurement\";"+
-				"\"Min of 2nd measurement\";"+
-				"\"Avg of 2nd measurement\";"+
-				"\"Med of 2nd measurement\";"+
-				"\"Max of 2nd measurement\";");
-		for(int i=0; i<numberOfUsers; i++){
-			csvSB.append(
-					"\"Upload ID\";"+
-					"\"1st part\";"+
-					"\"2nd part\";");
-		}
-		csvSB.append("\n");
-
 		String currKey;
 		List<MeasurementResultByFileId> currValue;
 		int currIsCompressed;
 		Set<String> keySet = resultsByFileId.keySet();
 		String[] keySetArray = keySet.toArray(new String[]{});
+		Arrays.sort(keySetArray);
+
+		int maxNrOfMeasurementsForAFile=0;
+		int currSize;
+		for (int u=0; u<keySetArray.length; u++) {
+			currSize = resultsByFileId.get(keySetArray[u]).size();
+			if(currSize>maxNrOfMeasurementsForAFile){
+				maxNrOfMeasurementsForAFile = currSize;
+			}
+		}
+		
+//		csvSB.append(
+//				"\"File ID\";"+
+//				"\"Compressed\";"+
+//				"\"Min of 1st measurement\";"+
+//				"\"Avg of 1st measurement\";"+
+//				"\"Med of 1st measurement\";"+
+//				"\"Max of 1st measurement\";"+
+//				"\"Min of 2nd measurement\";"+
+//				"\"Avg of 2nd measurement\";"+
+//				"\"Med of 2nd measurement\";"+
+//				"\"Max of 2nd measurement\";");
+		csvSB.append(
+				"\"File ID\";"+
+				"\"Compressed\";"+
+				"\"part\";"+
+				"\"Min of all measurements\";"+
+				"\"Avg of all measurements\";"+
+				"\"Med of all measurements\";"+
+				"\"Max of all measurements\";");
+		for(int i=0; i<maxNrOfMeasurementsForAFile; i++){
+//			csvSB.append(
+//					"\"Upload ID\";"+
+//					"\"1st part\";"+
+//					"\"2nd part\";");
+			csvSB.append(
+					"\"Upload ID\";"+
+					"\"value\";");
+		}
+		csvSB.append("\n");
+
 		for(int i=0; i<keySetArray.length; i++){
 			currKey = keySetArray[i];//file name
 			currValue = resultsByFileId.get(currKey);//List of MeasurementResultByFileId
@@ -339,6 +362,7 @@ public class TestDriver {
 			if(currValue.size()==0){
 				csvSB.append(
 						"\""+currKey+"\";");
+				csvSB.append("\n");
 			}else{
 				currIsCompressed = currValue.get(0).fileIsCompressed;
 				
@@ -349,26 +373,56 @@ public class TestDriver {
 				for(MeasurementResultByFileId value : currValue){
 					durationsOne.add(value.durationPartOne);
 					sumDurationsOne += value.durationPartOne;
-					durationsTwo.add(value.durationPartOne);
-					sumDurationsTwo += value.durationPartOne;
+					durationsTwo.add(value.durationPartTwo);
+					sumDurationsTwo += value.durationPartTwo;
 				}
 				Collections.sort(durationsOne);
 				long minOne = durationsOne.get(0);
 				long avgOne = sumDurationsOne/currValue.size();
 				long medOne = durationsOne.get(durationsOne.size()/2);
 				long maxOne = durationsOne.get(durationsOne.size()-1);
+				
 				Collections.sort(durationsTwo);
 				long minTwo = durationsTwo.get(0);
 				long avgTwo = sumDurationsTwo/currValue.size();
-				long medTwo = durationsTwo.get(durationsOne.size()/2);
-				long maxTwo = durationsTwo.get(durationsOne.size()-1);
+				long medTwo = durationsTwo.get(durationsTwo.size()/2);
+				long maxTwo = durationsTwo.get(durationsTwo.size()-1);
+//				csvSB.append(
+//						"\""+currKey+"\";"+
+//						currIsCompressed+";"+
+//						minOne+";"+
+//						avgOne+";"+
+//						medOne+";"+
+//						maxOne+";"+
+//						minTwo+";"+
+//						avgTwo+";"+
+//						medTwo+";"+
+//						maxTwo+";");
+//				for(MeasurementResultByFileId value : currValue){
+//					csvSB.append(
+//							value.uploadId+";"+
+//							value.durationPartOne+";"+
+//							value.durationPartTwo+";");
+//				}
 				csvSB.append(
 						"\""+currKey+"\";"+
 						currIsCompressed+";"+
+						"first"+";"+
 						minOne+";"+
 						avgOne+";"+
 						medOne+";"+
-						maxOne+";"+
+						maxOne+";");
+				for(MeasurementResultByFileId value : currValue){
+					csvSB.append(
+							value.uploadId+";"+
+							value.durationPartOne+";");
+				}
+				csvSB.append("\n");
+				
+				csvSB.append(
+						"\""+currKey+"\";"+
+						currIsCompressed+";"+
+						"second"+";"+
 						minTwo+";"+
 						avgTwo+";"+
 						medTwo+";"+
@@ -376,11 +430,10 @@ public class TestDriver {
 				for(MeasurementResultByFileId value : currValue){
 					csvSB.append(
 							value.uploadId+";"+
-							value.durationPartOne+";"+
 							value.durationPartTwo+";");
 				}
+				csvSB.append("\n");
 			}
-			csvSB.append("\n");
 		}
 		
 		System.out.println(csvSB.toString());
@@ -420,7 +473,8 @@ public class TestDriver {
 			logger.debug("Last upload finished, now reporting...");
 			keySet = totalMeasurements.keySet();
 			keyArray = keySet.toArray(new TestDataStruct[]{});
-			
+			Arrays.sort(keyArray);
+
 			StringBuffer csvSB = new StringBuffer();
 			csvSB.append(
 					"\"Upload ID\";"+
