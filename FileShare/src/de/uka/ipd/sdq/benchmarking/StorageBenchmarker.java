@@ -15,10 +15,14 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.storage.Storage;
 /** Benchmark simple fileStoring as if no JIT is there.
  * 
  * @author Michael
- *
+ * @deprecated because CSV file names and functionality unchecked
  */
 public class StorageBenchmarker {
 	
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 * @param args
+	 */
 	public static void main(String args[]){
 		StorageBenchmarker sb = new StorageBenchmarker();
 		sb.run();
@@ -38,6 +42,9 @@ public class StorageBenchmarker {
 	boolean varyFilesize;
 	int widthOfFilesizeIncreaseStep;
 
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 */
 	public StorageBenchmarker() {
 		super();
 		this.currMeasurementsList = new ArrayList<Long>();
@@ -71,6 +78,9 @@ public class StorageBenchmarker {
 		}
 	}
 
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 */
 	private void run() {
 		if(!varyFilesize) nrOfFilesizeIncreaseSteps = 0;
 		int currFilesize;

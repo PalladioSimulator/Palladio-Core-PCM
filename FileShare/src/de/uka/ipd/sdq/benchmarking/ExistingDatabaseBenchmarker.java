@@ -8,7 +8,15 @@ import de.uka.ipd.sdq.palladiofileshare.algorithms.Hash;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.ExistingFilesDatabase;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
+/**
+ * @author Michael
+ * @deprecated because CSV file names and functionality unchecked
+ */
 public class ExistingDatabaseBenchmarker {
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 * @param args
+	 */
 	public static void main(String args[]){
 		ExistingDatabaseBenchmarker cmdm = new ExistingDatabaseBenchmarker();
 		cmdm.addNewFileHash_measure(20, false, 25000, 350000, 400);
@@ -22,10 +30,22 @@ public class ExistingDatabaseBenchmarker {
 	Hash ourHasher;
 	Random rd;
 	
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 */
 	public ExistingDatabaseBenchmarker(){
 		//TODO
 	}
 	
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 * @param nrOfRandomDatasets
+	 * @param constantRandomDatasetSize
+	 * @param initialRandomDatasetSize
+	 * @param maximumRandomDatasetSizeIfVariableSize
+	 * @param nrOfAdditions
+	 * @return
+	 */
 	public long[] addNewFileHash_measure(
 			int nrOfRandomDatasets, 
 			boolean constantRandomDatasetSize,
@@ -85,6 +105,15 @@ public class ExistingDatabaseBenchmarker {
 		return summary;
 	}
 
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 * @param nrOfRandomDatasets
+	 * @param constantRandomDatasetSize
+	 * @param initialRandomDatasetSize
+	 * @param maximumRandomDatasetSizeIfVariableSize
+	 * @param nrOfRequests
+	 * @return
+	 */
 	public long[] existsInDatabase_measure(
 			int nrOfRandomDatasets, 
 			boolean constantRandomDatasetSize,

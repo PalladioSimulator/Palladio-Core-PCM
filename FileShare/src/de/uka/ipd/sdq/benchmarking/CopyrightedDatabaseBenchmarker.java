@@ -8,7 +8,15 @@ import de.uka.ipd.sdq.palladiofileshare.algorithms.Hash;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.CopyrightedMaterialDatabase;
 import de.uka.ipd.sdq.palladiofileshare.businesslogic.util.Util;
 
+/**
+ * @author Michael
+ * @deprecated because CSV file names and functionality unchecked
+ */
 public class CopyrightedDatabaseBenchmarker {
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 * @param args
+	 */
 	public static void main(String args[]){
 		CopyrightedDatabaseBenchmarker cmdm = new CopyrightedDatabaseBenchmarker();
 		cmdm.isCopyrightedMaterial_measure(20, false, 25000, 350000, 400);
@@ -21,10 +29,22 @@ public class CopyrightedDatabaseBenchmarker {
 	Hash ourHasher;
 	Random rd;
 	
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 */
 	public CopyrightedDatabaseBenchmarker(){
 		//TODO
 	}
 	
+	/**
+	 * @deprecated because CSV file names and functionality unchecked
+	 * @param nrOfRandomDatasets
+	 * @param constantRandomDatasetSize
+	 * @param initialRandomDatasetSize
+	 * @param maximumRandomDatasetSizeIfVariableSize
+	 * @param nrOfMeasurements
+	 * @return
+	 */
 	public long[] isCopyrightedMaterial_measure(
 			int nrOfRandomDatasets, 
 			boolean constantRandomDatasetSize,
