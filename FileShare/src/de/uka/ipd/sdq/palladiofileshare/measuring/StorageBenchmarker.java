@@ -42,7 +42,7 @@ public class StorageBenchmarker {
 		super();
 		this.currMeasurementsList = new ArrayList<Long>();
 		this.nrOfFilesizeIncreaseSteps = 20;
-		this.nrOfMeasurementsPerFilesize = 200;
+		this.nrOfMeasurementsPerFilesize = 100;
 		this.rd = new Random();
 		this.resultsList = new ArrayList<Long>();
 		this.startingFileSize = 10000;
@@ -76,21 +76,22 @@ public class StorageBenchmarker {
 		int currFilesize;
 		int currFileIndex;
 		byte[][] randomByteArrays = new byte[5][];
-		StringBuffer upperCSVline = new StringBuffer();
-		StringBuffer lowerCSVline = new StringBuffer();
+		StringBuffer titleCSVline = new StringBuffer();
+		StringBuffer medianCSVline = new StringBuffer();
+		StringBuffer minimumCSVline = new StringBuffer();
 		for(int i=0; i<= nrOfFilesizeIncreaseSteps; i++){
 			currFilesize = startingFileSize+i*widthOfFilesizeIncreaseStep;
 			for(int j=0; j<randomByteArrays.length; j++){
 				randomByteArrays[j] = new byte[currFilesize];
 				rd.nextBytes(randomByteArrays[j]);
 			}
-			currMeasurementsList = new ArrayList<Long>();
+			currMeasurementsList = new ArrayList<Long>(nrOfMeasurementsPerFilesize);
 			for(int k=0; k<nrOfMeasurementsPerFilesize; k++){
 				currFileIndex = rd.nextInt(randomByteArrays.length);
 				currFileHash = new byte[20];
 				rd.nextBytes(currFileHash);
 				start = System.nanoTime();
-				storage.storeFile(randomByteArrays[currFileIndex], currFileHash);
+				storage.storeFile(randomByteArrays[currFileIndex], currFileHash, true);
 				stop = System.nanoTime();
 				currMeasurementsList.add(stop-start);
 			}
@@ -98,16 +99,18 @@ public class StorageBenchmarker {
 			long result = currMeasurementsList.get(currMeasurementsList.size()/2);
 			resultsList.add(result);
 			System.out.println(result+" ns: filesize "+currFilesize);
-			upperCSVline.append(currFilesize+",");
-			lowerCSVline.append(result+",");
+			titleCSVline.append(currFilesize+";");
+			medianCSVline.append(result+";");
+			minimumCSVline.append(currMeasurementsList.get(0)+";");
 		}
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(
 					this.getClass().getName()+
 					"."+System.nanoTime()+".csv");
-			fos.write((upperCSVline.toString()+"\n").getBytes());
-			fos.write((lowerCSVline.toString()+"\n").getBytes());
+			fos.write(("Sizes;"+titleCSVline.toString()+"\n").getBytes());
+			fos.write(("Medians;"+medianCSVline.toString()+"\n").getBytes());
+			fos.write(("Mins;"+minimumCSVline.toString()+"\n").getBytes());
 			fos.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
