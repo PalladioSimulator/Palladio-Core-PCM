@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.palladiofileshare.testdriver;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -122,7 +124,8 @@ public class TestDriver {
 			measure = true;
 		}
 		boolean monitor = false;
-		logger.info("Starting TestDriver (measure: "+measure+", monitor: "+monitor);
+		logger.info("Starting TestDriver (measure: "+measure+", " +
+				"monitor: "+monitor+")");
 		new TestDriver().start(measure, monitor);		
 		logger.info("Finished TestDriver");
 	}
@@ -131,7 +134,7 @@ public class TestDriver {
 			long uploadId, 
 			String[] fileIds,
 			long[] measurements){
-		logger.debug("called by uploader with id"+uploadId);
+		logger.debug("called by uploader with id "+uploadId);
 		numberOfOpenUploads--;
 		TestDataStruct currKey;
 		long currUploadId;
@@ -162,43 +165,70 @@ public class TestDriver {
     }	
 		
 	/**
-	 * @deprecated incomplete
+	 * CSV-Schema: uploadId, fileId (oder "all"), isCompressed ("mixed" falls "all"), first measurement, second measurement (falls nicht "all")
 	 * @param uploadId
 	 */
-	private static void reportCompletedMeasurements(long uploadId) {
-		TestDataStruct currKey;
-		long[] currValue;
-		Set<TestDataStruct> keySet;
-		TestDataStruct[] keyArray;
-		int i;
-		logger.debug("Last upload finished, now reporting...");
-		keySet = totalMeasurements.keySet();
-		keyArray = keySet.toArray(new TestDataStruct[]{});
-		byte[][] currFiles;
-		int[] currFileTypes;
-		for(i=0; i<keyArray.length; i++){
-			currKey = keyArray[i];
-			currFiles = currKey.getInputFiles();
-//    			int currFileSize;
-			currFileTypes = currKey.getInputFileTypes();
-			currValue = totalMeasurements.get(currKey);
-			String isCompressed;
-			String compressed = "compressed";
-			String text = "compressed";
+	private static void reportCompletedMeasurements(long uploadId){
+		FileOutputStream fos;
+		try {
+			fos = new FileOutputStream(
+					"TotalMeasurements."+System.currentTimeMillis()+".csv");
+			TestDataStruct currKey;
+			Set<TestDataStruct> keySet;
+			TestDataStruct[] keyArray;
+			int i;
+			logger.debug("Last upload finished, now reporting...");
+			keySet = totalMeasurements.keySet();
+			keyArray = keySet.toArray(new TestDataStruct[]{});
 			
-			logger.debug("Upload "+uploadId+": total duration "+
-					currValue[currValue.length-1]);
-			for(int j=0; j<currFiles.length; j++){
-				if(currFileTypes[j]==FileType.COMPRESSED){
-					isCompressed = compressed;
-				}else{
-					isCompressed = text;
+			StringBuffer csvSB = new StringBuffer();
+			
+			long currUploadId;
+			long[] currValues;
+			byte[][] currFiles;
+			String[] currFileIds;
+			int[] currFileTypes;
+	
+			for(i=0; i<keyArray.length; i++){
+				currKey = keyArray[i];
+				currValues = totalMeasurements.get(currKey);
+				
+				currUploadId = currKey.getUploadId();
+				currFiles = currKey.getInputFiles();
+				currFileIds = currKey.getInputFileIds();
+				currFileTypes = currKey.getInputFileTypes();
+				
+				csvSB.append(
+						currUploadId+";"+
+						-1+";"+
+						-1+";"+
+						currValues[currValues.length-1]+";"+
+						-1+";"+
+						"\n");
+				
+				int isCompressedInt;
+				for(int j=0; j<currFiles.length; j++){
+					if(currFileTypes[j]==FileType.COMPRESSED){
+						isCompressedInt = 1;
+					}else{
+						isCompressedInt = 0;
+					}
+					csvSB.append(
+							currUploadId+";"+
+							currFileIds[j]+";"+
+							isCompressedInt+";"+
+							currValues[2*j]+";"+
+							currValues[2*j+1]+";"+
+							"\n");
 				}
-				System.out.println("\t\tFile ("+currFiles[j].length+"," +
-						""+isCompressed+"): "+
-						currValue[2*j]+","+currValue[2*j+1]);
 			}
-			System.out.println("");
+			System.out.println(csvSB.toString());
+			fos.write(csvSB.toString().getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}    
     
@@ -323,7 +353,7 @@ public class TestDriver {
 		long start = 0;
 		long stop = 0;
 		System.out.println("===============================================\n");
-		logger.debug("Measure: "+measure+", monitor: "+monitor);
+		logger.debug("Users: "+numberOfUsers+", measure: "+measure+", monitor: "+monitor);
 
     	for(int x = 0; x < numberOfUsers; x++) {
 			try {

@@ -43,6 +43,7 @@ public class BusinessCore {
 	
 	private IStorage storageSubSystemSmallFiles;
 
+	@SuppressWarnings("unused")
 	private long uploadId;
 		
 	public BusinessCore(long uploadId) {		
@@ -138,7 +139,9 @@ public class BusinessCore {
 		long innerStart = 0L;
 		long innerBeforeSaving = -1L;
 		long innerStop = 0L;
-		if(measure) start = System.nanoTime();
+		if(measure){
+			start = System.nanoTime();
+		}
 		byte[] fileHashAsBytes;		
 		byte[] inputFile;
 		byte[] compressedFile;
