@@ -291,8 +291,6 @@ public class TestDriver {
 		LogFilter logFilter = new LogFilter(true);		
 		
 		// Outputs
-		//Log.WriteToConsole(LogPrinterFactory.getScreenOutput(), logFilter);
-		//Log.WriteToFile(LogPrinterFactory.getScreenOutput(), logFilter, new File("out.csv"));
 		Log.WriteToFile(LogPrinterFactory.getCSVOutput(), logFilter, new java.io.File("c:\\out.csv"));
 		    		    	
 		Log.invalidateCache();		
@@ -439,7 +437,7 @@ public class TestDriver {
 		System.out.println(csvSB.toString());
 		
 		try {
-			FileOutputStream fos = new FileOutputStream(
+			FileOutputStream fos = new FileOutputStream("./results/"+
 					"TotalMeasurements."+fileNameRoot+".byFile.csv");
 			fos.write(csvSB.toString().getBytes());
 		} catch (FileNotFoundException e) {
@@ -464,7 +462,7 @@ public class TestDriver {
 		
 		long fileNameRoot = System.currentTimeMillis();
 		try {
-			fos = new FileOutputStream(
+			fos = new FileOutputStream("./results/"+
 					"TotalMeasurements."+fileNameRoot+".csv");
 			TestDataStruct currKey;
 			Set<TestDataStruct> keySet;

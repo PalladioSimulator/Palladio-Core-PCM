@@ -32,7 +32,7 @@ public class HashBenchmarker {
 	 * The relative path to the "master CSV file, i.e. to the file which is 
 	 * not overwritten, but rather extended by appending new results
 	 */
-	private static final String DEFAULT_MASTER_CSV_FILE = "Master.MessageDigestMeasurements.csv";
+	private static final String DEFAULT_MASTER_CSV_FILE = "./results/Master.HashMeasurements.csv";
 	
 	/**
 	 * This field maps the hash algorithm names (e.g. "SHA-512") to the 
@@ -47,13 +47,22 @@ public class HashBenchmarker {
 		"This class requires exactly eight parameters " +
 		"(please include all strings in double quotation marks, i.e. in \"\"):\n" +
 		"1. parameter: platform description as string\n" +
-		"2. parameter: jvm configuration as string, three values are allowed: \"-client\", \"-default\" and \"-server\"\n" +
-		"3. parameter: JIT configuration as string, two values are allowed: \"-default\" and \"-Xint\" (interpretation-only mode without JIT, even on platforms where this option is named differently\n" +
+		"2. parameter: JVM configuration as string, three values are allowed: " +
+			"\"-client\", \"-default\" and \"-server\"\n" +
+		"3. parameter: JIT configuration as string, two values are allowed: " +
+			"\"-default\" and \"-Xint\" (interpretation-only mode without JIT, " +
+			"even on platforms where this option is named differently)\n" +
 		"4. parameter: digest algorithm as string (specify your own)\n" +
 		"5. parameter: number of measurements as positive integer\n" +
-		"6. parameter: whether to digest immediately (specifying input data as digest()'s parameter), or to perform update()s before calling parameterless digest()\n" +
-		"7. parameter: input size as integer (i.e. length of -randomly generated- byte array which will be digested\n" +
-		"8. parameter: number (as integer) of different randomly generated input byte arrays that form a pool from which parameters for digesting are quasi-randomly chosen.";
+		"6. parameter: whether to digest immediately " +
+			"(specifying input data as digest()'s parameter), " +
+			"or to perform update()s before calling parameterless digest()\n" +
+		"7. parameter: input size as integer " +
+			"(i.e. length of -randomly generated- byte array " +
+			"which will be digested\n" +
+		"8. parameter: number (as integer) of different randomly generated " +
+			"input byte arrays that form a pool from which parameters " +
+			"for digesting are quasi-randomly chosen.";
 	
 	/** Expects eight parameters, see helpMessage field or run the class 
 	 * with the wrong number of parameters.
@@ -105,7 +114,7 @@ public class HashBenchmarker {
 	 * Default constructor... relies on "log4j.properties" file to exist.
 	 */
 	public HashBenchmarker(){
-		PropertyConfigurator.configure("log4j.properties");//TODO exception handling (also in other classes)
+		PropertyConfigurator.configure("config/log4j.properties");//TODO exception handling (also in other classes)
 		log = Logger.getLogger(this.getClass().getCanonicalName());
 		rd = new Random();
 		hashSizes = new HashMap<String, Integer>();
@@ -181,7 +190,7 @@ public class HashBenchmarker {
 		this.createRandomInputData(inputSize,nrOfDifferentRandomInputs);
 
 		for(int n = 0; n<nrOfMeasurements; n++){
-			log.debug("Starting Measurement "+n);
+//			log.debug("Starting Measurement "+n);
 			try {
 				L1 = System.nanoTime();
 				md = MessageDigest.getInstance(digestAlgorithm);
@@ -218,41 +227,77 @@ public class HashBenchmarker {
 //			log.debug((L6-L5)+" ns for MD digest (incl. nanoTime())");
 //			log.debug(hashes);
 		}
-		Collections.sort(getInstanceMeasurements);
-		Collections.sort(updateTotalMeasurements);
-		Collections.sort(digestMeasurements);
-		log.info(getInstanceMeasurements.get(0)+" ns: min of getInstance(...)");
-		log.info(updateTotalMeasurements.get(0)+" ns: min of update(...)");
-		log.info(digestMeasurements.get(0)+" ns: min of digest()");
-		log.info(getInstanceMeasurements.get(getInstanceMeasurements.size()-1)+" ns: max of getInstance(...)");
-		log.info(updateTotalMeasurements.get(updateTotalMeasurements.size()-1)+" ns: max of update(...)");
-		log.info(digestMeasurements.get(digestMeasurements.size()-1)+" ns: max of digest()");
-		
-		Long[] ret = new Long[3];
-		ret[0] = getInstanceMeasurements.get(getInstanceMeasurements.size()/2);
-		ret[1] = updateTotalMeasurements.get(updateTotalMeasurements.size()/2);
-		ret[2] = digestMeasurements.get(digestMeasurements.size()/2);
-		log.debug("======================================================");
-		log.info(ret[0]+" ns: median of getInstance(...)");
-		log.info(ret[1]+" ns: median of update(...)");
-		log.info(ret[2]+" ns: median of digest()");
-		this.writeToMasterAndPieceCSVFiles(
+		Long[] ret = prepareSortAndLogResults(
 				platfromDesc, 
-				jvmConfDesc, 
+				jvmConfDesc,
 				jitConfDesc, 
 				digestAlgorithm, 
-				new Integer(nrOfMeasurements), 
-				new Boolean(digestImmediately), 
-				new Integer(inputSize), 
-				new Integer(nrOfDifferentRandomInputs), 
-				DEFAULT_MASTER_CSV_FILE, 
-				ret);
+				nrOfMeasurements,
+				digestImmediately, 
+				inputSize, 
+				nrOfDifferentRandomInputs,
+				getInstanceMeasurements, 
+				updateTotalMeasurements,
+				digestMeasurements);
 //			StringBuffer sb = new StringBuffer();
 //			for(int i=0; i<hashes.length; i++){
 //				sb.append(hashes[i]+", ");
 //			}
 //			sb.append("\n");
 //			log.debug(sb.toString());
+		return ret;
+	}
+
+	private Long[] prepareSortAndLogResults(
+			String platfromDesc,
+			String jvmConfDesc, 
+			String jitConfDesc, 
+			String digestAlgorithm,
+			int nrOfMeasurements, 
+			boolean digestImmediately, 
+			int inputSize,
+			int nrOfDifferentRandomInputs, 
+			List<Long> getInstanceMeasurements,
+			List<Long> updateTotalMeasurements, 
+			List<Long> digestMeasurements) {
+		Collections.sort(getInstanceMeasurements);
+		Collections.sort(updateTotalMeasurements);
+		Collections.sort(digestMeasurements);
+		
+		Long[] ret = new Long[3];
+		ret[0] = getInstanceMeasurements.get(getInstanceMeasurements.size()/2);
+		ret[1] = updateTotalMeasurements.get(updateTotalMeasurements.size()/2);
+		ret[2] = digestMeasurements.get(digestMeasurements.size()/2);
+
+		log.debug("======================================================");
+		int lastIndex = getInstanceMeasurements.size()-1;
+		log.info(getInstanceMeasurements.get(0)+" ns: min of getInstance(...)");
+		log.info(updateTotalMeasurements.get(0)+" ns: min of update(...)");
+		log.info(digestMeasurements.get(0)+" ns: min of digest()");
+		
+		log.info(getInstanceMeasurements.get(lastIndex)+" ns: max of getInstance(...)");
+		log.info(updateTotalMeasurements.get(lastIndex)+" ns: max of update(...)");
+		log.info(digestMeasurements.get(lastIndex)+" ns: max of digest()");
+		
+		log.info(ret[0]+" ns: median of getInstance(...)");
+		log.info(ret[1]+" ns: median of update(...)");
+		log.info(ret[2]+" ns: median of digest()");
+		
+		this.writeToMasterAndPieceCSVFiles(
+				"\""+platfromDesc+"\"", 
+				"\""+jvmConfDesc+"\"", 
+				"\""+jitConfDesc+"\"", 
+				"\""+digestAlgorithm+"\"", 
+				new Integer(nrOfMeasurements), 
+				new Boolean(digestImmediately), 
+				new Integer(inputSize), 
+				new Integer(nrOfDifferentRandomInputs), 
+				"\""+DEFAULT_MASTER_CSV_FILE+"\"", 
+				ret,
+				new String[]{
+					"\"median of getInstance\"",
+					"\"median of update\"",
+					"\"median of digest\""});
 		return ret;
 	}
 		
@@ -269,7 +314,7 @@ public class HashBenchmarker {
 	 * @param values
 	 * @return
 	 */
-	public String writeToMasterAndPieceCSVFiles(
+	private String writeToMasterAndPieceCSVFiles(
 				List<String> platfromDesc,
 				List<String> jvmConfDesc,
 				List<String> jitConfDesc,
@@ -279,29 +324,31 @@ public class HashBenchmarker {
 				List<Integer> inputSize,
 				List<Integer> nrOfDifferentRandomInputs,
 				String masterFilePath,
-				List<Long[]> values){
+				List<Long[]> values,
+				String[] valueDescriptions){
 //		FileOutputStream fos = new FileOutputStream(masterFilePath);
 		FileWriter fwMaster;
 		FileWriter fwPiece;
 		String retString = null;
+		String sepChar = ";";
 		try {
 			File masterFile = new File(masterFilePath);
 			boolean masterFileExists = masterFile.exists();
 			log.debug(masterFile.length());
 			fwMaster = new FileWriter(masterFilePath, true);
-			fwPiece = new FileWriter((System.currentTimeMillis()+".digestmeasurement.csv"), true);
+			fwPiece = new FileWriter("./results/"+(System.currentTimeMillis()+".digestmeasurement.csv"), true);
 			
 			StringBuffer sb = new StringBuffer();
-			sb.append("\"Platform description\"," +
-					"\"JVM conf\"," +
-					"\"JIT conf\"," +
-					"\"digest algo\"," +
-					"\"nr of measurements\"," +
-					"\"immediate digesting?\"," +
-					"\"input size\"," +
+			sb.append("\"Platform description\"" + sepChar +
+					"\"JVM conf\"" + sepChar +
+					"\"JIT conf\"" + sepChar +
+					"\"digest algo\"" + sepChar +
+					"\"nr of measurements\"" + sepChar +
+					"\"immediate digesting?\"" + sepChar +
+					"\"input size\"" + sepChar +
 					"\"nr of diff. rd. inputs\"");
-			for(int i=0; i<values.get(0).length; i++){
-				sb.append(", \"value"+i+"\""); //TODO make column names parametrisable
+			for(int i=0; i<valueDescriptions.length; i++){
+				sb.append(sepChar+valueDescriptions[i]);
 			}
 			sb.append("\n");
 				
@@ -316,17 +363,17 @@ public class HashBenchmarker {
 			sb = new StringBuffer();
 			for(int i=0; i<platfromDesc.size(); i++){
 				sb.append(
-						"\""+platfromDesc.get(i)+"\""+","+
-						"\""+jvmConfDesc.get(i)+"\""+","+
-						"\""+jitConfDesc.get(i)+"\""+","+
-						"\""+digestAlgorithm.get(i)+"\""+","+
-						nrOfMeasurements.get(i)+"\""+","+
-						"\""+digestImmediately.get(i)+"\""+","+
-						inputSize.get(i)+","+
+						"\""+platfromDesc.get(i)+"\""+sepChar+
+						"\""+jvmConfDesc.get(i)+"\""+sepChar+
+						"\""+jitConfDesc.get(i)+"\""+sepChar+
+						"\""+digestAlgorithm.get(i)+"\""+sepChar+
+						nrOfMeasurements.get(i)+"\""+sepChar+
+						"\""+digestImmediately.get(i)+"\""+sepChar+
+						inputSize.get(i)+sepChar+
 						nrOfDifferentRandomInputs.get(i));
 				Long[] valuesToWrite = values.get(i);
 				for(int w = 0; w<valuesToWrite.length; w++){
-					sb.append(","+valuesToWrite[w]);
+					sb.append(sepChar+valuesToWrite[w]);
 				}
 				sb.append("\n");
 			}
@@ -355,7 +402,7 @@ public class HashBenchmarker {
 	 * @param values
 	 * @return
 	 */
-	public String writeToMasterAndPieceCSVFiles(
+	private String writeToMasterAndPieceCSVFiles(
 			String platfromDesc,
 			String jvmConfDesc,
 			String jitConfDesc,
@@ -365,7 +412,8 @@ public class HashBenchmarker {
 			Integer inputSize,
 			Integer nrOfDifferentRandomInputs,
 			String masterFilePath,
-			Long[] values){
+			Long[] values,
+			String[] valueDescriptions){
 		
 		ArrayList<String> a = new ArrayList<String>();
 		a.add(platfromDesc);
@@ -385,8 +433,8 @@ public class HashBenchmarker {
 		h.add(nrOfDifferentRandomInputs);
 		ArrayList<Long[]> i = new ArrayList<Long[]>();
 		i.add(values);
-		return this.writeToMasterAndPieceCSVFiles(a,b,c,d,e,f,g,h,
-				masterFilePath,i);
+		return this.writeToMasterAndPieceCSVFiles(
+				a,b,c,d,e,f,g,h,masterFilePath,i,valueDescriptions);
 	}
 	
 //	private synchronized Map<String,Double> run(int times) throws InterruptedException {

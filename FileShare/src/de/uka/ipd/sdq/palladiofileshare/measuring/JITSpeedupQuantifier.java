@@ -69,7 +69,7 @@ public class JITSpeedupQuantifier {
 	private void writeCSV(List<Long> summary) {
 		FileOutputStream fos;
 		try {
-			fos = new FileOutputStream(
+			fos = new FileOutputStream("./results/"+
 					this.getClass().getName()+
 					"."+System.nanoTime()+".csv");
 			fos.write(new String("Algo;min;median;max;\n").getBytes());

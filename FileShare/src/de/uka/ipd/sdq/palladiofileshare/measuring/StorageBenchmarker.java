@@ -105,7 +105,7 @@ public class StorageBenchmarker {
 		}
 		FileOutputStream fos;
 		try {
-			fos = new FileOutputStream(
+			fos = new FileOutputStream("./results/"+
 					this.getClass().getName()+
 					"."+System.nanoTime()+".csv");
 			fos.write(("Sizes;"+titleCSVline.toString()+"\n").getBytes());

@@ -108,7 +108,7 @@ public class BenchmarkedBytecode {
 		try {
 			reader = new CSVReader(
 					new FileReader(
-							"benchmarkedBytecode/BenchmarkResults.learned_only.csv"), 
+							"./results/benchmarkedBytecode/BenchmarkResults.learned_only.csv"), 
 							';' //separation char
 					);
 		

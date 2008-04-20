@@ -6,6 +6,10 @@ import java.io.IOException;
 
 import au.com.bytecode.opencsv.CSVReader; //from http://opencsv.sourceforge.net/
 
+/** Example for Michael
+ * @author Michael
+ *
+ */
 public class CsvReading {
 	CSVReader reader;
 
