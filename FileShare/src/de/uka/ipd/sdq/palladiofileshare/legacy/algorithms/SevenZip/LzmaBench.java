@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.palladiofileshare.legacy.algorithms.SevenZip;
 
 import java.io.ByteArrayOutputStream;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 public class LzmaBench
