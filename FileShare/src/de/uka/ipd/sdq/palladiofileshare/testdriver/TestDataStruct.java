@@ -7,6 +7,9 @@ public class TestDataStruct {
 	private int[] inputFileTypes;
 	private long uploadId;
 	
+	/**
+	 * @deprecated because parametrised constructor should be used instead
+	 */
 	public TestDataStruct() {
 		try {
 			Thread.sleep(50);
@@ -17,6 +20,21 @@ public class TestDataStruct {
 		this.inputFiles = new byte[0][];
 		this.inputFileIds = new String[0];
 		this.inputFileTypes = new int[0];
+	}
+	
+	public TestDataStruct(
+			String[] inputFileIds,
+			byte[][] inputFiles,
+			int[] inputFileTypes) {
+		try {
+			Thread.sleep(50); //make sure test data struct ids are not identical
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		this.uploadId = System.currentTimeMillis();
+		this.inputFiles = inputFiles;
+		this.inputFileIds = inputFileIds;
+		this.inputFileTypes = inputFileTypes;
 	}
 	
 	public String[] getInputFileIds() {
