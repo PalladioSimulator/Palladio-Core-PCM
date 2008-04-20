@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.palladiofileshare.measuring;
+package de.uka.ipd.sdq.benchmarking;
 
 import java.io.File;
 import java.io.FileWriter;

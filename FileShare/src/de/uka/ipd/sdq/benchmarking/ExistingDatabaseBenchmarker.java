@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.palladiofileshare.measuring;
+package de.uka.ipd.sdq.benchmarking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
