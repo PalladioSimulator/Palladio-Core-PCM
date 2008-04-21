@@ -27,6 +27,8 @@ import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 
 public class SimulationDockServiceImpl implements SimulationDockService {
 
+	public static final String SIMTIME_TOTAL = "SIMTIMETOTAL";
+
 	protected static Logger logger = 
 		Logger.getLogger(SimulationDockServiceImpl.class.getName());
 	
@@ -103,6 +105,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 	private void simulate(final SimuComConfig config, Bundle simulationBundleRef, final EventAdmin eventAdmin, boolean isRemoteRun) {
 		ServiceReference[] services = simulationBundleRef.getRegisteredServices();
 		assert services.length == 1;
+		long start = -1;
 		
 		service = new ServiceTracker(context,services[0],null);
 		service.open();
@@ -113,6 +116,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 				simulationObservers.addObserver(debugObserver);
 			}
 			
+			start = System.nanoTime();
 			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
 			SimuComResult result = ((ISimuComControl)service.getService()).startSimulation(
 					config, simulationObservers, isRemoteRun);
@@ -124,7 +128,9 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 			throw new RuntimeException(ex);
 		} finally {
 			service.close();
-			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STOPPED");
+			Hashtable<String, Object> eventData = new Hashtable<String, Object>();
+			eventData.put(SIMTIME_TOTAL, System.nanoTime()-start);
+			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STOPPED",eventData);
 		}
 	}
 
