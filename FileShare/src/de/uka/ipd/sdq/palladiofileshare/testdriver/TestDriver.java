@@ -49,7 +49,7 @@ public class TestDriver {
 	}
 			
 
-	private static final int DEFAULT_NUMBER_OF_USERS = 10; //default: 30
+	private static final int DEFAULT_NUMBER_OF_USERS = 1; //default: 30
 	
 	private static final int DEFAULT_RANDOM_SEED = 12345; //default: 12345
 	
@@ -244,7 +244,8 @@ public class TestDriver {
 	 */
 	private TestDataStruct createTestDataStruct() {		
 		int numberOfAllFiles = uploadableFiles.length;
-		int numberOfFilesForUpload = random.nextInt(numberOfAllFiles);
+//		logger.warn("numberOfFilesForUpload changed manually!"); //TO DO reverse this...
+		int numberOfFilesForUpload = numberOfAllFiles+random.nextInt(numberOfAllFiles);
 		if(numberOfFilesForUpload == 0) {
 			numberOfFilesForUpload = 1;//TODO document higher probability: important for PCM
 		}
@@ -256,11 +257,11 @@ public class TestDriver {
 		for(int x = 0; x < numberOfFilesForUpload; x++) {
 			//random pick from list of all files
 			int selectedFile = random.nextInt(numberOfAllFiles);
+			inputFileIds[x] = uploadableFiles[selectedFile%numberOfAllFiles];
 			inputFiles[x] =
-					fillBuffer(uploadableFilesDirectory + uploadableFiles[selectedFile]);
-			inputFileIds[x] = uploadableFiles[selectedFile];
-			if(uploadableFiles[selectedFile].endsWith(".txt")
-					|| uploadableFiles[selectedFile].endsWith(".pdf")) {
+					fillBuffer(uploadableFilesDirectory + inputFileIds[x]);
+			if(inputFileIds[x].endsWith(".txt")
+					|| inputFileIds[x].endsWith(".pdf")) {
 				inputFileTypes[x] =
 					FileType.TEXT;
 			} else {
