@@ -42,7 +42,8 @@ public class DistributionComparisonReport extends RReport {
 			SensorAndMeasurements[] sm = new SensorAndMeasurements[2];
 			for (int i = 0; i < 2; i++) {
 				sm[i] = it.next();
-				String rCommand = storeMeasurementsInRVector(sm[i], i) + "\n";
+				String rCommand = storeMeasurementsInRVector(sm[i], i, 
+						TimeseriesData.TIMESPAN) + "\n";
 				
 				t.execute(rCommand);
 				data.add("density(sensor" + i + ")");

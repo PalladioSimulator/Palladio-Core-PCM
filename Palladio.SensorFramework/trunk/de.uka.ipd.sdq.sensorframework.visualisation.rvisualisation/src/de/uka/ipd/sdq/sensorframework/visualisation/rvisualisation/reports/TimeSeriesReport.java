@@ -54,7 +54,8 @@ public class TimeSeriesReport extends RReport {
 		for (int i = 0; i < c.size(); i++) {
 			SensorAndMeasurements sm = it.next();
 			
-			String rCommand = storeMeasurementsInRVector(sm, i) + "\n";
+			String rCommand = storeMeasurementsInRVector(sm, i, 
+					TimeseriesData.TIMESPAN) + "\n";
 			Vector<REXP> result = t.execute(rCommand);
 			// Comment in if file transfer is used for the measurements
 			if (!t.getLastConsoleMessage().equalsIgnoreCase("Read " 

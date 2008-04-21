@@ -31,7 +31,8 @@ public class DemandTimeReport extends RReport {
 		for (int i = 0; i < c.size(); i++) {
 			SensorAndMeasurements sm = it.next();
 			
-			String rCommand = storeMeasurementsInRVector(sm, i) + "\n";
+			String rCommand = storeMeasurementsInRVector(sm, i, 
+					TimeseriesData.TIMESPAN) + "\n";
 			t.execute(rCommand);
 			
 			rCommand = "sum(sensor" + i + ")\n";
