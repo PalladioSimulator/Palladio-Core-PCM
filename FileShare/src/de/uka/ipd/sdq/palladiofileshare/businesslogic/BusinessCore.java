@@ -31,16 +31,33 @@ public class BusinessCore {
 	
 //	private CompressionRunner compression;
 	
-	// sub-components (internal)
+	/**
+	 * internal sub-component
+	 */
+	@SuppressWarnings("unused") //because isCopyrightedMaterial currently always returning true
 	private CopyrightedMaterialDatabase copyDB;
+
+	/**
+	 * internal sub-component
+	 */
 	private ExistingFilesDatabase fileDB;
+	
+	/**
+	 * internal sub-component
+	 */
 	private Hash hash;
 	
 	// KK-Log:
 	private de.uka.ipd.sdq.logger.Logger kkLogger;
 	
+	/**
+	 * external sub-component
+	 */
 	private IStorage storageSubSystemLargeFiles;
 	
+	/**
+	 * external sub-component
+	 */
 	private IStorage storageSubSystemSmallFiles;
 
 	@SuppressWarnings("unused")
@@ -60,6 +77,10 @@ public class BusinessCore {
 		kkLogger.setAutomaticLogLineAndMethodMode(true);    	
 	}
 
+	/**
+	 * Results in an external service call
+	 * @param hash
+	 */
 	private void addFileToFileExistingDB(byte[] hash) {
 		this.fileDB.addNewFileHash(hash);				
 	}
@@ -74,20 +95,42 @@ public class BusinessCore {
 		return hash.getMessageDigest(inputBytes);		
 	}	
 	
+	/**
+	 * @deprecated because always returning true
+	 * @param hash
+	 * @return
+	 */
 	private boolean isCopyrightedMaterial(byte[] hash) {
-		boolean isCopyrighted = this.copyDB.isCopyrightedMaterial(hash);				
+		boolean isCopyrighted = true;
+//		isCopyrighted = this.copyDB.isCopyrightedMaterial(hash);				
 		return isCopyrighted;
 	}
 	
+	/**
+	 * @deprecated because always returning true
+	 * @param hash
+	 * @return
+	 */
 	private boolean isFileExistingInDB(byte[] hash) {		
-		boolean isFileInDB = this.fileDB.existsInDatabase(hash);
+		boolean isFileInDB = true;
+//		isFileInDB = this.fileDB.existsInDatabase(hash);
 		return isFileInDB;
 	}
 	
+	/**
+	 * Results in an external service call
+	 * @param file
+	 * @param fileHash
+	 */
 	private void storeLargeFile(byte[] file, byte[] fileHash) {
 		this.storageSubSystemLargeFiles.storeFile(file, fileHash, true);
 	}
 	
+	/**
+	 * Results in an external service call
+	 * @param file
+	 * @param fileHash
+	 */
 	private void storeSmallFile(byte[] file, byte[] fileHash) {
 		this.storageSubSystemSmallFiles.storeFile(file, fileHash, true);
 	}
