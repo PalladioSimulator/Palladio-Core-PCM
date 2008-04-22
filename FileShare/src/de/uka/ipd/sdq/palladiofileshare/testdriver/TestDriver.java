@@ -108,6 +108,8 @@ public class TestDriver {
 	private static final String uploadableFilesDirectory = "input/testFiles/";
 	
 	private static final int userArrivalDelayMs = 5000;
+
+	private static final int DEFAULT_UPLOADED_FILES_NR = 10*uploadableFiles.length;//numberOfAllFiles+random.nextInt(numberOfAllFiles);
 	
 	/**
 	 * from SPEC
@@ -245,7 +247,7 @@ public class TestDriver {
 	private TestDataStruct createTestDataStruct() {		
 		int numberOfAllFiles = uploadableFiles.length;
 //		logger.warn("numberOfFilesForUpload changed manually!"); //TO DO reverse this...
-		int numberOfFilesForUpload = numberOfAllFiles+random.nextInt(numberOfAllFiles);
+		int numberOfFilesForUpload = DEFAULT_UPLOADED_FILES_NR;
 		if(numberOfFilesForUpload == 0) {
 			numberOfFilesForUpload = 1;//TODO document higher probability: important for PCM
 		}
@@ -257,16 +259,12 @@ public class TestDriver {
 		for(int x = 0; x < numberOfFilesForUpload; x++) {
 			//random pick from list of all files
 			int selectedFile = random.nextInt(numberOfAllFiles);
-			inputFileIds[x] = uploadableFiles[selectedFile%numberOfAllFiles];
-			inputFiles[x] =
-					fillBuffer(uploadableFilesDirectory + inputFileIds[x]);
-			if(inputFileIds[x].endsWith(".txt")
-					|| inputFileIds[x].endsWith(".pdf")) {
-				inputFileTypes[x] =
-					FileType.TEXT;
+			inputFileIds[x]  = uploadableFiles[selectedFile%numberOfAllFiles];//TODO module computation unneeded?
+			inputFiles[x]    = fillBuffer(uploadableFilesDirectory + inputFileIds[x]);
+			if(inputFileIds[x].endsWith(".txt") || inputFileIds[x].endsWith(".pdf")) {
+				inputFileTypes[x] = FileType.TEXT;
 			} else {
-				inputFileTypes[x] =
-					FileType.COMPRESSED;
+				inputFileTypes[x] = FileType.COMPRESSED;
 			}
 		}
 
