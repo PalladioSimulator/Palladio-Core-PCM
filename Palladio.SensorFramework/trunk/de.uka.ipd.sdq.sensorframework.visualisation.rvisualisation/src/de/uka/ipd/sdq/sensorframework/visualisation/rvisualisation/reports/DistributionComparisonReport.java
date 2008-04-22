@@ -42,30 +42,29 @@ public class DistributionComparisonReport extends RReport {
 			SensorAndMeasurements[] sm = new SensorAndMeasurements[2];
 			for (int i = 0; i < 2; i++) {
 				sm[i] = it.next();
-				String rCommand = storeMeasurementsInRVector(sm[i], i, 
-						TimeseriesData.TIMESPAN) + "\n";
+				String sensorName = storeMeasurementsInRVector(sm[i], i, 
+						TimeseriesData.TIMESPAN, t);
 				
-				t.execute(rCommand);
-				data.add("density(sensor" + i + ")");
+				data.add("density(" + sensorName + ")");
 
 				DensityPlotReportItem densityPlot = 
 					new DensityPlotReportItem("Distribution/Density Plot", 
-							"Time");
+						"Time");
 				densityPlot.addData(sm[i].getSensor().getSensorName(), 
-						"Response Time", "density(sensor" + i + ")");
+						"Response Time", "density(" + sensorName + ")");
 				items.add(densityPlot);
 
-				rCommand = "length(sensor" + i + ")\n";
+				String rCommand = "length(" + sensorName + ")\n";
 				items.add(new RCommandRReportItem(rCommand,
 						"Number of observations of Sensor "
-								+ sm[i].getSensor().getSensorName()));
-				rCommand = "mean(sensor" + i + ")\n";
+						+ sm[i].getSensor().getSensorName()));
+				rCommand = "mean(" + sensorName + ")\n";
 				items.add(new RCommandRReportItem(rCommand, "Mean of Sensor "
 						+ sm[i].getSensor().getSensorName()));
-				rCommand = "sd(sensor" + i + ")\n";
+				rCommand = "sd(" + sensorName + ")\n";
 				items.add(new RCommandRReportItem(rCommand,
 						"Standard-Deviation of Sensor "
-								+ sm[i].getSensor().getSensorName()));
+						+ sm[i].getSensor().getSensorName()));
 			}
 //			DensityPlotReportItem densityPlot = 
 //				new DensityPlotReportItem("Combined Distribution/Density Plot", 
@@ -111,7 +110,7 @@ public class DistributionComparisonReport extends RReport {
 			int max = (sm[0].getMeasurements().size() < sm[1].getMeasurements()
 					.size() ? sm[0].getMeasurements().size() : sm[1]
 					.getMeasurements().size());
-			max = max > 2500 ? 2500 : max; 
+			max = (max > 2500) ? 2500 : max; 
 			
 			
 			items.add(pos++, 

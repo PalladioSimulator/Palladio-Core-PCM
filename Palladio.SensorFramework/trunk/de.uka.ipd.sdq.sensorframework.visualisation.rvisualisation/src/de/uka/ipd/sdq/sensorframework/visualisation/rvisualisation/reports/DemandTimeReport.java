@@ -31,11 +31,10 @@ public class DemandTimeReport extends RReport {
 		for (int i = 0; i < c.size(); i++) {
 			SensorAndMeasurements sm = it.next();
 			
-			String rCommand = storeMeasurementsInRVector(sm, i, 
-					TimeseriesData.TIMESPAN) + "\n";
-			t.execute(rCommand);
+			String sensorName = storeMeasurementsInRVector(sm, i, 
+					TimeseriesData.TIMESPAN, t);
 			
-			rCommand = "sum(sensor" + i + ")\n";
+			String rCommand = "sum(" + sensorName + ")\n";
 			items.add(new RCommandRReportItem(rCommand, 
 					"Resource demand of " + sm.getSensor().getSensorName()));
 		} 

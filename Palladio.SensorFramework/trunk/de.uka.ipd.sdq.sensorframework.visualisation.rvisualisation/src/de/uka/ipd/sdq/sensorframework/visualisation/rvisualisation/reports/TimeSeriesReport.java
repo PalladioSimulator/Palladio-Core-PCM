@@ -3,13 +3,8 @@ package de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Vector;
-
-import org.eclipse.core.runtime.IStatus;
-import org.rosuda.JRI.REXP;
 
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.CdfReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.HistogramReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.IReportItem;
@@ -54,38 +49,23 @@ public class TimeSeriesReport extends RReport {
 		for (int i = 0; i < c.size(); i++) {
 			SensorAndMeasurements sm = it.next();
 			
-			String rCommand = storeMeasurementsInRVector(sm, i, 
-					TimeseriesData.TIMESPAN) + "\n";
-			Vector<REXP> result = t.execute(rCommand);
-			// Comment in if file transfer is used for the measurements
-			if (!t.getLastConsoleMessage().equalsIgnoreCase("Read " 
-					+ sm.getMeasurements().size() + " items\n")) {
-				String rResults = "Executing command: '" + rCommand + "' with ";
-				for (REXP currentResult : result) {
-					rResults += "String: " + currentResult.asString() 
-						+ ", SymbolName: " + currentResult.asSymbolName() 
-						+ ", Type: " + currentResult.getType() + "\n";
-				}
-				RVisualisationPlugin.log(IStatus.INFO,
-					"Storing Measurements in R via file is most likely wrong. Last message "
-					+ "on the console was: " + t.getLastConsoleMessage()
-					+ "R returned:\n" + rResults);
-			}
+			String sensorName = storeMeasurementsInRVector(sm, i, 
+					TimeseriesData.TIMESPAN, t);
 			
-			items.add(new SummaryReportItem("sensor" + i, 
+			items.add(new SummaryReportItem(sensorName, 
 				sm.getSensor().getSensorName()));
-			hrt.addData("s" + i, sm.getSensor().getSensorName(), "sensor" + i);
-			cdf.addData("s" + i, sm.getSensor().getSensorName(), "sensor" + i);
-			pdf.addData("s" + i, sm.getSensor().getSensorName(), "sensor" + i);
+			hrt.addData("s" + i, sm.getSensor().getSensorName(), sensorName);
+			cdf.addData("s" + i, sm.getSensor().getSensorName(), sensorName);
+			pdf.addData("s" + i, sm.getSensor().getSensorName(), sensorName);
 			
-			rCommand = "length(sensor" + i + ")\n";
+			String rCommand = "length(" + sensorName + ")\n";
 			items.add(new RCommandRReportItem(rCommand, 
 				"Number of observations of Sensor " 
 					+ sm.getSensor().getSensorName()));
-			rCommand = "mean(sensor" + i + ")\n";
+			rCommand = "mean(" + sensorName + ")\n";
 			items.add(new RCommandRReportItem(rCommand, 
 				"Mean of Sensor " + sm.getSensor().getSensorName()));
-			rCommand = "sd(sensor" + i + ")\n";
+			rCommand = "sd(" + sensorName + ")\n";
 			items.add(new RCommandRReportItem(rCommand, 
 					"Standard-Deviation of Sensor " 
 					+ sm.getSensor().getSensorName()));

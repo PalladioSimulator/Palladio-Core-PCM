@@ -5,8 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Vector;
 
 import org.eclipse.core.runtime.IStatus;
+import org.rosuda.JRI.REXP;
 
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
@@ -20,6 +22,18 @@ import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnec
  * @author groenda
  */
 public abstract class RReport {
+	/** The default setting for data transfer to R. */
+	public static final TransferType TRANSFER_TYPE = TransferType.FILE;
+	
+	/**Transfer data to R by the specified type.
+	 * @author groenda
+	 */
+	public enum TransferType {
+		/** Transfer by temporary files. */
+		FILE,
+		/** Transfer by memory. */
+		MEMORY
+	}
 	/**Identifier for subsets of data elements that belong to a single
 	 * time series element.
 	 * @see TimeSeries
@@ -48,10 +62,10 @@ public abstract class RReport {
 			RConnection rConnection);
 	
 	/**Export the measurements of a sensor to R. 
-	 * There are two alternatives. Normally, the measurements are transferred 
-	 * via an array, which has certain size restrictions. An Alternative is 
-	 * to use a temporary file and use the R command line to import this data 
-	 * is returned. The behavior can only be switched in source code.
+	 * There are two alternatives. The measurements can be transferred 
+	 * via an array, which implies certain size restrictions. An alternative is
+	 * to use a temporary file. The behavior can only be switched in source 
+	 * code by the constant <code>TRANSFER_TYPE</code>.
 	 * Variable names in R are as follows:<br /> 
 	 *   For timespan data: "sensor" + #<br />
 	 *   For eventtime data: "sensor" + # + "_ET")<br />
@@ -59,29 +73,51 @@ public abstract class RReport {
 	 * @param measurements Measurements for a sensor.
 	 * @param sensorNumber number of the sensor vector in R.
 	 * @param dataSelection the data element to save.
-	 * @return R command to read measurements. 
-	 *         It is stored in the vector <code>sensor</code>i.
+	 * @param rConnection Connection to the R engine.
+	 * @return R variable name which contains the data.
 	 */
 	protected String storeMeasurementsInRVector(
 			final SensorAndMeasurements measurements, final int sensorNumber,
-			final TimeseriesData dataSelection) {
-//		// Activate to transfer data via memory
-//		double[] measurementsArray = prepareExportToRByMemory(measurements);
-//		RConnection.getRConnection().assign(
-//				"sensor" + sensorNumber, measurementsArray);
-//		return "";
-		
-		// Activate to transfer data via temporary file
-		String rCommand = prepareExportToRByFile(measurements, dataSelection);
-		if (rCommand != "") {
-			if (dataSelection == TimeseriesData.TIMESPAN) {
-				rCommand = "sensor" + sensorNumber + " <- " + rCommand + "\n";
-			}
+			final TimeseriesData dataSelection, final RConnection rConnection) {
+		String sensorName = null;
+
+		if (dataSelection == TimeseriesData.TIMESPAN) {
+			sensorName = "sensor" + sensorNumber; 
+		} else 
 			if (dataSelection == TimeseriesData.EVENTTIME) {
-				rCommand = "sensor" + sensorNumber + "_ET <- " + rCommand + "\n";
-			}
+			sensorName = "sensor" + sensorNumber + "_ET";
+		} else {
+			throw new RuntimeException("Unknown data element of time series.");
 		}
-		return rCommand;
+
+		if (TRANSFER_TYPE == TransferType.MEMORY) {
+			// Activate to transfer data via memory
+			double[] measurementsArray = 
+				prepareExportToRByMemory(measurements, dataSelection);
+			rConnection.assign(sensorName, measurementsArray);
+		}
+		if (TRANSFER_TYPE == TransferType.FILE) {
+			// Activate to transfer data via temporary file
+			String rCommand = sensorName + " <- "
+				+ prepareExportToRByFile(measurements, dataSelection);
+			Vector<REXP> result = rConnection.execute(rCommand);
+			// Error handling
+			if (!rConnection.getLastConsoleMessage().equalsIgnoreCase("Read " 
+					+ measurements.getMeasurements().size() + " items\n")) {
+				String rResults = "Executing command: '" + rCommand + "' with ";
+				for (REXP currentResult : result) {
+					rResults += "String: " + currentResult.asString() 
+						+ ", SymbolName: " + currentResult.asSymbolName() 
+						+ ", Type: " + currentResult.getType() + "\n";
+				}
+				RVisualisationPlugin.log(IStatus.INFO,
+					"Storing Measurements in R via file is most likely wrong. Last message "
+					+ "on the console was: " + rConnection.getLastConsoleMessage()
+					+ "R returned:\n" + rResults);
+			}
+
+		}
+		return sensorName;
 	}
 	
 	/**Prepares the export the measurements of a sensor to R. Therefore an 
