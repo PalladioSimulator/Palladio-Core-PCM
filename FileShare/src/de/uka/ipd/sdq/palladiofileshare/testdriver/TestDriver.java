@@ -28,6 +28,43 @@ import de.uka.ipd.sdq.palladiofileshare.businesslogic.IBusinessFacade;
 
 public class TestDriver {
 	
+	public class InputFileStruct{
+		public byte[] data;
+		public String id;
+		public int type;
+		
+		public InputFileStruct( 
+				byte[] data,
+				String id,
+				int type){
+			this.id = id;
+			this.data = data;
+			this.type = type;
+		}
+		
+		public int compareTo(){//<InputFileStruct>
+			return 0;
+		}
+		
+		public void convertListToLists(
+				List<InputFileStruct> input,
+				byte[][] outputData,
+				String[] outputId,
+				int[] outputType
+				){
+			InputFileStruct currInputFileStruct;
+			int i=0;
+			for (Iterator<InputFileStruct> iterator = input.iterator(); 
+				iterator.hasNext();) {
+				currInputFileStruct = iterator.next();
+				outputData[i] = currInputFileStruct.data;
+				outputId[i] = currInputFileStruct.id;
+				outputType[i] = currInputFileStruct.type;
+				i++;
+			}
+		}
+	}
+
 	public class MeasurementResultByFileId{
 		public long durationPartOne;
 		public long durationPartTwo;
@@ -49,44 +86,9 @@ public class TestDriver {
 		}
 	}
 
-	public class InputFileStruct{
-		public byte[] data;
-		public String id;
-		public int type;
-		
-		public InputFileStruct( 
-				byte[] data,
-				String id,
-				int type){
-			this.id = id;
-			this.data = data;
-			this.type = type;
-		}
-		
-		public void convertListToLists(
-				List<InputFileStruct> input,
-				byte[][] outputData,
-				String[] outputId,
-				int[] outputType
-				){
-			InputFileStruct currInputFileStruct;
-			int i=0;
-			for (Iterator<InputFileStruct> iterator = input.iterator(); 
-				iterator.hasNext();) {
-				currInputFileStruct = iterator.next();
-				outputData[i] = currInputFileStruct.data;
-				outputId[i] = currInputFileStruct.id;
-				outputType[i] = currInputFileStruct.type;
-				i++;
-			}
-		}
-		
-		public int compareTo(){//<InputFileStruct>
-			return 0;
-		}
-	}
-
 	private static final int DEFAULT_NUMBER_OF_USERS = 1; //default: 30
+	
+	private static final int DEFAULT_PERMUTATION_REPEATABILITY_FACTOR = 4;
 	
 	private static final int DEFAULT_RANDOM_SEED = 12345; //default: 12345
 	
@@ -124,38 +126,36 @@ public class TestDriver {
 //			"large.zip"
 		};
 	
+	/**
+	 * needs to terminate with a "/"
+	 */
+	private static final String DEFAULT_UPLOADABLE_FILES_DIRECTORY = "input/testFiles/";
+	
 	private static final int DEFAULT_UPLOADED_FILES_NR = 10*DEFAULT_UPLOADABLE_FILES.length;//numberOfAllFiles+random.nextInt(numberOfAllFiles);
 	
+	private static final int DEFAULT_USER_ARRIVAL_DELAY_MS = 5000;
+
 	private static IBusinessFacade facade;
-	
+
 	private static Logger logger = Logger.getLogger(TestDriver.class);
-	
-	private static int numberOfOpenUploads = 0;
-
-	private static int numberOfUsers = DEFAULT_NUMBER_OF_USERS;
-
-	private static Random random;
 		
+	private static int numberOfOpenUploads = 0;
+	
+	private static int numberOfUsers = DEFAULT_NUMBER_OF_USERS;
+	
+	private static Random random;
+	
 	private static TestDriver singletonTestDriver;
 	
 	//List because each TestDataStruct contains several files
 	private static Map<TestDataStruct, long[]> totalMeasurements;
 	
-	private boolean generatePermutationOfAllUploadableFiles = true;
-	
-	/**
-	 * needs to terminate with a "/"
-	 */
-	private static final String uploadableFilesDirectory = "input/testFiles/";
-	
-	private static final int userArrivalDelayMs = 5000;
-
 	/**
 	 * from SPEC
 	 * @param fileName
 	 * @return
 	 */
-    private static byte[] fillBuffer(String fileName) {
+    private static byte[] fillByteBufferFromFile(String fileName) {
         try {
             FileInputStream sif = new FileInputStream(fileName);
             int length = (int) new File(fileName).length();
@@ -187,14 +187,14 @@ public class TestDriver {
         
         return null;
     }
-	
+
 	public static TestDriver getInstance() {
 		if(singletonTestDriver==null){
 			singletonTestDriver = new TestDriver();
 		}
 		return singletonTestDriver;
 	}
-
+	
 	public static void main(String args[]) {
 		
 		boolean measure = true;
@@ -242,6 +242,8 @@ public class TestDriver {
     	}
     }
 
+	private boolean generatePermutationOfAllUploadableFiles = true;
+
 	public TestDriver() {	
 		random = new Random(DEFAULT_RANDOM_SEED);
 		facade = new BusinessFacade();
@@ -263,7 +265,7 @@ public class TestDriver {
 //		//random pick from list of all files
 //		int selectedFile = random.nextInt(numberOfAllFiles);
 //		inputFiles[0] =
-//				fillBuffer(uploadableFilesDirectory + DEFAULT_UPLOADABLE_FILES[selectedFile]);
+//				fillBuffer(DEFAULT_UPLOADABLE_FILES_DIRECTORY + DEFAULT_UPLOADABLE_FILES[selectedFile]);
 //		if(DEFAULT_UPLOADABLE_FILES[selectedFile].endsWith(".txt")) {
 //			inputFileTypes[0] =
 //				FileType.TEXT;
@@ -289,7 +291,7 @@ public class TestDriver {
 		
 		int numberOfFilesForUpload;
 		if(generatePermutationOfAllUploadableFiles){
-			numberOfFilesForUpload = numberOfAllFiles;
+			numberOfFilesForUpload = numberOfAllFiles*DEFAULT_PERMUTATION_REPEATABILITY_FACTOR;
 		}else{
 			numberOfFilesForUpload = DEFAULT_UPLOADED_FILES_NR;
 		}
@@ -297,6 +299,33 @@ public class TestDriver {
 			numberOfFilesForUpload = 1;//TODO document higher probability: important for PCM
 		}
 		
+		TestDataStruct testData = generateRandomTestData(numberOfAllFiles,
+				numberOfFilesForUpload);
+		return testData;//TODO log this instance!
+	}
+
+	/**
+     * KK: Parameter logging
+     */
+	private void finishKKLogging() {
+		try {
+			Thread.sleep(100000);
+		} catch (InterruptedException e) {
+			logger.error(e);
+		}
+		// KK-Log:
+		// Specific Setup
+		LogFilter logFilter = new LogFilter(true);		
+		
+		// Outputs
+		Log.WriteToFile(LogPrinterFactory.getCSVOutput(), logFilter, new java.io.File("c:\\out.csv"));
+		    		    	
+		Log.invalidateCache();		
+	}    
+    
+	private TestDataStruct generateRandomTestData(
+			int numberOfAllFiles,
+			int numberOfFilesForUpload) {
 		byte[][] inputFiles;
 		int[] inputFileTypes;
 		String[] inputFileIds;
@@ -317,7 +346,7 @@ public class TestDriver {
 			}
 
 			inputFileIds[x]  = DEFAULT_UPLOADABLE_FILES[selectedFile];
-			inputFiles[x]    = fillBuffer(uploadableFilesDirectory + inputFileIds[x]);
+			inputFiles[x]    = fillByteBufferFromFile(DEFAULT_UPLOADABLE_FILES_DIRECTORY + inputFileIds[x]);
 			if(inputFileIds[x].endsWith(".txt") || inputFileIds[x].endsWith(".pdf")) {
 				inputFileTypes[x] = FileType.TEXT;
 			} else {
@@ -345,33 +374,14 @@ public class TestDriver {
 				inputFileIds,
 				inputFiles,
 				inputFileTypes);
-		return testData;//TODO log this instance!
-	}    
-    
-	/**
-     * KK: Parameter logging
-     */
-	private void finishKKLogging() {
-		try {
-			Thread.sleep(100000);
-		} catch (InterruptedException e) {
-			logger.error(e);
-		}
-		// KK-Log:
-		// Specific Setup
-		LogFilter logFilter = new LogFilter(true);		
-		
-		// Outputs
-		Log.WriteToFile(LogPrinterFactory.getCSVOutput(), logFilter, new java.io.File("c:\\out.csv"));
-		    		    	
-		Log.invalidateCache();		
+		return testData;
 	}
 
 	private void printInputFileSizesToCSV(){
 		File f;
 		StringBuffer csvSB = new StringBuffer();
 		for(int i=0; i<DEFAULT_UPLOADABLE_FILES.length; i++){
-			f = new File(uploadableFilesDirectory+DEFAULT_UPLOADABLE_FILES[i]);
+			f = new File(DEFAULT_UPLOADABLE_FILES_DIRECTORY+DEFAULT_UPLOADABLE_FILES[i]);
 			csvSB.append(DEFAULT_UPLOADABLE_FILES[i]+";"+f.length()+";"+"\n");
 		}
 //		logger.debug(csvSB.toString());
@@ -660,7 +670,7 @@ public class TestDriver {
 
     	for(int x = 0; x < numberOfUsers; x++) {
 			try {
-				Thread.sleep(userArrivalDelayMs);
+				Thread.sleep(DEFAULT_USER_ARRIVAL_DELAY_MS);
 			} catch (InterruptedException e) {
 				logger.error(e);
 			}
