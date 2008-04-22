@@ -33,7 +33,7 @@ public class HashBenchmarker {
 	 * not overwritten, but rather extended by appending new results
 	 */
 	private static final String DEFAULT_MASTER_CSV_FILE 
-		= "./results/HashBenchmarker.Master.csv";
+		= "."+File.separator+"results"+File.separator+"HashBenchmarker.Master.csv";
 	
 	/**
 	 * This field maps the hash algorithm names (e.g. "SHA-512") to the 
@@ -293,7 +293,7 @@ public class HashBenchmarker {
 				new Boolean(digestImmediately), 
 				new Integer(inputSize), 
 				new Integer(nrOfDifferentRandomInputs), 
-				"\""+DEFAULT_MASTER_CSV_FILE+"\"", 
+				DEFAULT_MASTER_CSV_FILE, 
 				ret,
 				new String[]{
 					"\"median of getInstance\"",
@@ -333,12 +333,19 @@ public class HashBenchmarker {
 		String retString = null;
 		String sepChar = ";";
 		try {
+			File currDir = new File(".");
+			System.out.println(currDir.getAbsolutePath());
 			File masterFile = new File(masterFilePath);
 			boolean masterFileExists = masterFile.exists();
-			log.debug(masterFile.length());
-			fwMaster = new FileWriter(masterFilePath, true);
+//			log.debug("masterFile length: "+masterFile.length());
+//			if(!masterFileExists){
+//				log.debug("masterFile created: "+masterFile.createNewFile());
+//			}
+			fwMaster = new FileWriter(masterFilePath, masterFileExists);
+			
 			fwPiece = new FileWriter(
-				("./results/HashBenchmarker."+System.currentTimeMillis()+".csv"), 
+				("."+File.separator+"results"+File.separator+
+						"HashBenchmarker."+System.currentTimeMillis()+".csv"), 
 				true);
 			
 			StringBuffer sb = new StringBuffer();
