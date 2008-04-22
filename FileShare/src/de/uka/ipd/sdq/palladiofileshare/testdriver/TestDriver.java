@@ -47,28 +47,12 @@ public class TestDriver {
 			this.durationPartTwo = durationPartTwo;
 		}
 	}
-			
 
 	private static final int DEFAULT_NUMBER_OF_USERS = 1; //default: 30
 	
 	private static final int DEFAULT_RANDOM_SEED = 12345; //default: 12345
 	
-	private static IBusinessFacade facade;
-	
-	private static Logger logger = Logger.getLogger(TestDriver.class);
-	
-	private static int numberOfOpenUploads = 0;
-	
-	private static int numberOfUsers = DEFAULT_NUMBER_OF_USERS;
-	
-	private static Random random;
-
-	private static TestDriver singletonTestDriver;
-
-	//List because each TestDataStruct contains several files
-	private static Map<TestDataStruct, long[]> totalMeasurements;
-		
-	private static final String[] uploadableFiles = {
+	private static final String[] DEFAULT_UPLOADABLE_FILES = {
 			"j0.jpg",
 			"j1.jpg",
 			"j2.jpg",
@@ -102,6 +86,23 @@ public class TestDriver {
 //			"large.zip"
 		};
 	
+	private static final int DEFAULT_UPLOADED_FILES_NR = 10*DEFAULT_UPLOADABLE_FILES.length;//numberOfAllFiles+random.nextInt(numberOfAllFiles);
+	
+	private static IBusinessFacade facade;
+	
+	private static Logger logger = Logger.getLogger(TestDriver.class);
+	
+	private static int numberOfOpenUploads = 0;
+
+	private static int numberOfUsers = DEFAULT_NUMBER_OF_USERS;
+
+	private static Random random;
+		
+	private static TestDriver singletonTestDriver;
+	
+	//List because each TestDataStruct contains several files
+	private static Map<TestDataStruct, long[]> totalMeasurements;
+	
 	/**
 	 * needs to terminate with a "/"
 	 */
@@ -109,8 +110,6 @@ public class TestDriver {
 	
 	private static final int userArrivalDelayMs = 5000;
 
-	private static final int DEFAULT_UPLOADED_FILES_NR = 10*uploadableFiles.length;//numberOfAllFiles+random.nextInt(numberOfAllFiles);
-	
 	/**
 	 * from SPEC
 	 * @param fileName
@@ -148,7 +147,7 @@ public class TestDriver {
         
         return null;
     }
-
+	
 	public static TestDriver getInstance() {
 		if(singletonTestDriver==null){
 			singletonTestDriver = new TestDriver();
@@ -201,21 +200,21 @@ public class TestDriver {
     	if(numberOfOpenUploads==0){ //write CSV file here
     		TestDriver.getInstance().reportCompletedMeasurements(uploadId);
     	}
-    }	
-		
+    }
+
 	public TestDriver() {	
 		random = new Random(DEFAULT_RANDOM_SEED);
 		facade = new BusinessFacade();
 		totalMeasurements = new HashMap<TestDataStruct, long[]>(numberOfUsers);
-	}    
-    
+	}	
+		
 	//	/**
 //	 * Creates a one file selection from the list of files.
 //	 * @return
 //	 */
 //	@SuppressWarnings("unused")
 //	private TestDataStruct createSingleFileTestDataStruct() {		
-//		int numberOfAllFiles = uploadableFiles.length;
+//		int numberOfAllFiles = DEFAULT_UPLOADABLE_FILES.length;
 //		int numberOfFilesForUpload = 1;
 //	
 //		byte[][] inputFiles = new byte[numberOfFilesForUpload][];
@@ -224,8 +223,8 @@ public class TestDriver {
 //		//random pick from list of all files
 //		int selectedFile = random.nextInt(numberOfAllFiles);
 //		inputFiles[0] =
-//				fillBuffer(uploadableFilesDirectory + uploadableFiles[selectedFile]);
-//		if(uploadableFiles[selectedFile].endsWith(".txt")) {
+//				fillBuffer(uploadableFilesDirectory + DEFAULT_UPLOADABLE_FILES[selectedFile]);
+//		if(DEFAULT_UPLOADABLE_FILES[selectedFile].endsWith(".txt")) {
 //			inputFileTypes[0] =
 //				FileType.TEXT;
 //		} else {
@@ -245,7 +244,7 @@ public class TestDriver {
 	 * @return
 	 */
 	private TestDataStruct createTestDataStruct() {		
-		int numberOfAllFiles = uploadableFiles.length;
+		int numberOfAllFiles = DEFAULT_UPLOADABLE_FILES.length;
 //		logger.warn("numberOfFilesForUpload changed manually!"); //TO DO reverse this...
 		int numberOfFilesForUpload = DEFAULT_UPLOADED_FILES_NR;
 		if(numberOfFilesForUpload == 0) {
@@ -259,7 +258,7 @@ public class TestDriver {
 		for(int x = 0; x < numberOfFilesForUpload; x++) {
 			//random pick from list of all files
 			int selectedFile = random.nextInt(numberOfAllFiles);
-			inputFileIds[x]  = uploadableFiles[selectedFile%numberOfAllFiles];//TODO module computation unneeded?
+			inputFileIds[x]  = DEFAULT_UPLOADABLE_FILES[selectedFile%numberOfAllFiles];//TODO module computation unneeded?
 			inputFiles[x]    = fillBuffer(uploadableFilesDirectory + inputFileIds[x]);
 			if(inputFileIds[x].endsWith(".txt") || inputFileIds[x].endsWith(".pdf")) {
 				inputFileTypes[x] = FileType.TEXT;
@@ -274,8 +273,8 @@ public class TestDriver {
 				inputFiles,
 				inputFileTypes);
 		return testData;//TODO log this instance!
-	}
-
+	}    
+    
 	/**
      * KK: Parameter logging
      */
@@ -293,6 +292,26 @@ public class TestDriver {
 		Log.WriteToFile(LogPrinterFactory.getCSVOutput(), logFilter, new java.io.File("c:\\out.csv"));
 		    		    	
 		Log.invalidateCache();		
+	}
+
+	private void printInputFileSizesToCSV(){
+		File f;
+		StringBuffer csvSB = new StringBuffer();
+		for(int i=0; i<DEFAULT_UPLOADABLE_FILES.length; i++){
+			f = new File(uploadableFilesDirectory+DEFAULT_UPLOADABLE_FILES[i]);
+			csvSB.append(DEFAULT_UPLOADABLE_FILES[i]+";"+f.length()+";"+"\n");
+		}
+//		logger.debug(csvSB.toString());
+		try {
+			String fileSizesCSVPath = "results"+File.separator+"UploadFileSizes.csv";
+			f = new File(fileSizesCSVPath);
+			if(f.exists()) f.delete();
+			f=null;
+			FileOutputStream fw = new FileOutputStream(fileSizesCSVPath);
+			fw.write(csvSB.toString().getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	} 
 	
 /**Format of the CSV file: 
@@ -455,8 +474,8 @@ public class TestDriver {
 		FileOutputStream fos;
 		Map<String , List<MeasurementResultByFileId>> resultsByFileId;
 		resultsByFileId = new HashMap<String, List<MeasurementResultByFileId>>();
-		for(int i=0; i<uploadableFiles.length; i++){
-			resultsByFileId.put(uploadableFiles[i], new ArrayList<MeasurementResultByFileId>());
+		for(int i=0; i<DEFAULT_UPLOADABLE_FILES.length; i++){
+			resultsByFileId.put(DEFAULT_UPLOADABLE_FILES[i], new ArrayList<MeasurementResultByFileId>());
 		}
 		
 		long fileNameRoot = System.currentTimeMillis();
@@ -547,7 +566,8 @@ public class TestDriver {
     		boolean measure, 
     		boolean monitor) {		
 		logger.debug("Measure: "+measure+", monitor: "+monitor);
-    	
+		printInputFileSizesToCSV();
+		
 		//getting singleton to prevent the costs during "real" measurements
 		CopyrightedMaterialDatabase cmd = CopyrightedMaterialDatabase.getSingleton();
 		logger.debug("CopyrightedMaterialDatabase test: "+cmd.isCopyrightedMaterial(new byte[]{1}));
