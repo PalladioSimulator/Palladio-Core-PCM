@@ -15,7 +15,7 @@ public class ExistingFilesDatabase {
 
 	private static Set<Integer> fileHashes;
 	private static Logger logger = Logger.getLogger(ExistingFilesDatabase.class);
-	private static final int numberOfFilesInDB = 100000;
+	private static final int numberOfFilesInDB = 10*1000;
 	private static ExistingFilesDatabase singleton;
 	
 	public static ExistingFilesDatabase getSingleton() {

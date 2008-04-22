@@ -15,7 +15,7 @@ public class CopyrightedMaterialDatabase {
 		
 	private static Set<Integer> copyrightedHashs;
 	private static Logger logger = Logger.getLogger(CopyrightedMaterialDatabase.class);
-	private static final int numberOfCopyrightedMaterials = 1000*1000;
+	private static final int numberOfCopyrightedMaterials = 10*1000;
 	private static CopyrightedMaterialDatabase singleton;
 	
 	public static CopyrightedMaterialDatabase getSingleton() {
