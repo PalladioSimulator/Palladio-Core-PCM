@@ -18,8 +18,8 @@ public class BytecodePerformancePredictor {
 		for(int i=1; i<21; i++){
 			currResult= bpp.predict_long(
 					BenchmarkedBytecode.MICHAEL_LENOVO, 
-				BenchmarkedBytecode.IS_NOT_JITTED, 
-				i //rownumber == fileindex+1 --> it starts from 1!
+					BenchmarkedBytecode.IS_NOT_JITTED, 
+					i //rownumber == fileindex+1 --> it starts from 1!
 			);
 			allResults[i-1] = currResult[0];
 			allCounts[i-1] = currResult[1];
