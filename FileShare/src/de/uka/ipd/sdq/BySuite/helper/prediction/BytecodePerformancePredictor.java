@@ -15,14 +15,14 @@ public class BytecodePerformancePredictor {
 		long[] currResult;
 //		double[] allResults = new double[20];
 //		double[] currResult;
-		for(int i=1; i<21; i++){
-			currResult= bpp.predict_long(
+		for(int i=1; i<21; i++){//iterate over files...
+			currResult = bpp.predict_long(
 					BenchmarkedBytecode.MICHAEL_LENOVO, 
 					BenchmarkedBytecode.IS_NOT_JITTED, 
 					i //rownumber == fileindex+1 --> it starts from 1!
 			);
-			allResults[i-1] = currResult[0];
-			allCounts[i-1] = currResult[1];
+			allResults[i-1] = currResult[0];//prediction
+			allCounts[i-1] = currResult[1];//total sum of evaluated instructions
 		}
 		System.out.println("=============\n" +
 				"Predicted results: "+Arrays.toString(allResults)+"\n"+
@@ -34,12 +34,13 @@ public class BytecodePerformancePredictor {
 			int isJitted, 
 			int rowNumber //one greater than the file index
 		){
-//		String fileName = 
-		LearnedBytecode lb = new LearnedBytecode();
 		int platformindex = BenchmarkedBytecode.MICHAEL_LENOVO;
-//		int isJitted = BenchmarkedBytecode.IS_NOT_JITTED;
-		BenchmarkedBytecode bb = new BenchmarkedBytecode(
-				platformindex, isJitted);
+
+		LearnedBytecode lb = new LearnedBytecode(); //does not read any files...
+		
+		BenchmarkedBytecode bb;
+		bb = new BenchmarkedBytecode(platformindex, isJitted);//reads from file
+		
 		LearnedDataErrorCalculation ldec = new LearnedDataErrorCalculation();
 		double prediction = 0D;
 		int currInstructionOpcode = 0;
