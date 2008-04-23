@@ -10,14 +10,12 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.sensorframework.visualisation,
  org.eclipse.ui.views.properties.tabbed,
  de.uka.ipd.sdq.sensorframework,
- org.apache.log4j
+ org.apache.log4j,
+ org.rosuda.JRI
 Eclipse-LazyStart: true
-Bundle-NativeCode: lib/jri.dll;processor="x86";osname="Win32"
-Bundle-ClassPath: lib/JRI.jar,
- .
+Bundle-ClassPath: .
 Export-Package: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports,
  de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils,
- de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views,
- org.rosuda.JRI
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views

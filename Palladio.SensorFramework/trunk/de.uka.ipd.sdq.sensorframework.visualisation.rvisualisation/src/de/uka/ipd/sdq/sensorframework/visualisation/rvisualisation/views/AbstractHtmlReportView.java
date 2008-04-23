@@ -24,6 +24,12 @@ import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnec
 public abstract class AbstractHtmlReportView extends AbstractReportView 
 		implements IVisualisation < SensorAndMeasurements > {
 
+	/**Delegates the creation to the ancestor and does nothing else.
+	 */
+	public AbstractHtmlReportView() {
+		super();
+	}
+	
 	/**Reference to the browser window in which the report is displayed. */
 	private Browser browser;
 
