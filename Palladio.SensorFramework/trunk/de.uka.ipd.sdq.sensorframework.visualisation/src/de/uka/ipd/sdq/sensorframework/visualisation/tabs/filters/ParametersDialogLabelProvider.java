@@ -8,7 +8,6 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
-import de.uka.ipd.sdq.sensorframework.filter.FilterParameter;
 
 /**
  * @author Roman Andrej
@@ -34,24 +33,24 @@ public class ParametersDialogLabelProvider implements ITableLabelProvider {
 	 */
 	public String getColumnText(Object element, int columnIndex) {
 		String result = "";
-		
-		FilterParameter<?> entry = (FilterParameter<?>) element;
-
-		switch (columnIndex) {
-		case CreateEditorContents.ICON_COLUMN_INDEX:
-			break;
-		case CreateEditorContents.CONTEXT_COLUMN_INDEX:
-			result = context;
-			break;
-		case CreateEditorContents.TYPE_COLUMN_INDEX:
-			result = entry.getValue().getClass().getSimpleName();
-			break;
-		case CreateEditorContents.NAME_COLUMN_INDEX:
-			result = entry.getDescription();
-			break;
-		default:
-			break;
-		}
+//		
+//		FilteredAttributes entry = (FilteredAttributes) element;
+//
+//		switch (columnIndex) {
+//		case CreateEditorContents.ICON_COLUMN_INDEX:
+//			break;
+//		case CreateEditorContents.CONTEXT_COLUMN_INDEX:
+//			result = context;
+//			break;
+//		case CreateEditorContents.TYPE_COLUMN_INDEX:
+//			result = entry.getConfValue().getClass().getSimpleName();
+//			break;
+//		case CreateEditorContents.NAME_COLUMN_INDEX:
+//			result = entry.getDescription();
+//			break;
+//		default:
+//			break;
+//		}
 		return result;
 	}
 

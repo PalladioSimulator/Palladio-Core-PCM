@@ -3,11 +3,13 @@
  */
 package de.uka.ipd.sdq.sensorframework.visualisation.tabs.filters;
 
+import java.util.Properties;
+
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsFilter;
+import de.uka.ipd.sdq.sensorframework.filter.IFilteredCollectionFactory;
 
 
 /**
@@ -29,27 +31,39 @@ public class FiltersTabLabelProvider implements ITableLabelProvider {
 	public String getColumnText(Object element, int columnIndex) {
 		String result = "";
 
-		AbstractMeasurementsFilter entry = (AbstractMeasurementsFilter) element;
+		IFilteredCollectionFactory entry = (IFilteredCollectionFactory) element;
 
 		switch (columnIndex) {
 		case FiltersPropertySection.ICON_COLUMN_INDEX:
 			break;
 		case FiltersPropertySection.FILTERNAME_COLUMN_INDEX:
-			result = entry.getClass().getSimpleName();
+			result = entry.getFilterFactoryID();
 			break;
 		case FiltersPropertySection.PARAMETER_TYPE_COLUMN_INDEX:
-			result = entry.getParameter().getValue().getClass().getSimpleName();
+			result = getType(entry.getProperties());
 			break;
 		case FiltersPropertySection.PARAMETER_DESCRIPTION_COLUMN_INDEX:
-			result = entry.getParameter().getDescription();
+			result = getDescription(entry.getProperties());
 			break;
 		case FiltersPropertySection.PARAMETER_VALUE_COLUMN_INDEX:
-			result = String.valueOf(entry.getParameter().getValue());
+			result = getValue(entry.getProperties());
 			break;
 		default:
 			break;
 		}
 		return result;
+	}
+	
+	private String getDescription(Properties properties){
+		return properties.propertyNames().nextElement().toString();
+	}
+	
+	private String getType(Properties properties){
+		return properties.get(getDescription(properties)).getClass().getSimpleName();
+	}
+	
+	private String getValue(Properties properties){
+		return properties.get(getDescription(properties)).toString();
 	}
 
 	/* (non-Javadoc)

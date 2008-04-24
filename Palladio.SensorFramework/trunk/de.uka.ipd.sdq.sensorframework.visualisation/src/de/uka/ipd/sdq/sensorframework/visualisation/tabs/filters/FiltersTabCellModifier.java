@@ -1,18 +1,15 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.sensorframework.visualisation.tabs.filters;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableItem;
 
-import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsFilter;
-import de.uka.ipd.sdq.sensorframework.filter.FilterParameter;
+import de.uka.ipd.sdq.sensorframework.filter.IFilteredCollectionFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 
 /**
@@ -52,7 +49,7 @@ public class FiltersTabCellModifier implements ICellModifier {
 
 		TableItem item = (TableItem) element;
 	
-		AbstractMeasurementsFilter filter = (AbstractMeasurementsFilter) item.getData();
+		IFilteredCollectionFactory factory = (IFilteredCollectionFactory) item.getData();
 
 		switch (columnIndex) {
 		case FiltersPropertySection.ICON_COLUMN_INDEX: // ICON_COLUMN
@@ -64,7 +61,7 @@ public class FiltersTabCellModifier implements ICellModifier {
 		case FiltersPropertySection.PARAMETER_DESCRIPTION_COLUMN_INDEX: // PARAMETER_DESCRIPTION
 			break;
 		case FiltersPropertySection.PARAMETER_VALUE_COLUMN_INDEX: // PARAMETER_VALUE_COLUMN
-			setParameter(filter, ((String) value).trim());
+			setFilteringParameter(factory, ((String) value).trim());
 			break;
 		default:
 		}
@@ -78,40 +75,21 @@ public class FiltersTabCellModifier implements ICellModifier {
 	 * @param new
 	 *            parameter value
 	 */
-	private void setParameter(AbstractMeasurementsFilter filter, String input) {
-		Object value = filter.getParameter().getValue();
-
+	private void setFilteringParameter(IFilteredCollectionFactory factory, String input) {
 		try {
-			if (value instanceof Double) {
-				// parse string to Double
-				Double parameterValue = Double.valueOf(input).doubleValue();
-				// create new parameter
-				FilterParameter<Double> parameter = new FilterParameter<Double>(
-						parameterValue, filter.getParameter().getDescription());
-				// set parameter
-				filter.setParameter(parameter);
-				// refresh section viewer
-				section.refresh();
-			}
+			// get properties
+			Properties properties = factory.getProperties();
+			// get first property description
+			String desc = properties.propertyNames().nextElement().toString();
+			// set new parameter
+			properties.put(desc, factory.convertToType(input));
+			// refresh section viewer
+			section.refresh();
 
-			if (value instanceof Long) {
-				// parse string to Long
-				Long parameterValue = Long.valueOf(input).longValue();
-				// create new parameter
-				FilterParameter<Long> parameter = new FilterParameter<Long>(
-						parameterValue, filter.getParameter().getDescription());
-				// set parameter
-				filter.setParameter(parameter);
-				// refresh section viewer
-				section.refresh();
-			}
-			
 		} catch (NumberFormatException e) {
-
 			MessageDialog.openInformation(getShell(),
 					"Parameter conversion Error ",
-					"The entered parameter is not of the type "
-							+ value.getClass().getSimpleName() + "!");
+					"The entered parameter is not of the type Number!");
 		}
 	}
 	

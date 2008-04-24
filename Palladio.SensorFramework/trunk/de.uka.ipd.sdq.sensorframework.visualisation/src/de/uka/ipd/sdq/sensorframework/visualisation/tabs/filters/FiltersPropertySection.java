@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.tabs.filters;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -23,8 +25,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsFilter;
-import de.uka.ipd.sdq.sensorframework.filter.FilterRegistry;
+import de.uka.ipd.sdq.sensorframework.filter.FilteredCollectionRegistry;
+import de.uka.ipd.sdq.sensorframework.filter.IFilteredCollectionFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationImages;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
@@ -43,7 +45,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	private TableViewer viewer;
 	private ToolItem deleteItem, upItem, downItem;
 	
-	private AbstractMeasurementsFilter selectedFilter;
+	private IFilteredCollectionFactory selectedFactory;
+	
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int FILTERNAME_COLUMN_INDEX = 1;
@@ -103,9 +106,21 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			public void selectionChanged(SelectionChangedEvent event) {
 				Object object = ((IStructuredSelection) viewer.getSelection())
 						.getFirstElement();
-				if (object instanceof AbstractMeasurementsFilter) {
-					selectedFilter = (AbstractMeasurementsFilter) object;
+				if (object instanceof IFilteredCollectionFactory) {
+					selectedFactory = (IFilteredCollectionFactory) object;
+					upItem.setEnabled(true);
+					downItem.setEnabled(true);
 					deleteItem.setEnabled(true);
+
+					int index = configObject.getFiltersManager().getFactories()
+							.indexOf(selectedFactory);
+					if (index == 0) {
+						upItem.setEnabled(false);
+					}
+					if (index == configObject.getFiltersManager()
+							.getFactories().size()-1) {
+						downItem.setEnabled(false);
+					}
 				}
 			}
 		});
@@ -162,7 +177,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent event) {
-				AbstractMeasurementsFilter filter = null;
+				IFilteredCollectionFactory factory = null;
 
 				ActionListSelectionDialog dialog = new ActionListSelectionDialog(
 						event.display.getActiveShell(),
@@ -171,11 +186,13 @@ public class FiltersPropertySection extends AbstractPropertySection {
 				dialog.open();
 				Object[] results = dialog.getResult();
 
-				if (results != null)
-					filter = (AbstractMeasurementsFilter) results[0];
-				// add the filter to the 'FilterManager'
-				configObject.getFiltersManager().addFilter(filter);
-				refresh();
+				if (results != null) {
+					factory = (IFilteredCollectionFactory) results[0];
+					// add the filtered collection to the FilteredCollectionsManager
+					configObject.getFiltersManager().addFactory(factory);
+					// refresh TabeleViewer
+					refresh();
+				}
 			}
 		});
 
@@ -189,7 +206,13 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				// TODO
+				ArrayList<IFilteredCollectionFactory> factories = configObject
+						.getFiltersManager().getFactories();
+				int index = factories.indexOf(selectedFactory);
+				factories.remove(selectedFactory);
+				factories.add(index - 1, selectedFactory);
+				upItem.setEnabled(false);
+				refresh();
 			}
 		});
 		upItem.setEnabled(false);
@@ -204,7 +227,13 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				// T
+				ArrayList<IFilteredCollectionFactory> factories = configObject
+						.getFiltersManager().getFactories();
+				int index = factories.indexOf(selectedFactory);
+				factories.remove(selectedFactory);
+				factories.add(index + 1, selectedFactory);
+				downItem.setEnabled(false);
+				refresh();
 			}
 		});
 		downItem.setEnabled(false);
@@ -220,8 +249,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
 				// remove in viewer selected filter from 'FilterManager'
-				configObject.getFiltersManager().removeFilter(
-						selectedFilter);
+				configObject.getFiltersManager().removeFactory(selectedFactory);
 				refresh();
 			}
 		});
@@ -239,13 +267,14 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		if (part instanceof AbstractReportView) {
 			AbstractReportView view = (AbstractReportView) part;
 			configObject = (ConfigEditorInput) view.getEditorInput();
+			
 			viewer.setInput(configObject);
 		}
 	}
 	
 	private Object[] getDefinedFilters() {
-		return FilterRegistry
-				.singleton().getAllAvailableFilters().toArray();
+		return FilteredCollectionRegistry
+				.singleton().getAllAvailableCollectionFactories().toArray();
 	}
 
 	/* (non-Javadoc)
@@ -268,9 +297,9 @@ class FilterLabelProvider extends LabelProvider {
 	 */
 	@Override
 	public String getText(Object element) {
-		if (element instanceof AbstractMeasurementsFilter) {
-			AbstractMeasurementsFilter filter = (AbstractMeasurementsFilter) element;
-			return filter.getClass().getSimpleName();
+		if (element instanceof IFilteredCollectionFactory) {
+			IFilteredCollectionFactory factory = (IFilteredCollectionFactory) element;
+			return factory.getFilterFactoryID();
 		}
 		return super.getText(element);
 	}

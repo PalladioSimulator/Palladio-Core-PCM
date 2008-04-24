@@ -21,7 +21,7 @@ public class FiltersTabContentProvider implements
 		if (inputElement instanceof ConfigEditorInput) {
 			ConfigEditorInput configuration = (ConfigEditorInput) inputElement;
 			return configuration.getFiltersManager()
-					.getAllFilters().toArray();
+					.getFactories().toArray();
 		}
 		return null;
 	}

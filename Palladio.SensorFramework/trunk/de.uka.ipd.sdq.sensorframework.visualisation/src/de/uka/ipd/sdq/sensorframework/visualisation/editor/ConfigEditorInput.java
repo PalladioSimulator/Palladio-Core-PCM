@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.sensorframework.filter.FiltersManager;
+import de.uka.ipd.sdq.sensorframework.filter.FilteredCollectionsManager;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 
 /** @author Roman Andrej */
@@ -24,7 +24,7 @@ public class ConfigEditorInput extends Observable
 		implements IEditorInput, IPersistableElement,IAdaptable, Observer {
 	
 	/** Create the filter manager instance. */
-	private FiltersManager filtersManager = new FiltersManager();
+	private FilteredCollectionsManager filtersManager = new FilteredCollectionsManager();
 	
 	private List<ConfigEntry> configEntrys;
 	private String adapterFactoryID;
@@ -185,7 +185,7 @@ public class ConfigEditorInput extends Observable
 		return this.adapterFactoryID;
 	}
 
-	public FiltersManager getFiltersManager() {
+	public FilteredCollectionsManager getFiltersManager() {
 		return filtersManager;
 	}
 }
