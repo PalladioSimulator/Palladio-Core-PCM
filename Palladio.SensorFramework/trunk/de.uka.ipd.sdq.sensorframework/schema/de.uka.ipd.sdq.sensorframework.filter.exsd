@@ -13,7 +13,7 @@
    <element name="extension">
       <complexType>
          <sequence minOccurs="1" maxOccurs="unbounded">
-            <element ref="MeasurementFilter"/>
+            <element ref="FilterFactory"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -42,7 +42,7 @@
       </complexType>
    </element>
 
-   <element name="MeasurementFilter">
+   <element name="FilterFactory">
       <complexType>
          <attribute name="id" type="string" use="required">
             <annotation>
@@ -64,7 +64,7 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="de.uka.ipd.sdq.sensorframework.internal.AbstractFilteredMeasurementsCollection:"/>
+                  <meta.attribute kind="java" basedOn=":de.uka.ipd.sdq.sensorframework.filter.IFilterFactory"/>
                </appInfo>
             </annotation>
          </attribute>

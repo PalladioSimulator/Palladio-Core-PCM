@@ -7,14 +7,36 @@ import java.util.Iterator;
 
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 
-public abstract class AbstractMeasurementsFilter extends
+/**
+ * Superclass for all filtered collection in the SensorFramework.
+ */
+public abstract class AbstractMeasurementsCollection extends
 		AbstractCollection<Measurement> {
 
+	/** Original collection. */
 	protected Collection<Measurement> originalMeasurements = null;
+	/** Filtered collection. */
 	private ArrayList<Measurement> filteredItems = null;
+
+	/**
+	 * Initializes a new AbstractMeasurementsCollection.
+	 */
+	public AbstractMeasurementsCollection(){
+	}
 	
-	/* (non-Javadoc)
-	 * @see java.util.AbstractCollection#iterator()
+	/**
+	 * Initializes a new AbstractMeasurementsCollection which original
+	 * measurements. provided object.
+	 * 
+	 * @param originalMeasurements
+	 *            The associated measurements.
+	 */
+	public AbstractMeasurementsCollection(
+			Collection<Measurement> originalMeasurements) {
+		this.originalMeasurements = originalMeasurements;
+	}
+	
+	/** {@inheritDoc}
 	 */
 	@Override
 	public Iterator<Measurement> iterator() {
@@ -43,11 +65,11 @@ public abstract class AbstractMeasurementsFilter extends
 		};
 	}
 
+	/** The Method filtered the measurements. */
 	protected abstract void applyFilter(Collection<Measurement> filteredItemsList);
 
 	
-	/* (non-Javadoc)
-	 * @see java.util.AbstractCollection#size()
+	/** {@inheritDoc}
 	 */
 	@Override
 	public int size() {
@@ -58,6 +80,9 @@ public abstract class AbstractMeasurementsFilter extends
 		return originalMeasurements.size() - filteredItems.size();
 	}
 
+	/**
+	 * Get the original collection.
+	 */
 	public Collection<Measurement> getOriginalMeasurements()
 			throws InstantiationException {
 		if (originalMeasurements == null)
@@ -65,28 +90,7 @@ public abstract class AbstractMeasurementsFilter extends
 		return originalMeasurements;
 	}
 
-	public void setOriginalMeasurements(Collection<Measurement> originalMeasurements) {
-		this.originalMeasurements = originalMeasurements;
-	}
-	
 	public void resetFilteredItems(){
 		filteredItems = null;
 	}
-	
-	/**
-	 * Get the parameter used to configure the filter
-	 * 
-	 * @return This adapters properties
-	 */
-	abstract public FilterParameter<?> getParameter(); 
-	
-	/**
-	 * Set the filter parameter. Parameter can be used to control the
-	 * filter/histogram
-	 * 
-	 * @param newProperties
-	 *            The new properties to be used in this adapter
-	 */
-	abstract public void setParameter(FilterParameter<?> parameter);
-	
 }

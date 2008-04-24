@@ -21,8 +21,9 @@ import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.dao.memory.MemoryDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsFilter;
-import de.uka.ipd.sdq.sensorframework.filter.FilterRegistry;
+import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsCollection;
+import de.uka.ipd.sdq.sensorframework.filter.FilteredCollectionRegistry;
+import de.uka.ipd.sdq.sensorframework.filter.IFilteredCollectionFactory;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -65,11 +66,11 @@ public class SensorFrameworkPluginActivator extends Plugin {
 		for (IConfigurationElement configurationElement : registry
 				.getConfigurationElementsFor(FILTER_EPID)) {
 
-			AbstractMeasurementsFilter filter = (AbstractMeasurementsFilter) configurationElement
+			IFilteredCollectionFactory factory = (IFilteredCollectionFactory) configurationElement
 					.createExecutableExtension("class");
 			String filterName = configurationElement
 					.getAttribute("displayName");
-			FilterRegistry.singleton().addFilter(filterName, filter);
+			FilteredCollectionRegistry.singleton().addFilteredCollectionFactory(filterName, factory);
 		}
 
 		try {
