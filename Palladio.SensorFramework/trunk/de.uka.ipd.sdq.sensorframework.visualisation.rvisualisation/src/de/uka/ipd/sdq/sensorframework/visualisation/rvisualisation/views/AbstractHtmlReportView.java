@@ -102,7 +102,7 @@ public abstract class AbstractHtmlReportView extends AbstractReportView
 	/** {@inheritDoc}
 	 */
 	@Override
-	protected void setInput(final List < DataAdapter > list) {
+	protected void generateVisualization(final List < DataAdapter > list) {
 		ArrayList<SensorAndMeasurements> viewerInput = 
 			new ArrayList<SensorAndMeasurements>();
 		for (DataAdapter a : list) {
