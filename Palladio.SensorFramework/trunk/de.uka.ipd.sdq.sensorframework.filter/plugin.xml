@@ -3,16 +3,16 @@
 <plugin>
    <extension
          point="de.uka.ipd.sdq.sensorframework.filter">
-      <MeasurementFilter
-            class="de.uka.ipd.sdq.sensorframework.filter.OutlierFilteringCollection"
-            displayName="OutlierFilteringCollection"
-            id="OutlierFilteringCollection">
-      </MeasurementFilter>
-      <MeasurementFilter
-            class="de.uka.ipd.sdq.sensorframework.filter.WarmupFilteringCollection"
-            displayName="WarmupFilteringCollection"
-            id="WarmupFilteringCollection">
-      </MeasurementFilter>
+      <FilterFactory
+            class="de.uka.ipd.sdq.sensorframework.filter.OutlierFilteredFactory"
+            displayName="Outlier Filter"
+            id="Outlier Filter">
+      </FilterFactory>
+      <FilterFactory
+            class="de.uka.ipd.sdq.sensorframework.filter.WarmupFilteredFactory"
+            displayName="Warm Up Filter"
+            id="Warm Up Filter">
+      </FilterFactory>
    </extension>
 
 </plugin>

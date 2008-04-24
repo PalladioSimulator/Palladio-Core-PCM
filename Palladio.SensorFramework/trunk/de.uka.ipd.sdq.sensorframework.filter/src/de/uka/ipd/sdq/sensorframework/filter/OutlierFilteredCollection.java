@@ -8,25 +8,32 @@ import java.util.Iterator;
 
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
-import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsFilter;
+import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsCollection;
 
-public class OutlierFilteringCollection extends
-		AbstractMeasurementsFilter {
-	
-	private FilterParameter<Double> parameter; 
-	
-	public OutlierFilteringCollection() {
-		parameter = new FilterParameter<Double>(0.1, "Outlier removal");
+public class OutlierFilteredCollection extends AbstractMeasurementsCollection {
+
+	/** The configurations parameter. */
+	private double parameter;
+
+	/**
+	 * Initializes a new OutlierFilteredCollection with the given measurements and filter parameter.
+	 * 
+	 * @param originalMeasurements
+	 *            The associated measurements.
+	 * @param parameter The associated parameter
+	 */
+	public OutlierFilteredCollection(
+			Collection<Measurement> originalMeasurements, double parameter) {
+		super(originalMeasurements);
+		this.parameter = parameter;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorframework.adapter.internal.AbstractFilteredMeasurementsCollection#applyFilter(java.util.Collection)
+	/** {@inheritDoc}
 	 */
 	@Override
 	protected void applyFilter(Collection<Measurement> filteredItemsList) {
 		int outlierNumber = 0;
-
-		outlierNumber = (int) (getParameter().getValue() * originalMeasurements.size());
+		outlierNumber = (int) (parameter * originalMeasurements.size());
 		ArrayList<TimeSpanMeasurement> sortedMeasurements = (ArrayList<TimeSpanMeasurement>) new ArrayList<TimeSpanMeasurement>();
 		for (Iterator<?> it = originalMeasurements.iterator(); it.hasNext();)
 			sortedMeasurements.add((TimeSpanMeasurement) it.next());
@@ -45,23 +52,5 @@ public class OutlierFilteringCollection extends
 				- outlierNumber; i--) {
 			filteredItemsList.add(sortedMeasurements.get(i));
 		}
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorframework.filter.AbstractFilteredMeasurementsCollection#getParameter()
-	 */
-	@Override
-	public FilterParameter<Double> getParameter() {
-		return parameter;
-	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.sensorframework.filter.AbstractFilteredMeasurementsCollection#setParameter(de.uka.ipd.sdq.sensorframework.filter.FilterParameter)
-	 */
-	@Override
-	public
-	void setParameter(FilterParameter<?> parameter) {
-		this.parameter =  (FilterParameter<Double>) parameter;
 	}
 }
