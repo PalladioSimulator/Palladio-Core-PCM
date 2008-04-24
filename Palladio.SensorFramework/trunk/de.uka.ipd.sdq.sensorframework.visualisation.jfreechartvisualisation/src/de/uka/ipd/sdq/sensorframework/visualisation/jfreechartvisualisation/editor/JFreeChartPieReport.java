@@ -50,7 +50,7 @@ public class JFreeChartPieReport extends AbstractReportView implements
 	 * @see de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView#setInput(java.util.List)
 	 */
 	@Override
-	protected void setInput(List<DataAdapter> list) {
+	protected void generateVisualization(List<DataAdapter> list) {
 		ArrayList<Pie> viewerInput = new ArrayList<Pie>();
 		for (DataAdapter a : list)
 			viewerInput.add((Pie) a.getAdaptedObject());

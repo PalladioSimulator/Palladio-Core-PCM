@@ -56,7 +56,7 @@ public class BirtHistogramReport extends AbstractReportView implements
 	}
 
 	@Override
-	protected void setInput(List<DataAdapter> list) {
+	protected void generateVisualization(List<DataAdapter> list) {
 		// TODO Auto-generated method stub
 		
 	}

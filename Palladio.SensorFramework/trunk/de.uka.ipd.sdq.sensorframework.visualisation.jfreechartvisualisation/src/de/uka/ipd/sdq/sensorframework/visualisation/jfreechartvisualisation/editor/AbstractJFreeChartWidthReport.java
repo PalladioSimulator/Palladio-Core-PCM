@@ -99,6 +99,7 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 	private void updateHistogramWidth(double newWidth) {
 		this.histogramWidth = newWidth;
 
+		setIgnoreDataSettingsChanged(true);
 		// Set new histogram width on all adapters of this report
 		for (DataAdapter adapter : adapterList) {
 			Properties adapterProperties = adapter.getProperties();
@@ -106,6 +107,8 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 					histogramWidth);
 			adapter.setProperties(adapterProperties);
 		}
+		setIgnoreDataSettingsChanged(false);
+		generateVisualization(adapterList);
 	}
 	
 	/** {@inheritDoc}
@@ -118,38 +121,65 @@ public abstract class AbstractJFreeChartWidthReport extends AbstractReportView i
 	/** {@inheritDoc}
 	 */
 	@Override
-	protected void setInput(List<DataAdapter> list) {
-		adapterList = list; 
-		ArrayList<Histogram> histogramList = new ArrayList<Histogram>();
-		// Determine minimal histogram width for all histograms
-		double minimalWidth = Double.MAX_VALUE;
-		double currentWidth = 0;
-		boolean allSameWidth = true;
-		for (DataAdapter adapter : list) {
-			Properties histogramProperties = adapter.getProperties();
-			assert(histogramProperties != null);
-			currentWidth = (Double) histogramProperties.get(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH);
-			if (minimalWidth > currentWidth) {
-				if (minimalWidth != Double.MAX_VALUE)
-					allSameWidth = false;
-				minimalWidth = currentWidth;
-			}
+	protected void generateVisualization(List<DataAdapter> newList) {
+		if (newList == null || newList.isEmpty())
+			throw new RuntimeException("Histogram reports must have at least one data input.");
+		Properties adapterProperties = null;
+		// Determine width of "old" histogram, if existing
+		double newWidth = Double.NaN;
+		if (adapterList != null && adapterList.isEmpty() == false) {
+			DataAdapter adapter = adapterList.get(0);
+			adapterProperties = adapter.getProperties();
+			Double test = (Double) adapterProperties.get(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH); 
+			newWidth = test;
+		} else {
+			// this is the first data added
+			DataAdapter adapter = newList.get(0);
+			adapterProperties = adapter.getProperties();
+			newWidth = (Double) adapterProperties.get(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH);
 		}
+		
+		boolean allSameWidth = isSameWidth(newList);
 		
 		/* Set all histograms to the same histogram width and add histograms
 		 * to the current view.
 		 */
-		for (DataAdapter adapter : list) {
+		ArrayList<Histogram> newHistogramList = new ArrayList<Histogram>();
+		for (DataAdapter adapter : newList) {
 			if (!allSameWidth) {
-				Properties adapterProperties = adapter.getProperties();
-				adapterProperties.put(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH, minimalWidth);
+				adapterProperties = adapter.getProperties();
+				adapterProperties.put(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH, newWidth);
+				// Note: The property change will notify all listeners, so be careful
 				adapter.setProperties(adapterProperties);
 			}
-			histogramList.add((Histogram) adapter.getAdaptedObject());
+			newHistogramList.add((Histogram) adapter.getAdaptedObject());
 		}
-		histogramWidth = minimalWidth; // is now true
+		histogramWidth = newWidth; // set view-local cached version to new value
+		adapterList = newList;
 
-		this.setInput(histogramList);
+		this.setInput(newHistogramList);
+	}
+
+	/**Checks if the adapters all have the same histogram width.
+	 * @param adapterList The list of adapters to check.
+	 * @return <code>true</code> if all have the same width.
+	 */
+	private boolean isSameWidth(List<DataAdapter> adapterList) {
+		Properties adapterProperties;
+		boolean allSameWidth = true;
+		double width = Double.NaN;
+		double currentWidth = Double.NaN;
+		for (DataAdapter adapter : adapterList) {
+			adapterProperties = adapter.getProperties();
+			currentWidth = (Double) adapterProperties.get(TimeSpanToHistogramAdapter.HISTOGRAM_WIDTH);
+			if (Double.isNaN(width)) {
+				width = currentWidth;
+			}
+			if (width != currentWidth) {
+				allSameWidth = false;
+			}
+		}
+		return allSameWidth;
 	}
 
 

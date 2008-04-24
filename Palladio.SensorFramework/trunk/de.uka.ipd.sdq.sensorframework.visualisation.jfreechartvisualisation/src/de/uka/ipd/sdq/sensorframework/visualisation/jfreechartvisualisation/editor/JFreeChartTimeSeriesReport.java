@@ -31,7 +31,7 @@ public class JFreeChartTimeSeriesReport extends AbstractReportView implements
 	 * @see de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView#setInput(java.util.List)
 	 */
 	@Override
-	protected void setInput(List<DataAdapter> list) {
+	protected void generateVisualization(List<DataAdapter> list) {
 		ArrayList<TimeSeries> viewerInput = new ArrayList<TimeSeries>();
 		for (DataAdapter a : list)
 			viewerInput.add((TimeSeries) a.getAdaptedObject());

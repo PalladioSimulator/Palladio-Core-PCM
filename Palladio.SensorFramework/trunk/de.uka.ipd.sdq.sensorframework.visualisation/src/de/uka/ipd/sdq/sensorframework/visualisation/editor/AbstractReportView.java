@@ -45,8 +45,12 @@ public abstract class AbstractReportView extends EditorPart implements
 	/** List of all data adapters used by this report. */
 	private ArrayList<DataAdapter> dataAdapters = null;
 
+	/**Marks if the SettingsChanged event from DataAdapters are ignored. */
+	private boolean ignoreDataSettingsChanged;
+
 	public AbstractReportView() {
 		super();
+		ignoreDataSettingsChanged = false;
 	}
 
 	/* (non-Javadoc)
@@ -75,7 +79,7 @@ public abstract class AbstractReportView extends EditorPart implements
 		addDropSupport(parent);
 
 		createReportControls(parent);
-		setViewerInput();
+		changedInputData();
 	}
 
 	/** The method define a 'Template method' pattern. */
@@ -120,8 +124,7 @@ public abstract class AbstractReportView extends EditorPart implements
 		setInput(input);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.part.EditorPart#setInput(org.eclipse.ui.IEditorInput)
+	/** {@inheritDoc}
 	 */
 	@Override
 	protected void setInput(IEditorInput input) {
@@ -136,13 +139,14 @@ public abstract class AbstractReportView extends EditorPart implements
 		getSite().getPage().activate(this);
 		if (arg != null) {
 			if (arg == DataAdapter.SETTINGS_CHANGED)
-				setInput(dataAdapters);
+				if (!ignoreDataSettingsChanged)
+					generateVisualization(dataAdapters);
 			if (ConfigEditorInput.class.isInstance(arg))
-					setViewerInput();
+				changedInputData();
 		}
 	}
 
-	private void setViewerInput() {
+	private void changedInputData() {
 		ArrayList<SensorAndMeasurements> list = new ArrayList<SensorAndMeasurements>();
 
 		for (ConfigEntry re : myInput.getConfigEntrys()) {
@@ -162,20 +166,23 @@ public abstract class AbstractReportView extends EditorPart implements
 		/* Add the data sources to this report an observe changes at
 		 * the adapters and their settings.
 		 */
-		dataAdapters = new ArrayList<DataAdapter>();
+		ArrayList<DataAdapter> newDataAdapters = new ArrayList<DataAdapter>();
 		DataAdapter usedAdapter = null;
 		for (SensorAndMeasurements sam : list) {
 			usedAdapter = adapterFactory.getAdapter(myInput
 					// set the empty filter of the measurements 
 					.getFiltersManager().getFilteredMeasurements(sam));
 			usedAdapter.addObserver(this);
-			dataAdapters.add(usedAdapter);
+			newDataAdapters.add(usedAdapter);
 		}
-		
-		this.setInput(dataAdapters);
+		generateVisualization(newDataAdapters);
+		for (DataAdapter adapter : newDataAdapters) {
+			adapter.addObserver(this);
+		}
+		dataAdapters = newDataAdapters;
 	}
 
-	protected abstract void setInput(List<DataAdapter> list);
+	protected abstract void generateVisualization(List<DataAdapter> list);
 	
 	/** Show exception message. */
 	private void showMessage(String title, String message) {
@@ -213,5 +220,13 @@ public abstract class AbstractReportView extends EditorPart implements
 	@Override
 	public boolean isSaveAsAllowed() {
 		return false;
+	}
+
+	public boolean isIgnoreDataSettingsChanged() {
+		return ignoreDataSettingsChanged;
+	}
+
+	public void setIgnoreDataSettingsChanged(boolean ignoreDataSettingsChanged) {
+		this.ignoreDataSettingsChanged = ignoreDataSettingsChanged;
 	}
 }
