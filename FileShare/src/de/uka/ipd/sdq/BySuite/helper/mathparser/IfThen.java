@@ -13,7 +13,6 @@ public class IfThen implements IFunction {
 	   	}	   
     }
 
-	@Override
 	public int getNumberOfParams() {
 		return 2;
 	}   
