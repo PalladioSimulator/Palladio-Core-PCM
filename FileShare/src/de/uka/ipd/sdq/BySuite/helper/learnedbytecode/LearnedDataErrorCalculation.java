@@ -8,7 +8,7 @@ import au.com.bytecode.opencsv.CSVReader;
 
 public class LearnedDataErrorCalculation {
 
-	private static String csvFile = "./results/Bytecounts.all.csv";
+	private static String csvFile = "./results/BytecodeCounts.all.csv";
 	
 	public static void main(String[] args) {
 		LearnedDataErrorCalculation lerr = new LearnedDataErrorCalculation();
