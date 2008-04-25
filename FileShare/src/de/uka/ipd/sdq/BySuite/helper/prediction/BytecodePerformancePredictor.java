@@ -8,25 +8,41 @@ import de.uka.ipd.sdq.BySuite.helper.learnedbytecode.LearnedDataErrorCalculation
 
 public class BytecodePerformancePredictor {
 
-	public static void main(String args[]){
+	public static void main(String[] args){
 		BytecodePerformancePredictor bpp = new BytecodePerformancePredictor();
+		long[] predLenovo = bpp.predict(BenchmarkedBytecode.MICHAEL_LENOVO, BenchmarkedBytecode.IS_NOT_JITTED);
+		long[] predToshiba = bpp.predict(BenchmarkedBytecode.MICHAEL_TOSHIBA, BenchmarkedBytecode.IS_NOT_JITTED);
+		System.out.println("\n\n\n");
+		System.out.println("Lenovo: "+Arrays.toString(predLenovo));
+		System.out.println("\n\n\n");
+		System.out.println("Toshiba: "+Arrays.toString(predToshiba));
+		int indexForCheck = 10;
+		System.out.println("Check: pred lenovo for file at index "+indexForCheck+
+				": Lenovo="+predLenovo[indexForCheck]+
+				", Toshiba="+predToshiba[indexForCheck]);
+	}
+
+	private long[] predict(int platform, int jitFlag) {
 		long[] allResults = new long[20];
 		long[] allCounts  = new long[20];
 		long[] currResult;
 //		double[] allResults = new double[20];
 //		double[] currResult;
-		for(int i=1; i<21; i++){//iterate over files...
-			currResult = bpp.predict_long(
-					BenchmarkedBytecode.MICHAEL_LENOVO, 
-					BenchmarkedBytecode.IS_NOT_JITTED, 
-					i //rownumber == fileindex+1 --> it starts from 1!
+		
+		//iterate over files...
+		for(int i=1; i<21; i++){
+			currResult = this.predict_long(
+					platform, 
+					jitFlag, 
+					i //file: rownumber == fileindex+1 --> it starts from 1!
 			);
 			allResults[i-1] = currResult[0];//prediction
 			allCounts[i-1] = currResult[1];//total sum of evaluated instructions
 		}
 		System.out.println("=============\n" +
-				"Predicted results: "+Arrays.toString(allResults)+"\n"+
-				"Learned cesults: "+Arrays.toString(allCounts));
+				"Predicted duration results: "+Arrays.toString(allResults)+"\n"+
+				"Learned counts cesults: "+Arrays.toString(allCounts));
+		return allResults;
 	}
 	
 	public double[] predict(
@@ -34,12 +50,10 @@ public class BytecodePerformancePredictor {
 			int isJitted, 
 			int rowNumber //one greater than the file index
 		){
-		int platformindex = BenchmarkedBytecode.MICHAEL_LENOVO;
-
 		LearnedBytecode lb = new LearnedBytecode(); //does not read any files...
 		
 		BenchmarkedBytecode bb;
-		bb = new BenchmarkedBytecode(platformindex, isJitted);//reads from file
+		bb = new BenchmarkedBytecode(platformID, isJitted);//reads from file //TODO optimise
 		
 		LearnedDataErrorCalculation ldec = new LearnedDataErrorCalculation();
 		double prediction = 0D;
@@ -54,7 +68,8 @@ public class BytecodePerformancePredictor {
 //		int currIsCompressed = new Double(ldec.getMeasuredData(rowNumber,-1)).intValue();;
 		
 		System.out.println("Starting prediction for platform "+platformID+", "+
-				"isJitted="+isJitted+", fileName "+currFilename+" "+
+				"isJitted="+isJitted+", " +
+				"fileName "+currFilename+" "+
 				"(file compression: "+currIsCompressed+")");
 		for(int i=0; i<LearnedBytecode.LEARNED_BYTECODES.length; i++){
 			currInstructionOpcode = LearnedBytecode.LEARNED_BYTECODES[i];
@@ -66,7 +81,7 @@ public class BytecodePerformancePredictor {
 			totalSumOfEvalutedInstructions+=currInstructionCount;
 			
 			currInstructionDuration = bb.getBenchmarkedData(
-					platformindex, 
+					platformID, 
 					isJitted, 
 					currInstructionOpcode);
 			System.out.println("Adding opcode "+currInstructionOpcode+": "+
