@@ -24,7 +24,6 @@ public class WarmupFilteredFactory implements IFilteredCollectionFactory {
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public AbstractMeasurementsCollection getFilteredCollection(
 			Collection<Measurement> filtrate) {
 		return new WarmupFilteredCollection(filtrate, DEFAULT_WARMUP);
@@ -32,14 +31,12 @@ public class WarmupFilteredFactory implements IFilteredCollectionFactory {
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public Properties getProperties() {
 		return filterProperties;
 	}
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public void setProperties(Properties newProperties) {
 		filterProperties = newProperties;
 	}
@@ -47,7 +44,6 @@ public class WarmupFilteredFactory implements IFilteredCollectionFactory {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
 	public boolean canFiltered(Collection<Measurement> filtrate,
 			Number attribute) {
 		return attribute.longValue() < filtrate.size();
@@ -71,7 +67,6 @@ public class WarmupFilteredFactory implements IFilteredCollectionFactory {
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public Long convertToType(String type) {
 		return Long.parseLong(type);
 	}

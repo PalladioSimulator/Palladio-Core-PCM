@@ -24,7 +24,6 @@ public class OutlierFilteredFactory implements IFilteredCollectionFactory {
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public AbstractMeasurementsCollection getFilteredCollection(
 			Collection<Measurement> filtrate) {
 		return new OutlierFilteredCollection(filtrate, DEFAULT_OUTLIER);
@@ -32,14 +31,12 @@ public class OutlierFilteredFactory implements IFilteredCollectionFactory {
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public Properties getProperties() {
 		return filterProperties;
 	}
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public void setProperties(Properties newProperties) {
 		filterProperties = newProperties;
 	}
@@ -70,7 +67,6 @@ public class OutlierFilteredFactory implements IFilteredCollectionFactory {
 
 	/** {@inheritDoc}
 	 */
-	@Override
 	public Double convertToType(String type) {
 		return Double.parseDouble(type);
 	}
