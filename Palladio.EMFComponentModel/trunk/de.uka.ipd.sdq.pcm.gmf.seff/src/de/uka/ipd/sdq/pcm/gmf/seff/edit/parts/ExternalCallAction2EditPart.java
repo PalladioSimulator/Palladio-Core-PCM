@@ -92,7 +92,6 @@ public class ExternalCallAction2EditPart extends ShapeNodeEditPart {
 						return null;
 					}
 				});
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ExternalCallAction2ItemSemanticEditPolicy());

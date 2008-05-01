@@ -199,10 +199,17 @@ public class PalladioComponentModelDocumentProvider extends
 			}
 
 		});
-		
-		editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"), true);
-		editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository"), true);
-		
+
+		editingDomain.getResourceSet().getResource(
+				URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"),
+				true);
+		editingDomain
+				.getResourceSet()
+				.getResource(
+						URI
+								.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository"),
+						true);
+
 		return editingDomain;
 	}
 

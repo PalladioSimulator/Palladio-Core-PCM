@@ -59,7 +59,6 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new StopAction2ItemSemanticEditPolicy());

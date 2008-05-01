@@ -56,7 +56,6 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ForkAction2ItemSemanticEditPolicy());
