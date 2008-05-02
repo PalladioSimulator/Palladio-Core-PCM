@@ -148,7 +148,8 @@
 	    <echo>${build.stderr}</echo>			
 		
 		<!-- added by kelsaka: log output start -->
-		<!-- <delete file="${buildDirectory}/java-build-log.txt"/> -->
+		<!-- as the build directory is delete as a whole, removing the single file is not possible:
+		         <delete file="${buildDirectory}/java-build-log.txt"/> -->
 		<echo file="${buildDirectory}/java-build-log.txt" message="Error output of the Eclipse build java task. If this file has no content below, there have been no errors. - - ${build.stderr}" />
 		<!-- added by kelsaka: log output end -->
 		
