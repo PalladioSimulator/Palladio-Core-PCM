@@ -10,16 +10,28 @@ public class BytecodePerformancePredictor {
 
 	public static void main(String[] args){
 		BytecodePerformancePredictor bpp = new BytecodePerformancePredictor();
-		long[] predLenovo = bpp.predict(BenchmarkedBytecode.MICHAEL_LENOVO, BenchmarkedBytecode.IS_NOT_JITTED);
-		long[] predToshiba = bpp.predict(BenchmarkedBytecode.MICHAEL_TOSHIBA, BenchmarkedBytecode.IS_NOT_JITTED);
+		long[] predAcer = bpp.predict(BenchmarkedBytecode.KLAUS_ACER, 
+				BenchmarkedBytecode.IS_NOT_JITTED);
+		long[] predLenovo = bpp.predict(BenchmarkedBytecode.MICHAEL_LENOVO, 
+				BenchmarkedBytecode.IS_NOT_JITTED);
+		long[] predToshiba = bpp.predict(BenchmarkedBytecode.MICHAEL_TOSHIBA, 
+				BenchmarkedBytecode.IS_NOT_JITTED);
+		long[] predSDQLenovo = bpp.predict(BenchmarkedBytecode.SDQ_LENOVO, 
+				BenchmarkedBytecode.IS_NOT_JITTED);
 		System.out.println("\n\n\n");
-		System.out.println("Lenovo: "+Arrays.toString(predLenovo));
+		System.out.println("Acer: "+Arrays.toString(predAcer));
+		System.out.println("\n\n\n");
+		System.out.println("MK Lenovo: "+Arrays.toString(predLenovo));
 		System.out.println("\n\n\n");
 		System.out.println("Toshiba: "+Arrays.toString(predToshiba));
+		System.out.println("\n\n\n");
+		System.out.println("SDQ Lenovo: "+Arrays.toString(predSDQLenovo));
 		int indexForCheck = 10;
-		System.out.println("Check: pred lenovo for file at index "+indexForCheck+
-				": Lenovo="+predLenovo[indexForCheck]+
-				", Toshiba="+predToshiba[indexForCheck]);
+		System.out.println("Check: pred for file at index "+indexForCheck+
+				": KK_Acer="+predAcer[indexForCheck]+
+				", MK_Lenovo="+predLenovo[indexForCheck]+
+				", MK_Toshiba="+predToshiba[indexForCheck]+
+				", SDQ_Lenovo="+predSDQLenovo[indexForCheck]);
 	}
 
 	private long[] predict(int platform, int jitFlag) {
