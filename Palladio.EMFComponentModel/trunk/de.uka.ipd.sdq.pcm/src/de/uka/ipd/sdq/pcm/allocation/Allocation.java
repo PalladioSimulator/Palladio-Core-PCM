@@ -34,7 +34,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Allocation extends Entity {
 	
-	INTENTIONAL ERROR
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
