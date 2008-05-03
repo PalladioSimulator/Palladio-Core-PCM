@@ -22,6 +22,9 @@ public class BenchmarkedBytecode {
 	    }, {
 	    	{501,502,503,504,505, 506,507,508,509,510, 511,512,513,514, }, //MICHAEL TOSHIBA, JITTED
 	    	{601,602,603,604,605, 606,607,608,609,610, 611,612,613,614, }  //MICHAEL TOSHIBA, UNJITTED
+	    }, {
+	    	{701,702,703,704,705, 706,707,708,709,710, 711,712,713,714, }, //SDQ LENOVO, JITTED
+	    	{801,802,803,804,805, 806,807,808,809,810, 811,812,813,814, }  //SDQ LENOVO, UNJITTED
 	    }};
 	
 	@SuppressWarnings("unused")
@@ -74,6 +77,8 @@ public class BenchmarkedBytecode {
 	
 	public static final int MICHAEL_TOSHIBA = 2;
 	
+	public static final int SDQ_LENOVO = 3;
+	
 	public double getBenchmarkedData(
 			int platformindex, 
 			int isJitted, 
@@ -111,6 +116,8 @@ public class BenchmarkedBytecode {
 		testPrint(bb);
 		bb.readBenchmarkResultsFromFile(MICHAEL_TOSHIBA,IS_NOT_JITTED);
 		testPrint(bb);
+		bb.readBenchmarkResultsFromFile(SDQ_LENOVO,IS_NOT_JITTED);		
+		testPrint(bb);
 	}
 
 	private static void testPrint(BenchmarkedBytecode bb) {
@@ -126,6 +133,10 @@ public class BenchmarkedBytecode {
 		System.out.println("MICHAEL_TOSHIBA, IS_JITTED,		4:"+ bb.getBenchmarkedData(MICHAEL_TOSHIBA,	IS_JITTED,		4) );
 		System.out.println("MICHAEL_TOSHIBA, IS_NOT_JITTED,	2:"+ bb.getBenchmarkedData(MICHAEL_TOSHIBA,	IS_NOT_JITTED,	2) );
 		System.out.println("MICHAEL_TOSHIBA, IS_NOT_JITTED,	4:"+ bb.getBenchmarkedData(MICHAEL_TOSHIBA,	IS_NOT_JITTED,	4) );
+		System.out.println("SDQ_LENOVO,      IS_JITTED,		2:"+ bb.getBenchmarkedData(SDQ_LENOVO,	IS_JITTED,		2) );
+		System.out.println("SDQ_LENOVO,      IS_JITTED,		4:"+ bb.getBenchmarkedData(SDQ_LENOVO,	IS_JITTED,		4) );
+		System.out.println("SDQ_LENOVO,      IS_NOT_JITTED,	2:"+ bb.getBenchmarkedData(SDQ_LENOVO,	IS_NOT_JITTED,	2) );
+		System.out.println("SDQ_LENOVO,      IS_NOT_JITTED,	4:"+ bb.getBenchmarkedData(SDQ_LENOVO,	IS_NOT_JITTED,	4) );
 	}
 	
 	CSVReader reader;
@@ -154,6 +165,8 @@ public class BenchmarkedBytecode {
 			csvPath+="BytecodeBenchmarkComputedResults.learned_only.MK.Lenovo.nonEclipse.Sun1.6.-server.-Xint.csv";
 		}else if(platformID==MICHAEL_TOSHIBA){
 			csvPath+="BytecodeBenchmarkComputedResults.learned_only.MK.Toshiba.nonEclipse.Sun1.5.-server.-Xint.csv";
+		}else if(platformID==SDQ_LENOVO){
+			csvPath+="BytecodeBenchmarkComputedResults.learned_only.SDQ.Lenovo.nonEclipse.Sun1.5.-server.-Xint.csv";
 		}
 		
 		//TODO check parameters, rewrite generically
