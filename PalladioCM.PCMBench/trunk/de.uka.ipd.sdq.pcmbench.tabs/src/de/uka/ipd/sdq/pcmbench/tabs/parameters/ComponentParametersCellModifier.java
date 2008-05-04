@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -15,32 +16,41 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 
 /**
+ * The class define a cell modifier is used to access the data model from a cell
+ * editor.
+ * 
  * @author Roman Andrej
  */
 public class ComponentParametersCellModifier extends ObservableCellModifier {
 
 	private List<String> columnNames;
-	private VariableUsage variableUsage;
 	private VariableUsageWrapper wrapper;
 	
+	/** In property view selected VariableUsage. */
+	private VariableUsage variableUsage;
+	/** In diagram selected AssemblyContext. */
 	private AssemblyContext context;
+	/** The value wont for print VariableUsage name uses. */
+	private PCMStoExPrettyPrintVisitor print;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
 	protected TransactionalEditingDomain editingDomain = null;
-	
+
 	public ComponentParametersCellModifier() {
 		this.columnNames = Arrays
 				.asList(ComponentParametersEditorSection.columnNames);
+		this.print = new PCMStoExPrettyPrintVisitor();
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object, java.lang.String)
+	/**
+	 * {@inheritDoc}
 	 */
 	public boolean canModify(Object element, String property) {
 
@@ -60,19 +70,16 @@ public class ComponentParametersCellModifier extends ObservableCellModifier {
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object,
-	 *      java.lang.String)
+	/**
+	 * {@inheritDoc}
 	 */
 	public Object getValue(Object element, String property) {
 		return (new ParametersTabItemProvider(null)).getColumnText(element,
 				columnNames.indexOf(property));
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object, java.lang.String, java.lang.Object)
+	/**
+	 * {@inheritDoc}
 	 */
 	public void modify(Object element, String property, Object value) {
 		// Find the index of the column
@@ -97,9 +104,10 @@ public class ComponentParametersCellModifier extends ObservableCellModifier {
 		}
 
 	}
-	
-	
-	/** Update Specification. */
+
+	/**
+	 * Update Specification of selected VariableUsage.
+	 */
 	private void setSpecification(final String value, TableItem item) {
 		editingDomain = TransactionUtil.getEditingDomain(variableUsage);
 
@@ -119,23 +127,41 @@ public class ComponentParametersCellModifier extends ObservableCellModifier {
 							.createPCMRandomVariable();
 					randomVariable.setSpecification(value);
 
-					VariableUsage contexVariableUsage = null;
+					// test if VariableUsaged exist
+					VariableUsage existedVariableUsage = isExisted(context,
+							variableUsage);
 
-					// create VariableUsage for AssemblyContext
-					ParameterUtil copier = new ParameterUtil();
-					contexVariableUsage = (VariableUsage) copier.copy(variableUsage);
-					copier.copyReferences();
-					
-					// create VariableCharacterisation for AssemblyContext
-					VariableCharacterisation characterisation = contexVariableUsage
-							.getVariableCharacterisation_VariableUsage().get(0);
-					// set specification
-					characterisation
-							.setSpecification_VariableCharacterisation(randomVariable);
-					// add edited VariableUsage to AssemblyContext
-					context.getConfigParameterUsages_AssemblyContext().add(
-							contexVariableUsage);
-					
+					if (existedVariableUsage == null) {
+						VariableUsage contexVariableUsage = null;
+
+						// create VariableUsage for AssemblyContext
+						ParameterUtil copier = new ParameterUtil();
+						contexVariableUsage = (VariableUsage) copier
+								.copy(variableUsage);
+						copier.copyReferences();
+
+						// create VariableCharacterisation for AssemblyContext
+						VariableCharacterisation characterisation = contexVariableUsage
+								.getVariableCharacterisation_VariableUsage()
+								.get(0);
+						// set specification
+						characterisation
+								.setSpecification_VariableCharacterisation(randomVariable);
+						// add edited VariableUsage to AssemblyContext
+
+						context.getConfigParameterUsages_AssemblyContext().add(
+								contexVariableUsage);
+					} else {
+						// create VariableCharacterisation for AssemblyContext
+						VariableCharacterisation characterisation = existedVariableUsage
+								.getVariableCharacterisation_VariableUsage()
+								.get(0);
+						// set specification
+						characterisation
+								.setSpecification_VariableCharacterisation(randomVariable);
+
+					}
+
 				}
 			};
 
@@ -147,17 +173,42 @@ public class ComponentParametersCellModifier extends ObservableCellModifier {
 			wrapper.setEdited(true);
 			// update observer
 			notifyObservers(wrapper);
-			
+
 		}
 	}
-	
-	
+
+	/**
+	 * The Method test if VariableUsage already exist in the AssemblyContext.
+	 * Return null if VarableUsage not exist this AssemblyContect.
+	 * 
+	 * @param contex
+	 *            The associated AssembyContex
+	 * @param newVariable
+	 *            The associated VariableUsage
+	 * @return
+	 */
+	private VariableUsage isExisted(AssemblyContext context,
+			VariableUsage newVariable) {
+		EList<VariableUsage> variables = context
+				.getConfigParameterUsages_AssemblyContext();
+
+		String newName = print.prettyPrint(newVariable);
+		for (VariableUsage existedVariable : variables) {
+			String existedName = print.prettyPrint(existedVariable);
+			if (newName.equals(existedName)) {
+				return existedVariable;
+			}
+		}
+		return null;
+	}
+
 	private void setTableItemColor(TableItem item) {
 		item.setForeground(item.getDisplay().getSystemColor(SWT.COLOR_BLACK));
 	}
-	
+
 	/**
-	 * @param context the context to set
+	 * @param context
+	 *            the context to set
 	 */
 	public void setContext(AssemblyContext context) {
 		this.context = context;
