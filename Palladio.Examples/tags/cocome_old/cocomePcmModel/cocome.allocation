@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_azBEUOEgEduBSuO8WivxSA" entityName="CoCoME Allocation">
+  <allocationContexts_Allocation id="_5l0ysCPmEdyLBZREr9U8dw" entityName="Allocation_GUI &lt;TradingSystem.Inventory.GUI>">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_mpMBEOEgEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_GD2LsNC7EduW_YoCCnq0vw"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_8dj00CPmEdyLBZREr9U8dw" entityName="Allocation_Application &lt;TradingSystem.Inventory.Application>">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_JR74UNC7EduW_YoCCnq0vw"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_94AZkCPmEdyLBZREr9U8dw" entityName="Allocation_Data &lt;TradingSystem.Inventory.Data>">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_eVcuYNC7EduW_YoCCnq0vw"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_ChTJMCuYEdyxp81Z4KE3LA" entityName="Allocation_Application &lt;TradingSystem.Inventory.Application>">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO7WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_JR74UNC7EduW_YoCCnq0vw"/>
+  </allocationContexts_Allocation>
+  <targetResourceEnvironment_Allocation href="cocome.resourceenvironment#/"/>
+  <system_Allocation href="cocome.system#_p7UQMNC5EduW_YoCCnq0vw"/>
+</pcm.allocation:Allocation>
