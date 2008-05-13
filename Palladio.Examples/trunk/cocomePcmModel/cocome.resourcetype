@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pcm.resourcetype:ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.resourcetype="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
-  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:ProcessingResourceType" id="_Af748dO1EduL6bgulTgjzg" entityName="CPU"/>
-  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:CommunicationLinkResourceType" id="_CnO8otO1EduL6bgulTgjzg" entityName="64 KBit WAN"/>
-  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:CommunicationLinkResourceType" id="_GnPOYtO1EduL6bgulTgjzg" entityName="10 MBit LAN"/>
-</pcm.resourcetype:ResourceRepository>

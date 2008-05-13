@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:completions="http://sdq.ipd.uka.de/Completions/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_yDTKrh3XEd2Ue5opGJhT6w" entityName="CompletionsRepository">
+  <components__Repository xsi:type="completions:Completion" id="_yHRrsB3XEd2Ue5opGJhT6w" entityName="ConnectorCompletion2">
+    <childComponentContexts_ComposedStructure id="_yIa7PB3XEd2Ue5opGJhT6w" entityName="BCAssembly InnerBasicComponent1" encapsulatedComponent_ChildComponentContext="_yG8UgB3XEd2Ue5opGJhT6w"/>
+    <childComponentContexts_ComposedStructure id="_yJ7XKx3XEd2Ue5opGJhT6w" entityName="BCAssembly InnerBasicComponent3" encapsulatedComponent_ChildComponentContext="_yIU0kB3XEd2Ue5opGJhT6w"/>
+    <childComponentContexts_ComposedStructure id="_yJ7-YB3XEd2Ue5opGJhT6w" entityName="BCAssembly InnerBasicComponent4" encapsulatedComponent_ChildComponentContext="_yIU0kR3XEd2Ue5opGJhT6w"/>
+    <providedDelegationConnectors_ComposedStructure id="_yJ7-Yh3XEd2Ue5opGJhT6w" innerProvidedRole_ProvidedDelegationConnector="_yIa7QR3XEd2Ue5opGJhT6w" outerProvidedRole_ProvidedDelegationConnector="_yHSSwB3XEd2Ue5opGJhT6w" childComponentContext_ProvidedDelegationConnector="_yJ7XKx3XEd2Ue5opGJhT6w"/>
+    <requiredDelegationConnectors_ComposedStructure id="_yJ7-Yx3XEd2Ue5opGJhT6w" innerRequiredRole_RequiredDelegationConnector="_yJ7XLx3XEd2Ue5opGJhT6w" outerRequiredRole_RequiredDelegationConnector="_yHSSwR3XEd2Ue5opGJhT6w" childComponentContext_RequiredDelegationConnector="_yJ7-YB3XEd2Ue5opGJhT6w"/>
+    <requiredDelegationConnectors_ComposedStructure id="_yJ8lMR3XEd2Ue5opGJhT6w" innerRequiredRole_RequiredDelegationConnector="_yIa7QB3XEd2Ue5opGJhT6w" outerRequiredRole_RequiredDelegationConnector="_yIa7Ph3XEd2Ue5opGJhT6w" childComponentContext_RequiredDelegationConnector="_yJ7XKx3XEd2Ue5opGJhT6w"/>
+    <requiredDelegationConnectors_ComposedStructure id="_yJ8lMh3XEd2Ue5opGJhT6w" innerRequiredRole_RequiredDelegationConnector="_yJ7XLR3XEd2Ue5opGJhT6w" outerRequiredRole_RequiredDelegationConnector="_yIa7Px3XEd2Ue5opGJhT6w" childComponentContext_RequiredDelegationConnector="_yJ7-YB3XEd2Ue5opGJhT6w"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_yJ7-ZB3XEd2Ue5opGJhT6w" requiringChildComponentContext_CompositeAssemblyConnector="_yJ7XKx3XEd2Ue5opGJhT6w" providingChildComponentContext_CompositeAssemblyConnector="_yIa7PB3XEd2Ue5opGJhT6w" providedRole_CompositeAssemblyConnector="_yIU0kh3XEd2Ue5opGJhT6w" requiredRole_CompositeAssemblyConnector="_yIa7Qh3XEd2Ue5opGJhT6w"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_yJ8lMB3XEd2Ue5opGJhT6w" requiringChildComponentContext_CompositeAssemblyConnector="_yIa7PB3XEd2Ue5opGJhT6w" providingChildComponentContext_CompositeAssemblyConnector="_yJ7-YB3XEd2Ue5opGJhT6w" providedRole_CompositeAssemblyConnector="_yJ7XLh3XEd2Ue5opGJhT6w" requiredRole_CompositeAssemblyConnector="_yIU0kx3XEd2Ue5opGJhT6w"/>
+    <providedRoles_InterfaceProvidingEntity id="_yHSSwB3XEd2Ue5opGJhT6w" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_yHSSwR3XEd2Ue5opGJhT6w" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_yIa7Ph3XEd2Ue5opGJhT6w" entityName="ClientMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_yIa7Px3XEd2Ue5opGJhT6w" entityName="ServerMiddleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_yG8UgB3XEd2Ue5opGJhT6w" entityName="InnerBasicComponent1">
+    <providedRoles_InterfaceProvidingEntity id="_yIU0kh3XEd2Ue5opGJhT6w" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_yIU0kx3XEd2Ue5opGJhT6w" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIVboB3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIXQ0B3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIVboR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIZtEB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIZtER3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIZtEB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUIB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIVboR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIXQ0B3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIaUIB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIZtER3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIZtEB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIXQ0B3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIZtER3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIaUIR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUIx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUIh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUJB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUJR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUJB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUJh3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIaUIh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUIx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIaUJh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUJR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIaUJB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUIx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUJR3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIaUJx3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUKR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUKB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUKh3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUKx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUKh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaULB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIaUKB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUKR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIaULB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUKx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIaUKh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUKR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUKx3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIaULR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.3"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaULx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaULh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUMB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUMR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUMB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUMh3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIaULh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaULx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIaUMh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUMR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIaUMB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaULx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUMR3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.3"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIaUMx3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.4"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUNR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUNB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUNh3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUNx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUNh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUOB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIaUNB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUNR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIaUOB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUNx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIaUNh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUNR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUNx3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.4"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIaUOR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.5"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUOx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUOh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUPB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUPR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUPB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUPh3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIaUOh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUOx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIaUPh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUPR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIaUPB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUOx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUPR3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.5"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIaUPx3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.6"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUQR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUQB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUQh3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUQx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUQh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaURB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIaUQB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUQR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIaURB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUQx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIaUQh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUQR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUQx3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.6"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIaURR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.7"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaURx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaURh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUSB3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIaUSR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUSB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUSh3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIaURh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaURx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIaUSh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaUSR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIaUSB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIaURx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIaUSR3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.7"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIa7MB3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.8"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIa7Mh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIa7MR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIa7Mx3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIa7NB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIa7Mx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIa7NR3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIa7MR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIa7Mh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIa7NR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIa7NB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIa7Mx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIa7Mh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIa7NB3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.8"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yIa7Nh3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.9"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIa7OB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIa7Nx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIa7OR3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_yIa7Oh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIa7OR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIa7Ox3XEd2Ue5opGJhT6w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+          <specification_ParametericResourceDemand specification="stream.BYTESIZE"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yIa7Nx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIa7OB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yIa7Ox3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIa7Oh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yIa7OR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yIa7OB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yIa7Oh3XEd2Ue5opGJhT6w" role_ExternalService="_yIU0kx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.9"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_yIU0kB3XEd2Ue5opGJhT6w" entityName="InnerBasicComponent3">
+    <providedRoles_InterfaceProvidingEntity id="_yIa7QR3XEd2Ue5opGJhT6w" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_yIa7QB3XEd2Ue5opGJhT6w" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_yIa7Qh3XEd2Ue5opGJhT6w" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJw_AB3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJw_Ah3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJw_AR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3FoB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ3FoR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ3FoB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3Foh3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJw_AR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJw_Ah3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ3Foh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ3FoR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ3FoB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJw_Ah3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3FoR3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ3Fox3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ3FpR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ3FpB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3Fph3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ3Fpx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ3Fph3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3FqB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ3FpB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3FpR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ3FqB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ3Fpx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ3Fph3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ3FpR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3Fpx3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ3FqR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ3Fqx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ3Fqh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3FrB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ3FrR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ3FrB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3Frh3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ3Fqh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3Fqx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ3Frh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ3FrR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ3FrB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ3Fqx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3FrR3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ3Frx3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.3"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ3FsR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ3FsB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3Fsh3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ3Fsx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ3Fsh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3FtB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ3FsB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3FsR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ3FtB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ3Fsx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ3Fsh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ3FsR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3Fsx3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.3"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ3FtR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.4"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ3Ftx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ3Fth3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ6I8B3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ6I8R3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ6I8B3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ6I8h3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ3Fth3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ3Ftx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ6I8h3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ6I8R3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ6I8B3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ3Ftx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ6I8R3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.4"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ6I8x3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.5"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ6I9R3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ6I9B3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XEB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="1"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XER3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XEB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XEh3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ6I9B3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ6I9R3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7XEh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XER3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7XEB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ6I9R3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XER3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.5"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7XEx3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.6"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XFR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XFB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XFh3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XFx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XFh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XGB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7XFB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XFR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7XGB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XFx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7XFh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XFR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XFx3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.6"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7XGR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.7"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XGx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XGh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XHB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XHR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XHB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XHh3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7XGh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XGx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7XHh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XHR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7XHB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XGx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XHR3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.7"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7XHx3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.8"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XIR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XIB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XIh3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XIx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XIh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XJB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7XIB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XIR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7XJB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XIx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7XIh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XIR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XIx3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.8"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7XJR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.9"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XJx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XJh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XKB3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XKR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XKB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XKh3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7QB3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7XJh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XJx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7XKh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XKR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7XKB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XJx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XKR3XEd2Ue5opGJhT6w" role_ExternalService="_yIa7Qh3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.9"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_yIU0kR3XEd2Ue5opGJhT6w" entityName="InnerBasicComponent4">
+    <providedRoles_InterfaceProvidingEntity id="_yJ7XLh3XEd2Ue5opGJhT6w" entityName="ProvidedRole">
+      <providedInterface__ProvidedRole href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_yJ7XLR3XEd2Ue5opGJhT6w" entityName="Middleware">
+      <requiredInterface__RequiredRole href="pathmap://PCM_MODELS/Glassfish.repository#_1luUhIX1EdyWta7nHuXiHQ"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_yJ7XLx3XEd2Ue5opGJhT6w" entityName="RequiredRole">
+      <requiredInterface__RequiredRole href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </requiredRoles_InterfaceRequiringEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7XMB3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XMh3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XMR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XMx3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7XNB3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7XMx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XNR3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7XNR3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7XNB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-IB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7XMR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XMh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-IB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XNR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7XMx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7XMh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7XNB3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.0"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-IR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Ix3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Ih3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-JB3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-JR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-JB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Jh3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-Jh3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-JR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Jx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-Ih3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Ix3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-Jx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Jh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-JB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Ix3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-JR3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.1"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-KB3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Kh3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-KR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Kx3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-LB3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Kx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-LR3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-LR3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-LB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Lh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-KR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Kh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-Lh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-LR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-Kx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Kh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-LB3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.2"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-Lx3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.3"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-MR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-MB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Mh3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Mx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Mh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-NB3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-NB3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-Mx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-NR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-MB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-MR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-NR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-NB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-Mh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-MR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Mx3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.3"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-Nh3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.4"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-OB3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Nx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-OR3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Oh3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-OR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Ox3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-Ox3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-Oh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-PB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-Nx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-OB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-PB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Ox3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-OR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-OB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Oh3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.4"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-PR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.5"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Px3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Ph3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-QB3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-QR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-QB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Qh3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-Qh3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-QR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Qx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-Ph3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Px3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-Qx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Qh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-QB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Px3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-QR3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.5"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-RB3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.6"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Rh3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-RR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Rx3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-SB3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Rx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-SR3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-SR3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-SB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Sh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-RR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Rh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-Sh3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-SR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-Rx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Rh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-SB3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.6"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-Sx3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.7"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-TR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-TB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Th3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Tx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Th3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-UB3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-UB3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-Tx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-UR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-TB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-TR3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-UR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-UB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-Th3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-TR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Tx3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.7"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-Uh3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.8"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-VB3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Ux3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-VR3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Vh3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-VR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Vx3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-Vx3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-Vh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-WB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-Ux3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-VB3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-WB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Vx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-VR3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-VB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Vh3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.8"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_yJ7-WR3XEd2Ue5opGJhT6w">
+      <describedService__SEFF href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.9"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-Wx3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-Wh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-XB3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.3"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yJ7-XR3XEd2Ue5opGJhT6w" entityName="ExternalCall" predecessor_AbstractAction="_yJ7-XB3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Xh3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLR3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="pathmap://PCM_MODELS/Glassfish.repository#//@interfaces__Repository.0/@signatures__Interface.2"/>
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ints"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_yJ7-Xh3XEd2Ue5opGJhT6w" entityName="ResultSetter" predecessor_AbstractAction="_yJ7-XR3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Xx3XEd2Ue5opGJhT6w">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="stream.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="stream"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:StartAction" id="_yJ7-Wh3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-Wx3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_yJ7-Xx3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Xh3XEd2Ue5opGJhT6w"/>
+      <steps_Behaviour xsi:type="completions:DelegatingExternalCallAction" id="_yJ7-XB3XEd2Ue5opGJhT6w" predecessor_AbstractAction="_yJ7-Wx3XEd2Ue5opGJhT6w" successor_AbstractAction="_yJ7-XR3XEd2Ue5opGJhT6w" role_ExternalService="_yJ7XLx3XEd2Ue5opGJhT6w">
+        <calledService_ExternalService href="file:/C:/MyPrograms/eclipseExtensions/CoCoME_update/workspace/cocomePcmModel/cocome.repository#//@interfaces__Repository.6/@signatures__Interface.9"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+</Repository>
