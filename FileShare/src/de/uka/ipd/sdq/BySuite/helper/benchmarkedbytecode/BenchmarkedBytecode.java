@@ -1,9 +1,13 @@
 package de.uka.ipd.sdq.BySuite.helper.benchmarkedbytecode;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -67,6 +71,17 @@ public class BenchmarkedBytecode {
 		17
 	};
 	
+	private Map<Integer,String> opcodeToStringMapping;
+	
+	private Map<String, Integer> stringToOpcodeMapping;
+	
+	public int getOpcode(String strOpcode){
+		return this.stringToOpcodeMapping.get(strOpcode);
+	}
+	public String getString(int opcode){
+		return this.opcodeToStringMapping.get(opcode);
+	}
+	
 	public static final int IS_JITTED = 0;
 	
 	public static final int IS_NOT_JITTED = 1;
@@ -112,12 +127,115 @@ public class BenchmarkedBytecode {
 	public static void main(String[] args) {
 		BenchmarkedBytecode bb = new BenchmarkedBytecode();
 		testPrint(bb);
+		bb.readBenchmarkResultsFromFile(KLAUS_ACER,IS_NOT_JITTED);		
+		testPrint(bb);
 		bb.readBenchmarkResultsFromFile(MICHAEL_LENOVO,IS_NOT_JITTED);		
 		testPrint(bb);
 		bb.readBenchmarkResultsFromFile(MICHAEL_TOSHIBA,IS_NOT_JITTED);
 		testPrint(bb);
 		bb.readBenchmarkResultsFromFile(SDQ_LENOVO,IS_NOT_JITTED);		
 		testPrint(bb);
+		bb.showRatios(true);
+	}
+
+	private void showRatios(boolean writeToCSV) {
+		showInterOpcodeRatiosForOnePlatform(KLAUS_ACER, writeToCSV);
+		showInterOpcodeRatiosForOnePlatform(MICHAEL_LENOVO, writeToCSV);
+		showInterOpcodeRatiosForOnePlatform(MICHAEL_TOSHIBA, writeToCSV);
+		showInterOpcodeRatiosForOnePlatform(SDQ_LENOVO, writeToCSV);
+		showInterPlatformRatiosForAllOpcodes(writeToCSV);
+		
+	}
+
+	private void showInterPlatformRatiosForAllOpcodes(boolean writeToCSV) {
+		FileWriter fwPiece;
+		String sepChar = ";";
+		StringBuffer sbFirstLine = new StringBuffer();
+		sbFirstLine.append("First platform"+sepChar);
+		StringBuffer sbSecondLine = new StringBuffer();
+		sbSecondLine.append("Second platform"+sepChar);
+//		String[] platformDescriptions = new String[]{
+//				"KLAUS_ACER", "MICHAEL_LENOVO", "MICHAEL_TOSHIBA", "SDQ_LENOVO"
+//		};
+		int nr = platformDescriptions.length;
+		boolean noSelfComparison = true;
+		int nrOfINdexes = nr*nr;
+		if(noSelfComparison){
+			nrOfINdexes = nr*(nr-1);
+		}
+		int[] indexesDividend = new int[nrOfINdexes];
+		int[] indexesDivisor  = new int[nrOfINdexes];
+		int currDivisionIndex = 0;
+		for(int i=0; i<nr; i++){
+			for(int j=0; j<nr; j++){
+				if(noSelfComparison && i==j){//wegkommentieren zum testen
+					//dunno
+				}else{
+					sbFirstLine.append(platformDescriptions[i]+sepChar);
+					sbSecondLine.append(platformDescriptions[j]+sepChar);
+					indexesDividend[currDivisionIndex] = i;
+					indexesDivisor[currDivisionIndex] = j;
+					currDivisionIndex++;
+				}
+			}
+		}
+		sbFirstLine.append("\n");
+		sbSecondLine.append("\n");
+		StringBuffer sbRemainder = new StringBuffer();
+		for(int i=0; i<benchmarkResults[0][0].length; i++){
+			sbRemainder.append(opcodeNames[i]+sepChar);
+			for(int j=0; j<indexesDividend.length; j++){
+				sbRemainder.append(
+						benchmarkResults[indexesDividend[j]][IS_NOT_JITTED][i]
+				        / benchmarkResults[indexesDivisor[j]][IS_NOT_JITTED][i]
+				+sepChar);
+			}
+			sbRemainder.append("\n");
+		}
+		System.out.println(sbFirstLine);
+		System.out.println(sbSecondLine);
+		System.out.println(sbRemainder);
+		try{
+			fwPiece = new FileWriter(
+					("."+File.separator+"results"+File.separator+
+						"InterPlatformRatiosForAllOpcodes."+System.currentTimeMillis()+".csv"), 
+					true);
+			fwPiece.append(sbFirstLine.toString());
+			fwPiece.append(sbSecondLine.toString());
+			fwPiece.append(sbRemainder.toString());
+			fwPiece.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static final String[] platformDescriptions = new String[]{
+			"KLAUS_ACER", "MICHAEL_LENOVO", "MICHAEL_TOSHIBA", "SDQ_LENOVO"};
+	
+	private void showInterOpcodeRatiosForOnePlatform(
+			int platformIndex,
+			boolean writeToCSV) {
+		String sepChar = ";";
+		StringBuffer sbFirstLine = new StringBuffer();
+		sbFirstLine.append(
+				"first_platform"+sepChar+
+				"second_platform"+sepChar+
+				"ratio_first_through_second"+sepChar+"\n");
+		StringBuffer sbRemainder = new StringBuffer();
+		for(int i=0; i<benchmarkResults[0][0].length; i++){
+			for(int j=0; j<benchmarkResults[0][0].length; j++){
+				if(i!=j){
+					sbRemainder.append(opcodeNames[i]+sepChar+
+							opcodeNames[j]+sepChar+
+							(benchmarkResults[platformIndex][IS_NOT_JITTED][i]
+							/benchmarkResults[platformIndex][IS_NOT_JITTED][j])
+							+sepChar+"\n");
+				}
+			}
+		}
+		System.out.println(sbFirstLine);
+		System.out.println(sbRemainder);
+		
 	}
 
 	private static void testPrint(BenchmarkedBytecode bb) {
@@ -141,8 +259,10 @@ public class BenchmarkedBytecode {
 	
 	CSVReader reader;
 	
-	public BenchmarkedBytecode(int platformID, int isJitted) {
-		super();
+	public BenchmarkedBytecode(
+			int platformID, 
+			int isJitted) {
+		this();
 		this.readBenchmarkResultsFromFile(platformID, isJitted);
 		System.out.println("BenchmarkedBytecode initialised with values " +
 				"for platformID "+platformID+" and isJitted "+isJitted);
@@ -150,9 +270,21 @@ public class BenchmarkedBytecode {
 	
 	public BenchmarkedBytecode() {
 		super();
+		this.opcodeToStringMapping = new HashMap<Integer, String>();
+		this.stringToOpcodeMapping = new HashMap<String, Integer>();
 		System.out.println("BenchmarkedBytecode with fake values inited");
+		for(int i=0; i<opcodeIndexes.length; i++){
+			this.opcodeToStringMapping.put(opcodeIndexes[i],opcodeNames[i]);
+			this.stringToOpcodeMapping.put(opcodeNames[i],opcodeIndexes[i]);
+		}
 	}
 	
+	public void ichMoechteWiederGeloeschtWerden(){
+		int[] egal = new int[1];
+		egal[0]=2;
+		long[] nichtegal = new long[1];
+		nichtegal[0]=egal[0];
+	}
 	/** TODO test decimalseparation...
 	 * @param platformID
 	 * @param isJitted
