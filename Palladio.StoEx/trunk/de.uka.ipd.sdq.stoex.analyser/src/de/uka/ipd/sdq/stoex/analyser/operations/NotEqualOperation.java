@@ -28,4 +28,18 @@ public class NotEqualOperation extends CompareOperation {
 			IProbabilityMassFunction right) {
 		return getBoolPMF(comparePointWise(left, right, this));
 	}
+
+	@Override
+	public IProbabilityMassFunction compare(String left, String right) {
+		if (left.equals(right))
+			return getBoolPMF(0.0);
+		else
+			return getBoolPMF(1.0);
+	}
+
+	@Override
+	public IProbabilityMassFunction compare(String left,
+			IProbabilityMassFunction right) {
+		throw new UnsupportedOperationException();
+	}
 }

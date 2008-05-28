@@ -50,7 +50,26 @@ public abstract class CompareOperation {
 	 */
 	public abstract IProbabilityMassFunction compare(IProbabilityMassFunction left, IProbabilityMassFunction right);
 	
+	/**
+	 * Compares two Strings.
+	 * @param left
+	 * @param right
+	 * @return
+	 */
+	public abstract IProbabilityMassFunction compare(String left, String right);
+	
+	
+	
+	/**
+	 * Compares a String and an EnumPMF
+	 * @param left
+	 * @param right
+	 * @return
+	 */
+	public abstract IProbabilityMassFunction compare(String left,IProbabilityMassFunction right);
 
+	
+	
 	/**
 	 * Converts a probability into a boolean PMF. The probability
 	 * is taken as value for true and 1-probability as value for 
@@ -164,5 +183,6 @@ public abstract class CompareOperation {
 		} else
 			throw new UnsupportedOperationException();
 	}
+
 	
 }

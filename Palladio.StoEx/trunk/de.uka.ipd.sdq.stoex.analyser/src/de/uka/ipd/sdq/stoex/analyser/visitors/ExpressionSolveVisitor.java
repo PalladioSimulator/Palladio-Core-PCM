@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
@@ -29,6 +30,7 @@ import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.analyser.operations.AddOperation;
@@ -200,6 +202,13 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		return dl;
 	}
 
+	
+	@Override
+	public Object caseStringLiteral(StringLiteral object) {
+		// TODO Auto-generated method stub
+		return object;
+	}
+
 	/**
 	 * Just returns the given probfunction literal.
 	 */
@@ -262,10 +271,27 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		else if (isProbFunc(left) && isProbFunc(right))
 			iPMF = op.compare(extractIPMFFromLiteral(left),
 					extractIPMFFromLiteral(right));
+		else if (isString(left) && isString(right))
+			iPMF = op.compare(extractStringFromLiteral(left),
+					extractStringFromLiteral(right));
+		else if (isString(left) && isProbFunc(right))
+			iPMF = op.compare(extractStringFromLiteral(left),
+					extractIPMFFromLiteral(right));
+		else if (isString(right) && isProbFunc(left))
+			iPMF = op.compare(extractStringFromLiteral(right),
+					extractIPMFFromLiteral(left));
 		else
 			throw new UnsupportedOperationException();
 		
 		return createLiteralForIPMF(iPMF);
+	}
+
+	private String extractStringFromLiteral(Expression left) {
+		return ((StringLiteral)left).getValue();
+	}
+
+	private boolean isString(Expression expr) {
+		return expr instanceof StringLiteral;
 	}
 
 	/**
@@ -361,13 +387,6 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			logger.error("Calculation with PDF and Literal failed!");
 			e.printStackTrace();
 		}
-		if (resultIPDF != null) {
-			logger.info("Result: "+resultIPDF.toString());	
-		} else {
-			int a=0;
-		}
-		
-
 		return createLiteralForIPDF(resultIPDF);
 	}
 
@@ -377,15 +396,24 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * @return
 	 */
 	private TypeEnum resolveActualType(TypeEnum exprType, Expression expr) {
-		IProbabilityMassFunction iPMF = extractIPMFFromLiteral(expr);
-		ISample samplePoint = iPMF.getSamples().get(0);
+		ProbabilityFunctionLiteral pfl = (ProbabilityFunctionLiteral)expr;
+		ProbabilityFunction probFunc = pfl.getFunction_ProbabilityFunctionLiteral();
 		
-		if (samplePoint.getValue() instanceof Integer){
-			exprType = TypeEnum.INT_PMF;
-		} else if (samplePoint.getValue() instanceof Double){
-			exprType = TypeEnum.DOUBLE_PMF;
-		}
-		return exprType;
+		if (probFunc instanceof ProbabilityMassFunction){
+			IProbabilityMassFunction iPMF = extractIPMFFromLiteral(expr);
+			ISample samplePoint = iPMF.getSamples().get(0);
+			
+			if (samplePoint.getValue() instanceof Integer){
+				exprType = TypeEnum.INT_PMF;
+			} else if (samplePoint.getValue() instanceof Double){
+				exprType = TypeEnum.DOUBLE_PMF;
+			}
+			return exprType;
+		} else if (probFunc instanceof ProbabilityDensityFunction){
+			return TypeEnum.DOUBLE_PDF;
+		} else
+			throw new UnsupportedOperationException();
+		
 	}
 
 	/**
@@ -409,7 +437,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			logger.error("Calculation with two PDFs failed!");
 			e.printStackTrace();
 		}
-		logger.debug("Result: "+resultIPDF.toString());
+		//logger.debug("Result: "+resultIPDF.toString());
 
 		return createLiteralForIPDF(resultIPDF);
 
@@ -467,7 +495,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			logger.error("Calculation with two PMFs failed!");
 			e.printStackTrace();
 		}
-		logger.info("Result: "+resultIPMF.getSamples().toString());
+		//logger.info("Result: "+resultIPMF.getSamples().toString());
 		return createLiteralForIPMF(resultIPMF);
 	}
 
@@ -487,7 +515,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			logger.error("Calculation with PMF and int failed!");
 			e.printStackTrace();
 		}
-		logger.info("Result: "+resultIPMF.getSamples().toString());
+		//logger.info("Result: "+resultIPMF.getSamples().toString());
 		return createLiteralForIPMF(resultIPMF);
 	}
 

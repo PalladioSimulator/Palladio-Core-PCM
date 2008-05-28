@@ -81,7 +81,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			this.typeAnnotation.put(expr, TypeEnum.INT_PMF);
 		} else
 			throw new UnsupportedOperationException();
-		logger.info(expr.getOperation().toString());
+		//logger.info(expr.getOperation().toString());
 
 		return expr;
 	}
@@ -201,11 +201,11 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 					.getCharacterisationType();
 			if (chType == VariableCharacterisationType.VALUE 
 			 || chType == VariableCharacterisationType.TYPE
-			 || chType == VariableCharacterisationType.STRUCTURE) {
+			 || chType == VariableCharacterisationType.STRUCTURE
+			 || chType == VariableCharacterisationType.BYTESIZE) {
 				typeAnnotation.put(var, TypeEnum.ANY_PMF);
 				//logger.debug("Inferred to ENUM_PMF");
-			} else if (chType == VariableCharacterisationType.NUMBER_OF_ELEMENTS
-					|| chType == VariableCharacterisationType.BYTESIZE) {
+			} else if (chType == VariableCharacterisationType.NUMBER_OF_ELEMENTS) {
 				typeAnnotation.put(var, TypeEnum.INT_PMF);
 				//logger.debug("Inferred to INT_PMF");
 			}

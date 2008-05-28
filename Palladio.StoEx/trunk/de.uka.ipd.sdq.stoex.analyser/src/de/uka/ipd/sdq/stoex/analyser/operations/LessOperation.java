@@ -28,4 +28,15 @@ public class LessOperation extends CompareOperation {
 		return getBoolPMF(comparePointWise(left, right, this));
 	}
 
+	@Override
+	public IProbabilityMassFunction compare(String left, String right) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public IProbabilityMassFunction compare(String left,
+			IProbabilityMassFunction right) {
+		throw new UnsupportedOperationException();
+	}
+
 }

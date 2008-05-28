@@ -27,4 +27,14 @@ public class GreaterEqualOperation extends CompareOperation {
 			IProbabilityMassFunction right) {
 		return getBoolPMF(comparePointWise(left, right, this));
 	}
+
+	@Override
+	public IProbabilityMassFunction compare(String left, String right) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public IProbabilityMassFunction compare(String left,
+			IProbabilityMassFunction right) {
+		throw new UnsupportedOperationException();	}
 }

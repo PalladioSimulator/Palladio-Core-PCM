@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>de.uka.ipd.sdq.stoex.analyser</name>
-	<comment></comment>
+	<comment>@key 32303037303632392D313030302064652E756B612E6970642E7364712E73746F65782E616E616C797365722F6B6F7A696F6C656B </comment>
 	<projects>
 		<project>de.uka.ipd.sdq.probfunction</project>
 	</projects>
@@ -21,11 +21,17 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>com.omondo.uml.std.Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>com.gentleware.uml2.reveng.RoundtripProject</nature>
 		<nature>com.gentleware.uml2.resource.xmi.indexedXmiNature</nature>
+		<nature>com.omondo.uml.std.Nature</nature>
 	</natures>
 </projectDescription>

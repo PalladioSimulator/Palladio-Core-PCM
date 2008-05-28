@@ -78,7 +78,8 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseDoubleLiteral(DoubleLiteral object) {
-		DecimalFormat df = new DecimalFormat("#0.0###########", new DecimalFormatSymbols(Locale.US));
+		//DecimalFormat df = new DecimalFormat("#0.0###########", new DecimalFormatSymbols(Locale.US));
+		DecimalFormat df = new DecimalFormat("#0.0#", new DecimalFormatSymbols(Locale.US));
 		return df.format(object.getValue());
 	}
 
