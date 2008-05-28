@@ -5,12 +5,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.antlr.runtime.RecognitionException;
+import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
+import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
 import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
 import de.uka.ipd.sdq.context.computed_usage.BranchProbability;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
+import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.context.computed_usage.ExternalCallInput;
 import de.uka.ipd.sdq.context.computed_usage.Input;
 import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
@@ -39,8 +42,12 @@ import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
+import de.uka.ipd.sdq.pcm.usagemodel.UserData;
+import de.uka.ipd.sdq.pcmsolver.handler.ExternalCallActionHandler;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
+import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
@@ -52,6 +59,8 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 
 public class ContextWrapper implements Cloneable{
 
+	private static Logger logger = Logger.getLogger(ContextWrapper.class.getName());
+	
 	private AssemblyContext assCtx;
 	private AllocationContext allCtx;
 	private ComputedAllocationContext compAllCtx;
@@ -64,6 +73,11 @@ public class ContextWrapper implements Cloneable{
 	private HashMap<ParametricResourceDemand, ProcessingResourceSpecification> procResources;
 	private HashMap<ExternalCallAction, CommunicationLinkResourceSpecification> linkResources;
 
+
+	public ContextWrapper(PCMInstance pcm){
+		pcmInstance = pcm;
+	}
+
 	
 	public ContextWrapper(EntryLevelSystemCall elsa, PCMInstance pcm){
 		pcmInstance = pcm;
@@ -72,10 +86,6 @@ public class ContextWrapper implements Cloneable{
 		compUsgCtx = getFirstComputedUsageContext(elsa);
 		compAllCtx = getNextComputedAllocationContext();
 		readComputedContextsToHashMaps();	
-		
-		
-		
-		
 	}
 	
 	public ContextWrapper(EntryLevelSystemCall elsa, PCMInstance pcm, ComputedUsageContext cuc, ComputedAllocationContext cac){
@@ -224,8 +234,32 @@ public class ContextWrapper implements Cloneable{
 	
 	private ComputedUsageContext getFirstComputedUsageContext(
 			EntryLevelSystemCall elsa) {
+		logger.info("In getFirstComputedUsageContext");
+		
 		EList<VariableUsage> vuList = elsa.getInputParameterUsages_EntryLevelSystemCall();
-		return matchVariableUsages(vuList);
+		ComputedUsageContext cuc = matchVariableUsages(vuList);
+		if (cuc!=null){
+			logger.info("Reusing existing computed usage context for "+assCtx.getEntityName());
+			return cuc;
+		} else {
+			logger.info("Creating new computed usage context for "+assCtx.getEntityName());
+
+			ComputedUsageContext newCompUsgCtx = ComputedUsageFactory.eINSTANCE.createComputedUsageContext();
+			pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage().add(newCompUsgCtx);
+			
+			newCompUsgCtx.setAssemblyContext_ComputedUsageContext(assCtx);
+			
+			Input newInput = ComputedUsageFactory.eINSTANCE.createInput();
+			newCompUsgCtx.setInput_ComputedUsageContext(newInput);
+			
+			EList<VariableUsage> parList = elsa.getInputParameterUsages_EntryLevelSystemCall();
+			for (VariableUsage vu : parList) {
+				VariableUsageHelper.copySolvedVariableUsageToInput(newCompUsgCtx.getInput_ComputedUsageContext(), this, vu);
+			}
+			
+			addComponentParametersToNewContext(newCompUsgCtx);
+			return newCompUsgCtx;
+		}
 	}
 
 
@@ -238,7 +272,7 @@ public class ContextWrapper implements Cloneable{
 		EList<ProvidedDelegationConnector> pdcList = pcmInstance.getSystem().getProvidedDelegationConnectors_ComposedStructure();
 		for (ProvidedDelegationConnector pdc : pdcList){
 			if (pdc.getOuterProvidedRole_ProvidedDelegationConnector().getId().equals(role.getId())){
-				pdc.getChildComponentContext_ProvidedDelegationConnector();
+				//pdc.getChildComponentContext_ProvidedDelegationConnector();
 				return pdc.getChildComponentContext_ProvidedDelegationConnector();
 				//TODO: testen, abfrage interface?
 			}
@@ -301,56 +335,172 @@ public class ContextWrapper implements Cloneable{
 		
 		linkResources = new HashMap<ExternalCallAction, CommunicationLinkResourceSpecification>();
 
-		EList<ExternalCallInput> eciList = compUsgCtx.getExternalCallInput_ComputedUsageContext();
-		EList<LinkingResource> lrList = pcmInstance.getResourceEnvironment().getLinkingresource();
-		ResourceContainer rc1 = allCtx.getResourceContainer_AllocationContext();
-		for (ExternalCallInput eci : eciList){
-			ExternalCallAction eca = eci
-					.getExternalCallAction_ExternalCallInput();
-
-			AssemblyContext nextAssCtx = getNextAssemblyContext(eca);
-			AllocationContext nextAllCtx = getNextAllocationContext(nextAssCtx);
-			ResourceContainer rc2 = nextAllCtx
-					.getResourceContainer_AllocationContext();
-			
-			for (LinkingResource lr : lrList){
-				if (lr.getFromResourceContainer_LinkingResource().contains(rc1) 
-				 && lr.getToResourceContainer_LinkingResource().contains(rc2)) {
-					// TODO: TEST!! (does contains work?) 
-					CommunicationLinkResourceSpecification clrs = lr.getCommunicationLinkResourceSpecifications_LinkingResource();
-					linkResources.put(eca, clrs);
-				}
-			}
-		}
+//		EList<ExternalCallInput> eciList = compUsgCtx.getExternalCallInput_ComputedUsageContext();
+//		EList<LinkingResource> lrList = pcmInstance.getResourceEnvironment().getLinkingresource();
+//		ResourceContainer rc1 = allCtx.getResourceContainer_AllocationContext();
+//		for (ExternalCallInput eci : eciList){
+//			ExternalCallAction eca = eci
+//					.getExternalCallAction_ExternalCallInput();
+//
+//			AssemblyContext nextAssCtx = getNextAssemblyContext(eca);
+//			AllocationContext nextAllCtx = getNextAllocationContext(nextAssCtx);
+//			ResourceContainer rc2 = nextAllCtx
+//					.getResourceContainer_AllocationContext();
+//			
+//			for (LinkingResource lr : lrList){
+//				if (lr.getFromResourceContainer_LinkingResource().contains(rc1) 
+//				 && lr.getToResourceContainer_LinkingResource().contains(rc2)) {
+//					// TODO: TEST!! (does contains work?) 
+//					CommunicationLinkResourceSpecification clrs = lr.getCommunicationLinkResourceSpecifications_LinkingResource();
+//					linkResources.put(eca, clrs);
+//				}
+//			}
+//		}
 	}
 	
 	private ComputedAllocationContext getNextComputedAllocationContext() {
+		logger.info("In getNextComputedAllocationContext ");
+		
+		ComputedAllocationContext cac = getExistingComputedAllocationContext();
+		if (cac!=null){
+			logger.info("Reusing existing computed allocation context for "+assCtx.getEntityName());
+			return cac;
+		} else {
+			logger.info("Creating new computed allocation context for "+assCtx.getEntityName());
+			ComputedAllocationContext newCompAllCtx = ComputedAllocationFactory.eINSTANCE.createComputedAllocationContext();
+			pcmInstance.getComputedAllocation().getComputedAllocationContexts_ComputedAllocation().add(newCompAllCtx);
+			newCompAllCtx.setUsageContext_ComputedAllocationContext(compUsgCtx);
+			newCompAllCtx.setAllocationContext_ComputedAllocationContext(allCtx);
+			return newCompAllCtx;
+		}
+	}
+
+	private ComputedAllocationContext getExistingComputedAllocationContext() {
 		EList<ComputedAllocationContext> allCtxList = pcmInstance
 				.getComputedAllocation()
 				.getComputedAllocationContexts_ComputedAllocation();
 		for (ComputedAllocationContext cac : allCtxList) {
-			if (cac.getAllocationContext_ComputedAllocationContext().getId().equals(allCtx.getId())
-			 && cac.getUsageContext_ComputedAllocationContext().getId().equals(compUsgCtx.getId())) {
+			if (cac.getAllocationContext_ComputedAllocationContext().getId()
+					.equals(allCtx.getId())
+					&& cac.getUsageContext_ComputedAllocationContext().getId()
+							.equals(compUsgCtx.getId())) {
 				return cac;
 			}
 		}
-		// TODO: throw exception
 		return null;
 	}
 
+	/**
+	 * @param eca
+	 * @return
+	 */
 	private ComputedUsageContext getNextComputedUsageContext(ExternalCallAction eca) {
-		EList<ExternalCallInput> eciList = compUsgCtx.getExternalCallInput_ComputedUsageContext();
-		for(ExternalCallInput eci : eciList){
-			if (eci.getExternalCallAction_ExternalCallInput().getId().equals(eca.getId())){
-				EList<VariableUsage> inputVUList = eci.getParameterCharacterisations_ExternalCallInput();
-				ComputedUsageContext cuc = matchVariableUsages(inputVUList);
-				if (cuc!=null) return cuc;
+		logger.info("In getNextComputedUsageContext "+eca.getEntityName());
+		
+		ComputedUsageContext cuc = getExistingComputedUsageContext(eca);
+		if (cuc!=null){
+			logger.info("Reusing existing computed usage context for "+assCtx.getEntityName());
+			return cuc;
+		} else {
+			logger.info("Creating new computed usage context for "+assCtx.getEntityName());
+			return createNewComputedUsageContext(eca);
+		}
+	}
+
+	private ComputedUsageContext createNewComputedUsageContext(ExternalCallAction eca) {
+		// create new computed usage context
+		ComputedUsageContext newCompUsgCtx = ComputedUsageFactory.eINSTANCE.createComputedUsageContext();
+		pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage().add(newCompUsgCtx);
+		
+		newCompUsgCtx.setAssemblyContext_ComputedUsageContext(assCtx);
+		
+		Input newInput = ComputedUsageFactory.eINSTANCE.createInput();
+		newCompUsgCtx.setInput_ComputedUsageContext(newInput);
+		
+		EList<VariableUsage> parList = eca.getInputParameterUsages_ExternalCallAction();
+		for (VariableUsage vu : parList) {
+			VariableUsageHelper.copySolvedVariableUsageToInput(newCompUsgCtx.getInput_ComputedUsageContext(), this, vu);
+		}
+		
+		//TODO: add default component parameters by component developer
+		addComponentParametersToNewContext(newCompUsgCtx);
+		
+		return newCompUsgCtx;
+	}
+
+	private void addComponentParametersToNewContext(
+			ComputedUsageContext newCompUsgCtx) {
+		//TODO: add default component parameters by component developer
+
+		EList<VariableUsage> confParList = this.getAssCtx().getConfigParameterUsages_AssemblyContext();
+		for (VariableUsage vu : confParList) {
+			VariableUsageHelper.copySolvedVariableUsageToInput(newCompUsgCtx.getInput_ComputedUsageContext(), this, vu);
+		}
+		
+		UsageModel um = this.getPcmInstance().getUsageModel();
+		EList<UserData> userDataList = um.getUserData_UsageModel();
+		for (UserData ud : userDataList){
+			if (ud.getAssemblyContext_userData().getId().equals(
+					this.getAssCtx().getId())) {
+				EList<VariableUsage> userParList = ud.getUserDataParameterUsages_UserData();
+				for (VariableUsage vu : userParList){
+					VariableUsageHelper.copySolvedVariableUsageToInput(newCompUsgCtx.getInput_ComputedUsageContext(), this, vu);
+				}
 			}
 		}
-		// TODO: throw exception
-		return null;
 	}
 
+	private ExternalCallInput addExternalCallInputToCurrentContext(ExternalCallAction eca) {
+		EList<VariableUsage> parList = eca.getInputParameterUsages_ExternalCallAction();
+		ExternalCallInput eci = ComputedUsageFactory.eINSTANCE.createExternalCallInput();
+		eci.setExternalCallAction_ExternalCallInput(eca);
+		compUsgCtx.getExternalCallInput_ComputedUsageContext().add(eci);
+		for (VariableUsage vu : parList) {
+			VariableUsageHelper.copySolvedVariableUsageToExternalCallInput(this, eci, vu);
+		}
+		return eci;
+	}
+
+	private ComputedUsageContext getExistingComputedUsageContext(ExternalCallAction eca){
+		EList<ExternalCallInput> eciList = compUsgCtx.getExternalCallInput_ComputedUsageContext();
+		if (eciList.size()==0){
+			EList<ComputedUsageContext> cucList = pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage();
+			for (ComputedUsageContext cuc : cucList){
+				// assCtx already points to the next assCtx after the external call
+				if (cuc.getAssemblyContext_ComputedUsageContext().getId().equals(assCtx.getId()) 
+						&& cuc.getInput_ComputedUsageContext().getParameterChacterisations_Input().size()==0){
+					return cuc;
+				}
+			}
+			// matching external call input does not exist, create new one
+			ExternalCallInput extCallIn = addExternalCallInputToCurrentContext(eca);
+			// check whether following computed usage context contains matching input
+			EList<VariableUsage> inputVUList = extCallIn.getParameterCharacterisations_ExternalCallInput();
+			ComputedUsageContext cuc = matchVariableUsages(inputVUList);
+			if (cuc != null) return cuc;
+		} else {
+			// check if matching external call input already exists
+			for (ExternalCallInput eci : eciList) {
+				if (eci.getExternalCallAction_ExternalCallInput().getId()
+						.equals(eca.getId())) {
+					EList<VariableUsage> inputVUList = eci
+							.getParameterCharacterisations_ExternalCallInput();
+
+					ComputedUsageContext cuc = matchVariableUsages(inputVUList);
+					if (cuc != null)
+						return cuc;
+				} 
+			}
+			// matching external call input does not exist, create new one
+			ExternalCallInput extCallIn = addExternalCallInputToCurrentContext(eca);
+			// check whether following computed usage context contains matching input
+			EList<VariableUsage> inputVUList = extCallIn.getParameterCharacterisations_ExternalCallInput();
+			ComputedUsageContext cuc = matchVariableUsages(inputVUList);
+			if (cuc != null) return cuc;
+		}
+		return null;
+	}
+	
 	private ComputedUsageContext matchVariableUsages(EList<VariableUsage> vuList){
 		EList<ComputedUsageContext> cucList = pcmInstance.getComputedUsage().getUsageContexts_ComputedUsage();
 		for (ComputedUsageContext cuc : cucList){
@@ -358,18 +508,24 @@ public class ContextWrapper implements Cloneable{
 				Input input = cuc.getInput_ComputedUsageContext();
 				EList<VariableUsage> vuList2 = input.getParameterChacterisations_Input();
 				
+//				logger.info("List1: "+vuList);
+//				logger.info("List2: "+vuList2);
+				
 				if (areEqual(vuList, vuList2)){
+					//logger.info("Are Equal Successful!");
 					return cuc;
 				}
 			}
 		}
+		logger.info("Matching Input Variables for External Call failed.");
+
 		// TODO: throw exception
 		return null;
 	}
 	
 	private boolean areEqual(EList<VariableUsage> vuList1,
 			EList<VariableUsage> vuList2) {
-		
+	
 		int varUsgCounter = 0;
 		for (VariableUsage vu1 : vuList1){
 			for (VariableUsage vu2: vuList2){
@@ -429,7 +585,7 @@ public class ContextWrapper implements Cloneable{
 		return null;
 	}
 
-	private AssemblyContext getNextAssemblyContext(ExternalCallAction eca) {
+	public AssemblyContext getNextAssemblyContext(ExternalCallAction eca) {
 		Signature serviceToBeCalled = eca.getCalledService_ExternalService();
 		Interface requiredInterface = (Interface) serviceToBeCalled.eContainer();
 
@@ -437,6 +593,12 @@ public class ContextWrapper implements Cloneable{
 		EList<AssemblyConnector> assConnList = pcmInstance.getSystem()
 				.getCompositeAssemblyConnectors_ComposedStructure();
 		for (AssemblyConnector assConn : assConnList) {
+			String myAssId = assCtx.getId();
+			String assId = assConn.getRequiringChildComponentContext_CompositeAssemblyConnector().getId();
+			
+			String myIfId = requiredInterface.getId();
+			String ifId = assConn.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole().getId();
+			
 			if (assConn
 					.getRequiringChildComponentContext_CompositeAssemblyConnector()
 					.getId().equals(assCtx.getId())

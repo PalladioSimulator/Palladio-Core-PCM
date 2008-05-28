@@ -181,10 +181,10 @@ public class SeffVisitor extends SeffSwitch {
 	 * Stores the just built usage and actual allocation context to pcminstance
 	 */
 	private void saveContexts() {
-		ComputedUsageContext usageContext = contextWrapper.getCompUsgCtx();
-		contextWrapper.getPcmInstance().getComputedUsage().getUsageContexts_ComputedUsage().add(usageContext);
-		ComputedAllocationContext actAll = contextWrapper.getCompAllCtx();
-		contextWrapper.getPcmInstance().getComputedAllocation().getComputedAllocationContexts_ComputedAllocation().add(actAll);
+//		ComputedUsageContext usageContext = contextWrapper.getCompUsgCtx();
+//		contextWrapper.getPcmInstance().getComputedUsage().getUsageContexts_ComputedUsage().add(usageContext);
+//		ComputedAllocationContext actAll = contextWrapper.getCompAllCtx();
+//		contextWrapper.getPcmInstance().getComputedAllocation().getComputedAllocationContexts_ComputedAllocation().add(actAll);
 	}
 
 	/**

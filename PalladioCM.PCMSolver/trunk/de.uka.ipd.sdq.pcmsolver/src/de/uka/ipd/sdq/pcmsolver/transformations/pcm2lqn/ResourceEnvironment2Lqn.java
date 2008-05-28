@@ -1,41 +1,39 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn;
 
-import java.math.BigInteger;
-
+import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.EList;
 
 import LqnCore.ActivityPhasesType;
 import LqnCore.EntryType;
-import LqnCore.LqnCoreFactory;
-import LqnCore.LqnModelType;
 import LqnCore.PhaseActivities;
 import LqnCore.ProcessorType;
 import LqnCore.SchedulingType;
-import LqnCore.ServiceType;
-import LqnCore.TaskOptionType;
-import LqnCore.TaskSchedulingType;
 import LqnCore.TaskType;
 import LqnCore.TypeType;
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentSwitch;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
+import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 
 public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
+	
+	private static Logger logger = Logger.getLogger(ResourceEnvironment2Lqn.class.getName());
+	
+	private LqnBuilder lqnBuilder;
+	private ILaunchConfiguration config;
 
-	private LqnCoreFactory lqnFactory = LqnCoreFactory.eINSTANCE;
-
-	private LqnModelType lqnModel = null;
-
-	public ResourceEnvironment2Lqn(LqnModelType model) {
-		lqnModel = model;
+	public ResourceEnvironment2Lqn(LqnBuilder aLqnBuilder, ILaunchConfiguration aConfig) {
+		lqnBuilder = aLqnBuilder;
+		config = aConfig;
 	}
 
 	@Override
@@ -44,47 +42,28 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 		LinkingResource lr = (LinkingResource) object.eContainer();
 		CommunicationLinkResourceType clrt = object
 				.getCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
-		String name = lr.getEntityName() + "_" + clrt.getEntityName()
-				+ Pcm2LqnHelper.fixGUID(clrt.getId());
+		String id = Pcm2LqnHelper.getIdForCommResource(lr,clrt);
 
-		ProcessorType pt = lqnFactory.createProcessorType();
-		pt.setName(name);
-		pt.setMultiplicity(new BigInteger("1"));
-		pt.setScheduling(SchedulingType.FCFS);
+		ProcessorType pt = lqnBuilder.addProcessor(id);
 		String throughput = object
 				.getThroughput_CommunicationLinkResourceSpecification()
 				.getSpecification();
-		pt.setSpeedFactor(throughput); // TODO
+		pt.setSpeedFactor(throughput);
 
-		TaskType tt = lqnFactory.createTaskType();
-		tt.setName(name+"_Task");
-		tt.setMultiplicity(new BigInteger("1"));
-		tt.setScheduling(TaskSchedulingType.FCFS); // TODO?
-		pt.getTask().add(tt);
-		
-		// standard entry, never used, only makes sure
-		// that the generated XML is valid
-		ActivityPhasesType apt = lqnFactory.createActivityPhasesType();
-		apt.setHostDemandMean("0.0");
-		apt.setPhase(new BigInteger("1"));
-		apt.setName(name+"_Activity");
-		PhaseActivities pa = lqnFactory.createPhaseActivities();
-		pa.getActivity().add(apt);
-		
-		EntryType et = lqnFactory.createEntryType(); 
-		et.setName(name+"_Entry");
-		et.setType(TypeType.NONE); 
+		TaskType tt = lqnBuilder.addTask(id, pt);
+		ActivityPhasesType apt = lqnBuilder.addActivityPhases(id);
+		PhaseActivities pa = lqnBuilder.addPhaseActivities(apt);
+		EntryType et = lqnBuilder.addEntry(id, tt);
+		et.setType(TypeType.NONE);
 		et.setEntryPhaseActivities(pa);
-		tt.getEntry().add(et);
 		
-		return pt;
+		return null;
 	}
 
 	@Override
 	public Object caseLinkingResource(LinkingResource object) {
-		ProcessorType pt = (ProcessorType) doSwitch(object
+		doSwitch(object
 				.getCommunicationLinkResourceSpecifications_LinkingResource());
-		//lqnModel.getProcessor().add(pt);
 		return null;
 	}
 
@@ -94,13 +73,27 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 		ResourceContainer rc = (ResourceContainer) object.eContainer();
 		ProcessingResourceType prt = object
 				.getActiveResourceType_ActiveResourceSpecification();
-		String name = rc.getEntityName() + "_" + prt.getEntityName() +
-			Pcm2LqnHelper.fixGUID(prt.getId());
+		String id = Pcm2LqnHelper.getIdForProcResource(rc, prt);
 		
-		ProcessorType pt = lqnFactory.createProcessorType();
-		pt.setName(name);
-		pt.setMultiplicity(new BigInteger("1"));
+		ProcessorType pt = lqnBuilder.addProcessor(id);
+		setSchedulingPolicy(object, pt);
+		String processingRate = object
+				.getProcessingRate_ProcessingResourceSpecification()
+				.getSpecification();
+		pt.setSpeedFactor(processingRate);
+		
+		TaskType tt = lqnBuilder.addTask(id,pt);
+		ActivityPhasesType apt = lqnBuilder.addActivityPhases(id);
+		PhaseActivities pa = lqnBuilder.addPhaseActivities(apt);
+		EntryType et = lqnBuilder.addEntry(id, tt);
+		et.setType(TypeType.NONE);
+		et.setEntryPhaseActivities(pa);
+		
+		return null;
+	}
 
+	private void setSchedulingPolicy(ProcessingResourceSpecification object,
+			ProcessorType pt) {
 		switch (object.getSchedulingPolicy()) {
 		case FCFS:
 			pt.setScheduling(SchedulingType.FCFS);
@@ -111,38 +104,19 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 			break;
 		case PROCESSOR_SHARING:
 			pt.setScheduling(SchedulingType.PS);
-			// quantum only needed for lqsim and PS
-			pt.setQuantum("0.001"); // TODO
+			String quantum = "0.001";
+			try {
+				quantum = config.getAttribute(MessageStrings.PS_QUANTUM,
+						"0.001");
+			} catch (CoreException e) {
+				logger.error("Could not determine Processor "
+						+ "Sharing Time Quantum. "
+						+ "Check LQSIM configuration.");
+				e.printStackTrace();
+			}
+			pt.setQuantum(quantum);
 			break;
 		}
-
-		String processingRate = object
-				.getProcessingRate_ProcessingResourceSpecification()
-				.getSpecification();
-		pt.setSpeedFactor(processingRate);
-		
-		TaskType tt = lqnFactory.createTaskType();
-		tt.setName(name+"_Task");
-		tt.setMultiplicity(new BigInteger("1"));
-		tt.setScheduling(TaskSchedulingType.FCFS); // TODO?
-		pt.getTask().add(tt);
-		
-		// standard entry, never used, only makes sure
-		// that the generated XML is valid
-		ActivityPhasesType apt = lqnFactory.createActivityPhasesType();
-		apt.setHostDemandMean("1.0");
-		apt.setPhase(new BigInteger("1"));
-		apt.setName(name+"_Activity");
-		PhaseActivities pa = lqnFactory.createPhaseActivities();
-		pa.getActivity().add(apt);
-		
-		EntryType et = lqnFactory.createEntryType(); 
-		et.setName(name+"_Entry");
-		et.setType(TypeType.PH1PH2); 
-		et.setEntryPhaseActivities(pa);
-		tt.getEntry().add(et);
-
-		return pt;
 	}
 
 	@Override
@@ -150,8 +124,7 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 		EList<ProcessingResourceSpecification> procResList = object
 				.getActiveResourceSpecifications_ResourceContainer();
 		for (ProcessingResourceSpecification prs : procResList) {
-			ProcessorType pt = (ProcessorType) doSwitch(prs);
-			lqnModel.getProcessor().add(pt);
+			doSwitch(prs);
 		}
 		return null;
 	}

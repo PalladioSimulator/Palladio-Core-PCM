@@ -19,6 +19,7 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.exprsolver.ExpressionSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn.Pcm2LqnStrategy;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.ExpressionPrinter;
@@ -51,29 +52,27 @@ public class PCMSolver {
 	
 	public PCMSolver(ILaunchConfiguration configuration, IProgressMonitor monitor){
 		this.monitor = monitor;
-		
 		configureLogging(configuration);
-		
 		currentModel = new PCMInstance(configuration);
 		
-		
-		
 		try {
-			int domainSize = Integer.parseInt(configuration.getAttribute("maxDomain", "32"));
-			double distance = Double.parseDouble(configuration.getAttribute("samplingDist", "1.0"));
-			PDFConfiguration.setCurrentConfiguration(domainSize, distance, iProbFuncFactory.createDefaultUnit());
+			int domainSize = Integer.parseInt(configuration.getAttribute(
+					MessageStrings.MAX_DOMAIN, "32"));
+			double distance = Double.parseDouble(configuration.getAttribute(
+					MessageStrings.SAMPLING_DIST, "1.0"));
+			PDFConfiguration.setCurrentConfiguration(domainSize, distance,
+					iProbFuncFactory.createDefaultUnit());
 			
-			String solver = configuration.getAttribute("solver", "SRE-Solver");
-			if (solver.equals("SRE-Solver")){
+			String solver = configuration.getAttribute(MessageStrings.SOLVER,
+					MessageStrings.SRE_SOLVER);
+			if (solver.equals(MessageStrings.SRE_SOLVER)){
 				strat = new Pcm2RegExStrategy();
-			} else if (solver.equals("LQNS")){
+			} else if (solver.equals(MessageStrings.LQNS_SOLVER)){
 				strat = new Pcm2LqnStrategy(configuration);
-			} else if (solver.equals("LQSIM")){
+			} else if (solver.equals(MessageStrings.LQSIM_SOLVER)){
 				strat = new Pcm2LqnStrategy(configuration);
 			}
-			
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -109,21 +108,16 @@ public class PCMSolver {
 
 	private void configureLogging(ILaunchConfiguration configuration) {
 		MessageConsole console = new MessageConsole("PCM Solver Console: Analysis Tool Output", null);
-		//PCMSolverPatternMatchListener listener = new PCMSolverPatternMatchListener();
-		//console.addPatternMatchListener(listener);
-		
 		console.activate();
 		ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[]{ console });
 		MessageConsoleStream stream = console.newMessageStream();
-		//IOConsoleOutputStream stream = listener.getStream();
-		//stream.setColor(new org.eclipse.swt.graphics.Color(Display.getCurrent(), 0, 255, 0));
-		
+	
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %c - %m%n");
 		WriterAppender writerAppender = new WriterAppender(myLayout, stream);
 		BasicConfigurator.configure(writerAppender);
 		
 		try {
-			if (configuration.getAttribute("verboseLogging", false)){
+			if (configuration.getAttribute(MessageStrings.VERBOSE_LOGGING, false)){
 				Logger.getRootLogger().setLevel(Level.DEBUG);
 			} else {
 				Logger.getRootLogger().setLevel(Level.WARN);
@@ -135,19 +129,19 @@ public class PCMSolver {
 	}
 	
 	
-	private void runDSolver() {
-		long startTime = System.nanoTime();
-		visitScenarioEMFSwitch();
-
-		// uncomment for debugging purposes:
-		//currentModel.saveToFiles("SolvedDSolverExample1");
-		
-		long timeAfterDSolve = System.nanoTime();
-		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterDSolve-startTime);
-		overallDuration += duration;
-		
-		logger.warn("Finished DSolver:\t\t"+ duration + " ms");
-	}
+//	private void runDSolver() {
+//		long startTime = System.nanoTime();
+//		visitScenarioEMFSwitch();
+//
+//		// uncomment for debugging purposes:
+//		//currentModel.saveToFiles("SolvedDSolverExample1");
+//		
+//		long timeAfterDSolve = System.nanoTime();
+//		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterDSolve-startTime);
+//		overallDuration += duration;
+//		
+//		logger.warn("Finished DSolver:\t\t"+ duration + " ms");
+//	}
 	
 	private void visitScenarioEMFSwitch(){
 		UsageModelVisitor visitor = new UsageModelVisitor(currentModel);

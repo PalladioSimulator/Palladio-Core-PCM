@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocation;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsage;
@@ -71,18 +72,20 @@ public class PCMInstance {
 		try {
 			this.storagePath = configuration.getAttribute("outputPath", ".");
 			
-			String filename = configuration.getAttribute("inputAllocation", "");
+			String filename = configuration.getAttribute(ConstantsContainer.ALLOCATION_FILE, "");
 			this.allocation = ((Allocation) loadFromXMIFile(filename));
-			filename = configuration.getAttribute("inputRepository", "");
+			filename = configuration.getAttribute(ConstantsContainer.REPOSITORY_FILE, "");
 			this.repository = ((Repository) loadFromXMIFile(filename));
-			filename = configuration.getAttribute("inputResourceEnvironment","");
-			this.resourceEnvironment = ((ResourceEnvironment) loadFromXMIFile(filename));
-			filename = configuration.getAttribute("inputResourceType", "");
+//			filename = configuration.getAttribute("inputResourceEnvironment","");
+//			this.resourceEnvironment = ((ResourceEnvironment) loadFromXMIFile(filename));
+			this.resourceEnvironment = this.allocation.getTargetResourceEnvironment_Allocation();
+			filename = configuration.getAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, "");
 			this.resourceRepository = ((ResourceRepository) loadFromXMIFile(filename));
-			filename = configuration.getAttribute("inputSystem", "");
-			this.system = ((de.uka.ipd.sdq.pcm.system.System) loadFromXMIFile(filename));
-			filename = configuration.getAttribute("inputUsage", "");
+//			filename = configuration.getAttribute("inputSystem", "");
+//			this.system = ((de.uka.ipd.sdq.pcm.system.System) loadFromXMIFile(filename));
+			filename = configuration.getAttribute(ConstantsContainer.USAGE_FILE, "");
 			this.usageModel = ((UsageModel) loadFromXMIFile(filename));
+			this.system = this.allocation.getSystem_Allocation();
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}

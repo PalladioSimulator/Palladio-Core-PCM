@@ -4,11 +4,16 @@ import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
+import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
+
 public class PCMSolverTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new MainConfigTab(), new FileNameTab()
+				new FileNamesInputTab(),
+				new MainConfigTab(), 
+				new CommonTab()
+				//new FileNameTab()
 		};
 		setTabs(tabs);
 	}

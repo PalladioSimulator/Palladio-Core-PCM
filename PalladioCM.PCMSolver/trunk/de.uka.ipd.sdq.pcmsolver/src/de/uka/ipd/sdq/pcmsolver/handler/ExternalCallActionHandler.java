@@ -7,12 +7,10 @@ import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
-import de.uka.ipd.sdq.context.computed_usage.ExternalCallInput;
 import de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput;
 import de.uka.ipd.sdq.context.computed_usage.Input;
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
@@ -32,8 +30,6 @@ import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
@@ -45,8 +41,6 @@ public class ExternalCallActionHandler {
 	private ComputedUsageFactory compUsageFactory = ComputedUsageFactory.eINSTANCE;
 	
 	private ComputedAllocationFactory compAllocationFactory = ComputedAllocationFactory.eINSTANCE;
-	
-	private ParameterFactory parameterFactory = ParameterFactory.eINSTANCE;
 	
 	private SeffFactory seffFactory = SeffFactory.eINSTANCE;
 	
@@ -69,62 +63,19 @@ public class ExternalCallActionHandler {
 			String timeSpecification = getTimeSpecification(serviceToBeCalled);
 			createInternalAction(timeSpecification, call);
 		} else {
-			logger.info("Found Assembly Connector");
-			ContextWrapper contextWrapper = createContextWrapper(call);
+			//logger.info("Found Assembly Connector");
+			ContextWrapper oldContextWrapper = (ContextWrapper)visitor.getContextWrapper().clone();
+			ContextWrapper contextWrapper = visitor.getContextWrapper().getContextWrapperFor(call);
 
 			SeffVisitor seffVisitor = new SeffVisitor(contextWrapper);
 			seffVisitor.doSwitch(seff);
+			
+			visitor.setContextWrapper(oldContextWrapper);
 			
 			storeOutputParametersToUsageContext(call, seffVisitor);
 		}
 	}
 	
-	private ContextWrapper createContextWrapper(ExternalCallAction call) {
-		ComputedUsageContext compUsgCtx = compUsageFactory
-				.createComputedUsageContext();
-		Input newInput = compUsageFactory.createInput();
-		compUsgCtx.setInput_ComputedUsageContext(newInput);
-		EList<VariableUsage> parList = call
-				.getInputParameterUsages_ExternalCallAction();
-		
-		ContextWrapper oldContextWrapper = visitor.getContextWrapper();
-		ExternalCallInput eci = compUsageFactory.createExternalCallInput();
-		eci.setExternalCallAction_ExternalCallInput(call);		
-		oldContextWrapper.getCompUsgCtx().getExternalCallInput_ComputedUsageContext().add(eci);
-		
-		for (VariableUsage vu : parList) {
-			VariableUsageHelper.copySolvedVariableUsageToInput(newInput, oldContextWrapper, vu);
-			VariableUsageHelper.copySolvedVariableUsageToExternalCallInput(oldContextWrapper, eci, vu);
-		}
-		
-		ComputedAllocationContext compAllCtx = compAllocationFactory
-				.createComputedAllocationContext();
-		compAllCtx.setUsageContext_ComputedAllocationContext(compUsgCtx);
-
-
-		ContextWrapper contextWrapper = new ContextWrapper(call, compUsgCtx, compAllCtx, visitor.getContextWrapper());  
-			
-		//TODO: add default component parameters by component developer
-		EList<VariableUsage> confParList = contextWrapper.getAssCtx().getConfigParameterUsages_AssemblyContext();
-		for (VariableUsage vu : confParList) {
-			VariableUsageHelper.copySolvedVariableUsageToInput(newInput, contextWrapper, vu);
-		}
-		
-		UsageModel um = contextWrapper.getPcmInstance().getUsageModel();
-		EList<UserData> userDataList = um.getUserData_UsageModel();
-		for (UserData ud : userDataList){
-			if (ud.getAssemblyContext_userData().getId().equals(
-					contextWrapper.getAssCtx().getId())) {
-				EList<VariableUsage> userParList = ud.getUserDataParameterUsages_UserData();
-				for (VariableUsage vu : userParList){
-					VariableUsageHelper.copySolvedVariableUsageToInput(newInput, contextWrapper, vu);
-				}
-			}
-		}
-		
-		return contextWrapper; 
-	}
-
 	private void createInternalAction(String timeSpecification, ExternalCallAction call) {
 		PCMRandomVariable rv= CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification(timeSpecification);

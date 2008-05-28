@@ -26,7 +26,9 @@ Require-Bundle: org.eclipse.ui,
  org.apache.log4j,
  uc.ac.ucl.ee.flanagan,
  org.jfree.jfreechart,
- de.uka.ipd.sdq.context
+ de.uka.ipd.sdq.context,
+ LQNModel,
+ de.uka.ipd.sdq.codegen.runconfig
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,

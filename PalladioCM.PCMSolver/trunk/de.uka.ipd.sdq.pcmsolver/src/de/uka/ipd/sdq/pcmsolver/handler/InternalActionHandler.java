@@ -79,15 +79,18 @@ public class InternalActionHandler{
 	 * @param prd
 	 */
 	private void createActualResourceDemand(ParametricResourceDemand prd, ProcessingResourceSpecification prs) {
-		// TODO: include branch conditions and loop iterations
+		// TODO: include current branch conditions and loop iterations
 		
 		String spec = prd.getSpecification_ParametericResourceDemand().getSpecification();
 		
-		// quick fix:
+		// quick fix: (convert pmfs to pdfs)
 		spec = spec.replaceAll("IntPMF", "DoublePDF");
 		spec = spec.replaceAll("DoublePMF", "DoublePDF");
 		
 		String actResDemSpecification = getSolvedSpecification(spec, prs);
+		
+		actResDemSpecification = actResDemSpecification.replaceAll("IntPMF", "DoublePDF");
+		actResDemSpecification = actResDemSpecification.replaceAll("DoublePMF", "DoublePDF");
 		
 		ResourceDemand ard = compAllocationFactory.createResourceDemand();
 		ard.setParametricResourceDemand_ResourceDemand(prd);
@@ -95,8 +98,9 @@ public class InternalActionHandler{
 		PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification(actResDemSpecification);
 		
-		// another quick fix
-		if (rv.getExpression() instanceof DoubleLiteral || rv.getExpression() instanceof IntLiteral){
+		// another quick fix: (convert literals to pdfs, which need at least three samples)
+		if (rv.getExpression() instanceof DoubleLiteral
+				|| rv.getExpression() instanceof IntLiteral) {
 			double demand = Double.parseDouble(actResDemSpecification);
 			double distance = 0.1;
 			try {
@@ -105,9 +109,10 @@ public class InternalActionHandler{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			distance=0.1;
+			while (demand-distance<=0) distance/=10;
+			Double firstValue = new Double(demand-distance);
 			String newDemand = "DoublePDF[(" +
-					new Double(demand-distance).toString()+
+					firstValue.toString()+
 					";0.0)("+demand+";1.0)(" +
 					new Double(demand+distance).toString()+";0.0)]";
 			rv.setSpecification(newDemand);

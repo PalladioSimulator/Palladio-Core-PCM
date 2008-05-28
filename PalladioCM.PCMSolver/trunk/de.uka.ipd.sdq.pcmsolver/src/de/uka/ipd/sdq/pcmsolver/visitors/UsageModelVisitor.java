@@ -8,13 +8,20 @@ import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.context.computed_usage.Input;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
+import de.uka.ipd.sdq.pcm.usagemodel.Delay;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import de.uka.ipd.sdq.pcm.usagemodel.Loop;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
@@ -37,7 +44,9 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	private ComputedUsageFactory compUsageFactory;
 	private ComputedAllocationFactory compAllocationFactory;
 	private ParameterFactory parameterFactory;
-
+			
+	private ContextWrapper contextWrapper = null;
+	
 	/**
 	 * @param inst
 	 *            an instance of the Palladio Component Metamodel
@@ -102,9 +111,13 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		logger.info("Called System Method "
 				+ elsc.getSignature_EntryLevelSystemCall().getServiceName());
 		
-		ContextWrapper ctxWrp = createContextWrapper(elsc);
-		ServiceEffectSpecification seff = ctxWrp.getNextSEFF(elsc);
-		SeffVisitor visitor = new SeffVisitor(ctxWrp);
+		if (contextWrapper == null)
+			contextWrapper = new ContextWrapper(elsc, pcmInstance);
+		else
+			contextWrapper = contextWrapper.getContextWrapperFor(elsc);
+
+		ServiceEffectSpecification seff = contextWrapper.getNextSEFF(elsc);
+		SeffVisitor visitor = new SeffVisitor(contextWrapper);
 		try {
 			visitor.doSwitch((ResourceDemandingSEFF) seff);
 		} catch (Exception e) {
@@ -113,8 +126,24 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		}
 		
 		doSwitch(elsc.getSuccessor());
-
 		return elsc;
+	}
+
+	
+	
+	@Override
+	public Object caseDelay(Delay object) {
+		logger.info("VisitDelay");
+		doSwitch(object.getSuccessor());
+		return object;
+	}
+
+	@Override
+	public Object caseLoop(Loop object) {
+		logger.info("VisitLoop");
+		doSwitch(object.getBodyBehaviour_Loop());
+		doSwitch(object.getSuccessor());
+		return object;
 	}
 
 	/**
@@ -125,49 +154,6 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		Start startAction = (Start) EMFHelper.getObjectByType(object
 				.getActions_ScenarioBehaviour(), Start.class);
 		return startAction;
-	}
-
-	/**
-	 * @param call
-	 * @return
-	 */
-	private ContextWrapper createContextWrapper(EntryLevelSystemCall call) {
-		ComputedUsageContext compUsgCtx = compUsageFactory
-				.createComputedUsageContext();
-		Input input = compUsageFactory.createInput();
-		compUsgCtx.setInput_ComputedUsageContext(input);
-		EList<VariableUsage> parList = call
-				.getInputParameterUsages_EntryLevelSystemCall();
-		for (VariableUsage vu : parList) {
-			VariableUsageHelper.copyVariableUsageToInput(input, vu);
-		}
-		
-		ComputedAllocationContext compAllCtx = compAllocationFactory
-				.createComputedAllocationContext();
-		compAllCtx.setUsageContext_ComputedAllocationContext(compUsgCtx);
-
-		ContextWrapper contextWrapper = new ContextWrapper(call, pcmInstance, compUsgCtx, compAllCtx);
-
-		//TODO: add default component parameters by component developer
-		EList<VariableUsage> confParList = contextWrapper.getAssCtx().getConfigParameterUsages_AssemblyContext();
-		for (VariableUsage vu : confParList) {
-			VariableUsageHelper.copySolvedVariableUsageToInput(input, contextWrapper, vu);
-		}
-		
-		UsageModel um = contextWrapper.getPcmInstance().getUsageModel();
-		EList<UserData> userDataList = um.getUserData_UsageModel();
-		for (UserData ud : userDataList){
-			if (ud.getAssemblyContext_userData().getId().equals(
-					contextWrapper.getAssCtx().getId())) {
-				EList<VariableUsage> userParList = ud.getUserDataParameterUsages_UserData();
-				for (VariableUsage vu : userParList){
-					VariableUsageHelper.copySolvedVariableUsageToInput(input, contextWrapper, vu);
-				}
-			}
-		}
-		
-		return contextWrapper;
-		
 	}
 
 }
