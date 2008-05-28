@@ -23,7 +23,8 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch<String> {
 		String sampleString = "";
 		for (ContinuousSample s : (List<ContinuousSample>) object.getSamples()) {
 			double value = s.getProbability();
-			double precision = 0.00001;
+			//double precision = 0.00001;
+			double precision = 0.00000001;
 			
 			value *= 1 / precision;
 			long temp = Math.round(value);

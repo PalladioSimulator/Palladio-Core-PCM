@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 import de.uka.ipd.sdq.probfunction.math.util.Line;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
+import flanagan.complex.Complex;
 
 /**
  * @author Ihssane
@@ -213,12 +214,10 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return samples.get(rank).getProbability();
 	}
 
-	@Override
 	public boolean isInFrequencyDomain() {
 		return false;
 	}
 
-	@Override
 	public boolean isInTimeDomain() {
 		return true;
 	}
@@ -336,20 +335,41 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 	public IProbabilityDensityFunction shiftDomain(double scalar)
 			throws DomainNotNumbersException {
-		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
-		for(IContinuousSample s : this.samples){
-			IContinuousSample nsample = pfFactory.createContinuousSample(s.getValue() + scalar, s.getProbability());
-			newSamples.add(nsample);
-		}
-		IBoxedPDF result = null;
+		// Achtung: does not work with negative scalars!
 		
+		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
+		if (samples.get(0).getProbability() != 0.0){
+			newSamples.add(pfFactory.createContinuousSample(scalar, 0.0));
+		}
+
+		for (IContinuousSample oldSample: samples){
+			newSamples.add(pfFactory.createContinuousSample(oldSample.getValue()+scalar, oldSample.getProbability()));
+		}
+		
+		IBoxedPDF result = null;
 		try {
 			result = pfFactory.createBoxedPDF(newSamples, this.getUnit());
 		} catch (DoubleSampleException e) {
 			e.printStackTrace();
+			System.exit(1); // should never happen
 		}
-		
-		return  result;
+		return result;
 	}
 
+	public String toString() {
+		String result = "";
+		result += "samples: ";
+		boolean isFirst = true;
+		for (IContinuousSample ics : samples){
+			if (isFirst) {
+				isFirst = false;
+			} else {
+				result += ", ";
+			}
+			result += "(" + ics.getValue() + ", " + ics.getProbability() + ")";
+		}
+		
+		return result;
+	}
+	
 }

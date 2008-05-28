@@ -143,7 +143,7 @@ public class MathTools {
 	public static double sumOfCountinuousSamples(List<IContinuousSample> list) {
 		double sum = 0.0;
 		for (IContinuousSample s : list)
-			sum += s.getProbability();
+			sum += s.getValue(); // hier stand vorher s.getProbability()! unfug?
 		return sum;
 	}
 

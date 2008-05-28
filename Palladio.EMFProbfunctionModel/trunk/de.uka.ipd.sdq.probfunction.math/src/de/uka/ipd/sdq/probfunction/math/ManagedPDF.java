@@ -4,14 +4,19 @@ import java.util.List;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
+import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
+import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
@@ -45,7 +50,7 @@ public class ManagedPDF {
 
 	private boolean useConfiguration = false;
 
-	private String pdfAsString;
+	private static String pdfAsString;
 
 	private double meanValue;
 
@@ -300,25 +305,27 @@ public class ManagedPDF {
 		return pdfAsString;
 	}
 
-	private static ProbabilityFunctionLiteral parse(String s) throws Exception {
-		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-				new ANTLRStringStream(s));
-		StochasticExpressionsParser parser = new StochasticExpressionsParser(
-				new CommonTokenStream(lexer));
-		return (ProbabilityFunctionLiteral)parser.expression();
-	}
-	
-	@SuppressWarnings("deprecation")
-	public static ManagedPDF createFromString(String pdfAsString) throws Exception {
-		ProbabilityFunctionLiteral value = parse(pdfAsString);
-		try {
-			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction) value
-					.getFunction_ProbabilityFunctionLiteral();
-			return new ManagedPDF(pdf);
-		} catch (ClassCastException e) {
-		}
-		return null;
-	}
+//	private static ProbabilityFunctionLiteral parse(String s) throws RecognitionException {
+//		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
+//				new ANTLRStringStream(s));
+//		StochasticExpressionsParser parser = new StochasticExpressionsParser(
+//				new CommonTokenStream(lexer));
+//		return (ProbabilityFunctionLiteral)parser.expression();
+//	}
+//	
+//	@SuppressWarnings("deprecation")
+//	public static ManagedPDF createFromString(String pdfAsString)
+//			throws RecognitionException,
+//			StringNotPDFException {
+//		ProbabilityFunctionLiteral value = parse(pdfAsString);
+//		try {
+//			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction) value
+//					.getFunction_ProbabilityFunctionLiteral();
+//			return new ManagedPDF(pdf);
+//		} catch (ClassCastException e) {
+//			throw new StringNotPDFException();
+//		}
+//	}
 
 	public BoxedPDF getModelBoxedPdf() {
 		if (modelBoxedPDF == null) {
@@ -356,6 +363,17 @@ public class ManagedPDF {
 			}
 		}
 		return meanValue;
+	}
+	
+	public double getExpectedValue() {
+		BoxedPDF boxedPDF = getModelBoxedPdf();
+		EList<ContinuousSample> sampleList = boxedPDF.getSamples();
+		double result = 0.0;
+		for (ContinuousSample sample : sampleList){
+			Double value = sample.getValue();
+			result += value.doubleValue() * sample.getProbability();
+		}
+		return result;
 	}
 
 	public ISamplePDF getCumulativeDistributionFunction() {
@@ -440,6 +458,24 @@ public class ManagedPDF {
 	
 	public boolean usesConfiguration(){
 		return this.useConfiguration;
+	}
+
+	public static ManagedPDF createFromString(String spec) throws RecognitionException, StringNotPDFException {
+		ProbabilityFunctionLiteral value = parse(spec);
+		try {
+			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction) value
+					.getFunction_ProbabilityFunctionLiteral();
+			return new ManagedPDF(pdf);
+		} catch (ClassCastException e) {
+			throw new StringNotPDFException();
+		}
+	}
+	private static ProbabilityFunctionLiteral parse(String s) throws RecognitionException {
+		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
+				new ANTLRStringStream(s));
+		StochasticExpressionsParser parser = new StochasticExpressionsParser(
+				new CommonTokenStream(lexer));
+		return (ProbabilityFunctionLiteral)parser.expression();
 	}
 
 }

@@ -1,15 +1,20 @@
 package de.uka.ipd.sdq.probfunction.math;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
+import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
+import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.impl.IntLiteralImpl;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
@@ -91,7 +96,26 @@ public class ManagedPMF {
 		}
 	}
 
+	public Long getExpectedValue() {
+		IProbabilityMassFunction pmf = getPmfTimeDomain();
+		List<ISample> sampleList = pmf.getSamples();
+		double result = 0.0;
+		for (ISample sample : sampleList){
+			Integer value = (Integer)sample.getValue();
+			result += value.doubleValue() * sample.getProbability();
+		}
+		return new Long(Math.round(result));
+	}
+	
+	
 	private static ProbabilityFunctionLiteral parse(String s) throws RecognitionException {
+		try{
+			int iterInt = Integer.parseInt(s);
+			s = "IntPMF[("+iterInt+";1.0)]";
+		}
+		catch(NumberFormatException e){
+		}
+		
 		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
 				new ANTLRStringStream(s));
 		StochasticExpressionsParser parser = new StochasticExpressionsParser(
