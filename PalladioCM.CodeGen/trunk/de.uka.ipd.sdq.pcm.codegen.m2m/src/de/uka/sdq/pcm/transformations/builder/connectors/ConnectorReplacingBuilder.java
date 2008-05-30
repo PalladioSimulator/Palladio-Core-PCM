@@ -130,11 +130,21 @@ public class ConnectorReplacingBuilder implements IBuilder {
 		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 
+	/**
+	 * Search through all allocation contexts of the given resource container
+	 * to find the one which contains the component which is the one providing
+	 * the given interface.
+	 * If such an allocation context cannot be found, a RuntimeException is thrown.
+	 * @param resourceContainer the resource container to be searched through
+	 * @param interfaceToSearch the interface to be searched for
+	 * @return the allocation context which has been found
+	 */
 	private AllocationContext findAllocationContext(
 			ResourceContainer resourceContainer, Interface interfaceToSearch) {
 		for (AllocationContext context : models.getAllocation().getAllocationContexts_Allocation())
 			if (context.getResourceContainer_AllocationContext() == resourceContainer && 
-				context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().get(0).getProvidedInterface__ProvidedRole() == interfaceToSearch)
+					context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().size() > 0 &&
+				    context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().get(0).getProvidedInterface__ProvidedRole() == interfaceToSearch)
 				return context;
 		throw new RuntimeException("Model invalid, unable to find middleware component for resource container "+resourceContainer.getEntityName());
 	}	
