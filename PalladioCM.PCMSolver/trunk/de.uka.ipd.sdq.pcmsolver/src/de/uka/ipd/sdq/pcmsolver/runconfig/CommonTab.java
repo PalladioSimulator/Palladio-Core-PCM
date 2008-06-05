@@ -21,8 +21,7 @@ import org.eclipse.swt.widgets.Listener;
 public class CommonTab extends AbstractLaunchConfigurationTab {
 
 	private Button checkVerboseLogging = null;
-	
-	@Override
+		
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
@@ -47,12 +46,10 @@ public class CommonTab extends AbstractLaunchConfigurationTab {
 		});
 	}
 
-	@Override
 	public String getName() {
 		return "Common";
 	}
 
-	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try{
 			checkVerboseLogging.setSelection(configuration.getAttribute(
@@ -70,12 +67,10 @@ public class CommonTab extends AbstractLaunchConfigurationTab {
 		return true;
 	}
 
-	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(MessageStrings.VERBOSE_LOGGING, checkVerboseLogging.getSelection());
 	}
 
-	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		// TODO Auto-generated method stub
 
