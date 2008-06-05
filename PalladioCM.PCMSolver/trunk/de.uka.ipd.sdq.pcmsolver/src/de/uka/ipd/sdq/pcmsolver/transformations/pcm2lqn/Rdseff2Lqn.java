@@ -39,6 +39,8 @@ import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
+import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 
 public class Rdseff2Lqn extends SeffSwitch {
 
@@ -114,7 +116,13 @@ public class Rdseff2Lqn extends SeffSwitch {
 	private String getLoopIterations(AbstractLoopAction loop) {
 		ManagedPMF pmf = contextWrapper.getLoopIterations(loop);
 		if (pmf != null) {
-			return pmf.getExpectedValue().toString();
+			try {
+				return pmf.getPmfTimeDomain().getArithmeticMeanValue() + "";
+			} catch (DomainNotNumbersException e) {
+				return "0.0";
+			} catch (FunctionNotInTimeDomainException e) {
+				return "0.0";
+			}
 		} else {
 			return "0.0";
 		}
@@ -255,7 +263,16 @@ public class Rdseff2Lqn extends SeffSwitch {
 			// the entry makes a call to the processor
 			ActivityPhasesType apt = lqnBuilder.addActivityPhases(id+counter);
 			ManagedPDF pdf = contextWrapper.getTimeConsumption(resourceDemand);
-			String hostDemand = new Double(pdf.getExpectedValue()).toString();
+			String hostDemand = null;
+			try {
+				hostDemand = new Double(pdf.getPdfTimeDomain().getArithmeticMeanValue()).toString();
+			} catch (DomainNotNumbersException e) {
+				logger.error("Error calculating arithmetic mean value.", e);
+				e.printStackTrace();
+			} catch (FunctionNotInTimeDomainException e) {
+				logger.error("Error calculating arithmetic mean value.", e);
+				e.printStackTrace();
+			}
 			apt.setHostDemandMean(hostDemand);
 			
 			PhaseActivities pa = lqnBuilder.addPhaseActivities(apt);

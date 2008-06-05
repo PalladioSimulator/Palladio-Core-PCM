@@ -37,6 +37,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
+import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 
 public class UsageModel2Lqn extends UsagemodelSwitch {
@@ -281,7 +283,13 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 			e.printStackTrace();
 		}
 		if (pmf != null) {
-			return pmf.getExpectedValue().toString();
+			try {
+				return pmf.getPmfTimeDomain().getArithmeticMeanValue() + "";
+			} catch (DomainNotNumbersException e) {
+				return "0.0";
+			} catch (FunctionNotInTimeDomainException e) {
+				return "0.0";
+			}
 		} else {
 			return "0.0";
 		}

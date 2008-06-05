@@ -34,9 +34,9 @@ import LqnCore.TaskType;
 import LqnCore.TypeType;
 
 
-public class LqnTest {
+public class LQNTest {
 
-	private static Logger logger = Logger.getLogger(LqnTest.class.getName());
+	private static Logger logger = Logger.getLogger(LQNTest.class.getName());
 	private static final String FILENAME_INPUT = "C:\\Temp\\test.xml";
 	private static final String FILENAME_RESULT = "C:\\Temp\\test.out";
 	private static final String FILENAME_LQN = "C:\\Temp\\test.lqn";;
@@ -311,6 +311,6 @@ public class LqnTest {
 	
 	
 	public static junit.framework.Test suite() {
-		return new JUnit4TestAdapter(LqnTest.class);
+		return new JUnit4TestAdapter(LQNTest.class);
 	}
 }
