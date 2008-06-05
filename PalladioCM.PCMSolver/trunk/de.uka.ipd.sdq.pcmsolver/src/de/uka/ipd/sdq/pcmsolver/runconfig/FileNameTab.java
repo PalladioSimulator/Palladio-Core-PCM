@@ -69,7 +69,7 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 		createSelectOutputFolder(outputFilesGroup);
 		
 	}
-
+	
 	private void createSelectOutputFolder(final Group outputFilesGroup) {
 		Label outputFolderLabel = new Label(outputFilesGroup, SWT.NONE);
 		outputFolderLabel.setText("Output Folder:");
@@ -85,6 +85,7 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 		final Button button1 = new Button(outputFilesGroup,	SWT.NONE);
 		button1.setText(BUTTON_BROWSE);
 		button1.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				textOutput.setText(openDirectoryDialog(e));
 			}

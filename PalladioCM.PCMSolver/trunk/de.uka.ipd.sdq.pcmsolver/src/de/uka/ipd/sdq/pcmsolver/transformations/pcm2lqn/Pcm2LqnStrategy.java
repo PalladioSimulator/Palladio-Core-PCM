@@ -59,12 +59,10 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 
 	public Pcm2LqnStrategy() {
 	}
-
-	@Override
+	
 	public void loadTransformedModel(String fileName) {
 	}
 
-	@Override
 	public void solve() {
 		String solverProgram = getSolverProgramName();
 
@@ -140,11 +138,9 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 		rw.open();
 	}
 	
-	@Override
 	public void storeTransformedModel(String fileName) {
 	}
 
-	@Override
 	public void transform(PCMInstance model) {
 		long startTime = System.nanoTime();
 		
@@ -235,6 +231,7 @@ class StreamGobbler extends Thread {
 		this.type = type;
 	}
 
+	@Override
 	public void run() {
 		try {
 			InputStreamReader isr = new InputStreamReader(is);
