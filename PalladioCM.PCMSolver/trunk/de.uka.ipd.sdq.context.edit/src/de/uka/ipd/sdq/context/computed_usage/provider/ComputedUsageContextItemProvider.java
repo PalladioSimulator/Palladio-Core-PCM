@@ -112,7 +112,8 @@ public class ComputedUsageContextItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT);
 			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT);
-			childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT);
+			// FIXME: removed next line because code was invalid (KK)
+			//childrenFeatures.add(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT);
 		}
 		return childrenFeatures;
 	}
@@ -162,7 +163,8 @@ public class ComputedUsageContextItemProvider
 		switch (notification.getFeatureID(ComputedUsageContext.class)) {
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__BRANCH_PROBABILITIES_COMPUTED_USAGE_CONTEXT:
 			case ComputedUsagePackage.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT:
-			case ComputedUsagePackage.Comp.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT:
+			// FIXME: removed next line because code was invalid (KK)
+			//case ComputedUsagePackage.Comp.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT:			
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,10 +191,11 @@ public class ComputedUsageContextItemProvider
 				(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__LOOPITERATIONS_COMPUTED_USAGE_CONTEXT,
 				 ComputedUsageFactory.eINSTANCE.createLoopIteration()));
 
-		newChildDescriptors.add
+		// FIXME: removed next line because code was invalid (KK)
+		/*newChildDescriptors.add
 			(createChildParameter
 				(ComputedUsagePackage.Literals.COMPUTED_USAGE_CONTEXT__PARAMETER_USAGES_COMPUTED_USAGE_CONTEXT,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				 ParameterFactory.eINSTANCE.createVariableUsage()));*/
 	}
 
 	/**
