@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.pcmsolver.feature"
       label="PCM Solver Feature"
-      version="1.0.0.qualifier"
+      version="3.0.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
