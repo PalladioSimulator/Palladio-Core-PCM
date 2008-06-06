@@ -6,8 +6,9 @@
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
-   <description url="http://www.example.com/description">
-      Contains the contexts and the solver generated when solving usage dependencies.
+   <description url="http://sdq.ipd.uka.de">
+      Contains the contexts and the solver generated when solving usage
+dependencies.
    </description>
 
    <copyright url="http://www.example.com/copyright">
