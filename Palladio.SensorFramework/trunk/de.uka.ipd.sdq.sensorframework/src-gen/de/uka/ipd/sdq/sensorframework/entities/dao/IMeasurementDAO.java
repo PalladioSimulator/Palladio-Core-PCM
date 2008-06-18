@@ -21,6 +21,16 @@ public interface IMeasurementDAO {
 	double p_eventtime,
 
 	double p_timespan);
+	
+	de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement addScalabilityMeasurement(
+
+			de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor p_sensor
+
+			,
+			Double[] p_parameters,
+			double p_result
+
+			);
 
 	/* Finder methods to search for Measurements */
 	;

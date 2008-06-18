@@ -7,6 +7,10 @@ public interface IExperimentRunDAO {
 	de.uka.ipd.sdq.sensorframework.entities.ExperimentRun addExperimentRun(
 
 	String p_experimentdatetime);
+	
+	de.uka.ipd.sdq.sensorframework.entities.ExperimentRun addScalabilityExperimentRun(
+
+			String p_experimentdatetime);
 
 	/* Finder methods to search for ExperimentRuns */
 	;

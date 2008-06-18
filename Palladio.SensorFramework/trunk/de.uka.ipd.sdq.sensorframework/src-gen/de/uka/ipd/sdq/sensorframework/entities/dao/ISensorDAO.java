@@ -15,6 +15,10 @@ public interface ISensorDAO {
 	de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor addTimeSpanSensor(
 
 	String p_sensorname);
+	
+	de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor addScalabilitySensor(
+
+			String p_sensorname);
 
 	/* Finder methods to search for Sensors */
 
