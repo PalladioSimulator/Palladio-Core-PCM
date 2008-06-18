@@ -9,10 +9,12 @@ import java.util.Collections;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateSensorImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanSensorImpl;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.ScalabilitySensorImpl;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 
 /**
@@ -40,6 +42,16 @@ public class FileSensorDAO extends AbstractFileDAO<Sensor> implements ISensorDAO
 
 	public TimeSpanSensor addTimeSpanSensor(String p_sensorname) {
 		TimeSpanSensor result = new TimeSpanSensorImpl(factory);
+		result.setSensorID(idGen.getNextSensorID());
+		result.setSensorName(p_sensorname);
+
+		this.putEntity(result);
+		
+		return result;
+	}
+	
+	public ScalabilitySensor addScalabilitySensor(String p_sensorname) {
+		ScalabilitySensor result = new ScalabilitySensorImpl(factory);
 		result.setSensorID(idGen.getNextSensorID());
 		result.setSensorName(p_sensorname);
 

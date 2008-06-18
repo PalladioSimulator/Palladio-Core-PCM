@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.ScalabilityExperimentRunImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentRunImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.AbstractSensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.SerializableEntity;
@@ -28,6 +29,16 @@ public class FileExperimentRunDAO extends AbstractFileDAO<ExperimentRun> impleme
 
 	public ExperimentRun addExperimentRun(String p_experimentdatetime) {
 		ExperimentRunImpl expRun = new ExperimentRunImpl(factory);
+		expRun.setExperimentRunID(idGen.getNextExperimentRunID());
+		expRun.setExperimentDateTime(p_experimentdatetime);
+		
+		this.putEntity(expRun);
+
+		return expRun;
+	}
+	
+	public ExperimentRun addScalabilityExperimentRun(String p_experimentdatetime) {
+		ScalabilityExperimentRunImpl expRun = new ScalabilityExperimentRunImpl(factory);
 		expRun.setExperimentRunID(idGen.getNextExperimentRunID());
 		expRun.setExperimentDateTime(p_experimentdatetime);
 		
