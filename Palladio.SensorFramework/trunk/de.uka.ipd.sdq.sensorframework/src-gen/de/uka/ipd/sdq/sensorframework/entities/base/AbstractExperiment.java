@@ -84,6 +84,19 @@ implements de.uka.ipd.sdq.sensorframework.entities.Experiment
 		m_sensors.add(result);
 		return result;
 	}
+	
+	public de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor addScalabilitySensor(
+
+			String p_sensorname) {
+
+				de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor result = myDAOFactory
+						.createSensorDAO().addScalabilitySensor(
+
+						p_sensorname);
+
+				m_sensors.add(result);
+				return result;
+			}
 
 	public void addSensor(de.uka.ipd.sdq.sensorframework.entities.Sensor value) {
 		this.m_sensors.add(value);
@@ -109,6 +122,19 @@ implements de.uka.ipd.sdq.sensorframework.entities.Experiment
 		m_experimentRuns.add(result);
 		return result;
 	}
+	
+	public de.uka.ipd.sdq.sensorframework.entities.ExperimentRun addScalabilityExperimentRun(
+
+			String p_experimentdatetime) {
+
+				de.uka.ipd.sdq.sensorframework.entities.ExperimentRun result = myDAOFactory
+						.createExperimentRunDAO().addScalabilityExperimentRun(
+
+						p_experimentdatetime);
+
+				m_experimentRuns.add(result);
+				return result;
+			}
 
 	public void addExperimentRun(
 			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun value) {

@@ -108,6 +108,30 @@ implements de.uka.ipd.sdq.sensorframework.entities.ExperimentRun
 		m_measurements.add(result);
 		return result;
 	}
+	
+	public de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement addScalabilityMeasurement(
+
+			de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor p_sensor
+
+			,
+			Double[] p_parameters,
+			
+			double p_result
+
+			) {
+
+				de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement result = myDAOFactory
+						.createMeasurementDAO().addScalabilityMeasurement(
+
+						p_sensor
+
+						,
+
+						p_parameters, p_result);
+
+				m_measurements.add(result);
+				return result;
+			}
 
 	public void addMeasurement(
 			de.uka.ipd.sdq.sensorframework.entities.Measurement value) {
