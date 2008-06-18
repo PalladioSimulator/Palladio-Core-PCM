@@ -11,6 +11,8 @@ import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SimuComExperimentRunDecorator implements ExperimentRun {
@@ -41,6 +43,14 @@ public class SimuComExperimentRunDecorator implements ExperimentRun {
 			double arg1, double arg2) {
 		if (model.getSimulationControl().isRunning())
 			return decoratedRun.addTimeSpanMeasurement(arg0, arg1, arg2);
+		else
+			return null;
+	}
+	
+	public ScalabilityMeasurement addScalabilityMeasurement(ScalabilitySensor arg0,
+			Double[] arg1, double arg2) {
+		if (model.getSimulationControl().isRunning())
+			return decoratedRun.addScalabilityMeasurement(arg0, arg1, arg2);
 		else
 			return null;
 	}
