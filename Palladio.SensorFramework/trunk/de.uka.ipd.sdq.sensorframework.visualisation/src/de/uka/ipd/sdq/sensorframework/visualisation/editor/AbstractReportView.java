@@ -39,7 +39,7 @@ public abstract class AbstractReportView extends EditorPart implements
 	public static String ABSTRACT_EDITOR_ID = "de.uka.ipd.sdq.sensorframework.visualisation.AbstractReportView";
 
 	/** Editor input. */
-	private ConfigEditorInput myInput;
+	protected ConfigEditorInput myInput;
 	
 	/** List of all data adapters used by this report. */
 	private ArrayList<DataAdapter> dataAdapters = null;
