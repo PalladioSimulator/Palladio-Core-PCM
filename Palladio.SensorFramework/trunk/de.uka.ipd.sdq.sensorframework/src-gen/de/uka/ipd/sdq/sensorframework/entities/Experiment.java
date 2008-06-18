@@ -30,6 +30,10 @@ public interface Experiment
 	de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor addTimeSpanSensor(
 
 	String p_sensorname);
+	
+	de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor addScalabilitySensor(
+
+			String p_sensorname);
 
 	void addSensor(de.uka.ipd.sdq.sensorframework.entities.Sensor value);
 
@@ -38,6 +42,10 @@ public interface Experiment
 	de.uka.ipd.sdq.sensorframework.entities.ExperimentRun addExperimentRun(
 
 	String p_experimentdatetime);
+	
+	de.uka.ipd.sdq.sensorframework.entities.ExperimentRun addScalabilityExperimentRun(
+
+			String p_experimentdatetime);
 
 	void addExperimentRun(
 			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun experimentRun);

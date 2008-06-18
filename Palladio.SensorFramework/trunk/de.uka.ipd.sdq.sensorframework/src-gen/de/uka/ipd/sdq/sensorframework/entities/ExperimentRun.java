@@ -28,6 +28,15 @@ public interface ExperimentRun
 	,
 
 	double p_eventtime);
+	
+	de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement addScalabilityMeasurement(
+
+			de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor p_sensor,
+
+			Double[] p_parameters,
+			double p_result
+
+			);
 
 	de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement addTimeSpanMeasurement(
 
