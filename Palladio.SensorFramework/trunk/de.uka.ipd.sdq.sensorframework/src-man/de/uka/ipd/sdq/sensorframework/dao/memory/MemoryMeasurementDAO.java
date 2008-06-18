@@ -10,9 +10,12 @@ import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IMeasurementDAO;
 import de.uka.ipd.sdq.sensorframework.entities.impl.StateMeasurementImpl;
+import de.uka.ipd.sdq.sensorframework.entities.impl.ScalabilityMeasurementImpl;
 import de.uka.ipd.sdq.sensorframework.entities.impl.TimeSpanMeasurementImpl;
 
 public class MemoryMeasurementDAO implements IMeasurementDAO {
@@ -44,6 +47,18 @@ public class MemoryMeasurementDAO implements IMeasurementDAO {
 		result.setEventTime(p_eventtime);
 		result.setSensor(p_sensor);
 		result.setTimeSpan(p_timespan);
+
+		index.put(result.getMeasurementID(), result);
+		return result;
+	}
+	
+	public synchronized ScalabilityMeasurement addScalabilityMeasurement(ScalabilitySensor p_sensor,
+			Double[] p_params, double p_result ) {
+		ScalabilityMeasurement result = new ScalabilityMeasurementImpl(myFactory);
+		result.setMeasurementID(nextID++);
+		result.setEventTime(p_result);
+		result.setSensor(p_sensor);
+		result.setParameters(p_params);
 
 		index.put(result.getMeasurementID(), result);
 		return result;

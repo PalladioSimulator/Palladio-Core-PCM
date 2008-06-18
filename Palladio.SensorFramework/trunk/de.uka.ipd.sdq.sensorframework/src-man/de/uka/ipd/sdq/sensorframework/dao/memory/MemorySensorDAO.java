@@ -9,10 +9,12 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 import de.uka.ipd.sdq.sensorframework.entities.impl.StateSensorImpl;
 import de.uka.ipd.sdq.sensorframework.entities.impl.TimeSpanSensorImpl;
+import de.uka.ipd.sdq.sensorframework.entities.impl.ScalabilitySensorImpl;
 
 public class MemorySensorDAO implements ISensorDAO {
 
@@ -36,6 +38,15 @@ public class MemorySensorDAO implements ISensorDAO {
 
 	public synchronized TimeSpanSensor addTimeSpanSensor(String p_sensorname) {
 		TimeSpanSensor result = new TimeSpanSensorImpl(myFactory);
+		result.setSensorID(nextID++);
+		result.setSensorName(p_sensorname);
+		
+		index.put(result.getSensorID(), result);
+		return result;
+	}
+	
+	public synchronized ScalabilitySensor addScalabilitySensor(String p_sensorname) {
+		ScalabilitySensor result = new ScalabilitySensorImpl(myFactory);
 		result.setSensorID(nextID++);
 		result.setSensorName(p_sensorname);
 		

@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
 import de.uka.ipd.sdq.sensorframework.entities.impl.ExperimentRunImpl;
+import de.uka.ipd.sdq.sensorframework.entities.impl.ScalabilityExperimentRunImpl;
 
 public class MemoryExperimentRunDAO implements IExperimentRunDAO {
 
@@ -23,6 +24,15 @@ public class MemoryExperimentRunDAO implements IExperimentRunDAO {
 
 	public synchronized ExperimentRun addExperimentRun(String p_experimentdatetime) {
 		ExperimentRun result = new ExperimentRunImpl(this.myFactory);
+		result.setExperimentRunID(nextID++);
+		result.setExperimentDateTime(p_experimentdatetime);
+		
+		index.put(result.getExperimentRunID(),result);
+		return result;
+	}
+	
+	public synchronized ExperimentRun addScalabilityExperimentRun(String p_experimentdatetime) {
+		ExperimentRun result = new ScalabilityExperimentRunImpl(this.myFactory);
 		result.setExperimentRunID(nextID++);
 		result.setExperimentDateTime(p_experimentdatetime);
 		
