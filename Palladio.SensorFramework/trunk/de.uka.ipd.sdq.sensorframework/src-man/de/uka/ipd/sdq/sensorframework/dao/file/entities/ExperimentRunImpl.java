@@ -21,6 +21,8 @@ import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
@@ -107,6 +109,16 @@ public class ExperimentRunImpl extends AbstractFileEntity implements ExperimentR
 		// This is uncritical as our caller is also not expecting to get one
 		return null;
 	}
+	
+	public ScalabilityMeasurement addScalabilityMeasurement(ScalabilitySensor p_sensor,
+			Double[] p_parameters, double p_result) {
+		AbstractSensorAndMeasurements sam = saveGetSensorAndMeasurements(p_sensor);
+		((ScalabilitySensorAndMeasurement) sam).addResult(p_parameters, p_result);
+
+		// We do not really have a DAO, hence we do not support returning an measurement entity.
+		// This is uncritical as our caller is also not expecting to get one
+		return null;
+	}
 
 	public Collection<Measurement> getMeasurements() {
 		ArrayList<Measurement> m = new ArrayList<Measurement>();
@@ -148,6 +160,8 @@ public class ExperimentRunImpl extends AbstractFileEntity implements ExperimentR
 				sam = new TimeSpanSensorAndMeasurement(((FileDAOFactory)factory).getFileManager(),this,sensor);
 			else if (sensor instanceof StateSensor)
 				sam = new StateSensorAndMeasurement(((FileDAOFactory)factory).getFileManager(),this,sensor);
+			else if (sensor instanceof ScalabilitySensor)
+				sam = new ScalabilitySensorAndMeasurement(((FileDAOFactory)factory).getFileManager(),this,sensor);
 			else
 				throw new RuntimeException("Invalid sensor found, fix implementation!");
 		} catch(IOException e) {

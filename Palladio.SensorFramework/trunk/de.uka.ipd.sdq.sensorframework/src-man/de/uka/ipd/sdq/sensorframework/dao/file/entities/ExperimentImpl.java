@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
@@ -103,6 +104,13 @@ public class ExperimentImpl extends AbstractFileEntity implements Experiment, Se
 		sensors.add(tss.getSensorID());
 		return tss;
 	}
+	
+	public ScalabilitySensor addScalabilitySensor(String sensorName) {
+		ScalabilitySensor scals = factory.createSensorDAO().addScalabilitySensor(
+				sensorName);
+		sensors.add(scals.getSensorID());
+		return scals;
+	}
 
 	public ExperimentRun addExperimentRun(String experimentdatetime) {
 		ExperimentRun expRun = factory.createExperimentRunDAO()
@@ -112,6 +120,16 @@ public class ExperimentImpl extends AbstractFileEntity implements Experiment, Se
 		
 		return expRun;
 	}
+	
+	public ExperimentRun addScalabilityExperimentRun(String experimentdatetime) {
+		ExperimentRun expRun = factory.createExperimentRunDAO()
+				.addScalabilityExperimentRun(experimentdatetime);
+		experimentRuns.add(expRun.getExperimentRunID());
+		((ExperimentRunImpl)expRun).setParentExperimentID(this.getID());
+		
+		return expRun;
+	}
+
 
 	public void addExperimentRun(ExperimentRun experimentRun) {
 		experimentRuns.add(experimentRun.getExperimentRunID());
