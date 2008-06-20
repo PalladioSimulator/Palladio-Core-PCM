@@ -4,25 +4,6 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="featureconfig"
     nsURI="http://sdq.ipd.uka.de/FeatureConfig" nsPrefix="featureconfig">
   <eClassifiers xsi:type="ecore:EClass" name="ConfigNode">
-    <eOperations name="ConfigValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="self->children->size() = self.origin.children->size() and self.origin->children->forAll(child|self->children->exists(originalChild | child = originalChild.origin))"/>
-      </eAnnotations>
-      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
-        </eAnnotations>
-      </eParameters>
-      <eParameters name="context">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The cache of context-specific information."/>
-        </eAnnotations>
-        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-        </eGenericType>
-      </eParameters>
-    </eOperations>
     <eOperations name="ConfigCardinalityInvalid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() &#xD;&#xA;in &#xD;&#xA;&#x9; if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then&#xD;&#xA;&#x9; &#x9;childSelectedCount >= self.origin.min and (childSelectedCount &lt;= self.origin.max or self.origin.max = -1)&#xD;&#xA;&#x9; else&#xD;&#xA;&#x9; &#x9;self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)&#xD;&#xA;&#x9; endif"/>
@@ -43,20 +24,20 @@
       </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="origin" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Node"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="children" ordered="false"
-        upperBound="-1" eType="#//ConfigNode" containment="true"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Feature"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="configState" ordered="false"
-        lowerBound="1" eType="#//ConfigState" defaultValueLiteral="UNSET"/>
+        lowerBound="1" eType="#//ConfigState" defaultValueLiteral="DEFAULT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ConfigState">
-    <eLiterals name="USER_SELECTED"/>
-    <eLiterals name="USER_ELIMINATED" value="1"/>
-    <eLiterals name="MASCHINE_SELECTED" value="2"/>
-    <eLiterals name="MASCHINE_ELIMINATED" value="3"/>
-    <eLiterals name="UNSET" value="4"/>
+    <eLiterals name="SELECTED"/>
+    <eLiterals name="ELIMINATED" value="1"/>
+    <eLiterals name="DEFAULT" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="use value from deaultConfig&#xD;&#xA;aka NULL, not set, do not override"/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FeatureConfig" eSuperTypes="#//ConfigNode">
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureConfig">
     <eOperations name="RootIsFeatureModel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)"/>
@@ -77,12 +58,16 @@
       </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedObject" ordered="false"
-        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+        eType="ecore:EClass Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confignode" ordered="false"
+        upperBound="-1" eType="#//ConfigNode" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultConfig" ordered="false"
         lowerBound="1" eType="#//FeatureConfig" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configOverrides" ordered="false"
         upperBound="-1" eType="#//FeatureConfig" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
