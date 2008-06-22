@@ -18,6 +18,12 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface featuremodelFactory extends EFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33,6 +39,15 @@ public interface featuremodelFactory extends EFactory {
 	 * @generated
 	 */
 	Feature createFeature();
+
+	/**
+	 * Returns a new object of class '<em>Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attribute</em>'.
+	 * @generated
+	 */
+	Attribute createAttribute();
 
 	/**
 	 * Returns a new object of class '<em>Feature Group</em>'.
@@ -51,6 +66,24 @@ public interface featuremodelFactory extends EFactory {
 	 * @generated
 	 */
 	FeatureDiagram createFeatureDiagram();
+
+	/**
+	 * Returns a new object of class '<em>Required Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Required Constraint</em>'.
+	 * @generated
+	 */
+	RequiredConstraint createRequiredConstraint();
+
+	/**
+	 * Returns a new object of class '<em>Prohibits Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Prohibits Constraint</em>'.
+	 * @generated
+	 */
+	ProhibitsConstraint createProhibitsConstraint();
 
 	/**
 	 * Returns the package supported by this factory.

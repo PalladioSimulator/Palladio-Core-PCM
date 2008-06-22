@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,15 +8,15 @@ package de.uka.ipd.sdq.featuremodel;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Node</b></em>'.
+ * A representation of the model object '<em><b>Required Constraint</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getNode()
- * @model abstract="true"
+ * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getRequiredConstraint()
+ * @model
  * @generated
  */
-public interface Node extends NamedElement {
+public interface RequiredConstraint extends Constraint {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25,4 +24,4 @@ public interface Node extends NamedElement {
 	 */
 	String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
 
-} // Node
+} // RequiredConstraint

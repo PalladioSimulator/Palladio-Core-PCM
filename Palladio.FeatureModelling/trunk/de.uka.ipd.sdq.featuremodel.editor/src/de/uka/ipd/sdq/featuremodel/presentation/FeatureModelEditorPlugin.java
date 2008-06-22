@@ -1,10 +1,11 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.presentation;
+
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
 
@@ -13,19 +14,26 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the FeatureModel editor plugin.
+ * This is the central singleton for the Featuremodel editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class FeatureModelEditorPlugin extends EMFPlugin {
+public final class FeaturemodelEditorPlugin extends EMFPlugin {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final FeatureModelEditorPlugin INSTANCE = new FeatureModelEditorPlugin();
+	public static final FeaturemodelEditorPlugin INSTANCE = new FeaturemodelEditorPlugin();
 	
 	/**
 	 * Keep track of the singleton.
@@ -41,9 +49,10 @@ public final class FeatureModelEditorPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureModelEditorPlugin() {
+	public FeaturemodelEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				IdentifierEditPlugin.INSTANCE,
 			});
 	}
 

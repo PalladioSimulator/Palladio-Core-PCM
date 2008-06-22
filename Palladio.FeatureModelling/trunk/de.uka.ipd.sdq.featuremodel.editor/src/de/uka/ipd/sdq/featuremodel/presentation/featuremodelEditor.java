@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
@@ -159,6 +158,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -171,6 +172,13 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 public class featuremodelEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -527,7 +535,7 @@ public class featuremodelEditor
 						}
 					}
 					catch (CoreException exception) {
-						FeatureModelEditorPlugin.INSTANCE.log(exception);
+						FeaturemodelEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -637,7 +645,7 @@ public class featuremodelEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					FeatureModelEditorPlugin.INSTANCE.log(exception);
+					FeaturemodelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -648,7 +656,7 @@ public class featuremodelEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						FeatureModelEditorPlugin.INSTANCE.log(exception);
+						FeaturemodelEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -693,6 +701,7 @@ public class featuremodelEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new featuremodelItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -1510,7 +1519,7 @@ public class featuremodelEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			FeatureModelEditorPlugin.INSTANCE.log(exception);
+			FeaturemodelEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1603,7 +1612,7 @@ public class featuremodelEditor
 			}
 		}
 		catch (CoreException exception) {
-			FeatureModelEditorPlugin.INSTANCE.log(exception);
+			FeaturemodelEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1725,7 +1734,7 @@ public class featuremodelEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return FeatureModelEditorPlugin.INSTANCE.getString(key);
+		return FeaturemodelEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1735,7 +1744,7 @@ public class featuremodelEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return FeatureModelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return FeaturemodelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

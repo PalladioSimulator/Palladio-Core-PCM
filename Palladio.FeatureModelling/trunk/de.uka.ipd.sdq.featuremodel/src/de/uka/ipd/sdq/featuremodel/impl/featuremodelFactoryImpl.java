@@ -6,15 +6,22 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
-import de.uka.ipd.sdq.featuremodel.*;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.featuremodel.Attribute;
+import de.uka.ipd.sdq.featuremodel.AttributeTypes;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
+import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
+import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
+import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +31,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class featuremodelFactoryImpl extends EFactoryImpl implements featuremodelFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+
+	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,7 +45,7 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	 */
 	public static featuremodelFactory init() {
 		try {
-			featuremodelFactory thefeaturemodelFactory = (featuremodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureModel"); 
+			featuremodelFactory thefeaturemodelFactory = (featuremodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureModel/2.0"); 
 			if (thefeaturemodelFactory != null) {
 				return thefeaturemodelFactory;
 			}
@@ -61,10 +75,43 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case featuremodelPackage.FEATURE: return createFeature();
+			case featuremodelPackage.ATTRIBUTE: return createAttribute();
 			case featuremodelPackage.FEATURE_GROUP: return createFeatureGroup();
 			case featuremodelPackage.FEATURE_DIAGRAM: return createFeatureDiagram();
+			case featuremodelPackage.REQUIRED_CONSTRAINT: return createRequiredConstraint();
+			case featuremodelPackage.PROHIBITS_CONSTRAINT: return createProhibitsConstraint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case featuremodelPackage.ATTRIBUTE_TYPES:
+				return createAttributeTypesFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case featuremodelPackage.ATTRIBUTE_TYPES:
+				return convertAttributeTypesToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -76,6 +123,16 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	public Feature createFeature() {
 		FeatureImpl feature = new FeatureImpl();
 		return feature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Attribute createAttribute() {
+		AttributeImpl attribute = new AttributeImpl();
+		return attribute;
 	}
 
 	/**
@@ -96,6 +153,46 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	public FeatureDiagram createFeatureDiagram() {
 		FeatureDiagramImpl featureDiagram = new FeatureDiagramImpl();
 		return featureDiagram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiredConstraint createRequiredConstraint() {
+		RequiredConstraintImpl requiredConstraint = new RequiredConstraintImpl();
+		return requiredConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProhibitsConstraint createProhibitsConstraint() {
+		ProhibitsConstraintImpl prohibitsConstraint = new ProhibitsConstraintImpl();
+		return prohibitsConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttributeTypes createAttributeTypesFromString(EDataType eDataType, String initialValue) {
+		AttributeTypes result = AttributeTypes.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAttributeTypesToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

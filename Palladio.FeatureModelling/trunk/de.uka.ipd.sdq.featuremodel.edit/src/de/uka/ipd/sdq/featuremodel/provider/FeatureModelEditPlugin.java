@@ -1,29 +1,36 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+
 /**
- * This is the central singleton for the FeatureModel edit plugin.
+ * This is the central singleton for the Featuremodel edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class FeatureModelEditPlugin extends EMFPlugin {
+public final class FeaturemodelEditPlugin extends EMFPlugin {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final FeatureModelEditPlugin INSTANCE = new FeatureModelEditPlugin();
+	public static final FeaturemodelEditPlugin INSTANCE = new FeaturemodelEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -39,9 +46,10 @@ public final class FeatureModelEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureModelEditPlugin() {
+	public FeaturemodelEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     IdentifierEditPlugin.INSTANCE,
 		   });
 	}
 

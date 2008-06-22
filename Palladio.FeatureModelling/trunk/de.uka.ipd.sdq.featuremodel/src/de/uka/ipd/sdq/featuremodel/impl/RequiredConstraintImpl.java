@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
@@ -8,19 +7,19 @@ package de.uka.ipd.sdq.featuremodel.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import de.uka.ipd.sdq.featuremodel.Node;
+import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Node</b></em>'.
+ * An implementation of the model object '<em><b>Required Constraint</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class NodeImpl extends NamedElementImpl implements Node {
+public class RequiredConstraintImpl extends ConstraintImpl implements RequiredConstraint {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33,7 +32,7 @@ public abstract class NodeImpl extends NamedElementImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NodeImpl() {
+	protected RequiredConstraintImpl() {
 		super();
 	}
 
@@ -44,7 +43,7 @@ public abstract class NodeImpl extends NamedElementImpl implements Node {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return featuremodelPackage.Literals.NODE;
+		return featuremodelPackage.Literals.REQUIRED_CONSTRAINT;
 	}
 
-} //NodeImpl
+} //RequiredConstraintImpl
