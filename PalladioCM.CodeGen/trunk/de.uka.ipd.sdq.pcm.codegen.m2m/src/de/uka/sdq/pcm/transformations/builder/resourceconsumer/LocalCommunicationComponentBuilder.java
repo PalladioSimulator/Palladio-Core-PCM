@@ -1,13 +1,8 @@
 package de.uka.sdq.pcm.transformations.builder.resourceconsumer;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.sdq.pcm.transformations.builder.abstractbuilder.BasicComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBuilder;
-import de.uka.sdq.pcm.transformations.builder.seff.StaticInternalActionDescriptor;
 import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
 /**

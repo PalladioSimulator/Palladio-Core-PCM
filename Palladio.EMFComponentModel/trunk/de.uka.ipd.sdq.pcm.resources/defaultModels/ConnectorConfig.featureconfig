@@ -1,31 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<featureconfig:FeatureConfig xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:featureconfig="http://sdq.ipd.uka.de/FeatureConfig" xmlns:featuremodel="http://sdq.ipd.uka.de/FeatureModel" configState="MASCHINE_SELECTED">
-  <origin xsi:type="featuremodel:FeatureDiagram" href="Connector.featuremodel#/"/>
-  <children configState="MASCHINE_SELECTED">
-    <origin xsi:type="featuremodel:FeatureGroup" href="Connector.featuremodel#//@children.0"/>
-    <children configState="USER_SELECTED">
-      <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.0/@children.0"/>
-    </children>
-    <children configState="MASCHINE_ELIMINATED">
-      <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.0/@children.1"/>
-    </children>
-  </children>
-  <children configState="MASCHINE_SELECTED">
-    <origin xsi:type="featuremodel:FeatureGroup" href="Connector.featuremodel#//@children.1"/>
-    <children configState="USER_SELECTED">
-      <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.1/@children.0"/>
-    </children>
-    <children configState="MASCHINE_ELIMINATED">
-      <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.1/@children.1"/>
-    </children>
-  </children>
-  <children configState="MASCHINE_SELECTED">
-    <origin xsi:type="featuremodel:FeatureGroup" href="Connector.featuremodel#//@children.2"/>
-    <children configState="USER_ELIMINATED">
-      <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.2/@children.0"/>
-    </children>
-    <children configState="USER_ELIMINATED">
-      <origin xsi:type="featuremodel:Feature" href="Connector.featuremodel#//@children.2/@children.1"/>
-    </children>
-  </children>
-</featureconfig:FeatureConfig>
+<featureconfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:featureconfig="http://sdq.ipd.uka.de/FeatureConfig/2.0" name="RMI Config">
+  <defaultConfig>
+    <referencedObject href="Connector.featuremodel#_i-8dAEA5Ed2gRP09T9joBw"/>
+    <confignode configState="SELECTED">
+      <origin href="Connector.featuremodel#_snlyQEA5Ed2gRP09T9joBw"/>
+    </confignode>
+  </defaultConfig>
+</featureconfig:Configuration>

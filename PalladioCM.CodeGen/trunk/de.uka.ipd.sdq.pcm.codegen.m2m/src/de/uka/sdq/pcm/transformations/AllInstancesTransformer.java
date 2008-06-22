@@ -28,7 +28,7 @@ public abstract class AllInstancesTransformer<T> {
 		OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
 
 		try {
-			Set<EObject> result = new SELECT(
+			Set<EObject> result = (Set<EObject>) new SELECT(
 				    new FROM(rootNode),
 				    new WHERE(new BooleanOCLCondition<EClassifier, EClass, EObject>(
 				    	ocl.getEnvironment(),

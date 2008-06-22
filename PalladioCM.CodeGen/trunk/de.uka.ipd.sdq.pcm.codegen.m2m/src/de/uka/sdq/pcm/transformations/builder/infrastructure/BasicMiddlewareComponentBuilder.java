@@ -4,8 +4,8 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.abstractbuilder.BasicComponentBuilder;
-import de.uka.sdq.pcm.transformations.builder.seff.MiddlewareComponentSeffBuilder;
 import de.uka.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBuilder;
+import de.uka.sdq.pcm.transformations.builder.seff.MiddlewareComponentSeffBuilder;
 import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
 public class BasicMiddlewareComponentBuilder extends BasicComponentBuilder

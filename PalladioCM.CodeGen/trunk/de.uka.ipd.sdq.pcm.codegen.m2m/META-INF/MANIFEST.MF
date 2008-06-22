@@ -36,3 +36,4 @@ Export-Package: de.uka.sdq.pcm.transformations,
  m2t_transforms.prototype,
  m2t_transforms.sim
 Bundle-Vendor: sdq.ipd.uka.de
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

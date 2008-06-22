@@ -1,7 +1,6 @@
 package de.uka.sdq.pcm.transformations.builder.connectors;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.sdq.pcm.transformations.builder.infrastructure.BasicMiddlewareComponentBuilder;
