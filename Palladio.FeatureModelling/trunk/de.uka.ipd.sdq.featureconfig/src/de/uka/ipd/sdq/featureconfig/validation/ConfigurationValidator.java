@@ -6,9 +6,9 @@
  */
 package de.uka.ipd.sdq.featureconfig.validation;
 
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 
 /**
  * A sample validator interface for {@link de.uka.ipd.sdq.featureconfig.Configuration}.

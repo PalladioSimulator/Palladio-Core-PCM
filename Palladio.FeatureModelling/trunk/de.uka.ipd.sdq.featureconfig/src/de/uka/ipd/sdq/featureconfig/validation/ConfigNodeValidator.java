@@ -6,12 +6,11 @@
  */
 package de.uka.ipd.sdq.featureconfig.validation;
 
+import org.eclipse.emf.common.util.EList;
+
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
 import de.uka.ipd.sdq.featureconfig.ConfigState;
-
 import de.uka.ipd.sdq.featuremodel.Node;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link de.uka.ipd.sdq.featureconfig.ConfigNode}.

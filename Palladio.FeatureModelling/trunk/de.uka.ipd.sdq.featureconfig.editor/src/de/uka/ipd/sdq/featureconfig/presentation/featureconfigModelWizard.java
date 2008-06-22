@@ -16,76 +16,52 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
-import org.eclipse.emf.common.CommonPlugin;
-
-import org.eclipse.emf.common.util.URI;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.xmi.XMLResource;
-
-import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
-
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
 import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
-import de.uka.ipd.sdq.featureconfig.provider.FeatureConfigEditPlugin;
-
-
-import org.eclipse.core.runtime.Path;
-
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
-
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
+import de.uka.ipd.sdq.featureconfig.provider.FeatureconfigEditPlugin;
 
 
 /**
@@ -160,8 +136,8 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(FeatureConfigEditorPlugin.INSTANCE.getImage("full/wizban/Newfeatureconfig")));
+		setWindowTitle(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(FeatureconfigEditorPlugin.INSTANCE.getImage("full/wizban/Newfeatureconfig")));
 	}
 
 	/**
@@ -244,7 +220,7 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							FeatureConfigEditorPlugin.INSTANCE.log(exception);
+							FeatureconfigEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -277,14 +253,14 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), FeatureConfigEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), FeatureconfigEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			FeatureConfigEditorPlugin.INSTANCE.log(exception);
+			FeatureconfigEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -317,10 +293,10 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 			if (super.validatePage()) {
 				// Make sure the file ends in ".featureconfig".
 				//
-				String requiredExt = FeatureConfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameExtension");
+				String requiredExt = FeatureconfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameExtension");
 				String enteredExt = new Path(getFileName()).getFileExtension();
 				if (enteredExt == null || !enteredExt.equals(requiredExt)) {
-					setErrorMessage(FeatureConfigEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
+					setErrorMessage(FeatureconfigEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
 					return false;
 				}
 				else {
@@ -401,7 +377,7 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -427,7 +403,7 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -526,10 +502,10 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return FeatureConfigEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return FeatureconfigEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				FeatureConfigEditorPlugin.INSTANCE.log(mre);
+				FeatureconfigEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -542,7 +518,7 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -561,9 +537,9 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new featureconfigModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_featureconfigModelWizard_label"));
-		newFileCreationPage.setDescription(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_featureconfigModelWizard_description"));
-		newFileCreationPage.setFileName(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameDefaultBase") + "." + FeatureConfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameExtension"));
+		newFileCreationPage.setTitle(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_featureconfigModelWizard_label"));
+		newFileCreationPage.setDescription(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_featureconfigModelWizard_description"));
+		newFileCreationPage.setFileName(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameDefaultBase") + "." + FeatureconfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameExtension"));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -589,8 +565,8 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = FeatureConfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FeatureConfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameExtension");
+					String defaultModelBaseFilename = FeatureconfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = FeatureconfigEditorPlugin.INSTANCE.getString("_UI_featureconfigEditorFilenameExtension");
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
@@ -600,8 +576,8 @@ public class featureconfigModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new featureconfigModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_featureconfigModelWizard_label"));
-		initialObjectCreationPage.setDescription(FeatureConfigEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_featureconfigModelWizard_label"));
+		initialObjectCreationPage.setDescription(FeatureconfigEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

@@ -23,129 +23,75 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ConfigState implements Enumerator {
 	/**
-	 * The '<em><b>USER SELECTED</b></em>' literal object.
+	 * The '<em><b>SELECTED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #USER_SELECTED_VALUE
+	 * @see #SELECTED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	USER_SELECTED(0, "USER_SELECTED", "USER_SELECTED"),
-
-	/**
-	 * The '<em><b>USER ELIMINATED</b></em>' literal object.
+	SELECTED(0, "SELECTED", "SELECTED"), /**
+	 * The '<em><b>ELIMINATED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #USER_ELIMINATED_VALUE
+	 * @see #ELIMINATED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	USER_ELIMINATED(1, "USER_ELIMINATED", "USER_ELIMINATED"),
-
-	/**
-	 * The '<em><b>MASCHINE SELECTED</b></em>' literal object.
+	ELIMINATED(1, "ELIMINATED", "ELIMINATED"), /**
+	 * The '<em><b>DEFAULT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MASCHINE_SELECTED_VALUE
+	 * @see #DEFAULT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MASCHINE_SELECTED(2, "MASCHINE_SELECTED", "MASCHINE_SELECTED"),
+	DEFAULT(2, "DEFAULT", "DEFAULT");
 
 	/**
-	 * The '<em><b>MASCHINE ELIMINATED</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MASCHINE_ELIMINATED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	MASCHINE_ELIMINATED(3, "MASCHINE_ELIMINATED", "MASCHINE_ELIMINATED"),
-
-	/**
-	 * The '<em><b>UNSET</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UNSET_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	UNSET(4, "UNSET", "UNSET");
-
-	/**
-	 * The '<em><b>USER SELECTED</b></em>' literal value.
+	 * The '<em><b>SELECTED</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>USER SELECTED</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>SELECTED</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #USER_SELECTED
+	 * @see #SELECTED
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int USER_SELECTED_VALUE = 0;
+	public static final int SELECTED_VALUE = 0;
 
 	/**
-	 * The '<em><b>USER ELIMINATED</b></em>' literal value.
+	 * The '<em><b>ELIMINATED</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>USER ELIMINATED</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>ELIMINATED</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #USER_ELIMINATED
+	 * @see #ELIMINATED
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int USER_ELIMINATED_VALUE = 1;
+	public static final int ELIMINATED_VALUE = 1;
 
 	/**
-	 * The '<em><b>MASCHINE SELECTED</b></em>' literal value.
+	 * The '<em><b>DEFAULT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>MASCHINE SELECTED</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #MASCHINE_SELECTED
+	 * <!-- begin-model-doc -->
+	 * use value from deaultConfig
+	 * aka NULL, not set, do not override
+	 * <!-- end-model-doc -->
+	 * @see #DEFAULT
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MASCHINE_SELECTED_VALUE = 2;
-
-	/**
-	 * The '<em><b>MASCHINE ELIMINATED</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>MASCHINE ELIMINATED</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #MASCHINE_ELIMINATED
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int MASCHINE_ELIMINATED_VALUE = 3;
-
-	/**
-	 * The '<em><b>UNSET</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>UNSET</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #UNSET
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int UNSET_VALUE = 4;
+	public static final int DEFAULT_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>Config State</b></em>' enumerators.
@@ -155,11 +101,9 @@ public enum ConfigState implements Enumerator {
 	 */
 	private static final ConfigState[] VALUES_ARRAY =
 		new ConfigState[] {
-			USER_SELECTED,
-			USER_ELIMINATED,
-			MASCHINE_SELECTED,
-			MASCHINE_ELIMINATED,
-			UNSET,
+			SELECTED,
+			ELIMINATED,
+			DEFAULT,
 		};
 
 	/**
@@ -210,11 +154,9 @@ public enum ConfigState implements Enumerator {
 	 */
 	public static ConfigState get(int value) {
 		switch (value) {
-			case USER_SELECTED_VALUE: return USER_SELECTED;
-			case USER_ELIMINATED_VALUE: return USER_ELIMINATED;
-			case MASCHINE_SELECTED_VALUE: return MASCHINE_SELECTED;
-			case MASCHINE_ELIMINATED_VALUE: return MASCHINE_ELIMINATED;
-			case UNSET_VALUE: return UNSET;
+			case SELECTED_VALUE: return SELECTED;
+			case ELIMINATED_VALUE: return ELIMINATED;
+			case DEFAULT_VALUE: return DEFAULT;
 		}
 		return null;
 	}

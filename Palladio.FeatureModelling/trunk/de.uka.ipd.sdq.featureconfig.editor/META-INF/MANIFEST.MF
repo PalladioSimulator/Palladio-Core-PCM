@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.featureconfig.editor; singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: de.uka.ipd.sdq.featureconfig.presentation.FeatureConfigEditorPlugin$Implementation
+Bundle-Activator: de.uka.ipd.sdq.featureconfig.presentation.FeatureconfigEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -16,5 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  de.uka.ipd.sdq.featuremodel.edit;visibility:=reexport,
- org.eclipse.emf.ecore.edit
-Eclipse-LazyStart: true
+ org.eclipse.emf.ecore.edit,
+ de.uka.ipd.sdq.identifier;bundle-version="2.0.0",
+ de.uka.ipd.sdq.identifier.edit;bundle-version="2.0.0"
+Bundle-ActivationPolicy: lazy

@@ -6,25 +6,21 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
-import de.uka.ipd.sdq.featureconfig.Configuration;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl#getDefaultConfig <em>Default Config</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl#getConfigOverrides <em>Config Overrides</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +57,26 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected EList<FeatureConfig> configOverrides;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +157,27 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.CONFIGURATION__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -163,6 +201,8 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return getDefaultConfig();
 			case featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES:
 				return getConfigOverrides();
+			case featureconfigPackage.CONFIGURATION__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -183,6 +223,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				getConfigOverrides().clear();
 				getConfigOverrides().addAll((Collection<? extends FeatureConfig>)newValue);
 				return;
+			case featureconfigPackage.CONFIGURATION__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +244,9 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES:
 				getConfigOverrides().clear();
 				return;
+			case featureconfigPackage.CONFIGURATION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,8 +263,26 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				return defaultConfig != null;
 			case featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES:
 				return configOverrides != null && !configOverrides.isEmpty();
+			case featureconfigPackage.CONFIGURATION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ConfigurationImpl

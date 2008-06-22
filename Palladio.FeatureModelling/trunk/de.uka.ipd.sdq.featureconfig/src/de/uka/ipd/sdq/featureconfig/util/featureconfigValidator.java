@@ -6,15 +6,17 @@
  */
 package de.uka.ipd.sdq.featureconfig.util;
 
-import de.uka.ipd.sdq.featureconfig.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.ConfigState;
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,20 +45,12 @@ public class featureconfigValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.featureconfig";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Config Valid' of 'Config Node'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int CONFIG_NODE__CONFIG_VALID = 1;
-
-	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Config Cardinality Invalid' of 'Config Node'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int CONFIG_NODE__CONFIG_CARDINALITY_INVALID = 2;
+	public static final int CONFIG_NODE__CONFIG_CARDINALITY_INVALID = 1;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Root Is Feature Model' of 'Feature Config'.
@@ -64,7 +58,7 @@ public class featureconfigValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL = 3;
+	public static final int FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -72,7 +66,7 @@ public class featureconfigValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 3;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -138,19 +132,8 @@ public class featureconfigValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(configNode, diagnostics, context);
-		if (result || diagnostics != null) result &= validateConfigNode_ConfigValid(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConfigNode_ConfigCardinalityInvalid(configNode, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * Validates the ConfigValid constraint of '<em>Config Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateConfigNode_ConfigValid(ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return configNode.ConfigValid(diagnostics, context);
 	}
 
 	/**
@@ -176,8 +159,6 @@ public class featureconfigValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(featureConfig, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(featureConfig, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validateConfigNode_ConfigValid(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validateConfigNode_ConfigCardinalityInvalid(featureConfig, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFeatureConfig_RootIsFeatureModel(featureConfig, diagnostics, context);
 		return result;
 	}

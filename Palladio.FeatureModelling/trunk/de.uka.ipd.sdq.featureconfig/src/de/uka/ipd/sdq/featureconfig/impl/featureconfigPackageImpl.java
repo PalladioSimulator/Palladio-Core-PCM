@@ -6,17 +6,6 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
-import de.uka.ipd.sdq.featureconfig.ConfigNode;
-import de.uka.ipd.sdq.featureconfig.ConfigState;
-import de.uka.ipd.sdq.featureconfig.Configuration;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
-
-import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
-
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -25,9 +14,17 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
-
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.ConfigState;
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -121,8 +118,8 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		isInited = true;
 
 		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
 		featuremodelPackage.eINSTANCE.eClass();
+		IdentifierPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		thefeatureconfigPackage.createPackageContents();
@@ -168,17 +165,8 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConfigNode_Children() {
-		return (EReference)configNodeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getConfigNode_ConfigState() {
-		return (EAttribute)configNodeEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)configNodeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -197,6 +185,15 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 	 */
 	public EReference getFeatureConfig_ReferencedObject() {
 		return (EReference)featureConfigEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeatureConfig_Confignode() {
+		return (EReference)featureConfigEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -224,6 +221,15 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 	 */
 	public EReference getConfiguration_ConfigOverrides() {
 		return (EReference)configurationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfiguration_Name() {
+		return (EAttribute)configurationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -265,15 +271,16 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		// Create classes and their features
 		configNodeEClass = createEClass(CONFIG_NODE);
 		createEReference(configNodeEClass, CONFIG_NODE__ORIGIN);
-		createEReference(configNodeEClass, CONFIG_NODE__CHILDREN);
 		createEAttribute(configNodeEClass, CONFIG_NODE__CONFIG_STATE);
 
 		featureConfigEClass = createEClass(FEATURE_CONFIG);
 		createEReference(featureConfigEClass, FEATURE_CONFIG__REFERENCED_OBJECT);
+		createEReference(featureConfigEClass, FEATURE_CONFIG__CONFIGNODE);
 
 		configurationEClass = createEClass(CONFIGURATION);
 		createEReference(configurationEClass, CONFIGURATION__DEFAULT_CONFIG);
 		createEReference(configurationEClass, CONFIGURATION__CONFIG_OVERRIDES);
+		createEAttribute(configurationEClass, CONFIGURATION__NAME);
 
 		// Create enums
 		configStateEEnum = createEEnum(CONFIG_STATE);
@@ -304,22 +311,19 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 
 		// Obtain other dependent packages
 		featuremodelPackage thefeaturemodelPackage = (featuremodelPackage)EPackage.Registry.INSTANCE.getEPackage(featuremodelPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		featureConfigEClass.getESuperTypes().add(this.getConfigNode());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(configNodeEClass, ConfigNode.class, "ConfigNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConfigNode_Origin(), thefeaturemodelPackage.getNode(), null, "origin", null, 1, 1, ConfigNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getConfigNode_Children(), this.getConfigNode(), null, "children", null, 0, -1, ConfigNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getConfigNode_ConfigState(), this.getConfigState(), "configState", "UNSET", 1, 1, ConfigNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConfigNode_Origin(), thefeaturemodelPackage.getFeature(), null, "origin", null, 1, 1, ConfigNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConfigNode_ConfigState(), this.getConfigState(), "configState", "DEFAULT", 1, 1, ConfigNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = addEOperation(configNodeEClass, ecorePackage.getEBoolean(), "ConfigValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(configNodeEClass, ecorePackage.getEBoolean(), "ConfigCardinalityInvalid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -328,17 +332,9 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(configNodeEClass, ecorePackage.getEBoolean(), "ConfigCardinalityInvalid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(featureConfigEClass, FeatureConfig.class, "FeatureConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFeatureConfig_ReferencedObject(), theEcorePackage.getEObject(), null, "referencedObject", null, 0, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeatureConfig_ReferencedObject(), ecorePackage.getEObject(), null, "referencedObject", null, 0, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeatureConfig_Confignode(), this.getConfigNode(), null, "confignode", null, 0, -1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(featureConfigEClass, ecorePackage.getEBoolean(), "RootIsFeatureModel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -352,14 +348,13 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConfiguration_DefaultConfig(), this.getFeatureConfig(), null, "defaultConfig", null, 1, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getConfiguration_ConfigOverrides(), this.getFeatureConfig(), null, "configOverrides", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getConfiguration_Name(), ecorePackage.getEString(), "name", null, 1, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(configStateEEnum, ConfigState.class, "ConfigState");
-		addEEnumLiteral(configStateEEnum, ConfigState.USER_SELECTED);
-		addEEnumLiteral(configStateEEnum, ConfigState.USER_ELIMINATED);
-		addEEnumLiteral(configStateEEnum, ConfigState.MASCHINE_SELECTED);
-		addEEnumLiteral(configStateEEnum, ConfigState.MASCHINE_ELIMINATED);
-		addEEnumLiteral(configStateEEnum, ConfigState.UNSET);
+		addEEnumLiteral(configStateEEnum, ConfigState.SELECTED);
+		addEEnumLiteral(configStateEEnum, ConfigState.ELIMINATED);
+		addEEnumLiteral(configStateEEnum, ConfigState.DEFAULT);
 
 		// Create resource
 		createResource(eNS_URI);

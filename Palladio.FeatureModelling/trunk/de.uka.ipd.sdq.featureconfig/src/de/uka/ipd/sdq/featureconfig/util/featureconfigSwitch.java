@@ -6,12 +6,15 @@
  */
 package de.uka.ipd.sdq.featureconfig.util;
 
-import de.uka.ipd.sdq.featureconfig.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.Configuration;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,7 +99,6 @@ public class featureconfigSwitch<T> {
 			case featureconfigPackage.FEATURE_CONFIG: {
 				FeatureConfig featureConfig = (FeatureConfig)theEObject;
 				T result = caseFeatureConfig(featureConfig);
-				if (result == null) result = caseConfigNode(featureConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

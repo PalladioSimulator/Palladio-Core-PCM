@@ -42,7 +42,7 @@ public interface featureconfigPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/FeatureConfig";
+	String eNS_URI = "http://sdq.ipd.uka.de/FeatureConfig/2.0";
 
 	/**
 	 * The package namespace name.
@@ -80,22 +80,13 @@ public interface featureconfigPackage extends EPackage {
 	int CONFIG_NODE__ORIGIN = 0;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIG_NODE__CHILDREN = 1;
-
-	/**
 	 * The feature id for the '<em><b>Config State</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_NODE__CONFIG_STATE = 2;
+	int CONFIG_NODE__CONFIG_STATE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Config Node</em>' class.
@@ -104,7 +95,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_NODE_FEATURE_COUNT = 3;
+	int CONFIG_NODE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl <em>Feature Config</em>}' class.
@@ -117,40 +108,22 @@ public interface featureconfigPackage extends EPackage {
 	int FEATURE_CONFIG = 1;
 
 	/**
-	 * The feature id for the '<em><b>Origin</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_CONFIG__ORIGIN = CONFIG_NODE__ORIGIN;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_CONFIG__CHILDREN = CONFIG_NODE__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Config State</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_CONFIG__CONFIG_STATE = CONFIG_NODE__CONFIG_STATE;
-
-	/**
 	 * The feature id for the '<em><b>Referenced Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_CONFIG__REFERENCED_OBJECT = CONFIG_NODE_FEATURE_COUNT + 0;
+	int FEATURE_CONFIG__REFERENCED_OBJECT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Confignode</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONFIG__CONFIGNODE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Feature Config</em>' class.
@@ -159,7 +132,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_CONFIG_FEATURE_COUNT = CONFIG_NODE_FEATURE_COUNT + 1;
+	int FEATURE_CONFIG_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -190,13 +163,22 @@ public interface featureconfigPackage extends EPackage {
 	int CONFIGURATION__CONFIG_OVERRIDES = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = 2;
+	int CONFIGURATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}' enum.
@@ -231,17 +213,6 @@ public interface featureconfigPackage extends EPackage {
 	EReference getConfigNode_Origin();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getChildren <em>Children</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Children</em>'.
-	 * @see de.uka.ipd.sdq.featureconfig.ConfigNode#getChildren()
-	 * @see #getConfigNode()
-	 * @generated
-	 */
-	EReference getConfigNode_Children();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getConfigState <em>Config State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,6 +245,17 @@ public interface featureconfigPackage extends EPackage {
 	EReference getFeatureConfig_ReferencedObject();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfignode <em>Confignode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Confignode</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfignode()
+	 * @see #getFeatureConfig()
+	 * @generated
+	 */
+	EReference getFeatureConfig_Confignode();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -304,6 +286,17 @@ public interface featureconfigPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConfiguration_ConfigOverrides();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featureconfig.Configuration#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.Configuration#getName()
+	 * @see #getConfiguration()
+	 * @generated
+	 */
+	EAttribute getConfiguration_Name();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}'.
@@ -356,14 +349,6 @@ public interface featureconfigPackage extends EPackage {
 		EReference CONFIG_NODE__ORIGIN = eINSTANCE.getConfigNode_Origin();
 
 		/**
-		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONFIG_NODE__CHILDREN = eINSTANCE.getConfigNode_Children();
-
-		/**
 		 * The meta object literal for the '<em><b>Config State</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -390,6 +375,14 @@ public interface featureconfigPackage extends EPackage {
 		EReference FEATURE_CONFIG__REFERENCED_OBJECT = eINSTANCE.getFeatureConfig_ReferencedObject();
 
 		/**
+		 * The meta object literal for the '<em><b>Confignode</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE_CONFIG__CONFIGNODE = eINSTANCE.getFeatureConfig_Confignode();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl <em>Configuration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -414,6 +407,14 @@ public interface featureconfigPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONFIGURATION__CONFIG_OVERRIDES = eINSTANCE.getConfiguration_ConfigOverrides();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIGURATION__NAME = eINSTANCE.getConfiguration_Name();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}' enum.

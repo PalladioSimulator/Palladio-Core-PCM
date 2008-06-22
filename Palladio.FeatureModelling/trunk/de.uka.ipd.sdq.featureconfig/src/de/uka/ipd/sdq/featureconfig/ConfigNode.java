@@ -6,14 +6,12 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
-import de.uka.ipd.sdq.featuremodel.Node;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.featuremodel.Feature;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getOrigin <em>Origin</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getChildren <em>Children</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getConfigState <em>Config State</em>}</li>
  * </ul>
  * </p>
@@ -43,12 +40,12 @@ public interface ConfigNode extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Origin</em>' reference.
-	 * @see #setOrigin(Node)
+	 * @see #setOrigin(Feature)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getConfigNode_Origin()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Node getOrigin();
+	Feature getOrigin();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getOrigin <em>Origin</em>}' reference.
@@ -58,27 +55,11 @@ public interface ConfigNode extends EObject {
 	 * @see #getOrigin()
 	 * @generated
 	 */
-	void setOrigin(Node value);
-
-	/**
-	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.featureconfig.ConfigNode}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Children</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getConfigNode_Children()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<ConfigNode> getChildren();
+	void setOrigin(Feature value);
 
 	/**
 	 * Returns the value of the '<em><b>Config State</b></em>' attribute.
-	 * The default value is <code>"UNSET"</code>.
+	 * The default value is <code>"DEFAULT"</code>.
 	 * The literals are from the enumeration {@link de.uka.ipd.sdq.featureconfig.ConfigState}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -90,7 +71,7 @@ public interface ConfigNode extends EObject {
 	 * @see de.uka.ipd.sdq.featureconfig.ConfigState
 	 * @see #setConfigState(ConfigState)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getConfigNode_ConfigState()
-	 * @model default="UNSET" required="true" ordered="false"
+	 * @model default="DEFAULT" required="true" ordered="false"
 	 * @generated
 	 */
 	ConfigState getConfigState();
@@ -110,17 +91,6 @@ public interface ConfigNode extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self->children->size() = self.origin.children->size() and self.origin->children->forAll(child|self->children->exists(originalChild | child = originalChild.origin))
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean ConfigValid(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
 	 * let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() 
 	 * in 
 	 * 	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then
@@ -128,6 +98,8 @@ public interface ConfigNode extends EObject {
 	 * 	 else
 	 * 	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)
 	 * 	 endif
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
