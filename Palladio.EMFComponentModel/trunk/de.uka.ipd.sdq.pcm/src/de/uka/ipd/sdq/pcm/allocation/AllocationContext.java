@@ -6,9 +6,7 @@
 package de.uka.ipd.sdq.pcm.allocation;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 /**

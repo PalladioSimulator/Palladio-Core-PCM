@@ -5,18 +5,15 @@
  */
 package de.uka.ipd.sdq.pcm.protocol.impl;
 
-import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-import de.uka.ipd.sdq.pcm.protocol.ServiceCall;
-
-import de.uka.ipd.sdq.pcm.repository.Signature;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+import de.uka.ipd.sdq.pcm.protocol.ServiceCall;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * <!-- begin-user-doc -->

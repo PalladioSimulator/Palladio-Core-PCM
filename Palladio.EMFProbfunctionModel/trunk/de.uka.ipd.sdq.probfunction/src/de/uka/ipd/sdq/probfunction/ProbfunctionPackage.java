@@ -6,8 +6,6 @@
  */
 package de.uka.ipd.sdq.probfunction;
 
-import de.uka.ipd.sdq.units.UnitsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;

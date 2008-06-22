@@ -6,12 +6,11 @@
  */
 package de.uka.ipd.sdq.stoex.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->

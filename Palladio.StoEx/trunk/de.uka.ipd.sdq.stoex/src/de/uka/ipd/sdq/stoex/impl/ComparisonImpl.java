@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.stoex.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

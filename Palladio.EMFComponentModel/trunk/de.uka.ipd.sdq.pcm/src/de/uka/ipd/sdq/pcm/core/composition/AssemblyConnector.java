@@ -6,9 +6,7 @@
 package de.uka.ipd.sdq.pcm.core.composition;
 
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
-
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 

@@ -1,17 +1,58 @@
 // $ANTLR 3.0 C:\\Dokumente und Einstellungen\\Koziolek\\Eigene Dateien\\svn\\code\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-08-13 17:26:14
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
-	import de.uka.ipd.sdq.stoex.*;
-	import de.uka.ipd.sdq.probfunction.*;
-	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
-	import java.util.Collection;
+import java.util.Collection;
 
+import org.antlr.runtime.BitSet;
+import org.antlr.runtime.EarlyExitException;
+import org.antlr.runtime.NoViableAltException;
+import org.antlr.runtime.Parser;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.Token;
+import org.antlr.runtime.TokenStream;
 
-import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
+import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
+import de.uka.ipd.sdq.probfunction.Sample;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.Atom;
+import de.uka.ipd.sdq.stoex.BoolLiteral;
+import de.uka.ipd.sdq.stoex.BooleanExpression;
+import de.uka.ipd.sdq.stoex.BooleanOperations;
+import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
+import de.uka.ipd.sdq.stoex.CompareExpression;
+import de.uka.ipd.sdq.stoex.CompareOperations;
+import de.uka.ipd.sdq.stoex.Comparison;
+import de.uka.ipd.sdq.stoex.DoubleLiteral;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
+import de.uka.ipd.sdq.stoex.IfElse;
+import de.uka.ipd.sdq.stoex.IfElseExpression;
+import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.NegativeExpression;
+import de.uka.ipd.sdq.stoex.NotExpression;
+import de.uka.ipd.sdq.stoex.Parenthesis;
+import de.uka.ipd.sdq.stoex.Power;
+import de.uka.ipd.sdq.stoex.PowerExpression;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.Product;
+import de.uka.ipd.sdq.stoex.ProductExpression;
+import de.uka.ipd.sdq.stoex.ProductOperations;
+import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.stoex.StringLiteral;
+import de.uka.ipd.sdq.stoex.Term;
+import de.uka.ipd.sdq.stoex.TermExpression;
+import de.uka.ipd.sdq.stoex.TermOperations;
+import de.uka.ipd.sdq.stoex.Unary;
+import de.uka.ipd.sdq.stoex.VariableReference;
 
 public class PCMStoExParser extends Parser {
     public static final String[] tokenNames = new String[] {

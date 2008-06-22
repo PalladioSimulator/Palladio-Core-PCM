@@ -6,7 +6,6 @@
  */
 package de.uka.ipd.sdq.stoex;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->

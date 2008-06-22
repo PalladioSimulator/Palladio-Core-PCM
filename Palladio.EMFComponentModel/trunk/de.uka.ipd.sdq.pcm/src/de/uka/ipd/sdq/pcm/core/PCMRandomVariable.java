@@ -5,11 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.core;
 
-import de.uka.ipd.sdq.stoex.RandomVariable;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->

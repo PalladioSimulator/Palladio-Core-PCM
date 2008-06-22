@@ -6,16 +6,38 @@
  */
 package de.uka.ipd.sdq.stoex.impl;
 
-import de.uka.ipd.sdq.stoex.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.stoex.BoolLiteral;
+import de.uka.ipd.sdq.stoex.BooleanOperations;
+import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
+import de.uka.ipd.sdq.stoex.CompareExpression;
+import de.uka.ipd.sdq.stoex.CompareOperations;
+import de.uka.ipd.sdq.stoex.DoubleLiteral;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
+import de.uka.ipd.sdq.stoex.IfElseExpression;
+import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.NegativeExpression;
+import de.uka.ipd.sdq.stoex.NotExpression;
+import de.uka.ipd.sdq.stoex.Parenthesis;
+import de.uka.ipd.sdq.stoex.PowerExpression;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.ProductExpression;
+import de.uka.ipd.sdq.stoex.ProductOperations;
+import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.stoex.StringLiteral;
+import de.uka.ipd.sdq.stoex.TermExpression;
+import de.uka.ipd.sdq.stoex.TermOperations;
+import de.uka.ipd.sdq.stoex.Variable;
+import de.uka.ipd.sdq.stoex.VariableReference;
 
 /**
  * <!-- begin-user-doc -->

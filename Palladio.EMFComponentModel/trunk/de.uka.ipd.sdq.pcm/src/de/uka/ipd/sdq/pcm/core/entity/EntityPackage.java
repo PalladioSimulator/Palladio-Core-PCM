@@ -5,14 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 /**
  * <!-- begin-user-doc -->

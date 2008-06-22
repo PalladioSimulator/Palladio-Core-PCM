@@ -38,6 +38,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class IdentifierItemProviderAdapterFactory extends IdentifierAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006-2008, IPD, SDQ, U Karlsruhe, Germany";
+
+	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

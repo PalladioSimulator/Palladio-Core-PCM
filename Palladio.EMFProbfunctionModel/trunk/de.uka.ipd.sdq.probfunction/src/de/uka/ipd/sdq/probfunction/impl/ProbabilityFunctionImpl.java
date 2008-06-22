@@ -6,13 +6,11 @@
  */
 package de.uka.ipd.sdq.probfunction.impl;
 
-import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.units.impl.UnitCarryingElementImpl;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -5,14 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
-import de.uka.ipd.sdq.pcm.protocol.Protocol;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.protocol.Protocol;
 
 /**
  * <!-- begin-user-doc -->

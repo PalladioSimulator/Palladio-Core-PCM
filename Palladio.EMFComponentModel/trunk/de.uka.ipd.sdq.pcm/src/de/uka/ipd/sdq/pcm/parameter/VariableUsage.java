@@ -5,11 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
-import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 
 /**
  * <!-- begin-user-doc -->

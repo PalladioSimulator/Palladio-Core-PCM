@@ -1,10 +1,7 @@
 // $ANTLR : "stoex.g" -> "StochasticExpressionsParser.java"$
   
 	package de.uka.ipd.sdq.stoex.parser;
-	import de.uka.ipd.sdq.stoex.*;
-	import de.uka.ipd.sdq.probfunction.*;
-	import java.util.ArrayList;
-
+	
 public interface StochasticExpressionsParserTokenTypes {
 	int EOF = 1;
 	int NULL_TREE_LOOKAHEAD = 3;

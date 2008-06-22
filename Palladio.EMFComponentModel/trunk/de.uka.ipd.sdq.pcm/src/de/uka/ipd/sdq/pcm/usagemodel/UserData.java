@@ -5,13 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 /**
  * <!-- begin-user-doc -->

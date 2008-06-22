@@ -5,13 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 
 /**
  * <!-- begin-user-doc -->

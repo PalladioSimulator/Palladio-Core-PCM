@@ -5,9 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity;
 
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 
 /**
  * <!-- begin-user-doc -->

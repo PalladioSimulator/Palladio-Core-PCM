@@ -5,10 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.core.connectors;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->

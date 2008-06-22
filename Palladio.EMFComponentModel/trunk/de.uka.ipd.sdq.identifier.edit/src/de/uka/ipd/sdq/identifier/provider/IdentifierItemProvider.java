@@ -42,6 +42,13 @@ public class IdentifierItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006-2008, IPD, SDQ, U Karlsruhe, Germany";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,7 +88,7 @@ public class IdentifierItemProvider
 				 getString("_UI_Identifier_id_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Identifier_id_feature", "_UI_Identifier_type"),
 				 IdentifierPackage.Literals.IDENTIFIER__ID,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

@@ -6,7 +6,6 @@ import java.util.Collections;
 
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.TokenStream;
 
 public class MyPCMStoExLexer extends PCMStoExLexer {
 	

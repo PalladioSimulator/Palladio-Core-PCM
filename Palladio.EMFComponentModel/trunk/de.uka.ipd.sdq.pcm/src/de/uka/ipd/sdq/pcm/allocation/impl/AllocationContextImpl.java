@@ -5,21 +5,16 @@
  */
 package de.uka.ipd.sdq.pcm.allocation.impl;
 
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 /**
  * <!-- begin-user-doc -->

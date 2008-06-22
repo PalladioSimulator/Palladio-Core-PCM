@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 /**
  * <!-- begin-user-doc -->

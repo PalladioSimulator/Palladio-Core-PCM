@@ -5,42 +5,32 @@
  */
 package de.uka.ipd.sdq.pcm.core.impl;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-
-import de.uka.ipd.sdq.pcm.core.util.CoreValidator;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExParser;
-
-import de.uka.ipd.sdq.stoex.Expression;
-import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
-
 import java.util.Map;
 
 import org.antlr.runtime.ANTLRStringStream;
-import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
 import org.eclipse.emf.ocl.expressions.OCLExpression;
-
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
-
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
-
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
+
+import de.uka.ipd.sdq.pcm.core.CorePackage;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.pcm.core.util.CoreValidator;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExParser;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
 
 /**
  * <!-- begin-user-doc -->

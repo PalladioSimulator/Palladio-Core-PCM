@@ -5,10 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.core;
 
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc -->

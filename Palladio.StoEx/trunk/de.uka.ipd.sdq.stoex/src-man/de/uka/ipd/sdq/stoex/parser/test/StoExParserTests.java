@@ -1,10 +1,7 @@
 package de.uka.ipd.sdq.stoex.parser.test;
 
-import java.io.StringReader;
-import java.util.ArrayList;
-
 import junit.framework.TestCase;
- 
+
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;

@@ -5,9 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,15 +6,19 @@
  */
 package de.uka.ipd.sdq.probfunction.impl;
 
-import de.uka.ipd.sdq.probfunction.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.probfunction.Sample;
+import de.uka.ipd.sdq.probfunction.SamplePDF;
 
 /**
  * <!-- begin-user-doc -->

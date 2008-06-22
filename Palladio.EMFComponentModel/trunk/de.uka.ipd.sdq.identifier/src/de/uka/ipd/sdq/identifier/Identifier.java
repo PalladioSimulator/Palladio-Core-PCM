@@ -9,7 +9,6 @@ package de.uka.ipd.sdq.identifier;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -47,6 +46,7 @@ public interface Identifier extends EObject {
 	 * @see #setId(String)
 	 * @see de.uka.ipd.sdq.identifier.IdentifierPackage#getIdentifier_Id()
 	 * @model id="true" required="true" ordered="false"
+	 *        extendedMetaData="name='' namespace=''"
 	 * @generated
 	 */
 	String getId();
@@ -66,6 +66,8 @@ public interface Identifier extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * self.allInstances()->isUnique(p | p.id)
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

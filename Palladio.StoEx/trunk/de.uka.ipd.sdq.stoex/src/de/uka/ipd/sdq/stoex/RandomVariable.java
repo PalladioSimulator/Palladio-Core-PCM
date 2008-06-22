@@ -6,8 +6,6 @@
  */
 package de.uka.ipd.sdq.stoex;
 
-import java.util.Map;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**

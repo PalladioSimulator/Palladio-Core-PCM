@@ -8,6 +8,7 @@ Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.ui;resolution:=optional
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.errorhandling,
  de.uka.ipd.sdq.errorhandling.dialogs.issues
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

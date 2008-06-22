@@ -17,8 +17,11 @@
     <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
     <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
     <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/gmf2/rsa_exports/identifier.uml2</foreignModel>
+  <foreignModel>file:/C:/code/rsa-export/identifier.uml</foreignModel>
   <genPackages prefix="Identifier" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="identifier.ecore#/">
     <genClasses image="false" ecoreClass="identifier.ecore#//Identifier">

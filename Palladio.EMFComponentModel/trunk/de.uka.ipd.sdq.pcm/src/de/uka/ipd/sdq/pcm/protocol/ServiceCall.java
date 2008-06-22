@@ -5,9 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.protocol;
 
-import de.uka.ipd.sdq.pcm.repository.Signature;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * <!-- begin-user-doc -->
