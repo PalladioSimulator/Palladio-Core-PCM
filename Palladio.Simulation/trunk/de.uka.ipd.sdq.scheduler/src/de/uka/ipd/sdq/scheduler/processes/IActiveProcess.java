@@ -204,4 +204,8 @@ public interface IActiveProcess extends IRunningProcess {
 
 	public abstract IActiveProcess createNewInstance(ISchedulableProcess process);
 
+	public abstract boolean isMovable(IResourceInstance targetInstance);
+
+	public abstract void wasMovedTo(IResourceInstance dest);
+
 }

@@ -11,6 +11,13 @@ public interface ILoadBalancer {
 	 * 
 	 * @param instance
 	 */
-	public abstract void balance(IResourceInstance instance);
+	public abstract void activelyBalance(IResourceInstance instance);
 
+	public abstract void onSleep(IResourceInstance lastInstance);
+
+	public abstract void onFork(IResourceInstance current);
+
+	public abstract void onTerminate(IResourceInstance lastInstance);
+
+	public abstract void onWake(IResourceInstance current);
 }

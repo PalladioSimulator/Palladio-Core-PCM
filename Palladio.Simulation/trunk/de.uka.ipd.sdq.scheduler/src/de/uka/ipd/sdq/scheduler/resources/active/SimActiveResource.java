@@ -111,8 +111,8 @@ public class SimActiveResource extends AbstractActiveResource {
 		} else {
 			IActiveProcess p = lookUp(process);
 			IResourceInstance instance = getInstanceFor(p);
-			scheduler.addProcess(p, instance);
-			instance.schedulingInterrupt(0, false);
+			scheduler.forkNewProcess(p, instance);
+			instance.schedulingInterrupt(0);
 		}
 	}
 
@@ -140,7 +140,10 @@ public class SimActiveResource extends AbstractActiveResource {
 	}
 	
 	public void registerProcess(IRunningProcess runningProcess) {
-		processRegistry.registerProcess((IActiveProcess)runningProcess);
+		IActiveProcess p = (IActiveProcess)runningProcess;
+		processRegistry.registerProcess(p);
+		IResourceInstance instance = getInstanceFor(p);
+		scheduler.registerProcess(p, instance);
 	}
 
 	public void unregisterProcess(IActiveProcess process) {

@@ -8,7 +8,6 @@ import java.util.List;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.loaddistribution.ILoadBalancer;
-import de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance.IdleSelector;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
 import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
@@ -56,16 +55,8 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	 */
 	
 	public void addProcess(IActiveProcess process, IResourceInstance current, boolean inFront) {
-		IResourceInstance instance = process.getLastInstance();
-		if (instance == null) {
-			instance = instanceSelector.selectInstanceFor(process,current);
-			process.setLastInstance(instance);
-			process.setIdealInstance(instance);
-			if (instanceSelector instanceof IdleSelector) {
-				balance(instance);
-			}
-		}
-		getRunQueueFor(instance).addProcess(process, inFront);
+		registerProcess(process, current);
+		getRunQueueFor(process.getLastInstance()).addProcess(process, inFront);
 	}
 
 	/**
@@ -88,17 +79,16 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		
 		LoggingWrapper.log("Moving " + process + " from " + src + " to " + dest);
 
+		double waiting = getRunQueueFor(src).getWaitingTime(process);
 		getRunQueueFor(src).removeProcess(process);
 		getRunQueueFor(dest).addProcess(process, false);
-		// Set the ideal instance of the process to the new resource instance.
-		// TODO Is this necessary?
-		process.setIdealInstance(dest);
-		process.setLastInstance(dest);
+		getRunQueueFor(dest).setWaitingTime(process, waiting);
+		process.wasMovedTo(dest);
 	}
 
 	
-	public void balance(IResourceInstance instance) {
-		loadBalancer.balance(instance);
+	public void activelyBalance(IResourceInstance instance) {
+		loadBalancer.activelyBalance(instance);
 	}
 
 	public Collection<IResourceInstance> getResourceInstances() {
@@ -128,7 +118,6 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	public boolean removePendingProcess(IActiveProcess process) {
 		return getRunQueueFor(process.getLastInstance()).removePendingProcess(
 				process);
-
 	}
 
 	
@@ -156,4 +145,60 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 	public void setRunningOn(IActiveProcess process, IResourceInstance instance) {
 		getRunQueueFor(instance).setRunningOn(process, instance);
 	}
+
+	@Override
+	public void forkProcess(IActiveProcess process, IResourceInstance current,
+			boolean inFront) {
+		addProcess(process, current, inFront);
+		loadBalancer.onFork(current);
+	}
+	
+	@Override
+	public void registerProcess(IActiveProcess process, IResourceInstance current) {
+		IResourceInstance instance = process.getLastInstance();
+		if (instance == null) {
+			instance = instanceSelector.selectInstanceFor(process,current);
+			process.setLastInstance(instance);
+			process.setIdealInstance(instance);
+		}
+	}
+
+	@Override
+	public void fromRunningToWaiting(IActiveProcess process) {
+		removeRunning(process);
+	}
+	
+	@Override
+	public void onSleep(IResourceInstance lastInstance) {
+		loadBalancer.onSleep(lastInstance);
+	}
+
+	@Override
+	public void terminateProcess(IActiveProcess process) {
+		removePendingProcess(process);
+		loadBalancer.onTerminate(process.getLastInstance());
+	}
+	
+	@Override
+	public void fromWaitingToReady(IActiveProcess process,
+			IResourceInstance current, boolean in_front_after_waiting) {
+		addProcess(process, current, in_front_after_waiting);
+
+		loadBalancer.onWake(current);
+	}
+
+	@Override
+	public List<IActiveProcess> getStarvingProcesses(
+			IResourceInstance instance, double starvationLimit) {
+		return getRunQueueFor(instance).getStarvingProcesses(starvationLimit);
+	}
+	
+	@Override
+	public void resetStarvationInfo() {
+		for(IRunQueue q :  this.runQueueTable.values()){
+			q.resetStarvationInfo();
+		}
+	}
+
+
 }

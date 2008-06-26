@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.queueing.basicqueues;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
@@ -238,5 +239,33 @@ public class PriorityArray implements IProcessQueue {
 
 	public IProcessQueue createNewInstance() {
 		return new PriorityArray(priority_manager);
+	}
+	
+	@Override
+	public boolean processStarving(double threshold) {
+		for(IProcessQueue q : priorityTable.values()){
+			if (q.processStarving(threshold))
+				return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public double getWaitingTime(IActiveProcess process) {
+		return getQueueFor(process).getWaitingTime(process);
+	}
+	
+	@Override
+	public void setWaitingTime(IActiveProcess process, double waiting) {
+		getQueueFor(process).setWaitingTime(process, waiting);
+	}
+
+	@Override
+	public List<IActiveProcess> getStarvingProcesses(double starvationLimit) {
+		List<IActiveProcess> result = new ArrayList<IActiveProcess>();
+		for(IProcessQueue q : priorityTable.values()){
+			result.addAll(q.getStarvingProcesses(starvationLimit));
+		}
+		return result;
 	}
 }

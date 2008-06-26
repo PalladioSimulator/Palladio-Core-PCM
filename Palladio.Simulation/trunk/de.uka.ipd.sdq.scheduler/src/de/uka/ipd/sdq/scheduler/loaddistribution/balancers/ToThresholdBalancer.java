@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.scheduler.loaddistribution.balancers;
 
+import java.util.List;
+
+import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 /**
@@ -13,59 +16,82 @@ import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
  */
 public class ToThresholdBalancer extends AbstractLoadBalancer {
 
-	/**
-	 * Maximum, relative load difference of two resource instances.
-	 */
-	private double threshold;
+	private double last_balanced = 0;
+	private int threshold;
 
-	/**
-	 * Creates a new load balancer.
-	 * 
-	 * @param balance_interval
-	 *            Minimum time that needs to pass between two executions of the
-	 *            load balancer.
-	 * 
-	 * @param do_global_balance
-	 *            Indicates whether all instances should be balanced or only the
-	 *            specified and busiest one.
-	 * 
-	 * @param prio_increasing
-	 *            Determines the order how movable processes are returned. If
-	 *            true, the priority of the processes is increasing, otherwise
-	 *            decreasing.
-	 * 
-	 * @param queue_ascending
-	 *            Determines the order how movable processes are returned. If
-	 *            true, the first processes are returned in the same order of
-	 *            the queue, otherwise they are returned in reverse order.
-	 * 
-	 * @param max_iterations
-	 *            Gives the maximum number of iterations for a global balancing.
-	 * 
-	 * @param threshold
-	 *            Maximum, relative load difference of two resource instances.
-	 */
-	public ToThresholdBalancer(double balance_interval, boolean global_balance,
-			boolean prio_increasing, boolean queue_ascending,
-			int max_iterations, double threshold) {
-		super(balance_interval, global_balance, prio_increasing,
-				queue_ascending, max_iterations);
+	public ToThresholdBalancer(double balancing_interval,
+			boolean prio_increasing, boolean queue_ascending, int threshold) {
+		super(balancing_interval, prio_increasing, queue_ascending);
 		this.threshold = threshold;
 	}
 
 	@Override
-	protected boolean isBalanced(IResourceInstance firstInstance,
-			IResourceInstance secondInstance) {
-		double firstLoad = load(firstInstance);
-		double secondLoad = load(secondInstance);
-		double totalLoad = firstLoad + secondLoad;
+	public void activelyBalance(IResourceInstance instance) {
+		double now = simulator.time();
+		if ((now - last_balanced) > balancing_interval) {
+			balance(getBusiest(), getLaziest());
+			last_balanced = now;
+		}
+	}
 
-		if (totalLoad == 0)
-			return true;
+	@Override
+	public void onFork(IResourceInstance instance) {
+		balance(instance, getLaziest());
+	}
 
-		firstLoad /= totalLoad;
-		secondLoad /= totalLoad;
-		double distance = Math.abs(firstLoad - secondLoad);
-		return distance <= threshold;
+	@Override
+	public void onSleep(IResourceInstance instance) {
+		if (load(instance) == 0) {
+			balance(getBusiest(), instance);
+		}
+	}
+
+	@Override
+	public void onTerminate(IResourceInstance instance) {
+		if (load(instance) == 0) {
+			balance(getBusiest(), instance);
+		}
+	}
+
+	@Override
+	public void onWake(IResourceInstance instance) {
+		balance(instance,getLaziest());
+	}
+
+	private void balance(IResourceInstance sender, IResourceInstance receiver) {
+		if (sender != null && receiver != null) {
+			if (!sender.equals(receiver)) {
+				int distance = load(sender) - load(receiver);
+				if (distance > threshold) {
+					List<IActiveProcess> processList = queue_holder
+							.getRunQueueFor(sender).identifyMovableProcesses(
+									receiver, prio_increasing, queue_ascending,
+									distance / 2);
+					for (IActiveProcess process : processList) {
+						queue_holder.move(process, sender, receiver);
+					}
+				}
+			}
+		}
+	}
+
+	private IResourceInstance getLaziest() {
+		IResourceInstance result = null;
+		for (IResourceInstance ri : queue_holder.getResourceInstances()) {
+			if (result == null || load(ri) < load(result)) {
+				result = ri;
+			}
+		}
+		return result;
+	}
+
+	private IResourceInstance getBusiest() {
+		IResourceInstance result = null;
+		for (IResourceInstance ri : queue_holder.getResourceInstances()) {
+			if (result == null || load(ri) > load(result)) {
+				result = ri;
+			}
+		}
+		return result;
 	}
 }

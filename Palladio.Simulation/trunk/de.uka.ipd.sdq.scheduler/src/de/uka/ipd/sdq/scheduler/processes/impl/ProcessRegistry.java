@@ -20,7 +20,7 @@ public class ProcessRegistry {
 
 	public void registerProcess(IActiveProcess process){
 		registry.put(process.getSchedulableProcess(), process);
-		//process.getSchedulableProcess().setMainResource(resource);
+//		process.getSchedulableProcess().setMainResource(resource);
 	}
 	
 	public IActiveProcess lookUp(ISchedulableProcess process){

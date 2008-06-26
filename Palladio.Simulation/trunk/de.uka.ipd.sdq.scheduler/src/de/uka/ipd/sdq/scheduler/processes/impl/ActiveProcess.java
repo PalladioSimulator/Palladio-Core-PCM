@@ -120,6 +120,7 @@ public class ActiveProcess implements IActiveProcess {
 	 */
 	public void setRunning() {
 		setState(PROCESS_STATE.RUNNING);
+		just_blanced = false;
 	}
 
 	/* (non-Javadoc)
@@ -219,6 +220,8 @@ public class ActiveProcess implements IActiveProcess {
 	private MultipleResourceInstancesConstraint affinityConstraint;
 	private SingleResourceInstanceConstraint idealInstanceConstraint;
 	private SingleResourceInstanceConstraint lastInstanceConstraint;
+	private double movedAtTime = 0;
+	private boolean just_blanced = false;
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#setAffineInstances(java.util.List)
@@ -335,6 +338,24 @@ public class ActiveProcess implements IActiveProcess {
 		// if no constraint is defined, every instance is accepted.
 		return true;
 	}
+	
+	
+	// /////////////////////////////////////////////////////////////////////
+	// Load Balancing
+	// /////////////////////////////////////////////////////////////////////
+
+	@Override
+	public boolean isMovable(IResourceInstance targetInstance) {
+		return checkAffinity(targetInstance) && !just_blanced;
+	}
+
+	@Override
+	public void wasMovedTo(IResourceInstance dest) {
+		this.setLastInstance(dest);
+		this.setIdealInstance(dest);
+		this.just_blanced = true;
+	}
+	
 
 	// /////////////////////////////////////////////////////////////////////
 	// Events

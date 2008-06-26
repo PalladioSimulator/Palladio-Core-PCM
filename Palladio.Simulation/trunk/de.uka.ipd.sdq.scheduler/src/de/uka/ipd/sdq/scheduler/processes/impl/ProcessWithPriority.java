@@ -5,13 +5,14 @@ import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
+import de.uka.ipd.sdq.scheduler.queueing.IRunQueue;
 
 public class ProcessWithPriority extends PreemptiveProcess {
 
 	private IPriority staticPriority;
 	private IPriority dynamicPriority;
 	private IPriorityUpdateStrategy priorityUpdateStrategy;
-	private static boolean in_front_if_priority_changed = true;
+	private static boolean in_front_if_priority_changed = false;
 
 	public ProcessWithPriority(ISchedulableProcess process,
 			IPriority staticPriority) {
@@ -60,10 +61,11 @@ public class ProcessWithPriority extends PreemptiveProcess {
 
 	private boolean changePriority(IPriority new_priority) {
 		if (!dynamicPriority.equals(new_priority)){
-			if (isReady()){
-				getRunQueue().removeProcess(this);
+			IRunQueue q = null;
+			if (isReady() && (q = getRunQueue()) != null){
+				q.removeProcess(this);
 				dynamicPriority = new_priority;
-				getRunQueue().addProcess(this,in_front_if_priority_changed);
+				q.addProcess(this,in_front_if_priority_changed);
 			} else {
 				dynamicPriority = new_priority;
 			}
@@ -87,8 +89,9 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	public IActiveProcess createNewInstance(ISchedulableProcess process) {
 		ProcessWithPriority p = new ProcessWithPriority(process,staticPriority);
 		p.dynamicPriority = staticPriority;
-		p.priorityUpdateStrategy = this.priorityUpdateStrategy;
+		p.priorityUpdateStrategy = this.priorityUpdateStrategy.cloneFor(p);
 		p.setTimeSlice(this.getTimeslice().clone());
+		p.updatePriority();
 		return p;
 	}
 }

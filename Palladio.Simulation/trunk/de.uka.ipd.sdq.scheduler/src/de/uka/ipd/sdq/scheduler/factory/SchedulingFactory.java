@@ -32,7 +32,6 @@ import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.loaddistribution.ILoadBalancer;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IProcessSelector;
-import de.uka.ipd.sdq.scheduler.loaddistribution.balancers.IdleToThresholdBalancer;
 import de.uka.ipd.sdq.scheduler.loaddistribution.balancers.OneToIdleBalancer;
 import de.uka.ipd.sdq.scheduler.loaddistribution.balancers.ToThresholdBalancer;
 import de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance.IdleSelector;
@@ -230,7 +229,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 		if (boostConfiguration instanceof DynamicPriorityBoostConfiguratioin) {
 			DynamicPriorityBoostConfiguratioin dynamic = (DynamicPriorityBoostConfiguratioin) boostConfiguration;
 			return new SleepAverageDependentUpdate(process, dynamic
-					.getMaxSleepAverage().getValue(), dynamic.getMaxBonus(), dynamic.getThreshold());
+					.getMaxSleepAverage().getValue(), dynamic.getMaxBonus());
 		}
 		return null;
 	}
@@ -415,7 +414,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 			IPriorityUpdateStrategy update_strategy = null;
 			switch (configuration.getDegradation()) {
 			case RESET:
-				update_strategy = new SetToBaseUpdate();
+				update_strategy = new SetToBaseUpdate(1);
 				break;
 			case SLOW_DECAY:
 				update_strategy = new DecayToBaseUpdate();
@@ -449,23 +448,21 @@ public class SchedulingFactory implements ISchedulingFactory {
 	public ILoadBalancer createLoadBalancer(LoadBalancing load_balancing) {
 		double balance_interval = load_balancing.getBalancingInterval()
 				.getValue();
-		int max_iterations = load_balancing.getMaxIterations();
 		double threshold = load_balancing.getThreshold();
-		boolean global_balance = load_balancing.getInstances() == InstanceToBalance.ALL;
 		boolean prio_increasing = load_balancing.getPreferredPriority() == PreferredPriority.HIGHER;
 		boolean queue_ascending = load_balancing.getPreferredWaitingTime() == PreferredWaitingTime.SHORT;
 
 		switch (load_balancing.getBalancingType()) {
 		case ANY_TO_THRESHOLD:
-			return new ToThresholdBalancer(balance_interval, global_balance,
-					prio_increasing, queue_ascending, max_iterations, threshold);
+			return new ToThresholdBalancer(balance_interval, 
+					prio_increasing, queue_ascending, (int)threshold);
 		case IDLE_TO_THRESHOLD:
-			return new IdleToThresholdBalancer(balance_interval,
-					global_balance, prio_increasing, queue_ascending,
-					max_iterations, threshold);
+//			return new IdleToThresholdBalancer(balance_interval,
+//					global_balance, prio_increasing, queue_ascending,
+//					max_iterations, threshold);
 		case IDLE_TO_ONE:
-			return new OneToIdleBalancer(balance_interval, global_balance,
-					prio_increasing, queue_ascending, max_iterations);
+			return new OneToIdleBalancer(balance_interval, 
+					prio_increasing, queue_ascending);
 		default:
 			assert false : "Unknown LoadBalancing Type.";
 			break;

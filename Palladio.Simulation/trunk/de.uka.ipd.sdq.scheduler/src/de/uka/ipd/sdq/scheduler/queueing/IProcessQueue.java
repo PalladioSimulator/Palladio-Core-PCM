@@ -36,4 +36,12 @@ public interface IProcessQueue {
 			boolean queue_ascending, int processes_needed, List<IActiveProcess> process_list);
 
 	public IProcessQueue createNewInstance();
+
+	public boolean processStarving(double threshold);
+
+	public void setWaitingTime(IActiveProcess process, double waiting);
+
+	public double getWaitingTime(IActiveProcess process);
+
+	public List<IActiveProcess> getStarvingProcesses(double starvationLimit);
 }

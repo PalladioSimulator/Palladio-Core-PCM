@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.scheduler.priority;
 
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 
-public interface IPriorityUpdateStrategy {
+public interface IPriorityUpdateStrategy  {
 
 	/**
 	 * Updates the priority of the given process according to the implemented
@@ -10,5 +10,7 @@ public interface IPriorityUpdateStrategy {
 	 * priority of the process did not change.
 	 */
 	public abstract boolean update(ProcessWithPriority process);
+
+	public abstract IPriorityUpdateStrategy cloneFor(ProcessWithPriority process);
 
 }

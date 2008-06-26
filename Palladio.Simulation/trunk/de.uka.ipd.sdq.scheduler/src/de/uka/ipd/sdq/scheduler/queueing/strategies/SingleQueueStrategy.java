@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.scheduler.queueing.strategies;
 
+import java.util.List;
+
 import de.uka.ipd.sdq.scheduler.loaddistribution.IInstanceSelector;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IProcessSelector;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
@@ -28,17 +30,22 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	}
 
 	
-	public void addProcess(IActiveProcess process, IResourceInstance current, boolean inFront) {
+	@Override
+	public void registerProcess(IActiveProcess process, IResourceInstance current) {
 		IResourceInstance instance = process.getLastInstance();
 		if (instance == null) {
 			instance = idealInstanceSelector.selectInstanceFor(process, current);
 			process.setLastInstance(instance);
 		}
+	}
+	
+	public void addProcess(IActiveProcess process, IResourceInstance current, boolean inFront) {
+		registerProcess(process, current);
 		runQueue.addProcess(process, inFront);
 	}
 
 	
-	public void balance(IResourceInstance instance) {
+	public void activelyBalance(IResourceInstance instance) {
 		// nothing to do.
 	}
 
@@ -70,6 +77,44 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 	
 	public boolean isIdle(IResourceInstance instance) {
 		return runQueue.isIdle(instance);
+	}
+
+	@Override
+	public void forkProcess(IActiveProcess process, IResourceInstance current,
+			boolean inFront) {
+		addProcess(process, current, inFront);
+	}
+
+	@Override
+	public void fromRunningToWaiting(IActiveProcess process) {
+		removeRunning(process);
+	}
+
+	@Override
+	public void fromWaitingToReady(IActiveProcess process,
+			IResourceInstance current, boolean in_front_after_waiting) {
+		addProcess(process, current, in_front_after_waiting);
+	}
+
+	@Override
+	public void terminateProcess(IActiveProcess process) {
+		removePendingProcess(process);
+	}
+
+	@Override
+	public void onSleep(IResourceInstance lastInstance) {
+		// nothing to do
+	}
+
+	@Override
+	public List<IActiveProcess> getStarvingProcesses(
+			IResourceInstance instance, double starvationLimit) {
+		return runQueue.getStarvingProcesses(starvationLimit);
+	}
+	
+	@Override
+	public void resetStarvationInfo() {
+		runQueue.resetStarvationInfo();
 	}
 
 }

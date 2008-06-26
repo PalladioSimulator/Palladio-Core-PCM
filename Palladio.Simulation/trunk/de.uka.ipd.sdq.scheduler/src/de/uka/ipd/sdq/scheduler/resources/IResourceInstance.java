@@ -60,7 +60,7 @@ public interface IResourceInstance {
 	 * @param time
 	 * @param b 
 	 */
-	public abstract void schedulingInterrupt(double time, boolean quantum_expired);
+	public abstract void schedulingInterrupt(double time);
 
 	/**
 	 * Removes a pending SchedulingEvent.
@@ -82,5 +82,9 @@ public interface IResourceInstance {
 	public abstract void addObserver(IActiveResourceStateSensor observer);
 	
 	public abstract void removeObserver(IActiveResourceStateSensor observer);
+
+	public abstract boolean isIdle();
+	
+	IRunningProcess getLastRunningProcess();
 
 }

@@ -50,7 +50,7 @@ public class ProceedEvent extends Event {
 		} else {
 			process.getSchedulableProcess().activate();
 			if (process.getSchedulableProcess().isFinished()){
-				scheduler.removeProcess(process, process.getIdealInstance());
+				scheduler.terminateProcess(process, process.getIdealInstance());
 			}
 		}
 	}

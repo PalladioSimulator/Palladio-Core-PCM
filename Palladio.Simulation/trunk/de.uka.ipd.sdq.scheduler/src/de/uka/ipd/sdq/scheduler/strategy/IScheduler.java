@@ -31,7 +31,7 @@ public interface IScheduler {
 	 * 
 	 * @param process
 	 */
-	public abstract void addProcess(IActiveProcess process, IResourceInstance current);
+	public abstract void forkNewProcess(IActiveProcess process, IResourceInstance current);
 
 	/**
 	 * Notifies the scheduler, that a process finished its waiting period and
@@ -81,8 +81,11 @@ public interface IScheduler {
 
 	public abstract double getInterval();
 
-	public abstract void removeProcess(IActiveProcess lookUp, IResourceInstance current);
+	public abstract void terminateProcess(IActiveProcess lookUp, IResourceInstance current);
 
 	public abstract void postSchedule(IResourceInstance instance);
+
+	public abstract void registerProcess(IActiveProcess p,
+			IResourceInstance instance);
 
 }

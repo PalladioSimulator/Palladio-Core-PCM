@@ -38,14 +38,10 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 	private void grantAccess(int num, ProcessWithPriority process) {
 		LoggingWrapper.log("Process " + process + " acquires " + num + " of "
 				+ this);
-		boostPriority(process);
 		punish(process);
+		boostPriority(process);
 		capacity -= num;
 		assert capacity >= 0 : "More resource than available have been acquired!";
-		// the boost might has changed the remaining time for the process. Thus,
-		// the next scheduling or proceed event needs to be newly determined.
-		main_resource.getScheduler().scheduleNextEvent(
-				((IActiveProcess) process).getLastInstance());
 	}
 
 	public void release(ISchedulableProcess sched_process, int num) {

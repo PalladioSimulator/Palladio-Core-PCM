@@ -165,4 +165,15 @@ public interface IRunQueue {
 	 */
 	public abstract boolean isIdle(IResourceInstance instance);
 
+	public abstract boolean processStarving(double threshold);
+
+	public abstract double getWaitingTime(IActiveProcess process);
+
+	void setWaitingTime(IActiveProcess process, double waiting);
+
+	public abstract List<IActiveProcess> getStarvingProcesses(
+			double starvationLimit);
+
+	public abstract void resetStarvationInfo();
+
 }

@@ -22,7 +22,7 @@ public class SchedulingInterruptEvent extends Event {
 	IResourceInstance instance;
 	static Logger logger = Logger.getLogger(SchedulingInterruptEvent.class);
 
-	public SchedulingInterruptEvent(SimActiveResource containingResource, IResourceInstance instance, boolean quantum_finished) {
+	public SchedulingInterruptEvent(SimActiveResource containingResource, IResourceInstance instance) {
 		super(SchedulingFactory.getUsedSimulator());
 		this.containingResource = containingResource;
 		this.instance = instance;

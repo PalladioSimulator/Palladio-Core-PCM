@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.scheduler.strategy.impl;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
+import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
+import de.uka.ipd.sdq.scheduler.priority.update.SetToBaseUpdate;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.queueing.IQueueingStrategy;
@@ -10,6 +12,8 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 public class PreemptiveScheduler extends AbstractScheduler {
 	
+	private static final boolean STARVATION_BOOST = false;
+	private static final double STARVATION_LIMIT = 3000.0;
 	private double overhead;
 
 	public PreemptiveScheduler(SimActiveResource resource,
@@ -29,7 +33,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 		// instances. This might change the state of the instance's runqueue.
 		// So, the next runnable process can only be determined after the
 		// balancing was finished.
-		queueing_strategy.balance(instance);
+		queueing_strategy.activelyBalance(instance);
 
 		// get the currently scheduled process for the instance.
 		ProcessWithPriority running_process = (ProcessWithPriority) instance
@@ -72,14 +76,28 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	private void scheduleNextProcess(ProcessWithPriority next_process, IResourceInstance instance) {
 		if (next_process != null) {
 			next_process.toNow();
+			next_process.update();
 			fromReadyToRunningOn(next_process, instance);
 		}
 	}
 
 	private void scheduleNextProcess(IResourceInstance instance) {
+		if(STARVATION_BOOST ){
+			for (IActiveProcess p : queueing_strategy.getStarvingProcesses(instance, STARVATION_LIMIT)){
+				applyStarvationBoost((ProcessWithPriority)p);
+			}
+				
+		}
 		ProcessWithPriority next_process = (ProcessWithPriority) queueing_strategy.getNextProcessFor(instance);
 		scheduleNextProcess(next_process, instance);
 	}
+
+	private void applyStarvationBoost(ProcessWithPriority p) {
+		p.setToStaticPriorityWithBonus(20);
+		IPriorityUpdateStrategy priorityUpdateStrategy = new SetToBaseUpdate(2);
+		p.setPriorityUpdateStrategy(priorityUpdateStrategy);
+	}
+
 
 	private void toNow(ProcessWithPriority process) {
 		if (process != null){
@@ -90,8 +108,9 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	private void unschedule(ProcessWithPriority running_process,
 			boolean next_has_higher_priority, IResourceInstance current) {
 		if (running_process != null) {
+			this.queueing_strategy.resetStarvationInfo();
 			if (running_process.getTimeslice().completelyFinished()){
-				running_process.update();
+				running_process.update(); 
 				fromRunningToReady(running_process, current, next_has_higher_priority
 						&& !running_process.getTimeslice().partFinished());
 				running_process.getTimeslice().reset();
@@ -152,8 +171,8 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	}
 	
 	@Override
-	public void removeProcess(IActiveProcess process, IResourceInstance current) {
-		super.removeProcess(process, current);
+	public void terminateProcess(IActiveProcess process, IResourceInstance current) {
+		super.terminateProcess(process, current);
 		ISchedulableProcess sProcess = process.getSchedulableProcess();
 		if (sProcess.isFinished()
 				// do NOT remove the originally defined processes as they

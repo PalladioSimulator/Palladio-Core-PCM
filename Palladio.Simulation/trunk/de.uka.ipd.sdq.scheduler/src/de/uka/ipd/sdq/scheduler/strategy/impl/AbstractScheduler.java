@@ -29,17 +29,22 @@ public abstract class AbstractScheduler implements IScheduler {
 	}
 
 	
-	public void addProcess(IActiveProcess process, IResourceInstance current) {
-		queueing_strategy.addProcess(process, current, false);
+	public void forkNewProcess(IActiveProcess process, IResourceInstance current) {
+		queueing_strategy.forkProcess(process, current, false);
 	}
 	
-	public void removeProcess(IActiveProcess process, IResourceInstance current){
+	@Override
+	public void registerProcess(IActiveProcess p, IResourceInstance instance) {
+		queueing_strategy.registerProcess(p,instance);
+	}
+	
+	public void terminateProcess(IActiveProcess process, IResourceInstance current){
 		if (process.isRunning()){
 			fromRunningToReady(process, current, true);
-			queueing_strategy.removePendingProcess(process);
-			process.getLastInstance().schedulingInterrupt(0, false);
+			queueing_strategy.terminateProcess(process);
+			process.getLastInstance().schedulingInterrupt(0);
 		} else {
-			queueing_strategy.removePendingProcess(process);
+			queueing_strategy.terminateProcess(process);
 		}
 	}
 
@@ -76,6 +81,7 @@ public abstract class AbstractScheduler implements IScheduler {
 		assert queueing_strategy.runningOn(process).equals(
 				process.getLastInstance()) : "Inconstistant State of the last instance of the process.";
 		assert process.getLastInstance().getRunningProcess().equals(process) : "Inconsistent running state!";
+		queueing_strategy.removeRunning(process);
 		stopProcess(process);
 		process.setReady();
 		queueing_strategy.addProcess(process, current, inFront);
@@ -89,19 +95,24 @@ public abstract class AbstractScheduler implements IScheduler {
 		IActiveProcess process = waiting_process.getProcess();
 		assert process.isRunning() : "Process must be in running state.";
 
+		queueing_strategy.fromRunningToWaiting(process);
 		stopProcess(process);
 		process.setWaiting();
+
 		if (in_front) {
 			waiting_queue.addFirst(waiting_process);
 		} else {
 			waiting_queue.addLast(waiting_process);
 		}
-		process.getLastInstance().schedulingInterrupt(0, false);
+		
+		process.getLastInstance().schedulingInterrupt(0);
+
+		queueing_strategy.onSleep(process.getLastInstance());
+		
 	}
 
 	private void stopProcess(IActiveProcess process) {
 		process.getLastInstance().release();
-		queueing_strategy.removeRunning(process);
 		process.cancelProceedEvent();
 	}
 
@@ -115,7 +126,9 @@ public abstract class AbstractScheduler implements IScheduler {
 
 		waitingQueue.remove(waiting_process);
 		process.setReady();
-		queueing_strategy.addProcess(process, current, in_front_after_waiting);
-		process.getLastInstance().schedulingInterrupt(0, true);
+		queueing_strategy.fromWaitingToReady(process, current, in_front_after_waiting);
+		process.toNow();
+		process.update();
+		process.getLastInstance().schedulingInterrupt(0);
 	}
 }

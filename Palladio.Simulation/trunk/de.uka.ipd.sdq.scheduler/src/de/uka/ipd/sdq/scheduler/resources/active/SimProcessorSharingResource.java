@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
 import java.util.Hashtable;
+import java.util.Map.Entry;
 
 import umontreal.iro.lecuyer.simevents.Event;
 import umontreal.iro.lecuyer.simevents.Simulator;
@@ -72,9 +73,9 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		double passed_time = now - last_time;
 		if (MathTools.less(0, passed_time)){
 			passed_time /= getSpeed(); 
-			for (ISchedulableProcess process : running_processes.keySet()) {
-				double rem =  running_processes.get(process) - passed_time;
-				running_processes.put(process, rem);
+			for (Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
+				double rem =   e.getValue() - passed_time;
+				e.setValue(rem);
 			}
 		}
 		last_time = now;
@@ -82,7 +83,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 
 
 	private double getSpeed() {
-		double speed = (double)running_processes.size(); // / (double)getCapacity();
+		double speed = (double)running_processes.size() / (double)getCapacity();
 		return speed < 1.0 ? 1.0 : speed;
 	}
 

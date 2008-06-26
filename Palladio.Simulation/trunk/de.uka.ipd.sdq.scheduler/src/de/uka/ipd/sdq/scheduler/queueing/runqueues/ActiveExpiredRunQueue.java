@@ -3,6 +3,9 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues;
 import java.util.ArrayList;
 import java.util.List;
 
+import umontreal.iro.lecuyer.simevents.Simulator;
+
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IProcessQueue;
@@ -13,10 +16,13 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 
 	private IProcessQueue activePriorityArray;
 	private IProcessQueue expiredPriorityArray;
+	private double expired_timestamp = -1;
+	private Simulator simulator;
 
 	public ActiveExpiredRunQueue(IProcessQueue queue_prototype) {
 		this.activePriorityArray = queue_prototype.createNewInstance();
 		this.expiredPriorityArray = queue_prototype.createNewInstance();
+		this.simulator = SchedulingFactory.getUsedSimulator();
 	}
 
 	/**
@@ -24,6 +30,7 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	 */
 	@Override
 	public void addProcessToRunQueue(IActiveProcess process, boolean inFront) {
+		updateStarvationTime();
 		if (process instanceof PreemptiveProcess) {
 			PreemptiveProcess preemptiveProcess = (PreemptiveProcess) process;
 			if (preemptiveProcess.getTimeslice().completelyFinished()) {
@@ -38,8 +45,7 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 
 	@Override
 	protected int numWaitingProcesses() {
-		return activePriorityArray.size()
-				+ expiredPriorityArray.size();
+		return activePriorityArray.size() + expiredPriorityArray.size();
 	}
 
 	@Override
@@ -67,8 +73,8 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 
 	@Override
 	public boolean removePendingProcess(IActiveProcess process) {
-		return activePriorityArray.remove(process) ||
-			   expiredPriorityArray.remove(process);
+		return activePriorityArray.remove(process)
+				|| expiredPriorityArray.remove(process);
 	}
 
 	/**
@@ -84,15 +90,19 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	}
 
 	public List<IActiveProcess> identifyMovableProcesses(
-			IResourceInstance targetInstance, boolean prio_increasing, boolean queue_ascending, int processes_needed) {
-		List<IActiveProcess> process_list = new ArrayList<IActiveProcess>(); 
-		expiredPriorityArray.identifyMovableProcesses(targetInstance, prio_increasing, queue_ascending, processes_needed, process_list) ;
-		activePriorityArray.identifyMovableProcesses(targetInstance, prio_increasing, queue_ascending, processes_needed, process_list) ;
+			IResourceInstance targetInstance, boolean prio_increasing,
+			boolean queue_ascending, int processes_needed) {
+		List<IActiveProcess> process_list = new ArrayList<IActiveProcess>();
+		expiredPriorityArray.identifyMovableProcesses(targetInstance,
+				prio_increasing, queue_ascending, processes_needed,
+				process_list);
+		activePriorityArray.identifyMovableProcesses(targetInstance,
+				prio_increasing, queue_ascending, processes_needed,
+				process_list);
 		return process_list;
 	}
 
-	public IProcessQueue getBestRunnableQueue(
-			IResourceInstance instance) {
+	public IProcessQueue getBestRunnableQueue(IResourceInstance instance) {
 		IProcessQueue result = activePriorityArray
 				.getBestRunnableQueue(instance);
 		if (result == null) {
@@ -103,6 +113,70 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 
 	@Override
 	public boolean containsPending(IActiveProcess process) {
-		return activePriorityArray.contains(process) || expiredPriorityArray.contains(process);
+		return activePriorityArray.contains(process)
+				|| expiredPriorityArray.contains(process);
 	}
+
+	@Override
+	public boolean processStarving(double threshold) {
+		if (expired_timestamp >= 0){
+			return simulator.time() - expired_timestamp > threshold;
+		} else {
+			return false;
+		}
+//		return expiredPriorityArray.processStarving(threshold)
+//				|| activePriorityArray.processStarving(threshold);
+	}
+
+	@Override
+	public List<IActiveProcess> getStarvingProcesses(double starvationLimit) {
+		List<IActiveProcess> result = expiredPriorityArray
+				.getStarvingProcesses(starvationLimit);
+		result
+				.addAll(activePriorityArray
+						.getStarvingProcesses(starvationLimit));
+		return result;
+	}
+
+	@Override
+	public void setWaitingTime(IActiveProcess process, double waiting) {
+		updateStarvationTime(waiting);
+		if (expiredPriorityArray.contains(process)) {
+			expiredPriorityArray.setWaitingTime(process, waiting);
+		} else {
+			activePriorityArray.setWaitingTime(process, waiting);
+		}
+	}
+
+	@Override
+	public double getWaitingTime(IActiveProcess process) {
+		if (expiredPriorityArray.contains(process)) {
+			return expiredPriorityArray.getWaitingTime(process);
+		} else {
+			return activePriorityArray.getWaitingTime(process);
+		}
+	}
+	
+	@Override
+	public void resetStarvationInfo() {
+		// activeprio array empty or all queues empty
+		if (this.activePriorityArray.isEmpty()){
+			expired_timestamp = -1;
+		}
+	}
+	
+	private void updateStarvationTime() {
+		updateStarvationTime(simulator.time());
+	}
+	
+	private void updateStarvationTime(double waiting) {
+		if (expired_timestamp < 0 || waiting < expired_timestamp){
+			expired_timestamp = waiting;
+		} 
+	}
+
+
+
+
 }
+

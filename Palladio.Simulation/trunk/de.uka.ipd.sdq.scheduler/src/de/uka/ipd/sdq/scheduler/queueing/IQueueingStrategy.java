@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.scheduler.queueing;
 
+import java.util.List;
+
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
@@ -34,7 +36,7 @@ public interface IQueueingStrategy {
 	 * @param instance
 	 *            Instance initiating the load balance.
 	 */
-	public abstract void balance(IResourceInstance instance);
+	public abstract void activelyBalance(IResourceInstance instance);
 
 	/**
 	 * Removes at the pending queues of the queuing strategy and tries to remove
@@ -89,5 +91,25 @@ public interface IQueueingStrategy {
 	 * @param instance
 	 */
 	public abstract boolean isIdle(IResourceInstance instance);
+
+	public abstract void forkProcess(IActiveProcess process,
+			IResourceInstance current, boolean b);
+
+	public abstract void terminateProcess(IActiveProcess process);
+
+	public abstract void fromRunningToWaiting(IActiveProcess process);
+
+	public abstract void fromWaitingToReady(IActiveProcess process,
+			IResourceInstance current, boolean in_front_after_waiting);
+
+	public abstract void onSleep(IResourceInstance lastInstance);
+
+	public abstract void registerProcess(IActiveProcess p,
+			IResourceInstance instance);
+
+	public abstract List<IActiveProcess> getStarvingProcesses(IResourceInstance instance,
+			double starvationLimit);
+
+	public abstract void resetStarvationInfo();
 
 }

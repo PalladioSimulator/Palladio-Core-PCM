@@ -16,7 +16,9 @@ public abstract class AbstractRunQueue implements IRunQueue {
 	}
 
 	public int getCurrentLoad() {
-		return running_on_table.size() + numWaitingProcesses();
+		int running = running_on_table.size();
+		int waiting = numWaitingProcesses(); 
+		return running + waiting ;
 	}
 
 	public boolean isEmpty() {
@@ -42,11 +44,13 @@ public abstract class AbstractRunQueue implements IRunQueue {
 	}
 	
 	public void removeRunning(IActiveProcess process) {
+		assert running_on_table.containsKey(process) : "Process '" + process + "' not running.";
 		running_on_table.remove(process);
 	}
 	
 	public void setRunningOn(IActiveProcess process, IResourceInstance instance) {
 		assert running_on_table.get(process) == null;
+		assert !running_on_table.values().contains(instance);
 		running_on_table.put(process, instance);
 	}
 	
