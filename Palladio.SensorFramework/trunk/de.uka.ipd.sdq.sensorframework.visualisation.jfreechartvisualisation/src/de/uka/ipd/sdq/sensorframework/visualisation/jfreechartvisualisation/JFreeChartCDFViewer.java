@@ -5,7 +5,6 @@ import java.awt.BasicStroke;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.widgets.Composite;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
@@ -14,8 +13,12 @@ import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramBucketInformation;
 
 
-public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implements IHistogramAccepter {
-	
+public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implements IHistogramAccepter, ISeriesExporter {
+
+	@Override
+	public XYSeries getSeries() {
+		return densityDataset.getSeries(0);
+	}
 
 	public JFreeChartCDFViewer(Composite parent, int style) {
 		super(parent, style);
@@ -25,6 +28,7 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implement
 	protected void initializeContextMenu(MenuManager menu_manager) {
 		super.initializeContextMenu(menu_manager);
 	    menu_manager.add(new LoadCSVHistogram(this));
+	    menu_manager.add(new ExportCSV(this));
 	}
 
 	/* (non-Javadoc)
