@@ -478,8 +478,8 @@ aka NULL, not set, do not override</body>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LedScHweEdyOhKBWyuRGig" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_TxXj0HweEdyOhKBWyuRGig" name="configOverrides" visibility="public" type="_2-grAHvyEdyOhKBWyuRGig" aggregation="composite" association="_TxWVsHweEdyOhKBWyuRGig">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TxYx8XweEdyOhKBWyuRGig" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TxYx8HweEdyOhKBWyuRGig"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TxYx8XweEdyOhKBWyuRGig" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TxYx8HweEdyOhKBWyuRGig" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_eLzuQD4BEd2Fu_0CQ-Fq-g" name="name" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
