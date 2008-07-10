@@ -40,6 +40,7 @@ import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
 import de.uka.ipd.sdq.featuremodel.Node;
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
 public class FeatureModelInstanceEditor extends MultiPageEditorPart {
@@ -55,6 +56,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new featureconfigItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new featuremodelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
@@ -91,6 +93,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		}
 		catch (Exception e) {
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+			throw new NullPointerException("BA");
 		}
 
 		FeatureDiagram newDiagram = null;

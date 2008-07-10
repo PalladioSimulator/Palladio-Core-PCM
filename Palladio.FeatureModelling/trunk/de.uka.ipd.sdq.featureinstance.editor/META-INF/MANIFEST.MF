@@ -15,4 +15,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit.ui,
  org.eclipse.core.resources,
  de.uka.ipd.sdq.featuremodel.edit,
- de.uka.ipd.sdq.identifier.edit
+ de.uka.ipd.sdq.identifier.edit,
+ de.uka.ipd.sdq.featureconfig,
+ de.uka.ipd.sdq.featureconfig.edit
