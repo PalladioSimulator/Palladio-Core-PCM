@@ -55,20 +55,30 @@ public interface Configuration extends EObject {
 	void setDefaultConfig(FeatureConfig value);
 
 	/**
-	 * Returns the value of the '<em><b>Config Overrides</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.featureconfig.FeatureConfig}.
+	 * Returns the value of the '<em><b>Config Overrides</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Config Overrides</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Config Overrides</em>' containment reference list.
+	 * @return the value of the '<em>Config Overrides</em>' containment reference.
+	 * @see #setConfigOverrides(FeatureConfig)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getConfiguration_ConfigOverrides()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<FeatureConfig> getConfigOverrides();
+	FeatureConfig getConfigOverrides();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.Configuration#getConfigOverrides <em>Config Overrides</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Config Overrides</em>' containment reference.
+	 * @see #getConfigOverrides()
+	 * @generated
+	 */
+	void setConfigOverrides(FeatureConfig value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

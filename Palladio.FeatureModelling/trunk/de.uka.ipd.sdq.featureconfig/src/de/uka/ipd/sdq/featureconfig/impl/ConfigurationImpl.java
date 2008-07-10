@@ -49,14 +49,14 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	protected FeatureConfig defaultConfig;
 
 	/**
-	 * The cached value of the '{@link #getConfigOverrides() <em>Config Overrides</em>}' containment reference list.
+	 * The cached value of the '{@link #getConfigOverrides() <em>Config Overrides</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConfigOverrides()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FeatureConfig> configOverrides;
+	protected FeatureConfig configOverrides;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -145,11 +145,42 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<FeatureConfig> getConfigOverrides() {
-		if (configOverrides == null) {
-			configOverrides = new EObjectContainmentEList<FeatureConfig>(FeatureConfig.class, this, featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES);
-		}
+	public FeatureConfig getConfigOverrides() {
 		return configOverrides;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConfigOverrides(FeatureConfig newConfigOverrides, NotificationChain msgs) {
+		FeatureConfig oldConfigOverrides = configOverrides;
+		configOverrides = newConfigOverrides;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES, oldConfigOverrides, newConfigOverrides);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConfigOverrides(FeatureConfig newConfigOverrides) {
+		if (newConfigOverrides != configOverrides) {
+			NotificationChain msgs = null;
+			if (configOverrides != null)
+				msgs = ((InternalEObject)configOverrides).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES, null, msgs);
+			if (newConfigOverrides != null)
+				msgs = ((InternalEObject)newConfigOverrides).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES, null, msgs);
+			msgs = basicSetConfigOverrides(newConfigOverrides, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES, newConfigOverrides, newConfigOverrides));
 	}
 
 	/**
@@ -184,7 +215,7 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case featureconfigPackage.CONFIGURATION__DEFAULT_CONFIG:
 				return basicSetDefaultConfig(null, msgs);
 			case featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES:
-				return ((InternalEList<?>)getConfigOverrides()).basicRemove(otherEnd, msgs);
+				return basicSetConfigOverrides(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -220,8 +251,7 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				setDefaultConfig((FeatureConfig)newValue);
 				return;
 			case featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES:
-				getConfigOverrides().clear();
-				getConfigOverrides().addAll((Collection<? extends FeatureConfig>)newValue);
+				setConfigOverrides((FeatureConfig)newValue);
 				return;
 			case featureconfigPackage.CONFIGURATION__NAME:
 				setName((String)newValue);
@@ -242,7 +272,7 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 				setDefaultConfig((FeatureConfig)null);
 				return;
 			case featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES:
-				getConfigOverrides().clear();
+				setConfigOverrides((FeatureConfig)null);
 				return;
 			case featureconfigPackage.CONFIGURATION__NAME:
 				setName(NAME_EDEFAULT);
@@ -262,7 +292,7 @@ public class ConfigurationImpl extends EObjectImpl implements Configuration {
 			case featureconfigPackage.CONFIGURATION__DEFAULT_CONFIG:
 				return defaultConfig != null;
 			case featureconfigPackage.CONFIGURATION__CONFIG_OVERRIDES:
-				return configOverrides != null && !configOverrides.isEmpty();
+				return configOverrides != null;
 			case featureconfigPackage.CONFIGURATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
