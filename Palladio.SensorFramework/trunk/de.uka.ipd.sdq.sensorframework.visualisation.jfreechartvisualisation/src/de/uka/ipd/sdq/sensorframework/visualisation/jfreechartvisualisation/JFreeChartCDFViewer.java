@@ -15,7 +15,6 @@ import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramBucketInf
 
 public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implements IHistogramAccepter, ISeriesExporter {
 
-	@Override
 	public XYSeries getSeries() {
 		return densityDataset.getSeries(0);
 	}
