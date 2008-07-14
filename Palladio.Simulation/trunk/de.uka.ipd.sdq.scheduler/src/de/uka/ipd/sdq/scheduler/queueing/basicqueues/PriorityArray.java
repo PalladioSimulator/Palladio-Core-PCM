@@ -241,7 +241,6 @@ public class PriorityArray implements IProcessQueue {
 		return new PriorityArray(priority_manager);
 	}
 	
-	@Override
 	public boolean processStarving(double threshold) {
 		for(IProcessQueue q : priorityTable.values()){
 			if (q.processStarving(threshold))
@@ -250,17 +249,14 @@ public class PriorityArray implements IProcessQueue {
 		return false;
 	}
 	
-	@Override
 	public double getWaitingTime(IActiveProcess process) {
 		return getQueueFor(process).getWaitingTime(process);
 	}
 	
-	@Override
 	public void setWaitingTime(IActiveProcess process, double waiting) {
 		getQueueFor(process).setWaitingTime(process, waiting);
 	}
 
-	@Override
 	public List<IActiveProcess> getStarvingProcesses(double starvationLimit) {
 		List<IActiveProcess> result = new ArrayList<IActiveProcess>();
 		for(IProcessQueue q : priorityTable.values()){

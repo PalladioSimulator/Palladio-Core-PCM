@@ -131,7 +131,6 @@ public class ProcessQueueImpl implements IProcessQueue {
 	}
 
 	
-	@Override
 	public boolean processStarving(double threshold) {
 		double now = simulator.time();
 		for (IActiveProcess process : ascending()){
@@ -142,17 +141,14 @@ public class ProcessQueueImpl implements IProcessQueue {
 		return false;
 	}
 	
-	@Override
 	public void setWaitingTime(IActiveProcess process, double waiting) {
 		waiting_time_table.put(process, waiting);
 	}
 	
-	@Override
 	public double getWaitingTime(IActiveProcess process) {
 		return waiting_time_table.get(process);
 	}
 
-	@Override
 	public List<IActiveProcess> getStarvingProcesses(double starvationLimit) {
 		double now = simulator.time();
 		List<IActiveProcess> result = new ArrayList<IActiveProcess>();

@@ -62,27 +62,22 @@ public class SingleRunQueue extends AbstractRunQueue  {
 		process_queue.add(process, inFront);
 	}
 	
-	@Override
 	public boolean processStarving(double threshold) {
 		return process_queue.processStarving(threshold);
 	}
 	
-	@Override
 	public void setWaitingTime(IActiveProcess process, double waiting) {
 		process_queue.setWaitingTime(process, waiting);
 	}
 	
-	@Override
 	public double getWaitingTime(IActiveProcess process) {
 		return process_queue.getWaitingTime(process);
 	}
 
-	@Override
 	public List<IActiveProcess> getStarvingProcesses(double starvationLimit) {
 		return process_queue.getStarvingProcesses(starvationLimit);
 	}
 	
-	@Override
 	public void resetStarvationInfo() {
 	}
 }

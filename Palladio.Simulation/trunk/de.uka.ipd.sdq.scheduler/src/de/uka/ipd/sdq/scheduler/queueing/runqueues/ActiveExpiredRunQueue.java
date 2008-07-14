@@ -117,7 +117,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 				|| expiredPriorityArray.contains(process);
 	}
 
-	@Override
 	public boolean processStarving(double threshold) {
 		if (expired_timestamp >= 0){
 			return simulator.time() - expired_timestamp > threshold;
@@ -128,7 +127,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 //				|| activePriorityArray.processStarving(threshold);
 	}
 
-	@Override
 	public List<IActiveProcess> getStarvingProcesses(double starvationLimit) {
 		List<IActiveProcess> result = expiredPriorityArray
 				.getStarvingProcesses(starvationLimit);
@@ -138,7 +136,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		return result;
 	}
 
-	@Override
 	public void setWaitingTime(IActiveProcess process, double waiting) {
 		updateStarvationTime(waiting);
 		if (expiredPriorityArray.contains(process)) {
@@ -148,7 +145,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		}
 	}
 
-	@Override
 	public double getWaitingTime(IActiveProcess process) {
 		if (expiredPriorityArray.contains(process)) {
 			return expiredPriorityArray.getWaitingTime(process);
@@ -157,7 +153,6 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 		}
 	}
 	
-	@Override
 	public void resetStarvationInfo() {
 		// activeprio array empty or all queues empty
 		if (this.activePriorityArray.isEmpty()){

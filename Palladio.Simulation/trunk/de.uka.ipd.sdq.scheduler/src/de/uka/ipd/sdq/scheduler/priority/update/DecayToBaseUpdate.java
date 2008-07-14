@@ -16,7 +16,6 @@ public class DecayToBaseUpdate implements IPriorityUpdateStrategy {
 		return false;
 	}
 	
-	@Override
 	public DecayToBaseUpdate cloneFor(ProcessWithPriority process)  {
 		return this;
 	}

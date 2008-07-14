@@ -166,7 +166,6 @@ public class SimResourceInstance implements IResourceInstance {
 		postSchedulingEvent.schedule(overhead);
 	}
 
-	@Override
 	public boolean isIdle() {
 		return running_process == null;
 	}

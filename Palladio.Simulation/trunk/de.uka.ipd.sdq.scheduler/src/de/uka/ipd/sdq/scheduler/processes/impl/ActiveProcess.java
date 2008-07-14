@@ -349,7 +349,6 @@ public class ActiveProcess implements IActiveProcess {
 		return checkAffinity(targetInstance) && !just_blanced;
 	}
 
-	@Override
 	public void wasMovedTo(IResourceInstance dest) {
 		this.setLastInstance(dest);
 		this.setIdealInstance(dest);

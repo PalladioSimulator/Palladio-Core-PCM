@@ -33,7 +33,6 @@ public abstract class AbstractScheduler implements IScheduler {
 		queueing_strategy.forkProcess(process, current, false);
 	}
 	
-	@Override
 	public void registerProcess(IActiveProcess p, IResourceInstance instance) {
 		queueing_strategy.registerProcess(p,instance);
 	}

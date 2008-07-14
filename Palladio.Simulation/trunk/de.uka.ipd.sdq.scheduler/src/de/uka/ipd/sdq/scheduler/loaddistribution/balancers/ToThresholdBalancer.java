@@ -25,7 +25,6 @@ public class ToThresholdBalancer extends AbstractLoadBalancer {
 		this.threshold = threshold;
 	}
 
-	@Override
 	public void activelyBalance(IResourceInstance instance) {
 		double now = simulator.time();
 		if ((now - last_balanced) > balancing_interval) {
@@ -34,26 +33,22 @@ public class ToThresholdBalancer extends AbstractLoadBalancer {
 		}
 	}
 
-	@Override
 	public void onFork(IResourceInstance instance) {
 		balance(instance, getLaziest());
 	}
 
-	@Override
 	public void onSleep(IResourceInstance instance) {
 		if (load(instance) == 0) {
 			balance(getBusiest(), instance);
 		}
 	}
 
-	@Override
 	public void onTerminate(IResourceInstance instance) {
 		if (load(instance) == 0) {
 			balance(getBusiest(), instance);
 		}
 	}
 
-	@Override
 	public void onWake(IResourceInstance instance) {
 		balance(instance,getLaziest());
 	}

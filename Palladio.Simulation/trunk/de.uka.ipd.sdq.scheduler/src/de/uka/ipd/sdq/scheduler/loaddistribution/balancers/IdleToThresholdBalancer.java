@@ -19,31 +19,26 @@ public class IdleToThresholdBalancer extends AbstractLoadBalancer {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public void activelyBalance(IResourceInstance instance) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onFork(IResourceInstance current) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onSleep(IResourceInstance lastInstance) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onTerminate(IResourceInstance lastInstance) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onWake(IResourceInstance current) {
 		// TODO Auto-generated method stub
 		

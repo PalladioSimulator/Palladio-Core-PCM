@@ -70,7 +70,6 @@ public class SleepAverageDependentUpdate implements IPriorityUpdateStrategy {
 		return sleepAverageSensor.getSleepAverage() > sleep;
 	}
 	
-	@Override
 	public SleepAverageDependentUpdate cloneFor(ProcessWithPriority process) {
 		return new SleepAverageDependentUpdate(process, max_sleep_average, max_bonus);
 	}

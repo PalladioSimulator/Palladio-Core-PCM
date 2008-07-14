@@ -29,8 +29,6 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 		return processSelector.select(runQueue, instance);
 	}
 
-	
-	@Override
 	public void registerProcess(IActiveProcess process, IResourceInstance current) {
 		IResourceInstance instance = process.getLastInstance();
 		if (instance == null) {
@@ -79,40 +77,33 @@ public class SingleQueueStrategy implements IQueueingStrategy {
 		return runQueue.isIdle(instance);
 	}
 
-	@Override
 	public void forkProcess(IActiveProcess process, IResourceInstance current,
 			boolean inFront) {
 		addProcess(process, current, inFront);
 	}
 
-	@Override
 	public void fromRunningToWaiting(IActiveProcess process) {
 		removeRunning(process);
 	}
 
-	@Override
 	public void fromWaitingToReady(IActiveProcess process,
 			IResourceInstance current, boolean in_front_after_waiting) {
 		addProcess(process, current, in_front_after_waiting);
 	}
 
-	@Override
 	public void terminateProcess(IActiveProcess process) {
 		removePendingProcess(process);
 	}
 
-	@Override
 	public void onSleep(IResourceInstance lastInstance) {
 		// nothing to do
 	}
 
-	@Override
 	public List<IActiveProcess> getStarvingProcesses(
 			IResourceInstance instance, double starvationLimit) {
 		return runQueue.getStarvingProcesses(starvationLimit);
 	}
 	
-	@Override
 	public void resetStarvationInfo() {
 		runQueue.resetStarvationInfo();
 	}

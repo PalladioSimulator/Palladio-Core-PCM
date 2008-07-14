@@ -23,7 +23,6 @@ public class OneToIdleBalancer extends AbstractLoadBalancer {
 		super(balance_interval, prio_increasing, queue_ascending);
 	}
 
-	@Override
 	public void activelyBalance(IResourceInstance instance) {
 		// double now = simulator.time();
 		// if ((now - last_balanced.get(instance)) > balancing_interval) {
@@ -32,22 +31,18 @@ public class OneToIdleBalancer extends AbstractLoadBalancer {
 		// }
 	}
 
-	@Override
 	public void onFork(IResourceInstance instance) {
 		balanceAsSender(instance);
 	}
 
-	@Override
 	public void onSleep(IResourceInstance instance) {
 		balanceAsReceiver(instance);
 	}
 
-	@Override
 	public void onTerminate(IResourceInstance instance) {
 		balanceAsReceiver(instance);
 	}
 
-	@Override
 	public void onWake(IResourceInstance instance) {
 		balanceAsSender(instance);
 	}

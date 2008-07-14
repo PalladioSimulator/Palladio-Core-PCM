@@ -146,14 +146,12 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		getRunQueueFor(instance).setRunningOn(process, instance);
 	}
 
-	@Override
 	public void forkProcess(IActiveProcess process, IResourceInstance current,
 			boolean inFront) {
 		addProcess(process, current, inFront);
 		loadBalancer.onFork(current);
 	}
 	
-	@Override
 	public void registerProcess(IActiveProcess process, IResourceInstance current) {
 		IResourceInstance instance = process.getLastInstance();
 		if (instance == null) {
@@ -163,23 +161,19 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		}
 	}
 
-	@Override
 	public void fromRunningToWaiting(IActiveProcess process) {
 		removeRunning(process);
 	}
 	
-	@Override
 	public void onSleep(IResourceInstance lastInstance) {
 		loadBalancer.onSleep(lastInstance);
 	}
 
-	@Override
 	public void terminateProcess(IActiveProcess process) {
 		removePendingProcess(process);
 		loadBalancer.onTerminate(process.getLastInstance());
 	}
 	
-	@Override
 	public void fromWaitingToReady(IActiveProcess process,
 			IResourceInstance current, boolean in_front_after_waiting) {
 		addProcess(process, current, in_front_after_waiting);
@@ -187,13 +181,11 @@ public class MultipleQueuesStrategy implements IQueueingStrategy {
 		loadBalancer.onWake(current);
 	}
 
-	@Override
 	public List<IActiveProcess> getStarvingProcesses(
 			IResourceInstance instance, double starvationLimit) {
 		return getRunQueueFor(instance).getStarvingProcesses(starvationLimit);
 	}
-	
-	@Override
+
 	public void resetStarvationInfo() {
 		for(IRunQueue q :  this.runQueueTable.values()){
 			q.resetStarvationInfo();

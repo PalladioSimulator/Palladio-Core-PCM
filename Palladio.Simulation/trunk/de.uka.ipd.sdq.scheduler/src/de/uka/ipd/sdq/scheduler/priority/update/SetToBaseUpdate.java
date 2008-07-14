@@ -25,7 +25,6 @@ public class SetToBaseUpdate implements IPriorityUpdateStrategy {
 		return true;
 	}
 	
-	@Override
 	public SetToBaseUpdate cloneFor(ProcessWithPriority process)  {
 		return new SetToBaseUpdate(timeslices);
 	}
