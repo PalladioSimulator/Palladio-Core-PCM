@@ -344,7 +344,6 @@ public class ActiveProcess implements IActiveProcess {
 	// Load Balancing
 	// /////////////////////////////////////////////////////////////////////
 
-	@Override
 	public boolean isMovable(IResourceInstance targetInstance) {
 		return checkAffinity(targetInstance) && !just_blanced;
 	}
