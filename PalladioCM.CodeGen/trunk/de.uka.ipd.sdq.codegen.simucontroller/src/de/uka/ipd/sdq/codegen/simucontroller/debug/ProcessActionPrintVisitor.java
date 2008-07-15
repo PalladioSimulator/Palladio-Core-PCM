@@ -25,7 +25,8 @@ public class ProcessActionPrintVisitor extends SimucomstatusSwitch<String> {
 	 */
 	@Override
 	public String caseWaitForAcquire(WaitForAcquire object) {
-		return "Waiting to Acquire Resource "+object.getResource().getId();
+		// object.getResource() == null can happen during simulation startup
+		return "Waiting to Acquire Resource "+(object.getResource() == null ? "N/A" : object.getResource().getId());
 	}
 
 	/* (non-Javadoc)
