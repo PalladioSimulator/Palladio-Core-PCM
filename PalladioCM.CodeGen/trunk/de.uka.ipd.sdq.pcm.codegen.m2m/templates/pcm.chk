@@ -29,10 +29,10 @@ context ScenarioBehaviour ERROR 'User Scenario Behaviour needs exactly one start
 	this.actions_ScenarioBehaviour.typeSelect(Start).size == 1 && this.actions_ScenarioBehaviour.typeSelect(Stop).size == 1;
 	
 context ResourceDemandingBehaviour ERROR 'No route from start to stop action in Resource Demanding Behaviour':
- 	this.steps_Behaviour.typeSelect(StartAction).get(0).findStopAction() != null;
+ 	this.steps_Behaviour.typeSelect(StartAction).size > 0 && this.steps_Behaviour.typeSelect(StartAction).get(0).findStopAction() != null;
 	
 context ScenarioBehaviour ERROR 'No route from start to stop action in User Scenario':
- 	this.actions_ScenarioBehaviour.typeSelect(Start).get(0).findStop() != null;
+ 		this.actions_ScenarioBehaviour.typeSelect(Start).size > 0 && this.actions_ScenarioBehaviour.typeSelect(Start).get(0).findStop() != null;
 
 context UsageScenario ERROR 'Usage Scenarios need a Workload Specification':
 	this.workload_UsageScenario != null;
