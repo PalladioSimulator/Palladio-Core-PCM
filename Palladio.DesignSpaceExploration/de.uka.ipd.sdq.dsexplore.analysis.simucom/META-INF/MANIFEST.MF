@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SimuCom Analysis for Design Space Exploration Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.dsexplore.analysis.simucom;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: de.uka.ipd.sdq.dsexplore.analysis.simucom.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.dsexplore,
+ de.uka.ipd.sdq.codegen.simucontroller
+Eclipse-LazyStart: true
