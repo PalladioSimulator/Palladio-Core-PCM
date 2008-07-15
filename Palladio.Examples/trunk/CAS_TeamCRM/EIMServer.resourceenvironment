@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <linkingresource id="_g4aYIOVREdyoTq75d0UHCA" entityName="Netwerk" toResourceContainer_LinkingResource="_9jQoceVQEdyoTq75d0UHCA" fromResourceContainer_LinkingResource="_qQNqceVQEdyoTq75d0UHCA">
+    <communicationLinkResourceSpecifications_LinkingResource>
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="EIMServer.resourcetype#_uyg80fAYEdymBdRy-85PZg"/>
+      <latency_CommunicationLinkResourceSpecification specification="0.0"/>
+      <throughput_CommunicationLinkResourceSpecification specification="1000"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingresource>
+  <resourceContainer_ResourceEnvironment id="_qQNqceVQEdyoTq75d0UHCA" entityName="EIM Server">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+      <activeResourceType_ActiveResourceSpecification href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+      <processingRate_ProcessingResourceSpecification specification="3"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_9jQoceVQEdyoTq75d0UHCA" entityName="TeamCRM DB">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+      <activeResourceType_ActiveResourceSpecification href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+      <processingRate_ProcessingResourceSpecification specification="1"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</ResourceEnvironment>

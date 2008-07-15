@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_YxvN8OBZEdyjufEo8k7-YA" entityName="IEIMServerRepository" repositoryDescription="Repository for teamCRM Server">
+  <components__Repository xsi:type="CompleteComponentType" id="_nJQA4OBrEdygUashqViyTg" entityName="PersistenceLayer">
+    <providedRoles_InterfaceProvidingEntity id="_NL9WEBELEd2pi-NO_GvD0w" entityName="Provided_IDataProvider_DataObjectDAO" providedInterface__ProvidedRole="_Cd1QkOBlEdygUashqViyTg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_qYhZQOBrEdygUashqViyTg" entityName="Required_IJdbcAccessor_DataObjectDAO" requiredInterface__RequiredRole="_HRo-0OBaEdyjufEo8k7-YA"/>
+  </components__Repository>
+  <components__Repository xsi:type="CompleteComponentType" id="_wqQdEOBrEdygUashqViyTg" entityName="BusinessLogic">
+    <providedRoles_InterfaceProvidingEntity id="_zC_2EOBrEdygUashqViyTg" entityName="Provided_IEIMWebServiceInterface_BusinessLogic" providedInterface__ProvidedRole="_megXkOBnEdygUashqViyTg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_L1J3wO94EdyzDp8AKfFBlg" entityName="IDataObjectDAORequiredRole" requiredInterface__RequiredRole="_Cd1QkOBlEdygUashqViyTg"/>
+  </components__Repository>
+  <components__Repository id="_K94f4OCCEdygUashqViyTg" entityName="TeamcrmDB">
+    <providedRoles_InterfaceProvidingEntity id="_O37TkOCCEdygUashqViyTg" entityName="Provided_IJdbcAccessor_DB" providedInterface__ProvidedRole="_HRo-0OBaEdyjufEo8k7-YA"/>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_mAu-kO-eEdyOK6Elhl05eA" entityName="BusinessLogicImpl" parentCompleteComponentTypes="_wqQdEOBrEdygUashqViyTg">
+    <providedRoles_InterfaceProvidingEntity id="_uetQcO-eEdyOK6Elhl05eA" entityName="Provided_IEIMWebServiceInterface_CommanPattern" providedInterface__ProvidedRole="_megXkOBnEdygUashqViyTg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_wR5sYO-eEdyOK6Elhl05eA" entityName="IDataObjectDAORequiredRole" requiredInterface__RequiredRole="_Cd1QkOBlEdygUashqViyTg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_eYcg0AskEd2ERYjyOQ08rQ" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_er0v0AskEd2ERYjyOQ08rQ" successor_AbstractAction="_rphVUAskEd2ERYjyOQ08rQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_er0v0QskEd2ERYjyOQ08rQ" predecessor_AbstractAction="_k0JLIDCCEd2KoqlzoZda-g"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_rphVUAskEd2ERYjyOQ08rQ" predecessor_AbstractAction="_er0v0AskEd2ERYjyOQ08rQ" successor_AbstractAction="_j7hhEDCCEd2KoqlzoZda-g" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0" role_ExternalService="_wR5sYO-eEdyOK6Elhl05eA">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="TYPE">
+            <specification_VariableCharacterisation specification="objectType.TYPE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="objectType"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="RETURN.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ObjectsFromPersistenceLayer"/>
+        </outputVariableUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.INNER.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="ObjectsFomPersistenceLayer">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_j7hhEDCCEd2KoqlzoZda-g" predecessor_AbstractAction="_rphVUAskEd2ERYjyOQ08rQ" successor_AbstractAction="_k0JLIDCCEd2KoqlzoZda-g">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="ObjectsFromPersistenceLayer.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_k0JLIDCCEd2KoqlzoZda-g" predecessor_AbstractAction="_j7hhEDCCEd2KoqlzoZda-g" successor_AbstractAction="_er0v0QskEd2ERYjyOQ08rQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="ObjectsFromPersistenceLayer.INNER.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_-L6AkAzTEd2e7pdPNtd4SA" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_-dWV4AzTEd2e7pdPNtd4SA" successor_AbstractAction="_yFMgADAKEd27s-PdiPepmQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_-dWV4QzTEd2e7pdPNtd4SA" predecessor_AbstractAction="_lmuMsDCEEd2KoqlzoZda-g"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_yFMgADAKEd27s-PdiPepmQ" predecessor_AbstractAction="_-dWV4AzTEd2e7pdPNtd4SA" successor_AbstractAction="_lmuMsDCEEd2KoqlzoZda-g" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.1" role_ExternalService="_wR5sYO-eEdyOK6Elhl05eA">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="TYPE">
+            <specification_VariableCharacterisation specification="objectType.TYPE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="objectType"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ObjectFromPersistenceLayer"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_lmuMsDCEEd2KoqlzoZda-g" predecessor_AbstractAction="_yFMgADAKEd27s-PdiPepmQ" successor_AbstractAction="_-dWV4QzTEd2e7pdPNtd4SA">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="ObjectFromPersistenceLayer.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ZndOkADSEd2Kv4FanKW1Lg" entityName="TeamcrmDBImpl" parentProvidesComponentTypes="_K94f4OCCEdygUashqViyTg">
+    <providedRoles_InterfaceProvidingEntity id="_fB6FEADSEd2Kv4FanKW1Lg" entityName="Provided_IJdbcAccessor_TeamcrmDB" providedInterface__ProvidedRole="_HRo-0OBaEdyjufEo8k7-YA"/>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredAddresses"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredAppointments"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredTodos"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundAppointments"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundAddresses"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundTodos"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="BYTESIZE">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundObjects"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredUsers"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="BYTESIZE">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="DataObject"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="BYTESIZE">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundUsers"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="AddressFields"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="AppointmentFields"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="TodoFields"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundORel"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_fB6FEQDSEd2Kv4FanKW1Lg" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_fB6FEgDSEd2Kv4FanKW1Lg" successor_AbstractAction="_8A6nACauEd2lqrAIZH2rkQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_fB6FEwDSEd2Kv4FanKW1Lg" predecessor_AbstractAction="_pvNUwCavEd2lqrAIZH2rkQ"/>
+      <steps_Behaviour xsi:type="_1:LoopAction" id="_UTICoADcEd2Kv4FanKW1Lg" entityName="MassQueryRowMapper" predecessor_AbstractAction="_8A6nACauEd2lqrAIZH2rkQ" successor_AbstractAction="_o-8xcADcEd2Kv4FanKW1Lg">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="_1:StartAction" id="_UTICoQDcEd2Kv4FanKW1Lg" successor_AbstractAction="_IxZPADsrEd2JJraiNmVuKQ"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="_UTICogDcEd2Kv4FanKW1Lg" predecessor_AbstractAction="_IxZPADsrEd2JJraiNmVuKQ"/>
+          <steps_Behaviour xsi:type="_1:BranchAction" id="_IxZPADsrEd2JJraiNmVuKQ" predecessor_AbstractAction="_UTICoQDcEd2Kv4FanKW1Lg" successor_AbstractAction="_UTICogDcEd2Kv4FanKW1Lg">
+            <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_NhFRQDsrEd2JJraiNmVuKQ">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_NhFRQTsrEd2JJraiNmVuKQ" successor_AbstractAction="_QTvmIDsrEd2JJraiNmVuKQ"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_NhFRQjsrEd2JJraiNmVuKQ" predecessor_AbstractAction="_QTvmIDsrEd2JJraiNmVuKQ"/>
+                <steps_Behaviour xsi:type="_1:InternalAction" id="_QTvmIDsrEd2JJraiNmVuKQ" entityName="mapRowAppointment" predecessor_AbstractAction="_NhFRQTsrEd2JJraiNmVuKQ" successor_AbstractAction="_NhFRQjsrEd2JJraiNmVuKQ">
+                  <resourceDemand_Action>
+                    <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                    <specification_ParametericResourceDemand specification="0.048"/>
+                  </resourceDemand_Action>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+              <branchCondition_GuardedBranchTransition specification="dataObject.TYPE == &quot;APPOINTMENT&quot;"/>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_cC6jADsrEd2JJraiNmVuKQ">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_cC6jATsrEd2JJraiNmVuKQ" successor_AbstractAction="_dLU8kDsrEd2JJraiNmVuKQ"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_cC6jAjsrEd2JJraiNmVuKQ" predecessor_AbstractAction="_dLU8kDsrEd2JJraiNmVuKQ"/>
+                <steps_Behaviour xsi:type="_1:InternalAction" id="_dLU8kDsrEd2JJraiNmVuKQ" entityName="mapRowAddress" predecessor_AbstractAction="_cC6jATsrEd2JJraiNmVuKQ" successor_AbstractAction="_cC6jAjsrEd2JJraiNmVuKQ">
+                  <resourceDemand_Action>
+                    <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                    <specification_ParametericResourceDemand specification="0.0067"/>
+                  </resourceDemand_Action>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+              <branchCondition_GuardedBranchTransition specification="dataObject.TYPE == &quot;ADDRESS&quot;"/>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_inH24DsrEd2JJraiNmVuKQ">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_inH24TsrEd2JJraiNmVuKQ" successor_AbstractAction="_kc2CYDsrEd2JJraiNmVuKQ"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_inH24jsrEd2JJraiNmVuKQ" predecessor_AbstractAction="_kc2CYDsrEd2JJraiNmVuKQ"/>
+                <steps_Behaviour xsi:type="_1:InternalAction" id="_kc2CYDsrEd2JJraiNmVuKQ" entityName="mapRowTodo" predecessor_AbstractAction="_inH24TsrEd2JJraiNmVuKQ" successor_AbstractAction="_inH24jsrEd2JJraiNmVuKQ">
+                  <resourceDemand_Action>
+                    <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                    <specification_ParametericResourceDemand specification="0.0268"/>
+                  </resourceDemand_Action>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+              <branchCondition_GuardedBranchTransition specification="dataObject.TYPE == &quot;TODO&quot;"/>
+            </branches_Branch>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+        <iterationCount_LoopAction specification="dataObject.TYPE == &quot;ADDRESS&quot; ? FoundAddresses.NUMBER_OF_ELEMENTS : (dataObject.TYPE == &quot;APPOINTMENT&quot; ? FoundAppointments.NUMBER_OF_ELEMENTS :  FoundTodos.NUMBER_OF_ELEMENTS )"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_o-8xcADcEd2Kv4FanKW1Lg" predecessor_AbstractAction="_UTICoADcEd2Kv4FanKW1Lg" successor_AbstractAction="_pvNUwCavEd2lqrAIZH2rkQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="dataObject.TYPE == &quot;ADDRESS&quot; ? FoundAddresses.NUMBER_OF_ELEMENTS : (dataObject.TYPE == &quot;APPOINTMENT&quot; ? FoundAppointments.NUMBER_OF_ELEMENTS :  FoundTodos.NUMBER_OF_ELEMENTS )"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_8A6nACauEd2lqrAIZH2rkQ" entityName="query" predecessor_AbstractAction="_fB6FEgDSEd2Kv4FanKW1Lg" successor_AbstractAction="_UTICoADcEd2Kv4FanKW1Lg">
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_-gzw4CauEd2lqrAIZH2rkQ" branchProbability="0.95">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_-gzw4SauEd2lqrAIZH2rkQ" successor_AbstractAction="_LbhT0CavEd2lqrAIZH2rkQ"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_-gzw4iauEd2lqrAIZH2rkQ" predecessor_AbstractAction="_LbhT0CavEd2lqrAIZH2rkQ"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_LbhT0CavEd2lqrAIZH2rkQ" entityName="queryFromCache" predecessor_AbstractAction="_-gzw4SauEd2lqrAIZH2rkQ" successor_AbstractAction="_-gzw4iauEd2lqrAIZH2rkQ">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="0.89"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="__MKbACauEd2lqrAIZH2rkQ" branchProbability="0.05">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="__MKbASauEd2lqrAIZH2rkQ" successor_AbstractAction="_xD1qYADbEd2Kv4FanKW1Lg"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="__MKbAiauEd2lqrAIZH2rkQ" predecessor_AbstractAction="_xD1qYADbEd2Kv4FanKW1Lg"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_xD1qYADbEd2Kv4FanKW1Lg" entityName="queryFromDB" predecessor_AbstractAction="__MKbASauEd2lqrAIZH2rkQ" successor_AbstractAction="__MKbAiauEd2lqrAIZH2rkQ">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="0.003*(dataObject.TYPE == &quot;ADDRESS&quot; ? StoredAddresses.NUMBER_OF_ELEMENTS : (dataObject.TYPE == &quot;APPOINTMENT&quot; ? StoredAppointments.NUMBER_OF_ELEMENTS : StoredTodos.NUMBER_OF_ELEMENTS )) + 0.14"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_pvNUwCavEd2lqrAIZH2rkQ" predecessor_AbstractAction="_o-8xcADcEd2Kv4FanKW1Lg" successor_AbstractAction="_fB6FEwDSEd2Kv4FanKW1Lg">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="FoundObjects.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_FoOkIAQAEd2cYKsEh0csrg" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_GAEcYAQAEd2cYKsEh0csrg" successor_AbstractAction="_vMhckCawEd2lqrAIZH2rkQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_GAEcYQQAEd2cYKsEh0csrg" predecessor_AbstractAction="_W43bcCJ-Ed2mdq-FPloYWg"/>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_YRqkcAQAEd2cYKsEh0csrg" predecessor_AbstractAction="_h_BggCawEd2lqrAIZH2rkQ" successor_AbstractAction="_W43bcCJ-Ed2mdq-FPloYWg">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="UsersID.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_W43bcCJ-Ed2mdq-FPloYWg" predecessor_AbstractAction="_YRqkcAQAEd2cYKsEh0csrg" successor_AbstractAction="_GAEcYQQAEd2cYKsEh0csrg">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="FoundUsers.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:LoopAction" id="_h_BggCawEd2lqrAIZH2rkQ" entityName="UserRowMapper" predecessor_AbstractAction="_vMhckCawEd2lqrAIZH2rkQ" successor_AbstractAction="_YRqkcAQAEd2cYKsEh0csrg">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="_1:StartAction" id="_h_BggSawEd2lqrAIZH2rkQ" successor_AbstractAction="_WkjQ8CKBEd2mdq-FPloYWg"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="_h_BggiawEd2lqrAIZH2rkQ" predecessor_AbstractAction="_WkjQ8CKBEd2mdq-FPloYWg"/>
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_WkjQ8CKBEd2mdq-FPloYWg" entityName="rowMap" predecessor_AbstractAction="_h_BggSawEd2lqrAIZH2rkQ" successor_AbstractAction="_h_BggiawEd2lqrAIZH2rkQ">
+            <resourceDemand_Action>
+              <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+              <specification_ParametericResourceDemand specification="0.0251"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+        <iterationCount_LoopAction specification="UsersID.NUMBER_OF_ELEMENTS"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_vMhckCawEd2lqrAIZH2rkQ" entityName="query" predecessor_AbstractAction="_GAEcYAQAEd2cYKsEh0csrg" successor_AbstractAction="_h_BggCawEd2lqrAIZH2rkQ">
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_zvFo0CawEd2lqrAIZH2rkQ" branchProbability="1.0">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_zvFo0SawEd2lqrAIZH2rkQ" successor_AbstractAction="_RMF5YCaxEd2lqrAIZH2rkQ"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_zvFo0iawEd2lqrAIZH2rkQ" predecessor_AbstractAction="_RMF5YCaxEd2lqrAIZH2rkQ"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_RMF5YCaxEd2lqrAIZH2rkQ" entityName="queryFromCache" predecessor_AbstractAction="_zvFo0SawEd2lqrAIZH2rkQ" successor_AbstractAction="_zvFo0iawEd2lqrAIZH2rkQ">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="0.08"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_0LssUCawEd2lqrAIZH2rkQ">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_0LssUSawEd2lqrAIZH2rkQ" successor_AbstractAction="_KXnEYAQAEd2cYKsEh0csrg"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_0LssUiawEd2lqrAIZH2rkQ" predecessor_AbstractAction="_KXnEYAQAEd2cYKsEh0csrg"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_KXnEYAQAEd2cYKsEh0csrg" entityName="queryFromDB" predecessor_AbstractAction="_0LssUSawEd2lqrAIZH2rkQ" successor_AbstractAction="_0LssUiawEd2lqrAIZH2rkQ">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="0.0003*StoredUsers.NUMBER_OF_ELEMENTS+ 0.75"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Z5018AzQEd2e7pdPNtd4SA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_aV_0kAzQEd2e7pdPNtd4SA" successor_AbstractAction="_yvTEQAzcEd2e7pdPNtd4SA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_aV_0kQzQEd2e7pdPNtd4SA" predecessor_AbstractAction="_wU1qcAzQEd2e7pdPNtd4SA"/>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_wU1qcAzQEd2e7pdPNtd4SA" predecessor_AbstractAction="_VGyOoAzZEd2e7pdPNtd4SA" successor_AbstractAction="_aV_0kQzQEd2e7pdPNtd4SA">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="DataObject.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:LoopAction" id="_VGyOoAzZEd2e7pdPNtd4SA" entityName="DataObjectRowMapper" predecessor_AbstractAction="_yvTEQAzcEd2e7pdPNtd4SA" successor_AbstractAction="_wU1qcAzQEd2e7pdPNtd4SA">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="_1:StartAction" id="_VH-hcAzZEd2e7pdPNtd4SA" successor_AbstractAction="_5C_4AEQ0Ed2Q9dwdBViz4Q"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="_VH-hcQzZEd2e7pdPNtd4SA" predecessor_AbstractAction="_5C_4AEQ0Ed2Q9dwdBViz4Q"/>
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_5C_4AEQ0Ed2Q9dwdBViz4Q" entityName="mapRow" predecessor_AbstractAction="_VH-hcAzZEd2e7pdPNtd4SA" successor_AbstractAction="_VH-hcQzZEd2e7pdPNtd4SA">
+            <resourceDemand_Action>
+              <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+              <specification_ParametericResourceDemand specification="0.0274"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+        <iterationCount_LoopAction specification="dataObject.TYPE == &quot;ADDRESS&quot; ? AddressFields.NUMBER_OF_ELEMENTS : (dataObject.TYPE == &quot;APPOINTMENT&quot; ? AppointmentFields.NUMBER_OF_ELEMENTS :  TodoFields.NUMBER_OF_ELEMENTS )"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_yvTEQAzcEd2e7pdPNtd4SA" predecessor_AbstractAction="_aV_0kAzQEd2e7pdPNtd4SA" successor_AbstractAction="_VGyOoAzZEd2e7pdPNtd4SA">
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_0uvzgAzcEd2e7pdPNtd4SA" branchProbability="0.2">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_0uvzgQzcEd2e7pdPNtd4SA" successor_AbstractAction="_TFUJUAzdEd2e7pdPNtd4SA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_0uvzggzcEd2e7pdPNtd4SA" predecessor_AbstractAction="_TFUJUAzdEd2e7pdPNtd4SA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_TFUJUAzdEd2e7pdPNtd4SA" entityName="queryFromCache" predecessor_AbstractAction="_0uvzgQzcEd2e7pdPNtd4SA" successor_AbstractAction="_0uvzggzcEd2e7pdPNtd4SA">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="0.658"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_5GiTIAzcEd2e7pdPNtd4SA" branchProbability="0.8">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_5GrdEAzcEd2e7pdPNtd4SA" successor_AbstractAction="_z8kTMAzdEd2e7pdPNtd4SA"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_5GrdEQzcEd2e7pdPNtd4SA" predecessor_AbstractAction="_z8kTMAzdEd2e7pdPNtd4SA"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_z8kTMAzdEd2e7pdPNtd4SA" entityName="queryFromDB" predecessor_AbstractAction="_5GrdEAzcEd2e7pdPNtd4SA" successor_AbstractAction="_5GrdEQzcEd2e7pdPNtd4SA">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="6.574"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_9EUN0EQzEd2Q9dwdBViz4Q" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.3">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_9dMn4EQzEd2Q9dwdBViz4Q" successor_AbstractAction="_DW8pgEQ0Ed2Q9dwdBViz4Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_9dMn4UQzEd2Q9dwdBViz4Q" predecessor_AbstractAction="_7k47EEQ2Ed2Q9dwdBViz4Q"/>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_DW8pgEQ0Ed2Q9dwdBViz4Q" entityName="query" predecessor_AbstractAction="_9dMn4EQzEd2Q9dwdBViz4Q" successor_AbstractAction="_dm5vQEQ0Ed2Q9dwdBViz4Q">
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_FXPtUEQ0Ed2Q9dwdBViz4Q" branchProbability="0.2">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_FXPtUUQ0Ed2Q9dwdBViz4Q" successor_AbstractAction="_IRWuAEQ0Ed2Q9dwdBViz4Q"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_FXPtUkQ0Ed2Q9dwdBViz4Q" predecessor_AbstractAction="_IRWuAEQ0Ed2Q9dwdBViz4Q"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_IRWuAEQ0Ed2Q9dwdBViz4Q" entityName="queryFromCache" predecessor_AbstractAction="_FXPtUUQ0Ed2Q9dwdBViz4Q" successor_AbstractAction="_FXPtUkQ0Ed2Q9dwdBViz4Q">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="0.912"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_G5lp0EQ0Ed2Q9dwdBViz4Q" branchProbability="0.8">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_G5lp0UQ0Ed2Q9dwdBViz4Q" successor_AbstractAction="_KIHbUEQ0Ed2Q9dwdBViz4Q"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_G5lp0kQ0Ed2Q9dwdBViz4Q" predecessor_AbstractAction="_KIHbUEQ0Ed2Q9dwdBViz4Q"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_KIHbUEQ0Ed2Q9dwdBViz4Q" entityName="queryFromDB" predecessor_AbstractAction="_G5lp0UQ0Ed2Q9dwdBViz4Q" successor_AbstractAction="_G5lp0kQ0Ed2Q9dwdBViz4Q">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="8.783"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:LoopAction" id="_dm5vQEQ0Ed2Q9dwdBViz4Q" entityName="DataObjectPermissionsMapper" predecessor_AbstractAction="_DW8pgEQ0Ed2Q9dwdBViz4Q" successor_AbstractAction="_7k47EEQ2Ed2Q9dwdBViz4Q">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="_1:StartAction" id="_dm5vQUQ0Ed2Q9dwdBViz4Q" successor_AbstractAction="_olVywEQ0Ed2Q9dwdBViz4Q"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="_dnC5MEQ0Ed2Q9dwdBViz4Q" predecessor_AbstractAction="_olVywEQ0Ed2Q9dwdBViz4Q"/>
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_olVywEQ0Ed2Q9dwdBViz4Q" entityName="mapRow" predecessor_AbstractAction="_dm5vQUQ0Ed2Q9dwdBViz4Q" successor_AbstractAction="_dnC5MEQ0Ed2Q9dwdBViz4Q">
+            <resourceDemand_Action>
+              <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+              <specification_ParametericResourceDemand specification="0.641"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+        <iterationCount_LoopAction specification="FoundORel.NUMBER_OF_ELEMENTS"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_7k47EEQ2Ed2Q9dwdBViz4Q" predecessor_AbstractAction="_dm5vQEQ0Ed2Q9dwdBViz4Q" successor_AbstractAction="_9dMn4UQzEd2Q9dwdBViz4Q">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="FoundORel.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_fTljkADVEd2Kv4FanKW1Lg" entityName="DataProvider">
+    <providedRoles_InterfaceProvidingEntity id="_1RKJ0BEKEd2pi-NO_GvD0w" entityName="IDataProviderProvidedRole" providedInterface__ProvidedRole="_QUfpwBEKEd2pi-NO_GvD0w"/>
+    <requiredRoles_InterfaceRequiringEntity id="_if4gcADVEd2Kv4FanKW1Lg" entityName="IJdbcAccessorRequired" requiredInterface__RequiredRole="_HRo-0OBaEdyjufEo8k7-YA"/>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StatementNods"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="GroupMembers"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ForeignEditPermission"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_zkoPMBENEd2pi-NO_GvD0w" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_0A7wsBENEd2pi-NO_GvD0w" successor_AbstractAction="_BJEEkBEOEd2pi-NO_GvD0w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_0A7wsRENEd2pi-NO_GvD0w" predecessor_AbstractAction="_uF4SEBEOEd2pi-NO_GvD0w"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_BJEEkBEOEd2pi-NO_GvD0w" entityName="parseSqlStatement" predecessor_AbstractAction="_0A7wsBENEd2pi-NO_GvD0w" successor_AbstractAction="_WTk6gBEOEd2pi-NO_GvD0w">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+          <specification_ParametericResourceDemand specification="StatementNods.NUMBER_OF_ELEMENTS* 0.0235"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_B1K8oBEOEd2pi-NO_GvD0w" entityName="transform2String" predecessor_AbstractAction="_WTk6gBEOEd2pi-NO_GvD0w" successor_AbstractAction="_2BDJIBEfEd2CLfY5FC2vUg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+          <specification_ParametericResourceDemand specification="StatementNods.NUMBER_OF_ELEMENTS*0.0049"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_WTk6gBEOEd2pi-NO_GvD0w" predecessor_AbstractAction="_BJEEkBEOEd2pi-NO_GvD0w" successor_AbstractAction="_B1K8oBEOEd2pi-NO_GvD0w" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_if4gcADVEd2Kv4FanKW1Lg">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="1"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="UsersID"/>
+        </inputParameterUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_uF4SEBEOEd2pi-NO_GvD0w" predecessor_AbstractAction="_2BDJIBEfEd2CLfY5FC2vUg" successor_AbstractAction="_0A7wsRENEd2pi-NO_GvD0w">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="FoundObject.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_2BDJIBEfEd2CLfY5FC2vUg" predecessor_AbstractAction="_B1K8oBEOEd2pi-NO_GvD0w" successor_AbstractAction="_uF4SEBEOEd2pi-NO_GvD0w" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.2" role_ExternalService="_if4gcADVEd2Kv4FanKW1Lg">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="TYPE">
+            <specification_VariableCharacterisation specification="objectType.TYPE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="dataObject"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundObject"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_t_x30BETEd2pi-NO_GvD0w" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_urvl8BETEd2pi-NO_GvD0w" successor_AbstractAction="_aTDxYBEaEd2CLfY5FC2vUg"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_urvl8RETEd2pi-NO_GvD0w" predecessor_AbstractAction="_jCIrIC_3Ed27s-PdiPepmQ"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_aTDxYBEaEd2CLfY5FC2vUg" entityName="parseSqlStatement" predecessor_AbstractAction="_urvl8BETEd2pi-NO_GvD0w" successor_AbstractAction="_pOX6IBEaEd2CLfY5FC2vUg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+          <specification_ParametericResourceDemand specification="StatementNods.NUMBER_OF_ELEMENTS* 0.0235"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_dUCPEBEaEd2CLfY5FC2vUg" entityName="transform2String" predecessor_AbstractAction="_pOX6IBEaEd2CLfY5FC2vUg" successor_AbstractAction="_7KzqgBEaEd2CLfY5FC2vUg">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+          <specification_ParametericResourceDemand specification="(FoundPermissions.NUMBER_OF_ELEMENTS+StatementNods.NUMBER_OF_ELEMENTS)*0.0049"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_pOX6IBEaEd2CLfY5FC2vUg" predecessor_AbstractAction="_aTDxYBEaEd2CLfY5FC2vUg" successor_AbstractAction="_dUCPEBEaEd2CLfY5FC2vUg" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_if4gcADVEd2Kv4FanKW1Lg">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="GroupMembers.NUMBER_OF_ELEMENTS * ForeignEditPermission.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="UsersID"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="RETURN.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundPermissions"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_7KzqgBEaEd2CLfY5FC2vUg" predecessor_AbstractAction="_dUCPEBEaEd2CLfY5FC2vUg" successor_AbstractAction="_VwnxwC_3Ed27s-PdiPepmQ" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_if4gcADVEd2Kv4FanKW1Lg">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="TYPE">
+            <specification_VariableCharacterisation specification="objectType.TYPE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="dataObject"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="RETURN.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ObjectsFromDB"/>
+        </outputVariableUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.INNER.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="ObjectsFromDB">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_VwnxwC_3Ed27s-PdiPepmQ" predecessor_AbstractAction="_7KzqgBEaEd2CLfY5FC2vUg" successor_AbstractAction="_jCIrIC_3Ed27s-PdiPepmQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="ObjectsFromDB.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_jCIrIC_3Ed27s-PdiPepmQ" predecessor_AbstractAction="_VwnxwC_3Ed27s-PdiPepmQ" successor_AbstractAction="_urvl8RETEd2pi-NO_GvD0w">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="ObjectsFromDB.INNER.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_fnHBkEQ2Ed2Q9dwdBViz4Q" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_gb3fUEQ2Ed2Q9dwdBViz4Q" successor_AbstractAction="_owIbkEQ2Ed2Q9dwdBViz4Q"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_gb3fUUQ2Ed2Q9dwdBViz4Q" predecessor_AbstractAction="_OoZoQEQ3Ed2Q9dwdBViz4Q"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_owIbkEQ2Ed2Q9dwdBViz4Q" entityName="createORelQuery" predecessor_AbstractAction="_gb3fUEQ2Ed2Q9dwdBViz4Q" successor_AbstractAction="_sXsYIEQ2Ed2Q9dwdBViz4Q">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+          <specification_ParametericResourceDemand specification="0.464"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_sXsYIEQ2Ed2Q9dwdBViz4Q" predecessor_AbstractAction="_owIbkEQ2Ed2Q9dwdBViz4Q" successor_AbstractAction="_OoZoQEQ3Ed2Q9dwdBViz4Q" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.3" role_ExternalService="_if4gcADVEd2Kv4FanKW1Lg">
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="RETURN.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundObjectPermissions"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_OoZoQEQ3Ed2Q9dwdBViz4Q" predecessor_AbstractAction="_sXsYIEQ2Ed2Q9dwdBViz4Q" successor_AbstractAction="_gb3fUUQ2Ed2Q9dwdBViz4Q">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="FoundObjectPermissions.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_15z6sBEJEd2pi-NO_GvD0w" entityName="DataObjectDAOImpl">
+    <providedRoles_InterfaceProvidingEntity id="_5HLZIBEKEd2pi-NO_GvD0w" entityName="IDataObjectDAOProvidedRole" providedInterface__ProvidedRole="_Cd1QkOBlEdygUashqViyTg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_3vkF8BEKEd2pi-NO_GvD0w" entityName="Required_IDataProvider_DataObjectDao" requiredInterface__RequiredRole="_QUfpwBEKEd2pi-NO_GvD0w"/>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundObjectTags"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_6YbJIBELEd2pi-NO_GvD0w" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_7Z_T0BELEd2pi-NO_GvD0w" successor_AbstractAction="_txjSwBEMEd2pi-NO_GvD0w"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_7Z_T0RELEd2pi-NO_GvD0w" predecessor_AbstractAction="_rpTKsC_2Ed27s-PdiPepmQ"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_txjSwBEMEd2pi-NO_GvD0w" predecessor_AbstractAction="_7Z_T0BELEd2pi-NO_GvD0w" successor_AbstractAction="_cqj6gC_2Ed27s-PdiPepmQ" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0" role_ExternalService="_3vkF8BEKEd2pi-NO_GvD0w">
+        <inputParameterUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="TYPE">
+            <specification_VariableCharacterisation specification="objectType.TYPE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="objectType"/>
+        </inputParameterUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="RETURN.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ObjectsFromDataProvider"/>
+        </outputVariableUsages_ExternalCallAction>
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.INNER.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ObjectsFromDataProvider.INNER"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_cqj6gC_2Ed27s-PdiPepmQ" entityName="" predecessor_AbstractAction="_txjSwBEMEd2pi-NO_GvD0w" successor_AbstractAction="_rpTKsC_2Ed27s-PdiPepmQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="ObjectsFromDataProvider.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_rpTKsC_2Ed27s-PdiPepmQ" predecessor_AbstractAction="_cqj6gC_2Ed27s-PdiPepmQ" successor_AbstractAction="_7Z_T0RELEd2pi-NO_GvD0w">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="ObjectsFromDataProvider.INNER.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_P8knEBEMEd2pi-NO_GvD0w" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_QfJIoBEMEd2pi-NO_GvD0w" successor_AbstractAction="_4Z_w0DAIEd27s-PdiPepmQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_QfJIoREMEd2pi-NO_GvD0w" predecessor_AbstractAction="_SnRDoDCFEd2KoqlzoZda-g"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_4Z_w0DAIEd27s-PdiPepmQ" entityName="getObjectDescription" predecessor_AbstractAction="_QfJIoBEMEd2pi-NO_GvD0w" successor_AbstractAction="_788TIDAIEd27s-PdiPepmQ">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+          <specification_ParametericResourceDemand specification="0.163"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_788TIDAIEd27s-PdiPepmQ" entityName="getObject" predecessor_AbstractAction="_4Z_w0DAIEd27s-PdiPepmQ" successor_AbstractAction="_nXgOQEOSEd2GJe-UhVPubg">
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_-hmoQDAIEd27s-PdiPepmQ" branchProbability="0.2">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_-h5jMDAIEd27s-PdiPepmQ" successor_AbstractAction="_V9aLYDAJEd27s-PdiPepmQ"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_-h5jMTAIEd27s-PdiPepmQ" predecessor_AbstractAction="_V9aLYDAJEd27s-PdiPepmQ"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_V9aLYDAJEd27s-PdiPepmQ" entityName="getObjectFromCache" predecessor_AbstractAction="_-h5jMDAIEd27s-PdiPepmQ" successor_AbstractAction="_-h5jMTAIEd27s-PdiPepmQ">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+                <specification_ParametericResourceDemand specification="0.0091"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="__5ExgDAIEd27s-PdiPepmQ" branchProbability="0.8">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="__5ExgTAIEd27s-PdiPepmQ" successor_AbstractAction="_-KizEBEPEd2pi-NO_GvD0w"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_-KizEBEPEd2pi-NO_GvD0w" predecessor_AbstractAction="__5ExgTAIEd27s-PdiPepmQ" successor_AbstractAction="_ZJoyYEQ3Ed2Q9dwdBViz4Q" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.1" role_ExternalService="_3vkF8BEKEd2pi-NO_GvD0w">
+              <inputParameterUsages_ExternalCallAction>
+                <variableCharacterisation_VariableUsage type="TYPE">
+                  <specification_VariableCharacterisation specification="objectType.TYPE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="objectType"/>
+              </inputParameterUsages_ExternalCallAction>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_cbR5oEOEEd2Pv59AxXuWAA" predecessor_AbstractAction="_ZJoyYEQ3Ed2Q9dwdBViz4Q"/>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ZJoyYEQ3Ed2Q9dwdBViz4Q" predecessor_AbstractAction="_-KizEBEPEd2pi-NO_GvD0w" successor_AbstractAction="_cbR5oEOEEd2Pv59AxXuWAA" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.2" role_ExternalService="_3vkF8BEKEd2pi-NO_GvD0w"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_n8qmQDAJEd27s-PdiPepmQ" entityName="cloneObject" predecessor_AbstractAction="_nXgOQEOSEd2GJe-UhVPubg" successor_AbstractAction="_SnRDoDCFEd2KoqlzoZda-g">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+          <specification_ParametericResourceDemand specification="0.071"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_SnRDoDCFEd2KoqlzoZda-g" predecessor_AbstractAction="_n8qmQDAJEd27s-PdiPepmQ" successor_AbstractAction="_QfJIoREMEd2pi-NO_GvD0w">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="0"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_nXgOQEOSEd2GJe-UhVPubg" entityName="getTagsForObject" predecessor_AbstractAction="_788TIDAIEd27s-PdiPepmQ" successor_AbstractAction="_n8qmQDAJEd27s-PdiPepmQ">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="EIMServer.resourcetype#_TlSckOVOEdyoTq75d0UHCA"/>
+          <specification_ParametericResourceDemand specification="FoundObjectTags.NUMBER_OF_ELEMENTS"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="CompositeComponent" id="_vDx2ACl-Ed2eZ-r3ZLeMjw" entityName="PersistenceLayerImpl" parentCompleteComponentTypes="_nJQA4OBrEdygUashqViyTg">
+    <providedRoles_InterfaceProvidingEntity id="_MYnMkCmAEd2eZ-r3ZLeMjw" entityName="IDataObjectDAOProvidedRole" providedInterface__ProvidedRole="_Cd1QkOBlEdygUashqViyTg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_46TkUCmAEd2eZ-r3ZLeMjw" entityName="IJdbcAccessorRequiredRole" requiredInterface__RequiredRole="_HRo-0OBaEdyjufEo8k7-YA"/>
+    <childComponentContexts_ComposedStructure id="_qvikMCl_Ed2eZ-r3ZLeMjw" entityName="AssCtx_DataObjectDAOImpl" encapsulatedComponent_ChildComponentContext="_15z6sBEJEd2pi-NO_GvD0w">
+      <configParameterUsages_AssemblyContext>
+        <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+          <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (0.5; 0.00000000) (1.5; 0.00300000) (2.5; 0.18600000) (3.5; 0.13600000) (4.5; 0.08500000) (5.5; 0.11100000) (6.5; 0.11160000) (7.5; 0.10900000) (8.5; 0.10060000) (9.5; 0.05620000) (10.5; 0.02320000) (11.5; 0.04780000) (12.5; 0.02040000) (13.5; 0.01020000) ])"/>
+        </variableCharacterisation_VariableUsage>
+        <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundObjectTags"/>
+      </configParameterUsages_AssemblyContext>
+    </childComponentContexts_ComposedStructure>
+    <childComponentContexts_ComposedStructure id="__7_64Cl_Ed2eZ-r3ZLeMjw" entityName="AssCtx_DataProvider" encapsulatedComponent_ChildComponentContext="_fTljkADVEd2Kv4FanKW1Lg">
+      <configParameterUsages_AssemblyContext>
+        <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+          <specification_VariableCharacterisation specification="IntPMF[ (10;0.4) (9;0.6) ]"/>
+        </variableCharacterisation_VariableUsage>
+        <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StatementNods"/>
+      </configParameterUsages_AssemblyContext>
+      <configParameterUsages_AssemblyContext>
+        <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+          <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (1.0; 0.00000000) (2.0; 0.08000000) (3.0; 0.12000000) (6.0; 0.48000000) (8.0; 0.32000000) ])"/>
+        </variableCharacterisation_VariableUsage>
+        <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="GroupMembers"/>
+      </configParameterUsages_AssemblyContext>
+      <configParameterUsages_AssemblyContext>
+        <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+          <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (1.0; 0.00000000) (2.0; 0.07000000) (5.0; 0.19000000) (6.0; 0.44000000) (8.0; 0.30000000) ])"/>
+        </variableCharacterisation_VariableUsage>
+        <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ForeignEditPermission"/>
+      </configParameterUsages_AssemblyContext>
+    </childComponentContexts_ComposedStructure>
+    <providedDelegationConnectors_ComposedStructure id="_1oM6YCmAEd2eZ-r3ZLeMjw" entityName="ProvDelegation IDataObjectDAO -> IDataObjectDAOProvidedRole" innerProvidedRole_ProvidedDelegationConnector="_5HLZIBEKEd2pi-NO_GvD0w" outerProvidedRole_ProvidedDelegationConnector="_MYnMkCmAEd2eZ-r3ZLeMjw" childComponentContext_ProvidedDelegationConnector="_qvikMCl_Ed2eZ-r3ZLeMjw"/>
+    <requiredDelegationConnectors_ComposedStructure id="_8Ma1UCmAEd2eZ-r3ZLeMjw" entityName="ReqDelegation IJdbcAccessorRequired -> Required_IJdbcAccessor" innerRequiredRole_RequiredDelegationConnector="_if4gcADVEd2Kv4FanKW1Lg" outerRequiredRole_RequiredDelegationConnector="_46TkUCmAEd2eZ-r3ZLeMjw" childComponentContext_RequiredDelegationConnector="__7_64Cl_Ed2eZ-r3ZLeMjw"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_361EUCmAEd2eZ-r3ZLeMjw" entityName="Connector AssCtx_DataObjectDAOImpl -> AssCtx_DataProvider" requiringChildComponentContext_CompositeAssemblyConnector="_qvikMCl_Ed2eZ-r3ZLeMjw" providingChildComponentContext_CompositeAssemblyConnector="__7_64Cl_Ed2eZ-r3ZLeMjw" providedRole_CompositeAssemblyConnector="_1RKJ0BEKEd2pi-NO_GvD0w" requiredRole_CompositeAssemblyConnector="_3vkF8BEKEd2pi-NO_GvD0w"/>
+  </components__Repository>
+  <interfaces__Repository id="_HRo-0OBaEdyjufEo8k7-YA" entityName="IJdbcTemplate">
+    <signatures__Interface serviceName="massQueryStatement" returntype__Signature="_3AKs4CJvEd2mdq-FPloYWg">
+      <parameters__Signature parameterName="dataObject">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getUserStatement" returntype__Signature="_xPqG0CJvEd2mdq-FPloYWg">
+      <parameters__Signature datatype__Parameter="_8bEPUCJvEd2mdq-FPloYWg" parameterName="UsersID"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getObjectStatement" returntype__Signature="_6aBkoCJvEd2mdq-FPloYWg">
+      <parameters__Signature parameterName="dataObject">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getORelStatement" returntype__Signature="_O_nXAEOKEd2A2p1H8Xo0Bg"/>
+  </interfaces__Repository>
+  <interfaces__Repository id="_Cd1QkOBlEdygUashqViyTg" entityName="IDataObjectDAO">
+    <signatures__Interface serviceName="query" returntype__Signature="_3AKs4CJvEd2mdq-FPloYWg">
+      <parameters__Signature parameterName="objectType">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="queryForObject" returntype__Signature="_6aBkoCJvEd2mdq-FPloYWg">
+      <parameters__Signature parameterName="objectType">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_megXkOBnEdygUashqViyTg" entityName="IEIMWebServiceInterface">
+    <signatures__Interface serviceName="query" returntype__Signature="_3AKs4CJvEd2mdq-FPloYWg">
+      <parameters__Signature parameterName="objectType">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="queryForObject">
+      <parameters__Signature parameterName="objectType">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.5"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_QUfpwBEKEd2pi-NO_GvD0w" entityName="IDataProvider">
+    <signatures__Interface serviceName="massQuery" returntype__Signature="_3AKs4CJvEd2mdq-FPloYWg">
+      <parameters__Signature parameterName="objectType">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="queryForObject" returntype__Signature="_6aBkoCJvEd2mdq-FPloYWg">
+      <parameters__Signature parameterName="objectType">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getDataObjectPermissions" returntype__Signature="_O_nXAEOKEd2A2p1H8Xo0Bg"/>
+  </interfaces__Repository>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_uVZVICJvEd2mdq-FPloYWg" entityName="User">
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.5"/>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_xPqG0CJvEd2mdq-FPloYWg" entityName="UserList" innerType_CollectionDataType="_uVZVICJvEd2mdq-FPloYWg"/>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_0JCHsCJvEd2mdq-FPloYWg" entityName="MassQueryRow">
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.5"/>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_3AKs4CJvEd2mdq-FPloYWg" entityName="RowList" innerType_CollectionDataType="_0JCHsCJvEd2mdq-FPloYWg"/>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_6aBkoCJvEd2mdq-FPloYWg" entityName="DataObject">
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.5"/>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_8bEPUCJvEd2mdq-FPloYWg" entityName="UsersID">
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_MF5-8EOKEd2A2p1H8Xo0Bg" entityName="ORel">
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.5"/>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_O_nXAEOKEd2A2p1H8Xo0Bg" entityName="ORelList" innerType_CollectionDataType="_MF5-8EOKEd2A2p1H8Xo0Bg"/>
+</Repository>
