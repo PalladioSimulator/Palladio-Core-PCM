@@ -178,7 +178,7 @@
     </children>
     <children xmi:type="notation:Node" xmi:id="_asde2khPEd2UeIRqjaYMjw" type="3003">
       <children xmi:type="notation:Node" xmi:id="_asde4EhPEd2UeIRqjaYMjw" type="5003">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_asde4UhPEd2UeIRqjaYMjw" x="-219" y="18"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_asde4UhPEd2UeIRqjaYMjw" x="-153" y="24"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_asde20hPEd2UeIRqjaYMjw" fontName="Segoe UI"/>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_asde3EhPEd2UeIRqjaYMjw"/>

@@ -1,59 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:pcm.core.composition="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmi:id="_5vPIIB_aEdyg4KefmN--bg" type="CompositeModel" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0 http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0#//composition" xmi:id="_5vPIIB_aEdyg4KefmN--bg" type="CompositeModel" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_50TOUB_aEdyg4KefmN--bg" type="2001">
     <children xmi:type="notation:Node" xmi:id="_50TOVh_aEdyg4KefmN--bg" type="5002"/>
     <children xmi:type="notation:Node" xmi:id="_50TOVx_aEdyg4KefmN--bg" type="7001">
       <children xmi:type="notation:Node" xmi:id="_50c_UB_aEdyg4KefmN--bg" type="3002">
         <children xmi:type="notation:Node" xmi:id="_50c_Vh_aEdyg4KefmN--bg" type="5004"/>
+        <children xmi:type="notation:Node" xmi:id="_Vz59QFP8Ed2djPB8xpD0yg" type="3004">
+          <children xmi:type="notation:Node" xmi:id="_V0aTkFP8Ed2djPB8xpD0yg" type="5005">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_V0aTkVP8Ed2djPB8xpD0yg" x="-156" y="12"/>
+          </children>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Vz59QVP8Ed2djPB8xpD0yg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_Vz59QlP8Ed2djPB8xpD0yg"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_Vz59Q1P8Ed2djPB8xpD0yg"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_Vz59RFP8Ed2djPB8xpD0yg"/>
+          <element xmi:type="RequiredRole" href="cocome.repository#_vsrnUdC4EduW_YoCCnq0vw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Vz59RVP8Ed2djPB8xpD0yg"/>
+        </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_50c_UR_aEdyg4KefmN--bg"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_50c_Uh_aEdyg4KefmN--bg"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_50c_Ux_aEdyg4KefmN--bg"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_50c_VB_aEdyg4KefmN--bg"/>
-        <element xmi:type="pcm.core.composition:AssemblyContext" href="cocome.repository#_8ei80tCjEduC9O_qbthgAg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50c_VR_aEdyg4KefmN--bg" x="55" y="14" width="145" height="72"/>
+        <element xmi:type="_1:AssemblyContext" href="cocome.repository#_8ei80tCjEduC9O_qbthgAg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50c_VR_aEdyg4KefmN--bg" x="19" y="14" width="253" height="72"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_50c_Vx_aEdyg4KefmN--bg" type="3002">
         <children xmi:type="notation:Node" xmi:id="_50c_XR_aEdyg4KefmN--bg" type="5004"/>
+        <children xmi:type="notation:Node" xmi:id="_V0gaMFP8Ed2djPB8xpD0yg" type="3004">
+          <children xmi:type="notation:Node" xmi:id="_V0hBQFP8Ed2djPB8xpD0yg" type="5005">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_V0hBQVP8Ed2djPB8xpD0yg" x="-106" y="12"/>
+          </children>
+          <styles xmi:type="notation:FontStyle" xmi:id="_V0gaMVP8Ed2djPB8xpD0yg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_V0gaMlP8Ed2djPB8xpD0yg"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_V0gaM1P8Ed2djPB8xpD0yg"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_V0gaNFP8Ed2djPB8xpD0yg"/>
+          <element xmi:type="RequiredRole" href="cocome.repository#_1a8xsdC4EduW_YoCCnq0vw"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V0gaNVP8Ed2djPB8xpD0yg"/>
+        </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_50c_WB_aEdyg4KefmN--bg"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_50c_WR_aEdyg4KefmN--bg"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_50c_Wh_aEdyg4KefmN--bg"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_50c_Wx_aEdyg4KefmN--bg"/>
-        <element xmi:type="pcm.core.composition:AssemblyContext" href="cocome.repository#__EPzwtCjEduC9O_qbthgAg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50c_XB_aEdyg4KefmN--bg" x="55" y="110" width="145" height="73"/>
+        <element xmi:type="_1:AssemblyContext" href="cocome.repository#__EPzwtCjEduC9O_qbthgAg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50c_XB_aEdyg4KefmN--bg" x="19" y="110" width="253" height="73"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_50TOWB_aEdyg4KefmN--bg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_50TOWR_aEdyg4KefmN--bg"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_50TOWh_aEdyg4KefmN--bg" type="3005">
       <children xmi:type="notation:Node" xmi:id="_50TOYB_aEdyg4KefmN--bg" type="5006">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_50TOYR_aEdyg4KefmN--bg" x="80" y="64"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_50TOYR_aEdyg4KefmN--bg" x="80" y="24"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_50TOWx_aEdyg4KefmN--bg"/>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_50TOXB_aEdyg4KefmN--bg"/>
       <styles xmi:type="notation:FillStyle" xmi:id="_50TOXR_aEdyg4KefmN--bg"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_50TOXh_aEdyg4KefmN--bg"/>
-      <element xmi:type="pcm.repository:RequiredRole" href="cocome.repository#_Du39kdCpEduC9O_qbthgAg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50TOXx_aEdyg4KefmN--bg"/>
+      <element xmi:type="RequiredRole" href="cocome.repository#_Du39kdCpEduC9O_qbthgAg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50TOXx_aEdyg4KefmN--bg" x="636" y="180"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_50TOYh_aEdyg4KefmN--bg" type="3005">
       <children xmi:type="notation:Node" xmi:id="_50TOaB_aEdyg4KefmN--bg" type="5006">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_50TOaR_aEdyg4KefmN--bg" x="80" y="64"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_50TOaR_aEdyg4KefmN--bg" x="80" y="24"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_50TOYx_aEdyg4KefmN--bg"/>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_50TOZB_aEdyg4KefmN--bg"/>
       <styles xmi:type="notation:FillStyle" xmi:id="_50TOZR_aEdyg4KefmN--bg"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_50TOZh_aEdyg4KefmN--bg"/>
-      <element xmi:type="pcm.repository:RequiredRole" href="cocome.repository#_GM-XsdCpEduC9O_qbthgAg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50TOZx_aEdyg4KefmN--bg"/>
+      <element xmi:type="RequiredRole" href="cocome.repository#_GM-XsdCpEduC9O_qbthgAg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50TOZx_aEdyg4KefmN--bg" x="636" y="84"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_50TOUR_aEdyg4KefmN--bg"/>
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_50TOUh_aEdyg4KefmN--bg"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_50TOUx_aEdyg4KefmN--bg"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_50TOVB_aEdyg4KefmN--bg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50TOVR_aEdyg4KefmN--bg" width="433" height="265"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_50TOVR_aEdyg4KefmN--bg" x="24" y="24" width="337" height="253"/>
   </children>
   <styles xmi:type="notation:PageStyle" xmi:id="_5vPIIR_aEdyg4KefmN--bg"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_5vPIIh_aEdyg4KefmN--bg"/>
   <styles xmi:type="notation:DescriptionStyle" xmi:id="_5vPIIx_aEdyg4KefmN--bg"/>
-  <element xmi:type="pcm.repository:CompositeComponent" href="cocome.repository#_5klGGNCjEduC9O_qbthgAg"/>
+  <element xmi:type="CompositeComponent" href="cocome.repository#_5klGGNCjEduC9O_qbthgAg"/>
 </notation:Diagram>

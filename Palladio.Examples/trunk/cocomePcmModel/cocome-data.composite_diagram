@@ -14,54 +14,54 @@
           <styles xmi:type="notation:FillStyle" xmi:id="_reAyXyKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reAyYCKMEd2QLfQErsqTjQ"/>
           <element xmi:type="ProvidedRole" href="cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyYSKMEd2QLfQErsqTjQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyYSKMEd2QLfQErsqTjQ" x="-29" y="48"/>
         </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_reAyQSKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyQiKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_reAyQyKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_reAyRCKMEd2QLfQErsqTjQ"/>
         <element xmi:type="_1:AssemblyContext" href="cocome.repository#_ivAuctChEduC9O_qbthgAg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyRSKMEd2QLfQErsqTjQ" x="499" y="506"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyRSKMEd2QLfQErsqTjQ" x="583" y="26" width="265" height="97"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_reAyRyKMEd2QLfQErsqTjQ" type="3002">
         <children xmi:type="notation:Node" xmi:id="_reAyTSKMEd2QLfQErsqTjQ" type="5004"/>
         <children xmi:type="notation:Node" xmi:id="_reAyZCKMEd2QLfQErsqTjQ" type="3001">
           <children xmi:type="notation:Node" xmi:id="_reKjICKMEd2QLfQErsqTjQ" type="5001">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjISKMEd2QLfQErsqTjQ" y="5"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjISKMEd2QLfQErsqTjQ" x="50" y="6"/>
           </children>
           <styles xmi:type="notation:FontStyle" xmi:id="_reAyZSKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyZiKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_reAyZyKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reAyaCKMEd2QLfQErsqTjQ"/>
           <element xmi:type="ProvidedRole" href="cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyaSKMEd2QLfQErsqTjQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyaSKMEd2QLfQErsqTjQ" x="-29" y="36"/>
         </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_reAySCKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAySSKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_reAySiKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_reAySyKMEd2QLfQErsqTjQ"/>
         <element xmi:type="_1:AssemblyContext" href="cocome.repository#_nCYoItChEduC9O_qbthgAg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyTCKMEd2QLfQErsqTjQ" x="571" y="398"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyTCKMEd2QLfQErsqTjQ" x="583" y="254" width="265" height="85"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_reAyTiKMEd2QLfQErsqTjQ" type="3002">
         <children xmi:type="notation:Node" xmi:id="_reAyVCKMEd2QLfQErsqTjQ" type="5004"/>
         <children xmi:type="notation:Node" xmi:id="_reKjIiKMEd2QLfQErsqTjQ" type="3001">
           <children xmi:type="notation:Node" xmi:id="_reKjKCKMEd2QLfQErsqTjQ" type="5001">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjKSKMEd2QLfQErsqTjQ" y="5"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjKSKMEd2QLfQErsqTjQ" x="50" y="12"/>
           </children>
           <styles xmi:type="notation:FontStyle" xmi:id="_reKjIyKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_reKjJCKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_reKjJSKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reKjJiKMEd2QLfQErsqTjQ"/>
           <element xmi:type="ProvidedRole" href="cocome.repository#_OmzqENChEduC9O_qbthgAg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjJyKMEd2QLfQErsqTjQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjJyKMEd2QLfQErsqTjQ" x="-29" y="36"/>
         </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_reAyTyKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyUCKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_reAyUSKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_reAyUiKMEd2QLfQErsqTjQ"/>
         <element xmi:type="_1:AssemblyContext" href="cocome.repository#_qGocQtChEduC9O_qbthgAg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyUyKMEd2QLfQErsqTjQ" x="511" y="110"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyUyKMEd2QLfQErsqTjQ" x="583" y="146" width="265" height="85"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_reAyVSKMEd2QLfQErsqTjQ" type="3002">
         <children xmi:type="notation:Node" xmi:id="_reAyWyKMEd2QLfQErsqTjQ" type="5004"/>
@@ -74,7 +74,7 @@
           <styles xmi:type="notation:FillStyle" xmi:id="_reKjLSKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reKjLiKMEd2QLfQErsqTjQ"/>
           <element xmi:type="ProvidedRole" href="cocome.repository#_JwDGwNCyEduW_YoCCnq0vw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjLyKMEd2QLfQErsqTjQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjLyKMEd2QLfQErsqTjQ" x="-29" y="48"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_reKjMiKMEd2QLfQErsqTjQ" type="3001">
           <children xmi:type="notation:Node" xmi:id="_reKjOCKMEd2QLfQErsqTjQ" type="5001">
@@ -85,111 +85,111 @@
           <styles xmi:type="notation:FillStyle" xmi:id="_reKjNSKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reKjNiKMEd2QLfQErsqTjQ"/>
           <element xmi:type="ProvidedRole" href="cocome.repository#_aztcENCyEduW_YoCCnq0vw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjNyKMEd2QLfQErsqTjQ" x="-29" y="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjNyKMEd2QLfQErsqTjQ" x="-29" y="264"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_reKjOiKMEd2QLfQErsqTjQ" type="3001">
           <children xmi:type="notation:Node" xmi:id="_reKjQCKMEd2QLfQErsqTjQ" type="5001">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjQSKMEd2QLfQErsqTjQ" x="-20" y="50"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjQSKMEd2QLfQErsqTjQ" x="50" y="8"/>
           </children>
           <styles xmi:type="notation:FontStyle" xmi:id="_reKjOyKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_reKjPCKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_reKjPSKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reKjPiKMEd2QLfQErsqTjQ"/>
           <element xmi:type="ProvidedRole" href="cocome.repository#_eJ_bYNCyEduW_YoCCnq0vw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjPyKMEd2QLfQErsqTjQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjPyKMEd2QLfQErsqTjQ" x="-29" y="156"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_reKjQiKMEd2QLfQErsqTjQ" type="3004">
           <children xmi:type="notation:Node" xmi:id="_reKjSCKMEd2QLfQErsqTjQ" type="5005">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjSSKMEd2QLfQErsqTjQ" y="5"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjSSKMEd2QLfQErsqTjQ" x="-187" y="12"/>
           </children>
           <styles xmi:type="notation:FontStyle" xmi:id="_reKjQyKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_reKjRCKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_reKjRSKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reKjRiKMEd2QLfQErsqTjQ"/>
           <element xmi:type="RequiredRole" href="cocome.repository#_lbprIdCyEduW_YoCCnq0vw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjRyKMEd2QLfQErsqTjQ" x="220" y="145"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjRyKMEd2QLfQErsqTjQ" x="432" y="48"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_reKjSiKMEd2QLfQErsqTjQ" type="3004">
           <children xmi:type="notation:Node" xmi:id="_reKjUCKMEd2QLfQErsqTjQ" type="5005">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjUSKMEd2QLfQErsqTjQ" y="5"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjUSKMEd2QLfQErsqTjQ" x="-161" y="8"/>
           </children>
           <styles xmi:type="notation:FontStyle" xmi:id="_reKjSyKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_reKjTCKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_reKjTSKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reKjTiKMEd2QLfQErsqTjQ"/>
           <element xmi:type="RequiredRole" href="cocome.repository#_oVdw4dCyEduW_YoCCnq0vw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjTyKMEd2QLfQErsqTjQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjTyKMEd2QLfQErsqTjQ" x="432" y="264"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_reKjUiKMEd2QLfQErsqTjQ" type="3004">
           <children xmi:type="notation:Node" xmi:id="_reKjWCKMEd2QLfQErsqTjQ" type="5005">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjWSKMEd2QLfQErsqTjQ" y="5"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_reKjWSKMEd2QLfQErsqTjQ" x="-162" y="12"/>
           </children>
           <styles xmi:type="notation:FontStyle" xmi:id="_reKjUyKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_reKjVCKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_reKjVSKMEd2QLfQErsqTjQ"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_reKjViKMEd2QLfQErsqTjQ"/>
           <element xmi:type="RequiredRole" href="cocome.repository#_q9QSgdCyEduW_YoCCnq0vw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjVyKMEd2QLfQErsqTjQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reKjVyKMEd2QLfQErsqTjQ" x="432" y="156"/>
         </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_reAyViKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyVyKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_reAyWCKMEd2QLfQErsqTjQ"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_reAyWSKMEd2QLfQErsqTjQ"/>
         <element xmi:type="_1:AssemblyContext" href="cocome.repository#_zFEcQtC0EduW_YoCCnq0vw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyWiKMEd2QLfQErsqTjQ" x="103" y="278" width="221" height="176"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyWiKMEd2QLfQErsqTjQ" x="55" y="26" width="433" height="313"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_rd3oOCKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_rd3oOSKMEd2QLfQErsqTjQ"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_reAyICKMEd2QLfQErsqTjQ" type="3003">
       <children xmi:type="notation:Node" xmi:id="_reAyJiKMEd2QLfQErsqTjQ" type="5003">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyJyKMEd2QLfQErsqTjQ" y="5"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyJyKMEd2QLfQErsqTjQ" x="-164" y="24"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_reAyISKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyIiKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:FillStyle" xmi:id="_reAyIyKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_reAyJCKMEd2QLfQErsqTjQ"/>
       <element xmi:type="ProvidedRole" href="cocome.repository#_I9CIsNCiEduC9O_qbthgAg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyJSKMEd2QLfQErsqTjQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyJSKMEd2QLfQErsqTjQ" x="-59" y="108"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_reAyKCKMEd2QLfQErsqTjQ" type="3003">
       <children xmi:type="notation:Node" xmi:id="_reAyLiKMEd2QLfQErsqTjQ" type="5003">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyLyKMEd2QLfQErsqTjQ" y="5"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyLyKMEd2QLfQErsqTjQ" x="-138" y="16"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_reAyKSKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyKiKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:FillStyle" xmi:id="_reAyKyKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_reAyLCKMEd2QLfQErsqTjQ"/>
       <element xmi:type="ProvidedRole" href="cocome.repository#_MKhYYNCiEduC9O_qbthgAg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyLSKMEd2QLfQErsqTjQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyLSKMEd2QLfQErsqTjQ" x="-59" y="312"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_reAyMCKMEd2QLfQErsqTjQ" type="3003">
       <children xmi:type="notation:Node" xmi:id="_reAyNiKMEd2QLfQErsqTjQ" type="5003">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyNyKMEd2QLfQErsqTjQ" y="5"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyNyKMEd2QLfQErsqTjQ" x="-139" y="20"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_reAyMSKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyMiKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:FillStyle" xmi:id="_reAyMyKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_reAyNCKMEd2QLfQErsqTjQ"/>
       <element xmi:type="ProvidedRole" href="cocome.repository#_OdmOQNCiEduC9O_qbthgAg"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyNSKMEd2QLfQErsqTjQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyNSKMEd2QLfQErsqTjQ" x="-59" y="216"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_reAyOCKMEd2QLfQErsqTjQ" type="3005">
       <children xmi:type="notation:Node" xmi:id="_reAyPiKMEd2QLfQErsqTjQ" type="5006">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyPyKMEd2QLfQErsqTjQ" y="5"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyPyKMEd2QLfQErsqTjQ" x="80" y="24"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_reAyOSKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyOiKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:FillStyle" xmi:id="_reAyOyKMEd2QLfQErsqTjQ"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_reAyPCKMEd2QLfQErsqTjQ"/>
       <element xmi:type="RequiredRole" href="cocome.repository#_Z68MkCGSEd28DOhhhAX9YA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyPSKMEd2QLfQErsqTjQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyPSKMEd2QLfQErsqTjQ" x="876" y="180"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_rd3oMSKMEd2QLfQErsqTjQ"/>
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_rd3oMiKMEd2QLfQErsqTjQ"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_rd3oMyKMEd2QLfQErsqTjQ"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_rd3oNCKMEd2QLfQErsqTjQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rd3oNSKMEd2QLfQErsqTjQ" width="781" height="625"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rd3oNSKMEd2QLfQErsqTjQ" x="240" y="36" width="877" height="409"/>
   </children>
   <styles xmi:type="notation:PageStyle" xmi:id="_rZPm4SKMEd2QLfQErsqTjQ"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_rZPm4iKMEd2QLfQErsqTjQ"/>
