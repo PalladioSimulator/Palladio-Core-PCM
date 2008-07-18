@@ -48,6 +48,12 @@ context ProvidesComponentType ERROR 'Component ' + this.entityName +': All requi
 	
 context System ERROR 'System ' + this.entityName +': A system must contain at least one uppercase letter':
 	this.entityName != this.entityName.toLowerCase();
+	
+context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced ProvidedRole is not provided by the referenced AssemblyContext. Please fix either reference in the EMF editor. Note that the error is not necessarily visible in the system diagram or composite diagram':
+    this.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity.contains(this.providedRole_CompositeAssemblyConnector);
+    
+context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced RequiredRole is not required by the referenced AssemblyContext. Please fix either reference in the EMF editor. Note that the error is not necessarily visible in the system diagram or composite diagram':
+    this.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceRequiringEntity.contains(this.requiredRole_CompositeAssemblyConnector);  
 
 context UsageScenario ERROR 'System ' + this.entityName +': A usage scenario must contain at least one uppercase letter':
 	this.entityName != this.entityName.toLowerCase();
