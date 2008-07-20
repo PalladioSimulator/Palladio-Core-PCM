@@ -65,4 +65,8 @@ Notes of CoCoME PCM Extension for SLA@SOI
 Changes:
 - deleted old project files
 - deleted JDBC required interfaces from data and system component
+- deleted Interfaces "JDBC" and "Bank"
 - deleted Resource Container "StoreServerProcessorShare"
+- deleted Composite Component "TradingSystem.CashDeskLine"
+- deleted Resource Container "CashDeskPC"
+- deleted Linking Resource "CashDeskPC - StoreServer"
