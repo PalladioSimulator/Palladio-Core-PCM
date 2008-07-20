@@ -63,5 +63,6 @@ Notes of CoCoME PCM Extension for SLA@SOI
 --------------------------------------------------------------------
 
 Changes:
-- notes.txt deleted
-- most diagrams deleted
+- deleted old project files
+- deleted JDBC required interfaces from data and system component
+- deleted Resource Container "StoreServerProcessorShare"

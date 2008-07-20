@@ -175,7 +175,6 @@
     <providedRoles_InterfaceProvidingEntity id="_I9CIsNCiEduC9O_qbthgAg" entityName="Data.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
     <providedRoles_InterfaceProvidingEntity id="_MKhYYNCiEduC9O_qbthgAg" entityName="Data.PersistenceIf" providedInterface__ProvidedRole="_F8ovQNChEduC9O_qbthgAg"/>
     <providedRoles_InterfaceProvidingEntity id="_OdmOQNCiEduC9O_qbthgAg" entityName="Data.StoreQueryIf" providedInterface__ProvidedRole="_HSKXwNChEduC9O_qbthgAg"/>
-    <requiredRoles_InterfaceRequiringEntity id="_Z68MkCGSEd28DOhhhAX9YA" entityName="JDBC" requiredInterface__RequiredRole="_D62rdNCmEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_ivAuctChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise" encapsulatedComponent_ChildComponentContext="_-3VggNCgEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_nCYoItChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Persistence" encapsulatedComponent_ChildComponentContext="_B8esgNChEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_qGocQtChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Store" encapsulatedComponent_ChildComponentContext="_C7qRkNChEduC9O_qbthgAg"/>

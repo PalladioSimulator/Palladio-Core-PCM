@@ -155,17 +155,6 @@
           <element xmi:type="ProvidedRole" href="cocome.repository#_OdmOQNCiEduC9O_qbthgAg"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_as6K1UhPEd2UeIRqjaYMjw" x="468" y="-29"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_as6K2EhPEd2UeIRqjaYMjw" type="3004">
-          <children xmi:type="notation:Node" xmi:id="_as6K3khPEd2UeIRqjaYMjw" type="5005">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_as6K30hPEd2UeIRqjaYMjw" x="-47" y="6"/>
-          </children>
-          <styles xmi:type="notation:FontStyle" xmi:id="_as6K2UhPEd2UeIRqjaYMjw" fontName="Segoe UI"/>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_as6K2khPEd2UeIRqjaYMjw"/>
-          <styles xmi:type="notation:FillStyle" xmi:id="_as6K20hPEd2UeIRqjaYMjw"/>
-          <styles xmi:type="notation:LineStyle" xmi:id="_as6K3EhPEd2UeIRqjaYMjw"/>
-          <element xmi:type="RequiredRole" href="cocome.repository#_Z68MkCGSEd28DOhhhAX9YA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_as6K3UhPEd2UeIRqjaYMjw"/>
-        </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_asnP30hPEd2UeIRqjaYMjw" fontName="Segoe UI"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_asnP4EhPEd2UeIRqjaYMjw"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_asnP4UhPEd2UeIRqjaYMjw"/>
@@ -186,17 +175,6 @@
       <styles xmi:type="notation:LineStyle" xmi:id="_asde3khPEd2UeIRqjaYMjw"/>
       <element xmi:type="ProvidedRole" href="cocome.system#_tbwboNC6EduW_YoCCnq0vw"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_asde30hPEd2UeIRqjaYMjw" x="-59" y="288"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_asde4khPEd2UeIRqjaYMjw" type="3005">
-      <children xmi:type="notation:Node" xmi:id="_asde6EhPEd2UeIRqjaYMjw" type="5006">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_asde6UhPEd2UeIRqjaYMjw" x="80" y="30"/>
-      </children>
-      <styles xmi:type="notation:FontStyle" xmi:id="_asde40hPEd2UeIRqjaYMjw" fontName="Segoe UI"/>
-      <styles xmi:type="notation:DescriptionStyle" xmi:id="_asde5EhPEd2UeIRqjaYMjw"/>
-      <styles xmi:type="notation:FillStyle" xmi:id="_asde5UhPEd2UeIRqjaYMjw"/>
-      <styles xmi:type="notation:LineStyle" xmi:id="_asde5khPEd2UeIRqjaYMjw"/>
-      <element xmi:type="RequiredRole" href="cocome.system#_rIYq0NC6EduW_YoCCnq0vw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_asde50hPEd2UeIRqjaYMjw" x="780" y="528"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_asde6khPEd2UeIRqjaYMjw" type="3005">
       <children xmi:type="notation:Node" xmi:id="_asde8EhPEd2UeIRqjaYMjw" type="5006">
@@ -260,13 +238,6 @@
     <styles xmi:type="notation:LineStyle" xmi:id="_atW2s0hPEd2UeIRqjaYMjw"/>
     <element xmi:type="_1:RequiredDelegationConnector" href="cocome.system#_v6CmgNC7EduW_YoCCnq0vw"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_atW2tEhPEd2UeIRqjaYMjw" points="[7, 0, -8, -15]$[-15, 15, -30, 0]"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_atW2tUhPEd2UeIRqjaYMjw" type="4002" source="_as6K2EhPEd2UeIRqjaYMjw" target="_asde4khPEd2UeIRqjaYMjw">
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_atW2tkhPEd2UeIRqjaYMjw"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_atW2t0hPEd2UeIRqjaYMjw" fontName="Segoe UI"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_atW2uEhPEd2UeIRqjaYMjw"/>
-    <element xmi:type="_1:RequiredDelegationConnector" href="cocome.system#_owzS8CGlEd28DOhhhAX9YA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_atW2uUhPEd2UeIRqjaYMjw" points="[7, 0, -8, -15]$[-15, 15, -30, 0]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_atW2ukhPEd2UeIRqjaYMjw" type="4003" source="_asde2khPEd2UeIRqjaYMjw" target="_asxA4EhPEd2UeIRqjaYMjw">
     <styles xmi:type="notation:RoutingStyle" xmi:id="_atW2u0hPEd2UeIRqjaYMjw"/>

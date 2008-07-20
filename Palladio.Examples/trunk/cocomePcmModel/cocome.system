@@ -15,7 +15,7 @@
   <requiredDelegationConnectors_ComposedStructure id="_v6CmgNC7EduW_YoCCnq0vw" outerRequiredRole_RequiredDelegationConnector="_2CgPANC6EduW_YoCCnq0vw" childComponentContext_RequiredDelegationConnector="_JR74UNC7EduW_YoCCnq0vw">
     <innerRequiredRole_RequiredDelegationConnector href="cocome.repository#_XH0LYdCtEduW_YoCCnq0vw"/>
   </requiredDelegationConnectors_ComposedStructure>
-  <requiredDelegationConnectors_ComposedStructure id="_owzS8CGlEd28DOhhhAX9YA" outerRequiredRole_RequiredDelegationConnector="_rIYq0NC6EduW_YoCCnq0vw" childComponentContext_RequiredDelegationConnector="_eVcuYNC7EduW_YoCCnq0vw">
+  <requiredDelegationConnectors_ComposedStructure id="_owzS8CGlEd28DOhhhAX9YA" childComponentContext_RequiredDelegationConnector="_eVcuYNC7EduW_YoCCnq0vw">
     <innerRequiredRole_RequiredDelegationConnector href="cocome.repository#_Z68MkCGSEd28DOhhhAX9YA"/>
   </requiredDelegationConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_kkDlsNC7EduW_YoCCnq0vw" requiringChildComponentContext_CompositeAssemblyConnector="_JR74UNC7EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_eVcuYNC7EduW_YoCCnq0vw">
@@ -41,9 +41,6 @@
   <providedRoles_InterfaceProvidingEntity id="_tbwboNC6EduW_YoCCnq0vw" entityName="CashDeskConnectorIf">
     <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
   </providedRoles_InterfaceProvidingEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_rIYq0NC6EduW_YoCCnq0vw" entityName="JDBC">
-    <requiredInterface__RequiredRole href="cocome.repository#_D62rdNCmEduC9O_qbthgAg"/>
-  </requiredRoles_InterfaceRequiringEntity>
   <requiredRoles_InterfaceRequiringEntity id="_2CgPANC6EduW_YoCCnq0vw" entityName="SaleRegisteredEvent">
     <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
   </requiredRoles_InterfaceRequiringEntity>

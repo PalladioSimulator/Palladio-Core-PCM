@@ -174,17 +174,6 @@
       <element xmi:type="ProvidedRole" href="cocome.repository#_OdmOQNCiEduC9O_qbthgAg"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyNSKMEd2QLfQErsqTjQ" x="-59" y="216"/>
     </children>
-    <children xmi:type="notation:Node" xmi:id="_reAyOCKMEd2QLfQErsqTjQ" type="3005">
-      <children xmi:type="notation:Node" xmi:id="_reAyPiKMEd2QLfQErsqTjQ" type="5006">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_reAyPyKMEd2QLfQErsqTjQ" x="80" y="24"/>
-      </children>
-      <styles xmi:type="notation:FontStyle" xmi:id="_reAyOSKMEd2QLfQErsqTjQ"/>
-      <styles xmi:type="notation:DescriptionStyle" xmi:id="_reAyOiKMEd2QLfQErsqTjQ"/>
-      <styles xmi:type="notation:FillStyle" xmi:id="_reAyOyKMEd2QLfQErsqTjQ"/>
-      <styles xmi:type="notation:LineStyle" xmi:id="_reAyPCKMEd2QLfQErsqTjQ"/>
-      <element xmi:type="RequiredRole" href="cocome.repository#_Z68MkCGSEd28DOhhhAX9YA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reAyPSKMEd2QLfQErsqTjQ" x="876" y="180"/>
-    </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_rd3oMSKMEd2QLfQErsqTjQ"/>
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_rd3oMiKMEd2QLfQErsqTjQ"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_rd3oMyKMEd2QLfQErsqTjQ"/>
