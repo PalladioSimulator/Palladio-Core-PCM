@@ -607,7 +607,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="getProductWithStockItem">
       <parameters__Signature parameterName="productBarCode">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
     </signatures__Interface>
@@ -615,7 +615,7 @@
   <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf">
     <signatures__Interface serviceName="queryEnterpriseById">
       <parameters__Signature parameterName="enterpriseId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -632,7 +632,7 @@
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      <returntype__Signature xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_F8ovQNChEduC9O_qbthgAg" entityName="PersistenceIf">
@@ -643,7 +643,7 @@
   <interfaces__Repository id="_HSKXwNChEduC9O_qbthgAg" entityName="StoreQueryIf">
     <signatures__Interface serviceName="queryStoreById">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -652,7 +652,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="queryProducts">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -661,7 +661,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="queryLowStockItems">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -670,7 +670,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="queryLowStockItemsWithRespectToIncomingProducts">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -679,7 +679,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="queryAllStockItems">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -688,7 +688,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="queryOrderById">
       <parameters__Signature parameterName="orderId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -697,7 +697,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="queryStockItem">
       <parameters__Signature parameterName="stockId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -706,7 +706,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="queryStockItemById">
       <parameters__Signature parameterName="stockId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -715,7 +715,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="queryProductById">
       <parameters__Signature parameterName="productId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
         <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
@@ -724,7 +724,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="getStockItems">
       <parameters__Signature parameterName="storeId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="productIds">
         <datatype__Parameter xsi:type="CollectionDataType" href="cocomeTypes.repository#_bxQxxdFoEducE6dFyopUlg"/>
@@ -790,7 +790,7 @@
     </signatures__Interface>
     <signatures__Interface serviceName="getOrder">
       <parameters__Signature parameterName="orderId">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="primitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
     </signatures__Interface>

@@ -580,6 +580,30 @@
       <element xmi:type="_1:Interface" href="cocome.repository#_RDRYlNC5EduW_YoCCnq0vw"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WL_l5dC5EduW_YoCCnq0vw" x="420" y="1944" width="241" height="61"/>
     </children>
+    <children xmi:type="notation:Node" xmi:id="_reheUFZnEd25JNr_4RqZjA" type="2105">
+      <children xmi:type="notation:Node" xmi:id="_reheU1ZnEd25JNr_4RqZjA" type="5105"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_reheUVZnEd25JNr_4RqZjA" fontName="Segoe UI"/>
+      <element xmi:type="_1:CompositeComponent" href="cocome.repository#_hNG20tChEduC9O_qbthgAg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reheUlZnEd25JNr_4RqZjA" x="1044" y="408"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_reheVFZnEd25JNr_4RqZjA" type="2105">
+      <children xmi:type="notation:Node" xmi:id="_reheV1ZnEd25JNr_4RqZjA" type="5105"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_reheVVZnEd25JNr_4RqZjA" fontName="Segoe UI"/>
+      <element xmi:type="_1:CompositeComponent" href="cocome.repository#_5klGGNCjEduC9O_qbthgAg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reheVlZnEd25JNr_4RqZjA" x="180" y="420"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_reheWFZnEd25JNr_4RqZjA" type="2105">
+      <children xmi:type="notation:Node" xmi:id="_reheW1ZnEd25JNr_4RqZjA" type="5105"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_reheWVZnEd25JNr_4RqZjA" fontName="Segoe UI"/>
+      <element xmi:type="_1:CompositeComponent" href="cocome.repository#_hfayBNClEduC9O_qbthgAg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reheWlZnEd25JNr_4RqZjA" x="264" y="408"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_reheXFZnEd25JNr_4RqZjA" type="2105">
+      <children xmi:type="notation:Node" xmi:id="_reheX1ZnEd25JNr_4RqZjA" type="5105"/>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_reheXVZnEd25JNr_4RqZjA" fontName="Segoe UI"/>
+      <element xmi:type="_1:CompositeComponent" href="cocome.repository#_NHccMtC5EduW_YoCCnq0vw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_reheXlZnEd25JNr_4RqZjA" x="324" y="324"/>
+    </children>
     <styles xmi:type="notation:PageStyle" xmi:id="_9EAhsdCgEduC9O_qbthgAg"/>
     <styles xmi:type="notation:GuideStyle" xmi:id="_9EAhstCgEduC9O_qbthgAg"/>
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_9EAhs9CgEduC9O_qbthgAg"/>
