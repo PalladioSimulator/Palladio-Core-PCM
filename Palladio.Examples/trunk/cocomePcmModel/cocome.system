@@ -1,81 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_3Sgb8FcmEd23wcZsd06DZg" entityName="TradingSystem.Inventory">
-  <childComponentContexts_ComposedStructure id="_Yy964FcnEd23wcZsd06DZg" entityName="GUI.Reporting (EnterpriseClient)">
+  <childComponentContexts_ComposedStructure id="_Yy964FcnEd23wcZsd06DZg" entityName="GUI.Reporting_EnterpriseClient">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_sGEvA9CiEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_nf0w4FcnEd23wcZsd06DZg" entityName="GUI.Store (Store_1_Client)">
+  <childComponentContexts_ComposedStructure id="_nf0w4FcnEd23wcZsd06DZg" entityName="GUI.Store_Store_1_Client">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_zokQE9CiEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_3AwvMFcnEd23wcZsd06DZg" entityName="Application.Store (Store_1_Server)">
+  <childComponentContexts_ComposedStructure id="_3AwvMFcnEd23wcZsd06DZg" entityName="Application.Store_Store_1_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_6tZA5dCmEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_-W_gcFcoEd23wcZsd06DZg" entityName="Application.ProductDispatcher (EnterpriseServer)">
+  <childComponentContexts_ComposedStructure id="_-W_gcFcoEd23wcZsd06DZg" entityName="Application.ProductDispatcher_EnterpriseServer">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_XDTf09CiEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_FPU0wFcqEd23wcZsd06DZg" entityName="Application.Reporting (EnterpriseServer)">
+  <childComponentContexts_ComposedStructure id="_FPU0wFcqEd23wcZsd06DZg" entityName="Application.Reporting_EnterpriseServer">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_URW_1dCmEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_jN79kFcqEd23wcZsd06DZg" entityName="Data.Persistence (EnterpriseServer)">
+  <childComponentContexts_ComposedStructure id="_jN79kFcqEd23wcZsd06DZg" entityName="Data.Persistence_EnterpriseServer">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_B8esgNChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_taw98FcqEd23wcZsd06DZg" entityName="Data.Enterprise (EnterpriseServer)">
+  <childComponentContexts_ComposedStructure id="_taw98FcqEd23wcZsd06DZg" entityName="Data.Enterprise_EnterpriseServer">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_-3VggNCgEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_07dvQFcqEd23wcZsd06DZg" entityName="Data.Store (EnterpriseServer)">
+  <childComponentContexts_ComposedStructure id="_07dvQFcqEd23wcZsd06DZg" entityName="Data.Store_EnterpriseServer">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_C7qRkNChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_WolfQFctEd23wcZsd06DZg" entityName="GUI.Reporting (Store_2_Client)">
+  <childComponentContexts_ComposedStructure id="_WolfQFctEd23wcZsd06DZg" entityName="GUI.Reporting_Store_2_Client">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_sGEvA9CiEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_d2D1wFcxEd23wcZsd06DZg" entityName="Data.Persistence (Store_1_Server)">
+  <childComponentContexts_ComposedStructure id="_d2D1wFcxEd23wcZsd06DZg" entityName="Data.Persistence_Store_1_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_B8esgNChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_sREGwFcxEd23wcZsd06DZg" entityName="Data.Persistence (Store_2_Server)">
+  <childComponentContexts_ComposedStructure id="_sREGwFcxEd23wcZsd06DZg" entityName="Data.Persistence_Store_2_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_B8esgNChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_2uaPYFcxEd23wcZsd06DZg" entityName="Data.Enterprise (Store_1_Server)">
+  <childComponentContexts_ComposedStructure id="_2uaPYFcxEd23wcZsd06DZg" entityName="Data.Enterprise_Store_1_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_-3VggNCgEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_DtLL4FcyEd23wcZsd06DZg" entityName="Data.Enterprise (Store_2_Server)">
+  <childComponentContexts_ComposedStructure id="_DtLL4FcyEd23wcZsd06DZg" entityName="Data.Enterprise_Store_2_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_-3VggNCgEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_MX0AwFcyEd23wcZsd06DZg" entityName="Data.Store (Store_1_Server)">
+  <childComponentContexts_ComposedStructure id="_MX0AwFcyEd23wcZsd06DZg" entityName="Data.Store_Store_1_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_C7qRkNChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_XiFg0FcyEd23wcZsd06DZg" entityName="Data.Store (Store_2_Server)">
+  <childComponentContexts_ComposedStructure id="_XiFg0FcyEd23wcZsd06DZg" entityName="Data.Store_Store_2_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_C7qRkNChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_jcqnAFczEd23wcZsd06DZg" entityName="GUI.Reporting (Store_1_Client)">
+  <childComponentContexts_ComposedStructure id="_jcqnAFczEd23wcZsd06DZg" entityName="GUI.Reporting_Store_1_Client">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_sGEvA9CiEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_yO4eIFczEd23wcZsd06DZg" entityName="Application.Reporting (Store_1_Server)">
+  <childComponentContexts_ComposedStructure id="_yO4eIFczEd23wcZsd06DZg" entityName="Application.Reporting_Store_1_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_URW_1dCmEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_8jo5MFc4Ed23wcZsd06DZg" entityName="GUI.Store (Store_2_Client)">
+  <childComponentContexts_ComposedStructure id="_8jo5MFc4Ed23wcZsd06DZg" entityName="GUI.Store_Store_2_Client">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_zokQE9CiEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_etALMFc5Ed23wcZsd06DZg" entityName="Application.Store (Store_2_Server)">
+  <childComponentContexts_ComposedStructure id="_etALMFc5Ed23wcZsd06DZg" entityName="Application.Store_Store_2_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_6tZA5dCmEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_9sosIFc5Ed23wcZsd06DZg" entityName="Application.Reporting (Store_2_Server)">
+  <childComponentContexts_ComposedStructure id="_9sosIFc5Ed23wcZsd06DZg" entityName="Application.Reporting_Store_2_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_URW_1dCmEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
   <providedDelegationConnectors_ComposedStructure id="_RBRDsFcoEd23wcZsd06DZg" entityName="CashDeskConnectorIf" outerProvidedRole_ProvidedDelegationConnector="_MSQMUFcnEd23wcZsd06DZg" childComponentContext_ProvidedDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
-    <innerProvidedRole_ProvidedDelegationConnector href="cocome.repository#__f6UsNCmEduC9O_qbthgAg"/>
-  </providedDelegationConnectors_ComposedStructure>
-  <providedDelegationConnectors_ComposedStructure id="_G0-RAFc3Ed23wcZsd06DZg" entityName="CashDeskConnectorIf" outerProvidedRole_ProvidedDelegationConnector="_9Fes4Fc2Ed23wcZsd06DZg" childComponentContext_ProvidedDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
-    <innerProvidedRole_ProvidedDelegationConnector href="cocome.repository#__f6UsNCmEduC9O_qbthgAg"/>
-  </providedDelegationConnectors_ComposedStructure>
-  <providedDelegationConnectors_ComposedStructure id="_R6w5sFc3Ed23wcZsd06DZg" entityName="CashDeskConnectorIf" outerProvidedRole_ProvidedDelegationConnector="__xTZ8Fc2Ed23wcZsd06DZg" childComponentContext_ProvidedDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
-    <innerProvidedRole_ProvidedDelegationConnector href="cocome.repository#__f6UsNCmEduC9O_qbthgAg"/>
-  </providedDelegationConnectors_ComposedStructure>
-  <providedDelegationConnectors_ComposedStructure id="_ffil8Fc6Ed23wcZsd06DZg" entityName="CashDeskConnectorIf" outerProvidedRole_ProvidedDelegationConnector="_71mZYFc2Ed23wcZsd06DZg" childComponentContext_ProvidedDelegationConnector="_etALMFc5Ed23wcZsd06DZg">
-    <innerProvidedRole_ProvidedDelegationConnector href="cocome.repository#__f6UsNCmEduC9O_qbthgAg"/>
-  </providedDelegationConnectors_ComposedStructure>
-  <providedDelegationConnectors_ComposedStructure id="_h6HyAFc6Ed23wcZsd06DZg" entityName="CashDeskConnectorIf" outerProvidedRole_ProvidedDelegationConnector="_AqIfYFc3Ed23wcZsd06DZg" childComponentContext_ProvidedDelegationConnector="_etALMFc5Ed23wcZsd06DZg">
-    <innerProvidedRole_ProvidedDelegationConnector href="cocome.repository#__f6UsNCmEduC9O_qbthgAg"/>
-  </providedDelegationConnectors_ComposedStructure>
-  <providedDelegationConnectors_ComposedStructure id="_k9dnMFc6Ed23wcZsd06DZg" entityName="CashDeskConnectorIf" outerProvidedRole_ProvidedDelegationConnector="_-i6UMFc2Ed23wcZsd06DZg" childComponentContext_ProvidedDelegationConnector="_etALMFc5Ed23wcZsd06DZg">
     <innerProvidedRole_ProvidedDelegationConnector href="cocome.repository#__f6UsNCmEduC9O_qbthgAg"/>
   </providedDelegationConnectors_ComposedStructure>
   <requiredDelegationConnectors_ComposedStructure id="_pTresFcoEd23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_TWiHYFcnEd23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
@@ -180,28 +165,13 @@
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_gMw-sNCiEduC9O_qbthgAg"/>
     <requiredRole_CompositeAssemblyConnector href="cocome.repository#_IpnV8dItEduQ7qbNANXHPw"/>
   </compositeAssemblyConnectors_ComposedStructure>
-  <providedRoles_InterfaceProvidingEntity id="_MSQMUFcnEd23wcZsd06DZg" entityName="CashDeskConnectorIf (Store_1_PC_1)">
+  <providedRoles_InterfaceProvidingEntity id="_MSQMUFcnEd23wcZsd06DZg" entityName="CashDeskConnectorIf_Store_1">
     <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
   </providedRoles_InterfaceProvidingEntity>
-  <providedRoles_InterfaceProvidingEntity id="_71mZYFc2Ed23wcZsd06DZg" entityName="CashDeskConnectorIf (Store_2_PC_1)">
-    <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
-  </providedRoles_InterfaceProvidingEntity>
-  <providedRoles_InterfaceProvidingEntity id="_9Fes4Fc2Ed23wcZsd06DZg" entityName="CashDeskConnectorIf (Store_1_PC_2)">
-    <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
-  </providedRoles_InterfaceProvidingEntity>
-  <providedRoles_InterfaceProvidingEntity id="_-i6UMFc2Ed23wcZsd06DZg" entityName="CashDeskConnectorIf (Store_2_PC_3)">
-    <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
-  </providedRoles_InterfaceProvidingEntity>
-  <providedRoles_InterfaceProvidingEntity id="__xTZ8Fc2Ed23wcZsd06DZg" entityName="CashDeskConnectorIf (Store_1_PC_3)">
-    <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
-  </providedRoles_InterfaceProvidingEntity>
-  <providedRoles_InterfaceProvidingEntity id="_AqIfYFc3Ed23wcZsd06DZg" entityName="CashDeskConnectorIf (Store_2_PC_2)">
-    <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
-  </providedRoles_InterfaceProvidingEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_TWiHYFcnEd23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_1)">
+  <requiredRoles_InterfaceRequiringEntity id="_TWiHYFcnEd23wcZsd06DZg" entityName="SaleRegisteredEvent_Store_1">
     <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
   </requiredRoles_InterfaceRequiringEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_l5n00Fc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_2)">
+  <requiredRoles_InterfaceRequiringEntity id="_l5n00Fc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent_Store_2">
     <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
   </requiredRoles_InterfaceRequiringEntity>
 </System>
