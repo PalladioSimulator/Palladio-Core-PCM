@@ -1040,7 +1040,7 @@
     <children xmi:type="notation:Node" xmi:id="_23Ttw1ZiEd25JNr_4RqZjA" type="2002">
       <styles xmi:type="notation:ShapeStyle" xmi:id="_23TtxFZiEd25JNr_4RqZjA" fontName="Segoe UI"/>
       <element xmi:type="StopAction" href="cocome.repository#_ifiSKSCfEdyrYp4aNf6BNw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23TtxVZiEd25JNr_4RqZjA" x="168" y="276"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23TtxVZiEd25JNr_4RqZjA" x="156" y="264"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_23TtxlZiEd25JNr_4RqZjA" type="2003">
       <children xmi:type="notation:Node" xmi:id="_23TtyVZiEd25JNr_4RqZjA" type="5002"/>
