@@ -1,17 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_azBEUOEgEduBSuO8WivxSA" entityName="CoCoME Allocation">
-  <allocationContexts_Allocation id="_5l0ysCPmEdyLBZREr9U8dw" entityName="Allocation_GUI &lt;TradingSystem.Inventory.GUI>">
-    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_mpMBEOEgEduBSuO8WivxSA"/>
-    <assemblyContext_AllocationContext href="cocome.system#_GD2LsNC7EduW_YoCCnq0vw"/>
-  </allocationContexts_Allocation>
-  <allocationContexts_Allocation id="_8dj00CPmEdyLBZREr9U8dw" entityName="Allocation_Application &lt;TradingSystem.Inventory.Application>">
-    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
-    <assemblyContext_AllocationContext href="cocome.system#_JR74UNC7EduW_YoCCnq0vw"/>
-  </allocationContexts_Allocation>
-  <allocationContexts_Allocation id="_94AZkCPmEdyLBZREr9U8dw" entityName="Allocation_Data &lt;TradingSystem.Inventory.Data>">
+<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_pY23oFc-Ed23wcZsd06DZg" entityName="defaultAllocation">
+  <allocationContexts_Allocation id="_vvwIQFc-Ed23wcZsd06DZg" entityName="Application.ProductDispatcher (EnterpriseServer)">
     <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
-    <assemblyContext_AllocationContext href="cocome.system#_eVcuYNC7EduW_YoCCnq0vw"/>
+    <assemblyContext_AllocationContext href="cocome.system#_-W_gcFcoEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_-Wg9UFc-Ed23wcZsd06DZg" entityName="Application.Reporting (EnterpriseServer)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_FPU0wFcqEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_DLE4gFc_Ed23wcZsd06DZg" entityName="Data.Persistence (EnterpriseServer)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_jN79kFcqEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_NbexUFc_Ed23wcZsd06DZg" entityName="Data.Enterprise (EnterpriseServer)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_taw98FcqEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_RGit0Fc_Ed23wcZsd06DZg" entityName="Data.Store (EnterpriseServer)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_07dvQFcqEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_ZY7awFc_Ed23wcZsd06DZg" entityName="GUI.Reporting (EnterpriseClient)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_W6WUMOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_Yy964FcnEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_nCZhIFc_Ed23wcZsd06DZg" entityName="Application.Store (Store_1_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_3AwvMFcnEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_tgb7kFc_Ed23wcZsd06DZg" entityName="Application.Reporting (Store_1_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_yO4eIFczEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_zTCzYFc_Ed23wcZsd06DZg" entityName="Data.Persistence (Store_1_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_d2D1wFcxEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_67bhEFc_Ed23wcZsd06DZg" entityName="Data.Enterprise (Store_1_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_2uaPYFcxEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_-KEAQFc_Ed23wcZsd06DZg" entityName="Data.Store (Store_1_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_MX0AwFcyEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_M9D6gFdAEd23wcZsd06DZg" entityName="Application.Reporting (Store_2_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_PNgBAVcdEd23wcZsd06DZg"/>
+    <assemblyContext_AllocationContext href="cocome.system#_9sosIFc5Ed23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_SVleYFdAEd23wcZsd06DZg" entityName="Application.Store (Store_2_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_PNgBAVcdEd23wcZsd06DZg"/>
+    <assemblyContext_AllocationContext href="cocome.system#_etALMFc5Ed23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_WiY2AFdAEd23wcZsd06DZg" entityName="Data.Persistence (Store_2_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_PNgBAVcdEd23wcZsd06DZg"/>
+    <assemblyContext_AllocationContext href="cocome.system#_sREGwFcxEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_Z8UmQFdAEd23wcZsd06DZg" entityName="Data.Enterprise (Store_2_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_PNgBAVcdEd23wcZsd06DZg"/>
+    <assemblyContext_AllocationContext href="cocome.system#_DtLL4FcyEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_d0mfYFdAEd23wcZsd06DZg" entityName="Data.Store (Store_2_Server)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_PNgBAVcdEd23wcZsd06DZg"/>
+    <assemblyContext_AllocationContext href="cocome.system#_XiFg0FcyEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_qen68FdAEd23wcZsd06DZg" entityName="GUI.Store (Store_1_Client)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_mpMBEOEgEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_nf0w4FcnEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_u-8EcFdAEd23wcZsd06DZg" entityName="GUI.Reporting (Store_1_Client)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_mpMBEOEgEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_jcqnAFczEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_CeraoFdBEd23wcZsd06DZg" entityName="GUI.Reporting (Store_2_Client)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_me5D4VcdEd23wcZsd06DZg"/>
+    <assemblyContext_AllocationContext href="cocome.system#_WolfQFctEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_FwvBQFdBEd23wcZsd06DZg" entityName="GUI.Store (Store_2_Client)">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_me5D4VcdEd23wcZsd06DZg"/>
+    <assemblyContext_AllocationContext href="cocome.system#_8jo5MFc4Ed23wcZsd06DZg"/>
   </allocationContexts_Allocation>
   <targetResourceEnvironment_Allocation href="cocome.resourceenvironment#/"/>
-  <system_Allocation href="cocome.system#_p7UQMNC5EduW_YoCCnq0vw"/>
+  <system_Allocation href="cocome.system#_3Sgb8FcmEd23wcZsd06DZg"/>
 </Allocation>
