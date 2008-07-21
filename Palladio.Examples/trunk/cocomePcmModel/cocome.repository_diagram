@@ -955,7 +955,7 @@
     <edges xmi:type="notation:Edge" xmi:id="_MbSac1ZoEd25JNr_4RqZjA" type="4101" source="_reheWFZnEd25JNr_4RqZjA" target="_xLES4NCiEduC9O_qbthgAg">
       <children xmi:type="notation:Node" xmi:id="_MbSad1ZoEd25JNr_4RqZjA" type="6101">
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_MbSaeFZoEd25JNr_4RqZjA"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_MbSaeVZoEd25JNr_4RqZjA" y="40"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MbSaeVZoEd25JNr_4RqZjA" x="214" y="-1"/>
       </children>
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_MbSadFZoEd25JNr_4RqZjA" routing="Rectilinear"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_MbSadVZoEd25JNr_4RqZjA" fontName="Segoe UI"/>
@@ -1040,7 +1040,7 @@
     <children xmi:type="notation:Node" xmi:id="_23Ttw1ZiEd25JNr_4RqZjA" type="2002">
       <styles xmi:type="notation:ShapeStyle" xmi:id="_23TtxFZiEd25JNr_4RqZjA" fontName="Segoe UI"/>
       <element xmi:type="StopAction" href="cocome.repository#_ifiSKSCfEdyrYp4aNf6BNw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23TtxVZiEd25JNr_4RqZjA" x="204" y="276"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23TtxVZiEd25JNr_4RqZjA" x="168" y="276"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_23TtxlZiEd25JNr_4RqZjA" type="2003">
       <children xmi:type="notation:Node" xmi:id="_23TtyVZiEd25JNr_4RqZjA" type="5002"/>
