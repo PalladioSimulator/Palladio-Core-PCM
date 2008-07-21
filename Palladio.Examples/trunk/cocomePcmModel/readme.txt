@@ -70,5 +70,11 @@ Changes:
 - deleted Composite Component "TradingSystem.CashDeskLine"
 - deleted Resource Container "CashDeskPC"
 - deleted Linking Resource "CashDeskPC - StoreServer"
-- deleted all external SEFF diagrams
+- deleted external SEFF diagrams
 - deleted internal SEFF diagrams in "cocome.repository_diagram"
+
+Refined deployment structure:
+- defined scenario with 1 EnterpriseServer, 2 StoreServers, each server with 1 client
+- deleted Application.Facade and Data.Facade components
+- deleted Application, Data and GUI composite components
+- deployed basic components directly on resource containers of new scenario
