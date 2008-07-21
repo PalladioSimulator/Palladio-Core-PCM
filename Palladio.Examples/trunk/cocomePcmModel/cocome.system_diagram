@@ -738,28 +738,6 @@
     </children>
     <children type="3005">
       <children type="5006">
-        <layoutConstraint xsi:type="notation:Location" x="-196" y="24"/>
-      </children>
-      <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
-      <styles xsi:type="notation:DescriptionStyle"/>
-      <styles xsi:type="notation:FillStyle"/>
-      <styles xsi:type="notation:LineStyle"/>
-      <element href="cocome.system#_e3bkcFc3Ed23wcZsd06DZg"/>
-      <layoutConstraint xsi:type="notation:Bounds" x="-59" y="1140"/>
-    </children>
-    <children type="3005">
-      <children type="5006">
-        <layoutConstraint xsi:type="notation:Location" x="-196" y="24"/>
-      </children>
-      <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
-      <styles xsi:type="notation:DescriptionStyle"/>
-      <styles xsi:type="notation:FillStyle"/>
-      <styles xsi:type="notation:LineStyle"/>
-      <element href="cocome.system#_gYIiMFc3Ed23wcZsd06DZg"/>
-      <layoutConstraint xsi:type="notation:Bounds" x="-59" y="1212"/>
-    </children>
-    <children type="3005">
-      <children type="5006">
         <layoutConstraint xsi:type="notation:Location" y="5"/>
       </children>
       <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
@@ -768,28 +746,6 @@
       <styles xsi:type="notation:LineStyle"/>
       <element href="cocome.system#_l5n00Fc3Ed23wcZsd06DZg"/>
       <layoutConstraint xsi:type="notation:Bounds" x="2064" y="1092"/>
-    </children>
-    <children type="3005">
-      <children type="5006">
-        <layoutConstraint xsi:type="notation:Location" y="5"/>
-      </children>
-      <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
-      <styles xsi:type="notation:DescriptionStyle"/>
-      <styles xsi:type="notation:FillStyle"/>
-      <styles xsi:type="notation:LineStyle"/>
-      <element href="cocome.system#_m-zUMFc3Ed23wcZsd06DZg"/>
-      <layoutConstraint xsi:type="notation:Bounds" x="2064" y="1152"/>
-    </children>
-    <children type="3005">
-      <children type="5006">
-        <layoutConstraint xsi:type="notation:Location" y="5"/>
-      </children>
-      <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
-      <styles xsi:type="notation:DescriptionStyle"/>
-      <styles xsi:type="notation:FillStyle"/>
-      <styles xsi:type="notation:LineStyle"/>
-      <element href="cocome.system#_n7DhEFc3Ed23wcZsd06DZg"/>
-      <layoutConstraint xsi:type="notation:Bounds" x="2064" y="1212"/>
     </children>
     <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
     <styles xsi:type="notation:DescriptionStyle"/>
@@ -960,21 +916,6 @@
     <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -75, 69]$[99, -63, -6, 6]"/>
     <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.21666667,0.5833333)"/>
   </edges>
-  <edges type="4002" source="//@children.0/@children.1/@children.2/@children.5" target="//@children.0/@children.9">
-    <styles xsi:type="notation:RoutingStyle"/>
-    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
-    <styles xsi:type="notation:LineStyle"/>
-    <element href="cocome.system#_zPu6UFc3Ed23wcZsd06DZg"/>
-    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-8, 0, 97, -105]$[-75, 105, 30, 0]"/>
-    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.2,0.73333335)"/>
-  </edges>
-  <edges type="4002" source="//@children.0/@children.1/@children.2/@children.5" target="//@children.0/@children.10">
-    <styles xsi:type="notation:RoutingStyle"/>
-    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
-    <styles xsi:type="notation:LineStyle"/>
-    <element href="cocome.system#_2X_EsFc3Ed23wcZsd06DZg"/>
-    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-8, 0, 97, -165]$[-75, 165, 30, 0]"/>
-  </edges>
   <edges type="4003" source="//@children.0/@children.4" target="//@children.0/@children.1/@children.18/@children.2">
     <styles xsi:type="notation:RoutingStyle"/>
     <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
@@ -999,29 +940,13 @@
     <bendpoints xsi:type="notation:RelativeBendpoints" points="[-30, 0, 81, 71]$[-108, -70, 3, 1]"/>
     <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.9,0.6333333)"/>
   </edges>
-  <edges type="4002" source="//@children.0/@children.1/@children.18/@children.5" target="//@children.0/@children.11">
+  <edges type="4002" source="//@children.0/@children.1/@children.18/@children.5" target="//@children.0/@children.9">
     <styles xsi:type="notation:RoutingStyle"/>
     <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
     <styles xsi:type="notation:LineStyle"/>
     <element href="cocome.system#_ieLPYFc8Ed23wcZsd06DZg"/>
     <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -93, -49]$[93, 48, -7, -1]"/>
     <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.11666667,0.46666667)"/>
-  </edges>
-  <edges type="4002" source="//@children.0/@children.1/@children.18/@children.5" target="//@children.0/@children.12">
-    <styles xsi:type="notation:RoutingStyle"/>
-    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
-    <styles xsi:type="notation:LineStyle"/>
-    <element href="cocome.system#_lgLn0Fc8Ed23wcZsd06DZg"/>
-    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -96, -111]$[93, 111, -10, 0]"/>
-    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.16666667,0.5)"/>
-  </edges>
-  <edges type="4002" source="//@children.0/@children.1/@children.18/@children.5" target="//@children.0/@children.13">
-    <styles xsi:type="notation:RoutingStyle"/>
-    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
-    <styles xsi:type="notation:LineStyle"/>
-    <element href="cocome.system#_oHQXwFc8Ed23wcZsd06DZg"/>
-    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -88, -172]$[93, 172, -2, 0]"/>
-    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.033333335,0.51666665)"/>
   </edges>
   <edges type="4001" source="//@children.0/@children.1/@children.18/@children.4" target="//@children.0/@children.1/@children.14/@children.1">
     <styles xsi:type="notation:RoutingStyle" routing="Rectilinear"/>

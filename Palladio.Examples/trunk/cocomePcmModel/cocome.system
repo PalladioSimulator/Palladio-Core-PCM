@@ -81,19 +81,7 @@
   <requiredDelegationConnectors_ComposedStructure id="_pTresFcoEd23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_TWiHYFcnEd23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
     <innerRequiredRole_RequiredDelegationConnector href="cocome.repository#_aa6McdCwEduW_YoCCnq0vw"/>
   </requiredDelegationConnectors_ComposedStructure>
-  <requiredDelegationConnectors_ComposedStructure id="_zPu6UFc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_e3bkcFc3Ed23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
-    <innerRequiredRole_RequiredDelegationConnector href="cocome.repository#_aa6McdCwEduW_YoCCnq0vw"/>
-  </requiredDelegationConnectors_ComposedStructure>
-  <requiredDelegationConnectors_ComposedStructure id="_2X_EsFc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_gYIiMFc3Ed23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
-    <innerRequiredRole_RequiredDelegationConnector href="cocome.repository#_aa6McdCwEduW_YoCCnq0vw"/>
-  </requiredDelegationConnectors_ComposedStructure>
   <requiredDelegationConnectors_ComposedStructure id="_ieLPYFc8Ed23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_l5n00Fc3Ed23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_etALMFc5Ed23wcZsd06DZg">
-    <innerRequiredRole_RequiredDelegationConnector href="cocome.repository#_aa6McdCwEduW_YoCCnq0vw"/>
-  </requiredDelegationConnectors_ComposedStructure>
-  <requiredDelegationConnectors_ComposedStructure id="_lgLn0Fc8Ed23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_m-zUMFc3Ed23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_etALMFc5Ed23wcZsd06DZg">
-    <innerRequiredRole_RequiredDelegationConnector href="cocome.repository#_aa6McdCwEduW_YoCCnq0vw"/>
-  </requiredDelegationConnectors_ComposedStructure>
-  <requiredDelegationConnectors_ComposedStructure id="_oHQXwFc8Ed23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_n7DhEFc3Ed23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_etALMFc5Ed23wcZsd06DZg">
     <innerRequiredRole_RequiredDelegationConnector href="cocome.repository#_aa6McdCwEduW_YoCCnq0vw"/>
   </requiredDelegationConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_bq8_MFcoEd23wcZsd06DZg" entityName="StoreIf" requiringChildComponentContext_CompositeAssemblyConnector="_nf0w4FcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg">
@@ -188,7 +176,7 @@
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_8phWYNCmEduC9O_qbthgAg"/>
     <requiredRole_CompositeAssemblyConnector href="cocome.repository#_1a8xsdC4EduW_YoCCnq0vw"/>
   </compositeAssemblyConnectors_ComposedStructure>
-  <compositeAssemblyConnectors_ComposedStructure id="_yPSiQFc9Ed23wcZsd06DZg" entityName="Connector Application.Store (Store_2_Server) -> Application.ProductDispatcher (EnterpriseServer)" requiringChildComponentContext_CompositeAssemblyConnector="_etALMFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg">
+  <compositeAssemblyConnectors_ComposedStructure id="_yPSiQFc9Ed23wcZsd06DZg" entityName="ProductDispatcherIf" requiringChildComponentContext_CompositeAssemblyConnector="_etALMFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg">
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_gMw-sNCiEduC9O_qbthgAg"/>
     <requiredRole_CompositeAssemblyConnector href="cocome.repository#_IpnV8dItEduQ7qbNANXHPw"/>
   </compositeAssemblyConnectors_ComposedStructure>
@@ -210,22 +198,10 @@
   <providedRoles_InterfaceProvidingEntity id="_AqIfYFc3Ed23wcZsd06DZg" entityName="CashDeskConnectorIf (Store_2_PC_2)">
     <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
   </providedRoles_InterfaceProvidingEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_TWiHYFcnEd23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_1_PC_1)">
+  <requiredRoles_InterfaceRequiringEntity id="_TWiHYFcnEd23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_1)">
     <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
   </requiredRoles_InterfaceRequiringEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_e3bkcFc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_1_PC_2)">
-    <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
-  </requiredRoles_InterfaceRequiringEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_gYIiMFc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_1_PC_3)">
-    <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
-  </requiredRoles_InterfaceRequiringEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_l5n00Fc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_2_PC_1)">
-    <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
-  </requiredRoles_InterfaceRequiringEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_m-zUMFc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_2_PC_2)">
-    <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
-  </requiredRoles_InterfaceRequiringEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_n7DhEFc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_2_PC_3)">
+  <requiredRoles_InterfaceRequiringEntity id="_l5n00Fc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent (Store_2)">
     <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
   </requiredRoles_InterfaceRequiringEntity>
 </System>
