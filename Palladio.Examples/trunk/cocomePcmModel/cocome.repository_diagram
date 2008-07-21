@@ -74,7 +74,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_BNC0AR_PEdy87ZY8YXDpkA"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_BNC0Ah_PEdy87ZY8YXDpkA" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_BNC0Ax_PEdy87ZY8YXDpkA" diagramLink="__x-YIFZhEd25JNr_4RqZjA"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_BNC0Ax_PEdy87ZY8YXDpkA"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#markProductUnavailableInStock"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_BNC0BB_PEdy87ZY8YXDpkA"/>
         </children>
@@ -169,7 +169,7 @@
       <children xmi:type="notation:Node" xmi:id="_briPN9CiEduC9O_qbthgAg" type="5102"/>
       <children xmi:type="notation:Node" xmi:id="_briPONCiEduC9O_qbthgAg" type="7102">
         <children xmi:type="notation:Node" xmi:id="_BNop0B_PEdy87ZY8YXDpkA" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_BNop0R_PEdy87ZY8YXDpkA" diagramLink="_8LeScBxAEd2xrZbyNNV90w"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_BNop0R_PEdy87ZY8YXDpkA"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#orderProductsAvailableAtOtherStores"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_BNop0h_PEdy87ZY8YXDpkA"/>
         </children>
@@ -272,7 +272,7 @@
       <children xmi:type="notation:Node" xmi:id="_W__wUNCmEduC9O_qbthgAg" type="5102"/>
       <children xmi:type="notation:Node" xmi:id="_W__wUdCmEduC9O_qbthgAg" type="7102">
         <children xmi:type="notation:Node" xmi:id="_AtrqQCpKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AtrqQSpKEdyziqzt3YLnGQ" diagramLink="_9Ypq4FcSEd2qsdbOwlf7Gg"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AtrqQSpKEdyziqzt3YLnGQ"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiR9yCfEdyrYp4aNf6BNw"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AtrqQipKEdyziqzt3YLnGQ"/>
         </children>
@@ -306,12 +306,12 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_7syIk9IrEduQ7qbNANXHPw"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_AtrqSSpKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AtrqSipKEdyziqzt3YLnGQ" diagramLink="_fgZ6sFcQEd2qsdbOwlf7Gg"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AtrqSipKEdyziqzt3YLnGQ"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#__vMR4h_6Edy5k9ER1TBmjg"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AtrqSypKEdyziqzt3YLnGQ"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_AtrqTCpKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AtrqTSpKEdyziqzt3YLnGQ" diagramLink="_gSYxQFcQEd2qsdbOwlf7Gg"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AtrqTSpKEdyziqzt3YLnGQ"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_H9phEh_7Edy5k9ER1TBmjg"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AtrqTipKEdyziqzt3YLnGQ"/>
         </children>
@@ -336,7 +336,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_At1bSypKEdyziqzt3YLnGQ"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_At1bTCpKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_At1bTSpKEdyziqzt3YLnGQ" diagramLink="_IoWvcFcREd2qsdbOwlf7Gg"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_At1bTSpKEdyziqzt3YLnGQ"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_0MIB4h_7Edy5k9ER1TBmjg"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_At1bTipKEdyziqzt3YLnGQ"/>
         </children>
@@ -346,7 +346,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_At1bUSpKEdyziqzt3YLnGQ"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_At1bUipKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_At1bUypKEdyziqzt3YLnGQ" diagramLink="_-R__oFcQEd2qsdbOwlf7Gg"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_At1bUypKEdyziqzt3YLnGQ"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_YzMFYh_8Edy5k9ER1TBmjg"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_At1bVCpKEdyziqzt3YLnGQ"/>
         </children>
@@ -468,7 +468,7 @@
       <children xmi:type="notation:Node" xmi:id="_DIL91NC5EduW_YoCCnq0vw" type="5102"/>
       <children xmi:type="notation:Node" xmi:id="_DIL91dC5EduW_YoCCnq0vw" type="7102">
         <children xmi:type="notation:Node" xmi:id="_AuSHMCpKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AuSHMSpKEdyziqzt3YLnGQ" diagramLink="_1u0IgFcOEd2qsdbOwlf7Gg"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AuSHMSpKEdyziqzt3YLnGQ"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiSACCfEdyrYp4aNf6BNw"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AuSHMipKEdyziqzt3YLnGQ"/>
         </children>
@@ -508,7 +508,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AubRJSpKEdyziqzt3YLnGQ"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_AubRJipKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AubRJypKEdyziqzt3YLnGQ" diagramLink="_evdZcFZhEd25JNr_4RqZjA"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AubRJypKEdyziqzt3YLnGQ"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiSGCCfEdyrYp4aNf6BNw"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AubRKCpKEdyziqzt3YLnGQ"/>
         </children>
@@ -533,7 +533,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AubRNCpKEdyziqzt3YLnGQ"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_AubRNSpKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AubRNipKEdyziqzt3YLnGQ" diagramLink="_20CXUFZiEd25JNr_4RqZjA"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AubRNipKEdyziqzt3YLnGQ"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiSJyCfEdyrYp4aNf6BNw"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AubRNypKEdyziqzt3YLnGQ"/>
         </children>
@@ -1012,79 +1012,5 @@
       <element xmi:type="_1:RequiredRole" href="cocome.repository#_XH0LYdCtEduW_YoCCnq0vw"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MbSamVZoEd25JNr_4RqZjA" points="[-108, 4, 696, 234]$[-746, 4, 58, 234]$[-746, -198, 58, 32]"/>
     </edges>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_8aPEcNIrEduQ7qbNANXHPw" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:PageStyle" xmi:id="_8aPEcdIrEduQ7qbNANXHPw"/>
-    <styles xmi:type="notation:GuideStyle" xmi:id="_8aPEctIrEduQ7qbNANXHPw"/>
-    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8aPEc9IrEduQ7qbNANXHPw"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#bookSale"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_8LeScBxAEd2xrZbyNNV90w" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_8LeScRxAEd2xrZbyNNV90w"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#orderProductsAvailableAtOtherStores"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_evdZcFZhEd25JNr_4RqZjA" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_evdZcVZhEd25JNr_4RqZjA"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiSGCCfEdyrYp4aNf6BNw"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="__x-YIFZhEd25JNr_4RqZjA" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="__yIJIFZhEd25JNr_4RqZjA"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#markProductUnavailableInStock"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_20CXUFZiEd25JNr_4RqZjA" type="PCM SEFF Model" measurementUnit="Pixel">
-    <children xmi:type="notation:Node" xmi:id="_23TtwFZiEd25JNr_4RqZjA" type="2001">
-      <styles xmi:type="notation:ShapeStyle" xmi:id="_23TtwVZiEd25JNr_4RqZjA" fontName="Segoe UI"/>
-      <element xmi:type="StartAction" href="cocome.repository#_ifiSKCCfEdyrYp4aNf6BNw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23TtwlZiEd25JNr_4RqZjA" x="166"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_23Ttw1ZiEd25JNr_4RqZjA" type="2002">
-      <styles xmi:type="notation:ShapeStyle" xmi:id="_23TtxFZiEd25JNr_4RqZjA" fontName="Segoe UI"/>
-      <element xmi:type="StopAction" href="cocome.repository#_ifiSKSCfEdyrYp4aNf6BNw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23TtxVZiEd25JNr_4RqZjA" x="156" y="264"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_23TtxlZiEd25JNr_4RqZjA" type="2003">
-      <children xmi:type="notation:Node" xmi:id="_23TtyVZiEd25JNr_4RqZjA" type="5002"/>
-      <children xmi:type="notation:Node" xmi:id="_23TtylZiEd25JNr_4RqZjA" type="7001">
-        <styles xmi:type="notation:DrawerStyle" xmi:id="_23Tty1ZiEd25JNr_4RqZjA"/>
-        <styles xmi:type="notation:TitleStyle" xmi:id="_23TtzFZiEd25JNr_4RqZjA" showTitle="true"/>
-        <styles xmi:type="notation:SortingStyle" xmi:id="_23TtzVZiEd25JNr_4RqZjA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_23TtzlZiEd25JNr_4RqZjA"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_23Ttz1ZiEd25JNr_4RqZjA" type="7021">
-        <styles xmi:type="notation:DrawerStyle" xmi:id="_23Tt0FZiEd25JNr_4RqZjA"/>
-        <styles xmi:type="notation:TitleStyle" xmi:id="_23Tt0VZiEd25JNr_4RqZjA" showTitle="true"/>
-        <styles xmi:type="notation:SortingStyle" xmi:id="_23Tt0lZiEd25JNr_4RqZjA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_23Tt01ZiEd25JNr_4RqZjA"/>
-      </children>
-      <styles xmi:type="notation:ShapeStyle" xmi:id="_23Ttx1ZiEd25JNr_4RqZjA" fontName="Segoe UI"/>
-      <element xmi:type="ExternalCallAction" href="cocome.repository#_iF_rMCPmEdyLBZREr9U8dw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_23TtyFZiEd25JNr_4RqZjA" y="80"/>
-    </children>
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_20CXUVZiEd25JNr_4RqZjA"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiSJyCfEdyrYp4aNf6BNw"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_1u0IgFcOEd2qsdbOwlf7Gg" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_1u0IgVcOEd2qsdbOwlf7Gg"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiSACCfEdyrYp4aNf6BNw"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_fgZ6sFcQEd2qsdbOwlf7Gg" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_fgZ6sVcQEd2qsdbOwlf7Gg"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#__vMR4h_6Edy5k9ER1TBmjg"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_gSYxQFcQEd2qsdbOwlf7Gg" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_gSYxQVcQEd2qsdbOwlf7Gg"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_H9phEh_7Edy5k9ER1TBmjg"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_-R__oFcQEd2qsdbOwlf7Gg" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_-R__oVcQEd2qsdbOwlf7Gg"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_YzMFYh_8Edy5k9ER1TBmjg"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_IoWvcFcREd2qsdbOwlf7Gg" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_IoWvcVcREd2qsdbOwlf7Gg"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_0MIB4h_7Edy5k9ER1TBmjg"/>
-  </notation:Diagram>
-  <notation:Diagram xmi:id="_9Ypq4FcSEd2qsdbOwlf7Gg" type="PCM SEFF Model" measurementUnit="Pixel">
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_9Ypq4VcSEd2qsdbOwlf7Gg"/>
-    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiR9yCfEdyrYp4aNf6BNw"/>
   </notation:Diagram>
 </xmi:XMI>

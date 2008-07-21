@@ -70,3 +70,5 @@ Changes:
 - deleted Composite Component "TradingSystem.CashDeskLine"
 - deleted Resource Container "CashDeskPC"
 - deleted Linking Resource "CashDeskPC - StoreServer"
+- deleted all external SEFF diagrams
+- deleted internal SEFF diagrams in "cocome.repository_diagram"
