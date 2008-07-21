@@ -399,6 +399,12 @@
             <steps_Behaviour xsi:type="_1:StopAction" id="_In964NJTEduQ7qbNANXHPw" predecessor_AbstractAction="_pG-j4NJTEduQ7qbNANXHPw"/>
             <steps_Behaviour xsi:type="_1:StartAction" id="_JBAF8NJTEduQ7qbNANXHPw" successor_AbstractAction="_KeleQNJTEduQ7qbNANXHPw"/>
             <steps_Behaviour xsi:type="_1:InternalAction" id="_KeleQNJTEduQ7qbNANXHPw" entityName="prepare" predecessor_AbstractAction="_JBAF8NJTEduQ7qbNANXHPw" successor_AbstractAction="_OtyCkNJTEduQ7qbNANXHPw"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_pG-j4NJTEduQ7qbNANXHPw" entityName="commit" predecessor_AbstractAction="_OtyCkNJTEduQ7qbNANXHPw" successor_AbstractAction="_In964NJTEduQ7qbNANXHPw">
+              <resourceDemand_Action>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+                <specification_ParametericResourceDemand specification="2"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
             <steps_Behaviour xsi:type="_1:LoopAction" id="_OtyCkNJTEduQ7qbNANXHPw" entityName="ProductAmountIterator" predecessor_AbstractAction="_KeleQNJTEduQ7qbNANXHPw" successor_AbstractAction="_pG-j4NJTEduQ7qbNANXHPw">
               <bodyBehaviour_Loop>
                 <steps_Behaviour xsi:type="_1:StopAction" id="_apeYgNJTEduQ7qbNANXHPw" predecessor_AbstractAction="_jFC2oNJTEduQ7qbNANXHPw"/>
@@ -412,12 +418,6 @@
                 </steps_Behaviour>
               </bodyBehaviour_Loop>
               <iterationCount_LoopAction specification="productList.NUMBER_OF_ELEMENTS"/>
-            </steps_Behaviour>
-            <steps_Behaviour xsi:type="_1:InternalAction" id="_pG-j4NJTEduQ7qbNANXHPw" entityName="commit" predecessor_AbstractAction="_OtyCkNJTEduQ7qbNANXHPw" successor_AbstractAction="_In964NJTEduQ7qbNANXHPw">
-              <resourceDemand_Action>
-                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-                <specification_ParametericResourceDemand specification="2"/>
-              </resourceDemand_Action>
             </steps_Behaviour>
           </branchBehaviour_BranchTransition>
           <branchCondition_GuardedBranchTransition specification="productList.NUMBER_OF_ELEMENTS > 0"/>

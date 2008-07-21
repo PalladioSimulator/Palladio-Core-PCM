@@ -272,7 +272,7 @@
       <children xmi:type="notation:Node" xmi:id="_W__wUNCmEduC9O_qbthgAg" type="5102"/>
       <children xmi:type="notation:Node" xmi:id="_W__wUdCmEduC9O_qbthgAg" type="7102">
         <children xmi:type="notation:Node" xmi:id="_AtrqQCpKEdyziqzt3YLnGQ" type="3102">
-          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AtrqQSpKEdyziqzt3YLnGQ"/>
+          <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_AtrqQSpKEdyziqzt3YLnGQ" diagramLink="_9Ypq4FcSEd2qsdbOwlf7Gg"/>
           <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiR9yCfEdyrYp4aNf6BNw"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_AtrqQipKEdyziqzt3YLnGQ"/>
         </children>
@@ -1082,5 +1082,9 @@
   <notation:Diagram xmi:id="_IoWvcFcREd2qsdbOwlf7Gg" type="PCM SEFF Model" measurementUnit="Pixel">
     <styles xmi:type="notation:DiagramStyle" xmi:id="_IoWvcVcREd2qsdbOwlf7Gg"/>
     <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_0MIB4h_7Edy5k9ER1TBmjg"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_9Ypq4FcSEd2qsdbOwlf7Gg" type="PCM SEFF Model" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_9Ypq4VcSEd2qsdbOwlf7Gg"/>
+    <element xmi:type="ResourceDemandingSEFF" href="cocome.repository#_ifiR9yCfEdyrYp4aNf6BNw"/>
   </notation:Diagram>
 </xmi:XMI>
