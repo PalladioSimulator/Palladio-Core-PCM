@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.dsexplore.launch;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
@@ -21,6 +22,10 @@ import de.uka.ipd.sdq.dsexplore.newcandidates.NewCandidateProxy;
  */
 public class DSELaunch implements ILaunchConfigurationDelegate {
 	
+	/** Logger for log4j. */
+	private static Logger logger = 
+		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
+	
 	/**
 	 * Test for starting multiple simulations.
 	 * @param configuration
@@ -39,7 +44,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			//super.createRunCompositeJob(new SimuAttributesGetMethods(configuration), true, launch);
 			//super.launch(configuration, mode, launch, monitor);
 		
-			System.out.println("Starting...");
+			logger.debug("Starting...");
 		
 		    INewCandidates newCands = new NewCandidateProxy();
 		    

@@ -42,7 +42,7 @@ public class PCMInstance {
 	
 	/** Logger for log4j. */
 	private static Logger logger = 
-		Logger.getLogger(PCMInstance.class.getName());
+		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
 	
     private Repository repository;
@@ -77,6 +77,8 @@ public class PCMInstance {
     public PCMInstance(final ILaunchConfiguration configuration) {
 		//this.usage = ComputedUsageFactory.eINSTANCE.createComputedUsage();
 		//this.actualAllocation = ComputedAllocationFactory.eINSTANCE.createComputedAllocation();
+    	
+    	logger.debug("Constructor called");
 		try {
 			this.storagePath = configuration.getAttribute("outputPath", ".");
 			
@@ -208,7 +210,7 @@ public class PCMInstance {
 	 * @param fileName The filename where to save. 
 	 */
 	private void saveToXMIFile(final EObject modelToSave, final String fileName) {
-		java.lang.System.out.println("Saving " + modelToSave.toString() + " to " + fileName);
+		logger.debug("Saving " + modelToSave.toString() + " to " + fileName);
 		
 		// Create a resource set.
 		ResourceSet resourceSet = new ResourceSetImpl();

@@ -1,5 +1,11 @@
 package de.uka.ipd.sdq.dsexplore;
 
+import java.io.IOException;
+import java.net.URL;
+
+import org.apache.log4j.PropertyConfigurator;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -20,6 +26,8 @@ public class Activator extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Activator() {
+		
+		
 	}
 
 	/*
@@ -29,6 +37,8 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		
+		PropertyConfigurator.configure(findFile("log4j/log4j.properties"));
 	}
 
 	/*
@@ -58,5 +68,21 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+	
+	public static String findFile(String file)
+	{
+		String result="";
+		try
+		{
+			
+			URL url = FileLocator.find(getDefault().getBundle(), new Path(file), null);
+			result= FileLocator.toFileURL(url).getPath().toString();
+		}
+		catch(IOException ex)
+		{
+			ex.printStackTrace();
+		}
+		return result;
 	}
 }

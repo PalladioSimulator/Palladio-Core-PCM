@@ -7,5 +7,6 @@ Bundle-Activator: de.uka.ipd.sdq.dsexplore.analysis.simucom.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  de.uka.ipd.sdq.dsexplore,
- de.uka.ipd.sdq.codegen.simucontroller
+ de.uka.ipd.sdq.codegen.simucontroller,
+ org.apache.log4j
 Eclipse-LazyStart: true

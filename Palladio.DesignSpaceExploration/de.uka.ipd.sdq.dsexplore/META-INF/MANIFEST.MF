@@ -20,4 +20,7 @@ Require-Bundle: org.eclipse.ui,
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.dsexplore,
  de.uka.ipd.sdq.dsexplore.analysis,
+ de.uka.ipd.sdq.dsexplore.dsedecorator,
  de.uka.ipd.sdq.dsexplore.newcandidates
+Bundle-ClassPath: .,
+ log4j/

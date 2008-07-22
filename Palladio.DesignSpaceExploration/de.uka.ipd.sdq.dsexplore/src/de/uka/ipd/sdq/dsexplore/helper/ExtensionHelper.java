@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.dsexplore.helper;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
@@ -7,6 +8,10 @@ import org.eclipse.core.runtime.Platform;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
 
 public class ExtensionHelper {
+	
+	/** Logger for log4j. */
+	private static Logger logger = 
+		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 	
 	public static Object loadExtension(String id) {
 		/* To load an extension, you just need to access the registry (through an instance of IExtensionRegistry) from the platform (through the aptly name Platform object), then inquire for the extension points that the plug-in is interested in. The platform returns an IExtensionPoint object.
@@ -17,7 +22,7 @@ public class ExtensionHelper {
 		
 		if (ep.length == 0){
 			//Error: No extension found
-			System.out.println("Error: No Extension "+id+" found");
+			logger.error("Error: No Extension "+id+" found");
 		} else {
 			//TODO: Treat multiple ones found.
 			try {
