@@ -84,3 +84,8 @@ Making simulation work:
   (simulation can only cope with 1 System Provided Role for each Interface)
 - had to adapt SEFF "TradingSystem.Inventory.Application.ProductDispatcher.orderProductsAvailableAtOtherStores"
   (replaced numberOfStores.VALUE by 2 because only simplified SEFFS are available)
+  
+Remaining ToDos:
+- verify simulation results
+- model SEFFS and Data Types appropriately
+- model Services on top of the TradingSystem
