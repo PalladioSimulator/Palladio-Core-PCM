@@ -1,54 +1,32 @@
 package de.uka.ipd.sdq.dsexplore.newcandidates.alternativecomponents;
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EEnumLiteral;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EParameter;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.ocl.ParserException;
-import org.eclipse.ocl.ecore.CallOperationAction;
-import org.eclipse.ocl.ecore.Constraint;
-import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
-import org.eclipse.ocl.ecore.OCL;
-import org.eclipse.ocl.ecore.OCLExpression;
-import org.eclipse.ocl.ecore.SendSignalAction;
-import org.eclipse.ocl.ecore.OCL.Helper;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.dsedecorator.RepositorySystemDecorator;
+import de.uka.ipd.sdq.dsexplore.dsedecorator.dsedecoratorFactory;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
+import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.system.System;
 
-import de.uka.ipd.sdq.dsexplore.dsedecorator.RepositorySystemDecorator;
-import de.uka.ipd.sdq.dsexplore.dsedecorator.dsedecoratorFactory;
-import de.uka.ipd.sdq.identifier.Identifier;
-
 
 
 public class AlternativeComponent implements INewCandidates {
 	
-	private static final String OCL_SELECT_COMPONENTS_FROM_REPOSITORY = "self.components__Repository->select(i | i.oclIsTypeOf(BasicComponent))";
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
@@ -72,36 +50,6 @@ public class AlternativeComponent implements INewCandidates {
 		rsd.setSystem(s);
 		rsd.getRepositories().add(r);
 		
-		//Initialise OCl stuff
-/*		OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
-		OCL.Helper helper = ocl.createOCLHelper();
-		OCLExpression expr = null;
-		java.lang.System.out.println(helper);*/
-		
-		try {//parsing the OCL statements might throw ParserExceptions.
-			
-			//helper.setContext(r.getComponents__Repository().get(0).eClass());
-			
-			//helper.defineOperation("getRepositories(rsd : RepositorySystemDecorator): Set(Repository) = self.repositories->asSet()");
-			/*			helper.defineOperation("isAlternativeTo(o: BasicComponent): Boolean = " + //$NON-NLS-1$
-					// the replacement other provides all Interfaces that are provided by this component:
-					"self.providedRoles_InterfaceProvidingEntity->collect(t | t.providedInterface__ProvidedRole)" +
-					"->includesAll(o.providedRoles_InterfaceProvidingEntity->collect(t | t.providedInterface__ProvidedRole))"); // +
-					"&&" +
-					// The replacement requires exactly the interfaces that are required by this component 
-					// (realised with A.includesAll(B) && B.includesAll(A))
-					"self.requiredRoles_InterfaceRequiringEntity->collect(t | t.requiredInterface__RequiredRole)" +
-					".includesAll(o.requiredRoles_InterfaceRequiringEntity->collect(t | t.requiredInterface__RequiredRole))" +
-					"&&" +
-					"o.requiredRoles_InterfaceRequiringEntity->collect(t | t.requiredInterface__RequiredRole)" +
-					".includesAll(self.requiredRoles_InterfaceRequiringEntity->collect(t | t.requiredInterface__RequiredRole))");*/
-			
-			
-/*			expr = helper.createQuery("self");//"->collect(assembly | assembly.encapsulatedComponent_ChildComponentContext))");
-			Object o = helper.getOCL().evaluate(rsd, expr);
-			java.lang.System.out.println("Type: " + o.getClass().toString() );*/
-			
-			//Set<BasicComponent> repoComponents = getAllRepositoryComponents(helper, expr, r);
 			
 			List<BasicComponent> repoComponents = filterBasicComponents(r.getComponents__Repository());
 			logger.debug("I found "+repoComponents.size() +" BasicComponents in the repository");
@@ -119,12 +67,7 @@ public class AlternativeComponent implements INewCandidates {
 				}
 			}
 			
-		} catch (ParserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//ocl.evaluate(r, ocl.parse(new OCLInput("")) );
-	    
+  
 		
 		
 		
@@ -147,7 +90,7 @@ public class AlternativeComponent implements INewCandidates {
 	}
 
 
-	private Map<AssemblyContext, BasicComponent> getComponentsInSystem(System s, Repository r) throws ParserException {
+	private Map<AssemblyContext, BasicComponent> getComponentsInSystem(System s, Repository r)  {
 		
 		logger.debug("getComponentsInSystem(..) called");
 		
@@ -158,28 +101,9 @@ public class AlternativeComponent implements INewCandidates {
 		//expr = helper.createQuery("self.childComponentContexts_ComposedStructure");//"->collect(assembly | assembly.encapsulatedComponent_ChildComponentContext))");
 		EList<AssemblyContext> assemblyContexts = s.getChildComponentContexts_ComposedStructure(); //(Set<AssemblyContext>)helper.getOCL().evaluate(s, expr);
 		
-/*		AssemblyContext oneAssembly = null;
-		if (assemblyContexts.iterator().hasNext()){
-			 oneAssembly = assemblyContexts.iterator().next();
-		} else { 
-			//No assembly in the system
-			return result;
-		}*/
-		
-		//helper.setContext(oneAssembly.eClass());
-		//expr = helper.createQuery("self.encapsulatedComponent_ChildComponentContext");
-		/* I separated 
-		 * the previous and this one in two queries because the type 
-		 * BasicComponent is unknown in the context System, and a merged 
-		 * query throws an error*/
-		//helper.setContext(oneAssembly.getEncapsulatedComponent_ChildComponentContext().eClass());
-		//OCLExpression expr2 = helper.createQuery("self->select(i | i.oclIsTypeOf(BasicComponent))");
+
 		for (AssemblyContext ac : assemblyContexts) {
-/*			Object assembledComponents = helper.getOCL().evaluate(assemblyContexts, expr);
-			helper.setContext(r.eClass());
-			Set<BasicComponent> assembledBasicComponents = (Set<BasicComponent>)helper.getOCL().evaluate(assembledComponents, expr2); 
-			helper.setContext(s.eClass());*/
-			
+
 			ProvidesComponentType pct = ac.getEncapsulatedComponent_ChildComponentContext();
 			if (BasicComponent.class.isInstance(pct)) {			
 			  result.put(ac, (BasicComponent)pct);
@@ -190,23 +114,6 @@ public class AlternativeComponent implements INewCandidates {
 
 	}
 
-/*	private Set<BasicComponent> getAllRepositoryComponents(Helper helper,
-			OCLExpression expr, Repository r) throws ParserException {
-		
-		// set the OCL context classifier
-		helper.setContext(r.eClass());
-		
-		expr = helper.createQuery(OCL_SELECT_COMPONENTS_FROM_REPOSITORY); 
-		Object o = helper.getOCL().evaluate(r, expr);
-		
-		logger.debug("Type: " + o.getClass().toString() );
-		
-		if (Set.class.isInstance(o)){
-			return (Set<BasicComponent>)o;
-		}
-
-		return null;
-	}*/
 
 	private Map<AssemblyContext, Set<BasicComponent>> findAlternatives(
 			List<BasicComponent> repoComponents, Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap) {
@@ -341,33 +248,4 @@ public class AlternativeComponent implements INewCandidates {
 
 }
 
-/* Now I have all components in the repository in repoComponents 
- * as a Set of BasicComponents, and all components used in the 
- * system in systemComponents as a Set of BasicComponents*/
 
-//TODO: Handle Composite Components
-
-/* Now find alternative components for each component used in the 
- * system. Therefore, use a relation "alternativeTo()". 
- */ 
-/*			helper.defineOperation("isAlternativeTo(BasicComponent original): Boolean = \n" +
-		// the replacement other provides all Interfaces that are provided by this component:
-		"self.providedRoles_InterfaceProvidingEntity->collect(t | t.providedInterface__ProvidedRole)" +
-		  ".includesAll(original.providedRoles_InterfaceProvidingEntity->collect(t | t.providedInterface__ProvidedRole))" +
-		"&&" +
-		// The replacement requires exactly the interfaces that are required by this component 
-		// (realised with A.includesAll(B) && B.includesAll(A))
-		"self.requiredRoles_InterfaceRequiringEntity->collect(t | t.requiredInterface__RequiredRole)" +
-		  ".includesAll(original.requiredRoles_InterfaceRequiringEntity->collect(t | t.requiredInterface__RequiredRole))" +
-		"&&" +
-		"original.requiredRoles_InterfaceRequiringEntity->collect(t | t.requiredInterface__RequiredRole)" +
-		  ".includesAll(self.requiredRoles_InterfaceRequiringEntity->collect(t | t.requiredInterface__RequiredRole))");
-		  
-		  
-		 Example:
-		 			helper.defineOperation(
-					"bestColor(c : Color) : Color = " + //$NON-NLS-1$
-					"if self.color = Color::black then c else self.color endif"); //$NON-NLS-1$
- 
-		  
-*/
