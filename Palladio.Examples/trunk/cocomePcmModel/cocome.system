@@ -18,9 +18,6 @@
   <childComponentContexts_ComposedStructure id="_jN79kFcqEd23wcZsd06DZg" entityName="Data.Persistence_EnterpriseServer">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_B8esgNChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_taw98FcqEd23wcZsd06DZg" entityName="Data.Enterprise_EnterpriseServer">
-    <encapsulatedComponent_ChildComponentContext href="cocome.repository#_-3VggNCgEduC9O_qbthgAg"/>
-  </childComponentContexts_ComposedStructure>
   <childComponentContexts_ComposedStructure id="_07dvQFcqEd23wcZsd06DZg" entityName="Data.Store_EnterpriseServer">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_C7qRkNChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
@@ -60,6 +57,9 @@
   <childComponentContexts_ComposedStructure id="_9sosIFc5Ed23wcZsd06DZg" entityName="Application.Reporting_Store_2_Server">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_URW_1dCmEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_LoXbYFfjEd26K8JlmYJ10w" entityName="Data.Enterprise_EnterpriseServer">
+    <encapsulatedComponent_ChildComponentContext href="cocome.repository#_-3VggNCgEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
   <providedDelegationConnectors_ComposedStructure id="_RBRDsFcoEd23wcZsd06DZg" entityName="CashDeskConnectorIf" outerProvidedRole_ProvidedDelegationConnector="_MSQMUFcnEd23wcZsd06DZg" childComponentContext_ProvidedDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
     <innerProvidedRole_ProvidedDelegationConnector href="cocome.repository#__f6UsNCmEduC9O_qbthgAg"/>
   </providedDelegationConnectors_ComposedStructure>
@@ -85,10 +85,6 @@
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_wrdB4NCmEduC9O_qbthgAg"/>
     <requiredRole_CompositeAssemblyConnector href="cocome.repository#_vsrnUdC4EduW_YoCCnq0vw"/>
   </compositeAssemblyConnectors_ComposedStructure>
-  <compositeAssemblyConnectors_ComposedStructure id="_AE_ocFcrEd23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_taw98FcqEd23wcZsd06DZg">
-    <providedRole_CompositeAssemblyConnector href="cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
-    <requiredRole_CompositeAssemblyConnector href="cocome.repository#_0k7YYdCnEduC9O_qbthgAg"/>
-  </compositeAssemblyConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_GTRIkFcrEd23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_jN79kFcqEd23wcZsd06DZg">
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
     <requiredRole_CompositeAssemblyConnector href="cocome.repository#_jJt4AdCiEduC9O_qbthgAg"/>
@@ -108,14 +104,6 @@
   <compositeAssemblyConnectors_ComposedStructure id="_U0q8gFcrEd23wcZsd06DZg" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_07dvQFcqEd23wcZsd06DZg">
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_OmzqENChEduC9O_qbthgAg"/>
     <requiredRole_CompositeAssemblyConnector href="cocome.repository#_t5HAodCnEduC9O_qbthgAg"/>
-  </compositeAssemblyConnectors_ComposedStructure>
-  <compositeAssemblyConnectors_ComposedStructure id="_XzZ-gFcrEd23wcZsd06DZg" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_taw98FcqEd23wcZsd06DZg">
-    <providedRole_CompositeAssemblyConnector href="cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
-    <requiredRole_CompositeAssemblyConnector href="cocome.repository#_b-BUEdCnEduC9O_qbthgAg"/>
-  </compositeAssemblyConnectors_ComposedStructure>
-  <compositeAssemblyConnectors_ComposedStructure id="_eJHjYFcrEd23wcZsd06DZg" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_taw98FcqEd23wcZsd06DZg">
-    <providedRole_CompositeAssemblyConnector href="cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
-    <requiredRole_CompositeAssemblyConnector href="cocome.repository#_h-Kq4dCiEduC9O_qbthgAg"/>
   </compositeAssemblyConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_N5huUFc2Ed23wcZsd06DZg" entityName="ReportingIf" requiringChildComponentContext_CompositeAssemblyConnector="_jcqnAFczEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_yO4eIFczEd23wcZsd06DZg">
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_wrdB4NCmEduC9O_qbthgAg"/>
@@ -164,6 +152,18 @@
   <compositeAssemblyConnectors_ComposedStructure id="_yPSiQFc9Ed23wcZsd06DZg" entityName="ProductDispatcherIf" requiringChildComponentContext_CompositeAssemblyConnector="_etALMFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg">
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_gMw-sNCiEduC9O_qbthgAg"/>
     <requiredRole_CompositeAssemblyConnector href="cocome.repository#_IpnV8dItEduQ7qbNANXHPw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_6ety0FfiEd26K8JlmYJ10w" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_d2D1wFcxEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.repository#_0k7YYdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_S_0xIFfjEd26K8JlmYJ10w" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_LoXbYFfjEd26K8JlmYJ10w">
+    <providedRole_CompositeAssemblyConnector href="cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.repository#_b-BUEdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_U9sMAFfjEd26K8JlmYJ10w" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_LoXbYFfjEd26K8JlmYJ10w">
+    <providedRole_CompositeAssemblyConnector href="cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.repository#_h-Kq4dCiEduC9O_qbthgAg"/>
   </compositeAssemblyConnectors_ComposedStructure>
   <providedRoles_InterfaceProvidingEntity id="_MSQMUFcnEd23wcZsd06DZg" entityName="CashDeskConnectorIf_Store_1">
     <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>

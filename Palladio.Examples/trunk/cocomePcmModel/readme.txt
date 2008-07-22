@@ -78,3 +78,9 @@ Refined deployment structure:
 - deleted Application.Facade and Data.Facade components
 - deleted Application, Data and GUI composite components
 - deployed basic components directly on resource containers of new scenario
+
+Making simulation work:
+- had to delete 1 of 2 System Provided Roles for Interface "CashDeskConnectorIf"
+  (simulation can only cope with 1 System Provided Role for each Interface)
+- had to adapt SEFF "TradingSystem.Inventory.Application.ProductDispatcher.orderProductsAvailableAtOtherStores"
+  (replaced numberOfStores.VALUE by 2 because only simplified SEFFS are available)

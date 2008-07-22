@@ -142,7 +142,7 @@
           <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_dVr08NL0EduQ7qbNANXHPw" entityName="flushDatabase" predecessor_AbstractAction="_85pncNLzEduQ7qbNANXHPw" successor_AbstractAction="_uyhfQNL0EduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.6/@signatures__Interface.9" role_ExternalService="_AXZsESDlEdyyNLPIIGbfMQ"/>
           <steps_Behaviour xsi:type="_1:InternalAction" id="_uyhfQNL0EduQ7qbNANXHPw" entityName="collect started threads" predecessor_AbstractAction="_dVr08NL0EduQ7qbNANXHPw" successor_AbstractAction="_7g2BcNLzEduQ7qbNANXHPw"/>
         </bodyBehaviour_Loop>
-        <iterationCount_LoopAction specification="numberOfStores.VALUE"/>
+        <iterationCount_LoopAction specification="2"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_EteToNL1EduQ7qbNANXHPw" entityName="time out realisation" predecessor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw" successor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_OpTDkNL1EduQ7qbNANXHPw" entityName="getProductIds" predecessor_AbstractAction="_EteToNL1EduQ7qbNANXHPw" successor_AbstractAction="_7puwUNL2EduQ7qbNANXHPw">
@@ -197,7 +197,7 @@
                 </steps_Behaviour>
                 <steps_Behaviour xsi:type="_1:InternalAction" id="_pcULYNL7EdujoZKiiOMQBA" entityName="List.put" predecessor_AbstractAction="_XvDU4NL6EdujoZKiiOMQBA" successor_AbstractAction="_3oeaANL5EdujoZKiiOMQBA"/>
               </bodyBehaviour_Loop>
-              <iterationCount_LoopAction specification="numberOfStores.VALUE"/>
+              <iterationCount_LoopAction specification="2"/>
             </steps_Behaviour>
           </branchBehaviour_BranchTransition>
           <branchCondition_GuardedBranchTransition specification="productAmounts.NUMBER_OF_ELEMENTS > 0"/>
@@ -211,7 +211,7 @@
           <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_BmEuwNL-EdujoZKiiOMQBA" entityName="markProductsUnavailableInStock" predecessor_AbstractAction="_81y2oNL9EdujoZKiiOMQBA" successor_AbstractAction="_FOYSMNL-EdujoZKiiOMQBA" calledService_ExternalService="//@interfaces__Repository.6/@signatures__Interface.8" role_ExternalService="_AXZsESDlEdyyNLPIIGbfMQ"/>
           <steps_Behaviour xsi:type="_1:StopAction" id="_FOYSMNL-EdujoZKiiOMQBA" predecessor_AbstractAction="_BmEuwNL-EdujoZKiiOMQBA"/>
         </bodyBehaviour_Loop>
-        <iterationCount_LoopAction specification="numberOfStores.VALUE"/>
+        <iterationCount_LoopAction specification="2"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_NeLlMNL-EdujoZKiiOMQBA" entityName="sumUp" predecessor_AbstractAction="_pbL4ENL9EdujoZKiiOMQBA" successor_AbstractAction="_A2scgN7AEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="_1:SetVariableAction" id="_A2scgN7AEduAmOtZLewIEg" entityName="setReturnValue" predecessor_AbstractAction="_NeLlMNL-EdujoZKiiOMQBA" successor_AbstractAction="_BYli0NLyEduQ7qbNANXHPw">

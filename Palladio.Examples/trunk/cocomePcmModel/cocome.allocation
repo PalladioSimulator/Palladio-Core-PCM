@@ -12,10 +12,6 @@
     <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
     <assemblyContext_AllocationContext href="cocome.system#_jN79kFcqEd23wcZsd06DZg"/>
   </allocationContexts_Allocation>
-  <allocationContexts_Allocation id="_NbexUFc_Ed23wcZsd06DZg" entityName="Data.Enterprise_EnterpriseServer">
-    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
-    <assemblyContext_AllocationContext href="cocome.system#_taw98FcqEd23wcZsd06DZg"/>
-  </allocationContexts_Allocation>
   <allocationContexts_Allocation id="_RGit0Fc_Ed23wcZsd06DZg" entityName="Data.Store_EnterpriseServer">
     <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
     <assemblyContext_AllocationContext href="cocome.system#_07dvQFcqEd23wcZsd06DZg"/>
@@ -79,6 +75,10 @@
   <allocationContexts_Allocation id="_FwvBQFdBEd23wcZsd06DZg" entityName="GUI.Store_Store_2_Client">
     <resourceContainer_AllocationContext href="cocome.resourceenvironment#_me5D4VcdEd23wcZsd06DZg"/>
     <assemblyContext_AllocationContext href="cocome.system#_8jo5MFc4Ed23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_d-oBAFfjEd26K8JlmYJ10w" entityName="Data.Enterprise_EnterpriseServer">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_LoXbYFfjEd26K8JlmYJ10w"/>
   </allocationContexts_Allocation>
   <targetResourceEnvironment_Allocation href="cocome.resourceenvironment#/"/>
   <system_Allocation href="cocome.system#_3Sgb8FcmEd23wcZsd06DZg"/>
