@@ -28,7 +28,8 @@ Require-Bundle: org.eclipse.ui,
  org.jfree.jfreechart,
  de.uka.ipd.sdq.context,
  LQNModel,
- de.uka.ipd.sdq.codegen.runconfig
+ de.uka.ipd.sdq.codegen.runconfig,
+ de.uka.ipd.sdq.markov
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,

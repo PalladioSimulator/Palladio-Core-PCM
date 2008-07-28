@@ -58,7 +58,8 @@ public class DependencySolver {
 		
 		runDSolver();
 		
-		Expression result = runPcm2RegEx();
+		// Expression result = runPcm2RegEx();
+		Expression result = runPcm2Markov();
 		
 		//IProbabilityDensityFunction iPDF = runCalculation(result);
 		
@@ -76,7 +77,8 @@ public class DependencySolver {
 		
 		runDSolver();
 		
-		Expression result = runPcm2RegEx();
+		// Expression result = runPcm2RegEx();
+		Expression result = runPcm2Markov();
 		
 		//IProbabilityDensityFunction iPDF = runCalculation(result);
 		
@@ -155,6 +157,21 @@ public class DependencySolver {
 	}
 
 	/**
+	 * Transforms a PCM instance with solved dependencies
+	 * to a Markov chain to predict reliability of entry-level
+	 * system calls (fb)
+	 * @return ??
+	 */
+	private Expression runPcm2Markov() {
+		long timeBeforeTransform = System.nanoTime();
+		Expression result = pcm2Markov(currentModel);
+		long timeAfterTransform = System.nanoTime();
+		long duration2 = TimeUnit.NANOSECONDS.toMillis(timeAfterTransform-timeBeforeTransform);
+		logger.debug("Finished Markov Transform, Duration: "+ duration2 + " ms");
+		return result;
+	}
+
+	/**
 	 * 
 	 */
 	private void runDSolver() {
@@ -185,6 +202,14 @@ public class DependencySolver {
 		System.out.println();
 		
 		return result;
+	}
+
+	/**
+	 * Performs the Transformation from PCM to Markov (fb)
+	 * @return ??
+	 */
+	private Expression pcm2Markov(PCMInstance currentModel) {
+		return null;
 	}
 
 	private void visitScenarioEMFSwitch(){
