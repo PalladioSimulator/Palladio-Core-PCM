@@ -135,6 +135,43 @@ public interface MarkovPackage extends EPackage {
 	int TRANSITION_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link markov.impl.MarkovChainImpl <em>Chain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see markov.impl.MarkovChainImpl
+	 * @see markov.impl.MarkovPackageImpl#getMarkovChain()
+	 * @generated
+	 */
+	int MARKOV_CHAIN = 2;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKOV_CHAIN__STATES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Transitions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKOV_CHAIN__TRANSITIONS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Chain</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKOV_CHAIN_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link markov.StateType <em>State Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,7 +179,7 @@ public interface MarkovPackage extends EPackage {
 	 * @see markov.impl.MarkovPackageImpl#getStateType()
 	 * @generated
 	 */
-	int STATE_TYPE = 2;
+	int STATE_TYPE = 3;
 
 
 	/**
@@ -208,6 +245,38 @@ public interface MarkovPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTransition_ToState();
+
+	/**
+	 * Returns the meta object for class '{@link markov.MarkovChain <em>Chain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chain</em>'.
+	 * @see markov.MarkovChain
+	 * @generated
+	 */
+	EClass getMarkovChain();
+
+	/**
+	 * Returns the meta object for the reference list '{@link markov.MarkovChain#getStates <em>States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>States</em>'.
+	 * @see markov.MarkovChain#getStates()
+	 * @see #getMarkovChain()
+	 * @generated
+	 */
+	EReference getMarkovChain_States();
+
+	/**
+	 * Returns the meta object for the reference list '{@link markov.MarkovChain#getTransitions <em>Transitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Transitions</em>'.
+	 * @see markov.MarkovChain#getTransitions()
+	 * @see #getMarkovChain()
+	 * @generated
+	 */
+	EReference getMarkovChain_Transitions();
 
 	/**
 	 * Returns the meta object for enum '{@link markov.StateType <em>State Type</em>}'.
@@ -292,6 +361,32 @@ public interface MarkovPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSITION__TO_STATE = eINSTANCE.getTransition_ToState();
+
+		/**
+		 * The meta object literal for the '{@link markov.impl.MarkovChainImpl <em>Chain</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see markov.impl.MarkovChainImpl
+		 * @see markov.impl.MarkovPackageImpl#getMarkovChain()
+		 * @generated
+		 */
+		EClass MARKOV_CHAIN = eINSTANCE.getMarkovChain();
+
+		/**
+		 * The meta object literal for the '<em><b>States</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MARKOV_CHAIN__STATES = eINSTANCE.getMarkovChain_States();
+
+		/**
+		 * The meta object literal for the '<em><b>Transitions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MARKOV_CHAIN__TRANSITIONS = eINSTANCE.getMarkovChain_Transitions();
 
 		/**
 		 * The meta object literal for the '{@link markov.StateType <em>State Type</em>}' enum.

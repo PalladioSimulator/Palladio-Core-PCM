@@ -13,12 +13,16 @@
       <genEnumLiterals ecoreEnumLiteral="markov.ecore#//StateType/Failure"/>
     </genEnums>
     <genClasses ecoreClass="markov.ecore#//State">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute markov.ecore#//State/Type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute markov.ecore#//State/type"/>
     </genClasses>
     <genClasses ecoreClass="markov.ecore#//Transition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute markov.ecore#//Transition/Probability"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference markov.ecore#//Transition/FromState"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference markov.ecore#//Transition/ToState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute markov.ecore#//Transition/probability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference markov.ecore#//Transition/fromState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference markov.ecore#//Transition/toState"/>
+    </genClasses>
+    <genClasses ecoreClass="markov.ecore#//MarkovChain">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference markov.ecore#//MarkovChain/states"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference markov.ecore#//MarkovChain/transitions"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
