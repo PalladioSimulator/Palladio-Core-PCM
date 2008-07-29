@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import markov.MarkovChain;
+
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
@@ -19,6 +21,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.ExpressionPrinter;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformUsageModelVisitor;
+import de.uka.ipd.sdq.pcmsolver.visitors.MarkovUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visualisation.JFVisualisation;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
@@ -58,8 +61,8 @@ public class DependencySolver {
 		
 		runDSolver();
 		
-		// Expression result = runPcm2RegEx();
-		Expression result = runPcm2Markov();
+		//Expression result = runPcm2RegEx();
+		MarkovChain result = runPcm2Markov();
 		
 		//IProbabilityDensityFunction iPDF = runCalculation(result);
 		
@@ -77,8 +80,7 @@ public class DependencySolver {
 		
 		runDSolver();
 		
-		// Expression result = runPcm2RegEx();
-		Expression result = runPcm2Markov();
+		Expression result = runPcm2RegEx();
 		
 		//IProbabilityDensityFunction iPDF = runCalculation(result);
 		
@@ -158,13 +160,13 @@ public class DependencySolver {
 
 	/**
 	 * Transforms a PCM instance with solved dependencies
-	 * to a Markov chain to predict reliability of entry-level
+	 * to a Markov Chain to predict reliability of entry-level
 	 * system calls (fb)
-	 * @return ??
+	 * @return the Markov Chain resulting from the transformation
 	 */
-	private Expression runPcm2Markov() {
+	private MarkovChain runPcm2Markov() {
 		long timeBeforeTransform = System.nanoTime();
-		Expression result = pcm2Markov(currentModel);
+		MarkovChain result = pcm2Markov(currentModel);
 		long timeAfterTransform = System.nanoTime();
 		long duration2 = TimeUnit.NANOSECONDS.toMillis(timeAfterTransform-timeBeforeTransform);
 		logger.debug("Finished Markov Transform, Duration: "+ duration2 + " ms");
@@ -206,10 +208,19 @@ public class DependencySolver {
 
 	/**
 	 * Performs the Transformation from PCM to Markov (fb)
-	 * @return ??
+	 * @return the Markov Chain resulting from the transformation
 	 */
-	private Expression pcm2Markov(PCMInstance currentModel) {
-		return null;
+	private MarkovChain pcm2Markov(PCMInstance currentModel) {
+		MarkovUsageModelVisitor umVisit = new MarkovUsageModelVisitor(currentModel);
+		UsageScenario us = (UsageScenario)currentModel.getUsageModel().getUsageScenario_UsageModel().get(0);
+		MarkovChain result = null;
+		try {
+			result = (MarkovChain)umVisit.doSwitch(us.getScenarioBehaviour_UsageScenario());
+		} catch (Exception e) {
+			logger.error("Usage Scenario caused Exception!" + e.getMessage());
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	private void visitScenarioEMFSwitch(){
