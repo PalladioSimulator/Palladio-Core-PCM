@@ -8,6 +8,16 @@ import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
  * Control interface for the SimuCom Framework. It defines methods, which are responsible
  * for starting and stopping the simulation.
  * 
+ * The code generated for each SimuCom instance contains the class 
+ * main.SimuComControl that implements this interface and provides the 
+ * missing information. 
+ * 
+ * Excerpt from main.SimuComControl:
+ * public class SimuComControl extends
+ * 		de.uka.ipd.sdq.simucomframework.AbstractMain implements
+ * 		de.uka.ipd.sdq.simucomframework.ISimuComControl,
+ * 		org.osgi.framework.BundleActivator {
+ * 
  * @author Roman Andrej
  * 		   Steffen Becker
  */

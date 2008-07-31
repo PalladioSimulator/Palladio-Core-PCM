@@ -29,6 +29,11 @@ public class OrderPreservingCompositeJob implements ICompositeJob {
 		}
 	}
 
+	/** 
+	 * Executes all contained jobs, i.e. call execute() for them. Contained 
+	 * jobs can thus re-implement this method with functionality that should 
+	 * be executed.
+	 */ 
 	public void execute() throws JobFailedException, UserCanceledException {
 		for (IJob job : myJobs) {
 			myExecutedJobs.push(job);

@@ -17,7 +17,19 @@ import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 /**
  * Base class for simulation instances. It contains a generic simulation start
- * and stop logic as well as basic error handling mechanisms
+ * and stop logic as well as basic error handling mechanisms.
+ * 
+ * The code generated for each SimuCom instance contains the class 
+ * main.SimuComControl that inherits from this one and provides the 
+ * missing information. 
+ * 
+ * Excerpt from main.SimuComControl:
+ * public class SimuComControl extends
+ * 		de.uka.ipd.sdq.simucomframework.AbstractMain implements
+ * 		de.uka.ipd.sdq.simucomframework.ISimuComControl,
+ * 		org.osgi.framework.BundleActivator {
+ * 	
+ * 
  * @author Steffen Becker
  *
  */

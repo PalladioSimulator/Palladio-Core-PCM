@@ -7,7 +7,7 @@ package de.uka.ipd.sdq.simucomframework;
  */
 public enum SimuComResult {
 	/**
-	 * Simulation caused an error most likly by raising an exception 
+	 * Simulation caused an error most likely by raising an exception 
 	 */
 	ERROR, 
 	
