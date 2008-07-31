@@ -90,18 +90,27 @@ public class MarkovSwitch<T> {
 			case MarkovPackage.STATE: {
 				State state = (State)theEObject;
 				T result = caseState(state);
+				if (result == null) result = caseEntity(state);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case MarkovPackage.TRANSITION: {
 				Transition transition = (Transition)theEObject;
 				T result = caseTransition(transition);
+				if (result == null) result = caseEntity(transition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case MarkovPackage.MARKOV_CHAIN: {
 				MarkovChain markovChain = (MarkovChain)theEObject;
 				T result = caseMarkovChain(markovChain);
+				if (result == null) result = caseEntity(markovChain);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MarkovPackage.ENTITY: {
+				Entity entity = (Entity)theEObject;
+				T result = caseEntity(entity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -151,6 +160,21 @@ public class MarkovSwitch<T> {
 	 * @generated
 	 */
 	public T caseMarkovChain(MarkovChain object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntity(Entity object) {
 		return null;
 	}
 

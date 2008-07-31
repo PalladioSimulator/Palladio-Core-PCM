@@ -6,9 +6,8 @@
  */
 package markov.impl;
 
+import markov.Entity;
 import markov.MarkovPackage;
-import markov.State;
-import markov.StateType;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -19,44 +18,44 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>State</b></em>'.
+ * An implementation of the model object '<em><b>Entity</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link markov.impl.StateImpl#getType <em>Type</em>}</li>
+ *   <li>{@link markov.impl.EntityImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StateImpl extends EntityImpl implements State {
+public class EntityImpl extends EObjectImpl implements Entity {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final StateType TYPE_EDEFAULT = StateType.DEFAULT;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected StateType type = TYPE_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StateImpl() {
+	protected EntityImpl() {
 		super();
 	}
 
@@ -67,7 +66,7 @@ public class StateImpl extends EntityImpl implements State {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MarkovPackage.Literals.STATE;
+		return MarkovPackage.Literals.ENTITY;
 	}
 
 	/**
@@ -75,8 +74,8 @@ public class StateImpl extends EntityImpl implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StateType getType() {
-		return type;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -84,11 +83,11 @@ public class StateImpl extends EntityImpl implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(StateType newType) {
-		StateType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MarkovPackage.STATE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, MarkovPackage.ENTITY__NAME, oldName, name));
 	}
 
 	/**
@@ -99,8 +98,8 @@ public class StateImpl extends EntityImpl implements State {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MarkovPackage.STATE__TYPE:
-				return getType();
+			case MarkovPackage.ENTITY__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,8 +112,8 @@ public class StateImpl extends EntityImpl implements State {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MarkovPackage.STATE__TYPE:
-				setType((StateType)newValue);
+			case MarkovPackage.ENTITY__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,8 +127,8 @@ public class StateImpl extends EntityImpl implements State {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MarkovPackage.STATE__TYPE:
-				setType(TYPE_EDEFAULT);
+			case MarkovPackage.ENTITY__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -143,8 +142,8 @@ public class StateImpl extends EntityImpl implements State {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MarkovPackage.STATE__TYPE:
-				return type != TYPE_EDEFAULT;
+			case MarkovPackage.ENTITY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -159,10 +158,10 @@ public class StateImpl extends EntityImpl implements State {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
+		result.append(" (Name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
 
-} //StateImpl
+} //EntityImpl

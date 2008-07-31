@@ -6,6 +6,7 @@
  */
 package markov.impl;
 
+import markov.Entity;
 import markov.MarkovChain;
 import markov.MarkovFactory;
 import markov.MarkovPackage;
@@ -48,6 +49,13 @@ public class MarkovPackageImpl extends EPackageImpl implements MarkovPackage {
 	 * @generated
 	 */
 	private EClass markovChainEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,6 +218,24 @@ public class MarkovPackageImpl extends EPackageImpl implements MarkovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEntity() {
+		return entityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEntity_Name() {
+		return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getStateType() {
 		return stateTypeEEnum;
 	}
@@ -254,6 +280,9 @@ public class MarkovPackageImpl extends EPackageImpl implements MarkovPackage {
 		createEReference(markovChainEClass, MARKOV_CHAIN__STATES);
 		createEReference(markovChainEClass, MARKOV_CHAIN__TRANSITIONS);
 
+		entityEClass = createEClass(ENTITY);
+		createEAttribute(entityEClass, ENTITY__NAME);
+
 		// Create enums
 		stateTypeEEnum = createEEnum(STATE_TYPE);
 	}
@@ -286,6 +315,9 @@ public class MarkovPackageImpl extends EPackageImpl implements MarkovPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		stateEClass.getESuperTypes().add(this.getEntity());
+		transitionEClass.getESuperTypes().add(this.getEntity());
+		markovChainEClass.getESuperTypes().add(this.getEntity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -299,6 +331,9 @@ public class MarkovPackageImpl extends EPackageImpl implements MarkovPackage {
 		initEClass(markovChainEClass, MarkovChain.class, "MarkovChain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMarkovChain_States(), this.getState(), null, "states", null, 0, -1, MarkovChain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMarkovChain_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, MarkovChain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEntity_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(stateTypeEEnum, StateType.class, "StateType");

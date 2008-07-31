@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Transition extends EObject {
+public interface Transition extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Probability</b></em>' attribute.
 	 * <!-- begin-user-doc -->

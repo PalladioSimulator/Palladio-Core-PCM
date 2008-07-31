@@ -64,6 +64,7 @@ public class MarkovFactoryImpl extends EFactoryImpl implements MarkovFactory {
 			case MarkovPackage.STATE: return createState();
 			case MarkovPackage.TRANSITION: return createTransition();
 			case MarkovPackage.MARKOV_CHAIN: return createMarkovChain();
+			case MarkovPackage.ENTITY: return createEntity();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -127,6 +128,16 @@ public class MarkovFactoryImpl extends EFactoryImpl implements MarkovFactory {
 	public MarkovChain createMarkovChain() {
 		MarkovChainImpl markovChain = new MarkovChainImpl();
 		return markovChain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Entity createEntity() {
+		EntityImpl entity = new EntityImpl();
+		return entity;
 	}
 
 	/**

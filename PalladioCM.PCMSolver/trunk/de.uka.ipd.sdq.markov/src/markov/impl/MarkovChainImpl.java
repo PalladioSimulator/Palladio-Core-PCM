@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class MarkovChainImpl extends EObjectImpl implements MarkovChain {
+public class MarkovChainImpl extends EntityImpl implements MarkovChain {
 	/**
 	 * The cached value of the '{@link #getStates() <em>States</em>}' reference list.
 	 * <!-- begin-user-doc -->

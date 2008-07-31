@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface MarkovChain extends EObject {
+public interface MarkovChain extends Entity {
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' reference list.
 	 * The list contents are of type {@link markov.State}.
