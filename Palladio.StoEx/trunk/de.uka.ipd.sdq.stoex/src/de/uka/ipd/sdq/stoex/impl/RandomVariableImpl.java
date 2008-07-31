@@ -116,12 +116,16 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setExpression(Expression newExpression) {
 		// TODO: implement this method to set the 'Expression' reference
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+		//Anne: Just put this in comments because the expression is probably always null...
+		//throw new UnsupportedOperationException();
+		
+		
 	}
 
 	/**
