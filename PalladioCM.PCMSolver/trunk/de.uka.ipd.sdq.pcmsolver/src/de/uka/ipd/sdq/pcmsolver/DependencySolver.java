@@ -17,11 +17,12 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
+import de.uka.ipd.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.MarkovUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.ExpressionPrinter;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformUsageModelVisitor;
-import de.uka.ipd.sdq.pcmsolver.visitors.MarkovUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visualisation.JFVisualisation;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
@@ -61,8 +62,11 @@ public class DependencySolver {
 		
 		runDSolver();
 		
-		//Expression result = runPcm2RegEx();
-		MarkovChain result = runPcm2Markov();
+		// Expression result = runPcm2RegEx();
+		MarkovChain result2 = runPcm2Markov();
+		
+		MarkovSolver solver = new MarkovSolver();
+		double prob = solver.solve(result2);
 		
 		//IProbabilityDensityFunction iPDF = runCalculation(result);
 		
