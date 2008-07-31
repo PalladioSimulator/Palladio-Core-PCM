@@ -35,6 +35,7 @@ public class FileExperimentDAO extends AbstractFileDAO<Experiment> implements IE
 		return exp;
 	}
 
+	/**{@inheritDoc}*/
 	public Collection<Experiment> findByExperimentName(String searchKey) {
 		List<Experiment> result = new ArrayList<Experiment>();
 		for (Experiment exp : getAllEntities())

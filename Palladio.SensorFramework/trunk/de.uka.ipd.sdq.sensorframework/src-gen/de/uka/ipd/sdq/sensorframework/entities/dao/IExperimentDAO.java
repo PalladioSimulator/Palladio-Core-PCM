@@ -15,8 +15,11 @@ public interface IExperimentDAO {
 	 */
 	void removeExperiment(de.uka.ipd.sdq.sensorframework.entities.Experiment experiment, boolean doCascade);
 
-	/* Finder methods to search for Experiments */
-
+	/** 
+	 * Finder methods to search for Experiments. Returns a collection of experiments with that name. 
+	 * @return A collection of matching experiment. The collection might be empty, but must not be null.  
+	 * 
+	 */
 	java.util.Collection<de.uka.ipd.sdq.sensorframework.entities.Experiment> 
 		findByExperimentName(String searchKey);
 

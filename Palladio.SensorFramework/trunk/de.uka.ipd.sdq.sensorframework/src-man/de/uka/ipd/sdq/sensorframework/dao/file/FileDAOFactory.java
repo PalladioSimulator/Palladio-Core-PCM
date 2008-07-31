@@ -83,29 +83,44 @@ public class FileDAOFactory implements IDAOFactory {
 	public String getRootDirectory() {
 		return fileManager.getRootDirectory();
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory#createExperimentDAO()
+	 */
 	public IExperimentDAO createExperimentDAO() {
 		if (this.experimentDAO == null)
 			this.experimentDAO = new FileExperimentDAO(this, idGen);
 		return this.experimentDAO;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory#createExperimentRunDAO()
+	 */
 	public IExperimentRunDAO createExperimentRunDAO() {
 		if (this.experimentRunDAO == null)
 			this.experimentRunDAO = new FileExperimentRunDAO(this, idGen);
 		return this.experimentRunDAO;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory#createMeasurementDAO()
+	 */
 	public IMeasurementDAO createMeasurementDAO() {
 		throw new UnsupportedOperationException();
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory#createSensorDAO()
+	 */
 	public ISensorDAO createSensorDAO() {
 		if (this.sensorDAO == null)
 			this.sensorDAO = new FileSensorDAO(this, idGen);
 		return this.sensorDAO;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory#createStateDAO()
+	 */
 	public IStateDAO createStateDAO() {
 		if (this.stateDAO == null)
 			this.stateDAO = new FileStateDAO(this, idGen);

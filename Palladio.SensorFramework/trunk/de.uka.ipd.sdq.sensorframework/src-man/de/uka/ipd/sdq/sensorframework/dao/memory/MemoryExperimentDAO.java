@@ -40,6 +40,7 @@ public class MemoryExperimentDAO implements IExperimentDAO {
 		return Collections.unmodifiableCollection(index.values());
 	}
 
+	/** {@inheritDoc}*/
 	public synchronized Collection<Experiment> findByExperimentName(String searchKey) {
 		ArrayList<Experiment> result = new ArrayList<Experiment>();
 		for (Experiment e:this.index.values()){
