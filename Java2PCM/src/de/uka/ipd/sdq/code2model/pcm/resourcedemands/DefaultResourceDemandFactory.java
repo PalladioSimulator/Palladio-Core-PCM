@@ -4,6 +4,8 @@ import java.util.Hashtable;
 import java.util.List;
 
 import de.uka.ipd.sdq.code2model.pcm.Code2ModelRepository;
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
@@ -17,7 +19,9 @@ import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
  */
 public class DefaultResourceDemandFactory extends ResourceDemandFactory {
 
-	private static final String DEFAULT_SPECIFICATION = "0";
+	//private static final String DEFAULT_SPECIFICATION = "0"; // in PCM 3.x no more a string
+	private static final PCMRandomVariable DEFAULT_SPECIFICATION =
+		CoreFactory.eINSTANCE.createPCMRandomVariable();
 
 	private static final String METHOD_WILDCARD = "";
 
@@ -89,7 +93,7 @@ public class DefaultResourceDemandFactory extends ResourceDemandFactory {
 	public ParametricResourceDemand createResourceDemand(List<String> args,
 			String packageName, String methodName) {
 		demand = this.seffFactory.createParametricResourceDemand();
-		demand.setSpecification(DEFAULT_SPECIFICATION);
+		demand.setSpecification_ParametericResourceDemand(DEFAULT_SPECIFICATION);
 		
 		String key = createKey(packageName, methodName);
 		ProcessingResourceType resourceType = internalActionMethodToResource.get(key);
@@ -97,10 +101,10 @@ public class DefaultResourceDemandFactory extends ResourceDemandFactory {
 			key = createKey(packageName, METHOD_WILDCARD);
 			resourceType = internalActionMethodToResource.get(key);
 		}
-		if (resourceType != null) {
-			String unit = resourcetypeToUnit.get(resourceType);		
+		if (resourceType != null) {			
 			demand.setRequiredResource_ParametricResourceDemand(resourceType);
-			demand.setUnit(unit);
+			//String unit = resourcetypeToUnit.get(resourceType);		
+			//demand.setUnit(unit); //unit unused in PCM 3.x
 		}
 
 		return demand;
@@ -109,12 +113,13 @@ public class DefaultResourceDemandFactory extends ResourceDemandFactory {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.code2model.pcm.resourcedemands.ResourceDemandFactory#getNewCPUDemand()
 	 */
+	@Override
 	public ParametricResourceDemand getNewCPUDemand() {
 		demand = this.seffFactory.createParametricResourceDemand();
-		demand.setSpecification(DEFAULT_SPECIFICATION);
-		String unit = resourcetypeToUnit.get(Code2ModelRepository.CPU_RESOURCETYPE);		
-		demand.setRequiredResource_ParametricResourceDemand(Code2ModelRepository.CPU_RESOURCETYPE);
-		demand.setUnit(unit);
+		demand.setSpecification_ParametericResourceDemand(DEFAULT_SPECIFICATION);		
+		demand.setRequiredResource_ParametricResourceDemand(Code2ModelRepository.CPU_RESOURCETYPE);		
+		//String unit = resourcetypeToUnit.get(Code2ModelRepository.CPU_RESOURCETYPE);
+		//demand.setUnit(unit); //unit unused in PCM 3.x
 		return demand;
 	}
 

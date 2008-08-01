@@ -15,6 +15,8 @@ import de.uka.ipd.sdq.code2model.pcm.resourcedemands.DefaultResourceDemandFactor
 import de.uka.ipd.sdq.code2model.pcm.resourcedemands.ResourceDemandFactory;
 import de.uka.ipd.sdq.code2model.ui.UserMessage;
 import de.uka.ipd.sdq.code2model.wrappers.Method;
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
@@ -26,13 +28,12 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.BranchCondition;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
+import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.IterationCount;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -101,6 +102,7 @@ public class SeffBuilder {
 	private Stack<Boolean> branchCreationRecord;
 	private Logger logger;
 	private StoexFactory stoexFactory;
+	private CoreFactory coreFactory;
 
 	public SeffBuilder() {
 		this.seffFactory = SeffFactory.eINSTANCE;
@@ -114,7 +116,8 @@ public class SeffBuilder {
 		this.repository = new Code2ModelRepository();
 		this.rdFactory = decideOnResourceDemandFactory();
 		this.parameterFactory = ParameterFactory.eINSTANCE;
-		this.stoexFactory = StoexFactory.eINSTANCE;
+		this.stoexFactory = StoexFactory.eINSTANCE;		
+		this.coreFactory = CoreFactory.eINSTANCE;
 		
 		List foo = new ArrayList();
 		
@@ -215,10 +218,13 @@ public class SeffBuilder {
 	private void addBranchTransition(BranchAction branchAction, String condStr) {
 		GuardedBranchTransition transition = this.seffFactory
 				.createGuardedBranchTransition();
-		BranchCondition condition = this.seffFactory.createBranchCondition();
-
-		condition.setSpecification(condStr);
-		transition.setBranchCondition_BranchTransition(condition);
+		//GuardedBranchTransition condition = this.seffFactory.createGuardedBranchTransition();
+		
+		PCMRandomVariable randomVariable = coreFactory.createPCMRandomVariable();
+		randomVariable.setSpecification(condStr);		
+		//condition.setBranchCondition_GuardedBranchTransition(randomVariable);
+		//transition.setBranchCondition_BranchTransition(condition);
+		transition.setBranchCondition_GuardedBranchTransition(randomVariable);
 
 		ResourceDemandingBehaviour branchBehaviour = this.createRDBehaviour();
 		transition.setBranchBehaviour_BranchTransition(branchBehaviour);
@@ -354,11 +360,11 @@ public class SeffBuilder {
 		// For nested conditionals, we abstract from the code and merge the
 		// branches into one.
 		if (transitionCanBeMerged()) {
-			BranchCondition prevCondition = this.transitions.peek()
-					.getBranchCondition_BranchTransition();
+			PCMRandomVariable prevCondition = this.transitions.peek().getBranchCondition_GuardedBranchTransition();
+			//BranchCondition prevCondition = this.transitions.peek()
+			//		.getBranchCondition_BranchTransition();
 			prevCondition.setSpecification(getCurrentTransitionCondition());
-			this.transitions.peek().setBranchCondition_BranchTransition(
-					prevCondition);
+			this.transitions.peek().setBranchCondition_GuardedBranchTransition(prevCondition);
 			this.transitionMergeRecord.push(true);
 		// The last action was something different, so we create a new
 		// BranchTransition.
@@ -397,9 +403,10 @@ public class SeffBuilder {
 	 */
 	public void loopStatement(String loopExp) {
 		LoopAction loopAction = this.seffFactory.createLoopAction();
-		IterationCount itCount = SeffFactory.eINSTANCE.createIterationCount();
-		itCount.setSpecification(loopExp);
-		loopAction.setIterations_LoopAction(itCount);
+		
+		PCMRandomVariable randomVariable = this.coreFactory.createPCMRandomVariable();
+		randomVariable.setSpecification(loopExp);
+		loopAction.setIterationCount_LoopAction(randomVariable);
 
 		addLoop(loopAction);
 	}
@@ -547,7 +554,8 @@ public class SeffBuilder {
 		AbstractNamedReference ref = stoexFactory.createVariableReference();
 		ref.setReferenceName(paramName);
 		v.setNamedReference_VariableUsage(ref);
-		extAction.getParameterUsage_ExternalCallAction().add(v);
+		//extAction.getParameterUsage_ExternalCallAction() // PCM 3.x has distinction between in and out
+		extAction.getInputParameterUsages_ExternalCallAction().add(v);
 	}
 
 	/**
@@ -669,8 +677,10 @@ public class SeffBuilder {
 		ForkAction forkAction = this.seffFactory.createForkAction();
 		addActionToBehaviour(forkAction);
 
-		ResourceDemandingBehaviour threadBehaviour = this.createRDBehaviour();
-		forkAction.getForkedBehaviours_Fork().add(threadBehaviour);
+		// we know that ForkedBehaviour is ResourceDemandingBehaviour FIXME: make new createRDBehaviour() method
+		ForkedBehaviour threadBehaviour = (ForkedBehaviour) this.createRDBehaviour();
+		
+		forkAction.getAsynchronousForkedBehaviours_ForkAction().add(threadBehaviour);
 		this.behaviours.push(threadBehaviour);
 	}
 

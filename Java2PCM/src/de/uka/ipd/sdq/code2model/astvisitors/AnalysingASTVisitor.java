@@ -481,6 +481,7 @@ public class AnalysingASTVisitor extends SelectionAwareASTVisitor {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.code2model.astvisitors.InliningASTVisitor#beforeInlining(org.eclipse.jdt.core.dom.MethodDeclaration, java.util.List)
 	 */
+	@Override
 	protected void beforeInlining(MethodDeclaration decl, List<Expression> args) {
 		try {
 			this.translator.inlinedMethod(decl.parameters(), args);
