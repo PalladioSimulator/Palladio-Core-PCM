@@ -1,17 +1,11 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
-import java.util.ListIterator;
-
 import markov.MarkovChain;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.jface.dialogs.MessageDialog;
 
-import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationFactory;
-import de.uka.ipd.sdq.context.computed_usage.ComputedUsageFactory;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
@@ -24,62 +18,89 @@ import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
-import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformSeffVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
-import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
-import de.uka.ipd.sdq.spa.expression.Expression;
-import de.uka.ipd.sdq.spa.expression.Sequence;
-import de.uka.ipd.sdq.spa.expression.Symbol;
 
-public class MarkovUsageModelVisitor extends UsagemodelSwitch {
+/**
+ * This class represents a visitor for a UsageModel within a PCM instance. The
+ * visitor is used in the transformation from PCM with solved dependencies into
+ * a Markov Chain Model for reliability prediction.
+ * 
+ * @author brosch
+ * 
+ */
+public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 
+	/**
+	 * A logger to give detailed information about the PCM instance traversal.
+	 */
 	private static Logger logger = Logger
 			.getLogger(MarkovUsageModelVisitor.class.getName());
 
+	/**
+	 * The solved PCM instance that serves as an input for the transformation.
+	 */
 	private PCMInstance pcmInstance;
+
+	/**
+	 * The ContextWrapper provides easy access to the decorations of the solved
+	 * PCM instance.
+	 */
 	private ContextWrapper contextWrapper = null;
 
 	/**
+	 * The constructor.
+	 * 
 	 * @param inst
-	 *            an instance of the Palladio Component Metamodel
+	 *            the solved PCM Instance
 	 */
-	public MarkovUsageModelVisitor(PCMInstance inst) {
+	public MarkovUsageModelVisitor(final PCMInstance inst) {
 		pcmInstance = inst;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Returns a Markov Chain that corresponds to the first SystemLevelEntryCall
+	 * within this ScenarioBehaviour.
 	 * 
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch#caseScenarioBehaviour(de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour)
+	 * @param scenarioBehaviour
+	 *            the scenario behaviour
+	 * @return the resulting Markov Chain
 	 */
 	@Override
-	public MarkovChain caseScenarioBehaviour(ScenarioBehaviour scenarioBehaviour) {
-		logger.info("Visit ScenarioBehaviour [" + scenarioBehaviour.getEntityName() + "]");
+	public MarkovChain caseScenarioBehaviour(
+			final ScenarioBehaviour scenarioBehaviour) {
+		logger.info("Visit ScenarioBehaviour ["
+				+ scenarioBehaviour.getEntityName() + "]");
 		Start startAction = (Start) EMFHelper.getObjectByType(scenarioBehaviour
 				.getActions_ScenarioBehaviour(), Start.class);
 		return (MarkovChain) doSwitch(startAction);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Returns a Markov Chain that corresponds to the first SystemLevelEntryCall
+	 * after this starting point.
 	 * 
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch#caseStart(de.uka.ipd.sdq.pcm.usagemodel.Start)
+	 * @param start
+	 *            the starting point
+	 * @return the resulting Markov Chain
 	 */
 	@Override
-	public MarkovChain caseStart(Start start) {
+	public MarkovChain caseStart(final Start start) {
 		logger.info("Visit Start [" + start.getEntityName() + "]");
 		return (MarkovChain) doSwitch(start.getSuccessor());
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Return a Markov Chain that corresponds to this EntryLevelSystemCall.
 	 * 
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch#caseEntryLevelSystemCall(de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall)
+	 * @param entryLevelSystemCall
+	 *            the call
+	 * @return the resulting Markov Chain
 	 */
 	@Override
-	public Object caseEntryLevelSystemCall(
-			EntryLevelSystemCall entryLevelSystemCall) {
-		logger.info("Visit EntryLevelSystemCall [" + entryLevelSystemCall.getEntityName() + "]");
+	public MarkovChain caseEntryLevelSystemCall(
+			final EntryLevelSystemCall entryLevelSystemCall) {
+		logger.info("Visit EntryLevelSystemCall ["
+				+ entryLevelSystemCall.getEntityName() + "]");
 
 		// Create a new context wrapper for this entry level system call:
 		if (contextWrapper == null) {
@@ -103,13 +124,13 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch {
 	}
 
 	/**
-	 * Gets the RDSEFF that fulfills a given entryLevelSystemCall.
+	 * Gets the RDSEFF that correpsonds to a given entryLevelSystemCall.
 	 * 
 	 * @param call
 	 *            the entryLevelSystemCall
 	 * @return the RDSEFF
 	 */
-	private ServiceEffectSpecification getSeff(EntryLevelSystemCall call) {
+	private ServiceEffectSpecification getSeff(final EntryLevelSystemCall call) {
 
 		// Get the signature of the call:
 		Signature signature = call.getSignature_EntryLevelSystemCall();
