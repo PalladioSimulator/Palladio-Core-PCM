@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.code2model;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Properties;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -56,13 +57,15 @@ public class LoggingManager {
 	"log4j.appender.A1.layout=org.apache.log4j.PatternLayout\n" + 
 	"log4j.appender.A1.layout.ConversionPattern=%-4r [%t] %-5p %c{1} %x - %m%n\n";
 	
+
 	
 	/**
 	 * Initialize the logging subsystem. Must be called once, before the first
 	 * logging call.
 	 */
 	public static void initializeLogging() {
-		MessageConsole myConsole = getConsole();
+		//TODO: re-enable; did not work on Win --> so disabled
+		/*MessageConsole myConsole = getConsole();
 		MessageConsoleStream out = myConsole.newMessageStream();
 		
 		String logConfigFile = getConfigFileLocation();
@@ -75,7 +78,13 @@ public class LoggingManager {
 			writeDefaultConfigFile(confFile);
 		}
 		
-		PropertyConfigurator.configureAndWatch(logConfigFile);
+		PropertyConfigurator.configureAndWatch(logConfigFile);*/
+		Properties properties = new Properties();			
+		properties.setProperty("log4j.rootLogger", "ALL, A1");
+		properties.setProperty("log4j.appender.A1", "org.apache.log4j.ConsoleAppender");
+		properties.setProperty("log4j.appender.A1.layout", "org.apache.log4j.PatternLayout");
+		properties.setProperty("log4j.appender.A1.layout.ConversionPattern", "%-5p [%t] (%F:%M:%L) %-5r - %m%n");
+		PropertyConfigurator.configure(properties);		
 	}
 
 	/**
@@ -94,11 +103,13 @@ public class LoggingManager {
 		String workspace = ResourcesPlugin.getWorkspace().getRoot()
 				.getLocation().toOSString();
 		// TODO this is not OS-independent!
-		String fullLogfilePath = workspace + "/" + project + "/" + LOGFILE_NAME;
+		String fullLogfilePath = workspace + File.separator + project + File.separator + LOGFILE_NAME;
 		LOG4J_DEFAULT_PROPERTIES = LOG4J_DEFAULT_PROPERTIES.replaceFirst(
 				PLACEHOLDER, fullLogfilePath);
 
 		initializeLogging();
+		
+				
 	}
 
 	/**

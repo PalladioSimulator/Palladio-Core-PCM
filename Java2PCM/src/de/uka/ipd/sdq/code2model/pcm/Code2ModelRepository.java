@@ -64,7 +64,8 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
  */
 public class Code2ModelRepository {
 	private static final String PLUGIN_ID = "de.uka.ipd.sdq.code2model";
-	private static final String RESOURCETYPE_FILE = "pcm" + File.separator + "Java2PCM.resourcetype";
+	private static final String RESOURCETYPE_FILE = "pcm" + "/" + "Java2PCM.resourcetype";
+	//private static final String RESOURCETYPE_FILE = "pcm" + File.separator + "Java2PCM.resourcetype";
 	private static final String CPU_RESOURCETYPE_NAME = "CPU";
 	private static final String IO_RESOURCETYPE_NAME = "IO";
 	private static final String OUTPUT_RESOURCETYPE_NAME = "OUTPUT";
@@ -189,10 +190,15 @@ public class Code2ModelRepository {
 		logger.info("Using resource type file " + fileURI);*/
 		
 		//TODO: extract constants
+		//FIXME: Fix error
 		
-		URI fileURI = URI.createFileURI(
-				"platform:" + File.separator + "plugins" + File.separator +
-				PLUGIN_ID + File.separator + RESOURCETYPE_FILE);
+//		URI fileURI = URI.createFileURI(
+//				"platform:" + File.separator + "plugins" + File.separator +
+//				PLUGIN_ID + File.separator + RESOURCETYPE_FILE);
+		//URI fileURI = URI.createFileURI(
+		String resUrl = "platform:/plugin/" +
+				PLUGIN_ID + "/" + RESOURCETYPE_FILE;		
+		URI fileURI = URI.createPlatformPluginURI(resUrl, true);
 		logger.info("Using resource type file " + fileURI);
 
 		return fileURI;
