@@ -170,37 +170,8 @@ public class Code2ModelRepository {
 	 * @return an absolute URI to the file
 	 */
 	private URI getURIForPluginOwnedFile(String fileName) {
-
-		/*Bundle b = Platform.getBundle(PLUGIN_ID);
-
-		Path path = new Path(fileName);
-		URL resourcetypeFile = FileLocator.find(b, path, null);
-		if (resourcetypeFile == null) {
-			logger.error("Resourcetypes could not be loaded!");
-			return null;
-		}
-		try {
-			resourcetypeFile = FileLocator.resolve(resourcetypeFile);
-		} catch (IOException e) {			
-			logger.error(e.getMessage());
-			return null;
-		}
-		String p = resourcetypeFile.getPath();
-		URI fileURI = URI.createFileURI(new File(p).getAbsolutePath());
-		logger.info("Using resource type file " + fileURI);*/
-		
-		//TODO: extract constants
-		//FIXME: Fix error
-		
-//		URI fileURI = URI.createFileURI(
-//				"platform:" + File.separator + "plugins" + File.separator +
-//				PLUGIN_ID + File.separator + RESOURCETYPE_FILE);
-		//URI fileURI = URI.createFileURI(
-		String resUrl = "platform:/plugin/" +
-				PLUGIN_ID + "/" + RESOURCETYPE_FILE;		
-		URI fileURI = URI.createPlatformPluginURI(resUrl, true);
+		URI fileURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + RESOURCETYPE_FILE, true);
 		logger.info("Using resource type file " + fileURI);
-
 		return fileURI;
 	}
 
