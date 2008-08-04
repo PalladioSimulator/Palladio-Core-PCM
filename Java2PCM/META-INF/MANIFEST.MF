@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Palladio Code2Model Plug-in / Java2PCM
+Bundle-Name: Palladio Java2PCM Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.code2model;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Activator: de.uka.ipd.sdq.code2model.Activator
@@ -14,7 +14,8 @@ Import-Package: org.apache.log4j,
  org.eclipse.emf.ecore.xmi.impl,
  org.eclipse.swt.widgets,
  org.osgi.framework;version="1.4.0"
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: J2SE-1.5,
+ JavaSE-1.6
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jdt,
  org.eclipse.jdt.ui,
