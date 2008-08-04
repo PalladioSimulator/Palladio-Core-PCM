@@ -300,7 +300,7 @@ public class MarkovBuilder {
 			// The process to build a Transition for the aggregate Markov Chain
 			// depends on the characteristics of the Transition of the specific
 			// Markov Chain:
-			if (transitionSpecific.getFromState().equals(stateSpecificStart)) {
+			if (transitionSpecific.getFromState() == stateSpecificStart) {
 
 				// As the specific transition originates in the Start state of
 				// the specific Markov Chain, one aggregate Transition for each
@@ -440,8 +440,7 @@ public class MarkovBuilder {
 
 		// Go through all transitions of the Markov Chain:
 		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
-			if (markovChain.getTransitions().get(i).getToState().equals(
-					targetState)) {
+			if (markovChain.getTransitions().get(i).getToState() == targetState) {
 				resultList.add(markovChain.getTransitions().get(i));
 			}
 		}
@@ -488,10 +487,10 @@ public class MarkovBuilder {
 		// existing Transition that corresponds to the new one:
 		Transition transitionCorresponding = null;
 		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
-			if ((markovChain.getTransitions().get(i).getFromState()
-					.equals(transitionToContribute.getFromState()))
-					&& (markovChain.getTransitions().get(i).getToState()
-							.equals(transitionToContribute.getToState()))) {
+			if ((markovChain.getTransitions().get(i).getFromState() == transitionToContribute
+					.getFromState())
+					&& (markovChain.getTransitions().get(i).getToState() == transitionToContribute
+							.getToState())) {
 				transitionCorresponding = markovChain.getTransitions().get(i);
 				break;
 			}
