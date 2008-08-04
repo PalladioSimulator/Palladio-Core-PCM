@@ -1,9 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Palladio Code2Model Plug-in
+Bundle-Name: Palladio Code2Model Plug-in / Java2PCM
 Bundle-SymbolicName: de.uka.ipd.sdq.code2model;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-ClassPath: de.uka.ipd.sdq.code2model.jar
 Bundle-Activator: de.uka.ipd.sdq.code2model.Activator
 Eclipse-LazyStart: true
 Import-Package: org.apache.log4j,
@@ -16,17 +15,6 @@ Import-Package: org.apache.log4j,
  org.eclipse.swt.widgets,
  org.osgi.framework;version="1.4.0"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: de.uka.ipd.sdq.code2model,
- de.uka.ipd.sdq.code2model.analysis,
- de.uka.ipd.sdq.code2model.analysis.callclassification,
- de.uka.ipd.sdq.code2model.astvisitors,
- de.uka.ipd.sdq.code2model.pcm,
- de.uka.ipd.sdq.code2model.pcm.resourcedemands,
- de.uka.ipd.sdq.code2model.popup.actions,
- de.uka.ipd.sdq.code2model.preferences,
- de.uka.ipd.sdq.code2model.ui,
- de.uka.ipd.sdq.code2model.wizards,
- de.uka.ipd.sdq.code2model.wrappers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jdt,
  org.eclipse.jdt.ui,
@@ -34,3 +22,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.console,
  de.uka.ipd.sdq.pcm.editor,
  de.uka.ipd.sdq.pcm.stochasticexpressions
+Bundle-Vendor: sdq.ipd.uka.de
