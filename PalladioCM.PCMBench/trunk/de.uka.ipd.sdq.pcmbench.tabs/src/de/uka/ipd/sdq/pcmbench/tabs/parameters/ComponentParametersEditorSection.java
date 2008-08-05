@@ -18,6 +18,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
@@ -145,13 +146,22 @@ public class ComponentParametersEditorSection extends EditorSection {
 	}
 	
 	protected TypeEnum getExpectedType(RandomVariable rv) {
-		TypeEnum expectedType = TypeEnum.ANY; 
-		if (rv instanceof VariableCharacterisation){
-			expectedType = StochasticExpressionEditDialog.getTypeFromVariableCharacterisation((VariableCharacterisation) rv);
+		TypeEnum expectedType = TypeEnum.ANY;
+		VariableCharacterisation vc = null;
+		
+		if (rv instanceof VariableCharacterisation) {
+			vc = (VariableCharacterisation) rv;
+		}
+		if (rv instanceof PCMRandomVariable && rv.eContainer() instanceof VariableCharacterisation) {
+			vc = (VariableCharacterisation) rv.eContainer();
+		}
+		if (vc != null) {
+			expectedType = StochasticExpressionEditDialog
+				.getTypeFromVariableCharacterisation(vc);
 		}
 		return expectedType;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection#createViewerCellModifier()
 	 */
