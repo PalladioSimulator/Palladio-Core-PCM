@@ -11,33 +11,16 @@
 	«FILE "main/SimuComControl.java"»
 		package main;
 		
+		/**
+		* Main class of this SimuCom instance. Used as entry by the SimuCom Framework. The 
+		* simulation starts executing in the abstract base class and calls the methods of this 
+		* class as template methods from the template method design pattern. This class is instanciated
+		* by the SimuCom framework simulation loader via the simulation dock and Eclipse's service
+		* instanciation mechanismn.
+		**/
 		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
-				implements de.uka.ipd.sdq.simucomframework.ISimuComControl,
-				 		   org.osgi.framework.BundleActivator {
-
-				private de.uka.ipd.sdq.simucomframework.ISimuComControl service;
-				private org.osgi.framework.ServiceRegistration serviceRegistryEntry;
-				
-				/*
-				 * (non-Javadoc)
-				 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
-				 */
-				public void start(org.osgi.framework.BundleContext context) throws Exception {
-					service = new SimuComControl();
-					
-					// register the service
-					serviceRegistryEntry = context.registerService(de.uka.ipd.sdq.simucomframework.ISimuComControl.class.getName(), service, new java.util.Hashtable());
-				}
-				
-				/*
-				 * (non-Javadoc)
-				 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
-				 */
-				public void stop(org.osgi.framework.BundleContext context) throws Exception {
-					serviceRegistryEntry.unregister();
-					service = null;
-				}
-							
+		{							
+			// Override abstract framework method and return the workloads of this usage model
 			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {
 				«LET this.usageScenario_UsageModel.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
 					// Create «systemList.size» System(s)
@@ -50,7 +33,8 @@
 				};
 				«ENDLET»
 			}
-			
+
+			// Return the generated resource container class
 			protected de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory getResourceContainerFactory(){
 				return new ResourceEnvironment();
 			}
@@ -84,12 +68,22 @@
 
 «DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
 	public void scenarioRunner(de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess thread) {
+		
+		// Store our thread in the context. The thread is used later to suspend execution in case
+		// of waiting at a resource
 		ctx.setSimProcess(thread);
+		
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
 		{
+		
+			// Here comes the usage scenario code...
 			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+		
 		}
 		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
+		
+		// Increase the counter for main measurements as a run through this usage model is complete
+		ctx.getModel().increaseMainMeasurementsCount();
 	}
 «ENDDEFINE»
 

@@ -2,21 +2,13 @@ package de.uka.ipd.sdq.simucomframework;
 
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 
-
-
 /**
  * Control interface for the SimuCom Framework. It defines methods, which are responsible
  * for starting and stopping the simulation.
  * 
  * The code generated for each SimuCom instance contains the class 
- * main.SimuComControl that implements this interface and provides the 
+ * main.SimuComControl that extends {@link AbstractMain} and provides the 
  * missing information. 
- * 
- * Excerpt from main.SimuComControl:
- * public class SimuComControl extends
- * 		de.uka.ipd.sdq.simucomframework.AbstractMain implements
- * 		de.uka.ipd.sdq.simucomframework.ISimuComControl,
- * 		org.osgi.framework.BundleActivator {
  * 
  * @author Roman Andrej
  * 		   Steffen Becker
@@ -34,15 +26,19 @@ public interface ISimuComControl {
 	public SimuComResult startSimulation(SimuComConfig config, IStatusObserver statusObserver, boolean useOwnSensorstorage);
 	
 	/**
-	 * Cancels a running simulation 
+	 * Cancels a running simulation by disallowing the generation of new simulation events
 	 */
 	public void stopSimulation();
 	
 	/**
-	 * Returns an exception which caused the simulation to terminate in case of simulation errors
+	 * Returns an exception which caused the simulation to terminate in case of simulation errors as
+	 * indicated by the {@link SimuComResult} returned by the startSimulation method
 	 * @return The exception which caused the simulation to terminate
 	 */
 	public Throwable getErrorThrowable();
 
+	/** Retrieve an object containing the status of this simulation. 
+	 * @return A {@link SimuComStatus} object containing the simulation status
+	 */
 	public SimuComStatus getStatus();
 }

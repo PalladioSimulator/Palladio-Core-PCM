@@ -33,5 +33,4 @@
 «ENDDEFINE»
 
 «DEFINE UserAction FOR Stop»
-	ctx.getModel().increaseMainMeasurementsCount();
 «ENDDEFINE»

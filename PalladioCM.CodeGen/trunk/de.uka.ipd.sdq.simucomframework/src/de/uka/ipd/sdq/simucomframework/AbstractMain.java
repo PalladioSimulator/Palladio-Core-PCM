@@ -25,17 +25,38 @@ import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
  * 
  * Excerpt from main.SimuComControl:
  * public class SimuComControl extends
- * 		de.uka.ipd.sdq.simucomframework.AbstractMain implements
- * 		de.uka.ipd.sdq.simucomframework.ISimuComControl,
- * 		org.osgi.framework.BundleActivator {
- * 	
+ * 		de.uka.ipd.sdq.simucomframework.AbstractMain 
  * 
  * @author Steffen Becker
  *
  */
-public abstract class AbstractMain {
+public abstract class AbstractMain 
+implements 
+	de.uka.ipd.sdq.simucomframework.ISimuComControl,
+	org.osgi.framework.BundleActivator {
+
+	// Service registry entry for registering this object in Eclipse's service registry where
+	// it can be found by the simulation runner
+	private org.osgi.framework.ServiceRegistration serviceRegistryEntry;
+
+	/*
+	* (non-Javadoc)
+	* @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
+	*/
+	public void start(org.osgi.framework.BundleContext context) throws Exception {
+		// register the service
+		serviceRegistryEntry = context.registerService(de.uka.ipd.sdq.simucomframework.ISimuComControl.class.getName(), this, new java.util.Hashtable());
+	}
+
+	/*
+	* (non-Javadoc)
+	* @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	*/
+	public void stop(org.osgi.framework.BundleContext context) throws Exception {
+		serviceRegistryEntry.unregister();
+	}
+
 	private SimuComModel model = null;
-	private boolean isRemoteRun = false;
 	private SimuComStatus simuComStatus;
 	private static Logger logger = 
 		Logger.getLogger(AbstractMain.class.getName());
@@ -51,9 +72,7 @@ public abstract class AbstractMain {
 	protected SimuComResult run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun)
 	{
 		initializeLogger(config);
-		
-		this.isRemoteRun  = isRemoteRun;
-		
+				
 		final long SIM_STOP_TIME = config.getSimuTime();
 		
 		model = 
@@ -116,12 +135,18 @@ public abstract class AbstractMain {
 		return model.getErrorThrowable();
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.simucomframework.ISimuComControl#startSimulation(de.uka.ipd.sdq.simucomframework.SimuComConfig, de.uka.ipd.sdq.simucomframework.IStatusObserver, boolean)
+	 */
 	public de.uka.ipd.sdq.simucomframework.SimuComResult startSimulation(
 			de.uka.ipd.sdq.simucomframework.SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer,
 			boolean isRemoteRun) {
 		return run(observer,config,isRemoteRun);
 	}	
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.simucomframework.ISimuComControl#stopSimulation()
+	 */
 	public void stopSimulation() {
 		stop();
 	}
@@ -141,6 +166,9 @@ public abstract class AbstractMain {
 	 */
 	protected abstract IResourceContainerFactory getResourceContainerFactory();
 	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.simucomframework.ISimuComControl#getStatus()
+	 */
 	public SimuComStatus getStatus() {
 		if (this.simuComStatus == null) {
 			this.simuComStatus = SimucomstatusFactory.eINSTANCE.createSimuComStatus();
