@@ -44,7 +44,7 @@ public class WarmupFilteredFactory implements IFilteredCollectionFactory {
 	/**
 	 * {@inheritDoc}
 	 */
-	public boolean canFiltered(Collection<Measurement> filtrate,
+	public boolean canFilter(Collection<Measurement> filtrate,
 			Number attribute) {
 		return attribute.longValue() < filtrate.size();
 	}

@@ -44,7 +44,7 @@ public class OutlierFilteredFactory implements IFilteredCollectionFactory {
 	/**
 	 * {@inheritDoc}
 	 */
-	public boolean canFiltered(Collection<Measurement> filtrate, Number attribute) {
+	public boolean canFilter(Collection<Measurement> filtrate, Number attribute) {
 		return attribute.doubleValue() < 1.0;
 	}
 
