@@ -4,7 +4,7 @@ import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /** Abstract superclass of all entities persistable by File DAOs
- * @author Snowball
+ * @author Steffen Becker
  *
  */
 public abstract class AbstractFileEntity implements SerializableEntity {

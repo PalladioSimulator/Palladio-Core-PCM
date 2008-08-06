@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 
 /**
- * The class create the filtered collection from measurements collection.
+ * The class creates the filtered collection from measurements collection.
  * 
  * @author Roman Andrej
  */
@@ -41,7 +41,7 @@ public class FilteredCollectionsManager {
 
 		AbstractMeasurementsCollection filteredCollection;
 
-		if (factory.canFiltered(measuremts,
+		if (factory.canFilter(measuremts,
 				getProperty(factory.getProperties()))) {
 			filteredCollection = factory.getFilteredCollection(measuremts,
 					getProperty(factory.getProperties()));

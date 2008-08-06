@@ -16,17 +16,18 @@ import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
 import org.osgi.framework.BundleContext;
 
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 import de.uka.ipd.sdq.sensorframework.dao.memory.MemoryDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.sensorframework.filter.AbstractMeasurementsCollection;
 import de.uka.ipd.sdq.sensorframework.filter.FilteredCollectionRegistry;
 import de.uka.ipd.sdq.sensorframework.filter.IFilteredCollectionFactory;
 
 /**
  * The activator class controls the plug-in life cycle
+ * @author Roman Andrej
+ * @author Steffen Becker
+
  */
 public class SensorFrameworkPluginActivator extends Plugin {
 

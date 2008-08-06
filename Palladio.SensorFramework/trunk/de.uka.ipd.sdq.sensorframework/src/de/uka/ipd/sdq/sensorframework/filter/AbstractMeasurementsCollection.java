@@ -9,12 +9,14 @@ import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 
 /**
  * Superclass for all filtered collection in the SensorFramework.
+ * @author Roman Andrej
  */
 public abstract class AbstractMeasurementsCollection extends
 		AbstractCollection<Measurement> {
 
 	/** Original collection. */
 	protected Collection<Measurement> originalMeasurements = null;
+	
 	/** Filtered collection. */
 	private ArrayList<Measurement> filteredItems = null;
 
@@ -25,8 +27,7 @@ public abstract class AbstractMeasurementsCollection extends
 	}
 	
 	/**
-	 * Initializes a new AbstractMeasurementsCollection which original
-	 * measurements. provided object.
+	 * Initializes a new AbstractMeasurementsCollection.
 	 * 
 	 * @param originalMeasurements
 	 *            The associated measurements.
@@ -90,6 +91,9 @@ public abstract class AbstractMeasurementsCollection extends
 		return originalMeasurements;
 	}
 
+	/**
+	 * Resets internally stored filtered items to <code>null</code>
+	 */
 	public void resetFilteredItems(){
 		filteredItems = null;
 	}

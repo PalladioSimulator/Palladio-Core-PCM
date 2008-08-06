@@ -6,26 +6,26 @@ import java.util.Properties;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 
 /**
- * Factory interface for creating the filtered collection 
+ * Factory interface for creating the filtered collection - cf. java.util.Collection. 
  * 
  * @author Roman Andrej
  */
 public interface IFilteredCollectionFactory {
 
 	/**
-	 * Check whether this filter factory can filtering the given collection.
+	 * Check whether this filter factory can filter the given collection.
 	 * 
 	 * @param filtrate
-	 *            The collection to filtering
+	 *            The collection to filter
 	 * @param attribute
 	 *            The object of the required input attribute
 	 * @return true if this factory can create filtered collection of the required type,
 	 *         false otherwise
 	 */
-	boolean canFiltered(Collection<Measurement> filtrate, Number attribute);
+	boolean canFilter(Collection<Measurement> filtrate, Number attribute);
 
 	/**
-	 * Factory method. Creates a new filter with default paramete
+	 * Factory method. Creates a new filter with default parameter
 	 * 
 	 * @param filtrate
 	 *            The data source to filtering
@@ -65,6 +65,10 @@ public interface IFilteredCollectionFactory {
 	 */
 	void setProperties(Properties newProperties);
 	
+	/**TODO add documentation here
+	 * @param type
+	 * @return
+	 */
 	Number convertToType(String type);
 
 }

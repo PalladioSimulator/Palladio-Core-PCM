@@ -12,6 +12,15 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 
+/**
+ * TODO this class has no documentation at all!
+ * It is not used by any other class, so there is no need for it, unless it is a "hidden" test class.
+ * 
+ * @author Jens Happe
+ * @author Steffen Becker
+ * 
+ *
+ */
 public class ExperimentManager {
 
 	public final static double SCALING_FACTOR = 1000000;

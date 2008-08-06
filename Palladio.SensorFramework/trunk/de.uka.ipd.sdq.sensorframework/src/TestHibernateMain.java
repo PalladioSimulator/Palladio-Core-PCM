@@ -8,6 +8,11 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
+/**
+ * TODO It is not clear what is being tested, and what the expected results ought to be.
+ * TODO Not part of a JUnit test suite. 
+ * @author Steffen Becker
+ */
 public class TestHibernateMain {
 
 	/**
@@ -23,7 +28,8 @@ public class TestHibernateMain {
 		StateSensor stateSen = e.addStateSensor(idleState,"AStateSensor");
 		stateSen.addSensorState(busyState);
 		stateSen.addSensorState(idleState);
-		boolean flag = false; double valueSum = 0;
+		boolean flag = false; 
+		double valueSum = 0;
 		long start = System.nanoTime();
 		for (int i=0; i<200000; i++) {
 			if (i % 1000 == 0) System.out.print(".");

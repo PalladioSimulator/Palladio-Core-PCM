@@ -6,6 +6,10 @@ import java.util.Collections;
 
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
+/**TODO add documentation
+ * @author Steffen Becker
+ *
+ */
 public class SensorFrameworkDataset {
 	private static SensorFrameworkDataset singleton = new SensorFrameworkDataset();
 	private ArrayList<IDAOFactory> datasources = new ArrayList<IDAOFactory>();

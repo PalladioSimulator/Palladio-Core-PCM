@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * The class managed all available filtered collection.
+ * The class manages all available filtered collections.
  * 
  * @author Roman Andrej
  * 
@@ -14,6 +14,7 @@ public class FilteredCollectionRegistry {
 
 	/** Define the FilteredCollectionRegistry instance. */
 	private static FilteredCollectionRegistry singletonInstance = new FilteredCollectionRegistry();
+	
 	/** Define the map with filtered collections (filter name, collection). */
 	private static HashMap<String, IFilteredCollectionFactory> factories = new HashMap<String, IFilteredCollectionFactory>();
 
@@ -35,6 +36,9 @@ public class FilteredCollectionRegistry {
 		return factories.get(factoryID);
 	}
 
+	/**TODO add documentation
+	 * @return
+	 */
 	public List<IFilteredCollectionFactory> getAllAvailableCollectionFactories() {
 		ArrayList<IFilteredCollectionFactory> result = new ArrayList<IFilteredCollectionFactory>();
 		for (IFilteredCollectionFactory filter : factories.values()) {

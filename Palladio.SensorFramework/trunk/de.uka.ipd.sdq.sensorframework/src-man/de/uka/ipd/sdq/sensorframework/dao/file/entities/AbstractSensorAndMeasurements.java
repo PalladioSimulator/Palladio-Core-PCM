@@ -19,7 +19,8 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
 
 /**
- * @author ihssane, Steffen
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
  * 
  */
 public abstract class AbstractSensorAndMeasurements extends AbstractFileEntity implements SerializableEntity {

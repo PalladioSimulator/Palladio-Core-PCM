@@ -6,7 +6,7 @@ import java.util.Properties;
 /**Superclass for all DataAdapter in the SensorFramework.
  * All Adapters can have property setting and changes need to be observed to
  * allow changes on the GUI.
- * @author groenda
+ * @author Henning Groenda
  */
 public abstract class DataAdapter extends Observable implements IAdapter {
 	public static final String SETTINGS_CHANGED = "Settings have changed";
@@ -14,8 +14,7 @@ public abstract class DataAdapter extends Observable implements IAdapter {
 	/** The properties settings for this adapter */
 	protected Properties adapterProperties;
 	
-	/**Initializes a new DataAdapter without properties.
-	 */
+	/**Initializes a new DataAdapter without properties. */
 	public DataAdapter() {
 		super();
 		this.adapterProperties = new Properties();

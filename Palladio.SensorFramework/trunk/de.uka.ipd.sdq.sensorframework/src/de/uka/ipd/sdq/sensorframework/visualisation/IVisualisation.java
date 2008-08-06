@@ -4,7 +4,7 @@ import java.util.Collection;
 
 /**
  * Interface for a sensorframework visualisation / editor.
- * @author Steffen
+ * @author Steffen Becker
  *
  * @param <T> The class of the data which can be displayed in this viewer
  */

@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 
 /**
  * Factory interface for factories creating data adapter
- * @author Snowball
+ * @author Steffen Becker
  *
  */
 public interface IAdapterFactory {
