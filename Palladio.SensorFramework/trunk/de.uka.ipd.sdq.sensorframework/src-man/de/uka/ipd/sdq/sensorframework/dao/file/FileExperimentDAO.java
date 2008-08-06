@@ -14,7 +14,8 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 
 /**
- * @author ihssane, Steffen
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
  * 
  * Data Access Object (DAO) for persistence of Experiment Objects.
  * 

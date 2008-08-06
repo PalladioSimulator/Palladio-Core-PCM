@@ -11,7 +11,6 @@ public class ScalabilityMeasurementImpl extends de.uka.ipd.sdq.sensorframework.e
 	
 	public ScalabilityMeasurementImpl(IDAOFactory myFactory) {
 		super(myFactory);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/** {@inheritDoc}

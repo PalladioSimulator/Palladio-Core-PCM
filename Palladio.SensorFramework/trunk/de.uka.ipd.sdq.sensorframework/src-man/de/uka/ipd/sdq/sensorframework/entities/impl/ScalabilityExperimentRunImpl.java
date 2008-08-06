@@ -1,14 +1,9 @@
 package de.uka.ipd.sdq.sensorframework.entities.impl;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
-import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 import de.uka.ipd.sdq.sensorframework.entities.ScalabilityExperimentRun;
-import de.uka.ipd.sdq.sensorframework.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
-import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 @javax.persistence.Entity
@@ -21,7 +16,6 @@ public class ScalabilityExperimentRunImpl extends ExperimentRunImpl implements S
 	
 	public ScalabilityExperimentRunImpl(IDAOFactory myFactory) {
 		super(myFactory);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void setVarParameterNames(String[] names) {

@@ -2,6 +2,11 @@ package de.uka.ipd.sdq.sensorframework.dao.file;
 
 import java.io.Serializable;
 
+/** TODO document me
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
+
+ */
 public class IDGenerator implements Serializable {
 
 	private static final long serialVersionUID = -4845947012172760482L;

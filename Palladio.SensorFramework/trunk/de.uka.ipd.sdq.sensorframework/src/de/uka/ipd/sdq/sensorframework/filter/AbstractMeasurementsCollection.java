@@ -78,7 +78,7 @@ public abstract class AbstractMeasurementsCollection extends
 			filteredItems = new ArrayList<Measurement>();
 			applyFilter(filteredItems);
 		}
-		return originalMeasurements.size() - filteredItems.size();
+		return originalMeasurements.size() - filteredItems.size();//TODO does it make sense? or does "filteredItems" contain items filtered AWAY, not items remaining AFTER filtering?
 	}
 
 	/**

@@ -7,9 +7,10 @@ import de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 
 /**
- * @author ihssane
+ * @author Ihssane El-Oudghiri 
  * 
- * TODO Kommentare TODO Warum wird hier nicht TimeSpanSensorAndMeasurement
+ * TODO Kommentare 
+ * TODO Warum wird hier nicht TimeSpanSensorAndMeasurement
  * referenziert??
  * 
  */
@@ -28,12 +29,12 @@ implements ScalabilityMeasurement {
 		return params;
 	}
 
-	public void setParameters(Double[] value) {
-		this.params = value;
-	}
-
 	public ScalabilitySensor getSensor() {
 		throw new UnsupportedOperationException();
+	}
+
+	public void setParameters(Double[] value) {
+		this.params = value;
 	}
 
 	public void setSensor(ScalabilitySensor value) {

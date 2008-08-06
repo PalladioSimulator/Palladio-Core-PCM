@@ -1,11 +1,9 @@
 package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.SensorImpl;
 import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 /**
- * @author ihssane
- * 
+ * @author Ihssane El-Oudghiri 
  */
 public class ScalabilitySensorImpl extends SensorImpl implements ScalabilitySensor{
 
@@ -32,12 +30,12 @@ public class ScalabilitySensorImpl extends SensorImpl implements ScalabilitySens
 	return true;
     }
 
-	public void serializeChildren() {
-		// Nothing to serialize here
-	}
-	
 	public int getNbParams() {
 		return nbParameters;
+	}
+	
+	public void serializeChildren() {
+		// Nothing to serialize here
 	}
 }
 

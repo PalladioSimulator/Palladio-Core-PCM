@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
 import de.uka.ipd.sdq.sensorframework.entities.impl.StateImpl;
 
 /**
- * @author Snowball
+ * @author Steffen Becker
  *
  */
 public class MemoryStateDAO implements IStateDAO {

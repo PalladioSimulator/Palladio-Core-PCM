@@ -5,17 +5,21 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
-import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
+import de.uka.ipd.sdq.sensorframework.entities.impl.ScalabilitySensorImpl;
 import de.uka.ipd.sdq.sensorframework.entities.impl.StateSensorImpl;
 import de.uka.ipd.sdq.sensorframework.entities.impl.TimeSpanSensorImpl;
-import de.uka.ipd.sdq.sensorframework.entities.impl.ScalabilitySensorImpl;
 
+/**
+ * TODO
+ *
+ */
 public class MemorySensorDAO implements ISensorDAO {
 
 	private IDAOFactory myFactory;

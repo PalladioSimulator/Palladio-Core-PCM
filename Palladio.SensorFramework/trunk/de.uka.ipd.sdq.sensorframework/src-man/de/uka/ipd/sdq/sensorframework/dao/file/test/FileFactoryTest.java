@@ -21,8 +21,8 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
-/**
- * @author Ihssane
+/** TODO this test is not yet a part of a JUnit test suite
+ * @author Ihssane El-Oudghiri
  * 
  */
 public class FileFactoryTest {

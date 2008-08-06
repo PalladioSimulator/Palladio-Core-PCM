@@ -8,13 +8,12 @@ import java.util.Collection;
 import java.util.Collections;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
-import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 
 /**
- * @author ihssane, Steffen
- * 
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
  */
 public class StateSensorImpl extends SensorImpl implements StateSensor {
 
@@ -37,6 +36,18 @@ public class StateSensorImpl extends SensorImpl implements StateSensor {
 		return state;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof StateSensorImpl))
+			return false;
+		StateSensorImpl s = (StateSensorImpl) obj;
+		if (!(sensorID == s.getSensorID() && sensorName.equals(s
+				.getSensorName())))
+			return false;
+
+		return true;
+	}
+
 	public State getInitialState() {
 		return factory.createStateDAO().get(initialStateID);
 	}
@@ -51,18 +62,6 @@ public class StateSensorImpl extends SensorImpl implements StateSensor {
 
 	public void setInitialState(State value) {
 		this.initialStateID = value.getStateID();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (!(obj instanceof StateSensorImpl))
-			return false;
-		StateSensorImpl s = (StateSensorImpl) obj;
-		if (!(sensorID == s.getSensorID() && sensorName.equals(s
-				.getSensorName())))
-			return false;
-
-		return true;
 	}
 
 }

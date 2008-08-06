@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import cern.colt.list.DoubleArrayList;
-
 import de.uka.ipd.sdq.sensorframework.dao.file.FileManager;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
@@ -17,7 +15,8 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
 
 /**
- * @author ihssane, Steffen
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
  * 
  */
 public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements {
@@ -34,16 +33,6 @@ public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements 
 	public synchronized void addTimeSpan(double et, double ts) {
 		eventTimes.add(et);
 		timeSpans.add(ts);
-	}
-
-	@Override
-	public synchronized List<Measurement> getMeasurements() {
-		ArrayList<Measurement> m = new ArrayList<Measurement>();
-		for (int i = 0; i < timeSpans.size(); i++) {
-			m.add(new TimeSpanMeasurementImpl(i, eventTimes.get(i), timeSpans
-					.get(i)));
-		}
-		return m;
 	}
 
 	@Override
@@ -67,6 +56,16 @@ public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements 
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public synchronized List<Measurement> getMeasurements() {
+		ArrayList<Measurement> m = new ArrayList<Measurement>();
+		for (int i = 0; i < timeSpans.size(); i++) {
+			m.add(new TimeSpanMeasurementImpl(i, eventTimes.get(i), timeSpans
+					.get(i)));
+		}
+		return m;
 	}
 
 	@Override

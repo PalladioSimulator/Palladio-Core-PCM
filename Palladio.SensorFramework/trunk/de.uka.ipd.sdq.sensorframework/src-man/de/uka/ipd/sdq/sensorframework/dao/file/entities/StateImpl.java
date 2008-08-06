@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
- * @author ihssane
+ * @author Ihssane El-Oudghiri 
  * 
  */
 public class StateImpl extends AbstractFileEntity implements State, SerializableEntity {
@@ -19,22 +19,6 @@ public class StateImpl extends AbstractFileEntity implements State, Serializable
 
 	public StateImpl(IDAOFactory factory) {
 		super(factory);
-	}
-
-	public long getStateID() {
-		return stateID;
-	}
-
-	public String getStateLiteral() {
-		return stateLiteral;
-	}
-
-	public void setStateID(long value) {
-		this.stateID = value;
-	}
-
-	public void setStateLiteral(String value) {
-		this.stateLiteral = value;
 	}
 
 	@Override
@@ -52,6 +36,18 @@ public class StateImpl extends AbstractFileEntity implements State, Serializable
 		return FileDAOFactory.STATE_FILE_NAME_PREFIX + getStateID();
 	}
 
+	public long getID() {
+		return this.stateID;
+	}
+
+	public long getStateID() {
+		return stateID;
+	}
+
+	public String getStateLiteral() {
+		return stateLiteral;
+	}
+
 	public void serializeChildren() {
 		// Nothing to serialize here
 	}
@@ -59,7 +55,11 @@ public class StateImpl extends AbstractFileEntity implements State, Serializable
 	public void setFactory(FileDAOFactory factory) {
 	}
 
-	public long getID() {
-		return this.stateID;
+	public void setStateID(long value) {
+		this.stateID = value;
+	}
+
+	public void setStateLiteral(String value) {
+		this.stateLiteral = value;
 	}
 }

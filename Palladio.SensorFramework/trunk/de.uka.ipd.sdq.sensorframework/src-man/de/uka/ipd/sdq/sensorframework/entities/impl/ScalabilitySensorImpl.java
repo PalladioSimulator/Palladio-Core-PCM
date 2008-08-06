@@ -7,7 +7,6 @@ public class ScalabilitySensorImpl extends de.uka.ipd.sdq.sensorframework.entiti
 
 	public ScalabilitySensorImpl(IDAOFactory myFactory) {
 		super(myFactory);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public int getNbParams() {

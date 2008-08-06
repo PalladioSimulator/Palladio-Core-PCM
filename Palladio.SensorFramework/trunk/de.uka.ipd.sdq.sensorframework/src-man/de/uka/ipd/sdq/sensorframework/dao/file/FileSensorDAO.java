@@ -7,18 +7,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.ScalabilitySensorImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.StateSensorImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.TimeSpanSensorImpl;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.ScalabilitySensorImpl;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
-import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 
 /**
- * @author issane, Steffen
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
  * 
  * Data Access Object (DAO) for persistence of Sensor Objects.
  * 

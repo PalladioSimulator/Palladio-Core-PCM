@@ -3,12 +3,8 @@
  */
 package de.uka.ipd.sdq.sensorframework.dao.file;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 import org.eclipse.core.runtime.IStatus;
 
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkPluginActivator;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
@@ -16,10 +12,9 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IMeasurementDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
-import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 
 /**
- * @author ihssane
+ * @author Ihssane El-Oudghiri 
  * 
  * A Data Access Object (DAO) is used to abstract and encapsulate all access to
  * the data source. The DAO manages the connection with the data source to

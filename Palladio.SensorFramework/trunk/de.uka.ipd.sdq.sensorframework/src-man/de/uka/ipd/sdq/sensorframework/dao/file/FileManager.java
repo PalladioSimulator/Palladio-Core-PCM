@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.sensorframework.dao.file;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -15,17 +14,12 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentImpl;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.AbstractSensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.SerializableEntity;
-import de.uka.ipd.sdq.sensorframework.entities.Experiment;
-import de.uka.ipd.sdq.sensorframework.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 
 /**
- * @author ihssane
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
  * 
  * This class provides methods to deal with files. Especially to serialize and
  * deserialize an object to a file.

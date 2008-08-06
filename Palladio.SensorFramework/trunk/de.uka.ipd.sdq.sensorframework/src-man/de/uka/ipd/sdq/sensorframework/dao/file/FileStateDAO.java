@@ -12,7 +12,8 @@ import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
 
 /**
- * @author ihssane, Steffen
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
  * 
  * Data Access Object (DAO) for persistence of State Objects.
  * 

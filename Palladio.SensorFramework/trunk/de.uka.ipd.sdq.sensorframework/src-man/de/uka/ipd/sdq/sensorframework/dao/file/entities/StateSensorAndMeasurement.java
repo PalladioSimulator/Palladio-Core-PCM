@@ -17,8 +17,7 @@ import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 
 /**
- * @author ihssane
- * 
+ * @author Ihssane El-Oudghiri 
  */
 public class StateSensorAndMeasurement extends AbstractSensorAndMeasurements {
 
@@ -36,8 +35,12 @@ public class StateSensorAndMeasurement extends AbstractSensorAndMeasurements {
 		states.add(state);
 	}
 
-	public List<State> getStates() {
-		return states;
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof StateSensorAndMeasurement))
+			return false;
+		StateSensorAndMeasurement sam = (StateSensorAndMeasurement) obj;
+		return (super.equals(obj)) && (getStates().equals(sam.getStates()));
 	}
 
 	@Override
@@ -50,12 +53,15 @@ public class StateSensorAndMeasurement extends AbstractSensorAndMeasurements {
 		return m;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (!(obj instanceof StateSensorAndMeasurement))
-			return false;
-		StateSensorAndMeasurement sam = (StateSensorAndMeasurement) obj;
-		return (super.equals(obj)) && (getStates().equals(sam.getStates()));
+	public List<State> getStates() {
+		return states;
+	}
+
+	public void serializeChildren() {
+		// Nothing to serialize here
+	}
+
+	public void setFactory(FileDAOFactory factory) {
 	}
 
 	@Override
@@ -66,13 +72,6 @@ public class StateSensorAndMeasurement extends AbstractSensorAndMeasurements {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-	}
-
-	public void serializeChildren() {
-		// Nothing to serialize here
-	}
-
-	public void setFactory(FileDAOFactory factory) {
 	}
 	
 }

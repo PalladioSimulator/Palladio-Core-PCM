@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
 /**
- * @author ihssane
+ * @author Ihssane El-Oudghiri 
  * 
  */
 public class TimeSpanSensorImpl extends SensorImpl implements TimeSpanSensor {

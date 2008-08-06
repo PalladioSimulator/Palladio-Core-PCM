@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.ISensorDAO;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IStateDAO;
 
 /**
- * @author Snowball
+ * @author Steffen Becker
  *
  */
 public class MemoryDAOFactory implements IDAOFactory {

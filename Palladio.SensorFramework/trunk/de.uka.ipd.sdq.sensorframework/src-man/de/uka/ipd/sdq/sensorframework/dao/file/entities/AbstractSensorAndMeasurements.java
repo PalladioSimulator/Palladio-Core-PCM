@@ -5,10 +5,7 @@ package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
-import cern.colt.list.DoubleArrayList;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileManager;
@@ -18,12 +15,14 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.storage.lists.BackgroundMemoryList;
 import de.uka.ipd.sdq.sensorframework.storage.lists.DoubleSerialiser;
 
-/**
+/**TODO add documentation
  * @author Ihssane El-Oudghiri 
  * @author Steffen Becker
  * 
  */
-public abstract class AbstractSensorAndMeasurements extends AbstractFileEntity implements SerializableEntity {
+public abstract class AbstractSensorAndMeasurements 
+		extends AbstractFileEntity 
+		implements SerializableEntity {
 
 	protected static final String EVENT_TIME_SUFFIX = "ET";
 	protected static final String MEASUREMENTS_SUFFIX = "MEAS";
@@ -50,6 +49,18 @@ public abstract class AbstractSensorAndMeasurements extends AbstractFileEntity i
 		EVENT_TIME_SUFFIX + ".ser";
 	}
 
+	public String getFileName() {
+		return FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
+				+ experimentRun.getExperimentRunID() + "_"
+				+ sensor.getSensorID();
+	}
+
+	public long getID() {
+		throw new UnsupportedOperationException();
+	}
+
+	public abstract List<Measurement> getMeasurements();
+
 	protected String getMeasurementsFileName() {
 		return fm.getRootDirectory() + File.separator + FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
 		+ experimentRun.getExperimentRunID() + "_"
@@ -64,24 +75,12 @@ public abstract class AbstractSensorAndMeasurements extends AbstractFileEntity i
 	public void setSensor(SensorImpl sensor) {
 		this.sensor = sensor;
 	}
-
-	public abstract List<Measurement> getMeasurements();
-
-	public String getFileName() {
-		return FileDAOFactory.EXPRUN_FILE_NAME_PREFIX
-				+ experimentRun.getExperimentRunID() + "_"
-				+ sensor.getSensorID();
-	}
-
+	
 	public void store() {
 		try {
 			eventTimes.flush();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-	}
-	
-	public long getID() {
-		throw new UnsupportedOperationException();
 	}
 }

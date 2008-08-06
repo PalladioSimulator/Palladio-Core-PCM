@@ -6,6 +6,10 @@ import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.storage.lists.ISerialiser;
 
+/**
+ * @author Henning Groenda 
+ * @author Steffen Becker
+ */
 public class StateSerializer implements ISerialiser {
 
 	HashMap<Long, State> hashMap = new HashMap<Long, State>(); 
@@ -17,7 +21,7 @@ public class StateSerializer implements ISerialiser {
 	}
 	
 	public Object[] deserialise(byte[] bytes) {
-		State[] states = new State[(int)(bytes.length / getElementLenght())];
+		State[] states = new State[(int)(bytes.length / getElementLength())];
 		int blockPos = 0;
 		for (int j = 0; j<states.length; j++){
 			long l = 0;
@@ -33,12 +37,12 @@ public class StateSerializer implements ISerialiser {
 		return states;
 	}
 
-	public long getElementLenght() {
+	public long getElementLength() {
 		return 8;
 	}
 
 	public byte[] serialise(Object[] objects, int count) {
-		byte[] block = new byte[(int)(count*getElementLenght())];
+		byte[] block = new byte[(int)(count*getElementLength())];
 		int blockPos = 0;
 		for (int j = 0; j < count; j++){
 			long l = ((State)objects[j]).getStateID();

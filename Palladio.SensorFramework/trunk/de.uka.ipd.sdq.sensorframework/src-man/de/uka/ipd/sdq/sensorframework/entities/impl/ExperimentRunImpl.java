@@ -14,7 +14,6 @@ public class ExperimentRunImpl extends de.uka.ipd.sdq.sensorframework.entities.b
 
 	public ExperimentRunImpl(IDAOFactory myFactory) {
 		super(myFactory);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

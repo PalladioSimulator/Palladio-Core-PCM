@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.sensorframework.entities.dao;
 
-import de.uka.ipd.sdq.sensorframework.entities.State;
-import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 
 public interface IStateDAO {
 

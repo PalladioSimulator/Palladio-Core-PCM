@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.sensorframework.entities.dao;
 /**
  * Classes implementing this interface bundle the access to data access objects 
  * of one type (e.g. file data sources, memory datasources), i.e. one family 
- * (as describes in the AbstractFactory patterns). 
+ * (as described in the AbstractFactory patterns). 
  * An IDAOFactory has five data access objects enclosed: <code>ExperimentDAO</code>, 
  * <code>StateDAO/code>, <code>MeasurementDAO/code>, <code>ExperimentRunDAO/code> 
  * and <code>SensorDAO/code>, and initialises them all on one type of access, 

@@ -7,6 +7,5 @@ public class StateMeasurementImpl extends de.uka.ipd.sdq.sensorframework.entitie
 
 	public StateMeasurementImpl(IDAOFactory myFactory) {
 		super(myFactory);
-		// TODO Auto-generated constructor stub
 	}
 }

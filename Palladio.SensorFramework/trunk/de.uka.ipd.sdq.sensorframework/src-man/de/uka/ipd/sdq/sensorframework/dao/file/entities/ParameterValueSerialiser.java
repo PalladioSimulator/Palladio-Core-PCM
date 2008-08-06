@@ -1,11 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
-import java.util.HashMap;
-
-import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.storage.lists.ISerialiser;
 
+/**TODO document me!!!
+ * @author Paul-Remis Beauvais
+ *
+ */
 public class ParameterValueSerialiser implements ISerialiser {
 
 //HashMap<Long, State> hashMap = new HashMap<Long, State>(); 
@@ -19,7 +20,7 @@ private int nbParameters;
 	}
 	
 	public Object[] deserialise(byte[] bytes) {
-		Double[][] values = new Double[(int)(bytes.length / getElementLenght())][nbParameters];
+		Double[][] values = new Double[(int)(bytes.length / getElementLength())][nbParameters];
 		
 		int blockPos = 0;
 		
@@ -41,12 +42,12 @@ private int nbParameters;
 		return values;
 	}
 
-	public long getElementLenght() {
+	public long getElementLength() {
 		return 8*nbParameters;
 	}
 
 	public byte[] serialise(Object[] objects, int count) {
-		byte[] block = new byte[(int)(count*getElementLenght())];
+		byte[] block = new byte[(int)(count*getElementLength())];
 			
 		
 		

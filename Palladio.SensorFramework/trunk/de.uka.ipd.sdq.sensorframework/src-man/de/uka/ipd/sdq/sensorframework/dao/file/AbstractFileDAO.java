@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * are stored in a hashmap which hashes IDs to entities. The hashmap is fully loaded from the background
  * storage at startup, manipulated in memory, and finally stored back on request or when the DAO is disposed.
  * 
- * @author Steffen
+ * @author Steffen Becker
  *
  * @param <T> The type of the entities this DAO is able to handle
  */

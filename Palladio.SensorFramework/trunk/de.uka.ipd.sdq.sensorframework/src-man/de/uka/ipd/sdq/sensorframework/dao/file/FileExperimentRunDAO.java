@@ -5,18 +5,15 @@ package de.uka.ipd.sdq.sensorframework.dao.file;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.ScalabilityExperimentRunImpl;
 import de.uka.ipd.sdq.sensorframework.dao.file.entities.ExperimentRunImpl;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.AbstractSensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.dao.file.entities.SerializableEntity;
-import de.uka.ipd.sdq.sensorframework.entities.Experiment;
+import de.uka.ipd.sdq.sensorframework.dao.file.entities.ScalabilityExperimentRunImpl;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
 
 /**
- * @author ihssane, Steffen
+ * @author Ihssane El-Oudghiri 
+ * @author Steffen Becker
  * 
  * Data Access Object (DAO) for persistence of ExperimentRun Objects.
  * 

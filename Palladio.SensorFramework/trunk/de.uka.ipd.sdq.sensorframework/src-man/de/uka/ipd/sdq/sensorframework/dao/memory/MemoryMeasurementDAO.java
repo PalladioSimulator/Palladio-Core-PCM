@@ -5,19 +5,23 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.State;
 import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
-import de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement;
-import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IMeasurementDAO;
-import de.uka.ipd.sdq.sensorframework.entities.impl.StateMeasurementImpl;
 import de.uka.ipd.sdq.sensorframework.entities.impl.ScalabilityMeasurementImpl;
+import de.uka.ipd.sdq.sensorframework.entities.impl.StateMeasurementImpl;
 import de.uka.ipd.sdq.sensorframework.entities.impl.TimeSpanMeasurementImpl;
 
+/**
+ * TODO
+ *
+ */
 public class MemoryMeasurementDAO implements IMeasurementDAO {
 
 	private long nextID = 0;

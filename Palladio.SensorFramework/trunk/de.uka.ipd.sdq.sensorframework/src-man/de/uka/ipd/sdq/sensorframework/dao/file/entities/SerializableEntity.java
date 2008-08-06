@@ -5,11 +5,11 @@ package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 
-/**
- * @author ihssane
+/** TODO names of interfaces should start with "I"
+ * @author Ihssane El-Oudghiri 
  * 
  */
 public interface SerializableEntity extends java.io.Serializable {
-	public void setFactory(FileDAOFactory factory);
 	public long getID();
+	public void setFactory(FileDAOFactory factory);
 }

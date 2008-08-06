@@ -11,6 +11,10 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 import de.uka.ipd.sdq.sensorframework.entities.impl.ExperimentImpl;
 
+/**
+ * @author Steffen Becker
+ *
+ */
 public class MemoryExperimentDAO implements IExperimentDAO {
 
 	private long nextID = 0;

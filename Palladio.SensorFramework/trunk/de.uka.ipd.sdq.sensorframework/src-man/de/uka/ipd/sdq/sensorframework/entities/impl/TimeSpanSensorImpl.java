@@ -7,6 +7,5 @@ public class TimeSpanSensorImpl extends de.uka.ipd.sdq.sensorframework.entities.
 
 	public TimeSpanSensorImpl(IDAOFactory myFactory) {
 		super(myFactory);
-		// TODO Auto-generated constructor stub
 	}
 }

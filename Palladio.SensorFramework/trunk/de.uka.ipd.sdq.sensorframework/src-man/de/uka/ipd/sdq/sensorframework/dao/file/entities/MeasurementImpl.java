@@ -6,8 +6,7 @@ package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
 
 /**
- * @author ihssane
- * 
+ * @author Ihssane El-Oudghiri 
  */
 public class MeasurementImpl implements Measurement {
 

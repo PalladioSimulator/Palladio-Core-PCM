@@ -2,9 +2,6 @@ package de.uka.ipd.sdq.sensorframework.entities;
 
 import java.util.Collection;
 
-import de.uka.ipd.sdq.sensorframework.entities.Measurement;
-import de.uka.ipd.sdq.sensorframework.entities.Sensor;
-
 public class SensorAndMeasurements {
 	private Sensor mySensor;
 	private Collection<Measurement> myMeasurements;

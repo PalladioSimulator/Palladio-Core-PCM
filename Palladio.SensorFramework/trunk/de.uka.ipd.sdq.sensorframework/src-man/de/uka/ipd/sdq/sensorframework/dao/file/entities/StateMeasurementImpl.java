@@ -8,8 +8,7 @@ import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 
 /**
- * @author ihssane
- * 
+ * @author Ihssane El-Oudghiri 
  */
 public class StateMeasurementImpl extends MeasurementImpl implements
 	StateMeasurement {

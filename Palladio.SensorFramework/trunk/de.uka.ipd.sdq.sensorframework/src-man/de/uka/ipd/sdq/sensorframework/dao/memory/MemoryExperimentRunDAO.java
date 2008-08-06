@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.sensorframework.dao.memory;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
@@ -12,6 +11,10 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentRunDAO;
 import de.uka.ipd.sdq.sensorframework.entities.impl.ExperimentRunImpl;
 import de.uka.ipd.sdq.sensorframework.entities.impl.ScalabilityExperimentRunImpl;
 
+/**
+ * TODO
+ *
+ */
 public class MemoryExperimentRunDAO implements IExperimentRunDAO {
 
 	private long nextID = 0;
