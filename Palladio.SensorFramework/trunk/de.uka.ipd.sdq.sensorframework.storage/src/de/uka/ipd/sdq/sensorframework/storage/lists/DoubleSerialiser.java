@@ -1,13 +1,17 @@
 package de.uka.ipd.sdq.sensorframework.storage.lists;
 
+/**
+ * @author Steffen Becker
+ *
+ */
 public class DoubleSerialiser implements ISerialiser {
 
-	public long getElementLenght() {
+	public long getElementLength() {
 		return 8;
 	}
 	
 	public byte[] serialise(Object[] objects, int count){
-		byte[] block = new byte[(int)(count*getElementLenght())];
+		byte[] block = new byte[(int)(count*getElementLength())];
 		int blockPos = 0;
 		for (int j = 0; j < count; j++){
 			long l = Double.doubleToRawLongBits((Double)objects[j]);
@@ -20,7 +24,7 @@ public class DoubleSerialiser implements ISerialiser {
 	}
 
 	public Object[] deserialise(byte[] bytes){
-		Double[] doubles = new Double[(int)(bytes.length / getElementLenght())];
+		Double[] doubles = new Double[(int)(bytes.length / getElementLength())];
 		int blockPos = 0;
 		for (int j = 0; j<doubles.length; j++){
 			long l = 0;

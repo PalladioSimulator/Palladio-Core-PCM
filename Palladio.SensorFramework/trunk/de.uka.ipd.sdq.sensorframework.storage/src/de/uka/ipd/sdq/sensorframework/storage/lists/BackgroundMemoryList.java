@@ -6,6 +6,11 @@ import java.io.RandomAccessFile;
 import java.util.AbstractList;
 import java.util.List;
 
+/**
+ * @author Steffen Becker
+ *
+ * @param <T>
+ */
 public class BackgroundMemoryList<T> 
 extends AbstractList<T>
 implements List<T> {
@@ -58,6 +63,7 @@ implements List<T> {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "static-access" })
 	private void ensureCorrectCunkLoaded(int index) throws IOException {
 		if (currentChunk == null) {
 			currentChunk = new Chunk(raf,serialiser,index / MEMORY_CHUNKS_SIZE);
@@ -80,9 +86,9 @@ implements List<T> {
 			if (currentChunk != null && !currentChunk.isFull()) {
 				// The current chunk is the last chunk which might contain unsaved data,
 				// so the size is the size of all saved data + all unsaved data
-				this.listSize = (int)(raf.length() / (serialiser.getElementLenght() * MEMORY_CHUNKS_SIZE) + currentChunk.size());
+				this.listSize = (int)(raf.length() / (serialiser.getElementLength() * MEMORY_CHUNKS_SIZE) + currentChunk.size());
 			}
-			this.listSize = (int)(raf.length() / serialiser.getElementLenght());
+			this.listSize = (int)(raf.length() / serialiser.getElementLength());
 		} catch (IOException e) {
 			throw new RuntimeException("Background list failed unexpectedly",e);
 		}
