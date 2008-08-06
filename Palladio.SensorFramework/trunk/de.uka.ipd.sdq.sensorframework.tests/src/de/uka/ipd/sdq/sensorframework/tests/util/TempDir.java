@@ -4,8 +4,8 @@ package de.uka.ipd.sdq.sensorframework.tests.util;
 // TempDir.java
 //
 import java.io.File;
-import java.io.IOException;
 import java.io.FileWriter;
+import java.io.IOException;
     
 public class TempDir
 {
@@ -15,6 +15,45 @@ public class TempDir
     {
         deleterThread = new DirDeleter();
         Runtime.getRuntime().addShutdownHook(deleterThread);
+    }
+    
+    /**
+     * Creates a temp directory with a generated name (given a certain prefix) in a given directory.
+     * The directory (and all its content) will be destroyed on exit.
+     */    
+    public static File createGeneratedName(String prefix)
+    throws IOException
+    {
+    	return createGeneratedName(prefix, null);
+    }
+    
+    /**
+     * Creates a temp directory with a generated name (given a certain prefix) in a given directory.
+     * The directory (and all its content) will be destroyed on exit.
+     */    
+    public static File createGeneratedName(String prefix, File directory)
+    throws IOException
+    {
+        File tempFile = File.createTempFile(prefix, "", directory);
+        if (!tempFile.delete())
+            throw new IOException();
+        if (!tempFile.mkdir())
+            throw new IOException();
+        deleterThread.add(tempFile);
+        return tempFile;        
+    }
+    /**
+     * Creates a temp directory with a given name in a given directory.
+     * The directory (and all its content) will be destroyed on exit.
+     */    
+    public static File createNamed(String name, File directory)
+    throws IOException
+    {
+        File tempFile = new File(directory, name);
+        if (!tempFile.mkdir())
+            throw new IOException();
+        deleterThread.add(tempFile);
+        return tempFile;        
     }
     
     /**
@@ -39,44 +78,5 @@ public class TempDir
         {
             e.printStackTrace();
         }
-    }
-    
-    /**
-     * Creates a temp directory with a generated name (given a certain prefix) in a given directory.
-     * The directory (and all its content) will be destroyed on exit.
-     */    
-    public static File createGeneratedName(String prefix)
-    throws IOException
-    {
-    	return createGeneratedName(prefix, null);
-    }
-    /**
-     * Creates a temp directory with a generated name (given a certain prefix) in a given directory.
-     * The directory (and all its content) will be destroyed on exit.
-     */    
-    public static File createGeneratedName(String prefix, File directory)
-    throws IOException
-    {
-        File tempFile = File.createTempFile(prefix, "", directory);
-        if (!tempFile.delete())
-            throw new IOException();
-        if (!tempFile.mkdir())
-            throw new IOException();
-        deleterThread.add(tempFile);
-        return tempFile;        
-    }
-    
-    /**
-     * Creates a temp directory with a given name in a given directory.
-     * The directory (and all its content) will be destroyed on exit.
-     */    
-    public static File createNamed(String name, File directory)
-    throws IOException
-    {
-        File tempFile = new File(directory, name);
-        if (!tempFile.mkdir())
-            throw new IOException();
-        deleterThread.add(tempFile);
-        return tempFile;        
     }    
 }

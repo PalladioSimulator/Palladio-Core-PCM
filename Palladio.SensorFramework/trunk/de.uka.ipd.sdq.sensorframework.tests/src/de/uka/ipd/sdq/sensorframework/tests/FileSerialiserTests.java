@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.tests.util.TempDir;
 
 /**
- * @author Snowball
+ * @author Steffen Becker
  *
  */
 public class FileSerialiserTests extends AbstractSerialiserTests {

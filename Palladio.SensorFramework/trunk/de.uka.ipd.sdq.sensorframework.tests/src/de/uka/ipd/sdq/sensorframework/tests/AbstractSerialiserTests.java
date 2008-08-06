@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.sensorframework.tests;
 
 import java.io.IOException;
 
+import junit.framework.Assert;
+import junit.framework.TestCase;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
@@ -14,8 +16,6 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
-import junit.framework.Assert;
-import junit.framework.TestCase;
 
 public abstract class AbstractSerialiserTests extends TestCase {
 
@@ -26,6 +26,7 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		IDAOFactory factory = createCleanDAOFactory();
 		IExperimentDAO experimentDAO = factory.createExperimentDAO();
 		for (int i=0; i < CREATE_COUNT; i++) {
+			@SuppressWarnings("unused")
 			Experiment e = experimentDAO.addExperiment("Test"+i);
 		}
 		factory.finalizeAndClose();
@@ -52,6 +53,7 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		for (int i=0; i < CREATE_COUNT; i++) {
 			factory = createDAOFactory();
 			IExperimentDAO experimentDAO = factory.createExperimentDAO();
+			@SuppressWarnings("unused")
 			Experiment e = experimentDAO.addExperiment("Test"+i);
 			factory.finalizeAndClose();
 		}
@@ -170,7 +172,8 @@ public abstract class AbstractSerialiserTests extends TestCase {
 		factory = createDAOFactory();
 		experimentDAO = factory.createExperimentDAO();
 		int count = 0;
-		for (Experiment ex : experimentDAO.getExperiments()) {
+		for (@SuppressWarnings("unused")
+		Experiment ex : experimentDAO.getExperiments()) {
 			count++;
 		}
 		Assert.assertEquals(2, count);

@@ -9,14 +9,17 @@ import java.util.Iterator;
     
 public class DirDeleter extends Thread
 {
-    private ArrayList dirList = new ArrayList();
+    @SuppressWarnings("unchecked")
+	private ArrayList dirList = new ArrayList();
     
-    public synchronized void add(File dir)
+    @SuppressWarnings("unchecked")
+	public synchronized void add(File dir)
     {
         dirList.add(dir);
     }
     
-    public void run()
+    @SuppressWarnings("unchecked")
+	public void run()
     {
         synchronized (this)
         {
