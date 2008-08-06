@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 
 /**Provides an adapter that allows to convert StateSensors to Pies.
- * @author groenda
+ * @author Henning Groenda
  */
 public class StateSensorToPieAdapter extends DataAdapter {
 

@@ -1,11 +1,11 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
 /**Provides an adapter that allows mapping the identity.
- * @author groenda
+ * @author Henning Groenda
  */
 public class IdentitySensorAdapter extends DataAdapter {
 
-	/** Object to adapt. */
+	/** Object to adapt */
 	private Object o;
 	
 	/**Initializes a new adapter which provides access to the
