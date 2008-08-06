@@ -13,7 +13,7 @@ public class DoubleSerialiserTest extends TestCase {
 		File tempFile = File.createTempFile("TestDB", "lst");
 		RandomAccessFile raf = new RandomAccessFile(tempFile.getAbsolutePath(),"rw");
 		int count = 1000000;
-		double[] d =new double[count];
+		double[] d = new double[count];
 		for (int i = 0; i < count; i++)
 			d[i] = Math.random()*1000.0-500.0;
 		DoubleSerialiser ds = new DoubleSerialiser();
@@ -22,7 +22,7 @@ public class DoubleSerialiserTest extends TestCase {
 		raf.seek(0);
 		raf.read(bytes);
 		raf.close();
-		Assert.assertTrue(bytes.length == ds.getElementLenght() * count);
+		Assert.assertTrue(bytes.length == ds.getElementLength() * count);
 		Double[] doubles = (Double[]) ds.deserialise(bytes);
 		for (int i=0; i < count; i++)
 			Assert.assertEquals(d[i],doubles[i]);
