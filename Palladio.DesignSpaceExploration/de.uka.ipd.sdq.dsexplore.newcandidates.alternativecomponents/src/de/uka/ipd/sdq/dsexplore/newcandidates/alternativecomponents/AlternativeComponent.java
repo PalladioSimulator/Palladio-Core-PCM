@@ -7,26 +7,41 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
+import org.eclipse.ocl.ecore.OCL;
+import org.eclipse.ocl.ecore.OCLExpression;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
-import de.uka.ipd.sdq.dsexplore.dsedecorator.RepositorySystemDecorator;
-import de.uka.ipd.sdq.dsexplore.dsedecorator.dsedecoratorFactory;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.system.System;
 
 public class AlternativeComponent implements INewCandidates {
 
 	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.dsexplore");
+	
+	/** To add number of generation to the model file files**/
+	private int generation = 0;
+	
+	/** Model files will get the suffix here plus the generation number**/
+	private static String modelFilesSuffix = "AltCom-Gen";
 
 	public AlternativeComponent() {
 		// TODO Auto-generated constructor stub
@@ -35,20 +50,17 @@ public class AlternativeComponent implements INewCandidates {
 	@Override
 	public List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) {
 
-		/*
-		 * logger.setLevel(Level.ALL); logger.addAppender(null);
-		 */
-
-		logger.debug("Alternative Plugin called.");
-
+		this.generation ++;
+		logger.debug("Alternative Plugin called for the "+this.generation+". time");
+		
 		// TODO Generate an alternative :D
 		Repository r = currentSolution.getRepository();
 		System s = currentSolution.getSystem();
 
-		RepositorySystemDecorator rsd = dsedecoratorFactory.eINSTANCE
+/*		RepositorySystemDecorator rsd = dsedecoratorFactory.eINSTANCE
 				.createRepositorySystemDecorator();
 		rsd.setSystem(s);
-		rsd.getRepositories().add(r);
+		rsd.getRepositories().add(r);*/
 
 		List<BasicComponent> repoComponents = filterBasicComponents(r
 				.getComponents__Repository());
@@ -60,24 +72,176 @@ public class AlternativeComponent implements INewCandidates {
 		logger.debug("I found " + assemblyContextToBasicComponentMap.size()
 				+ " AssemblyContexts in the system");
 
-		Map<AssemblyContext, Set<BasicComponent>> alternativeMap = findAlternatives(
+		Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap = findAlternatives(
 				repoComponents, assemblyContextToBasicComponentMap);
 		logger.debug("I have a mapping for " + alternativeMap.size()
 				+ " AssemblyContexts with the following alternatives:");
 
-		for (Map.Entry<AssemblyContext, Set<BasicComponent>> e : alternativeMap
+		//Create a new PCM instance for each alternative found
+		//Only change one component at a time. 
+		//FIXME: Does one generate alternatives with one component different each, test it and debug
+		List<PCMInstance> l = createAlternativePCMInstances(currentSolution,
+				alternativeMap);
+		return l;
+	}
+
+	/**
+	 * Creates a new PCM instance object for each alternative found. 
+	 * Each instance is different in one component to the original. 
+	 * Calls createNewPCMInstance for each alternative to be generated. 
+	 * @param currentSolution The current solution the new ones will base on
+	 * @param alternativeMap The Map containing all replacement options
+	 * @return A list of new PCM instances
+	 */
+	private List<PCMInstance> createAlternativePCMInstances(
+			PCMInstance currentSolution,
+			Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap) {
+		
+		List<PCMInstance> l = new ArrayList<PCMInstance>();
+		
+		//to name the files differently, count. 
+		int counter = 0;
+		for (Map.Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> e : alternativeMap
 				.entrySet()) {
 			logger.debug("Assembly context " + e.getKey().getEntityName()
 					+ " has " + e.getValue().size() + " alternatives:");
-			for (BasicComponent basicComponent : e.getValue()) {
-				logger.debug("    Alternative: "
-						+ basicComponent.getEntityName());
+			
+			for (Map.Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry : e.getValue().entrySet()) {
+				logger.debug("    Alternative: "+ basicComponentEntry.getKey().getEntityName());
+				PCMInstance inst = createNewPCMInstance(currentSolution, e.getKey(), basicComponentEntry, counter); 
+				l.add(inst);
+				inst.saveSystemToFile();
+				counter++;
 			}
 		}
-
-		List<PCMInstance> l = new ArrayList<PCMInstance>();
-		l.add(null);
 		return l;
+	}
+
+	private PCMInstance createNewPCMInstance(PCMInstance currentSolution,
+			AssemblyContext assemblyContext, Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry, int counter) {
+
+		PCMInstance newSolution = currentSolution.shallowCopy();
+		
+		/*Used the ecore copy. For this, I needed to fix de.uka.ipd.sdq.stoex.impl.RandomVariableImpl,
+		 * as setExpression threw a UnsupportedOperationException when trying to copy. Now 
+		 * setExpression just does nothing*/ 
+		System newSystem = (System)EcoreUtil.copy(newSolution.getSystem());
+		logger.debug("The new system: "+newSystem);
+		
+		newSolution.setSystem(newSystem);
+		newSolution.setSystemFileNameSuffix(modelFilesSuffix+this.generation+"-alt"+counter);
+		
+		newSolution.setName(modelFilesSuffix+this.generation+"-alt"+counter);
+		
+		logger.debug("The old assembly we look for: "+assemblyContext);
+		AssemblyContext changedAssemblyContext = null;
+		
+		EList<AssemblyContext> newAssemblyContexts = newSystem.getChildComponentContexts_ComposedStructure();
+		for (AssemblyContext ac : newAssemblyContexts) {
+			//logger.debug("An assembly in the new system: "+ac);
+			if (checkIdentity(ac, assemblyContext)){
+				logger.debug("This is the one:"+ac);
+				changedAssemblyContext = ac;
+				//Replace the assembly.
+				int index = newAssemblyContexts.indexOf(ac);
+				newAssemblyContexts.remove(ac);
+				newAssemblyContexts.add(index, changedAssemblyContext);
+				break;
+			}
+		}
+		changedAssemblyContext.setEncapsulatedComponent_ChildComponentContext(basicComponentEntry.getKey());
+		
+		//fix the required and provided roles
+		fixReferencesToAssemblyContext(newSystem, changedAssemblyContext, basicComponentEntry.getValue());
+		
+		//I do not have to fox the allocation because I updated the assembly 
+		//context, which is just referenced by the allocation. 
+		//fixAllocation(changedAssemblyContext);
+		
+		return newSolution;
+	}
+
+	/**
+	 * Fix assembly connectors and delegation connectors that point to the 
+	 * changed assembly so that they point to the new required and provided roles.
+	 * 
+	 * If an alternative does not require a required interface of the original 
+	 * anymore, delete the AssemblyConnector.   
+	 *   
+	 * @param newSystem
+	 * @param changedAssemblyContext
+	 * @param providedAndRequiredRoleMapping 
+	 */
+	private void fixReferencesToAssemblyContext(System newSystem,
+			AssemblyContext changedAssemblyContext, ProvidedAndRequiredRoleMapping providedAndRequiredRoleMapping) {
+		
+		EList<AssemblyConnector> acons = newSystem.getCompositeAssemblyConnectors_ComposedStructure();
+		
+		//Lazy initialisation of aconsToDelete, as I don't need it in most cases.
+		List<AssemblyConnector> aconsToDelete = null;
+		
+		for (AssemblyConnector assemblyConnector : acons) {
+			//check provided
+			if ((checkIdentity(assemblyConnector.getProvidingChildComponentContext_CompositeAssemblyConnector(), changedAssemblyContext))){
+				assemblyConnector.setProvidedRole_CompositeAssemblyConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(assemblyConnector.getProvidedRole_CompositeAssemblyConnector()));
+			}
+			
+			//check required. Delete assembly connector if required role is not needed anymore.
+			if ((checkIdentity(assemblyConnector.getRequiringChildComponentContext_CompositeAssemblyConnector(), changedAssemblyContext))){
+				RequiredRole rRole = providedAndRequiredRoleMapping.getRequiredMapping().get(assemblyConnector.getRequiredRole_CompositeAssemblyConnector());
+				if (rRole != null){
+					assemblyConnector.setRequiredRole_CompositeAssemblyConnector(rRole);
+				} else {
+					//store assembly connector to be deleted. Cannot delete them right away because of concurrentModificationException.
+					if (aconsToDelete == null) {
+						aconsToDelete =  new ArrayList<AssemblyConnector>();
+					}
+					aconsToDelete.add(assemblyConnector);
+				}
+			}
+		}
+		//delete all AssemblyConnectors not needed anymore.
+		if (aconsToDelete != null){
+			for (AssemblyConnector assemblyConnector : aconsToDelete) {
+				acons.remove(assemblyConnector);
+			}
+		}
+		
+		//check provided delegation connectors
+		EList<ProvidedDelegationConnector> pdecons = newSystem.getProvidedDelegationConnectors_ComposedStructure();
+		for (ProvidedDelegationConnector pdecon : pdecons) {
+			if (checkIdentity(pdecon.getChildComponentContext_ProvidedDelegationConnector(), changedAssemblyContext)){
+				pdecon.setInnerProvidedRole_ProvidedDelegationConnector(providedAndRequiredRoleMapping.getProvidedMapping().get(pdecon.getInnerProvidedRole_ProvidedDelegationConnector()));
+			}
+		}
+		
+		//check required delegation connectors. Delete the Connector if the new component does not need the role anymore.
+		EList<RequiredDelegationConnector> rdecons = newSystem.getRequiredDelegationConnectors_ComposedStructure();
+		
+		//Lazy initialisation of rdeconsToDelete, as I don't need it in most cases.
+		List<RequiredDelegationConnector> rdeconsToDelete = null;
+		
+		for (RequiredDelegationConnector rdecon : rdecons) {
+			if (checkIdentity(rdecon.getChildComponentContext_RequiredDelegationConnector(), changedAssemblyContext)){
+				RequiredRole reqRole = providedAndRequiredRoleMapping.getRequiredMapping().get(rdecon.getInnerRequiredRole_RequiredDelegationConnector());
+				if (reqRole != null){
+					rdecon.setInnerRequiredRole_RequiredDelegationConnector(reqRole);
+				} else {
+					//store delegation connector to be deleted. Cannot delete them right away because of concurrentModificationException
+					if (rdeconsToDelete == null){
+						rdeconsToDelete = new ArrayList<RequiredDelegationConnector>();
+					}
+					rdeconsToDelete.add(rdecon);
+				}
+			}
+		}
+		//delete all DelegationConnectors not needed anymore.
+		if (rdeconsToDelete != null){
+			for (RequiredDelegationConnector requiredDelegationConnector : rdeconsToDelete) {
+				rdecons.remove(requiredDelegationConnector);
+			}
+		}
+		
 	}
 
 	private List<BasicComponent> filterBasicComponents(
@@ -105,13 +269,9 @@ public class AlternativeComponent implements INewCandidates {
 		 * Get all components assembled in the current system using the assembly
 		 * contexts
 		 */
-		// helper.setContext(s.eClass());
-		// expr =
-		// helper.createQuery("self.childComponentContexts_ComposedStructure");//"->collect(assembly
-		// | assembly.encapsulatedComponent_ChildComponentContext))");
+
 		EList<AssemblyContext> assemblyContexts = s
-				.getChildComponentContexts_ComposedStructure(); // (Set<AssemblyContext>)helper.getOCL().evaluate(s,
-																// expr);
+				.getChildComponentContexts_ComposedStructure(); 
 
 		for (AssemblyContext ac : assemblyContexts) {
 
@@ -126,49 +286,60 @@ public class AlternativeComponent implements INewCandidates {
 
 	}
 
-	private Map<AssemblyContext, Set<BasicComponent>> findAlternatives(
+	private Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> findAlternatives(
 			List<BasicComponent> repoComponents,
 			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap) {
 		logger.debug("findAlternatives(..) called");
 		// Use IdentityHashMap to compare BasicComponents only by reference
 		// identity, i.e. two BasicComponents are only equal if they are the
 		// same object.
-		Map<AssemblyContext, Set<BasicComponent>> alternativeMap = new IdentityHashMap<AssemblyContext, Set<BasicComponent>>();
+		Map<AssemblyContext, Map<BasicComponent,ProvidedAndRequiredRoleMapping>> alternativeMap = new IdentityHashMap<AssemblyContext, Map<BasicComponent,ProvidedAndRequiredRoleMapping>>();
 
 		for (AssemblyContext assemblyContext : assemblyContextToBasicComponentMap
 				.keySet()) {
-			alternativeMap.put(assemblyContext, getAlternatives(
-					assemblyContextToBasicComponentMap.get(assemblyContext),
-					repoComponents));
+			Map<BasicComponent,ProvidedAndRequiredRoleMapping> map = getAlternatives(assemblyContextToBasicComponentMap.get(assemblyContext),repoComponents);
+			if (map.size() > 0) {
+				alternativeMap.put(assemblyContext, map);
+			}
 		}
 
 		return alternativeMap;
 	}
 
-	private Set<BasicComponent> getAlternatives(
+	/**
+	 * Finds alternatives for a specific assembled component.
+	 * @param assembledComponent
+	 * @param repoComponents
+	 * @return a Map of alternatives, which is possibly empty if no alternatives are found. 
+	 */
+	private Map<BasicComponent,ProvidedAndRequiredRoleMapping> getAlternatives(
 			BasicComponent assembledComponent,
 			List<BasicComponent> repoComponents) {
 		logger.debug("getAlternatives(..) called");
-		Set<BasicComponent> l = new HashSet<BasicComponent>();
+		Map<BasicComponent,ProvidedAndRequiredRoleMapping> map = new IdentityHashMap<BasicComponent, ProvidedAndRequiredRoleMapping>();
 		for (BasicComponent repoComponent : repoComponents) {
-			if (isAlternativeFor(assembledComponent, repoComponent)) {
-				l.add(repoComponent);
+			ProvidedAndRequiredRoleMapping p = findRoleMappingFor(assembledComponent, repoComponent);
+			if (p != null) {
+				map.put(repoComponent,p);
 				logger.debug("Found an alternative: "
-						+ repoComponent.getEntityName()
+						+ assembledComponent.getEntityName()
 						+ " can be replaced by "
-						+ assembledComponent.getEntityName() + ".");
+						+ repoComponent.getEntityName() + ".");
+			} else {
+				logger.debug(repoComponent.getEntityName()
+						+ " is no alternative for "
+						+ assembledComponent.getEntityName());
 			}
-			logger.debug(repoComponent.getEntityName()
-					+ " is no alternative for "
-					+ assembledComponent.getEntityName());
 		}
-		return l;
+		return map;
 	}
 
 	/**
 	 * Checks provided and required interfaces and returns whether the
 	 * interfaces are compatible so that the alternativeComponent can replace
-	 * the assembledComponent. Returns false if both parameters refer to the
+	 * the assembledComponent. Returns the mapping of the provided and 
+	 * required roles to their counterparts, to be able to replace the 
+	 * component later. Returns null if both parameters refer to the
 	 * same BasicComponent.
 	 * 
 	 * Current notion of compatible: allows the alternative to provide more and
@@ -177,11 +348,11 @@ public class AlternativeComponent implements INewCandidates {
 	 * 
 	 * @param assembledComponent
 	 * @param alternativeComponent
-	 * @return true if alternativeComponent has compatible interfaces to replace
+	 * @return a map if alternativeComponent has compatible interfaces to replace
 	 *         assembledComponent AND alternativeComponent !=
-	 *         assembledComponent, false otherwise.
+	 *         assembledComponent, null otherwise.
 	 */
-	private boolean isAlternativeFor(BasicComponent assembledComponent,
+	private ProvidedAndRequiredRoleMapping findRoleMappingFor(BasicComponent assembledComponent,
 			BasicComponent alternativeComponent) {
 
 		logger.debug("isAlternativeFor(..) called");
@@ -189,7 +360,7 @@ public class AlternativeComponent implements INewCandidates {
 		// first check whether the two parameters are the same component, if
 		// yes, return false.
 		if (checkIdentity(assembledComponent, alternativeComponent))
-			return false;
+			return null;
 
 		// check whether they have compatible interfaces
 		/*
@@ -237,8 +408,9 @@ public class AlternativeComponent implements INewCandidates {
 					+ alternativeComponent.getEntityName() + " do not match.");
 			logger.debug("Mapping size: " + providedMapping.size()
 					+ ", provided role list size: " + altprl.size());
-			return false;
+			return null;
 		}
+		logger.debug("These two have matching provided interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
 
 		// Now look at the required interfaces. alternativeComponent must not
 		// require
@@ -276,10 +448,12 @@ public class AlternativeComponent implements INewCandidates {
 					+ alternativeComponent.getEntityName() + " do not match.");
 			logger.debug("Mapping size: " + requiredMapping.size()
 					+ ", required role list size: " + altrrl.size());
-			return false;
+			return null;
 		}
+		logger.debug("These two have matching required interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
 
-		return true;
+		ProvidedAndRequiredRoleMapping prrm = new ProvidedAndRequiredRoleMapping(providedMapping, requiredMapping);
+		return prrm;
 	}
 
 	/**
@@ -294,10 +468,12 @@ public class AlternativeComponent implements INewCandidates {
 	 * @return true if i1.getId().equals(i2.getId()), false otherwise
 	 */
 	private boolean checkIdentity(Identifier i1, Identifier i2) {
-		if (i1.getId().equals(i2.getId()))
+		if (i1.getId().equals(i2.getId())){
+			logger.debug("Two model elements match with Id: "+i1.getId());
 			return true;
-		else
+		} else {
 			return false;
+		}
 	}
 
 }

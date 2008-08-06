@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 
 /**
@@ -65,22 +66,53 @@ public class PCMInstance {
 	private String usageModelFileName;
 
 	private String systemFileName;
+	private String systemFileNameSuffix = "";
+
+
+	private String name;
     
-    public PCMInstance(){
+    public PCMInstance(Repository repository, System system,
+			Allocation allocation, ResourceEnvironment resourceenvironment,
+			ResourceType resourcetype, Repository mwRepository,
+			String storagePath, ResourceRepository resourceRepository,
+			UsageModel usageModel, String allocationFileName,
+			String repositoryFileName, String resourceRepositoryFileName,
+			String usageModelFileName, String systemFileName, String name) {
+		super();
+		this.repository = repository;
+		this.system = system;
+		this.allocation = allocation;
+		this.resourceenvironment = resourceenvironment;
+		this.resourcetype = resourcetype;
+		this.mwRepository = mwRepository;
+		this.storagePath = storagePath;
+		this.resourceRepository = resourceRepository;
+		this.usageModel = usageModel;
+		this.allocationFileName = allocationFileName;
+		this.repositoryFileName = repositoryFileName;
+		this.resourceRepositoryFileName = resourceRepositoryFileName;
+		this.usageModelFileName = usageModelFileName;
+		this.systemFileName = systemFileName;
+		this.name = name;
+	}
+
+	public PCMInstance(){
     	super();
     }
     
     /**
      * Copied From de.uka.ipd.sdq.pcmsolver.models.PCMInstance.
      * @param configuration Config given by Eclipse
+     * @throws CoreException 
      */
-    public PCMInstance(final ILaunchConfiguration configuration) {
+    public PCMInstance(final ILaunchConfiguration configuration) throws CoreException {
 		//this.usage = ComputedUsageFactory.eINSTANCE.createComputedUsage();
 		//this.actualAllocation = ComputedAllocationFactory.eINSTANCE.createComputedAllocation();
     	
     	logger.debug("Constructor called");
-		try {
-			this.storagePath = configuration.getAttribute("outputPath", ".");
+     		this.setName(configuration.getAttribute(SimuComConfig.EXPERIMENT_RUN, "Initial instance"));
+    		
+    		this.storagePath = configuration.getAttribute("outputPath", ".");
 			
 			String filename = configuration.getAttribute(ConstantsContainer.ALLOCATION_FILE, "");
 			this.allocation = ((Allocation) loadFromXMIFile(filename));
@@ -101,9 +133,6 @@ public class PCMInstance {
 			
 			this.system = this.allocation.getSystem_Allocation();
 			this.systemFileName = configuration.getAttribute(ConstantsContainer.SYSTEM_FILE, "");
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
 	}
 
     /**
@@ -111,7 +140,7 @@ public class PCMInstance {
      * @param fileName the filename specifying the file to load from 
      * @return The EObject loaded from the file
      */
-	private EObject loadFromXMIFile(final String fileName) {
+	public EObject loadFromXMIFile(final String fileName) {
 		// Create a resource set to hold the resources.
 		ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -196,7 +225,7 @@ public class PCMInstance {
 		saveToXMIFile(repository, repositoryFileName); //fileNamePrefix+".repository");
 		//saveToXMIFile(resourceenvironment, fileNamePrefix+".resourceenvironment");
 		//saveToXMIFile(resourceRepository, resourceRepositoryFileName); //fileNamePrefix+".resourcetype");
-		saveToXMIFile(system, systemFileName); //fileNamePrefix+".system");
+		saveSystemToFile(); //fileNamePrefix+".system");
 		saveToXMIFile(usageModel, usageModelFileName); //fileNamePrefix+".usagemodel");
 		
 		//saveToXMIFile(usage, fileNamePrefix+".usage");
@@ -204,6 +233,16 @@ public class PCMInstance {
 		
 	}
 	
+	public void saveSystemToFile(){
+		saveToXMIFile(system, appendToFilename(systemFileNameSuffix,systemFileName));
+	}
+	
+	private String appendToFilename(String fileNameSuffix,
+			String fileName) {
+		int indexOfLastDot = fileName.lastIndexOf(".");
+		return fileName.substring(0, indexOfLastDot)+fileNameSuffix+fileName.substring(indexOfLastDot);
+	}
+
 	/**
 	 * Save the given EObject to the file given by filename. 
 	 * @param modelToSave The EObject to save
@@ -302,8 +341,63 @@ public class PCMInstance {
 		this.mwRepository = mwRepository;
 	}
 
+	/**
+	 * Returns a new PCM instance that references the same model elements than
+	 * this one and has the same filenames.
+	 */
+	public PCMInstance shallowCopy() {
+		PCMInstance pcm = new PCMInstance(this.repository, this.system,
+				this.allocation, this.resourceenvironment, this.resourcetype,
+				this.mwRepository, this.storagePath, this.resourceRepository,
+				this.usageModel, this.allocationFileName,
+				this.repositoryFileName, this.resourceRepositoryFileName,
+				this.usageModelFileName, this.systemFileName, this.name);
 
-    
+		return pcm;
+	}
+
+	public void setSystemFileNameSuffix(String string) {
+		this.systemFileNameSuffix = string;
+		
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String newName){
+		this.name = newName;
+	}
+
+	public ResourceRepository getResourceRepository() {
+		return resourceRepository;
+	}
+
+	public String getAllocationFileName() {
+		return allocationFileName;
+	}
+
+	public String getRepositoryFileName() {
+		return repositoryFileName;
+	}
+
+	public String getResourceRepositoryFileName() {
+		return resourceRepositoryFileName;
+	}
+
+	public String getUsageModelFileName() {
+		return usageModelFileName;
+	}
+
+	public String getSystemFileName() {
+		return systemFileName;
+	}
+
+	public UsageModel getUsageModel() {
+		return usageModel;
+		
+	}
+
     
     
 	

@@ -16,11 +16,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf,
  org.eclipse.emf.ecore.xmi,
  org.apache.log4j,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ de.uka.ipd.sdq.simucomframework
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.dsexplore,
  de.uka.ipd.sdq.dsexplore.analysis,
- de.uka.ipd.sdq.dsexplore.dsedecorator,
- de.uka.ipd.sdq.dsexplore.newcandidates
+ de.uka.ipd.sdq.dsexplore.helper,
+ de.uka.ipd.sdq.dsexplore.newcandidates,
+ de.uka.ipd.sdq.dsexplore.qualityAttributes
 Bundle-ClassPath: .,
  log4j/

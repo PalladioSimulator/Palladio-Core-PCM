@@ -27,10 +27,8 @@ public class NewCandidateProxy implements INewCandidates {
 		// TODO Auto-generated method stub
 		
 		INewCandidates nc = (INewCandidates)ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.newcandidates");
-		nc.generateNewCandidates(currentSolution);
-		
-		
-		return null;
+				
+		return nc.generateNewCandidates(currentSolution);
 	}
 
     

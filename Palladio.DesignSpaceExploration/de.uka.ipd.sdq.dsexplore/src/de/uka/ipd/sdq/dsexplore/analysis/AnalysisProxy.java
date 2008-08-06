@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.dsexplore.analysis;
 
-import javax.security.auth.login.Configuration;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
@@ -8,10 +10,11 @@ import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 public class AnalysisProxy implements IAnalysis {
 
 	@Override
-	public void analyse(PCMInstance pcmInstance, Configuration config) {
+	public AnalysisResult analyse(PCMInstance pcmInstance, ILaunchConfiguration config, String mode,
+			ILaunch launch, IProgressMonitor monitor) throws AnalysisFailedException {
 		IAnalysis ana = (IAnalysis)ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.analysis");
 		
-		ana.analyse(pcmInstance, null);
+		return ana.analyse(pcmInstance, config, mode, launch, monitor);
 
 	}
 

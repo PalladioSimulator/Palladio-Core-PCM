@@ -1,11 +1,14 @@
 package de.uka.ipd.sdq.dsexplore.analysis;
 
-import javax.security.auth.login.Configuration;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
 
 public interface IAnalysis {
 
 	
-	public abstract void analyse(PCMInstance pcmInstance, Configuration config);
+	public abstract AnalysisResult analyse(PCMInstance pcmInstance, ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) throws AnalysisFailedException;
 }
