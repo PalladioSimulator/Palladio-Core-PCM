@@ -1,12 +1,8 @@
 package de.uka.ipd.sdq.sensorframework.dialogs.dataset;
 
-import java.io.File;
-
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.wizard.IWizardPage;
