@@ -5,6 +5,14 @@
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <metamodel
             nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+            <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.SynchronisationPoint_9001"
+               name="SynchronisationPoint"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SynchronisationPoint"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.helper.SynchronisationPointEditHelper">
+            <param name="semanticHint" value="9001"/>
+         </metamodelType>
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourceDemandingBehaviourEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorActionAdvice"
@@ -95,6 +103,12 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3027">
          </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.ForkActionHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ForkActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023">
+         </adviceBinding>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0">
          <metamodelType
@@ -160,11 +174,17 @@
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviourAdvice">
          </advice>
+         <advice
+         		ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkActionAdvice">
+         </advice>
          <elementType
                ref="de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000">
          </elementType>
          <elementType
                ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviourAdvice">
+         </elementType>
+         <elementType
+         	ref="de.uka.ipd.sdq.pcm.gmf.seff.SynchronisationPoint_9001">
          </elementType>
        </binding>
    </extension>
