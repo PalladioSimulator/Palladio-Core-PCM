@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.sensorframework.dao.file.entities;
 
+
 import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.storage.lists.ISerialiser;
 
@@ -20,9 +21,20 @@ private int nbParameters;
 	}
 	
 	public Object[] deserialise(byte[] bytes) {
-		Double[][] values = new Double[(int)(bytes.length / getElementLength())][nbParameters];
-		
+		if (bytes.length < 4) {
+			return new Double[0][0];
+		}
 		int blockPos = 0;
+		int nb = 0;
+		for (int i = 3; i >=0; i--) {
+			nb = nb << 4;
+			nb |= bytes[blockPos+i] < 0 ? 256 + bytes[blockPos+i] : bytes[blockPos+i];
+		}
+		blockPos += 4;
+		nbParameters = nb;
+		Double[][] values = new Double[(int)((bytes.length - 4)/ getElementLenght())][nbParameters];
+		
+		
 		
 		   for (int j = 0; j<values.length; j++){
 			   for (int k = 0; k < nbParameters; k++) {
@@ -42,19 +54,29 @@ private int nbParameters;
 		return values;
 	}
 
-	public long getElementLength() {
+	public long getElementLenght() {
 		return 8*nbParameters;
 	}
 
 	public byte[] serialise(Object[] objects, int count) {
-		byte[] block = new byte[(int)(count*getElementLength())];
-			
 		
-		
+		if (count>0) { 	
+			nbParameters = ((Double[])objects[0]).length;
+		}
+		byte[] block = new byte[(int)(count*getElementLenght()+4)];;
 		int blockPos = 0;
+		
+		int nb = nbParameters;
+		for (int i = 0; i < 4; i++) {
+			block[blockPos++] = (byte)(nb & 0xff);
+			nb = nb >> 4;
+		}
+		
 		for (int j = 0; j < count; j++){
 			Double[] serie = (Double[])objects[j];
-		  for (int k = 0; k < nbParameters; k++) {
+			
+		  
+				for (int k = 0; k < nbParameters; k++) {
 			
 			
 				
@@ -69,5 +91,6 @@ private int nbParameters;
 		
 		return block;
 	}
+
 	
 }
