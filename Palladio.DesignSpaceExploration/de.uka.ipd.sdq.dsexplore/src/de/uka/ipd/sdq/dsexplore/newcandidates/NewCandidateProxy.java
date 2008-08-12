@@ -2,10 +2,7 @@ package de.uka.ipd.sdq.dsexplore.newcandidates;
 
 import java.util.List;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IExtensionPoint;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IConfigurationElement;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
@@ -21,14 +18,23 @@ import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 public class NewCandidateProxy implements INewCandidates {
 	
 	protected IConfigurationElement element;
+	private INewCandidates nc;
 
+	private void checkRealNewCandidate() throws CoreException{
+		if (nc == null){
+			nc = (INewCandidates)ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.newcandidates");
+		}
+	}
+	
 	@Override
-	public List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) {
-		// TODO Auto-generated method stub
-		
-		INewCandidates nc = (INewCandidates)ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.newcandidates");
-				
+	public List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) throws CoreException {
+		checkRealNewCandidate();				
 		return nc.generateNewCandidates(currentSolution);
+	}
+
+	public void setGeneration(int generation) throws CoreException {
+		checkRealNewCandidate();
+		nc.setGeneration(generation);
 	}
 
     

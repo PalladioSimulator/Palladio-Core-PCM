@@ -1,8 +1,6 @@
 package de.uka.ipd.sdq.dsexplore.helper;
 
-import java.io.BufferedWriter;
 import java.io.PrintWriter;
-import java.io.Writer;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;

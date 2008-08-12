@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.dsexplore.analysis.simucom;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Vector;
 
 import org.apache.log4j.Logger;
@@ -7,7 +9,8 @@ import org.eclipse.core.runtime.IStatus;
 import org.rosuda.JRI.REXP;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
-import de.uka.ipd.sdq.dsexplore.analysis.AnalysisResult;
+import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
@@ -20,7 +23,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reports.RRepo
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
 
 
-public class SimuComAnalysisResult implements AnalysisResult {
+public class SimuComAnalysisResult implements IAnalysisResult {
 
 	private ExperimentRun run;
 	
@@ -40,49 +43,65 @@ public class SimuComAnalysisResult implements AnalysisResult {
 	}
 
 	@Override
-	public double getMeanValue() {
+	public double getMeanValue() throws AnalysisFailedException {
 		if (meanValueCache == 0){
 			//Get usage scenario sensor. 
 			UsageScenario us = pcm.getUsageModel().getUsageScenario_UsageModel().get(0);
 			Sensor respTimeSensor = getSensorForUsageScenario(experiment, us);
-			SensorAndMeasurements sam = run.getMeasurementsOfSensor(respTimeSensor);
-			meanValueCache = calculateMeanValue(sam);
+			if (respTimeSensor != null){
+				SensorAndMeasurements sam = run.getMeasurementsOfSensor(respTimeSensor);
+				meanValueCache = calculateMeanValue(sam);
+			} else 
+				throw new AnalysisFailedException("Could not find sensor for usage scenario "+us.getEntityName());
 		}
 		return meanValueCache;
 	}
 
-	private double calculateMeanValue(SensorAndMeasurements sam) {
+	private double calculateMeanValue(SensorAndMeasurements sam) throws AnalysisFailedException {
+		AnalysisFailedException error = null;
+		try {
 		if (RConnection.isEngineAvailable()){
+
 			RConnection rConnection = RConnection.getRConnection();
 			String sensorName = storeMeasurementsInRVector(sam, sam.getSensor().getSensorID(), TimeseriesData.TIMESPAN, rConnection);
 			Vector<REXP> rResult = rConnection.execute("mean(" + sensorName + ")\n");
 			if (rResult.size() > 0) {
-				if (rResult.get(0).rtype == REXP.XT_DOUBLE){
+				if (rResult.get(0).rtype == REXP.REALSXP){
 					return rResult.get(0).asDouble();
 				} else {
-					logger.error("R engine returned a non-double when trying to calculate the mean value.");
+					error = new AnalysisFailedException("R engine returned a non-double when trying to calculate the mean value: "+rResult.get(0).asString());
+					logger.error(error.getMessage());
 				}
 			} else {
-				logger.error("Querying R engine returned an empty result.");
+				error = new AnalysisFailedException("Querying R engine returned an empty result."); 
+				logger.error(error.getMessage());
 			}
 		} else {
-			logger.error("Could not connect to R engine!");
+			error = new AnalysisFailedException("Could not connect to R engine! Check your R configuration.");
+			logger.error(error.getMessage());
 		}
-		return 0;
+		} catch (ExceptionInInitializerError e) {
+			error = new AnalysisFailedException("Could not connect to R engine!  Check your R configuration.", e);
+			logger.error(error.getMessage());
+			logger.error(e.getMessage());
+		}
+		throw error;
 	}
 
-	private Sensor getSensorForUsageScenario(Experiment exp,
-			UsageScenario us) {
-		// TODO Auto-generated method stub
+	private Sensor getSensorForUsageScenario(Experiment exp, UsageScenario us) {
+		Collection<Sensor> sensors = exp.getSensors();
+		for (Iterator<Sensor> iterator = sensors.iterator(); iterator.hasNext();) {
+			Sensor sensor = iterator.next();
+			//logger.debug("Experiment has a sensor with ID "+sensor.getSensorID()+" and name "+sensor.getSensorName()+".");
+			if (sensor.getSensorName().contains(us.getEntityName())){
+				logger.debug("Found sensor for usage scenario "+us.getEntityName());
+				return sensor;
+			}
+		}
+		logger.error("No sensor found for usage scenario "+us.getEntityName());
 		return null;
 	}
 
-	@Override
-	public void setMeanValue(double meanValue) {
-		// TODO Auto-generated method stub
-
-	}
-	
 	/**Export the measurements of a sensor to R. 
 	 * There are two alternatives. The measurements can be transferred 
 	 * via an array, which implies certain size restrictions. An alternative is
@@ -174,6 +193,11 @@ public class SimuComAnalysisResult implements AnalysisResult {
 					: tsm.getTimeSpan(); 
 		}
 		return measurementsArray;
+	}
+
+	@Override
+	public PCMInstance getPCMInstance() {
+		return pcm;
 	}
 	
 	/**Prepares to export the measurements of a time series sensor to R. 

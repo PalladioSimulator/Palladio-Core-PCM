@@ -2,20 +2,14 @@ package de.uka.ipd.sdq.dsexplore.newcandidates.alternativecomponents;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.ocl.ParserException;
-import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
-import org.eclipse.ocl.ecore.OCL;
-import org.eclipse.ocl.ecore.OCLExpression;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
@@ -25,11 +19,9 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.system.System;
 
@@ -38,29 +30,22 @@ public class AlternativeComponent implements INewCandidates {
 	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 	
 	/** To add number of generation to the model file files**/
-	private int generation = 0;
+	public int generation = 0;
 	
 	/** Model files will get the suffix here plus the generation number**/
-	private static String modelFilesSuffix = "AltCom-Gen";
+	private static String modelFilesSuffix = "AltCom-";
 
 	public AlternativeComponent() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
 	public List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) {
 
-		this.generation ++;
 		logger.debug("Alternative Plugin called for the "+this.generation+". time");
 		
-		// TODO Generate an alternative :D
 		Repository r = currentSolution.getRepository();
 		System s = currentSolution.getSystem();
-
-/*		RepositorySystemDecorator rsd = dsedecoratorFactory.eINSTANCE
-				.createRepositorySystemDecorator();
-		rsd.setSystem(s);
-		rsd.getRepositories().add(r);*/
 
 		List<BasicComponent> repoComponents = filterBasicComponents(r
 				.getComponents__Repository());
@@ -129,9 +114,9 @@ public class AlternativeComponent implements INewCandidates {
 		logger.debug("The new system: "+newSystem);
 		
 		newSolution.setSystem(newSystem);
-		newSolution.setSystemFileNameSuffix(modelFilesSuffix+this.generation+"-alt"+counter);
+		newSolution.setSystemFileNameSuffix("-gen"+generation+"-"+modelFilesSuffix+counter);
 		
-		newSolution.setName(modelFilesSuffix+this.generation+"-alt"+counter);
+		newSolution.setName(newSolution.getName()+"-gen"+generation+"-"+modelFilesSuffix+counter);
 		
 		logger.debug("The old assembly we look for: "+assemblyContext);
 		AssemblyContext changedAssemblyContext = null;
@@ -289,7 +274,7 @@ public class AlternativeComponent implements INewCandidates {
 	private Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> findAlternatives(
 			List<BasicComponent> repoComponents,
 			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap) {
-		logger.debug("findAlternatives(..) called");
+		//logger.debug("findAlternatives(..) called");
 		// Use IdentityHashMap to compare BasicComponents only by reference
 		// identity, i.e. two BasicComponents are only equal if they are the
 		// same object.
@@ -315,7 +300,7 @@ public class AlternativeComponent implements INewCandidates {
 	private Map<BasicComponent,ProvidedAndRequiredRoleMapping> getAlternatives(
 			BasicComponent assembledComponent,
 			List<BasicComponent> repoComponents) {
-		logger.debug("getAlternatives(..) called");
+		//logger.debug("getAlternatives(..) called");
 		Map<BasicComponent,ProvidedAndRequiredRoleMapping> map = new IdentityHashMap<BasicComponent, ProvidedAndRequiredRoleMapping>();
 		for (BasicComponent repoComponent : repoComponents) {
 			ProvidedAndRequiredRoleMapping p = findRoleMappingFor(assembledComponent, repoComponent);
@@ -325,11 +310,11 @@ public class AlternativeComponent implements INewCandidates {
 						+ assembledComponent.getEntityName()
 						+ " can be replaced by "
 						+ repoComponent.getEntityName() + ".");
-			} else {
+			} /*else {
 				logger.debug(repoComponent.getEntityName()
 						+ " is no alternative for "
 						+ assembledComponent.getEntityName());
-			}
+			}*/
 		}
 		return map;
 	}
@@ -355,7 +340,7 @@ public class AlternativeComponent implements INewCandidates {
 	private ProvidedAndRequiredRoleMapping findRoleMappingFor(BasicComponent assembledComponent,
 			BasicComponent alternativeComponent) {
 
-		logger.debug("isAlternativeFor(..) called");
+		//logger.debug("isAlternativeFor(..) called");
 
 		// first check whether the two parameters are the same component, if
 		// yes, return false.
@@ -388,10 +373,10 @@ public class AlternativeComponent implements INewCandidates {
 			for (ProvidedRole altpr : altprl) {
 				// TODO: Allow derived interfaces at the alternativeComponent
 				// TODO: Rather use same ImplementationComponentType?
-				logger.debug("Interface "
+/*				logger.debug("Interface "
 						+ altpr.getProvidedInterface__ProvidedRole()
 						+ " and Interface "
-						+ asspr.getProvidedInterface__ProvidedRole());
+						+ asspr.getProvidedInterface__ProvidedRole());*/
 				if (checkIdentity(altpr.getProvidedInterface__ProvidedRole(),
 						asspr.getProvidedInterface__ProvidedRole())) {
 					providedMapping.put(asspr, altpr);
@@ -403,11 +388,11 @@ public class AlternativeComponent implements INewCandidates {
 		// If not all provided interfaces of the assembled component are
 		// provided by the alternative, return false.
 		if (providedMapping.size() != assprl.size()) {
-			logger.debug("The provided interfaces of "
+/*			logger.debug("The provided interfaces of "
 					+ assembledComponent.getEntityName() + " and "
 					+ alternativeComponent.getEntityName() + " do not match.");
 			logger.debug("Mapping size: " + providedMapping.size()
-					+ ", provided role list size: " + altprl.size());
+					+ ", provided role list size: " + altprl.size());*/
 			return null;
 		}
 		logger.debug("These two have matching provided interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
@@ -443,11 +428,11 @@ public class AlternativeComponent implements INewCandidates {
 		// If not all required interfaces of the alternative component are
 		// required by the assembled one, return false.
 		if (requiredMapping.size() != altrrl.size()) {
-			logger.debug("The required interfaces of "
+/*			logger.debug("The required interfaces of "
 					+ assembledComponent.getEntityName() + " and "
 					+ alternativeComponent.getEntityName() + " do not match.");
 			logger.debug("Mapping size: " + requiredMapping.size()
-					+ ", required role list size: " + altrrl.size());
+					+ ", required role list size: " + altrrl.size());*/
 			return null;
 		}
 		logger.debug("These two have matching required interfaces:" + assembledComponent.getEntityName()+ " and "+alternativeComponent.getEntityName());
@@ -469,11 +454,15 @@ public class AlternativeComponent implements INewCandidates {
 	 */
 	private boolean checkIdentity(Identifier i1, Identifier i2) {
 		if (i1.getId().equals(i2.getId())){
-			logger.debug("Two model elements match with Id: "+i1.getId());
+			//logger.debug("Two model elements match with Id: "+i1.getId());
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	public void setGeneration(int generation) {
+		this.generation = generation;
 	}
 
 }

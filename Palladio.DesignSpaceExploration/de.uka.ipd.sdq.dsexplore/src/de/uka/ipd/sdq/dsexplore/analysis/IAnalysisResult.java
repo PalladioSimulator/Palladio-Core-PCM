@@ -1,13 +1,11 @@
 package de.uka.ipd.sdq.dsexplore.analysis;
 
-import java.util.Collection;
-
-import de.uka.ipd.sdq.dsexplore.qualityAttributes.Performance;
+import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
 
 /**
  * Class to store the results of a DSE analysis step.
- * <code>AnalysisResult</code>s abstract from the actual analysis that was
+ * <code>IAnalysisResult</code>s abstract from the actual analysis that was
  * conducted, e.g. SimuCom or an LQN analysis. The results are stored in an
  * general way here. Initially, this is just a mean value. Later, this class can
  * be extended to include more sophisticated results.
@@ -27,12 +25,16 @@ import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
  * @author Anne
  * 
  */
-public interface AnalysisResult {
+public interface IAnalysisResult {
 	
-	public double getMeanValue();
+	/**
+	 * Get the mean value of an analysis result.
+	 * @return mean value calculated from this analysis result
+	 * @throws AnalysisFailedException if the mean value could not be calculated (e.g. because the results are null or because the R connection is not working. 
+	 */
+	public double getMeanValue() throws AnalysisFailedException;
 
-	public void setMeanValue(double meanValue);
-	
+	public PCMInstance getPCMInstance();
 
 
 }
