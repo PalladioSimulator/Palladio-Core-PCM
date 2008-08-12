@@ -64,7 +64,7 @@ public class AlternativeComponent implements INewCandidates {
 
 		//Create a new PCM instance for each alternative found
 		//Only change one component at a time. 
-		//FIXME: Does one generate alternatives with one component different each, test it and debug
+		//Generate alternatives with one component different each
 		List<PCMInstance> l = createAlternativePCMInstances(currentSolution,
 				alternativeMap);
 		return l;

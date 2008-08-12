@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dsexplore.launch;
+package de.uka.ipd.sdq.dsexplore.algorithms;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
-import de.uka.ipd.sdq.dsexplore.algorithms.IAlgorithm;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
@@ -76,7 +75,7 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 			IAnalysisResult best = this.selectBest(results);
 			
 			//Then create a new generation out of these.
-			if (best.getMeanValue() < currentResult.getMeanValue()){
+			if (best != null && best.getMeanValue() < currentResult.getMeanValue()){
 				improved = true;
 				newGeneration.add(best);
 			} else{
@@ -91,14 +90,13 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	}
 
 	/**
-	 * Retrieves the {@link IAnalysisResult} with the lowest mean response time of the analysed usage scenario. 
+	 * Retrieves the {@link IAnalysisResult} with the lowest mean response time of the analysed usage scenario. Might return null. 
 	 * @param results A list of IAnalysisResults to find the best one from. 
-	 * @return the {@link IAnalysisResult} with the lowest mean response time
+	 * @return the {@link IAnalysisResult} with the lowest mean response time or null if the passed List is empty.
 	 * @throws AnalysisFailedException
 	 */
 	private IAnalysisResult selectBest(List<IAnalysisResult> results) throws AnalysisFailedException {
 		Iterator<IAnalysisResult> iterator = results.iterator();
-		//FIXME: handle a null when calling this.
 		if (!iterator.hasNext()){
 			return null;
 		}
