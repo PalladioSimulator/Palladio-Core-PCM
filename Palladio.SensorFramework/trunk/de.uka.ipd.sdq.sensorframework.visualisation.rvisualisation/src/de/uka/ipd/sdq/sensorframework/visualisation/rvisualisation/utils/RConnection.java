@@ -5,6 +5,7 @@ import java.util.Vector;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.rosuda.JRI.REXP;
 import org.rosuda.JRI.Rengine;
@@ -115,7 +116,7 @@ public class RConnection {
 					.getActiveWorkbenchWindow().getShell(),
 					"Error loading R",
 					null,
-					"Could not load R. The R engine dind't come up in time.",
+					"Could not load R. The R engine didn't come up in time.",
 					MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 			rengine = null;
 			return;
@@ -147,17 +148,20 @@ public class RConnection {
 					+ "in the installation path of R and not in the user path."
 					+ "This can be achieved by executing the R command "
 					+ "\"library\".");
-			new MessageDialog(
-					PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getShell(),
-					"Library \"" + packageName + "\" is not available in R",
-					null,
-					"The library \"" + packageName + "\" is not available. "
-					+ "Please install the \"" + packageName + "\" package in "
-					+ "your R installation or"
-					+ " the R reports will not work properly. Check the PDE "
-					+ "error log for more information.",
-					MessageDialog.ERROR, new String[] { "OK" }, 0).open();
+			//Get the ActiveWorkbenchWindow to send the error message to or handle it of there is none. 
+			IWorkbenchWindow wbw = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			if (wbw != null){
+				new MessageDialog(
+						wbw.getShell(),
+						"Library \"" + packageName + "\" is not available in R",
+						null,
+						"The library \"" + packageName + "\" is not available. "
+						+ "Please install the \"" + packageName + "\" package in "
+						+ "your R installation or"
+						+ " the R reports will not work properly. Check the PDE "
+						+ "error log for more information.",
+						MessageDialog.ERROR, new String[] { "OK" }, 0).open();
+			} 
 		}
 	}
 
@@ -309,4 +313,5 @@ public class RConnection {
 		return rConsole.getLastMessage();
 		
 	}
+
 }

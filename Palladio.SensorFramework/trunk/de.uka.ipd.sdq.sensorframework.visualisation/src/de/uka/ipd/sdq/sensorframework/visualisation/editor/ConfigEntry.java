@@ -10,6 +10,11 @@ import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
+/**
+ * TODO: Document me! What do I do?
+ * @author ?
+ *
+ */
 public class ConfigEntry extends Observable {
 	private List<Long> sensorIDs;
 	private long experimentRunID;
@@ -33,6 +38,12 @@ public class ConfigEntry extends Observable {
 		return result;
 	}
 
+	/** 
+	 * Adds the given Sensor (or its id, respectively) to the list of
+	 * sensors of this ConfigEntry. TODO: What does that mean? Are these the 
+	 * sensors shown in one diagram, for example?     
+	 * @param sensor
+	 */
 	public void setSensorChecked(Sensor sensor) {
 		if (!isSensorChecked(sensor)){
 			sensorIDs.add(sensor.getSensorID());

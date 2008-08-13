@@ -46,6 +46,10 @@ public class SimuLaunchConfigurationDelegate extends
 				attributes.getFiles(), attributes.isShouldThrowException());
 		result.addJob(checkOAWConstraintsJob);
 		
+		/* Check whether a sensitivity analysis is wanted (specified in attribute named 
+		 * <code>ConstantsContainer.VARIABLE_TEXT</code>), if yes, start 
+		 * multiple runs just changing this one parameter, if not, just start one run.  
+		 */
 		if (!attributes.getOAWWorkflowProperties(1).get(ConstantsContainer.VARIABLE_TEXT).equals("") ) {
 			result.addJob(new MultipleSimulationRunsCompositeJob(attributes));
 		} else {

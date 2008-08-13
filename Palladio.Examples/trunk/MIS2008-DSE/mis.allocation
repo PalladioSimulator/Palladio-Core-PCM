@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pcm.allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_f2E6QNpBEdyxgfK4Hy_RFA" entityName="defaultAllocation">
+<?xml version="1.0" encoding="ASCII"?>
+<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_f2E6QNpBEdyxgfK4Hy_RFA" entityName="defaultAllocation">
   <allocationContexts_Allocation id="_hm3icNpBEdyxgfK4Hy_RFA" entityName="Allocation_AC_Webserver &lt;WebServer>">
     <resourceContainer_AllocationContext href="mis.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
     <assemblyContext_AllocationContext href="mis.system#_N8Qq8No_EdyxgfK4Hy_RFA"/>
@@ -22,4 +22,4 @@
   </allocationContexts_Allocation>
   <targetResourceEnvironment_Allocation href="mis.resourceenvironment#/"/>
   <system_Allocation href="mis.system#_Mkm7gNo_EdyxgfK4Hy_RFA"/>
-</pcm.allocation:Allocation>
+</Allocation>

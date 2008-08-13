@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.I
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.RCommandRReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.REngineHelper;
 
 /**Report that displays the total resource demands for sensors.
  * @author groenda
@@ -31,7 +32,7 @@ public class DemandTimeReport extends RReport {
 		for (int i = 0; i < c.size(); i++) {
 			SensorAndMeasurements sm = it.next();
 			
-			String sensorName = storeMeasurementsInRVector(sm, i, 
+			String sensorName = REngineHelper.storeMeasurementsInRVector(sm, i, 
 					TimeseriesData.TIMESPAN, t);
 			
 			String rCommand = "sum(" + sensorName + ")\n";

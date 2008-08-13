@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.I
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.RCommandRReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.REngineHelper;
 
 /**View for comparing distributions.
  * @author groenda
@@ -42,7 +43,7 @@ public class DistributionComparisonReport extends RReport {
 			SensorAndMeasurements[] sm = new SensorAndMeasurements[2];
 			for (int i = 0; i < 2; i++) {
 				sm[i] = it.next();
-				String sensorName = storeMeasurementsInRVector(sm[i], i, 
+				String sensorName = REngineHelper.storeMeasurementsInRVector(sm[i], i, 
 						TimeseriesData.TIMESPAN, t);
 				
 				data.add("density(" + sensorName + ")");

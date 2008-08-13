@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
 <System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_Mkm7gNo_EdyxgfK4Hy_RFA" entityName="defaultSystem">
   <childComponentContexts_ComposedStructure id="_N8Qq8No_EdyxgfK4Hy_RFA" entityName="AC_Webserver">
-    <encapsulatedComponent_ChildComponentContext href="mis.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    <encapsulatedComponent_ChildComponentContext href="mis.repository#_P9xz0FiQEd2aab3DcK8c1A"/>
   </childComponentContexts_ComposedStructure>
   <childComponentContexts_ComposedStructure id="_T00ZwNo_EdyxgfK4Hy_RFA" entityName="AC_Scheduler">
-    <encapsulatedComponent_ChildComponentContext href="mis.repository#_jpoagNo4EdyCSNQKlT1LxA"/>
+    <encapsulatedComponent_ChildComponentContext href="mis.repository#_ZohZ0FibEd2-lLMmTLge8A"/>
   </childComponentContexts_ComposedStructure>
   <childComponentContexts_ComposedStructure id="_VmpjwNo_EdyxgfK4Hy_RFA" entityName="AC_ReportingEngine">
     <encapsulatedComponent_ChildComponentContext href="mis.repository#_k7K64No4EdyCSNQKlT1LxA"/>
@@ -19,30 +19,26 @@
     </configParameterUsages_AssemblyContext>
   </childComponentContexts_ComposedStructure>
   <childComponentContexts_ComposedStructure id="_e5UB8No_EdyxgfK4Hy_RFA" entityName="AC_CacheInfo">
-    <encapsulatedComponent_ChildComponentContext href="mis.repository#_nEBdwNo4EdyCSNQKlT1LxA"/>
+    <encapsulatedComponent_ChildComponentContext href="mis.repository#_QOQCUFicEd2-lLMmTLge8A"/>
   </childComponentContexts_ComposedStructure>
   <providedDelegationConnectors_ComposedStructure id="_1KaFcNo_EdyxgfK4Hy_RFA" entityName="ProvDelegation Provided_IHTTP -> Provided_IHTTP_WebServer" outerProvidedRole_ProvidedDelegationConnector="_zyc0ANo_EdyxgfK4Hy_RFA" childComponentContext_ProvidedDelegationConnector="_N8Qq8No_EdyxgfK4Hy_RFA">
-    <innerProvidedRole_ProvidedDelegationConnector href="mis.repository#_7gSRINo5EdyCSNQKlT1LxA"/>
+    <innerProvidedRole_ProvidedDelegationConnector href="mis.repository#_RkJ7wFiQEd2aab3DcK8c1A"/>
   </providedDelegationConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_ZFheYNo_EdyxgfK4Hy_RFA" entityName="Connector AC_Scheduler -> AC_ReportingEngine" requiringChildComponentContext_CompositeAssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA">
     <providedRole_CompositeAssemblyConnector href="mis.repository#_YSFeANo5EdyCSNQKlT1LxA"/>
-    <requiredRole_CompositeAssemblyConnector href="mis.repository#_XOHfkNo5EdyCSNQKlT1LxA"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.repository#_alnUMFibEd2-lLMmTLge8A"/>
   </compositeAssemblyConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_eiDYgNo_EdyxgfK4Hy_RFA" entityName="Connector AC_ReportingEngine -> AC_DB" requiringChildComponentContext_CompositeAssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
     <providedRole_CompositeAssemblyConnector href="mis.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
     <requiredRole_CompositeAssemblyConnector href="mis.repository#_tOgNkNo5EdyCSNQKlT1LxA"/>
   </compositeAssemblyConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_iIwZcNo_EdyxgfK4Hy_RFA" entityName="Connector AC_ReportingEngine -> AC_CacheInfo" requiringChildComponentContext_CompositeAssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_e5UB8No_EdyxgfK4Hy_RFA">
-    <providedRole_CompositeAssemblyConnector href="mis.repository#_gEK9cNo9EdyxgfK4Hy_RFA"/>
+    <providedRole_CompositeAssemblyConnector href="mis.repository#_RTsAYFicEd2-lLMmTLge8A"/>
     <requiredRole_CompositeAssemblyConnector href="mis.repository#_gXZbcNo9EdyxgfK4Hy_RFA"/>
   </compositeAssemblyConnectors_ComposedStructure>
-  <compositeAssemblyConnectors_ComposedStructure id="_itFOgNo_EdyxgfK4Hy_RFA" entityName="Connector AC_CacheInfo -> AC_DB" requiringChildComponentContext_CompositeAssemblyConnector="_e5UB8No_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
-    <providedRole_CompositeAssemblyConnector href="mis.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
-    <requiredRole_CompositeAssemblyConnector href="mis.repository#_wNIh4No5EdyCSNQKlT1LxA"/>
-  </compositeAssemblyConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_p98twF1JEd2ewsAN5at1oA" entityName="Connector AC_Webserver -> AC_Scheduler" requiringChildComponentContext_CompositeAssemblyConnector="_N8Qq8No_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA">
-    <providedRole_CompositeAssemblyConnector href="mis.repository#_Wm_OINo5EdyCSNQKlT1LxA"/>
-    <requiredRole_CompositeAssemblyConnector href="mis.repository#_76rHENo5EdyCSNQKlT1LxA"/>
+    <providedRole_CompositeAssemblyConnector href="mis.repository#_a8Q5oFibEd2-lLMmTLge8A"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.repository#_RQex0FiQEd2aab3DcK8c1A"/>
   </compositeAssemblyConnectors_ComposedStructure>
   <providedRoles_InterfaceProvidingEntity id="_zyc0ANo_EdyxgfK4Hy_RFA" entityName="Provided_IHTTP">
     <providedInterface__ProvidedRole href="mis.repository#_36kHoNo5EdyCSNQKlT1LxA"/>

@@ -35,7 +35,7 @@
       <steps_Behaviour xsi:type="_1:StartAction" id="_YSGsINo5EdyCSNQKlT1LxA" successor_AbstractAction="_SyL_cNo8EdyxgfK4Hy_RFA"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_SyL_cNo8EdyxgfK4Hy_RFA" entityName="prepare" predecessor_AbstractAction="_YSGsINo5EdyCSNQKlT1LxA" successor_AbstractAction="_r7-wEPZkEdySh74qedEhsw">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="1.0"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -54,13 +54,13 @@
             </steps_Behaviour>
             <steps_Behaviour xsi:type="_1:InternalAction" id="_8ysM0No8EdyxgfK4Hy_RFA" entityName="GenReport" predecessor_AbstractAction="_8rbME_ZoEdySh74qedEhsw" successor_AbstractAction="_0owb09o9EdyxgfK4Hy_RFA">
               <resourceDemand_Action>
-                <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
                 <specification_ParametericResourceDemand specification="DoublePDF[(0.24;0.3)(0.25;0.4)(0.26;0.3)]"/>
               </resourceDemand_Action>
             </steps_Behaviour>
             <steps_Behaviour xsi:type="_1:InternalAction" id="_dP7wsNo8EdyxgfK4Hy_RFA" entityName="prepareBigReport" predecessor_AbstractAction="_CAY2MNo8EdyxgfK4Hy_RFA" successor_AbstractAction="_8rbME_ZoEdySh74qedEhsw">
               <resourceDemand_Action>
-                <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
                 <specification_ParametericResourceDemand specification="DoublePDF[(0.28;0.3)(0.29;0.3)(0.3;0.3)(0.31;0.1)]&#xD;&#xA;"/>
               </resourceDemand_Action>
             </steps_Behaviour>
@@ -81,7 +81,7 @@
             <steps_Behaviour xsi:type="_1:StartAction" id="_50GKMNo7EdyxgfK4Hy_RFA" successor_AbstractAction="_bugaMNo8EdyxgfK4Hy_RFA"/>
             <steps_Behaviour xsi:type="_1:InternalAction" id="_bugaMNo8EdyxgfK4Hy_RFA" entityName="prepareSmallReport" predecessor_AbstractAction="_50GKMNo7EdyxgfK4Hy_RFA" successor_AbstractAction="_5bjBo_ZmEdySh74qedEhsw">
               <resourceDemand_Action>
-                <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
                 <specification_ParametericResourceDemand specification="DoublePDF[(0.025;0.1)(0.03;0.9)]"/>
               </resourceDemand_Action>
             </steps_Behaviour>
@@ -105,7 +105,7 @@
       <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_Lhg8QNo-EdyxgfK4Hy_RFA" predecessor_AbstractAction="_j-bYIPRKEdyws6pmQX1FJg" successor_AbstractAction="_YSH6Qdo5EdyCSNQKlT1LxA" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0" role_ExternalService="_gXZbcNo9EdyxgfK4Hy_RFA"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_j-bYIPRKEdyws6pmQX1FJg" entityName="prepareViewing" predecessor_AbstractAction="_YSH6QNo5EdyCSNQKlT1LxA" successor_AbstractAction="_Lhg8QNo-EdyxgfK4Hy_RFA">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="DoublePDF[(1.05;0.15)(1.06;0.4)(1.07;0.3)(1.08;0.15)]&#xD;&#xA;"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -119,7 +119,7 @@
       <steps_Behaviour xsi:type="_1:StopAction" id="_gENZsdo9EdyxgfK4Hy_RFA" predecessor_AbstractAction="_d2S7MNo-EdyxgfK4Hy_RFA"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_cOFnQNo-EdyxgfK4Hy_RFA" entityName="prepareDBAccess" predecessor_AbstractAction="_gENZsNo9EdyxgfK4Hy_RFA" successor_AbstractAction="_d2S7MNo-EdyxgfK4Hy_RFA">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="DoublePDF[(0.03;0.1)(0.04;0.9)]&#xD;&#xA;"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -133,7 +133,7 @@
       <steps_Behaviour xsi:type="_1:StopAction" id="_uD_rIdo5EdyCSNQKlT1LxA" predecessor_AbstractAction="_pBXFcNo-EdyxgfK4Hy_RFA"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_pBXFcNo-EdyxgfK4Hy_RFA" entityName="getSmallReportFromDB" predecessor_AbstractAction="_uD_rINo5EdyCSNQKlT1LxA" successor_AbstractAction="_uD_rIdo5EdyCSNQKlT1LxA">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="DoublePDF[(0.01;0.05)(0.02;0.05)(0.03;0.9)] + 0.0000001 * Entries.NUMBER_OF_ELEMENTS"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -143,7 +143,7 @@
       <steps_Behaviour xsi:type="_1:StopAction" id="_uEA5QNo5EdyCSNQKlT1LxA" predecessor_AbstractAction="_u8NTQNo-EdyxgfK4Hy_RFA"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_u8NTQNo-EdyxgfK4Hy_RFA" entityName="getBigReportFromDB" predecessor_AbstractAction="_uEASMdo5EdyCSNQKlT1LxA" successor_AbstractAction="_uEA5QNo5EdyCSNQKlT1LxA">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="DoublePDF[(0.2;0.1)(0.3;0.6)(0.4;0.3)] + 0.000002 * Entries.NUMBER_OF_ELEMENTS&#xD;&#xA;"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -152,7 +152,7 @@
       <steps_Behaviour xsi:type="_1:StartAction" id="_64NyQNo-EdyxgfK4Hy_RFA" successor_AbstractAction="_7MxF8No-EdyxgfK4Hy_RFA"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_7MxF8No-EdyxgfK4Hy_RFA" entityName="getCachedDataFromDB" predecessor_AbstractAction="_64NyQNo-EdyxgfK4Hy_RFA" successor_AbstractAction="_-cH94No-EdyxgfK4Hy_RFA">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="DoublePDF[(0.1;0.2)(0.2;0.6)(0.3;0.2)]&#xD;&#xA;"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -172,7 +172,7 @@
             <steps_Behaviour xsi:type="_1:StopAction" id="_tKy80No6EdyCSNQKlT1LxA" predecessor_AbstractAction="_59SX4No6EdyCSNQKlT1LxA"/>
             <steps_Behaviour xsi:type="_1:InternalAction" id="_0ieVANo6EdyCSNQKlT1LxA" entityName="acceptReport" predecessor_AbstractAction="_sxjWYdo6EdyCSNQKlT1LxA" successor_AbstractAction="_59SX4No6EdyCSNQKlT1LxA">
               <resourceDemand_Action>
-                <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
                 <specification_ParametericResourceDemand specification="0.03"/>
               </resourceDemand_Action>
             </steps_Behaviour>
@@ -199,8 +199,8 @@
             <steps_Behaviour xsi:type="_1:StopAction" id="_uOiRwNo6EdyCSNQKlT1LxA" predecessor_AbstractAction="__LuysNo6EdyCSNQKlT1LxA"/>
             <steps_Behaviour xsi:type="_1:InternalAction" id="_-GFZQNo6EdyCSNQKlT1LxA" entityName="acceptView" predecessor_AbstractAction="_t1v-Udo6EdyCSNQKlT1LxA" successor_AbstractAction="__LuysNo6EdyCSNQKlT1LxA">
               <resourceDemand_Action>
-                <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
-                <specification_ParametericResourceDemand specification="0.025"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+                <specification_ParametericResourceDemand specification="25"/>
               </resourceDemand_Action>
             </steps_Behaviour>
             <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__LuysNo6EdyCSNQKlT1LxA" predecessor_AbstractAction="_-GFZQNo6EdyCSNQKlT1LxA" successor_AbstractAction="_uOiRwNo6EdyCSNQKlT1LxA" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1" role_ExternalService="_76rHENo5EdyCSNQKlT1LxA"/>
@@ -214,7 +214,7 @@
       <steps_Behaviour xsi:type="_1:StopAction" id="_bzB_MfmIEdyAYvYpLhKtiA" predecessor_AbstractAction="_jz7Tg_mIEdyAYvYpLhKtiA"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_eMgYAPmIEdyAYvYpLhKtiA" entityName="processing" predecessor_AbstractAction="_bzB_MPmIEdyAYvYpLhKtiA" successor_AbstractAction="_jz7Tg_mIEdyAYvYpLhKtiA">
         <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="14"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -275,6 +275,68 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_RkJ7xFiQEd2aab3DcK8c1A" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.1">
       <steps_Behaviour xsi:type="_1:StartAction" id="_RkJ7xViQEd2aab3DcK8c1A" successor_AbstractAction="_RkJ7xliQEd2aab3DcK8c1A"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_RkJ7xliQEd2aab3DcK8c1A" predecessor_AbstractAction="_RkJ7xViQEd2aab3DcK8c1A"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_ZohZ0FibEd2-lLMmTLge8A" entityName="AltScheduler">
+    <providedRoles_InterfaceProvidingEntity id="_a8Q5oFibEd2-lLMmTLge8A" entityName="Provided_IReporting_AltScheduler" providedInterface__ProvidedRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_alnUMFibEd2-lLMmTLge8A" entityName="Required_IReporting_AltScheduler" requiredInterface__RequiredRole="_Ebo4ANo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_a8Q5oVibEd2-lLMmTLge8A" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_a8Q5olibEd2-lLMmTLge8A" successor_AbstractAction="_RJs4EGhtEd2GXepyIzMYWA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_a8Q5o1ibEd2-lLMmTLge8A" predecessor_AbstractAction="_RJs4EGhtEd2GXepyIzMYWA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_RJs4EGhtEd2GXepyIzMYWA" entityName="calculate" predecessor_AbstractAction="_a8Q5olibEd2-lLMmTLge8A" successor_AbstractAction="_a8Q5o1ibEd2-lLMmTLge8A">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="10"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_a8Q5pFibEd2-lLMmTLge8A" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_a8Q5pVibEd2-lLMmTLge8A" successor_AbstractAction="_U1jewGhtEd2GXepyIzMYWA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_a8Q5plibEd2-lLMmTLge8A" predecessor_AbstractAction="_U1jewGhtEd2GXepyIzMYWA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_U1jewGhtEd2GXepyIzMYWA" entityName="calc" predecessor_AbstractAction="_a8Q5pVibEd2-lLMmTLge8A" successor_AbstractAction="_a8Q5plibEd2-lLMmTLge8A">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+          <specification_ParametericResourceDemand specification="10"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_QOQCUFicEd2-lLMmTLge8A" entityName="AltCache">
+    <providedRoles_InterfaceProvidingEntity id="_RTsAYFicEd2-lLMmTLge8A" entityName="Provided_ICache_AltCache" providedInterface__ProvidedRole="_cooDoNo9EdyxgfK4Hy_RFA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_RTsAYVicEd2-lLMmTLge8A" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_RTsAYlicEd2-lLMmTLge8A" successor_AbstractAction="_faGbkGhtEd2GXepyIzMYWA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_RTsAY1icEd2-lLMmTLge8A" predecessor_AbstractAction="_faGbkGhtEd2GXepyIzMYWA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_faGbkGhtEd2GXepyIzMYWA" predecessor_AbstractAction="_RTsAYlicEd2-lLMmTLge8A" successor_AbstractAction="_RTsAY1icEd2-lLMmTLge8A">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="4"/>
+        </resourceDemand_Action>
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+          <specification_ParametericResourceDemand specification="10"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_F4uXsFlGEd2hfcC4NyaK4A" entityName="WrongAltReportingEngine">
+    <providedRoles_InterfaceProvidingEntity id="_ITZqYFlGEd2hfcC4NyaK4A" entityName="Provided_ICache_WrongAltReportingEngine" providedInterface__ProvidedRole="_cooDoNo9EdyxgfK4Hy_RFA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_Izb1UFlGEd2hfcC4NyaK4A" entityName="Required_ICache_WrongAltReportingEngine" requiredInterface__RequiredRole="_cooDoNo9EdyxgfK4Hy_RFA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_JRr3kFlGEd2hfcC4NyaK4A" entityName="Required_IDB_WrongAltReportingEngine" requiredInterface__RequiredRole="_bt-WENo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ITZqYVlGEd2hfcC4NyaK4A" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ITZqYllGEd2hfcC4NyaK4A" successor_AbstractAction="_ITZqY1lGEd2hfcC4NyaK4A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ITZqY1lGEd2hfcC4NyaK4A" predecessor_AbstractAction="_ITZqYllGEd2hfcC4NyaK4A"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_j8QOkGhhEd2GXepyIzMYWA" entityName="WrongAltWebserver">
+    <providedRoles_InterfaceProvidingEntity id="_mtQ9oGhhEd2GXepyIzMYWA" entityName="Provided_IHTTP_WrongAltWebserver" providedInterface__ProvidedRole="_36kHoNo5EdyCSNQKlT1LxA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_nIgvMGhhEd2GXepyIzMYWA" entityName="Required_IDB_WrongAltWebserver" requiredInterface__RequiredRole="_bt-WENo5EdyCSNQKlT1LxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_mtauoGhhEd2GXepyIzMYWA" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_mtauoWhhEd2GXepyIzMYWA" successor_AbstractAction="_mtauomhhEd2GXepyIzMYWA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_mtauomhhEd2GXepyIzMYWA" predecessor_AbstractAction="_mtauoWhhEd2GXepyIzMYWA"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_mtauo2hhEd2GXepyIzMYWA" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_mtaupGhhEd2GXepyIzMYWA" successor_AbstractAction="_mtaupWhhEd2GXepyIzMYWA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_mtaupWhhEd2GXepyIzMYWA" predecessor_AbstractAction="_mtaupGhhEd2GXepyIzMYWA"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <interfaces__Repository id="_Ebo4ANo5EdyCSNQKlT1LxA" entityName="IReporting">

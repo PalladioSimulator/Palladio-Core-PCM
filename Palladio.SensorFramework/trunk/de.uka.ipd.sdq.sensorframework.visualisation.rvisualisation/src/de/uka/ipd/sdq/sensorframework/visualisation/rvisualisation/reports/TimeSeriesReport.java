@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.R
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.StaticTextReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.reportitems.SummaryReportItem;
 import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.RConnection;
+import de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.utils.REngineHelper;
 
 /**View for a set of time series.
  * Displays a Histogram, CDF, PDF, number of measurements, mean,
@@ -49,7 +50,7 @@ public class TimeSeriesReport extends RReport {
 		for (int i = 0; i < c.size(); i++) {
 			SensorAndMeasurements sm = it.next();
 			
-			String sensorName = storeMeasurementsInRVector(sm, i, 
+			String sensorName = REngineHelper.storeMeasurementsInRVector(sm, i, 
 					TimeseriesData.TIMESPAN, t);
 			
 			items.add(new SummaryReportItem(sensorName, 
