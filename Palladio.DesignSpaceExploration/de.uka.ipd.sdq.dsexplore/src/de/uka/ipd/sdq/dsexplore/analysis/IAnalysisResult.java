@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
  * @author Anne
  * 
  */
-public interface IAnalysisResult {
+public interface IAnalysisResult extends Comparable<IAnalysisResult>{
 	
 	/**
 	 * Get the mean value of an analysis result.
@@ -35,6 +35,13 @@ public interface IAnalysisResult {
 	public double getMeanValue() throws AnalysisFailedException;
 
 	public PCMInstance getPCMInstance();
+	
+	/**
+	 * Returns the difference in response time (rounded to an integer). Positive if this  
+	 * {@inheritDoc}
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	int compareTo(IAnalysisResult other);
 
 
 }

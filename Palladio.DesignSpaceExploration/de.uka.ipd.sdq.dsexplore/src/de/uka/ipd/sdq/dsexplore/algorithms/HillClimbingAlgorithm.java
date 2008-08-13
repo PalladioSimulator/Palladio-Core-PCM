@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
@@ -15,10 +16,14 @@ import de.uka.ipd.sdq.dsexplore.newcandidates.NewCandidateProxy;
 public class HillClimbingAlgorithm implements IAlgorithm {
 
 	private IAnalysis analysisTool;
-	private boolean terminated = false;
+	protected boolean terminated = false;
 	INewCandidates newCands;
 	
 	int generation = 0;
+	
+	/** Logger for log4j. */
+	protected static Logger logger = 
+		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
 	/**
 	 * For a given List of {@link PCMInstance}s, finds the neighbours in terms of alternative components. 
@@ -31,7 +36,6 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	    //Generate alternatives
 		for (Iterator<PCMInstance> iterator = population.iterator(); iterator.hasNext();) {
 			PCMInstance instance = iterator.next();
-			newCands.setGeneration(generation);
 			result.addAll(newCands.generateNewCandidates(instance));
 		}
 	    return result;
@@ -95,7 +99,7 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	 * @return the {@link IAnalysisResult} with the lowest mean response time or null if the passed List is empty.
 	 * @throws AnalysisFailedException
 	 */
-	private IAnalysisResult selectBest(List<IAnalysisResult> results) throws AnalysisFailedException {
+	protected IAnalysisResult selectBest(List<IAnalysisResult> results) throws AnalysisFailedException {
 		Iterator<IAnalysisResult> iterator = results.iterator();
 		if (!iterator.hasNext()){
 			return null;
@@ -118,7 +122,7 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	 * @throws AnalysisFailedException
 	 * @throws CoreException
 	 */
-	private List<IAnalysisResult> evaluate(List<PCMInstance> neighbours) throws AnalysisFailedException, CoreException {
+	protected List<IAnalysisResult> evaluate(List<PCMInstance> neighbours) throws AnalysisFailedException, CoreException {
 		List<IAnalysisResult> result = new ArrayList<IAnalysisResult>();
 	    //analyse the alternatives
 	    for (PCMInstance instance : neighbours) {
@@ -133,7 +137,7 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	 * @return A list of {@link PCMInstance} as returned by {@link #evolve(List)}
 	 * @throws CoreException
 	 */
-	private List<PCMInstance> evolve(PCMInstance instance) throws CoreException {
+	protected List<PCMInstance> evolve(PCMInstance instance) throws CoreException {
 		List<PCMInstance> list = new ArrayList<PCMInstance>();
 		list.add(instance);
 		return this.evolve(list);

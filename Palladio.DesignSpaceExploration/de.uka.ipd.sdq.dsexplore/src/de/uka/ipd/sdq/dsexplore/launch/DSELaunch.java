@@ -16,6 +16,7 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.algorithms.FullSearchAlgorithm;
 import de.uka.ipd.sdq.dsexplore.algorithms.HillClimbingAlgorithm;
 import de.uka.ipd.sdq.dsexplore.algorithms.IAlgorithm;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
@@ -67,7 +68,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    instances.add(pcmInstance);
 		    
 		    //initialise the algorithm and analysis
-		    IAlgorithm algorithm = new HillClimbingAlgorithm();
+		    //IAlgorithm algorithm = new HillClimbingAlgorithm();
+		    IAlgorithm algorithm = new FullSearchAlgorithm();
 			IAnalysis analysisTool = new AnalysisProxy(configuration, mode, launch, monitor);
 		    algorithm.initialise(instances, analysisTool);
 		    

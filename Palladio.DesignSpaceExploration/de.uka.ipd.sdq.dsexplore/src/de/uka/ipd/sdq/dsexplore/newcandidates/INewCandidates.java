@@ -16,5 +16,4 @@ public interface INewCandidates {
 	 */
 	public abstract List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) throws CoreException;
 
-	public void setGeneration(int generation) throws CoreException;  
 }

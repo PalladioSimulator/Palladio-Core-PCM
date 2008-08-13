@@ -2,9 +2,13 @@ package de.uka.ipd.sdq.dsexplore.newcandidates.alternativecomponents;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.IdentityHashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.Vector;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
@@ -29,11 +33,14 @@ public class AlternativeComponent implements INewCandidates {
 
 	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 	
-	/** To add number of generation to the model file files**/
-	public int generation = 0;
-	
+
 	/** Model files will get the suffix here plus the generation number**/
 	private static String modelFilesSuffix = "AltCom-";
+	
+	Repository lastRepository = null;
+	Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap = null;
+	
+	EvolutionGraphNode rootNode = null;
 
 	public AlternativeComponent() {
 		
@@ -42,32 +49,85 @@ public class AlternativeComponent implements INewCandidates {
 	@Override
 	public List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) {
 
-		logger.debug("Alternative Plugin called for the "+this.generation+". time");
-		
 		Repository r = currentSolution.getRepository();
-		System s = currentSolution.getSystem();
+		
+		//only if this is called for the first time on a given repository, find alternatives again. 
+		if (lastRepository == null || !checkIdentity(r, lastRepository) || alternativeMap == null || rootNode == null){
+			lastRepository = r;
+		
+			System s = currentSolution.getSystem();
 
-		List<BasicComponent> repoComponents = filterBasicComponents(r
-				.getComponents__Repository());
-		logger.debug("I found " + repoComponents.size()
-				+ " BasicComponents in the repository");
+			List<BasicComponent> repoComponents = filterBasicComponents(r
+					.getComponents__Repository());
+			logger.debug("I found " + repoComponents.size()
+					+ " BasicComponents in the repository");
 
-		Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap = getComponentsInSystem(
-				s, r);
-		logger.debug("I found " + assemblyContextToBasicComponentMap.size()
-				+ " AssemblyContexts in the system");
+			Map<AssemblyContext, BasicComponent> assemblyContextToBasicComponentMap = getComponentsInSystem(
+					s, r);
+			logger.debug("I found " + assemblyContextToBasicComponentMap.size()
+					+ " AssemblyContexts in the system");
 
-		Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap = findAlternatives(
-				repoComponents, assemblyContextToBasicComponentMap);
-		logger.debug("I have a mapping for " + alternativeMap.size()
-				+ " AssemblyContexts with the following alternatives:");
+			alternativeMap = findAlternatives(repoComponents,
+					assemblyContextToBasicComponentMap);
+			logger.debug("I have a mapping for " + alternativeMap.size()
+					+ " AssemblyContexts with the following alternatives:");
+			
+			rootNode = createEvolutionGraph(currentSolution, alternativeMap);
+			logger.debug(rootNode.toString());
+		}
 
 		//Create a new PCM instance for each alternative found
 		//Only change one component at a time. 
 		//Generate alternatives with one component different each
-		List<PCMInstance> l = createAlternativePCMInstances(currentSolution,
-				alternativeMap);
+		List<PCMInstance> l = rootNode.getChildrenOf(currentSolution);
+
+		
 		return l;
+	}
+
+	/**
+	 * Problem: This is not evolutionary, it traverses the whole design space at
+	 * once. With the assumption that we always have a limited amount of
+	 * alternative components, it might work.
+	 * 
+	 * @param currentSolution
+	 * @param alternativeMap2
+	 * @return
+	 */
+	private EvolutionGraphNode createEvolutionGraph(
+			PCMInstance currentSolution, Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap2) {
+		EvolutionGraphNode root = new EvolutionGraphNode(currentSolution);
+		
+		Vector<EvolutionGraphNode> allNodes = new Vector<EvolutionGraphNode>();
+		allNodes.add(root);
+		
+		int counter = 0;
+		//for each option, apply it once to each element of the set and keep one without applying it.
+		for (Map.Entry<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> e : alternativeMap2
+				.entrySet()) {
+			logger.debug("Assembly context " + e.getKey().getEntityName()
+					+ " has " + e.getValue().size() + " alternatives:");
+			
+			for (Map.Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry : e.getValue().entrySet()) {
+				
+				Vector<EvolutionGraphNode> newNodes = new Vector<EvolutionGraphNode>();
+				//This is executed once for each option. 
+				for (Iterator<EvolutionGraphNode> iterator = allNodes
+						.iterator(); iterator.hasNext();) {
+					EvolutionGraphNode evolutionGraphNode = iterator.next();
+					//apply the MapEntry to this instance and add it to the set.
+					PCMInstance inst = createNewPCMInstance(evolutionGraphNode.getNode(), e.getKey(), basicComponentEntry, counter);
+					EvolutionGraphNode newNode = new EvolutionGraphNode(inst);
+					evolutionGraphNode.addChild(newNode);
+					newNodes.add(newNode);
+				}
+				allNodes.addAll(newNodes);
+				counter++;
+				
+			}
+		}
+		
+		return root;
 	}
 
 	/**
@@ -76,6 +136,7 @@ public class AlternativeComponent implements INewCandidates {
 	 * Calls createNewPCMInstance for each alternative to be generated. 
 	 * @param currentSolution The current solution the new ones will base on
 	 * @param alternativeMap The Map containing all replacement options
+	 * @param root 
 	 * @return A list of new PCM instances
 	 */
 	private List<PCMInstance> createAlternativePCMInstances(
@@ -95,7 +156,6 @@ public class AlternativeComponent implements INewCandidates {
 				logger.debug("    Alternative: "+ basicComponentEntry.getKey().getEntityName());
 				PCMInstance inst = createNewPCMInstance(currentSolution, e.getKey(), basicComponentEntry, counter); 
 				l.add(inst);
-				inst.saveSystemToFile();
 				counter++;
 			}
 		}
@@ -114,9 +174,9 @@ public class AlternativeComponent implements INewCandidates {
 		logger.debug("The new system: "+newSystem);
 		
 		newSolution.setSystem(newSystem);
-		newSolution.setSystemFileNameSuffix("-gen"+generation+"-"+modelFilesSuffix+counter);
+		newSolution.setSystemFileNameSuffix(newSolution.getSystemFileNameSuffix()+"-"+modelFilesSuffix+counter);
 		
-		newSolution.setName(newSolution.getName()+"-gen"+generation+"-"+modelFilesSuffix+counter);
+		newSolution.setName(newSolution.getName()+"-"+modelFilesSuffix+counter);
 		
 		logger.debug("The old assembly we look for: "+assemblyContext);
 		AssemblyContext changedAssemblyContext = null;
@@ -461,8 +521,5 @@ public class AlternativeComponent implements INewCandidates {
 		}
 	}
 
-	public void setGeneration(int generation) {
-		this.generation = generation;
-	}
 
 }

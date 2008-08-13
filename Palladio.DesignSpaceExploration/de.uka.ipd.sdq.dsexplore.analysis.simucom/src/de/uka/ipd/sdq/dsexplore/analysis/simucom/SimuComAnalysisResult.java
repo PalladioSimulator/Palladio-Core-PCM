@@ -199,6 +199,24 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 	public PCMInstance getPCMInstance() {
 		return pcm;
 	}
+
+	@Override
+	public int compareTo(IAnalysisResult other) {
+		double difference;
+		try {
+			difference = (this.getMeanValue()-other.getMeanValue());
+		if (difference < 0 && difference > -1)
+			return -1;
+		if (difference > 0 && difference < 1)
+			return 1;
+		return (int)Math.round(difference);
+		
+		} catch (AnalysisFailedException e) {
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
 	/**Prepares to export the measurements of a time series sensor to R. 
 	 * Therefore a temporary file is created and the R command line to 

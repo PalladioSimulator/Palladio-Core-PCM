@@ -32,10 +32,6 @@ public class NewCandidateProxy implements INewCandidates {
 		return nc.generateNewCandidates(currentSolution);
 	}
 
-	public void setGeneration(int generation) throws CoreException {
-		checkRealNewCandidate();
-		nc.setGeneration(generation);
-	}
 
     
 

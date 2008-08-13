@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.dsexplore;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
+import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -30,6 +32,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
@@ -352,7 +355,7 @@ public class PCMInstance {
 				this.usageModel, this.allocationFileName,
 				this.repositoryFileName, this.resourceRepositoryFileName,
 				this.usageModelFileName, this.systemFileName, this.name);
-
+		pcm.setSystemFileNameSuffix(this.systemFileNameSuffix);
 		return pcm;
 	}
 
@@ -398,7 +401,75 @@ public class PCMInstance {
 		
 	}
 
+	/**
+	 * Checks equality based on the ids of the contained models. Note that two systems with different ids are considered not equal, even if they contain the same assembly contexts and connectors.   
+	 * {@inheritDoc}
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+    public boolean equals(Object o){
+    	if (!PCMInstance.class.isInstance(o)){
+    		return false;
+    	}
+    	PCMInstance other = (PCMInstance)o; 
+    	if (checkIdentity(other.getAllocation(),this.getAllocation())
+    			&& checkIdentity(other.getSystem(), this.getSystem())
+    			&& checkIdentity(other.getRepository(), this.getRepository())
+    			&& checkIdentity(other.getMwRepository(), this.getMwRepository())
+    			&& checkIdentity(other.getResourcetype(), this.getResourcetype())){
+    		//now check the usage scenarios. I cannot check the usage model as it is not an identifier.
+    		for (Iterator<UsageScenario> iterator = other.getUsageModel().getUsageScenario_UsageModel().iterator(); iterator.hasNext();) {
+				UsageScenario us = iterator.next();
+				boolean foundOneForThisUS = false;
+				for (Iterator<UsageScenario> iterator2 = this.getUsageModel().getUsageScenario_UsageModel().iterator(); iterator2.hasNext();) {
+					UsageScenario us2 = iterator2.next();
+					if (checkIdentity(us, us2)){
+						foundOneForThisUS = true;
+						break;
+					}
+				}
+				if (foundOneForThisUS == false){
+					return false;
+				}
+				
+			}
+    		return true;
+    	}
+    	
+		return false;
+    	
+    }
     
+	/**
+	 * Checks for two PCM model elements whether they are the same, i.e. whether
+	 * they have the same ID. The model elements have to be derived from
+	 * Identifier. Note that two systems might use the same assembly contexts and components, 
+	 * but still are two different systems.   
+	 * 
+	 * @param i1
+	 *            One Identifier
+	 * @param i2
+	 *            Another Identifier
+	 * @return true if i1.getId().equals(i2.getId()), false otherwise
+	 */
+	private boolean checkIdentity(Identifier i1, Identifier i2) {
+		if (i1 == null || i2 == null)
+			return false;
+		if (i1.getId().equals(i2.getId())){
+			//logger.debug("Two model elements match with Id: "+i1.getId());
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void saveUpdatesToFile() {
+		//FIXME: Whenever more than just the system is changes, I need to save more here.
+		saveSystemToFile();
+	}
+
+	public String getSystemFileNameSuffix() {
+		return systemFileNameSuffix;
+	}
     
 	
 	
