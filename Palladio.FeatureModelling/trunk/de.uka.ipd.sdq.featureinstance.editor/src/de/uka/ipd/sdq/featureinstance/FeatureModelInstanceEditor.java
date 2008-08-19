@@ -35,12 +35,12 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
 import de.uka.ipd.sdq.featuremodel.Node;
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
-import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
 public class FeatureModelInstanceEditor extends MultiPageEditorPart {
@@ -111,15 +111,15 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		}
 		else if (newResource instanceof Configuration) {
 			Configuration config = (Configuration) newResource;
-			if (config.getConfigOverrides().isEmpty()) {
+			if (config.getConfigOverrides() == null) {
 				newDiagram = (FeatureDiagram)config.getDefaultConfig().getReferencedObject();
 			}
 			else {
-				Iterator<FeatureConfig> iter = config.getConfigOverrides().iterator();
-				if (iter.hasNext()) {
-					newDiagram = (FeatureDiagram)iter.next().getReferencedObject();
-				}
+					newDiagram = (FeatureDiagram)config.getConfigOverrides().getReferencedObject();
 			}
+		}
+		else if (newResource instanceof FeatureConfig) {
+			newDiagram = (FeatureDiagram)((FeatureConfig)newResource).getReferencedObject();
 		}
 
 		comp = new Composite(getContainer(), SWT.NONE);
