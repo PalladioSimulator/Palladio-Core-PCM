@@ -1,11 +1,15 @@
 package de.uka.ipd.sdq.dsexplore.newcandidates;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 
 /**
@@ -15,24 +19,24 @@ import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
  * @author Anne
  *
  */
-public class NewCandidateProxy implements INewCandidates {
+public class NewCandidateFactory {
 	
 	protected IConfigurationElement element;
-	private INewCandidates nc;
+	private List<INewCandidates> nc;
 
-	private void checkRealNewCandidate() throws CoreException{
+	private List<INewCandidates> getAllNewCandidateExtensions() throws CoreException{
 		if (nc == null){
-			nc = (INewCandidates)ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.newcandidates");
+			Collection<Object> extensions = ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.newcandidates");
+			nc = new ArrayList<INewCandidates>();
+			for (Iterator<Object> iterator = extensions.iterator(); iterator
+					.hasNext();) {
+				nc.add((INewCandidates)iterator.next());
+				
+			}
 		}
+		return nc;
 	}
 	
-	@Override
-	public List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) throws CoreException {
-		checkRealNewCandidate();				
-		return nc.generateNewCandidates(currentSolution);
-	}
-
-
     
 
 }
