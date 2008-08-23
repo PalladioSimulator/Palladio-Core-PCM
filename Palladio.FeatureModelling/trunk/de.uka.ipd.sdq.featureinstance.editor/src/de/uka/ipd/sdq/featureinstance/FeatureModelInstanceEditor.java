@@ -9,13 +9,17 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
+import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -51,6 +55,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 	
 	protected CheckboxTreeViewer treeViewer;
 	protected PropertySheetPage propertySheetPage;
+	
+	protected ICheckStateListener listener;
 
 	protected void initializeEditingDomain () {
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -98,7 +104,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 
 		FeatureDiagram newDiagram = null;
 		Object newResource = null;
-		
+
 		//TODO Returns empty List for *.featureconfig
 		EList<EObject> tempList = resource.getContents();
 		Iterator<EObject> tempIterator = tempList.iterator();
@@ -148,12 +154,28 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		getSite().setSelectionProvider(treeViewer);
 
 		if (root != null) {
-			treeViewer.setGrayChecked(root.getRootFeature(), true);
+			treeViewer.setGrayed(root.getRootFeature(), true);
 
 			//Gray FeatureGroups
 			Node curRoot = root.getRootFeature();
 			grayFeatureGroups(curRoot);
 		}
+		
+		listener = new ICheckStateListener() {
+			public void checkStateChanged(CheckStateChangedEvent event) {
+				if (event.getChecked()) {
+					Object parent = editingDomain.getParent(event.getElement());
+					if (parent != null) {
+						if (!(treeViewer.getChecked(parent))) {
+							treeViewer.setChecked(parent, true);
+							listener.checkStateChanged(new CheckStateChangedEvent(event.getCheckable(), parent, true));
+						}
+					}
+				}
+			}
+		};
+		
+		treeViewer.addCheckStateListener(listener);
 
 	}
 	
