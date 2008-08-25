@@ -1,10 +1,13 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
+import java.util.ArrayList;
+
 import markov.MarkovChain;
+import markov.State;
+import markov.StateType;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
@@ -44,11 +47,6 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	private MarkovBuilder markovBuilder = new MarkovBuilder();
 
 	/**
-	 * The Markov Solver is used here to already solve the Markov Chain.
-	 */
-	private MarkovSolver solver = new MarkovSolver();
-
-	/**
 	 * The constructor.
 	 * 
 	 * @param wrapper
@@ -74,21 +72,30 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// Do the logging:
 		logger.info("Visit ResourceDemandingBehaviour");
 
-		// Initialize a new Markov Chain that will represent this Behaviour:
-		MarkovChain aggregateMarkovChain = markovBuilder
-				.initNewMarkovChain("behaviour");
-
-		// Go through the chain of actions that constitute this RDSEFF. Each
-		// action is expected to create its own specific Markov Chain. Each
-		// specific chain will then be incorporated into the aggregate RDSEFF
-		// Markov Chain:
+		// Go through the chain of actions that constitute this Behaviour. Each
+		// action is expected to create its own specific Markov Chain:
+		ArrayList<AbstractAction> actions = new ArrayList<AbstractAction>();
+		ArrayList<MarkovChain> chains = new ArrayList<MarkovChain>();
 		AbstractAction action = (StartAction) EMFHelper.getObjectByType(
 				behaviour.getSteps_Behaviour(), StartAction.class);
 		while (action != null) {
 			MarkovChain specificMarkovChain = (MarkovChain) doSwitch(action);
-			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-					specificMarkovChain);
+			actions.add(action);
+			chains.add(specificMarkovChain);
 			action = action.getSuccessor_AbstractAction();
+		}
+
+		// Initialize a new aggregate Markov Chain that has one state for each
+		// action of the action chain:
+		ArrayList<State> states = new ArrayList<State>();
+		MarkovChain aggregateMarkovChain = markovBuilder
+				.initBehaviourMarkovChain("ResourceDemandingBehaviour",
+						actions, states);
+
+		// Incorporate the specific Chains into the aggregate Chain:
+		for (int i = 0; i < actions.size(); i++) {
+			markovBuilder.incorporateMarkovChain(aggregateMarkovChain, chains
+					.get(i), states.get(i));
 		}
 
 		// Return the resulting Markov Chain:
@@ -100,7 +107,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	 * associated Markov Chain.
 	 * 
 	 * @param seff
-	 *            the ReaourceDemandingSEFF
+	 *            the ResourceDemandingSEFF
 	 * @return the resulting Markov Chain
 	 */
 	@Override
@@ -111,22 +118,30 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		logger.info("Visit ResourceDemandingSEFF ["
 				+ seff.getDescribedService__SEFF().getServiceName() + "]");
 
-		// Initialize a new Markov Chain that will represent this RDSEFF:
-		MarkovChain aggregateMarkovChain = markovBuilder
-				.initNewMarkovChain(seff.getDescribedService__SEFF()
-						.getServiceName());
-
 		// Go through the chain of actions that constitute this RDSEFF. Each
-		// action is expected to create its own specific Markov Chain. Each
-		// specific chain will then be incorporated into the aggregate RDSEFF
-		// Markov Chain:
+		// action is expected to create its own specific Markov Chain:
+		ArrayList<AbstractAction> actions = new ArrayList<AbstractAction>();
+		ArrayList<MarkovChain> chains = new ArrayList<MarkovChain>();
 		AbstractAction action = (StartAction) EMFHelper.getObjectByType(seff
 				.getSteps_Behaviour(), StartAction.class);
 		while (action != null) {
 			MarkovChain specificMarkovChain = (MarkovChain) doSwitch(action);
-			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
-					specificMarkovChain);
+			actions.add(action);
+			chains.add(specificMarkovChain);
 			action = action.getSuccessor_AbstractAction();
+		}
+
+		// Initialize a new aggregate Markov Chain that has one state for each
+		// action of the action chain:
+		ArrayList<State> states = new ArrayList<State>();
+		MarkovChain aggregateMarkovChain = markovBuilder
+				.initBehaviourMarkovChain(seff.getDescribedService__SEFF()
+						.getServiceName(), actions, states);
+
+		// Incorporate the specific Chains into the aggregate Chain:
+		for (int i = 0; i < actions.size(); i++) {
+			markovBuilder.incorporateMarkovChain(aggregateMarkovChain, chains
+					.get(i), states.get(i));
 		}
 
 		// Return the resulting Markov Chain:
@@ -184,20 +199,32 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// Do the logging:
 		logger.info("Visit LoopAction [" + loopAction.getEntityName() + "]");
 
-		// To avoid an outsized state space of the overall Markov Chain, we
-		// resolve the inner Markov Chain that corresponds to the loop
-		// independently and use the result as an input for the overall Markov
-		// Chain:
-		MarkovChain innerMarkovChain = (MarkovChain) doSwitch(loopAction
+		// Determine the inner Markov Chain associated with the loop behaviour:
+		MarkovChain specificMarkovChain = (MarkovChain) doSwitch(loopAction
 				.getBodyBehaviour_Loop());
-		double resultInnerMarkovChain = solver.solve(innerMarkovChain);
 
 		// Get the solved loop probability mass function:
 		ManagedPMF pmf = contextWrapper.getLoopIterations(loopAction);
 
-		// Build a Markov Chain that represents this loop:
-		return markovBuilder.initLoopMarkovChain(loopAction.getEntityName(),
-				pmf, resultInnerMarkovChain);
+		// Initialize the aggregate Markov Chain representing the loop:
+		MarkovChain aggregateMarkovChain = markovBuilder.initLoopMarkovChain(
+				loopAction.getEntityName(), pmf);
+
+		// Incorporate the specific MarkovChain into the aggregate one:
+		ArrayList<State> statesToReplace = new ArrayList<State>();
+		for (int i = 0; i < aggregateMarkovChain.getStates().size(); i++) {
+			if (aggregateMarkovChain.getStates().get(i).getType().equals(
+					StateType.DEFAULT)) {
+				statesToReplace.add(aggregateMarkovChain.getStates().get(i));
+			}
+		}
+		for (int i = 0; i < statesToReplace.size(); i++) {
+			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+					specificMarkovChain, statesToReplace.get(i));
+		}
+
+		// Return the result:
+		return aggregateMarkovChain;
 	}
 
 	/**

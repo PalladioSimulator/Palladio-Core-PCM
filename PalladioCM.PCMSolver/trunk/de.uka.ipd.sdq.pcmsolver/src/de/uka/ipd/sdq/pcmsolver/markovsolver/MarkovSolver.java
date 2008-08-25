@@ -1,4 +1,4 @@
-package de.uka.ipd.pcmsolver.markovsolver;
+package de.uka.ipd.sdq.pcmsolver.markovsolver;
 
 import org.apache.log4j.Logger;
 

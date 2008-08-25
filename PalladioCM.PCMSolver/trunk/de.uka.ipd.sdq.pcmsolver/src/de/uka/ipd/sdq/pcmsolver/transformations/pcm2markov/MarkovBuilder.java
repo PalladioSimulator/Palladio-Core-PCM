@@ -6,6 +6,7 @@ import java.util.ListIterator;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import markov.MarkovChain;
@@ -75,6 +76,84 @@ public class MarkovBuilder {
 
 		// Add the Transition to the Markov Chain:
 		markovChain.getTransitions().add(transitionStartSuccess);
+
+		// Return the result:
+		return markovChain;
+	}
+
+	/**
+	 * Creates a Markov Chain that represents an execution of a
+	 * ResourceDemandingBehaviour. For each action within the given chain of
+	 * actions, a State within the resulting Markov Chain is created. Together
+	 * with the Markov Chain, a list of States is returned that corresponds to
+	 * the given action list.
+	 * 
+	 * @param name
+	 *            the name of the new Markov Chain
+	 * @param actions
+	 *            the chain of actions of the ResourceDemandingBehaviour
+	 * @param statesOut
+	 *            the list of states created within the method that corresponds
+	 *            to the given list of actions
+	 * @return the resulting Markov Chain
+	 */
+	public MarkovChain initBehaviourMarkovChain(final String name,
+			final ArrayList<AbstractAction> actions,
+			final ArrayList<State> statesOut) {
+
+		// Create the Markov Chain Entity:
+		MarkovChain markovChain = markovFactory.createMarkovChain();
+		markovChain.setName(name);
+
+		// Create the Start, Success and Failure States:
+		State stateStart = markovFactory.createState();
+		stateStart.setType(StateType.START);
+		stateStart.setName(name + " - " + stateStart.getType().toString());
+		State stateSuccess = markovFactory.createState();
+		stateSuccess.setType(StateType.SUCCESS);
+		stateSuccess.setName(name + " - " + stateSuccess.getType().toString());
+		State stateFailure = markovFactory.createState();
+		stateFailure.setType(StateType.FAILURE);
+		stateFailure.setName(name + " - " + stateFailure.getType().toString());
+
+		// Add the Start, Success and Failure States to the Markov Chain:
+		markovChain.getStates().add(stateStart);
+		markovChain.getStates().add(stateSuccess);
+		markovChain.getStates().add(stateFailure);
+
+		// Mark the State that will later lead directly to the Success State:
+		State stateToSuccess = stateStart;
+
+		// Go through the chain of actions:
+		for (int i = 0; i < actions.size(); i++) {
+
+			// Create a Markov State for this Action:
+			State state = markovFactory.createState();
+			state.setName(name + " - " + actions.get(i).getEntityName());
+			markovChain.getStates().add(state);
+			statesOut.add(state);
+
+			// Create a Transition leading to the new State:
+			Transition transition = markovFactory.createTransition();
+			transition.setFromState(stateToSuccess);
+			transition.setToState(state);
+			transition.setName(stateToSuccess.getName() + " - "
+					+ StateType.SUCCESS.toString());
+			transition.setProbability(1.0);
+			markovChain.getTransitions().add(transition);
+
+			// Update the State leading to Success:
+			stateToSuccess = state;
+		}
+
+		// Create the Transition leading to the Success State:
+		Transition transitionSuccess = markovFactory.createTransition();
+		transitionSuccess.setFromState(stateToSuccess);
+		transitionSuccess.setToState(stateSuccess);
+		transitionSuccess.setName(stateToSuccess.getName() + " - "
+				+ StateType.SUCCESS.toString());
+		transitionSuccess.setProbability(1.0);
+		markovChain.getTransitions().add(transitionSuccess);
 
 		// Return the result:
 		return markovChain;
@@ -155,7 +234,9 @@ public class MarkovBuilder {
 
 	/**
 	 * Creates a Markov Chain for a loop with solved probability mass function
-	 * and solved inner Markov Chain.
+	 * and solved inner Markov Chain. Note: This method is deprecated and
+	 * replaced by an overloaded version which does not need the inner Markov
+	 * Chain to be already solved.
 	 * 
 	 * @param name
 	 *            the name of the loop
@@ -165,6 +246,7 @@ public class MarkovBuilder {
 	 *            the result of the solved inner Markov Chain
 	 * @return the resulting Markov Chain
 	 */
+	@Deprecated
 	public MarkovChain initLoopMarkovChain(final String name,
 			final ManagedPMF pmf, final double innerResult) {
 
@@ -240,9 +322,101 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Creates a Markov Chain for a loop with solved probability mass function.
+	 * 
+	 * @param name
+	 *            the name of the loop
+	 * @param pmf
+	 *            the probability mass function of the loop
+	 * @return the resulting Markov Chain
+	 */
+	public MarkovChain initLoopMarkovChain(final String name,
+			final ManagedPMF pmf) {
+
+		// Create the Markov Chain Entity:
+		MarkovChain markovChain = markovFactory.createMarkovChain();
+		markovChain.setName(name);
+
+		// Create the Start, Success and Failure States:
+		State stateStart = markovFactory.createState();
+		stateStart.setType(StateType.START);
+		stateStart.setName(name + " - " + stateStart.getType().toString());
+		State stateSuccess = markovFactory.createState();
+		stateSuccess.setType(StateType.SUCCESS);
+		stateSuccess.setName(name + " - " + stateSuccess.getType().toString());
+		State stateFailure = markovFactory.createState();
+		stateFailure.setType(StateType.FAILURE);
+		stateFailure.setName(name + " - " + stateFailure.getType().toString());
+
+		// Add the States to the Markov Chain:
+		markovChain.getStates().add(stateStart);
+		markovChain.getStates().add(stateSuccess);
+		markovChain.getStates().add(stateFailure);
+
+		// Go through the samples of the probability mass function:
+		for (int i = 0; i < pmf.getModelPmf().getSamples().size(); i++) {
+			Sample sample = pmf.getModelPmf().getSamples().get(i);
+			if (sample.getValue() instanceof Integer) {
+				int sampleValue = (Integer) sample.getValue();
+
+				// Mark the State that will lead to the Success State:
+				State stateToSuccess = stateStart;
+				double transitionProbability = sample.getProbability();
+
+				// Go through the iterations of this sample:
+				for (int j = 0; j < sampleValue; j++) {
+
+					// Create a new State:
+					State stateSample = markovFactory.createState();
+					stateSample.setName(name + " - execution " + (j + 1)
+							+ " of " + sampleValue);
+					markovChain.getStates().add(stateSample);
+
+					// Create a transition from the previous State to the new
+					// one:
+					Transition transitionSample = markovFactory
+							.createTransition();
+					transitionSample.setFromState(stateToSuccess);
+					transitionSample.setToState(stateSample);
+					transitionSample.setProbability(transitionProbability);
+					transitionSample.setName(stateToSuccess.getName() + " - "
+							+ StateType.SUCCESS.getName());
+					markovChain.getTransitions().add(transitionSample);
+
+					// Update State and probability:
+					stateToSuccess = stateSample;
+					transitionProbability = 1;
+				}
+
+				// Create a transition leading to the Success State:
+				Transition transitionSuccess = markovFactory.createTransition();
+				transitionSuccess.setFromState(stateToSuccess);
+				transitionSuccess.setToState(stateSuccess);
+				transitionSuccess.setName(stateToSuccess.getName() + " - "
+						+ StateType.SUCCESS.getName());
+				transitionSuccess.setProbability(transitionProbability);
+				markovChain.getTransitions().add(transitionSuccess);
+
+			} else {
+				logger.error("Unexpected Sample Type: "
+						+ sample.getValue().getClass().toString());
+				continue;
+			}
+		}
+
+		// Return the result:
+		return markovChain;
+	}
+
+	/**
 	 * Incorporates one Markov Chain into another. The specific Markov Chain is
 	 * inserted into the aggregate Markov Chain directly before the Success
-	 * state of the aggregate Markov Chain.
+	 * state of the aggregate Markov Chain. Note: This method is deprecated and
+	 * replaced by an overloaded one. Before any further use of this method, it
+	 * should be rewritten so that no States or Transitions of the specific
+	 * Markov Chain are reused within the aggregate Markov Chain (this could
+	 * lead to problems when one specific Markov Chain is incorporated several
+	 * times into the same aggregate Markov Chain).
 	 * 
 	 * @param aggregateMarkovChain
 	 *            the Markov Chain which will incorporate the other chain
@@ -250,6 +424,7 @@ public class MarkovBuilder {
 	 *            the Markov Chain that will be incorporated into the other
 	 *            chain
 	 */
+	@Deprecated
 	public void incorporateMarkovChain(final MarkovChain aggregateMarkovChain,
 			final MarkovChain specificMarkovChain) {
 
@@ -397,6 +572,168 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Incorporates one Markov Chain into another. The specific Markov Chain is
+	 * inserted into the aggregate Markov Chain replacing the given aggregate
+	 * Markov State.
+	 * 
+	 * @param aggregateMarkovChain
+	 *            the Markov Chain which will incorporate the other chain
+	 * @param specificMarkovChain
+	 *            the Markov Chain which will be incorporated into the other
+	 *            chain
+	 * @param aggregateState
+	 *            the Markov State in the aggregate Markov Chain which will be
+	 *            replaced by the specific Markov Chain
+	 */
+	public void incorporateMarkovChain(final MarkovChain aggregateMarkovChain,
+			final MarkovChain specificMarkovChain, final State aggregateState) {
+
+		// Assure that the replaceable Markov State is contained in the
+		// aggregate Markov Chain:
+		if (!aggregateMarkovChain.getStates().contains(aggregateState)) {
+			return;
+		}
+
+		// Assure that the replaceable Markov State is not a Start, Success or
+		// Failure State:
+		if (!aggregateState.getType().equals(StateType.DEFAULT)) {
+			return;
+		}
+
+		// Create a copy of the specific Markov Chain to prevent reuse of any
+		// States or Transitions of the specific Markov Chain within the
+		// aggregate Markov Chain (this could lead to problems when one specific
+		// Markov Chain is incorporated several times into the same aggregate
+		// Markov Chain):
+		MarkovChain copiedSpecificMarkovChain = copyMarkovChain(specificMarkovChain);
+
+		// Find the Start, Success and Failure States of the aggregate Markov
+		// Chain:
+		State stateAggregateStart = findState(aggregateMarkovChain,
+				StateType.START);
+		State stateAggregateSuccess = findState(aggregateMarkovChain,
+				StateType.SUCCESS);
+		State stateAggregateFailure = findState(aggregateMarkovChain,
+				StateType.FAILURE);
+		if ((stateAggregateStart == null) || (stateAggregateSuccess == null)
+				|| (stateAggregateFailure == null)) {
+			return;
+		}
+
+		// Find the Start, Success and Failure States of the specific Markov
+		// Chain:
+		State stateSpecificStart = findState(copiedSpecificMarkovChain,
+				StateType.START);
+		State stateSpecificSuccess = findState(copiedSpecificMarkovChain,
+				StateType.SUCCESS);
+		State stateSpecificFailure = findState(copiedSpecificMarkovChain,
+				StateType.FAILURE);
+		if ((stateSpecificStart == null) || (stateSpecificSuccess == null)
+				|| (stateSpecificFailure == null)) {
+			return;
+		}
+
+		// Find all transitions in the aggregate Markov Chain that lead to the
+		// replaceable Markov State:
+		ArrayList<Transition> transitionsAggregateToReplaceState = findTransitionsToState(
+				aggregateMarkovChain, aggregateState);
+
+		// Find all transitions in the aggregate Markov Chain that start from
+		// the replaceable Markov State:
+		ArrayList<Transition> transitionsAggregateFromReplaceState = findTransitionsFromState(
+				aggregateMarkovChain, aggregateState);
+
+		// Take over the specific Markov Chain into the aggregate Markov Chain:
+		aggregateMarkovChain.getStates().addAll(
+				copiedSpecificMarkovChain.getStates());
+		aggregateMarkovChain.getTransitions().addAll(
+				copiedSpecificMarkovChain.getTransitions());
+
+		// Delete the replaceable Markov State from the aggregate Markov Chain
+		// and adjust all Transitions starting from or leading to this State:
+		aggregateMarkovChain.getStates().remove(aggregateState);
+		for (int i = 0; i < transitionsAggregateToReplaceState.size(); i++) {
+			transitionsAggregateToReplaceState.get(i).setToState(
+					stateSpecificStart);
+		}
+		for (int i = 0; i < transitionsAggregateFromReplaceState.size(); i++) {
+			transitionsAggregateFromReplaceState.get(i).setFromState(
+					stateSpecificSuccess);
+		}
+
+		// Build a transition from specific Failure to aggregate Failure:
+		Transition transitionFailure = markovFactory.createTransition();
+		transitionFailure.setFromState(stateSpecificFailure);
+		transitionFailure.setToState(stateAggregateFailure);
+		transitionFailure.setName(stateSpecificFailure + " - "
+				+ StateType.FAILURE.getName());
+		transitionFailure.setProbability(1);
+		aggregateMarkovChain.getTransitions().add(transitionFailure);
+
+		// Optimize the aggregate MarkovChain:
+		reduceState(aggregateMarkovChain, stateSpecificStart);
+		reduceState(aggregateMarkovChain, stateSpecificSuccess);
+		reduceState(aggregateMarkovChain, stateSpecificFailure);
+	}
+
+	/**
+	 * Creates a copy of a Markov Chain. All States and Transitions of the
+	 * original Markov Chain are copied into the new one.
+	 * 
+	 * @param originalMarkovChain
+	 *            the original Markov Chain
+	 * @return the new Markov Chain
+	 */
+	private MarkovChain copyMarkovChain(final MarkovChain originalMarkovChain) {
+
+		// Create a new Markov Chain instance:
+		MarkovChain newMarkovChain = markovFactory.createMarkovChain();
+		newMarkovChain.setName(originalMarkovChain.getName());
+
+		// Copy all States from the original Markov Chain into the new one:
+		for (int i = 0; i < originalMarkovChain.getStates().size(); i++) {
+
+			// Create a new Markov State:
+			State newState = markovFactory.createState();
+			newState.setName(originalMarkovChain.getStates().get(i).getName());
+			newState.setType(originalMarkovChain.getStates().get(i).getType());
+
+			// Add the new State to the new Markov Chain:
+			newMarkovChain.getStates().add(newState);
+		}
+
+		// Copy all Transitions from the originial Markov Chain into the new
+		// one:
+		for (int i = 0; i < originalMarkovChain.getTransitions().size(); i++) {
+
+			// Create a new Transition:
+			Transition newTransition = markovFactory.createTransition();
+			newTransition.setName(originalMarkovChain.getTransitions().get(i)
+					.getName());
+			newTransition.setProbability(originalMarkovChain.getTransitions()
+					.get(i).getProbability());
+
+			// Determine the source and target States of the new Transition:
+			State fromState = newMarkovChain.getStates().get(
+					originalMarkovChain.getStates().indexOf(
+							originalMarkovChain.getTransitions().get(i)
+									.getFromState()));
+			State toState = newMarkovChain.getStates().get(
+					originalMarkovChain.getStates().indexOf(
+							originalMarkovChain.getTransitions().get(i)
+									.getToState()));
+			newTransition.setFromState(fromState);
+			newTransition.setToState(toState);
+
+			// Add the new Transition to the new Markov Chain:
+			newMarkovChain.getTransitions().add(newTransition);
+		}
+
+		// Return the resulting Markov Chain:
+		return newMarkovChain;
+	}
+
+	/**
 	 * Finds the fist State within a given Markov Chain that has the given
 	 * StateType.
 	 * 
@@ -441,6 +778,33 @@ public class MarkovBuilder {
 		// Go through all transitions of the Markov Chain:
 		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
 			if (markovChain.getTransitions().get(i).getToState() == targetState) {
+				resultList.add(markovChain.getTransitions().get(i));
+			}
+		}
+
+		// Return the result:
+		return resultList;
+	}
+
+	/**
+	 * Creates a list of all Transitions in a Markov Chain that start from a
+	 * given source state.
+	 * 
+	 * @param markovChain
+	 *            the Markov Chain
+	 * @param sourceState
+	 *            the source state
+	 * @return the list of transitions
+	 */
+	private ArrayList<Transition> findTransitionsFromState(
+			final MarkovChain markovChain, final State sourceState) {
+
+		// Initialize the resulting List:
+		ArrayList<Transition> resultList = new ArrayList<Transition>();
+
+		// Go through all transitions of the Markov Chain:
+		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
+			if (markovChain.getTransitions().get(i).getFromState() == sourceState) {
 				resultList.add(markovChain.getTransitions().get(i));
 			}
 		}
@@ -532,4 +896,82 @@ public class MarkovBuilder {
 			}
 		}
 	}
+
+	/**
+	 * Reduces the given Markov State in the given Markov Chain. The State is
+	 * deleted and all transitions leading to or starting from the State are
+	 * re-calculated so that the failure and success probabilities of the
+	 * overall Markov Chain are preserved.
+	 * 
+	 * @param markovChain
+	 *            the Markov Chain
+	 * @param stateToReduce
+	 *            the state which will be reduced
+	 */
+	private void reduceState(final MarkovChain markovChain,
+			final State stateToReduce) {
+
+		// Assure that the State which will be reduced is contained in the given
+		// Markov Chain:
+		if (!markovChain.getStates().contains(stateToReduce)) {
+			return;
+		}
+
+		// Assure that the State which will be reduced is not the Start, Success
+		// or Failure State:
+		if (!stateToReduce.getType().equals(StateType.DEFAULT)) {
+			return;
+		}
+
+		// Find and delete all transitions in the Markov Chain that lead to the
+		// reduceable State:
+		ArrayList<Transition> transitionsToReduceState = findTransitionsToState(
+				markovChain, stateToReduce);
+		deleteTransitions(markovChain, transitionsToReduceState);
+
+		// Find and delete all transitions in the Markov Chain that start from
+		// the reduceable State:
+		ArrayList<Transition> transitionsFromReduceState = findTransitionsFromState(
+				markovChain, stateToReduce);
+		deleteTransitions(markovChain, transitionsFromReduceState);
+
+		// Delete the reduceable State:
+		markovChain.getStates().remove(stateToReduce);
+
+		// Build new transitions to replace the deleted ones:
+		for (int i = 0; i < transitionsToReduceState.size(); i++) {
+			for (int j = 0; j < transitionsFromReduceState.size(); j++) {
+
+				// Create a new transition:
+				Transition transition = markovFactory.createTransition();
+
+				// Set the source and target States:
+				transition.setFromState(transitionsToReduceState.get(i)
+						.getFromState());
+				transition.setToState(transitionsFromReduceState.get(j)
+						.getToState());
+
+				// Calculate the transition probability:
+				transition.setProbability(transitionsToReduceState.get(i)
+						.getProbability()
+						* transitionsFromReduceState.get(j).getProbability());
+
+				// Set the name of the transition:
+				switch (transition.getToState().getType().getValue()) {
+				case StateType.FAILURE_VALUE:
+					transition.setName(transition.getFromState().getName()
+							+ " - " + StateType.FAILURE.toString());
+					break;
+				default:
+					transition.setName(transition.getFromState().getName()
+							+ " - " + StateType.SUCCESS.toString());
+					break;
+				}
+
+				// Add the new Transition to the Markov Chain:
+				contributeTransition(markovChain, transition);
+			}
+		}
+	}
+
 }

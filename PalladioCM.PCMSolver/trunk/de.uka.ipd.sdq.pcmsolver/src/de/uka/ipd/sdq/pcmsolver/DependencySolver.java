@@ -17,8 +17,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.MarkovUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.ExpressionPrinter;
