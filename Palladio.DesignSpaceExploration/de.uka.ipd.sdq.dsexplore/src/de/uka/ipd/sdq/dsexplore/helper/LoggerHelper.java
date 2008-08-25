@@ -19,7 +19,10 @@ public class LoggerHelper {
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
 	/**
-	 * Setup log4j. FIXME: Does not really do what I want! 
+	 * Setup log4j. FIXME: Does not really do what I want!
+	 * 
+	 *  TODO: Log in the console of the starting application, just as the simulation does. 
+	 *  
 	 * @param config SimuCom config which is queried for the logging settings
 	 * @throws CoreException 
 	 */

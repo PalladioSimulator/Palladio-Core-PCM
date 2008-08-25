@@ -221,6 +221,10 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 		return pcm;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * @see de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult#compareTo(de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult)
+	 */
 	@Override
 	public int compareTo(IAnalysisResult other) {
 		double difference;
@@ -249,25 +253,39 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 		Sensor sensor = getSensorForResource(this.experiment, container, resource);
 		
 		if (sensor != null){
-			SensorAndMeasurements sam = run.getMeasurementsOfSensor(sensor);
-			StateSensorToPieAdapter dataAdapter = new StateSensorToPieAdapter(sam);
-			Pie pie = (Pie)dataAdapter.getAdaptedObject();
-			Collection<PieEntity> pieParts = pie.getEntities(Integer.MAX_VALUE);
-			double totalIdleTime = 0;
-			//I need to sum up all pie parts to get the 100% comparison
-			double totalTime = 0;
-			for (Iterator<PieEntity> iterator = pieParts.iterator(); iterator
-					.hasNext();) {
-				PieEntity pieEntity = iterator.next();
-				totalTime += pieEntity.getValue();
-				if (pieEntity.getLabel().contains("Idle")){
-					//this returns a large number > 399
-					totalIdleTime = pieEntity.getValue();
+			
+			try {
+				SensorAndMeasurements sam = run.getMeasurementsOfSensor(sensor);
+				StateSensorToPieAdapter dataAdapter = new StateSensorToPieAdapter(
+						sam);
+				Pie pie = (Pie) dataAdapter.getAdaptedObject();
+				Collection<PieEntity> pieParts = pie
+						.getEntities(Integer.MAX_VALUE);
+				double totalIdleTime = 0;
+				// I need to sum up all pie parts to get the 100% comparison
+				double totalTime = 0;
+				for (Iterator<PieEntity> iterator = pieParts.iterator(); iterator
+						.hasNext();) {
+					PieEntity pieEntity = iterator.next();
+					totalTime += pieEntity.getValue();
+					if (pieEntity.getLabel().contains("Idle")) {
+						// this returns a large number > 399
+						totalIdleTime = pieEntity.getValue();
+					}
+
 				}
-				
-			}
-			double busyFraction = (1 - (totalIdleTime/totalTime));
-			return busyFraction;
+				double busyFraction = (1 - (totalIdleTime / totalTime));
+				return busyFraction;
+			} catch (RuntimeException e) {
+				// FIXME: The call "SensorAndMeasurements sam =
+				// run.getMeasurementsOfSensor(sensor);" above sometimes results
+				// in a RuntimeException, because a State could not be
+				// deserialised. Better fix that porperly instead of catching
+				// the error here.
+				logger.error("A runtime exception occured while accessing the sendorframework. I'll try to ignore it and continue.");
+				e.printStackTrace();
+				return 0;
+			} 
 		} else 
 			throw new AnalysisFailedException("Could not find sensor for resource "+container.getEntityName()+": "+resource.getActiveResourceType_ActiveResourceSpecification().getEntityName());
 

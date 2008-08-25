@@ -47,6 +47,11 @@ public class AlternativeComponent implements INewCandidates {
 		
 	}
 
+	/**
+	 * XXX: as implemented here, the search cannot go back to previous component selection, for example after the resource environment has changed.
+	 * {@inheritDoc}
+	 * @see de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates#generateNewCandidates(de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult)
+	 */
 	@Override
 	public List<PCMInstance> generateNewCandidates(IAnalysisResult currentSolution) {
 		
@@ -178,7 +183,7 @@ public class AlternativeComponent implements INewCandidates {
 		logger.debug("The new system: "+newSystem);
 		
 		newSolution.setSystem(newSystem);
-		newSolution.setSystemFileNameSuffix(newSolution.getSystemFileNameSuffix()+"-"+modelFilesSuffix+counter);
+		newSolution.appendToSystemFileName("-"+modelFilesSuffix+counter);
 		
 		newSolution.setName(newSolution.getName()+"-"+modelFilesSuffix+counter);
 		

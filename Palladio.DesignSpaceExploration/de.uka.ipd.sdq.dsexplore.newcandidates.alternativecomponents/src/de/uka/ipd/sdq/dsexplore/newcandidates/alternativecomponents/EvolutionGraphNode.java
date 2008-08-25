@@ -89,18 +89,17 @@ public class EvolutionGraphNode {
 	 * Test this {@link EvolutionGraphNode} and recursively all its children
 	 * whether one has the passed {@link PCMInstance} as a node. If on matching
 	 * child is found, it returns the child {@link PCMInstance}s (no guarantee
-	 * on the order if there are multiple matching ones!). If not, null is
-	 * returned.
+	 * on the order if there are multiple matching ones!). If not, an empty list is returned.
 	 * 
 	 * @param currentSolution
-	 * @return A list of children of the passed {@link PCMInstance} or null if no matching node was found. 
+	 * @return A list of children of the passed {@link PCMInstance}, which might be empty if no matching node was found. 
 	 */
 	public List<PCMInstance> getChildrenOf(PCMInstance currentSolution) {
-		EvolutionGraphNode node = this.getDescendants(currentSolution);
-		if (node == null)
-			return null;
-		Vector<EvolutionGraphNode> children = node.getChildren();
+		EvolutionGraphNode node = this.getDescendant(currentSolution);
 		List<PCMInstance> result = new ArrayList<PCMInstance>();
+		if (node == null)
+			return result;
+		Vector<EvolutionGraphNode> children = node.getChildren();
 		for (Iterator<EvolutionGraphNode> iterator = children.iterator(); iterator
 				.hasNext();) {
 			EvolutionGraphNode child = iterator.next();
@@ -110,18 +109,25 @@ public class EvolutionGraphNode {
 	}
 	
 	public boolean hasDescendant(PCMInstance instance){
-		return this.getDescendants(instance)!= null;
+		return this.getDescendant(instance)!= null;
 	}
 	
-	private EvolutionGraphNode getDescendants(PCMInstance instance){
-		if (this.node == instance){
+	/**
+	 * Checks the evolution graph for the descendant. Two {@link PCMInstance}s are considered equal here if they have the same system (i.e. with the same URI).
+	 * XXX: if I want to include changes of the resource environment etc, here, I need to update this.  
+	 * @param instance
+	 * @return
+	 */
+	private EvolutionGraphNode getDescendant(PCMInstance instance){
+		//FIXME: This can throw a NullPointerException. 
+		if (this.node.getSystemFileName().equals(instance.getSystemFileName())){
 			return this;
 		} else {
 			//recursively test all children
 			for (Iterator<EvolutionGraphNode> iterator = children.iterator(); iterator
 					.hasNext();) {
 				EvolutionGraphNode child = iterator.next();
-				EvolutionGraphNode result = child.getDescendants(instance);
+				EvolutionGraphNode result = child.getDescendant(instance);
 				if (result != null){
 					return result;
 				}

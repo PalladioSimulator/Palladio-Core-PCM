@@ -6,6 +6,7 @@ import java.net.URL;
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -14,19 +15,19 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class DSEPluginActivator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.dsexplore";
 
 	// The shared instance
-	private static Activator plugin;
+	private static DSEPluginActivator plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
-		
+	public DSEPluginActivator() {
+		plugin= this;
 		
 	}
 
@@ -55,7 +56,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static DSEPluginActivator getDefault() {
 		return plugin;
 	}
 
@@ -84,5 +85,16 @@ public class Activator extends AbstractUIPlugin {
 			ex.printStackTrace();
 		}
 		return result;
+	}
+	
+	/**Logs a message to the Eclipse message log.
+	 * @param severity Severity of the message.
+	 * @param message The message itself.
+	 */
+	public static void log(final int severity, final String message) {
+		/*Status status = new Status(severity, PLUGIN_ID, message, 
+				new Throwable());
+		plugin.getLog().log(status);*/
+		plugin.getLog().log(new Status(severity, PLUGIN_ID, message));
 	}
 }

@@ -39,8 +39,12 @@ public interface IAnalysisResult extends Comparable<IAnalysisResult>{
 	public PCMInstance getPCMInstance();
 	
 	/**
-	 * Returns the difference in response time (rounded to an integer). Positive if this  
+	 * Returns the difference in response time (rounded to an integer). Returns
+	 * a negative integer, zero, or a positive integer as this {@link IAnalysisResult} has a lesser,
+	 * equal, or greater mean response time than the specified {@link IAnalysisResult} other. 
+	 * 
 	 * {@inheritDoc}
+	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	int compareTo(IAnalysisResult other);

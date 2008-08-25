@@ -49,11 +49,11 @@ public class ConfigurationHelper {
  		//FIXME: really append the suffixes. 
 		
 			ILaunchConfigurationWorkingCopy workingCopy = configuration.copy(instance.getName());
-			workingCopy.setAttribute(ConstantsContainer.REPOSITORY_FILE, instance.getFullRepositoryFileName());
-			workingCopy.setAttribute(ConstantsContainer.ALLOCATION_FILE, instance.getFullAllocationFileName());
-			workingCopy.setAttribute(ConstantsContainer.SYSTEM_FILE, instance.getFullSystemFileName());
-			workingCopy.setAttribute(ConstantsContainer.USAGE_FILE, instance.getFullUsageModelFileName());
-			workingCopy.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, instance.getFullResourceRepositoryFileName());
+			workingCopy.setAttribute(ConstantsContainer.REPOSITORY_FILE, instance.getRepositoryFileName());
+			workingCopy.setAttribute(ConstantsContainer.ALLOCATION_FILE, instance.getAllocationFileName());
+			workingCopy.setAttribute(ConstantsContainer.SYSTEM_FILE, instance.getSystemFileName());
+			workingCopy.setAttribute(ConstantsContainer.USAGE_FILE, instance.getUsageModelFileName());
+			workingCopy.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE, instance.getResourceRepositoryFileName());
 			
 			workingCopy.setAttribute(SimuComConfig.EXPERIMENT_RUN, instance.getName());
 			

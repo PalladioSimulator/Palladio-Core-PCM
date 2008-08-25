@@ -1,7 +1,12 @@
 package de.uka.ipd.sdq.dsexplore.launch;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import net.sf.jclec.IIndividual;
 
@@ -13,6 +18,11 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.progress.UIJob;
 
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
@@ -23,6 +33,7 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisProxy;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
+import de.uka.ipd.sdq.dsexplore.helper.DSEMessageBox;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
@@ -56,6 +67,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 			//super.createRunCompositeJob(new SimuAttributesGetMethods(configuration), true, launch);
 			//super.launch(configuration, mode, launch, monitor);
 			LoggerHelper.initializeLogger(configuration);
+			
+			Long timestampMillis = System.currentTimeMillis();
 		
 			logger.debug("Starting...");
 			logger.debug("Launch Configuration: "+configuration.getMemento());
@@ -76,16 +89,23 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
 		    //IAnalysisResult result = analysisTool.analyse(pcmInstance);
 		    logger.info("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
-		    List<IAnalysisResult> population = new ArrayList<IAnalysisResult>();
-		    population.add(result);
+		    List<IAnalysisResult> currentPopulation = new ArrayList<IAnalysisResult>();
+		    List<IAnalysisResult> allCandidates = new ArrayList<IAnalysisResult>();
+		    currentPopulation.add(result);
+		    allCandidates.add(result);
 		    
 		    while(!algorithm.terminated()){
-		    	population = algorithm.iterate(population);
+		    	currentPopulation = algorithm.iterate(currentPopulation);
+		    	allCandidates.addAll(currentPopulation);
 		    }
 		    
-		    logger.info("Best candidate: "+population.get(0).getPCMInstance().getName());
-
+		    long duration = System.currentTimeMillis() - timestampMillis;
 		    
+		    logger.info("Best candidate: "+currentPopulation.get(0).getPCMInstance().getName());
+		    
+		    Collections.sort(allCandidates);
+		    
+		    DSEMessageBox.showMessage("DSE results", "Here are the results, sorted by response time: \n\n"+resultsToString(allCandidates)+"\n You find the corresponding run configuration in your run dialog, they show you all details on the candidates.\n\n The search took "+duration/1000.0+" seconds.", MessageDialog.INFORMATION);
 
 				
 			} catch (AnalysisFailedException e) {
@@ -100,8 +120,18 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 
 	}
 
-
+	private static String resultsToString(List<IAnalysisResult> population) throws AnalysisFailedException {
+		String string = "";
+		int count = 1;
+		for (Iterator<IAnalysisResult> iterator = population.iterator(); iterator
+				.hasNext();) {
+			IAnalysisResult analysisResult = iterator.next();
+			string += count + ".: ";
+			string += "Candidate: " + analysisResult.getPCMInstance().getName() + " has a ";
+			string += "mean response time of "+ analysisResult.getMeanValue()+" time units.\n"; 
+			count ++;
+		}
+		return string;
+	}
 	
-
-
 }
