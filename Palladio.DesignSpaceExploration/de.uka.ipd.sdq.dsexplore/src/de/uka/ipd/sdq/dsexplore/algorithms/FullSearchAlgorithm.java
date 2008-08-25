@@ -49,7 +49,7 @@ public class FullSearchAlgorithm extends HillClimbingAlgorithm {
 			IAnalysisResult currentResult = iterator.next();
 			
 			//1) determine neighbors
-			List<PCMInstance> neighbours = this.evolve(currentResult.getPCMInstance());
+			List<PCMInstance> neighbours = this.evolve(currentResult);
 			
 			//2) remove all we already have in the list
 			//FIXME the check for identity does not work yet, mis-gen3-AltCom-0.system is the same than mis-gen1-AltCom-2.system

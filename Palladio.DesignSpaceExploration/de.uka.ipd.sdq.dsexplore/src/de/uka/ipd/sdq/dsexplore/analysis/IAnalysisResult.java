@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.dsexplore.analysis;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.qualityAttributes.QualityAttribute;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 /**
  * Class to store the results of a DSE analysis step.
@@ -42,6 +44,15 @@ public interface IAnalysisResult extends Comparable<IAnalysisResult>{
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	int compareTo(IAnalysisResult other);
+	
+	/**
+	 * Returns the utilisation of the goven resource from the analysis results
+	 * @param resource
+	 * @return a doubke between 0 and 1 that describes the utilisation. 
+	 */
+	public double getUtilisationOfResource(ResourceContainer container, ProcessingResourceSpecification resource) throws AnalysisFailedException;
+	
+	//public double getUtilisationOfResource(PassiveResourceSpecification resource);
 
 
 }

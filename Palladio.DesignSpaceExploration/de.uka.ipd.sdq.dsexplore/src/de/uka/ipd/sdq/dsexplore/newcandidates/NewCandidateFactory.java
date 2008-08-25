@@ -5,11 +5,10 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 
-import de.uka.ipd.sdq.dsexplore.PCMInstance;
-import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
 
 /**
@@ -21,20 +20,30 @@ import de.uka.ipd.sdq.dsexplore.helper.ExtensionHelper;
  */
 public class NewCandidateFactory {
 	
+	/** Logger for log4j. */
+	private static Logger logger = 
+		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
+	
 	protected IConfigurationElement element;
 	private List<INewCandidates> nc;
+	
+	private static NewCandidateFactory instance = new NewCandidateFactory();
 
-	private List<INewCandidates> getAllNewCandidateExtensions() throws CoreException{
+	public List<INewCandidates> getAllNewCandidateExtensions() throws CoreException{
 		if (nc == null){
 			Collection<Object> extensions = ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.newcandidates");
 			nc = new ArrayList<INewCandidates>();
 			for (Iterator<Object> iterator = extensions.iterator(); iterator
 					.hasNext();) {
 				nc.add((INewCandidates)iterator.next());
-				
+				logger.debug("Added an extension de.uka.ipd.sdq.dsexplore.newcandidates");
 			}
 		}
 		return nc;
+	}
+	
+	public static NewCandidateFactory getInstance(){
+		return instance;
 	}
 	
     

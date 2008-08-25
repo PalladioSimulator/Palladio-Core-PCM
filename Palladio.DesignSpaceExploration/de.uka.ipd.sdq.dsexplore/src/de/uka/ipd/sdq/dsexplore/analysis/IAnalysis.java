@@ -26,4 +26,6 @@ public interface IAnalysis {
 	  * @param monitor
 	  */
 	public abstract void initialise(ILaunchConfiguration configuration, String mode, ILaunch launch,IProgressMonitor monitor);
+
+	public abstract IAnalysisResult retrieveLastResults(PCMInstance pcmInstance) throws CoreException, AnalysisFailedException;
 }

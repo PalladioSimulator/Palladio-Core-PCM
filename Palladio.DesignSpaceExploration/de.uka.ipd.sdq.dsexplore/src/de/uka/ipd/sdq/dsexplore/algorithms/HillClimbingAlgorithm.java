@@ -11,13 +11,13 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
-import de.uka.ipd.sdq.dsexplore.newcandidates.NewCandidateProxy;
+import de.uka.ipd.sdq.dsexplore.newcandidates.NewCandidateFactory;
 
 public class HillClimbingAlgorithm implements IAlgorithm {
 
 	private IAnalysis analysisTool;
 	protected boolean terminated = false;
-	INewCandidates newCands;
+	List<INewCandidates> newCands;
 	
 	int generation = 0;
 	
@@ -31,12 +31,17 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	 * @return A list of neighbours of all passed {@link PCMInstance}s. 
 	 * @throws CoreException
 	 */
-	public List<PCMInstance> evolve(List<PCMInstance> population) throws CoreException {
+	public List<PCMInstance> evolve(List<IAnalysisResult> population) throws CoreException {
 	    List<PCMInstance> result = new ArrayList<PCMInstance>();
 	    //Generate alternatives
-		for (Iterator<PCMInstance> iterator = population.iterator(); iterator.hasNext();) {
-			PCMInstance instance = iterator.next();
-			result.addAll(newCands.generateNewCandidates(instance));
+		for (Iterator<IAnalysisResult> iterator = population.iterator(); iterator.hasNext();) {
+			IAnalysisResult instance = iterator.next();
+			for (Iterator<INewCandidates> iterator2 = newCands.iterator(); iterator2
+					.hasNext();) {
+				INewCandidates newCandGenerator = iterator2.next();
+				result.addAll(newCandGenerator.generateNewCandidates(instance));
+			}
+			
 		}
 	    return result;
 	}
@@ -44,12 +49,13 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	/**
 	 * 
 	 * {@inheritDoc}
+	 * @throws CoreException 
 	 * @see de.uka.ipd.sdq.dsexplore.algorithms.IAlgorithm#initialise(java.util.List, de.uka.ipd.sdq.dsexplore.analysis.IAnalysis)
 	 */
 	@Override
-	public void initialise(List<PCMInstance> population, IAnalysis analysisTool) {
+	public void initialise(List<PCMInstance> population, IAnalysis analysisTool) throws CoreException {
 		this.analysisTool = analysisTool;
-		this.newCands = new NewCandidateProxy();
+		this.newCands = NewCandidateFactory.getInstance().getAllNewCandidateExtensions();
 		
 	}
 
@@ -70,7 +76,7 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 			IAnalysisResult currentResult = iterator.next();
 			
 			//1) determine neighbors
-			List<PCMInstance> neighbours = this.evolve(currentResult.getPCMInstance());
+			List<PCMInstance> neighbours = this.evolve(currentResult);
 			
 			//2) evaluate neighbors
 			List<IAnalysisResult> results = this.evaluate(neighbours);
@@ -137,8 +143,8 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	 * @return A list of {@link PCMInstance} as returned by {@link #evolve(List)}
 	 * @throws CoreException
 	 */
-	protected List<PCMInstance> evolve(PCMInstance instance) throws CoreException {
-		List<PCMInstance> list = new ArrayList<PCMInstance>();
+	protected List<PCMInstance> evolve(IAnalysisResult instance) throws CoreException {
+		List<IAnalysisResult> list = new ArrayList<IAnalysisResult>();
 		list.add(instance);
 		return this.evolve(list);
 	}

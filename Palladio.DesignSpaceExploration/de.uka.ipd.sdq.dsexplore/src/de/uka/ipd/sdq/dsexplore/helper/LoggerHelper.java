@@ -24,15 +24,16 @@ public class LoggerHelper {
 	 * @throws CoreException 
 	 */
 	public static void initializeLogger(ILaunchConfiguration config) throws CoreException {
-		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
+/*		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
 		ConsoleAppender myAppender = new ConsoleAppender(myLayout);
 		if (config.getAttribute(SimuComConfig.VERBOSE_LOGGING, true))
 			myAppender.setThreshold(Priority.DEBUG);
 		else
 			myAppender.setThreshold(Priority.WARN);
-		myAppender.setWriter(new PrintWriter(System.out));
+		myAppender.setWriter(new PrintWriter(System.out));*/
+		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure();
-		BasicConfigurator.configure(myAppender);
+		//BasicConfigurator.configure(myAppender);
 		logger.debug("Logging enabled!");
 	}
 	

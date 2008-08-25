@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Design Space Exploration Tests
+Bundle-SymbolicName: de.uka.ipd.sdq.dsexplore.tests;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: 
+ de.uka.ipd.sdq.dsexplore,
+ de.uka.ipd.sdq.dsexplore.analysis.simucom,
+ de.uka.ipd.sdq.dsexplore.newcandidates.alternativecomponents,
+ org.junit,
+ org.apache.log4j,
+ de.uka.ipd.sdq.sensorframework

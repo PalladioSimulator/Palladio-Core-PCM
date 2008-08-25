@@ -25,7 +25,6 @@ import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
-import de.uka.ipd.sdq.dsexplore.newcandidates.NewCandidateProxy;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
@@ -68,13 +67,14 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    instances.add(pcmInstance);
 		    
 		    //initialise the algorithm and analysis
-		    //IAlgorithm algorithm = new HillClimbingAlgorithm();
-		    IAlgorithm algorithm = new FullSearchAlgorithm();
+		    IAlgorithm algorithm = new HillClimbingAlgorithm();
+		    //IAlgorithm algorithm = new FullSearchAlgorithm();
 			IAnalysis analysisTool = new AnalysisProxy(configuration, mode, launch, monitor);
 		    algorithm.initialise(instances, analysisTool);
 		    
 		    //analyse the initial PCMInstance
-			IAnalysisResult result = analysisTool.analyse(pcmInstance);
+		    IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
+		    //IAnalysisResult result = analysisTool.analyse(pcmInstance);
 		    logger.info("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
 		    List<IAnalysisResult> population = new ArrayList<IAnalysisResult>();
 		    population.add(result);
@@ -85,7 +85,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    
 		    logger.info("Best candidate: "+population.get(0).getPCMInstance().getName());
 
-
+		    
 
 				
 			} catch (AnalysisFailedException e) {
@@ -94,9 +94,9 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 				throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, e.getMessage(), e));
 			}
 			
-			IIndividual individual = null;
+			//IIndividual individual = null;
 
-
+			logger.debug("DSE launch done");
 
 	}
 

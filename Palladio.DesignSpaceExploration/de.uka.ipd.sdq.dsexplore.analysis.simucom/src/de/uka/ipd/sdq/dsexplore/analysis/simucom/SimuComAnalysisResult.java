@@ -8,10 +8,15 @@ import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IStatus;
 import org.rosuda.JRI.REXP;
 
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.PieEntity;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.sensorframework.adapter.StateSensorToPieAdapter;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
@@ -88,7 +93,7 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 		throw error;
 	}
 
-	private Sensor getSensorForUsageScenario(Experiment exp, UsageScenario us) {
+	private static Sensor getSensorForUsageScenario(Experiment exp, UsageScenario us) {
 		Collection<Sensor> sensors = exp.getSensors();
 		for (Iterator<Sensor> iterator = sensors.iterator(); iterator.hasNext();) {
 			Sensor sensor = iterator.next();
@@ -99,6 +104,22 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 			}
 		}
 		logger.error("No sensor found for usage scenario "+us.getEntityName());
+		return null;
+	}
+	
+	private static Sensor getSensorForResource(Experiment exp, ResourceContainer rc, ProcessingResourceSpecification res) {
+		Collection<Sensor> sensors = exp.getSensors();
+		for (Iterator<Sensor> iterator = sensors.iterator(); iterator.hasNext();) {
+			Sensor sensor = iterator.next();
+			//logger.debug("Experiment has a sensor with ID "+sensor.getSensorID()+" and name "+sensor.getSensorName()+".");
+			if (sensor.getSensorName().contains(res.getActiveResourceType_ActiveResourceSpecification().getEntityName())
+					&& sensor.getSensorName().contains("Utilisation")
+					&& sensor.getSensorName().contains(rc.getEntityName())){
+				logger.debug("Found sensor for the resource "+rc.getEntityName()+": "+res.getActiveResourceType_ActiveResourceSpecification().getEntityName());
+				return sensor;
+			}
+		}
+		logger.error("No sensor found for resource "+rc.getEntityName()+": "+res.getActiveResourceType_ActiveResourceSpecification().getEntityName());
 		return null;
 	}
 
@@ -216,6 +237,40 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * @throws AnalysisFailedException 
+	 * @see de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult#getUtilisationOfResource(de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification)
+	 */
+	@Override
+	public double getUtilisationOfResource(ResourceContainer container, ProcessingResourceSpecification resource) throws AnalysisFailedException {
+		Sensor sensor = getSensorForResource(this.experiment, container, resource);
+		
+		if (sensor != null){
+			SensorAndMeasurements sam = run.getMeasurementsOfSensor(sensor);
+			StateSensorToPieAdapter dataAdapter = new StateSensorToPieAdapter(sam);
+			Pie pie = (Pie)dataAdapter.getAdaptedObject();
+			Collection<PieEntity> pieParts = pie.getEntities(Integer.MAX_VALUE);
+			double totalIdleTime = 0;
+			//I need to sum up all pie parts to get the 100% comparison
+			double totalTime = 0;
+			for (Iterator<PieEntity> iterator = pieParts.iterator(); iterator
+					.hasNext();) {
+				PieEntity pieEntity = iterator.next();
+				totalTime += pieEntity.getValue();
+				if (pieEntity.getLabel().contains("Idle")){
+					//this returns a large number > 399
+					totalIdleTime = pieEntity.getValue();
+				}
+				
+			}
+			double busyFraction = (1 - (totalIdleTime/totalTime));
+			return busyFraction;
+		} else 
+			throw new AnalysisFailedException("Could not find sensor for resource "+container.getEntityName()+": "+resource.getActiveResourceType_ActiveResourceSpecification().getEntityName());
+
 	}
 	
 	/**Prepares to export the measurements of a time series sensor to R. 

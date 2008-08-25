@@ -15,8 +15,9 @@ public interface IAlgorithm {
 	 * Initialise the algorithm with an initial population and the analysis tool to use. 
 	 * @param population
 	 * @param analysisTool
+	 * @throws CoreException 
 	 */
-	public void initialise(List<PCMInstance> population, IAnalysis analysisTool);
+	public void initialise(List<PCMInstance> population, IAnalysis analysisTool) throws CoreException;
 
 	/**
 	 * True if the heuristic terminated.

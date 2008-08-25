@@ -1,11 +1,10 @@
 package de.uka.ipd.sdq.dsexplore.newcandidates.alternativecomponents;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Vector;
 
 import org.apache.log4j.Logger;
@@ -14,6 +13,11 @@ import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 
+/**
+ * A trace tree of which candidate was derived from which other one. 
+ * @author Anne
+ *
+ */
 public class EvolutionGraphNode {
 	
 	private static Logger logger = Logger.getLogger("de.uka.ipd.sdq.dsexplore");
@@ -50,7 +54,7 @@ public class EvolutionGraphNode {
 		child.setParent(this);
 	}
 	
-	public void addChildren(Set<EvolutionGraphNode> children2){
+	public void addChildren(Collection<EvolutionGraphNode> children2){
 		this.children.addAll(children2);
 		for (EvolutionGraphNode evolutionGraphNode : children2) {
 			evolutionGraphNode.setParent(this);
@@ -60,18 +64,23 @@ public class EvolutionGraphNode {
 	public PCMInstance getNode() {
 		return node;
 	}
+	
 	public void setNode(PCMInstance node) {
 		this.node = node;
 	}
+	
 	public EvolutionGraphNode getParent() {
 		return parent;
 	}
+	
 	public void setParent(EvolutionGraphNode parent) {
 		this.parent = parent;
 	}
+	
 	public Vector<EvolutionGraphNode> getChildren() {
 		return children;
 	}
+	
 	public void setChildren(Vector<EvolutionGraphNode> children) {
 		this.children = children;
 	}
@@ -87,20 +96,32 @@ public class EvolutionGraphNode {
 	 * @return A list of children of the passed {@link PCMInstance} or null if no matching node was found. 
 	 */
 	public List<PCMInstance> getChildrenOf(PCMInstance currentSolution) {
-		if (this.node == currentSolution){
-			List<PCMInstance> result = new ArrayList<PCMInstance>();
-			for (Iterator<EvolutionGraphNode> iterator = children.iterator(); iterator
-					.hasNext();) {
-				EvolutionGraphNode child = iterator.next();
-				result.add(child.getNode());
-			}
-			return result;
+		EvolutionGraphNode node = this.getDescendants(currentSolution);
+		if (node == null)
+			return null;
+		Vector<EvolutionGraphNode> children = node.getChildren();
+		List<PCMInstance> result = new ArrayList<PCMInstance>();
+		for (Iterator<EvolutionGraphNode> iterator = children.iterator(); iterator
+				.hasNext();) {
+			EvolutionGraphNode child = iterator.next();
+			result.add(child.getNode());
+		}
+		return result;
+	}
+	
+	public boolean hasDescendant(PCMInstance instance){
+		return this.getDescendants(instance)!= null;
+	}
+	
+	private EvolutionGraphNode getDescendants(PCMInstance instance){
+		if (this.node == instance){
+			return this;
 		} else {
 			//recursively test all children
 			for (Iterator<EvolutionGraphNode> iterator = children.iterator(); iterator
 					.hasNext();) {
 				EvolutionGraphNode child = iterator.next();
-				List<PCMInstance> result = child.getChildrenOf(currentSolution);
+				EvolutionGraphNode result = child.getDescendants(instance);
 				if (result != null){
 					return result;
 				}
@@ -111,7 +132,7 @@ public class EvolutionGraphNode {
 
 	@Override
 	public String toString() {
-		String string = "\n";
+		String string = "";
 		int countDepth = 1;
 		return this.nodeToString(string, countDepth);
 	}

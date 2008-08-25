@@ -62,13 +62,66 @@ public class SimuComAnalysis implements IAnalysis {
 	@Override
 	public IAnalysisResult analyse(PCMInstance pcmInstance) throws AnalysisFailedException, CoreException {
 
+		launchSimuCom(pcmInstance);		
+		
+		IAnalysisResult result = retrieveSimuComResults(pcmInstance);
+		
+		logger.debug("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
+		return result;
+		
+	}
+
+	
+
+	private IAnalysisResult retrieveSimuComResults(PCMInstance pcmInstance)
+			throws CoreException, AnalysisFailedException {
+		IAnalysisResult result = null;
+		int selectedDataSourceID = 
+			config.getAttribute(
+					SimuComConfig.DATASOURCE_ID, -1);
+		if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null)
+		    {}
+		else {
+			IDAOFactory factory = SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID);
+			String experimentName = pcmInstance.getName();
+			//XXX: Quick fix: Assume that there is just one experiment with the name of the current PCM instance.
+			Iterator<Experiment> it = factory.createExperimentDAO().findByExperimentName(experimentName
+					+" RunNo. "+config.getAttribute(ConstantsContainer.RUN_NO, "1")).iterator();
+			if (it.hasNext()){
+			  Experiment resultingExperiment = it.next();
+			  Collection<ExperimentRun> runs = resultingExperiment.getExperimentRuns();
+			  if (runs.size() > 0){
+				  ExperimentRun myrun = getLatestRun(runs);
+				  result = new SimuComAnalysisResult(myrun, resultingExperiment, pcmInstance);					  
+			  } else {
+					String errormessage = "There was no experiment run for experiment named \""
+						+experimentName+"\" after analysing the PCM instance \""
+						+pcmInstance.getName()+"\".";
+					logger.error(errormessage);
+					throw new AnalysisFailedException(errormessage);
+			  }
+			  
+			} else {
+				String errormessage = "There was no experiment named \""
+					+experimentName+"\" after analysing the PCM instance \""
+					+pcmInstance.getName()+"\".";
+				logger.error(errormessage);
+				throw new AnalysisFailedException(errormessage);
+			}
+		}
+		return result;
+	}
+
+
+	private void launchSimuCom(PCMInstance pcmInstance)
+			throws CoreException, AnalysisFailedException {
+		
 		this.config = ConfigurationHelper.getInstance().updateConfig(config, pcmInstance);
 		pcmInstance.saveUpdatesToFile();
 		
 		logger.debug("Starting analysis");
 		
 		SimuLaunchConfigurationDelegate simuCom = new SimuLaunchConfigurationDelegate();
-		IAnalysisResult result = null;
 		
 		try {
 			simuCom.launch(config, mode, launch, monitor);
@@ -79,50 +132,7 @@ public class SimuComAnalysis implements IAnalysis {
 			logger.error(standardError);
 			throw new AnalysisFailedException(standardError+": "+e.getMessage(), e);
 		}
-		
-		try {
-			int selectedDataSourceID = 
-				config.getAttribute(
-						SimuComConfig.DATASOURCE_ID, -1);
-			if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null)
-			    {}
-			else {
-				IDAOFactory factory = SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID);
-				String experimentName = pcmInstance.getName();
-				//XXX: Quick fix: Assume that there is just one experiment with the name of the current PCM instance.
-				Iterator<Experiment> it = factory.createExperimentDAO().findByExperimentName(experimentName
-						+" RunNo. "+config.getAttribute(ConstantsContainer.RUN_NO, "1")).iterator();
-				if (it.hasNext()){
-				  Experiment resultingExperiment = it.next();
-				  Collection<ExperimentRun> runs = resultingExperiment.getExperimentRuns();
-				  if (runs.size() > 0){
-					  ExperimentRun myrun = getLatestRun(runs);
-					  result = new SimuComAnalysisResult(myrun, resultingExperiment, pcmInstance);					  
-				  } else {
-						String errormessage = "There was no experiment run for experiment named \""
-							+experimentName+"\" after analysing the PCM instance \""
-							+pcmInstance.getName()+"\".";
-						logger.error(errormessage);
-						throw new AnalysisFailedException(errormessage);
-				  }
-				  
-				} else {
-					String errormessage = "There was no experiment named \""
-						+experimentName+"\" after analysing the PCM instance \""
-						+pcmInstance.getName()+"\".";
-					logger.error(errormessage);
-					throw new AnalysisFailedException(errormessage);
-				}
-			}
-		} catch (CoreException e) {
-			String message = "Accessing the results of SimuCom launch failed for PCM instance \""+pcmInstance.getName()+"\"";
-			logger.error(message);
-			throw new AnalysisFailedException(message+": "+e.getMessage(), e);
-		}
-		
-		logger.debug("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
-		return result;
-		
+
 	}
 
 
@@ -232,6 +242,13 @@ public class SimuComAnalysis implements IAnalysis {
 		this.monitor = monitor;
 		this.config = configuration;
 		
+	}
+
+
+
+	@Override
+	public IAnalysisResult retrieveLastResults(PCMInstance pcmInstance) throws CoreException, AnalysisFailedException {
+		return this.retrieveSimuComResults(pcmInstance);
 	}
 
 }

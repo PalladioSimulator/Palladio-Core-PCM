@@ -14,6 +14,8 @@ public class AnalysisProxy implements IAnalysis {
 	private ILaunch launch;
 	private IProgressMonitor monitor;
 	private ILaunchConfiguration configuration;
+	
+	IAnalysis ana = null;
 
 	public AnalysisProxy(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) {
 		this.initialise(configuration, mode, launch, monitor);
@@ -21,11 +23,17 @@ public class AnalysisProxy implements IAnalysis {
 
 	@Override
 	public IAnalysisResult analyse(PCMInstance pcmInstance) throws AnalysisFailedException, CoreException {
-		IAnalysis ana = (IAnalysis)ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.analysis");
-		ana.initialise(configuration, mode,launch,monitor);
+		checkAnalysisExtension();
 		
 		return ana.analyse(pcmInstance);
 
+	}
+
+	private void checkAnalysisExtension() throws CoreException {
+		if (ana == null){
+			ana = (IAnalysis)ExtensionHelper.loadExtension("de.uka.ipd.sdq.dsexplore.analysis").iterator().next();
+			ana.initialise(configuration, mode,launch,monitor);
+		}
 	}
 
 	@Override
@@ -35,6 +43,13 @@ public class AnalysisProxy implements IAnalysis {
 		this.monitor = monitor;
 		this.configuration = configuration;
 		
+	}
+
+	@Override
+	public IAnalysisResult retrieveLastResults(PCMInstance pcmInstance)
+			throws CoreException, AnalysisFailedException {
+		checkAnalysisExtension();
+		return ana.retrieveLastResults(pcmInstance);
 	}
 
 }

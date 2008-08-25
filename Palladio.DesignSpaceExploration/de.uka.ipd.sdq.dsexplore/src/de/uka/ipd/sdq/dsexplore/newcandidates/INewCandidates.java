@@ -5,6 +5,7 @@ import java.util.List;
 import org.eclipse.core.runtime.CoreException;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 
 public interface INewCandidates {
 
@@ -14,6 +15,6 @@ public interface INewCandidates {
 	 * @return
 	 * @throws CoreException 
 	 */
-	public abstract List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) throws CoreException;
+	public abstract List<PCMInstance> generateNewCandidates(IAnalysisResult currentSolution) throws CoreException;
 
 }

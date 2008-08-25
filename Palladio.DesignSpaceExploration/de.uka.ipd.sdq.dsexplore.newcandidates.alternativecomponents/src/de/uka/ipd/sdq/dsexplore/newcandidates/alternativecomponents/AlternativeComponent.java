@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
@@ -47,15 +48,17 @@ public class AlternativeComponent implements INewCandidates {
 	}
 
 	@Override
-	public List<PCMInstance> generateNewCandidates(PCMInstance currentSolution) {
+	public List<PCMInstance> generateNewCandidates(IAnalysisResult currentSolution) {
+		
+		PCMInstance currentPCMInstance = currentSolution.getPCMInstance();
 
-		Repository r = currentSolution.getRepository();
+		Repository r = currentPCMInstance.getRepository();
 		
 		//only if this is called for the first time on a given repository, find alternatives again. 
 		if (lastRepository == null || !checkIdentity(r, lastRepository) || alternativeMap == null || rootNode == null){
 			lastRepository = r;
 		
-			System s = currentSolution.getSystem();
+			System s = currentPCMInstance.getSystem();
 
 			List<BasicComponent> repoComponents = filterBasicComponents(r
 					.getComponents__Repository());
@@ -72,14 +75,14 @@ public class AlternativeComponent implements INewCandidates {
 			logger.debug("I have a mapping for " + alternativeMap.size()
 					+ " AssemblyContexts with the following alternatives:");
 			
-			rootNode = createEvolutionGraph(currentSolution, alternativeMap);
+			rootNode = createEvolutionGraph(currentPCMInstance, alternativeMap);
 			logger.debug(rootNode.toString());
 		}
 
 		//Create a new PCM instance for each alternative found
 		//Only change one component at a time. 
 		//Generate alternatives with one component different each
-		List<PCMInstance> l = rootNode.getChildrenOf(currentSolution);
+		List<PCMInstance> l = rootNode.getChildrenOf(currentPCMInstance);
 
 		
 		return l;
@@ -88,7 +91,8 @@ public class AlternativeComponent implements INewCandidates {
 	/**
 	 * Problem: This is not evolutionary, it traverses the whole design space at
 	 * once. With the assumption that we always have a limited amount of
-	 * alternative components, it might work.
+	 * alternative components, it might work. As this only looks at alternative 
+	 * components in the current repository, it might not be too bad...
 	 * 
 	 * @param currentSolution
 	 * @param alternativeMap2

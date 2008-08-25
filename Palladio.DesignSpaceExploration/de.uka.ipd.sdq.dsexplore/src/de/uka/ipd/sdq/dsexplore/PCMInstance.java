@@ -2,8 +2,10 @@ package de.uka.ipd.sdq.dsexplore;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
@@ -23,6 +25,7 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
@@ -48,7 +51,7 @@ public class PCMInstance {
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
-	
+	//TODO: refactor the getter names of the filenames to getOrginalFileName and getFileName? Or leave the original to get longer and longer file names... no. 
     private Repository repository;
     private System system;
     private Allocation allocation;
@@ -61,6 +64,7 @@ public class PCMInstance {
 	private UsageModel usageModel;
 
 	private String allocationFileName;
+	private String allocationFileNameSuffix = "";
 
 	private String repositoryFileName;
 
@@ -73,6 +77,10 @@ public class PCMInstance {
 
 
 	private String name;
+
+	private String resEnvFileName;
+	private String resEnvFileNameSuffix = "";
+
     
     public PCMInstance(Repository repository, System system,
 			Allocation allocation, ResourceEnvironment resourceenvironment,
@@ -80,7 +88,8 @@ public class PCMInstance {
 			String storagePath, ResourceRepository resourceRepository,
 			UsageModel usageModel, String allocationFileName,
 			String repositoryFileName, String resourceRepositoryFileName,
-			String usageModelFileName, String systemFileName, String name) {
+			String usageModelFileName, String systemFileName, 
+			String resourceEnvironmentFileName, String name) {
 		super();
 		this.repository = repository;
 		this.system = system;
@@ -96,6 +105,7 @@ public class PCMInstance {
 		this.resourceRepositoryFileName = resourceRepositoryFileName;
 		this.usageModelFileName = usageModelFileName;
 		this.systemFileName = systemFileName;
+		this.resEnvFileName = resourceEnvironmentFileName;
 		this.name = name;
 	}
 
@@ -136,6 +146,9 @@ public class PCMInstance {
 			
 			this.system = this.allocation.getSystem_Allocation();
 			this.systemFileName = configuration.getAttribute(ConstantsContainer.SYSTEM_FILE, "");
+			
+			this.resEnvFileName = this.allocation.getTargetResourceEnvironment_Allocation().eResource().getURI().toFileString();
+			logger.debug("ResourceEnv: "+this.resEnvFileName);
 	}
 
     /**
@@ -238,6 +251,14 @@ public class PCMInstance {
 	
 	public void saveSystemToFile(){
 		saveToXMIFile(system, appendToFilename(systemFileNameSuffix,systemFileName));
+	}
+	
+	public void saveResEnvToFile(){
+		saveToXMIFile(resourceenvironment, appendToFilename(resEnvFileNameSuffix,resEnvFileName));
+	}
+	
+	public void saveAllocationToFile(){
+		saveToXMIFile(allocation, appendToFilename(allocationFileNameSuffix,allocationFileName));
 	}
 	
 	private String appendToFilename(String fileNameSuffix,
@@ -354,7 +375,7 @@ public class PCMInstance {
 				this.mwRepository, this.storagePath, this.resourceRepository,
 				this.usageModel, this.allocationFileName,
 				this.repositoryFileName, this.resourceRepositoryFileName,
-				this.usageModelFileName, this.systemFileName, this.name);
+				this.usageModelFileName, this.systemFileName, this.resEnvFileName, this.name);
 		pcm.setSystemFileNameSuffix(this.systemFileNameSuffix);
 		return pcm;
 	}
@@ -465,10 +486,64 @@ public class PCMInstance {
 	public void saveUpdatesToFile() {
 		//FIXME: Whenever more than just the system is changes, I need to save more here.
 		saveSystemToFile();
+		saveResEnvToFile();
+		saveAllocationToFile();
 	}
 
 	public String getSystemFileNameSuffix() {
 		return systemFileNameSuffix;
+	}
+
+	public List<ResourceContainer> getAllResourceContainers() {
+		return this.resourceenvironment.getResourceContainer_ResourceEnvironment();
+	}
+
+	public String getResEnvFileNameSuffix() {
+		return this.resEnvFileNameSuffix;
+	}
+
+	public void setResEnvFileNameSuffix(String string) {
+		this.resEnvFileNameSuffix = string;
+	}
+
+	public String getAllocationFileNameSuffix() {
+		return allocationFileNameSuffix;
+	}
+
+	public void setAllocationFileNameSuffix(String allocationFileNameSuffix) {
+		this.allocationFileNameSuffix = allocationFileNameSuffix;
+	}
+
+	public String getResEnvFileName() {
+		return resEnvFileName;
+	}
+	
+	public String getFullResEnvFileName() {
+		return appendToFilename(resEnvFileNameSuffix, resEnvFileName);
+	}
+
+	public void setResEnvFileName(String resEnvFileName) {
+		appendToFilename(resEnvFileNameSuffix, resEnvFileName);
+	}
+
+	public String getFullRepositoryFileName() {
+		return this.repositoryFileName;
+	}
+
+	public String getFullAllocationFileName() {
+		return appendToFilename(this.allocationFileNameSuffix, this.allocationFileName);
+	}
+
+	public String getFullSystemFileName() {
+		return appendToFilename(this.systemFileNameSuffix, this.systemFileName);
+	}
+
+	public String getFullUsageModelFileName() {
+		return this.usageModelFileName;
+	}
+
+	public String getFullResourceRepositoryFileName() {
+		return this.resourceRepositoryFileName;
 	}
     
 	
