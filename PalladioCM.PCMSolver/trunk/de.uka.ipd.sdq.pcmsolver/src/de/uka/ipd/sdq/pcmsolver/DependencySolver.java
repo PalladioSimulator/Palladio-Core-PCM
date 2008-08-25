@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import markov.MarkovChain;
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
@@ -18,9 +16,7 @@ import org.apache.log4j.PatternLayout;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
-import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.MarkovUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.ExpressionPrinter;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
@@ -62,11 +58,7 @@ public class DependencySolver {
 		
 		runDSolver();
 		
-		// Expression result = runPcm2RegEx();
-		MarkovChain result2 = runPcm2Markov();
-		
-		MarkovSolver solver = new MarkovSolver();
-		double prob = solver.solve(result2);
+		Expression result = runPcm2RegEx();
 		
 		//IProbabilityDensityFunction iPDF = runCalculation(result);
 		
@@ -163,21 +155,6 @@ public class DependencySolver {
 	}
 
 	/**
-	 * Transforms a PCM instance with solved dependencies
-	 * to a Markov Chain to predict reliability of entry-level
-	 * system calls (fb)
-	 * @return the Markov Chain resulting from the transformation
-	 */
-	private MarkovChain runPcm2Markov() {
-		long timeBeforeTransform = System.nanoTime();
-		MarkovChain result = pcm2Markov(currentModel);
-		long timeAfterTransform = System.nanoTime();
-		long duration2 = TimeUnit.NANOSECONDS.toMillis(timeAfterTransform-timeBeforeTransform);
-		logger.debug("Finished Markov Transform, Duration: "+ duration2 + " ms");
-		return result;
-	}
-
-	/**
 	 * 
 	 */
 	private void runDSolver() {
@@ -207,23 +184,6 @@ public class DependencySolver {
 		expPrinter.doSwitch(result);
 		System.out.println();
 		
-		return result;
-	}
-
-	/**
-	 * Performs the Transformation from PCM to Markov (fb)
-	 * @return the Markov Chain resulting from the transformation
-	 */
-	private MarkovChain pcm2Markov(PCMInstance currentModel) {
-		MarkovUsageModelVisitor umVisit = new MarkovUsageModelVisitor(currentModel);
-		UsageScenario us = (UsageScenario)currentModel.getUsageModel().getUsageScenario_UsageModel().get(0);
-		MarkovChain result = null;
-		try {
-			result = (MarkovChain)umVisit.doSwitch(us.getScenarioBehaviour_UsageScenario());
-		} catch (Exception e) {
-			logger.error("Usage Scenario caused Exception!" + e.getMessage());
-			e.printStackTrace();
-		}
 		return result;
 	}
 
