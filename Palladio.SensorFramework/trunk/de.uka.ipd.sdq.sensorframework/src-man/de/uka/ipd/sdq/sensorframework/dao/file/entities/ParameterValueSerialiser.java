@@ -32,7 +32,7 @@ private int nbParameters;
 		}
 		blockPos += 4;
 		nbParameters = nb;
-		Double[][] values = new Double[(int)((bytes.length - 4)/ getElementLenght())][nbParameters];
+		Double[][] values = new Double[(int)((bytes.length - 4)/ getElementLength())][nbParameters];
 		
 		
 		
@@ -54,7 +54,7 @@ private int nbParameters;
 		return values;
 	}
 
-	public long getElementLenght() {
+	public long getElementLength() {
 		return 8*nbParameters;
 	}
 
@@ -63,7 +63,7 @@ private int nbParameters;
 		if (count>0) { 	
 			nbParameters = ((Double[])objects[0]).length;
 		}
-		byte[] block = new byte[(int)(count*getElementLenght()+4)];;
+		byte[] block = new byte[(int)(count*getElementLength()+4)];;
 		int blockPos = 0;
 		
 		int nb = nbParameters;
