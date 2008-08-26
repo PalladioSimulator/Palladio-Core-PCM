@@ -64,7 +64,6 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * @param fileName
 	 *            the name of the XMI file
 	 */
-	@Override
 	public void loadTransformedModel(final String fileName) {
 	}
 
@@ -72,7 +71,6 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * Solves the Markov Chain which has been created as a result of the
 	 * transformation or has been loaded from an XMI file.
 	 */
-	@Override
 	public void solve() {
 
 		// Solve the Markov Chain:
@@ -86,7 +84,6 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * @param fileName
 	 *            the name of the XMI file to create
 	 */
-	@Override
 	public void storeTransformedModel(final String fileName) {
 	}
 
@@ -100,7 +97,6 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 * @param model
 	 *            the input PCM instance
 	 */
-	@Override
 	public void transform(final PCMInstance model) {
 
 		// As a first step, solve parametric dependencies of the PCM instance:
