@@ -36,7 +36,7 @@ public class AlternativeComponent implements INewCandidates {
 	
 
 	/** Model files will get the suffix here plus the generation number**/
-	private static String modelFilesSuffix = "AltCom-";
+	private static String modelFilesSuffix = "-AC";
 	
 	Repository lastRepository = null;
 	Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap = null;
@@ -183,9 +183,9 @@ public class AlternativeComponent implements INewCandidates {
 		logger.debug("The new system: "+newSystem);
 		
 		newSolution.setSystem(newSystem);
-		newSolution.appendToSystemFileName("-"+modelFilesSuffix+counter);
+		newSolution.appendToSystemFileName(modelFilesSuffix+counter);
 		
-		newSolution.setName(newSolution.getName()+"-"+modelFilesSuffix+counter);
+		newSolution.setName(newSolution.getName()+modelFilesSuffix+counter);
 		
 		logger.debug("The old assembly we look for: "+assemblyContext);
 		AssemblyContext changedAssemblyContext = null;

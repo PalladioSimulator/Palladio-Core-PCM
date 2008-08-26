@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.dsexplore;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -45,6 +47,9 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  * 	// TODO: refactor the getter names of the filenames to getOrginalFileName
 	// and getFileName? Or leave the original to get longer and longer file
 	// names... no.
+ * 
+ * TODO: change the file naming as it becomes too long... Or just increase the strengthen resource value?
+ * TODO: repair the naming of instances: Using altcomponents seems to delete the strengthen part. See textfile on desktop with a previous run. 
  * 
  * @author Anne
  * 
@@ -498,13 +503,20 @@ public boolean equals(Object o) {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
 						new XMIResourceFactoryImpl());
-
+	
 		URI fileURI = URI.createFileURI(new File(fileName).getAbsolutePath());
 		Resource resource = resourceSet.createResource(fileURI);
 		resource.getContents().add(modelToSave);
+		
+
 
 		try {
 			resource.save(Collections.EMPTY_MAP);
+		} catch (FileNotFoundException e){
+			if (fileName.length() > 250){
+				//try again with a shorter filename
+				saveToXMIFile(modelToSave, fileName.substring(0, fileName.indexOf("-"))+"-shortened-"+fileName.hashCode());
+			}
 		} catch (IOException e) {
 			logger.error(e.getMessage());
 		}

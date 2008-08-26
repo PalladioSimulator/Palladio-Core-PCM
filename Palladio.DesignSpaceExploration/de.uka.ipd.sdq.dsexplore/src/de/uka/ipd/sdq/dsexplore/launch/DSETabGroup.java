@@ -29,7 +29,8 @@ public class DSETabGroup extends AbstractLaunchConfigurationTabGroup {
 				//TODO: Get these depending on available plugins / availaible analyses
 				new SimuComConfigurationTab(),
 				new SimuConfigurationTab(),
-				new FeatureOptionsTab()
+				new FeatureOptionsTab(),
+				new DSEOptionsTab()
 		};
 		setTabs(tabs);
 

@@ -46,6 +46,8 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  */
 public class DSELaunch implements ILaunchConfigurationDelegate {
 	
+	private int maxIterations = 3;
+	
 	/** Logger for log4j. */
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
@@ -72,6 +74,19 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		
 			logger.debug("Starting...");
 			logger.debug("Launch Configuration: "+configuration.getMemento());
+			
+			String maxIterationsString = configuration.getAttribute(DSEConstantsContainer.MAX_ITERATIONS, "");
+			if (!maxIterationsString.equals("")){
+				try{
+				this.maxIterations = Integer.parseInt(maxIterationsString);
+				} catch (Exception e){
+					//ok, it was worth a try, so just keep the old value. 
+				}
+			}
+			
+			
+			List<IAnalysisResult> allCandidates = null;
+			
 			try {
 				
 			//Get the initial PCM Instance
@@ -90,28 +105,49 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    //IAnalysisResult result = analysisTool.analyse(pcmInstance);
 		    logger.info("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
 		    List<IAnalysisResult> currentPopulation = new ArrayList<IAnalysisResult>();
-		    List<IAnalysisResult> allCandidates = new ArrayList<IAnalysisResult>();
+		    allCandidates = new ArrayList<IAnalysisResult>();
 		    currentPopulation.add(result);
 		    allCandidates.add(result);
 		    
-		    while(!algorithm.terminated()){
+		    int noOfIterations = 0;
+		    while(!algorithm.terminated() && noOfIterations <= this.maxIterations){
 		    	currentPopulation = algorithm.iterate(currentPopulation);
 		    	allCandidates.addAll(currentPopulation);
+		    	noOfIterations++;
 		    }
 		    
-		    long duration = System.currentTimeMillis() - timestampMillis;
+
 		    
 		    logger.info("Best candidate: "+currentPopulation.get(0).getPCMInstance().getName());
 		    
-		    Collections.sort(allCandidates);
-		    
-		    DSEMessageBox.showMessage("DSE results", "Here are the results, sorted by response time: \n\n"+resultsToString(allCandidates)+"\n You find the corresponding run configuration in your run dialog, they show you all details on the candidates.\n\n The search took "+duration/1000.0+" seconds.", MessageDialog.INFORMATION);
 
 				
 			} catch (AnalysisFailedException e) {
 				logger.error(e.getMessage());
 				e.printStackTrace();
 				throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, e.getMessage(), e));
+			} finally {
+				//try to save the results as far as it got. 
+				if (allCandidates != null){
+				    long duration = System.currentTimeMillis() - timestampMillis;
+				    Collections.sort(allCandidates);
+			        try {
+						DSEMessageBox
+							.showMessage(
+									"DSE results",
+									"Here are the results, sorted by response time: \n\n"
+											+ resultsToString(allCandidates)
+											+ "\n You find the corresponding run configuration in your "
+											+ "run dialog, they show you all details on the candidates.\n\n "
+											+ "The search took "
+											+ duration / 1000.0 + " seconds. "
+											+ allCandidates.size() + " candidates were analysed.",
+									MessageDialog.INFORMATION);
+					} catch (AnalysisFailedException e) {
+						e.printStackTrace();
+					}
+				}
+
 			}
 			
 			//IIndividual individual = null;
@@ -127,8 +163,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 				.hasNext();) {
 			IAnalysisResult analysisResult = iterator.next();
 			string += count + ".: ";
-			string += "Candidate: " + analysisResult.getPCMInstance().getName() + " has a ";
-			string += "mean response time of "+ analysisResult.getMeanValue()+" time units.\n"; 
+			string += "\t" + analysisResult.getPCMInstance().getName();
+			string += "\t"+ analysisResult.getMeanValue()+" time units.\n"; 
 			count ++;
 		}
 		return string;
