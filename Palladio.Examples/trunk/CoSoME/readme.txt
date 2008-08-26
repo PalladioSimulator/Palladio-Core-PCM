@@ -89,3 +89,11 @@ Remaining ToDos:
 - verify simulation results
 - model SEFFS and Data Types appropriately
 - model Services on top of the TradingSystem
+
+
+--------------------------------------------------------------------
+Notes of CoSoME
+--------------------------------------------------------------------
+
+Changes:
+- added new Repository "webServices.repository" for Web Services on Top of CoCoME
