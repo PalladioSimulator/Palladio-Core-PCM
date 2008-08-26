@@ -96,4 +96,5 @@ Notes of CoSoME
 --------------------------------------------------------------------
 
 Changes:
-- added new Repository "webServices.repository" for Web Services on Top of CoCoME
+- added new Repository "ws.repository" for Web Services on Top of CoCoME
+- updated "cocomeTypes.repository" to support Web Service Interface definitions

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" id="_mhpw8HONEd2SyK0Shg_o9Q" entityName="defaultRepository">
+  <components__Repository xsi:type="BasicComponent" id="_0VO1kHONEd2SyK0Shg_o9Q" entityName="InventoryService">
+    <providedRoles_InterfaceProvidingEntity id="_Sx598HOPEd2SyK0Shg_o9Q" entityName="Provided_InventoryServiceInterface_InventoryService" providedInterface__ProvidedRole="_GtTjoHOPEd2SyK0Shg_o9Q"/>
+  </components__Repository>
+  <interfaces__Repository id="_GtTjoHOPEd2SyK0Shg_o9Q" entityName="InventoryServiceInterface">
+    <signatures__Interface serviceName="changePrice">
+      <parameters__Signature parameterName="stockItemTO">
+        <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_UfQJNtIXEduF4-1MMpjBkg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getAllProducts">
+      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_h5rY5XOQEd2SyK0Shg_o9Q"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getAllProductsWithOptionalStockItem">
+      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_AaRbJXOWEd2SyK0Shg_o9Q"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getProductsWithLowStock">
+      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_qvPnNXOXEd2SyK0Shg_o9Q"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="bookSale">
+      <parameters__Signature parameterName="saleTO">
+        <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_J-s5ptFpEducE6dFyopUlg"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getProductDetails">
+      <parameters__Signature parameterName="productBarCode">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+</Repository>
