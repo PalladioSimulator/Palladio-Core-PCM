@@ -9,11 +9,12 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
- * TODO It is not clear what is being tested, and what the expected results ought to be.
- * TODO Not part of a JUnit test suite. 
+ * This class demonstrates the use of the API of the Sensorframework Plugin. It creates an experiment, some sensors,
+ * and finally adds measurements to it. For additional examples, see the JUnit tests of the sensor framework in their 
+ * own plugin.
  * @author Steffen Becker
  */
-public class TestHibernateMain {
+public class SensorFrameworkAPIDemo {
 
 	/**
 	 * @param args
