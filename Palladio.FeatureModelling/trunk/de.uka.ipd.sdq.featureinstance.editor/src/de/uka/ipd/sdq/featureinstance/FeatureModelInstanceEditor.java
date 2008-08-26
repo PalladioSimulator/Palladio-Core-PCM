@@ -9,8 +9,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -37,6 +35,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
@@ -57,6 +56,18 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 	protected PropertySheetPage propertySheetPage;
 	
 	protected ICheckStateListener listener;
+	
+	protected Resource resource;
+	
+	protected Object root;
+	
+	protected FeatureConfig defaultConfig;
+	protected FeatureConfig overridesConfig;
+	
+	@Override
+	protected void firePropertyChange(int action) {
+		super.firePropertyChange(action);
+	}
 
 	protected void initializeEditingDomain () {
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -67,8 +78,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-		// Create the command stack that will notify this editor as commands are executed.
-		//
 		BasicCommandStack commandStack = new BasicCommandStack();
 
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
@@ -92,7 +101,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 	protected void createPages() {
 		
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
-		Resource resource = null;
+		resource = null;
 		try {
 			// Load the resource through the editing domain.
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
@@ -117,12 +126,11 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		}
 		else if (newResource instanceof Configuration) {
 			Configuration config = (Configuration) newResource;
-			if (config.getConfigOverrides() == null) {
-				newDiagram = (FeatureDiagram)config.getDefaultConfig().getReferencedObject();
-			}
-			else {
-					newDiagram = (FeatureDiagram)config.getConfigOverrides().getReferencedObject();
-			}
+			defaultConfig = config.getDefaultConfig();
+			overridesConfig = config.getConfigOverrides();
+
+			newDiagram = (FeatureDiagram)defaultConfig.getReferencedObject();
+			
 		}
 		else if (newResource instanceof FeatureConfig) {
 			newDiagram = (FeatureDiagram)((FeatureConfig)newResource).getReferencedObject();
@@ -161,22 +169,152 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 			grayFeatureGroups(curRoot);
 		}
 		
+		if (defaultConfig != null) {
+			markDefaultConfig();
+		}
+		if (overridesConfig != null) {
+			markOverridesConfig();
+		}
+		
 		listener = new ICheckStateListener() {
 			public void checkStateChanged(CheckStateChangedEvent event) {
-				if (event.getChecked()) {
+				
+				//make FeatureGroups readonly
+				if (event.getElement() instanceof FeatureGroup) {
+					treeViewer.setChecked(event.getElement(), !(event.getChecked()));
+				}
+				else {
 					Object parent = editingDomain.getParent(event.getElement());
-					if (parent != null) {
-						if (!(treeViewer.getChecked(parent))) {
-							treeViewer.setChecked(parent, true);
-							listener.checkStateChanged(new CheckStateChangedEvent(event.getCheckable(), parent, true));
+					
+					//check if node is NOT the root node
+					if (parent != null && !(parent instanceof FeatureDiagram)) {
+						if (treeViewer.getGrayed(event.getElement())) {
+							treeViewer.setGrayed(event.getElement(), false);
 						}
+						
+						//check/uncheck recursively
+						if (event.getChecked()) {
+							checkParents(event.getElement());
+						}
+						else {
+							uncheckParents(event.getElement());
+						}
+					}
+					//make root node readonly
+					else {
+						treeViewer.setChecked(event.getElement(), !(event.getChecked()));
 					}
 				}
 			}
 		};
 		
+		
 		treeViewer.addCheckStateListener(listener);
 
+	}
+	
+	public void markDefaultConfig () {
+		//mark all default configNodes
+		EList<ConfigNode> defaultNodes = defaultConfig.getConfignode();
+		Iterator<ConfigNode> tempIter = defaultNodes.iterator();
+		ConfigNode next;
+		Feature referenced;
+		while (tempIter.hasNext()) {
+			next = tempIter.next();
+			referenced = next.getOrigin();
+
+			//selected
+			if (next.getConfigState().getValue() == 0) {
+				treeViewer.setGrayChecked(referenced, true);
+			}
+			//eliminated
+			else if (next.getConfigState().getValue() == 1) {
+				treeViewer.setGrayChecked(referenced, false);
+			}
+		}
+	}
+	
+	public void markOverridesConfig () {
+		//mark all overrides configNodes
+		EList<ConfigNode> overridesNodes = overridesConfig.getConfignode();
+		Iterator<ConfigNode> tempIter = overridesNodes.iterator();
+		ConfigNode next;
+		Feature referenced;
+		while (tempIter.hasNext()) {
+			next = tempIter.next();
+			referenced = next.getOrigin();
+
+			//selected
+			if (next.getConfigState().getValue() == 0) {
+				treeViewer.setGrayed(referenced, false);
+				treeViewer.setChecked(referenced, true);
+			}
+			//eliminated
+			else if (next.getConfigState().getValue() == 1) {
+				treeViewer.setGrayed(referenced, false);
+				treeViewer.setChecked(referenced, false);
+			}
+		}
+	}
+	
+	//Unchecks recursively parent nodes, if no children nodes are checked
+	public void uncheckParents (Object current) {
+		
+		boolean checked = getAnyChecked(current);
+
+		if (!checked) {
+			Object parent = editingDomain.getParent(current);
+
+			if (parent != null && !(parent instanceof FeatureDiagram)) {
+				treeViewer.setChecked(parent, false);
+				uncheckParents(parent);
+			}
+		}
+	}
+	
+	//returns true, if there are any siblings of current checked, else false
+	public boolean getAnyChecked (Object current) {
+		Object parent = editingDomain.getParent(current);
+
+		boolean checked = false;
+
+		if (parent instanceof FeatureGroup) {
+			EList<Feature> children = ((FeatureGroup) parent).getChildren();
+			Iterator<Feature> tempIter = children.iterator();
+			Feature next;
+			loop: while(tempIter.hasNext()) {
+				next = tempIter.next();
+				if (treeViewer.getChecked(next)) {
+					checked = true;
+					break loop;
+				}
+			}
+		}
+		else if (parent instanceof Feature) {
+			EList<Node> children = ((Feature) parent).getChildren();
+			Iterator<Node> tempIter = children.iterator();
+			Node next;
+			loop: while(tempIter.hasNext()) {
+				next = tempIter.next();
+				if (treeViewer.getChecked(next)) {
+					checked = true;
+					break loop;
+				}
+			}
+		}
+
+		return checked;
+	}
+	
+	//checks recursively parent nodes
+	public void checkParents (Object current) {
+		Object parent = editingDomain.getParent(current);
+		if (parent != null) {
+			if (!(treeViewer.getChecked(parent))) {
+				treeViewer.setChecked(parent, true);
+				checkParents(parent);
+			}
+		}
 	}
 	
 	public void grayFeatureGroups (Node curRoot) {
@@ -200,25 +338,25 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		
 		}
 	}
+	
 	@Override
-	public void doSave(IProgressMonitor monitor) {
-		// TODO Auto-generated method stub
-		
+	public boolean isDirty() {
+		return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
+	}
+	
+	@Override
+	public void doSave(IProgressMonitor progressMonitor) {
+	
 	}
 
 	@Override
 	public void doSaveAs() {
-		// TODO Auto-generated method stub
-		
 	}
-
 
 	@Override
 	public boolean isSaveAsAllowed() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
 }
 
 class TreeLabelProvider implements ILabelProvider {
