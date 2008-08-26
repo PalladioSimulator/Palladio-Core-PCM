@@ -46,7 +46,10 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
  */
 public class DSELaunch implements ILaunchConfigurationDelegate {
 	
-	private int maxIterations = 3;
+	/**
+	 * A default to be overridden by the settings in the run dialog.
+	 */
+	private int maxIterations = Integer.MAX_VALUE;
 	
 	/** Logger for log4j. */
 	private static Logger logger = 
@@ -82,6 +85,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 				} catch (Exception e){
 					//ok, it was worth a try, so just keep the old value. 
 				}
+			} else {
+				maxIterations = Integer.MAX_VALUE;
 			}
 			
 			
@@ -101,8 +106,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    algorithm.initialise(instances, analysisTool);
 		    
 		    //analyse the initial PCMInstance
-		    IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
-		    //IAnalysisResult result = analysisTool.analyse(pcmInstance);
+		    //IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
+		    IAnalysisResult result = analysisTool.analyse(pcmInstance);
 		    logger.info("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
 		    List<IAnalysisResult> currentPopulation = new ArrayList<IAnalysisResult>();
 		    allCandidates = new ArrayList<IAnalysisResult>();
