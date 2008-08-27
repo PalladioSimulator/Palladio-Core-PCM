@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="ASCII"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_3Sgb8FcmEd23wcZsd06DZg" entityName="TradingSystem.Inventory">
+  <childComponentContexts_ComposedStructure id="_Yy964FcnEd23wcZsd06DZg" entityName="GUI.Reporting_EnterpriseClient">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_sGEvA9CiEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_nf0w4FcnEd23wcZsd06DZg" entityName="GUI.Store_Store_1_Client">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_zokQE9CiEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_3AwvMFcnEd23wcZsd06DZg" entityName="Application.Store_Store_1_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_6tZA5dCmEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_-W_gcFcoEd23wcZsd06DZg" entityName="Application.ProductDispatcher_EnterpriseServer">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_XDTf09CiEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_FPU0wFcqEd23wcZsd06DZg" entityName="Application.Reporting_EnterpriseServer">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_URW_1dCmEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_jN79kFcqEd23wcZsd06DZg" entityName="Data.Persistence_EnterpriseServer">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_B8esgNChEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_07dvQFcqEd23wcZsd06DZg" entityName="Data.Store_EnterpriseServer">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_C7qRkNChEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_WolfQFctEd23wcZsd06DZg" entityName="GUI.Reporting_Store_2_Client">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_sGEvA9CiEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_d2D1wFcxEd23wcZsd06DZg" entityName="Data.Persistence_Store_1_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_B8esgNChEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_sREGwFcxEd23wcZsd06DZg" entityName="Data.Persistence_Store_2_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_B8esgNChEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_2uaPYFcxEd23wcZsd06DZg" entityName="Data.Enterprise_Store_1_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_-3VggNCgEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_DtLL4FcyEd23wcZsd06DZg" entityName="Data.Enterprise_Store_2_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_-3VggNCgEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_MX0AwFcyEd23wcZsd06DZg" entityName="Data.Store_Store_1_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_C7qRkNChEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_XiFg0FcyEd23wcZsd06DZg" entityName="Data.Store_Store_2_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_C7qRkNChEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_jcqnAFczEd23wcZsd06DZg" entityName="GUI.Reporting_Store_1_Client">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_sGEvA9CiEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_yO4eIFczEd23wcZsd06DZg" entityName="Application.Reporting_Store_1_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_URW_1dCmEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_8jo5MFc4Ed23wcZsd06DZg" entityName="GUI.Store_Store_2_Client">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_zokQE9CiEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_etALMFc5Ed23wcZsd06DZg" entityName="Application.Store_Store_2_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_6tZA5dCmEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_9sosIFc5Ed23wcZsd06DZg" entityName="Application.Reporting_Store_2_Server">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_URW_1dCmEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_LoXbYFfjEd26K8JlmYJ10w" entityName="Data.Enterprise_EnterpriseServer">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_-3VggNCgEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mfZ3UHQTEd2J8bFb9TfSEQ" entityName="AssCtx Middleware Store_2_Server">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mfZ3UnQTEd2J8bFb9TfSEQ" entityName="AssCtx Middleware Store_1_Server">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mfZ3VHQTEd2J8bFb9TfSEQ" entityName="AssCtx Middleware EnterpriseClient">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mfZ3VnQTEd2J8bFb9TfSEQ" entityName="AssCtx Middleware EnterpriseServer">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mfZ3WHQTEd2J8bFb9TfSEQ" entityName="AssCtx Middleware Store_2_Client">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mfZ3WnQTEd2J8bFb9TfSEQ" entityName="AssCtx Middleware Store_1_Client">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mkKbg3QTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext0">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mkKbgHQTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mnbySnQTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext1">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mnbyR3QTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mnljZ3QTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext2">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mnljZHQTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mnljwnQTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext3">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mnljv3QTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mnlkonQTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext4">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mnlkn3QTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mnllgnQTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext5">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mnllf3QTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mnllt3QTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext6">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mnlltHQTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mnlml3QTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext7">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mnlmlHQTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mnlmzHQTEd2J8bFb9TfSEQ" entityName="CompletionComponentContext8">
+    <encapsulatedComponent_ChildComponentContext href="cocome.system.intermediate.repository#_mnlmyXQTEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_RBRDsFcoEd23wcZsd06DZg" entityName="CashDeskConnectorIf" outerProvidedRole_ProvidedDelegationConnector="_MSQMUFcnEd23wcZsd06DZg" childComponentContext_ProvidedDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <innerProvidedRole_ProvidedDelegationConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#__f6UsNCmEduC9O_qbthgAg"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_pTresFcoEd23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_TWiHYFcnEd23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <innerRequiredRole_RequiredDelegationConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_aa6McdCwEduW_YoCCnq0vw"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_ieLPYFc8Ed23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_l5n00Fc3Ed23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_etALMFc5Ed23wcZsd06DZg">
+    <innerRequiredRole_RequiredDelegationConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_aa6McdCwEduW_YoCCnq0vw"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_GTRIkFcrEd23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_jN79kFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_jJt4AdCiEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_J8QBcFcrEd23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_jN79kFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_lmx-EdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_SmvFUFcrEd23wcZsd06DZg" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_07dvQFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_kzNlYdCiEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_U0q8gFcrEd23wcZsd06DZg" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_07dvQFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_t5HAodCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_Y5hRAFc2Ed23wcZsd06DZg" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_yO4eIFczEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_MX0AwFcyEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_t5HAodCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_elsJoFc2Ed23wcZsd06DZg" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_yO4eIFczEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_2uaPYFcxEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_b-BUEdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mD0vIFc2Ed23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_yO4eIFczEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_d2D1wFcxEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_lmx-EdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_uJoJ4Fc8Ed23wcZsd06DZg" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_etALMFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_XiFg0FcyEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_4OSEsdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_xlz84Fc8Ed23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_etALMFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_sREGwFcxEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_0k7YYdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_0CLRoFc8Ed23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_9sosIFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_sREGwFcxEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_lmx-EdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_2B01MFc8Ed23wcZsd06DZg" entityName="EnterspriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_9sosIFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_DtLL4FcyEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_b-BUEdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_4oBbYFc8Ed23wcZsd06DZg" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_9sosIFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_XiFg0FcyEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_t5HAodCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_6ety0FfiEd26K8JlmYJ10w" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_d2D1wFcxEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_0k7YYdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_S_0xIFfjEd26K8JlmYJ10w" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_LoXbYFfjEd26K8JlmYJ10w">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_b-BUEdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_U9sMAFfjEd26K8JlmYJ10w" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_LoXbYFfjEd26K8JlmYJ10w">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_d1Mf0NChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_h-Kq4dCiEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mm_GUnQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_Yy964FcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mkKbg3QTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mkKbgXQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_vsrnUdC4EduW_YoCCnq0vw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mm_GU3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mkKbg3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_wrdB4NCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mkKbgnQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnbyQ3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mkKbg3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3VHQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mlzaUXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnbyRHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mkKbg3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3VnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mlzaUnQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnljXnQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_nf0w4FcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mnbySnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnbySHQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_1a8xsdC4EduW_YoCCnq0vw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnljX3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnbySnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_8phWYNCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnbySXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnljYHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnbySnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3WnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnbyjXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnljYXQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnbySnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3UnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnbyjnQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnljuXQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_WolfQFctEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mnljZ3QTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnljZXQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_vsrnUdC4EduW_YoCCnq0vw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnljunQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnljZ3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_9sosIFc5Ed23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_wrdB4NCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnljZnQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlju3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnljZ3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3WHQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnljgHQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnljvHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnljZ3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3UHQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnljgXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlkmXQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_8jo5MFc4Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mnljwnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnljwHQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_1a8xsdC4EduW_YoCCnq0vw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlkmnQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnljwnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_etALMFc5Ed23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_8phWYNCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnljwXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlkm3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnljwnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3WHQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlkBXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlknHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnljwnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3UHQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlkBnQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlleXQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mnlkonQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlkoHQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_AXZsESDlEdyyNLPIIGbfMQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnllenQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlkonQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_8phWYNCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlkoXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlle3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlkonQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3UnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlk5XQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnllfHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlkonQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3VnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlk5nQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnllrnQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_etALMFc5Ed23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mnllgnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnllgHQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_IpnV8dItEduQ7qbNANXHPw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnllr3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnllgnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_gMw-sNCiEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnllgXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnllsHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnllgnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3UHQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnllj3QTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnllsXQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnllgnQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3VnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnllkHQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlmjnQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mnllt3QTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlltXQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_4OSEsdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlmj3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnllt3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_07dvQFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlltnQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlmkHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnllt3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3UnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnll-nQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlmkXQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnllt3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3VnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnll-3QTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlmw3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mnlml3QTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlmlXQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_IpnV8dItEduQ7qbNANXHPw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlmxHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlml3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_gMw-sNCiEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlmlnQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlmxXQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlml3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3UnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlmpHQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlmxnQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlml3QTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3VnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlmpXQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlnHnQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_jcqnAFczEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_mnlmzHQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlmynQTEd2J8bFb9TfSEQ"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_vsrnUdC4EduW_YoCCnq0vw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlnH3QTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlmzHQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_yO4eIFczEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_wrdB4NCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlmy3QTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlnIHQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlmzHQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3WnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlm5XQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mnlnIXQTEd2J8bFb9TfSEQ" requiringChildComponentContext_CompositeAssemblyConnector="_mnlmzHQTEd2J8bFb9TfSEQ" providingChildComponentContext_CompositeAssemblyConnector="_mfZ3UnQTEd2J8bFb9TfSEQ">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="cocome.system.intermediate.repository#_mnlm5nQTEd2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_MSQMUFcnEd23wcZsd06DZg" entityName="CashDeskConnectorIf_Store_1">
+    <providedInterface__ProvidedRole href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <requiredRoles_InterfaceRequiringEntity id="_TWiHYFcnEd23wcZsd06DZg" entityName="SaleRegisteredEvent_Store_1">
+    <requiredInterface__RequiredRole href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
+  </requiredRoles_InterfaceRequiringEntity>
+  <requiredRoles_InterfaceRequiringEntity id="_l5n00Fc3Ed23wcZsd06DZg" entityName="SaleRegisteredEvent_Store_2">
+    <requiredInterface__RequiredRole href="file:/C:/Daten/Eclipse/workspace_3_3_europa/CoSoME/cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
+  </requiredRoles_InterfaceRequiringEntity>
+</System>

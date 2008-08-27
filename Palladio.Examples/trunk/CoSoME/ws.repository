@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" id="_mhpw8HONEd2SyK0Shg_o9Q" entityName="defaultRepository">
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_mhpw8HONEd2SyK0Shg_o9Q" entityName="defaultRepository">
   <components__Repository xsi:type="BasicComponent" id="_0VO1kHONEd2SyK0Shg_o9Q" entityName="InventoryService">
     <providedRoles_InterfaceProvidingEntity id="_Sx598HOPEd2SyK0Shg_o9Q" entityName="Provided_InventoryServiceInterface_InventoryService" providedInterface__ProvidedRole="_GtTjoHOPEd2SyK0Shg_o9Q"/>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_Bp8S0HQQEd2J8bFb9TfSEQ" entityName="ProductInformationService">
+    <requiredRoles_InterfaceRequiringEntity id="_LkoIYHQSEd2J8bFb9TfSEQ" entityName="Required_InventoryServiceInterface_ProductInformationService" requiredInterface__RequiredRole="_GtTjoHOPEd2SyK0Shg_o9Q"/>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_Yf1akHQSEd2J8bFb9TfSEQ" entityName="CardValidationService">
+    <providedRoles_InterfaceProvidingEntity id="_E9Bs0HQTEd2J8bFb9TfSEQ" entityName="Provided_CardValidationServiceIf_CardValidationService" providedInterface__ProvidedRole="_dtsmkHQSEd2J8bFb9TfSEQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_E9K2wHQTEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_E9K2wXQTEd2J8bFb9TfSEQ" successor_AbstractAction="_E9K2wnQTEd2J8bFb9TfSEQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_E9K2wnQTEd2J8bFb9TfSEQ" predecessor_AbstractAction="_E9K2wXQTEd2J8bFb9TfSEQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_Ho3A8HQTEd2J8bFb9TfSEQ" entityName="PaymentService">
+    <requiredRoles_InterfaceRequiringEntity id="_L7WJ0HQTEd2J8bFb9TfSEQ" entityName="Required_CardValidationServiceIf_PaymentService" requiredInterface__RequiredRole="_dtsmkHQSEd2J8bFb9TfSEQ"/>
   </components__Repository>
   <interfaces__Repository id="_GtTjoHOPEd2SyK0Shg_o9Q" entityName="InventoryServiceInterface">
     <signatures__Interface serviceName="changePrice">
@@ -29,6 +42,17 @@
         <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_dtsmkHQSEd2J8bFb9TfSEQ" entityName="CardValidationServiceIf">
+    <signatures__Interface serviceName="validateCard">
+      <parameters__Signature parameterName="cardInformation">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="cardNumber">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
     </signatures__Interface>
   </interfaces__Repository>
 </Repository>
