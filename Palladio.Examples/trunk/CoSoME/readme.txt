@@ -98,3 +98,5 @@ Notes of CoSoME
 Changes:
 - added new Repository "ws.repository" for Web Services on Top of CoCoME
 - updated "cocomeTypes.repository" to support Web Service Interface definitions
+  => simplified collection data types: "java.util.List<T>" and "java.util.Collection<T>" are modeled as "T[]"
+

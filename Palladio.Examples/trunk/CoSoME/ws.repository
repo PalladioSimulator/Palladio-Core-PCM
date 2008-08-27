@@ -24,13 +24,13 @@
       <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getAllProducts">
-      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_h5rY5XOQEd2SyK0Shg_o9Q"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_4f1Q9dIWEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getAllProductsWithOptionalStockItem">
-      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_AaRbJXOWEd2SyK0Shg_o9Q"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_FJanpdIXEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getProductsWithLowStock">
-      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_qvPnNXOXEd2SyK0Shg_o9Q"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_wVjXJdIWEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="bookSale">
       <parameters__Signature parameterName="saleTO">

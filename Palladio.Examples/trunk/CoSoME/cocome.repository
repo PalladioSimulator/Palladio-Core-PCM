@@ -539,7 +539,7 @@
       <parameters__Signature parameterName="productAmounts">
         <datatype__Parameter xsi:type="CollectionDataType" href="cocomeTypes.repository#_8E94xdFfEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_lM7xFdFfEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="cocomeTypes.repository#_8E94xdFfEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_vebx9NCiEduC9O_qbthgAg" entityName="ReportingIf">
