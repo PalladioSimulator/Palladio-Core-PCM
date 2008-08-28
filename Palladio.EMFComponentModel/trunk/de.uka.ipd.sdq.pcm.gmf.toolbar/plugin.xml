@@ -10,28 +10,12 @@
             label="PCM Wizards"
             visible="true">
          <action
-               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewResourceDiagramAction"
-               icon="icons/ResourceDiagramFile.gif"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewResourceDiagramActionID"
-               label="New &amp;Resource Diagram"
+               label="New &amp;Usage Diagram"
+               icon="icons/UsageDiagramFile.gif"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewUsageDiagramAction"
+               tooltip="Create a new Usage Model and Diagram from scratch."
                toolbarPath="newDiagramGroup"
-               tooltip="Create a new Resource Model from scratch.">
-         </action>
-         <action
-               label="New &amp;Repository Diagram"
-               icon="icons/RepositoryDiagramFile.gif"
-               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewRepositoryDiagramAction"
-               tooltip="Create a new Repository Model and Diagram from scratch."
-               toolbarPath="newDiagramGroup"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewRepositoryDiagramActionID">
-         </action>
-         <action
-               label="New &amp;Composite Diagram"
-               icon="icons/CompositeDiagramFile.gif"
-               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewCompositeDiagramAction"
-               tooltip="Create a new System Model and Diagram from scratch."
-               toolbarPath="newDiagramGroup"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewCompositeDiagramActionID">
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewUsageDiagramActionID">
          </action>
          <action
                label="New &amp;Allocation Diagram"
@@ -42,37 +26,53 @@
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewAllocationDiagramActionID">
          </action>
          <action
-               label="New &amp;Usage Diagram"
-               icon="icons/UsageDiagramFile.gif"
-               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewUsageDiagramAction"
-               tooltip="Create a new Usage Model and Diagram from scratch."
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewResourceDiagramAction"
+               icon="icons/ResourceDiagramFile.gif"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewResourceDiagramActionID"
+               label="New &amp;Resource Diagram"
                toolbarPath="newDiagramGroup"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewUsageDiagramActionID">
-         </action>
-          <action
-               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeRepositoryDiagramAction"
-               enablesFor="1"
-               icon="icons/RepositoryDiagramFile.gif"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeRepositoryDiagramActionID"
-               label="Initialize &amp;Repository Diagram"
-               toolbarPath="initializeDiagramGroup"
-               tooltip="Initialize a new Repository Diagram from the selected repository.">
-               <selection
-                    class="org.eclipse.core.resources.IFile"
-                  	name="*.repository">
-               </selection>  
+               tooltip="Create a new Resource Model from scratch.">
          </action>
          <action
-               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeSeffDiagramAction"
+               label="New &amp;Composite Diagram"
+               icon="icons/CompositeDiagramFile.gif"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewCompositeDiagramAction"
+               tooltip="Create a new System Model and Diagram from scratch."
+               toolbarPath="newDiagramGroup"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewCompositeDiagramActionID">
+         </action>
+         <action
+               label="New &amp;Repository Diagram"
+               icon="icons/RepositoryDiagramFile.gif"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.NewRepositoryDiagramAction"
+               tooltip="Create a new Repository Model and Diagram from scratch."
+               toolbarPath="newDiagramGroup"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewRepositoryDiagramActionID">
+         </action>
+          <action
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeUsageDiagramAction"
                enablesFor="1"
-               icon="icons/SeffDiagramFile.gif"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeSeffDiagramActionID"
-               label="Initialize &amp;Seff Diagram"
+               icon="icons/UsageDiagramFile.gif"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeUsageDiagramActionID"
+               label="Initialize &amp;Usage Diagram"
                toolbarPath="initializeDiagramGroup"
-               tooltip="Initialize a new Seff Diagram from the selected repository.">
+               tooltip="Initialize a new Usage Diagram from the selected usage.">
                <selection
                     class="org.eclipse.core.resources.IFile"
-                  	name="*.repository">
+                  	name="*.usagemodel">
+               </selection>  
+         </action>
+          <action
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeAllocationDiagramAction"
+               enablesFor="1"
+               icon="icons/AllocationDiagramFile.gif"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeAllocationDiagramActionID"
+               label="Initialize &amp;Allocation Diagram"
+               toolbarPath="initializeDiagramGroup"
+               tooltip="Initialize a new Allocation Diagram from the selected allocation.">
+               <selection
+                    class="org.eclipse.core.resources.IFile"
+                  	name="*.allocation">
                </selection>  
          </action>
           <action
@@ -92,30 +92,30 @@
                   	name="*.repository">
                </selection>  
          </action>
-          <action
-               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeAllocationDiagramAction"
+         <action
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeSeffDiagramAction"
                enablesFor="1"
-               icon="icons/AllocationDiagramFile.gif"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeAllocationDiagramActionID"
-               label="Initialize &amp;Allocation Diagram"
+               icon="icons/SeffDiagramFile.gif"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeSeffDiagramActionID"
+               label="Initialize &amp;Seff Diagram"
                toolbarPath="initializeDiagramGroup"
-               tooltip="Initialize a new Allocation Diagram from the selected allocation.">
+               tooltip="Initialize a new Seff Diagram from the selected repository.">
                <selection
                     class="org.eclipse.core.resources.IFile"
-                  	name="*.allocation">
+                  	name="*.repository">
                </selection>  
          </action>
           <action
-               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeUsageDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gmf.toolbar.actions.InitializeRepositoryDiagramAction"
                enablesFor="1"
-               icon="icons/UsageDiagramFile.gif"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeUsageDiagramActionID"
-               label="Initialize &amp;Usage Diagram"
+               icon="icons/RepositoryDiagramFile.gif"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeRepositoryDiagramActionID"
+               label="Initialize &amp;Repository Diagram"
                toolbarPath="initializeDiagramGroup"
-               tooltip="Initialize a new Usage Diagram from the selected usage.">
+               tooltip="Initialize a new Repository Diagram from the selected repository.">
                <selection
                     class="org.eclipse.core.resources.IFile"
-                  	name="*.usagemodel">
+                  	name="*.repository">
                </selection>  
          </action>
       </actionSet>
