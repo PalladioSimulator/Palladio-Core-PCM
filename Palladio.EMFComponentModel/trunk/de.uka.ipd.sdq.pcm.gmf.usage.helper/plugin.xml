@@ -73,6 +73,9 @@
       </clientContext> 
       <binding context="PCM Usage ModelClientContext">
          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterationsActionAdvice">
+         </advice>
+         <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.LoopAdvice">
          </advice>
           <advice
@@ -95,7 +98,10 @@
          </advice>
           <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.ArrivalRateActionAdvice">
-         </advice>           
+         </advice>
+         <elementType
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000">
+         </elementType>                    
        </binding>
    </extension>
 </plugin>
