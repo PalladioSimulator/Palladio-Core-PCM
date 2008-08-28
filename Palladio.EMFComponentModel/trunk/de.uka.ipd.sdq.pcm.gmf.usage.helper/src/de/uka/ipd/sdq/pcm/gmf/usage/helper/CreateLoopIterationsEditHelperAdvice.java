@@ -1,15 +1,23 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.helper;
 
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 public class CreateLoopIterationsEditHelperAdvice extends
 		AbstractEditHelperAdvice implements IEditHelperAdvice {
@@ -21,16 +29,35 @@ public class CreateLoopIterationsEditHelperAdvice extends
 	 */
 	@Override
 	protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
-		// TODO: Better solve this by using a CompositeCommand...
-		PCMRandomVariable pcmRdVar = CoreFactory.eINSTANCE.createPCMRandomVariable();
-		pcmRdVar.setSpecification("1");
-			
-		SetRequest setRequest = new SetRequest(request.getElementToConfigure(), 
-				UsagemodelPackage.eINSTANCE.getLoop_LoopIteration_Loop(),
-				pcmRdVar);
-		
-		SetValueCommand cmd = new SetValueCommand(setRequest);
+		ConfigureElementCommand confElementReq = new ConfigureElementCommand(request) {
 
-		return cmd;
+			@Override
+			protected CommandResult doExecuteWithResult(
+					IProgressMonitor monitor, IAdaptable info)
+					throws ExecutionException {
+
+				IElementType elementType = ElementTypeRegistry.getInstance().
+							getType("de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000");
+				CreateElementRequest createRequest = new CreateElementRequest(request.getElementToConfigure(),elementType);
+				CreateElementCommand createCommand = new CreateElementCommand(createRequest);
+				createCommand.execute(monitor, info);
+				
+				SetRequest setSpecReq = new SetRequest(createCommand.getNewElement(),
+						StoexPackage.eINSTANCE.getRandomVariable_Specification(),
+						"1");
+				SetValueCommand setRndVarCmd = new SetValueCommand(setSpecReq);
+				setRndVarCmd.execute(monitor, info);
+				
+				SetRequest setRequest = new SetRequest(request.getElementToConfigure(), 
+						UsagemodelPackage.eINSTANCE.getLoop_LoopIteration_Loop(),
+						createCommand.getNewElement());
+				SetValueCommand cmd = new SetValueCommand(setRequest);
+				cmd.execute(monitor, info);
+				
+				return CommandResult.newOKCommandResult();
+			}
+			
+		};
+		return confElementReq;
 	}
 }
