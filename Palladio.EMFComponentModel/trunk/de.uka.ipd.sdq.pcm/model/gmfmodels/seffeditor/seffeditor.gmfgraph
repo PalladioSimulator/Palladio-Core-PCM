@@ -55,7 +55,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ReleaseStereotypeLabel"
-            text="&lt;&lt;Release>>"/>
+            text="&lt;&lt;ReleaseAction>>"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ReleaseNameLabelFigure"
@@ -92,7 +92,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="AquireStereotypeLabel"
-            text="&lt;&lt;Acquire>>"/>
+            text="&lt;&lt;AcquireAction>>"/>
         <children
             xsi:type="gmfgraph:Label"
             name="AquireNameLabelFigure"

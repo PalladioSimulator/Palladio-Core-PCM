@@ -236,7 +236,7 @@ public class AcquireActionEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			WrapLabel aquireStereotypeLabel0 = new WrapLabel();
-			aquireStereotypeLabel0.setText("<<Acquire>>");
+			aquireStereotypeLabel0.setText("<<AcquireAction>>");
 
 			this.add(aquireStereotypeLabel0);
 

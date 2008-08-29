@@ -235,7 +235,7 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			WrapLabel releaseStereotypeLabel0 = new WrapLabel();
-			releaseStereotypeLabel0.setText("<<Release>>");
+			releaseStereotypeLabel0.setText("<<ReleaseAction>>");
 
 			this.add(releaseStereotypeLabel0);
 
