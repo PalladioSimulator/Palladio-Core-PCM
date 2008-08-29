@@ -52,6 +52,7 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
+import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 
 /**
  * @generated
@@ -207,7 +208,7 @@ public class AcquireActionEntityName2EditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
 		String text = null;
@@ -216,6 +217,11 @@ public class AcquireActionEntityName2EditPart extends CompartmentEditPart
 			text = getParser().getPrintString(
 					new EObjectAdapter(parserElement),
 					getParserOptions().intValue());
+		}
+		EObject acquireAction = resolveSemanticElement();
+		if (acquireAction != null && acquireAction instanceof AcquireAction) {
+			if (((AcquireAction)acquireAction).getPassiveresource_AcquireAction() != null)
+				text += " <Resource: "+((AcquireAction)acquireAction).getPassiveresource_AcquireAction().getEntityName()+">";
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
