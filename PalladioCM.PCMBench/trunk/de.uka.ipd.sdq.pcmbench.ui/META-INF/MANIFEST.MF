@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ui Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.ui
 Bundle-Version: 2.0.0.qualifier
-Bundle-Activator: de.uka.ipd.sdq.pcmbench.ui.Activator
+Bundle-Activator: de.uka.ipd.sdq.pcmbench.ui.PCMBenchUIPlugin
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
