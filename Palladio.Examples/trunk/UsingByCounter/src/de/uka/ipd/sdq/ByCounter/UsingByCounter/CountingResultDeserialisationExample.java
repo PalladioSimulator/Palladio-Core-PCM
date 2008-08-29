@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.uka.ipd.sdq.ByCounter.execution.CountingResult;
-public class SPECCompressResultsAggregator {
+public class CountingResultDeserialisationExample {
 	
 	public static void main(String[] args){
-		SPECCompressResultsAggregator scra = new SPECCompressResultsAggregator();
+		CountingResultDeserialisationExample scra = new CountingResultDeserialisationExample();
 		@SuppressWarnings("unused")
 		List<CountingResult> results = scra.readSerialisedCountingResults();
 	}
