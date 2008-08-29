@@ -51,7 +51,7 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
  */
 public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
-	private static final String DIALOG_TITLE = "Edit a stochastic expression";
+	private String DIALOG_TITLE = "Edit a stochastic expression";
 
 	public static final String ERROR_TYPE = "ERROR";
 	public static final String WARNING_TYPE = "WARNING";
@@ -101,6 +101,10 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	}
 
 	protected abstract String getInitialText();
+
+	public void setDisplayTitle(String newTitle) {
+		this.DIALOG_TITLE = newTitle;
+	}
 	
 	@Override
 	protected void cancelPressed() {

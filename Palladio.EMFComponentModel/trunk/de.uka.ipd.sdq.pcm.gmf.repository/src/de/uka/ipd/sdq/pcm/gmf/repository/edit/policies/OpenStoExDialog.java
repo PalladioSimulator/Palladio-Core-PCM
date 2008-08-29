@@ -64,6 +64,9 @@ public class OpenStoExDialog extends OpenEditPolicy {
 				getExpectedType(rv), rv);
 		if (rv != null)
 			dialog.setInitialExpression(rv);
+		if (getDialogMessage() != null)
+			dialog.setDisplayTitle(getDialogMessage());
+		
 		dialog.open();
 		if (dialog.getReturnCode() == Dialog.OK) {
 			SetRequest setRequest = new SetRequest(rv, StoexPackage.eINSTANCE
@@ -71,6 +74,10 @@ public class OpenStoExDialog extends OpenEditPolicy {
 			SetValueCommand cmd = new SetValueCommand(setRequest);
 			return new ICommandProxy(cmd);
 		}
+		return null;
+	}
+
+	protected String getDialogMessage() {
 		return null;
 	}
 

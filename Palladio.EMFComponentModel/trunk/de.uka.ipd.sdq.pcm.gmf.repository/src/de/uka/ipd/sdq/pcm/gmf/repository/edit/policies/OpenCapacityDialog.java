@@ -23,5 +23,10 @@ public class OpenCapacityDialog extends OpenStoExDialog {
 	protected TypeEnum getExpectedType(RandomVariable rv) {
 		return TypeEnum.INT;
 	}
+
+	@Override
+	protected String getDialogMessage() {
+		return "Please enter the new capacity of the Passive Resource";
+	}
 	
 }
