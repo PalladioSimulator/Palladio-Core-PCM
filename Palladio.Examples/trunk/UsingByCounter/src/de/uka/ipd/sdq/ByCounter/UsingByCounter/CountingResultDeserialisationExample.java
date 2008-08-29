@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.uka.ipd.sdq.ByCounter.execution.CountingResult;
+import de.uka.ipd.sdq.ByCounter.utils.ASMOpcodesMapper;
 public class CountingResultDeserialisationExample {
 	
 	public static void main(String[] args){
@@ -21,6 +22,13 @@ public class CountingResultDeserialisationExample {
 		"."+File.separator+"input";
 	
 	public List<CountingResult> readSerialisedCountingResults(){
+		//Mapping between the two opcode representations
+		System.out.println("Int(eger) value of opcode with name IADD: "+
+				ASMOpcodesMapper.getInstance().getOpcodeInteger("IADD"));
+		System.out.println("String of opcode with numeric value 50: "+
+				ASMOpcodesMapper.getInstance().getOpcodeString(50));
+		
+		//Working with serialised bytecode counts
 		System.out.println("\n"+"Entering readSerialisedCountingResults " +
 				"at directory "+(new File(".")).getAbsolutePath());
 		List<CountingResult> deserialisedResults = new ArrayList<CountingResult>();
