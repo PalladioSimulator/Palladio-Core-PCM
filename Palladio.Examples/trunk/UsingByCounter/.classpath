@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<!--	<classpathentry combineaccessrules="false" kind="src" path="/ByCounter"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SPECjvm2008"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BySuiteByPred"/>-->
+	<classpathentry kind="output" path="bin"/>
+</classpath>
