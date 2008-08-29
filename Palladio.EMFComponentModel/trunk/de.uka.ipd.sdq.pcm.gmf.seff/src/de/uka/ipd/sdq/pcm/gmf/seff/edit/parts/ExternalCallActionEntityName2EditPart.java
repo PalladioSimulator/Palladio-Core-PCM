@@ -215,9 +215,9 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 		String text = null;
 		if (resolveSemanticElement() instanceof ExternalCallAction) {
 			ExternalCallAction eca = (ExternalCallAction) resolveSemanticElement();
-			if (eca.getCalledService_ExternalService() != null) {
-				text = ((Interface) eca.getCalledService_ExternalService()
-						.eContainer()).getEntityName()
+			if (eca.getCalledService_ExternalService() != null && eca.getRole_ExternalService() != null) {
+				text = eca.getRole_ExternalService()
+						.getEntityName()
 						+ "."
 						+ eca.getCalledService_ExternalService()
 								.getServiceName();
