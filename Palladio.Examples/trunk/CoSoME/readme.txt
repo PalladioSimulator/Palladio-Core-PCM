@@ -98,5 +98,14 @@ Notes of CoSoME
 Changes:
 - added new Repository "ws.repository" for Web Services on Top of CoCoME
 - updated "cocomeTypes.repository" to support Web Service Interface definitions
-  => simplified collection data types: "java.util.List<T>" and "java.util.Collection<T>" are modeled as "T[]"
+  - added new composite data types / collection data types as needed
+  - simplified collection data types: "java.util.List<T>" and "java.util.Collection<T>" are modeled as "T[]"
+- updated "cocome.resourceenvironment":
+  - added new ResourceContainer "ServiceProvider"
+  - added new LinkingResources between ServiceProvider Store_1_Client / Store_2_Client
+- updated "cocome.system":
+  - added AssemblyContexts for WebServices
+  - renamed System "TradingSystem.Inventory" in "ServiceOrientedRetailSolution"
+- updated "cocome.allocation":
+  - added deployment of WebServices at ServiceProvider
 
