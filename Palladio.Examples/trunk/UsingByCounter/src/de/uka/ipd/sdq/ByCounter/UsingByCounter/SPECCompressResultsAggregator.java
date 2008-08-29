@@ -32,20 +32,22 @@ public class SPECCompressResultsAggregator {
 		for (int i = 0; i < currDirContents.length; i++) {
 			if(currDirContents[i].endsWith(".SCResult")){
 				System.out.println("Found");
-				currSCResultFile = new File(currDirContents[i]);
+				currSCResultFile = new File(currDir+File.separator+currDirContents[i]);
 				if(!currSCResultFile.isDirectory()){
 					FileInputStream fis;
 					ObjectInputStream ois;
 					try {
-						fis = new FileInputStream(currDirContents[i]);
+						fis = new FileInputStream(currSCResultFile);
 						ois = new ObjectInputStream(fis);
 						CountingResult result = (CountingResult) ois.readObject();
 						System.out.println("Data parsed from serialised" +
 								"CountingResult instance from file " +
 								currDirContents[i]+": ");
-						System.out.println("ID="+result.getID());
-						System.out.println("qualifying method name="+result.getQualifyingMethodName()+", ");
-						System.out.println("total counts="+result.getTotalOpcodeCount(true)+".");
+						System.out.println("ID="+result.getID()+"");
+						System.out.println("qualifying method name="+result.getQualifyingMethodName()+"");
+						System.out.println("total counts="+result.getTotalOpcodeCount(true)+"");
+						
+						//etc.
 						result.getFileType();
 						result.getInputCharacterisation();
 						result.getOutputCharacterisation();
@@ -53,8 +55,8 @@ public class SPECCompressResultsAggregator {
 						result.getOpcodeCounts();
 						result.getOpcodeCount(50);
 
-						System.out.println("invocation start="+result.getMethodInvocationBeginning());
-						System.out.println("method reporting time="+result.getMethodReportingTime());
+						System.out.println("invocation start="+result.getMethodInvocationBeginning()+"");
+						System.out.println("method reporting time="+result.getMethodReportingTime()+"");
 						deserialisedResults.add(result);
 					} catch (FileNotFoundException e) {
 						e.printStackTrace();
