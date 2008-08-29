@@ -27,11 +27,24 @@ public class BCounts {
 		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "IUSHR"), 1);		
 		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "IRETURN"), 1);
 		
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "ALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "GETFIELD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "ILOAD"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "I2S"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "SASTORE"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "RETURN"), 1);		
+		
 		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "ALOAD"), 1);
 		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "GETFIELD"), 1);
 		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "ILOAD"), 1);
 		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "IALOAD"), 1);
 		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "IRETURN"), 1);
+		
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "ALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "GETFIELD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "ILOAD"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "IASTORE"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "RETURN"), 1);		
 		
 		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "ALOAD"), 2);
 		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "DUP"), 2);
@@ -48,21 +61,6 @@ public class BCounts {
 		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "GOTO"), 1);
 		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "ICONST_M1"), 1);
 		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "IRETURN"), 1);	
-		
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "ALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "GETFIELD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "ILOAD"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "I2S"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "SASTORE"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "RETURN"), 1);
-
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "ALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "GETFIELD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "ILOAD"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "IASTORE"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "RETURN"), 1);
-
-
 	}
 	
 }
@@ -70,6 +68,11 @@ public class BCounts {
 class BytecodePos {
 	private String bytecode;
 	private String methodName;
+	
+	@Override
+	public int hashCode() {
+		return bytecode.hashCode() + methodName.hashCode(); 		
+	}
 	
 	public BytecodePos(String methodName, String bytecode) {
 		this.bytecode = bytecode;
