@@ -1,6 +1,4 @@
-package tmp;
-
-import java.io.File;
+package tmp;import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,10 +21,23 @@ public class CountingResultMethodInlining {
 	private final static String DEFAULT_PATH_WITH_SERIALISED_RESULTS = 
 		"."+File.separator+"input";
 	
-	public List<CountingResult> inlineCounts(List<CountingResult> results) {
-		return results; //TODO		
+	public List<CountingResult> inlineCounts(List<CountingResult> inputResultCounts, BCounts methodCounts) {
+		List<CountingResult> returnList = new ArrayList<CountingResult>();
+		
+		Iterator<CountingResult> inputIterator = inputResultCounts.iterator();
+		while(inputIterator.hasNext()) {
+			 returnList.add(inlineCounts(inputIterator.next(), methodCounts)); 
+		}
+		
+		return returnList;
 	}
 	
+	/**
+	 * Inlining counting results of called methods.
+	 * @param inputResultCounts count of caller
+	 * @param methodCounts counts of called methods (callee)
+	 * @return Copy of inputResultCounts with inlined calle bytecode counts
+	 */
 	public CountingResult inlineCounts(CountingResult inputResultCounts, BCounts methodCounts) {
 		CountingResult returnResult = (CountingResult) inputResultCounts.clone();
 		//TODO: set flag for returnResult
