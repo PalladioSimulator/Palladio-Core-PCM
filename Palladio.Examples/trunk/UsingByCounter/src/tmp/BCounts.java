@@ -74,6 +74,19 @@ class BytecodePos {
 		return bytecode.hashCode() + methodName.hashCode(); 		
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(obj instanceof BytecodePos) {
+			BytecodePos bcpos = (BytecodePos)obj;
+			if(bcpos.getBytecode().compareTo(this.bytecode) == 0 &&
+					bcpos.getMethodName().compareTo(this.methodName) == 0) {
+				return true;
+			}
+		} 
+		return false;	
+	}
+	
 	public BytecodePos(String methodName, String bytecode) {
 		this.bytecode = bytecode;
 		this.methodName = methodName;
