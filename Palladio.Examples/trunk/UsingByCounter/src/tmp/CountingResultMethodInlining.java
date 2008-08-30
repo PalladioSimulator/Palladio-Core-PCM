@@ -65,14 +65,17 @@ public class CountingResultMethodInlining {
 //				System.out.println("old count: " + oldBytecodeCounts + " for " + currentMethod);
 //				System.out.println("method counts: " + currentMethodCounts + " each with #" + currentBytecodeCount + " bytecodes to inline");
 				
-				if(oldBytecodeCounts == -1 && currentMethodCounts > 0 && currentBytecodeCount > 0) { //no previous count
+				if(oldBytecodeCounts == -1) { //no previous count
 					oldBytecodeCounts = 0; //avoid off by 1
 				}
-				long inlinedCount = oldBytecodeCounts + currentMethodCounts * currentBytecodeCount;
-				if(inlinedCount != oldBytecodeCounts) {
-					System.out.println("old count: " + oldBytecodeCounts +  " new count: " + inlinedCount + " for " + currentMethod);
+				
+				if(oldBytecodeCounts >= 0 && currentMethodCounts >= 0 && currentBytecodeCount >= 0) { //only update if there is something; else keep -1 
+					long inlinedCount = oldBytecodeCounts + currentMethodCounts * currentBytecodeCount;
+					if(inlinedCount != oldBytecodeCounts) {
+						System.out.println("old count: " + oldBytecodeCounts +  " new count: " + inlinedCount + " for " + currentMethod);
+					}
+					returnResult.setOpcodeCount(currentBytecodeInt, inlinedCount);
 				}
-				returnResult.setOpcodeCount(currentBytecodeInt, inlinedCount);		
 			}
 		}		
 		return returnResult;		
