@@ -16,51 +16,51 @@ public class BCounts {
 		return counts;
 	}
 	
-	private void init() {
+	private void init() {		
 		
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "ALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "GETFIELD"), 1);		
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "ILOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "SALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "BIPUSH"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "ISHL"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "IUSHR"), 1);		
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of", "IRETURN"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of(I)I", "ALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of(I)I", "GETFIELD"), 1);		
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of(I)I", "ILOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of(I)I", "SALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of(I)I", "BIPUSH"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of(I)I", "ISHL"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of(I)I", "IUSHR"), 1);		
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.of(I)I", "IRETURN"), 1);		
 		
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "ALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "GETFIELD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "ILOAD"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "I2S"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "SASTORE"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set", "RETURN"), 1);		
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set(II)V", "ALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set(II)V", "GETFIELD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set(II)V", "ILOAD"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set(II)V", "I2S"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set(II)V", "SASTORE"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/CodeTable.set(II)V", "RETURN"), 1);		
+				
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of(I)I", "ALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of(I)I", "GETFIELD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of(I)I", "ILOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of(I)I", "IALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of(I)I", "IRETURN"), 1);
+				
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set(II)V", "ALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set(II)V", "GETFIELD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set(II)V", "ILOAD"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set(II)V", "IASTORE"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set(II)V", "RETURN"), 1);				
 		
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "ALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "GETFIELD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "ILOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "IALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.of", "IRETURN"), 1);
-		
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "ALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "GETFIELD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "ILOAD"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "IASTORE"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.set", "RETURN"), 1);		
-		
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "ALOAD"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "DUP"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "GETFIELD"), 3);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "DUP_X1"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "ICONST_1"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "ISUB"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "PUTFIELD"), 2);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "IFLE"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "IADD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "BALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "SIPUSH"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "IAND"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "GOTO"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "ICONST_M1"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte", "IRETURN"), 1);	
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "ALOAD"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "DUP"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "GETFIELD"), 3);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "DUP_X1"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "ICONST_1"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "ISUB"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "PUTFIELD"), 2);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "IFLE"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "IADD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "BALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "SIPUSH"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "IAND"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "GOTO"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "ICONST_M1"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "IRETURN"), 1);	
 	}
 	
 }

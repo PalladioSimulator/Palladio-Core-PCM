@@ -16,6 +16,7 @@ public class CountingResultMethodInlining {
 		CountingResultMethodInlining scra = new CountingResultMethodInlining();
 		@SuppressWarnings("unused")
 		List<CountingResult> results = scra.readSerialisedCountingResults();
+		scra.inlineCounts(results, new BCounts());
 	}
 	
 	private final static String DEFAULT_PATH_WITH_SERIALISED_RESULTS = 
@@ -40,7 +41,7 @@ public class CountingResultMethodInlining {
 	 */
 	public CountingResult inlineCounts(CountingResult inputResultCounts, BCounts methodCounts) {
 		CountingResult returnResult = (CountingResult) inputResultCounts.clone();
-		//TODO: set flag for returnResult
+		returnResult.setInvariantMethodsAreInlined(true);
 		
 		Iterator<String>methodCallIterator = returnResult.getMethodCallCounts().keySet().iterator();
 		while(methodCallIterator.hasNext()) { //loop called methods (Callees)
@@ -56,13 +57,17 @@ public class CountingResultMethodInlining {
 				
 				Integer currentBytecodeCount = 
 					methodCounts.getCounts().get(new BytecodePos(currentMethod, currentBytecodeString));
-				if(currentBytecodeCount == null) { //if null returned no bytecode have been counted
+				if(currentBytecodeCount == null) { //if null returned no bytecode has been counted
 					currentBytecodeCount = 0;
 				}
 				
-				long a = returnResult.getOpcodeCount(currentBytecodeInt) +
+				System.out.println("old count: " + returnResult.getOpcodeCount(currentBytecodeInt) + " for " + currentMethod);
+				
+				long inlinedCount = returnResult.getOpcodeCount(currentBytecodeInt) +
 					currentMethodCounts * currentBytecodeCount;
-				//TODO: write a back to returnResult				
+				
+				System.out.println("new count: " + inlinedCount + " for " + currentMethod);
+				returnResult.setOpcodeCount(currentBytecodeInt, inlinedCount);		
 			}
 		}		
 		return returnResult;		
