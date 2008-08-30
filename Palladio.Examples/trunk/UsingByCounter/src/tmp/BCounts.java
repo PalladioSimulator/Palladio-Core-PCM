@@ -62,9 +62,9 @@ public class BCounts {
 		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "ICONST_M1"), 1);
 		counts.put(new BytecodePos("spec/benchmarks/compress/InputBuffer.readByte()I", "IRETURN"), 1);	
 		
-		counts.put(new BytecodePos("spec/benchmarks/compress/ Compressor$HashTable.hsize()I", "ALOAD"), 1);
-		counts.put(new BytecodePos("spec/benchmarks/compress/ Compressor$HashTable.hsize()I", "GETFIELD"), 1);
-		counts.put(new BytecodePos("sspec/benchmarks/compress/ Compressor$HashTable.hsize()I", "IRETURN"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.hsize()I", "ALOAD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.hsize()I", "GETFIELD"), 1);
+		counts.put(new BytecodePos("spec/benchmarks/compress/Compressor$HashTable.hsize()I", "IRETURN"), 1);
 		
 	}
 	
