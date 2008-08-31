@@ -2,6 +2,7 @@
 <Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_S4rTcNCXEduC9O_qbthgAg" entityName="cocome-Repository" repositoryDescription="see cocome.org">
   <components__Repository xsi:type="BasicComponent" id="_-3VggNCgEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise">
     <providedRoles_InterfaceProvidingEntity id="_d1Mf0NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_uiIDAHe1Ed2mk8dKi3ngUA" entityName="JDBC" requiredInterface__RequiredRole="_kCATMHe1Ed2mk8dKi3ngUA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_rJCGMh_6Edy5k9ER1TBmjg" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_wxpUgB_6Edy5k9ER1TBmjg" successor_AbstractAction="_w5_YMB_6Edy5k9ER1TBmjg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_w5_YMB_6Edy5k9ER1TBmjg" predecessor_AbstractAction="_wxpUgB_6Edy5k9ER1TBmjg"/>
@@ -13,6 +14,7 @@
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_B8esgNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Persistence">
     <providedRoles_InterfaceProvidingEntity id="_bT0IMNChEduC9O_qbthgAg" entityName="PersistenceIf" providedInterface__ProvidedRole="_F8ovQNChEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_yJqxcHe1Ed2mk8dKi3ngUA" entityName="JDBC" requiredInterface__RequiredRole="_kCATMHe1Ed2mk8dKi3ngUA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_6ZfDVB8PEdyY_su_CT9KsQ" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_-AeFYNLOEduQ7qbNANXHPw" successor_AbstractAction="_-oQeINLOEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_-UJPUNLOEduQ7qbNANXHPw" predecessor_AbstractAction="_-oQeINLOEduQ7qbNANXHPw"/>
@@ -26,6 +28,7 @@
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_C7qRkNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Store">
     <providedRoles_InterfaceProvidingEntity id="_OmzqENChEduC9O_qbthgAg" entityName="StoreQueryIf" providedInterface__ProvidedRole="_HSKXwNChEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_rR7dkHe1Ed2mk8dKi3ngUA" entityName="JDBC" requiredInterface__RequiredRole="_kCATMHe1Ed2mk8dKi3ngUA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="queryStockItemById" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.7">
       <steps_Behaviour xsi:type="_1:StartAction" id="_TNHoUNLaEduQ7qbNANXHPw" successor_AbstractAction="_T1zY8NLaEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_Tbk7ENLaEduQ7qbNANXHPw" predecessor_AbstractAction="_T1zY8NLaEduQ7qbNANXHPw"/>
@@ -392,6 +395,9 @@
       <steps_Behaviour xsi:type="_1:StopAction" id="_rg798B_8Edy5k9ER1TBmjg" predecessor_AbstractAction="_rYcwUB_8Edy5k9ER1TBmjg"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_erx1YHe1Ed2mk8dKi3ngUA" entityName="Database">
+    <providedRoles_InterfaceProvidingEntity id="_ozQbsHe1Ed2mk8dKi3ngUA" entityName="JDBC" providedInterface__ProvidedRole="_kCATMHe1Ed2mk8dKi3ngUA"/>
+  </components__Repository>
   <interfaces__Repository id="_WoD42tCjEduC9O_qbthgAg" entityName="CashDeskConnectorIf">
     <signatures__Interface serviceName="bookSale">
       <parameters__Signature parameterName="saleTO">
@@ -606,4 +612,5 @@
     <signatures__Interface serviceName="flushDatabase"/>
   </interfaces__Repository>
   <interfaces__Repository id="_RQoSZNCpEduC9O_qbthgAg" entityName="SaleRegisteredEvent"/>
+  <interfaces__Repository id="_kCATMHe1Ed2mk8dKi3ngUA" entityName="JDBC"/>
 </Repository>

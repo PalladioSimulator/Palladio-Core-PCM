@@ -61,6 +61,7 @@
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_Yf1akHQSEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.CardValidationService">
     <providedRoles_InterfaceProvidingEntity id="_E9Bs0HQTEd2J8bFb9TfSEQ" entityName="CardValidationServiceIf" providedInterface__ProvidedRole="_dtsmkHQSEd2J8bFb9TfSEQ"/>
+    <requiredRoles_InterfaceRequiringEntity id="_cLcgQHetEd2mk8dKi3ngUA" entityName="BankIf" requiredInterface__RequiredRole="_Yh_GQHetEd2mk8dKi3ngUA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_RBuM8HRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_RTkx8HRDEd2J8bFb9TfSEQ" successor_AbstractAction="_RTkx8XRDEd2J8bFb9TfSEQ"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_RTkx8XRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_RTkx8HRDEd2J8bFb9TfSEQ"/>
@@ -71,7 +72,8 @@
     <requiredRoles_InterfaceRequiringEntity id="_Wv5xMHQWEd2J8bFb9TfSEQ" entityName="PaymentDebitServiceIf" requiredInterface__RequiredRole="_OcfJgHQWEd2J8bFb9TfSEQ"/>
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_MwxOkHQWEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.PaymentDebitService">
-    <providedRoles_InterfaceProvidingEntity id="_WOIg4HQWEd2J8bFb9TfSEQ" entityName="Provided_PaymentDebitServiceIf_PaymentDebitService" providedInterface__ProvidedRole="_OcfJgHQWEd2J8bFb9TfSEQ"/>
+    <providedRoles_InterfaceProvidingEntity id="_WOIg4HQWEd2J8bFb9TfSEQ" entityName="PaymentDebitServiceIf" providedInterface__ProvidedRole="_OcfJgHQWEd2J8bFb9TfSEQ"/>
+    <requiredRoles_InterfaceRequiringEntity id="_TnXJ4HeuEd2mk8dKi3ngUA" entityName="BankIf" requiredInterface__RequiredRole="_Yh_GQHetEd2mk8dKi3ngUA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Rf7L4HRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_Rzj5kHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_Rzj5kXRDEd2J8bFb9TfSEQ"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_Rzj5kXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_Rzj5kHRDEd2J8bFb9TfSEQ"/>
@@ -82,6 +84,9 @@
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_pquxkHQYEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.OrderService">
     <providedRoles_InterfaceProvidingEntity id="_-I--cHQYEd2J8bFb9TfSEQ" entityName="OrderServiceIf" providedInterface__ProvidedRole="_2exEwHQYEd2J8bFb9TfSEQ"/>
+    <requiredRoles_InterfaceRequiringEntity id="_s-YnEXevEd2mk8dKi3ngUA" entityName="StoreIf">
+      <requiredInterface__RequiredRole href="cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </requiredRoles_InterfaceRequiringEntity>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_S04MoHRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_TJGwMHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_TJGwMXRDEd2J8bFb9TfSEQ"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_TJGwMXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_TJGwMHRDEd2J8bFb9TfSEQ"/>
@@ -93,6 +98,9 @@
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_ttcZEHQYEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.StoreInformationService">
     <providedRoles_InterfaceProvidingEntity id="_9iTY8HQYEd2J8bFb9TfSEQ" entityName="StoreInformationServiceIf" providedInterface__ProvidedRole="_5gB2UHQYEd2J8bFb9TfSEQ"/>
+    <requiredRoles_InterfaceRequiringEntity id="_wwXq8XevEd2mk8dKi3ngUA" entityName="StoreIf">
+      <requiredInterface__RequiredRole href="cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
+    </requiredRoles_InterfaceRequiringEntity>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_UbFVcHRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_UuRXMHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_UuRXMXRDEd2J8bFb9TfSEQ"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_UuRXMXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_UuRXMHRDEd2J8bFb9TfSEQ"/>
@@ -161,6 +169,23 @@
   <interfaces__Repository id="_5gB2UHQYEd2J8bFb9TfSEQ" entityName="StoreInformationServiceIf">
     <signatures__Interface serviceName="getStoreInformation">
       <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_sHYtltIWEduF4-1MMpjBkg"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_Yh_GQHetEd2mk8dKi3ngUA" entityName="BankIf">
+    <signatures__Interface serviceName="validateCard">
+      <parameters__Signature parameterName="cardInformation">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="pinNumber">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="debitCard">
+      <parameters__Signature parameterName="id">
+        <datatype__Parameter xsi:type="CompositeDataType" href="cocomeTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="CompositeDataType" href="cocomeTypes.repository#_iNNiBnQWEd2J8bFb9TfSEQ"/>
     </signatures__Interface>
   </interfaces__Repository>
 </Repository>
