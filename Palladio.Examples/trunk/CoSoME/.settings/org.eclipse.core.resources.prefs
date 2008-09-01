@@ -1,7 +1,14 @@
-#Fri Aug 29 17:14:20 CEST 2008
+#Mon Sep 01 01:59:34 CEST 2008
 eclipse.preferences.version=1
 encoding/TradingSystem.Inventory.Application.ProductDispatcher.orderProductsAvailableAtOtherStores.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Application.Store.bookSale.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Persistence.getPersistenceContext.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Store.flushDatabase.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Store.markProductsUnavailableInStock.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Store.queryLowStockItemsWithRespectToIncomingProducts.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Store.queryStockItem.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Store.queryStockItemById.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Store.queryStoreById.seff_diagram=UTF-8
 encoding/Tradingsystem.Webservices.InventoryService.changePrice.seff_diagram=UTF-8
 encoding/ws.repository=UTF-8
 encoding/ws.repository_diagram=UTF-8
