@@ -114,12 +114,6 @@
       <steps_Behaviour xsi:type="_1:StopAction" id="_OMFOsB_6Edy5k9ER1TBmjg" predecessor_AbstractAction="_ODvLAB_6Edy5k9ER1TBmjg"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
-  <components__Repository xsi:type="BasicComponent" id="_sGEvA9CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Reporting">
-    <requiredRoles_InterfaceRequiringEntity id="_vsrnUdC4EduW_YoCCnq0vw" entityName="ReportingIf" requiredInterface__RequiredRole="_vebx9NCiEduC9O_qbthgAg"/>
-  </components__Repository>
-  <components__Repository xsi:type="BasicComponent" id="_zokQE9CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Store">
-    <requiredRoles_InterfaceRequiringEntity id="_1a8xsdC4EduW_YoCCnq0vw" entityName="StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
-  </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_XDTf09CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.ProductDispatcher">
     <providedRoles_InterfaceProvidingEntity id="_gMw-sNCiEduC9O_qbthgAg" entityName="ProductDispatcherIf" providedInterface__ProvidedRole="_dbS8pNCiEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_h-Kq4dCiEduC9O_qbthgAg" entityName="EnterpriseQueryIf" requiredInterface__RequiredRole="_Eldg8NChEduC9O_qbthgAg"/>
@@ -398,19 +392,14 @@
   <components__Repository xsi:type="BasicComponent" id="_erx1YHe1Ed2mk8dKi3ngUA" entityName="Database">
     <providedRoles_InterfaceProvidingEntity id="_ozQbsHe1Ed2mk8dKi3ngUA" entityName="JDBC" providedInterface__ProvidedRole="_kCATMHe1Ed2mk8dKi3ngUA"/>
   </components__Repository>
-  <components__Repository xsi:type="BasicComponent" id="_0VO1kHONEd2SyK0Shg_o9Q" entityName="Tradingsystem.Webservices.InventoryService">
+  <components__Repository xsi:type="BasicComponent" id="_0VO1kHONEd2SyK0Shg_o9Q" entityName="Tradingsystem.Webservices.Inventory Service">
     <providedRoles_InterfaceProvidingEntity id="_Sx598HOPEd2SyK0Shg_o9Q" entityName="InventoryServiceIf" providedInterface__ProvidedRole="_GtTjoHOPEd2SyK0Shg_o9Q"/>
-    <requiredRoles_InterfaceRequiringEntity id="_UQUbcXQ5Ed2J8bFb9TfSEQ" entityName="StoreIf">
-      <requiredInterface__RequiredRole href="cosocome.repository#_4153pNCiEduC9O_qbthgAg"/>
-    </requiredRoles_InterfaceRequiringEntity>
-    <requiredRoles_InterfaceRequiringEntity id="_ppoiYXQ5Ed2J8bFb9TfSEQ" entityName="CashDeskConnectorIf">
-      <requiredInterface__RequiredRole href="cosocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
-    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_UQUbcXQ5Ed2J8bFb9TfSEQ" entityName="StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_ppoiYXQ5Ed2J8bFb9TfSEQ" entityName="CashDeskConnectorIf" requiredInterface__RequiredRole="_WoD42tCjEduC9O_qbthgAg"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_HhYfIHRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.9/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_JQqrcHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_ooQ0wHXVEd2KlMDMHgOgLw"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_JQqrcXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_eHKYEHXWEd2KlMDMHgOgLw"/>
-      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ooQ0wHXVEd2KlMDMHgOgLw" predecessor_AbstractAction="_JQqrcHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_eHKYEHXWEd2KlMDMHgOgLw" role_ExternalService="_UQUbcXQ5Ed2J8bFb9TfSEQ">
-        <calledService_ExternalService href="cosocome.repository#//@interfaces__Repository.6/@signatures__Interface.7"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_ooQ0wHXVEd2KlMDMHgOgLw" predecessor_AbstractAction="_JQqrcHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_eHKYEHXWEd2KlMDMHgOgLw" calledService_ExternalService="//@interfaces__Repository.6/@signatures__Interface.7" role_ExternalService="_UQUbcXQ5Ed2J8bFb9TfSEQ">
         <inputParameterUsages_ExternalCallAction>
           <variableCharacterisation_VariableUsage type="VALUE">
             <specification_VariableCharacterisation specification="stockItemTO.VALUE"/>
@@ -482,9 +471,7 @@
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_pquxkHQYEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.OrderService">
     <providedRoles_InterfaceProvidingEntity id="_-I--cHQYEd2J8bFb9TfSEQ" entityName="OrderServiceIf" providedInterface__ProvidedRole="_2exEwHQYEd2J8bFb9TfSEQ"/>
-    <requiredRoles_InterfaceRequiringEntity id="_s-YnEXevEd2mk8dKi3ngUA" entityName="StoreIf">
-      <requiredInterface__RequiredRole href="cosocome.repository#_4153pNCiEduC9O_qbthgAg"/>
-    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_s-YnEXevEd2mk8dKi3ngUA" entityName="StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_S04MoHRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.12/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_TJGwMHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_TJGwMXRDEd2J8bFb9TfSEQ"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_TJGwMXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_TJGwMHRDEd2J8bFb9TfSEQ"/>
@@ -496,9 +483,7 @@
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_ttcZEHQYEd2J8bFb9TfSEQ" entityName="Tradingsystem.Webservices.StoreInformationService">
     <providedRoles_InterfaceProvidingEntity id="_9iTY8HQYEd2J8bFb9TfSEQ" entityName="StoreInformationServiceIf" providedInterface__ProvidedRole="_5gB2UHQYEd2J8bFb9TfSEQ"/>
-    <requiredRoles_InterfaceRequiringEntity id="_wwXq8XevEd2mk8dKi3ngUA" entityName="StoreIf">
-      <requiredInterface__RequiredRole href="cosocome.repository#_4153pNCiEduC9O_qbthgAg"/>
-    </requiredRoles_InterfaceRequiringEntity>
+    <requiredRoles_InterfaceRequiringEntity id="_wwXq8XevEd2mk8dKi3ngUA" entityName="StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_UbFVcHRDEd2J8bFb9TfSEQ" describedService__SEFF="//@interfaces__Repository.13/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_UuRXMHRDEd2J8bFb9TfSEQ" successor_AbstractAction="_UuRXMXRDEd2J8bFb9TfSEQ"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_UuRXMXRDEd2J8bFb9TfSEQ" predecessor_AbstractAction="_UuRXMHRDEd2J8bFb9TfSEQ"/>
