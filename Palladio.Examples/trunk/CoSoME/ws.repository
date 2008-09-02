@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_mhpw8HONEd2SyK0Shg_o9Q" entityName="ws-repository">
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_mhpw8HONEd2SyK0Shg_o9Q" entityName="WsRepository">
   <components__Repository xsi:type="BasicComponent" id="_0VO1kHONEd2SyK0Shg_o9Q" entityName="Tradingsystem.Webservices.InventoryService">
     <providedRoles_InterfaceProvidingEntity id="_Sx598HOPEd2SyK0Shg_o9Q" entityName="InventoryServiceIf" providedInterface__ProvidedRole="_GtTjoHOPEd2SyK0Shg_o9Q"/>
     <requiredRoles_InterfaceRequiringEntity id="_UQUbcXQ5Ed2J8bFb9TfSEQ" entityName="StoreIf">
