@@ -35,27 +35,6 @@
       <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
-  <linkingresource id="_WmY5wHQfEd2J8bFb9TfSEQ" entityName="EnterpriseClient-ServiceProvider" toResourceContainer_LinkingResource="_f54T0XQeEd2J8bFb9TfSEQ" fromResourceContainer_LinkingResource="_W6WUMOEhEduBSuO8WivxSA">
-    <communicationLinkResourceSpecifications_LinkingResource>
-      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
-      <latency_CommunicationLinkResourceSpecification specification="DoublePMF[ (0.5;0.5) (1.0;0.5) ]"/>
-      <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
-    </communicationLinkResourceSpecifications_LinkingResource>
-  </linkingresource>
-  <linkingresource id="_QGGQAHQ0Ed2J8bFb9TfSEQ" entityName="Store_1_Client-ServiceProvider" toResourceContainer_LinkingResource="_f54T0XQeEd2J8bFb9TfSEQ" fromResourceContainer_LinkingResource="_mpMBEOEgEduBSuO8WivxSA">
-    <communicationLinkResourceSpecifications_LinkingResource>
-      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
-      <latency_CommunicationLinkResourceSpecification specification="DoublePMF[ (0.5;0.5) (1.0;0.5) ]"/>
-      <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
-    </communicationLinkResourceSpecifications_LinkingResource>
-  </linkingresource>
-  <linkingresource id="_8kTO4HQ0Ed2J8bFb9TfSEQ" entityName="Store_2_Client-ServiceProvider" toResourceContainer_LinkingResource="_f54T0XQeEd2J8bFb9TfSEQ" fromResourceContainer_LinkingResource="_me5D4VcdEd23wcZsd06DZg">
-    <communicationLinkResourceSpecifications_LinkingResource>
-      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
-      <latency_CommunicationLinkResourceSpecification specification="DoublePMF[ (0.5;0.5) (1.0;0.5) ]"/>
-      <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
-    </communicationLinkResourceSpecifications_LinkingResource>
-  </linkingresource>
   <resourceContainer_ResourceEnvironment id="_mpMBEOEgEduBSuO8WivxSA" entityName="Store_1_Client">
     <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
