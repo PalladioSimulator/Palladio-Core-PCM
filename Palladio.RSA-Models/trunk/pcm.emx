@@ -5468,7 +5468,7 @@
             </children>
             <children xmi:id="_koXCoDytEduB5pxz2UpKVQ" type="FromRoleLabel" element="_6Sm8IaMYEdqfKJQ-jd0-uQ">
               <children xmi:id="_koXCojytEduB5pxz2UpKVQ" type="FromRole" element="_6Sm8IaMYEdqfKJQ-jd0-uQ"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_koXCoTytEduB5pxz2UpKVQ" x="1523" y="-4678"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_koXCoTytEduB5pxz2UpKVQ" x="1473" y="-4408"/>
             </children>
             <children xmi:id="_koXCozytEduB5pxz2UpKVQ" type="ToQualifierLabel" element="_6Sm8IqMYEdqfKJQ-jd0-uQ">
               <children xmi:id="_koXCpTytEduB5pxz2UpKVQ" type="QualifierCompartment" element="_6Sm8IqMYEdqfKJQ-jd0-uQ">
@@ -6079,7 +6079,7 @@
             </children>
             <children xmi:id="_dxctcHlvEduf8pXqmhjnpw" type="FromRoleLabel" element="_dxTjcXlvEduf8pXqmhjnpw">
               <children xmi:id="_dxctcnlvEduf8pXqmhjnpw" type="FromRole" element="_dxTjcXlvEduf8pXqmhjnpw"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_dxctcXlvEduf8pXqmhjnpw" x="-2930" y="-1999"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_dxctcXlvEduf8pXqmhjnpw" x="518" y="-1375"/>
             </children>
             <children xmi:id="_dxctc3lvEduf8pXqmhjnpw" type="ToQualifierLabel" element="_dxTjcnlvEduf8pXqmhjnpw">
               <children xmi:id="_dxctdXlvEduf8pXqmhjnpw" type="QualifierCompartment" element="_dxTjcnlvEduf8pXqmhjnpw">
@@ -6990,8 +6990,14 @@
       <packageImport xmi:id="_2LWq0DQ_Edun4NCFPwZksA" importedPackage="_3amlYCh8Edue7oeC4NTCGg"/>
       <packageImport xmi:id="_9X80YDQ_Edun4NCFPwZksA" importedPackage="_HSHQoCh9Edue7oeC4NTCGg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_9APFUOD4Edq8ysXH3gTiEg" name="PassiveResource">
+        <ownedComment xmi:id="_-vKgUH5uEd2w8a0eK9hypA" annotatedElement="_9APFUOD4Edq8ysXH3gTiEg">
+          <body>This entity represents a passive resource, e.g., a semaphore.</body>
+        </ownedComment>
         <generalization xmi:id="_IO7tAFGNEdyz6ZdlOM8msg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_rtZM4Uo-EdyyNsXlb1tNsw" name="capacity_PassiveResource" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_rtZM4Eo-EdyyNsXlb1tNsw">
+          <ownedComment xmi:id="_Btq40H5vEd2w8a0eK9hypA" annotatedElement="_rtZM4Uo-EdyyNsXlb1tNsw">
+            <body>This property holds the capacity of this passive resource.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rtZM5Eo-EdyyNsXlb1tNsw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rtZM40o-EdyyNsXlb1tNsw" value="1"/>
         </ownedAttribute>
@@ -7092,20 +7098,39 @@
         <ownedAttribute xmi:id="_w4AlgnDSEdur9cZft9T4NQ" name="providingEntity_ProvidedRole" type="_XSEtIHDSEdur9cZft9T4NQ" association="_w4AlgHDSEdur9cZft9T4NQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_8b84gJJUEdqSSImFLKDkSg" name="Parameter">
+        <ownedComment xmi:id="_LqYEcH5tEd2w8a0eK9hypA" annotatedElement="_8b84gJJUEdqSSImFLKDkSg">
+          <body>This entity represents a parameter within a signature. The parameter has a name and it is of a data type.</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_ldsQMZJYEdqSSImFLKDkSg" name="datatype__Parameter" type="_NlyR0JJWEdqSSImFLKDkSg" association="_ldsQMJJYEdqSSImFLKDkSg">
+          <ownedComment xmi:id="_NXVVgH5tEd2w8a0eK9hypA" annotatedElement="_ldsQMZJYEdqSSImFLKDkSg">
+            <body>This property represents the data type of the parameter.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldyW0ZJYEdqSSImFLKDkSg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldyW0JJYEdqSSImFLKDkSg" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_ygPxcJdDEdqwqsvROVlojA" name="parameterName">
+          <ownedComment xmi:id="_TZOKAH5uEd2w8a0eK9hypA" annotatedElement="_ygPxcJdDEdqwqsvROVlojA">
+            <body>This property holds the name of the parameter.</body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_bbaC0ZvjEdqN_b565_mSbQ" name="modifier__Parameter" type="_WjM9wJvjEdqN_b565_mSbQ" aggregation="composite" association="_bbaC0JvjEdqN_b565_mSbQ">
+          <ownedComment xmi:id="_bkCEwH5tEd2w8a0eK9hypA" annotatedElement="_bbaC0ZvjEdqN_b565_mSbQ">
+            <body>This property represents the modifier of the parameter like known from C#.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bbaC1JvjEdqN_b565_mSbQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bbaC05vjEdqN_b565_mSbQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_YuRXQpJYEdqSSImFLKDkSg" name="signature_Parameter" type="_hh0OUJJJEdqSSImFLKDkSg" association="_YuRXQJJYEdqSSImFLKDkSg"/>
+        <ownedAttribute xmi:id="_YuRXQpJYEdqSSImFLKDkSg" name="signature_Parameter" type="_hh0OUJJJEdqSSImFLKDkSg" association="_YuRXQJJYEdqSSImFLKDkSg">
+          <ownedComment xmi:id="_0mZgkH5uEd2w8a0eK9hypA" annotatedElement="_YuRXQpJYEdqSSImFLKDkSg">
+            <body>This property navigates to the signature this parameter is a part of.</body>
+          </ownedComment>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_cIR90JJJEdqSSImFLKDkSg" name="Interface">
+        <ownedComment xmi:id="_5CxM8H5oEd2w8a0eK9hypA" annotatedElement="_cIR90JJJEdqSSImFLKDkSg">
+          <body>This entity models the interface as a set of signatures representing services provided or required by a component.</body>
+        </ownedComment>
         <ownedRule xmi:id="_AjZ8AJybEdqX-LqEpACX-A" name="NoProtocolTypeIDUsedTwice" constrainedElement="_cIR90JJJEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_AjZ8AZybEdqX-LqEpACX-A">
             <language>OCL</language>
@@ -7120,6 +7145,9 @@
         </ownedRule>
         <generalization xmi:id="_TmZxoJJwEdqSSImFLKDkSg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_V-r80ZJeEdqSSImFLKDkSg" name="parentInterface__Interface" type="_cIR90JJJEdqSSImFLKDkSg" association="_V-r80JJeEdqSSImFLKDkSg">
+          <ownedComment xmi:id="_g4BDsH5pEd2w8a0eK9hypA" annotatedElement="_V-r80ZJeEdqSSImFLKDkSg">
+            <body>This property represents the interfaces from which this interface inherits.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-yDcZJeEdqSSImFLKDkSg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-yDcJJeEdqSSImFLKDkSg"/>
         </ownedAttribute>
@@ -7128,14 +7156,24 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6StCwKMYEdqfKJQ-jd0-uQ"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_PUzGAMiIEdqXbOPN_HtKGg" name="protocols__Interface" type="_cqkLgJJJEdqSSImFLKDkSg" aggregation="composite" association="_PUs_YMiIEdqXbOPN_HtKGg">
+          <ownedComment xmi:id="_kfbPQH5pEd2w8a0eK9hypA" annotatedElement="_PUzGAMiIEdqXbOPN_HtKGg">
+            <body>This property represents the protocol bound to this interfaces, i.e., the way, in the sense of the order, the services of this interfaces are allowed to be called.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PUzGA8iIEdqXbOPN_HtKGg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUzGAsiIEdqXbOPN_HtKGg"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_ayupQVOuEduyKfhIjBdbtA" name="signatures__Interface" type="_hh0OUJJJEdqSSImFLKDkSg" aggregation="composite" association="_ayupQFOuEduyKfhIjBdbtA">
+          <ownedComment xmi:id="_2-BRgH5pEd2w8a0eK9hypA" annotatedElement="_ayupQVOuEduyKfhIjBdbtA">
+            <body>This property represents the set of signatures of which the interface consists.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ayupRFOuEduyKfhIjBdbtA" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ayupQ1OuEduyKfhIjBdbtA"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_k6swUpcYEdq38OEoBK_ByQ" name="repository_Interface" type="_au_WpWA_EdqdHZdhXRxKVg" association="_k6swUJcYEdq38OEoBK_ByQ"/>
+        <ownedAttribute xmi:id="_k6swUpcYEdq38OEoBK_ByQ" name="repository_Interface" type="_au_WpWA_EdqdHZdhXRxKVg" association="_k6swUJcYEdq38OEoBK_ByQ">
+          <ownedComment xmi:id="_wd5MYH5pEd2w8a0eK9hypA" annotatedElement="_k6swUpcYEdq38OEoBK_ByQ">
+            <body>This property represents the repository where this interface is stored.</body>
+          </ownedComment>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_4XfF4JJGEdqIo-u3cE9-DA" name="ImplementationComponentType" isAbstract="true">
         <ownedRule xmi:id="_Ix0IYKUhEdqWue6EZILF7w" name="RequiredInterfacesHaveToConformToCompleteType" constrainedElement="_4XfF4JJGEdqIo-u3cE9-DA">
@@ -7161,20 +7199,42 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_TTqaoJJWEdqSSImFLKDkSg" name="ExceptionType">
+        <ownedComment xmi:id="_jlYTwH5nEd2w8a0eK9hypA" annotatedElement="_TTqaoJJWEdqSSImFLKDkSg">
+          <body>This entity represents a type of an exception.</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_oW7tMJdFEdqwqsvROVlojA" name="exceptionName" isUnique="false">
+          <ownedComment xmi:id="_IZvzcH5oEd2w8a0eK9hypA" annotatedElement="_oW7tMJdFEdqwqsvROVlojA">
+            <body>This property denotes the name of the exception. In addition to the exception message, this is another piece of information that can be used for identification of the exception that has appeared.</body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_rFCSMJdFEdqwqsvROVlojA" name="exceptionMessage" isUnique="false">
+          <ownedComment xmi:id="_3OZhwH5nEd2w8a0eK9hypA" annotatedElement="_rFCSMJdFEdqwqsvROVlojA">
+            <body>This property holds the text message of the exception.</body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_SdDqMJQAEdqSSImFLKDkSg" name="DelegationConnector" isAbstract="true">
+        <ownedComment xmi:id="_Rp_sQH5nEd2w8a0eK9hypA" annotatedElement="_SdDqMJQAEdqSSImFLKDkSg">
+          <body>This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent.</body>
+        </ownedComment>
         <generalization xmi:id="_VhOl0JQAEdqSSImFLKDkSg" general="_UkxkoJQAEdqSSImFLKDkSg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_NlyR0JJWEdqSSImFLKDkSg" name="DataType" isAbstract="true">
-        <ownedAttribute xmi:id="_yjJBYnSSEduUYph3ztx_jg" name="repository_DataType" type="_au_WpWA_EdqdHZdhXRxKVg" association="_yjJBYHSSEduUYph3ztx_jg"/>
+        <ownedComment xmi:id="_3_6TsH5mEd2w8a0eK9hypA" annotatedElement="_NlyR0JJWEdqSSImFLKDkSg">
+          <body>This entity represents a data type that can be stored in a repository and used for specification and modeling of interface signatures.</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_yjJBYnSSEduUYph3ztx_jg" name="repository_DataType" type="_au_WpWA_EdqdHZdhXRxKVg" association="_yjJBYHSSEduUYph3ztx_jg">
+          <ownedComment xmi:id="__dKvcH5mEd2w8a0eK9hypA" annotatedElement="_yjJBYnSSEduUYph3ztx_jg">
+            <body>This property specifies the repository to which this data type belongs.</body>
+          </ownedComment>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_mhK5sJJIEdqSSImFLKDkSg" name="CompositeComponent">
+        <ownedComment xmi:id="_tu_S8H5lEd2w8a0eK9hypA" annotatedElement="_mhK5sJJIEdqSSImFLKDkSg">
+          <body>This entity represents a component composed of other component, i.e., the component is not directly implemented in a programming language, but it is rather implemented by a composition of other components.</body>
+        </ownedComment>
         <ownedRule xmi:id="_eTrlAKU6EdqWue6EZILF7w" name="ProvideSameInterfaces" constrainedElement="_mhK5sJJIEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_eTrlAaU6EdqWue6EZILF7w">
             <language>OCL</language>
@@ -7210,6 +7270,9 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oz-CwJJIEdqSSImFLKDkSg" name="BasicComponent">
+        <ownedComment xmi:id="_ElI2MH5kEd2w8a0eK9hypA" annotatedElement="_oz-CwJJIEdqSSImFLKDkSg">
+          <body>This entity represents a black-box component implementation. It is not composed of other component, but directly implemented in a programming language, e.g., Java.</body>
+        </ownedComment>
         <ownedRule xmi:id="_KU54AJyrEdqX-LqEpACX-A" name="NoSeffTypeUsedTwice" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_KU_-oJyrEdqX-LqEpACX-A">
             <language>OCL</language>
@@ -7230,6 +7293,9 @@
         </ownedRule>
         <generalization xmi:id="_kNmtgAVqEd2X__HvaO6pZg" general="_4XfF4JJGEdqIo-u3cE9-DA"/>
         <ownedAttribute xmi:id="_7tlO0ciHEdqXbOPN_HtKGg" name="serviceEffectSpecifications__BasicComponent" type="_1qN_0JJxEdqSSImFLKDkSg" aggregation="composite" association="_7tlO0MiHEdqXbOPN_HtKGg">
+          <ownedComment xmi:id="_qCrOsH5kEd2w8a0eK9hypA" annotatedElement="_7tlO0ciHEdqXbOPN_HtKGg">
+            <body>This property contains the service effect specification for services provided by this basic component.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7tlO1MiHEdqXbOPN_HtKGg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7tlO08iHEdqXbOPN_HtKGg"/>
         </ownedAttribute>
@@ -7306,25 +7372,43 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_ayupQFOuEduyKfhIjBdbtA" memberEnd="_ayupQVOuEduyKfhIjBdbtA _ayupQlOuEduyKfhIjBdbtA"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_tKjo0HPyEduxXfd-1j79QQ" name="PrimitiveDataType">
+        <ownedComment xmi:id="_OQF3kH5vEd2w8a0eK9hypA" annotatedElement="_tKjo0HPyEduxXfd-1j79QQ">
+          <body>This entity represents a primitive data type such as integer, string, and double.</body>
+        </ownedComment>
         <generalization xmi:id="_yJvfoHPyEduxXfd-1j79QQ" general="_NlyR0JJWEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_NjNA8HQ8Eduuy9rra1CvZQ" name="type" type="_A9sUwHP2EduxXfd-1j79QQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_uaIaUHPyEduxXfd-1j79QQ" name="CollectionDataType">
+        <ownedComment xmi:id="_BSF7oH5lEd2w8a0eK9hypA" annotatedElement="_uaIaUHPyEduxXfd-1j79QQ">
+          <body>This entity represents a collection data type, e.g.,. a list, array, set, of items of the a particular type.</body>
+        </ownedComment>
         <generalization xmi:id="_3pACwHSkEduUYph3ztx_jg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <generalization xmi:id="_y-CqYHPyEduxXfd-1j79QQ" general="_NlyR0JJWEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_Art7UXPzEduxXfd-1j79QQ" name="innerType_CollectionDataType" type="_NlyR0JJWEdqSSImFLKDkSg" association="_Art7UHPzEduxXfd-1j79QQ">
+          <ownedComment xmi:id="_F9odsH5lEd2w8a0eK9hypA" annotatedElement="_Art7UXPzEduxXfd-1j79QQ">
+            <body>This property represents the type of items contained in the collection data type.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Art7VHPzEduxXfd-1j79QQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Art7U3PzEduxXfd-1j79QQ" value="1"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_vs0xQHPyEduxXfd-1j79QQ" name="CompositeDataType">
+        <ownedComment xmi:id="_60RuMH5lEd2w8a0eK9hypA" annotatedElement="_vs0xQHPyEduxXfd-1j79QQ">
+          <body>This entity represents a complex data type containing other data types. This construct is common in higher programming languages as record, struct, or class.</body>
+        </ownedComment>
         <generalization xmi:id="_3-mfUHSkEduUYph3ztx_jg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <generalization xmi:id="_0DeocHPyEduxXfd-1j79QQ" general="_NlyR0JJWEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_3_nG0XPyEduxXfd-1j79QQ" name="parentType_CompositeDataType" type="_vs0xQHPyEduxXfd-1j79QQ" association="_3_nG0HPyEduxXfd-1j79QQ">
+          <ownedComment xmi:id="_JvdUEH5mEd2w8a0eK9hypA" annotatedElement="_3_nG0XPyEduxXfd-1j79QQ">
+            <body>This property represents the parent type in the inheritance hierarchy. Null if there is no parent.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3_nG1HPyEduxXfd-1j79QQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3_nG03PyEduxXfd-1j79QQ"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_dxTjcXlvEduf8pXqmhjnpw" name="innerDeclaration_CompositeDataType" type="_Z_T4gHlvEduf8pXqmhjnpw" aggregation="composite" association="_dxTjcHlvEduf8pXqmhjnpw">
+          <ownedComment xmi:id="_qyKgAH5mEd2w8a0eK9hypA" annotatedElement="_dxTjcXlvEduf8pXqmhjnpw">
+            <body>This property represents the internals, i.e., named items, each of a data type, forming this composite data type.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dxTjdHlvEduf8pXqmhjnpw" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dxTjc3lvEduf8pXqmhjnpw"/>
         </ownedAttribute>
@@ -7358,8 +7442,14 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_yjJBYHSSEduUYph3ztx_jg" memberEnd="_yjJBYXSSEduUYph3ztx_jg _yjJBYnSSEduUYph3ztx_jg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_Z_T4gHlvEduf8pXqmhjnpw" name="InnerDeclaration">
+        <ownedComment xmi:id="_ZaTKYH5oEd2w8a0eK9hypA" annotatedElement="_Z_T4gHlvEduf8pXqmhjnpw">
+          <body>This entity represent a declaration of a data type inside of a composite data type. It enriches the data type it declares with a name to allow multiple declarations of the same type within a composite data type.</body>
+        </ownedComment>
         <generalization xmi:id="_hDjXUHlvEduf8pXqmhjnpw" general="_X0NSMHDEEdur9cZft9T4NQ"/>
         <ownedAttribute xmi:id="_pEwNoXlvEduf8pXqmhjnpw" name="datatype_InnerDeclaration" type="_NlyR0JJWEdqSSImFLKDkSg" association="_pEwNoHlvEduf8pXqmhjnpw">
+          <ownedComment xmi:id="_hd2xIH5oEd2w8a0eK9hypA" annotatedElement="_pEwNoXlvEduf8pXqmhjnpw">
+            <body>This property represents the data type that the inner declaration declares.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pEwNpHlvEduf8pXqmhjnpw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pEwNo3lvEduf8pXqmhjnpw" value="1"/>
         </ownedAttribute>
@@ -20700,4 +20790,33 @@
   <Ecore:EPackage xmi:id="_U2HjoJZwEdyvM-KRcbKtDQ" base_Package="_Uvc4AHDVEdur9cZft9T4NQ" packageName="qosannotations" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0" basePackage="" prefix=""/>
   <Ecore:EPackage xmi:id="_UuF1IL3lEdyGNbIQ-5Phlg" base_Package="_JwthkL3lEdyGNbIQ-5Phlg"/>
   <Ecore:EPackage xmi:id="_aG1wkL3nEdyGNbIQ-5Phlg" base_Package="_YHJJsL3nEdyGNbIQ-5Phlg"/>
+  <Default:Documentation xmi:id="_ElYt0H5kEd2w8a0eK9hypA" base_Comment="_ElI2MH5kEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_qCzxkH5kEd2w8a0eK9hypA" base_Comment="_qCrOsH5kEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_BSN3cH5lEd2w8a0eK9hypA" base_Comment="_BSF7oH5lEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_F9vLYH5lEd2w8a0eK9hypA" base_Comment="_F9odsH5lEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_tvGnsH5lEd2w8a0eK9hypA" base_Comment="_tu_S8H5lEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_60X00H5lEd2w8a0eK9hypA" base_Comment="_60RuMH5lEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_Jvl28H5mEd2w8a0eK9hypA" base_Comment="_JvdUEH5mEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_qyQmoH5mEd2w8a0eK9hypA" base_Comment="_qyKgAH5mEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_4ABBYH5mEd2w8a0eK9hypA" base_Comment="_3_6TsH5mEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="__dNLsH5mEd2w8a0eK9hypA" base_Comment="__dKvcH5mEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_RqBhcH5nEd2w8a0eK9hypA" base_Comment="_Rp_sQH5nEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_jldzUH5nEd2w8a0eK9hypA" base_Comment="_jlYTwH5nEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_3OfBUH5nEd2w8a0eK9hypA" base_Comment="_3OZhwH5nEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_IZy2wH5oEd2w8a0eK9hypA" base_Comment="_IZvzcH5oEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_ZaZRAH5oEd2w8a0eK9hypA" base_Comment="_ZaTKYH5oEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_hd7poH5oEd2w8a0eK9hypA" base_Comment="_hd2xIH5oEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_5C2sgH5oEd2w8a0eK9hypA" base_Comment="_5CxM8H5oEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_g4FVIH5pEd2w8a0eK9hypA" base_Comment="_g4BDsH5pEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_kfdrgH5pEd2w8a0eK9hypA" base_Comment="_kfbPQH5pEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_wd9d0H5pEd2w8a0eK9hypA" base_Comment="_wd5MYH5pEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_2-Fi8H5pEd2w8a0eK9hypA" base_Comment="_2-BRgH5pEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_LqcV4H5tEd2w8a0eK9hypA" base_Comment="_LqYEcH5tEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_NXY_4H5tEd2w8a0eK9hypA" base_Comment="_NXVVgH5tEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_bkHkUH5tEd2w8a0eK9hypA" base_Comment="_bkCEwH5tEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_TZSbcH5uEd2w8a0eK9hypA" base_Comment="_TZOKAH5uEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_0mausH5uEd2w8a0eK9hypA" base_Comment="_0mZgkH5uEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_-vOKsH5uEd2w8a0eK9hypA" base_Comment="_-vKgUH5uEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_BtvKQH5vEd2w8a0eK9hypA" base_Comment="_Btq40H5vEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_OQJh8H5vEd2w8a0eK9hypA" base_Comment="_OQF3kH5vEd2w8a0eK9hypA"/>
 </xmi:XMI>
