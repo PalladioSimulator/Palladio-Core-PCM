@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.featureinstance;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.BasicCommandStack;
@@ -14,6 +15,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
@@ -29,15 +31,19 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.ConfigState;
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.impl.featureconfigFactoryImpl;
 import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
@@ -60,6 +66,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 	protected Resource resource;
 	
 	protected Object root;
+	
+	protected boolean dirtyFlag = false;
 	
 	protected FeatureConfig defaultConfig;
 	protected FeatureConfig overridesConfig;
@@ -108,7 +116,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		}
 		catch (Exception e) {
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
-			throw new NullPointerException("BA");
 		}
 
 		FeatureDiagram newDiagram = null;
@@ -122,17 +129,58 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		}
 		
 		if (newResource instanceof FeatureDiagram) {
+			//TODO create new Configuration
 			newDiagram = (FeatureDiagram) newResource;
 		}
 		else if (newResource instanceof Configuration) {
 			Configuration config = (Configuration) newResource;
 			defaultConfig = config.getDefaultConfig();
 			overridesConfig = config.getConfigOverrides();
+			
+			//TODO Open a file dialog for a *.featuremodel file
+			if (defaultConfig == null && overridesConfig == null) {
+				throw new NullPointerException("No Configuration found!");
+				//ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("No Config found!"));
+				//errord.open();
+			}
+			
+			if (defaultConfig == null) {
+				Iterator<ConfigNode> tempIter = overridesConfig.getConfignode().iterator();
+				if (tempIter.hasNext()) {
+					Object current = tempIter.next().getOrigin();
+					
+					while (!(current instanceof FeatureDiagram)) {
+						current = editingDomain.getParent(current);
+						if(current==null) {
+							throw new NullPointerException("No FeatureDiagram found!");
+						}
+					}
+					newDiagram = (FeatureDiagram)current;
+				}
+			}
+			else {
+				Iterator<ConfigNode> tempIter = defaultConfig.getConfignode().iterator();
+				if (tempIter.hasNext()) {
+					Object current = tempIter.next().getOrigin();
+					
+					while (!(current instanceof FeatureDiagram)) {
+						current = editingDomain.getParent(current);
+						if(current==null) {
+							throw new NullPointerException("No FeatureDiagram found!");
+						}
+					}
+					newDiagram = (FeatureDiagram)current;
+				}
+			}
+			
 
-			newDiagram = (FeatureDiagram)defaultConfig.getReferencedObject();
+			if (newDiagram == null) {
+				throw new NullPointerException("No FeatureDiagram found!");
+			}
 			
 		}
 		else if (newResource instanceof FeatureConfig) {
+			//TODO kA!
 			newDiagram = (FeatureDiagram)((FeatureConfig)newResource).getReferencedObject();
 		}
 
@@ -184,7 +232,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 					treeViewer.setChecked(event.getElement(), !(event.getChecked()));
 				}
 				else {
-					Object parent = editingDomain.getParent(event.getElement());
+					Object parent = editingDomain.getParent(event.getElement());					
 					
 					//check if node is NOT the root node
 					if (parent != null && !(parent instanceof FeatureDiagram)) {
@@ -194,9 +242,11 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 						
 						//check/uncheck recursively
 						if (event.getChecked()) {
+							uncheckInModel((Feature)event.getElement(),true);
 							checkParents(event.getElement());
 						}
 						else {
+							uncheckInModel((Feature)event.getElement(),false);
 							uncheckParents(event.getElement());
 						}
 					}
@@ -208,9 +258,47 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 			}
 		};
 		
-		
 		treeViewer.addCheckStateListener(listener);
 
+	}
+	
+	//registers changes in the Resource object
+	public void uncheckInModel (Feature element, boolean state) {
+		dirtyFlag = true;
+		firePropertyChange(IEditorPart.PROP_DIRTY);
+		int hash = element.hashCode();
+		boolean found = false;
+		Iterator<ConfigNode> tempIter = overridesConfig.getConfignode().iterator();
+		
+		//search for existing ConfigNodes in the overridesConfig and register changes
+		loop: while (tempIter.hasNext()) {
+			ConfigNode next = tempIter.next(); 
+			if (next.getOrigin().hashCode() == hash) {
+				found = true;
+				if (state) {
+					next.setConfigState(ConfigState.SELECTED);
+				}
+				else {
+					next.setConfigState(ConfigState.ELIMINATED);
+				}
+				break loop;
+			}
+		}
+		
+		//if no ConfigNode exists, create new one
+		if (!(found)) {
+			featureconfigFactoryImpl factory = new featureconfigFactoryImpl();
+			ConfigNode newConfig = factory.createConfigNode();
+			newConfig.setOrigin(element);
+	
+			if (state) {
+				newConfig.setConfigState(ConfigState.SELECTED);
+			}
+			else {
+				newConfig.setConfigState(ConfigState.ELIMINATED);
+			}
+			overridesConfig.getConfignode().add(newConfig);
+		}
 	}
 	
 	public void markDefaultConfig () {
@@ -259,7 +347,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 	
 	//Unchecks recursively parent nodes, if no children nodes are checked
 	public void uncheckParents (Object current) {
-		
 		boolean checked = getAnyChecked(current);
 
 		if (!checked) {
@@ -267,6 +354,10 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 
 			if (parent != null && !(parent instanceof FeatureDiagram)) {
 				treeViewer.setChecked(parent, false);
+				
+				if (parent instanceof Feature) {
+					uncheckInModel((Feature)parent,false);
+				}
 				uncheckParents(parent);
 			}
 		}
@@ -312,6 +403,10 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		if (parent != null) {
 			if (!(treeViewer.getChecked(parent))) {
 				treeViewer.setChecked(parent, true);
+				
+				if (parent instanceof Feature) {
+					uncheckInModel((Feature)parent,true);
+				}
 				checkParents(parent);
 			}
 		}
@@ -341,12 +436,53 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 	
 	@Override
 	public boolean isDirty() {
-		return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
+		return dirtyFlag;
 	}
 	
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
-	
+		// Save only resources that have actually changed.
+		//
+		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+
+		// Do the work within an operation because this is a long running activity that modifies the workbench.
+		//
+		WorkspaceModifyOperation operation =
+			new WorkspaceModifyOperation() {
+				// This is the method that gets invoked when the operation runs.
+				//
+				@Override
+				public void execute(IProgressMonitor monitor) {
+					// Save the resources to the file system.
+					//
+					boolean first = true;
+					for (Resource resource : editingDomain.getResourceSet().getResources()) {
+						if ((first || !resource.getContents().isEmpty()) && !editingDomain.isReadOnly(resource)) {
+							try {
+								resource.save(saveOptions);
+							}
+							catch (Exception exception) {
+							}
+							first = false;
+						}
+					}
+				}
+			};
+
+		try {
+			// This runs the options, and shows progress.
+			//
+			new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
+
+			// Refresh the necessary state.
+			//
+			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
+			dirtyFlag = false;
+			firePropertyChange(IEditorPart.PROP_DIRTY);
+		}
+		catch (Exception exception) {
+		}
 	}
 
 	@Override
