@@ -19065,53 +19065,53 @@
           <edges xmi:id="_to0A8XlqEduf8pXqmhjnpw" source="_oDL1MXlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
             <children xmi:id="_to0A9HlqEduf8pXqmhjnpw" type="NameLabel">
               <children xmi:id="_to0A9nlqEduf8pXqmhjnpw" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
               </children>
               <children xmi:id="_to0A93lqEduf8pXqmhjnpw" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_to0A9XlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_to0A8nlqEduf8pXqmhjnpw" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_to0A83lqEduf8pXqmhjnpw" points="[3, -22, -34, 107]$[23, -155, -14, -26]"/>
           </edges>
           <edges xmi:id="_t-RTkXlqEduf8pXqmhjnpw" source="_p9qk4XlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
             <children xmi:id="_t-RTlHlqEduf8pXqmhjnpw" type="NameLabel">
               <children xmi:id="_t-RTlnlqEduf8pXqmhjnpw" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
               </children>
               <children xmi:id="_t-RTl3lqEduf8pXqmhjnpw" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t-RTlXlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_t-RTknlqEduf8pXqmhjnpw" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t-RTk3lqEduf8pXqmhjnpw" points="[-27, -23, 142, 106]$[-169, -155, 0, -26]"/>
           </edges>
           <edges xmi:id="_ufysQHlqEduf8pXqmhjnpw" source="_oDL1MXlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
             <children xmi:id="_ufysQ3lqEduf8pXqmhjnpw" type="NameLabel">
               <children xmi:id="_ufysRXlqEduf8pXqmhjnpw" type="Stereotype">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
               </children>
               <children xmi:id="_ufysRnlqEduf8pXqmhjnpw" type="Name">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ufysRHlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <children xmi:id="_ufysR3lqEduf8pXqmhjnpw" type="ToMultiplicityLabel">
               <children xmi:id="_ufysSXlqEduf8pXqmhjnpw" type="ToMultiplicity">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysSHlqEduf8pXqmhjnpw" y="397"/>
             </children>
             <children xmi:id="_ufysSnlqEduf8pXqmhjnpw" type="ToRoleLabel">
               <children xmi:id="_ufysTHlqEduf8pXqmhjnpw" type="ToRole">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysS3lqEduf8pXqmhjnpw" y="-397"/>
             </children>
             <children xmi:id="_ufysTXlqEduf8pXqmhjnpw" type="FromMultiplicityLabel">
@@ -19131,9 +19131,9 @@
             <children xmi:id="_ufysU3lqEduf8pXqmhjnpw" type="ToQualifierLabel">
               <children xmi:id="_ufysVXlqEduf8pXqmhjnpw" type="QualifierCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysVnlqEduf8pXqmhjnpw"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysVHlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <children xmi:id="_ufysV3lqEduf8pXqmhjnpw" type="FromQualifierLabel">
@@ -19148,7 +19148,7 @@
               <children xmi:id="_Rjlb4ZZwEdyvM-KRcbKtDQ" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Rjlb4pZwEdyvM-KRcbKtDQ"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Rjlb45ZwEdyvM-KRcbKtDQ" y="1058"/>
             </children>
             <children xmi:id="_Rjlb5JZwEdyvM-KRcbKtDQ" type="FromConstraintLabel">
@@ -19162,9 +19162,9 @@
               <eAnnotations xmi:id="_ufysXXlqEduf8pXqmhjnpw" source="ToConstraintLabel"/>
               <children xmi:id="_ufysXnlqEduf8pXqmhjnpw" visible="false" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysX3lqEduf8pXqmhjnpw"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysXHlqEduf8pXqmhjnpw" y="1058"/>
             </children>
             <children xmi:id="_ufysYHlqEduf8pXqmhjnpw" type="FromRoleLabel">
@@ -19177,7 +19177,7 @@
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysYXlqEduf8pXqmhjnpw" y="1058"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_ufysQXlqEduf8pXqmhjnpw" showStereotype="Text"/>
-            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ufysQnlqEduf8pXqmhjnpw" points="[-2248, -344, -3227, 3069]$[-3227, -344, -4206, 3069]$[-3227, -3439, -4206, -26]$[-1587, -3439, -2566, -26]"/>
           </edges>
           <edges xmi:id="_-c0wsHlqEduf8pXqmhjnpw" element="_-cq_sHlqEduf8pXqmhjnpw" source="_ROlqJTywEduB5pxz2UpKVQ" target="_d6r7MXlqEduf8pXqmhjnpw">
@@ -19612,25 +19612,25 @@
           <edges xmi:id="_9eFwBZGyEduVgYSffmI32A" source="_9d8mEJGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_9eFwCJGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_9eFwCpGyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
               </children>
               <children xmi:id="_9eFwC5GyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9eFwCZGyEduVgYSffmI32A" y="-185"/>
             </children>
             <children xmi:id="_9eFwDJGyEduVgYSffmI32A" type="ToMultiplicityLabel">
               <children xmi:id="_9eFwDpGyEduVgYSffmI32A" type="ToMultiplicity">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwDZGyEduVgYSffmI32A" x="79" y="-206"/>
             </children>
             <children xmi:id="_9eFwD5GyEduVgYSffmI32A" type="ToRoleLabel">
               <children xmi:id="_9eFwEZGyEduVgYSffmI32A" type="ToRole">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwEJGyEduVgYSffmI32A" y="-397"/>
             </children>
             <children xmi:id="_9eFwEpGyEduVgYSffmI32A" type="FromMultiplicityLabel">
@@ -19650,9 +19650,9 @@
             <children xmi:id="_9eFwGJGyEduVgYSffmI32A" type="ToQualifierLabel">
               <children xmi:id="_9eFwGpGyEduVgYSffmI32A" type="QualifierCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwG5GyEduVgYSffmI32A"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwGZGyEduVgYSffmI32A" y="-185"/>
             </children>
             <children xmi:id="_9eFwHJGyEduVgYSffmI32A" type="FromQualifierLabel">
@@ -19667,7 +19667,7 @@
               <children xmi:id="_Rjul0ZZwEdyvM-KRcbKtDQ" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Rjul0pZwEdyvM-KRcbKtDQ"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Rjul05ZwEdyvM-KRcbKtDQ" y="1058"/>
             </children>
             <children xmi:id="_Rjul1JZwEdyvM-KRcbKtDQ" type="FromConstraintLabel">
@@ -19681,9 +19681,9 @@
               <eAnnotations xmi:id="_9eFwIpGyEduVgYSffmI32A" source="ToConstraintLabel"/>
               <children xmi:id="_9eFwI5GyEduVgYSffmI32A" visible="false" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwJJGyEduVgYSffmI32A"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwIZGyEduVgYSffmI32A" y="1058"/>
             </children>
             <children xmi:id="_9eFwJZGyEduVgYSffmI32A" type="FromRoleLabel">
@@ -19696,35 +19696,35 @@
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwJpGyEduVgYSffmI32A" y="1058"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9eFwBpGyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
+            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9eFwB5GyEduVgYSffmI32A" points="[-317, -582, -3360, 1403]$[-317, -2117, -3360, -132]$[450, -2117, -2593, -132]"/>
           </edges>
           <edges xmi:id="_9eFwKpGyEduVgYSffmI32A" source="_9d8mEJGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_9eFwLZGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_9eFwL5GyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
               </children>
               <children xmi:id="_9eFwMJGyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9eFwLpGyEduVgYSffmI32A" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9eFwK5GyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9eFwLJGyEduVgYSffmI32A" points="[979, -635, -3334, 2011]$[3149, -1958, -1164, 688]"/>
           </edges>
           <edges xmi:id="_-SZh35GyEduVgYSffmI32A" source="_-SZh0JGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_-SZh4pGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_-SZh5JGyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
               </children>
               <children xmi:id="_-SZh5ZGyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-SZh45GyEduVgYSffmI32A" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_-SZh4JGyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-SZh4ZGyEduVgYSffmI32A" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
           </edges>
         </contents>
@@ -20409,6 +20409,14 @@
         </contents>
       </eAnnotations>
       <packagedElement xmi:type="uml:Class" xmi:id="_3HyqgPF7EdqBtpnwLNXcbw" name="SpecifiedQoSAnnotation" isAbstract="true">
+        <ownedComment xmi:id="_ZpsroIAFEd2DHtWYu7Q_tA" annotatedElement="_3HyqgPF7EdqBtpnwLNXcbw">
+          <body>SpecifiedQoSAnnotations (as an abstract class) associate specified (see QoSAnnotation) QoS properties to services of components. A service is thereby determined by a Signature and a Role (i.e., an interface bound to a component). Whatever concrete QoS characteristic is specified, it has to be given in terms of a PCMRandomVariable which may depend on component or input parameters of the service.&#xD;
+&#xD;
+Notes:&#xD;
+- Is it correct that the PCMRandomvariable can depend on parameters?&#xD;
+- How is the relation of the specified QoS to the input parameters established?&#xD;
+</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_JFQ8sfF8EdqBtpnwLNXcbw" name="signature_SpecifiedTimeConsumption" type="_hh0OUJJJEdqSSImFLKDkSg" association="_JFQ8sPF8EdqBtpnwLNXcbw"/>
         <ownedAttribute xmi:id="_fIC68XMvEduqAZ6idiaTjw" name="role_SpecifiedExecutionTime" type="_9CubEJJIEdqSSImFLKDkSg" association="_fIC68HMvEduqAZ6idiaTjw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fIC69HMvEduqAZ6idiaTjw" value="1"/>
@@ -20420,6 +20428,12 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_yeKmoHMlEduqAZ6idiaTjw" name="QoSAnnotations">
+        <ownedComment xmi:id="_XG-QMIAFEd2DHtWYu7Q_tA" annotatedElement="_yeKmoHMlEduqAZ6idiaTjw">
+          <body>QoSAnnotations allow software architects and performance analysts to annotate Quality of Service (QoS) attributes to services (i.e., signatures of an interface). It is important to note that these annotations are specified and not derived. Usually the PCM uses the internal specification of a components behaviour (i.e., its RD-SEFFs) to determine its QoS. However, in a mixed top down and bottom up approach as favoured by the PCM, software architects have to combine components whose internals are not yet known with fully specified components. QoSAnnotations provide a first perforamnce (or reliability) abstraction of the services offered by a component using the SpecifiedQoSAnnotation. They furthermore define the output parameters of the services without describing its internal behviour.&#xD;
+&#xD;
+Notes:&#xD;
+- Should the association of QoSAnnotations to services not be in the class QoSAnnotation instead of SpecifiedQoSAnnotation and SpecifiedOutputParameterAbstraction separately?</body>
+        </ownedComment>
         <generalization xmi:id="_yFxTwHMwEduqAZ6idiaTjw" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_USakQXMmEduqAZ6idiaTjw" name="specifiedExecutionTimes_QoSAnnotations" type="_3HyqgPF7EdqBtpnwLNXcbw" aggregation="composite" association="_USakQHMmEduqAZ6idiaTjw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_USakRHMmEduqAZ6idiaTjw" value="*"/>
@@ -20434,6 +20448,14 @@
         <ownedEnd xmi:id="_USakQnMmEduqAZ6idiaTjw" visibility="private" type="_yeKmoHMlEduqAZ6idiaTjw" association="_USakQHMmEduqAZ6idiaTjw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_81sL8BmpEdyaJvvdhGgDYg" name="SpecifiedOutputParameterAbstraction">
+        <ownedComment xmi:id="_cFuCIIAFEd2DHtWYu7Q_tA" annotatedElement="_81sL8BmpEdyaJvvdhGgDYg">
+          <body>To specify the output parameters of a service (without associated RD-SEFF), software architects can associate a SpecifiedOutputParameterAbstraction to services (signature + role). SpecifiedOutputParameterAbstractions assign a single VariableUsage to that service that determines the output parameters in depency of its input parameters. Software architects can use stochastic expressions (package StoEx) to define the dependencies.&#xD;
+&#xD;
+Note:&#xD;
+- Is it actually possible to define the output in dependency on the input parameters?&#xD;
+&#xD;
+</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_dllwoRmqEdyaJvvdhGgDYg" name="signature_SpecifiedOutputParameterAbstraction" type="_hh0OUJJJEdqSSImFLKDkSg" association="_dllwoBmqEdyaJvvdhGgDYg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dllwpBmqEdyaJvvdhGgDYg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dllwoxmqEdyaJvvdhGgDYg" value="1"/>
@@ -20613,9 +20635,25 @@
           </contents>
         </eAnnotations>
         <packagedElement xmi:type="uml:Class" xmi:id="__sHqIHMvEduqAZ6idiaTjw" name="SystemSpecifiedExecutionTime">
+          <ownedComment xmi:id="_r-SdUIAFEd2DHtWYu7Q_tA" annotatedElement="__sHqIHMvEduqAZ6idiaTjw">
+            <body>The SystemSpecifiedExecutionTime allows software architect and performance analysts to specify the response time (distribution) of services called at the system boundaries. This allows abstracting from the system externals and restricts the focus to the software architecture under consideration.&#xD;
+&#xD;
+Note:&#xD;
+- That's the starting point for Performance-Kennlinien I guess...</body>
+          </ownedComment>
           <generalization xmi:id="_CsMv8HMwEduqAZ6idiaTjw" general="_3HyqgPF7EdqBtpnwLNXcbw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_DYvs4HMwEduqAZ6idiaTjw" name="ComponentSpecifiedExecutionTime">
+          <ownedComment xmi:id="_nK3xoIAFEd2DHtWYu7Q_tA" annotatedElement="_DYvs4HMwEduqAZ6idiaTjw">
+            <body>The ComponentSpecifiedExecutionTime allows software architects (and performance analysts) to specify the response time of a service (signature + role) of a component. However, the response time is not given for the considered component in general, but the component in a specific context (i.e., in a specific hardware environment with specific external components connected) determined by the AssemblyContext. This allows software architects to include Provided- and CompleteComponentTypes into their software architecuture that still miss a description of their internals. Even though the internals are missing, performance predictions are still possible.&#xD;
+&#xD;
+&#xD;
+Note:&#xD;
+- Is it actually the response time or total service demand specified here? -> I guess it should be response time. Otherwise, we would require also an assignment to resources.&#xD;
+- I guess it's necessary to replace the association  to the AssemblyContext by an association to an AllocationContext, since the Response time is heavily determined by the underlying hardware...&#xD;
+&#xD;
+</body>
+          </ownedComment>
           <generalization xmi:id="_F19WMHMwEduqAZ6idiaTjw" general="_3HyqgPF7EdqBtpnwLNXcbw"/>
           <ownedAttribute xmi:id="_JVxsAXMwEduqAZ6idiaTjw" name="assemblyContext_ComponentSpecifiedExecutionTime" type="_EfLuYOJSEdqxcra4qpeplw" association="_JVxsAHMwEduqAZ6idiaTjw">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JVxsBHMwEduqAZ6idiaTjw" value="1"/>
@@ -20690,6 +20728,11 @@
           </contents>
         </eAnnotations>
         <packagedElement xmi:type="uml:Class" xmi:id="_pS3bEHMtEduqAZ6idiaTjw" name="SpecifiedFailureProbability">
+          <ownedComment xmi:id="_ii7WIIAFEd2DHtWYu7Q_tA" annotatedElement="_pS3bEHMtEduqAZ6idiaTjw">
+            <body>A SpecifiedFailureProbability of a service resembles its &quot;Probability of Failure on Demand&quot; (POFOD). Whenever the service is called, this values states the probability that it returns successfully. For reliability prediction, the PCMRandomVariable specified in its superclass SpecifiedQoSAnnotation must evaluate to a real number between 0 and 1.&#xD;
+&#xD;
+</body>
+          </ownedComment>
           <generalization xmi:id="_hN554L3nEdyGNbIQ-5Phlg" general="_3HyqgPF7EdqBtpnwLNXcbw"/>
         </packagedElement>
       </packagedElement>
@@ -20819,4 +20862,10 @@
   <Default:Documentation xmi:id="_-vOKsH5uEd2w8a0eK9hypA" base_Comment="_-vKgUH5uEd2w8a0eK9hypA"/>
   <Default:Documentation xmi:id="_BtvKQH5vEd2w8a0eK9hypA" base_Comment="_Btq40H5vEd2w8a0eK9hypA"/>
   <Default:Documentation xmi:id="_OQJh8H5vEd2w8a0eK9hypA" base_Comment="_OQF3kH5vEd2w8a0eK9hypA"/>
+  <Default:Documentation xmi:id="_XOueAIAFEd2DHtWYu7Q_tA" base_Comment="_XG-QMIAFEd2DHtWYu7Q_tA"/>
+  <Default:Documentation xmi:id="_Zp_mkIAFEd2DHtWYu7Q_tA" base_Comment="_ZpsroIAFEd2DHtWYu7Q_tA"/>
+  <Default:Documentation xmi:id="_cF3MEIAFEd2DHtWYu7Q_tA" base_Comment="_cFuCIIAFEd2DHtWYu7Q_tA"/>
+  <Default:Documentation xmi:id="_ijFHIIAFEd2DHtWYu7Q_tA" base_Comment="_ii7WIIAFEd2DHtWYu7Q_tA"/>
+  <Default:Documentation xmi:id="_nK3xoYAFEd2DHtWYu7Q_tA" base_Comment="_nK3xoIAFEd2DHtWYu7Q_tA"/>
+  <Default:Documentation xmi:id="_r-bnQIAFEd2DHtWYu7Q_tA" base_Comment="_r-SdUIAFEd2DHtWYu7Q_tA"/>
 </xmi:XMI>
