@@ -136,24 +136,20 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 		((Adapter)getDecoratedItemProvider()).setTarget(newTarget);
 	}
 
-	@Override
 	public String getCreateChildDescription(Object owner, Object feature,
 			Object child, Collection<?> selection) {
 		return ((CreateChildCommand.Helper)getDecoratedItemProvider()).getCreateChildDescription(owner, feature, child, selection);
 	}
 
-	@Override
 	public Object getCreateChildImage(Object owner, Object feature,
 			Object child, Collection<?> selection) {
 		return ((CreateChildCommand.Helper)getDecoratedItemProvider()).getCreateChildImage(owner, feature, child, selection);
 	}
 
-	@Override
 	public Collection<?> getCreateChildResult(Object child) {
 		return ((CreateChildCommand.Helper)getDecoratedItemProvider()).getCreateChildResult(child);
 	}
 
-	@Override
 	public String getCreateChildText(Object owner, Object feature,
 			Object child, Collection<?> selection) {
 		if (selection.size() == 1) {
@@ -194,7 +190,6 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 		return originalName;
 	}
 
-	@Override
 	public String getCreateChildToolTipText(Object owner, Object feature,
 			Object child, Collection<?> selection) {
 		return ((CreateChildCommand.Helper)getDecoratedItemProvider()).getCreateChildToolTipText(owner, feature, child, selection);
