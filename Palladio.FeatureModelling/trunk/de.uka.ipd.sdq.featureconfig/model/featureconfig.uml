@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+  <uml:Model xmi:id="_NuQo-YDTEd2KB7FI8ZK1fQ" name="FeatureConfig">
+    <packageImport xmi:id="_NuQo-oDTEd2KB7FI8ZK1fQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NuQo-4DTEd2KB7FI8ZK1fQ" name="ConfigNode">
+      <ownedRule xmi:id="_NuQo_IDTEd2KB7FI8ZK1fQ" name="ConfigCardinalityInvalid" constrainedElement="_NuQo-4DTEd2KB7FI8ZK1fQ">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_NuQo_YDTEd2KB7FI8ZK1fQ">
+          <language>OCL</language>
+          <body>let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() &#xD;&#xA;in &#xD;&#xA;&#x9; if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then&#xD;&#xA;&#x9; &#x9;childSelectedCount >= self.origin.min and (childSelectedCount &lt;= self.origin.max or self.origin.max = -1)&#xD;&#xA;&#x9; else&#xD;&#xA;&#x9; &#x9;self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)&#xD;&#xA;&#x9; endif</body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:id="_NuQo_oDTEd2KB7FI8ZK1fQ" name="origin" visibility="private" association="_NuQpAYDTEd2KB7FI8ZK1fQ">
+        <type xmi:type="uml:Class" href="FeatureModel.uml#_NuZ4ZYDTEd2KB7FI8ZK1fQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NuQo_4DTEd2KB7FI8ZK1fQ" name="configState" visibility="private" type="_NuQpA4DTEd2KB7FI8ZK1fQ">
+        <defaultValue xmi:type="uml:InstanceValue" xmi:id="_NuQpAIDTEd2KB7FI8ZK1fQ" name="UNSET" type="_NuQpA4DTEd2KB7FI8ZK1fQ" instance="_NuQpBoDTEd2KB7FI8ZK1fQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NuQpAYDTEd2KB7FI8ZK1fQ" memberEnd="_NuQo_oDTEd2KB7FI8ZK1fQ _NuQpAoDTEd2KB7FI8ZK1fQ">
+      <ownedEnd xmi:id="_NuQpAoDTEd2KB7FI8ZK1fQ" name="node" visibility="private" type="_NuQo-4DTEd2KB7FI8ZK1fQ" association="_NuQpAYDTEd2KB7FI8ZK1fQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_NuQpA4DTEd2KB7FI8ZK1fQ" name="ConfigState">
+      <ownedLiteral xmi:id="_NuQpBIDTEd2KB7FI8ZK1fQ" name="SELECTED"/>
+      <ownedLiteral xmi:id="_NuQpBYDTEd2KB7FI8ZK1fQ" name="ELIMINATED"/>
+      <ownedLiteral xmi:id="_NuQpBoDTEd2KB7FI8ZK1fQ" name="DEFAULT">
+        <ownedComment xmi:id="_NuQpB4DTEd2KB7FI8ZK1fQ" annotatedElement="_NuQpBoDTEd2KB7FI8ZK1fQ">
+          <body>use value from deaultConfig&#xD;
+aka NULL, not set, do not override</body>
+        </ownedComment>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NuQpCIDTEd2KB7FI8ZK1fQ" name="FeatureConfig">
+      <ownedRule xmi:id="_NuQpCYDTEd2KB7FI8ZK1fQ" name="RootIsFeatureModel" constrainedElement="_NuQpCIDTEd2KB7FI8ZK1fQ">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_NuQpCoDTEd2KB7FI8ZK1fQ">
+          <language>OCL</language>
+          <body>self.origin.oclIsTypeOf(featuremodel::FeatureDiagram)</body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:id="_NuQpC4DTEd2KB7FI8ZK1fQ" name="referencedObject" visibility="public" association="_NuQpEYDTEd2KB7FI8ZK1fQ">
+        <type xmi:type="uml:Class" href="Ecore.uml#_NuZ2SIDTEd2KB7FI8ZK1fQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NuQpDIDTEd2KB7FI8ZK1fQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NuQpDYDTEd2KB7FI8ZK1fQ"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NuQpDoDTEd2KB7FI8ZK1fQ" name="confignode" visibility="private" type="_NuQo-4DTEd2KB7FI8ZK1fQ" aggregation="composite" association="_NuQpH4DTEd2KB7FI8ZK1fQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NuQpD4DTEd2KB7FI8ZK1fQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NuQpEIDTEd2KB7FI8ZK1fQ"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NuQpEYDTEd2KB7FI8ZK1fQ" memberEnd="_NuQpC4DTEd2KB7FI8ZK1fQ _NuQpEoDTEd2KB7FI8ZK1fQ">
+      <ownedEnd xmi:id="_NuQpEoDTEd2KB7FI8ZK1fQ" name="featureconfig" visibility="private" type="_NuQpCIDTEd2KB7FI8ZK1fQ" association="_NuQpEYDTEd2KB7FI8ZK1fQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NuQpE4DTEd2KB7FI8ZK1fQ" name="Configuration">
+      <ownedAttribute xmi:id="_NuQpFIDTEd2KB7FI8ZK1fQ" name="defaultConfig" visibility="public" type="_NuQpCIDTEd2KB7FI8ZK1fQ" aggregation="composite" association="_NuQpG4DTEd2KB7FI8ZK1fQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NuQpFYDTEd2KB7FI8ZK1fQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NuQpFoDTEd2KB7FI8ZK1fQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NuQpF4DTEd2KB7FI8ZK1fQ" name="configOverrides" visibility="public" type="_NuQpCIDTEd2KB7FI8ZK1fQ" aggregation="composite" association="_NuQpHYDTEd2KB7FI8ZK1fQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NuQpGIDTEd2KB7FI8ZK1fQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NuQpGYDTEd2KB7FI8ZK1fQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NuQpGoDTEd2KB7FI8ZK1fQ" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NuQpG4DTEd2KB7FI8ZK1fQ" memberEnd="_NuQpFIDTEd2KB7FI8ZK1fQ _NuQpHIDTEd2KB7FI8ZK1fQ">
+      <ownedEnd xmi:id="_NuQpHIDTEd2KB7FI8ZK1fQ" name="" visibility="private" type="_NuQpE4DTEd2KB7FI8ZK1fQ" association="_NuQpG4DTEd2KB7FI8ZK1fQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NuQpHYDTEd2KB7FI8ZK1fQ" memberEnd="_NuQpF4DTEd2KB7FI8ZK1fQ _NuQpHoDTEd2KB7FI8ZK1fQ">
+      <ownedEnd xmi:id="_NuQpHoDTEd2KB7FI8ZK1fQ" name="" visibility="private" type="_NuQpE4DTEd2KB7FI8ZK1fQ" association="_NuQpHYDTEd2KB7FI8ZK1fQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NuQpH4DTEd2KB7FI8ZK1fQ" memberEnd="_NuQpDoDTEd2KB7FI8ZK1fQ _NuQpIIDTEd2KB7FI8ZK1fQ">
+      <ownedEnd xmi:id="_NuQpIIDTEd2KB7FI8ZK1fQ" name="" visibility="private" type="_NuQpCIDTEd2KB7FI8ZK1fQ" association="_NuQpH4DTEd2KB7FI8ZK1fQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NuQpIYDTEd2KB7FI8ZK1fQ" name="GroupSelectionState">
+      <ownedAttribute xmi:id="_NuQpIoDTEd2KB7FI8ZK1fQ" name="featuregroup" visibility="public" association="_NuQpKIDTEd2KB7FI8ZK1fQ">
+        <type xmi:type="uml:Class" href="FeatureModel.uml#_NuZ4boDTEd2KB7FI8ZK1fQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NuQpI4DTEd2KB7FI8ZK1fQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NuQpJIDTEd2KB7FI8ZK1fQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NuQpJYDTEd2KB7FI8ZK1fQ" name="configStatus" visibility="private" type="_NuQpA4DTEd2KB7FI8ZK1fQ" isUnique="false" isReadOnly="true" isDerived="true">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NuQpJoDTEd2KB7FI8ZK1fQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NuQpJ4DTEd2KB7FI8ZK1fQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NuQpKIDTEd2KB7FI8ZK1fQ" memberEnd="_NuQpIoDTEd2KB7FI8ZK1fQ _NuQpKYDTEd2KB7FI8ZK1fQ">
+      <ownedEnd xmi:id="_NuQpKYDTEd2KB7FI8ZK1fQ" name="" visibility="private" type="_NuQpIYDTEd2KB7FI8ZK1fQ" association="_NuQpKIDTEd2KB7FI8ZK1fQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NuQpKoDTEd2KB7FI8ZK1fQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NuQpK4DTEd2KB7FI8ZK1fQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:id="_NuQpLIDTEd2KB7FI8ZK1fQ">
+      <eAnnotations xmi:id="_NuQpLYDTEd2KB7FI8ZK1fQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_NuQpLoDTEd2KB7FI8ZK1fQ">
+      <eAnnotations xmi:id="_NuQpL4DTEd2KB7FI8ZK1fQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_NuQpMIDTEd2KB7FI8ZK1fQ" base_Package="_NuQo-YDTEd2KB7FI8ZK1fQ" packageName="featureconfig" nsPrefix="featureconfig" nsURI="http://sdq.ipd.uka.de/FeatureConfig" basePackage="de.uka.ipd.sdq" prefix="featureconfig"/>
+  <Ecore:EAttribute xmi:id="_NuQpMYDTEd2KB7FI8ZK1fQ" isTransient="true" isVolatile="true" base_Property="_NuQpJYDTEd2KB7FI8ZK1fQ"/>
+</xmi:XMI>
