@@ -10,6 +10,7 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import de.uka.ipd.sdq.featuremodel.provider.FeaturemodelEditPlugin;
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
@@ -45,6 +46,7 @@ public final class FeatureconfigEditorPlugin extends EMFPlugin {
 	public FeatureconfigEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				EcoreEditPlugin.INSTANCE,
 				FeaturemodelEditPlugin.INSTANCE,
 				IdentifierEditPlugin.INSTANCE,
 			});

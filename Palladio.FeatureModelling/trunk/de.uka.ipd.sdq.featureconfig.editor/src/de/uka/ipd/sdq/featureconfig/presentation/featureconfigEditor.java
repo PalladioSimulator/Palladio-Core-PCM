@@ -125,6 +125,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 import de.uka.ipd.sdq.featureconfig.provider.featureconfigItemProviderAdapterFactory;
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 
 
 /**
@@ -658,6 +659,7 @@ public class featureconfigEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new featureconfigItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new featuremodelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
