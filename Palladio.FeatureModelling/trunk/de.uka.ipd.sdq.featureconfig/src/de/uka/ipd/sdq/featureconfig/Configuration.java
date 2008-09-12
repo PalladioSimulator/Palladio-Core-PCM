@@ -65,7 +65,7 @@ public interface Configuration extends EObject {
 	 * @return the value of the '<em>Config Overrides</em>' containment reference.
 	 * @see #setConfigOverrides(FeatureConfig)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getConfiguration_ConfigOverrides()
-	 * @model containment="true" ordered="false"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	FeatureConfig getConfigOverrides();

@@ -36,7 +36,7 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	 */
 	public static featureconfigFactory init() {
 		try {
-			featureconfigFactory thefeatureconfigFactory = (featureconfigFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureConfig/2.0"); 
+			featureconfigFactory thefeatureconfigFactory = (featureconfigFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureConfig"); 
 			if (thefeatureconfigFactory != null) {
 				return thefeatureconfigFactory;
 			}
@@ -68,6 +68,7 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 			case featureconfigPackage.CONFIG_NODE: return createConfigNode();
 			case featureconfigPackage.FEATURE_CONFIG: return createFeatureConfig();
 			case featureconfigPackage.CONFIGURATION: return createConfiguration();
+			case featureconfigPackage.GROUP_SELECTION_STATE: return createGroupSelectionState();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -131,6 +132,16 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public Configuration createConfiguration() {
 		ConfigurationImpl configuration = new ConfigurationImpl();
 		return configuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GroupSelectionState createGroupSelectionState() {
+		GroupSelectionStateImpl groupSelectionState = new GroupSelectionStateImpl();
+		return groupSelectionState;
 	}
 
 	/**
