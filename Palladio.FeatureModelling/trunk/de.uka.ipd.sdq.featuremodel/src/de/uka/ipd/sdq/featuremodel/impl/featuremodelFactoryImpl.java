@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
+import de.uka.ipd.sdq.featuremodel.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -45,7 +46,7 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	 */
 	public static featuremodelFactory init() {
 		try {
-			featuremodelFactory thefeaturemodelFactory = (featuremodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureModel/2.0"); 
+			featuremodelFactory thefeaturemodelFactory = (featuremodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureModel"); 
 			if (thefeaturemodelFactory != null) {
 				return thefeaturemodelFactory;
 			}

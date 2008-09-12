@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featuremodel.util;
 
+import de.uka.ipd.sdq.featuremodel.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;

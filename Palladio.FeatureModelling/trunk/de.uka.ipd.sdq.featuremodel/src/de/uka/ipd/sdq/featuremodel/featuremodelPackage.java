@@ -51,7 +51,7 @@ public interface featuremodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/FeatureModel/2.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/FeatureModel";
 
 	/**
 	 * The package namespace name.

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.featuremodel.util;
 
+import de.uka.ipd.sdq.featuremodel.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
