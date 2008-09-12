@@ -144,6 +144,29 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.GroupSelectionState} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GroupSelectionStateItemProvider groupSelectionStateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.GroupSelectionState}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGroupSelectionStateAdapter() {
+		if (groupSelectionStateItemProvider == null) {
+			groupSelectionStateItemProvider = new GroupSelectionStateItemProvider(this);
+		}
+
+		return groupSelectionStateItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,6 +268,7 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 		if (configNodeItemProvider != null) configNodeItemProvider.dispose();
 		if (featureConfigItemProvider != null) featureConfigItemProvider.dispose();
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
+		if (groupSelectionStateItemProvider != null) groupSelectionStateItemProvider.dispose();
 	}
 
 }
