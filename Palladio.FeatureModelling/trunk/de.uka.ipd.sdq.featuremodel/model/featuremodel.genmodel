@@ -22,7 +22,7 @@
     <details key="OPERATION_BODIES" value="IGNORE"/>
     <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
   </genAnnotations>
-  <foreignModel>file:/C:/code/rsa-export/FeatureModel.uml</foreignModel>
+  <foreignModel>file://I43pc14/halde/klaus/tmp/featuremodel.uml</foreignModel>
   <genPackages prefix="featuremodel" basePackage="de.uka.ipd.sdq" resource="XML" disposableProviderFactory="true"
       ecorePackage="featuremodel.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="featuremodel.ecore#//AttributeTypes">
