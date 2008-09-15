@@ -94,41 +94,48 @@ public class ConfigFeatureGroupImpl extends EObjectImpl implements ConfigFeature
 	public ConfigState getConfigStatus() {
 
 		ConfigState featureGroupState = ConfigState.DEFAULT;
+		FeatureGroup fg = null;
 		
-		FeatureGroup fg = (FeatureGroup)this.origin;				
-		Iterator<Feature> childrenIterator = fg.getChildren().iterator();
-
-		while(childrenIterator.hasNext()) {
-			Feature currentFeature = childrenIterator.next();			
-			// collection of all incoming references:
-			Collection<Setting> settings = EcoreUtil.UsageCrossReferencer.find (
-					currentFeature, currentFeature.eResource().getResourceSet());
-			
-			ConfigState defaultState = null;
-			ConfigState overridesState = null;
-			
-			// exactly one or two references should exist only  
-			for (Iterator<Setting> iter = settings.iterator(); iter.hasNext(); ){
-				EStructuralFeature.Setting setting = iter.next();
+		if(this.origin instanceof FeatureGroup) {
+			fg = (FeatureGroup)this.origin;
+		} else {
+			throw new RuntimeException("ConfigFeatureGroup must reference a FeatureGroup as origin.");
+		}
+		if(fg != null) {
+			Iterator<Feature> childrenIterator = fg.getChildren().iterator();
+	
+			while(childrenIterator.hasNext()) {
+				Feature currentFeature = childrenIterator.next();			
+				// collection of all incoming references:
+				Collection<Setting> settings = EcoreUtil.UsageCrossReferencer.find (
+						currentFeature, currentFeature.eResource().getResourceSet());
 				
-				if (setting.getEStructuralFeature() ==
-					featureconfigPackage.Literals.CONFIG_NODE) {
-					ConfigNode configNode = (ConfigNode)setting.getEObject();					
-
-					// depending on config type; save state in different variable
-					if(isConfigOverridesNode(configNode)) {
-						overridesState = configNode.getConfigState(); 
-					} else {
-						defaultState = configNode.getConfigState();
+				ConfigState defaultState = null;
+				ConfigState overridesState = null;
+				
+				// exactly one or two references should exist only  
+				for (Iterator<Setting> iter = settings.iterator(); iter.hasNext(); ){
+					EStructuralFeature.Setting setting = iter.next();
+					
+					if (setting.getEStructuralFeature() ==
+						featureconfigPackage.Literals.CONFIG_NODE) {
+						ConfigNode configNode = (ConfigNode)setting.getEObject();					
+	
+						// depending on config type; save state in different variable
+						if(isConfigOverridesNode(configNode)) {
+							overridesState = configNode.getConfigState(); 
+						} else {
+							defaultState = configNode.getConfigState();
+						}
 					}
+				}	
+				featureGroupState = determineFeatureGroupState(defaultState, overridesState);
+				// break loop if single node is selected
+				if(featureGroupState.compareTo(ConfigState.SELECTED) == 0) {
+					return featureGroupState;
 				}
 			}	
-			featureGroupState = determineFeatureGroupState(defaultState, overridesState);
-			// break loop if single node is selected
-			if(featureGroupState.compareTo(ConfigState.SELECTED) == 0) {
-				return featureGroupState;
-			}
-		}		
+		}
 		return featureGroupState;
 	}
 
