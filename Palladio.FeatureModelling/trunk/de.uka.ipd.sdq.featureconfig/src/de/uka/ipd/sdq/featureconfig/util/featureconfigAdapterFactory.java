@@ -82,6 +82,10 @@ public class featureconfigAdapterFactory extends AdapterFactoryImpl {
 				return createFeatureConfigAdapter();
 			}
 			@Override
+			public Adapter caseConfigFeatureGroup(ConfigFeatureGroup object) {
+				return createConfigFeatureGroupAdapter();
+			}
+			@Override
 			public Adapter caseConfiguration(Configuration object) {
 				return createConfigurationAdapter();
 			}
@@ -130,6 +134,20 @@ public class featureconfigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFeatureConfigAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup <em>Config Feature Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup
+	 * @generated
+	 */
+	public Adapter createConfigFeatureGroupAdapter() {
 		return null;
 	}
 

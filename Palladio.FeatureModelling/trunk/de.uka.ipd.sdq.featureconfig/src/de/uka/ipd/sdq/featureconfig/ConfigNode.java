@@ -18,6 +18,10 @@ import de.uka.ipd.sdq.featuremodel.Feature;
  * A representation of the model object '<em><b>Config Node</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Holds ConfigState of a Feature. For a Feature it holds the actual value.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -67,6 +71,9 @@ public interface ConfigNode extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * actual state for annotated Features; for FeatureGroups it is a derived attribute
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Config State</em>' attribute.
 	 * @see de.uka.ipd.sdq.featureconfig.ConfigState
 	 * @see #setConfigState(ConfigState)

@@ -111,6 +111,8 @@ public class featureconfigValidator extends EObjectValidator {
 				return validateConfigNode((ConfigNode)value, diagnostics, context);
 			case featureconfigPackage.FEATURE_CONFIG:
 				return validateFeatureConfig((FeatureConfig)value, diagnostics, context);
+			case featureconfigPackage.CONFIG_FEATURE_GROUP:
+				return validateConfigFeatureGroup((ConfigFeatureGroup)value, diagnostics, context);
 			case featureconfigPackage.CONFIGURATION:
 				return validateConfiguration((Configuration)value, diagnostics, context);
 			case featureconfigPackage.CONFIG_STATE:
@@ -172,6 +174,15 @@ public class featureconfigValidator extends EObjectValidator {
 	 */
 	public boolean validateFeatureConfig_RootIsFeatureModel(FeatureConfig featureConfig, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return featureConfig.RootIsFeatureModel(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConfigFeatureGroup(ConfigFeatureGroup configFeatureGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(configFeatureGroup, diagnostics, context);
 	}
 
 	/**

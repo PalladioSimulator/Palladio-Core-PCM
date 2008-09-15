@@ -126,13 +126,59 @@ public interface featureconfigPackage extends EPackage {
 	int FEATURE_CONFIG__CONFIGNODE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Configfeaturegroup</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONFIG__CONFIGFEATUREGROUP = 2;
+
+	/**
 	 * The number of structural features of the '<em>Feature Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_CONFIG_FEATURE_COUNT = 2;
+	int FEATURE_CONFIG_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigFeatureGroupImpl <em>Config Feature Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featureconfig.impl.ConfigFeatureGroupImpl
+	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getConfigFeatureGroup()
+	 * @generated
+	 */
+	int CONFIG_FEATURE_GROUP = 2;
+
+	/**
+	 * The feature id for the '<em><b>Config Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_FEATURE_GROUP__CONFIG_STATUS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Origin</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_FEATURE_GROUP__ORIGIN = 1;
+
+	/**
+	 * The number of structural features of the '<em>Config Feature Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_FEATURE_GROUP_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -142,7 +188,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getConfiguration()
 	 * @generated
 	 */
-	int CONFIGURATION = 2;
+	int CONFIGURATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Default Config</b></em>' containment reference.
@@ -188,7 +234,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getConfigState()
 	 * @generated
 	 */
-	int CONFIG_STATE = 3;
+	int CONFIG_STATE = 4;
 
 
 	/**
@@ -254,6 +300,49 @@ public interface featureconfigPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFeatureConfig_Confignode();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigfeaturegroup <em>Configfeaturegroup</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Configfeaturegroup</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigfeaturegroup()
+	 * @see #getFeatureConfig()
+	 * @generated
+	 */
+	EReference getFeatureConfig_Configfeaturegroup();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup <em>Config Feature Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Config Feature Group</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup
+	 * @generated
+	 */
+	EClass getConfigFeatureGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup#getConfigStatus <em>Config Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Status</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup#getConfigStatus()
+	 * @see #getConfigFeatureGroup()
+	 * @generated
+	 */
+	EAttribute getConfigFeatureGroup_ConfigStatus();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup#getOrigin <em>Origin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Origin</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup#getOrigin()
+	 * @see #getConfigFeatureGroup()
+	 * @generated
+	 */
+	EReference getConfigFeatureGroup_Origin();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.Configuration <em>Configuration</em>}'.
@@ -381,6 +470,40 @@ public interface featureconfigPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FEATURE_CONFIG__CONFIGNODE = eINSTANCE.getFeatureConfig_Confignode();
+
+		/**
+		 * The meta object literal for the '<em><b>Configfeaturegroup</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE_CONFIG__CONFIGFEATUREGROUP = eINSTANCE.getFeatureConfig_Configfeaturegroup();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigFeatureGroupImpl <em>Config Feature Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featureconfig.impl.ConfigFeatureGroupImpl
+		 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getConfigFeatureGroup()
+		 * @generated
+		 */
+		EClass CONFIG_FEATURE_GROUP = eINSTANCE.getConfigFeatureGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_FEATURE_GROUP__CONFIG_STATUS = eINSTANCE.getConfigFeatureGroup_ConfigStatus();
+
+		/**
+		 * The meta object literal for the '<em><b>Origin</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFIG_FEATURE_GROUP__ORIGIN = eINSTANCE.getConfigFeatureGroup_Origin();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.ConfigurationImpl <em>Configuration</em>}' class.

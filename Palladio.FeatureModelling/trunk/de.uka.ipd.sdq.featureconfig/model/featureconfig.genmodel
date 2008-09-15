@@ -42,10 +42,15 @@
     <genClasses ecoreClass="featureconfig.ecore#//FeatureConfig">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference featureconfig.ecore#//FeatureConfig/referencedObject"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference featureconfig.ecore#//FeatureConfig/confignode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference featureconfig.ecore#//FeatureConfig/configfeaturegroup"/>
       <genOperations ecoreOperation="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel">
         <genParameters ecoreParameter="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel/diagnostics"/>
         <genParameters ecoreParameter="featureconfig.ecore#//FeatureConfig/RootIsFeatureModel/context"/>
       </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="featureconfig.ecore#//ConfigFeatureGroup">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute featureconfig.ecore#//ConfigFeatureGroup/configStatus"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference featureconfig.ecore#//ConfigFeatureGroup/origin"/>
     </genClasses>
     <genClasses ecoreClass="featureconfig.ecore#//Configuration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference featureconfig.ecore#//Configuration/defaultConfig"/>

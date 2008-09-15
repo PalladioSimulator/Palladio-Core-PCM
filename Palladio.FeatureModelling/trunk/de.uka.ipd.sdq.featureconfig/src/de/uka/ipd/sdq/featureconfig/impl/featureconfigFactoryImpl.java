@@ -67,6 +67,7 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 		switch (eClass.getClassifierID()) {
 			case featureconfigPackage.CONFIG_NODE: return createConfigNode();
 			case featureconfigPackage.FEATURE_CONFIG: return createFeatureConfig();
+			case featureconfigPackage.CONFIG_FEATURE_GROUP: return createConfigFeatureGroup();
 			case featureconfigPackage.CONFIGURATION: return createConfiguration();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -121,6 +122,16 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public FeatureConfig createFeatureConfig() {
 		FeatureConfigImpl featureConfig = new FeatureConfigImpl();
 		return featureConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigFeatureGroup createConfigFeatureGroup() {
+		ConfigFeatureGroupImpl configFeatureGroup = new ConfigFeatureGroupImpl();
+		return configFeatureGroup;
 	}
 
 	/**

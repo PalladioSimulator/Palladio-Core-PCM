@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
+import de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup;
 import java.util.Collection;
 import java.util.Map;
 
@@ -46,6 +47,7 @@ import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getReferencedObject <em>Referenced Object</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfignode <em>Confignode</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfigfeaturegroup <em>Configfeaturegroup</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +73,16 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * @ordered
 	 */
 	protected EList<ConfigNode> confignode;
+
+	/**
+	 * The cached value of the '{@link #getConfigfeaturegroup() <em>Configfeaturegroup</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigfeaturegroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConfigFeatureGroup> configfeaturegroup;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #RootIsFeatureModel <em>Root Is Feature Model</em>}' invariant constraint.
@@ -157,6 +169,18 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ConfigFeatureGroup> getConfigfeaturegroup() {
+		if (configfeaturegroup == null) {
+			configfeaturegroup = new EObjectContainmentEList<ConfigFeatureGroup>(ConfigFeatureGroup.class, this, featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP);
+		}
+		return configfeaturegroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean RootIsFeatureModel(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (RootIsFeatureModelInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
@@ -201,6 +225,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 		switch (featureID) {
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				return ((InternalEList<?>)getConfignode()).basicRemove(otherEnd, msgs);
+			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
+				return ((InternalEList<?>)getConfigfeaturegroup()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -218,6 +244,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return basicGetReferencedObject();
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				return getConfignode();
+			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
+				return getConfigfeaturegroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -238,6 +266,10 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				getConfignode().clear();
 				getConfignode().addAll((Collection<? extends ConfigNode>)newValue);
 				return;
+			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
+				getConfigfeaturegroup().clear();
+				getConfigfeaturegroup().addAll((Collection<? extends ConfigFeatureGroup>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -256,6 +288,9 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				getConfignode().clear();
 				return;
+			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
+				getConfigfeaturegroup().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -272,6 +307,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return referencedObject != null;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				return confignode != null && !confignode.isEmpty();
+			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
+				return configfeaturegroup != null && !configfeaturegroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
