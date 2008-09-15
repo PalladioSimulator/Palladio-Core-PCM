@@ -108,14 +108,12 @@ public class featuremodelSwitch<T> {
 				Node node = (Node)theEObject;
 				T result = caseNode(node);
 				if (result == null) result = caseNamedElement(node);
-				if (result == null) result = caseIdentifier(node);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case featuremodelPackage.NAMED_ELEMENT: {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
-				if (result == null) result = caseIdentifier(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,7 +122,6 @@ public class featuremodelSwitch<T> {
 				T result = caseFeature(feature);
 				if (result == null) result = caseNode(feature);
 				if (result == null) result = caseNamedElement(feature);
-				if (result == null) result = caseIdentifier(feature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,7 +129,6 @@ public class featuremodelSwitch<T> {
 				Attribute attribute = (Attribute)theEObject;
 				T result = caseAttribute(attribute);
 				if (result == null) result = caseNamedElement(attribute);
-				if (result == null) result = caseIdentifier(attribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,7 +137,6 @@ public class featuremodelSwitch<T> {
 				T result = caseFeatureGroup(featureGroup);
 				if (result == null) result = caseNode(featureGroup);
 				if (result == null) result = caseNamedElement(featureGroup);
-				if (result == null) result = caseIdentifier(featureGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,7 +144,6 @@ public class featuremodelSwitch<T> {
 				FeatureDiagram featureDiagram = (FeatureDiagram)theEObject;
 				T result = caseFeatureDiagram(featureDiagram);
 				if (result == null) result = caseNamedElement(featureDiagram);
-				if (result == null) result = caseIdentifier(featureDiagram);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,7 +151,6 @@ public class featuremodelSwitch<T> {
 				Constraint constraint = (Constraint)theEObject;
 				T result = caseConstraint(constraint);
 				if (result == null) result = caseNamedElement(constraint);
-				if (result == null) result = caseIdentifier(constraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,7 +159,6 @@ public class featuremodelSwitch<T> {
 				T result = caseRequiredConstraint(requiredConstraint);
 				if (result == null) result = caseConstraint(requiredConstraint);
 				if (result == null) result = caseNamedElement(requiredConstraint);
-				if (result == null) result = caseIdentifier(requiredConstraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -175,7 +167,6 @@ public class featuremodelSwitch<T> {
 				T result = caseProhibitsConstraint(prohibitsConstraint);
 				if (result == null) result = caseConstraint(prohibitsConstraint);
 				if (result == null) result = caseNamedElement(prohibitsConstraint);
-				if (result == null) result = caseIdentifier(prohibitsConstraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -315,21 +306,6 @@ public class featuremodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseProhibitsConstraint(ProhibitsConstraint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIdentifier(Identifier object) {
 		return null;
 	}
 

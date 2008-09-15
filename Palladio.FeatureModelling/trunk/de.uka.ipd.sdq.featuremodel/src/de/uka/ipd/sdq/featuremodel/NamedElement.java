@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.featuremodel;
 
+import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
@@ -23,7 +24,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * @model abstract="true"
  * @generated
  */
-public interface NamedElement extends Identifier {
+public interface NamedElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

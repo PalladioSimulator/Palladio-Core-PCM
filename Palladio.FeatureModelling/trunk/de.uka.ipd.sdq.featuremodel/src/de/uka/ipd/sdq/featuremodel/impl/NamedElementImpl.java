@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import de.uka.ipd.sdq.featuremodel.NamedElement;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
@@ -26,7 +27,7 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  *
  * @generated
  */
-public abstract class NamedElementImpl extends IdentifierImpl implements NamedElement {
+public abstract class NamedElementImpl extends EObjectImpl implements NamedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -80,22 +80,13 @@ public interface featuremodelPackage extends EPackage {
 	int NAMED_ELEMENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMED_ELEMENT__ID = IdentifierPackage.IDENTIFIER__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT__NAME = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+	int NAMED_ELEMENT__NAME = 0;
 
 	/**
 	 * The number of structural features of the '<em>Named Element</em>' class.
@@ -104,7 +95,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+	int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.NodeImpl <em>Node</em>}' class.
@@ -115,15 +106,6 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	int NODE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -152,15 +134,6 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	int FEATURE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__ID = NODE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -218,15 +191,6 @@ public interface featuremodelPackage extends EPackage {
 	int ATTRIBUTE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__ID = NAMED_ELEMENT__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,15 +228,6 @@ public interface featuremodelPackage extends EPackage {
 	int FEATURE_GROUP = 4;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_GROUP__ID = NODE__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -282,13 +237,22 @@ public interface featuremodelPackage extends EPackage {
 	int FEATURE_GROUP__NAME = NODE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Config Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_GROUP__CONFIG_STATUS = NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__MIN = NODE_FEATURE_COUNT + 0;
+	int FEATURE_GROUP__MIN = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Max</b></em>' attribute.
@@ -297,7 +261,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__MAX = NODE_FEATURE_COUNT + 1;
+	int FEATURE_GROUP__MAX = NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -306,7 +270,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__CHILDREN = NODE_FEATURE_COUNT + 2;
+	int FEATURE_GROUP__CHILDREN = NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Feature Group</em>' class.
@@ -315,7 +279,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+	int FEATURE_GROUP_FEATURE_COUNT = NODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl <em>Feature Diagram</em>}' class.
@@ -326,15 +290,6 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	int FEATURE_DIAGRAM = 5;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_DIAGRAM__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -382,15 +337,6 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	int CONSTRAINT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -448,15 +394,6 @@ public interface featuremodelPackage extends EPackage {
 	int REQUIRED_CONSTRAINT = 7;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CONSTRAINT__ID = CONSTRAINT__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,15 +447,6 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	int PROHIBITS_CONSTRAINT = 8;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROHIBITS_CONSTRAINT__ID = CONSTRAINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -680,6 +608,17 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFeatureGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getConfigStatus <em>Config Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Status</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.FeatureGroup#getConfigStatus()
+	 * @see #getFeatureGroup()
+	 * @generated
+	 */
+	EAttribute getFeatureGroup_ConfigStatus();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getMin <em>Min</em>}'.
@@ -930,6 +869,14 @@ public interface featuremodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FEATURE_GROUP = eINSTANCE.getFeatureGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FEATURE_GROUP__CONFIG_STATUS = eINSTANCE.getFeatureGroup_ConfigStatus();
 
 		/**
 		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.

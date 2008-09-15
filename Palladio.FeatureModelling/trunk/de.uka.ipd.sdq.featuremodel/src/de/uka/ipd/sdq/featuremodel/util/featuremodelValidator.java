@@ -107,14 +107,6 @@ public class featuremodelValidator extends EObjectValidator {
 	protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
 	/**
-	 * The cached base package validator.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IdentifierValidator identifierValidator;
-
-	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,7 +114,6 @@ public class featuremodelValidator extends EObjectValidator {
 	 */
 	public featuremodelValidator() {
 		super();
-		identifierValidator = IdentifierValidator.INSTANCE;
 	}
 
 	/**
@@ -176,15 +167,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateNode(Node node, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(node, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(node, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(node, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(node, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(node, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(node, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(node, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(node, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(node, diagnostics, context);
 	}
 
 	/**
@@ -193,15 +176,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(namedElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(namedElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(namedElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(namedElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(namedElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(namedElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(namedElement, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(namedElement, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
 	}
 
 	/**
@@ -210,15 +185,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFeature(Feature feature, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(feature, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(feature, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(feature, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(feature, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(feature, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(feature, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(feature, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(feature, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(feature, diagnostics, context);
 	}
 
 	/**
@@ -227,15 +194,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAttribute(Attribute attribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(attribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(attribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(attribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(attribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(attribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(attribute, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(attribute, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(attribute, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(attribute, diagnostics, context);
 	}
 
 	/**
@@ -251,7 +210,6 @@ public class featuremodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(featureGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(featureGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(featureGroup, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(featureGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFeatureGroup_XORorORImpliesChildrenAreMandatory(featureGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFeatureGroup_ALLImpliesCardinalitiesToBeMinusOne(featureGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFeatureGroup_ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne(featureGroup, diagnostics, context);
@@ -305,15 +263,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFeatureDiagram(FeatureDiagram featureDiagram, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(featureDiagram, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(featureDiagram, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(featureDiagram, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(featureDiagram, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(featureDiagram, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(featureDiagram, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(featureDiagram, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(featureDiagram, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(featureDiagram, diagnostics, context);
 	}
 
 	/**
@@ -322,15 +272,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateConstraint(Constraint constraint, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(constraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(constraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(constraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(constraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(constraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(constraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(constraint, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(constraint, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(constraint, diagnostics, context);
 	}
 
 	/**
@@ -339,15 +281,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRequiredConstraint(RequiredConstraint requiredConstraint, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(requiredConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(requiredConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(requiredConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(requiredConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(requiredConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(requiredConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(requiredConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(requiredConstraint, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(requiredConstraint, diagnostics, context);
 	}
 
 	/**
@@ -356,15 +290,7 @@ public class featuremodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProhibitsConstraint(ProhibitsConstraint prohibitsConstraint, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(prohibitsConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(prohibitsConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(prohibitsConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(prohibitsConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(prohibitsConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(prohibitsConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(prohibitsConstraint, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(prohibitsConstraint, diagnostics, context);
-		return result;
+		return validate_EveryDefaultConstraint(prohibitsConstraint, diagnostics, context);
 	}
 
 	/**
