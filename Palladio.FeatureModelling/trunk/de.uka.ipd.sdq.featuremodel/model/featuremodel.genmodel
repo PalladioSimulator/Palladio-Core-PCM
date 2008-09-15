@@ -45,7 +45,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//Attribute/type"/>
     </genClasses>
     <genClasses ecoreClass="featuremodel.ecore#//FeatureGroup">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//FeatureGroup/configStatus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//FeatureGroup/min"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//FeatureGroup/max"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//FeatureGroup/children"/>

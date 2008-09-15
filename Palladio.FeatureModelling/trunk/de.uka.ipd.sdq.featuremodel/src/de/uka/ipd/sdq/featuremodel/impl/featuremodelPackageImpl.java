@@ -287,7 +287,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFeatureGroup_ConfigStatus() {
+	public EAttribute getFeatureGroup_Min() {
 		return (EAttribute)featureGroupEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -296,7 +296,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFeatureGroup_Min() {
+	public EAttribute getFeatureGroup_Max() {
 		return (EAttribute)featureGroupEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -305,17 +305,8 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFeatureGroup_Max() {
-		return (EAttribute)featureGroupEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getFeatureGroup_Children() {
-		return (EReference)featureGroupEClass.getEStructuralFeatures().get(3);
+		return (EReference)featureGroupEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -450,7 +441,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		createEAttribute(attributeEClass, ATTRIBUTE__TYPE);
 
 		featureGroupEClass = createEClass(FEATURE_GROUP);
-		createEAttribute(featureGroupEClass, FEATURE_GROUP__CONFIG_STATUS);
 		createEAttribute(featureGroupEClass, FEATURE_GROUP__MIN);
 		createEAttribute(featureGroupEClass, FEATURE_GROUP__MAX);
 		createEReference(featureGroupEClass, FEATURE_GROUP__CHILDREN);
@@ -524,7 +514,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		initEAttribute(getAttribute_Type(), this.getAttributeTypes(), "type", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(featureGroupEClass, FeatureGroup.class, "FeatureGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFeatureGroup_ConfigStatus(), ecorePackage.getEJavaObject(), "configStatus", null, 1, 1, FeatureGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getFeatureGroup_Min(), ecorePackage.getEInt(), "min", "1", 1, 1, FeatureGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getFeatureGroup_Max(), ecorePackage.getEInt(), "max", "1", 1, 1, FeatureGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeatureGroup_Children(), this.getFeature(), null, "children", null, 2, -1, FeatureGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

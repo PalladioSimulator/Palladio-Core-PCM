@@ -237,22 +237,13 @@ public interface featuremodelPackage extends EPackage {
 	int FEATURE_GROUP__NAME = NODE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Config Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_GROUP__CONFIG_STATUS = NODE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__MIN = NODE_FEATURE_COUNT + 1;
+	int FEATURE_GROUP__MIN = NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Max</b></em>' attribute.
@@ -261,7 +252,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__MAX = NODE_FEATURE_COUNT + 2;
+	int FEATURE_GROUP__MAX = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -270,7 +261,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__CHILDREN = NODE_FEATURE_COUNT + 3;
+	int FEATURE_GROUP__CHILDREN = NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Feature Group</em>' class.
@@ -279,7 +270,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP_FEATURE_COUNT = NODE_FEATURE_COUNT + 4;
+	int FEATURE_GROUP_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl <em>Feature Diagram</em>}' class.
@@ -610,17 +601,6 @@ public interface featuremodelPackage extends EPackage {
 	EClass getFeatureGroup();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getConfigStatus <em>Config Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Config Status</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.FeatureGroup#getConfigStatus()
-	 * @see #getFeatureGroup()
-	 * @generated
-	 */
-	EAttribute getFeatureGroup_ConfigStatus();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getMin <em>Min</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -869,14 +849,6 @@ public interface featuremodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FEATURE_GROUP = eINSTANCE.getFeatureGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Config Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FEATURE_GROUP__CONFIG_STATUS = eINSTANCE.getFeatureGroup_ConfigStatus();
 
 		/**
 		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.

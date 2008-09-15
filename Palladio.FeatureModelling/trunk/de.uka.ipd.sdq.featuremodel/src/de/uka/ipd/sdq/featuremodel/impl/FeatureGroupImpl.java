@@ -34,6 +34,7 @@ import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
+
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
@@ -46,7 +47,6 @@ import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureGroupImpl#getConfigStatus <em>Config Status</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureGroupImpl#getMin <em>Min</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureGroupImpl#getMax <em>Max</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureGroupImpl#getChildren <em>Children</em>}</li>
@@ -62,15 +62,6 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-	/**
-	 * The default value of the '{@link #getConfigStatus() <em>Config Status</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConfigStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object CONFIG_STATUS_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -168,37 +159,6 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	@Override
 	protected EClass eStaticClass() {
 		return featuremodelPackage.Literals.FEATURE_GROUP;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Derives root node status from children status
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public Object getConfigStatus() {
-
-		Iterator<Feature> childrenIterator = this.children.iterator();
-
-		while(childrenIterator.hasNext()) {
-			childrenIterator.next();
-
-			
-			Collection<Setting> settings = EcoreUtil.UsageCrossReferencer.find (
-					this, this.eResource().getResourceSet());
-			for (Iterator<Setting> iter = settings.iterator(); iter.hasNext(); ){
-				EStructuralFeature.Setting setting = iter.next();
-				if (setting.getEStructuralFeature() == featuremodelPackage.Literals.FEATURE_GROUP) {
-					//Customer customer = (Customer)setting.getEObject();		
-				}
-			}		
-			
-			
-			//TODO
-		}
-		
-		
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -433,8 +393,6 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case featuremodelPackage.FEATURE_GROUP__CONFIG_STATUS:
-				return getConfigStatus();
 			case featuremodelPackage.FEATURE_GROUP__MIN:
 				return new Integer(getMin());
 			case featuremodelPackage.FEATURE_GROUP__MAX:
@@ -497,8 +455,6 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case featuremodelPackage.FEATURE_GROUP__CONFIG_STATUS:
-				return CONFIG_STATUS_EDEFAULT == null ? getConfigStatus() != null : !CONFIG_STATUS_EDEFAULT.equals(getConfigStatus());
 			case featuremodelPackage.FEATURE_GROUP__MIN:
 				return min != MIN_EDEFAULT;
 			case featuremodelPackage.FEATURE_GROUP__MAX:

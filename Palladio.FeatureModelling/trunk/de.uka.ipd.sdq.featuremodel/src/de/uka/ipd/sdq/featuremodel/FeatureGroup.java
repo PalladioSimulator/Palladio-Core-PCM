@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getConfigStatus <em>Config Status</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getMin <em>Min</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getMax <em>Max</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getChildren <em>Children</em>}</li>
@@ -39,21 +38,6 @@ public interface FeatureGroup extends Node {
 	 * @generated
 	 */
 	String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Config Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Config Status</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Config Status</em>' attribute.
-	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getFeatureGroup_ConfigStatus()
-	 * @model unique="false" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
-	 * @generated
-	 */
-	Object getConfigStatus();
 
 	/**
 	 * Returns the value of the '<em><b>Min</b></em>' attribute.
