@@ -47,9 +47,6 @@ public final class FeatureconfigEditPlugin extends EMFPlugin {
 	public FeatureconfigEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     EcoreEditPlugin.INSTANCE,
-		     FeaturemodelEditPlugin.INSTANCE,
-		     IdentifierEditPlugin.INSTANCE,
 		   });
 	}
 
