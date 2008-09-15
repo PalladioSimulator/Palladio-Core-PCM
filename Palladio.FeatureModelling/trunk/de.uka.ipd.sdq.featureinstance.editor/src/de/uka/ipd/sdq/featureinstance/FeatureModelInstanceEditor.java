@@ -309,7 +309,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		Feature referenced;
 		while (tempIter.hasNext()) {
 			next = tempIter.next();
-			referenced = next.getOrigin();
+			referenced = (Feature)next.getOrigin();
 
 			//selected
 			if (next.getConfigState().getValue() == 0) {
@@ -330,7 +330,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		Feature referenced;
 		while (tempIter.hasNext()) {
 			next = tempIter.next();
-			referenced = next.getOrigin();
+			referenced = (Feature)next.getOrigin();
 
 			//selected
 			if (next.getConfigState().getValue() == 0) {
