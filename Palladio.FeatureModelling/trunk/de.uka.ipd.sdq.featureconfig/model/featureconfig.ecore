@@ -24,7 +24,7 @@
       </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="origin" ordered="false"
-        lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Feature"/>
+        lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="configState" ordered="false"
         lowerBound="1" eType="#//ConfigState" defaultValueLiteral="DEFAULT"/>
   </eClassifiers>
@@ -58,7 +58,7 @@
       </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedObject" ordered="false"
-        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="confignode" ordered="false"
         upperBound="-1" eType="#//ConfigNode" containment="true"/>
   </eClassifiers>
@@ -69,12 +69,5 @@
         lowerBound="1" eType="#//FeatureConfig" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GroupSelectionState">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featuregroup" ordered="false"
-        lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureGroup"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configStatus" ordered="false"
-        unique="false" lowerBound="1" eType="#//ConfigState" changeable="false" volatile="true"
-        transient="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>

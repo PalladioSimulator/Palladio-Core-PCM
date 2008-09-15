@@ -53,15 +53,6 @@ public interface featureconfigFactory extends EFactory {
 	Configuration createConfiguration();
 
 	/**
-	 * Returns a new object of class '<em>Group Selection State</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Group Selection State</em>'.
-	 * @generated
-	 */
-	GroupSelectionState createGroupSelectionState();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

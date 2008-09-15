@@ -40,12 +40,12 @@ public interface ConfigNode extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Origin</em>' reference.
-	 * @see #setOrigin(Feature)
+	 * @see #setOrigin(EObject)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getConfigNode_Origin()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Feature getOrigin();
+	EObject getOrigin();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getOrigin <em>Origin</em>}' reference.
@@ -55,7 +55,7 @@ public interface ConfigNode extends EObject {
 	 * @see #getOrigin()
 	 * @generated
 	 */
-	void setOrigin(Feature value);
+	void setOrigin(EObject value);
 
 	/**
 	 * Returns the value of the '<em><b>Config State</b></em>' attribute.
@@ -98,8 +98,6 @@ public interface ConfigNode extends EObject {
 	 * 	 else
 	 * 	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)
 	 * 	 endif
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

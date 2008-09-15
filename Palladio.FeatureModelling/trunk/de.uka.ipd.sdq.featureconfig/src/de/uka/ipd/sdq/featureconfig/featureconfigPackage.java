@@ -181,43 +181,6 @@ public interface featureconfigPackage extends EPackage {
 	int CONFIGURATION_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.GroupSelectionStateImpl <em>Group Selection State</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featureconfig.impl.GroupSelectionStateImpl
-	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getGroupSelectionState()
-	 * @generated
-	 */
-	int GROUP_SELECTION_STATE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Featuregroup</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP_SELECTION_STATE__FEATUREGROUP = 0;
-
-	/**
-	 * The feature id for the '<em><b>Config Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP_SELECTION_STATE__CONFIG_STATUS = 1;
-
-	/**
-	 * The number of structural features of the '<em>Group Selection State</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP_SELECTION_STATE_FEATURE_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,7 +188,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getConfigState()
 	 * @generated
 	 */
-	int CONFIG_STATE = 4;
+	int CONFIG_STATE = 3;
 
 
 	/**
@@ -334,38 +297,6 @@ public interface featureconfigPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConfiguration_Name();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.GroupSelectionState <em>Group Selection State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Group Selection State</em>'.
-	 * @see de.uka.ipd.sdq.featureconfig.GroupSelectionState
-	 * @generated
-	 */
-	EClass getGroupSelectionState();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.featureconfig.GroupSelectionState#getFeaturegroup <em>Featuregroup</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Featuregroup</em>'.
-	 * @see de.uka.ipd.sdq.featureconfig.GroupSelectionState#getFeaturegroup()
-	 * @see #getGroupSelectionState()
-	 * @generated
-	 */
-	EReference getGroupSelectionState_Featuregroup();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featureconfig.GroupSelectionState#getConfigStatus <em>Config Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Config Status</em>'.
-	 * @see de.uka.ipd.sdq.featureconfig.GroupSelectionState#getConfigStatus()
-	 * @see #getGroupSelectionState()
-	 * @generated
-	 */
-	EAttribute getGroupSelectionState_ConfigStatus();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}'.
@@ -484,32 +415,6 @@ public interface featureconfigPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONFIGURATION__NAME = eINSTANCE.getConfiguration_Name();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.GroupSelectionStateImpl <em>Group Selection State</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.featureconfig.impl.GroupSelectionStateImpl
-		 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getGroupSelectionState()
-		 * @generated
-		 */
-		EClass GROUP_SELECTION_STATE = eINSTANCE.getGroupSelectionState();
-
-		/**
-		 * The meta object literal for the '<em><b>Featuregroup</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GROUP_SELECTION_STATE__FEATUREGROUP = eINSTANCE.getGroupSelectionState_Featuregroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Config Status</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GROUP_SELECTION_STATE__CONFIG_STATUS = eINSTANCE.getGroupSelectionState_ConfigStatus();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}' enum.

@@ -25,6 +25,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
@@ -64,6 +71,17 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * @ordered
 	 */
 	protected EList<ConfigNode> confignode;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #RootIsFeatureModel <em>Root Is Feature Model</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RootIsFeatureModel
+	 * @generated
+	 */
+	private static OCLExpression RootIsFeatureModelInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,11 +158,24 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * @generated
 	 */
 	public boolean RootIsFeatureModel(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (RootIsFeatureModelInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.origin.oclIsTypeOf(featuremodel::FeatureDiagram) ";
+			
+			try {
+				RootIsFeatureModelInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(RootIsFeatureModelInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -157,6 +188,7 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 			return false;
 		}
 		return true;
+		
 	}
 
 	/**

@@ -113,8 +113,6 @@ public class featureconfigValidator extends EObjectValidator {
 				return validateFeatureConfig((FeatureConfig)value, diagnostics, context);
 			case featureconfigPackage.CONFIGURATION:
 				return validateConfiguration((Configuration)value, diagnostics, context);
-			case featureconfigPackage.GROUP_SELECTION_STATE:
-				return validateGroupSelectionState((GroupSelectionState)value, diagnostics, context);
 			case featureconfigPackage.CONFIG_STATE:
 				return validateConfigState((ConfigState)value, diagnostics, context);
 			default: 
@@ -183,15 +181,6 @@ public class featureconfigValidator extends EObjectValidator {
 	 */
 	public boolean validateConfiguration(Configuration configuration, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(configuration, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGroupSelectionState(GroupSelectionState groupSelectionState, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(groupSelectionState, diagnostics, context);
 	}
 
 	/**
