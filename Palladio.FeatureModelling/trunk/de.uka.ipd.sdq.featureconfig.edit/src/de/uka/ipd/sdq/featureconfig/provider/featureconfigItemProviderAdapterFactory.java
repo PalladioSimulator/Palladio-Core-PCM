@@ -121,6 +121,29 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigFeatureGroupItemProvider configFeatureGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConfigFeatureGroupAdapter() {
+		if (configFeatureGroupItemProvider == null) {
+			configFeatureGroupItemProvider = new ConfigFeatureGroupItemProvider(this);
+		}
+
+		return configFeatureGroupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.Configuration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -244,6 +267,7 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	public void dispose() {
 		if (configNodeItemProvider != null) configNodeItemProvider.dispose();
 		if (featureConfigItemProvider != null) featureConfigItemProvider.dispose();
+		if (configFeatureGroupItemProvider != null) configFeatureGroupItemProvider.dispose();
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
 	}
 
