@@ -70,10 +70,33 @@ public class FeatureGroupItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addConfigStatusPropertyDescriptor(object);
 			addMinPropertyDescriptor(object);
 			addMaxPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Config Status feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfigStatusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FeatureGroup_configStatus_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FeatureGroup_configStatus_feature", "_UI_FeatureGroup_type"),
+				 featuremodelPackage.Literals.FEATURE_GROUP__CONFIG_STATUS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -187,6 +210,7 @@ public class FeatureGroupItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(FeatureGroup.class)) {
+			case featuremodelPackage.FEATURE_GROUP__CONFIG_STATUS:
 			case featuremodelPackage.FEATURE_GROUP__MIN:
 			case featuremodelPackage.FEATURE_GROUP__MAX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

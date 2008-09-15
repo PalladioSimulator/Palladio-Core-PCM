@@ -49,7 +49,6 @@ public final class FeaturemodelEditPlugin extends EMFPlugin {
 	public FeaturemodelEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     IdentifierEditPlugin.INSTANCE,
 		   });
 	}
 
