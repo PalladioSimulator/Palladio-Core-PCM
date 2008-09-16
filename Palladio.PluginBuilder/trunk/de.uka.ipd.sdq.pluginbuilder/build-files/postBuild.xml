@@ -3,7 +3,38 @@
     <target name="main">
         <property name="UpdateSiteStagingLocation" value="${buildResultsDirectory}/../updateSite"/>
         <antcall target="-generateUpdateSite"/>
+    	<antcall target="-javadoc"/>
     </target>
+	
+    <!-- ======================================== -->
+    <!-- Added by kelsaka: Creates javadoc for the project -->
+    <target name="javadoc" description="Creates Javadoc">
+		<mkdir dir="${basedir}/results/javadoc/"/>
+	    <javadoc 
+        	destdir="${buildDirectory}/results/javadoc/"
+        	author="true" 
+        	defaultexcludes="yes" 
+        	use="true" 
+        	version="true" 
+        	windowtitle="${project.name}">
+<!--
+	    	source="${buildDirectory}"  
+	    	excludepackagenames="${build.src.excludes}" 
+        	packagenames="${build.doc.packages}"
+        	public="true"
+        	sourcepathref="project.source"
+-->
+
+            <!-- <classpath refid="de.uka.ipd.sdq.classpath"/> -->
+            <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
+            <link href="http://java.sun.com/j2se/1.6.0/docs/api/"/>
+			<taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
+				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/>	
+	    	<fileset dir="${buildDirectory}/" includes="**/*.java"/>
+        </javadoc>
+    </target>
+    <!-- ======================================== -->
+
     
     <!--======================================================-->
     <!-- UpdateSite Export target, to be called from allElements  -->
