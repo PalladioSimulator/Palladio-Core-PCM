@@ -6,8 +6,6 @@
  */
 package de.uka.ipd.sdq.featureconfig.provider;
 
-import de.uka.ipd.sdq.featuremodel.provider.FeaturemodelEditPlugin;
-
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
