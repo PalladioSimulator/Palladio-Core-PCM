@@ -117,10 +117,7 @@ public class ConfigFeatureGroupImpl extends EObjectImpl implements ConfigFeature
 				// exactly one or two references should exist only  
 				for (Iterator<Setting> iter = settings.iterator(); iter.hasNext(); ){
 					EStructuralFeature.Setting setting = iter.next();
-					
-					//if (setting.getEStructuralFeature() ==
-						//featureconfigPackage.Literals.CONFIG_NODE) {
-					EStructuralFeature sf = setting.getEStructuralFeature();
+										
 					if (setting.getEObject() instanceof ConfigNode) {						
 						ConfigNode configNode = (ConfigNode)setting.getEObject();					
 	
