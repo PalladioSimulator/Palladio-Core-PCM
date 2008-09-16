@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.Node;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -96,8 +97,8 @@ public class ConfigFeatureGroupImpl extends EObjectImpl implements ConfigFeature
 		ConfigState featureGroupState = ConfigState.DEFAULT;
 		FeatureGroup fg = null;
 		
-		if(this.origin instanceof FeatureGroup) {
-			fg = (FeatureGroup)this.origin;
+		if(this.getOrigin() instanceof FeatureGroup) {
+			fg = (FeatureGroup)this.getOrigin();
 		} else {
 			throw new RuntimeException("ConfigFeatureGroup must reference a FeatureGroup as origin.");
 		}
@@ -117,8 +118,10 @@ public class ConfigFeatureGroupImpl extends EObjectImpl implements ConfigFeature
 				for (Iterator<Setting> iter = settings.iterator(); iter.hasNext(); ){
 					EStructuralFeature.Setting setting = iter.next();
 					
-					if (setting.getEStructuralFeature() ==
-						featureconfigPackage.Literals.CONFIG_NODE) {
+					//if (setting.getEStructuralFeature() ==
+						//featureconfigPackage.Literals.CONFIG_NODE) {
+					EStructuralFeature sf = setting.getEStructuralFeature();
+					if (setting.getEObject() instanceof ConfigNode) {						
 						ConfigNode configNode = (ConfigNode)setting.getEObject();					
 	
 						// depending on config type; save state in different variable
