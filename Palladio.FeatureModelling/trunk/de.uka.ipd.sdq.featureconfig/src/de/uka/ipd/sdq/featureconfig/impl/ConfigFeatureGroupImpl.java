@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.FeatureMapUtil.FeatureENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -146,6 +147,7 @@ public class ConfigFeatureGroupImpl extends EObjectImpl implements ConfigFeature
 	 * @param defaultState
 	 * @param overridesState
 	 * @return Effective ConfigState of a single node
+	 * @generated NOT
 	 */
 	private ConfigState determineFeatureGroupState(ConfigState defaultState,
 			ConfigState overridesState) {
