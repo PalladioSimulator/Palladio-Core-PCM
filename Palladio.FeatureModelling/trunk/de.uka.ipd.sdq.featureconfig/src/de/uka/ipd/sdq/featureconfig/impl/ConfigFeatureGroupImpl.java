@@ -101,7 +101,9 @@ public class ConfigFeatureGroupImpl extends EObjectImpl implements ConfigFeature
 		if(this.getOrigin() instanceof FeatureGroup) {
 			fg = (FeatureGroup)this.getOrigin();
 		} else {
-			throw new RuntimeException("ConfigFeatureGroup must reference a FeatureGroup as origin.");
+			//TODO: implement proper handling
+			//throw new RuntimeException("ConfigFeatureGroup must reference a FeatureGroup as origin.");			
+			return featureGroupState;
 		}
 		if(fg != null) {
 			Iterator<Feature> childrenIterator = fg.getChildren().iterator();
