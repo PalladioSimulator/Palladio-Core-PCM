@@ -3,7 +3,7 @@
     <target name="main">
         <property name="UpdateSiteStagingLocation" value="${buildResultsDirectory}/../updateSite"/>
         <antcall target="-generateUpdateSite"/>
-    	<antcall target="-javadoc"/>
+    	<!-- <antcall target="-javadoc"/> -->
     </target>
 	
     <!-- ======================================== -->
