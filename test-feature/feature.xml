@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="test_feature"
-      label="Test_feature Feature"
+      id="testfeature"
+      label="Testfeature Feature"
       version="1.0.0">
 
    <description url="http://www.kelsaka.de">
