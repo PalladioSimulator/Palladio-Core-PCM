@@ -7212,12 +7212,15 @@
         <generalization xmi:id="_TmZxoJJwEdqSSImFLKDkSg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_V-r80ZJeEdqSSImFLKDkSg" name="parentInterface__Interface" type="_cIR90JJJEdqSSImFLKDkSg" association="_V-r80JJeEdqSSImFLKDkSg">
           <ownedComment xmi:id="_g4BDsH5pEd2w8a0eK9hypA" annotatedElement="_V-r80ZJeEdqSSImFLKDkSg">
-            <body>This property represents the interfaces from which this interface inherits.</body>
+            <body>This property represents the interfaces from which this interface directly inherits.</body>
           </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-yDcZJeEdqSSImFLKDkSg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-yDcJJeEdqSSImFLKDkSg"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_6Sm8IaMYEdqfKJQ-jd0-uQ" name="anchestorInterfaces_Interface" type="_cIR90JJJEdqSSImFLKDkSg" association="_6Sm8IKMYEdqfKJQ-jd0-uQ">
+          <ownedComment xmi:id="_aAMxkIVfEd2pasxENQ18jg" annotatedElement="_6Sm8IaMYEdqfKJQ-jd0-uQ">
+            <body>This property represents the set of all parent interfaces, from which this interface inherits. All means not just the direct one.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6StCwaMYEdqfKJQ-jd0-uQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6StCwKMYEdqfKJQ-jd0-uQ"/>
         </ownedAttribute>
@@ -7263,6 +7266,9 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t30wM5fEEdqwqsvROVlojA"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_6ZoowUpHEdyyNsXlb1tNsw" name="componentParameterUsage_ImplementationComponentType" type="_GmAWYOQSEdqeH_WIC9QRew" aggregation="composite" association="_6ZoowEpHEdyyNsXlb1tNsw">
+          <ownedComment xmi:id="_Kh5TsIVjEd2pasxENQ18jg" annotatedElement="_6ZoowUpHEdyyNsXlb1tNsw">
+            <body>This property specified the variables of the component that are to be initialized using the assembly context to parametrize the component.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6ZooxEpHEdyyNsXlb1tNsw" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6Zoow0pHEdyyNsXlb1tNsw"/>
         </ownedAttribute>
@@ -7372,6 +7378,9 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7tlO08iHEdqXbOPN_HtKGg"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_lJFvATj-Edy2j_4z2PHNJQ" name="passiveResource_BasicComponent" type="_9APFUOD4Edq8ysXH3gTiEg" aggregation="composite" association="_lJFvADj-Edy2j_4z2PHNJQ">
+          <ownedComment xmi:id="_tLG8sIVeEd2pasxENQ18jg" annotatedElement="_lJFvATj-Edy2j_4z2PHNJQ">
+            <body>This property represents the passive resources, e.g., semaphores, that are owned by this basic component.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lJPgATj-Edy2j_4z2PHNJQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lJPgADj-Edy2j_4z2PHNJQ"/>
         </ownedAttribute>
@@ -7448,7 +7457,11 @@
           <body>This entity represents a primitive data type such as integer, string, and double.</body>
         </ownedComment>
         <generalization xmi:id="_yJvfoHPyEduxXfd-1j79QQ" general="_NlyR0JJWEdqSSImFLKDkSg"/>
-        <ownedAttribute xmi:id="_NjNA8HQ8Eduuy9rra1CvZQ" name="type" type="_A9sUwHP2EduxXfd-1j79QQ"/>
+        <ownedAttribute xmi:id="_NjNA8HQ8Eduuy9rra1CvZQ" name="type" type="_A9sUwHP2EduxXfd-1j79QQ">
+          <ownedComment xmi:id="_8sQ2EIVhEd2pasxENQ18jg" annotatedElement="_NjNA8HQ8Eduuy9rra1CvZQ">
+            <body>This property represent the base type of this type, e.g., if this type represents the integer interval (1..5), the base type will be INT.</body>
+          </ownedComment>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_uaIaUHPyEduxXfd-1j79QQ" name="CollectionDataType">
         <ownedComment xmi:id="_BSF7oH5lEd2w8a0eK9hypA" annotatedElement="_uaIaUHPyEduxXfd-1j79QQ">
@@ -20962,4 +20975,8 @@ Note:&#xD;
   <Default:Documentation xmi:id="_l9y2IYTJEd2vDt35AcA8Pg" base_Comment="_l9y2IITJEd2vDt35AcA8Pg"/>
   <Default:Documentation xmi:id="_rv9CAYTJEd2vDt35AcA8Pg" base_Comment="_rv9CAITJEd2vDt35AcA8Pg"/>
   <Default:Documentation xmi:id="_HvyxAYTKEd2vDt35AcA8Pg" base_Comment="_HvyxAITKEd2vDt35AcA8Pg"/>
+  <Default:Documentation xmi:id="_tPuW8IVeEd2pasxENQ18jg" base_Comment="_tLG8sIVeEd2pasxENQ18jg"/>
+  <Default:Documentation xmi:id="_aAWikIVfEd2pasxENQ18jg" base_Comment="_aAMxkIVfEd2pasxENQ18jg"/>
+  <Default:Documentation xmi:id="_8sanEIVhEd2pasxENQ18jg" base_Comment="_8sQ2EIVhEd2pasxENQ18jg"/>
+  <Default:Documentation xmi:id="_KiCdoIVjEd2pasxENQ18jg" base_Comment="_Kh5TsIVjEd2pasxENQ18jg"/>
 </xmi:XMI>
