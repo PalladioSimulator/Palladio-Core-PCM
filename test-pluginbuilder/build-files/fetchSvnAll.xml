@@ -2,15 +2,15 @@
   <target name="fetch.svn.all">
     <antcall target="svn.co">
       <param name="target" value="features"/>
-      <param name="element.id" value="test_feature"/>
+      <param name="element.id" value="testfeature"/>
       <param name="project.name" value="/test-feature"/>
       <param name="url" value="svn://klaus@141.3.52.13/code"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
-      <param name="element.id" value="test_plugin"/>
-      <param name="project.name" value="/test-plugin"/>
-      <param name="url" value="svn://klaus@141.3.52.13/code"/>
+      <param name="element.id" value="testplugin"/>
+      <param name="project.name" value=""/>
+      <param name="url" value="svn://klaus@141.3.52.13/code/testplugin/trunk"/>
     </antcall>
   </target>
 </project>
