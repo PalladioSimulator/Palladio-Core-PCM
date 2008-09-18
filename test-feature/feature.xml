@@ -5,7 +5,7 @@
       version="1.0.0">
 
    <description url="http://www.kelsaka.de">
-      test-feature
+      this is a test-feature
    </description>
 
    <copyright url="http://www.test-feature.com/copyright">
@@ -17,7 +17,7 @@
    </license>
 
    <plugin
-         id="test_plugin"
+         id="testplugin"
          download-size="0"
          install-size="0"
          version="0.0.0"
