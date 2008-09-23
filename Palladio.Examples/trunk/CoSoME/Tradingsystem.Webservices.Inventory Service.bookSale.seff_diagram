@@ -2,12 +2,12 @@
 <notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_dN0QUIZgEd2eieMgJajFZw" type="PCM SEFF Model" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_dPmZAIZgEd2eieMgJajFZw" type="2001">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_dPmZAYZgEd2eieMgJajFZw" fontName="Segoe UI"/>
-    <element xmi:type="StartAction" href="cosocome.repository#_OgwFAHRDEd2J8bFb9TfSEQ"/>
+    <element xmi:type="StartAction" href="orc.repository#_OgwFAHRDEd2J8bFb9TfSEQ"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dPmZAoZgEd2eieMgJajFZw" x="180" y="24"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_dPmZA4ZgEd2eieMgJajFZw" type="2002">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_dPmZBIZgEd2eieMgJajFZw" fontName="Segoe UI"/>
-    <element xmi:type="StopAction" href="cosocome.repository#_OgwFAXRDEd2J8bFb9TfSEQ"/>
+    <element xmi:type="StopAction" href="orc.repository#_OgwFAXRDEd2J8bFb9TfSEQ"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dPmZBYZgEd2eieMgJajFZw" x="180" y="312"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_I1wDoIZjEd2eieMgJajFZw" type="2003">
@@ -17,7 +17,7 @@
         <children xmi:type="notation:Node" xmi:id="_XB4LI4ZjEd2eieMgJajFZw" type="5030"/>
         <children xmi:type="notation:Node" xmi:id="_XB4LJIZjEd2eieMgJajFZw" type="7027">
           <children xmi:type="notation:Node" xmi:id="_Y8xKgIZjEd2eieMgJajFZw" type="3002">
-            <element xmi:type="_1:VariableCharacterisation" href="cosocome.repository#//@components__Repository.7/@serviceEffectSpecifications__BasicComponent.4/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0/@variableCharacterisation_VariableUsage.0"/>
+            <element xmi:type="_1:VariableCharacterisation" href="orc.repository#//@components__Repository.7/@serviceEffectSpecifications__BasicComponent.4/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0/@variableCharacterisation_VariableUsage.0"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_Y8xKgYZjEd2eieMgJajFZw"/>
           </children>
           <styles xmi:type="notation:DrawerStyle" xmi:id="_XB4LJYZjEd2eieMgJajFZw"/>
@@ -26,7 +26,7 @@
           <styles xmi:type="notation:FilteringStyle" xmi:id="_XB4LKIZjEd2eieMgJajFZw"/>
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_XB4LIYZjEd2eieMgJajFZw" fontName="Segoe UI"/>
-        <element xmi:type="_1:VariableUsage" href="cosocome.repository#//@components__Repository.7/@serviceEffectSpecifications__BasicComponent.4/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0"/>
+        <element xmi:type="_1:VariableUsage" href="orc.repository#//@components__Repository.7/@serviceEffectSpecifications__BasicComponent.4/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XB4LIoZjEd2eieMgJajFZw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_I1wDpYZjEd2eieMgJajFZw"/>
@@ -41,11 +41,11 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_I1wDrYZjEd2eieMgJajFZw"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_I1wDoYZjEd2eieMgJajFZw" fontName="Segoe UI"/>
-    <element xmi:type="ExternalCallAction" href="cosocome.repository#_GmevsIZjEd2eieMgJajFZw"/>
+    <element xmi:type="ExternalCallAction" href="orc.repository#_GmevsIZjEd2eieMgJajFZw"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I1wDooZjEd2eieMgJajFZw" x="12" y="84" width="361" height="169"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_dN0QUYZgEd2eieMgJajFZw"/>
-  <element xmi:type="ResourceDemandingSEFF" href="cosocome.repository#_N5xkkHRDEd2J8bFb9TfSEQ"/>
+  <element xmi:type="ResourceDemandingSEFF" href="orc.repository#_N5xkkHRDEd2J8bFb9TfSEQ"/>
   <edges xmi:type="notation:Edge" xmi:id="_dPmZBoZgEd2eieMgJajFZw" type="4001" source="_dPmZAIZgEd2eieMgJajFZw" target="_I1wDoIZjEd2eieMgJajFZw">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_dPmZB4ZgEd2eieMgJajFZw" routing="Rectilinear"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_dPmZCIZgEd2eieMgJajFZw" fontName="Segoe UI"/>
