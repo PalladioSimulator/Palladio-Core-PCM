@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_S4rTcNCXEduC9O_qbthgAg" entityName="CocomeRepository" repositoryDescription="see cosocome.org">
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_S4rTcNCXEduC9O_qbthgAg" entityName="CocomeRepository" repositoryDescription="see orc.org">
   <components__Repository xsi:type="BasicComponent" id="_-3VggNCgEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise">
     <providedRoles_InterfaceProvidingEntity id="_d1Mf0NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_uiIDAHe1Ed2mk8dKi3ngUA" entityName="JDBC" requiredInterface__RequiredRole="_kCATMHe1Ed2mk8dKi3ngUA"/>
@@ -515,14 +515,14 @@
   <interfaces__Repository id="_WoD42tCjEduC9O_qbthgAg" entityName="CashDeskConnectorIf">
     <signatures__Interface serviceName="bookSale">
       <parameters__Signature parameterName="saleTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_J-s5ptFpEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_J-s5ptFpEducE6dFyopUlg"/>
       </parameters__Signature>
     </signatures__Interface>
     <signatures__Interface serviceName="getProductWithStockItem">
       <parameters__Signature parameterName="productBarCode">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf">
@@ -531,26 +531,26 @@
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getMeanTimeToDelivery">
       <parameters__Signature parameterName="supplier">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_HzcZdtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_HzcZdtFdEducE6dFyopUlg"/>
       </parameters__Signature>
       <parameters__Signature parameterName="enterprise">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_F8ovQNChEduC9O_qbthgAg" entityName="PersistenceIf">
     <signatures__Interface serviceName="getPersistenceContext">
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_HSKXwNChEduC9O_qbthgAg" entityName="StoreQueryIf">
@@ -559,168 +559,168 @@
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_tGnVBtFdEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_tGnVBtFdEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryProducts">
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_4ndL5dFmEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_4ndL5dFmEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryLowStockItems">
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryLowStockItemsWithRespectToIncomingProducts">
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryAllStockItems">
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryOrderById">
       <parameters__Signature parameterName="orderId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_JMRpFtFnEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_JMRpFtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryStockItem">
       <parameters__Signature parameterName="stockId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryStockItemById">
       <parameters__Signature parameterName="stockId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryProductById">
       <parameters__Signature parameterName="productId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_6wQEZtFmEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_6wQEZtFmEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getStockItems">
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
       <parameters__Signature parameterName="productIds">
-        <datatype__Parameter xsi:type="CollectionDataType" href="cosocomeTypes.repository#_bxQxxdFoEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CollectionDataType" href="orcTypes.repository#_bxQxxdFoEducE6dFyopUlg"/>
       </parameters__Signature>
       <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_dbS8pNCiEduC9O_qbthgAg" entityName="ProductDispatcherIf">
     <signatures__Interface serviceName="orderProductsAvailableAtOtherStores">
       <parameters__Signature parameterName="enterpriseTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_1GiHBtFfEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_1GiHBtFfEducE6dFyopUlg"/>
       </parameters__Signature>
       <parameters__Signature parameterName="callingStore">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_27zmltFfEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_27zmltFfEducE6dFyopUlg"/>
       </parameters__Signature>
       <parameters__Signature parameterName="productAmounts">
-        <datatype__Parameter xsi:type="CollectionDataType" href="cosocomeTypes.repository#_8E94xdFfEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CollectionDataType" href="orcTypes.repository#_8E94xdFfEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_8E94xdFfEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_8E94xdFfEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_vebx9NCiEduC9O_qbthgAg" entityName="ReportingIf">
     <signatures__Interface serviceName="getStockReport">
       <parameters__Signature parameterName="storeTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_27zmltFfEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_27zmltFfEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getStockReport">
       <parameters__Signature parameterName="enterpriseTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_1GiHBtFfEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_1GiHBtFfEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getMeanTimeToDeliveryReport">
       <parameters__Signature parameterName="enterpriseTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_1GiHBtFfEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_1GiHBtFfEducE6dFyopUlg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_4153pNCiEduC9O_qbthgAg" entityName="StoreIf">
     <signatures__Interface serviceName="getStore">
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_sHYtltIWEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_sHYtltIWEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getProductsWithLowStock">
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_wVjXJdIWEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_wVjXJdIWEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getAllProducts">
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_4f1Q9dIWEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_4f1Q9dIWEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getAllProductsWithOptionalStockItem">
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_FJanpdIXEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_FJanpdIXEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="orderProducts">
       <parameters__Signature parameterName="complexOrder">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_O15UBdIXEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_O15UBdIXEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getOrder">
       <parameters__Signature parameterName="orderId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="rollInReceivedOrder">
       <parameters__Signature parameterName="complexOrderTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
       </parameters__Signature>
     </signatures__Interface>
     <signatures__Interface serviceName="changePrice">
       <parameters__Signature parameterName="stockItemTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_UfQJNtIXEduF4-1MMpjBkg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_UfQJNtIXEduF4-1MMpjBkg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="markProductsUnavailableInStock">
       <parameters__Signature parameterName="requiredProductsAndAmount">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_ZxgtBtIXEduF4-1MMpjBkg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_ZxgtBtIXEduF4-1MMpjBkg"/>
       </parameters__Signature>
     </signatures__Interface>
     <signatures__Interface serviceName="flushDatabase"/>
@@ -730,29 +730,29 @@
   <interfaces__Repository id="_GtTjoHOPEd2SyK0Shg_o9Q" entityName="InventoryServiceIf">
     <signatures__Interface serviceName="changePrice">
       <parameters__Signature parameterName="stockItemTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_UfQJNtIXEduF4-1MMpjBkg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_UfQJNtIXEduF4-1MMpjBkg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getAllProducts">
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_4f1Q9dIWEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_4f1Q9dIWEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getAllProductsWithOptionalStockItem">
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_FJanpdIXEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_FJanpdIXEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getProductsWithLowStock">
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_wVjXJdIWEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_wVjXJdIWEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="bookSale">
       <parameters__Signature parameterName="saleTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_J-s5ptFpEducE6dFyopUlg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_J-s5ptFpEducE6dFyopUlg"/>
       </parameters__Signature>
     </signatures__Interface>
     <signatures__Interface serviceName="getProductDetails">
       <parameters__Signature parameterName="productBarCode">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_dtsmkHQSEd2J8bFb9TfSEQ" entityName="CardValidationServiceIf">
@@ -763,33 +763,33 @@
       <parameters__Signature parameterName="cardNumber">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_OcfJgHQWEd2J8bFb9TfSEQ" entityName="PaymentDebitServiceIf">
     <signatures__Interface serviceName="debitCard">
       <parameters__Signature parameterName="id">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_iNNiBnQWEd2J8bFb9TfSEQ"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_iNNiBnQWEd2J8bFb9TfSEQ"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_2exEwHQYEd2J8bFb9TfSEQ" entityName="OrderServiceIf">
     <signatures__Interface serviceName="orderProducts">
       <parameters__Signature parameterName="complexOrderTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CollectionDataType" href="cosocomeTypes.repository#_O15UBdIXEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_O15UBdIXEduF4-1MMpjBkg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="rollInReceivedOrder">
       <parameters__Signature parameterName="complexOrderTO">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
       </parameters__Signature>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_5gB2UHQYEd2J8bFb9TfSEQ" entityName="StoreInformationServiceIf">
     <signatures__Interface serviceName="getStoreInformation">
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_sHYtltIWEduF4-1MMpjBkg"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_sHYtltIWEduF4-1MMpjBkg"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_Yh_GQHetEd2mk8dKi3ngUA" entityName="BankIf">
@@ -800,13 +800,13 @@
       <parameters__Signature parameterName="pinNumber">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
     </signatures__Interface>
     <signatures__Interface serviceName="debitCard">
       <parameters__Signature parameterName="id">
-        <datatype__Parameter xsi:type="CompositeDataType" href="cosocomeTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
+        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_peNANnQSEd2J8bFb9TfSEQ"/>
       </parameters__Signature>
-      <returntype__Signature xsi:type="CompositeDataType" href="cosocomeTypes.repository#_iNNiBnQWEd2J8bFb9TfSEQ"/>
+      <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_iNNiBnQWEd2J8bFb9TfSEQ"/>
     </signatures__Interface>
   </interfaces__Repository>
 </Repository>

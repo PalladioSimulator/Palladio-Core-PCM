@@ -14,8 +14,8 @@
           </variableCharacterisation_VariableUsage>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="saleTO"/>
         </inputParameterUsages_EntryLevelSystemCall>
-        <providedRole_EntryLevelSystemCall href="cosocome.system#_g52lkHesEd2mk8dKi3ngUA"/>
-        <signature_EntryLevelSystemCall href="cosocome.repository#//@interfaces__Repository.9/@signatures__Interface.4"/>
+        <providedRole_EntryLevelSystemCall href="orc.system#_g52lkHesEd2mk8dKi3ngUA"/>
+        <signature_EntryLevelSystemCall href="orc.repository#//@interfaces__Repository.9/@signatures__Interface.4"/>
       </actions_ScenarioBehaviour>
     </scenarioBehaviour_UsageScenario>
   </usageScenario_UsageModel>

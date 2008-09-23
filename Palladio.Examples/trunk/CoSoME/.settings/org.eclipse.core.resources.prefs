@@ -1,4 +1,4 @@
-#Fri Sep 19 17:34:32 CEST 2008
+#Tue Sep 23 09:08:12 CEST 2008
 eclipse.preferences.version=1
 encoding/TradingSystem.Inventory.Application.ProductDispatcher.orderProductsAvailableAtOtherStores.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Application.Store.bookSale.seff_diagram=UTF-8
@@ -11,8 +11,3 @@ encoding/TradingSystem.Inventory.Data.Store.queryStockItemById.seff_diagram=UTF-
 encoding/TradingSystem.Inventory.Data.Store.queryStoreById.seff_diagram=UTF-8
 encoding/Tradingsystem.Webservices.Inventory\ Service.bookSale.seff_diagram=UTF-8
 encoding/Tradingsystem.Webservices.InventoryService.changePrice.seff_diagram=UTF-8
-encoding/cosocome.allocation_diagram=UTF-8
-encoding/cosocome.repository=UTF-8
-encoding/cosocome.repository_diagram=UTF-8
-encoding/cosocome.usagemodel=UTF-8
-encoding/cosocome.usagemodel_diagram=UTF-8
