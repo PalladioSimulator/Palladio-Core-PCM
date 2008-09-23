@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_jzywsHe4Ed2s3aAmUNzI1w" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_D21HAIZtEd2eieMgJajFZw" type="2001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_D21HAYZtEd2eieMgJajFZw" fontName="Segoe UI"/>
+    <element xmi:type="StartAction" href="orc.repository#_aOgwANLxEduQ7qbNANXHPw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D21HAoZtEd2eieMgJajFZw" x="228"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_D21HA4ZtEd2eieMgJajFZw" type="2002">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_D21HBIZtEd2eieMgJajFZw" fontName="Segoe UI"/>
+    <element xmi:type="StopAction" href="orc.repository#_aedQgNLxEduQ7qbNANXHPw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D21HBYZtEd2eieMgJajFZw" x="228" y="216"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_D21HBoZtEd2eieMgJajFZw" type="2006">
+    <children xmi:type="notation:Node" xmi:id="_D21HCYZtEd2eieMgJajFZw" type="5012"/>
+    <children xmi:type="notation:Node" xmi:id="_D21HCoZtEd2eieMgJajFZw" type="7012">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_D21HC4ZtEd2eieMgJajFZw"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_D21HDIZtEd2eieMgJajFZw" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_D21HDYZtEd2eieMgJajFZw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_D21HDoZtEd2eieMgJajFZw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_D21HB4ZtEd2eieMgJajFZw" fontName="Segoe UI"/>
+    <element xmi:type="InternalAction" href="orc.repository#_diGnsNLxEduQ7qbNANXHPw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D21HCIZtEd2eieMgJajFZw" x="24" y="84" width="433"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_jzywsXe4Ed2s3aAmUNzI1w"/>
+  <element xmi:type="ResourceDemandingSEFF" href="orc.repository#queryLowStockItemsWithRespectToIncomingProducts"/>
+</notation:Diagram>
