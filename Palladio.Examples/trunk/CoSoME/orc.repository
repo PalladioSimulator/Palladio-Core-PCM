@@ -254,28 +254,28 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="bookSale" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_ckGrcNJOEduQ7qbNANXHPw" entityName="BookSaleStart" successor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_c4EJQNJOEduQ7qbNANXHPw" entityName="BookSaleStop" predecessor_AbstractAction="_6lsvcNJREduQ7qbNANXHPw"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_m1YuANJOEduQ7qbNANXHPw" entityName="persistence context setup" predecessor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw" successor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_m1YuANJOEduQ7qbNANXHPw" entityName="getTransactionContextAndBeginTransaction" predecessor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw" successor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="DoublePDF[(10;0)(18;0.2)(21;0.8)]"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_qPZWwNJOEduQ7qbNANXHPw" entityName="getPersistenceContext" predecessor_AbstractAction="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_m1YuANJOEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
-      <steps_Behaviour xsi:type="_1:LoopAction" id="_wAfysNJOEduQ7qbNANXHPw" entityName="ProductWithStockItemIterator" predecessor_AbstractAction="_m1YuANJOEduQ7qbNANXHPw" successor_AbstractAction="_dbRHgNJPEduQ7qbNANXHPw">
+      <steps_Behaviour xsi:type="_1:LoopAction" id="_wAfysNJOEduQ7qbNANXHPw" entityName="ProductWithStockItemIterator" predecessor_AbstractAction="_m1YuANJOEduQ7qbNANXHPw" successor_AbstractAction="_L834EIlBEd2FGOkhX8TQwg">
         <bodyBehaviour_Loop>
-          <steps_Behaviour xsi:type="_1:StopAction" id="_2ZFscNJOEduQ7qbNANXHPw" predecessor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="_2ZFscNJOEduQ7qbNANXHPw" predecessor_AbstractAction="_nMUhYIlAEd2FGOkhX8TQwg"/>
           <steps_Behaviour xsi:type="_1:StartAction" id="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw"/>
-          <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_3isY0NJOEduQ7qbNANXHPw" entityName="queryStockItemById" predecessor_AbstractAction="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_2ZFscNJOEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.7" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
+          <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_3isY0NJOEduQ7qbNANXHPw" entityName="queryStockItemById" predecessor_AbstractAction="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_nMUhYIlAEd2FGOkhX8TQwg" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.7" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_nMUhYIlAEd2FGOkhX8TQwg" entityName="setStockItemAmount" predecessor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw" successor_AbstractAction="_2ZFscNJOEduQ7qbNANXHPw">
+            <resourceDemand_Action>
+              <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              <specification_ParametericResourceDemand specification="2"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
         </bodyBehaviour_Loop>
         <iterationCount_LoopAction specification="saleTO.NUMBER_OF_ELEMENTS"/>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_M7N1kNJPEduQ7qbNANXHPw" entityName="getPersistenceContext" predecessor_AbstractAction="_dbRHgNJPEduQ7qbNANXHPw" successor_AbstractAction="_YeyxANJQEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_dbRHgNJPEduQ7qbNANXHPw" entityName="catchBlock" predecessor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw" successor_AbstractAction="_M7N1kNJPEduQ7qbNANXHPw">
-        <resourceDemand_Action>
-          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
-          <specification_ParametericResourceDemand specification="DoublePDF[(1;0.98)(18;0)(21;0.02)]"/>
-        </resourceDemand_Action>
-      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_M7N1kNJPEduQ7qbNANXHPw" entityName="getPersistenceContext" predecessor_AbstractAction="_L834EIlBEd2FGOkhX8TQwg" successor_AbstractAction="_YeyxANJQEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
       <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_YeyxANJQEduQ7qbNANXHPw" entityName="queryLowStockItemsWithRespectToIncomingProducts" predecessor_AbstractAction="_M7N1kNJPEduQ7qbNANXHPw" successor_AbstractAction="_qZcYsNJQEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.3" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
       <steps_Behaviour xsi:type="_1:InternalAction" id="_qZcYsNJQEduQ7qbNANXHPw" entityName="calculateProductAmounts" predecessor_AbstractAction="_YeyxANJQEduQ7qbNANXHPw" successor_AbstractAction="_1UJywNJQEduQ7qbNANXHPw">
         <resourceDemand_Action>
@@ -356,6 +356,12 @@
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="DoublePDF[(1;0.98)(5;0)(7;0.02)]"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_L834EIlBEd2FGOkhX8TQwg" entityName="commitTransactionAndClosePersistenceContext" predecessor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw" successor_AbstractAction="_M7N1kNJPEduQ7qbNANXHPw">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="2"/>
         </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
