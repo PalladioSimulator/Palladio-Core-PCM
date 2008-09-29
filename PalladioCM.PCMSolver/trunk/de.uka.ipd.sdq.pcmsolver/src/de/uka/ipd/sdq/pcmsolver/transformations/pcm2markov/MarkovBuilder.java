@@ -409,6 +409,71 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Creates a Markov Chain for a branch with solved branch probabilities.
+	 * 
+	 * @param name
+	 *            the name of the branch
+	 * @param branchProbabilities
+	 *            the branch probabilities
+	 * @return the resulting Markov Chain
+	 */
+	public MarkovChain initBranchMarkovChain(final String name,
+			final ArrayList<Double> branchProbabilities) {
+
+		// Create the Markov Chain Entity:
+		MarkovChain markovChain = markovFactory.createMarkovChain();
+		markovChain.setName(name);
+
+		// Create the Start, Success and Failure States:
+		State stateStart = markovFactory.createState();
+		stateStart.setType(StateType.START);
+		stateStart.setName(name + " - " + stateStart.getType().toString());
+		State stateSuccess = markovFactory.createState();
+		stateSuccess.setType(StateType.SUCCESS);
+		stateSuccess.setName(name + " - " + stateSuccess.getType().toString());
+		State stateFailure = markovFactory.createState();
+		stateFailure.setType(StateType.FAILURE);
+		stateFailure.setName(name + " - " + stateFailure.getType().toString());
+
+		// Add the States to the Markov Chain:
+		markovChain.getStates().add(stateStart);
+		markovChain.getStates().add(stateSuccess);
+		markovChain.getStates().add(stateFailure);
+
+		// Go through the given branch probabilities:
+		for (int i = 0; i < branchProbabilities.size(); i++) {
+
+			// Create a new State:
+			State stateBranch = markovFactory.createState();
+			stateBranch.setName(name + " - branch " + (i + 1));
+			markovChain.getStates().add(stateBranch);
+
+			// Create a transition from the Start State to the new
+			// one:
+			Transition transitionBranch = markovFactory.createTransition();
+			transitionBranch.setFromState(stateStart);
+			transitionBranch.setToState(stateBranch);
+			transitionBranch.setProbability(branchProbabilities.get(i));
+			transitionBranch.setName(stateStart.getName() + " - "
+					+ StateType.SUCCESS.getName());
+			markovChain.getTransitions().add(transitionBranch);
+
+			// Create a transition from the Start State to the new
+			// one:
+			Transition transitionSuccess = markovFactory.createTransition();
+			transitionSuccess.setFromState(stateBranch);
+			transitionSuccess.setToState(stateSuccess);
+			transitionSuccess.setProbability(1);
+			transitionSuccess.setName(stateBranch.getName() + " - "
+					+ StateType.SUCCESS.getName());
+			markovChain.getTransitions().add(transitionSuccess);
+		}
+
+		// Return the result:
+		return markovChain;
+	}
+
+	/**
 	 * Incorporates one Markov Chain into another. The specific Markov Chain is
 	 * inserted into the aggregate Markov Chain directly before the Success
 	 * state of the aggregate Markov Chain. Note: This method is deprecated and
@@ -973,5 +1038,4 @@ public class MarkovBuilder {
 			}
 		}
 	}
-
 }

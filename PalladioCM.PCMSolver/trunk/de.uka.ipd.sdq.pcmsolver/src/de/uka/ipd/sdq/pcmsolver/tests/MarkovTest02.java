@@ -83,9 +83,9 @@ public class MarkovTest02 {
 
 		// Calculate the expected result:
 		double[] branchProbabilities01 = new double[] { 0.7, 0.3 };
-		double[] branchReliabilities01 = new double[] { 0.99, 0.98 };
+		double[] branchReliabilities01 = new double[] { 0.99, 0.95 };
 		double[] branchProbabilities02 = new double[] { 0.1, 0.9 };
-		double[] branchReliabilities02 = new double[] { 0.95, 0.99 };
+		double[] branchReliabilities02 = new double[] { 0.9, 0.8 };
 		double temporaryResult01 = 0;
 		for (int i = 0; i < branchProbabilities01.length; i++) {
 			temporaryResult01 += branchProbabilities01[i] * branchReliabilities01[i];

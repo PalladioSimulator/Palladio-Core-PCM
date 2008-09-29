@@ -7,8 +7,11 @@ import markov.State;
 import markov.StateType;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -185,9 +188,9 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	}
 
 	/**
-	 * For a LoopAction, first the Markov Chain of the body behaviour is built
-	 * and solved. The result is then inserted into a new Markov Chain that has
-	 * one State for each of the possible iteration count of the loop.
+	 * For a LoopAction, first the Markov Chain of the body behaviour is built.
+	 * The result is then inserted into a new Markov Chain that has one State
+	 * for each of the possible iteration counts of the loop.
 	 * 
 	 * @param loopAction
 	 *            the LoopAction
@@ -221,6 +224,57 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		for (int i = 0; i < statesToReplace.size(); i++) {
 			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
 					specificMarkovChain, statesToReplace.get(i));
+		}
+
+		// Return the result:
+		return aggregateMarkovChain;
+	}
+
+	/**
+	 * For a BranchAction, first the Markov Chain of each of the transition
+	 * behaviours is built. The results are then inserted into a new Markov
+	 * Chain that has one State for each of the possible branches.
+	 * 
+	 * @param branchAction
+	 *            the BranchAction
+	 * @return the resulting Markov Chain
+	 */
+	@Override
+	public MarkovChain caseBranchAction(final BranchAction branchAction) {
+
+		// Do the logging:
+		logger
+				.info("Visit BranchAction [" + branchAction.getEntityName()
+						+ "]");
+
+		// Determine the inner Markov Chains associated with the branch
+		// behaviours:
+		EList<AbstractBranchTransition> transitions = branchAction
+				.getBranches_Branch();
+		ArrayList<MarkovChain> specificMarkovChains = new ArrayList<MarkovChain>();
+		ArrayList<Double> branchProbabilities = new ArrayList<Double>();
+		for (int i = 0; i < transitions.size(); i++) {
+			branchProbabilities.add(contextWrapper
+					.getBranchProbability(transitions.get(i)));
+			specificMarkovChains.add((MarkovChain) doSwitch(transitions.get(i)
+					.getBranchBehaviour_BranchTransition()));
+		}
+
+		// Initialize the aggregate Markov Chain representing the loop:
+		MarkovChain aggregateMarkovChain = markovBuilder.initBranchMarkovChain(
+				branchAction.getEntityName(), branchProbabilities);
+
+		// Incorporate the specific MarkovChain into the aggregate one:
+		ArrayList<State> statesToReplace = new ArrayList<State>();
+		for (int i = 0; i < aggregateMarkovChain.getStates().size(); i++) {
+			if (aggregateMarkovChain.getStates().get(i).getType().equals(
+					StateType.DEFAULT)) {
+				statesToReplace.add(aggregateMarkovChain.getStates().get(i));
+			}
+		}
+		for (int i = 0; i < statesToReplace.size(); i++) {
+			markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+					specificMarkovChains.get(i), statesToReplace.get(i));
 		}
 
 		// Return the result:

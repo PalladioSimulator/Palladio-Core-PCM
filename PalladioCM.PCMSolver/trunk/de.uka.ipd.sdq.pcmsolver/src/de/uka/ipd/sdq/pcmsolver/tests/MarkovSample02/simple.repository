@@ -23,7 +23,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="_1:StartAction" id="_A2ZZcYvfEd2nxqa6RRH9xA" entityName="BranchTwoStart" successor_AbstractAction="_P78cQIvfEd2nxqa6RRH9xA"/>
             <steps_Behaviour xsi:type="_1:StopAction" id="_A2ZZcovfEd2nxqa6RRH9xA" entityName="BranchTwoStop" predecessor_AbstractAction="_P78cQIvfEd2nxqa6RRH9xA"/>
-            <steps_Behaviour xsi:type="_1:InternalAction" id="_P78cQIvfEd2nxqa6RRH9xA" entityName="BranchTwoInternalAction" predecessor_AbstractAction="_A2ZZcYvfEd2nxqa6RRH9xA" successor_AbstractAction="_A2ZZcovfEd2nxqa6RRH9xA" failureProbability="0.02">
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_P78cQIvfEd2nxqa6RRH9xA" entityName="BranchTwoInternalAction" predecessor_AbstractAction="_A2ZZcYvfEd2nxqa6RRH9xA" successor_AbstractAction="_A2ZZcovfEd2nxqa6RRH9xA" failureProbability="0.05">
               <resourceDemand_Action>
                 <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
                 <specification_ParametericResourceDemand specification="400"/>
@@ -38,7 +38,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="_1:StartAction" id="_VXc7UYviEd2nxqa6RRH9xA" entityName="BranchThreeStart" successor_AbstractAction="_fAZykIviEd2nxqa6RRH9xA"/>
             <steps_Behaviour xsi:type="_1:StopAction" id="_VXc7UoviEd2nxqa6RRH9xA" entityName="BranchThreeStop" predecessor_AbstractAction="_fAZykIviEd2nxqa6RRH9xA"/>
-            <steps_Behaviour xsi:type="_1:InternalAction" id="_fAZykIviEd2nxqa6RRH9xA" entityName="BranchThreeInternalAction" predecessor_AbstractAction="_VXc7UYviEd2nxqa6RRH9xA" successor_AbstractAction="_VXc7UoviEd2nxqa6RRH9xA" failureProbability="0.05">
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_fAZykIviEd2nxqa6RRH9xA" entityName="BranchThreeInternalAction" predecessor_AbstractAction="_VXc7UYviEd2nxqa6RRH9xA" successor_AbstractAction="_VXc7UoviEd2nxqa6RRH9xA" failureProbability="0.1">
               <resourceDemand_Action>
                 <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
                 <specification_ParametericResourceDemand specification="100"/>
@@ -50,7 +50,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="_1:StartAction" id="_XQ_24YviEd2nxqa6RRH9xA" entityName="BranchFourStart" successor_AbstractAction="_hv9JEIviEd2nxqa6RRH9xA"/>
             <steps_Behaviour xsi:type="_1:StopAction" id="_XQ_24oviEd2nxqa6RRH9xA" entityName="BranchFourStop" predecessor_AbstractAction="_hv9JEIviEd2nxqa6RRH9xA"/>
-            <steps_Behaviour xsi:type="_1:InternalAction" id="_hv9JEIviEd2nxqa6RRH9xA" entityName="BranchFourInternalAction" predecessor_AbstractAction="_XQ_24YviEd2nxqa6RRH9xA" successor_AbstractAction="_XQ_24oviEd2nxqa6RRH9xA" failureProbability="0.01">
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_hv9JEIviEd2nxqa6RRH9xA" entityName="BranchFourInternalAction" predecessor_AbstractAction="_XQ_24YviEd2nxqa6RRH9xA" successor_AbstractAction="_XQ_24oviEd2nxqa6RRH9xA" failureProbability="0.2">
               <resourceDemand_Action>
                 <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
                 <specification_ParametericResourceDemand specification="350"/>
