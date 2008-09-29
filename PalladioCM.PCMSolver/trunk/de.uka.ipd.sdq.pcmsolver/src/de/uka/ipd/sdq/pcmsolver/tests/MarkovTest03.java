@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
  * @author brosch
  * 
  */
-public class MarkovTest02 {
+public class MarkovTest03 {
 
 	/**
 	 * The Properties instance holds the references to the PCM instance files.
@@ -37,7 +37,7 @@ public class MarkovTest02 {
 	 */
 	private static final String PATH = "C:\\MyData\\Eclipse\\"
 			+ "workspace_3_3_europa_PCMSource\\de.uka.ipd.sdq.pcmsolver\\"
-			+ "src\\de\\uka\\ipd\\sdq\\pcmsolver\\tests\\MarkovSample02\\";
+			+ "src\\de\\uka\\ipd\\sdq\\pcmsolver\\tests\\MarkovSample03\\";
 
 	/**
 	 * Sets up the test configuration.
@@ -82,23 +82,10 @@ public class MarkovTest02 {
 		double result = strat.getSolvedValue();
 
 		// Calculate the expected result:
-		double[] branchProbabilities01 = new double[] { 0.7, 0.3 };
-		double[] branchReliabilities01 = new double[] { 0.99, 0.95 };
-		double[] branchProbabilities02 = new double[] { 0.1, 0.9 };
-		double[] branchReliabilities02 = new double[] { 0.9, 0.8 };
-		double temporaryResult01 = 0;
-		for (int i = 0; i < branchProbabilities01.length; i++) {
-			temporaryResult01 += branchProbabilities01[i]
-					* branchReliabilities01[i];
-		}
-		double temporaryResult02 = 0;
-		for (int i = 0; i < branchProbabilities02.length; i++) {
-			temporaryResult02 += branchProbabilities02[i]
-					* branchReliabilities02[i];
-		}
-		double expectedResult = temporaryResult01 * temporaryResult02;
+		double expectedResult = 0.98;
 
 		// Compare the expected result and the solved Markov Chain value:
 		assertTrue(Math.abs(result - expectedResult) < accuracy);
 	}
+
 }

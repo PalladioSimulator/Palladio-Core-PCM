@@ -714,6 +714,12 @@ public class MarkovBuilder {
 		aggregateMarkovChain.getTransitions().addAll(
 				copiedSpecificMarkovChain.getTransitions());
 
+		// Within the aggregate Markov Chain, the states of the specific Markov
+		// Chain are all of type Default:
+		stateSpecificStart.setType(StateType.DEFAULT);
+		stateSpecificSuccess.setType(StateType.DEFAULT);
+		stateSpecificFailure.setType(StateType.DEFAULT);
+
 		// Delete the replaceable Markov State from the aggregate Markov Chain
 		// and adjust all Transitions starting from or leading to this State:
 		aggregateMarkovChain.getStates().remove(aggregateState);

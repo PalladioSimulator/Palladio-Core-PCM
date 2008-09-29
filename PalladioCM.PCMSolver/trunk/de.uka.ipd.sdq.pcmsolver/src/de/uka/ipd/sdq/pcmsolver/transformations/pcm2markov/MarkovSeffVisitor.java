@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -279,6 +280,22 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 
 		// Return the result:
 		return aggregateMarkovChain;
+	}
+
+	/**
+	 * An ExternalCallAction returns the Markov Chain of the executing
+	 * behaviour.
+	 * 
+	 * @param externalCallAction
+	 *            the ExternalCallAction
+	 * @return the resulting Markov Chain.
+	 */
+	@Override
+	public MarkovChain caseExternalCallAction(
+			final ExternalCallAction externalCallAction) {
+
+		// Return the Markov Chain of the executing SEFF:
+		return doSwitch(contextWrapper.getNextSEFF(externalCallAction));
 	}
 
 	/**
