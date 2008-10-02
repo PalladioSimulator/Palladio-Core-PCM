@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
   <usageScenario_UsageModel id="_SKWUgI4DEd2gLOE4VNvlmQ" entityName="defaultUsageScenario">
-    <workload_UsageScenario xsi:type="ClosedWorkload">
+    <workload_UsageScenario xsi:type="ClosedWorkload" population="1">
       <thinkTime_ClosedWorkload specification="1000"/>
     </workload_UsageScenario>
     <scenarioBehaviour_UsageScenario id="_SKgFgI4DEd2gLOE4VNvlmQ" entityName="defaultUsageScenarioBehaviour">
