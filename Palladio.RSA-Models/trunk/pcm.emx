@@ -20870,6 +20870,70 @@ Note:&#xD;
     <packagedElement xmi:type="uml:Association" xmi:id="_6ZoowEpHEdyyNsXlb1tNsw" memberEnd="_6ZoowUpHEdyyNsXlb1tNsw _6ZoowkpHEdyyNsXlb1tNsw">
       <ownedEnd xmi:id="_6ZoowkpHEdyyNsXlb1tNsw" visibility="private" type="_4XfF4JJGEdqIo-u3cE9-DA" association="_6ZoowEpHEdyyNsXlb1tNsw"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_ok5G0IYfEd2Hz8WHhMU28w" name="subsystem">
+      <eAnnotations xmi:id="_olMBwIYfEd2Hz8WHhMU28w" source="uml2.diagrams">
+        <contents xmi:type="notation:Diagram" xmi:id="_rLeukIYfEd2Hz8WHhMU28w" type="Class" name="SubSystem">
+          <children xmi:id="_2VE5MIYfEd2Hz8WHhMU28w" element="_zDIAQIYfEd2Hz8WHhMU28w">
+            <children xmi:id="_2VE5M4YfEd2Hz8WHhMU28w" type="ImageCompartment">
+              <layoutConstraint xmi:type="notation:Size" xmi:id="_2VE5NIYfEd2Hz8WHhMU28w" width="1320" height="1320"/>
+            </children>
+            <children xmi:id="_2VE5NYYfEd2Hz8WHhMU28w" type="Stereotype"/>
+            <children xmi:id="_2VE5NoYfEd2Hz8WHhMU28w" type="Name"/>
+            <children xmi:id="_2VE5N4YfEd2Hz8WHhMU28w" type="Parent"/>
+            <children xmi:id="_2VE5OIYfEd2Hz8WHhMU28w" type="AttributeCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2VE5OYYfEd2Hz8WHhMU28w"/>
+            </children>
+            <children xmi:id="_2VE5OoYfEd2Hz8WHhMU28w" type="OperationCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2VE5O4YfEd2Hz8WHhMU28w"/>
+            </children>
+            <children xmi:id="_2VE5PIYfEd2Hz8WHhMU28w" visible="false" type="SignalCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2VE5PYYfEd2Hz8WHhMU28w"/>
+            </children>
+            <children xmi:id="_2VOqMIYfEd2Hz8WHhMU28w" visible="false" type="StructureCompartment">
+              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_2VOqMYYfEd2Hz8WHhMU28w"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_2VE5MYYfEd2Hz8WHhMU28w" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2VE5MoYfEd2Hz8WHhMU28w" x="4445" y="5926"/>
+          </children>
+          <children xmi:id="_Ak3uAIYgEd2Hz8WHhMU28w" element="_ZFrPgAHfEdy9bvYbdCHdZw">
+            <children xmi:id="_Ak3uAYYgEd2Hz8WHhMU28w" type="ImageCompartment">
+              <layoutConstraint xmi:type="notation:Size" xmi:id="_Ak3uAoYgEd2Hz8WHhMU28w" width="1296" height="1296"/>
+            </children>
+            <children xmi:id="_Ak3uA4YgEd2Hz8WHhMU28w" type="Stereotype"/>
+            <children xmi:id="_Ak3uBIYgEd2Hz8WHhMU28w" type="Name"/>
+            <children xmi:id="_Ak3uBYYgEd2Hz8WHhMU28w" type="Parent"/>
+            <children xmi:id="_Ak3uBoYgEd2Hz8WHhMU28w" type="AttributeCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Ak3uB4YgEd2Hz8WHhMU28w"/>
+            </children>
+            <children xmi:id="_Ak3uCIYgEd2Hz8WHhMU28w" type="OperationCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Ak3uCYYgEd2Hz8WHhMU28w"/>
+            </children>
+            <children xmi:id="_Ak3uCoYgEd2Hz8WHhMU28w" visible="false" type="SignalCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Ak3uC4YgEd2Hz8WHhMU28w"/>
+            </children>
+            <children xmi:id="_Ak3uDIYgEd2Hz8WHhMU28w" visible="false" type="StructureCompartment">
+              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_Ak3uDYYgEd2Hz8WHhMU28w"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Ak3uDoYgEd2Hz8WHhMU28w" fontName="Segoe UI" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ak3uD4YgEd2Hz8WHhMU28w" x="2536" y="1902"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_rLeukYYfEd2Hz8WHhMU28w"/>
+          <element xsi:nil="true"/>
+          <edges xmi:id="_E3Ct0YYgEd2Hz8WHhMU28w" element="_E3Ct0IYgEd2Hz8WHhMU28w" source="_2VE5MIYfEd2Hz8WHhMU28w" target="_Ak3uAIYgEd2Hz8WHhMU28w">
+            <children xmi:id="_E3L3wIYgEd2Hz8WHhMU28w" type="NameLabel">
+              <children xmi:id="_E3L3woYgEd2Hz8WHhMU28w" type="Stereotype"/>
+              <children xmi:id="_E3L3w4YgEd2Hz8WHhMU28w" type="Name"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3L3wYYgEd2Hz8WHhMU28w" y="-186"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_E3Ct0oYgEd2Hz8WHhMU28w" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_E3Ct04YgEd2Hz8WHhMU28w" points="[46, -25, -259, 117]$[181, -143, -124, -1]"/>
+          </edges>
+        </contents>
+      </eAnnotations>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zDIAQIYfEd2Hz8WHhMU28w" name="SubSystem">
+        <generalization xmi:id="_E3Ct0IYgEd2Hz8WHhMU28w" general="_ZFrPgAHfEdy9bvYbdCHdZw"/>
+      </packagedElement>
+    </packagedElement>
     <profileApplication xmi:id="_wQr8Zyh8Edue7oeC4NTCGg">
       <eAnnotations xmi:id="_wQr8aCh8Edue7oeC4NTCGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
@@ -20900,7 +20964,7 @@ Note:&#xD;
   <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0" basePackage="" prefix=""/>
   <Ecore:EPackage xmi:id="_U1n0YJZwEdyvM-KRcbKtDQ" base_Package="_7h8GkOJREdqxcra4qpeplw" packageName="connectors" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0" basePackage="" prefix=""/>
   <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0" basePackage="" prefix=""/>
-  <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" basePackage="" prefix=""/>
+  <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" basePackage="" prefix="Allocation"/>
   <Ecore:EPackage xmi:id="_U1q3sJZwEdyvM-KRcbKtDQ" base_Package="_BdlGMCh9Edue7oeC4NTCGg" packageName="repository" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" basePackage="" prefix=""/>
   <Default:Documentation xmi:id="_U2glMJZwEdyvM-KRcbKtDQ" base_Comment="_7gFgQJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQJZwEdyvM-KRcbKtDQ" base_Comment="_pfXlcJvmEdqN_b565_mSbQ"/>
@@ -20979,4 +21043,5 @@ Note:&#xD;
   <Default:Documentation xmi:id="_aAWikIVfEd2pasxENQ18jg" base_Comment="_aAMxkIVfEd2pasxENQ18jg"/>
   <Default:Documentation xmi:id="_8sanEIVhEd2pasxENQ18jg" base_Comment="_8sQ2EIVhEd2pasxENQ18jg"/>
   <Default:Documentation xmi:id="_KiCdoIVjEd2pasxENQ18jg" base_Comment="_Kh5TsIVjEd2pasxENQ18jg"/>
+  <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/subsystem/1.0"/>
 </xmi:XMI>
