@@ -696,7 +696,7 @@ aka NULL, not set, do not override</body>
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_3dHvEHvxEdyOhKBWyuRGig" base_Package="_wDpnIHvxEdyOhKBWyuRGig" packageName="featureconfig" nsPrefix="featureconfig" nsURI="http://sdq.ipd.uka.de/FeatureConfig" basePackage="de.uka.ipd.sdq" prefix="featureconfig"/>
+  <Ecore:EPackage xmi:id="_3dHvEHvxEdyOhKBWyuRGig" base_Package="_wDpnIHvxEdyOhKBWyuRGig" packageName="featureconfig" nsPrefix="featureconfig" nsURI="http://sdq.ipd.uka.de/FeatureConfig/2.0" basePackage="de.uka.ipd.sdq" prefix="featureconfig"/>
   <Default:Documentation xmi:id="_Ow_7MT4DEd2Fu_0CQ-Fq-g" base_Comment="_Ow_7MD4DEd2Fu_0CQ-Fq-g"/>
   <Default:Documentation xmi:id="_CpO-QYMGEd2EZ-q5ZcFTEQ" base_Comment="_CpO-QIMGEd2EZ-q5ZcFTEQ"/>
   <Default:Documentation xmi:id="_Zz3R0YMGEd2EZ-q5ZcFTEQ" base_Comment="_Zz3R0IMGEd2EZ-q5ZcFTEQ"/>

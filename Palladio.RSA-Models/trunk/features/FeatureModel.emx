@@ -930,5 +930,5 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_73pPEHvwEdyOhKBWyuRGig" base_Package="_nFRX4HvmEdyOhKBWyuRGig" packageName="featuremodel" nsPrefix="featuremodel" nsURI="http://sdq.ipd.uka.de/FeatureModel" basePackage="de.uka.ipd.sdq" prefix="featuremodel"/>
+  <Ecore:EPackage xmi:id="_73pPEHvwEdyOhKBWyuRGig" base_Package="_nFRX4HvmEdyOhKBWyuRGig" packageName="featuremodel" nsPrefix="featuremodel" nsURI="http://sdq.ipd.uka.de/FeatureModel/2.0" basePackage="de.uka.ipd.sdq" prefix="featuremodel"/>
 </xmi:XMI>
