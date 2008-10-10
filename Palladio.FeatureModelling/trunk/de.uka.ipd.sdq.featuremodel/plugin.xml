@@ -12,7 +12,7 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://sdq.ipd.uka.de/FeatureModel" 
+       uri = "http://sdq.ipd.uka.de/FeatureModel/3.0" 
        class = "de.uka.ipd.sdq.featuremodel.featuremodelPackage"
        genModel = "model/FeatureModel.genmodel" /> 
   </extension>

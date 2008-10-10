@@ -42,7 +42,7 @@ public interface featureconfigPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/FeatureConfig";
+	String eNS_URI = "http://sdq.ipd.uka.de/FeatureConfig/3.0";
 
 	/**
 	 * The package namespace name.

@@ -46,7 +46,7 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	 */
 	public static featuremodelFactory init() {
 		try {
-			featuremodelFactory thefeaturemodelFactory = (featuremodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureModel"); 
+			featuremodelFactory thefeaturemodelFactory = (featuremodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureModel/3.0"); 
 			if (thefeaturemodelFactory != null) {
 				return thefeaturemodelFactory;
 			}

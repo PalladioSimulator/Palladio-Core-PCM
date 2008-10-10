@@ -36,7 +36,7 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	 */
 	public static featureconfigFactory init() {
 		try {
-			featureconfigFactory thefeatureconfigFactory = (featureconfigFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureConfig"); 
+			featureconfigFactory thefeatureconfigFactory = (featureconfigFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureConfig/3.0"); 
 			if (thefeatureconfigFactory != null) {
 				return thefeatureconfigFactory;
 			}

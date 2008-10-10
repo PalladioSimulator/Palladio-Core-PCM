@@ -78,15 +78,6 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 */
 	protected ConfigState configState = CONFIG_STATE_EDEFAULT;
 	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ConfigCardinalityInvalid <em>Config Cardinality Invalid</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ConfigCardinalityInvalid
-	 * @generated
-	 */
-	private static OCLExpression ConfigCardinalityInvalidInvOCL;
-
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 	/**
@@ -173,24 +164,11 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 * @generated
 	 */
 	public boolean ConfigCardinalityInvalid(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ConfigCardinalityInvalidInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size()   in   	 if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then  	 	childSelectedCount >= self.origin.min and (childSelectedCount <= self.origin.max or self.origin.max = -1)  	 else  	 	self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)  	 endif ";
-			
-			try {
-				ConfigCardinalityInvalidInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ConfigCardinalityInvalidInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -203,7 +181,6 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
