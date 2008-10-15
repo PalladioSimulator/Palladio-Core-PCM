@@ -10,23 +10,24 @@ import java.io.RandomAccessFile;
  */
 public class Chunk<T> {
 	private long myFilePos;
-	private Object[] data = null;
+	private T[] data = null;
 	private int nextFreeElement = 0;
 	private RandomAccessFile raf;
-	private ISerialiser serialiser;
+	private ISerialiser<T> serialiser;
 	private boolean changed;
 	private long fromElement;
 
-	public Chunk(RandomAccessFile raf, ISerialiser serialiser) throws IOException {
+	@SuppressWarnings("unchecked")
+	public Chunk(RandomAccessFile raf, ISerialiser<T> serialiser) throws IOException {
 		this.myFilePos = raf.length();
 		this.raf = raf;
 		this.serialiser = serialiser;
-		data = new Object[BackgroundMemoryList.MEMORY_CHUNKS_SIZE];
+		data = (T[])(new Object[BackgroundMemoryList.MEMORY_CHUNKS_SIZE]);
 		changed = false;
 		fromElement = myFilePos / serialiser.getElementLength();
 	}
 
-	public Chunk(RandomAccessFile raf, ISerialiser serialiser, int chunkNo) throws IOException {
+	public Chunk(RandomAccessFile raf, ISerialiser<T> serialiser, int chunkNo) throws IOException {
 		this.raf = raf;
 		this.serialiser = serialiser;
 		raf.seek(chunkNo * BackgroundMemoryList.MEMORY_CHUNKS_SIZE * serialiser.getElementLength());
@@ -56,6 +57,7 @@ public class Chunk<T> {
 		return nextFreeElement >= data.length;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void loadChunk() throws IOException {
 		int count = (int)(BackgroundMemoryList.MEMORY_CHUNKS_SIZE * serialiser.getElementLength());
 		if (raf.length() < raf.getFilePointer() + count) {
@@ -63,11 +65,11 @@ public class Chunk<T> {
 		}
 		byte[] b = new byte[count];
 		raf.read(b, 0, count);
-		Object[] newData = serialiser.deserialise(b);
+		T[] newData = serialiser.deserialise(b);
 		if (newData.length == BackgroundMemoryList.MEMORY_CHUNKS_SIZE) {
 			data = newData;
 		} else {
-			data = new Object[BackgroundMemoryList.MEMORY_CHUNKS_SIZE];
+			data = (T[])(new Object[BackgroundMemoryList.MEMORY_CHUNKS_SIZE]);
 			for (int i = 0; i < newData.length; i++)
 				data[i] = newData[i];
 		}
