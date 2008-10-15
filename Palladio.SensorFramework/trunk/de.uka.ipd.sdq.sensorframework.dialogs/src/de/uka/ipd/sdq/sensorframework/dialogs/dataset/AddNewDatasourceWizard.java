@@ -65,12 +65,10 @@ public class AddNewDatasourceWizard extends Wizard {
 			
 		} else if (selectTypePage.getResult().equals("File Datasource")) {
 			
-			IPath rootPath = ResourcesPlugin.getWorkspace().getRoot()
-					.getLocation();
-			IPath path = newFolderPage.createNewFolder().getFullPath();
+			IPath selectedWorkspacePath = newFolderPage.createNewFolder().getFullPath();
+			IPath targetDirectory = ResourcesPlugin.getWorkspace().getRoot().getFile(selectedWorkspacePath).getLocation();
 			try {
-				IDAOFactory fileFactory = new FileDAOFactory(rootPath.toOSString()
-						+ path.toOSString()); 
+				IDAOFactory fileFactory = new FileDAOFactory(targetDirectory.toOSString()); 
 				SensorFrameworkDataset.singleton().addDataSource(
 						fileFactory);
 			} catch (Exception ex) {
