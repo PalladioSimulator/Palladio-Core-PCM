@@ -10,17 +10,28 @@ import de.uka.ipd.sdq.sensorframework.storage.lists.ISerialiser;
  * @author Henning Groenda 
  * @author Steffen Becker
  */
-public class StateSerializer implements ISerialiser {
+public class StateSerializer 
+implements ISerialiser<State> {
 
 	HashMap<Long, State> hashMap = new HashMap<Long, State>(); 
 	
+	StateSensor mySensor = null;
+	
 	public StateSerializer(StateSensor stateSensor){
-		for (State s : stateSensor.getSensorStates()) {
+		this.mySensor = stateSensor;
+		initSensorStateHash();
+	}
+
+	private void initSensorStateHash() {
+		hashMap.clear();
+		for (State s : mySensor.getSensorStates()) {
 			hashMap.put(s.getStateID(),s);
 		}
 	}
 	
-	public Object[] deserialise(byte[] bytes) {
+	public State[] deserialise(byte[] bytes) {
+		initSensorStateHash();
+		
 		State[] states = new State[(int)(bytes.length / getElementLength())];
 		int blockPos = 0;
 		for (int j = 0; j<states.length; j++){

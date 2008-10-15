@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
-import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 

@@ -12,7 +12,6 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
-import de.uka.ipd.sdq.simucomframework.simucomstatus.SimulatedResources;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 /**
@@ -45,7 +44,9 @@ implements
 	*/
 	public void start(org.osgi.framework.BundleContext context) throws Exception {
 		// register the service
-		serviceRegistryEntry = context.registerService(de.uka.ipd.sdq.simucomframework.ISimuComControl.class.getName(), this, new java.util.Hashtable());
+		serviceRegistryEntry = context.registerService(
+				de.uka.ipd.sdq.simucomframework.ISimuComControl.class.getName(), 
+				this, new java.util.Hashtable());
 	}
 
 	/*
@@ -93,6 +94,7 @@ implements
 		});
 		getStatus().setCurrentSimulationTime(0);
 		ExperimentRunner.run(model, SIM_STOP_TIME);
+		model.getDAOFactory().store();
 		return model.getErrorStatus();
 	}
 	

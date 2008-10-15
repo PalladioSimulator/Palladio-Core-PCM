@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
 import java.util.HashMap;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -18,7 +17,6 @@ import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeE
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorHelper;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.ActiveResouce;
-import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForDemand;
 

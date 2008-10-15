@@ -73,7 +73,7 @@ public class BackgroundMemoryList<T>
 	}
 
 	@Override
-	public void add(int index, T e) {
+	public synchronized void add(int index, T e) {
 		try{
 			ensureCorrectCunkLoaded(index);
 			if (currentChunk == null || currentChunk.isFull()) {
@@ -87,7 +87,7 @@ public class BackgroundMemoryList<T>
 		}
 	}
 
-	public T get(int index) {
+	public synchronized T get(int index) {
 		if (this.isClosed)
 			throw new IllegalStateException("Tryed to get data from a closed background list");
 		if (index >= size())
@@ -104,11 +104,15 @@ public class BackgroundMemoryList<T>
 	 * Tests whether a chunk swapping is needed to access the list element add the given index and if so swaps the chunks
 	 */
 	private void ensureCorrectCunkLoaded(int index) throws IOException {
-		flush();
-		currentChunk = new Chunk<T>(raf,serialiser,index / MEMORY_CHUNKS_SIZE);
+		if (currentChunk != null && currentChunk.accepts(index))
+			return;
+		else {
+			flush();
+			currentChunk = new Chunk<T>(raf,serialiser,index / MEMORY_CHUNKS_SIZE);
+		}
 	}
 
-	public int size() {
+	public synchronized int size() {
 		return this.listSize;
 	}
 
@@ -131,7 +135,7 @@ public class BackgroundMemoryList<T>
 	/** Closes the background storage. The list is inaccessible afterwards
 	 * @throws IOException
 	 */
-	public void close() throws IOException {
+	public synchronized void close() throws IOException {
 		if (!isClosed){
 			flush();
 			raf.close();
@@ -142,7 +146,7 @@ public class BackgroundMemoryList<T>
 	/** Writes all buffered data to the background storage
 	 * @throws IOException
 	 */
-	public void flush() throws IOException {
+	public synchronized void flush() throws IOException {
 		if (currentChunk != null) {
 			currentChunk.persist();
 		}

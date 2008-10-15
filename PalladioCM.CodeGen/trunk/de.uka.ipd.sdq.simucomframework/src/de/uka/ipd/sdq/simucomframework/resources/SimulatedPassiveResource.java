@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.PassiveResource;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForAcquire;
-import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForDemand;
 
 public class SimulatedPassiveResource extends SimProcess {
 

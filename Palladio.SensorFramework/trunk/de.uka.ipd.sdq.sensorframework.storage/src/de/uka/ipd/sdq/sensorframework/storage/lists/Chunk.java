@@ -90,4 +90,18 @@ public class Chunk<T> {
 	public long toElement() {
 		return fromElement() + nextFreeElement - 1;
 	}
+
+	public boolean accepts(int index) {
+		if (fromElement <= index) {
+			if (toElement() > index) {
+				return true;
+			}
+			if (nextFreeElement + fromElement == index) {
+				return !isFull();
+			}
+			return false;
+		} else {
+			return false;
+		}
+	}
 }

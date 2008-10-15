@@ -3,9 +3,7 @@ package de.uka.ipd.sdq.simucomframework.model;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.change.util.ChangeRecorder;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
@@ -18,7 +16,6 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimEngineFactory;
 import de.uka.ipd.sdq.simucomframework.abstractSimEngine.ISimulationControlDelegate;
-import de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.DatasourceConfigurationInvalidException;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
@@ -27,9 +24,7 @@ import de.uka.ipd.sdq.simucomframework.sensors.SimuComExperimentRunDecorator;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Action;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
-import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusPackage;
-import de.uka.ipd.sdq.simucomframework.simucomstatus.SimulatedResources;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 /**

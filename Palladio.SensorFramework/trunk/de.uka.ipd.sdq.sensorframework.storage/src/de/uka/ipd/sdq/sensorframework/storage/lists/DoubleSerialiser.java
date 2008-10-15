@@ -10,11 +10,11 @@ public class DoubleSerialiser implements ISerialiser<Double> {
 		return 8;
 	}
 	
-	public byte[] serialise(Double[] objects, int count){
+	public byte[] serialise(Object[] objects, int count){
 		byte[] block = new byte[(int)(count*getElementLength())];
 		int blockPos = 0;
 		for (int j = 0; j < count; j++){
-			long l = Double.doubleToRawLongBits(objects[j]);
+			long l = Double.doubleToRawLongBits((Double)objects[j]);
 			for (int i = 0; i < 8; i++) {
 				block[blockPos++] = (byte)(l & 0xff);
 				l = l >> 8;

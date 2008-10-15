@@ -37,6 +37,7 @@ public abstract class AbstractSensorAndMeasurements
 		this.sensor = sensor;
 		this.experimentRun = exprun;
 		this.fm = fm;
+		
 		eventTimes = new BackgroundMemoryList<Double>(getEventTimeFileName(), new DoubleSerialiser());
 		fm.addOpenList(eventTimes);
 	}

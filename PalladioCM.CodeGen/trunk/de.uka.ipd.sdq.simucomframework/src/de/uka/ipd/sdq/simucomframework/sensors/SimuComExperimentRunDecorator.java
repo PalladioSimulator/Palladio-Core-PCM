@@ -4,6 +4,8 @@ import java.util.Collection;
 
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement;
+import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.entities.State;
@@ -11,8 +13,6 @@ import de.uka.ipd.sdq.sensorframework.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.StateSensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
-import de.uka.ipd.sdq.sensorframework.entities.ScalabilityMeasurement;
-import de.uka.ipd.sdq.sensorframework.entities.ScalabilitySensor;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SimuComExperimentRunDecorator implements ExperimentRun {

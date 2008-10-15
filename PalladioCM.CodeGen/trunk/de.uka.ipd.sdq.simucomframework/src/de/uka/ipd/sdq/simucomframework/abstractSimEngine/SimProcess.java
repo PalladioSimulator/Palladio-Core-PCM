@@ -3,14 +3,11 @@ package de.uka.ipd.sdq.simucomframework.abstractSimEngine;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForDelay;
-import de.uka.ipd.sdq.simucomframework.simucomstatus.WaitForDemand;
-import de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUser;
 
 public abstract class SimProcess extends SimulationElement 
 implements ISimProcessDelegate, ISchedulableProcess {
