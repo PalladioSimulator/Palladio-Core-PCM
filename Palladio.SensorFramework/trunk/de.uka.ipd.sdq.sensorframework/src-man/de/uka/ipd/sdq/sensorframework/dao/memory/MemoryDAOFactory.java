@@ -28,7 +28,7 @@ public class MemoryDAOFactory implements IDAOFactory {
 	}
 	
 	public MemoryDAOFactory(String config) {
-		this(-1);
+		this(IDAOFactory.ID_NOT_SET);
 	}
 	
 	/* (non-Javadoc)

@@ -51,7 +51,7 @@ public class FileDAOFactory implements IDAOFactory {
 	 * @param rootDirectory The directory in which to store the data
 	 */
 	public FileDAOFactory(String rootDirectory) {
-		this(-1,rootDirectory);
+		this(IDAOFactory.ID_NOT_SET,rootDirectory);
 	}
 	
 	/** Constructor for a FileDAOFactory with given ID. Used by Sensorframework startup code to reinitialise the

@@ -14,6 +14,8 @@ package de.uka.ipd.sdq.sensorframework.entities.dao;
  *
  */
 public interface IDAOFactory {
+	public static long ID_NOT_SET = -1;
+	
 	String getName();
 
 	String getDescription();
