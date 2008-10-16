@@ -19,12 +19,17 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * These objects may be sensitive to the current input of the view, or ignore it
  * and always show the same content (like Task List, for example).
  */
-public class TreeContainer implements IAdaptable {
+public class ExperimentTreeContainer implements IAdaptable {
 	
 	private Experiment experiment;
 	private List<TreeObject> elements = null;
 	private String name;
-	private int type;
+	private ContentType type;
+	
+	public enum ContentType {
+		EXPERIMENT_RUNS,
+		SENSORS
+	}
 	
 	private String EXPERIMENT_RUNS_NAME = "Experiment Runs";
 	private String SENSORS_NAME		 = "Sensors";
@@ -33,19 +38,19 @@ public class TreeContainer implements IAdaptable {
 	 * REFACTORIN!!
 	 * @param experiment
 	 */
-	public TreeContainer(IDAOFactory datasource, Experiment experiment, int type) {
+	public ExperimentTreeContainer(IDAOFactory datasource, Experiment experiment, ContentType type) {
 		this.experiment = experiment;
 		this.type = type;
 		this.elements = new ArrayList<TreeObject>();
 
-		if (type == TreeContentProvider.EXPERIMENT_RUNS){
+		if (type == ContentType.EXPERIMENT_RUNS){
 			Collection<ExperimentRun> runs = experiment.getExperimentRuns();
 			for(ExperimentRun r : runs)
 				elements.add(new TreeObject(r,datasource,experiment));
 
 			this.name = EXPERIMENT_RUNS_NAME;
 		}
-		if (type == TreeContentProvider.SENSORS){
+		if (type == ContentType.SENSORS){
 			Collection<Sensor> sensors = experiment.getSensors();
 			for(Sensor s : sensors)
 				elements.add(new TreeObject (s,datasource,experiment));
@@ -84,7 +89,7 @@ public class TreeContainer implements IAdaptable {
 		return name;
 	}
 
-	public int getType() {
+	public ContentType getType() {
 		return type;
 	}
 }

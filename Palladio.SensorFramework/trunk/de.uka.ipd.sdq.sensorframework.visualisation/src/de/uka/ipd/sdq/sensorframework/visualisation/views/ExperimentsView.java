@@ -27,11 +27,11 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.internal.UIPlugin;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkPluginActivator;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.AddNewDatasourceWizard;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.OpenDatasourceWizard;
@@ -40,7 +40,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationPlugin;
 
 /**
- * The view shows data obtained from the 'SensorfFctory' model. The view is
+ * The view shows data obtained from the 'SensorFactory' model. The view is
  * connected to the model using a content provider.
  * 
  * @author Roman Andrej
@@ -61,10 +61,13 @@ public class ExperimentsView extends ViewPart {
 	private Action deleteDataSet;
 	private Action properties;
 	
-
+	/** The dataset to show in the view. */
+	SensorFrameworkDataset dataset;
+	
 	public ExperimentsView() {
+		this.dataset = SensorFrameworkPluginActivator.COMMON_DATASET;
 	}
-
+	
 	class NameSorter extends ViewerSorter {
 	}
 
@@ -76,8 +79,8 @@ public class ExperimentsView extends ViewPart {
 		int ops = DND.DROP_COPY | DND.DROP_MOVE;
 
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		viewer.setContentProvider(new TreeContentProvider());
-		viewer.setLabelProvider(new TreeLabelProvider());
+		viewer.setContentProvider(new DatasetTreeContentProvider(dataset));
+		viewer.setLabelProvider(new DatasetTreeLabelProvider());
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
 
@@ -179,7 +182,7 @@ public class ExperimentsView extends ViewPart {
 			@Override
 			public void run() {
 				try {
-					SensorFrameworkDataset.singleton().reload();
+					dataset.reload();
 				} catch (Exception ex) {
 					MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 							"Reloading the Sensor Dataset Failed", 
@@ -218,7 +221,7 @@ public class ExperimentsView extends ViewPart {
 		newDataSet = new Action() {
 			@Override
 			public void run() {
-				AddNewDatasourceWizard wizard = new AddNewDatasourceWizard();
+				AddNewDatasourceWizard wizard = new AddNewDatasourceWizard(dataset);
 				// Instantiates the wizard container with the wizard and opens
 				// it
 				WizardDialog dialog = new WizardDialog(getSite().getShell(),
@@ -239,7 +242,7 @@ public class ExperimentsView extends ViewPart {
 			@Override
 			public void run() {
 
-				OpenDatasourceWizard wizard = new OpenDatasourceWizard();
+				OpenDatasourceWizard wizard = new OpenDatasourceWizard(dataset);
 
 				// Instantiates the wizard container with the wizard and opens
 				// it
@@ -247,7 +250,7 @@ public class ExperimentsView extends ViewPart {
 						wizard);
 				dialog.create();
 				
-				dialog.setTitle(ConfigureDatasourceDialog.OPEN_WISARD_TITLE);
+				dialog.setTitle(ConfigureDatasourceDialog.OPEN_WIZARD_TITLE);
 				dialog.open();
 				viewer.refresh();
 			}
@@ -263,7 +266,7 @@ public class ExperimentsView extends ViewPart {
 
 				// selected element in 'ExperimentView' DAOFactory
 				if (selectedFactory != null) {
-					SensorFrameworkDataset.singleton().removeDataSource(
+					dataset.removeDataSource(
 							selectedFactory);
 					viewer.refresh();
 				}

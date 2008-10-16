@@ -4,7 +4,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
 
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkPluginActivator;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
@@ -106,8 +106,7 @@ public class ConfigEditorInputFactory implements IElementFactory {
 		String datasource = memento.getString(DATASOURCE);
 		if (datasource == null)
 			return null;
-		IDAOFactory data = SensorFrameworkDataset
-				.singleton().getDataSourceByID(Long.parseLong(datasource));
+		IDAOFactory data = SensorFrameworkPluginActivator.COMMON_DATASET.getDataSourceByID(Long.parseLong(datasource));
 		return data;
 	}
     

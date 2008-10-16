@@ -12,12 +12,15 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 /** @author Roman Andrej */
 public class ConfigureDatasourceDialog extends DatasourceDialog {
 	
-    public static String OPEN_WISARD_TITLE = "Load a source storage for the sensor framework.";
+    public static String OPEN_WIZARD_TITLE = "Load a source storage for the sensor framework.";
     public static String ADD_WIZARD_TITLE = "Select/create a storage for the sensor framework.";
+    
+    private SensorFrameworkDataset dataset;
 
-	public ConfigureDatasourceDialog(Shell parentShell, String dialogTitel, boolean makeValidation) {
-		super(parentShell, dialogTitel, SensorFrameworkDataset
-				.singleton().getDataSources(), makeValidation);
+	public ConfigureDatasourceDialog(Shell parentShell, String dialogTitel, boolean makeValidation,
+			final SensorFrameworkDataset dataset) {
+		super(parentShell, dialogTitel, dataset.getDataSources(), makeValidation);
+		this.dataset = dataset;
 		create();
 		setRemoveButtonAction(new SelectionAdapter() {
 
@@ -27,7 +30,7 @@ public class ConfigureDatasourceDialog extends DatasourceDialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				IDAOFactory selectedSource = (IDAOFactory) getResult();
-				SensorFrameworkDataset.singleton().removeDataSource(
+				dataset.removeDataSource(
 						selectedSource);
 				refresh();
 			}
@@ -40,7 +43,7 @@ public class ConfigureDatasourceDialog extends DatasourceDialog {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				AddNewDatasourceWizard w = new AddNewDatasourceWizard();
+				AddNewDatasourceWizard w = new AddNewDatasourceWizard(dataset);
 				//w.init(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getWorkbench(),
 			    //       null);
 			    // Instantiates the wizard container with the wizard and opens it
@@ -61,13 +64,13 @@ public class ConfigureDatasourceDialog extends DatasourceDialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 
-				OpenDatasourceWizard w = new OpenDatasourceWizard();
+				OpenDatasourceWizard w = new OpenDatasourceWizard(dataset);
 
 				// Instantiates the wizard container with the wizard and opens it
 				WizardDialog dialog = new WizardDialog(e.display
 						.getActiveShell(), w);
 				dialog.create();
-				dialog.setTitle(OPEN_WISARD_TITLE);
+				dialog.setTitle(OPEN_WIZARD_TITLE);
 				dialog.open();
 				refresh();
 			}

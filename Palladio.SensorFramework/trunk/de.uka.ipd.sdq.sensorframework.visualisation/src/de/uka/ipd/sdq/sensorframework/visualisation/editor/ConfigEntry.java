@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
@@ -19,16 +18,16 @@ public class ConfigEntry extends Observable {
 	private List<Long> sensorIDs;
 	private long experimentRunID;
 	private long experimentID;
-	private long datasourceID;
+	private IDAOFactory factory;
 
 	public ConfigEntry(IDAOFactory factory, ExperimentRun experimentRun, Experiment experiment,
 			Sensor sensor) {
-		this.datasourceID = factory.getID();
 		this.experimentRunID = experimentRun.getExperimentRunID();
 		this.experimentID = experiment.getExperimentID();
 		this.sensorIDs = new ArrayList<Long>();
 		if (sensor != null)
 			this.sensorIDs.add(sensor.getSensorID());
+		this.factory = factory;
 	}
 	
 	public List<Sensor> getSensors() {
@@ -81,6 +80,6 @@ public class ConfigEntry extends Observable {
 	}
 
 	public IDAOFactory getDatasource() {
-		return SensorFrameworkDataset.singleton().getDataSourceByID(this.datasourceID);
+		return factory;
 	}
 }

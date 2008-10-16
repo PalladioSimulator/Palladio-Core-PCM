@@ -13,7 +13,7 @@ import junit.framework.JUnit4TestAdapter;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkPluginActivator;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Measurement;
@@ -31,7 +31,7 @@ public class FileFactoryTest {
 
 	@BeforeClass
 	public static void setUpBeforClass() {
-		f = SensorFrameworkDataset.singleton().getDataSourceByID(2);
+		f = SensorFrameworkPluginActivator.COMMON_DATASET.getDataSourceByID(2);
 		Experiment e = f.createExperimentDAO().addExperiment("Test");
 		ExperimentRun er1 = e.addExperimentRun("TestRun1");
 		ExperimentRun er2 = e.addExperimentRun("TestRun2");
@@ -132,7 +132,7 @@ public class FileFactoryTest {
 
 	@Test
 	public void addExperiment() {
-		f = SensorFrameworkDataset.singleton().getDataSourceByID(2);
+		f = SensorFrameworkPluginActivator.COMMON_DATASET.getDataSourceByID(2);
 		Experiment e2 = f.createExperimentDAO().addExperiment("Test2");
 
 		assertEquals(2, f.createExperimentDAO().getExperiments().size());

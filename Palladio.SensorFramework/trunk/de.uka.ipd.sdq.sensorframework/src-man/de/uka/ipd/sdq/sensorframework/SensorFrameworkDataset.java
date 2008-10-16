@@ -12,18 +12,12 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * @author groenda
  */
 public class SensorFrameworkDataset {
-	private static SensorFrameworkDataset singleton = new SensorFrameworkDataset();
+	private static long INITIAL_ID = 1;
+	
 	private ArrayList<IDAOFactory> datasources = new ArrayList<IDAOFactory>();
-	private long nextID = 1;
+	private long nextID = INITIAL_ID;
 	
-	private SensorFrameworkDataset() {
-	}
-	
-	/**
-	 * @return the one central instance containing all datasources.
-	 */
-	public static SensorFrameworkDataset singleton() {
-		return singleton;
+	SensorFrameworkDataset() {
 	}
 	
 	/**Returns all data sources in the dataset.

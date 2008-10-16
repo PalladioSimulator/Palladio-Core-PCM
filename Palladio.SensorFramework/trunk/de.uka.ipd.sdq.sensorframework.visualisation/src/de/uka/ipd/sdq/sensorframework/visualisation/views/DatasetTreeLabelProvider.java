@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.VisualisationImages;
  * in the same way everywhere.
  * 
  */
-public class TreeLabelProvider extends LabelProvider {
+public class DatasetTreeLabelProvider extends LabelProvider {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.LabelProvider#getText(java.lang.Object)
@@ -29,8 +29,8 @@ public class TreeLabelProvider extends LabelProvider {
 		if (obj instanceof ExperimentAndDAO)
 			return ((ExperimentAndDAO) obj).getExperiment().getExperimentName();
 
-		if (obj instanceof TreeContainer)
-			return ((TreeContainer) obj).getName();
+		if (obj instanceof ExperimentTreeContainer)
+			return ((ExperimentTreeContainer) obj).getName();
 		
 		if (obj instanceof TreeObject) {
 			TreeObject object = (TreeObject) obj;
@@ -65,16 +65,14 @@ public class TreeLabelProvider extends LabelProvider {
 		if (obj instanceof ExperimentAndDAO)
 			return VisualisationImages.imageRegistry.get(VisualisationImages.EXPERIMENT);
 
-		if (obj instanceof TreeContainer){
+		if (obj instanceof ExperimentTreeContainer){
 			String icon = "";
-			TreeContainer container = (TreeContainer) obj;
-			switch (container.getType()) {
-			case TreeContentProvider.EXPERIMENT_RUNS:
+			ExperimentTreeContainer container = (ExperimentTreeContainer) obj;
+			if (container.getType() == ExperimentTreeContainer.ContentType.EXPERIMENT_RUNS) {
 				icon = VisualisationImages.RUNS;
-				break;
-			case TreeContentProvider.SENSORS:
+			}
+			if (container.getType() == ExperimentTreeContainer.ContentType.SENSORS) {
 				icon = VisualisationImages.SENSORS;
-				break;
 			}
 			return VisualisationImages.imageRegistry.get(icon);
 		}

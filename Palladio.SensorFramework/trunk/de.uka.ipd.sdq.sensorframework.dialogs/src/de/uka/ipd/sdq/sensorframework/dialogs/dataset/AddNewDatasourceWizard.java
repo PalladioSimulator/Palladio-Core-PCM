@@ -24,10 +24,13 @@ public class AddNewDatasourceWizard extends Wizard {
 	private WizardNewFileCreationPage newDBpage;
 	private String result;
 	private WizardSelectDatasourcePage selectTypePage;
+	/** The dataset to add new sources. */
+	private SensorFrameworkDataset dataset;
 
-	public AddNewDatasourceWizard() {
+	public AddNewDatasourceWizard(SensorFrameworkDataset dataset) {
 		super();
 		this.setWindowTitle("Select/create datastore...");
+		this.dataset = dataset;
 	}
 
 	
@@ -60,7 +63,7 @@ public class AddNewDatasourceWizard extends Wizard {
 		
 		if (selectTypePage.getResult().equals("Memory Datasource")) {
 			
-			SensorFrameworkDataset.singleton().addDataSource(
+			dataset.addDataSource(
 					new MemoryDAOFactory(""));
 			
 		} else if (selectTypePage.getResult().equals("File Datasource")) {
@@ -69,7 +72,7 @@ public class AddNewDatasourceWizard extends Wizard {
 			IPath targetDirectory = ResourcesPlugin.getWorkspace().getRoot().getFile(selectedWorkspacePath).getLocation();
 			try {
 				IDAOFactory fileFactory = new FileDAOFactory(targetDirectory.toOSString()); 
-				SensorFrameworkDataset.singleton().addDataSource(
+				dataset.addDataSource(
 						fileFactory);
 			} catch (Exception ex) {
 				MessageDialog.openError(getShell(), "File DAO factory error.",
