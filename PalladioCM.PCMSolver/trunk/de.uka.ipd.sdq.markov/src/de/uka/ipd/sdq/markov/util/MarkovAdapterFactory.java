@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package markov.util;
+package de.uka.ipd.sdq.markov.util;
 
 import markov.*;
 
@@ -15,12 +15,18 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.markov.Entity;
+import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.markov.MarkovPackage;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.Transition;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see markov.MarkovPackage
+ * @see de.uka.ipd.sdq.markov.MarkovPackage
  * @generated
  */
 public class MarkovAdapterFactory extends AdapterFactoryImpl {
@@ -108,13 +114,13 @@ public class MarkovAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link markov.State <em>State</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.markov.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see markov.State
+	 * @see de.uka.ipd.sdq.markov.State
 	 * @generated
 	 */
 	public Adapter createStateAdapter() {
@@ -122,13 +128,13 @@ public class MarkovAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link markov.Transition <em>Transition</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.markov.Transition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see markov.Transition
+	 * @see de.uka.ipd.sdq.markov.Transition
 	 * @generated
 	 */
 	public Adapter createTransitionAdapter() {
@@ -136,13 +142,13 @@ public class MarkovAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link markov.MarkovChain <em>Chain</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.markov.MarkovChain <em>Chain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see markov.MarkovChain
+	 * @see de.uka.ipd.sdq.markov.MarkovChain
 	 * @generated
 	 */
 	public Adapter createMarkovChainAdapter() {
@@ -150,13 +156,13 @@ public class MarkovAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link markov.Entity <em>Entity</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.markov.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see markov.Entity
+	 * @see de.uka.ipd.sdq.markov.Entity
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {

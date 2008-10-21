@@ -4,11 +4,8 @@
  *
  * $Id$
  */
-package markov.impl;
+package de.uka.ipd.sdq.markov.impl;
 
-import markov.MarkovPackage;
-import markov.State;
-import markov.Transition;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -18,6 +15,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import de.uka.ipd.sdq.markov.MarkovPackage;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.Transition;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Transition</b></em>'.
@@ -25,9 +26,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link markov.impl.TransitionImpl#getProbability <em>Probability</em>}</li>
- *   <li>{@link markov.impl.TransitionImpl#getFromState <em>From State</em>}</li>
- *   <li>{@link markov.impl.TransitionImpl#getToState <em>To State</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.impl.TransitionImpl#getProbability <em>Probability</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.impl.TransitionImpl#getFromState <em>From State</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.impl.TransitionImpl#getToState <em>To State</em>}</li>
  * </ul>
  * </p>
  *

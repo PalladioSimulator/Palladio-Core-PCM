@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package markov;
+package de.uka.ipd.sdq.markov;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>State Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see markov.MarkovPackage#getStateType()
+ * @see de.uka.ipd.sdq.markov.MarkovPackage#getStateType()
  * @model
  * @generated
  */

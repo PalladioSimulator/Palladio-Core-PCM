@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package markov.impl;
+package de.uka.ipd.sdq.markov.impl;
 
 import markov.*;
 
@@ -16,6 +16,14 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.markov.Entity;
+import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.markov.MarkovFactory;
+import de.uka.ipd.sdq.markov.MarkovPackage;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.StateType;
+import de.uka.ipd.sdq.markov.Transition;
 
 /**
  * <!-- begin-user-doc -->

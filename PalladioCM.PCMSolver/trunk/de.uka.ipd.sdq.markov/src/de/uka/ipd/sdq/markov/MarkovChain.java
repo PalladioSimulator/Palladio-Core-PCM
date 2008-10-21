@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package markov;
+package de.uka.ipd.sdq.markov;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -18,19 +18,19 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link markov.MarkovChain#getStates <em>States</em>}</li>
- *   <li>{@link markov.MarkovChain#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.MarkovChain#getStates <em>States</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.MarkovChain#getTransitions <em>Transitions</em>}</li>
  * </ul>
  * </p>
  *
- * @see markov.MarkovPackage#getMarkovChain()
+ * @see de.uka.ipd.sdq.markov.MarkovPackage#getMarkovChain()
  * @model
  * @generated
  */
 public interface MarkovChain extends Entity {
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' reference list.
-	 * The list contents are of type {@link markov.State}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.markov.State}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>States</em>' reference list isn't clear,
@@ -38,7 +38,7 @@ public interface MarkovChain extends Entity {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' reference list.
-	 * @see markov.MarkovPackage#getMarkovChain_States()
+	 * @see de.uka.ipd.sdq.markov.MarkovPackage#getMarkovChain_States()
 	 * @model
 	 * @generated
 	 */
@@ -46,7 +46,7 @@ public interface MarkovChain extends Entity {
 
 	/**
 	 * Returns the value of the '<em><b>Transitions</b></em>' reference list.
-	 * The list contents are of type {@link markov.Transition}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.markov.Transition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Transitions</em>' reference list isn't clear,
@@ -54,7 +54,7 @@ public interface MarkovChain extends Entity {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transitions</em>' reference list.
-	 * @see markov.MarkovPackage#getMarkovChain_Transitions()
+	 * @see de.uka.ipd.sdq.markov.MarkovPackage#getMarkovChain_Transitions()
 	 * @model
 	 * @generated
 	 */

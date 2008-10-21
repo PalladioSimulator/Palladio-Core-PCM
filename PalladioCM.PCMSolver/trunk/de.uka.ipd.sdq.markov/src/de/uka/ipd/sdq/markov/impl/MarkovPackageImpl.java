@@ -4,15 +4,8 @@
  *
  * $Id$
  */
-package markov.impl;
+package de.uka.ipd.sdq.markov.impl;
 
-import markov.Entity;
-import markov.MarkovChain;
-import markov.MarkovFactory;
-import markov.MarkovPackage;
-import markov.State;
-import markov.StateType;
-import markov.Transition;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -21,6 +14,14 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import de.uka.ipd.sdq.markov.Entity;
+import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.markov.MarkovFactory;
+import de.uka.ipd.sdq.markov.MarkovPackage;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.StateType;
+import de.uka.ipd.sdq.markov.Transition;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,7 +76,7 @@ public class MarkovPackageImpl extends EPackageImpl implements MarkovPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see markov.MarkovPackage#eNS_URI
+	 * @see de.uka.ipd.sdq.markov.MarkovPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */

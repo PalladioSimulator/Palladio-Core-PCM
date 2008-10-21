@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package markov;
+package de.uka.ipd.sdq.markov;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -16,18 +16,18 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link markov.State#getType <em>Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.State#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see markov.MarkovPackage#getState()
+ * @see de.uka.ipd.sdq.markov.MarkovPackage#getState()
  * @model
  * @generated
  */
 public interface State extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link markov.StateType}.
+	 * The literals are from the enumeration {@link de.uka.ipd.sdq.markov.StateType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
@@ -35,20 +35,20 @@ public interface State extends Entity {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see markov.StateType
+	 * @see de.uka.ipd.sdq.markov.StateType
 	 * @see #setType(StateType)
-	 * @see markov.MarkovPackage#getState_Type()
+	 * @see de.uka.ipd.sdq.markov.MarkovPackage#getState_Type()
 	 * @model required="true"
 	 * @generated
 	 */
 	StateType getType();
 
 	/**
-	 * Sets the value of the '{@link markov.State#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.markov.State#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see markov.StateType
+	 * @see de.uka.ipd.sdq.markov.StateType
 	 * @see #getType()
 	 * @generated
 	 */

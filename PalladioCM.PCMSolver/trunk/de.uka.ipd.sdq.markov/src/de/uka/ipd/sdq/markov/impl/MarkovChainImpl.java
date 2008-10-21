@@ -4,14 +4,10 @@
  *
  * $Id$
  */
-package markov.impl;
+package de.uka.ipd.sdq.markov.impl;
 
 import java.util.Collection;
 
-import markov.MarkovChain;
-import markov.MarkovPackage;
-import markov.State;
-import markov.Transition;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -21,6 +17,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.markov.MarkovPackage;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.Transition;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Chain</b></em>'.
@@ -28,8 +29,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link markov.impl.MarkovChainImpl#getStates <em>States</em>}</li>
- *   <li>{@link markov.impl.MarkovChainImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.impl.MarkovChainImpl#getStates <em>States</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.impl.MarkovChainImpl#getTransitions <em>Transitions</em>}</li>
  * </ul>
  * </p>
  *

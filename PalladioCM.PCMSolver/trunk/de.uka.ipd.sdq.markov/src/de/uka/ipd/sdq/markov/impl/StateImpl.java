@@ -4,11 +4,8 @@
  *
  * $Id$
  */
-package markov.impl;
+package de.uka.ipd.sdq.markov.impl;
 
-import markov.MarkovPackage;
-import markov.State;
-import markov.StateType;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -17,6 +14,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import de.uka.ipd.sdq.markov.MarkovPackage;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.StateType;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>State</b></em>'.
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link markov.impl.StateImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.impl.StateImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *

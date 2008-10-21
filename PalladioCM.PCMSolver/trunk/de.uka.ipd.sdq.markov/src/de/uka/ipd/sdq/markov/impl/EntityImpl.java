@@ -4,10 +4,8 @@
  *
  * $Id$
  */
-package markov.impl;
+package de.uka.ipd.sdq.markov.impl;
 
-import markov.Entity;
-import markov.MarkovPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -16,6 +14,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import de.uka.ipd.sdq.markov.Entity;
+import de.uka.ipd.sdq.markov.MarkovPackage;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Entity</b></em>'.
@@ -23,7 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link markov.impl.EntityImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.markov.impl.EntityImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *

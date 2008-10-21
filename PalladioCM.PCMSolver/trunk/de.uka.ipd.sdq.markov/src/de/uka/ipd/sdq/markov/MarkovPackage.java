@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package markov;
+package de.uka.ipd.sdq.markov;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see markov.MarkovFactory
+ * @see de.uka.ipd.sdq.markov.MarkovFactory
  * @model kind="package"
  * @generated
  */
@@ -58,14 +58,14 @@ public interface MarkovPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	MarkovPackage eINSTANCE = markov.impl.MarkovPackageImpl.init();
+	MarkovPackage eINSTANCE = de.uka.ipd.sdq.markov.impl.MarkovPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link markov.impl.EntityImpl <em>Entity</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.markov.impl.EntityImpl <em>Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see markov.impl.EntityImpl
-	 * @see markov.impl.MarkovPackageImpl#getEntity()
+	 * @see de.uka.ipd.sdq.markov.impl.EntityImpl
+	 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getEntity()
 	 * @generated
 	 */
 	int ENTITY = 3;
@@ -89,11 +89,11 @@ public interface MarkovPackage extends EPackage {
 	int ENTITY_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link markov.impl.StateImpl <em>State</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.markov.impl.StateImpl <em>State</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see markov.impl.StateImpl
-	 * @see markov.impl.MarkovPackageImpl#getState()
+	 * @see de.uka.ipd.sdq.markov.impl.StateImpl
+	 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getState()
 	 * @generated
 	 */
 	int STATE = 0;
@@ -126,11 +126,11 @@ public interface MarkovPackage extends EPackage {
 	int STATE_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link markov.impl.TransitionImpl <em>Transition</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.markov.impl.TransitionImpl <em>Transition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see markov.impl.TransitionImpl
-	 * @see markov.impl.MarkovPackageImpl#getTransition()
+	 * @see de.uka.ipd.sdq.markov.impl.TransitionImpl
+	 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getTransition()
 	 * @generated
 	 */
 	int TRANSITION = 1;
@@ -181,11 +181,11 @@ public interface MarkovPackage extends EPackage {
 	int TRANSITION_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link markov.impl.MarkovChainImpl <em>Chain</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.markov.impl.MarkovChainImpl <em>Chain</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see markov.impl.MarkovChainImpl
-	 * @see markov.impl.MarkovPackageImpl#getMarkovChain()
+	 * @see de.uka.ipd.sdq.markov.impl.MarkovChainImpl
+	 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getMarkovChain()
 	 * @generated
 	 */
 	int MARKOV_CHAIN = 2;
@@ -227,139 +227,139 @@ public interface MarkovPackage extends EPackage {
 	int MARKOV_CHAIN_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link markov.StateType <em>State Type</em>}' enum.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.markov.StateType <em>State Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see markov.StateType
-	 * @see markov.impl.MarkovPackageImpl#getStateType()
+	 * @see de.uka.ipd.sdq.markov.StateType
+	 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getStateType()
 	 * @generated
 	 */
 	int STATE_TYPE = 4;
 
 
 	/**
-	 * Returns the meta object for class '{@link markov.State <em>State</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.markov.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>State</em>'.
-	 * @see markov.State
+	 * @see de.uka.ipd.sdq.markov.State
 	 * @generated
 	 */
 	EClass getState();
 
 	/**
-	 * Returns the meta object for the attribute '{@link markov.State#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.markov.State#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see markov.State#getType()
+	 * @see de.uka.ipd.sdq.markov.State#getType()
 	 * @see #getState()
 	 * @generated
 	 */
 	EAttribute getState_Type();
 
 	/**
-	 * Returns the meta object for class '{@link markov.Transition <em>Transition</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.markov.Transition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Transition</em>'.
-	 * @see markov.Transition
+	 * @see de.uka.ipd.sdq.markov.Transition
 	 * @generated
 	 */
 	EClass getTransition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link markov.Transition#getProbability <em>Probability</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.markov.Transition#getProbability <em>Probability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Probability</em>'.
-	 * @see markov.Transition#getProbability()
+	 * @see de.uka.ipd.sdq.markov.Transition#getProbability()
 	 * @see #getTransition()
 	 * @generated
 	 */
 	EAttribute getTransition_Probability();
 
 	/**
-	 * Returns the meta object for the reference '{@link markov.Transition#getFromState <em>From State</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.markov.Transition#getFromState <em>From State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>From State</em>'.
-	 * @see markov.Transition#getFromState()
+	 * @see de.uka.ipd.sdq.markov.Transition#getFromState()
 	 * @see #getTransition()
 	 * @generated
 	 */
 	EReference getTransition_FromState();
 
 	/**
-	 * Returns the meta object for the reference '{@link markov.Transition#getToState <em>To State</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.markov.Transition#getToState <em>To State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>To State</em>'.
-	 * @see markov.Transition#getToState()
+	 * @see de.uka.ipd.sdq.markov.Transition#getToState()
 	 * @see #getTransition()
 	 * @generated
 	 */
 	EReference getTransition_ToState();
 
 	/**
-	 * Returns the meta object for class '{@link markov.MarkovChain <em>Chain</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.markov.MarkovChain <em>Chain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Chain</em>'.
-	 * @see markov.MarkovChain
+	 * @see de.uka.ipd.sdq.markov.MarkovChain
 	 * @generated
 	 */
 	EClass getMarkovChain();
 
 	/**
-	 * Returns the meta object for the reference list '{@link markov.MarkovChain#getStates <em>States</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.markov.MarkovChain#getStates <em>States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>States</em>'.
-	 * @see markov.MarkovChain#getStates()
+	 * @see de.uka.ipd.sdq.markov.MarkovChain#getStates()
 	 * @see #getMarkovChain()
 	 * @generated
 	 */
 	EReference getMarkovChain_States();
 
 	/**
-	 * Returns the meta object for the reference list '{@link markov.MarkovChain#getTransitions <em>Transitions</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.markov.MarkovChain#getTransitions <em>Transitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Transitions</em>'.
-	 * @see markov.MarkovChain#getTransitions()
+	 * @see de.uka.ipd.sdq.markov.MarkovChain#getTransitions()
 	 * @see #getMarkovChain()
 	 * @generated
 	 */
 	EReference getMarkovChain_Transitions();
 
 	/**
-	 * Returns the meta object for class '{@link markov.Entity <em>Entity</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.markov.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Entity</em>'.
-	 * @see markov.Entity
+	 * @see de.uka.ipd.sdq.markov.Entity
 	 * @generated
 	 */
 	EClass getEntity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link markov.Entity#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.markov.Entity#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see markov.Entity#getName()
+	 * @see de.uka.ipd.sdq.markov.Entity#getName()
 	 * @see #getEntity()
 	 * @generated
 	 */
 	EAttribute getEntity_Name();
 
 	/**
-	 * Returns the meta object for enum '{@link markov.StateType <em>State Type</em>}'.
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.markov.StateType <em>State Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>State Type</em>'.
-	 * @see markov.StateType
+	 * @see de.uka.ipd.sdq.markov.StateType
 	 * @generated
 	 */
 	EEnum getStateType();
@@ -387,11 +387,11 @@ public interface MarkovPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link markov.impl.StateImpl <em>State</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.markov.impl.StateImpl <em>State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see markov.impl.StateImpl
-		 * @see markov.impl.MarkovPackageImpl#getState()
+		 * @see de.uka.ipd.sdq.markov.impl.StateImpl
+		 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getState()
 		 * @generated
 		 */
 		EClass STATE = eINSTANCE.getState();
@@ -405,11 +405,11 @@ public interface MarkovPackage extends EPackage {
 		EAttribute STATE__TYPE = eINSTANCE.getState_Type();
 
 		/**
-		 * The meta object literal for the '{@link markov.impl.TransitionImpl <em>Transition</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.markov.impl.TransitionImpl <em>Transition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see markov.impl.TransitionImpl
-		 * @see markov.impl.MarkovPackageImpl#getTransition()
+		 * @see de.uka.ipd.sdq.markov.impl.TransitionImpl
+		 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getTransition()
 		 * @generated
 		 */
 		EClass TRANSITION = eINSTANCE.getTransition();
@@ -439,11 +439,11 @@ public interface MarkovPackage extends EPackage {
 		EReference TRANSITION__TO_STATE = eINSTANCE.getTransition_ToState();
 
 		/**
-		 * The meta object literal for the '{@link markov.impl.MarkovChainImpl <em>Chain</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.markov.impl.MarkovChainImpl <em>Chain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see markov.impl.MarkovChainImpl
-		 * @see markov.impl.MarkovPackageImpl#getMarkovChain()
+		 * @see de.uka.ipd.sdq.markov.impl.MarkovChainImpl
+		 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getMarkovChain()
 		 * @generated
 		 */
 		EClass MARKOV_CHAIN = eINSTANCE.getMarkovChain();
@@ -465,11 +465,11 @@ public interface MarkovPackage extends EPackage {
 		EReference MARKOV_CHAIN__TRANSITIONS = eINSTANCE.getMarkovChain_Transitions();
 
 		/**
-		 * The meta object literal for the '{@link markov.impl.EntityImpl <em>Entity</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.markov.impl.EntityImpl <em>Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see markov.impl.EntityImpl
-		 * @see markov.impl.MarkovPackageImpl#getEntity()
+		 * @see de.uka.ipd.sdq.markov.impl.EntityImpl
+		 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getEntity()
 		 * @generated
 		 */
 		EClass ENTITY = eINSTANCE.getEntity();
@@ -483,11 +483,11 @@ public interface MarkovPackage extends EPackage {
 		EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
 
 		/**
-		 * The meta object literal for the '{@link markov.StateType <em>State Type</em>}' enum.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.markov.StateType <em>State Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see markov.StateType
-		 * @see markov.impl.MarkovPackageImpl#getStateType()
+		 * @see de.uka.ipd.sdq.markov.StateType
+		 * @see de.uka.ipd.sdq.markov.impl.MarkovPackageImpl#getStateType()
 		 * @generated
 		 */
 		EEnum STATE_TYPE = eINSTANCE.getStateType();

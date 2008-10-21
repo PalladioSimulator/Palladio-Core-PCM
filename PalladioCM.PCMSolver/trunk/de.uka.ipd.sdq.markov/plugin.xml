@@ -13,7 +13,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://sdq.ipd.uka.de/FiniteMakovChain/1.0" 
-       class = "markov.MarkovPackage"
+       class = "de.uka.ipd.sdq.markov.MarkovPackage"
        genModel = "model/markov.genmodel" /> 
   </extension>
 
