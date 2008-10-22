@@ -179,7 +179,6 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -238,7 +237,6 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

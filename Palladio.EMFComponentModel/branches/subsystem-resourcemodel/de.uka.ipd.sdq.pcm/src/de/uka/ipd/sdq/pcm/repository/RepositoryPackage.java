@@ -273,6 +273,66 @@ public interface RepositoryPackage extends EPackage {
 	int REPOSITORY = 4;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
+	 * @generated
+	 */
+	int PROVIDES_COMPONENT_TYPE = 5;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
+	 * @generated
+	 */
+	int ROLE = 7;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
+	 * @generated
+	 */
+	int REQUIRED_ROLE = 6;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl <em>Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
+	 * @generated
+	 */
+	int INTERFACE = 8;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getResourceRequiredRole()
+	 * @generated
+	 */
+	int RESOURCE_REQUIRED_ROLE = 9;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
+	 * @generated
+	 */
+	int EXCEPTION_TYPE = 11;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -318,13 +378,22 @@ public interface RepositoryPackage extends EPackage {
 	int REPOSITORY__INTERFACES_REPOSITORY = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Subsystems Repository</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__SUBSYSTEMS_REPOSITORY = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Datatypes Repository</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__DATATYPES_REPOSITORY = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+	int REPOSITORY__DATATYPES_REPOSITORY = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
@@ -333,17 +402,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
-	 * @generated
-	 */
-	int PROVIDES_COMPONENT_TYPE = 5;
+	int REPOSITORY_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -409,16 +468,6 @@ public interface RepositoryPackage extends EPackage {
 	int PROVIDES_COMPONENT_TYPE_FEATURE_COUNT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
-	 * @generated
-	 */
-	int ROLE = 7;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -444,16 +493,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
-	 * @generated
-	 */
-	int REQUIRED_ROLE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -499,16 +538,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int REQUIRED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl <em>Interface</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
-	 * @generated
-	 */
-	int INTERFACE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -592,16 +621,6 @@ public interface RepositoryPackage extends EPackage {
 	int INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getResourceRequiredRole()
-	 * @generated
-	 */
-	int RESOURCE_REQUIRED_ROLE = 9;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -647,14 +666,61 @@ public interface RepositoryPackage extends EPackage {
 	int RESOURCE_REQUIRED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl <em>Complete Component Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
 	 * @generated
 	 */
-	int EXCEPTION_TYPE = 10;
+	int COMPLETE_COMPONENT_TYPE = 13;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl <em>Implementation Component Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getImplementationComponentType()
+	 * @generated
+	 */
+	int IMPLEMENTATION_COMPONENT_TYPE = 12;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
+	 * @generated
+	 */
+	int DELEGATION_CONNECTOR = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR__ID = ConnectorsPackage.CONNECTOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR__ENTITY_NAME = ConnectorsPackage.CONNECTOR__ENTITY_NAME;
+
+	/**
+	 * The number of structural features of the '<em>Delegation Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Exception Name</b></em>' attribute.
@@ -682,26 +748,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCEPTION_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl <em>Complete Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
-	 * @generated
-	 */
-	int COMPLETE_COMPONENT_TYPE = 12;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl <em>Implementation Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getImplementationComponentType()
-	 * @generated
-	 */
-	int IMPLEMENTATION_COMPONENT_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -837,43 +883,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLETE_COMPONENT_TYPE_FEATURE_COUNT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
-	 * @generated
-	 */
-	int DELEGATION_CONNECTOR = 13;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATION_CONNECTOR__ID = ConnectorsPackage.CONNECTOR__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATION_CONNECTOR__ENTITY_NAME = ConnectorsPackage.CONNECTOR__ENTITY_NAME;
-
-	/**
-	 * The number of structural features of the '<em>Delegation Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl <em>Composite Component</em>}' class.
@@ -1587,6 +1596,17 @@ public interface RepositoryPackage extends EPackage {
 	EReference getRepository_Datatypes_Repository();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Repository#getSubsystems__Repository <em>Subsystems Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Subsystems Repository</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getSubsystems__Repository()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EReference getRepository_Subsystems__Repository();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2232,6 +2252,14 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPOSITORY__DATATYPES_REPOSITORY = eINSTANCE.getRepository_Datatypes_Repository();
+
+		/**
+		 * The meta object literal for the '<em><b>Subsystems Repository</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REPOSITORY__SUBSYSTEMS_REPOSITORY = eINSTANCE.getRepository_Subsystems__Repository();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.

@@ -44,10 +44,6 @@ public interface ProvidesComponentType extends InterfaceProvidingRequiringEntity
 	 * Returns the value of the '<em><b>Repository Provides Component Type</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components Repository</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository Provides Component Type</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the repository where this entity is stored.

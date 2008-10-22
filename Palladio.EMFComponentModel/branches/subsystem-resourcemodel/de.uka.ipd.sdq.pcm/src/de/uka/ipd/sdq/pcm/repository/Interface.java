@@ -154,10 +154,6 @@ public interface Interface extends Entity {
 	 * Returns the value of the '<em><b>Repository Interface</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces Repository</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository Interface</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the repository where this interface is stored.

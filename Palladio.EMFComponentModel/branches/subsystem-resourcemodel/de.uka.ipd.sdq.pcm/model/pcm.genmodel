@@ -22,7 +22,11 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/2008.09.19/pcm%20micha/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.10.22/identifier.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.10.22/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.10.22/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.10.22/stoex.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.10.22/Units.uml</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -51,10 +55,6 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
         </genClasses>
         <genClasses image="false" ecoreClass="pcm.ecore#//core/entity/ComposedProvidingRequiringEntity"/>
-      </nestedGenPackages>
-      <nestedGenPackages prefix="Connectors" basePackage="de.uka.ipd.sdq.pcm.core"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/connectors">
-        <genClasses image="false" ecoreClass="pcm.ecore#//core/connectors/Connector"/>
       </nestedGenPackages>
       <nestedGenPackages prefix="Composition" basePackage="de.uka.ipd.sdq.pcm.core"
           resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/composition">
@@ -124,6 +124,10 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/resourceRequiredDelegationConnectors_ComposedStructure"/>
         </genClasses>
       </nestedGenPackages>
+      <nestedGenPackages prefix="Connectors" basePackage="de.uka.ipd.sdq.pcm.core"
+          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/connectors">
+        <genClasses image="false" ecoreClass="pcm.ecore#//core/connectors/Connector"/>
+      </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Repository" basePackage="de.uka.ipd.sdq.pcm" resource="XML"
         disposableProviderFactory="true" ecorePackage="pcm.ecore#//repository">
@@ -171,6 +175,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryDescription"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/components__Repository"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/interfaces__Repository"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/subsystems__Repository"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/datatypes_Repository"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/ProvidesComponentType">
@@ -209,6 +214,7 @@
             ecoreFeature="ecore:EReference pcm.ecore#//repository/ResourceRequiredRole/requiredInterface_ResourceRequiredRole"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/ResourceRequiredRole/resourceRequiringEntity_ResourceRequiredRole"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="pcm.ecore#//repository/DelegationConnector"/>
       <genClasses ecoreClass="pcm.ecore#//repository/ExceptionType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/ExceptionType/exceptionName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/ExceptionType/exceptionMessage"/>
@@ -238,7 +244,6 @@
           <genParameters ecoreParameter="pcm.ecore#//repository/CompleteComponentType/providedInterfacesHaveToConformToProvidedType2/context"/>
         </genOperations>
       </genClasses>
-      <genClasses image="false" ecoreClass="pcm.ecore#//repository/DelegationConnector"/>
       <genClasses ecoreClass="pcm.ecore#//repository/CompositeComponent">
         <genOperations ecoreOperation="pcm.ecore#//repository/CompositeComponent/ProvideSameInterfaces">
           <genParameters ecoreParameter="pcm.ecore#//repository/CompositeComponent/ProvideSameInterfaces/diagnostics"/>
@@ -295,6 +300,12 @@
       </genClasses>
       <genClasses image="false" ecoreClass="pcm.ecore#//protocol/Protocol">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//protocol/Protocol/protocolTypeID"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Subsystem" basePackage="de.uka.ipd.sdq.pcm" resource="XML"
+        disposableProviderFactory="true" ecorePackage="pcm.ecore#//subsystem">
+      <genClasses ecoreClass="pcm.ecore#//subsystem/SubSystem">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//subsystem/SubSystem/repository__SubSystem"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Parameter" basePackage="de.uka.ipd.sdq.pcm" resource="XML"
@@ -423,8 +434,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ServiceEffectSpecification/describedService__SEFF"/>
       </genClasses>
-      <nestedGenPackages prefix="Performance" resource="XML" disposableProviderFactory="true"
-          ecorePackage="pcm.ecore#//seff/performance">
+      <nestedGenPackages prefix="Performance" basePackage="de.uka.ipd.sdq.pcm.seff"
+          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//seff/performance">
         <genClasses ecoreClass="pcm.ecore#//seff/performance/ParametricResourceDemand">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/performance/ParametricResourceDemand/specification_ParametericResourceDemand"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -530,8 +541,8 @@
               ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/performance/ComponentSpecifiedExecutionTime/assemblyContext_ComponentSpecifiedExecutionTime"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="Reliability" resource="XML" disposableProviderFactory="true"
-          ecorePackage="pcm.ecore#//qosannotations/reliability">
+      <nestedGenPackages prefix="Reliability" basePackage="de.uka.ipd.sdq.pcm.qosannotations"
+          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations/reliability">
         <genClasses ecoreClass="pcm.ecore#//qosannotations/reliability/SpecifiedFailureProbability"/>
       </nestedGenPackages>
     </nestedGenPackages>
@@ -629,10 +640,6 @@
       <genClasses ecoreClass="pcm.ecore#//usagemodel/Delay">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/Delay/timeSpecification_Delay"/>
       </genClasses>
-    </nestedGenPackages>
-    <nestedGenPackages prefix="Subsystem" resource="XML" disposableProviderFactory="true"
-        ecorePackage="pcm.ecore#//subsystem">
-      <genClasses ecoreClass="pcm.ecore#//subsystem/SubSystem"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

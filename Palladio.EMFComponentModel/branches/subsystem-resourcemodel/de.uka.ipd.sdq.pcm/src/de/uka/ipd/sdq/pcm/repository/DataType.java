@@ -39,10 +39,6 @@ public interface DataType extends EObject {
 	 * Returns the value of the '<em><b>Repository Data Type</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository <em>Datatypes Repository</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository Data Type</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property specifies the repository to which this data type belongs.

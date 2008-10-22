@@ -249,14 +249,14 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateInterface((Interface)value, diagnostics, context);
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE:
 				return validateResourceRequiredRole((ResourceRequiredRole)value, diagnostics, context);
+			case RepositoryPackage.DELEGATION_CONNECTOR:
+				return validateDelegationConnector((DelegationConnector)value, diagnostics, context);
 			case RepositoryPackage.EXCEPTION_TYPE:
 				return validateExceptionType((ExceptionType)value, diagnostics, context);
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE:
 				return validateImplementationComponentType((ImplementationComponentType)value, diagnostics, context);
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE:
 				return validateCompleteComponentType((CompleteComponentType)value, diagnostics, context);
-			case RepositoryPackage.DELEGATION_CONNECTOR:
-				return validateDelegationConnector((DelegationConnector)value, diagnostics, context);
 			case RepositoryPackage.COMPOSITE_COMPONENT:
 				return validateCompositeComponent((CompositeComponent)value, diagnostics, context);
 			case RepositoryPackage.BASIC_COMPONENT:

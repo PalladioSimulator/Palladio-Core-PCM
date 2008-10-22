@@ -147,6 +147,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createResourceRequiredRoleAdapter();
 			}
 			@Override
+			public Adapter caseDelegationConnector(DelegationConnector object) {
+				return createDelegationConnectorAdapter();
+			}
+			@Override
 			public Adapter caseExceptionType(ExceptionType object) {
 				return createExceptionTypeAdapter();
 			}
@@ -157,10 +161,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCompleteComponentType(CompleteComponentType object) {
 				return createCompleteComponentTypeAdapter();
-			}
-			@Override
-			public Adapter caseDelegationConnector(DelegationConnector object) {
-				return createDelegationConnectorAdapter();
 			}
 			@Override
 			public Adapter caseCompositeComponent(CompositeComponent object) {

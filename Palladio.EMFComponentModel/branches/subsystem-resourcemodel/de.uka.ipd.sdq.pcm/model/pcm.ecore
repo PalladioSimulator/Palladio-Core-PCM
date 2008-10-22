@@ -57,10 +57,6 @@
       <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
           abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity"/>
     </eSubpackages>
-    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
-        nsPrefix="">
-      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity"/>
-    </eSubpackages>
     <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/1.0"
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
@@ -214,6 +210,10 @@
             ordered="false" upperBound="-1" eType="#//core/composition/ResourceRequiredDelegationConnector"
             containment="true" eOpposite="#//core/composition/ResourceRequiredDelegationConnector/parentStructure_ResourceRequiredDelegationConnector"/>
       </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity"/>
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
@@ -372,6 +372,9 @@
           <details key="documentation" value="This property represents the interfaces stored in the repository."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subsystems__Repository"
+          ordered="false" upperBound="-1" eType="#//subsystem/SubSystem" containment="true"
+          eOpposite="#//subsystem/SubSystem/repository__SubSystem"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="datatypes_Repository"
           ordered="false" upperBound="-1" eType="#//repository/DataType" containment="true"
           eOpposite="#//repository/DataType/repository_DataType">
@@ -517,6 +520,12 @@
           ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
           eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+        eSuperTypes="#//core/connectors/Connector">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents a type of an exception."/>
@@ -631,12 +640,6 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentTypes"
           ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
-        eSuperTypes="#//core/connectors/Connector">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
-      </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//repository/ImplementationComponentType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -843,6 +846,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="Protocol" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolTypeID" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0"
+      nsPrefix="pcm.subsystem">
+    <eClassifiers xsi:type="ecore:EClass" name="SubSystem" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository__SubSystem"
+          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/subsystems__Repository"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
@@ -1532,9 +1542,5 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="timeSpecification_Delay"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0"
-      nsPrefix="pcm.subsystem">
-    <eClassifiers xsi:type="ecore:EClass" name="SubSystem" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity"/>
   </eSubpackages>
 </ecore:EPackage>

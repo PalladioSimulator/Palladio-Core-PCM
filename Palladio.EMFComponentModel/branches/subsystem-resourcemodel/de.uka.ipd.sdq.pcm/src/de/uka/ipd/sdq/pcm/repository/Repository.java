@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.repository;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +25,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryDescription <em>Repository Description</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getSubsystems__Repository <em>Subsystems Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository <em>Datatypes Repository</em>}</li>
  * </ul>
  * </p>
@@ -131,5 +133,23 @@ public interface Repository extends Entity {
 	 * @generated
 	 */
 	EList<DataType> getDatatypes_Repository();
+
+	/**
+	 * Returns the value of the '<em><b>Subsystems Repository</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.subsystem.SubSystem}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.subsystem.SubSystem#getRepository__SubSystem <em>Repository Sub System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subsystems Repository</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Subsystems Repository</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Subsystems__Repository()
+	 * @see de.uka.ipd.sdq.pcm.subsystem.SubSystem#getRepository__SubSystem
+	 * @model opposite="repository__SubSystem" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<SubSystem> getSubsystems__Repository();
 
 } // Repository

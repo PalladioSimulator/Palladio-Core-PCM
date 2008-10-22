@@ -190,6 +190,16 @@ public interface EntityPackage extends EPackage {
 	int INTERFACE_PROVIDING_REQUIRING_ENTITY = 3;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceRequiringEntityImpl <em>Interface Requiring Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceRequiringEntityImpl
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getInterfaceRequiringEntity()
+	 * @generated
+	 */
+	int INTERFACE_REQUIRING_ENTITY = 4;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,16 +252,6 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceRequiringEntityImpl <em>Interface Requiring Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceRequiringEntityImpl
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getInterfaceRequiringEntity()
-	 * @generated
-	 */
-	int INTERFACE_REQUIRING_ENTITY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
