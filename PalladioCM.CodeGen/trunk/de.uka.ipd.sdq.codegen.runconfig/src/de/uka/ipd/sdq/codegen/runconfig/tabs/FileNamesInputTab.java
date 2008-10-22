@@ -55,6 +55,34 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		return RunConfigImages.getFileNamesTabImage();
 	}
 	
+	/**
+	 * Get the result from the openFileDialog. If the result is "" then this method do
+	 * not change the default value of the textField.
+	 * 
+	 * @param textField The Text-Field Control which contains the result of 
+	 */
+	private void setOpenFileDialogResultToTextField(Text textField, final String[] EXTENSION) {
+		String resultOpenFileDialog = openFileDialog(EXTENSION);
+		if (!resultOpenFileDialog.equals(new String(""))) {
+			textField.setText(resultOpenFileDialog);			
+		}
+		// Otherwise the default value of textField would not be changed.
+	}
+	
+	/**
+	 * Overloading of setOpenFileDialogResultToTextField because of different extension types.
+	 * 
+	 * @param textField
+	 * @param EXTENSION
+	 */
+	private void setOpenFileDialogResultToTextField(Text textField, final String EXTENSION) {
+		String resultOpenFileDialog = openResourceDialog(EXTENSION);
+		if (!resultOpenFileDialog.equals(new String(""))) {
+			textField.setText(resultOpenFileDialog);			
+		}
+		// Otherwise the default value of textField would not be changed.
+	}
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
@@ -107,8 +135,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 					 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 					 */
 					public void widgetSelected(SelectionEvent e) {
-						textResourceType
-								.setText(openFileDialog(ConstantsContainer.RESOURCETYPE_EXTENSION));
+						setOpenFileDialogResultToTextField(textResourceType, ConstantsContainer.RESOURCETYPE_EXTENSION);
 					}
 				});
 
@@ -144,7 +171,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			public void widgetSelected(SelectionEvent e) {
-				textRepository.setText(openFileDialog(ConstantsContainer.REPOSITORY_EXTENSION));
+				setOpenFileDialogResultToTextField(textRepository, ConstantsContainer.REPOSITORY_EXTENSION);
 			}
 		});
 
@@ -180,7 +207,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			public void widgetSelected(SelectionEvent e) {
-				mwtextRepository.setText(openFileDialog(ConstantsContainer.REPOSITORY_EXTENSION));
+				setOpenFileDialogResultToTextField(mwtextRepository, ConstantsContainer.REPOSITORY_EXTENSION);
 			}
 		});
 
@@ -216,7 +243,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			public void widgetSelected(SelectionEvent e) {
-				textSystem.setText(openFileDialog(ConstantsContainer.SYSTEM_EXTENSION));
+				setOpenFileDialogResultToTextField(textSystem, ConstantsContainer.SYSTEM_EXTENSION);
 			}
 		});
 
@@ -252,7 +279,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			public void widgetSelected(SelectionEvent e) {
-				textAllocation.setText(openFileDialog(ConstantsContainer.ALLOCATION_EXTENSION));
+				setOpenFileDialogResultToTextField(textAllocation, ConstantsContainer.ALLOCATION_EXTENSION);
 			}
 		});
 
@@ -288,7 +315,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			public void widgetSelected(SelectionEvent e) {
-				textUsage.setText(openFileDialog(ConstantsContainer.USAGEMODEL_EXTENSION));
+				setOpenFileDialogResultToTextField(textUsage, ConstantsContainer.USAGEMODEL_EXTENSION);
 				updateLaunchConfigurationDialog();
 			}
 		});
@@ -447,15 +474,16 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 */
 	private String openFileDialog(String[] extensions) {
 		String filename = "";
-
+		
 		FileDialog dialog = new FileDialog(getShell(), SWT.OPEN);
 		dialog.setFilterExtensions(extensions);
 		dialog.setText("Select model file");
-
+		
 		if (dialog.open() != null) {
 			String root = dialog.getFilterPath() + File.separatorChar;
-			filename = root + dialog.getFileName();
-		}
+			filename = root + dialog.getFileName();	
+		}	
+		
 		return filename;
 	}
 
@@ -506,7 +534,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 		 */
 		@Override
 		public void widgetSelected(SelectionEvent e) {
-			field.setText(openResourceDialog(extension));
+			setOpenFileDialogResultToTextField(field, extension);
 		}
 	}
 
