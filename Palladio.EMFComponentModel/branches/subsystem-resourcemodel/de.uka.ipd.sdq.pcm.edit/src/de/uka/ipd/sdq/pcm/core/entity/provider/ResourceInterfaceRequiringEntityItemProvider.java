@@ -3,40 +3,41 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.repository.provider;
+package de.uka.ipd.sdq.pcm.core.entity.provider;
 
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
+
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemFactory;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.Repository} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RepositoryItemProvider
+public class ResourceInterfaceRequiringEntityItemProvider
 	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
@@ -57,7 +58,7 @@ public class RepositoryItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RepositoryItemProvider(AdapterFactory adapterFactory) {
+	public ResourceInterfaceRequiringEntityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,31 +73,8 @@ public class RepositoryItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRepositoryDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Repository Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRepositoryDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Repository_repositoryDescription_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_repositoryDescription_feature", "_UI_Repository_type"),
-				 RepositoryPackage.Literals.REPOSITORY__REPOSITORY_DESCRIPTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -111,10 +89,7 @@ public class RepositoryItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY);
-			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY);
-			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__SUBSYSTEMS_REPOSITORY);
-			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY);
+			childrenFeatures.add(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY);
 		}
 		return childrenFeatures;
 	}
@@ -133,17 +108,6 @@ public class RepositoryItemProvider
 	}
 
 	/**
-	 * This returns Repository.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Repository"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,10 +115,10 @@ public class RepositoryItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Repository)object).getId();
+		String label = ((ResourceInterfaceRequiringEntity)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Repository_type") :
-			getString("_UI_Repository_type") + " " + label;
+			getString("_UI_ResourceInterfaceRequiringEntity_type") :
+			getString("_UI_ResourceInterfaceRequiringEntity_type") + " " + label;
 	}
 
 	/**
@@ -168,14 +132,8 @@ public class RepositoryItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Repository.class)) {
-			case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-			case RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY:
-			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+		switch (notification.getFeatureID(ResourceInterfaceRequiringEntity.class)) {
+			case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -195,33 +153,8 @@ public class RepositoryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
-				 RepositoryFactory.eINSTANCE.createProvidesComponentType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
-				 RepositoryFactory.eINSTANCE.createInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__SUBSYSTEMS_REPOSITORY,
-				 SubsystemFactory.eINSTANCE.createSubSystem()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY,
-				 RepositoryFactory.eINSTANCE.createPrimitiveDataType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY,
-				 RepositoryFactory.eINSTANCE.createCollectionDataType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY,
-				 RepositoryFactory.eINSTANCE.createCompositeDataType()));
+				(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createResourceRequiredRole()));
 	}
 
 	/**
