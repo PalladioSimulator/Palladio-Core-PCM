@@ -7506,7 +7506,24 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_hh0OUJJJEdqSSImFLKDkSg" name="Signature">
         <ownedComment xmi:id="_P1uy0ITJEd2vDt35AcA8Pg" annotatedElement="_hh0OUJJJEdqSSImFLKDkSg">
-          <body>This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.</body>
+          <body>This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.&#xD;
+&#xD;
+Every service of an interface has a unique signature, like void doSomething(int a). A PCM&#xD;
+signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.&#xD;
+&#xD;
+It contains:&#xD;
+• A type of the return value or void (no return value)&#xD;
+• An identifier naming the service&#xD;
+• An ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which&#xD;
+is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG&#xD;
+IDL semantics, cf. [22], chapter 3) can be used for parameters.&#xD;
+• An unordered set of exceptions.&#xD;
+&#xD;
+A signature has to be unique for an interface through the tupel (identifier, order of parameters). An&#xD;
+interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A&#xD;
+signature is assigned to exactly one interface. However, different interfaces can define equally named&#xD;
+signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not&#xD;
+identical in both interfaces.</body>
         </ownedComment>
         <ownedRule xmi:id="_YpuX0KqpEdqOOaiBCPgBBQ" name="Parameter Names Have To Be Unique For A Signature" constrainedElement="_hh0OUJJJEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_YpuX0aqpEdqOOaiBCPgBBQ">
@@ -8049,18 +8066,171 @@
       <packagedElement xmi:type="uml:Association" xmi:id="_QD6SIKA7Ed24Bv0x9CNKpg" memberEnd="_QD6SIaA7Ed24Bv0x9CNKpg _QEEDIKA7Ed24Bv0x9CNKpg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_HSHQoCh9Edue7oeC4NTCGg" name="protocol">
-      <eAnnotations xmi:id="_HSHQoSh9Edue7oeC4NTCGg" source="uml2.diagrams"/>
+      <eAnnotations xmi:id="_HSHQoSh9Edue7oeC4NTCGg" source="uml2.diagrams">
+        <contents xmi:type="notation:Diagram" xmi:id="_f_qXgKHYEd2av7jcZUzHwg" type="Class" name="Protocol Package Overview">
+          <children xmi:id="_iuvz8KHYEd2av7jcZUzHwg" element="_cqkLgJJJEdqSSImFLKDkSg">
+            <children xmi:id="_iu5k8KHYEd2av7jcZUzHwg" type="ImageCompartment">
+              <layoutConstraint xmi:type="notation:Size" xmi:id="_iu5k8aHYEd2av7jcZUzHwg" width="1320" height="1320"/>
+            </children>
+            <children xmi:id="_iu5k8qHYEd2av7jcZUzHwg" type="Stereotype"/>
+            <children xmi:id="_iu5k86HYEd2av7jcZUzHwg" type="Name"/>
+            <children xmi:id="_iu5k9KHYEd2av7jcZUzHwg" type="Parent"/>
+            <children xmi:id="_iu5k9aHYEd2av7jcZUzHwg" type="AttributeCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_iu5k9qHYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_ivCu4KHYEd2av7jcZUzHwg" type="OperationCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ivCu4aHYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_ivCu4qHYEd2av7jcZUzHwg" visible="false" type="SignalCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ivCu46HYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_ivCu5KHYEd2av7jcZUzHwg" visible="false" type="StructureCompartment">
+              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_ivCu5aHYEd2av7jcZUzHwg"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_iuvz8aHYEd2av7jcZUzHwg" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iuvz8qHYEd2av7jcZUzHwg" x="4755" y="11412"/>
+          </children>
+          <children xmi:id="_kMeWMKHYEd2av7jcZUzHwg" element="_-fRiMMvbEdqNb9NZZpKvZg">
+            <children xmi:id="_kMeWM6HYEd2av7jcZUzHwg" type="ImageCompartment">
+              <layoutConstraint xmi:type="notation:Size" xmi:id="_kMeWNKHYEd2av7jcZUzHwg" width="1320" height="1320"/>
+            </children>
+            <children xmi:id="_kMeWNaHYEd2av7jcZUzHwg" type="Stereotype"/>
+            <children xmi:id="_kMeWNqHYEd2av7jcZUzHwg" type="Name"/>
+            <children xmi:id="_kMeWN6HYEd2av7jcZUzHwg" type="Parent"/>
+            <children xmi:id="_kMeWOKHYEd2av7jcZUzHwg" type="AttributeCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kMeWOaHYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_kMeWOqHYEd2av7jcZUzHwg" type="OperationCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kMeWO6HYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_kMeWPKHYEd2av7jcZUzHwg" visible="false" type="SignalCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kMeWPaHYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_kMeWPqHYEd2av7jcZUzHwg" visible="false" type="StructureCompartment">
+              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_kMeWP6HYEd2av7jcZUzHwg"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_kMeWMaHYEd2av7jcZUzHwg" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kMeWMqHYEd2av7jcZUzHwg" x="11271" y="11271"/>
+          </children>
+          <children xmi:id="_kMeWQKHYEd2av7jcZUzHwg" element="_hh0OUJJJEdqSSImFLKDkSg">
+            <children xmi:id="_kMeWQ6HYEd2av7jcZUzHwg" type="ImageCompartment">
+              <layoutConstraint xmi:type="notation:Size" xmi:id="_kMeWRKHYEd2av7jcZUzHwg" width="1320" height="1320"/>
+            </children>
+            <children xmi:id="_kMeWRaHYEd2av7jcZUzHwg" type="Stereotype"/>
+            <children xmi:id="_kMeWRqHYEd2av7jcZUzHwg" type="Name"/>
+            <children xmi:id="_kMeWR6HYEd2av7jcZUzHwg" type="Parent"/>
+            <children xmi:id="_kMeWSKHYEd2av7jcZUzHwg" type="AttributeCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kMeWSaHYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_kMeWSqHYEd2av7jcZUzHwg" type="OperationCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kMeWS6HYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_kMeWTKHYEd2av7jcZUzHwg" visible="false" type="SignalCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kMeWTaHYEd2av7jcZUzHwg"/>
+            </children>
+            <children xmi:id="_kMeWTqHYEd2av7jcZUzHwg" visible="false" type="StructureCompartment">
+              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_kMeWT6HYEd2av7jcZUzHwg"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_kMeWQaHYEd2av7jcZUzHwg" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kMeWQqHYEd2av7jcZUzHwg" x="10778" y="6974"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_f_qXgaHYEd2av7jcZUzHwg"/>
+          <element xsi:nil="true"/>
+          <edges xmi:id="_kNEMEKHYEd2av7jcZUzHwg" element="_Gm6-wMvcEdqNb9NZZpKvZg" source="_kMeWMKHYEd2av7jcZUzHwg" target="_kMeWQKHYEd2av7jcZUzHwg">
+            <children xmi:id="_kNEME6HYEd2av7jcZUzHwg" type="NameLabel">
+              <children xmi:id="_kNEMFaHYEd2av7jcZUzHwg" type="Stereotype"/>
+              <children xmi:id="_kNEMFqHYEd2av7jcZUzHwg" type="Name"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kNEMFKHYEd2av7jcZUzHwg" y="-186"/>
+            </children>
+            <children xmi:id="_kNEMF6HYEd2av7jcZUzHwg" type="ToMultiplicityLabel" element="_Gm6-wsvcEdqNb9NZZpKvZg">
+              <children xmi:id="_kNEMGaHYEd2av7jcZUzHwg" type="ToMultiplicity"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kNEMGKHYEd2av7jcZUzHwg" y="396"/>
+            </children>
+            <children xmi:id="_kNEMGqHYEd2av7jcZUzHwg" type="ToRoleLabel" element="_Gm6-wsvcEdqNb9NZZpKvZg">
+              <children xmi:id="_kNEMHKHYEd2av7jcZUzHwg" type="ToRole"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kNEMG6HYEd2av7jcZUzHwg" y="-397"/>
+            </children>
+            <children xmi:id="_kNEMHaHYEd2av7jcZUzHwg" type="FromMultiplicityLabel" element="_Gm6-wcvcEdqNb9NZZpKvZg">
+              <children xmi:id="_kNEMH6HYEd2av7jcZUzHwg" type="FromMultiplicity"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kNEMHqHYEd2av7jcZUzHwg" y="396"/>
+            </children>
+            <children xmi:id="_kNEMIKHYEd2av7jcZUzHwg" type="FromRoleLabel" element="_Gm6-wcvcEdqNb9NZZpKvZg">
+              <children xmi:id="_kNEMIqHYEd2av7jcZUzHwg" type="FromRole"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kNEMIaHYEd2av7jcZUzHwg" x="-580" y="2110"/>
+            </children>
+            <children xmi:id="_kNN9EKHYEd2av7jcZUzHwg" type="ToQualifierLabel" element="_Gm6-wsvcEdqNb9NZZpKvZg">
+              <children xmi:id="_kNN9EqHYEd2av7jcZUzHwg" type="QualifierCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kNN9E6HYEd2av7jcZUzHwg"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kNN9EaHYEd2av7jcZUzHwg" y="-186"/>
+            </children>
+            <children xmi:id="_kNN9FKHYEd2av7jcZUzHwg" type="FromQualifierLabel" element="_Gm6-wcvcEdqNb9NZZpKvZg">
+              <children xmi:id="_kNN9FqHYEd2av7jcZUzHwg" type="QualifierCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kNN9F6HYEd2av7jcZUzHwg"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kNN9FaHYEd2av7jcZUzHwg" y="-186"/>
+            </children>
+            <children xmi:id="_kNN9GKHYEd2av7jcZUzHwg" type="ToConstraintLabel" element="_Gm6-wsvcEdqNb9NZZpKvZg">
+              <children xmi:id="_kNN9GqHYEd2av7jcZUzHwg" type="ToConstraintCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kNN9G6HYEd2av7jcZUzHwg"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kNN9GaHYEd2av7jcZUzHwg" y="1058"/>
+            </children>
+            <children xmi:id="_kNN9HKHYEd2av7jcZUzHwg" type="FromConstraintLabel" element="_Gm6-wcvcEdqNb9NZZpKvZg">
+              <children xmi:id="_kNN9HqHYEd2av7jcZUzHwg" type="FromConstraintCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kNN9H6HYEd2av7jcZUzHwg"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kNN9HaHYEd2av7jcZUzHwg" y="1058"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_kNEMEaHYEd2av7jcZUzHwg" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kNEMEqHYEd2av7jcZUzHwg" points="[-1, -688, 0, 2328]$[-1, -2275, 0, 741]"/>
+          </edges>
+        </contents>
+      </eAnnotations>
+      <ownedComment xmi:id="_1W890KHbEd2av7jcZUzHwg" annotatedElement="_HSHQoCh9Edue7oeC4NTCGg">
+        <body>TODO</body>
+      </ownedComment>
       <packageImport xmi:id="_HauLc8iIEdqXbOPN_HtKGg">
         <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
       </packageImport>
       <packagedElement xmi:type="uml:Class" xmi:id="_-fRiMMvbEdqNb9NZZpKvZg" name="ServiceCall" isAbstract="true">
+        <ownedComment xmi:id="_XM2ooKHZEd2av7jcZUzHwg" annotatedElement="_-fRiMMvbEdqNb9NZZpKvZg">
+          <body>Interfaces may also contains protocol specifications, which restrict the order of calling its&#xD;
+services, or QoS specifications, which describe their extra-functional properties.&#xD;
+&#xD;
+TODO</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_Gm6-wcvcEdqNb9NZZpKvZg" name="signature__ServiceCall" type="_hh0OUJJJEdqSSImFLKDkSg" association="_Gm6-wMvcEdqNb9NZZpKvZg">
+          <ownedComment xmi:id="_z8WoEKHbEd2av7jcZUzHwg" annotatedElement="_Gm6-wcvcEdqNb9NZZpKvZg">
+            <body>TODO</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gm6-xMvcEdqNb9NZZpKvZg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gm6-w8vcEdqNb9NZZpKvZg" value="1"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_cqkLgJJJEdqSSImFLKDkSg" name="Protocol" isAbstract="true">
+        <ownedComment xmi:id="_3vIBAKHZEd2av7jcZUzHwg" annotatedElement="_cqkLgJJJEdqSSImFLKDkSg">
+          <body>A protocol is a set of calling sequences and can be optionally added to an interface. Protocols of provided&#xD;
+interfaces specify the order in which services have to be called by clients. Protocols of required interfaces&#xD;
+specify the actual order in which the component calls required services.&#xD;
+&#xD;
+Besides finite state machines, different formalisms can be used to model protocols. The PCM does&#xD;
+not restrict the protocol modelling formalisms. For example, Petri nets or regular expressions could&#xD;
+model interface protocols. However, the choice of a formalism does influence possible analyses. For&#xD;
+example, to check the interoperability of two components A and B, the language inclusion of the required&#xD;
+protocol of A within the provided protocol of B has to be tested. The language inclusion is undecidable for&#xD;
+Petri nets in the general case, so protocols modelled with Petri nets cannot be checked for interoperability.&#xD;
+Notice, that although protocols are able to express the state of a component, interfaces themselves&#xD;
+are stateless. The protocol state only depends on the component that implements the interface and is only&#xD;
+present during component runtime. Components can provide/require multiple interfaces, but the PCM&#xD;
+does not support protocols ranging over multiple interfaces (neither for provided nor required protocols).&#xD;
+The complete state of a components consists of all its interface states. Restrictions on the complete state&#xD;
+cannot be expressed in the PCM, as protocols can only be specified for single interfaces.</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_rnRggJVsEdqSSImFLKDkSg" name="protocolTypeID">
+          <ownedComment xmi:id="_1lMqoKHaEd2av7jcZUzHwg" annotatedElement="_rnRggJVsEdqSSImFLKDkSg">
+            <body>TODO</body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedAttribute>
       </packagedElement>
@@ -21450,4 +21620,9 @@ Note:&#xD;
   <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0" prefix="Subsystem"/>
   <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="performance" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0" prefix="Performance"/>
   <Ecore:EReference xmi:id="_2N-RwKGhEd2ZzfSAo7TyCQ" isTransient="true" base_Property="_6Sm8IaMYEdqfKJQ-jd0-uQ"/>
+  <Default:Documentation xmi:id="_XUdFcKHZEd2av7jcZUzHwg" base_Comment="_XM2ooKHZEd2av7jcZUzHwg"/>
+  <Default:Documentation xmi:id="_3vIBAaHZEd2av7jcZUzHwg" base_Comment="_3vIBAKHZEd2av7jcZUzHwg"/>
+  <Default:Documentation xmi:id="_1lMqoaHaEd2av7jcZUzHwg" base_Comment="_1lMqoKHaEd2av7jcZUzHwg"/>
+  <Default:Documentation xmi:id="_z8WoEaHbEd2av7jcZUzHwg" base_Comment="_z8WoEKHbEd2av7jcZUzHwg"/>
+  <Default:Documentation xmi:id="_1W890aHbEd2av7jcZUzHwg" base_Comment="_1W890KHbEd2av7jcZUzHwg"/>
 </xmi:XMI>
