@@ -2,10 +2,10 @@ package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
 import java.util.concurrent.TimeUnit;
 
-import markov.MarkovChain;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.markovsolver.MarkovSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;

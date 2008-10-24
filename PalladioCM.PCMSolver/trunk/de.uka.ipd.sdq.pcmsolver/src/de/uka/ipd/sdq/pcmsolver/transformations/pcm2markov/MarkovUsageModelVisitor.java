@@ -1,10 +1,10 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
-import markov.MarkovChain;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;

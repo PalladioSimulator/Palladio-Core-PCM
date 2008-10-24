@@ -2,13 +2,12 @@ package de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov;
 
 import java.util.ArrayList;
 
-import markov.MarkovChain;
-import markov.State;
-import markov.StateType;
-
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.StateType;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
@@ -17,6 +16,7 @@ import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
@@ -38,6 +38,16 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	 */
 	private static Logger logger = Logger.getLogger(MarkovSeffVisitor.class
 			.getName());
+
+	/**
+	 * Temporary hack to include FailureProbabilities for SystemExternalCalls.
+	 */
+	public static ArrayList<String> sysExList = new ArrayList<String>();
+
+	/**
+	 * Temporary hack to include FailureProbabilities for SystemExternalCalls.
+	 */
+	public static ArrayList<String> failProbList = new ArrayList<String>();
 
 	/**
 	 * The ContextWrapper provides easy access to the decorations of the solved
@@ -284,7 +294,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 
 	/**
 	 * An ExternalCallAction returns the Markov Chain of the executing
-	 * behaviour.
+	 * behaviour, or a trivial Markov Chain if it is a SystemExternalCall.
 	 * 
 	 * @param externalCallAction
 	 *            the ExternalCallAction
@@ -294,8 +304,46 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	public MarkovChain caseExternalCallAction(
 			final ExternalCallAction externalCallAction) {
 
-		// Return the Markov Chain of the executing SEFF:
-		return doSwitch(contextWrapper.getNextSEFF(externalCallAction));
+		// Get a reference to the executing SEFF:
+		ServiceEffectSpecification seff = contextWrapper
+				.getNextSEFF(externalCallAction);
+
+		// Distinguish the type of the ExternalCall:
+		if (seff == null) {
+
+			// Do the logging:
+			logger.info("Visit SystemExternalCallAction ["
+					+ externalCallAction.getEntityName() + "]");
+
+			// Get the FailureProbability of the SystemExternalCall (this is, by
+			// now, a hack):
+			String failureProbabilityExpression = failProbList.get(sysExList
+					.indexOf(externalCallAction.getId()));
+
+			// A SystemExternalCall is treated like an InternalAction - it has
+			// just one fixed failureProbability:
+			return markovBuilder.initInternalMarkovChain(externalCallAction
+					.getEntityName(), failureProbabilityExpression);
+
+		} else {
+
+			// Do the logging:
+			logger.info("Visit ExternalCallAction ["
+					+ externalCallAction.getEntityName() + "]");
+
+			// For the new SEFF, we need a new ContextWrapper. As during the
+			// creation of the new ContextWrapper, the old one is altered (which
+			// is certainly bad programming style!), we need to save a copy of
+			// the old one and restore it after generating the new one:
+			ContextWrapper originalContextWrapper = (ContextWrapper) contextWrapper
+					.clone();
+			ContextWrapper newContextWrapper = contextWrapper
+					.getContextWrapperFor(externalCallAction);
+			contextWrapper = originalContextWrapper;
+
+			// Return the Markov Chain of the executing SEFF:
+			return new MarkovSeffVisitor(newContextWrapper).doSwitch(seff);
+		}
 	}
 
 	/**

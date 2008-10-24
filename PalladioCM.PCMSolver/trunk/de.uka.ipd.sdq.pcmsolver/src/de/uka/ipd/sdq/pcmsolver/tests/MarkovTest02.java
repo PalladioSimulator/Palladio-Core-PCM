@@ -54,7 +54,7 @@ public class MarkovTest02 {
 				+ "Palladio.resourcetype");
 		props.setProperty("Filename_System", PATH + "simple.system");
 		props.setProperty("Filename_UsageModel", PATH + "simple.usagemodel");
-		props.setProperty("Storage_Path", PATH + "C:\\temp\\PCM");
+		props.setProperty("Storage_Path", PATH + "StoragePath");
 
 		// Set the expected accuracy:
 		accuracy = Math.pow(0.1, 12);

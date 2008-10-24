@@ -2,10 +2,10 @@ package de.uka.ipd.sdq.pcmsolver.markovsolver;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.StateType;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.MarkovSeffVisitor;
-import markov.MarkovChain;
-import markov.State;
-import markov.StateType;
 
 /**
  * This class solves Markov Chains in the sense that it calculates the

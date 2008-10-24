@@ -6,14 +6,14 @@ import java.util.ListIterator;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.markov.MarkovFactory;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.StateType;
+import de.uka.ipd.sdq.markov.Transition;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
-import markov.MarkovChain;
-import markov.MarkovFactory;
-import markov.State;
-import markov.StateType;
-import markov.Transition;
 
 /**
  * This class provides methods for building Markov Chains.
