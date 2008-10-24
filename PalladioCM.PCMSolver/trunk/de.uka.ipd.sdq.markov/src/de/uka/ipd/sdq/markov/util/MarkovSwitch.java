@@ -8,8 +8,6 @@ package de.uka.ipd.sdq.markov.util;
 
 import java.util.List;
 
-import markov.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
