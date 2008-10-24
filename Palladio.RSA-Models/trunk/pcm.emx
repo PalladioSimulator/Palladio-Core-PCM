@@ -7698,7 +7698,7 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V-yDcZJeEdqSSImFLKDkSg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V-yDcJJeEdqSSImFLKDkSg"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_6Sm8IaMYEdqfKJQ-jd0-uQ" name="anchestorInterfaces_Interface" type="_cIR90JJJEdqSSImFLKDkSg" association="_6Sm8IKMYEdqfKJQ-jd0-uQ">
+        <ownedAttribute xmi:id="_6Sm8IaMYEdqfKJQ-jd0-uQ" name="ancestorInterfaces_Interface" type="_cIR90JJJEdqSSImFLKDkSg" isDerived="true" association="_6Sm8IKMYEdqfKJQ-jd0-uQ">
           <ownedComment xmi:id="_aAMxkIVfEd2pasxENQ18jg" annotatedElement="_6Sm8IaMYEdqfKJQ-jd0-uQ">
             <body>This property represents the set of all parent interfaces, from which this interface inherits. All means not just the direct one.</body>
           </ownedComment>
@@ -21449,4 +21449,5 @@ Note:&#xD;
   <Default:Documentation xmi:id="_KiCdoIVjEd2pasxENQ18jg" base_Comment="_Kh5TsIVjEd2pasxENQ18jg"/>
   <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0" prefix="Subsystem"/>
   <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="performance" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0" prefix="Performance"/>
+  <Ecore:EReference xmi:id="_2N-RwKGhEd2ZzfSAo7TyCQ" isTransient="true" base_Property="_6Sm8IaMYEdqfKJQ-jd0-uQ"/>
 </xmi:XMI>
