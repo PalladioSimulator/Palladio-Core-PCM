@@ -1,4 +1,4 @@
-#Mon Sep 29 10:47:44 CEST 2008
+#Wed Oct 08 20:53:38 CEST 2008
 eclipse.preferences.version=1
 encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample03/ComponentA.SignatureA.seff_diagram=UTF-8
 encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample03/ComponentB.SignatureB.seff_diagram=UTF-8
@@ -10,3 +10,12 @@ encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample03/simple.system=UTF-8
 encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample03/simple.system_diagram=UTF-8
 encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample03/simple.usagemodel=UTF-8
 encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample03/simple.usagemodel_diagram=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/myComponent.mySignature.seff_diagram=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/simple.allocation=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/simple.allocation_diagram=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/simple.repository=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/simple.repository_diagram=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/simple.system=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/simple.system_diagram=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/simple.usagemodel=UTF-8
+encoding//src/de/uka/ipd/sdq/pcmsolver/tests/MarkovSample04/simple.usagemodel_diagram=UTF-8
