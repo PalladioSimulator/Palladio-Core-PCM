@@ -31,9 +31,6 @@ import de.uka.ipd.sdq.sensorframework.filter.IFilteredCollectionFactory;
  */
 public class SensorFrameworkPluginActivator extends Plugin {
 
-	/** The central instance */
-	public static SensorFrameworkDataset COMMON_DATASET = new SensorFrameworkDataset();
-	
 	/** The plug-in ID. */
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.sensorframework";
 	
@@ -89,12 +86,12 @@ public class SensorFrameworkPluginActivator extends Plugin {
 				IDAOFactory factory = (IDAOFactory) Class.forName(className)
 						.getConstructor(String.class).newInstance(config);
 				factory.setID((int) id);
-				COMMON_DATASET.addDataSource(factory);
+				SensorFrameworkDataset.singleton().addDataSource(factory);
 			}
 		} catch (Exception e) {
 			log(IStatus.ERROR, "Restoring Dataset Configuration failed. Resetting configuration...", e);
-			if (COMMON_DATASET.getDataSources().size() == 0)
-				COMMON_DATASET.addDataSource(
+			if (SensorFrameworkDataset.singleton().getDataSources().size() == 0)
+				SensorFrameworkDataset.singleton().addDataSource(
 						new MemoryDAOFactory(0));
 		}
 	}
@@ -109,7 +106,7 @@ public class SensorFrameworkPluginActivator extends Plugin {
 		try {
 			f.delete();
 			DataOutputStream dos = new DataOutputStream(new FileOutputStream(f));
-			Collection<IDAOFactory> sources = COMMON_DATASET.getDataSources();
+			Collection<IDAOFactory> sources = SensorFrameworkDataset.singleton().getDataSources();
 			for (IDAOFactory source : sources) {
 				try {
 					source.finalizeAndClose();

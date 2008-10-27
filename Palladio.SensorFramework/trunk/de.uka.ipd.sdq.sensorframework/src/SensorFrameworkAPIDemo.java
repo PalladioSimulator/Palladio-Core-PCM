@@ -1,6 +1,6 @@
 import java.util.Date;
 
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkPluginActivator;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.State;
@@ -20,7 +20,7 @@ public class SensorFrameworkAPIDemo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		IDAOFactory f = SensorFrameworkPluginActivator.COMMON_DATASET.getDataSourceByID(1);
+		IDAOFactory f = SensorFrameworkDataset.singleton().getDataSourceByID(1);
 		Experiment e = f.createExperimentDAO().addExperiment("Test");
 		ExperimentRun er =e.addExperimentRun("TestRun "+new Date().toString());
 		TimeSpanSensor s = e.addTimeSpanSensor("ATimeSpanSensor");
