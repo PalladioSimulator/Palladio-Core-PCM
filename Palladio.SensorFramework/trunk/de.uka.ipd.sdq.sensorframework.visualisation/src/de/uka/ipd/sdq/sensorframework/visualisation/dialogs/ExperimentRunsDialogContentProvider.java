@@ -16,13 +16,9 @@ import de.uka.ipd.sdq.sensorframework.visualisation.views.ExperimentAndDAO;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 
 /** @author roman */
-public class ExperimentRunsTreeContentProvider implements ITreeContentProvider {
-
-	SensorFrameworkDataset dataset;
+public class ExperimentRunsDialogContentProvider implements ITreeContentProvider {
 	
-	public ExperimentRunsTreeContentProvider(SensorFrameworkDataset dataset) {
-		this.dataset = dataset;
-	}
+	private List<IDAOFactory> root;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
@@ -64,7 +60,7 @@ public class ExperimentRunsTreeContentProvider implements ITreeContentProvider {
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
 	 */
 	public Object getParent(Object element) {
-		// not navigable
+		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -84,8 +80,10 @@ public class ExperimentRunsTreeContentProvider implements ITreeContentProvider {
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object inputElement) {
-		ArrayList<IDAOFactory> root = new ArrayList<IDAOFactory>();
-		root.addAll(dataset.getDataSources());
+		if (root == null){
+			root = new ArrayList<IDAOFactory>();
+			root.addAll(SensorFrameworkDataset.singleton().getDataSources());
+		}
 		return getChildren(root);
 	}
 
@@ -93,6 +91,8 @@ public class ExperimentRunsTreeContentProvider implements ITreeContentProvider {
 	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 	 */
 	public void dispose() {
+		// TODO Auto-generated method stub
+
 	}
 
 	/* (non-Javadoc)
@@ -100,6 +100,7 @@ public class ExperimentRunsTreeContentProvider implements ITreeContentProvider {
 	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		// TODO Auto-generated method stub
+
 	}
 
 }

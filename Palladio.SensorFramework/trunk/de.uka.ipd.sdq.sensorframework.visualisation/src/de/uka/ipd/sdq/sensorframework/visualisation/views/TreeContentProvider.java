@@ -14,35 +14,29 @@ import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IExperimentDAO;
 
-/**Provides the tree structure for datasets of the sensor framework.
+/**
+ * TODO
  * @author admin
- * @author groenda
  */
-public class DatasetTreeContentProvider implements ITreeContentProvider {
+public class TreeContentProvider implements ITreeContentProvider {
 
-	/** root element representing the dataset. */
-	private SensorFrameworkDataset dataset;
+	protected static final int EXPERIMENT_RUNS = 0;
+	protected static final int SENSORS = 1;
 
-	/**Initializes a new content provider for a given dataset.
-	 * @param dataset The initial dataset.
-	 */
-	public DatasetTreeContentProvider(SensorFrameworkDataset dataset) {
-		this.dataset = dataset;
-	}
+	private List<IDAOFactory> rootEntry;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object parent) {
-		ArrayList<IDAOFactory> rootEntry = new ArrayList<IDAOFactory>();
-		rootEntry.addAll(dataset.getDataSources());
+		rootEntry = new ArrayList<IDAOFactory>();
+		rootEntry.addAll(SensorFrameworkDataset.singleton().getDataSources());
 		return getChildren(rootEntry);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
 	 */
-	@SuppressWarnings("unchecked")
 	public Object[] getChildren(Object parent) {
 
 		/** List of root elements (DAO,...) */
@@ -59,12 +53,8 @@ public class DatasetTreeContentProvider implements ITreeContentProvider {
 		if (parent instanceof ExperimentAndDAO) {
 			ExperimentAndDAO experiment = (ExperimentAndDAO) parent;
 			Object[] objects = {
-					new ExperimentTreeContainer(
-							experiment.getDatasource(), experiment.getExperiment(), 
-							ExperimentTreeContainer.ContentType.EXPERIMENT_RUNS),
-					new ExperimentTreeContainer(
-							experiment.getDatasource(), experiment.getExperiment(), 
-							ExperimentTreeContainer.ContentType.SENSORS) };
+					new TreeContainer(experiment.getDatasource(), experiment.getExperiment(), EXPERIMENT_RUNS),
+					new TreeContainer(experiment.getDatasource(), experiment.getExperiment(), SENSORS) };
 			return objects;
 		}
 
@@ -87,8 +77,8 @@ public class DatasetTreeContentProvider implements ITreeContentProvider {
 		}
 
 		/** TreeContainer - container a collection of TreeObject */
-		if (parent instanceof ExperimentTreeContainer)
-			return ((ExperimentTreeContainer) parent).getElements().toArray();
+		if (parent instanceof TreeContainer)
+			return ((TreeContainer) parent).getElements().toArray();
 
 		return new Object[0];
 	}
@@ -122,13 +112,15 @@ public class DatasetTreeContentProvider implements ITreeContentProvider {
 	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 	 */
 	public void dispose() {
+		if (rootEntry != null)
+			rootEntry.clear();
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
 	 */
 	public Object getParent(Object child) {
-		// parent direction not navigable
+		// TODO Auto-generated method stub
 		return null;
 	}
 

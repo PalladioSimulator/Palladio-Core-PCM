@@ -26,9 +26,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 
-import de.uka.ipd.sdq.sensorframework.SensorFrameworkPluginActivator;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorframework.visualisation.views.DatasetTreeLabelProvider;
+import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeLabelProvider;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 
 /** @author roman */
@@ -82,8 +81,8 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 		fd_tree.left = new FormAttachment(0, 5);
 		tree.setLayoutData(fd_tree);
 
-		viewer.setContentProvider(new ExperimentRunsTreeContentProvider(SensorFrameworkPluginActivator.COMMON_DATASET));
-		viewer.setLabelProvider(new DatasetTreeLabelProvider());
+		viewer.setContentProvider(new ExperimentRunsDialogContentProvider());
+		viewer.setLabelProvider(new TreeLabelProvider());
 		viewer.setInput(new ArrayList<Object>());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
