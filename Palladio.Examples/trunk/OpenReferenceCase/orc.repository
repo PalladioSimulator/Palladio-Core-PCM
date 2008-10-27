@@ -413,7 +413,7 @@
   <components__Repository xsi:type="BasicComponent" id="_erx1YHe1Ed2mk8dKi3ngUA" entityName="Database">
     <providedRoles_InterfaceProvidingEntity id="_ozQbsHe1Ed2mk8dKi3ngUA" entityName="JDBC" providedInterface__ProvidedRole="_kCATMHe1Ed2mk8dKi3ngUA"/>
   </components__Repository>
-  <components__Repository xsi:type="BasicComponent" id="_0VO1kHONEd2SyK0Shg_o9Q" entityName="Tradingsystem.Webservices.Inventory Service">
+  <components__Repository xsi:type="BasicComponent" id="_0VO1kHONEd2SyK0Shg_o9Q" entityName="Tradingsystem.Webservices.InventoryService">
     <providedRoles_InterfaceProvidingEntity id="_Sx598HOPEd2SyK0Shg_o9Q" entityName="InventoryServiceIf" providedInterface__ProvidedRole="_GtTjoHOPEd2SyK0Shg_o9Q"/>
     <requiredRoles_InterfaceRequiringEntity id="_UQUbcXQ5Ed2J8bFb9TfSEQ" entityName="StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_ppoiYXQ5Ed2J8bFb9TfSEQ" entityName="CashDeskConnectorIf" requiredInterface__RequiredRole="_WoD42tCjEduC9O_qbthgAg"/>
