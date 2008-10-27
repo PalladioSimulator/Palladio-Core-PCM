@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 import de.uka.ipd.sdq.sensorframework.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorframework.SensorFrameworkPluginActivator;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.ConfigureDatasourceDialog;
 import de.uka.ipd.sdq.sensorframework.dialogs.dataset.DatasourceListLabelProvider;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
@@ -127,7 +128,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				ConfigureDatasourceDialog dialog = new ConfigureDatasourceDialog(e.display
-						.getActiveShell(),"Select Datasource...", true);
+						.getActiveShell(),"Select Datasource...", true, SensorFrameworkPluginActivator.COMMON_DATASET);
 				if (dialog.open() == Dialog.OK) {
 					IDAOFactory dataSet = (IDAOFactory) dialog.getResult();
 					selectedDataSourceID = (int) dataSet.getID();
@@ -191,10 +192,10 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			selectedDataSourceID = 
 				configuration.getAttribute(
 						SimuComConfig.DATASOURCE_ID, -1);
-			if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null)
+			if (SensorFrameworkPluginActivator.COMMON_DATASET.getDataSourceByID(selectedDataSourceID) == null)
 				dataField.setText("");
 			else {
-				IDAOFactory factory = SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID);
+				IDAOFactory factory = SensorFrameworkPluginActivator.COMMON_DATASET.getDataSourceByID(selectedDataSourceID);
 				dataField.setText(DatasourceListLabelProvider.dataSetRepresentation(factory));
 			}
 		} catch (CoreException e) {
@@ -268,7 +269,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			setErrorMessage("Maximum Measurement counter is missing!");
 			return false;
 		}		
-		if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null){
+		if (SensorFrameworkPluginActivator.COMMON_DATASET.getDataSourceByID(selectedDataSourceID) == null){
 			setErrorMessage("Data source is missing!");
 			return false;
 		}
