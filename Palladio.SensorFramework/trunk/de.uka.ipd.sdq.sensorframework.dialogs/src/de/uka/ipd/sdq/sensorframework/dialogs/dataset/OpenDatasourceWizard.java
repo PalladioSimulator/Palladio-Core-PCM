@@ -22,14 +22,13 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * @author Roman Andrej
  */
 public class OpenDatasourceWizard extends Wizard {
+
 	
 	private WizardDatasourceLoadPage db40DatasourceLoadPage, fileDatasourceLoadPage;
 	private WizardSelectDatasourcePage selectDatasourceTypePage;
-	private SensorFrameworkDataset dataset;
 
-	public OpenDatasourceWizard(SensorFrameworkDataset dataset) {
+	public OpenDatasourceWizard() {
 		super();
-		this.dataset = dataset;
 		this.setWindowTitle("Load datastore...");
 	}
 
@@ -68,7 +67,7 @@ public class OpenDatasourceWizard extends Wizard {
 
 			try {
 				factory = new FileDAOFactory(path.toOSString());
-				dataset.addDataSource(factory);
+				SensorFrameworkDataset.singleton().addDataSource(factory);
 			} catch (Throwable e) {
 				MessageDialog.openError(getShell(), "File DAO factory error.",
 						e.getMessage());
