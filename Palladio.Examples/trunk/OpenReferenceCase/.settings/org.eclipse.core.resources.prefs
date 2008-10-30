@@ -1,5 +1,12 @@
-#Thu Oct 30 18:10:45 CET 2008
+#Thu Oct 30 18:36:12 CET 2008
 eclipse.preferences.version=1
+encoding/TradingSystem.Database.beginTransaction.seff_diagram=UTF-8
+encoding/TradingSystem.Database.closePersistenceContext.seff_diagram=UTF-8
+encoding/TradingSystem.Database.commitTransaction.seff_diagram=UTF-8
+encoding/TradingSystem.Database.doQuery.seff_diagram=UTF-8
+encoding/TradingSystem.Database.getPersistenceContext.seff_diagram=UTF-8
+encoding/TradingSystem.Database.getReference.seff_diagram=UTF-8
+encoding/TradingSystem.Database.getTransactionContext.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Application.ProductDispatcher.orderProductsAvailableAtOtherStores.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Application.Store.bookSale.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Application.Store.checkForLowRunningGoods.seff_diagram=UTF-8

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_XJV8QKaoEd2aT7ee5CpgQg" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_XK-T8KaoEd2aT7ee5CpgQg" type="2001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_XK-T8aaoEd2aT7ee5CpgQg" fontName="Segoe UI"/>
+    <element xmi:type="StartAction" href="orc.repository#_YHMkEKaGEd2HMpb_upR7QA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XK-T8qaoEd2aT7ee5CpgQg" x="180" y="12"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_XK-T86aoEd2aT7ee5CpgQg" type="2002">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_XK-T9KaoEd2aT7ee5CpgQg" fontName="Segoe UI"/>
+    <element xmi:type="StopAction" href="orc.repository#_YHMkEaaGEd2HMpb_upR7QA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XK-T9aaoEd2aT7ee5CpgQg" x="180" y="228"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_XxW-gaaoEd2aT7ee5CpgQg" type="2006">
+    <children xmi:type="notation:Node" xmi:id="_XxW-hKaoEd2aT7ee5CpgQg" type="5012"/>
+    <children xmi:type="notation:Node" xmi:id="_XxW-haaoEd2aT7ee5CpgQg" type="7012">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_XxW-hqaoEd2aT7ee5CpgQg"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_XxW-h6aoEd2aT7ee5CpgQg" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_XxW-iKaoEd2aT7ee5CpgQg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_XxW-iaaoEd2aT7ee5CpgQg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_XxW-gqaoEd2aT7ee5CpgQg" fontName="Segoe UI"/>
+    <element xmi:type="InternalAction" href="orc.repository#_XxW-gKaoEd2aT7ee5CpgQg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XxW-g6aoEd2aT7ee5CpgQg" x="12" y="72" width="349" height="109"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_XJV8QaaoEd2aT7ee5CpgQg"/>
+  <element xmi:type="ResourceDemandingSEFF" href="orc.repository#_Xv-98KaGEd2HMpb_upR7QA"/>
+  <edges xmi:type="notation:Edge" xmi:id="_XK-T9qaoEd2aT7ee5CpgQg" type="4001" source="_XK-T8KaoEd2aT7ee5CpgQg" target="_XxW-gaaoEd2aT7ee5CpgQg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_XK-T96aoEd2aT7ee5CpgQg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_XK-T-KaoEd2aT7ee5CpgQg" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XK-T-aaoEd2aT7ee5CpgQg" points="[0, 10, 0, -75]$[0, 70, 0, -15]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dROggKaoEd2aT7ee5CpgQg" id="(0.51002866,0.110091746)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_dqq7QKaoEd2aT7ee5CpgQg" type="4001" source="_XxW-gaaoEd2aT7ee5CpgQg" target="_XK-T86aoEd2aT7ee5CpgQg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_dqq7QaaoEd2aT7ee5CpgQg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_dqq7QqaoEd2aT7ee5CpgQg" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dqq7Q6aoEd2aT7ee5CpgQg" points="[18, 82, 0, -62]$[18, 128, 0, -16]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dqq7RKaoEd2aT7ee5CpgQg" id="(0.47277936,0.24770643)"/>
+  </edges>
+</notation:Diagram>
