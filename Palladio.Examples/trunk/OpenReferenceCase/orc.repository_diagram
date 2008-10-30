@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_3aOdQHlDEd2DBfjHDxUcwg" type="PCM Repository Model" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:_2="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_3aOdQHlDEd2DBfjHDxUcwg" type="PCM Repository Model" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_3cdR4HlDEd2DBfjHDxUcwg" type="2101">
     <children xmi:type="notation:Node" xmi:id="_3cdR43lDEd2DBfjHDxUcwg" type="5101"/>
     <children xmi:type="notation:Node" xmi:id="_3cdR5HlDEd2DBfjHDxUcwg" type="7101">
@@ -204,11 +204,6 @@
         <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#_6ZfDVB8PEdyY_su_CT9KsQ"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3dDu2HlDEd2DBfjHDxUcwg"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_VCqKIqaIEd2HMpb_upR7QA" type="3102">
-        <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_VCqKI6aIEd2HMpb_upR7QA"/>
-        <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#_Urve8KaIEd2HMpb_upR7QA"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_VCqKJKaIEd2HMpb_upR7QA"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_VxEvUqaIEd2HMpb_upR7QA" type="3102">
         <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_VxEvU6aIEd2HMpb_upR7QA"/>
         <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#_VcipwKaIEd2HMpb_upR7QA"/>
@@ -223,6 +218,11 @@
         <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_W8gAo6aIEd2HMpb_upR7QA"/>
         <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#_WrZCgKaIEd2HMpb_upR7QA"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_W8gApKaIEd2HMpb_upR7QA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_K4vo8qaKEd2HMpb_upR7QA" type="3102">
+        <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_K4vo86aKEd2HMpb_upR7QA"/>
+        <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#_KlQFMKaKEd2HMpb_upR7QA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_K4vo9KaKEd2HMpb_upR7QA"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_3cdSbnlDEd2DBfjHDxUcwg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_3cdSb3lDEd2DBfjHDxUcwg"/>
@@ -250,11 +250,6 @@
         <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#queryStockItemById"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3dDu23lDEd2DBfjHDxUcwg"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_3dDu3HlDEd2DBfjHDxUcwg" type="3102">
-        <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3dDu3XlDEd2DBfjHDxUcwg"/>
-        <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#queryLowStockItemsWithRespectToIncomingProducts"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_3dDu3nlDEd2DBfjHDxUcwg"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_3dDu33lDEd2DBfjHDxUcwg" type="3102">
         <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3dDu4HlDEd2DBfjHDxUcwg"/>
         <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#queryStoreById"/>
@@ -264,16 +259,6 @@
         <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3dDu43lDEd2DBfjHDxUcwg"/>
         <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#queryStockItem"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3dDu5HlDEd2DBfjHDxUcwg"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_3dDu5XlDEd2DBfjHDxUcwg" type="3102">
-        <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3dDu5nlDEd2DBfjHDxUcwg"/>
-        <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#flushDatabase"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_3dDu53lDEd2DBfjHDxUcwg"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_3dDu6HlDEd2DBfjHDxUcwg" type="3102">
-        <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3dDu6XlDEd2DBfjHDxUcwg"/>
-        <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#markProductUnavailableInStock"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_3dDu6nlDEd2DBfjHDxUcwg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_3dDu63lDEd2DBfjHDxUcwg" type="3102">
         <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3dDu7HlDEd2DBfjHDxUcwg"/>
@@ -339,6 +324,20 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_3cdSsnlDEd2DBfjHDxUcwg"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_3cdSs3lDEd2DBfjHDxUcwg" type="7104">
+      <children xmi:type="notation:Node" xmi:id="_r7-mEKaaEd2HMpb_upR7QA" type="3104">
+        <children xmi:type="notation:Node" xmi:id="_r8398KaaEd2HMpb_upR7QA" type="5106"/>
+        <children xmi:type="notation:Node" xmi:id="_r9BH4KaaEd2HMpb_upR7QA" type="7105">
+          <children xmi:type="notation:Node" xmi:id="_tHtZYKaaEd2HMpb_upR7QA" type="3105">
+            <element xmi:type="_2:VariableCharacterisation" href="orc.repository#//@components__Repository.3/@componentParameterUsage_ImplementationComponentType.0/@variableCharacterisation_VariableUsage.0"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_tHtZYaaaEd2HMpb_upR7QA"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_r9BH4aaaEd2HMpb_upR7QA"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_r9BH4qaaEd2HMpb_upR7QA"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_r7-mEaaaEd2HMpb_upR7QA" fontName="Segoe UI"/>
+        <element xmi:type="_2:VariableUsage" href="orc.repository#//@components__Repository.3/@componentParameterUsage_ImplementationComponentType.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r7-mEqaaEd2HMpb_upR7QA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_3cdStHlDEd2DBfjHDxUcwg"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_3cdStXlDEd2DBfjHDxUcwg" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_3cdStnlDEd2DBfjHDxUcwg"/>
@@ -347,7 +346,7 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_3cdSqXlDEd2DBfjHDxUcwg" fontName="Segoe UI"/>
     <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3cdSqnlDEd2DBfjHDxUcwg" hint="PCM SEFF Model"/>
     <element xmi:type="BasicComponent" href="orc.repository#_XDTf09CiEduC9O_qbthgAg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3cdSq3lDEd2DBfjHDxUcwg" x="564" y="-504"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3cdSq3lDEd2DBfjHDxUcwg" x="564" y="-516" height="130"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_3cdSuHlDEd2DBfjHDxUcwg" type="2102">
     <children xmi:type="notation:Node" xmi:id="_3cdSvHlDEd2DBfjHDxUcwg" type="5102"/>
@@ -447,6 +446,11 @@
         <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_3dM47nlDEd2DBfjHDxUcwg"/>
         <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#_mAraYh_8Edy5k9ER1TBmjg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3dM473lDEd2DBfjHDxUcwg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_mkz4oqaQEd2HMpb_upR7QA" type="3102">
+        <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_mkz4o6aQEd2HMpb_upR7QA"/>
+        <element xmi:type="_1:ResourceDemandingSEFF" href="orc.repository#_mBGuoKaQEd2HMpb_upR7QA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_mkz4pKaQEd2HMpb_upR7QA"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_3cdSznlDEd2DBfjHDxUcwg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_3cdSz3lDEd2DBfjHDxUcwg"/>

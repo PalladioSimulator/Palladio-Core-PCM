@@ -1,11 +1,17 @@
-#Mon Oct 27 14:28:00 CET 2008
+#Thu Oct 30 18:10:45 CET 2008
 eclipse.preferences.version=1
 encoding/TradingSystem.Inventory.Application.ProductDispatcher.orderProductsAvailableAtOtherStores.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Application.Store.bookSale.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Application.Store.checkForLowRunningGoods.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Application.Store.markProductsUnavailableInStock.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Enterprise.queryEnterpriseById.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Persistence.beginTransaction.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Persistence.closePersistenceContext.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Persistence.commitTransaction.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Data.Persistence.getPersistenceContext.seff_diagram=UTF-8
-encoding/TradingSystem.Inventory.Data.Store.flushDatabase.seff_diagram=UTF-8
-encoding/TradingSystem.Inventory.Data.Store.markProductsUnavailableInStock.seff_diagram=UTF-8
-encoding/TradingSystem.Inventory.Data.Store.queryLowStockItemsWithRespectToIncomingProducts.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Persistence.getTransactionContext.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Store.getStockItems.seff_diagram=UTF-8
+encoding/TradingSystem.Inventory.Data.Store.queryLowStockItems.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Data.Store.queryStockItem.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Data.Store.queryStockItemById.seff_diagram=UTF-8
 encoding/TradingSystem.Inventory.Data.Store.queryStoreById.seff_diagram=UTF-8

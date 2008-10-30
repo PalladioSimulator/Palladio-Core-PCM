@@ -6,6 +6,7 @@ see:
 - http://sdqweb.ipd.uka.de/wiki/CoCoME-PCM
 --------------------------------------------------------------------
 
+
 --------------------------------------------------------------------
 Original Notes of CoCoME PCM
 --------------------------------------------------------------------
@@ -59,40 +60,7 @@ one iteration for each concurrent thread.
 
 
 --------------------------------------------------------------------
-Notes of CoCoME PCM Extension for SLA@SOI
---------------------------------------------------------------------
-
-Changes:
-- deleted old project files
-- deleted JDBC required interfaces from data and system component
-- deleted Interfaces "JDBC" and "Bank"
-- deleted Resource Container "StoreServerProcessorShare"
-- deleted Composite Component "TradingSystem.CashDeskLine"
-- deleted Resource Container "CashDeskPC"
-- deleted Linking Resource "CashDeskPC - StoreServer"
-- deleted external SEFF diagrams
-- deleted internal SEFF diagrams in "cocome.repository_diagram"
-
-Refined deployment structure:
-- defined scenario with 1 EnterpriseServer, 2 StoreServers, each server with 1 client
-- deleted Application.Facade and Data.Facade components
-- deleted Application, Data and GUI composite components
-- deployed basic components directly on resource containers of new scenario
-
-Making simulation work:
-- had to delete 1 of 2 System Provided Roles for Interface "CashDeskConnectorIf"
-  (simulation can only cope with 1 System Provided Role for each Interface)
-- had to adapt SEFF "TradingSystem.Inventory.Application.ProductDispatcher.orderProductsAvailableAtOtherStores"
-  (replaced numberOfStores.VALUE by 2 because only simplified SEFFS are available)
-  
-Remaining ToDos:
-- verify simulation results
-- model SEFFS and Data Types appropriately
-- model Services on top of the TradingSystem
-
-
---------------------------------------------------------------------
-Notes of CoSoME
+Open Reference Case
 --------------------------------------------------------------------
 
 Changes:
@@ -111,6 +79,19 @@ Changes:
 
 
 --------------------------------------------------------------------
-Open Reference Case: Differenzes between Model and Implementation
+Open Reference Case: Differences between Model and Implementation
 --------------------------------------------------------------------
 
+- WebServices instantiated once for multiple Stores:
+  - The model implicitly assumes that each of the WebServices is instantiated only once for
+    all stores of an enterprise.
+  - To support that, the implementation would have to pass the storeId as an additional input
+    parameter to all service calls.
+- Use Case 8 (fill up stocks in one store by ordering goods from other stores):
+  - In the implementation, this is done during each sales process as a part of the
+    Application.Store.bookSale() method.
+  - In the model, there is an extra signature "checkForLowRunningGoods" as part of the
+    StoreIf interface. The functionality is so far not reachable at the system border.
+- ProductDispatcher.orderProductsAvailableAtOtherStores - Fehler in Implementierung:
+  - der callingStore müsste aus der stores-Collection entfernt werden (?)
+  - der PersistenceContext müsste am Ende wieder geschlossen werden (?)

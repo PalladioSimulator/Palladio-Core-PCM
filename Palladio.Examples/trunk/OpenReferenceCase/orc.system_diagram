@@ -14,7 +14,7 @@
           <styles xsi:type="notation:FillStyle" xmi:id="_GwMUR3k_Ed2DBfjHDxUcwg"/>
           <styles xsi:type="notation:LineStyle" xmi:id="_GwMUSHk_Ed2DBfjHDxUcwg"/>
           <element href="orc.repository#_8phWYNCmEduC9O_qbthgAg"/>
-          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_GwMUSXk_Ed2DBfjHDxUcwg" x="-29" y="24"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_GwMUSXk_Ed2DBfjHDxUcwg" x="-29" y="12"/>
         </children>
         <children xmi:id="_GwMUTHk_Ed2DBfjHDxUcwg" type="3001">
           <children xmi:id="_GwMUUnk_Ed2DBfjHDxUcwg" type="5001">
