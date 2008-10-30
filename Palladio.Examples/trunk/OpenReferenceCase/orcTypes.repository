@@ -23,7 +23,6 @@
   <datatypes_Repository xsi:type="CollectionDataType" id="_4ndL5dFmEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Enterprise.Product[]" innerType_CollectionDataType="_6wQEZtFmEducE6dFyopUlg"/>
   <datatypes_Repository xsi:type="CompositeDataType" id="_HzcZdtFdEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Enterprise.ProductSupplier"/>
   <datatypes_Repository xsi:type="CompositeDataType" id="_43Fu5tFcEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Enterprise.TradingEnterprise"/>
-  <datatypes_Repository xsi:type="CompositeDataType" id="_C72_dtFdEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Persistence.PersistenceContext"/>
   <datatypes_Repository xsi:type="CompositeDataType" id="_JMRpFtFnEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.ProductOrder"/>
   <datatypes_Repository xsi:type="CompositeDataType" id="_AQXeBtFnEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.StockItem"/>
   <datatypes_Repository xsi:type="CollectionDataType" id="_BeTQxdFnEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.StockItem[]" innerType_CollectionDataType="_AQXeBtFnEducE6dFyopUlg"/>

@@ -575,9 +575,6 @@
       <parameters__Signature parameterName="enterpriseId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
-      </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="getMeanTimeToDelivery">
@@ -586,9 +583,6 @@
       </parameters__Signature>
       <parameters__Signature parameterName="enterprise">
         <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
-      </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
     </signatures__Interface>
@@ -605,17 +599,11 @@
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
-      </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_tGnVBtFdEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryProducts">
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
-      </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_4ndL5dFmEducE6dFyopUlg"/>
     </signatures__Interface>
@@ -623,17 +611,11 @@
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
-      </parameters__Signature>
       <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryLowStockItemsWithRespectToIncomingProducts">
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
-      </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
@@ -641,17 +623,11 @@
       <parameters__Signature parameterName="storeId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
-      </parameters__Signature>
       <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryOrderById">
       <parameters__Signature parameterName="orderId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
-      </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_JMRpFtFnEducE6dFyopUlg"/>
     </signatures__Interface>
@@ -659,26 +635,17 @@
       <parameters__Signature parameterName="stockId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
-      </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryStockItemById">
       <parameters__Signature parameterName="stockId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
-      </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryProductById">
       <parameters__Signature parameterName="productId">
         <datatype__Parameter xsi:type="PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
-      </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CompositeDataType" href="orcTypes.repository#_6wQEZtFmEducE6dFyopUlg"/>
     </signatures__Interface>
@@ -688,9 +655,6 @@
       </parameters__Signature>
       <parameters__Signature parameterName="productIds">
         <datatype__Parameter xsi:type="CollectionDataType" href="orcTypes.repository#_bxQxxdFoEducE6dFyopUlg"/>
-      </parameters__Signature>
-      <parameters__Signature parameterName="pctx">
-        <datatype__Parameter xsi:type="CompositeDataType" href="orcTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
       </parameters__Signature>
       <returntype__Signature xsi:type="CollectionDataType" href="orcTypes.repository#_BeTQxdFnEducE6dFyopUlg"/>
     </signatures__Interface>
