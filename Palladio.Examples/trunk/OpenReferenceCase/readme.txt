@@ -109,3 +109,8 @@ Changes:
 - updated "cocome.allocation":
   - added deployment of WebServices at ServiceProvider
 
+
+--------------------------------------------------------------------
+Open Reference Case: Differenzes between Model and Implementation
+--------------------------------------------------------------------
+
