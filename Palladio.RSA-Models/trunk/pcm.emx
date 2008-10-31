@@ -18489,6 +18489,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       <packageImport xmi:id="_7tjvIDQ_Edun4NCFPwZksA" importedPackage="_t6z0sCh9Edue7oeC4NTCGg"/>
       <packageImport xmi:id="_Y7zK8DRAEdun4NCFPwZksA" importedPackage="_LaA6ICh9Edue7oeC4NTCGg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_HyJcoODhEdq8ysXH3gTiEg" name="StopAction">
+        <ownedComment xmi:id="_PEQEMKdHEd2mBdDaN9hoZQ" annotatedElement="_HyJcoODhEdq8ysXH3gTiEg">
+          <body>StopActions end a scenario behaviour and contain only a predecessor.</body>
+        </ownedComment>
         <ownedRule xmi:id="_WlotYBnVEdyaJvvdhGgDYg" name="StopActionSuccessorMustNotBeDefined" constrainedElement="_HyJcoODhEdq8ysXH3gTiEg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_WlotYRnVEdyaJvvdhGgDYg">
             <language>OCL</language>
@@ -18498,6 +18501,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <generalization xmi:id="_PcQBkODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_HHFtcODhEdq8ysXH3gTiEg" name="StartAction">
+        <ownedComment xmi:id="_NWSGgKdHEd2mBdDaN9hoZQ" annotatedElement="_HHFtcODhEdq8ysXH3gTiEg">
+          <body>StartActions initiate a scenario behaviour and contain only a successor.</body>
+        </ownedComment>
         <ownedRule xmi:id="_Lh89gBnVEdyaJvvdhGgDYg" name="StartActionPredecessorMustNotBeDefined" constrainedElement="_HHFtcODhEdq8ysXH3gTiEg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_Lh9kkBnVEdyaJvvdhGgDYg">
             <language>OCL</language>
@@ -18507,6 +18513,10 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <generalization xmi:id="_P9efUODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_1qN_0JJxEdqSSImFLKDkSg" name="ServiceEffectSpecification" isAbstract="true">
+        <ownedComment xmi:id="_W9Sa0Kc4Ed2mBdDaN9hoZQ" annotatedElement="_1qN_0JJxEdqSSImFLKDkSg">
+          <body>Service Effect Specification Models the effect of invoking a specific service of a basic component. Therefore, it references a Signature from an Interface, for which the component takes a ProvidedRole, to identify the described service. This class is abstract and SEFFs for specific analysis purposes need to inherit from this class. A BasicComponent may have an arbitrary number of SEFFs. It can have multiple SEFFs of a different type for a single provided service. For example, one SEFF can express all external service calls with no particular order, while another one includes a restricted order, or still another one expresses resource demands of the service.&#xD;
+While different SEFF types have been proposed, the only type currently included in the meta-model is the ResourceDemandingSEFF for performance prediction. Different types of SEFFs should not contradict each other if the languages are equally powerful. For example, the order of allowed external service calls should be the same for each SEFF type modelling sequences of such calls if the modelling languages have the same expressiveness. SEFFs are part of a component and not part of an interface, because they are implementation dependent. The SEFFs of a CompositeComponent are not represented in the meta-model and can be derived automatically by connecting the SEFFs of the encapsulated components of its nested AssemblyContexts. Different SEFFs of a single component access the same component parameter specifications. That means that parameter dependencies to the same component parameters in different SEFF types refer also to the same characterisations.</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_6wc7kJVrEdqSSImFLKDkSg" name="seffTypeID">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
           <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_4_Gp4OfuEdu3wqV8TelBYw">
@@ -18520,6 +18530,10 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_pAHS0BG0EdukS8Awn8hWLA" name="ResourceDemandingSEFF">
+        <ownedComment xmi:id="_7A-L0Kc1Ed2mBdDaN9hoZQ" annotatedElement="_pAHS0BG0EdukS8Awn8hWLA">
+          <body>A resource demanding service effect specification (RDSEFF) is a special type of SEFF designed for performance and reliability predictions. Besides dependencies between provided and required services of a component, it additionally includes notions of resource usage, data flow, and parametric dependencies for more accurate predictions. Its control flow is hierarchically structured and can be enhanced with transition probabilities on branches and numbers of iterations on loops.&#xD;
+A ResourceDemandingSEFF is a ServiceEffectSpecification and a Resource-DemandingBehaviour at the same time inheriting from both classes. The reason for this construct lies in the fact, that ResourceDemandingBehaviours can be used recursively inside themselves to describe loop bodies or branched behaviours (explained later), and these inner behaviours should not be RDSEFFs themselves</body>
+        </ownedComment>
         <generalization xmi:id="_ThBGsJApEdu_YZDnbUekcg">
           <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
         </generalization>
@@ -18527,6 +18541,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <generalization xmi:id="_s_FCwBG0EdukS8Awn8hWLA" general="_-kKR4OKHEdq6IvzVMFpuzg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_-kKR4OKHEdq6IvzVMFpuzg" name="ResourceDemandingBehaviour">
+        <ownedComment xmi:id="_pJsLwKc2Ed2mBdDaN9hoZQ" annotatedElement="_-kKR4OKHEdq6IvzVMFpuzg">
+          <body>Models the behaviour of a component service as a sequence of internal actions with resource demands, control flow constructs, and external&#xD;
+calls. Therefore, the class contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource demands attached to internal actions, which mainly influence performance analysis.&#xD;
+Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles. To specify control flow branches, loops, or forks, component developers need to use special types of actions, which contain nested inner ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any ResourceDemandingBehaviour can have at most one starting and one finishing action.</body>
+        </ownedComment>
         <ownedRule xmi:id="_GuAaQBm9EdyaJvvdhGgDYg" name="ExactlyOneStopAction" constrainedElement="_-kKR4OKHEdq6IvzVMFpuzg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_GuAaQRm9EdyaJvvdhGgDYg">
             <language>OCL</language>
@@ -18551,6 +18570,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_DFOCYOEAEdq8ysXH3gTiEg" name="ReleaseAction">
+        <ownedComment xmi:id="_jVJHUKdDEd2mBdDaN9hoZQ" annotatedElement="_DFOCYOEAEdq8ysXH3gTiEg">
+          <body>The ReleaseAction increases the number of available item for the given passive resource type, before the current request&#xD;
+can continue. It should be to execute by one of the other concurrent requests.&#xD;
+Acquisition and release of passive resources happen instantaneously and do not consume any time except for waiting delays before actual acquisition. Resource locking may introduce deadlocks when simulating the model, however, for performance analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to be fixed accordingly before carrying out the performance prediction.</body>
+        </ownedComment>
         <generalization xmi:id="_HzRF4OEAEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_8LkMITj-Edy2j_4z2PHNJQ" name="passiveResource_ReleaseAction" type="_9APFUOD4Edq8ysXH3gTiEg" association="_8LkMIDj-Edy2j_4z2PHNJQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8QLmYjj-Edy2j_4z2PHNJQ" value="1"/>
@@ -18558,6 +18582,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_1szycODhEdq8ysXH3gTiEg" name="LoopAction">
+        <ownedComment xmi:id="_zWhyMKdBEd2mBdDaN9hoZQ" annotatedElement="_1szycODhEdq8ysXH3gTiEg">
+          <body>Models the repeated execution of its inner ResourceDemandingBehaviour for the loop body. The number of repetitions is specified by a random variable evaluating to integer or an IntPMF. The number of iterations specified by the random variable always needs to be bounded, i.e., the probabilities in an IntPMF for iteration numbers above a certain threshold must be zero. Otherwise, it would be possible that certain requests do not terminate, which would complicate performance analyses. The stochastic expression defining the iteration random variable may include references to input or component parameters to model dependencies between the usage profile and the number of loop iterations. Notice, that loop actions should only be modelled if the loop body contains either external service calls or resource demands directed at special resources. Otherwise, control flow loops in component behaviour should be abstracted by subsuming them in InternalAction, which combine a number of instructions. The influence of different iterations length of such internal loops need to be reflected stochastically by the random variable specifying the ParametricResource-Demand of that InternalAction.&#xD;
+Other than Markov chains, RDSEFFs do not specify control flow loops with an reentrance and exit probability on each iteration. Such a specification binds the number of loop iterations to a geometrical distribution, which reflects reality only in very seldom cases. But in many practical cases, the number of iterations is a constant, or the probability for higher iteration numbers is higher than for lower ones. This cannot be expressed directly via a Markov chain (also see [DG00]). &#xD;
+Inside the ResourceDemandingBehaviour of LoopActions, it is assumed that random variables are stochastically independent. This is not true in reality, and for example leads to wrong predictions if the same random variable is used twice in succession inside a loop body. In this case, the second occurrence is stochastically dependent to the first occurrence, as the value does not change between two occurrences. Therefore, component developers should be aware of such inaccuracies when using random variables twice inside the body behaviour of a LoopAction.</body>
+        </ownedComment>
         <generalization xmi:id="_3UXmIODhEdq8ysXH3gTiEg" general="_w5WLkInnEducPr8SMhBkpQ"/>
         <ownedAttribute xmi:id="_aJWKgWc1EduCGaQAxkcIwA" name="iterationCount_LoopAction" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_aJWKgGc1EduCGaQAxkcIwA">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aJWKhGc1EduCGaQAxkcIwA" value="1"/>
@@ -18565,6 +18594,10 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_xCCscODhEdq8ysXH3gTiEg" name="InternalAction">
+        <ownedComment xmi:id="_xVwjYKc4Ed2mBdDaN9hoZQ" annotatedElement="_xCCscODhEdq8ysXH3gTiEg">
+          <body>Internal Action Combines the execution of a number of internal computations by a component service in a single model entity. It models calculations inside a component service, which do not include calls to required services. For a desired high abstraction level, an RDSEFF has only one InternalAction for all instructions between two calls to required services. A high abstraction level is needed to keep the model tractable for mathematical analysis methods. However, in principle it is also possible to use multiple InternalActions in direct succession to model on a lower abstraction level and enable more accurate predictions.&#xD;
+InternalActions provide an abstraction from the complete behaviour (i.e., control and data flow) of a component service, as they can hide different possible control and data flows not affecting external service calls and express their resource demands as a single stochastic expression. This abstraction underlies the assumption that the resource demands of a number of instruction can be captured sufficiently accurate enough in one such expression</body>
+        </ownedComment>
         <generalization xmi:id="_0j8F4ODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_sbTYkODmEdq8ysXH3gTiEg" name="failureProbability" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -18575,6 +18608,10 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_75L1IODhEdq8ysXH3gTiEg" name="ForkAction">
+        <ownedComment xmi:id="_LNyXsKdBEd2mBdDaN9hoZQ" annotatedElement="_75L1IODhEdq8ysXH3gTiEg">
+          <body>Fork Action Splits the RDSEFF control flow with an AND-semantic, meaning that it invokes several ForkedBehaviours concurrently.  ForkActions&#xD;
+allow both asynchronously and synchronously forked behaviours. Synchronously ForkedBehaviours execute concurrently and the control flow waits for each of these behaviours to terminate before continuing. Each ForkedBehaviour can be considered as a program thread. All parameter characterisations from the surrounding RDSEFF are also valid inside the ForkedBehaviours and can be used to parameterise resource demands or control flow constructs. The parameter characterisations are the same in each ForkedBehaviour. Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages. Asynchronously ForkedBehaviours also execute concurrently, but the control flow does not wait for them to terminate and continues immediately after their invocation with the successor action of the ForkAction. Therefore, there is no need for a SynchronisationPoint in this case. It is furthermore not possible to refer to results or output parameters of asynchronously ForkedBehaviours in the rest of the RDSEFF, as it is unclear when these results will be available.</body>
+        </ownedComment>
         <generalization xmi:id="_8w6HUODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_i6cW8eTDEdq49qz7R-l1Hg" name="asynchronousForkedBehaviours_ForkAction" type="_4IiqUDj4Edy2j_4z2PHNJQ" aggregation="composite" association="_i6cW8OTDEdq49qz7R-l1Hg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i6cW9OTDEdq49qz7R-l1Hg" value="*"/>
@@ -18586,6 +18623,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_vEMNwODjEdq8ysXH3gTiEg" name="ExternalCallAction">
+        <ownedComment xmi:id="_NOSwgKc5Ed2mBdDaN9hoZQ" annotatedElement="_vEMNwODjEdq8ysXH3gTiEg">
+          <body>ExternalCallAction models the invocation of a service specified in a required interface. Therefore, it references a Role, from which the providing component can be derived, and a Signature to specify the called service. ExternalCallActions model synchronous calls to required services, i.e., the caller waits until the called service finishes execution before continuing execution itself. The PCM allows modelling asynchronous calls to required services by using an ExternalCallAction inside a ForkedBehaviour.&#xD;
+ExternalCallActions do not have resource demands by themselves. Component developers need to specify the resource demand of the called service in the RDSEFF of that service. The resource demand can also be calculated by analysing the providing component. This keeps the RDSEFF specification of different component developers independent from each other and makes them replaceable in an architectural model.&#xD;
+ExternalCallActions may contain two sets of VariableUsages specifying input parameter characterisations and output parameter characterisations respectively. VariableUsages for input parameters may only reference IN or INOUT parameters of the call’s referenced signature. The random variable characterisation inside such a VariableUsage may be constants, probability distribution functions, or include a stochastic expression involving for example arithmetic operations. The latter models a dependency between the current service’s own input parameters and the input parameters of the required service.</body>
+        </ownedComment>
         <generalization xmi:id="_w9VgsODjEdq8ysXH3gTiEg" general="_6qnlsODgEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_KFnzweDkEdq8ysXH3gTiEg" name="calledService_ExternalService" type="_hh0OUJJJEdqSSImFLKDkSg" association="_KFnzwODkEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_kjCckXP2EduxXfd-1j79QQ" name="inputParameterUsages_ExternalCallAction" type="_GmAWYOQSEdqeH_WIC9QRew" aggregation="composite" association="_kjCckHP2EduxXfd-1j79QQ">
@@ -18602,12 +18644,19 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_MWqoAOTDEdq49qz7R-l1Hg" name="ProbabilisticBranchTransition">
+        <ownedComment xmi:id="_Pg4MQKc7Ed2mBdDaN9hoZQ" annotatedElement="_MWqoAOTDEdq49qz7R-l1Hg">
+          <body>a GuardedBranchTransition, this transition provides a link between a BranchAction and a nested ResourceDemandingBehaviour, which includes the actions executed inside the branch. But instead of using a guard, it specifies a branching probability without parameter dependencies. Analysis tools may directly use it to determine the transition where the control flow continues. The probabilities of all ProbabilisticBranchTransitions belonging to a single BranchAction must sum up to 1.0. &#xD;
+Although a probabilistic choice at a branch usually does not happen in a computer program, ProbabilisticBranchTransitions provide a convenient way of modelling in case the actual parameter dependency is too hard to determine or too complex to integrate into a guard. It can also be useful for newly designed components, where the parameter dependency on the control flow guard is still be unknown. However, this construct potentially introduces inaccuracies into the performance model, because it does not reflect the influence of input parameters. Therefore, predictions based on this model can be misleading, if the used input parameters would result in different branching probabilities. The component developer cannot foresee this, when specifying the RDSEFF using ProbabilisticBranchTransitions.</body>
+        </ownedComment>
         <generalization xmi:id="_ktdBAInoEducPr8SMhBkpQ" general="_eX2J0InoEducPr8SMhBkpQ"/>
         <ownedAttribute xmi:id="_-b9TsHDHEdur9cZft9T4NQ" name="branchProbability" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_6EgLcODhEdq8ysXH3gTiEg" name="BranchAction">
+        <ownedComment xmi:id="_qxJ8AKc6Ed2mBdDaN9hoZQ" annotatedElement="_6EgLcODhEdq8ysXH3gTiEg">
+          <body>The BranchAction splits the RDSEFF control flow with an XOR-semantic, meaning that the control flow continues on exactly one of its attached AbstractBranchTransitions. The RDSEFF supports two different kinds of branch transitions, GuardedBranchTransitions, and  ProbabilisticBranchTransitions. RDSEFFs do not allow to use both kinds of transitions on a single BranchAction. Analysis or simulation tools must select exactly one transition based on the included guard or probability, before continuing at a BranchAction.</body>
+        </ownedComment>
         <ownedRule xmi:id="_2gC44InoEducPr8SMhBkpQ" name="EitherGuardedBranchesOrProbabilisiticBranchTransitions" constrainedElement="_6EgLcODhEdq8ysXH3gTiEg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_2gC44YnoEducPr8SMhBkpQ">
             <language>OCL</language>
@@ -18627,6 +18676,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_BfcXYOEAEdq8ysXH3gTiEg" name="AcquireAction">
+        <ownedComment xmi:id="_EbM-sKdDEd2mBdDaN9hoZQ" annotatedElement="_BfcXYOEAEdq8ysXH3gTiEg">
+          <body>In an RDSEFF, component developers can specify an AcquireAction, which references a passive resource types. Once analysis tools execute this action, they decrease the amount of items available from the referenced passive resource type by one, if at least one item is available. If none item is available, because other, concurrently executed requests have acquired all of them, analysis tools enqueue the current request (first-come&#xD;
+first-serve scheduling policy) and block it’s further execution.&#xD;
+Acquisition and release of passive resources happen instantaneously and do not consume any time except for waiting delays before actual acquisition. Resource locking may introduce deadlocks when simulating the model, however, for performance analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to be fixed accordingly before carrying out the performance prediction.</body>
+        </ownedComment>
         <generalization xmi:id="_IR0DEOEAEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_7KctYTj-Edy2j_4z2PHNJQ" name="passiveresource_AcquireAction" type="_9APFUOD4Edq8ysXH3gTiEg" association="_7KctYDj-Edy2j_4z2PHNJQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7KctZDj-Edy2j_4z2PHNJQ" value="1"/>
@@ -18634,6 +18688,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_kmntkODhEdq8ysXH3gTiEg" name="AbstractInternalControlFlowAction" isAbstract="true">
+        <ownedComment xmi:id="_8y230KdDEd2mBdDaN9hoZQ" annotatedElement="_kmntkODhEdq8ysXH3gTiEg">
+          <body>TODO</body>
+        </ownedComment>
         <generalization xmi:id="_qz4hEODhEdq8ysXH3gTiEg" general="_6qnlsODgEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_fT2xceD3Edq8ysXH3gTiEg" name="resourceDemand_Action" type="_Y8AekOD3Edq8ysXH3gTiEg" aggregation="composite" association="_fT2xcOD3Edq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gvC9EeD3Edq8ysXH3gTiEg" value="*"/>
@@ -18641,6 +18698,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_6qnlsODgEdq8ysXH3gTiEg" name="AbstractAction" isAbstract="true">
+        <ownedComment xmi:id="_njAP4Kc4Ed2mBdDaN9hoZQ" annotatedElement="_6qnlsODgEdq8ysXH3gTiEg">
+          <body>AbstractActions model either a service’s internal computations or calls to external (i.e., required) services, or describe some form of control flow alteration (i.e., branching, loop, or fork). The following first clarifies the notions of internal and external actions, whose meta-classes both inherit from AbstractAction.&#xD;
+The RDSEFF defines the control flow between internal and external actions with the predecessor/successor relationship between AbstractActions to model sequential executions. Additionally, special actions for branching, loops, and forks allow other kinds of control flow. Other than flowcharts or UML activity diagrams, the RDSEFF language (as well as the usage model language) requires developers to make the branching, loop, fork bodies explicit using nested ResourceDemandingBehaviours. It disallows backward references in the chain of AbstractActions, which are basically&#xD;
+goto statements and can lead to ambiguities and difficult maintainability. For example, this might lead to intertwined control flows as in the example in Fig. 4.9(a), where both the sequences ’abcabcdbcd’ and ’abcdbcabcd’ could be occur if each backward reference is executed once, which might lead to different execution times. Backward references also allow the specification of loops with multiple entry points as in Fig. 4.9(b). This is not desirable, as the number of loop iterations cannot be specified directly in these cases, which is however necessary for accurate performance prediction. If a developer would specify that each backward link in Fig. 4.9(b) is executed only once, both sequences ’ababc’ and ’abcababc’ would be possible although they would have different execution times, as ’a’ is executed three times in the latter case. To avoid such ambiguities, control flow in the PCM RDSEFF and usage model must be specified without backward references in the chain of AbstractActions. Branches, loops, forks, and their respective bodies have to be made explicit in the specification using nested ResourceDemandingBehaviours.</body>
+        </ownedComment>
         <generalization xmi:id="_SUZUMOMiEdqaQsPH3rPnBQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_oJ1pceTCEdq49qz7R-l1Hg" name="predecessor_AbstractAction" type="_6qnlsODgEdq8ysXH3gTiEg" association="_oJ1pcOTCEdq49qz7R-l1Hg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qjwuMeTCEdq49qz7R-l1Hg" value="1"/>
@@ -18652,35 +18714,67 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_oJ1pcOTCEdq49qz7R-l1Hg" name="transition" memberEnd="_oJ1pceTCEdq49qz7R-l1Hg _oJ1pcuTCEdq49qz7R-l1Hg"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_fT2xcOD3Edq8ysXH3gTiEg" memberEnd="_fT2xceD3Edq8ysXH3gTiEg _fT2xcuD3Edq8ysXH3gTiEg"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_fT2xcOD3Edq8ysXH3gTiEg" memberEnd="_fT2xceD3Edq8ysXH3gTiEg _fT2xcuD3Edq8ysXH3gTiEg">
+        <ownedComment xmi:id="_6JdNoKc4Ed2mBdDaN9hoZQ" annotatedElement="_fT2xcOD3Edq8ysXH3gTiEg">
+          <body>To express the performance-relevant resource interaction of the modelled computations, an InternalAction contains a set of ParametricResourceDemands, each directed at a specific ProcessingResourceType. An InternalAction may have at most one resource demand for each ProcessingResourceType. Analysis or simulation tools sequentialise the set of demands and put load on the referenced resources one after another.</body>
+        </ownedComment>
+      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_RcaZ0OTDEdq49qz7R-l1Hg" memberEnd="_RcaZ0eTDEdq49qz7R-l1Hg _RcaZ0uTDEdq49qz7R-l1Hg">
+        <ownedComment xmi:id="_o86WMKdFEd2mBdDaN9hoZQ" annotatedElement="_RcaZ0OTDEdq49qz7R-l1Hg">
+          <body>BranchTransitions to associate the branch’s behaviour to the branch action.</body>
+        </ownedComment>
         <ownedEnd xmi:id="_RcaZ0uTDEdq49qz7R-l1Hg" visibility="private" type="_6EgLcODhEdq8ysXH3gTiEg" association="_RcaZ0OTDEdq49qz7R-l1Hg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_YSp44OTDEdq49qz7R-l1Hg" memberEnd="_YSp44eTDEdq49qz7R-l1Hg _YSp44uTDEdq49qz7R-l1Hg">
+        <ownedComment xmi:id="_Z0_xUKdEEd2mBdDaN9hoZQ" annotatedElement="_YSp44OTDEdq49qz7R-l1Hg">
+          <body>A BranchTransition inludes one resourceDemandingBehaviour</body>
+        </ownedComment>
         <ownedEnd xmi:id="_YSp44uTDEdq49qz7R-l1Hg" visibility="private" type="_eX2J0InoEducPr8SMhBkpQ" association="_YSp44OTDEdq49qz7R-l1Hg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_KFnzwODkEdq8ysXH3gTiEg" memberEnd="_KFnzweDkEdq8ysXH3gTiEg _KFnzwuDkEdq8ysXH3gTiEg">
+        <ownedComment xmi:id="_SfUSUKdGEd2mBdDaN9hoZQ" annotatedElement="_KFnzwODkEdq8ysXH3gTiEg">
+          <body>This association links to the Signature of an interface which is called by an ExternalCallAction</body>
+        </ownedComment>
         <ownedEnd xmi:id="_KFnzwuDkEdq8ysXH3gTiEg" visibility="private" type="_vEMNwODjEdq8ysXH3gTiEg" association="_KFnzwODkEdq8ysXH3gTiEg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_i6cW8OTDEdq49qz7R-l1Hg" memberEnd="_i6cW8eTDEdq49qz7R-l1Hg _i6cW8uTDEdq49qz7R-l1Hg">
+        <ownedComment xmi:id="_SALKIKdEEd2mBdDaN9hoZQ" annotatedElement="_i6cW8OTDEdq49qz7R-l1Hg">
+          <body>A ForkAction invokes several ForkedBehaviours concurrently and asynchronously.</body>
+        </ownedComment>
         <ownedEnd xmi:id="_i6cW8uTDEdq49qz7R-l1Hg" visibility="private" type="_75L1IODhEdq8ysXH3gTiEg" association="_i6cW8OTDEdq49qz7R-l1Hg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_FyL6kODiEdq8ysXH3gTiEg" memberEnd="_FyL6keDiEdq8ysXH3gTiEg _FyL6kuDiEdq8ysXH3gTiEg">
+        <ownedComment xmi:id="_g_vrUKdFEd2mBdDaN9hoZQ" annotatedElement="_FyL6kODiEdq8ysXH3gTiEg">
+          <body>The Body of a Looop is a ResourceDemandingBehaviour</body>
+        </ownedComment>
         <ownedEnd xmi:id="_FyL6kuDiEdq8ysXH3gTiEg" visibility="private" type="_w5WLkInnEducPr8SMhBkpQ" association="_FyL6kODiEdq8ysXH3gTiEg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_RrAYIODhEdq8ysXH3gTiEg" memberEnd="_RrAYIeDhEdq8ysXH3gTiEg _RrAYIuDhEdq8ysXH3gTiEg">
+        <ownedComment xmi:id="_hOwiQKdGEd2mBdDaN9hoZQ" annotatedElement="_RrAYIODhEdq8ysXH3gTiEg">
+          <body>TODO check:&#xD;
+A ResourceDemandingBehaviour contains a chain of AbstractActions. Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles.</body>
+        </ownedComment>
         <ownedEnd xmi:id="_RrAYIuDhEdq8ysXH3gTiEg" visibility="private" type="_-kKR4OKHEdq6IvzVMFpuzg" association="_RrAYIODhEdq8ysXH3gTiEg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_USNiINBSEdqflvLz1KCRig" memberEnd="_USTowNBSEdqflvLz1KCRig _USTowdBSEdqflvLz1KCRig">
+        <ownedComment xmi:id="_KKG64KdGEd2mBdDaN9hoZQ" annotatedElement="_USNiINBSEdqflvLz1KCRig">
+          <body>This association links to the Signature of an Interface which is described by this SEFF</body>
+        </ownedComment>
         <ownedEnd xmi:id="_USTowdBSEdqflvLz1KCRig" visibility="private" type="_1qN_0JJxEdqSSImFLKDkSg" association="_USNiINBSEdqflvLz1KCRig">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jq_PUNBTEdqflvLz1KCRig" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jq5IsNBTEdqflvLz1KCRig"/>
         </ownedEnd>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_HjiqoHDFEdur9cZft9T4NQ" memberEnd="_HjiqoXDFEdur9cZft9T4NQ _HjiqonDFEdur9cZft9T4NQ">
+        <ownedComment xmi:id="_QPxuEKdFEd2mBdDaN9hoZQ" annotatedElement="_HjiqoHDFEdur9cZft9T4NQ">
+          <body>Each transition contains a random variable called its guard condition. However, the guard condition can dependent on other random variables from whose its own distribution can be derived. In order to ensure that exactly one branch condition evaluates to true, all branch conditions are evaluated using the same values for the involved random variables, i.e., the conditions are evaluated stochastically dependent. From this requirement, it follows that it is disallowed to use INNER characterisations in branch conditions as they are always evaluated independently.</body>
+        </ownedComment>
         <ownedEnd xmi:id="_HjiqonDFEdur9cZft9T4NQ" visibility="private" type="_oVdpgInoEducPr8SMhBkpQ" association="_HjiqoHDFEdur9cZft9T4NQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_f0bz8HDLEdur9cZft9T4NQ" name="CollectionIteratorAction">
+        <ownedComment xmi:id="_PA19IKdCEd2mBdDaN9hoZQ" annotatedElement="_f0bz8HDLEdur9cZft9T4NQ">
+          <body>Collection Iterator Action Models the repeated execution of its inner ResourceDemandingBehaviour for each element of a collection data type. Therefore it contains a reference to an input parameter of the service’s signature, which must be of type CollectionDataType. The NUMBER OF ELEMENTS must be specified from the outside of the component, either by another RDSEFF or by an usage model calling this service. It can be of type integer or IntPMF. Besides the source of the number of iterations, CollectionIteratorActions differ from LoopAction only in their allowed stochastic dependence of random variables inside the loop body’s ResourceDemandingBehaviour. If the same random variable occurs twice in such a loop body, analysis tools must evaluate the second occurrence in stochastic dependence to the first occurrence. This complicates the involved calculation and might lead to the intractability of the model, therefore component developers should use CollectionIteratorActions with care and only include them if they expect that the prediction results would be vastly inaccurate without it.</body>
+        </ownedComment>
         <generalization xmi:id="_r7vkAHDLEdur9cZft9T4NQ" general="_w5WLkInnEducPr8SMhBkpQ"/>
         <ownedAttribute xmi:id="_9YcEYXDLEdur9cZft9T4NQ" name="parameter_CollectionIteratorAction" type="_8b84gJJUEdqSSImFLKDkSg" association="_9YcEYHDLEdur9cZft9T4NQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9YcEZHDLEdur9cZft9T4NQ" value="1"/>
@@ -18688,6 +18782,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_w5WLkInnEducPr8SMhBkpQ" name="AbstractLoopAction" isAbstract="true">
+        <ownedComment xmi:id="_8LqU8KdDEd2mBdDaN9hoZQ" annotatedElement="_w5WLkInnEducPr8SMhBkpQ">
+          <body>TODO</body>
+        </ownedComment>
         <generalization xmi:id="_0SJ6cInnEducPr8SMhBkpQ" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_FyL6keDiEdq8ysXH3gTiEg" name="bodyBehaviour_Loop" type="_-kKR4OKHEdq6IvzVMFpuzg" aggregation="composite" association="_FyL6kODiEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FyL6lODiEdq8ysXH3gTiEg" value="1"/>
@@ -18695,6 +18792,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_eX2J0InoEducPr8SMhBkpQ" name="AbstractBranchTransition" isAbstract="true">
+        <ownedComment xmi:id="_9b1jYKdDEd2mBdDaN9hoZQ" annotatedElement="_eX2J0InoEducPr8SMhBkpQ">
+          <body>Two types of branch transitions exist which correspond to the two types of branches. The types cannot be mixed. Either all branch transitions of one BranchAction are probabilistic or guarded.</body>
+        </ownedComment>
         <generalization xmi:id="_KZmV4InsEducPr8SMhBkpQ">
           <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
         </generalization>
@@ -18704,6 +18804,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oVdpgInoEducPr8SMhBkpQ" name="GuardedBranchTransition">
+        <ownedComment xmi:id="_HHiiwKc7Ed2mBdDaN9hoZQ" annotatedElement="_oVdpgInoEducPr8SMhBkpQ">
+          <body>Guarded Branch Transition Provides a link between a BranchAction and a nested ResourceDemandingBehaviour, which includes the actions executed inside the branch. It uses a guard, i.e. a boolean expression specified by a RandomVariable, to determine whether the transition is chosen. If the guard evaluates to true, the branch is chosen, otherwise if the guard evaluates to false another branch transition must be chosen.&#xD;
+The guard may contain references to the service’s input parameters or component parameters. A component developer can specify complex boolean expressions by using the AND, OR, and NOT operations provided by the StoEx framework. As the domain expert may have characterised the parameters used in a guard with probability distributions, it might happen that a guard does not evaluate to true or false with a probability of 1.0. For example, the specification can express that a guard evaluates to true with a probability of 0.3, and to false with a probability of 0.7. In any case, the probabilities of the individual guards attached to all GuardedBranchTransitions contained in a BranchAction must sum up to 1.0.&#xD;
+There is no predefined order in evaluating the guards attached to a BranchAction. This differs from programming languages such as C or Java, where the conditions on if/then/else statements are evaluated in the order of their appearance in the code. Such programming languages allow overlapping branching conditions (for example, if (X&lt;10) //... else if (X&lt;20) // ...), which are not allowed for the guards in GuardedBranchTransitions, because the missing order specification would lead to ambiguous boolean expressions and enable more than one guard to become true. If X would have the value 5, both conditions would evaluate to true if they would be used directly as guards in GuardedBranchTransitions. The correct specification of the guards in this case would be X.VALUE   10 and X.VALUE ¥ 10 AND X.VALUE   20. Guards might lead to stochastic dependencies when evaluating variable characterisations inside a branched behaviour. For example, if the guard X.VALUE   10 had formerly evaluated to true, and the RDSEFF uses X.VALUE inside the branched behaviour, the sample space of the random variable specifying the characterisation must be restricted, as the event that X takes a values greater than 10 cannot occur anymore. Therefore its probability is zero. Any variable characterisation always needs to be evaluated under the condition that all guards in the usage scenario’s path to it have evaluated to true.</body>
+        </ownedComment>
         <generalization xmi:id="_rzfPkInoEducPr8SMhBkpQ" general="_eX2J0InoEducPr8SMhBkpQ"/>
         <ownedAttribute xmi:id="_HjiqoXDFEdur9cZft9T4NQ" name="branchCondition_GuardedBranchTransition" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_HjiqoHDFEdur9cZft9T4NQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HjsboXDFEdur9cZft9T4NQ" value="1"/>
@@ -18711,6 +18816,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_3t1goJvOEduUAs0MFI6ZYg" name="SetVariableAction">
+        <ownedComment xmi:id="_CwgtkKc6Ed2mBdDaN9hoZQ" annotatedElement="_3t1goJvOEduUAs0MFI6ZYg">
+          <body>Set Variable Action Assigns a variable characterisation to an OUT parameter, INOUT parameter, or return value of the service. It ensures that performance-relevant output parameter characterisations of a component service are specified to use them to parameterise the calling RDSEFF. A SetVariableAction must only use output parameters on the left hand side of the assignment and must not use input parameter or local variable&#xD;
+names, because input parameters cannot be returned and local names should not be exposed to adhere the black box principle. The action is only intended to allow proper data flow modelling (i.e., output parameter passing) between different component services, but not to reveal additional internals of the service the current RDSEFF models. Thus, the assigned characterisation is not accessible in subsequent actions of the current RDSEFF. Notice, that the stochastic expression used in this assignment must characterise the result of the whole computation of the current service. For non-trivial components, this requires a substantial stochastic approximation based on manual abstraction. However, recall that not the actual result of a component service needs to be specified, but only its performance-relevant attributes. For example, to model the return value of a component service compressing a file, using its file size divided by the compression factor as the stochastic expression is usually sufficient, while the value of the compressed file is not of interest in a performance model.&#xD;
+Multiple SetVariableActions assigning to the same output parameter might occur at different locations of the control flow in an RDSEFF. In the case of sequences, loops, and fork, the last assignment overwrites the former assignments and gets transferred back to the calling RDSEFF. Therefore, analysis tools may ignore the former assignments. In the case of using a SetVariableAction in two different branches of a BranchAction, only the assignment in the chosen branch is valid and gets transferred back to the caller.</body>
+        </ownedComment>
         <generalization xmi:id="_54uD0JvOEduUAs0MFI6ZYg" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_boo7EZvPEduUAs0MFI6ZYg" name="localVariableUsages_SetVariableAction" type="_GmAWYOQSEdqeH_WIC9QRew" aggregation="composite" association="_boo7EJvPEduUAs0MFI6ZYg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_boo7FJvPEduUAs0MFI6ZYg" value="*"/>
@@ -18718,12 +18828,18 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_8otUYC7oEdyfAdIlKmzI9Q" memberEnd="_8otUYS7oEdyfAdIlKmzI9Q _8otUYi7oEdyfAdIlKmzI9Q">
+        <ownedComment xmi:id="_L9xDIKdBEd2mBdDaN9hoZQ" annotatedElement="_8otUYC7oEdyfAdIlKmzI9Q">
+          <body>Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages. </body>
+        </ownedComment>
         <ownedEnd xmi:id="_8otUYi7oEdyfAdIlKmzI9Q" visibility="private" type="_75L1IODhEdq8ysXH3gTiEg" association="_8otUYC7oEdyfAdIlKmzI9Q">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x_pzkK3zEdyf-ak5ZpuHig" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x_mwQK3zEdyf-ak5ZpuHig" value="1"/>
         </ownedEnd>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_QUCaEC7qEdyfAdIlKmzI9Q" name="SynchronisationPoint">
+        <ownedComment xmi:id="_ZzWEIKdHEd2mBdDaN9hoZQ" annotatedElement="_QUCaEC7qEdyfAdIlKmzI9Q">
+          <body>Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages.</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_YSQN0S7qEdyfAdIlKmzI9Q" name="synchronousForkedBehaviours_SynchronisationPoint" type="_4IiqUDj4Edy2j_4z2PHNJQ" aggregation="composite" association="_YSQN0C7qEdyfAdIlKmzI9Q">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YSQN1C7qEdyfAdIlKmzI9Q" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YSQN0y7qEdyfAdIlKmzI9Q" value="1"/>
@@ -18734,15 +18850,27 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_YSQN0C7qEdyfAdIlKmzI9Q" memberEnd="_YSQN0S7qEdyfAdIlKmzI9Q _YSQN0i7qEdyfAdIlKmzI9Q">
+        <ownedComment xmi:id="_UlDCAKdBEd2mBdDaN9hoZQ" annotatedElement="_YSQN0C7qEdyfAdIlKmzI9Q">
+          <body>A ForkAction invokes several ForkedBehaviours concurrently and synchronously.</body>
+        </ownedComment>
         <ownedEnd xmi:id="_YSQN0i7qEdyfAdIlKmzI9Q" visibility="private" type="_QUCaEC7qEdyfAdIlKmzI9Q" association="_YSQN0C7qEdyfAdIlKmzI9Q"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_JW8FEC7qEdyfAdIlKmzI9Q" memberEnd="_JW8FES7qEdyfAdIlKmzI9Q _JW8FEi7qEdyfAdIlKmzI9Q">
+        <ownedComment xmi:id="_W8ZhoKdGEd2mBdDaN9hoZQ" annotatedElement="_JW8FEC7qEdyfAdIlKmzI9Q">
+          <body>TODO</body>
+        </ownedComment>
         <ownedEnd xmi:id="_JW8FEi7qEdyfAdIlKmzI9Q" visibility="private" type="_QUCaEC7qEdyfAdIlKmzI9Q" association="_JW8FEC7qEdyfAdIlKmzI9Q"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_4IiqUDj4Edy2j_4z2PHNJQ" name="ForkedBehaviour">
+        <ownedComment xmi:id="_B_FikKc4Ed2mBdDaN9hoZQ" annotatedElement="_4IiqUDj4Edy2j_4z2PHNJQ">
+          <body>A ForkedBehaviour can be considered as a program thread. All parameter characterisations from the surrounding RDSEFF are also valid inside the ForkedBehaviours and can be used to parameterise resource demands or control flow constructs. The parameter characterisations are the same in each ForkedBehaviour.</body>
+        </ownedComment>
         <generalization xmi:id="_nlQBsDj5Edy2j_4z2PHNJQ" general="_-kKR4OKHEdq6IvzVMFpuzg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_aJWKgGc1EduCGaQAxkcIwA" memberEnd="_aJWKgWc1EduCGaQAxkcIwA _aJWKgmc1EduCGaQAxkcIwA">
+        <ownedComment xmi:id="_-6e9kKdBEd2mBdDaN9hoZQ" annotatedElement="_aJWKgGc1EduCGaQAxkcIwA">
+          <body>The number of repetitions is specified by a random variable evaluating to integer or an IntPMF. The number of iterations specified by the random variable always needs to be bounded</body>
+        </ownedComment>
         <ownedEnd xmi:id="_aJWKgmc1EduCGaQAxkcIwA" visibility="private" type="_1szycODhEdq8ysXH3gTiEg" association="_aJWKgGc1EduCGaQAxkcIwA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_BZwFgNTBEdy-Vtz2H2qvXw" name="performance">
@@ -18846,6 +18974,49 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           </contents>
         </eAnnotations>
         <packagedElement xmi:type="uml:Class" xmi:id="_Y8AekOD3Edq8ysXH3gTiEg" name="ParametricResourceDemand">
+          <ownedComment xmi:id="_Hiy4MKc3Ed2mBdDaN9hoZQ" annotatedElement="_Y8AekOD3Edq8ysXH3gTiEg">
+            <body>TODO (Überarbeitung durch MH)&#xD;
+Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;
+The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;
+the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;
+for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;
+Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;
+MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;
+use this timing value for example as the service demand on a service center in a queueing&#xD;
+network or the firing delay of a transition in a Petri net. As multiple component services&#xD;
+might request processing on the same resource, these analytical or simulation models&#xD;
+allow determining the waiting delay induced by this contention effect.&#xD;
+Besides this parameterisation over different resource environments, Parametric-&#xD;
+ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;
+specifying the resource demand can contain references to the service’s input&#xD;
+parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;
+tools use the current characterisation of the referenced input or component parameter&#xD;
+and substitute the reference with this characterisation in the stochastic expression.&#xD;
+Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;
+(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;
+As an example for solving the parameterisation over resource environment and usage&#xD;
+profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;
+might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;
+theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;
+the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;
+characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;
+derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;
+profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;
+126&#xD;
+4.3. Resource Demanding Service Effect Specification&#xD;
+component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;
+tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;
+specification, thus resolving the resource environment dependency.&#xD;
+The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;
+of the service. Component developers can specify it using complexity theory,&#xD;
+estimations, or measurements. However, how to get data to define such expressions&#xD;
+accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;
+[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;
+Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;
+establish resource demands independent from concrete resources. For the scope of this&#xD;
+thesis, it is assumed that these methods have been applied and an accurate specification&#xD;
+of the ParametricResourceDemand is available.</body>
+          </ownedComment>
           <ownedAttribute xmi:id="_fT2xcuD3Edq8ysXH3gTiEg" name="action_ParametricResourceDemand" type="_kmntkODhEdq8ysXH3gTiEg" association="_fT2xcOD3Edq8ysXH3gTiEg"/>
           <ownedAttribute xmi:id="_2wRHoUpCEdyyNsXlb1tNsw" name="specification_ParametericResourceDemand" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_2wRHoEpCEdyyNsXlb1tNsw">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2wRHpEpCEdyyNsXlb1tNsw" value="1"/>
@@ -18857,9 +19028,16 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_2wRHoEpCEdyyNsXlb1tNsw" memberEnd="_2wRHoUpCEdyyNsXlb1tNsw _2wRHokpCEdyyNsXlb1tNsw">
+          <ownedComment xmi:id="_tSNq4Kc3Ed2mBdDaN9hoZQ" annotatedElement="_2wRHoEpCEdyyNsXlb1tNsw">
+            <body>Besides this parameterisation over different resource environments, ParametricResourceDemands also parameterise over the usage profile. For this, the stochastic expression specifying the resource demand can contain references to the service’s input parameters or the component parameters. Upon evaluating the resource demand, analysis tools use the current characterisation of the referenced input or component parameter and substitute the reference with this characterisation in the stochastic expression.&#xD;
+Solving the stochastic expression, which can be a function involving arithmetic operators, then yields a constant or probability function for the resource demand.</body>
+          </ownedComment>
           <ownedEnd xmi:id="_2wRHokpCEdyyNsXlb1tNsw" visibility="private" type="_Y8AekOD3Edq8ysXH3gTiEg" association="_2wRHoEpCEdyyNsXlb1tNsw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_GfXcgJSEEd27_9sKGvEc-Q" memberEnd="_GfXcgZSEEd27_9sKGvEc-Q _GfhNgJSEEd27_9sKGvEc-Q">
+          <ownedComment xmi:id="_U_u-cKc3Ed2mBdDaN9hoZQ" annotatedElement="_GfXcgJSEEd27_9sKGvEc-Q">
+            <body>TODO (Für MH)</body>
+          </ownedComment>
           <ownedEnd xmi:id="_GfhNgJSEEd27_9sKGvEc-Q" name="parametricresourcedemand" visibility="public" type="_Y8AekOD3Edq8ysXH3gTiEg" association="_GfXcgJSEEd27_9sKGvEc-Q">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GfhNgpSEEd27_9sKGvEc-Q" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GfhNgZSEEd27_9sKGvEc-Q" value="1"/>
@@ -21625,4 +21803,42 @@ Note:&#xD;
   <Default:Documentation xmi:id="_1lMqoaHaEd2av7jcZUzHwg" base_Comment="_1lMqoKHaEd2av7jcZUzHwg"/>
   <Default:Documentation xmi:id="_z8WoEaHbEd2av7jcZUzHwg" base_Comment="_z8WoEKHbEd2av7jcZUzHwg"/>
   <Default:Documentation xmi:id="_1W890aHbEd2av7jcZUzHwg" base_Comment="_1W890KHbEd2av7jcZUzHwg"/>
+  <Default:Documentation xmi:id="_7HYV0Kc1Ed2mBdDaN9hoZQ" base_Comment="_7A-L0Kc1Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_pJsLwac2Ed2mBdDaN9hoZQ" base_Comment="_pJsLwKc2Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_Hiy4Mac3Ed2mBdDaN9hoZQ" base_Comment="_Hiy4MKc3Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_U_u-cac3Ed2mBdDaN9hoZQ" base_Comment="_U_u-cKc3Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_tSNq4ac3Ed2mBdDaN9hoZQ" base_Comment="_tSNq4Kc3Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_B_Fikac4Ed2mBdDaN9hoZQ" base_Comment="_B_FikKc4Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_W9Sa0ac4Ed2mBdDaN9hoZQ" base_Comment="_W9Sa0Kc4Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_njAP4ac4Ed2mBdDaN9hoZQ" base_Comment="_njAP4Kc4Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_xVwjYac4Ed2mBdDaN9hoZQ" base_Comment="_xVwjYKc4Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_6JdNoac4Ed2mBdDaN9hoZQ" base_Comment="_6JdNoKc4Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_NOSwgac5Ed2mBdDaN9hoZQ" base_Comment="_NOSwgKc5Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_Cwgtkac6Ed2mBdDaN9hoZQ" base_Comment="_CwgtkKc6Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_qxJ8Aac6Ed2mBdDaN9hoZQ" base_Comment="_qxJ8AKc6Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_HHiiwac7Ed2mBdDaN9hoZQ" base_Comment="_HHiiwKc7Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_Pg4MQac7Ed2mBdDaN9hoZQ" base_Comment="_Pg4MQKc7Ed2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_LNyXsadBEd2mBdDaN9hoZQ" base_Comment="_LNyXsKdBEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_L9xDIadBEd2mBdDaN9hoZQ" base_Comment="_L9xDIKdBEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_UlDCAadBEd2mBdDaN9hoZQ" base_Comment="_UlDCAKdBEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_zWhyMadBEd2mBdDaN9hoZQ" base_Comment="_zWhyMKdBEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_-6e9kadBEd2mBdDaN9hoZQ" base_Comment="_-6e9kKdBEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_PA19IadCEd2mBdDaN9hoZQ" base_Comment="_PA19IKdCEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_EbM-sadDEd2mBdDaN9hoZQ" base_Comment="_EbM-sKdDEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_jVJHUadDEd2mBdDaN9hoZQ" base_Comment="_jVJHUKdDEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_8LqU8adDEd2mBdDaN9hoZQ" base_Comment="_8LqU8KdDEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_8y230adDEd2mBdDaN9hoZQ" base_Comment="_8y230KdDEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_9b1jYadDEd2mBdDaN9hoZQ" base_Comment="_9b1jYKdDEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_SALKIadEEd2mBdDaN9hoZQ" base_Comment="_SALKIKdEEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_Z0_xUadEEd2mBdDaN9hoZQ" base_Comment="_Z0_xUKdEEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_QPxuEadFEd2mBdDaN9hoZQ" base_Comment="_QPxuEKdFEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_g_vrUadFEd2mBdDaN9hoZQ" base_Comment="_g_vrUKdFEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_o86WMadFEd2mBdDaN9hoZQ" base_Comment="_o86WMKdFEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_KKG64adGEd2mBdDaN9hoZQ" base_Comment="_KKG64KdGEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_SfUSUadGEd2mBdDaN9hoZQ" base_Comment="_SfUSUKdGEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_W8ZhoadGEd2mBdDaN9hoZQ" base_Comment="_W8ZhoKdGEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_hOwiQadGEd2mBdDaN9hoZQ" base_Comment="_hOwiQKdGEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_NWSGgadHEd2mBdDaN9hoZQ" base_Comment="_NWSGgKdHEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_PEQEMadHEd2mBdDaN9hoZQ" base_Comment="_PEQEMKdHEd2mBdDaN9hoZQ"/>
+  <Default:Documentation xmi:id="_ZzWEIadHEd2mBdDaN9hoZQ" base_Comment="_ZzWEIKdHEd2mBdDaN9hoZQ"/>
 </xmi:XMI>
