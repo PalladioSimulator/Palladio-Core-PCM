@@ -95,3 +95,8 @@ Open Reference Case: Differences between Model and Implementation
 - ProductDispatcher.orderProductsAvailableAtOtherStores - Fehler in Implementierung:
   - der callingStore müsste aus der stores-Collection entfernt werden (?)
   - der PersistenceContext müsste am Ende wieder geschlossen werden (?)
+- In der Modellierung sind Sonderfälle wie try-catch-Konstrukte nicht explizit im Kontrollfluss
+  berücksichtigt. Da diese Sonderfälle grundsätzlich bedeuten, dass die eigentlich angedachte
+  Funktionalität nicht ausgeführt werden kann, sind sie mit einem "Failure" des entsprechenden
+  Dienstes gleichzusetzen. Ziel der Modellierung ist, die Wahrscheinlichkeiten von "Failures"
+  zu berechnen. Dazu können die "FailureProbabilities" der InternalActions genutzt werden. 

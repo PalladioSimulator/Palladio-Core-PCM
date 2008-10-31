@@ -3,16 +3,20 @@
   <children xmi:type="notation:Node" xmi:id="_AJT5sKapEd2aT7ee5CpgQg" type="2001">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_AJT5saapEd2aT7ee5CpgQg" fontName="Segoe UI"/>
     <element xmi:type="StartAction" href="orc.repository#_dZzGIKaGEd2HMpb_upR7QA"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AJT5sqapEd2aT7ee5CpgQg" x="204" y="12"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AJT5sqapEd2aT7ee5CpgQg" x="264" y="12"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_AJT5s6apEd2aT7ee5CpgQg" type="2002">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_AJT5tKapEd2aT7ee5CpgQg" fontName="Segoe UI"/>
     <element xmi:type="StopAction" href="orc.repository#_dZzGIaaGEd2HMpb_upR7QA"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AJT5taapEd2aT7ee5CpgQg" x="192" y="228"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AJT5taapEd2aT7ee5CpgQg" x="252" y="228"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_BqweUKapEd2aT7ee5CpgQg" type="2006">
     <children xmi:type="notation:Node" xmi:id="_BqweU6apEd2aT7ee5CpgQg" type="5012"/>
     <children xmi:type="notation:Node" xmi:id="_BqweVKapEd2aT7ee5CpgQg" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_QAdJYKcpEd2h8fAhakQqPQ" type="3008">
+        <element xmi:type="ParametricResourceDemand" href="orc.repository#//@components__Repository.6/@serviceEffectSpecifications__BasicComponent.6/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_QAdJYacpEd2h8fAhakQqPQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_BqweVaapEd2aT7ee5CpgQg"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_BqweVqapEd2aT7ee5CpgQg" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_BqweV6apEd2aT7ee5CpgQg"/>
@@ -20,7 +24,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_BqweUaapEd2aT7ee5CpgQg" fontName="Segoe UI"/>
     <element xmi:type="InternalAction" href="orc.repository#_BqnUYKapEd2aT7ee5CpgQg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BqweUqapEd2aT7ee5CpgQg" x="12" y="72" width="385" height="109"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BqweUqapEd2aT7ee5CpgQg" x="12" y="72" width="529" height="109"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_AHhxAaapEd2aT7ee5CpgQg"/>
   <element xmi:type="ResourceDemandingSEFF" href="orc.repository#_dHf1MKaGEd2HMpb_upR7QA"/>

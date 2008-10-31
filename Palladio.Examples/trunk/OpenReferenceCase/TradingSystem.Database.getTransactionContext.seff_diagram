@@ -13,6 +13,10 @@
   <children xmi:type="notation:Node" xmi:id="_jLth8aaoEd2aT7ee5CpgQg" type="2006">
     <children xmi:type="notation:Node" xmi:id="_jLth9KaoEd2aT7ee5CpgQg" type="5012"/>
     <children xmi:type="notation:Node" xmi:id="_jLth9aaoEd2aT7ee5CpgQg" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_yWgpAKcoEd2h8fAhakQqPQ" type="3008">
+        <element xmi:type="ParametricResourceDemand" href="orc.repository#//@components__Repository.6/@serviceEffectSpecifications__BasicComponent.2/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_yWgpAacoEd2h8fAhakQqPQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_jLth9qaoEd2aT7ee5CpgQg"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_jLth96aoEd2aT7ee5CpgQg" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_jLth-KaoEd2aT7ee5CpgQg"/>

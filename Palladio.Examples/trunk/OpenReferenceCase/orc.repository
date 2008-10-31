@@ -288,27 +288,52 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_WUVfUKaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_XSE58KaGEd2HMpb_upR7QA" successor_AbstractAction="_BI4VwKaoEd2aT7ee5CpgQg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_XSOq8KaGEd2HMpb_upR7QA" predecessor_AbstractAction="_BI4VwKaoEd2aT7ee5CpgQg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_BI4VwKaoEd2aT7ee5CpgQg" entityName="createPersistenceContext" predecessor_AbstractAction="_XSE58KaGEd2HMpb_upR7QA" successor_AbstractAction="_XSOq8KaGEd2HMpb_upR7QA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_BI4VwKaoEd2aT7ee5CpgQg" entityName="createPersistenceContext" predecessor_AbstractAction="_XSE58KaGEd2HMpb_upR7QA" successor_AbstractAction="_XSOq8KaGEd2HMpb_upR7QA">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="10"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_Xv-98KaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.1">
       <steps_Behaviour xsi:type="_1:StartAction" id="_YHMkEKaGEd2HMpb_upR7QA" successor_AbstractAction="_XxW-gKaoEd2aT7ee5CpgQg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_YHMkEaaGEd2HMpb_upR7QA" predecessor_AbstractAction="_XxW-gKaoEd2aT7ee5CpgQg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_XxW-gKaoEd2aT7ee5CpgQg" entityName="DoCleanUp" predecessor_AbstractAction="_YHMkEKaGEd2HMpb_upR7QA" successor_AbstractAction="_YHMkEaaGEd2HMpb_upR7QA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_XxW-gKaoEd2aT7ee5CpgQg" entityName="DoCleanUp" predecessor_AbstractAction="_YHMkEKaGEd2HMpb_upR7QA" successor_AbstractAction="_YHMkEaaGEd2HMpb_upR7QA">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="10"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_YmIi0KaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.2">
       <steps_Behaviour xsi:type="_1:StartAction" id="_Y69jUKaGEd2HMpb_upR7QA" successor_AbstractAction="_jLth8KaoEd2aT7ee5CpgQg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_Y69jUaaGEd2HMpb_upR7QA" predecessor_AbstractAction="_jLth8KaoEd2aT7ee5CpgQg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_jLth8KaoEd2aT7ee5CpgQg" entityName="CreateTransactionContext" predecessor_AbstractAction="_Y69jUKaGEd2HMpb_upR7QA" successor_AbstractAction="_Y69jUaaGEd2HMpb_upR7QA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_jLth8KaoEd2aT7ee5CpgQg" entityName="CreateTransactionContext" predecessor_AbstractAction="_Y69jUKaGEd2HMpb_upR7QA" successor_AbstractAction="_Y69jUaaGEd2HMpb_upR7QA">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="10"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ZprqgKaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.3">
       <steps_Behaviour xsi:type="_1:StartAction" id="_aByBcKaGEd2HMpb_upR7QA" successor_AbstractAction="_qqnjgKaoEd2aT7ee5CpgQg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_aByBcaaGEd2HMpb_upR7QA" predecessor_AbstractAction="_qqnjgKaoEd2aT7ee5CpgQg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_qqnjgKaoEd2aT7ee5CpgQg" entityName="SetupAtomicTransaction" predecessor_AbstractAction="_aByBcKaGEd2HMpb_upR7QA" successor_AbstractAction="_aByBcaaGEd2HMpb_upR7QA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_qqnjgKaoEd2aT7ee5CpgQg" entityName="SetupAtomicTransaction" predecessor_AbstractAction="_aByBcKaGEd2HMpb_upR7QA" successor_AbstractAction="_aByBcaaGEd2HMpb_upR7QA">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="10"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_a5uWEKaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.4">
       <steps_Behaviour xsi:type="_1:StartAction" id="_bqqq0KaGEd2HMpb_upR7QA" successor_AbstractAction="_zFooAKaoEd2aT7ee5CpgQg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_bqqq0aaGEd2HMpb_upR7QA" predecessor_AbstractAction="_zFooAKaoEd2aT7ee5CpgQg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_zFooAKaoEd2aT7ee5CpgQg" entityName="FinishAtomicTransaction" predecessor_AbstractAction="_bqqq0KaGEd2HMpb_upR7QA" successor_AbstractAction="_bqqq0aaGEd2HMpb_upR7QA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_zFooAKaoEd2aT7ee5CpgQg" entityName="FinishAtomicTransaction" predecessor_AbstractAction="_bqqq0KaGEd2HMpb_upR7QA" successor_AbstractAction="_bqqq0aaGEd2HMpb_upR7QA">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="10"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_cIIC4KaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.5">
       <steps_Behaviour xsi:type="_1:StartAction" id="_cnXjoKaGEd2HMpb_upR7QA" successor_AbstractAction="_QyQB4KapEd2aT7ee5CpgQg"/>
@@ -318,7 +343,12 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_dHf1MKaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.6">
       <steps_Behaviour xsi:type="_1:StartAction" id="_dZzGIKaGEd2HMpb_upR7QA" successor_AbstractAction="_BqnUYKapEd2aT7ee5CpgQg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_dZzGIaaGEd2HMpb_upR7QA" predecessor_AbstractAction="_BqnUYKapEd2aT7ee5CpgQg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_BqnUYKapEd2aT7ee5CpgQg" entityName="AccessData" predecessor_AbstractAction="_dZzGIKaGEd2HMpb_upR7QA" successor_AbstractAction="_dZzGIaaGEd2HMpb_upR7QA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_BqnUYKapEd2aT7ee5CpgQg" entityName="AccessData" predecessor_AbstractAction="_dZzGIKaGEd2HMpb_upR7QA" successor_AbstractAction="_dZzGIaaGEd2HMpb_upR7QA">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="DoublePDF[(8;0.0)(10;0.1)(20;0.8)(100;0.1)]"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="BasicComponent" id="_0VO1kHONEd2SyK0Shg_o9Q" entityName="Tradingsystem.Webservices.InventoryService">
