@@ -4108,7 +4108,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_YXyOjh_KEdyAAdevP6fgTA"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_YXyOgR_KEdyAAdevP6fgTA" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YXyOgh_KEdyAAdevP6fgTA" x="21239" y="5706"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YXyOgh_KEdyAAdevP6fgTA" x="21239" y="6023"/>
           </children>
           <children xmi:id="_dbvQkB_KEdyAAdevP6fgTA" element="_dbcVoB_KEdyAAdevP6fgTA">
             <children xmi:id="_dbvQkx_KEdyAAdevP6fgTA" type="ImageCompartment">
@@ -4395,7 +4395,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_l2vfrwC2Ed2VtuKvXmlaBQ"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_l2vfoQC2Ed2VtuKvXmlaBQ" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l2vfogC2Ed2VtuKvXmlaBQ" x="29164" y="5706"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l2vfogC2Ed2VtuKvXmlaBQ" x="28847" y="6023"/>
           </children>
           <children xmi:id="_s6ZvoAC2Ed2VtuKvXmlaBQ" element="_s6G0sAC2Ed2VtuKvXmlaBQ">
             <children xmi:id="_s6ZvowC2Ed2VtuKvXmlaBQ" type="ImageCompartment">
@@ -4552,7 +4552,7 @@
             </children>
             <children xmi:id="_GyevUB_LEdyAAdevP6fgTA" type="FromRoleLabel" element="_GyL0UR_LEdyAAdevP6fgTA">
               <children xmi:id="_GyevUh_LEdyAAdevP6fgTA" type="FromRole" element="_GyL0UR_LEdyAAdevP6fgTA"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_GyevUR_LEdyAAdevP6fgTA" x="-1141" y="993"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_GyevUR_LEdyAAdevP6fgTA" x="1745" y="2103"/>
             </children>
             <children xmi:id="_GyevUx_LEdyAAdevP6fgTA" type="ToQualifierLabel" element="_GyL0Uh_LEdyAAdevP6fgTA">
               <children xmi:id="_GyevVR_LEdyAAdevP6fgTA" type="QualifierCompartment" element="_GyL0Uh_LEdyAAdevP6fgTA">
@@ -4741,7 +4741,7 @@
             </children>
             <children xmi:id="_UhLXIB_PEdyAAdevP6fgTA" type="FromRoleLabel" element="_UgurIR_PEdyAAdevP6fgTA">
               <children xmi:id="_UhLXIh_PEdyAAdevP6fgTA" type="FromRole" element="_UgurIR_PEdyAAdevP6fgTA"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_UhLXIR_PEdyAAdevP6fgTA" x="-913" y="-248"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_UhLXIR_PEdyAAdevP6fgTA" x="985" y="-916"/>
             </children>
             <children xmi:id="_UhLXIx_PEdyAAdevP6fgTA" type="ToQualifierLabel" element="_UgurIh_PEdyAAdevP6fgTA">
               <children xmi:id="_UhLXJR_PEdyAAdevP6fgTA" type="QualifierCompartment" element="_UgurIh_PEdyAAdevP6fgTA">
