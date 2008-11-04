@@ -35,6 +35,12 @@
       <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
+  <linkingresource id="_JS9w4KpOEd2NxbWj7fSz6Q" entityName="ServicesAndLegacyComponents_VM-Database_VM" toResourceContainer_LinkingResource="_9iZF0apNEd2NxbWj7fSz6Q" fromResourceContainer_LinkingResource="_TdHB8apUEd2NxbWj7fSz6Q">
+    <communicationLinkResourceSpecifications_LinkingResource>
+      <latency_CommunicationLinkResourceSpecification specification="0.0"/>
+      <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingresource>
   <resourceContainer_ResourceEnvironment id="_mpMBEOEgEduBSuO8WivxSA" entityName="Store_1_Client">
     <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
@@ -71,9 +77,20 @@
       <processingRate_ProcessingResourceSpecification specification="1.0"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
-  <resourceContainer_ResourceEnvironment id="_f54T0XQeEd2J8bFb9TfSEQ" entityName="ServiceProvider">
+  <resourceContainer_ResourceEnvironment id="_f54T0XQeEd2J8bFb9TfSEQ" entityName="CompleteRetailSolution_VM">
     <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_9iZF0apNEd2NxbWj7fSz6Q" entityName="Database_VM">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+      <processingRate_ProcessingResourceSpecification specification="1.0"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_TdHB8apUEd2NxbWj7fSz6Q" entityName="ServicesAndLegacyComponents_VM">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
       <processingRate_ProcessingResourceSpecification specification="1.0"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
