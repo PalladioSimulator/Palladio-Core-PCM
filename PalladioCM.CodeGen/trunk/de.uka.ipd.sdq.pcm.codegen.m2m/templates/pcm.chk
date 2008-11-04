@@ -42,6 +42,9 @@ context BasicComponent ERROR this.entityName +': basic component must have at le
 	
 context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All assembly contexts of a composite structure must have unique names':
 	this.childComponentContexts_ComposedStructure.forAll(ctx1|!this.childComponentContexts_ComposedStructure.exists(ctx2|ctx1 != ctx2 && ctx1.entityName == ctx2.entityName));
+
+context ComposedProvidingRequiringEntity WARNING 'Composed Structure ' + this.entityName +': All provided roles of the composed structure must be bound to an inner provided role using a delegation connector':
+	this.providedRoles_InterfaceProvidingEntity.forAll(role|this.providedDelegationConnectors_ComposedStructure.exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector == role));
 	
 context ProvidesComponentType ERROR 'Component ' + this.entityName +': All required roles of a component must have unique names':
 	this.requiredRoles_InterfaceRequiringEntity.forAll(r1|this.requiredRoles_InterfaceRequiringEntity.forAll(r2 | r1 == r2 || r1.entityName != r2.entityName));
