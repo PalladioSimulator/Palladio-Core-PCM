@@ -14,7 +14,7 @@ String removeAllSpecialChars(String s) :
 // Generate a java name by replacing all characters which are not java conform
 javaName(Entity e) :
     e.entityName.replaceAll('"','_').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
-   .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_").replaceAll("-","_");
+   .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_").replaceAll("-","_").replaceAll("\\(","_").replaceAll("\\)","_");
 
 // Generate a java name by replacing all characters which are not java conform
 javaString(String s) :
