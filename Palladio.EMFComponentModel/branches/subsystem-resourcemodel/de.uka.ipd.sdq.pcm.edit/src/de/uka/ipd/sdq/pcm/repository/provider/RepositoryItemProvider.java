@@ -113,7 +113,6 @@ public class RepositoryItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY);
 			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY);
-			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__SUBSYSTEMS_REPOSITORY);
 			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY);
 		}
 		return childrenFeatures;
@@ -174,7 +173,6 @@ public class RepositoryItemProvider
 				return;
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-			case RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY:
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -200,13 +198,28 @@ public class RepositoryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
-				 RepositoryFactory.eINSTANCE.createInterface()));
+				(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createCompleteComponentType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__SUBSYSTEMS_REPOSITORY,
+				(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createCompositeComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createBasicComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
 				 SubsystemFactory.eINSTANCE.createSubSystem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createInterface()));
 
 		newChildDescriptors.add
 			(createChildParameter
