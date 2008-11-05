@@ -2769,7 +2769,7 @@
                 <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_ZP5iiAHfEdy9bvYbdCHdZw"/>
               </children>
               <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_ZP47cAHfEdy9bvYbdCHdZw" fontName="Segoe UI" showStereotype="Label"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZP47cQHfEdy9bvYbdCHdZw" x="9222" y="13674"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZP47cQHfEdy9bvYbdCHdZw" x="6101" y="15190"/>
             </children>
             <children xmi:id="_fo32wAHfEdy9bvYbdCHdZw" element="_n_-J0Gc6EduCGaQAxkcIwA">
               <children xmi:id="_fo32wwHfEdy9bvYbdCHdZw" type="ImageCompartment">
@@ -2791,7 +2791,7 @@
                 <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_fo5E4QHfEdy9bvYbdCHdZw"/>
               </children>
               <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_fo32wQHfEdy9bvYbdCHdZw" fontName="Segoe UI" showStereotype="Label"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fo32wgHfEdy9bvYbdCHdZw" x="4392" y="12673"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fo32wgHfEdy9bvYbdCHdZw" x="9510" y="13340"/>
             </children>
             <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_ThbGAXDSEdur9cZft9T4NQ"/>
             <edges xmi:id="_hHWwMXDSEdur9cZft9T4NQ" element="_hHWwMHDSEdur9cZft9T4NQ" source="_de5bwHDSEdur9cZft9T4NQ" target="_XSOeIHDSEdur9cZft9T4NQ">
@@ -2976,13 +2976,26 @@
             </edges>
           </contents>
         </eAnnotations>
+        <ownedComment xmi:id="_HyECUKtgEd2iPq4SbQh7ig" annotatedElement="_qLB6kOJQEdqxcra4qpeplw">
+          <body>This  set of abstract meta-classes gives a conceptual view on interfaces, entities and their relationships: Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. &#xD;
+&#xD;
+Base of the inheritance hierarchy are Identifier and NamedElement, both of which Entity and all inheriting classes are derived from. &#xD;
+&#xD;
+The relationship of Entities and Interfaces is described with the three meta classes InterfaceProvidingEntity, InterfaceRequiringEntity, and InterfaceProvidingRequiringEntity. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offer by entities providing this functionality. InterfaceProvidingRequiringEntity inherits from both of them and thus combines their properties. </body>
+        </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_au_WlWA_EdqdHZdhXRxKVg" name="Entity" isAbstract="true">
+          <ownedComment xmi:id="_ROfSwKtbEd2iPq4SbQh7ig" annotatedElement="_au_WlWA_EdqdHZdhXRxKVg">
+            <body>Entity is a meta class high up the PCM meta class hierarchy and represents all entities of the PCM that have both an id (see meta class Identifier) and a name (see meta class NamedEntity).</body>
+          </ownedComment>
           <generalization xmi:id="_03llUK6GEdqR97hrnpMlhg">
             <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
           </generalization>
           <generalization xmi:id="_a9q9gHDEEdur9cZft9T4NQ" general="_X0NSMHDEEdur9cZft9T4NQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_X0NSMHDEEdur9cZft9T4NQ" name="NamedElement" isAbstract="true">
+          <ownedComment xmi:id="_pRvlgKtdEd2iPq4SbQh7ig" annotatedElement="_X0NSMHDEEdur9cZft9T4NQ">
+            <body>The NamedElement meta class is inherited by all PCM classes whose instances bear a name. Thus, the semantic of &quot;bearing a name&quot; is given to all inheriting classes, so that the name can be used in visualisations, for example. </body>
+          </ownedComment>
           <ownedAttribute xmi:id="_au_Wl2A_EdqdHZdhXRxKVg" name="entityName">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
             <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_yv8Y8OfuEdu3wqV8TelBYw">
@@ -2992,6 +3005,14 @@
           </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_XSEtIHDSEdur9cZft9T4NQ" name="InterfaceProvidingEntity" isAbstract="true">
+          <ownedComment xmi:id="_B4dHcKtcEd2iPq4SbQh7ig" annotatedElement="_XSEtIHDSEdur9cZft9T4NQ">
+            <body>All Entities that provide an Interface are represented by this class. Prominent inheriting classes are all component types, for example.&#xD;
+&#xD;
+Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities and their relationships. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offered by entities providing this functionality.&#xD;
+&#xD;
+See also:&#xD;
+Interface, ProvidedRole</body>
+          </ownedComment>
           <generalization xmi:id="_j7SkAHvhEdu44vtaHAHjTA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
           <ownedAttribute xmi:id="_w4AlgXDSEdur9cZft9T4NQ" name="providedRoles_InterfaceProvidingEntity" type="_-M7kYJJIEdqSSImFLKDkSg" aggregation="composite" association="_w4AlgHDSEdur9cZft9T4NQ">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_w4AlhHDSEdur9cZft9T4NQ" value="*"/>
@@ -2999,6 +3020,14 @@
           </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_bVgtYHDSEdur9cZft9T4NQ" name="InterfaceRequiringEntity" isAbstract="true">
+          <ownedComment xmi:id="_ylh6gKtcEd2iPq4SbQh7ig" annotatedElement="_bVgtYHDSEdur9cZft9T4NQ">
+            <body>All Entities that require an Interface are represented by this class. Prominent inheriting classes are all component types, for example.&#xD;
+&#xD;
+Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities and their relationships. The abstract meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offered by entities providing this functionality. Similarly, the meta-classInterfaceProvidingEntity  is inherited by all entities which can potentially offer interface implementations.&#xD;
+&#xD;
+See also:&#xD;
+Interface, RequiredRole</body>
+          </ownedComment>
           <generalization xmi:id="_kgZcMHvhEdu44vtaHAHjTA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
           <ownedAttribute xmi:id="_00b-0XDSEdur9cZft9T4NQ" name="requiredRoles_InterfaceRequiringEntity" type="__o_5wJJIEdqSSImFLKDkSg" aggregation="composite" association="_00b-0HDSEdur9cZft9T4NQ">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_00b-1HDSEdur9cZft9T4NQ" value="*"/>
@@ -3006,11 +3035,27 @@
           </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_devqwHDSEdur9cZft9T4NQ" name="InterfaceProvidingRequiringEntity" isAbstract="true">
+          <ownedComment xmi:id="_-g0n0KtcEd2iPq4SbQh7ig" annotatedElement="_devqwHDSEdur9cZft9T4NQ">
+            <body>This meta-class is inherited by classes that both require and provide an Interface. It thus combines the properties of InterfaceProvidingEntity and InterfaceRequiringEntity. Prominent inheriting classes are all component types, for example.&#xD;
+&#xD;
+See also:&#xD;
+Interface, ProvidedRole, RequiredRole, InterfaceProvidingEntity, InterfaceRequiringEntity</body>
+          </ownedComment>
           <generalization xmi:id="_hHWwMHDSEdur9cZft9T4NQ" general="_XSEtIHDSEdur9cZft9T4NQ"/>
           <generalization xmi:id="_hcNl4HDSEdur9cZft9T4NQ" general="_bVgtYHDSEdur9cZft9T4NQ"/>
           <generalization xmi:id="__h4NUJSAEd27_9sKGvEc-Q" general="_6yyoAJSAEd27_9sKGvEc-Q"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_ZFrPgAHfEdy9bvYbdCHdZw" name="ComposedProvidingRequiringEntity" isAbstract="true">
+          <ownedComment xmi:id="_RGcpsKteEd2iPq4SbQh7ig" annotatedElement="_ZFrPgAHfEdy9bvYbdCHdZw">
+            <body>The ComposedProvidingRequiringEntity combines the properties of an InterfaceProvidingRequiringEntity and a ComposedStructure. It is inherited by all classes that, on the one hand,  claim to implement the functionality specified in an interface as well as to request that functionality, and, on the other hand, are composed out of some inner entities. &#xD;
+&#xD;
+Valid ComposedProvidingRequiringEntities need to have their ProvidedRoles bound to ProvidedRoles of the contained entities.  &#xD;
+&#xD;
+Prominent examples are System, SubSystem, and CompositeComponents&#xD;
+&#xD;
+TODO/FIXME: The distinction between ComposedStructure and ComposedProvidingRequiringStructure does not make sense at the moment, because the ComposedStructure already talks about inner provided / required delegation connectors, which only make sense if there are outer roles for interfaces -> ComposedProvidingRequiringStructure. IDEA: Move the delegation connector attributes to ComposedProvidingRequiringStructure. I'm not sure about the assembly connectors. SEE ALSO: ComposedStructure &#xD;
+However, as AssemblyContexts of ComposedStructure always contain InterfaceProvidingRequiringEntities at the moment, the above might not help... and we may just want to merge the meta classes. --Anne</body>
+          </ownedComment>
           <ownedRule xmi:id="_HflUcKpeEd26O59kvcjv0A" name="ProvidedRolesMustBeBound" constrainedElement="_ZFrPgAHfEdy9bvYbdCHdZw">
             <ownedComment xmi:id="_yK-MsKpwEd26O59kvcjv0A" annotatedElement="_HflUcKpeEd26O59kvcjv0A">
               <body>This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).</body>
@@ -3024,17 +3069,27 @@
           <generalization xmi:id="_iAZu0AHfEdy9bvYbdCHdZw" general="_devqwHDSEdur9cZft9T4NQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_6yyoAJSAEd27_9sKGvEc-Q" name="ResourceInterfaceRequiringEntity" isAbstract="true">
+          <ownedComment xmi:id="_BU-8EKteEd2iPq4SbQh7ig" annotatedElement="_6yyoAJSAEd27_9sKGvEc-Q">
+            <body>TODO</body>
+          </ownedComment>
           <generalization xmi:id="_37uCUJSCEd27_9sKGvEc-Q" general="_au_WlWA_EdqdHZdhXRxKVg"/>
           <ownedAttribute xmi:id="_HmWaEZSBEd27_9sKGvEc-Q" name="resourceRequiredRoles_ResourceInterfaceRequiringEntity" visibility="public" type="_XT0qcJR_Ed27_9sKGvEc-Q" aggregation="composite" association="_HmWaEJSBEd27_9sKGvEc-Q">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HmWaE5SBEd27_9sKGvEc-Q" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HmWaEpSBEd27_9sKGvEc-Q"/>
           </ownedAttribute>
         </packagedElement>
-        <packagedElement xmi:type="uml:Association" xmi:id="_HmWaEJSBEd27_9sKGvEc-Q" memberEnd="_HmWaEZSBEd27_9sKGvEc-Q _HmWaFJSBEd27_9sKGvEc-Q"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_HmWaEJSBEd27_9sKGvEc-Q" memberEnd="_HmWaEZSBEd27_9sKGvEc-Q _HmWaFJSBEd27_9sKGvEc-Q">
+          <ownedComment xmi:id="_GT4fAKteEd2iPq4SbQh7ig" annotatedElement="_HmWaEJSBEd27_9sKGvEc-Q">
+            <body>TODO</body>
+          </ownedComment>
+        </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_7h8GkOJREdqxcra4qpeplw" name="connectors">
         <eAnnotations xmi:id="_7h8GkeJREdqxcra4qpeplw" source="uml2.diagrams"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_UkxkoJQAEdqSSImFLKDkSg" name="Connector" isAbstract="true">
+          <ownedComment xmi:id="_1CbTYKtfEd2iPq4SbQh7ig" annotatedElement="_UkxkoJQAEdqSSImFLKDkSg">
+            <body>TODO: We might want to add a constraint that both sides of the connector must be not null. Then, we don't have to specify that for example for ComposedProvidingRequiringEntities that the ProvidedDelegationConnector actually points to something inner. If you decide not to add a constraint here, then we need a constraint there and maybe at other places -- Anne</body>
+          </ownedComment>
           <generalization xmi:id="_p_YG8JcfEdq38OEoBK_ByQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         </packagedElement>
       </packagedElement>
@@ -4697,6 +4752,10 @@
           <ownedEnd xmi:id="_Y8JmIuM0EdqaQsPH3rPnBQ" visibility="private" type="_EfLuYOJSEdqxcra4qpeplw" association="_Y8JmIOM0EdqaQsPH3rPnBQ"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_n_-J0Gc6EduCGaQAxkcIwA" name="ComposedStructure" isAbstract="true">
+          <ownedComment xmi:id="_8M0S8KteEd2iPq4SbQh7ig" annotatedElement="_n_-J0Gc6EduCGaQAxkcIwA">
+            <body>TODO/FIXME: The distinction between ComposedStructure and ComposedProvidingRequiringStructure does not make sense at the moment, because the ComposedStructure already talks about inner provided / required delegation connectors, which only make sense if there are outer roles for interfaces -> ComposedProvidingRequiringStructure. IDEA: Move the delegation connector attributes to ComposedProvidingRequiringStructure. I'm not sure about the assembly connectors. SEE ALSO: ComposedProvidingRequiringStructure &#xD;
+However, as AssemblyContexts of ComposedStructure always contain InterfaceProvidingRequiringEntities at the moment, the above might not help... -- Anne</body>
+          </ownedComment>
           <generalization xmi:id="_Zs-88HvhEdu44vtaHAHjTA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
           <ownedAttribute xmi:id="_vb6W8Wc6EduCGaQAxkcIwA" name="childComponentContexts_ComposedStructure" type="_EfLuYOJSEdqxcra4qpeplw" aggregation="composite" association="_vb6W8Gc6EduCGaQAxkcIwA">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vb6W9Gc6EduCGaQAxkcIwA" value="*"/>
@@ -11754,6 +11813,28 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_1qgg0Uo_EdyyNsXlb1tNsw" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1qgg0ko_EdyyNsXlb1tNsw" x="1590" y="9540"/>
           </children>
+          <children xmi:id="_u8Ml4KtoEd2iPq4SbQh7ig" element="_cIR90JJJEdqSSImFLKDkSg">
+            <children xmi:id="_u8Ml46toEd2iPq4SbQh7ig" type="ImageCompartment">
+              <layoutConstraint xmi:type="notation:Size" xmi:id="_u8Ml5KtoEd2iPq4SbQh7ig" width="1320" height="1320"/>
+            </children>
+            <children xmi:id="_u8Ml5atoEd2iPq4SbQh7ig" type="Stereotype"/>
+            <children xmi:id="_u8Ml5qtoEd2iPq4SbQh7ig" type="Name"/>
+            <children xmi:id="_u8Ml56toEd2iPq4SbQh7ig" type="Parent"/>
+            <children xmi:id="_u8Ml6KtoEd2iPq4SbQh7ig" type="AttributeCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8Ml6atoEd2iPq4SbQh7ig"/>
+            </children>
+            <children xmi:id="_u8Ml6qtoEd2iPq4SbQh7ig" type="OperationCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8Ml66toEd2iPq4SbQh7ig"/>
+            </children>
+            <children xmi:id="_u8Ml7KtoEd2iPq4SbQh7ig" visible="false" type="SignalCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8Ml7atoEd2iPq4SbQh7ig"/>
+            </children>
+            <children xmi:id="_u8Ml7qtoEd2iPq4SbQh7ig" visible="false" type="StructureCompartment">
+              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_u8Ml76toEd2iPq4SbQh7ig"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_u8Ml4atoEd2iPq4SbQh7ig" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u8Ml4qtoEd2iPq4SbQh7ig" x="18995" y="3724"/>
+          </children>
           <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_oAlJUTyyEduB5pxz2UpKVQ"/>
           <edges xmi:id="_zyBnUHhsEdugjru7Zo1JWg" element="_etDnMOQYEdqeH_WIC9QRew" source="_plKhgDyyEduB5pxz2UpKVQ" target="_YH1GQHhuEdugjru7Zo1JWg">
             <children xmi:id="_zyBnU3hsEdugjru7Zo1JWg" type="NameLabel">
@@ -12006,6 +12087,104 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_1qzb5ko_EdyyNsXlb1tNsw" showStereotype="Text"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1qzb50o_EdyyNsXlb1tNsw" points="[847, 635, 186, -5741]$[4313, 3042, 3652, -3334]$[1323, 5768, 662, -608]"/>
+          </edges>
+          <edges xmi:id="_u8Vv0KtoEd2iPq4SbQh7ig" element="_ayupQFOuEduyKfhIjBdbtA" source="_u8Ml4KtoEd2iPq4SbQh7ig" target="_eCbJgHh7Edugjru7Zo1JWg">
+            <children xmi:id="_u8Vv06toEd2iPq4SbQh7ig" type="NameLabel">
+              <children xmi:id="_u8Vv1atoEd2iPq4SbQh7ig" type="Stereotype"/>
+              <children xmi:id="_u8Vv1qtoEd2iPq4SbQh7ig" type="Name"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u8Vv1KtoEd2iPq4SbQh7ig" y="-186"/>
+            </children>
+            <children xmi:id="_u8Vv16toEd2iPq4SbQh7ig" type="ToMultiplicityLabel" element="_ayupQlOuEduyKfhIjBdbtA">
+              <children xmi:id="_u8Vv2atoEd2iPq4SbQh7ig" type="ToMultiplicity"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8Vv2KtoEd2iPq4SbQh7ig" y="396"/>
+            </children>
+            <children xmi:id="_u8Vv2qtoEd2iPq4SbQh7ig" type="ToRoleLabel" element="_ayupQlOuEduyKfhIjBdbtA">
+              <children xmi:id="_u8Vv3KtoEd2iPq4SbQh7ig" type="ToRole"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8Vv26toEd2iPq4SbQh7ig" x="-717" y="-684"/>
+            </children>
+            <children xmi:id="_u8Vv3atoEd2iPq4SbQh7ig" type="FromMultiplicityLabel" element="_ayupQVOuEduyKfhIjBdbtA">
+              <children xmi:id="_u8Vv36toEd2iPq4SbQh7ig" type="FromMultiplicity"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8Vv3qtoEd2iPq4SbQh7ig" y="396"/>
+            </children>
+            <children xmi:id="_u8Vv4KtoEd2iPq4SbQh7ig" type="FromRoleLabel" element="_ayupQVOuEduyKfhIjBdbtA">
+              <children xmi:id="_u8Vv4qtoEd2iPq4SbQh7ig" type="FromRole"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8Vv4atoEd2iPq4SbQh7ig" x="-1283" y="-1307"/>
+            </children>
+            <children xmi:id="_u8Vv46toEd2iPq4SbQh7ig" type="ToQualifierLabel" element="_ayupQlOuEduyKfhIjBdbtA">
+              <children xmi:id="_u8Vv5atoEd2iPq4SbQh7ig" type="QualifierCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8Vv5qtoEd2iPq4SbQh7ig"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8Vv5KtoEd2iPq4SbQh7ig" y="-186"/>
+            </children>
+            <children xmi:id="_u8Vv56toEd2iPq4SbQh7ig" type="FromQualifierLabel" element="_ayupQVOuEduyKfhIjBdbtA">
+              <children xmi:id="_u8Vv6atoEd2iPq4SbQh7ig" type="QualifierCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8Vv6qtoEd2iPq4SbQh7ig"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8Vv6KtoEd2iPq4SbQh7ig" y="-186"/>
+            </children>
+            <children xmi:id="_u8Vv66toEd2iPq4SbQh7ig" type="ToConstraintLabel" element="_ayupQlOuEduyKfhIjBdbtA">
+              <children xmi:id="_u8Vv7atoEd2iPq4SbQh7ig" type="ToConstraintCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8Vv7qtoEd2iPq4SbQh7ig"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8Vv7KtoEd2iPq4SbQh7ig" y="1058"/>
+            </children>
+            <children xmi:id="_u8Vv76toEd2iPq4SbQh7ig" type="FromConstraintLabel" element="_ayupQVOuEduyKfhIjBdbtA">
+              <children xmi:id="_u8Vv8atoEd2iPq4SbQh7ig" type="FromConstraintCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8Vv8qtoEd2iPq4SbQh7ig"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8Vv8KtoEd2iPq4SbQh7ig" y="1058"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_u8Vv0atoEd2iPq4SbQh7ig" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_u8Vv0qtoEd2iPq4SbQh7ig" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          </edges>
+          <edges xmi:id="_u8fg-6toEd2iPq4SbQh7ig" element="_4zD2gJJlEdqSSImFLKDkSg" source="_u8Ml4KtoEd2iPq4SbQh7ig" target="_YH1GQHhuEdugjru7Zo1JWg">
+            <children xmi:id="_u8fg_qtoEd2iPq4SbQh7ig" type="NameLabel">
+              <children xmi:id="_u8fhAKtoEd2iPq4SbQh7ig" type="Stereotype"/>
+              <children xmi:id="_u8fhAatoEd2iPq4SbQh7ig" type="Name"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_u8fg_6toEd2iPq4SbQh7ig" y="-186"/>
+            </children>
+            <children xmi:id="_u8fhAqtoEd2iPq4SbQh7ig" type="ToMultiplicityLabel" element="_4zD2gpJlEdqSSImFLKDkSg">
+              <children xmi:id="_u8fhBKtoEd2iPq4SbQh7ig" type="ToMultiplicity"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8fhA6toEd2iPq4SbQh7ig" y="396"/>
+            </children>
+            <children xmi:id="_u8fhBatoEd2iPq4SbQh7ig" type="ToRoleLabel" element="_4zD2gpJlEdqSSImFLKDkSg">
+              <children xmi:id="_u8fhB6toEd2iPq4SbQh7ig" type="ToRole"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8fhBqtoEd2iPq4SbQh7ig" x="-2095" y="1131"/>
+            </children>
+            <children xmi:id="_u8fhCKtoEd2iPq4SbQh7ig" type="FromMultiplicityLabel" element="_4zD2gZJlEdqSSImFLKDkSg">
+              <children xmi:id="_u8fhCqtoEd2iPq4SbQh7ig" type="FromMultiplicity"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8fhCatoEd2iPq4SbQh7ig" y="396"/>
+            </children>
+            <children xmi:id="_u8fhC6toEd2iPq4SbQh7ig" type="FromRoleLabel" element="_4zD2gZJlEdqSSImFLKDkSg">
+              <children xmi:id="_u8fhDatoEd2iPq4SbQh7ig" type="FromRole"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8fhDKtoEd2iPq4SbQh7ig" x="-1301" y="1442"/>
+            </children>
+            <children xmi:id="_u8fhDqtoEd2iPq4SbQh7ig" type="ToQualifierLabel" element="_4zD2gpJlEdqSSImFLKDkSg">
+              <children xmi:id="_u8fhEKtoEd2iPq4SbQh7ig" type="QualifierCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8fhEatoEd2iPq4SbQh7ig"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8fhD6toEd2iPq4SbQh7ig" y="-186"/>
+            </children>
+            <children xmi:id="_u8fhEqtoEd2iPq4SbQh7ig" type="FromQualifierLabel" element="_4zD2gZJlEdqSSImFLKDkSg">
+              <children xmi:id="_u8fhFKtoEd2iPq4SbQh7ig" type="QualifierCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8fhFatoEd2iPq4SbQh7ig"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8fhE6toEd2iPq4SbQh7ig" y="-186"/>
+            </children>
+            <children xmi:id="_u8fhFqtoEd2iPq4SbQh7ig" type="ToConstraintLabel" element="_4zD2gpJlEdqSSImFLKDkSg">
+              <children xmi:id="_u8fhGKtoEd2iPq4SbQh7ig" type="ToConstraintCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8fhGatoEd2iPq4SbQh7ig"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8fhF6toEd2iPq4SbQh7ig" y="1058"/>
+            </children>
+            <children xmi:id="_u8fhGqtoEd2iPq4SbQh7ig" type="FromConstraintLabel" element="_4zD2gZJlEdqSSImFLKDkSg">
+              <children xmi:id="_u8fhHKtoEd2iPq4SbQh7ig" type="FromConstraintCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_u8fhHatoEd2iPq4SbQh7ig"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_u8fhG6toEd2iPq4SbQh7ig" y="1058"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_u8fg_KtoEd2iPq4SbQh7ig" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_u8fg_atoEd2iPq4SbQh7ig" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
           </edges>
         </contents>
         <contents xmi:type="notation:Diagram" xmi:id="_djTWwJGkEduVgYSffmI32A" type="Class" element="_V8vSACh9Edue7oeC4NTCGg" name="PCM_Techrep1">
@@ -13051,6 +13230,88 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           </edges>
         </contents>
       </eAnnotations>
+      <ownedComment xmi:id="_AhJkAKthEd2iPq4SbQh7ig" annotatedElement="_V8vSACh9Edue7oeC4NTCGg">
+        <body>TODO: Put the 3.2.2 Context Model chapter of Steffens Diss somewhere so that it can be referred to here. It provides an important overview on why we have the usage model. &#xD;
+&#xD;
+TODO: Include the example from Heiko's dissertation here? But how to include the picture?&#xD;
+&#xD;
+The usage of a software system by external clients has to be captured in models to enable model-driven&#xD;
+performance predictions. Here, the term usage refers to workload (i.e., the number of users concurrently&#xD;
+present in the system), usage scenarios (i.e., possible sequences of invoking services at system provided&#xD;
+roles), waiting delays between service invocations, and values for parameters and component configurations.&#xD;
+Section 2.5.3 has already discussed different approaches for modelling software system usage&#xD;
+including operational profiles, Markov usage models, and UML.&#xD;
+&#xD;
+This package contains the usage specification language, which (i) provides more expressiveness for&#xD;
+characterising parameter instances than previous models, but (ii) at the same time is restricted to concepts&#xD;
+familiar to domain experts to create a domain specific language. The language is called PCM usage&#xD;
+model.&#xD;
+&#xD;
+The UsageModel consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each&#xD;
+UsageScenario includes a workload and a scenario behaviour. The UsageModel specifies the whole user interaction with a System from a performance viewpoint.  The concepts are explained for the single meta classes included in this package. &#xD;
+&#xD;
+Note that UsageModels are completely decoupled from the inner contents of a system, which consists of an assembly and a connected resource environment. The UsageModel only refers to services of system provided roles. It regards the component&#xD;
+architecture (i.e., the assembly) as well as used resources (i.e., hardware devices such as CPUs&#xD;
+and harddisks or software entities such as threads, semaphores) as hidden in the system. Thus, the UsageModel only captures information that is available to domain experts and can be changed by them. Resource&#xD;
+environment and component architecture may be changed independently from the UsageModel &#xD;
+by system architects, if the system's ProvidedRoles remain unchanged.&#xD;
+&#xD;
+Discussion: &#xD;
+Notice, that unlike other behavioural description languages for performance prediction (e.g., [162, 187,&#xD;
+78]), the PCM usage model specifically models user behaviour and for example does not refer to resources.&#xD;
+Other performance meta-models mix up the specification of user behaviour, component behaviour, and&#xD;
+resources, so that a single developer role (i.e., a performance analyst) needs to specify the performance&#xD;
+model. Opposed to this, the PCM targets a division of work for multiple developer roles (cf. Section 3.1 of Heiko Koziolek's dissertation).&#xD;
+&#xD;
+Furthermore, none of the other performance meta-models support explicit service parameter modelling.&#xD;
+While CSM [162] includes a meta-class Message to specify the amount of data transferred between&#xD;
+two steps in the performance model, and KLAPER [78] allows the specification of parameter values&#xD;
+in principle, none of these language uses the information to parameterise resource demands or component&#xD;
+behaviour. Additionally, they do not provide the information readily analysable by MDSD tools.&#xD;
+&#xD;
+The PCM usage model has been designed based on meta models such as the performance domain model&#xD;
+of the UML SPT profile [31], the Core Scenario Model (CSM) [162], and KLAPER [78]. It is furthermore&#xD;
+related to usage models used in statistical testing [34]. Although the concepts included in the PCM usage&#xD;
+model are quite similar to the modelling capabilities of the UML SPT profile, there are some subtle&#xD;
+differences:&#xD;
+• The usage model is aligned with the role of the domain expert, and uses only concepts known to&#xD;
+this role. It is a domain specific language, whereas the UML SPT performance domain model is&#xD;
+a general purpose language that includes information, which is usually spread over multiple developer&#xD;
+roles such as the component assembler and the system deployer, so that a domain expert without a technical background could not specify an instance of it. Nevertheless, domain experts&#xD;
+should be able to create PCM usage models with appropriate tools independently from other developer&#xD;
+roles, because such models only contain concepts known to them.&#xD;
+• The number of loop iterations is not bound to a constant value, but can be specified as a random&#xD;
+variable.&#xD;
+• The control flow constructs are arranged in a hierarchical fashion to enable easy analyses.&#xD;
+• Users are restricted to non-concurrent behaviour, as it is assumed, that users only execute the&#xD;
+services of a system one at a time.&#xD;
+• System service invocations can be enhanced with characterisations of parameters values.&#xD;
+&#xD;
+[31] Object Management Group (OMG), “UML Profile for Schedulability, Performance and Time,”&#xD;
+http://www.omg.org/cgi-bin/doc?formal/2005-01-02, January 2005.&#xD;
+&#xD;
+[34] James A. Whittaker and Michael G. Thomason, “A Markov chain model for statistical software&#xD;
+testing,” IEEE Transactions on Software Engineering, vol. 20, no. 10, pp. 812–824, Oct. 1994.&#xD;
+&#xD;
+[78] V. Grassi, R. Mirandola, and A. Sabetta, “From design to analysis models: a kernel language&#xD;
+for performance and reliability analysis of component-based systems,” in Proc. 5th International&#xD;
+Workshop on Software and Performance (WOSP ’05). New York, NY, USA: ACM Press, 2005,&#xD;
+pp. 25–36.&#xD;
+&#xD;
+[162] D. B. Petriu and M. Woodside, “A metamodel for generating performance models from UML designs,”&#xD;
+in UML 2004 - The Unified Modeling Language. Model Languages and Applications. 7th&#xD;
+International Conference, Lisbon, Portugal, October 11-15, 2004, Proceedings, ser. LNCS, T. Baar,&#xD;
+A. Strohmeier, A. Moreira, and S. J. Mellor, Eds., vol. 3273. Springer, 2004, pp. 41–53.&#xD;
+&#xD;
+[187] C. U. Smith, C. M. Llado, V. Cortellessa, A. D. Marco, and L. G. Williams, “From UML models&#xD;
+to software performance results: an SPE process based on XML interchange formats,” in Proc. 5th&#xD;
+international workshop on Software and performance (WOSP’05). New York, NY, USA: ACM&#xD;
+Press, 2005, pp. 87–98.&#xD;
+&#xD;
+&#xD;
+&#xD;
+</body>
+      </ownedComment>
       <packageImport xmi:id="_TLWYQ-QQEdqeH_WIC9QRew">
         <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
       </packageImport>
@@ -13059,13 +13320,38 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       </packageImport>
       <packageImport xmi:id="_VAkrgDRAEdun4NCFPwZksA" importedPackage="_ezkv0Ch9Edue7oeC4NTCGg"/>
       <packageImport xmi:id="_WJHEEDREEdun4NCFPwZksA" importedPackage="_ezkv0Ch9Edue7oeC4NTCGg"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_cX8qoOQQEdqeH_WIC9QRew" name="Workload" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_cX8qoOQQEdqeH_WIC9QRew" name="Workload" isAbstract="true">
+        <ownedComment xmi:id="_nH0SUKtiEd2iPq4SbQh7ig" annotatedElement="_cX8qoOQQEdqeH_WIC9QRew">
+          <body>A Workload specifies the usage intensity of a system, which relates to the number of users concurrently&#xD;
+present in the system. The PCM usage model adopts this concept from classical queueing&#xD;
+theory [123]. The specified workloads can directly be used in queueing networks or easily be mapped&#xD;
+to markings in stochastic Petri nets. Workloads can either be open or closed.&#xD;
+&#xD;
+The algorithms used to analyse queueing networks differ depending on whether open or closed workloads&#xD;
+are modelled [123]. Some special queueing networks can only be analysed given a particular workload&#xD;
+type (open or closed). Notice, that it is possible to specify a usage model with open workload usage&#xD;
+scenarios and closed workload usage scenarios at the same time. Open and closed workloads can be&#xD;
+executed in parallel when analysing the model.&#xD;
+&#xD;
+[123] E. Lazowska, J. Zahorjan, G. Graham, and K. Sevcik, Quantitative System Performance. Prentice&#xD;
+Hall, 1984.</body>
+        </ownedComment>
+      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_Y4SF0OQQEdqeH_WIC9QRew" name="UsageScenario">
+        <ownedComment xmi:id="_INEKAKtlEd2iPq4SbQh7ig" annotatedElement="_Y4SF0OQQEdqeH_WIC9QRew">
+          <body>UsageScenarios are concurrently executed behaviours of users within one UsageModel.  It describes which&#xD;
+services are directly invoked by users in one specific use case and models the possible sequences of calling&#xD;
+them. Each UsageScenario includes a workload and a scenario behaviour. </body>
+        </ownedComment>
         <generalization xmi:id="__TZ0EPIKEdqqVosRZMrxNA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_iKiUUeQQEdqeH_WIC9QRew" name="workload_UsageScenario" type="_cX8qoOQQEdqeH_WIC9QRew" aggregation="composite" association="_iKiUUOQQEdqeH_WIC9QRew"/>
         <ownedAttribute xmi:id="_JPQGAeQREdqeH_WIC9QRew" name="scenarioBehaviour_UsageScenario" type="_HTuNcOQREdqeH_WIC9QRew" aggregation="composite" association="_JPQGAOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_WlgK4OQQEdqeH_WIC9QRew" name="UsageModel">
+        <ownedComment xmi:id="_A1b1IKtlEd2iPq4SbQh7ig" annotatedElement="_WlgK4OQQEdqeH_WIC9QRew">
+          <body>The UsageModel consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each&#xD;
+UsageScenario includes a workload and a scenario behaviour. The UsageModel specifies the whole user interaction with a System from a performance viewpoint. </body>
+        </ownedComment>
         <ownedAttribute xmi:id="_aYGSweQQEdqeH_WIC9QRew" name="usageScenario_UsageModel" type="_Y4SF0OQQEdqeH_WIC9QRew" aggregation="composite" association="_aYGSwOQQEdqeH_WIC9QRew">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYGSxOQQEdqeH_WIC9QRew" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aYGSw-QQEdqeH_WIC9QRew"/>
@@ -13076,6 +13362,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_5NVsIOQREdqeH_WIC9QRew" name="Stop">
+        <ownedComment xmi:id="_3cV-0KtkEd2iPq4SbQh7ig" annotatedElement="_5NVsIOQREdqeH_WIC9QRew">
+          <body>Each ScenarioBehaviour has exactly one Stop action which marks the action where the control flows ends. Stop actions have no successor.</body>
+        </ownedComment>
         <ownedRule xmi:id="_hvKhgCl2Edyrvvvi0J2Ocw" name="StopHasNoSuccessor" constrainedElement="_5NVsIOQREdqeH_WIC9QRew">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_hvLIkCl2Edyrvvvi0J2Ocw">
             <language>OCL</language>
@@ -13085,6 +13374,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <generalization xmi:id="_67nL0OQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_4qxKkOQREdqeH_WIC9QRew" name="Start">
+        <ownedComment xmi:id="_qevf8KtkEd2iPq4SbQh7ig" annotatedElement="_4qxKkOQREdqeH_WIC9QRew">
+          <body>Each ScenarioBehaviour has exactly one Start action which marks the action where the control flows begins. Start actions have no predecessor.</body>
+        </ownedComment>
         <ownedRule xmi:id="_Y9a_ECl2Edyrvvvi0J2Ocw" name="StartHasNoPredecessor" constrainedElement="_4qxKkOQREdqeH_WIC9QRew">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_Y9a_ESl2Edyrvvvi0J2Ocw">
             <language>OCL</language>
@@ -13094,6 +13386,29 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <generalization xmi:id="_7ukSwOQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_HTuNcOQREdqeH_WIC9QRew" name="ScenarioBehaviour">
+        <ownedComment xmi:id="_5Itr8KtiEd2iPq4SbQh7ig" annotatedElement="_HTuNcOQREdqeH_WIC9QRew">
+          <body>A ScenarioBehaviour specifies possible sequences of executing services provided by the system.&#xD;
+It contains a set of AbstractUserActions, each referencing a predecessor and successor (except the&#xD;
+first and last action), thereby forming a sequence of actions. &#xD;
+&#xD;
+See the AbstractAction documentation for why it is advantageous&#xD;
+to model control flow in this way, as the same principle is used in the RDSEFF language. &#xD;
+&#xD;
+Concrete user actions of the usage model are:&#xD;
+- Branch&#xD;
+- Loop&#xD;
+- EntryLevelSystemCall&#xD;
+- Delay&#xD;
+- Start &#xD;
+- Stop&#xD;
+&#xD;
+So far, ScenarioBehaviours do not include forks in the user flow (i.e., splitting the flow with an&#xD;
+AND semantic), as it is assumed that users always act sequentially.&#xD;
+&#xD;
+As there are no random variables depending on other variables in the&#xD;
+usage model, there are no equivalent actions to GuardedBranchTransitions or CollectionIteratorActions.&#xD;
+</body>
+        </ownedComment>
         <ownedRule xmi:id="_DPrrQBpXEdy6GuPr1BGdtw" name="Exactly one start" constrainedElement="_HTuNcOQREdqeH_WIC9QRew">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_DPrrQRpXEdy6GuPr1BGdtw">
             <language>OCL</language>
@@ -13119,6 +13434,13 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_fJ3YoOQQEdqeH_WIC9QRew" name="OpenWorkload">
+        <ownedComment xmi:id="_vc2DkKtiEd2iPq4SbQh7ig" annotatedElement="_fJ3YoOQQEdqeH_WIC9QRew">
+          <body>OpenWorkload specifies usage intensity with an inter-arrival time (i.e., the time between two&#xD;
+user arrivals at the system) as a RandomVariable with an arbitrary probability distribution. It&#xD;
+models that an infinite stream of users arrives at a system. The users execute their scenario, and then&#xD;
+leave the system. The user population (i.e., the number of users concurrently present in a system) is&#xD;
+not fixed in an OpenWorkload.</body>
+        </ownedComment>
         <ownedRule xmi:id="_MOY1wCl4Edyrvvvi0J2Ocw" name="InterArrivalTimeInOpenWorkloadNeedsToBeSpecified" constrainedElement="_fJ3YoOQQEdqeH_WIC9QRew">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_MOY1wSl4Edyrvvvi0J2Ocw">
             <language>OCL</language>
@@ -13132,6 +13454,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_55vfIOQREdqeH_WIC9QRew" name="Loop">
+        <ownedComment xmi:id="_TCWG8KtkEd2iPq4SbQh7ig" annotatedElement="_55vfIOQREdqeH_WIC9QRew">
+          <body>A Loop models a repeated sequence of actions in the user flow. It contains a nested ScenarioBehaviour specifying the loop body, and a RandomVariable specifying the number of iterations.</body>
+        </ownedComment>
         <generalization xmi:id="_6eGwcOQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
         <ownedAttribute xmi:id="_-dqWQeQREdqeH_WIC9QRew" name="bodyBehaviour_Loop" type="_HTuNcOQREdqeH_WIC9QRew" aggregation="composite" association="_-dqWQOQREdqeH_WIC9QRew"/>
         <ownedAttribute xmi:id="_tWvxIXDFEdur9cZft9T4NQ" name="loopIteration_Loop" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_tWvxIHDFEdur9cZft9T4NQ">
@@ -13140,6 +13465,24 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_h0hLkOQREdqeH_WIC9QRew" name="EntryLevelSystemCall">
+        <ownedComment xmi:id="_WnwHYKtkEd2iPq4SbQh7ig" annotatedElement="_h0hLkOQREdqeH_WIC9QRew">
+          <body>An EntryLevelSystemCall models the call to a service provided by a system. Therefore, an&#xD;
+EntryLevelSystemCall references a ProvidedRole of a PCM System, from which the&#xD;
+called interface and the providing component within the system can be derived, and a Signature&#xD;
+specifying the called service. Notice, that the usage model does not permit the domain expert to&#xD;
+model calls directly to components, but only to system roles. (TODO: Add such a constraint.) This decouples the System structure&#xD;
+(i.e., the component-based software architecture model and its allocation) from the UsageModel&#xD;
+and the software architect can change the System (e.g., include new components, remove existing&#xD;
+components, or change their wiring or allocation) independently from the domain expert, if&#xD;
+the system provided roles are not affected. EntryLevelSystemCalls may include a set of&#xD;
+input parameter characterisations and a set of output parameter characterisations (as described in&#xD;
+the pcm::parameters package). However, the random variables characterising the input parameters&#xD;
+like NUMBER_OF_ELEMENTS can not depend on other variables in the usage model. They have&#xD;
+to be composed from literals only including literals describing random variables having a&#xD;
+certain fixed distribution.&#xD;
+&#xD;
+TODO Anne: Constraint that ensures that the referred signature is contained in the interface referenced by the ProvidedRole (see Diagram)</body>
+        </ownedComment>
         <generalization xmi:id="_pld_YOQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
         <ownedAttribute xmi:id="_QT1GkeQSEdqeH_WIC9QRew" name="inputParameterUsages_EntryLevelSystemCall" type="_GmAWYOQSEdqeH_WIC9QRew" aggregation="composite" association="_QT1GkOQSEdqeH_WIC9QRew">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QT1GlOQSEdqeH_WIC9QRew" value="*"/>
@@ -13153,6 +13496,13 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_ffBwUOQQEdqeH_WIC9QRew" name="ClosedWorkload">
+        <ownedComment xmi:id="_xLq84KtiEd2iPq4SbQh7ig" annotatedElement="_ffBwUOQQEdqeH_WIC9QRew">
+          <body>ClosedWorkload specifies directly the (constant) user population and a think time. It models&#xD;
+that a fixed number of users execute their scenario, then wait (or think) for the specified amount&#xD;
+of think time as a RandomVariable, and then reenter the system executing their scenario again.&#xD;
+Performance analysts use closed workloads to model scenarios, where the number of users is known&#xD;
+(e.g., a fixed number of users in a company).</body>
+        </ownedComment>
         <ownedRule xmi:id="_15AIICl3Edyrvvvi0J2Ocw" name="PopulationInClosedWorkloadNeedsToBeSpecified" constrainedElement="_ffBwUOQQEdqeH_WIC9QRew">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_15AIISl3Edyrvvvi0J2Ocw">
             <language>OCL</language>
@@ -13175,6 +13525,13 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_3ZHVcOQREdqeH_WIC9QRew" name="Branch">
+        <ownedComment xmi:id="_QrI_AKtkEd2iPq4SbQh7ig" annotatedElement="_3ZHVcOQREdqeH_WIC9QRew">
+          <body>A Branch splits the user flow with a XOR-semantic: one of the included BranchTransitions&#xD;
+is taken depending on the specified branch probabilities. Each BranchTransition contains a&#xD;
+nested ScenarioBehaviour, which a user executes once this branch transition is chosen. After&#xD;
+execution of the complete nested ScenarioBehaviour, the next action in the user flow after the&#xD;
+Branch is its successor action.</body>
+        </ownedComment>
         <ownedRule xmi:id="_w6kUsCl2Edyrvvvi0J2Ocw" name="AllBranchProbabilitiesMustSumUpTo1" constrainedElement="_3ZHVcOQREdqeH_WIC9QRew">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_w6kUsSl2Edyrvvvi0J2Ocw">
             <language>OCL</language>
@@ -13188,6 +13545,16 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_lA9SYOQREdqeH_WIC9QRew" name="AbstractUserAction" isAbstract="true">
+        <ownedComment xmi:id="_pwr8kKtjEd2iPq4SbQh7ig" annotatedElement="_lA9SYOQREdqeH_WIC9QRew">
+          <body>See the AbstractAction documentation for why it is advantageous&#xD;
+to model control flow in this way, as the same principle is used in the RDSEFF language. &#xD;
+&#xD;
+Concrete user actions of the usage model are:&#xD;
+- Branch&#xD;
+- Loop&#xD;
+- EntryLevelSystemCall&#xD;
+- Delay</body>
+        </ownedComment>
         <generalization xmi:id="_bVUegBmnEdyaJvvdhGgDYg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_HzcGsemgEdquVul9Pa8dqA" name="successor" type="_lA9SYOQREdqeH_WIC9QRew" association="_HzcGsOmgEdquVul9Pa8dqA">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S5LsEemgEdquVul9Pa8dqA" value="1"/>
@@ -13198,35 +13565,69 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UbhokOmgEdquVul9Pa8dqA"/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_HzcGsOmgEdquVul9Pa8dqA" memberEnd="_HzcGsemgEdquVul9Pa8dqA _HzcGsumgEdquVul9Pa8dqA"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_HzcGsOmgEdquVul9Pa8dqA" memberEnd="_HzcGsemgEdquVul9Pa8dqA _HzcGsumgEdquVul9Pa8dqA">
+        <ownedComment xmi:id="_kK-fAKtoEd2iPq4SbQh7ig" annotatedElement="_HzcGsOmgEdquVul9Pa8dqA">
+          <body>TODO Anne</body>
+        </ownedComment>
+      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_aT7mYOmgEdquVul9Pa8dqA" memberEnd="_aT7mYemgEdquVul9Pa8dqA _aT7mYumgEdquVul9Pa8dqA">
+        <ownedComment xmi:id="_iBm-wKtoEd2iPq4SbQh7ig" annotatedElement="_aT7mYOmgEdquVul9Pa8dqA">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_aT7mYumgEdquVul9Pa8dqA" name="branch" visibility="private" type="_KYXQwHDHEdur9cZft9T4NQ" association="_aT7mYOmgEdquVul9Pa8dqA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_etDnMOQYEdqeH_WIC9QRew" memberEnd="_etDnMeQYEdqeH_WIC9QRew _etDnMuQYEdqeH_WIC9QRew">
+        <ownedComment xmi:id="_jhjukKtoEd2iPq4SbQh7ig" annotatedElement="_etDnMOQYEdqeH_WIC9QRew">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_etDnMuQYEdqeH_WIC9QRew" name="entrylevelcomponentcall" visibility="private" type="_h0hLkOQREdqeH_WIC9QRew" association="_etDnMOQYEdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_QT1GkOQSEdqeH_WIC9QRew" memberEnd="_QT1GkeQSEdqeH_WIC9QRew _QT1GkuQSEdqeH_WIC9QRew">
+        <ownedComment xmi:id="_iXNbUKtoEd2iPq4SbQh7ig" annotatedElement="_QT1GkOQSEdqeH_WIC9QRew">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_QT1GkuQSEdqeH_WIC9QRew" visibility="private" type="_h0hLkOQREdqeH_WIC9QRew" association="_QT1GkOQSEdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_-dqWQOQREdqeH_WIC9QRew" memberEnd="_-dqWQeQREdqeH_WIC9QRew _-dqWQuQREdqeH_WIC9QRew">
+        <ownedComment xmi:id="_h3CGcKtoEd2iPq4SbQh7ig" annotatedElement="_-dqWQOQREdqeH_WIC9QRew">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_-dqWQuQREdqeH_WIC9QRew" name="loop" visibility="private" type="_55vfIOQREdqeH_WIC9QRew" association="_-dqWQOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_qdDHoOQREdqeH_WIC9QRew" memberEnd="_qdDHoeQREdqeH_WIC9QRew _qdDHouQREdqeH_WIC9QRew">
+        <ownedComment xmi:id="_hdQUgKtoEd2iPq4SbQh7ig" annotatedElement="_qdDHoOQREdqeH_WIC9QRew">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_qdDHouQREdqeH_WIC9QRew" visibility="private" type="_HTuNcOQREdqeH_WIC9QRew" association="_qdDHoOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_aYGSwOQQEdqeH_WIC9QRew" memberEnd="_aYGSweQQEdqeH_WIC9QRew _aYGSwuQQEdqeH_WIC9QRew">
+        <ownedComment xmi:id="_k6pocKtoEd2iPq4SbQh7ig" annotatedElement="_aYGSwOQQEdqeH_WIC9QRew">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_aYGSwuQQEdqeH_WIC9QRew" visibility="private" type="_WlgK4OQQEdqeH_WIC9QRew" association="_aYGSwOQQEdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_iKiUUOQQEdqeH_WIC9QRew" memberEnd="_iKiUUeQQEdqeH_WIC9QRew _iKiUUuQQEdqeH_WIC9QRew">
+        <ownedComment xmi:id="_lTiCgKtoEd2iPq4SbQh7ig" annotatedElement="_iKiUUOQQEdqeH_WIC9QRew">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_iKiUUuQQEdqeH_WIC9QRew" name="usageScenario_Workload" type="_Y4SF0OQQEdqeH_WIC9QRew" association="_iKiUUOQQEdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_JPQGAOQREdqeH_WIC9QRew" memberEnd="_JPQGAeQREdqeH_WIC9QRew _JPQGAuQREdqeH_WIC9QRew">
+        <ownedComment xmi:id="_jq8UEKtoEd2iPq4SbQh7ig" annotatedElement="_JPQGAOQREdqeH_WIC9QRew">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_JPQGAuQREdqeH_WIC9QRew" name="usagescenario" visibility="private" type="_Y4SF0OQQEdqeH_WIC9QRew" association="_JPQGAOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_tWvxIHDFEdur9cZft9T4NQ" memberEnd="_tWvxIXDFEdur9cZft9T4NQ _tWvxInDFEdur9cZft9T4NQ">
+        <ownedComment xmi:id="_jU5LkKtoEd2iPq4SbQh7ig" annotatedElement="_tWvxIHDFEdur9cZft9T4NQ">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_tWvxInDFEdur9cZft9T4NQ" visibility="private" type="_55vfIOQREdqeH_WIC9QRew" association="_tWvxIHDFEdur9cZft9T4NQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_KYXQwHDHEdur9cZft9T4NQ" name="BranchTransition">
+        <ownedComment xmi:id="_moDiQKtkEd2iPq4SbQh7ig" annotatedElement="_KYXQwHDHEdur9cZft9T4NQ">
+          <body>See Branch</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_TqduQHDHEdur9cZft9T4NQ" name="branchProbability" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
         </ownedAttribute>
@@ -13236,18 +13637,37 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_ntmscHDHEdur9cZft9T4NQ" memberEnd="_ntmscXDHEdur9cZft9T4NQ _ntmscnDHEdur9cZft9T4NQ">
+        <ownedComment xmi:id="_iMfZEKtoEd2iPq4SbQh7ig" annotatedElement="_ntmscHDHEdur9cZft9T4NQ">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_ntmscnDHEdur9cZft9T4NQ" visibility="private" type="_3ZHVcOQREdqeH_WIC9QRew" association="_ntmscHDHEdur9cZft9T4NQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_e6KCwHh7Edugjru7Zo1JWg" memberEnd="_e6KCwXh7Edugjru7Zo1JWg _e6KCwnh7Edugjru7Zo1JWg">
+        <ownedComment xmi:id="_j6l5oKtoEd2iPq4SbQh7ig" annotatedElement="_e6KCwHh7Edugjru7Zo1JWg">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_e6KCwnh7Edugjru7Zo1JWg" name="entrylevelsystemcall" visibility="private" type="_h0hLkOQREdqeH_WIC9QRew" association="_e6KCwHh7Edugjru7Zo1JWg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_DX0AEInqEducPr8SMhBkpQ" memberEnd="_DX0AEYnqEducPr8SMhBkpQ _DX0AEonqEducPr8SMhBkpQ">
+        <ownedComment xmi:id="_klf30KtoEd2iPq4SbQh7ig" annotatedElement="_DX0AEInqEducPr8SMhBkpQ">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_DX0AEonqEducPr8SMhBkpQ" visibility="private" type="_ffBwUOQQEdqeH_WIC9QRew" association="_DX0AEInqEducPr8SMhBkpQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_fjmgYInqEducPr8SMhBkpQ" memberEnd="_fjmgYYnqEducPr8SMhBkpQ _fjmgYonqEducPr8SMhBkpQ">
+        <ownedComment xmi:id="_ip_NYKtoEd2iPq4SbQh7ig" annotatedElement="_fjmgYInqEducPr8SMhBkpQ">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_fjmgYonqEducPr8SMhBkpQ" visibility="private" type="_fJ3YoOQQEdqeH_WIC9QRew" association="_fjmgYInqEducPr8SMhBkpQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_Da-IwBmoEdyaJvvdhGgDYg" name="Delay">
+        <ownedComment xmi:id="_jcQ7sKtkEd2iPq4SbQh7ig" annotatedElement="_Da-IwBmoEdyaJvvdhGgDYg">
+          <body>A Delay represents a timing delay as a RandomVariable between two user actions. The Delay&#xD;
+is included into the usage model to express that users do not call system services in direct successions,&#xD;
+but usually need some time to determine their next action. User delays are for example useful,&#xD;
+if a performance analyst wants to determine the execution time for a complete scenario behaviour&#xD;
+(instead of a single service), which needs to include user delays.</body>
+        </ownedComment>
         <generalization xmi:id="_F4UU8BmoEdyaJvvdhGgDYg" general="_lA9SYOQREdqeH_WIC9QRew"/>
         <ownedAttribute xmi:id="_Jk3pwRmpEdyaJvvdhGgDYg" name="timeSpecification_Delay" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_Jk3pwBmpEdyaJvvdhGgDYg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jk3pxBmpEdyaJvvdhGgDYg" value="1"/>
@@ -13255,9 +13675,22 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Jk3pwBmpEdyaJvvdhGgDYg" memberEnd="_Jk3pwRmpEdyaJvvdhGgDYg _Jk3pwhmpEdyaJvvdhGgDYg">
+        <ownedComment xmi:id="_kxaz8KtoEd2iPq4SbQh7ig" annotatedElement="_Jk3pwBmpEdyaJvvdhGgDYg">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_Jk3pwhmpEdyaJvvdhGgDYg" visibility="private" type="_Da-IwBmoEdyaJvvdhGgDYg" association="_Jk3pwBmpEdyaJvvdhGgDYg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_NQxu4Eo9EdyyNsXlb1tNsw" name="UserData">
+        <ownedComment xmi:id="_xbr5YKtjEd2iPq4SbQh7ig" annotatedElement="_NQxu4Eo9EdyyNsXlb1tNsw">
+          <body>UserData characterises data&#xD;
+used in specific assembly contexts in the system. This data is the same for all UsageScenarios, i.e.,&#xD;
+multiple users accessing the same components access the same data. This UserData refers to component&#xD;
+parameters of the system publicized by the software architect (see pcm::parameters package). The domain expert&#xD;
+characterises the values of component parameters related to business concepts (e.g., user specific data,&#xD;
+data specific for a business domain), whereas the software architect characterises the values of component&#xD;
+parameters related to technical concepts (e.g., size of caches, size of a thread pool, configuration data,&#xD;
+etc.).</body>
+        </ownedComment>
         <ownedAttribute xmi:id="_Yjn8IUo9EdyyNsXlb1tNsw" name="userDataParameterUsages_UserData" type="_GmAWYOQSEdqeH_WIC9QRew" aggregation="composite" association="_Yjn8IEo9EdyyNsXlb1tNsw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Yjn8JEo9EdyyNsXlb1tNsw" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Yjn8I0o9EdyyNsXlb1tNsw"/>
@@ -13265,9 +13698,15 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <ownedAttribute xmi:id="_hr1d0Uo9EdyyNsXlb1tNsw" name="assemblyContext_userData" type="_EfLuYOJSEdqxcra4qpeplw" association="_hr1d0Eo9EdyyNsXlb1tNsw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_P8zQQEo9EdyyNsXlb1tNsw" memberEnd="_P8zQQUo9EdyyNsXlb1tNsw _P8zQQko9EdyyNsXlb1tNsw">
+        <ownedComment xmi:id="_lDcYEKtoEd2iPq4SbQh7ig" annotatedElement="_P8zQQEo9EdyyNsXlb1tNsw">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_P8zQQko9EdyyNsXlb1tNsw" visibility="private" type="_WlgK4OQQEdqeH_WIC9QRew" association="_P8zQQEo9EdyyNsXlb1tNsw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_hr1d0Eo9EdyyNsXlb1tNsw" memberEnd="_hr1d0Uo9EdyyNsXlb1tNsw _hr1d0ko9EdyyNsXlb1tNsw">
+        <ownedComment xmi:id="_hr2xMKtoEd2iPq4SbQh7ig" annotatedElement="_hr1d0Eo9EdyyNsXlb1tNsw">
+          <body>TODO Anne</body>
+        </ownedComment>
         <ownedEnd xmi:id="_hr1d0ko9EdyyNsXlb1tNsw" visibility="private" type="_NQxu4Eo9EdyyNsXlb1tNsw" association="_hr1d0Eo9EdyyNsXlb1tNsw"/>
       </packagedElement>
     </packagedElement>
@@ -20703,6 +21142,11 @@ Solving the stochastic expression, which can be a function involving arithmetic 
           </edges>
         </contents>
       </eAnnotations>
+      <ownedComment xmi:id="__VVJwKtjEd2iPq4SbQh7ig" annotatedElement="_t6z0sCh9Edue7oeC4NTCGg">
+        <body>TODO: Section 4.1.3 Parameter Characterisation in the PCM in Heikos Diss&#xD;
+&#xD;
+Include explanation of Component Parameters here, as usagemodel.UserData refers to here. </body>
+      </ownedComment>
       <packageImport xmi:id="_zJZmU_ITEdqqVosRZMrxNA">
         <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
       </packageImport>
@@ -21982,4 +22426,49 @@ Note:&#xD;
   <Default:Documentation xmi:id="_wkhowapvEd26O59kvcjv0A" base_Comment="_wkhowKpvEd26O59kvcjv0A"/>
   <Default:Documentation xmi:id="_an4V0apwEd26O59kvcjv0A" base_Comment="_an4V0KpwEd26O59kvcjv0A"/>
   <Default:Documentation xmi:id="_yK-MsapwEd26O59kvcjv0A" base_Comment="_yK-MsKpwEd26O59kvcjv0A"/>
+  <Default:Documentation xmi:id="_RO7-sKtbEd2iPq4SbQh7ig" base_Comment="_ROfSwKtbEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_B4dHcatcEd2iPq4SbQh7ig" base_Comment="_B4dHcKtcEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_ylh6gatcEd2iPq4SbQh7ig" base_Comment="_ylh6gKtcEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_-g0n0atcEd2iPq4SbQh7ig" base_Comment="_-g0n0KtcEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_pRvlgatdEd2iPq4SbQh7ig" base_Comment="_pRvlgKtdEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_BU-8EateEd2iPq4SbQh7ig" base_Comment="_BU-8EKteEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_GT4fAateEd2iPq4SbQh7ig" base_Comment="_GT4fAKteEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_RGcpsateEd2iPq4SbQh7ig" base_Comment="_RGcpsKteEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_8M0S8ateEd2iPq4SbQh7ig" base_Comment="_8M0S8KteEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_1CbTYatfEd2iPq4SbQh7ig" base_Comment="_1CbTYKtfEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_HyECUatgEd2iPq4SbQh7ig" base_Comment="_HyECUKtgEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_AhJkAathEd2iPq4SbQh7ig" base_Comment="_AhJkAKthEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_nH0SUatiEd2iPq4SbQh7ig" base_Comment="_nH0SUKtiEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_vc2DkatiEd2iPq4SbQh7ig" base_Comment="_vc2DkKtiEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_xLq84atiEd2iPq4SbQh7ig" base_Comment="_xLq84KtiEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_5I214KtiEd2iPq4SbQh7ig" base_Comment="_5Itr8KtiEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_pwr8katjEd2iPq4SbQh7ig" base_Comment="_pwr8kKtjEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_xbr5YatjEd2iPq4SbQh7ig" base_Comment="_xbr5YKtjEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="__VVJwatjEd2iPq4SbQh7ig" base_Comment="__VVJwKtjEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_QrI_AatkEd2iPq4SbQh7ig" base_Comment="_QrI_AKtkEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_TCWG8atkEd2iPq4SbQh7ig" base_Comment="_TCWG8KtkEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_WnwHYatkEd2iPq4SbQh7ig" base_Comment="_WnwHYKtkEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_jcQ7satkEd2iPq4SbQh7ig" base_Comment="_jcQ7sKtkEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_moDiQatkEd2iPq4SbQh7ig" base_Comment="_moDiQKtkEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_qevf8atkEd2iPq4SbQh7ig" base_Comment="_qevf8KtkEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_3cV-0atkEd2iPq4SbQh7ig" base_Comment="_3cV-0KtkEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_A1b1IatlEd2iPq4SbQh7ig" base_Comment="_A1b1IKtlEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_INEKAatlEd2iPq4SbQh7ig" base_Comment="_INEKAKtlEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_hdQUgatoEd2iPq4SbQh7ig" base_Comment="_hdQUgKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_hr2xMatoEd2iPq4SbQh7ig" base_Comment="_hr2xMKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_h3CGcatoEd2iPq4SbQh7ig" base_Comment="_h3CGcKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_iBm-watoEd2iPq4SbQh7ig" base_Comment="_iBm-wKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_iMfZEatoEd2iPq4SbQh7ig" base_Comment="_iMfZEKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_iXNbUatoEd2iPq4SbQh7ig" base_Comment="_iXNbUKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_ip_NYatoEd2iPq4SbQh7ig" base_Comment="_ip_NYKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_jU5LkatoEd2iPq4SbQh7ig" base_Comment="_jU5LkKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_jhjukatoEd2iPq4SbQh7ig" base_Comment="_jhjukKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_jq8UEatoEd2iPq4SbQh7ig" base_Comment="_jq8UEKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_j6l5oatoEd2iPq4SbQh7ig" base_Comment="_j6l5oKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_kK-fAatoEd2iPq4SbQh7ig" base_Comment="_kK-fAKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_klf30atoEd2iPq4SbQh7ig" base_Comment="_klf30KtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_kxaz8atoEd2iPq4SbQh7ig" base_Comment="_kxaz8KtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_k6pocatoEd2iPq4SbQh7ig" base_Comment="_k6pocKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_lDcYEatoEd2iPq4SbQh7ig" base_Comment="_lDcYEKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_lTiCgatoEd2iPq4SbQh7ig" base_Comment="_lTiCgKtoEd2iPq4SbQh7ig"/>
 </xmi:XMI>
