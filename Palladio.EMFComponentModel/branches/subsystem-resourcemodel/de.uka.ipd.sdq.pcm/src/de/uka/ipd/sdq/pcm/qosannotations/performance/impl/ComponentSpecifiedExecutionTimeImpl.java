@@ -5,19 +5,15 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.performance.impl;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-
-import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
-
-import de.uka.ipd.sdq.pcm.qosannotations.performance.ComponentSpecifiedExecutionTime;
-import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
+import de.uka.ipd.sdq.pcm.qosannotations.performance.ComponentSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
 
 /**
  * <!-- begin-user-doc -->

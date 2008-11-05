@@ -5,8 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl;
-import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -14,15 +12,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ocl.expressions.OCLExpression;
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
@@ -31,16 +26,11 @@ import org.eclipse.emf.ocl.parser.ParserException;
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 
 /**
@@ -50,7 +40,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl#getRepository_ProvidesComponentType <em>Repository Provides Component Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl#getRepository_RepositoryComponent <em>Repository Repository Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,8 +89,8 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Repository getRepository_ProvidesComponentType() {
-		if (eContainerFeatureID != RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE) return null;
+	public Repository getRepository_RepositoryComponent() {
+		if (eContainerFeatureID != RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT) return null;
 		return (Repository)eContainer();
 	}
 
@@ -109,8 +99,8 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRepository_ProvidesComponentType(Repository newRepository_ProvidesComponentType, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRepository_ProvidesComponentType, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE, msgs);
+	public NotificationChain basicSetRepository_RepositoryComponent(Repository newRepository_RepositoryComponent, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRepository_RepositoryComponent, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT, msgs);
 		return msgs;
 	}
 
@@ -119,20 +109,20 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRepository_ProvidesComponentType(Repository newRepository_ProvidesComponentType) {
-		if (newRepository_ProvidesComponentType != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE && newRepository_ProvidesComponentType != null)) {
-			if (EcoreUtil.isAncestor(this, newRepository_ProvidesComponentType))
+	public void setRepository_RepositoryComponent(Repository newRepository_RepositoryComponent) {
+		if (newRepository_RepositoryComponent != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT && newRepository_RepositoryComponent != null)) {
+			if (EcoreUtil.isAncestor(this, newRepository_RepositoryComponent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newRepository_ProvidesComponentType != null)
-				msgs = ((InternalEObject)newRepository_ProvidesComponentType).eInverseAdd(this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, Repository.class, msgs);
-			msgs = basicSetRepository_ProvidesComponentType(newRepository_ProvidesComponentType, msgs);
+			if (newRepository_RepositoryComponent != null)
+				msgs = ((InternalEObject)newRepository_RepositoryComponent).eInverseAdd(this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, Repository.class, msgs);
+			msgs = basicSetRepository_RepositoryComponent(newRepository_RepositoryComponent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE, newRepository_ProvidesComponentType, newRepository_ProvidesComponentType));
+			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT, newRepository_RepositoryComponent, newRepository_RepositoryComponent));
 	}
 
 	/**
@@ -182,10 +172,10 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE:
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRepository_ProvidesComponentType((Repository)otherEnd, msgs);
+				return basicSetRepository_RepositoryComponent((Repository)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -198,8 +188,8 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE:
-				return basicSetRepository_ProvidesComponentType(null, msgs);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT:
+				return basicSetRepository_RepositoryComponent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -212,7 +202,7 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE:
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT:
 				return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, Repository.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -226,8 +216,8 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE:
-				return getRepository_ProvidesComponentType();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT:
+				return getRepository_RepositoryComponent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -240,8 +230,8 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE:
-				setRepository_ProvidesComponentType((Repository)newValue);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT:
+				setRepository_RepositoryComponent((Repository)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -255,8 +245,8 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE:
-				setRepository_ProvidesComponentType((Repository)null);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT:
+				setRepository_RepositoryComponent((Repository)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -270,10 +260,42 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE:
-				return getRepository_ProvidesComponentType() != null;
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT:
+				return getRepository_RepositoryComponent() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == RepositoryComponent.class) {
+			switch (derivedFeatureID) {
+				case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT: return RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == RepositoryComponent.class) {
+			switch (baseFeatureID) {
+				case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT: return RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ProvidesComponentTypeImpl

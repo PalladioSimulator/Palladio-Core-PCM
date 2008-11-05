@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.*;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 
 /**
  * <!-- begin-user-doc -->

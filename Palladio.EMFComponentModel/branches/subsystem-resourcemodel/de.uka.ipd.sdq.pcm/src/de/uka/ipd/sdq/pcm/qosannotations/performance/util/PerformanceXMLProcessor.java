@@ -5,15 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.performance.util;
 
-import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
-
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
+
+import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents

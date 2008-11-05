@@ -5,14 +5,15 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.reliability.util;
 
-import de.uka.ipd.sdq.pcm.qosannotations.reliability.*;
-
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.*;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability;
 
 /**
  * <!-- begin-user-doc -->

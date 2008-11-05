@@ -6,11 +6,11 @@
 package de.uka.ipd.sdq.pcm.qosannotations.reliability.impl;
 
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

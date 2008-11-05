@@ -625,12 +625,12 @@
       <children
           compartment="//@nodes.5/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../pcm.ecore#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+            href="../../pcm.ecore#//seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+            href="../../pcm.ecore#//seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
         <ownedChild>
           <domainMetaElement
-              href="../../pcm.ecore#//seff/ParametricResourceDemand"/>
+              href="../../pcm.ecore#//seff/performance/ParametricResourceDemand"/>
           <labelMappings
               readOnly="true">
             <diagramLabel

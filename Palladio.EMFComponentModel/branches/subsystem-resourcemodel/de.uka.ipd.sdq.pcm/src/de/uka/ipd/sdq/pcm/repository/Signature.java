@@ -18,6 +18,23 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.
+ * 
+ * Every service of an interface has a unique signature, like void doSomething(int a). A PCM
+ * signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.
+ * 
+ * It contains:
+ * • A type of the return value or void (no return value)
+ * • An identifier naming the service
+ * • An ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which
+ * is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG
+ * IDL semantics, cf. [22], chapter 3) can be used for parameters.
+ * • An unordered set of exceptions.
+ * 
+ * A signature has to be unique for an interface through the tupel (identifier, order of parameters). An
+ * interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A
+ * signature is assigned to exactly one interface. However, different interfaces can define equally named
+ * signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not
+ * identical in both interfaces.
  * <!-- end-model-doc -->
  *
  * <p>

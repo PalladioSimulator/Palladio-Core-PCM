@@ -6,14 +6,15 @@
 package de.uka.ipd.sdq.pcm.subsystem.impl;
 
 import de.uka.ipd.sdq.pcm.subsystem.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemFactory;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * <!-- begin-user-doc -->

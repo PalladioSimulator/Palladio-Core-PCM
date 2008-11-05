@@ -5,11 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.subsystem;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -167,13 +166,13 @@ public interface SubsystemPackage extends EPackage {
 	int SUB_SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Repository Sub System</b></em>' container reference.
+	 * The feature id for the '<em><b>Repository Repository Component</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_SYSTEM__REPOSITORY_SUB_SYSTEM = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+	int SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Sub System</em>' class.
@@ -194,17 +193,6 @@ public interface SubsystemPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSubSystem();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.subsystem.SubSystem#getRepository__SubSystem <em>Repository Sub System</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Repository Sub System</em>'.
-	 * @see de.uka.ipd.sdq.pcm.subsystem.SubSystem#getRepository__SubSystem()
-	 * @see #getSubSystem()
-	 * @generated
-	 */
-	EReference getSubSystem_Repository__SubSystem();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -237,13 +225,6 @@ public interface SubsystemPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SUB_SYSTEM = eINSTANCE.getSubSystem();
-		/**
-		 * The meta object literal for the '<em><b>Repository Sub System</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SUB_SYSTEM__REPOSITORY_SUB_SYSTEM = eINSTANCE.getSubSystem_Repository__SubSystem();
 
 	}
 

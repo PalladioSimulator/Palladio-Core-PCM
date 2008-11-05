@@ -138,7 +138,6 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-		SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
 		PerformancePackageImpl thePerformancePackage = (PerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PerformancePackage.eNS_URI) instanceof PerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PerformancePackage.eNS_URI) : PerformancePackage.eINSTANCE);
@@ -150,6 +149,7 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 		de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl thePerformancePackage_1 = (de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eNS_URI) instanceof de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eNS_URI) : de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eINSTANCE);
 		ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
 		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
+		SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theConnectorsPackage.createPackageContents();
@@ -158,7 +158,6 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
-		theSubsystemPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
 		theSeffPackage.createPackageContents();
 		thePerformancePackage.createPackageContents();
@@ -170,6 +169,7 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 		thePerformancePackage_1.createPackageContents();
 		theReliabilityPackage.createPackageContents();
 		theUsagemodelPackage.createPackageContents();
+		theSubsystemPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theConnectorsPackage.initializePackageContents();
@@ -178,7 +178,6 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
-		theSubsystemPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
 		theSeffPackage.initializePackageContents();
 		thePerformancePackage.initializePackageContents();
@@ -190,6 +189,7 @@ public class ConnectorsPackageImpl extends EPackageImpl implements ConnectorsPac
 		thePerformancePackage_1.initializePackageContents();
 		theReliabilityPackage.initializePackageContents();
 		theUsagemodelPackage.initializePackageContents();
+		theSubsystemPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theConnectorsPackage.freeze();

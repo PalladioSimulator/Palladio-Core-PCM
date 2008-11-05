@@ -49,7 +49,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#isIsResourceInterface <em>Is Resource Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getAnchestorInterfaces_Interface <em>Anchestor Interfaces Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getAncestorInterfaces_Interface <em>Ancestor Interfaces Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getSignatures__Interface <em>Signatures Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getRepository_Interface <em>Repository Interface</em>}</li>
@@ -95,16 +95,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @ordered
 	 */
 	protected EList<Interface> parentInterface__Interface;
-
-	/**
-	 * The cached value of the '{@link #getAnchestorInterfaces_Interface() <em>Anchestor Interfaces Interface</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAnchestorInterfaces_Interface()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Interface> anchestorInterfaces_Interface;
 
 	/**
 	 * The cached value of the '{@link #getProtocols__Interface() <em>Protocols Interface</em>}' containment reference list.
@@ -203,11 +193,10 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Interface> getAnchestorInterfaces_Interface() {
-		if (anchestorInterfaces_Interface == null) {
-			anchestorInterfaces_Interface = new EObjectResolvingEList<Interface>(Interface.class, this, RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE);
-		}
-		return anchestorInterfaces_Interface;
+	public EList<Interface> getAncestorInterfaces_Interface() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -416,8 +405,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return isIsResourceInterface() ? Boolean.TRUE : Boolean.FALSE;
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				return getParentInterface__Interface();
-			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE:
-				return getAnchestorInterfaces_Interface();
+			case RepositoryPackage.INTERFACE__ANCESTOR_INTERFACES_INTERFACE:
+				return getAncestorInterfaces_Interface();
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				return getProtocols__Interface();
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
@@ -444,9 +433,9 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				getParentInterface__Interface().clear();
 				getParentInterface__Interface().addAll((Collection<? extends Interface>)newValue);
 				return;
-			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE:
-				getAnchestorInterfaces_Interface().clear();
-				getAnchestorInterfaces_Interface().addAll((Collection<? extends Interface>)newValue);
+			case RepositoryPackage.INTERFACE__ANCESTOR_INTERFACES_INTERFACE:
+				getAncestorInterfaces_Interface().clear();
+				getAncestorInterfaces_Interface().addAll((Collection<? extends Interface>)newValue);
 				return;
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				getProtocols__Interface().clear();
@@ -477,8 +466,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				getParentInterface__Interface().clear();
 				return;
-			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE:
-				getAnchestorInterfaces_Interface().clear();
+			case RepositoryPackage.INTERFACE__ANCESTOR_INTERFACES_INTERFACE:
+				getAncestorInterfaces_Interface().clear();
 				return;
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				getProtocols__Interface().clear();
@@ -505,8 +494,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return isResourceInterface != IS_RESOURCE_INTERFACE_EDEFAULT;
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				return parentInterface__Interface != null && !parentInterface__Interface.isEmpty();
-			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE:
-				return anchestorInterfaces_Interface != null && !anchestorInterfaces_Interface.isEmpty();
+			case RepositoryPackage.INTERFACE__ANCESTOR_INTERFACES_INTERFACE:
+				return !getAncestorInterfaces_Interface().isEmpty();
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				return protocols__Interface != null && !protocols__Interface.isEmpty();
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:

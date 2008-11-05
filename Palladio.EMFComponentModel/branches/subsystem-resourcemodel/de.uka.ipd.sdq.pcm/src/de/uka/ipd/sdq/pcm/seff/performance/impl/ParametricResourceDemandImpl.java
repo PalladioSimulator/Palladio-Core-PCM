@@ -5,26 +5,20 @@
  */
 package de.uka.ipd.sdq.pcm.seff.performance.impl;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-
-import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
-
-import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +28,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.performance.impl.ParametricResourceDemandImpl#getSpecification_ParametericResourceDemand <em>Specification Parameteric Resource Demand</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.performance.impl.ParametricResourceDemandImpl#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.performance.impl.ParametricResourceDemandImpl#getResourceRequiredRole_ParametricResourceDemand <em>Resource Required Role Parametric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.performance.impl.ParametricResourceDemandImpl#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
  * </p>
@@ -60,14 +54,14 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	protected PCMRandomVariable specification_ParametericResourceDemand;
 
 	/**
-	 * The cached value of the '{@link #getRequiredResource_ParametricResourceDemand() <em>Required Resource Parametric Resource Demand</em>}' reference.
+	 * The cached value of the '{@link #getResourceRequiredRole_ParametricResourceDemand() <em>Resource Required Role Parametric Resource Demand</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequiredResource_ParametricResourceDemand()
+	 * @see #getResourceRequiredRole_ParametricResourceDemand()
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceRequiredRole requiredResource_ParametricResourceDemand;
+	protected ResourceRequiredRole resourceRequiredRole_ParametricResourceDemand;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,16 +130,16 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredRole getRequiredResource_ParametricResourceDemand() {
-		if (requiredResource_ParametricResourceDemand != null && requiredResource_ParametricResourceDemand.eIsProxy()) {
-			InternalEObject oldRequiredResource_ParametricResourceDemand = (InternalEObject)requiredResource_ParametricResourceDemand;
-			requiredResource_ParametricResourceDemand = (ResourceRequiredRole)eResolveProxy(oldRequiredResource_ParametricResourceDemand);
-			if (requiredResource_ParametricResourceDemand != oldRequiredResource_ParametricResourceDemand) {
+	public ResourceRequiredRole getResourceRequiredRole_ParametricResourceDemand() {
+		if (resourceRequiredRole_ParametricResourceDemand != null && resourceRequiredRole_ParametricResourceDemand.eIsProxy()) {
+			InternalEObject oldResourceRequiredRole_ParametricResourceDemand = (InternalEObject)resourceRequiredRole_ParametricResourceDemand;
+			resourceRequiredRole_ParametricResourceDemand = (ResourceRequiredRole)eResolveProxy(oldResourceRequiredRole_ParametricResourceDemand);
+			if (resourceRequiredRole_ParametricResourceDemand != oldResourceRequiredRole_ParametricResourceDemand) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND, oldRequiredResource_ParametricResourceDemand, requiredResource_ParametricResourceDemand));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND, oldResourceRequiredRole_ParametricResourceDemand, resourceRequiredRole_ParametricResourceDemand));
 			}
 		}
-		return requiredResource_ParametricResourceDemand;
+		return resourceRequiredRole_ParametricResourceDemand;
 	}
 
 	/**
@@ -153,8 +147,8 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredRole basicGetRequiredResource_ParametricResourceDemand() {
-		return requiredResource_ParametricResourceDemand;
+	public ResourceRequiredRole basicGetResourceRequiredRole_ParametricResourceDemand() {
+		return resourceRequiredRole_ParametricResourceDemand;
 	}
 
 	/**
@@ -162,11 +156,11 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequiredResource_ParametricResourceDemand(ResourceRequiredRole newRequiredResource_ParametricResourceDemand) {
-		ResourceRequiredRole oldRequiredResource_ParametricResourceDemand = requiredResource_ParametricResourceDemand;
-		requiredResource_ParametricResourceDemand = newRequiredResource_ParametricResourceDemand;
+	public void setResourceRequiredRole_ParametricResourceDemand(ResourceRequiredRole newResourceRequiredRole_ParametricResourceDemand) {
+		ResourceRequiredRole oldResourceRequiredRole_ParametricResourceDemand = resourceRequiredRole_ParametricResourceDemand;
+		resourceRequiredRole_ParametricResourceDemand = newResourceRequiredRole_ParametricResourceDemand;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND, oldRequiredResource_ParametricResourceDemand, requiredResource_ParametricResourceDemand));
+			eNotify(new ENotificationImpl(this, Notification.SET, PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND, oldResourceRequiredRole_ParametricResourceDemand, resourceRequiredRole_ParametricResourceDemand));
 	}
 
 	/**
@@ -266,9 +260,9 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 		switch (featureID) {
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				return getSpecification_ParametericResourceDemand();
-			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-				if (resolve) return getRequiredResource_ParametricResourceDemand();
-				return basicGetRequiredResource_ParametricResourceDemand();
+			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND:
+				if (resolve) return getResourceRequiredRole_ParametricResourceDemand();
+				return basicGetResourceRequiredRole_ParametricResourceDemand();
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return getAction_ParametricResourceDemand();
 		}
@@ -286,8 +280,8 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				setSpecification_ParametericResourceDemand((PCMRandomVariable)newValue);
 				return;
-			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-				setRequiredResource_ParametricResourceDemand((ResourceRequiredRole)newValue);
+			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND:
+				setResourceRequiredRole_ParametricResourceDemand((ResourceRequiredRole)newValue);
 				return;
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				setAction_ParametricResourceDemand((AbstractInternalControlFlowAction)newValue);
@@ -307,8 +301,8 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				setSpecification_ParametericResourceDemand((PCMRandomVariable)null);
 				return;
-			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-				setRequiredResource_ParametricResourceDemand((ResourceRequiredRole)null);
+			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND:
+				setResourceRequiredRole_ParametricResourceDemand((ResourceRequiredRole)null);
 				return;
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				setAction_ParametricResourceDemand((AbstractInternalControlFlowAction)null);
@@ -327,8 +321,8 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 		switch (featureID) {
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				return specification_ParametericResourceDemand != null;
-			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-				return requiredResource_ParametricResourceDemand != null;
+			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND:
+				return resourceRequiredRole_ParametricResourceDemand != null;
 			case PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return getAction_ParametricResourceDemand() != null;
 		}

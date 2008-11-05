@@ -5,15 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.system.util;
 
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
+
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents

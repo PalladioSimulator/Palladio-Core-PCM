@@ -11,6 +11,10 @@ package de.uka.ipd.sdq.pcm.seff;
  * A representation of the model object '<em><b>Abstract Loop Action</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * TODO
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

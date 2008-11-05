@@ -5,10 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.subsystem.util;
 
+import java.util.List;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
 import de.uka.ipd.sdq.identifier.Identifier;
-
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
@@ -16,13 +19,10 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-
 import de.uka.ipd.sdq.pcm.subsystem.*;
-
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
+import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,6 +109,7 @@ public class SubsystemSwitch<T> {
 				SubSystem subSystem = (SubSystem)theEObject;
 				T result = caseSubSystem(subSystem);
 				if (result == null) result = caseComposedProvidingRequiringEntity(subSystem);
+				if (result == null) result = caseRepositoryComponent(subSystem);
 				if (result == null) result = caseComposedStructure(subSystem);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(subSystem);
 				if (result == null) result = caseEntity(subSystem);
@@ -271,6 +272,21 @@ public class SubsystemSwitch<T> {
 	 * @generated
 	 */
 	public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepositoryComponent(RepositoryComponent object) {
 		return null;
 	}
 

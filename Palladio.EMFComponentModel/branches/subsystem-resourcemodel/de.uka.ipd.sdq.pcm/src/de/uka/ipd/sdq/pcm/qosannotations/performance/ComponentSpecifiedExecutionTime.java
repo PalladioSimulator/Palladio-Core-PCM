@@ -6,7 +6,6 @@
 package de.uka.ipd.sdq.pcm.qosannotations.performance;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 
 /**

@@ -6,6 +6,8 @@
 package de.uka.ipd.sdq.pcm.core.entity;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,5 +26,18 @@ public interface ComposedProvidingRequiringEntity extends ComposedStructure, Int
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).
+	 * self.providedRoles_InterfaceProvidingEntity->forAll(role|self.providedDelegationConnectors_ComposedStructure->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ProvidedRolesMustBeBound(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ComposedProvidingRequiringEntity

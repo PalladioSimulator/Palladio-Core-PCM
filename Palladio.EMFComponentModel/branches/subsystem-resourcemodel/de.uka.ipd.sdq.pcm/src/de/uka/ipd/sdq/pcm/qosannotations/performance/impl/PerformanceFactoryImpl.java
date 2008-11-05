@@ -6,14 +6,16 @@
 package de.uka.ipd.sdq.pcm.qosannotations.performance.impl;
 
 import de.uka.ipd.sdq.pcm.qosannotations.performance.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.qosannotations.performance.ComponentSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformanceFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
+import de.uka.ipd.sdq.pcm.qosannotations.performance.SystemSpecifiedExecutionTime;
 
 /**
  * <!-- begin-user-doc -->

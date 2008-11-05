@@ -38,8 +38,10 @@ import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -127,32 +129,32 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createRepositoryAdapter();
 			}
 			@Override
-			public Adapter caseProvidesComponentType(ProvidesComponentType object) {
-				return createProvidesComponentTypeAdapter();
-			}
-			@Override
-			public Adapter caseRequiredRole(RequiredRole object) {
-				return createRequiredRoleAdapter();
-			}
-			@Override
-			public Adapter caseRole(Role object) {
-				return createRoleAdapter();
+			public Adapter caseRepositoryComponent(RepositoryComponent object) {
+				return createRepositoryComponentAdapter();
 			}
 			@Override
 			public Adapter caseInterface(Interface object) {
 				return createInterfaceAdapter();
 			}
 			@Override
-			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
-				return createResourceRequiredRoleAdapter();
-			}
-			@Override
-			public Adapter caseDelegationConnector(DelegationConnector object) {
-				return createDelegationConnectorAdapter();
-			}
-			@Override
 			public Adapter caseExceptionType(ExceptionType object) {
 				return createExceptionTypeAdapter();
+			}
+			@Override
+			public Adapter caseRole(Role object) {
+				return createRoleAdapter();
+			}
+			@Override
+			public Adapter caseRequiredRole(RequiredRole object) {
+				return createRequiredRoleAdapter();
+			}
+			@Override
+			public Adapter caseProvidesComponentType(ProvidesComponentType object) {
+				return createProvidesComponentTypeAdapter();
+			}
+			@Override
+			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
+				return createResourceRequiredRoleAdapter();
 			}
 			@Override
 			public Adapter caseImplementationComponentType(ImplementationComponentType object) {
@@ -161,6 +163,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCompleteComponentType(CompleteComponentType object) {
 				return createCompleteComponentTypeAdapter();
+			}
+			@Override
+			public Adapter caseDelegationConnector(DelegationConnector object) {
+				return createDelegationConnectorAdapter();
 			}
 			@Override
 			public Adapter caseCompositeComponent(CompositeComponent object) {
@@ -317,6 +323,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+	 * @generated
+	 */
+	public Adapter createRepositoryComponentAdapter() {
 		return null;
 	}
 

@@ -5,6 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.performance.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
@@ -22,53 +27,29 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
-
 import de.uka.ipd.sdq.pcm.qosannotations.performance.ComponentSpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformanceFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.SystemSpecifiedExecutionTime;
-
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.impl.ReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
-
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
 import de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl;
-
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
-
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
 import de.uka.ipd.sdq.stoex.StoexPackage;
-
 import de.uka.ipd.sdq.units.UnitsPackage;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -163,11 +144,10 @@ public class PerformancePackageImpl extends EPackageImpl implements PerformanceP
 		// Obtain or create and register interdependencies
 		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
+		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-		SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
 		de.uka.ipd.sdq.pcm.seff.performance.impl.PerformancePackageImpl thePerformancePackage_1 = (de.uka.ipd.sdq.pcm.seff.performance.impl.PerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage.eNS_URI) instanceof de.uka.ipd.sdq.pcm.seff.performance.impl.PerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage.eNS_URI) : de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage.eINSTANCE);
@@ -178,16 +158,16 @@ public class PerformancePackageImpl extends EPackageImpl implements PerformanceP
 		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
 		ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
 		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
+		SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePerformancePackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theEntityPackage.createPackageContents();
-		theCompositionPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
+		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
-		theSubsystemPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
 		theSeffPackage.createPackageContents();
 		thePerformancePackage_1.createPackageContents();
@@ -198,16 +178,16 @@ public class PerformancePackageImpl extends EPackageImpl implements PerformanceP
 		theQosannotationsPackage.createPackageContents();
 		theReliabilityPackage.createPackageContents();
 		theUsagemodelPackage.createPackageContents();
+		theSubsystemPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePerformancePackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
-		theCompositionPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
+		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
-		theSubsystemPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
 		theSeffPackage.initializePackageContents();
 		thePerformancePackage_1.initializePackageContents();
@@ -218,6 +198,7 @@ public class PerformancePackageImpl extends EPackageImpl implements PerformanceP
 		theQosannotationsPackage.initializePackageContents();
 		theReliabilityPackage.initializePackageContents();
 		theUsagemodelPackage.initializePackageContents();
+		theSubsystemPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		thePerformancePackage.freeze();

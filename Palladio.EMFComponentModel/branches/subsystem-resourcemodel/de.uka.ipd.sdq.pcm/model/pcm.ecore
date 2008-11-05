@@ -40,14 +40,14 @@
             ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
             eOpposite="#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
-          abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity #//core/entity/ResourceInterfaceRequiringEntity"/>
       <eClassifiers xsi:type="ecore:EClass" name="InterfaceRequiringEntity" abstract="true"
           eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_InterfaceRequiringEntity"
             ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"
             eOpposite="#//repository/RequiredRole/requiringEntity_RequiredRole"/>
       </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
+          abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity #//core/entity/ResourceInterfaceRequiringEntity"/>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceRequiringEntity"
           abstract="true" eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRoles_ResourceInterfaceRequiringEntity"
@@ -55,7 +55,31 @@
             containment="true" eOpposite="#//repository/ResourceRequiredRole/resourceRequiringEntity_ResourceRequiredRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
-          abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity"/>
+          abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity">
+        <eOperations name="ProvidedRolesMustBeBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->forAll(role|self.providedDelegationConnectors_ComposedStructure->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity"/>
     </eSubpackages>
     <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/1.0"
         nsPrefix="">
@@ -171,6 +195,46 @@
             eOpposite="#//core/composition/ComposedStructure/requiredDelegationConnectors_ComposedStructure"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector #//core/entity/Entity">
+        <eOperations name="AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xD;&#xA;self.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)&#xD;&#xA;"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eOperations name="AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xD;&#xA;self.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceProvidingEntity->includes(self.requiredRole_CompositeAssemblyConnector)"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiringChildComponentContext_CompositeAssemblyConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providingChildComponentContext_CompositeAssemblyConnector"
@@ -210,10 +274,6 @@
             ordered="false" upperBound="-1" eType="#//core/composition/ResourceRequiredDelegationConnector"
             containment="true" eOpposite="#//core/composition/ResourceRequiredDelegationConnector/parentStructure_ResourceRequiredDelegationConnector"/>
       </eClassifiers>
-    </eSubpackages>
-    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
-        nsPrefix="">
-      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity"/>
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
@@ -256,7 +316,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Signature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc."/>
+        <details key="documentation" value="This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.&#xD;&#xA;&#xD;&#xA;Every service of an interface has a unique signature, like void doSomething(int a). A PCM&#xD;&#xA;signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.&#xD;&#xA;&#xD;&#xA;It contains:&#xD;&#xA;• A type of the return value or void (no return value)&#xD;&#xA;• An identifier naming the service&#xD;&#xA;• An ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which&#xD;&#xA;is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG&#xD;&#xA;IDL semantics, cf. [22], chapter 3) can be used for parameters.&#xD;&#xA;• An unordered set of exceptions.&#xD;&#xA;&#xD;&#xA;A signature has to be unique for an interface through the tupel (identifier, order of parameters). An&#xD;&#xA;interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A&#xD;&#xA;signature is assigned to exactly one interface. However, different interfaces can define equally named&#xD;&#xA;signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not&#xD;&#xA;identical in both interfaces."/>
       </eAnnotations>
       <eOperations name="ParameterNamesHaveToBeUniqueForASignature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -359,8 +419,8 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="components__Repository"
-          ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"
-          containment="true" eOpposite="#//repository/ProvidesComponentType/repository_ProvidesComponentType">
+          ordered="false" upperBound="-1" eType="#//repository/RepositoryComponent"
+          containment="true" eOpposite="#//repository/RepositoryComponent/repository_RepositoryComponent">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents the provides component types stored in the repository."/>
         </eAnnotations>
@@ -372,9 +432,6 @@
           <details key="documentation" value="This property represents the interfaces stored in the repository."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="subsystems__Repository"
-          ordered="false" upperBound="-1" eType="#//subsystem/SubSystem" containment="true"
-          eOpposite="#//subsystem/SubSystem/repository__SubSystem"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="datatypes_Repository"
           ordered="false" upperBound="-1" eType="#//repository/DataType" containment="true"
           eOpposite="#//repository/DataType/repository_DataType">
@@ -383,59 +440,13 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents abstraction of a component where only the provided interfaces are visible, while the required interfaces and its implementation are left open."/>
-      </eAnnotations>
-      <eOperations name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.oclIsTypeOf(ProvidesComponentType)&#xD;&#xA;implies&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->size() >= 1"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
-          </eAnnotations>
-        </eParameters>
-        <eParameters name="context">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The cache of context-specific information."/>
-          </eAnnotations>
-          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          </eGenericType>
-        </eParameters>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_ProvidesComponentType"
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryComponent" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_RepositoryComponent"
           ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/components__Repository">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents the repository where this entity is stored."/>
         </eAnnotations>
       </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//repository/Role">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a required interface."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface__RequiredRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the interfaces that is required by this role."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringEntity_RequiredRole"
-          ordered="false" lowerBound="1" eType="#//core/entity/InterfaceRequiringEntity"
-          eOpposite="#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the interface requiring entity that requires this interface."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//core/entity/Entity">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents an abstraction of an interface role. "/>
-      </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -487,8 +498,9 @@
           <details key="documentation" value="This property represents the interfaces from which this interface directly inherits."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="anchestorInterfaces_Interface"
-          ordered="false" upperBound="-1" eType="#//repository/Interface">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ancestorInterfaces_Interface"
+          ordered="false" upperBound="-1" eType="#//repository/Interface" volatile="true"
+          transient="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents the set of all parent interfaces, from which this interface inherits. All means not just the direct one."/>
         </eAnnotations>
@@ -513,19 +525,6 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface_ResourceRequiredRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity_ResourceRequiredRole"
-          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
-          eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
-        eSuperTypes="#//core/connectors/Connector">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
-      </eAnnotations>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents a type of an exception."/>
@@ -543,8 +542,63 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents an abstraction of an interface role. "/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//repository/Role">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents a required interface."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface__RequiredRole"
+          ordered="false" lowerBound="1" eType="#//repository/Interface">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the interfaces that is required by this role."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringEntity_RequiredRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/InterfaceRequiringEntity"
+          eOpposite="#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the interface requiring entity that requires this interface."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity #//repository/RepositoryComponent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents abstraction of a component where only the provided interfaces are visible, while the required interfaces and its implementation are left open."/>
+      </eAnnotations>
+      <eOperations name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.oclIsTypeOf(ProvidesComponentType)&#xD;&#xA;implies&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->size() >= 1"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface_ResourceRequiredRole"
+          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity_ResourceRequiredRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
+          eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" abstract="true"
-        eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity">
+        eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity #//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type."/>
       </eAnnotations>
@@ -595,7 +649,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity #//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents an abstraction of a component as a set provided and a set of required interfaces."/>
       </eAnnotations>
@@ -640,6 +694,12 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentTypes"
           ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+        eSuperTypes="#//core/connectors/Connector">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
+      </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//repository/ImplementationComponentType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -839,20 +899,30 @@
   </eSubpackages>
   <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"
       nsPrefix="">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO"/>
+    </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="ServiceCall" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Interfaces may also contains protocol specifications, which restrict the order of calling its&#xD;&#xA;services, or QoS specifications, which describe their extra-functional properties.&#xD;&#xA;&#xD;&#xA;TODO"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature__ServiceCall"
-          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+          ordered="false" lowerBound="1" eType="#//repository/Signature">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="TODO"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Protocol" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A protocol is a set of calling sequences and can be optionally added to an interface. Protocols of provided&#xD;&#xA;interfaces specify the order in which services have to be called by clients. Protocols of required interfaces&#xD;&#xA;specify the actual order in which the component calls required services.&#xD;&#xA;&#xD;&#xA;Besides finite state machines, different formalisms can be used to model protocols. The PCM does&#xD;&#xA;not restrict the protocol modelling formalisms. For example, Petri nets or regular expressions could&#xD;&#xA;model interface protocols. However, the choice of a formalism does influence possible analyses. For&#xD;&#xA;example, to check the interoperability of two components A and B, the language inclusion of the required&#xD;&#xA;protocol of A within the provided protocol of B has to be tested. The language inclusion is undecidable for&#xD;&#xA;Petri nets in the general case, so protocols modelled with Petri nets cannot be checked for interoperability.&#xD;&#xA;Notice, that although protocols are able to express the state of a component, interfaces themselves&#xD;&#xA;are stateless. The protocol state only depends on the component that implements the interface and is only&#xD;&#xA;present during component runtime. Components can provide/require multiple interfaces, but the PCM&#xD;&#xA;does not support protocols ranging over multiple interfaces (neither for provided nor required protocols).&#xD;&#xA;The complete state of a components consists of all its interface states. Restrictions on the complete state&#xD;&#xA;cannot be expressed in the PCM, as protocols can only be specified for single interfaces."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolTypeID" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0"
-      nsPrefix="pcm.subsystem">
-    <eClassifiers xsi:type="ecore:EClass" name="SubSystem" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="repository__SubSystem"
-          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/subsystems__Repository"/>
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="TODO"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
@@ -886,6 +956,9 @@
   <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
       nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="StopActions end a scenario behaviour and contain only a predecessor."/>
+      </eAnnotations>
       <eOperations name="StopActionSuccessorMustNotBeDefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.successor_AbstractAction.oclIsUndefined()"/>
@@ -908,17 +981,26 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractInternalControlFlowAction"
         abstract="true" eSuperTypes="#//seff/AbstractAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="TODO"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_Action"
           ordered="false" upperBound="-1" eType="#//seff/performance/ParametricResourceDemand"
           containment="true" eOpposite="#//seff/performance/ParametricResourceDemand/action_ParametricResourceDemand"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" eSuperTypes="#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="AbstractActions model either a service’s internal computations or calls to external (i.e., required) services, or describe some form of control flow alteration (i.e., branching, loop, or fork). The following first clarifies the notions of internal and external actions, whose meta-classes both inherit from AbstractAction.&#xD;&#xA;The RDSEFF defines the control flow between internal and external actions with the predecessor/successor relationship between AbstractActions to model sequential executions. Additionally, special actions for branching, loops, and forks allow other kinds of control flow. Other than flowcharts or UML activity diagrams, the RDSEFF language (as well as the usage model language) requires developers to make the branching, loop, fork bodies explicit using nested ResourceDemandingBehaviours. It disallows backward references in the chain of AbstractActions, which are basically&#xD;&#xA;goto statements and can lead to ambiguities and difficult maintainability. For example, this might lead to intertwined control flows as in the example in Fig. 4.9(a), where both the sequences ’abcabcdbcd’ and ’abcdbcabcd’ could be occur if each backward reference is executed once, which might lead to different execution times. Backward references also allow the specification of loops with multiple entry points as in Fig. 4.9(b). This is not desirable, as the number of loop iterations cannot be specified directly in these cases, which is however necessary for accurate performance prediction. If a developer would specify that each backward link in Fig. 4.9(b) is executed only once, both sequences ’ababc’ and ’abcababc’ would be possible although they would have different execution times, as ’a’ is executed three times in the latter case. To avoid such ambiguities, control flow in the PCM RDSEFF and usage model must be specified without backward references in the chain of AbstractActions. Branches, loops, forks, and their respective bodies have to be made explicit in the specification using nested ResourceDemandingBehaviours."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor_AbstractAction"
           ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/successor_AbstractAction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="successor_AbstractAction"
           ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/predecessor_AbstractAction"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StartAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="StartActions initiate a scenario behaviour and contain only a successor."/>
+      </eAnnotations>
       <eOperations name="StartActionPredecessorMustNotBeDefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.predecessor_AbstractAction.oclIsUndefined()"/>
@@ -939,8 +1021,15 @@
         </eParameters>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A resource demanding service effect specification (RDSEFF) is a special type of SEFF designed for performance and reliability predictions. Besides dependencies between provided and required services of a component, it additionally includes notions of resource usage, data flow, and parametric dependencies for more accurate predictions. Its control flow is hierarchically structured and can be enhanced with transition probabilities on branches and numbers of iterations on loops.&#xD;&#xA;A ResourceDemandingSEFF is a ServiceEffectSpecification and a Resource-DemandingBehaviour at the same time inheriting from both classes. The reason for this construct lies in the fact, that ResourceDemandingBehaviours can be used recursively inside themselves to describe loop bodies or branched behaviours (explained later), and these inner behaviours should not be RDSEFFs themselves"/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Models the behaviour of a component service as a sequence of internal actions with resource demands, control flow constructs, and external&#xD;&#xA;calls. Therefore, the class contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource demands attached to internal actions, which mainly influence performance analysis.&#xD;&#xA;Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles. To specify control flow branches, loops, or forks, component developers need to use special types of actions, which contain nested inner ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any ResourceDemandingBehaviour can have at most one starting and one finishing action."/>
+      </eAnnotations>
       <eOperations name="ExactlyOneStopAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1"/>
@@ -1003,31 +1092,53 @@
           upperBound="-1" eType="#//seff/AbstractAction" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReleaseAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The ReleaseAction increases the number of available item for the given passive resource type, before the current request&#xD;&#xA;can continue. It should be to execute by one of the other concurrent requests.&#xD;&#xA;Acquisition and release of passive resources happen instantaneously and do not consume any time except for waiting delays before actual acquisition. Resource locking may introduce deadlocks when simulating the model, however, for performance analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to be fixed accordingly before carrying out the performance prediction."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource_ReleaseAction"
           ordered="false" lowerBound="1" eType="#//repository/PassiveResource"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LoopAction" eSuperTypes="#//seff/AbstractLoopAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Models the repeated execution of its inner ResourceDemandingBehaviour for the loop body. The number of repetitions is specified by a random variable evaluating to integer or an IntPMF. The number of iterations specified by the random variable always needs to be bounded, i.e., the probabilities in an IntPMF for iteration numbers above a certain threshold must be zero. Otherwise, it would be possible that certain requests do not terminate, which would complicate performance analyses. The stochastic expression defining the iteration random variable may include references to input or component parameters to model dependencies between the usage profile and the number of loop iterations. Notice, that loop actions should only be modelled if the loop body contains either external service calls or resource demands directed at special resources. Otherwise, control flow loops in component behaviour should be abstracted by subsuming them in InternalAction, which combine a number of instructions. The influence of different iterations length of such internal loops need to be reflected stochastically by the random variable specifying the ParametricResource-Demand of that InternalAction.&#xD;&#xA;Other than Markov chains, RDSEFFs do not specify control flow loops with an reentrance and exit probability on each iteration. Such a specification binds the number of loop iterations to a geometrical distribution, which reflects reality only in very seldom cases. But in many practical cases, the number of iterations is a constant, or the probability for higher iteration numbers is higher than for lower ones. This cannot be expressed directly via a Markov chain (also see [DG00]). &#xD;&#xA;Inside the ResourceDemandingBehaviour of LoopActions, it is assumed that random variables are stochastically independent. This is not true in reality, and for example leads to wrong predictions if the same random variable is used twice in succession inside a loop body. In this case, the second occurrence is stochastically dependent to the first occurrence, as the value does not change between two occurrences. Therefore, component developers should be aware of such inaccuracies when using random variables twice inside the body behaviour of a LoopAction."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterationCount_LoopAction"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractLoopAction" abstract="true"
         eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="TODO"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Internal Action Combines the execution of a number of internal computations by a component service in a single model entity. It models calculations inside a component service, which do not include calls to required services. For a desired high abstraction level, an RDSEFF has only one InternalAction for all instructions between two calls to required services. A high abstraction level is needed to keep the model tractable for mathematical analysis methods. However, in principle it is also possible to use multiple InternalActions in direct succession to model on a lower abstraction level and enable more accurate predictions.&#xD;&#xA;InternalActions provide an abstraction from the complete behaviour (i.e., control and data flow) of a component service, as they can hide different possible control and data flows not affecting external service calls and express their resource demands as a single stochastic expression. This abstraction underlies the assumption that the resource demands of a number of instruction can be captured sufficiently accurate enough in one such expression"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ForkAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Fork Action Splits the RDSEFF control flow with an AND-semantic, meaning that it invokes several ForkedBehaviours concurrently.  ForkActions&#xD;&#xA;allow both asynchronously and synchronously forked behaviours. Synchronously ForkedBehaviours execute concurrently and the control flow waits for each of these behaviours to terminate before continuing. Each ForkedBehaviour can be considered as a program thread. All parameter characterisations from the surrounding RDSEFF are also valid inside the ForkedBehaviours and can be used to parameterise resource demands or control flow constructs. The parameter characterisations are the same in each ForkedBehaviour. Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages. Asynchronously ForkedBehaviours also execute concurrently, but the control flow does not wait for them to terminate and continues immediately after their invocation with the successor action of the ForkAction. Therefore, there is no need for a SynchronisationPoint in this case. It is furthermore not possible to refer to results or output parameters of asynchronously ForkedBehaviours in the rest of the RDSEFF, as it is unclear when these results will be available."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="asynchronousForkedBehaviours_ForkAction"
           ordered="false" upperBound="-1" eType="#//seff/ForkedBehaviour" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="synchronisingBehaviours_ForkAction"
           ordered="false" eType="#//seff/SynchronisationPoint" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ForkedBehaviour" eSuperTypes="#//seff/ResourceDemandingBehaviour"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ForkedBehaviour" eSuperTypes="#//seff/ResourceDemandingBehaviour">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A ForkedBehaviour can be considered as a program thread. All parameter characterisations from the surrounding RDSEFF are also valid inside the ForkedBehaviours and can be used to parameterise resource demands or control flow constructs. The parameter characterisations are the same in each ForkedBehaviour."/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SynchronisationPoint">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="synchronousForkedBehaviours_SynchronisationPoint"
           ordered="false" lowerBound="1" upperBound="-1" eType="#//seff/ForkedBehaviour"
           containment="true"/>
@@ -1035,6 +1146,9 @@
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExternalCallAction" eSuperTypes="#//seff/AbstractAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ExternalCallAction models the invocation of a service specified in a required interface. Therefore, it references a Role, from which the providing component can be derived, and a Signature to specify the called service. ExternalCallActions model synchronous calls to required services, i.e., the caller waits until the called service finishes execution before continuing execution itself. The PCM allows modelling asynchronous calls to required services by using an ExternalCallAction inside a ForkedBehaviour.&#xD;&#xA;ExternalCallActions do not have resource demands by themselves. Component developers need to specify the resource demand of the called service in the RDSEFF of that service. The resource demand can also be calculated by analysing the providing component. This keeps the RDSEFF specification of different component developers independent from each other and makes them replaceable in an architectural model.&#xD;&#xA;ExternalCallActions may contain two sets of VariableUsages specifying input parameter characterisations and output parameter characterisations respectively. VariableUsages for input parameters may only reference IN or INOUT parameters of the call’s referenced signature. The random variable characterisation inside such a VariableUsage may be constants, probability distribution functions, or include a stochastic expression involving for example arithmetic operations. The latter models a dependency between the current service’s own input parameters and the input parameters of the required service."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_ExternalCallAction"
@@ -1045,16 +1159,25 @@
           ordered="false" lowerBound="1" eType="#//repository/Role"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="a GuardedBranchTransition, this transition provides a link between a BranchAction and a nested ResourceDemandingBehaviour, which includes the actions executed inside the branch. But instead of using a guard, it specifies a branching probability without parameter dependencies. Analysis tools may directly use it to determine the transition where the control flow continues. The probabilities of all ProbabilisticBranchTransitions belonging to a single BranchAction must sum up to 1.0. &#xD;&#xA;Although a probabilistic choice at a branch usually does not happen in a computer program, ProbabilisticBranchTransitions provide a convenient way of modelling in case the actual parameter dependency is too hard to determine or too complex to integrate into a guard. It can also be useful for newly designed components, where the parameter dependency on the control flow guard is still be unknown. However, this construct potentially introduces inaccuracies into the performance model, because it does not reflect the influence of input parameters. Therefore, predictions based on this model can be misleading, if the used input parameters would result in different branching probabilities. The component developer cannot foresee this, when specifying the RDSEFF using ProbabilisticBranchTransitions."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractBranchTransition" abstract="true"
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Two types of branch transitions exist which correspond to the two types of branches. The types cannot be mixed. Either all branch transitions of one BranchAction are probabilistic or guarded."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
           ordered="false" lowerBound="1" eType="#//seff/ResourceDemandingBehaviour"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BranchAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The BranchAction splits the RDSEFF control flow with an XOR-semantic, meaning that the control flow continues on exactly one of its attached AbstractBranchTransitions. The RDSEFF supports two different kinds of branch transitions, GuardedBranchTransitions, and  ProbabilisticBranchTransitions. RDSEFFs do not allow to use both kinds of transitions on a single BranchAction. Analysis or simulation tools must select exactly one transition based on the included guard or probability, before continuing at a BranchAction."/>
+      </eAnnotations>
       <eOperations name="EitherGuardedBranchesOrProbabilisiticBranchTransitions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))"/>
@@ -1097,22 +1220,37 @@
           upperBound="-1" eType="#//seff/AbstractBranchTransition" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AcquireAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In an RDSEFF, component developers can specify an AcquireAction, which references a passive resource types. Once analysis tools execute this action, they decrease the amount of items available from the referenced passive resource type by one, if at least one item is available. If none item is available, because other, concurrently executed requests have acquired all of them, analysis tools enqueue the current request (first-come&#xD;&#xA;first-serve scheduling policy) and block it’s further execution.&#xD;&#xA;Acquisition and release of passive resources happen instantaneously and do not consume any time except for waiting delays before actual acquisition. Resource locking may introduce deadlocks when simulating the model, however, for performance analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to be fixed accordingly before carrying out the performance prediction."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="passiveresource_AcquireAction"
           ordered="false" lowerBound="1" eType="#//repository/PassiveResource"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CollectionIteratorAction" eSuperTypes="#//seff/AbstractLoopAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Collection Iterator Action Models the repeated execution of its inner ResourceDemandingBehaviour for each element of a collection data type. Therefore it contains a reference to an input parameter of the service’s signature, which must be of type CollectionDataType. The NUMBER OF ELEMENTS must be specified from the outside of the component, either by another RDSEFF or by an usage model calling this service. It can be of type integer or IntPMF. Besides the source of the number of iterations, CollectionIteratorActions differ from LoopAction only in their allowed stochastic dependence of random variables inside the loop body’s ResourceDemandingBehaviour. If the same random variable occurs twice in such a loop body, analysis tools must evaluate the second occurrence in stochastic dependence to the first occurrence. This complicates the involved calculation and might lead to the intractability of the model, therefore component developers should use CollectionIteratorActions with care and only include them if they expect that the prediction results would be vastly inaccurate without it."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_CollectionIteratorAction"
           ordered="false" lowerBound="1" eType="#//repository/Parameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GuardedBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Guarded Branch Transition Provides a link between a BranchAction and a nested ResourceDemandingBehaviour, which includes the actions executed inside the branch. It uses a guard, i.e. a boolean expression specified by a RandomVariable, to determine whether the transition is chosen. If the guard evaluates to true, the branch is chosen, otherwise if the guard evaluates to false another branch transition must be chosen.&#xD;&#xA;The guard may contain references to the service’s input parameters or component parameters. A component developer can specify complex boolean expressions by using the AND, OR, and NOT operations provided by the StoEx framework. As the domain expert may have characterised the parameters used in a guard with probability distributions, it might happen that a guard does not evaluate to true or false with a probability of 1.0. For example, the specification can express that a guard evaluates to true with a probability of 0.3, and to false with a probability of 0.7. In any case, the probabilities of the individual guards attached to all GuardedBranchTransitions contained in a BranchAction must sum up to 1.0.&#xD;&#xA;There is no predefined order in evaluating the guards attached to a BranchAction. This differs from programming languages such as C or Java, where the conditions on if/then/else statements are evaluated in the order of their appearance in the code. Such programming languages allow overlapping branching conditions (for example, if (X&lt;10) //... else if (X&lt;20) // ...), which are not allowed for the guards in GuardedBranchTransitions, because the missing order specification would lead to ambiguous boolean expressions and enable more than one guard to become true. If X would have the value 5, both conditions would evaluate to true if they would be used directly as guards in GuardedBranchTransitions. The correct specification of the guards in this case would be X.VALUE   10 and X.VALUE ¥ 10 AND X.VALUE   20. Guards might lead to stochastic dependencies when evaluating variable characterisations inside a branched behaviour. For example, if the guard X.VALUE   10 had formerly evaluated to true, and the RDSEFF uses X.VALUE inside the branched behaviour, the sample space of the random variable specifying the characterisation must be restricted, as the event that X takes a values greater than 10 cannot occur anymore. Therefore its probability is zero. Any variable characterisation always needs to be evaluated under the condition that all guards in the usage scenario’s path to it have evaluated to true."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchCondition_GuardedBranchTransition"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SetVariableAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Set Variable Action Assigns a variable characterisation to an OUT parameter, INOUT parameter, or return value of the service. It ensures that performance-relevant output parameter characterisations of a component service are specified to use them to parameterise the calling RDSEFF. A SetVariableAction must only use output parameters on the left hand side of the assignment and must not use input parameter or local variable&#xD;&#xA;names, because input parameters cannot be returned and local names should not be exposed to adhere the black box principle. The action is only intended to allow proper data flow modelling (i.e., output parameter passing) between different component services, but not to reveal additional internals of the service the current RDSEFF models. Thus, the assigned characterisation is not accessible in subsequent actions of the current RDSEFF. Notice, that the stochastic expression used in this assignment must characterise the result of the whole computation of the current service. For non-trivial components, this requires a substantial stochastic approximation based on manual abstraction. However, recall that not the actual result of a component service needs to be specified, but only its performance-relevant attributes. For example, to model the return value of a component service compressing a file, using its file size divided by the compression factor as the stochastic expression is usually sufficient, while the value of the compressed file is not of interest in a performance model.&#xD;&#xA;Multiple SetVariableActions assigning to the same output parameter might occur at different locations of the control flow in an RDSEFF. In the case of sequences, loops, and fork, the last assignment overwrites the former assignments and gets transferred back to the calling RDSEFF. Therefore, analysis tools may ignore the former assignments. In the case of using a SetVariableAction in two different branches of a BranchAction, only the assignment in the chosen branch is valid and gets transferred back to the caller."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="localVariableUsages_SetVariableAction"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Service Effect Specification Models the effect of invoking a specific service of a basic component. Therefore, it references a Signature from an Interface, for which the component takes a ProvidedRole, to identify the described service. This class is abstract and SEFFs for specific analysis purposes need to inherit from this class. A BasicComponent may have an arbitrary number of SEFFs. It can have multiple SEFFs of a different type for a single provided service. For example, one SEFF can express all external service calls with no particular order, while another one includes a restricted order, or still another one expresses resource demands of the service.&#xD;&#xA;While different SEFF types have been proposed, the only type currently included in the meta-model is the ResourceDemandingSEFF for performance prediction. Different types of SEFFs should not contradict each other if the languages are equally powerful. For example, the order of allowed external service calls should be the same for each SEFF type modelling sequences of such calls if the modelling languages have the same expressiveness. SEFFs are part of a component and not part of an interface, because they are implementation dependent. The SEFFs of a CompositeComponent are not represented in the meta-model and can be derived automatically by connecting the SEFFs of the encapsulated components of its nested AssemblyContexts. Different SEFFs of a single component access the same component parameter specifications. That means that parameter dependencies to the same component parameters in different SEFF types refer also to the same characterisations."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="1"/>
@@ -1122,9 +1260,12 @@
     <eSubpackages name="performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0"
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource_ParametricResourceDemand"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRole_ParametricResourceDemand"
             ordered="false" lowerBound="1" eType="#//repository/ResourceRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
             ordered="false" lowerBound="1" eType="#//seff/AbstractInternalControlFlowAction"
@@ -1542,5 +1683,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="timeSpecification_Delay"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0"
+      nsPrefix="pcm.subsystem">
+    <eClassifiers xsi:type="ecore:EClass" name="SubSystem" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//repository/RepositoryComponent"/>
   </eSubpackages>
 </ecore:EPackage>

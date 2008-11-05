@@ -38,8 +38,10 @@ import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -160,16 +162,33 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: {
-				ProvidesComponentType providesComponentType = (ProvidesComponentType)theEObject;
-				T result = caseProvidesComponentType(providesComponentType);
-				if (result == null) result = caseInterfaceProvidingRequiringEntity(providesComponentType);
-				if (result == null) result = caseInterfaceProvidingEntity(providesComponentType);
-				if (result == null) result = caseInterfaceRequiringEntity(providesComponentType);
-				if (result == null) result = caseResourceInterfaceRequiringEntity(providesComponentType);
-				if (result == null) result = caseEntity(providesComponentType);
-				if (result == null) result = caseIdentifier(providesComponentType);
-				if (result == null) result = caseNamedElement(providesComponentType);
+			case RepositoryPackage.REPOSITORY_COMPONENT: {
+				RepositoryComponent repositoryComponent = (RepositoryComponent)theEObject;
+				T result = caseRepositoryComponent(repositoryComponent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.INTERFACE: {
+				Interface interface_ = (Interface)theEObject;
+				T result = caseInterface(interface_);
+				if (result == null) result = caseEntity(interface_);
+				if (result == null) result = caseIdentifier(interface_);
+				if (result == null) result = caseNamedElement(interface_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.EXCEPTION_TYPE: {
+				ExceptionType exceptionType = (ExceptionType)theEObject;
+				T result = caseExceptionType(exceptionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.ROLE: {
+				Role role = (Role)theEObject;
+				T result = caseRole(role);
+				if (result == null) result = caseEntity(role);
+				if (result == null) result = caseIdentifier(role);
+				if (result == null) result = caseNamedElement(role);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -183,21 +202,17 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.ROLE: {
-				Role role = (Role)theEObject;
-				T result = caseRole(role);
-				if (result == null) result = caseEntity(role);
-				if (result == null) result = caseIdentifier(role);
-				if (result == null) result = caseNamedElement(role);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.INTERFACE: {
-				Interface interface_ = (Interface)theEObject;
-				T result = caseInterface(interface_);
-				if (result == null) result = caseEntity(interface_);
-				if (result == null) result = caseIdentifier(interface_);
-				if (result == null) result = caseNamedElement(interface_);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: {
+				ProvidesComponentType providesComponentType = (ProvidesComponentType)theEObject;
+				T result = caseProvidesComponentType(providesComponentType);
+				if (result == null) result = caseInterfaceProvidingRequiringEntity(providesComponentType);
+				if (result == null) result = caseRepositoryComponent(providesComponentType);
+				if (result == null) result = caseInterfaceProvidingEntity(providesComponentType);
+				if (result == null) result = caseInterfaceRequiringEntity(providesComponentType);
+				if (result == null) result = caseResourceInterfaceRequiringEntity(providesComponentType);
+				if (result == null) result = caseEntity(providesComponentType);
+				if (result == null) result = caseIdentifier(providesComponentType);
+				if (result == null) result = caseNamedElement(providesComponentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,26 +226,11 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.DELEGATION_CONNECTOR: {
-				DelegationConnector delegationConnector = (DelegationConnector)theEObject;
-				T result = caseDelegationConnector(delegationConnector);
-				if (result == null) result = caseConnector(delegationConnector);
-				if (result == null) result = caseEntity(delegationConnector);
-				if (result == null) result = caseIdentifier(delegationConnector);
-				if (result == null) result = caseNamedElement(delegationConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.EXCEPTION_TYPE: {
-				ExceptionType exceptionType = (ExceptionType)theEObject;
-				T result = caseExceptionType(exceptionType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE: {
 				ImplementationComponentType implementationComponentType = (ImplementationComponentType)theEObject;
 				T result = caseImplementationComponentType(implementationComponentType);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(implementationComponentType);
+				if (result == null) result = caseRepositoryComponent(implementationComponentType);
 				if (result == null) result = caseInterfaceProvidingEntity(implementationComponentType);
 				if (result == null) result = caseInterfaceRequiringEntity(implementationComponentType);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(implementationComponentType);
@@ -244,12 +244,23 @@ public class RepositorySwitch<T> {
 				CompleteComponentType completeComponentType = (CompleteComponentType)theEObject;
 				T result = caseCompleteComponentType(completeComponentType);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(completeComponentType);
+				if (result == null) result = caseRepositoryComponent(completeComponentType);
 				if (result == null) result = caseInterfaceProvidingEntity(completeComponentType);
 				if (result == null) result = caseInterfaceRequiringEntity(completeComponentType);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(completeComponentType);
 				if (result == null) result = caseEntity(completeComponentType);
 				if (result == null) result = caseIdentifier(completeComponentType);
 				if (result == null) result = caseNamedElement(completeComponentType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.DELEGATION_CONNECTOR: {
+				DelegationConnector delegationConnector = (DelegationConnector)theEObject;
+				T result = caseDelegationConnector(delegationConnector);
+				if (result == null) result = caseConnector(delegationConnector);
+				if (result == null) result = caseEntity(delegationConnector);
+				if (result == null) result = caseIdentifier(delegationConnector);
+				if (result == null) result = caseNamedElement(delegationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -260,6 +271,7 @@ public class RepositorySwitch<T> {
 				if (result == null) result = caseImplementationComponentType(compositeComponent);
 				if (result == null) result = caseComposedStructure(compositeComponent);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(compositeComponent);
+				if (result == null) result = caseRepositoryComponent(compositeComponent);
 				if (result == null) result = caseEntity(compositeComponent);
 				if (result == null) result = caseInterfaceProvidingEntity(compositeComponent);
 				if (result == null) result = caseInterfaceRequiringEntity(compositeComponent);
@@ -274,6 +286,7 @@ public class RepositorySwitch<T> {
 				T result = caseBasicComponent(basicComponent);
 				if (result == null) result = caseImplementationComponentType(basicComponent);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(basicComponent);
+				if (result == null) result = caseRepositoryComponent(basicComponent);
 				if (result == null) result = caseInterfaceProvidingEntity(basicComponent);
 				if (result == null) result = caseInterfaceRequiringEntity(basicComponent);
 				if (result == null) result = caseResourceInterfaceRequiringEntity(basicComponent);
@@ -403,6 +416,21 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseRepository(Repository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepositoryComponent(RepositoryComponent object) {
 		return null;
 	}
 

@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -125,6 +126,15 @@ public class EntitySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EntityPackage.INTERFACE_REQUIRING_ENTITY: {
+				InterfaceRequiringEntity interfaceRequiringEntity = (InterfaceRequiringEntity)theEObject;
+				T result = caseInterfaceRequiringEntity(interfaceRequiringEntity);
+				if (result == null) result = caseEntity(interfaceRequiringEntity);
+				if (result == null) result = caseIdentifier(interfaceRequiringEntity);
+				if (result == null) result = caseNamedElement(interfaceRequiringEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY: {
 				InterfaceProvidingRequiringEntity interfaceProvidingRequiringEntity = (InterfaceProvidingRequiringEntity)theEObject;
 				T result = caseInterfaceProvidingRequiringEntity(interfaceProvidingRequiringEntity);
@@ -134,15 +144,6 @@ public class EntitySwitch<T> {
 				if (result == null) result = caseEntity(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseIdentifier(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseNamedElement(interfaceProvidingRequiringEntity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EntityPackage.INTERFACE_REQUIRING_ENTITY: {
-				InterfaceRequiringEntity interfaceRequiringEntity = (InterfaceRequiringEntity)theEObject;
-				T result = caseInterfaceRequiringEntity(interfaceRequiringEntity);
-				if (result == null) result = caseEntity(interfaceRequiringEntity);
-				if (result == null) result = caseIdentifier(interfaceRequiringEntity);
-				if (result == null) result = caseNamedElement(interfaceRequiringEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

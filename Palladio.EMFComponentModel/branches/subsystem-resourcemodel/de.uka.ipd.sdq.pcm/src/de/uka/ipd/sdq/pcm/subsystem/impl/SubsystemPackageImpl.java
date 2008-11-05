@@ -4,6 +4,10 @@
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.subsystem.impl;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
@@ -21,52 +25,28 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
-
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.impl.ReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
-
 import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
-
 import de.uka.ipd.sdq.pcm.seff.performance.impl.PerformancePackageImpl;
-
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemFactory;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
-
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
 import de.uka.ipd.sdq.stoex.StoexPackage;
-
 import de.uka.ipd.sdq.units.UnitsPackage;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -154,8 +134,8 @@ public class SubsystemPackageImpl extends EPackageImpl implements SubsystemPacka
 		// Obtain or create and register interdependencies
 		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
+		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
@@ -174,8 +154,8 @@ public class SubsystemPackageImpl extends EPackageImpl implements SubsystemPacka
 		theSubsystemPackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theEntityPackage.createPackageContents();
-		theCompositionPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
+		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
@@ -194,8 +174,8 @@ public class SubsystemPackageImpl extends EPackageImpl implements SubsystemPacka
 		theSubsystemPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
-		theCompositionPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
+		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
@@ -230,15 +210,6 @@ public class SubsystemPackageImpl extends EPackageImpl implements SubsystemPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSubSystem_Repository__SubSystem() {
-		return (EReference)subSystemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SubsystemFactory getSubsystemFactory() {
 		return (SubsystemFactory)getEFactoryInstance();
 	}
@@ -263,7 +234,6 @@ public class SubsystemPackageImpl extends EPackageImpl implements SubsystemPacka
 
 		// Create classes and their features
 		subSystemEClass = createEClass(SUB_SYSTEM);
-		createEReference(subSystemEClass, SUB_SYSTEM__REPOSITORY_SUB_SYSTEM);
 	}
 
 	/**
@@ -299,10 +269,10 @@ public class SubsystemPackageImpl extends EPackageImpl implements SubsystemPacka
 
 		// Add supertypes to classes
 		subSystemEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
+		subSystemEClass.getESuperTypes().add(theRepositoryPackage.getRepositoryComponent());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(subSystemEClass, SubSystem.class, "SubSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSubSystem_Repository__SubSystem(), theRepositoryPackage.getRepository(), theRepositoryPackage.getRepository_Subsystems__Repository(), "repository__SubSystem", null, 1, 1, SubSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -5,9 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition;
 
-import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,14 +6,15 @@
 package de.uka.ipd.sdq.pcm.seff.performance.impl;
 
 import de.uka.ipd.sdq.pcm.seff.performance.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.performance.PerformanceFactory;
+import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
 
 /**
  * <!-- begin-user-doc -->

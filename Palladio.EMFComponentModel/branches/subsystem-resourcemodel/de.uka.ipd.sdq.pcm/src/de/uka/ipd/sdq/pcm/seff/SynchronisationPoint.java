@@ -15,6 +15,10 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * A representation of the model object '<em><b>Synchronisation Point</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

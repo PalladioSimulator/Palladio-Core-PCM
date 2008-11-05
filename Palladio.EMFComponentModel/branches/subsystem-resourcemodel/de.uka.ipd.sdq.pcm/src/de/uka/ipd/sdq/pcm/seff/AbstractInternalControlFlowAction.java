@@ -5,14 +5,18 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
-
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Abstract Internal Control Flow Action</b></em>'.
  * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * TODO
+ * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:

@@ -6,7 +6,6 @@
 package de.uka.ipd.sdq.pcm.seff.performance.util;
 
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 /**

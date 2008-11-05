@@ -84,13 +84,13 @@ public interface PerformancePackage extends EPackage {
 	int PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND = 0;
 
 	/**
-	 * The feature id for the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference.
+	 * The feature id for the '<em><b>Resource Required Role Parametric Resource Demand</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = 1;
+	int PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND = 1;
 
 	/**
 	 * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' container reference.
@@ -133,15 +133,15 @@ public interface PerformancePackage extends EPackage {
 	EReference getParametricResourceDemand_Specification_ParametericResourceDemand();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getResourceRequiredRole_ParametricResourceDemand <em>Resource Required Role Parametric Resource Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Required Resource Parametric Resource Demand</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand()
+	 * @return the meta object for the reference '<em>Resource Required Role Parametric Resource Demand</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getResourceRequiredRole_ParametricResourceDemand()
 	 * @see #getParametricResourceDemand()
 	 * @generated
 	 */
-	EReference getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
+	EReference getParametricResourceDemand_ResourceRequiredRole_ParametricResourceDemand();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}'.
@@ -195,12 +195,12 @@ public interface PerformancePackage extends EPackage {
 		EReference PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_Specification_ParametericResourceDemand();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Resource Required Role Parametric Resource Demand</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
+		EReference PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_ResourceRequiredRole_ParametricResourceDemand();
 
 		/**
 		 * The meta object literal for the '<em><b>Action Parametric Resource Demand</b></em>' container reference feature.

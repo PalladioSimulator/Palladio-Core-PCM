@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,12 +98,12 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 				return createInterfaceProvidingEntityAdapter();
 			}
 			@Override
-			public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
-				return createInterfaceProvidingRequiringEntityAdapter();
-			}
-			@Override
 			public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
 				return createInterfaceRequiringEntityAdapter();
+			}
+			@Override
+			public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+				return createInterfaceProvidingRequiringEntityAdapter();
 			}
 			@Override
 			public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {

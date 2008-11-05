@@ -14,6 +14,13 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * A representation of the model object '<em><b>Service Call</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Interfaces may also contains protocol specifications, which restrict the order of calling its
+ * services, or QoS specifications, which describe their extra-functional properties.
+ * 
+ * TODO
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -41,6 +48,9 @@ public interface ServiceCall extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * TODO
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Signature Service Call</em>' reference.
 	 * @see #setSignature__ServiceCall(Signature)
 	 * @see de.uka.ipd.sdq.pcm.protocol.ProtocolPackage#getServiceCall_Signature__ServiceCall()

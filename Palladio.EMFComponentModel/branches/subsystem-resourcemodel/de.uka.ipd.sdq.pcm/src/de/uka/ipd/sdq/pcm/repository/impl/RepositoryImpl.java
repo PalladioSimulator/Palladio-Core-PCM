@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -22,9 +21,8 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +34,6 @@ import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getRepositoryDescription <em>Repository Description</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getComponents__Repository <em>Components Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getSubsystems__Repository <em>Subsystems Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getDatatypes_Repository <em>Datatypes Repository</em>}</li>
  * </ul>
  * </p>
@@ -79,7 +76,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProvidesComponentType> components__Repository;
+	protected EList<RepositoryComponent> components__Repository;
 
 	/**
 	 * The cached value of the '{@link #getInterfaces__Repository() <em>Interfaces Repository</em>}' containment reference list.
@@ -90,16 +87,6 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @ordered
 	 */
 	protected EList<Interface> interfaces__Repository;
-
-	/**
-	 * The cached value of the '{@link #getSubsystems__Repository() <em>Subsystems Repository</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubsystems__Repository()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SubSystem> subsystems__Repository;
 
 	/**
 	 * The cached value of the '{@link #getDatatypes_Repository() <em>Datatypes Repository</em>}' containment reference list.
@@ -156,9 +143,9 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ProvidesComponentType> getComponents__Repository() {
+	public EList<RepositoryComponent> getComponents__Repository() {
 		if (components__Repository == null) {
-			components__Repository = new EObjectContainmentWithInverseEList<ProvidesComponentType>(ProvidesComponentType.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE);
+			components__Repository = new EObjectContainmentWithInverseEList<RepositoryComponent>(RepositoryComponent.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT);
 		}
 		return components__Repository;
 	}
@@ -200,24 +187,10 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComponents__Repository()).basicAdd(otherEnd, msgs);
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInterfaces__Repository()).basicAdd(otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubsystems__Repository()).basicAdd(otherEnd, msgs);
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDatatypes_Repository()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SubSystem> getSubsystems__Repository() {
-		if (subsystems__Repository == null) {
-			subsystems__Repository = new EObjectContainmentWithInverseEList<SubSystem>(SubSystem.class, this, RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY, SubsystemPackage.SUB_SYSTEM__REPOSITORY_SUB_SYSTEM);
-		}
-		return subsystems__Repository;
 	}
 
 	/**
@@ -232,8 +205,6 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return ((InternalEList<?>)getComponents__Repository()).basicRemove(otherEnd, msgs);
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				return ((InternalEList<?>)getInterfaces__Repository()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY:
-				return ((InternalEList<?>)getSubsystems__Repository()).basicRemove(otherEnd, msgs);
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				return ((InternalEList<?>)getDatatypes_Repository()).basicRemove(otherEnd, msgs);
 		}
@@ -254,8 +225,6 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return getComponents__Repository();
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				return getInterfaces__Repository();
-			case RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY:
-				return getSubsystems__Repository();
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				return getDatatypes_Repository();
 		}
@@ -276,15 +245,11 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return;
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				getComponents__Repository().clear();
-				getComponents__Repository().addAll((Collection<? extends ProvidesComponentType>)newValue);
+				getComponents__Repository().addAll((Collection<? extends RepositoryComponent>)newValue);
 				return;
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				getInterfaces__Repository().clear();
 				getInterfaces__Repository().addAll((Collection<? extends Interface>)newValue);
-				return;
-			case RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY:
-				getSubsystems__Repository().clear();
-				getSubsystems__Repository().addAll((Collection<? extends SubSystem>)newValue);
 				return;
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				getDatatypes_Repository().clear();
@@ -311,9 +276,6 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				getInterfaces__Repository().clear();
 				return;
-			case RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY:
-				getSubsystems__Repository().clear();
-				return;
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				getDatatypes_Repository().clear();
 				return;
@@ -335,8 +297,6 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return components__Repository != null && !components__Repository.isEmpty();
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				return interfaces__Repository != null && !interfaces__Repository.isEmpty();
-			case RepositoryPackage.REPOSITORY__SUBSYSTEMS_REPOSITORY:
-				return subsystems__Repository != null && !subsystems__Repository.isEmpty();
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				return datatypes_Repository != null && !datatypes_Repository.isEmpty();
 		}

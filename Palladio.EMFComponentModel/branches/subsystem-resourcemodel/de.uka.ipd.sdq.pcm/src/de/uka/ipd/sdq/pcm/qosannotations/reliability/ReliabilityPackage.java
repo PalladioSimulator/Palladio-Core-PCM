@@ -5,10 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.reliability;
 
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 
 /**
  * <!-- begin-user-doc -->

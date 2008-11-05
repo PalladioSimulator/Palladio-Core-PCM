@@ -5,15 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.protocol.util;
 
-import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
+
+import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents

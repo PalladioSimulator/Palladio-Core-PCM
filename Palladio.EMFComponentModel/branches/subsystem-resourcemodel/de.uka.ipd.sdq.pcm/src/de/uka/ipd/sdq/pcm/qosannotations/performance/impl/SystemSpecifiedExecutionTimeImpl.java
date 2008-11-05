@@ -5,12 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.performance.impl;
 
-import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
+import org.eclipse.emf.ecore.EClass;
 
+import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.performance.SystemSpecifiedExecutionTime;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

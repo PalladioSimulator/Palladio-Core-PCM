@@ -6,14 +6,15 @@
 package de.uka.ipd.sdq.pcm.qosannotations.reliability.impl;
 
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability;
 
 /**
  * <!-- begin-user-doc -->

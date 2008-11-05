@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#isIsResourceInterface <em>Is Resource Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface <em>Anchestor Interfaces Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getAncestorInterfaces_Interface <em>Ancestor Interfaces Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}</li>
@@ -92,23 +92,19 @@ public interface Interface extends Entity {
 	EList<Interface> getParentInterface__Interface();
 
 	/**
-	 * Returns the value of the '<em><b>Anchestor Interfaces Interface</b></em>' reference list.
+	 * Returns the value of the '<em><b>Ancestor Interfaces Interface</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Anchestor Interfaces Interface</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the set of all parent interfaces, from which this interface inherits. All means not just the direct one.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Anchestor Interfaces Interface</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_AnchestorInterfaces_Interface()
-	 * @model ordered="false"
+	 * @return the value of the '<em>Ancestor Interfaces Interface</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_AncestorInterfaces_Interface()
+	 * @model transient="true" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
-	EList<Interface> getAnchestorInterfaces_Interface();
+	EList<Interface> getAncestorInterfaces_Interface();
 
 	/**
 	 * Returns the value of the '<em><b>Protocols Interface</b></em>' containment reference list.

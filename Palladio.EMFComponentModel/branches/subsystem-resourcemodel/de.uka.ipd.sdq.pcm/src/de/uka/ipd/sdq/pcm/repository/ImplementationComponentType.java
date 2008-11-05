@@ -5,12 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 /**
@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * @model abstract="true"
  * @generated
  */
-public interface ImplementationComponentType extends InterfaceProvidingRequiringEntity {
+public interface ImplementationComponentType extends InterfaceProvidingRequiringEntity, RepositoryComponent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
