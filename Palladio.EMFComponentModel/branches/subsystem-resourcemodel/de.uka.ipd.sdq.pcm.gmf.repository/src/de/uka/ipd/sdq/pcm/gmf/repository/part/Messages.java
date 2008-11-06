@@ -331,6 +331,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String SubSystem7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SubSystem7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String Signature1CreationTool_title;
 
 	/**
@@ -482,6 +492,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ProvidesComponentType_2104_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SubSystem_2106_outgoinglinks;
 
 	/**
 	 * @generated

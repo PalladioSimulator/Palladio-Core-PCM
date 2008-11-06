@@ -36,6 +36,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditP
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
@@ -45,6 +47,7 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -207,6 +210,10 @@ public class PalladioComponentModelVisualIDRegistry {
 					.isSuperTypeOf(domainElement.eClass())) {
 				return ProvidesComponentTypeEditPart.VISUAL_ID;
 			}
+			if (SubsystemPackage.eINSTANCE.getSubSystem().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SubSystemEditPart.VISUAL_ID;
+			}
 			break;
 		}
 		return -1;
@@ -270,6 +277,11 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case SubSystemEditPart.VISUAL_ID:
+			if (SubSystemEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case VariableUsageEditPart.VISUAL_ID:
 			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -317,6 +329,9 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			if (ProvidesComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SubSystemEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

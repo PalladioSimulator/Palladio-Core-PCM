@@ -74,6 +74,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.CompleteComponentType_2103);
 			types
 					.add(PalladioComponentModelElementTypes.ProvidesComponentType_2104);
+			types.add(PalladioComponentModelElementTypes.SubSystem_2106);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

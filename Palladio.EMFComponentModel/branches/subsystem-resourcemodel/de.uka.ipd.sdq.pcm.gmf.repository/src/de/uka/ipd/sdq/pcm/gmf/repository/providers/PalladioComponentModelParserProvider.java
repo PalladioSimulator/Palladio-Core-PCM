@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
@@ -131,6 +132,31 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createProvidesComponentTypeEntityName_5104Parser() {
+		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+				.getNamedElement_EntityName(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser subSystemEntityName_5107Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSubSystemEntityName_5107Parser() {
+		if (subSystemEntityName_5107Parser == null) {
+			subSystemEntityName_5107Parser = createSubSystemEntityName_5107Parser();
+		}
+		return subSystemEntityName_5107Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createSubSystemEntityName_5107Parser() {
 		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -277,6 +303,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getCompleteComponentTypeEntityName_5103Parser();
 		case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
 			return getProvidesComponentTypeEntityName_5104Parser();
+		case SubSystemEntityNameEditPart.VISUAL_ID:
+			return getSubSystemEntityName_5107Parser();
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101Parser();
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:

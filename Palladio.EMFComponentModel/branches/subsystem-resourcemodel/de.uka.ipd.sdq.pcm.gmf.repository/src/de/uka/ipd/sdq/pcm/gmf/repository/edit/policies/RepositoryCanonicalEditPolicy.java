@@ -40,6 +40,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramUpdater;
@@ -97,6 +98,7 @@ public class RepositoryCanonicalEditPolicy extends
 		case CompositeComponentEditPart.VISUAL_ID:
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
+		case SubSystemEditPart.VISUAL_ID:
 			return !semanticChildren.contains(view.getElement())
 					|| visualID != PalladioComponentModelVisualIDRegistry
 							.getNodeVisualID((View) getHost().getModel(), view
@@ -287,6 +289,17 @@ public class RepositoryCanonicalEditPolicy extends
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
 						.getProvidesComponentType_2104ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case SubSystemEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getSubSystem_2106ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

@@ -35,6 +35,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
@@ -56,6 +57,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
 
 /**
  * @generated
@@ -283,6 +285,11 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
+			if (visualID == SubSystemEditPart.VISUAL_ID) {
+				result.add(new PalladioComponentModelNodeDescriptor(
+						childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -304,6 +311,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCompleteComponentType_2103ContainedLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getProvidesComponentType_2104ContainedLinks(view);
+		case SubSystemEditPart.VISUAL_ID:
+			return getSubSystem_2106ContainedLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101ContainedLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
@@ -339,6 +348,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCompleteComponentType_2103IncomingLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getProvidesComponentType_2104IncomingLinks(view);
+		case SubSystemEditPart.VISUAL_ID:
+			return getSubSystem_2106IncomingLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101IncomingLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
@@ -374,6 +385,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCompleteComponentType_2103OutgoingLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getProvidesComponentType_2104OutgoingLinks(view);
+		case SubSystemEditPart.VISUAL_ID:
+			return getSubSystem_2106OutgoingLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101OutgoingLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
@@ -449,6 +462,21 @@ public class PalladioComponentModelDiagramUpdater {
 	public static List getProvidesComponentType_2104ContainedLinks(View view) {
 		ProvidesComponentType modelElement = (ProvidesComponentType) view
 				.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4105(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getSubSystem_2106ContainedLinks(View view) {
+		SubSystem modelElement = (SubSystem) view.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
@@ -590,6 +618,13 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List getSubSystem_2106IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getCompositeComponent_2105IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -698,6 +733,21 @@ public class PalladioComponentModelDiagramUpdater {
 	public static List getProvidesComponentType_2104OutgoingLinks(View view) {
 		ProvidesComponentType modelElement = (ProvidesComponentType) view
 				.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4105(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getSubSystem_2106OutgoingLinks(View view) {
+		SubSystem modelElement = (SubSystem) view.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));

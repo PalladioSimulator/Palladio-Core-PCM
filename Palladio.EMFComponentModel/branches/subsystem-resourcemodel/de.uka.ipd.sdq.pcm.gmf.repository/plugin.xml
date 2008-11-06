@@ -398,6 +398,16 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2104"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.repository.SubSystem_2106"
+               name="%metatype.name.SubSystem_2106"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SubSystem"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.SubSystemEditHelper">
+            <param name="semanticHint" value="2106"/>
+         </metamodelType>
+      </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.Signature_3101"
@@ -516,6 +526,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2103"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_2104"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.SubSystem_2106"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Signature_3101"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFF_3102"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.PassiveResource_3103"/>

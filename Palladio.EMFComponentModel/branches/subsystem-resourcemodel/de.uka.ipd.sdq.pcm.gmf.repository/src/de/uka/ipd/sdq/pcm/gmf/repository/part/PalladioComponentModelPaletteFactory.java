@@ -44,6 +44,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createRequiredRole4CreationTool());
 		paletteContainer.add(createProvidedRole5CreationTool());
 		paletteContainer.add(createResourceRequiredRole6CreationTool());
+		paletteContainer.add(createSubSystem7CreationTool());
 		return paletteContainer;
 	}
 
@@ -169,6 +170,22 @@ public class PalladioComponentModelPaletteFactory {
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ResourceRequiredRole_4105));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSubSystem7CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.SubSystem_2106);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.SubSystem7CreationTool_title,
+				Messages.SubSystem7CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.SubSystem_2106));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

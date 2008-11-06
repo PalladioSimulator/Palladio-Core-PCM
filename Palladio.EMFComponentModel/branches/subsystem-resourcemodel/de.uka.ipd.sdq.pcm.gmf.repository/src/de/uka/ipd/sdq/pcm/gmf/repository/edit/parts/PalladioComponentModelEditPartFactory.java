@@ -65,6 +65,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
 				return new ProvidesComponentTypeEntityNameEditPart(view);
 
+			case SubSystemEditPart.VISUAL_ID:
+				return new SubSystemEditPart(view);
+
+			case SubSystemEntityNameEditPart.VISUAL_ID:
+				return new SubSystemEntityNameEditPart(view);
+
 			case SignatureEditPart.VISUAL_ID:
 				return new SignatureEditPart(view);
 

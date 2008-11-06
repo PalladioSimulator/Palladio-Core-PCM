@@ -40,6 +40,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
@@ -130,6 +132,9 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidesComponentType", PalladioComponentModelElementTypes.ProvidesComponentType_2104); //$NON-NLS-1$
+		case SubSystemEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0?SubSystem", PalladioComponentModelElementTypes.SubSystem_2106); //$NON-NLS-1$
 		case SignatureEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Signature", PalladioComponentModelElementTypes.Signature_3101); //$NON-NLS-1$
@@ -226,6 +231,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getCompleteComponentType_2103Text(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getProvidesComponentType_2104Text(view);
+		case SubSystemEditPart.VISUAL_ID:
+			return getSubSystem_2106Text(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101Text(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
@@ -349,6 +356,28 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 5104); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSubSystem_2106Text(View view) {
+		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+				PalladioComponentModelElementTypes.SubSystem_2106, (view
+						.getElement() != null ? view.getElement() : view),
+				PalladioComponentModelVisualIDRegistry
+						.getType(SubSystemEntityNameEditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
+
+		if (parser != null) {
+			return parser.getPrintString(hintAdapter, ParserOptions.NONE
+					.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5107); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 

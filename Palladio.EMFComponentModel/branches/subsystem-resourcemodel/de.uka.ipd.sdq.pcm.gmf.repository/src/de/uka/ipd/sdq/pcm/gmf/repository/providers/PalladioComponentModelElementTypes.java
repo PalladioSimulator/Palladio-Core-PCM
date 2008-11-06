@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDi
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * @generated
@@ -74,6 +75,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType ProvidesComponentType_2104 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_2104"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SubSystem_2106 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.SubSystem_2106"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -259,6 +265,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(ProvidesComponentType_2104,
 					RepositoryPackage.eINSTANCE.getProvidesComponentType());
 
+			elements.put(SubSystem_2106, SubsystemPackage.eINSTANCE
+					.getSubSystem());
+
 			elements.put(Signature_3101, RepositoryPackage.eINSTANCE
 					.getSignature());
 
@@ -317,6 +326,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(CompositeComponent_2105);
 			KNOWN_ELEMENT_TYPES.add(CompleteComponentType_2103);
 			KNOWN_ELEMENT_TYPES.add(ProvidesComponentType_2104);
+			KNOWN_ELEMENT_TYPES.add(SubSystem_2106);
 			KNOWN_ELEMENT_TYPES.add(Signature_3101);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_3102);
 			KNOWN_ELEMENT_TYPES.add(PassiveResource_3103);
