@@ -1,12 +1,12 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel;
 
 import org.eclipse.emf.ecore.EObject;
-import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,13 +25,6 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * @generated
  */
 public interface NamedElement extends EObject {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

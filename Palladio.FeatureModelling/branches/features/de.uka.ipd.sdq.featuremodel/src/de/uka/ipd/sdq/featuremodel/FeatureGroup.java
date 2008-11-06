@@ -11,7 +11,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Feature Group</b></em>'.
@@ -30,15 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface FeatureGroup extends Node {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
+public interface FeatureGroup extends ChildRelation {
 	/**
 	 * Returns the value of the '<em><b>Min</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
@@ -162,4 +153,5 @@ public interface FeatureGroup extends Node {
 	 * @generated
 	 */
 	boolean XORImpliesCardinalitiesToBeOne(DiagnosticChain diagnostics, Map<Object, Object> context);
+
 } // FeatureGroup

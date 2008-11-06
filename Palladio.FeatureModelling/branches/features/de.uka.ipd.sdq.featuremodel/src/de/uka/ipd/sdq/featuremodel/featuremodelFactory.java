@@ -18,12 +18,6 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface featuremodelFactory extends EFactory {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,6 +78,15 @@ public interface featuremodelFactory extends EFactory {
 	 * @generated
 	 */
 	ProhibitsConstraint createProhibitsConstraint();
+
+	/**
+	 * Returns a new object of class '<em>Simple</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple</em>'.
+	 * @generated
+	 */
+	Simple createSimple();
 
 	/**
 	 * Returns the package supported by this factory.

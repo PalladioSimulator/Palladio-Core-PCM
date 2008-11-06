@@ -7,26 +7,28 @@
 package de.uka.ipd.sdq.featuremodel.provider;
 
 
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.featuremodel.Feature} object.
@@ -35,20 +37,13 @@ import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
  * @generated
  */
 public class FeatureItemProvider
-	extends NodeItemProvider
+	extends NamedElementItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -70,31 +65,8 @@ public class FeatureItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsMandatoryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Mandatory feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsMandatoryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Feature_isMandatory_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isMandatory_feature", "_UI_Feature_type"),
-				 featuremodelPackage.Literals.FEATURE__IS_MANDATORY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -110,7 +82,7 @@ public class FeatureItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(featuremodelPackage.Literals.FEATURE__ATTRIBUTES);
-			childrenFeatures.add(featuremodelPackage.Literals.FEATURE__CHILDREN);
+			childrenFeatures.add(featuremodelPackage.Literals.FEATURE__CHILDRELATION);
 		}
 		return childrenFeatures;
 	}
@@ -165,11 +137,8 @@ public class FeatureItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Feature.class)) {
-			case featuremodelPackage.FEATURE__IS_MANDATORY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case featuremodelPackage.FEATURE__ATTRIBUTES:
-			case featuremodelPackage.FEATURE__CHILDREN:
+			case featuremodelPackage.FEATURE__CHILDRELATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -194,13 +163,13 @@ public class FeatureItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(featuremodelPackage.Literals.FEATURE__CHILDREN,
-				 featuremodelFactory.eINSTANCE.createFeature()));
+				(featuremodelPackage.Literals.FEATURE__CHILDRELATION,
+				 featuremodelFactory.eINSTANCE.createFeatureGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(featuremodelPackage.Literals.FEATURE__CHILDREN,
-				 featuremodelFactory.eINSTANCE.createFeatureGroup()));
+				(featuremodelPackage.Literals.FEATURE__CHILDRELATION,
+				 featuremodelFactory.eINSTANCE.createSimple()));
 	}
 
 	/**

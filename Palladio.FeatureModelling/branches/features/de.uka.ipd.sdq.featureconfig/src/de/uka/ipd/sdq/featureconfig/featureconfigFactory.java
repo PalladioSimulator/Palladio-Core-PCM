@@ -44,15 +44,6 @@ public interface featureconfigFactory extends EFactory {
 	FeatureConfig createFeatureConfig();
 
 	/**
-	 * Returns a new object of class '<em>Config Feature Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Config Feature Group</em>'.
-	 * @generated
-	 */
-	ConfigFeatureGroup createConfigFeatureGroup();
-
-	/**
 	 * Returns a new object of class '<em>Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

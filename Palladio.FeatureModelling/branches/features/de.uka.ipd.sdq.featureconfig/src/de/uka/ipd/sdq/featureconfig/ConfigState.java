@@ -30,7 +30,9 @@ public enum ConfigState implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SELECTED(0, "SELECTED", "SELECTED"), /**
+	SELECTED(0, "SELECTED", "SELECTED"),
+
+	/**
 	 * The '<em><b>ELIMINATED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,7 +40,9 @@ public enum ConfigState implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ELIMINATED(1, "ELIMINATED", "ELIMINATED"), /**
+	ELIMINATED(1, "ELIMINATED", "ELIMINATED"),
+
+	/**
 	 * The '<em><b>DEFAULT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

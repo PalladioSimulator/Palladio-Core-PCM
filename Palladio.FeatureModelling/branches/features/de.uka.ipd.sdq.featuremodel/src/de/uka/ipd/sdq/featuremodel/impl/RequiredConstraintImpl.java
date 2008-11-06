@@ -1,14 +1,15 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,13 +21,6 @@ import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
  * @generated
  */
 public class RequiredConstraintImpl extends ConstraintImpl implements RequiredConstraint {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1,22 +1,27 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
+import de.uka.ipd.sdq.featuremodel.Constraint;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.Node;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,13 +40,6 @@ import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
  */
 public abstract class ConstraintImpl extends NamedElementImpl implements Constraint {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
-	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,7 +47,7 @@ public abstract class ConstraintImpl extends NamedElementImpl implements Constra
 	 * @generated
 	 * @ordered
 	 */
-	protected Node source;
+	protected Feature source;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference list.
@@ -59,7 +57,7 @@ public abstract class ConstraintImpl extends NamedElementImpl implements Constra
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Node> target;
+	protected EList<Feature> target;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -105,10 +103,10 @@ public abstract class ConstraintImpl extends NamedElementImpl implements Constra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getSource() {
+	public Feature getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
-			source = (Node)eResolveProxy(oldSource);
+			source = (Feature)eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, featuremodelPackage.CONSTRAINT__SOURCE, oldSource, source));
@@ -122,7 +120,7 @@ public abstract class ConstraintImpl extends NamedElementImpl implements Constra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node basicGetSource() {
+	public Feature basicGetSource() {
 		return source;
 	}
 
@@ -131,8 +129,8 @@ public abstract class ConstraintImpl extends NamedElementImpl implements Constra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSource(Node newSource) {
-		Node oldSource = source;
+	public void setSource(Feature newSource) {
+		Feature oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, featuremodelPackage.CONSTRAINT__SOURCE, oldSource, source));
@@ -143,9 +141,9 @@ public abstract class ConstraintImpl extends NamedElementImpl implements Constra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Node> getTarget() {
+	public EList<Feature> getTarget() {
 		if (target == null) {
-			target = new EObjectResolvingEList<Node>(Node.class, this, featuremodelPackage.CONSTRAINT__TARGET);
+			target = new EObjectResolvingEList<Feature>(Feature.class, this, featuremodelPackage.CONSTRAINT__TARGET);
 		}
 		return target;
 	}
@@ -200,11 +198,11 @@ public abstract class ConstraintImpl extends NamedElementImpl implements Constra
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case featuremodelPackage.CONSTRAINT__SOURCE:
-				setSource((Node)newValue);
+				setSource((Feature)newValue);
 				return;
 			case featuremodelPackage.CONSTRAINT__TARGET:
 				getTarget().clear();
-				getTarget().addAll((Collection<? extends Node>)newValue);
+				getTarget().addAll((Collection<? extends Feature>)newValue);
 				return;
 			case featuremodelPackage.CONSTRAINT__DESCRIPTION:
 				setDescription((String)newValue);
@@ -222,7 +220,7 @@ public abstract class ConstraintImpl extends NamedElementImpl implements Constra
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case featuremodelPackage.CONSTRAINT__SOURCE:
-				setSource((Node)null);
+				setSource((Feature)null);
 				return;
 			case featuremodelPackage.CONSTRAINT__TARGET:
 				getTarget().clear();

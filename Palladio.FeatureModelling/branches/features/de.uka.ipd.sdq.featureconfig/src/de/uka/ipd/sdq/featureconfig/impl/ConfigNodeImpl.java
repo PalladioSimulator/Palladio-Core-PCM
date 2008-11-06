@@ -6,32 +6,31 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectValidator;
-
-import org.eclipse.emf.ocl.expressions.OCLExpression;
-import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
-import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
-import org.eclipse.emf.ocl.parser.Environment;
-import org.eclipse.emf.ocl.parser.ParserException;
-import org.eclipse.emf.ocl.query.Query;
-import org.eclipse.emf.ocl.query.QueryFactory;
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
 import de.uka.ipd.sdq.featureconfig.ConfigState;
 import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+
 import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
+
 import de.uka.ipd.sdq.featuremodel.Feature;
+
+import java.util.Map;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import org.eclipse.emf.ecore.util.EObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,7 +55,7 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject origin;
+	protected Feature origin;
 
 	/**
 	 * The default value of the '{@link #getConfigState() <em>Config State</em>}' attribute.
@@ -77,8 +76,6 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 * @ordered
 	 */
 	protected ConfigState configState = CONFIG_STATE_EDEFAULT;
-	
-	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,10 +101,10 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject getOrigin() {
+	public Feature getOrigin() {
 		if (origin != null && origin.eIsProxy()) {
 			InternalEObject oldOrigin = (InternalEObject)origin;
-			origin = eResolveProxy(oldOrigin);
+			origin = (Feature)eResolveProxy(oldOrigin);
 			if (origin != oldOrigin) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, featureconfigPackage.CONFIG_NODE__ORIGIN, oldOrigin, origin));
@@ -121,7 +118,7 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject basicGetOrigin() {
+	public Feature basicGetOrigin() {
 		return origin;
 	}
 
@@ -130,8 +127,8 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOrigin(EObject newOrigin) {
-		EObject oldOrigin = origin;
+	public void setOrigin(Feature newOrigin) {
+		Feature oldOrigin = origin;
 		origin = newOrigin;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.CONFIG_NODE__ORIGIN, oldOrigin, origin));
@@ -209,7 +206,7 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case featureconfigPackage.CONFIG_NODE__ORIGIN:
-				setOrigin((EObject)newValue);
+				setOrigin((Feature)newValue);
 				return;
 			case featureconfigPackage.CONFIG_NODE__CONFIG_STATE:
 				setConfigState((ConfigState)newValue);
@@ -227,7 +224,7 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case featureconfigPackage.CONFIG_NODE__ORIGIN:
-				setOrigin((EObject)null);
+				setOrigin((Feature)null);
 				return;
 			case featureconfigPackage.CONFIG_NODE__CONFIG_STATE:
 				setConfigState(CONFIG_STATE_EDEFAULT);

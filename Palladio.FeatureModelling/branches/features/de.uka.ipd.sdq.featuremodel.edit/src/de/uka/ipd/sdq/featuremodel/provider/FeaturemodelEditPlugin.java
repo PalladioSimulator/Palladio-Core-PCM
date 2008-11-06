@@ -1,14 +1,14 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.util.ResourceLocator;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
  * This is the central singleton for the Featuremodel edit plugin.
@@ -17,13 +17,6 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
  * @generated
  */
 public final class FeaturemodelEditPlugin extends EMFPlugin {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->

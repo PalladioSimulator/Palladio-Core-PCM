@@ -6,37 +6,35 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
-import de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup;
+import de.uka.ipd.sdq.featureconfig.ConfigNode;
+import de.uka.ipd.sdq.featureconfig.FeatureConfig;
+import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+
+import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
+
 import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.emf.ocl.expressions.OCLExpression;
-import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
-import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
-import org.eclipse.emf.ocl.parser.Environment;
-import org.eclipse.emf.ocl.parser.ParserException;
-import org.eclipse.emf.ocl.query.Query;
-import org.eclipse.emf.ocl.query.QueryFactory;
-import de.uka.ipd.sdq.featureconfig.ConfigNode;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
-import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +45,6 @@ import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getReferencedObject <em>Referenced Object</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfignode <em>Confignode</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featureconfig.impl.FeatureConfigImpl#getConfigfeaturegroup <em>Configfeaturegroup</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,18 +70,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * @ordered
 	 */
 	protected EList<ConfigNode> confignode;
-
-	/**
-	 * The cached value of the '{@link #getConfigfeaturegroup() <em>Configfeaturegroup</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConfigfeaturegroup()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ConfigFeatureGroup> configfeaturegroup;
-
-	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,18 +145,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ConfigFeatureGroup> getConfigfeaturegroup() {
-		if (configfeaturegroup == null) {
-			configfeaturegroup = new EObjectContainmentEList<ConfigFeatureGroup>(ConfigFeatureGroup.class, this, featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP);
-		}
-		return configfeaturegroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean RootIsFeatureModel(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		// TODO: implement this method
 		// -> specify the condition that violates the invariant
@@ -202,8 +175,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 		switch (featureID) {
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				return ((InternalEList<?>)getConfignode()).basicRemove(otherEnd, msgs);
-			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
-				return ((InternalEList<?>)getConfigfeaturegroup()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -221,8 +192,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return basicGetReferencedObject();
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				return getConfignode();
-			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
-				return getConfigfeaturegroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,10 +212,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				getConfignode().clear();
 				getConfignode().addAll((Collection<? extends ConfigNode>)newValue);
 				return;
-			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
-				getConfigfeaturegroup().clear();
-				getConfigfeaturegroup().addAll((Collection<? extends ConfigFeatureGroup>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -265,9 +230,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				getConfignode().clear();
 				return;
-			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
-				getConfigfeaturegroup().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -284,8 +246,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return referencedObject != null;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				return confignode != null && !confignode.isEmpty();
-			case featureconfigPackage.FEATURE_CONFIG__CONFIGFEATUREGROUP:
-				return configfeaturegroup != null && !configfeaturegroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

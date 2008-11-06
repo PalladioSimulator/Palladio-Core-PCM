@@ -6,12 +6,13 @@
  */
 package de.uka.ipd.sdq.featureconfig.presentation;
 
-import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.ui.EclipseUIPlugin;
-import org.eclipse.emf.common.util.ResourceLocator;
+import de.uka.ipd.sdq.featuremodel.provider.FeaturemodelEditPlugin;
 
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import org.eclipse.emf.common.EMFPlugin;
+
+import org.eclipse.emf.common.ui.EclipseUIPlugin;
+
+import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
  * This is the central singleton for the Featureconfig editor plugin.
@@ -45,6 +46,7 @@ public final class FeatureconfigEditorPlugin extends EMFPlugin {
 	public FeatureconfigEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				FeaturemodelEditPlugin.INSTANCE,
 			});
 	}
 

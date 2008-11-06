@@ -1,29 +1,20 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.util;
 
 import de.uka.ipd.sdq.featuremodel.*;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.util.EObjectValidator;
 
-import de.uka.ipd.sdq.featuremodel.Attribute;
-import de.uka.ipd.sdq.featuremodel.AttributeTypes;
-import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
-import de.uka.ipd.sdq.featuremodel.FeatureGroup;
-import de.uka.ipd.sdq.featuremodel.NamedElement;
-import de.uka.ipd.sdq.featuremodel.Node;
-import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
-import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.util.EObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,13 +24,6 @@ import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
  * @generated
  */
 public class featuremodelValidator extends EObjectValidator {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -91,12 +75,20 @@ public class featuremodelValidator extends EObjectValidator {
 	public static final int FEATURE_GROUP__XOR_IMPLIES_CARDINALITIES_TO_BE_ONE = 4;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'At Least One Child' of 'Simple'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int SIMPLE__AT_LEAST_ONE_CHILD = 5;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 5;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -136,14 +128,14 @@ public class featuremodelValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case featuremodelPackage.NODE:
-				return validateNode((Node)value, diagnostics, context);
-			case featuremodelPackage.NAMED_ELEMENT:
-				return validateNamedElement((NamedElement)value, diagnostics, context);
 			case featuremodelPackage.FEATURE:
 				return validateFeature((Feature)value, diagnostics, context);
+			case featuremodelPackage.NAMED_ELEMENT:
+				return validateNamedElement((NamedElement)value, diagnostics, context);
 			case featuremodelPackage.ATTRIBUTE:
 				return validateAttribute((Attribute)value, diagnostics, context);
+			case featuremodelPackage.CHILD_RELATION:
+				return validateChildRelation((ChildRelation)value, diagnostics, context);
 			case featuremodelPackage.FEATURE_GROUP:
 				return validateFeatureGroup((FeatureGroup)value, diagnostics, context);
 			case featuremodelPackage.FEATURE_DIAGRAM:
@@ -154,29 +146,13 @@ public class featuremodelValidator extends EObjectValidator {
 				return validateRequiredConstraint((RequiredConstraint)value, diagnostics, context);
 			case featuremodelPackage.PROHIBITS_CONSTRAINT:
 				return validateProhibitsConstraint((ProhibitsConstraint)value, diagnostics, context);
+			case featuremodelPackage.SIMPLE:
+				return validateSimple((Simple)value, diagnostics, context);
 			case featuremodelPackage.ATTRIBUTE_TYPES:
 				return validateAttributeTypes((AttributeTypes)value, diagnostics, context);
 			default: 
 				return true;
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNode(Node node, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(node, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
 	}
 
 	/**
@@ -195,6 +171,24 @@ public class featuremodelValidator extends EObjectValidator {
 	 */
 	public boolean validateAttribute(Attribute attribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(attribute, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateChildRelation(ChildRelation childRelation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(childRelation, diagnostics, context);
 	}
 
 	/**
@@ -291,6 +285,33 @@ public class featuremodelValidator extends EObjectValidator {
 	 */
 	public boolean validateProhibitsConstraint(ProhibitsConstraint prohibitsConstraint, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(prohibitsConstraint, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSimple(Simple simple, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(simple, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(simple, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(simple, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(simple, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(simple, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(simple, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(simple, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSimple_atLeastOneChild(simple, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the atLeastOneChild constraint of '<em>Simple</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSimple_atLeastOneChild(Simple simple, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return simple.atLeastOneChild(diagnostics, context);
 	}
 
 	/**

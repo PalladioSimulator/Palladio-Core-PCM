@@ -1,5 +1,6 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
@@ -50,13 +51,6 @@ public enum AttributeTypes implements Enumerator {
 	 * @ordered
 	 */
 	REAL(2, "REAL", "REAL");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
 
 	/**
 	 * The '<em><b>INT</b></em>' literal value.

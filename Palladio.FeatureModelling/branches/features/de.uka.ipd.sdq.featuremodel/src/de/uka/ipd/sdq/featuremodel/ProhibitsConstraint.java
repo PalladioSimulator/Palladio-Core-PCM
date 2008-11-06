@@ -1,5 +1,6 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
@@ -17,11 +18,4 @@ package de.uka.ipd.sdq.featuremodel;
  * @generated
  */
 public interface ProhibitsConstraint extends Constraint {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 } // ProhibitsConstraint

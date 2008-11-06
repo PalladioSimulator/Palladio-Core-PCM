@@ -6,27 +6,29 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
-import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
+import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Prohibits Constraint</b></em>'.
+ * An implementation of the model object '<em><b>Child Relation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class ProhibitsConstraintImpl extends ConstraintImpl implements ProhibitsConstraint {
+public abstract class ChildRelationImpl extends EObjectImpl implements ChildRelation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProhibitsConstraintImpl() {
+	protected ChildRelationImpl() {
 		super();
 	}
 
@@ -37,7 +39,7 @@ public class ProhibitsConstraintImpl extends ConstraintImpl implements Prohibits
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return featuremodelPackage.Literals.PROHIBITS_CONSTRAINT;
+		return featuremodelPackage.Literals.CHILD_RELATION;
 	}
 
-} //ProhibitsConstraintImpl
+} //ChildRelationImpl

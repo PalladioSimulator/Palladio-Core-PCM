@@ -4,12 +4,12 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.featureconfig.provider;
+package de.uka.ipd.sdq.featuremodel.provider;
 
 
-import de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup;
-import de.uka.ipd.sdq.featureconfig.ConfigState;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import de.uka.ipd.sdq.featuremodel.Simple;
+import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,25 +19,24 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.featuremodel.Simple} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigFeatureGroupItemProvider
-	extends ItemProviderAdapter
+public class SimpleItemProvider
+	extends ChildRelationItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -50,7 +49,7 @@ public class ConfigFeatureGroupItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConfigFeatureGroupItemProvider(AdapterFactory adapterFactory) {
+	public SimpleItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -65,65 +64,50 @@ public class ConfigFeatureGroupItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addConfigStatusPropertyDescriptor(object);
-			addOriginPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Config Status feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addConfigStatusPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConfigFeatureGroup_configStatus_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigFeatureGroup_configStatus_feature", "_UI_ConfigFeatureGroup_type"),
-				 featureconfigPackage.Literals.CONFIG_FEATURE_GROUP__CONFIG_STATUS,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN);
+			childrenFeatures.add(featuremodelPackage.Literals.SIMPLE__OPTIONAL_CHILDREN);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Origin feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOriginPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConfigFeatureGroup_origin_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConfigFeatureGroup_origin_feature", "_UI_ConfigFeatureGroup_type"),
-				 featureconfigPackage.Literals.CONFIG_FEATURE_GROUP__ORIGIN,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
-	 * This returns ConfigFeatureGroup.gif.
+	 * This returns Simple.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConfigFeatureGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Simple"));
 	}
 
 	/**
@@ -134,11 +118,7 @@ public class ConfigFeatureGroupItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ConfigState labelValue = ((ConfigFeatureGroup)object).getConfigStatus();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ConfigFeatureGroup_type") :
-			getString("_UI_ConfigFeatureGroup_type") + " " + label;
+		return getString("_UI_Simple_type");
 	}
 
 	/**
@@ -152,9 +132,10 @@ public class ConfigFeatureGroupItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ConfigFeatureGroup.class)) {
-			case featureconfigPackage.CONFIG_FEATURE_GROUP__CONFIG_STATUS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		switch (notification.getFeatureID(Simple.class)) {
+			case featuremodelPackage.SIMPLE__MANDATORY_CHILDREN:
+			case featuremodelPackage.SIMPLE__OPTIONAL_CHILDREN:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -170,6 +151,39 @@ public class ConfigFeatureGroupItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN,
+				 featuremodelFactory.eINSTANCE.createFeature()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(featuremodelPackage.Literals.SIMPLE__OPTIONAL_CHILDREN,
+				 featuremodelFactory.eINSTANCE.createFeature()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == featuremodelPackage.Literals.SIMPLE__MANDATORY_CHILDREN ||
+			childFeature == featuremodelPackage.Literals.SIMPLE__OPTIONAL_CHILDREN;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
@@ -180,7 +194,7 @@ public class ConfigFeatureGroupItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return FeatureconfigEditPlugin.INSTANCE;
+		return FeaturemodelEditPlugin.INSTANCE;
 	}
 
 }

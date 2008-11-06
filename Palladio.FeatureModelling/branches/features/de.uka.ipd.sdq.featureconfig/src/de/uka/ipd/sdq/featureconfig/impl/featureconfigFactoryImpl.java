@@ -7,19 +7,15 @@
 package de.uka.ipd.sdq.featureconfig.impl;
 
 import de.uka.ipd.sdq.featureconfig.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.featureconfig.ConfigNode;
-import de.uka.ipd.sdq.featureconfig.ConfigState;
-import de.uka.ipd.sdq.featureconfig.Configuration;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +32,7 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	 */
 	public static featureconfigFactory init() {
 		try {
-			featureconfigFactory thefeatureconfigFactory = (featureconfigFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureConfig/3.0"); 
+			featureconfigFactory thefeatureconfigFactory = (featureconfigFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureConfig/2.0"); 
 			if (thefeatureconfigFactory != null) {
 				return thefeatureconfigFactory;
 			}
@@ -67,7 +63,6 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 		switch (eClass.getClassifierID()) {
 			case featureconfigPackage.CONFIG_NODE: return createConfigNode();
 			case featureconfigPackage.FEATURE_CONFIG: return createFeatureConfig();
-			case featureconfigPackage.CONFIG_FEATURE_GROUP: return createConfigFeatureGroup();
 			case featureconfigPackage.CONFIGURATION: return createConfiguration();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -122,16 +117,6 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public FeatureConfig createFeatureConfig() {
 		FeatureConfigImpl featureConfig = new FeatureConfigImpl();
 		return featureConfig;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ConfigFeatureGroup createConfigFeatureGroup() {
-		ConfigFeatureGroupImpl configFeatureGroup = new ConfigFeatureGroupImpl();
-		return configFeatureGroup;
 	}
 
 	/**

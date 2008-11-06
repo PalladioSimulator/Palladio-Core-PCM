@@ -7,15 +7,11 @@
 package de.uka.ipd.sdq.featureconfig.util;
 
 import de.uka.ipd.sdq.featureconfig.*;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import de.uka.ipd.sdq.featureconfig.ConfigNode;
-import de.uka.ipd.sdq.featureconfig.Configuration;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,12 +99,6 @@ public class featureconfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case featureconfigPackage.CONFIG_FEATURE_GROUP: {
-				ConfigFeatureGroup configFeatureGroup = (ConfigFeatureGroup)theEObject;
-				T result = caseConfigFeatureGroup(configFeatureGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case featureconfigPackage.CONFIGURATION: {
 				Configuration configuration = (Configuration)theEObject;
 				T result = caseConfiguration(configuration);
@@ -146,21 +136,6 @@ public class featureconfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseFeatureConfig(FeatureConfig object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Config Feature Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Config Feature Group</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConfigFeatureGroup(ConfigFeatureGroup object) {
 		return null;
 	}
 

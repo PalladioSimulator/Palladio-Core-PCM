@@ -7,22 +7,15 @@
 package de.uka.ipd.sdq.featuremodel.impl;
 
 import de.uka.ipd.sdq.featuremodel.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.featuremodel.Attribute;
-import de.uka.ipd.sdq.featuremodel.AttributeTypes;
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
-import de.uka.ipd.sdq.featuremodel.FeatureGroup;
-import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
-import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
-import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,13 +25,6 @@ import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
  */
 public class featuremodelFactoryImpl extends EFactoryImpl implements featuremodelFactory {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
-	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +32,7 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	 */
 	public static featuremodelFactory init() {
 		try {
-			featuremodelFactory thefeaturemodelFactory = (featuremodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureModel/3.0"); 
+			featuremodelFactory thefeaturemodelFactory = (featuremodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/FeatureModel/2.0"); 
 			if (thefeaturemodelFactory != null) {
 				return thefeaturemodelFactory;
 			}
@@ -81,6 +67,7 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 			case featuremodelPackage.FEATURE_DIAGRAM: return createFeatureDiagram();
 			case featuremodelPackage.REQUIRED_CONSTRAINT: return createRequiredConstraint();
 			case featuremodelPackage.PROHIBITS_CONSTRAINT: return createProhibitsConstraint();
+			case featuremodelPackage.SIMPLE: return createSimple();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -174,6 +161,16 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	public ProhibitsConstraint createProhibitsConstraint() {
 		ProhibitsConstraintImpl prohibitsConstraint = new ProhibitsConstraintImpl();
 		return prohibitsConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Simple createSimple() {
+		SimpleImpl simple = new SimpleImpl();
+		return simple;
 	}
 
 	/**

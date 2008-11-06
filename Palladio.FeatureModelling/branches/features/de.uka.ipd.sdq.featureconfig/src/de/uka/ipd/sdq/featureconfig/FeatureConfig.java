@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getReferencedObject <em>Referenced Object</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfignode <em>Confignode</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getConfigfeaturegroup <em>Configfeaturegroup</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,22 +72,6 @@ public interface FeatureConfig extends EObject {
 	 * @generated
 	 */
 	EList<ConfigNode> getConfignode();
-
-	/**
-	 * Returns the value of the '<em><b>Configfeaturegroup</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Configfeaturegroup</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Configfeaturegroup</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_Configfeaturegroup()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<ConfigFeatureGroup> getConfigfeaturegroup();
 
 	/**
 	 * <!-- begin-user-doc -->

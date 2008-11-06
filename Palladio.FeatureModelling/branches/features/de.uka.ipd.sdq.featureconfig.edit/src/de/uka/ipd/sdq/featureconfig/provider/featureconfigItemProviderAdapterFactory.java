@@ -6,12 +6,15 @@
  */
 package de.uka.ipd.sdq.featureconfig.provider;
 
+import de.uka.ipd.sdq.featureconfig.util.featureconfigAdapterFactory;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -23,8 +26,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import de.uka.ipd.sdq.featureconfig.util.featureconfigAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -118,29 +119,6 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 		}
 
 		return featureConfigItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ConfigFeatureGroupItemProvider configFeatureGroupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.ConfigFeatureGroup}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createConfigFeatureGroupAdapter() {
-		if (configFeatureGroupItemProvider == null) {
-			configFeatureGroupItemProvider = new ConfigFeatureGroupItemProvider(this);
-		}
-
-		return configFeatureGroupItemProvider;
 	}
 
 	/**
@@ -267,7 +245,6 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	public void dispose() {
 		if (configNodeItemProvider != null) configNodeItemProvider.dispose();
 		if (featureConfigItemProvider != null) featureConfigItemProvider.dispose();
-		if (configFeatureGroupItemProvider != null) configFeatureGroupItemProvider.dispose();
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
 	}
 

@@ -6,12 +6,13 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
+import de.uka.ipd.sdq.featuremodel.Feature;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.featuremodel.Feature;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ import de.uka.ipd.sdq.featuremodel.Feature;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Holds ConfigState of a Feature. For a Feature it holds the actual value.
+ * Holds ConfigState of a Feature. For a Feature it holds the actual value. 
  * <!-- end-model-doc -->
  *
  * <p>
@@ -44,12 +45,12 @@ public interface ConfigNode extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Origin</em>' reference.
-	 * @see #setOrigin(EObject)
+	 * @see #setOrigin(Feature)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getConfigNode_Origin()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	EObject getOrigin();
+	Feature getOrigin();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.ConfigNode#getOrigin <em>Origin</em>}' reference.
@@ -59,17 +60,13 @@ public interface ConfigNode extends EObject {
 	 * @see #getOrigin()
 	 * @generated
 	 */
-	void setOrigin(EObject value);
+	void setOrigin(Feature value);
 
 	/**
 	 * Returns the value of the '<em><b>Config State</b></em>' attribute.
 	 * The default value is <code>"DEFAULT"</code>.
 	 * The literals are from the enumeration {@link de.uka.ipd.sdq.featureconfig.ConfigState}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Config State</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * actual state for annotated Features; for FeatureGroups it is a derived attribute

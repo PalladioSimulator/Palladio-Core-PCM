@@ -1,5 +1,6 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
@@ -51,13 +52,6 @@ import org.eclipse.ui.PartInitException;
 public class featuremodelActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 	/**
 	 * This keeps track of the active editor.
 	 * <!-- begin-user-doc -->

@@ -1,5 +1,6 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
@@ -158,8 +159,6 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -172,13 +171,6 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 public class featuremodelEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->

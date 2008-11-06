@@ -6,21 +6,27 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
+import de.uka.ipd.sdq.featuremodel.Constraint;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
-import de.uka.ipd.sdq.featuremodel.Node;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,18 +37,13 @@ import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl#getRootFeature <em>Root Feature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl#getAnnotatableElement <em>Annotatable Element</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagram {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
 	/**
 	 * The cached value of the '{@link #getRootFeature() <em>Root Feature</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -51,7 +52,8 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * @generated
 	 * @ordered
 	 */
-	protected Node rootFeature;
+	protected Feature rootFeature;
+
 	/**
 	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -61,6 +63,16 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * @ordered
 	 */
 	protected EList<Constraint> constraints;
+
+	/**
+	 * The cached value of the '{@link #getAnnotatableElement() <em>Annotatable Element</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatableElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EObject> annotatableElement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,7 +98,7 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node getRootFeature() {
+	public Feature getRootFeature() {
 		return rootFeature;
 	}
 
@@ -95,8 +107,8 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRootFeature(Node newRootFeature, NotificationChain msgs) {
-		Node oldRootFeature = rootFeature;
+	public NotificationChain basicSetRootFeature(Feature newRootFeature, NotificationChain msgs) {
+		Feature oldRootFeature = rootFeature;
 		rootFeature = newRootFeature;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, featuremodelPackage.FEATURE_DIAGRAM__ROOT_FEATURE, oldRootFeature, newRootFeature);
@@ -110,7 +122,7 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRootFeature(Node newRootFeature) {
+	public void setRootFeature(Feature newRootFeature) {
 		if (newRootFeature != rootFeature) {
 			NotificationChain msgs = null;
 			if (rootFeature != null)
@@ -141,6 +153,18 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EObject> getAnnotatableElement() {
+		if (annotatableElement == null) {
+			annotatableElement = new EObjectResolvingEList<EObject>(EObject.class, this, featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT);
+		}
+		return annotatableElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -164,6 +188,8 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 				return getRootFeature();
 			case featuremodelPackage.FEATURE_DIAGRAM__CONSTRAINTS:
 				return getConstraints();
+			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
+				return getAnnotatableElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,11 +204,15 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case featuremodelPackage.FEATURE_DIAGRAM__ROOT_FEATURE:
-				setRootFeature((Node)newValue);
+				setRootFeature((Feature)newValue);
 				return;
 			case featuremodelPackage.FEATURE_DIAGRAM__CONSTRAINTS:
 				getConstraints().clear();
 				getConstraints().addAll((Collection<? extends Constraint>)newValue);
+				return;
+			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
+				getAnnotatableElement().clear();
+				getAnnotatableElement().addAll((Collection<? extends EObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -197,10 +227,13 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case featuremodelPackage.FEATURE_DIAGRAM__ROOT_FEATURE:
-				setRootFeature((Node)null);
+				setRootFeature((Feature)null);
 				return;
 			case featuremodelPackage.FEATURE_DIAGRAM__CONSTRAINTS:
 				getConstraints().clear();
+				return;
+			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
+				getAnnotatableElement().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -218,6 +251,8 @@ public class FeatureDiagramImpl extends NamedElementImpl implements FeatureDiagr
 				return rootFeature != null;
 			case featuremodelPackage.FEATURE_DIAGRAM__CONSTRAINTS:
 				return constraints != null && !constraints.isEmpty();
+			case featuremodelPackage.FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT:
+				return annotatableElement != null && !annotatableElement.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

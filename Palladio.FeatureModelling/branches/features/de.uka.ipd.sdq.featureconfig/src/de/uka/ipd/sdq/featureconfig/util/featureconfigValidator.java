@@ -7,17 +7,14 @@
 package de.uka.ipd.sdq.featureconfig.util;
 
 import de.uka.ipd.sdq.featureconfig.*;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.util.EObjectValidator;
 
-import de.uka.ipd.sdq.featureconfig.ConfigNode;
-import de.uka.ipd.sdq.featureconfig.ConfigState;
-import de.uka.ipd.sdq.featureconfig.Configuration;
-import de.uka.ipd.sdq.featureconfig.FeatureConfig;
-import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.util.EObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,8 +108,6 @@ public class featureconfigValidator extends EObjectValidator {
 				return validateConfigNode((ConfigNode)value, diagnostics, context);
 			case featureconfigPackage.FEATURE_CONFIG:
 				return validateFeatureConfig((FeatureConfig)value, diagnostics, context);
-			case featureconfigPackage.CONFIG_FEATURE_GROUP:
-				return validateConfigFeatureGroup((ConfigFeatureGroup)value, diagnostics, context);
 			case featureconfigPackage.CONFIGURATION:
 				return validateConfiguration((Configuration)value, diagnostics, context);
 			case featureconfigPackage.CONFIG_STATE:
@@ -174,15 +169,6 @@ public class featureconfigValidator extends EObjectValidator {
 	 */
 	public boolean validateFeatureConfig_RootIsFeatureModel(FeatureConfig featureConfig, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return featureConfig.RootIsFeatureModel(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateConfigFeatureGroup(ConfigFeatureGroup configFeatureGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(configFeatureGroup, diagnostics, context);
 	}
 
 	/**

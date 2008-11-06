@@ -6,13 +6,16 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Configuration</b></em>'.
  * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * External container for default and overrides config
+ * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
@@ -58,7 +61,7 @@ public interface Configuration extends EObject {
 	 * Returns the value of the '<em><b>Config Overrides</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Config Overrides</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Config Overrides</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

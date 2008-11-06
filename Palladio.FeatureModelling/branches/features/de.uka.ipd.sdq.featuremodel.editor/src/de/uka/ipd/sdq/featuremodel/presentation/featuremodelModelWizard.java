@@ -1,5 +1,6 @@
 /**
- * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
@@ -94,13 +95,6 @@ import org.eclipse.ui.PartInitException;
  * @generated
  */
 public class featuremodelModelWizard extends Wizard implements INewWizard {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
-
 	/**
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc -->
