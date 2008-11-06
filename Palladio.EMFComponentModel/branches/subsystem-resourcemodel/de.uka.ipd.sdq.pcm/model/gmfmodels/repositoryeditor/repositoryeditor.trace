@@ -99,4 +99,11 @@
         visualID="6104"
         queryText="true"/>
   </linkTraces>
+  <linkTraces
+      visualID="4105"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0' and _eClass_.name = 'ResourceRequiredRole')">
+    <linkLabelTraces
+        visualID="6105"
+        queryText="true"/>
+  </linkTraces>
 </trace:TraceModel>

@@ -335,6 +335,26 @@
         xsi:type="ecore:EReference"
         href="../../pcm.ecore#//repository/CompleteComponentType/parentProvidesComponentTypes"/>
   </links>
+  <links>
+    <domainMetaElement
+        href="../../pcm.ecore#//repository/ResourceRequiredRole"/>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="repository.gmfgraph#ResourceRequiredRoleStereotypeLabel"/>
+    </labelMappings>
+    <containmentFeature
+        href="../../pcm.ecore#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.5"/>
+    <diagramLink
+        href="repository.gmfgraph#ResourceRequiredRole"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../pcm.ecore#//repository/ResourceRequiredRole/requiredInterface_ResourceRequiredRole"/>
+  </links>
   <diagram>
     <diagramCanvas
         href="repository.gmfgraph#pcm"/>

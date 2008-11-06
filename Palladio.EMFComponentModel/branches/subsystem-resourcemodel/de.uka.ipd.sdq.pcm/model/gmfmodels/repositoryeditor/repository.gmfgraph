@@ -214,18 +214,33 @@
           figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
-        name="PassiveResourceLabel">
+        name="PassiveResourceLabellFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="PassiveResourceLabelFigure"
           text="PassiveResource"/>
+    </descriptors>
+    <descriptors
+        name="ResourceRequiredRoleFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ResourceRequiredRoleFigure"
+          targetDecoration="//@figures.0/@figures.1">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResourceRequiresStereotypeLabelFigure"
+            text="&lt;&lt;RequiredResource>>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <nodes
       name="Interface"
       figure="InterfaceFigure"/>
   <nodes
-      name="ChildComponentContext"/>
+      name="ChildComponentContext"
+      figure="ChildComponentContextFigure"/>
   <nodes
       name="CompleteComponentType"
       figure="CompleteComponentTypeFigure"/>
@@ -267,6 +282,9 @@
   <connections
       name="ParentProvidesTypeConnection"
       figure="ParentProvidesTypeFigure"/>
+  <connections
+      name="ResourceRequiredRole"
+      figure="ResourceRequiredRoleFigure"/>
   <compartments
       name="SignatureList"
       figure="InterfaceFigure"
@@ -370,7 +388,8 @@
         alignment="CENTER"/>
   </labels>
   <labels
-      name="PassiveResourceLabel"/>
+      name="PassiveResourceLabel"
+      figure="PassiveResourceLabellFigure"/>
   <labels
       name="VariableUsageReferenceLabel">
     <figure
@@ -382,5 +401,14 @@
       name="VariableCharacterisationLabel">
     <figure
         href="../seffeditor/seffeditor.gmfgraph#VariableCharacterisationLabelFigure"/>
+  </labels>
+  <labels
+      name="ResourceRequiredRoleStereotypeLabel"
+      figure="ResourceRequiredRoleFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.17/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"
+        alignment="CENTER"/>
   </labels>
 </gmfgraph:Canvas>
