@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.providers;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -19,7 +18,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmen
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEntityNameEditPart;
@@ -27,7 +25,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeP
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.LabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
@@ -38,12 +35,12 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentComponentParameterCompartmentViewFactory;
@@ -54,7 +51,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentViewFactor
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeParentProvidesComponentTypesViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteParentStereotypeLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteParentStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompositeComponentEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompositeComponentViewFactory;
@@ -62,7 +58,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ImplementationComponentT
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceSignatureListViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.LabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.PassiveResourceViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidedRoleViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidesComponentTypeEntityNameViewFactory;
@@ -73,12 +68,12 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RepositoryViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiredRoleViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiresStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceDemandingSEFFViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceRequiredRoleViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.SignatureViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableCharacterisationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageComponentParameterVariableCharacterisationCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabel2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabel3ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabelViewFactory;
 
 /**
@@ -246,6 +241,13 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
+				case WrapLabel2EditPart.VISUAL_ID:
+					if (ResourceRequiredRoleEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
 				default:
 					return null;
 				}
@@ -314,6 +316,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return CompleteParentStereotypeLabelViewFactory.class;
 		case ProvidesParentStereotypeLabelEditPart.VISUAL_ID:
 			return ProvidesParentStereotypeLabelViewFactory.class;
+		case WrapLabel2EditPart.VISUAL_ID:
+			return WrapLabel2ViewFactory.class;
 		}
 		return null;
 	}
@@ -359,6 +363,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ImplementationComponentTypeParentCompleteComponentTypesViewFactory.class;
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
 			return CompleteComponentTypeParentProvidesComponentTypesViewFactory.class;
+		case ResourceRequiredRoleEditPart.VISUAL_ID:
+			return ResourceRequiredRoleViewFactory.class;
 		}
 		return null;
 	}

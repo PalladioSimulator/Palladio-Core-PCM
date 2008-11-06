@@ -5,7 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
 import java.util.Collections;
 import java.util.Iterator;
-import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
@@ -44,6 +44,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.PalladioComponentModelBaseEditHelper;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -398,6 +399,14 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
+		public static boolean canCreateResourceRequiredRole_4105(
+				ResourceInterfaceRequiringEntity source, Interface target) {
+			return canExistResourceRequiredRole_4105(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public static boolean canExistProvidedRole_4101(
 				InterfaceProvidingEntity source, Interface target) {
 			return true;
@@ -424,6 +433,14 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistCompleteComponentTypeParentProvidesComponentTypes_4104(
 				CompleteComponentType source, ProvidesComponentType target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistResourceRequiredRole_4105(
+				ResourceInterfaceRequiringEntity source, Interface target) {
 			return true;
 		}
 

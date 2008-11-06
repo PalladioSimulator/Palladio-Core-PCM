@@ -326,6 +326,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ResourceRequiredRole6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
 	public static String Signature1CreationTool_title;
 
 	/**
@@ -461,11 +466,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_BasicComponent_2102_incominglinks;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_CompleteComponentType_2103_outgoinglinks;
 
 	/**
@@ -487,11 +487,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CompositeComponent_2105_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_CompositeComponent_2105_incominglinks;
 
 	/**
 	 * @generated
@@ -532,6 +527,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CompleteComponentTypeParentProvidesComponentTypes_4104_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ResourceRequiredRole_4105_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ResourceRequiredRole_4105_source;
 
 	/**
 	 * @generated

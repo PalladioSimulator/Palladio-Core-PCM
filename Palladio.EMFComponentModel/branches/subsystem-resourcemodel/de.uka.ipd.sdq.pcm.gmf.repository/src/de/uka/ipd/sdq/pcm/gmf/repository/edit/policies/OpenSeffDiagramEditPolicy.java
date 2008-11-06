@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collections;
 import java.util.Iterator;
 
 import org.eclipse.core.commands.ExecutionException;
@@ -14,7 +13,6 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -103,9 +101,12 @@ public class OpenSeffDiagramEditPolicy extends OpenEditPolicy {
 				}
 				URI uri = EcoreUtil.getURI(diagram);
 				String editorName = uri.lastSegment()
-						+ "#" + 
-						((BasicComponent)((ResourceDemandingSEFF)diagram.getElement()).eContainer()).getEntityName() + "." +
-						((ResourceDemandingSEFF)diagram.getElement()).getDescribedService__SEFF().getServiceName(); //$NON-NLS-1$
+						+ "#"
+						+ ((BasicComponent) ((ResourceDemandingSEFF) diagram
+								.getElement()).eContainer()).getEntityName()
+						+ "."
+						+ ((ResourceDemandingSEFF) diagram.getElement())
+								.getDescribedService__SEFF().getServiceName(); //$NON-NLS-1$
 				IEditorInput editorInput = new URIEditorInput(uri, editorName);
 				IWorkbenchPage page = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getActivePage();

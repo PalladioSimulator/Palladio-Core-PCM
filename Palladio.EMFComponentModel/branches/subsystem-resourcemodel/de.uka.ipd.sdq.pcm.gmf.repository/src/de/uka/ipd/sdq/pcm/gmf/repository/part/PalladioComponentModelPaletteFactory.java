@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
-import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
@@ -44,6 +43,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createCompositeComponent3CreationTool());
 		paletteContainer.add(createRequiredRole4CreationTool());
 		paletteContainer.add(createProvidedRole5CreationTool());
+		paletteContainer.add(createResourceRequiredRole6CreationTool());
 		return paletteContainer;
 	}
 
@@ -154,6 +154,21 @@ public class PalladioComponentModelPaletteFactory {
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidedRole_4101));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createResourceRequiredRole6CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.ResourceRequiredRole_4105);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.ResourceRequiredRole6CreationTool_title, null, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.ResourceRequiredRole_4105));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

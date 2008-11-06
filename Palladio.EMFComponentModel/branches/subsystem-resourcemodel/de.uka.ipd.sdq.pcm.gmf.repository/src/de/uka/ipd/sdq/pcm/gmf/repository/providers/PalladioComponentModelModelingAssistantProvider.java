@@ -24,7 +24,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
@@ -105,6 +104,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.ProvidedRole_4101);
 			types.add(PalladioComponentModelElementTypes.RequiredRole_4102);
+			types
+					.add(PalladioComponentModelElementTypes.ResourceRequiredRole_4105);
 			return types;
 		}
 		if (targetEditPart instanceof CompleteComponentTypeEditPart) {

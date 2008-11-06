@@ -58,8 +58,8 @@ public class RepositoryEditPart extends DiagramEditPart {
 				new RepositoryCanonicalEditPolicy());
 		// Install an edit policy which also create links to the new created view
 		// according to the semantic model
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new RepositoryCreationEditPolicy());
+		//		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+		//				new RepositoryCreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, // Fix a bug in GMF. Workaround
 				new DiagramDragDropEditPolicy() {
 

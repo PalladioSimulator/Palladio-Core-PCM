@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.view.factories;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
 import org.eclipse.gmf.runtime.notation.View;
 

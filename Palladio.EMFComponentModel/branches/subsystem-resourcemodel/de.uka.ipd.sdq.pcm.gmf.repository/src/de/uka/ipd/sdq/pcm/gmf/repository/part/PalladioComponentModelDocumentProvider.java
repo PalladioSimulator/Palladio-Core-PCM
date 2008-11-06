@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
@@ -202,10 +201,17 @@ public class PalladioComponentModelDocumentProvider extends
 			}
 
 		});
-		
-		editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"), true);
-		editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository"), true);
-		
+
+		editingDomain.getResourceSet().getResource(
+				URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"),
+				true);
+		editingDomain
+				.getResourceSet()
+				.getResource(
+						URI
+								.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository"),
+						true);
+
 		return editingDomain;
 	}
 

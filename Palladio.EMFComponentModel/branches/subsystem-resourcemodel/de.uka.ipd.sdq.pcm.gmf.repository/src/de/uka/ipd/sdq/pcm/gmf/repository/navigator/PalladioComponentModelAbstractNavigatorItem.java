@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.navigator;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.PlatformObject;

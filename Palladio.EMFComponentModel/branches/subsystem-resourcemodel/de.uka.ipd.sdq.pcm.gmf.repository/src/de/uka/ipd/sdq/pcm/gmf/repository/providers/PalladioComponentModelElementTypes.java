@@ -128,6 +128,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ResourceRequiredRole_4105 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ResourceRequiredRole_4105"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -286,6 +291,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 							CompleteComponentTypeParentProvidesComponentTypes_4104,
 							RepositoryPackage.eINSTANCE
 									.getCompleteComponentType_ParentProvidesComponentTypes());
+
+			elements.put(ResourceRequiredRole_4105, RepositoryPackage.eINSTANCE
+					.getResourceRequiredRole());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -320,6 +328,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 					.add(ImplementationComponentTypeParentCompleteComponentTypes_4103);
 			KNOWN_ELEMENT_TYPES
 					.add(CompleteComponentTypeParentProvidesComponentTypes_4104);
+			KNOWN_ELEMENT_TYPES.add(ResourceRequiredRole_4105);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

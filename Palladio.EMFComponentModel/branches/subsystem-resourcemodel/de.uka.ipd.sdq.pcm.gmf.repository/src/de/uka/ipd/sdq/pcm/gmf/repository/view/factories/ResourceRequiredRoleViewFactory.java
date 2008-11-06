@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, IPD, SDQ, University of Karlsruhe
+ * Copyright 2007, IPD, SDQ, University of Karlsruhe
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.view.factories;
 
@@ -14,17 +14,17 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesStereotypeLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
  */
-public class ProvidedRoleViewFactory extends ConnectionViewFactory {
+public class ResourceRequiredRoleViewFactory extends ConnectionViewFactory {
 
 	/**
-	 * @generated 
+	 * @generated
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
@@ -41,7 +41,7 @@ public class ProvidedRoleViewFactory extends ConnectionViewFactory {
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(ProvidedRoleEditPart.VISUAL_ID);
+					.getType(ResourceRequiredRoleEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -55,8 +55,7 @@ public class ProvidedRoleViewFactory extends ConnectionViewFactory {
 				eObjectAdapter,
 				view,
 				PalladioComponentModelVisualIDRegistry
-						.getType(ProvidesStereotypeLabelEditPart.VISUAL_ID),
+						.getType(WrapLabel2EditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
-
 }

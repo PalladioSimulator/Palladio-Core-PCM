@@ -14,23 +14,22 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.CompleteComponentTypeParentProvidesComponentTypesItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ResourceRequiredRoleItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
-		ConnectionNodeEditPart {
+public class ResourceRequiredRoleEditPart extends ConnectionNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4104;
+	public static final int VISUAL_ID = 4105;
 
 	/**
 	 * @generated
 	 */
-	public CompleteComponentTypeParentProvidesComponentTypesEditPart(View view) {
+	public ResourceRequiredRoleEditPart(View view) {
 		super(view);
 	}
 
@@ -39,19 +38,17 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
-				new CompleteComponentTypeParentProvidesComponentTypesItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new ResourceRequiredRoleItemSemanticEditPolicy());
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProvidesParentStereotypeLabelEditPart) {
-			((ProvidesParentStereotypeLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureProvidesParentStereotypeLabelFigure());
+		if (childEditPart instanceof WrapLabel2EditPart) {
+			((WrapLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureResourceRequiresStereotypeLabelFigure());
 			return true;
 		}
 		return false;
@@ -75,31 +72,32 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 	 * 
 	 * @generated
 	 */
+
 	protected Connection createConnectionFigure() {
-		return new ParentProvidesTypeFigure();
+		return new ResourceRequiredRoleFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ParentProvidesTypeFigure getPrimaryShape() {
-		return (ParentProvidesTypeFigure) getFigure();
+	public ResourceRequiredRoleFigure getPrimaryShape() {
+		return (ResourceRequiredRoleFigure) getFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ParentProvidesTypeFigure extends PolylineConnectionEx {
+	public class ResourceRequiredRoleFigure extends PolylineConnectionEx {
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureProvidesParentStereotypeLabelFigure;
+		private WrapLabel fFigureResourceRequiresStereotypeLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public ParentProvidesTypeFigure() {
+		public ResourceRequiredRoleFigure() {
 
 			createContents();
 			setTargetDecoration(createTargetDecoration());
@@ -110,10 +108,11 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 		 */
 		private void createContents() {
 
-			fFigureProvidesParentStereotypeLabelFigure = new WrapLabel();
-			fFigureProvidesParentStereotypeLabelFigure.setText("<<conforms>>");
+			fFigureResourceRequiresStereotypeLabelFigure = new WrapLabel();
+			fFigureResourceRequiresStereotypeLabelFigure
+					.setText("<<RequiredResource>>");
 
-			this.add(fFigureProvidesParentStereotypeLabelFigure);
+			this.add(fFigureResourceRequiresStereotypeLabelFigure);
 
 		}
 
@@ -134,8 +133,8 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureProvidesParentStereotypeLabelFigure() {
-			return fFigureProvidesParentStereotypeLabelFigure;
+		public WrapLabel getFigureResourceRequiresStereotypeLabelFigure() {
+			return fFigureResourceRequiresStereotypeLabelFigure;
 		}
 
 	}
