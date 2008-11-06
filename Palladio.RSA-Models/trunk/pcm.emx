@@ -2509,6 +2509,9 @@
     </packageImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_3amlYCh8Edue7oeC4NTCGg" name="core">
       <eAnnotations xmi:id="_3amlYSh8Edue7oeC4NTCGg" source="uml2.diagrams"/>
+      <ownedComment xmi:id="_R2zTQKxIEd2rasp2amXCEg" annotatedElement="_3amlYCh8Edue7oeC4NTCGg">
+        <body>This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities.</body>
+      </ownedComment>
       <packageImport xmi:id="_buNX0mA_EdqdHZdhXRxKVg">
         <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
       </packageImport>
@@ -2516,6 +2519,14 @@
         <importedPackage xmi:type="uml:Model" href="identifier.emx#_hFALoK6GEdqR97hrnpMlhg?identifier?"/>
       </packageImport>
       <packagedElement xmi:type="uml:Class" xmi:id="_GIDLsPdxEdqB_7dkOscBPA" name="PCMRandomVariable">
+        <ownedComment xmi:id="_ebXnEKxIEd2rasp2amXCEg" annotatedElement="_GIDLsPdxEdqB_7dkOscBPA">
+          <body>Random variables are used to describe user and component behaviour. They allow not only constant values (e.g., 3 loop iterations), but also probabilistic values (e.g., 2 loop iterations with a probability of 0.4 and 3 loop iterations with a probability of 0.6). They are well-suited for capturing uncertainty when modelling systems during early development stages. Examples where developers may use random variables are:&#xD;
+- Characterisations of Input Parameters: Describes the QoS relevant characteristics of parameters of component services.&#xD;
+- Inter-Arrival Time: Describes how much time passes between the arrival of two subsequent users.&#xD;
+- Think Time: Describes how much time passes between the execution of a user scenario and the start of the next execution of this scenario.&#xD;
+- Loop Iteration Count: Describes the number of repetitions of a loop.&#xD;
+- Guarded Branch Transitions: Used to determine whether to conditionally execute a certain behaviour.</body>
+        </ownedComment>
         <ownedRule xmi:id="_QUWVkCooEdyENO6Lndj6uA" name="SpecificationMustNotBeNULL" constrainedElement="_GIDLsPdxEdqB_7dkOscBPA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_QUW8oCooEdyENO6Lndj6uA">
             <language>OCL</language>
@@ -22471,4 +22482,6 @@ Note:&#xD;
   <Default:Documentation xmi:id="_k6pocatoEd2iPq4SbQh7ig" base_Comment="_k6pocKtoEd2iPq4SbQh7ig"/>
   <Default:Documentation xmi:id="_lDcYEatoEd2iPq4SbQh7ig" base_Comment="_lDcYEKtoEd2iPq4SbQh7ig"/>
   <Default:Documentation xmi:id="_lTiCgatoEd2iPq4SbQh7ig" base_Comment="_lTiCgKtoEd2iPq4SbQh7ig"/>
+  <Default:Documentation xmi:id="_R72yYKxIEd2rasp2amXCEg" base_Comment="_R2zTQKxIEd2rasp2amXCEg"/>
+  <Default:Documentation xmi:id="_ebgxAKxIEd2rasp2amXCEg" base_Comment="_ebXnEKxIEd2rasp2amXCEg"/>
 </xmi:XMI>
