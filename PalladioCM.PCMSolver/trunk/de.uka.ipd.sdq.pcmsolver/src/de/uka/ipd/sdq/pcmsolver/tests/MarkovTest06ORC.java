@@ -17,18 +17,14 @@ import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
 
 /**
- * Performs a sensitivity analysis on the Markov transformation. During multiple
- * test runs, some properties of a base PCM instance are stepwise changed and
- * saved into a temporary PCM instance. For the temporary PCM instance, a
- * reliability analysis is performed. By that, the impact of the changes on the
- * resulting reliability can be determined. The results are saved into a file
- * which can be used to plot an R diagram. As this test case includes EMF model
- * queries, it has to be run as a JUnit Plug-in Test (not only a JUnit Test).
+ * This is an adaption of MarkovTest05ORC. Here we are interested in finding an
+ * optimal solution for providing some target reliability. This includes
+ * performing a binary search over the possible base failure probabilities.
  * 
  * @author brosch
  * 
  */
-public class MarkovTest05ORC {
+public class MarkovTest06ORC {
 
 	/**
 	 * The Properties instance holds the references to the base PCM instance
@@ -75,34 +71,29 @@ public class MarkovTest05ORC {
 	private static final String RPATH = "C:\\MyPrograms\\R\\R-2.7.2\\bin\\R.exe";
 
 	/**
-	 * The lower bound of tested failure probabilities.
-	 */
-	private static final double FAILPROBLOWERBOUND = 0.000001;
-
-	/**
-	 * The upper bound of tested failure probabilities.
-	 */
-	private static final double FAILPROBUPPERBOUND = 0.000003;
-
-	/**
-	 * The increment between two tested failure probabilities.
-	 */
-	private static final double FAILPROBSTEP = 0.000001;
-
-	/**
 	 * The lower bound of tested item counts.
 	 */
-	private static final int ITEMCOUNTLOWERBOUND = 0;
+	private static final int ITEMCOUNTLOWERBOUND = 10;
 
 	/**
 	 * The upper bound of tested item counts.
 	 */
-	private static final int ITEMCOUNTUPPERBOUND = 200;
+	private static final int ITEMCOUNTUPPERBOUND = 100;
 
 	/**
 	 * The increment between two tested item counts.
 	 */
-	private static final int ITEMCOUNTSTEP = 50;
+	private static final int ITEMCOUNTSTEP = 10;
+
+	/**
+	 * The target reliability value.
+	 */
+	private static final double TARGET = 0.99999;
+
+	/**
+	 * The intended accuracy of the results.
+	 */
+	private static final double ACCURACY = 0.000000001;
 
 	/**
 	 * Sets up the test configuration.
@@ -171,34 +162,44 @@ public class MarkovTest05ORC {
 
 		// Declare some arrays to store the results:
 		ArrayList<Integer> inputValues = new ArrayList<Integer>();
-		ArrayList<Double> failprobValues = new ArrayList<Double>();
-		ArrayList<ArrayList<Double>> resultValuesSeries = new ArrayList<ArrayList<Double>>();
+		ArrayList<Double> resultValues = new ArrayList<Double>();
 
 		// Run a test series with stepwise changes of the PCM instance:
-		for (double d = FAILPROBLOWERBOUND; d <= FAILPROBUPPERBOUND; d += FAILPROBSTEP) {
+		for (Integer i = ITEMCOUNTLOWERBOUND; i <= ITEMCOUNTUPPERBOUND; i += ITEMCOUNTSTEP) {
 
-			// Create a new Array of result values:
-			resultValuesSeries.add(new ArrayList<Double>());
+			// Store the input value:
+			inputValues.add(i);
 
-			// Store the current failure probability:
-			failprobValues.add(d);
+			// Initialize the search parameters:
+			double lowerIntervalBound = 0.0;
+			double upperIntervalBound = 1.0;
+			double intervalSize = upperIntervalBound - lowerIntervalBound;
 
-			for (int i = ITEMCOUNTLOWERBOUND; i <= ITEMCOUNTUPPERBOUND; i += ITEMCOUNTSTEP) {
+			// Perform a binary search:
+			while (intervalSize > ACCURACY) {
 
-				// During the first iteration of the outer loop, Store the input
-				// values:
-				if (d == FAILPROBLOWERBOUND) {
-					inputValues.add(i);
+				// Split the interval in two halves:
+				double newBound = lowerIntervalBound + intervalSize / 2;
+
+				// Perform the analysis:
+				double result = performAnalysis(i, newBound);
+				if (result < TARGET) {
+					upperIntervalBound = newBound;
+					intervalSize = upperIntervalBound - lowerIntervalBound;
+				} else if (result > TARGET) {
+					lowerIntervalBound = newBound;
+					intervalSize = upperIntervalBound - lowerIntervalBound;
+				} else {
+					break;
 				}
-
-				// Store the result:
-				resultValuesSeries.get(resultValuesSeries.size() - 1).add(
-						performAnalysis(i, d));
 			}
+
+			// Store the result value (the middle of the search interval):
+			resultValues.add(lowerIntervalBound + intervalSize / 2);
 		}
 
 		// Generate an R script to plot the results into a diagram:
-		generateScript(inputValues, failprobValues, resultValuesSeries);
+		generateScript(inputValues, resultValues);
 
 		// Run the R script:
 		runR();
@@ -300,17 +301,13 @@ public class MarkovTest05ORC {
 	 * 
 	 * @param xValues
 	 *            the x axis values of the diagram
-	 * @param legendValues
-	 *            the legend values of the diagram
-	 * @param yValuesSeries
-	 *            the y axis values series of the diagram
+	 * @param yValues
+	 *            the y axis values of the diagram
 	 * @throws IOException
 	 *             might be thrown during file access
 	 */
 	private void generateScript(final ArrayList<Integer> xValues,
-			final ArrayList<Double> legendValues,
-			final ArrayList<ArrayList<Double>> yValuesSeries)
-			throws IOException {
+			final ArrayList<Double> yValues) throws IOException {
 
 		// Create file object:
 		File outputFile = new File(SCRIPTPATH);
@@ -331,18 +328,16 @@ public class MarkovTest05ORC {
 		out.newLine();
 
 		// Read yValues into variable y:
-		for (int i = 0; i < yValuesSeries.size(); i++) {
-			out.write("y" + i + " <- c(");
-			for (Integer j = 0; j < yValuesSeries.get(i).size(); j++) {
-				out.write(yValuesSeries.get(i).get(j).toString());
-				out.write((j == yValuesSeries.get(i).size() - 1) ? ")" : ", ");
-			}
-			out.newLine();
+		out.write("y <- c(");
+		for (Integer i = 0; i < yValues.size(); i++) {
+			out.write(yValues.get(i).toString());
+			out.write((i == yValues.size() - 1) ? ")" : ", ");
 		}
+		out.newLine();
 
 		// Generate an EPS file for the plot:
 		out.write("postscript(\"" + PLOTPATH.replace("\\", "\\\\")
-				+ "\", height = 5, width = 4, pointsize = 10)");
+				+ "\", height = 10, width = 8, pointsize = 10)");
 		out.newLine();
 
 		// Start the new diagram plot:
@@ -350,36 +345,29 @@ public class MarkovTest05ORC {
 		out.newLine();
 
 		// Set the dimensions of the plot so that all x and y values are shown:
-		out.write("plot.window(xlim = c(" + xValues.get(0) + ","
-				+ xValues.get(xValues.size() - 1) + "), ylim = c(0.999,1))");
+		double yMin = 0.0;
+		double yMax = 0.000001;
+		out.write("plot.window(xlim = c(" + ITEMCOUNTLOWERBOUND + ","
+				+ ITEMCOUNTUPPERBOUND + "), ylim = c(" + yMin + "," + yMax
+				+ "))");
 		out.newLine();
 
-		// Plot all functions of the y values series:
-		for (int i = 0; i < yValuesSeries.size(); i++) {
-			out.write("lines(x,y" + i + ", lty = " + (i + 1) + ")");
+		// Plot the y values:
+		out.write("points(x,y); lines(x,y)");
+		out.newLine();
+
+		// Plot helper lines:
+		for (double d = yMin; d <= yMax; d += (yMax - yMin) / 5) {
+			out.write("abline(h = " + d + ", lty = 3)");
+			out.newLine();
+		}
+		for (int d = ITEMCOUNTLOWERBOUND; d <= ITEMCOUNTUPPERBOUND; d += ITEMCOUNTSTEP) {
+			out.write("abline(v = " + d + ", lty = 3)");
 			out.newLine();
 		}
 
 		// Plot the axes and a box around all:
 		out.write("axis(1); axis(2); box()");
-		out.newLine();
-
-		// Add text to the axes:
-		out.write("mtext(\"number of items\", side = 1, line = 3);");
-		out
-				.write("mtext(\"reliability of bookSale() service\", side = 2, line = 3)");
-		out.newLine();
-
-		// Add a legend:
-		String strLegend = "legend(x = 0, y = 0.9992, legend = c(";
-		for (int i = 0; i < legendValues.size(); i++) {
-			strLegend += "\"fp = " + legendValues.get(i) + "\"";
-			if (i < legendValues.size() - 1) {
-				strLegend += ",";
-			}
-		}
-		strLegend += "), lty = c(1,2, 3));";
-		out.write(strLegend);
 		out.newLine();
 
 		// Finish the plot:
