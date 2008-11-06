@@ -480,6 +480,53 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="2106"
+        editPartClassName="SubSystemEditPart"
+        itemSemanticEditPolicyClassName="SubSystemItemSemanticEditPolicy"
+        notationViewFactoryClassName="SubSystemViewFactory"
+        canonicalEditPolicyClassName="SubSystemCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="SubSystemGraphicalNodeEditPolicy"
+        createCommandClassName="SubSystemCreateCommand">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="SubSystemEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="SubSystemFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubSystemFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fFigureSubSystem_Name_LabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubSystemFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSubSystem_Name_LabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;fFigureSubSystem_Name_LabelFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSubSystem_Name_LabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSubSystem_Name_LabelFigure() {&#xA;&#x9;&#x9;return fFigureSubSystem_Name_LabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/subsystem/SubSystem"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/repository/Repository/components__Repository"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/repository/Repository/components__Repository"/>
+      </modelFacet>
+      <labels
+          visualID="5107"
+          editPartClassName="SubSystemEntityNameEditPart"
+          itemSemanticEditPolicyClassName="SubSystemEntityNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="SubSystemEntityNameViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureSubSystem_Name_LabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet">
+          <metaFeatures
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <links
         visualID="4101"
         editPartClassName="ProvidedRoleEditPart"
@@ -857,6 +904,11 @@
             xsi:type="gmfgen:ToolEntry"
             title="ResourceRequiredRole"
             genLinks="//@diagram/@links.4"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="SubSystem"
+            description="Create new SubSystem"
+            genNodes="//@diagram/@topLevelNodes.5"/>
       </groups>
       <groups
           title="Internal Elements"
@@ -988,6 +1040,9 @@
         child="//@diagram/@topLevelNodes.4"/>
     <childReferences
         parent="//@diagram"
+        child="//@diagram/@topLevelNodes.5"/>
+    <childReferences
+        parent="//@diagram"
         child="//@diagram/@links.0"
         groupName="links"
         groupIcon="icons/linksNavigatorGroup.gif"/>
@@ -1047,6 +1102,18 @@
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.4"
+        child="//@diagram/@links.0"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.5"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.5"
         child="//@diagram/@links.0"
         referenceType="out_target"
         groupName="outgoing links"
@@ -1112,6 +1179,18 @@
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.4"
+        child="//@diagram/@links.1"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.1"
+        child="//@diagram/@topLevelNodes.5"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.5"
         child="//@diagram/@links.1"
         referenceType="out_target"
         groupName="outgoing links"
@@ -1247,6 +1326,18 @@
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@topLevelNodes.4"
+        child="//@diagram/@links.4"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.4"
+        child="//@diagram/@topLevelNodes.5"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.5"
         child="//@diagram/@links.4"
         referenceType="out_target"
         groupName="outgoing links"

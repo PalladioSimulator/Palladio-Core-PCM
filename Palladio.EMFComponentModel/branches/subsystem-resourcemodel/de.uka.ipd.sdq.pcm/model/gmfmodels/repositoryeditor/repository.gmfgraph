@@ -234,6 +234,19 @@
       <accessors
           figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="SubSystemFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="SubSystemFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SubSystem_Name_LabelFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="Interface"
@@ -247,6 +260,9 @@
   <nodes
       name="CompositeComponent"
       figure="CompositeComponentFigure"/>
+  <nodes
+      name="SubSystem"
+      figure="SubSystemFigure"/>
   <nodes
       name="BasicComponent"
       figure="BasicComponentFigure"/>
@@ -320,6 +336,10 @@
       name="EntityEntityName3"
       figure="RequiredDelegationConnectorFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels
+      name="SubSystem_Name_Label"
+      figure="SubSystemFigure"
+      accessor="//@figures.0/@descriptors.18/@accessors.0"/>
   <labels
       name="EntityEntityName4"
       figure="ChildComponentContextFigure"

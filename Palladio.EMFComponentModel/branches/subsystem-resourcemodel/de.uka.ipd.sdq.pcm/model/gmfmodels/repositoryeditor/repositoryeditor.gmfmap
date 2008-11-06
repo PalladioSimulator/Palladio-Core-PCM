@@ -263,6 +263,28 @@
           href="repository.gmfgraph#ProvidesComponentType"/>
     </ownedChild>
   </nodes>
+  <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <childrenFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../pcm.ecore#//subsystem/SubSystem"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="repository.gmfgraph#SubSystem_Name_Label"/>
+        <features
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.6"/>
+      <diagramNode
+          href="repository.gmfgraph#SubSystem"/>
+    </ownedChild>
+  </nodes>
   <links>
     <domainMetaElement
         href="../../pcm.ecore#//repository/ProvidedRole"/>
