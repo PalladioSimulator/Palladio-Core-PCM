@@ -742,11 +742,10 @@ public class ReliabilityEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ConnectorsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PerformanceItemProviderAdapterFactory());
@@ -758,6 +757,7 @@ public class ReliabilityEditor
 		adapterFactory.addAdapterFactory(new de.uka.ipd.sdq.pcm.qosannotations.performance.provider.PerformanceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());

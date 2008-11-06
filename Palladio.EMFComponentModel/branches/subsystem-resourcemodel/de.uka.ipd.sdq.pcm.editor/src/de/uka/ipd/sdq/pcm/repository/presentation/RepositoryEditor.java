@@ -107,6 +107,7 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
@@ -141,6 +142,7 @@ import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.propertytabs.PalladioAdapterFactoryContentProvider;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
@@ -959,10 +961,13 @@ public class RepositoryEditor
 	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public void createModel() {
-		URI resourceURI = EditUIUtil.getURI(getEditorInput());
+		// Assumes that the input is a file object.
+		//
+		IFileEditorInput modelFile = (IFileEditorInput)getEditorInput();
+		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -980,6 +985,18 @@ public class RepositoryEditor
 			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+		
+		Resource extraResource = editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"), true);
+		try {
+			extraResource.load(new HashMap<Object, Object>());
+		} catch (IOException e) {
+		}
+		extraResource = editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository"), true);
+		try {
+			extraResource.load(new HashMap<Object, Object>());
+		} catch (IOException e) {
+		}
+		
 	}
 
 	/**
@@ -1406,7 +1423,7 @@ public class RepositoryEditor
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		if (propertySheetPage == null) {
@@ -1424,7 +1441,7 @@ public class RepositoryEditor
 						getActionBarContributor().shareGlobalActions(this, actionBars);
 					}
 				};
-			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+			propertySheetPage.setPropertySourceProvider(new PalladioAdapterFactoryContentProvider(adapterFactory));
 		}
 
 		return propertySheetPage;

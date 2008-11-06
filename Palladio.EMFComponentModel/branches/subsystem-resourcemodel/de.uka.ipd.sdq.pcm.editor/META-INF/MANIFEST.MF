@@ -33,5 +33,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
- de.uka.ipd.sdq.pcmbench.ui
+ de.uka.ipd.sdq.pcmbench.ui,
+ de.uka.ipd.sdq.pcmbench.propertytabs
 Eclipse-LazyStart: true
