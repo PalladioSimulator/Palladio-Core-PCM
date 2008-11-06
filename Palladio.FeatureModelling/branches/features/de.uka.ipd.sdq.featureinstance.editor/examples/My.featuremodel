@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<featuremodel:FeatureDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:featuremodel="http://sdq.ipd.uka.de/FeatureModel/2.0" id="_yMO7EEHwEd2bpr4KLRDUiQ" name="Root">
+  <rootFeature xsi:type="featuremodel:Feature" id="_Vx5ukEd5Ed2oHNIKJmZfHA" name="Blu">
+    <children xsi:type="featuremodel:Feature" id="_WYplgUd5Ed2oHNIKJmZfHA" name="Bla"/>
+    <children xsi:type="featuremodel:FeatureGroup" id="__gvTgklCEd2oIIUSbzTuDQ" name="Crew">
+      <children id="_BjJ3MElDEd2oIIUSbzTuDQ" name="Sub2"/>
+      <children id="_ByUUkElDEd2oIIUSbzTuDQ" name="Sub1"/>
+    </children>
+    <children xsi:type="featuremodel:Feature" id="_7sepoUlAEd2G7aVfidwE_A" name="Mama">
+      <children xsi:type="featuremodel:Feature" id="_8GP0gUlAEd2G7aVfidwE_A" name="Kind 1"/>
+      <children xsi:type="featuremodel:Feature" id="_8bY-EUlAEd2G7aVfidwE_A" name="Kind2"/>
+    </children>
+    <children xsi:type="featuremodel:Feature" id="_KkrM8UlBEd2G7aVfidwE_A" name="8">
+      <children xsi:type="featuremodel:Feature" id="_Mrd6UUlBEd2G7aVfidwE_A" name="7"/>
+    </children>
+    <children xsi:type="featuremodel:Feature" id="_LWK7UUlBEd2G7aVfidwE_A" name="6">
+      <children xsi:type="featuremodel:Feature" id="_MFwlMUlBEd2G7aVfidwE_A" name="5">
+        <children xsi:type="featuremodel:Feature" id="_M8IzkUlBEd2G7aVfidwE_A" name="4">
+          <children xsi:type="featuremodel:Feature" id="_NH7z4UlBEd2G7aVfidwE_A" name="3">
+            <children xsi:type="featuremodel:Feature" id="_NXqR8UlBEd2G7aVfidwE_A" name="2"/>
+          </children>
+          <children xsi:type="featuremodel:FeatureGroup" id="_LFxc8klDEd2oIIUSbzTuDQ" name="Crew2">
+            <children id="_LUOvsElDEd2oIIUSbzTuDQ" name="c1">
+              <children xsi:type="featuremodel:Feature" id="_LkZSoUlDEd2oIIUSbzTuDQ" name="c1_child"/>
+            </children>
+            <children id="_MM_jsElDEd2oIIUSbzTuDQ" name="c2"/>
+            <children id="_MeyeU0lDEd2oIIUSbzTuDQ" name="c3"/>
+          </children>
+        </children>
+      </children>
+      <children xsi:type="featuremodel:Feature" id="_MZWPkUlBEd2G7aVfidwE_A" name="1"/>
+    </children>
+  </rootFeature>
+</featuremodel:FeatureDiagram>
