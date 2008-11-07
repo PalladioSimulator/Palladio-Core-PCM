@@ -25,12 +25,12 @@
 «AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR ProvidesComponentType»
+«AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR RepositoryComponent»
 	«EXPAND m2t_transforms::sim::java_core::SpecificImplementationPartTM FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::ChildInitTM(ComposedStructure s) FOR AssemblyContext»
-	«IF BasicComponent.isInstance(this.encapsulatedComponent_ChildComponentContext)»
+	«IF BasicComponent.isInstance(this.encapsulatedComponent_AssemblyContext)»
 		«EXPAND m2t_transforms::sim::composed_structure::ChildInitTM(s) FOR this»
 	«ENDIF»
 «ENDAROUND»

@@ -5,7 +5,7 @@
 «IMPORT system»
 «IMPORT core::entity»
 
-«DEFINE SpecificImplementationPartTM FOR ProvidesComponentType»
+«DEFINE SpecificImplementationPartTM FOR RepositoryComponent»
 	// Component Parameter Defaults
 	protected de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myDefaultComponentStackFrame = null;
 

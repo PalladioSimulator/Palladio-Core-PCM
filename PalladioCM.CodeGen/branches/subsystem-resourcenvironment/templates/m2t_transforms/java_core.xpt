@@ -6,7 +6,7 @@
 «IMPORT core::entity»
 «IMPORT completions»
 
-«DEFINE ClassHeader FOR ProvidesComponentType»
+«DEFINE ClassHeader FOR InterfaceProvidingRequiringEntity»
 public class «this.javaName()»
 «ENDDEFINE»
 
@@ -61,7 +61,7 @@ public class «this.javaName()»
          («EXPAND ParameterListTM FOR this»)
 «ENDDEFINE»
 
-«DEFINE ComponentService(ProvidesComponentType component) FOR Signature»
+«DEFINE ComponentService(InterfaceProvidingRequiringEntity component) FOR Signature»
    public «EXPAND ComponentServiceSignature FOR this»
    { 
       «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface_Signature.id DISABLE»
@@ -121,13 +121,13 @@ public class «this.javaName()»
 «DEFINE ComponentImplementationChildClassTM FOR ProvidesComponentType»
 «ENDDEFINE»
 
-«DEFINE SpecificImplementationPartTM FOR ProvidesComponentType»
+«DEFINE SpecificImplementationPartTM FOR RepositoryComponent»
 «ENDDEFINE»
 
-«DEFINE SuperClassesTM FOR ProvidesComponentType»
+«DEFINE SuperClassesTM FOR InterfaceProvidingRequiringEntity»
 «ENDDEFINE»
 
-«DEFINE InnerImplementation FOR ProvidesComponentType»
+«DEFINE InnerImplementation FOR RepositoryComponent»
 «ENDDEFINE»
 
 «DEFINE InnerImplementation FOR BasicComponent»
@@ -138,5 +138,5 @@ public class «this.javaName()»
 «ENDDEFINE»
 ///-----
 
-«DEFINE ComponentConstructorTM FOR ProvidesComponentType»
+«DEFINE ComponentConstructorTM FOR InterfaceProvidingRequiringEntity»
 «ENDDEFINE»
