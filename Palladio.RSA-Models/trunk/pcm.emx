@@ -20239,6 +20239,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
         <ownedEnd xmi:id="_UhRgknPfEduxXfd-1j79QQ" visibility="private" type="_AtO9UOMvEdqaQsPH3rPnBQ" association="_UhRgkHPfEduxXfd-1j79QQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_aV3r4OQVEdqeH_WIC9QRew" name="System">
+        <ownedComment xmi:id="_pgxbsKzsEd29xIYaCWKJeg" annotatedElement="_aV3r4OQVEdqeH_WIC9QRew">
+          <body>A system is not composable because it has QoS annotations which are only allowed in the &quot;outer&quot; composition thing. And a UsageModel must only access systems and not inner stuff. TODO Klaus.</body>
+        </ownedComment>
         <generalization xmi:id="_L3ao4BG1EdukS8Awn8hWLA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <generalization xmi:id="_ymBdQAHfEdy9bvYbdCHdZw" general="_ZFrPgAHfEdy9bvYbdCHdZw"/>
         <ownedAttribute xmi:id="_5ll7UXMwEduqAZ6idiaTjw" name="qosAnnotations_System" type="_yeKmoHMlEduqAZ6idiaTjw" aggregation="composite" association="_5ll7UHMwEduqAZ6idiaTjw">
@@ -22522,4 +22525,5 @@ Note:&#xD;
   <Default:Documentation xmi:id="_lTiCgatoEd2iPq4SbQh7ig" base_Comment="_lTiCgKtoEd2iPq4SbQh7ig"/>
   <Default:Documentation xmi:id="_R72yYKxIEd2rasp2amXCEg" base_Comment="_R2zTQKxIEd2rasp2amXCEg"/>
   <Default:Documentation xmi:id="_ebgxAKxIEd2rasp2amXCEg" base_Comment="_ebXnEKxIEd2rasp2amXCEg"/>
+  <Default:Documentation xmi:id="_pgxbsazsEd29xIYaCWKJeg" base_Comment="_pgxbsKzsEd29xIYaCWKJeg"/>
 </xmi:XMI>
