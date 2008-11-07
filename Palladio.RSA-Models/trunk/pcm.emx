@@ -13250,16 +13250,13 @@ The usage of a software system by external clients has to be captured in models 
 performance predictions. Here, the term usage refers to workload (i.e., the number of users concurrently&#xD;
 present in the system), usage scenarios (i.e., possible sequences of invoking services at system provided&#xD;
 roles), waiting delays between service invocations, and values for parameters and component configurations.&#xD;
-Section 2.5.3 has already discussed different approaches for modelling software system usage&#xD;
-including operational profiles, Markov usage models, and UML.&#xD;
 &#xD;
 This package contains the usage specification language, which (i) provides more expressiveness for&#xD;
 characterising parameter instances than previous models, but (ii) at the same time is restricted to concepts&#xD;
 familiar to domain experts to create a domain specific language. The language is called PCM usage&#xD;
 model.&#xD;
 &#xD;
-The UsageModel consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each&#xD;
-UsageScenario includes a workload and a scenario behaviour. The UsageModel specifies the whole user interaction with a System from a performance viewpoint.  The concepts are explained for the single meta classes included in this package. &#xD;
+The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. The concepts are explained for the single meta classes included in this package. &#xD;
 &#xD;
 Note that UsageModels are completely decoupled from the inner contents of a system, which consists of an assembly and a connected resource environment. The UsageModel only refers to services of system provided roles. It regards the component&#xD;
 architecture (i.e., the assembly) as well as used resources (i.e., hardware devices such as CPUs&#xD;
@@ -13360,8 +13357,7 @@ them. Each UsageScenario includes a workload and a scenario behaviour. </body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_WlgK4OQQEdqeH_WIC9QRew" name="UsageModel">
         <ownedComment xmi:id="_A1b1IKtlEd2iPq4SbQh7ig" annotatedElement="_WlgK4OQQEdqeH_WIC9QRew">
-          <body>The UsageModel consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each&#xD;
-UsageScenario includes a workload and a scenario behaviour. The UsageModel specifies the whole user interaction with a System from a performance viewpoint. </body>
+          <body>The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. </body>
         </ownedComment>
         <ownedAttribute xmi:id="_aYGSweQQEdqeH_WIC9QRew" name="usageScenario_UsageModel" type="_Y4SF0OQQEdqeH_WIC9QRew" aggregation="composite" association="_aYGSwOQQEdqeH_WIC9QRew">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aYGSxOQQEdqeH_WIC9QRew" value="*"/>
@@ -13541,7 +13537,9 @@ Performance analysts use closed workloads to model scenarios, where the number o
 is taken depending on the specified branch probabilities. Each BranchTransition contains a&#xD;
 nested ScenarioBehaviour, which a user executes once this branch transition is chosen. After&#xD;
 execution of the complete nested ScenarioBehaviour, the next action in the user flow after the&#xD;
-Branch is its successor action.</body>
+Branch is its successor action.&#xD;
+&#xD;
+A constraint ensures that all branchProbabilities of the included BranchTransitions sum up to 1. </body>
         </ownedComment>
         <ownedRule xmi:id="_w6kUsCl2Edyrvvvi0J2Ocw" name="AllBranchProbabilitiesMustSumUpTo1" constrainedElement="_3ZHVcOQREdqeH_WIC9QRew">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_w6kUsSl2Edyrvvvi0J2Ocw">
@@ -13578,66 +13576,91 @@ Concrete user actions of the usage model are:&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_HzcGsOmgEdquVul9Pa8dqA" memberEnd="_HzcGsemgEdquVul9Pa8dqA _HzcGsumgEdquVul9Pa8dqA">
         <ownedComment xmi:id="_kK-fAKtoEd2iPq4SbQh7ig" annotatedElement="_HzcGsOmgEdquVul9Pa8dqA">
-          <body>TODO Anne</body>
+          <body>The sequence of AbstractUserActions (i.e. actions within a Scenariobehaviour) is realised with this association. Each AbstractUserAction can have a maximum of one successor and a maximum of one predecessor. Most user actions have both, only Start actions have just a successor and Stop actions have just a predecessor. &#xD;
+&#xD;
+An actions knows both its successor and predeccessor, which makes the sequence navigable in both directions. Branches and Loops are realised in nested ScenarioBehaviours of the respective actions. Thus, this association only realises sequences, no other trees or graphs. &#xD;
+ </body>
         </ownedComment>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_aT7mYOmgEdquVul9Pa8dqA" memberEnd="_aT7mYemgEdquVul9Pa8dqA _aT7mYumgEdquVul9Pa8dqA">
         <ownedComment xmi:id="_iBm-wKtoEd2iPq4SbQh7ig" annotatedElement="_aT7mYOmgEdquVul9Pa8dqA">
-          <body>TODO Anne</body>
+          <body>This association connects the association class BranchTransition, which itself references a Branch action, with the ScenarioBehavour meta class.  &#xD;
+&#xD;
+The branchTransitions_Branch association, the BranchTransition meta class and this association together realise the containment of a ScenarioBehaviour in each branch of a Branch action. As one Branch action can already include multiple BranchTransitions and realises the overall one-to-many relation, the multiplicity of this association is 1-to-1. </body>
         </ownedComment>
         <ownedEnd xmi:id="_aT7mYumgEdquVul9Pa8dqA" name="branch" visibility="private" type="_KYXQwHDHEdur9cZft9T4NQ" association="_aT7mYOmgEdquVul9Pa8dqA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_etDnMOQYEdqeH_WIC9QRew" memberEnd="_etDnMeQYEdqeH_WIC9QRew _etDnMuQYEdqeH_WIC9QRew">
         <ownedComment xmi:id="_jhjukKtoEd2iPq4SbQh7ig" annotatedElement="_etDnMOQYEdqeH_WIC9QRew">
-          <body>TODO Anne</body>
+          <body>An EntryLevelSystemCall models the call to a service provided by a system. Therefore, an&#xD;
+EntryLevelSystemCall references a ProvidedRole of a PCM System.&#xD;
+&#xD;
+Each EntryLevelSystemCall references exacly one ProvidedRole of the System. The other direction is not navigable, as the System has no notion about referencing UsageScenarios and UsageModels. &#xD;
+&#xD;
+</body>
         </ownedComment>
-        <ownedEnd xmi:id="_etDnMuQYEdqeH_WIC9QRew" name="entrylevelcomponentcall" visibility="private" type="_h0hLkOQREdqeH_WIC9QRew" association="_etDnMOQYEdqeH_WIC9QRew"/>
+        <ownedEnd xmi:id="_etDnMuQYEdqeH_WIC9QRew" name="entrylevelcomponentcall" visibility="private" type="_h0hLkOQREdqeH_WIC9QRew" association="_etDnMOQYEdqeH_WIC9QRew">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OT1H4aytEd2TLKM4yUXWXw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OT1H4KytEd2TLKM4yUXWXw"/>
+        </ownedEnd>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_QT1GkOQSEdqeH_WIC9QRew" memberEnd="_QT1GkeQSEdqeH_WIC9QRew _QT1GkuQSEdqeH_WIC9QRew">
         <ownedComment xmi:id="_iXNbUKtoEd2iPq4SbQh7ig" annotatedElement="_QT1GkOQSEdqeH_WIC9QRew">
-          <body>TODO Anne</body>
+          <body>For each EntryLevelSystemCall, the performance-relecant parameters provided by the user can be specified. This associations assigns a set of VariableUsages to an EntryLevelSystemCall to realise this. Each VariableUsage can only belong to one EntryLevelSystemCall, whereas the EntryLevelSystemCall can contain multiple characterisations for different variables. &#xD;
+&#xD;
+</body>
         </ownedComment>
         <ownedEnd xmi:id="_QT1GkuQSEdqeH_WIC9QRew" visibility="private" type="_h0hLkOQREdqeH_WIC9QRew" association="_QT1GkOQSEdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_-dqWQOQREdqeH_WIC9QRew" memberEnd="_-dqWQeQREdqeH_WIC9QRew _-dqWQuQREdqeH_WIC9QRew">
         <ownedComment xmi:id="_h3CGcKtoEd2iPq4SbQh7ig" annotatedElement="_-dqWQOQREdqeH_WIC9QRew">
-          <body>TODO Anne</body>
+          <body>This composition realizes a loop body (itself being a ScenarioBehaviour) being part of a loop. Each Loop can only have one loop body, and each loop body can only belong to one Loop. &#xD;
+&#xD;
+TODO: Possibly add a constraint to Loop that a Loop must have exactly one loop body.</body>
         </ownedComment>
         <ownedEnd xmi:id="_-dqWQuQREdqeH_WIC9QRew" name="loop" visibility="private" type="_55vfIOQREdqeH_WIC9QRew" association="_-dqWQOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_qdDHoOQREdqeH_WIC9QRew" memberEnd="_qdDHoeQREdqeH_WIC9QRew _qdDHouQREdqeH_WIC9QRew">
         <ownedComment xmi:id="_hdQUgKtoEd2iPq4SbQh7ig" annotatedElement="_qdDHoOQREdqeH_WIC9QRew">
-          <body>TODO Anne</body>
+          <body>This association realises the containment of AbstractUserActions within a ScenarioBehaviours. The sequence of user actions (i.e. concrete concepts inheriting from AbstractUserAction) contained in a ScenarioBehaviour specifies possible sequences of executing services provided by the system.&#xD;
+&#xD;
+Each AbstractUserAction can only belong to one ScenarioBehaviour. On the other hand, each Scenario Behaviour can have multiple user action. At least two user action (a Start and an End action) must be present to form a valid ScenarioBehaviour. The ScenarioBehavour metaclass has a constraint to ensure this. &#xD;
+&#xD;
+</body>
         </ownedComment>
         <ownedEnd xmi:id="_qdDHouQREdqeH_WIC9QRew" visibility="private" type="_HTuNcOQREdqeH_WIC9QRew" association="_qdDHoOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_aYGSwOQQEdqeH_WIC9QRew" memberEnd="_aYGSweQQEdqeH_WIC9QRew _aYGSwuQQEdqeH_WIC9QRew">
         <ownedComment xmi:id="_k6pocKtoEd2iPq4SbQh7ig" annotatedElement="_aYGSwOQQEdqeH_WIC9QRew">
-          <body>TODO Anne</body>
+          <body>A UsageModel contains multiple UsageScenarios, that specify the behaviour of users in different use cases. </body>
         </ownedComment>
         <ownedEnd xmi:id="_aYGSwuQQEdqeH_WIC9QRew" visibility="private" type="_WlgK4OQQEdqeH_WIC9QRew" association="_aYGSwOQQEdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_iKiUUOQQEdqeH_WIC9QRew" memberEnd="_iKiUUeQQEdqeH_WIC9QRew _iKiUUuQQEdqeH_WIC9QRew">
         <ownedComment xmi:id="_lTiCgKtoEd2iPq4SbQh7ig" annotatedElement="_iKiUUOQQEdqeH_WIC9QRew">
-          <body>TODO Anne</body>
+          <body>Each UsageScenario has exactly one Workload, which can be either open or closed. </body>
         </ownedComment>
         <ownedEnd xmi:id="_iKiUUuQQEdqeH_WIC9QRew" name="usageScenario_Workload" type="_Y4SF0OQQEdqeH_WIC9QRew" association="_iKiUUOQQEdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_JPQGAOQREdqeH_WIC9QRew" memberEnd="_JPQGAeQREdqeH_WIC9QRew _JPQGAuQREdqeH_WIC9QRew">
         <ownedComment xmi:id="_jq8UEKtoEd2iPq4SbQh7ig" annotatedElement="_JPQGAOQREdqeH_WIC9QRew">
-          <body>TODO Anne</body>
+          <body>The root element of a UsageScenario is a ScenarioBehaviour and this relation realized this fact. A UsageScenario has only one such root elements and  the ScenarioBehaviour itself can contain nested ScenarioBehaviours, for example in Branch actions. </body>
         </ownedComment>
         <ownedEnd xmi:id="_JPQGAuQREdqeH_WIC9QRew" name="usagescenario" visibility="private" type="_Y4SF0OQQEdqeH_WIC9QRew" association="_JPQGAOQREdqeH_WIC9QRew"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_tWvxIHDFEdur9cZft9T4NQ" memberEnd="_tWvxIXDFEdur9cZft9T4NQ _tWvxInDFEdur9cZft9T4NQ">
         <ownedComment xmi:id="_jU5LkKtoEd2iPq4SbQh7ig" annotatedElement="_tWvxIHDFEdur9cZft9T4NQ">
-          <body>TODO Anne</body>
+          <body>The number of loop iterations of a Loop is specified as a PCMRandomVariable. This association references the PCMRandomVariable which denotes the distribution of number of loop iterations of the referenced Loop. &#xD;
+&#xD;
+Each Loop has only one number of loop iterations, and the referenced PCMRandomVariable is used exclusively for this matter. </body>
         </ownedComment>
         <ownedEnd xmi:id="_tWvxInDFEdur9cZft9T4NQ" visibility="private" type="_55vfIOQREdqeH_WIC9QRew" association="_tWvxIHDFEdur9cZft9T4NQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_KYXQwHDHEdur9cZft9T4NQ" name="BranchTransition">
         <ownedComment xmi:id="_moDiQKtkEd2iPq4SbQh7ig" annotatedElement="_KYXQwHDHEdur9cZft9T4NQ">
-          <body>See Branch</body>
+          <body>The BranchTransition is an association class that realises the containment of ScenarioBehaviours in in the branches of a Branch action. It is a separate meta class because it has the additional attribute branchProbability that specifies how probably it is that the references ScenarioBehaviour is executed in the Branch action. &#xD;
+&#xD;
+See also Branch.</body>
         </ownedComment>
         <ownedAttribute xmi:id="_TqduQHDHEdur9cZft9T4NQ" name="branchProbability" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
@@ -13649,25 +13672,34 @@ Concrete user actions of the usage model are:&#xD;
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_ntmscHDHEdur9cZft9T4NQ" memberEnd="_ntmscXDHEdur9cZft9T4NQ _ntmscnDHEdur9cZft9T4NQ">
         <ownedComment xmi:id="_iMfZEKtoEd2iPq4SbQh7ig" annotatedElement="_ntmscHDHEdur9cZft9T4NQ">
-          <body>TODO Anne</body>
+          <body>This association connects the Branch metaclass with the association class BranchTransition, which itself references a ScenarioBehaviour. &#xD;
+&#xD;
+This association, the BranchTransition meta class and the branchedBehaviour_BranchTransition association together realise the containment of a ScenarioBehaviour in each branch of a Branch action. The one-to-many multiplicity of this association allow that each Branch action can have multiple branches (i.e. BranchTransitions). </body>
         </ownedComment>
         <ownedEnd xmi:id="_ntmscnDHEdur9cZft9T4NQ" visibility="private" type="_3ZHVcOQREdqeH_WIC9QRew" association="_ntmscHDHEdur9cZft9T4NQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_e6KCwHh7Edugjru7Zo1JWg" memberEnd="_e6KCwXh7Edugjru7Zo1JWg _e6KCwnh7Edugjru7Zo1JWg">
         <ownedComment xmi:id="_j6l5oKtoEd2iPq4SbQh7ig" annotatedElement="_e6KCwHh7Edugjru7Zo1JWg">
-          <body>TODO Anne</body>
+          <body>An EntryLevelSystemCall models the call to a service provided by a system. Therefore, an&#xD;
+EntryLevelSystemCall references a Signature specifying the called service. This is realised by this association. &#xD;
+&#xD;
+Each EntryLevelSystemCall references exacly one Signature of an Interface used in the System. The other direction is not navigable, as the Inertface and Signature have no notion about referencing UsageScenarios and UsageModels. </body>
         </ownedComment>
         <ownedEnd xmi:id="_e6KCwnh7Edugjru7Zo1JWg" name="entrylevelsystemcall" visibility="private" type="_h0hLkOQREdqeH_WIC9QRew" association="_e6KCwHh7Edugjru7Zo1JWg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_DX0AEInqEducPr8SMhBkpQ" memberEnd="_DX0AEYnqEducPr8SMhBkpQ _DX0AEonqEducPr8SMhBkpQ">
         <ownedComment xmi:id="_klf30KtoEd2iPq4SbQh7ig" annotatedElement="_DX0AEInqEducPr8SMhBkpQ">
-          <body>TODO Anne</body>
+          <body>The think time of a ClosedWorkload is specified as a PCMRandomVariable. This association references the PCMRandomVariable which denotes the think time of the referenced ClosedWorkload.&#xD;
+&#xD;
+Each ClosedWorkload has only one think time, and the referenced PCMRandomVariable is used exclusively for this matter. </body>
         </ownedComment>
         <ownedEnd xmi:id="_DX0AEonqEducPr8SMhBkpQ" visibility="private" type="_ffBwUOQQEdqeH_WIC9QRew" association="_DX0AEInqEducPr8SMhBkpQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_fjmgYInqEducPr8SMhBkpQ" memberEnd="_fjmgYYnqEducPr8SMhBkpQ _fjmgYonqEducPr8SMhBkpQ">
         <ownedComment xmi:id="_ip_NYKtoEd2iPq4SbQh7ig" annotatedElement="_fjmgYInqEducPr8SMhBkpQ">
-          <body>TODO Anne</body>
+          <body>The interarrival time of an OpenWorkload is specified as a PCMRandomVariable. This association references the PCMRandomVariable which denotes the interarrival time of the referenced OpenWorkload. &#xD;
+&#xD;
+Each OpenWorkload has only one interarrival time, and the referenced PCMRandomVariable is used exclusively for this matter. </body>
         </ownedComment>
         <ownedEnd xmi:id="_fjmgYonqEducPr8SMhBkpQ" visibility="private" type="_fJ3YoOQQEdqeH_WIC9QRew" association="_fjmgYInqEducPr8SMhBkpQ"/>
       </packagedElement>
@@ -13687,7 +13719,9 @@ if a performance analyst wants to determine the execution time for a complete sc
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Jk3pwBmpEdyaJvvdhGgDYg" memberEnd="_Jk3pwRmpEdyaJvvdhGgDYg _Jk3pwhmpEdyaJvvdhGgDYg">
         <ownedComment xmi:id="_kxaz8KtoEd2iPq4SbQh7ig" annotatedElement="_Jk3pwBmpEdyaJvvdhGgDYg">
-          <body>TODO Anne</body>
+          <body>The delay time of a Delay action is specified as a PCMRandomVariable. This association references the PCMRandomVariable which denotes the delay time of the referenced Delay action.&#xD;
+&#xD;
+Each Delay actionhas only one delay time, and the referenced PCMRandomVariable is used exclusively for this matter. </body>
         </ownedComment>
         <ownedEnd xmi:id="_Jk3pwhmpEdyaJvvdhGgDYg" visibility="private" type="_Da-IwBmoEdyaJvvdhGgDYg" association="_Jk3pwBmpEdyaJvvdhGgDYg"/>
       </packagedElement>
@@ -13700,7 +13734,7 @@ parameters of the system publicized by the software architect (see pcm::paramete
 characterises the values of component parameters related to business concepts (e.g., user specific data,&#xD;
 data specific for a business domain), whereas the software architect characterises the values of component&#xD;
 parameters related to technical concepts (e.g., size of caches, size of a thread pool, configuration data,&#xD;
-etc.).</body>
+etc.). One UserData instance includes all parameter characterisation for the annotated entity. </body>
         </ownedComment>
         <ownedAttribute xmi:id="_Yjn8IUo9EdyyNsXlb1tNsw" name="userDataParameterUsages_UserData" type="_GmAWYOQSEdqeH_WIC9QRew" aggregation="composite" association="_Yjn8IEo9EdyyNsXlb1tNsw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Yjn8JEo9EdyyNsXlb1tNsw" value="*"/>
@@ -13710,13 +13744,17 @@ etc.).</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_P8zQQEo9EdyyNsXlb1tNsw" memberEnd="_P8zQQUo9EdyyNsXlb1tNsw _P8zQQko9EdyyNsXlb1tNsw">
         <ownedComment xmi:id="_lDcYEKtoEd2iPq4SbQh7ig" annotatedElement="_P8zQQEo9EdyyNsXlb1tNsw">
-          <body>TODO Anne</body>
+          <body>This associatin realises the containment of several UserDatas, that themselves reference AssemblyContexts, within a UsageModel. &#xD;
+&#xD;
+The UserData is attached to the UsageModel and not to UsageScenarios as it represents data that is to the overall usage of the system and does not relate specifically to single UsageScenarios. </body>
         </ownedComment>
         <ownedEnd xmi:id="_P8zQQko9EdyyNsXlb1tNsw" visibility="private" type="_WlgK4OQQEdqeH_WIC9QRew" association="_P8zQQEo9EdyyNsXlb1tNsw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_hr1d0Eo9EdyyNsXlb1tNsw" memberEnd="_hr1d0Uo9EdyyNsXlb1tNsw _hr1d0ko9EdyyNsXlb1tNsw">
         <ownedComment xmi:id="_hr2xMKtoEd2iPq4SbQh7ig" annotatedElement="_hr1d0Eo9EdyyNsXlb1tNsw">
-          <body>TODO Anne</body>
+          <body>This association realizes the assignment of UserData to an AssemblyContext. This is a 1-to-1 relation, as each UserData only annotates one AssemblyContext. It includes all annotations for this AssemblyContext, so each AssemblyContext is just annotated by one UserData. &#xD;
+&#xD;
+See the UserData meta class for a detailed explanation. </body>
         </ownedComment>
         <ownedEnd xmi:id="_hr1d0ko9EdyyNsXlb1tNsw" visibility="private" type="_NQxu4Eo9EdyyNsXlb1tNsw" association="_hr1d0Eo9EdyyNsXlb1tNsw"/>
       </packagedElement>
