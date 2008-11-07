@@ -253,18 +253,18 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateRepository((Repository)value, diagnostics, context);
 			case RepositoryPackage.REPOSITORY_COMPONENT:
 				return validateRepositoryComponent((RepositoryComponent)value, diagnostics, context);
-			case RepositoryPackage.INTERFACE:
-				return validateInterface((Interface)value, diagnostics, context);
-			case RepositoryPackage.EXCEPTION_TYPE:
-				return validateExceptionType((ExceptionType)value, diagnostics, context);
-			case RepositoryPackage.ROLE:
-				return validateRole((Role)value, diagnostics, context);
 			case RepositoryPackage.REQUIRED_ROLE:
 				return validateRequiredRole((RequiredRole)value, diagnostics, context);
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE:
-				return validateProvidesComponentType((ProvidesComponentType)value, diagnostics, context);
+			case RepositoryPackage.ROLE:
+				return validateRole((Role)value, diagnostics, context);
+			case RepositoryPackage.INTERFACE:
+				return validateInterface((Interface)value, diagnostics, context);
 			case RepositoryPackage.RESOURCE_REQUIRED_ROLE:
 				return validateResourceRequiredRole((ResourceRequiredRole)value, diagnostics, context);
+			case RepositoryPackage.EXCEPTION_TYPE:
+				return validateExceptionType((ExceptionType)value, diagnostics, context);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE:
+				return validateProvidesComponentType((ProvidesComponentType)value, diagnostics, context);
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE:
 				return validateImplementationComponentType((ImplementationComponentType)value, diagnostics, context);
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE:
@@ -379,7 +379,15 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRepositoryComponent(RepositoryComponent repositoryComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(repositoryComponent, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(repositoryComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(repositoryComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(repositoryComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(repositoryComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(repositoryComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(repositoryComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(repositoryComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(repositoryComponent, diagnostics, context);
+		return result;
 	}
 
 	/**

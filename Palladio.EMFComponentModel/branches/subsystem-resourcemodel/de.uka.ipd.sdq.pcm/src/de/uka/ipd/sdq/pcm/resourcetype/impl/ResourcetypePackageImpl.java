@@ -340,6 +340,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		resourceTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		resourceTypeEClass.getESuperTypes().add(theUnitsPackage.getUnitCarryingElement());
 		processingResourceTypeEClass.getESuperTypes().add(this.getResourceType());
+		processingResourceTypeEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingEntity());
 		communicationLinkResourceTypeEClass.getESuperTypes().add(this.getProcessingResourceType());
 
 		// Initialize classes and features; add operations and parameters

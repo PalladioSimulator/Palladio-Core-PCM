@@ -47,8 +47,8 @@ public class AllocationContextEditHelperAdvice
 						resource));
 		
 		String allocationName = "Allocation_"+resource.getEntityName();
-		if (resource.getEncapsulatedComponent_ChildComponentContext() != null)
-			allocationName += " <"+resource.getEncapsulatedComponent_ChildComponentContext().getEntityName()+">";
+		if (resource.getEncapsulatedComponent_AssemblyContext() != null)
+			allocationName += " <"+resource.getEncapsulatedComponent_AssemblyContext().getEntityName()+">";
 
 		ICommand cmd2 = new SetValueCommand(
 				new SetRequest(

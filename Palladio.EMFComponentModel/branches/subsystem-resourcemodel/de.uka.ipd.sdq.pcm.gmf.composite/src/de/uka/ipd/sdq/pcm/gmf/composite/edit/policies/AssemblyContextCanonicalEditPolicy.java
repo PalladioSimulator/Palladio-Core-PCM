@@ -33,7 +33,7 @@ public class AssemblyContextCanonicalEditPolicy extends CanonicalEditPolicy {
 		List result = new LinkedList();
 		EObject modelObject = ((View) getHost().getModel()).getElement();
 		AssemblyContext ctx = (AssemblyContext) modelObject;
-		modelObject = ctx.getEncapsulatedComponent_ChildComponentContext();
+		modelObject = ctx.getEncapsulatedComponent_AssemblyContext();
 		View viewObject = (View) getHost().getModel();
 		EObject nextValue;
 		int nodeVID;

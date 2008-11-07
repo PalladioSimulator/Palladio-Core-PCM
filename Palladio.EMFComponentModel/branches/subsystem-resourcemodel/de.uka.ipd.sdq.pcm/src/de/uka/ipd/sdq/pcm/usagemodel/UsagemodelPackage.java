@@ -23,6 +23,85 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * TODO: Put the 3.2.2 Context Model chapter of Steffens Diss somewhere so that it can be referred to here. It provides an important overview on why we have the usage model. 
+ * 
+ * TODO: Include the example from Heiko's dissertation here? But how to include the picture?
+ * 
+ * The usage of a software system by external clients has to be captured in models to enable model-driven
+ * performance predictions. Here, the term usage refers to workload (i.e., the number of users concurrently
+ * present in the system), usage scenarios (i.e., possible sequences of invoking services at system provided
+ * roles), waiting delays between service invocations, and values for parameters and component configurations.
+ * 
+ * This package contains the usage specification language, which (i) provides more expressiveness for
+ * characterising parameter instances than previous models, but (ii) at the same time is restricted to concepts
+ * familiar to domain experts to create a domain specific language. The language is called PCM usage
+ * model.
+ * 
+ * The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. The concepts are explained for the single meta classes included in this package. 
+ * 
+ * Note that UsageModels are completely decoupled from the inner contents of a system, which consists of an assembly and a connected resource environment. The UsageModel only refers to services of system provided roles. It regards the component
+ * architecture (i.e., the assembly) as well as used resources (i.e., hardware devices such as CPUs
+ * and harddisks or software entities such as threads, semaphores) as hidden in the system. Thus, the UsageModel only captures information that is available to domain experts and can be changed by them. Resource
+ * environment and component architecture may be changed independently from the UsageModel 
+ * by system architects, if the system's ProvidedRoles remain unchanged.
+ * 
+ * Discussion: 
+ * Notice, that unlike other behavioural description languages for performance prediction (e.g., [162, 187,
+ * 78]), the PCM usage model specifically models user behaviour and for example does not refer to resources.
+ * Other performance meta-models mix up the specification of user behaviour, component behaviour, and
+ * resources, so that a single developer role (i.e., a performance analyst) needs to specify the performance
+ * model. Opposed to this, the PCM targets a division of work for multiple developer roles (cf. Section 3.1 of Heiko Koziolek's dissertation).
+ * 
+ * Furthermore, none of the other performance meta-models support explicit service parameter modelling.
+ * While CSM [162] includes a meta-class Message to specify the amount of data transferred between
+ * two steps in the performance model, and KLAPER [78] allows the specification of parameter values
+ * in principle, none of these language uses the information to parameterise resource demands or component
+ * behaviour. Additionally, they do not provide the information readily analysable by MDSD tools.
+ * 
+ * The PCM usage model has been designed based on meta models such as the performance domain model
+ * of the UML SPT profile [31], the Core Scenario Model (CSM) [162], and KLAPER [78]. It is furthermore
+ * related to usage models used in statistical testing [34]. Although the concepts included in the PCM usage
+ * model are quite similar to the modelling capabilities of the UML SPT profile, there are some subtle
+ * differences:
+ * • The usage model is aligned with the role of the domain expert, and uses only concepts known to
+ * this role. It is a domain specific language, whereas the UML SPT performance domain model is
+ * a general purpose language that includes information, which is usually spread over multiple developer
+ * roles such as the component assembler and the system deployer, so that a domain expert without a technical background could not specify an instance of it. Nevertheless, domain experts
+ * should be able to create PCM usage models with appropriate tools independently from other developer
+ * roles, because such models only contain concepts known to them.
+ * • The number of loop iterations is not bound to a constant value, but can be specified as a random
+ * variable.
+ * • The control flow constructs are arranged in a hierarchical fashion to enable easy analyses.
+ * • Users are restricted to non-concurrent behaviour, as it is assumed, that users only execute the
+ * services of a system one at a time.
+ * • System service invocations can be enhanced with characterisations of parameters values.
+ * 
+ * [31] Object Management Group (OMG), “UML Profile for Schedulability, Performance and Time,”
+ * http://www.omg.org/cgi-bin/doc?formal/2005-01-02, January 2005.
+ * 
+ * [34] James A. Whittaker and Michael G. Thomason, “A Markov chain model for statistical software
+ * testing,” IEEE Transactions on Software Engineering, vol. 20, no. 10, pp. 812–824, Oct. 1994.
+ * 
+ * [78] V. Grassi, R. Mirandola, and A. Sabetta, “From design to analysis models: a kernel language
+ * for performance and reliability analysis of component-based systems,” in Proc. 5th International
+ * Workshop on Software and Performance (WOSP ’05). New York, NY, USA: ACM Press, 2005,
+ * pp. 25–36.
+ * 
+ * [162] D. B. Petriu and M. Woodside, “A metamodel for generating performance models from UML designs,”
+ * in UML 2004 - The Unified Modeling Language. Model Languages and Applications. 7th
+ * International Conference, Lisbon, Portugal, October 11-15, 2004, Proceedings, ser. LNCS, T. Baar,
+ * A. Strohmeier, A. Moreira, and S. J. Mellor, Eds., vol. 3273. Springer, 2004, pp. 41–53.
+ * 
+ * [187] C. U. Smith, C. M. Llado, V. Cortellessa, A. D. Marco, and L. G. Williams, “From UML models
+ * to software performance results: an SPE process based on XML interchange formats,” in Proc. 5th
+ * international workshop on Software and performance (WOSP’05). New York, NY, USA: ACM
+ * Press, 2005, pp. 87–98.
+ * 
+ * 
+ * 
+ * 
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory
  * @model kind="package"
  * @generated

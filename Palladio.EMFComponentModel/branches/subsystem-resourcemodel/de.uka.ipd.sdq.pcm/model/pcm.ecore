@@ -5,7 +5,13 @@
     nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/1.0" nsPrefix="pcm">
   <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0"
       nsPrefix="">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities."/>
+    </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Random variables are used to describe user and component behaviour. They allow not only constant values (e.g., 3 loop iterations), but also probabilistic values (e.g., 2 loop iterations with a probability of 0.4 and 3 loop iterations with a probability of 0.6). They are well-suited for capturing uncertainty when modelling systems during early development stages. Examples where developers may use random variables are:&#xD;&#xA;- Characterisations of Input Parameters: Describes the QoS relevant characteristics of parameters of component services.&#xD;&#xA;- Inter-Arrival Time: Describes how much time passes between the arrival of two subsequent users.&#xD;&#xA;- Think Time: Describes how much time passes between the execution of a user scenario and the start of the next execution of this scenario.&#xD;&#xA;- Loop Iteration Count: Describes the number of repetitions of a loop.&#xD;&#xA;- Guarded Branch Transitions: Used to determine whether to conditionally execute a certain behaviour."/>
+      </eAnnotations>
       <eOperations name="SpecificationMustNotBeNULL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="not self.specification.oclIsUndefined() and self.specification &lt;> ''"/>
@@ -28,34 +34,60 @@
     </eClassifiers>
     <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
         nsPrefix="">
-      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement"/>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This  set of abstract meta-classes gives a conceptual view on interfaces, entities and their relationships: Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. &#xD;&#xA;&#xD;&#xA;Base of the inheritance hierarchy are Identifier and NamedElement, both of which Entity and all inheriting classes are derived from. &#xD;&#xA;&#xD;&#xA;The relationship of Entities and Interfaces is described with the three meta classes InterfaceProvidingEntity, InterfaceRequiringEntity, and InterfaceProvidingRequiringEntity. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offer by entities providing this functionality. InterfaceProvidingRequiringEntity inherits from both of them and thus combines their properties. "/>
+      </eAnnotations>
+      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Entity is a meta class high up the PCM meta class hierarchy and represents all entities of the PCM that have both an id (see meta class Identifier) and a name (see meta class NamedEntity)."/>
+        </eAnnotations>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The NamedElement meta class is inherited by all PCM classes whose instances bear a name. Thus, the semantic of &quot;bearing a name&quot; is given to all inheriting classes, so that the name can be used in visualisations, for example. "/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="entityName" ordered="false"
             lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
             defaultValueLiteral="aName"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingEntity" abstract="true"
           eSuperTypes="#//core/entity/Entity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="All Entities that provide an Interface are represented by this class. Prominent inheriting classes are all component types, for example.&#xD;&#xA;&#xD;&#xA;Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities and their relationships. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offered by entities providing this functionality.&#xD;&#xA;&#xD;&#xA;See also:&#xD;&#xA;Interface, ProvidedRole"/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles_InterfaceProvidingEntity"
             ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
             eOpposite="#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
       </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
+          abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity #//core/entity/ResourceInterfaceRequiringEntity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This meta-class is inherited by classes that both require and provide an Interface. It thus combines the properties of InterfaceProvidingEntity and InterfaceRequiringEntity. Prominent inheriting classes are all component types, for example.&#xD;&#xA;&#xD;&#xA;See also:&#xD;&#xA;Interface, ProvidedRole, RequiredRole, InterfaceProvidingEntity, InterfaceRequiringEntity"/>
+        </eAnnotations>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="InterfaceRequiringEntity" abstract="true"
           eSuperTypes="#//core/entity/Entity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="All Entities that require an Interface are represented by this class. Prominent inheriting classes are all component types, for example.&#xD;&#xA;&#xD;&#xA;Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities and their relationships. The abstract meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offered by entities providing this functionality. Similarly, the meta-classInterfaceProvidingEntity  is inherited by all entities which can potentially offer interface implementations.&#xD;&#xA;&#xD;&#xA;See also:&#xD;&#xA;Interface, RequiredRole"/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_InterfaceRequiringEntity"
             ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"
             eOpposite="#//repository/RequiredRole/requiringEntity_RequiredRole"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
-          abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity #//core/entity/ResourceInterfaceRequiringEntity"/>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceRequiringEntity"
           abstract="true" eSuperTypes="#//core/entity/Entity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="TODO"/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRoles_ResourceInterfaceRequiringEntity"
             ordered="false" upperBound="-1" eType="#//repository/ResourceRequiredRole"
             containment="true" eOpposite="#//repository/ResourceRequiredRole/resourceRequiringEntity_ResourceRequiredRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
           abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The ComposedProvidingRequiringEntity combines the properties of an InterfaceProvidingRequiringEntity and a ComposedStructure. It is inherited by all classes that, on the one hand,  claim to implement the functionality specified in an interface as well as to request that functionality, and, on the other hand, are composed out of some inner entities. &#xD;&#xA;&#xD;&#xA;Valid ComposedProvidingRequiringEntities need to have their ProvidedRoles bound to ProvidedRoles of the contained entities.  &#xD;&#xA;&#xD;&#xA;Prominent examples are System, SubSystem, and CompositeComponents&#xD;&#xA;&#xD;&#xA;TODO/FIXME: The distinction between ComposedStructure and ComposedProvidingRequiringStructure does not make sense at the moment, because the ComposedStructure already talks about inner provided / required delegation connectors, which only make sense if there are outer roles for interfaces -> ComposedProvidingRequiringStructure. IDEA: Move the delegation connector attributes to ComposedProvidingRequiringStructure. I'm not sure about the assembly connectors. SEE ALSO: ComposedStructure &#xD;&#xA;However, as AssemblyContexts of ComposedStructure always contain InterfaceProvidingRequiringEntities at the moment, the above might not help... and we may just want to merge the meta classes. --Anne"/>
+        </eAnnotations>
         <eOperations name="ProvidedRolesMustBeBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->forAll(role|self.providedDelegationConnectors_ComposedStructure->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;"/>
@@ -79,7 +111,11 @@
     </eSubpackages>
     <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
         nsPrefix="">
-      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="TODO: We might want to add a constraint that both sides of the connector must be not null. Then, we don't have to specify that for example for ComposedProvidingRequiringEntities that the ProvidedDelegationConnector actually points to something inner. If you decide not to add a constraint here, then we need a constraint there and maybe at other places -- Anne"/>
+        </eAnnotations>
+      </eClassifiers>
     </eSubpackages>
     <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/1.0"
         nsPrefix="">
@@ -135,11 +171,11 @@
             eOpposite="#//core/composition/ComposedStructure/providedDelegationConnectors_ComposedStructure"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext" eSuperTypes="#//core/entity/Entity">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent_ChildComponentContext"
-            ordered="false" lowerBound="1" eType="#//core/entity/InterfaceProvidingRequiringEntity"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent_AssemblyContext"
+            ordered="false" lowerBound="1" eType="#//repository/RepositoryComponent"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_AssemblyContext"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
-            eOpposite="#//core/composition/ComposedStructure/childComponentContexts_ComposedStructure"/>
+            eOpposite="#//core/composition/ComposedStructure/assemblyContexts_ComposedStructure"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="configParameterUsages_AssemblyContext"
             ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
       </eClassifiers>
@@ -235,9 +271,9 @@
             </eGenericType>
           </eParameters>
         </eOperations>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiringChildComponentContext_CompositeAssemblyConnector"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiringAssemblyContext_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providingChildComponentContext_CompositeAssemblyConnector"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providingAssemblyContext_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_CompositeAssemblyConnector"
             ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
@@ -245,7 +281,7 @@
             ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
-            eOpposite="#//core/composition/ComposedStructure/compositeAssemblyConnectors_ComposedStructure"/>
+            eOpposite="#//core/composition/ComposedStructure/assemblyConnectors_ComposedStructure"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredDelegationConnector">
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_ResourceRequiredDelegationConnector"
@@ -258,7 +294,10 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true"
           eSuperTypes="#//core/entity/Entity">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContexts_ComposedStructure"
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="TODO/FIXME: The distinction between ComposedStructure and ComposedProvidingRequiringStructure does not make sense at the moment, because the ComposedStructure already talks about inner provided / required delegation connectors, which only make sense if there are outer roles for interfaces -> ComposedProvidingRequiringStructure. IDEA: Move the delegation connector attributes to ComposedProvidingRequiringStructure. I'm not sure about the assembly connectors. SEE ALSO: ComposedProvidingRequiringStructure &#xD;&#xA;However, as AssemblyContexts of ComposedStructure always contain InterfaceProvidingRequiringEntities at the moment, the above might not help... -- Anne"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContexts_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/AssemblyContext"
             containment="true" eOpposite="#//core/composition/AssemblyContext/parentStructure_AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors_ComposedStructure"
@@ -267,7 +306,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/RequiredDelegationConnector"
             containment="true" eOpposite="#//core/composition/RequiredDelegationConnector/parentStructure_RequiredDelegationConnector"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="compositeAssemblyConnectors_ComposedStructure"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnectors_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/AssemblyConnector"
             containment="true" eOpposite="#//core/composition/AssemblyConnector/parentStructure_AssemblyConnector"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredDelegationConnectors_ComposedStructure"
@@ -440,13 +479,37 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RepositoryComponent" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryComponent" abstract="true"
+        eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="repository_RepositoryComponent"
           ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/components__Repository">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents the repository where this entity is stored."/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//repository/Role">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents a required interface."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface__RequiredRole"
+          ordered="false" lowerBound="1" eType="#//repository/Interface">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the interfaces that is required by this role."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringEntity_RequiredRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/InterfaceRequiringEntity"
+          eOpposite="#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the interface requiring entity that requires this interface."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents an abstraction of an interface role. "/>
+      </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -525,6 +588,13 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface_ResourceRequiredRole"
+          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity_ResourceRequiredRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
+          eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents a type of an exception."/>
@@ -542,30 +612,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//core/entity/Entity">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents an abstraction of an interface role. "/>
-      </eAnnotations>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//repository/Role">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a required interface."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface__RequiredRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the interfaces that is required by this role."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringEntity_RequiredRole"
-          ordered="false" lowerBound="1" eType="#//core/entity/InterfaceRequiringEntity"
-          eOpposite="#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the interface requiring entity that requires this interface."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity #//repository/RepositoryComponent">
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents abstraction of a component where only the provided interfaces are visible, while the required interfaces and its implementation are left open."/>
       </eAnnotations>
@@ -590,15 +637,8 @@
         </eParameters>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface_ResourceRequiredRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity_ResourceRequiredRole"
-          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
-          eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" abstract="true"
-        eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity #//repository/RepositoryComponent">
+        eSuperTypes="#//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type."/>
       </eAnnotations>
@@ -649,7 +689,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity #//repository/RepositoryComponent">
+    <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents an abstraction of a component as a set provided and a set of required interfaces."/>
       </eAnnotations>
@@ -927,6 +967,9 @@
   </eSubpackages>
   <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
       nsPrefix="">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: Section 4.1.3 Parameter Characterisation in the PCM in Heikos Diss&#xD;&#xA;&#xD;&#xA;Include explanation of Component Parameters here, as usagemodel.UserData refers to here. "/>
+    </eAnnotations>
     <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
       <eLiterals name="STRUCTURE"/>
       <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
@@ -1261,7 +1304,7 @@
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2AAAAAAA􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 AAAAAAA􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
+          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
@@ -1363,12 +1406,15 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
           ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType #//core/entity/InterfaceProvidingEntity"/>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
       nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/entity/Entity #//core/entity/ComposedProvidingRequiringEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A system is not composable because it has QoS annotations which are only allowed in the &quot;outer&quot; composition thing. And a UsageModel must only access systems and not inner stuff. TODO Klaus."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="qosAnnotations_System"
           ordered="false" upperBound="-1" eType="#//qosannotations/QoSAnnotations"
           containment="true"/>
@@ -1436,14 +1482,27 @@
   </eSubpackages>
   <eSubpackages name="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0"
       nsPrefix="">
-    <eClassifiers xsi:type="ecore:EClass" name="Workload" abstract="true"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="TODO: Put the 3.2.2 Context Model chapter of Steffens Diss somewhere so that it can be referred to here. It provides an important overview on why we have the usage model. &#xD;&#xA;&#xD;&#xA;TODO: Include the example from Heiko's dissertation here? But how to include the picture?&#xD;&#xA;&#xD;&#xA;The usage of a software system by external clients has to be captured in models to enable model-driven&#xD;&#xA;performance predictions. Here, the term usage refers to workload (i.e., the number of users concurrently&#xD;&#xA;present in the system), usage scenarios (i.e., possible sequences of invoking services at system provided&#xD;&#xA;roles), waiting delays between service invocations, and values for parameters and component configurations.&#xD;&#xA;&#xD;&#xA;This package contains the usage specification language, which (i) provides more expressiveness for&#xD;&#xA;characterising parameter instances than previous models, but (ii) at the same time is restricted to concepts&#xD;&#xA;familiar to domain experts to create a domain specific language. The language is called PCM usage&#xD;&#xA;model.&#xD;&#xA;&#xD;&#xA;The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. The concepts are explained for the single meta classes included in this package. &#xD;&#xA;&#xD;&#xA;Note that UsageModels are completely decoupled from the inner contents of a system, which consists of an assembly and a connected resource environment. The UsageModel only refers to services of system provided roles. It regards the component&#xD;&#xA;architecture (i.e., the assembly) as well as used resources (i.e., hardware devices such as CPUs&#xD;&#xA;and harddisks or software entities such as threads, semaphores) as hidden in the system. Thus, the UsageModel only captures information that is available to domain experts and can be changed by them. Resource&#xD;&#xA;environment and component architecture may be changed independently from the UsageModel &#xD;&#xA;by system architects, if the system's ProvidedRoles remain unchanged.&#xD;&#xA;&#xD;&#xA;Discussion: &#xD;&#xA;Notice, that unlike other behavioural description languages for performance prediction (e.g., [162, 187,&#xD;&#xA;78]), the PCM usage model specifically models user behaviour and for example does not refer to resources.&#xD;&#xA;Other performance meta-models mix up the specification of user behaviour, component behaviour, and&#xD;&#xA;resources, so that a single developer role (i.e., a performance analyst) needs to specify the performance&#xD;&#xA;model. Opposed to this, the PCM targets a division of work for multiple developer roles (cf. Section 3.1 of Heiko Koziolek's dissertation).&#xD;&#xA;&#xD;&#xA;Furthermore, none of the other performance meta-models support explicit service parameter modelling.&#xD;&#xA;While CSM [162] includes a meta-class Message to specify the amount of data transferred between&#xD;&#xA;two steps in the performance model, and KLAPER [78] allows the specification of parameter values&#xD;&#xA;in principle, none of these language uses the information to parameterise resource demands or component&#xD;&#xA;behaviour. Additionally, they do not provide the information readily analysable by MDSD tools.&#xD;&#xA;&#xD;&#xA;The PCM usage model has been designed based on meta models such as the performance domain model&#xD;&#xA;of the UML SPT profile [31], the Core Scenario Model (CSM) [162], and KLAPER [78]. It is furthermore&#xD;&#xA;related to usage models used in statistical testing [34]. Although the concepts included in the PCM usage&#xD;&#xA;model are quite similar to the modelling capabilities of the UML SPT profile, there are some subtle&#xD;&#xA;differences:&#xD;&#xA;• The usage model is aligned with the role of the domain expert, and uses only concepts known to&#xD;&#xA;this role. It is a domain specific language, whereas the UML SPT performance domain model is&#xD;&#xA;a general purpose language that includes information, which is usually spread over multiple developer&#xD;&#xA;roles such as the component assembler and the system deployer, so that a domain expert without a technical background could not specify an instance of it. Nevertheless, domain experts&#xD;&#xA;should be able to create PCM usage models with appropriate tools independently from other developer&#xD;&#xA;roles, because such models only contain concepts known to them.&#xD;&#xA;• The number of loop iterations is not bound to a constant value, but can be specified as a random&#xD;&#xA;variable.&#xD;&#xA;• The control flow constructs are arranged in a hierarchical fashion to enable easy analyses.&#xD;&#xA;• Users are restricted to non-concurrent behaviour, as it is assumed, that users only execute the&#xD;&#xA;services of a system one at a time.&#xD;&#xA;• System service invocations can be enhanced with characterisations of parameters values.&#xD;&#xA;&#xD;&#xA;[31] Object Management Group (OMG), “UML Profile for Schedulability, Performance and Time,”&#xD;&#xA;http://www.omg.org/cgi-bin/doc?formal/2005-01-02, January 2005.&#xD;&#xA;&#xD;&#xA;[34] James A. Whittaker and Michael G. Thomason, “A Markov chain model for statistical software&#xD;&#xA;testing,” IEEE Transactions on Software Engineering, vol. 20, no. 10, pp. 812–824, Oct. 1994.&#xD;&#xA;&#xD;&#xA;[78] V. Grassi, R. Mirandola, and A. Sabetta, “From design to analysis models: a kernel language&#xD;&#xA;for performance and reliability analysis of component-based systems,” in Proc. 5th International&#xD;&#xA;Workshop on Software and Performance (WOSP ’05). New York, NY, USA: ACM Press, 2005,&#xD;&#xA;pp. 25–36.&#xD;&#xA;&#xD;&#xA;[162] D. B. Petriu and M. Woodside, “A metamodel for generating performance models from UML designs,”&#xD;&#xA;in UML 2004 - The Unified Modeling Language. Model Languages and Applications. 7th&#xD;&#xA;International Conference, Lisbon, Portugal, October 11-15, 2004, Proceedings, ser. LNCS, T. Baar,&#xD;&#xA;A. Strohmeier, A. Moreira, and S. J. Mellor, Eds., vol. 3273. Springer, 2004, pp. 41–53.&#xD;&#xA;&#xD;&#xA;[187] C. U. Smith, C. M. Llado, V. Cortellessa, A. D. Marco, and L. G. Williams, “From UML models&#xD;&#xA;to software performance results: an SPE process based on XML interchange formats,” in Proc. 5th&#xD;&#xA;international workshop on Software and performance (WOSP’05). New York, NY, USA: ACM&#xD;&#xA;Press, 2005, pp. 87–98.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Workload" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Workload specifies the usage intensity of a system, which relates to the number of users concurrently&#xD;&#xA;present in the system. The PCM usage model adopts this concept from classical queueing&#xD;&#xA;theory [123]. The specified workloads can directly be used in queueing networks or easily be mapped&#xD;&#xA;to markings in stochastic Petri nets. Workloads can either be open or closed.&#xD;&#xA;&#xD;&#xA;The algorithms used to analyse queueing networks differ depending on whether open or closed workloads&#xD;&#xA;are modelled [123]. Some special queueing networks can only be analysed given a particular workload&#xD;&#xA;type (open or closed). Notice, that it is possible to specify a usage model with open workload usage&#xD;&#xA;scenarios and closed workload usage scenarios at the same time. Open and closed workloads can be&#xD;&#xA;executed in parallel when analysing the model.&#xD;&#xA;&#xD;&#xA;[123] E. Lazowska, J. Zahorjan, G. Graham, and K. Sevcik, Quantitative System Performance. Prentice&#xD;&#xA;Hall, 1984."/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UsageScenario" eSuperTypes="#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="UsageScenarios are concurrently executed behaviours of users within one UsageModel.  It describes which&#xD;&#xA;services are directly invoked by users in one specific use case and models the possible sequences of calling&#xD;&#xA;them. Each UsageScenario includes a workload and a scenario behaviour. "/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="workload_UsageScenario"
           ordered="false" lowerBound="1" eType="#//usagemodel/Workload" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioBehaviour_UsageScenario"
           ordered="false" lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ScenarioBehaviour" eSuperTypes="#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A ScenarioBehaviour specifies possible sequences of executing services provided by the system.&#xD;&#xA;It contains a set of AbstractUserActions, each referencing a predecessor and successor (except the&#xD;&#xA;first and last action), thereby forming a sequence of actions. &#xD;&#xA;&#xD;&#xA;See the AbstractAction documentation for why it is advantageous&#xD;&#xA;to model control flow in this way, as the same principle is used in the RDSEFF language. &#xD;&#xA;&#xD;&#xA;Concrete user actions of the usage model are:&#xD;&#xA;- Branch&#xD;&#xA;- Loop&#xD;&#xA;- EntryLevelSystemCall&#xD;&#xA;- Delay&#xD;&#xA;- Start &#xD;&#xA;- Stop&#xD;&#xA;&#xD;&#xA;So far, ScenarioBehaviours do not include forks in the user flow (i.e., splitting the flow with an&#xD;&#xA;AND semantic), as it is assumed that users always act sequentially.&#xD;&#xA;&#xD;&#xA;As there are no random variables depending on other variables in the&#xD;&#xA;usage model, there are no equivalent actions to GuardedBranchTransitions or CollectionIteratorActions.&#xD;&#xA;"/>
+      </eAnnotations>
       <eOperations name="Exactlyonestart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1"/>
@@ -1508,24 +1567,36 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractUserAction" abstract="true"
         eSuperTypes="#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="See the AbstractAction documentation for why it is advantageous&#xD;&#xA;to model control flow in this way, as the same principle is used in the RDSEFF language. &#xD;&#xA;&#xD;&#xA;Concrete user actions of the usage model are:&#xD;&#xA;- Branch&#xD;&#xA;- Loop&#xD;&#xA;- EntryLevelSystemCall&#xD;&#xA;- Delay"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="successor" ordered="false"
           eType="#//usagemodel/AbstractUserAction" eOpposite="#//usagemodel/AbstractUserAction/predecessor"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" ordered="false"
           eType="#//usagemodel/AbstractUserAction" eOpposite="#//usagemodel/AbstractUserAction/successor"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UsageModel">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. "/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="usageScenario_UsageModel"
           ordered="false" upperBound="-1" eType="#//usagemodel/UsageScenario" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="userData_UsageModel"
           ordered="false" upperBound="-1" eType="#//usagemodel/UserData" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UserData">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="UserData characterises data&#xD;&#xA;used in specific assembly contexts in the system. This data is the same for all UsageScenarios, i.e.,&#xD;&#xA;multiple users accessing the same components access the same data. This UserData refers to component&#xD;&#xA;parameters of the system publicized by the software architect (see pcm::parameters package). The domain expert&#xD;&#xA;characterises the values of component parameters related to business concepts (e.g., user specific data,&#xD;&#xA;data specific for a business domain), whereas the software architect characterises the values of component&#xD;&#xA;parameters related to technical concepts (e.g., size of caches, size of a thread pool, configuration data,&#xD;&#xA;etc.). One UserData instance includes all parameter characterisation for the annotated entity. "/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="userDataParameterUsages_UserData"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_userData"
           ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Stop" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Each ScenarioBehaviour has exactly one Stop action which marks the action where the control flows ends. Stop actions have no successor."/>
+      </eAnnotations>
       <eOperations name="StopHasNoSuccessor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.successor.oclIsUndefined()"/>
@@ -1547,6 +1618,9 @@
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Each ScenarioBehaviour has exactly one Start action which marks the action where the control flows begins. Start actions have no predecessor."/>
+      </eAnnotations>
       <eOperations name="StartHasNoPredecessor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.predecessor.oclIsUndefined()"/>
@@ -1568,6 +1642,9 @@
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OpenWorkload" eSuperTypes="#//usagemodel/Workload">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="OpenWorkload specifies usage intensity with an inter-arrival time (i.e., the time between two&#xD;&#xA;user arrivals at the system) as a RandomVariable with an arbitrary probability distribution. It&#xD;&#xA;models that an infinite stream of users arrives at a system. The users execute their scenario, and then&#xD;&#xA;leave the system. The user population (i.e., the number of users concurrently present in a system) is&#xD;&#xA;not fixed in an OpenWorkload."/>
+      </eAnnotations>
       <eOperations name="InterArrivalTimeInOpenWorkloadNeedsToBeSpecified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification &lt;> ''"/>
@@ -1591,12 +1668,18 @@
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Loop models a repeated sequence of actions in the user flow. It contains a nested ScenarioBehaviour specifying the loop body, and a RandomVariable specifying the number of iterations."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="loopIteration_Loop" ordered="false"
           lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EntryLevelSystemCall" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An EntryLevelSystemCall models the call to a service provided by a system. Therefore, an&#xD;&#xA;EntryLevelSystemCall references a ProvidedRole of a PCM System, from which the&#xD;&#xA;called interface and the providing component within the system can be derived, and a Signature&#xD;&#xA;specifying the called service. Notice, that the usage model does not permit the domain expert to&#xD;&#xA;model calls directly to components, but only to system roles. (TODO: Add such a constraint.) This decouples the System structure&#xD;&#xA;(i.e., the component-based software architecture model and its allocation) from the UsageModel&#xD;&#xA;and the software architect can change the System (e.g., include new components, remove existing&#xD;&#xA;components, or change their wiring or allocation) independently from the domain expert, if&#xD;&#xA;the system provided roles are not affected. EntryLevelSystemCalls may include a set of&#xD;&#xA;input parameter characterisations and a set of output parameter characterisations (as described in&#xD;&#xA;the pcm::parameters package). However, the random variables characterising the input parameters&#xD;&#xA;like NUMBER_OF_ELEMENTS can not depend on other variables in the usage model. They have&#xD;&#xA;to be composed from literals only including literals describing random variables having a&#xD;&#xA;certain fixed distribution.&#xD;&#xA;&#xD;&#xA;TODO Anne: Constraint that ensures that the referred signature is contained in the interface referenced by the ProvidedRole (see Diagram)"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_EntryLevelSystemCall"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_EntryLevelSystemCall"
@@ -1607,6 +1690,9 @@
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ClosedWorkload" eSuperTypes="#//usagemodel/Workload">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ClosedWorkload specifies directly the (constant) user population and a think time. It models&#xD;&#xA;that a fixed number of users execute their scenario, then wait (or think) for the specified amount&#xD;&#xA;of think time as a RandomVariable, and then reenter the system executing their scenario again.&#xD;&#xA;Performance analysts use closed workloads to model scenarios, where the number of users is known&#xD;&#xA;(e.g., a fixed number of users in a company)."/>
+      </eAnnotations>
       <eOperations name="PopulationInClosedWorkloadNeedsToBeSpecified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="not self.population.oclIsUndefined() and self.population &lt;> ''"/>
@@ -1651,6 +1737,9 @@
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Branch splits the user flow with a XOR-semantic: one of the included BranchTransitions&#xD;&#xA;is taken depending on the specified branch probabilities. Each BranchTransition contains a&#xD;&#xA;nested ScenarioBehaviour, which a user executes once this branch transition is chosen. After&#xD;&#xA;execution of the complete nested ScenarioBehaviour, the next action in the user flow after the&#xD;&#xA;Branch is its successor action.&#xD;&#xA;&#xD;&#xA;A constraint ensures that all branchProbabilities of the included BranchTransitions sum up to 1. "/>
+      </eAnnotations>
       <eOperations name="AllBranchProbabilitiesMustSumUpTo1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() &lt;1.001"/>
@@ -1674,12 +1763,18 @@
           ordered="false" upperBound="-1" eType="#//usagemodel/BranchTransition" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BranchTransition">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The BranchTransition is an association class that realises the containment of ScenarioBehaviours in in the branches of a Branch action. It is a separate meta class because it has the additional attribute branchProbability that specifies how probably it is that the references ScenarioBehaviour is executed in the Branch action. &#xD;&#xA;&#xD;&#xA;See also Branch."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchedBehaviour_BranchTransition"
           ordered="false" lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Delay" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Delay represents a timing delay as a RandomVariable between two user actions. The Delay&#xD;&#xA;is included into the usage model to express that users do not call system services in direct successions,&#xD;&#xA;but usually need some time to determine their next action. User delays are for example useful,&#xD;&#xA;if a performance analyst wants to determine the execution time for a complete scenario behaviour&#xD;&#xA;(instead of a single service), which needs to include user delays."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="timeSpecification_Delay"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>

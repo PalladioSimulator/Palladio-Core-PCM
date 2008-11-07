@@ -20,8 +20,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringChildComponentContext_CompositeAssemblyConnector <em>Requiring Child Component Context Composite Assembly Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingChildComponentContext_CompositeAssemblyConnector <em>Providing Child Component Context Composite Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector <em>Requiring Assembly Context Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector <em>Providing Assembly Context Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_CompositeAssemblyConnector <em>Provided Role Composite Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_CompositeAssemblyConnector <em>Required Role Composite Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}</li>
@@ -41,56 +41,56 @@ public interface AssemblyConnector extends Connector, Entity {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Requiring Child Component Context Composite Assembly Connector</b></em>' reference.
+	 * Returns the value of the '<em><b>Requiring Assembly Context Assembly Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Requiring Child Component Context Composite Assembly Connector</em>' reference isn't clear,
+	 * If the meaning of the '<em>Requiring Assembly Context Assembly Connector</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Requiring Child Component Context Composite Assembly Connector</em>' reference.
-	 * @see #setRequiringChildComponentContext_CompositeAssemblyConnector(AssemblyContext)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_RequiringChildComponentContext_CompositeAssemblyConnector()
+	 * @return the value of the '<em>Requiring Assembly Context Assembly Connector</em>' reference.
+	 * @see #setRequiringAssemblyContext_AssemblyConnector(AssemblyContext)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	AssemblyContext getRequiringChildComponentContext_CompositeAssemblyConnector();
+	AssemblyContext getRequiringAssemblyContext_AssemblyConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringChildComponentContext_CompositeAssemblyConnector <em>Requiring Child Component Context Composite Assembly Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector <em>Requiring Assembly Context Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requiring Child Component Context Composite Assembly Connector</em>' reference.
-	 * @see #getRequiringChildComponentContext_CompositeAssemblyConnector()
+	 * @param value the new value of the '<em>Requiring Assembly Context Assembly Connector</em>' reference.
+	 * @see #getRequiringAssemblyContext_AssemblyConnector()
 	 * @generated
 	 */
-	void setRequiringChildComponentContext_CompositeAssemblyConnector(AssemblyContext value);
+	void setRequiringAssemblyContext_AssemblyConnector(AssemblyContext value);
 
 	/**
-	 * Returns the value of the '<em><b>Providing Child Component Context Composite Assembly Connector</b></em>' reference.
+	 * Returns the value of the '<em><b>Providing Assembly Context Assembly Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Providing Child Component Context Composite Assembly Connector</em>' reference isn't clear,
+	 * If the meaning of the '<em>Providing Assembly Context Assembly Connector</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Providing Child Component Context Composite Assembly Connector</em>' reference.
-	 * @see #setProvidingChildComponentContext_CompositeAssemblyConnector(AssemblyContext)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ProvidingChildComponentContext_CompositeAssemblyConnector()
+	 * @return the value of the '<em>Providing Assembly Context Assembly Connector</em>' reference.
+	 * @see #setProvidingAssemblyContext_AssemblyConnector(AssemblyContext)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	AssemblyContext getProvidingChildComponentContext_CompositeAssemblyConnector();
+	AssemblyContext getProvidingAssemblyContext_AssemblyConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingChildComponentContext_CompositeAssemblyConnector <em>Providing Child Component Context Composite Assembly Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector <em>Providing Assembly Context Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Providing Child Component Context Composite Assembly Connector</em>' reference.
-	 * @see #getProvidingChildComponentContext_CompositeAssemblyConnector()
+	 * @param value the new value of the '<em>Providing Assembly Context Assembly Connector</em>' reference.
+	 * @see #getProvidingAssemblyContext_AssemblyConnector()
 	 * @generated
 	 */
-	void setProvidingChildComponentContext_CompositeAssemblyConnector(AssemblyContext value);
+	void setProvidingAssemblyContext_AssemblyConnector(AssemblyContext value);
 
 	/**
 	 * Returns the value of the '<em><b>Provided Role Composite Assembly Connector</b></em>' reference.
@@ -146,7 +146,7 @@ public interface AssemblyConnector extends Connector, Entity {
 
 	/**
 	 * Returns the value of the '<em><b>Parent Structure Assembly Connector</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getAssemblyConnectors_ComposedStructure <em>Assembly Connectors Composed Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent Structure Assembly Connector</em>' container reference isn't clear,
@@ -156,8 +156,8 @@ public interface AssemblyConnector extends Connector, Entity {
 	 * @return the value of the '<em>Parent Structure Assembly Connector</em>' container reference.
 	 * @see #setParentStructure_AssemblyConnector(ComposedStructure)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ParentStructure_AssemblyConnector()
-	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getCompositeAssemblyConnectors_ComposedStructure
-	 * @model opposite="compositeAssemblyConnectors_ComposedStructure" required="true" transient="false" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getAssemblyConnectors_ComposedStructure
+	 * @model opposite="assemblyConnectors_ComposedStructure" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	ComposedStructure getParentStructure_AssemblyConnector();

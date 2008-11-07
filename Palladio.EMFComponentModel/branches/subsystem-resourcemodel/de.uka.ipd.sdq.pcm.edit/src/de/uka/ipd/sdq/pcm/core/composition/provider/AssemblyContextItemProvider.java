@@ -70,25 +70,25 @@ public class AssemblyContextItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEncapsulatedComponent_ChildComponentContextPropertyDescriptor(object);
+			addEncapsulatedComponent_AssemblyContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Encapsulated Component Child Component Context feature.
+	 * This adds a property descriptor for the Encapsulated Component Assembly Context feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addEncapsulatedComponent_ChildComponentContextPropertyDescriptor(Object object) {
+	protected void addEncapsulatedComponent_AssemblyContextPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyContext_encapsulatedComponent_ChildComponentContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyContext_encapsulatedComponent_ChildComponentContext_feature", "_UI_AssemblyContext_type"),
-				 CompositionPackage.Literals.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_CHILD_COMPONENT_CONTEXT,
+				 getString("_UI_AssemblyContext_encapsulatedComponent_AssemblyContext_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyContext_encapsulatedComponent_AssemblyContext_feature", "_UI_AssemblyContext_type"),
+				 CompositionPackage.Literals.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT,
 				 true,
 				 false,
 				 true,

@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * @model abstract="true"
  * @generated
  */
-public interface ImplementationComponentType extends InterfaceProvidingRequiringEntity, RepositoryComponent {
+public interface ImplementationComponentType extends RepositoryComponent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

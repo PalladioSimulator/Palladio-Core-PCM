@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -23,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface RepositoryComponent extends EObject {
+public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

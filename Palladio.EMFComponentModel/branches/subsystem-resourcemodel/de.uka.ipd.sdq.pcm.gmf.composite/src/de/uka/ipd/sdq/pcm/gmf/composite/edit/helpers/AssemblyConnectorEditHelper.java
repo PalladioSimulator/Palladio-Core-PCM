@@ -21,11 +21,11 @@ public class AssemblyConnectorEditHelper extends
 	protected ICommand getConfigureCommand(ConfigureRequest req) {
 		AssemblyConnector con = (AssemblyConnector) req.getElementToConfigure();
 		String name = "Connector ";
-		name += con.getRequiringChildComponentContext_CompositeAssemblyConnector() == null ? "" : 
-			con.getRequiringChildComponentContext_CompositeAssemblyConnector().getEntityName();
+		name += con.getRequiringAssemblyContext_AssemblyConnector() == null ? "" : 
+			con.getRequiringAssemblyContext_AssemblyConnector().getEntityName();
 		name += " -> ";
-		name += con.getProvidingChildComponentContext_CompositeAssemblyConnector() == null ? "" : 
-			con.getProvidingChildComponentContext_CompositeAssemblyConnector().getEntityName();
+		name += con.getProvidingAssemblyContext_AssemblyConnector() == null ? "" : 
+			con.getProvidingAssemblyContext_AssemblyConnector().getEntityName();
 		
 		ICommand cmd2 = new SetValueCommand(
 				new SetRequest(

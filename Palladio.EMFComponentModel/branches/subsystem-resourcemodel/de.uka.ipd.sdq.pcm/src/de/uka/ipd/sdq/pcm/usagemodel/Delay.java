@@ -12,6 +12,14 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * A representation of the model object '<em><b>Delay</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A Delay represents a timing delay as a RandomVariable between two user actions. The Delay
+ * is included into the usage model to express that users do not call system services in direct successions,
+ * but usually need some time to determine their next action. User delays are for example useful,
+ * if a performance analyst wants to determine the execution time for a complete scenario behaviour
+ * (instead of a single service), which needs to include user delays.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

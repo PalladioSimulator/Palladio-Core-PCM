@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class ImplementationComponentTypeItemProvider
-	extends InterfaceProvidingRequiringEntityItemProvider
+	extends RepositoryComponentItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

@@ -119,10 +119,10 @@ public class EntityValidator extends EObjectValidator {
 				return validateNamedElement((NamedElement)value, diagnostics, context);
 			case EntityPackage.INTERFACE_PROVIDING_ENTITY:
 				return validateInterfaceProvidingEntity((InterfaceProvidingEntity)value, diagnostics, context);
-			case EntityPackage.INTERFACE_REQUIRING_ENTITY:
-				return validateInterfaceRequiringEntity((InterfaceRequiringEntity)value, diagnostics, context);
 			case EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY:
 				return validateInterfaceProvidingRequiringEntity((InterfaceProvidingRequiringEntity)value, diagnostics, context);
+			case EntityPackage.INTERFACE_REQUIRING_ENTITY:
+				return validateInterfaceRequiringEntity((InterfaceRequiringEntity)value, diagnostics, context);
 			case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY:
 				return validateResourceInterfaceRequiringEntity((ResourceInterfaceRequiringEntity)value, diagnostics, context);
 			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY:

@@ -98,12 +98,12 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 				return createInterfaceProvidingEntityAdapter();
 			}
 			@Override
-			public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
-				return createInterfaceRequiringEntityAdapter();
-			}
-			@Override
 			public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
 				return createInterfaceProvidingRequiringEntityAdapter();
+			}
+			@Override
+			public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+				return createInterfaceRequiringEntityAdapter();
 			}
 			@Override
 			public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {

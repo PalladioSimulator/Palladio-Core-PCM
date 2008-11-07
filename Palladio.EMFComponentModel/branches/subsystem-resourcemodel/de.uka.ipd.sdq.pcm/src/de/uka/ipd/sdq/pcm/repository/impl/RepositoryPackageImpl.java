@@ -1029,6 +1029,12 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		repositoryComponentEClass = createEClass(REPOSITORY_COMPONENT);
 		createEReference(repositoryComponentEClass, REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT);
 
+		requiredRoleEClass = createEClass(REQUIRED_ROLE);
+		createEReference(requiredRoleEClass, REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE);
+		createEReference(requiredRoleEClass, REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
+
+		roleEClass = createEClass(ROLE);
+
 		interfaceEClass = createEClass(INTERFACE);
 		createEAttribute(interfaceEClass, INTERFACE__IS_RESOURCE_INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__PARENT_INTERFACE_INTERFACE);
@@ -1037,21 +1043,15 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		createEReference(interfaceEClass, INTERFACE__SIGNATURES_INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__REPOSITORY_INTERFACE);
 
+		resourceRequiredRoleEClass = createEClass(RESOURCE_REQUIRED_ROLE);
+		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE);
+		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
+
 		exceptionTypeEClass = createEClass(EXCEPTION_TYPE);
 		createEAttribute(exceptionTypeEClass, EXCEPTION_TYPE__EXCEPTION_NAME);
 		createEAttribute(exceptionTypeEClass, EXCEPTION_TYPE__EXCEPTION_MESSAGE);
 
-		roleEClass = createEClass(ROLE);
-
-		requiredRoleEClass = createEClass(REQUIRED_ROLE);
-		createEReference(requiredRoleEClass, REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE);
-		createEReference(requiredRoleEClass, REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
-
 		providesComponentTypeEClass = createEClass(PROVIDES_COMPONENT_TYPE);
-
-		resourceRequiredRoleEClass = createEClass(RESOURCE_REQUIRED_ROLE);
-		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE);
-		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
 
 		implementationComponentTypeEClass = createEClass(IMPLEMENTATION_COMPONENT_TYPE);
 		createEReference(implementationComponentTypeEClass, IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES);
@@ -1128,15 +1128,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		// Add supertypes to classes
 		passiveResourceEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		interfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		repositoryComponentEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
 		requiredRoleEClass.getESuperTypes().add(this.getRole());
-		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
-		providesComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
+		roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		interfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		resourceRequiredRoleEClass.getESuperTypes().add(this.getRole());
-		implementationComponentTypeEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
+		providesComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
 		implementationComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
-		completeComponentTypeEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
 		completeComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
 		delegationConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
 		compositeComponentEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
@@ -1188,6 +1186,12 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEClass(repositoryComponentEClass, RepositoryComponent.class, "RepositoryComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRepositoryComponent_Repository_RepositoryComponent(), this.getRepository(), this.getRepository_Components__Repository(), "repository_RepositoryComponent", null, 1, 1, RepositoryComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEClass(requiredRoleEClass, RequiredRole.class, "RequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRequiredRole_RequiredInterface__RequiredRole(), this.getInterface(), null, "requiredInterface__RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRequiredRole_RequiringEntity_RequiredRole(), theEntityPackage.getInterfaceRequiringEntity(), theEntityPackage.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(), "requiringEntity_RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(roleEClass, Role.class, "Role", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInterface_IsResourceInterface(), ecorePackage.getEBoolean(), "isResourceInterface", null, 1, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInterface_ParentInterface__Interface(), this.getInterface(), null, "parentInterface__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1214,15 +1218,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceRequiredRole_RequiredInterface_ResourceRequiredRole(), this.getInterface(), null, "requiredInterface_ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole(), theEntityPackage.getResourceInterfaceRequiringEntity(), theEntityPackage.getResourceInterfaceRequiringEntity_ResourceRequiredRoles_ResourceInterfaceRequiringEntity(), "resourceRequiringEntity_ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		initEClass(exceptionTypeEClass, ExceptionType.class, "ExceptionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExceptionType_ExceptionName(), ecorePackage.getEString(), "exceptionName", null, 1, 1, ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExceptionType_ExceptionMessage(), ecorePackage.getEString(), "exceptionMessage", null, 1, 1, ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(roleEClass, Role.class, "Role", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(requiredRoleEClass, RequiredRole.class, "RequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRequiredRole_RequiredInterface__RequiredRole(), this.getInterface(), null, "requiredInterface__RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRequiredRole_RequiringEntity_RequiredRole(), theEntityPackage.getInterfaceRequiringEntity(), theEntityPackage.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(), "requiringEntity_RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(providesComponentTypeEClass, ProvidesComponentType.class, "ProvidesComponentType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1234,10 +1236,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceRequiredRole_RequiredInterface_ResourceRequiredRole(), this.getInterface(), null, "requiredInterface_ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole(), theEntityPackage.getResourceInterfaceRequiringEntity(), theEntityPackage.getResourceInterfaceRequiringEntity_ResourceRequiredRoles_ResourceInterfaceRequiringEntity(), "resourceRequiringEntity_ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(implementationComponentTypeEClass, ImplementationComponentType.class, "ImplementationComponentType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponentType_ParentCompleteComponentTypes(), this.getCompleteComponentType(), null, "parentCompleteComponentTypes", null, 0, -1, ImplementationComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

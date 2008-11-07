@@ -14,13 +14,18 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * A representation of the model object '<em><b>Composed Structure</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * TODO/FIXME: The distinction between ComposedStructure and ComposedProvidingRequiringStructure does not make sense at the moment, because the ComposedStructure already talks about inner provided / required delegation connectors, which only make sense if there are outer roles for interfaces -> ComposedProvidingRequiringStructure. IDEA: Move the delegation connector attributes to ComposedProvidingRequiringStructure. I'm not sure about the assembly connectors. SEE ALSO: ComposedProvidingRequiringStructure 
+ * However, as AssemblyContexts of ComposedStructure always contain InterfaceProvidingRequiringEntities at the moment, the above might not help... -- Anne
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getAssemblyContexts_ComposedStructure <em>Assembly Contexts Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getRequiredDelegationConnectors_ComposedStructure <em>Required Delegation Connectors Composed Structure</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getAssemblyConnectors_ComposedStructure <em>Assembly Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}</li>
  * </ul>
  * </p>
@@ -38,22 +43,22 @@ public interface ComposedStructure extends Entity {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Child Component Contexts Composed Structure</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Assembly Contexts Composed Structure</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Child Component Contexts Composed Structure</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Assembly Contexts Composed Structure</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child Component Contexts Composed Structure</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ChildComponentContexts_ComposedStructure()
+	 * @return the value of the '<em>Assembly Contexts Composed Structure</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_AssemblyContexts_ComposedStructure()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext
 	 * @model opposite="parentStructure_AssemblyContext" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<AssemblyContext> getChildComponentContexts_ComposedStructure();
+	EList<AssemblyContext> getAssemblyContexts_ComposedStructure();
 
 	/**
 	 * Returns the value of the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
@@ -92,22 +97,22 @@ public interface ComposedStructure extends Entity {
 	EList<RequiredDelegationConnector> getRequiredDelegationConnectors_ComposedStructure();
 
 	/**
-	 * Returns the value of the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Assembly Connectors Composed Structure</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Composite Assembly Connectors Composed Structure</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Assembly Connectors Composed Structure</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Composite Assembly Connectors Composed Structure</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_CompositeAssemblyConnectors_ComposedStructure()
+	 * @return the value of the '<em>Assembly Connectors Composed Structure</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_AssemblyConnectors_ComposedStructure()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector
 	 * @model opposite="parentStructure_AssemblyConnector" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<AssemblyConnector> getCompositeAssemblyConnectors_ComposedStructure();
+	EList<AssemblyConnector> getAssemblyConnectors_ComposedStructure();
 
 	/**
 	 * Returns the value of the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.

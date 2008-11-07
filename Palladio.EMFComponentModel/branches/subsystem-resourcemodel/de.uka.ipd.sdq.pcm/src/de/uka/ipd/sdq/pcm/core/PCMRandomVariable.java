@@ -18,6 +18,15 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * that it has to have all characterisations for/of a variable. 
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Random variables are used to describe user and component behaviour. They allow not only constant values (e.g., 3 loop iterations), but also probabilistic values (e.g., 2 loop iterations with a probability of 0.4 and 3 loop iterations with a probability of 0.6). They are well-suited for capturing uncertainty when modelling systems during early development stages. Examples where developers may use random variables are:
+ * - Characterisations of Input Parameters: Describes the QoS relevant characteristics of parameters of component services.
+ * - Inter-Arrival Time: Describes how much time passes between the arrival of two subsequent users.
+ * - Think Time: Describes how much time passes between the execution of a user scenario and the start of the next execution of this scenario.
+ * - Loop Iteration Count: Describes the number of repetitions of a loop.
+ * - Guarded Branch Transitions: Used to determine whether to conditionally execute a certain behaviour.
+ * <!-- end-model-doc -->
+ *
  *
  * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable()
  * @model

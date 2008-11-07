@@ -133,28 +133,28 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createRepositoryComponentAdapter();
 			}
 			@Override
-			public Adapter caseInterface(Interface object) {
-				return createInterfaceAdapter();
-			}
-			@Override
-			public Adapter caseExceptionType(ExceptionType object) {
-				return createExceptionTypeAdapter();
+			public Adapter caseRequiredRole(RequiredRole object) {
+				return createRequiredRoleAdapter();
 			}
 			@Override
 			public Adapter caseRole(Role object) {
 				return createRoleAdapter();
 			}
 			@Override
-			public Adapter caseRequiredRole(RequiredRole object) {
-				return createRequiredRoleAdapter();
-			}
-			@Override
-			public Adapter caseProvidesComponentType(ProvidesComponentType object) {
-				return createProvidesComponentTypeAdapter();
+			public Adapter caseInterface(Interface object) {
+				return createInterfaceAdapter();
 			}
 			@Override
 			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
 				return createResourceRequiredRoleAdapter();
+			}
+			@Override
+			public Adapter caseExceptionType(ExceptionType object) {
+				return createExceptionTypeAdapter();
+			}
+			@Override
+			public Adapter caseProvidesComponentType(ProvidesComponentType object) {
+				return createProvidesComponentTypeAdapter();
 			}
 			@Override
 			public Adapter caseImplementationComponentType(ImplementationComponentType object) {

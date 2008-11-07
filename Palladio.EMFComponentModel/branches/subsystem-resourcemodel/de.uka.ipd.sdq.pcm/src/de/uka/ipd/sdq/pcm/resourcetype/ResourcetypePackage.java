@@ -196,13 +196,22 @@ public interface ResourcetypePackage extends EPackage {
 	int PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION = RESOURCE_TYPE__UNIT_SPECIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Processing Resource Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 0;
+	int PROCESSING_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl <em>Communication Link Resource Type</em>}' class.
@@ -249,6 +258,15 @@ public interface ResourcetypePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT_SPECIFICATION = PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = PROCESSING_RESOURCE_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Type</em>' class.

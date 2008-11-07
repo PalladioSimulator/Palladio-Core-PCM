@@ -15,6 +15,16 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Branch</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A Branch splits the user flow with a XOR-semantic: one of the included BranchTransitions
+ * is taken depending on the specified branch probabilities. Each BranchTransition contains a
+ * nested ScenarioBehaviour, which a user executes once this branch transition is chosen. After
+ * execution of the complete nested ScenarioBehaviour, the next action in the user flow after the
+ * Branch is its successor action.
+ * 
+ * A constraint ensures that all branchProbabilities of the included BranchTransitions sum up to 1. 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

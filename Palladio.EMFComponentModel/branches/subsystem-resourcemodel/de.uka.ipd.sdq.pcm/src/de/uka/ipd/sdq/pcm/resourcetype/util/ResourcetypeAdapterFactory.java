@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourcetype.*;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
@@ -115,6 +116,10 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
 				return createUnitCarryingElementAdapter();
+			}
+			@Override
+			public Adapter caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
+				return createInterfaceProvidingEntityAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -245,6 +250,20 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnitCarryingElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity <em>Interface Providing Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
+	 * @generated
+	 */
+	public Adapter createInterfaceProvidingEntityAdapter() {
 		return null;
 	}
 

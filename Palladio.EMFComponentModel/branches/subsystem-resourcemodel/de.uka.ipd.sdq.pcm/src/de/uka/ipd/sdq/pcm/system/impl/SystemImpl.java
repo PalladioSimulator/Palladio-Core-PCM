@@ -57,10 +57,10 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAssemblyContexts_ComposedStructure <em>Assembly Contexts Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredDelegationConnectors_ComposedStructure <em>Required Delegation Connectors Composed Structure</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAssemblyConnectors_ComposedStructure <em>Assembly Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}</li>
@@ -80,14 +80,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getChildComponentContexts_ComposedStructure() <em>Child Component Contexts Composed Structure</em>}' containment reference list.
+	 * The cached value of the '{@link #getAssemblyContexts_ComposedStructure() <em>Assembly Contexts Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildComponentContexts_ComposedStructure()
+	 * @see #getAssemblyContexts_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AssemblyContext> childComponentContexts_ComposedStructure;
+	protected EList<AssemblyContext> assemblyContexts_ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getProvidedDelegationConnectors_ComposedStructure() <em>Provided Delegation Connectors Composed Structure</em>}' containment reference list.
@@ -110,14 +110,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	protected EList<RequiredDelegationConnector> requiredDelegationConnectors_ComposedStructure;
 
 	/**
-	 * The cached value of the '{@link #getCompositeAssemblyConnectors_ComposedStructure() <em>Composite Assembly Connectors Composed Structure</em>}' containment reference list.
+	 * The cached value of the '{@link #getAssemblyConnectors_ComposedStructure() <em>Assembly Connectors Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCompositeAssemblyConnectors_ComposedStructure()
+	 * @see #getAssemblyConnectors_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AssemblyConnector> compositeAssemblyConnectors_ComposedStructure;
+	protected EList<AssemblyConnector> assemblyConnectors_ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure() <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference list.
@@ -204,11 +204,11 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AssemblyContext> getChildComponentContexts_ComposedStructure() {
-		if (childComponentContexts_ComposedStructure == null) {
-			childComponentContexts_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyContext>(AssemblyContext.class, this, SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
+	public EList<AssemblyContext> getAssemblyContexts_ComposedStructure() {
+		if (assemblyContexts_ComposedStructure == null) {
+			assemblyContexts_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyContext>(AssemblyContext.class, this, SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
 		}
-		return childComponentContexts_ComposedStructure;
+		return assemblyContexts_ComposedStructure;
 	}
 
 	/**
@@ -240,11 +240,11 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AssemblyConnector> getCompositeAssemblyConnectors_ComposedStructure() {
-		if (compositeAssemblyConnectors_ComposedStructure == null) {
-			compositeAssemblyConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyConnector>(AssemblyConnector.class, this, SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR);
+	public EList<AssemblyConnector> getAssemblyConnectors_ComposedStructure() {
+		if (assemblyConnectors_ComposedStructure == null) {
+			assemblyConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyConnector>(AssemblyConnector.class, this, SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR);
 		}
-		return compositeAssemblyConnectors_ComposedStructure;
+		return assemblyConnectors_ComposedStructure;
 	}
 
 	/**
@@ -355,14 +355,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildComponentContexts_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssemblyContexts_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProvidedDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
-			case SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCompositeAssemblyConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssemblyConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -383,14 +383,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				return ((InternalEList<?>)getChildComponentContexts_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getAssemblyContexts_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getProvidedDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
-			case SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return ((InternalEList<?>)getCompositeAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -413,14 +413,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				return getChildComponentContexts_ComposedStructure();
+			case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				return getAssemblyContexts_ComposedStructure();
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getProvidedDelegationConnectors_ComposedStructure();
 			case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getRequiredDelegationConnectors_ComposedStructure();
-			case SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return getCompositeAssemblyConnectors_ComposedStructure();
+			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return getAssemblyConnectors_ComposedStructure();
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getResourceRequiredDelegationConnectors_ComposedStructure();
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -444,9 +444,9 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				getChildComponentContexts_ComposedStructure().clear();
-				getChildComponentContexts_ComposedStructure().addAll((Collection<? extends AssemblyContext>)newValue);
+			case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				getAssemblyContexts_ComposedStructure().clear();
+				getAssemblyContexts_ComposedStructure().addAll((Collection<? extends AssemblyContext>)newValue);
 				return;
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getProvidedDelegationConnectors_ComposedStructure().clear();
@@ -456,9 +456,9 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				getRequiredDelegationConnectors_ComposedStructure().clear();
 				getRequiredDelegationConnectors_ComposedStructure().addAll((Collection<? extends RequiredDelegationConnector>)newValue);
 				return;
-			case SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				getCompositeAssemblyConnectors_ComposedStructure().clear();
-				getCompositeAssemblyConnectors_ComposedStructure().addAll((Collection<? extends AssemblyConnector>)newValue);
+			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getAssemblyConnectors_ComposedStructure().clear();
+				getAssemblyConnectors_ComposedStructure().addAll((Collection<? extends AssemblyConnector>)newValue);
 				return;
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getResourceRequiredDelegationConnectors_ComposedStructure().clear();
@@ -492,8 +492,8 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				getChildComponentContexts_ComposedStructure().clear();
+			case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				getAssemblyContexts_ComposedStructure().clear();
 				return;
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getProvidedDelegationConnectors_ComposedStructure().clear();
@@ -501,8 +501,8 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 			case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getRequiredDelegationConnectors_ComposedStructure().clear();
 				return;
-			case SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				getCompositeAssemblyConnectors_ComposedStructure().clear();
+			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getAssemblyConnectors_ComposedStructure().clear();
 				return;
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getResourceRequiredDelegationConnectors_ComposedStructure().clear();
@@ -531,14 +531,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				return childComponentContexts_ComposedStructure != null && !childComponentContexts_ComposedStructure.isEmpty();
+			case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				return assemblyContexts_ComposedStructure != null && !assemblyContexts_ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return providedDelegationConnectors_ComposedStructure != null && !providedDelegationConnectors_ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return requiredDelegationConnectors_ComposedStructure != null && !requiredDelegationConnectors_ComposedStructure.isEmpty();
-			case SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return compositeAssemblyConnectors_ComposedStructure != null && !compositeAssemblyConnectors_ComposedStructure.isEmpty();
+			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return assemblyConnectors_ComposedStructure != null && !assemblyConnectors_ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return resourceRequiredDelegationConnectors_ComposedStructure != null && !resourceRequiredDelegationConnectors_ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -562,10 +562,10 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ComposedStructure.class) {
 			switch (derivedFeatureID) {
-				case SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
+				case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
 				case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
-				case SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+				case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 				case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				default: return -1;
 			}
@@ -610,10 +610,10 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ComposedStructure.class) {
 			switch (baseFeatureID) {
-				case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
 				case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
-				case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 				case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				default: return -1;
 			}

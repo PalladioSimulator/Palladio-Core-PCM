@@ -52,7 +52,7 @@ public class AssemblyContextEditHelper extends
 		ICommand cmd = new SetValueCommand(
 				new SetRequest(
 						request.getElementToConfigure(), 
-						CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_ChildComponentContext(),
+						CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_AssemblyContext(),
 						resource));
 		
 		String allocationName = "Assembly_"+resource.getEntityName();

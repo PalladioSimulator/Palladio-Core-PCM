@@ -28,7 +28,7 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentI
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(CompositionPackage.eINSTANCE
-								.getComposedStructure_ChildComponentContexts_ComposedStructure());
+								.getComposedStructure_AssemblyContexts_ComposedStructure());
 			}
 			return getMSLWrapper(new AssemblyContextCreateCommand(req));
 		}

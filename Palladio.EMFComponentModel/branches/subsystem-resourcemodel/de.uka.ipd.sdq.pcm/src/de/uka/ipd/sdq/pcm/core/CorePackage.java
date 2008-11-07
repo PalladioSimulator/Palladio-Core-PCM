@@ -21,6 +21,9 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities.
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.core.CoreFactory
  * @model kind="package"
  * @generated

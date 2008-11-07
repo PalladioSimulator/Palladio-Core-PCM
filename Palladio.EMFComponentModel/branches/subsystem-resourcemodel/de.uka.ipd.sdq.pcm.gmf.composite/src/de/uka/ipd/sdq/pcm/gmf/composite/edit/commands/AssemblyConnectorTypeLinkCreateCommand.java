@@ -97,8 +97,8 @@ public class AssemblyConnectorTypeLinkCreateCommand extends
 			newElement.setProvidedRole_CompositeAssemblyConnector(myTarget);
 			newElement.setRequiredRole_CompositeAssemblyConnector(mySource);
 			CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-			newElement.setRequiringChildComponentContext_CompositeAssemblyConnector((AssemblyContext) req.getParameter("REQ_CHILD_CONTEXT"));
-			newElement.setProvidingChildComponentContext_CompositeAssemblyConnector((AssemblyContext) req.getParameter("PROV_CHILD_CONTEXT"));
+			newElement.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) req.getParameter("REQ_CHILD_CONTEXT"));
+			newElement.setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) req.getParameter("PROV_CHILD_CONTEXT"));
 		}
 		return newElement;
 	}

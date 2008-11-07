@@ -41,8 +41,8 @@ import java.util.Map;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiringChildComponentContext_CompositeAssemblyConnector <em>Requiring Child Component Context Composite Assembly Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidingChildComponentContext_CompositeAssemblyConnector <em>Providing Child Component Context Composite Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiringAssemblyContext_AssemblyConnector <em>Requiring Assembly Context Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidingAssemblyContext_AssemblyConnector <em>Providing Assembly Context Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidedRole_CompositeAssemblyConnector <em>Provided Role Composite Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiredRole_CompositeAssemblyConnector <em>Required Role Composite Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}</li>
@@ -60,24 +60,24 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getRequiringChildComponentContext_CompositeAssemblyConnector() <em>Requiring Child Component Context Composite Assembly Connector</em>}' reference.
+	 * The cached value of the '{@link #getRequiringAssemblyContext_AssemblyConnector() <em>Requiring Assembly Context Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequiringChildComponentContext_CompositeAssemblyConnector()
+	 * @see #getRequiringAssemblyContext_AssemblyConnector()
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext requiringChildComponentContext_CompositeAssemblyConnector;
+	protected AssemblyContext requiringAssemblyContext_AssemblyConnector;
 
 	/**
-	 * The cached value of the '{@link #getProvidingChildComponentContext_CompositeAssemblyConnector() <em>Providing Child Component Context Composite Assembly Connector</em>}' reference.
+	 * The cached value of the '{@link #getProvidingAssemblyContext_AssemblyConnector() <em>Providing Assembly Context Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvidingChildComponentContext_CompositeAssemblyConnector()
+	 * @see #getProvidingAssemblyContext_AssemblyConnector()
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext providingChildComponentContext_CompositeAssemblyConnector;
+	protected AssemblyContext providingAssemblyContext_AssemblyConnector;
 
 	/**
 	 * The cached value of the '{@link #getProvidedRole_CompositeAssemblyConnector() <em>Provided Role Composite Assembly Connector</em>}' reference.
@@ -143,16 +143,16 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext getRequiringChildComponentContext_CompositeAssemblyConnector() {
-		if (requiringChildComponentContext_CompositeAssemblyConnector != null && requiringChildComponentContext_CompositeAssemblyConnector.eIsProxy()) {
-			InternalEObject oldRequiringChildComponentContext_CompositeAssemblyConnector = (InternalEObject)requiringChildComponentContext_CompositeAssemblyConnector;
-			requiringChildComponentContext_CompositeAssemblyConnector = (AssemblyContext)eResolveProxy(oldRequiringChildComponentContext_CompositeAssemblyConnector);
-			if (requiringChildComponentContext_CompositeAssemblyConnector != oldRequiringChildComponentContext_CompositeAssemblyConnector) {
+	public AssemblyContext getRequiringAssemblyContext_AssemblyConnector() {
+		if (requiringAssemblyContext_AssemblyConnector != null && requiringAssemblyContext_AssemblyConnector.eIsProxy()) {
+			InternalEObject oldRequiringAssemblyContext_AssemblyConnector = (InternalEObject)requiringAssemblyContext_AssemblyConnector;
+			requiringAssemblyContext_AssemblyConnector = (AssemblyContext)eResolveProxy(oldRequiringAssemblyContext_AssemblyConnector);
+			if (requiringAssemblyContext_AssemblyConnector != oldRequiringAssemblyContext_AssemblyConnector) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR, oldRequiringChildComponentContext_CompositeAssemblyConnector, requiringChildComponentContext_CompositeAssemblyConnector));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR, oldRequiringAssemblyContext_AssemblyConnector, requiringAssemblyContext_AssemblyConnector));
 			}
 		}
-		return requiringChildComponentContext_CompositeAssemblyConnector;
+		return requiringAssemblyContext_AssemblyConnector;
 	}
 
 	/**
@@ -160,8 +160,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext basicGetRequiringChildComponentContext_CompositeAssemblyConnector() {
-		return requiringChildComponentContext_CompositeAssemblyConnector;
+	public AssemblyContext basicGetRequiringAssemblyContext_AssemblyConnector() {
+		return requiringAssemblyContext_AssemblyConnector;
 	}
 
 	/**
@@ -169,11 +169,11 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequiringChildComponentContext_CompositeAssemblyConnector(AssemblyContext newRequiringChildComponentContext_CompositeAssemblyConnector) {
-		AssemblyContext oldRequiringChildComponentContext_CompositeAssemblyConnector = requiringChildComponentContext_CompositeAssemblyConnector;
-		requiringChildComponentContext_CompositeAssemblyConnector = newRequiringChildComponentContext_CompositeAssemblyConnector;
+	public void setRequiringAssemblyContext_AssemblyConnector(AssemblyContext newRequiringAssemblyContext_AssemblyConnector) {
+		AssemblyContext oldRequiringAssemblyContext_AssemblyConnector = requiringAssemblyContext_AssemblyConnector;
+		requiringAssemblyContext_AssemblyConnector = newRequiringAssemblyContext_AssemblyConnector;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR, oldRequiringChildComponentContext_CompositeAssemblyConnector, requiringChildComponentContext_CompositeAssemblyConnector));
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR, oldRequiringAssemblyContext_AssemblyConnector, requiringAssemblyContext_AssemblyConnector));
 	}
 
 	/**
@@ -181,16 +181,16 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext getProvidingChildComponentContext_CompositeAssemblyConnector() {
-		if (providingChildComponentContext_CompositeAssemblyConnector != null && providingChildComponentContext_CompositeAssemblyConnector.eIsProxy()) {
-			InternalEObject oldProvidingChildComponentContext_CompositeAssemblyConnector = (InternalEObject)providingChildComponentContext_CompositeAssemblyConnector;
-			providingChildComponentContext_CompositeAssemblyConnector = (AssemblyContext)eResolveProxy(oldProvidingChildComponentContext_CompositeAssemblyConnector);
-			if (providingChildComponentContext_CompositeAssemblyConnector != oldProvidingChildComponentContext_CompositeAssemblyConnector) {
+	public AssemblyContext getProvidingAssemblyContext_AssemblyConnector() {
+		if (providingAssemblyContext_AssemblyConnector != null && providingAssemblyContext_AssemblyConnector.eIsProxy()) {
+			InternalEObject oldProvidingAssemblyContext_AssemblyConnector = (InternalEObject)providingAssemblyContext_AssemblyConnector;
+			providingAssemblyContext_AssemblyConnector = (AssemblyContext)eResolveProxy(oldProvidingAssemblyContext_AssemblyConnector);
+			if (providingAssemblyContext_AssemblyConnector != oldProvidingAssemblyContext_AssemblyConnector) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR, oldProvidingChildComponentContext_CompositeAssemblyConnector, providingChildComponentContext_CompositeAssemblyConnector));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR, oldProvidingAssemblyContext_AssemblyConnector, providingAssemblyContext_AssemblyConnector));
 			}
 		}
-		return providingChildComponentContext_CompositeAssemblyConnector;
+		return providingAssemblyContext_AssemblyConnector;
 	}
 
 	/**
@@ -198,8 +198,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext basicGetProvidingChildComponentContext_CompositeAssemblyConnector() {
-		return providingChildComponentContext_CompositeAssemblyConnector;
+	public AssemblyContext basicGetProvidingAssemblyContext_AssemblyConnector() {
+		return providingAssemblyContext_AssemblyConnector;
 	}
 
 	/**
@@ -207,11 +207,11 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProvidingChildComponentContext_CompositeAssemblyConnector(AssemblyContext newProvidingChildComponentContext_CompositeAssemblyConnector) {
-		AssemblyContext oldProvidingChildComponentContext_CompositeAssemblyConnector = providingChildComponentContext_CompositeAssemblyConnector;
-		providingChildComponentContext_CompositeAssemblyConnector = newProvidingChildComponentContext_CompositeAssemblyConnector;
+	public void setProvidingAssemblyContext_AssemblyConnector(AssemblyContext newProvidingAssemblyContext_AssemblyConnector) {
+		AssemblyContext oldProvidingAssemblyContext_AssemblyConnector = providingAssemblyContext_AssemblyConnector;
+		providingAssemblyContext_AssemblyConnector = newProvidingAssemblyContext_AssemblyConnector;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR, oldProvidingChildComponentContext_CompositeAssemblyConnector, providingChildComponentContext_CompositeAssemblyConnector));
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR, oldProvidingAssemblyContext_AssemblyConnector, providingAssemblyContext_AssemblyConnector));
 	}
 
 	/**
@@ -323,7 +323,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParentStructure_AssemblyConnector != null)
-				msgs = ((InternalEObject)newParentStructure_AssemblyConnector).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+				msgs = ((InternalEObject)newParentStructure_AssemblyConnector).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
 			msgs = basicSetParentStructure_AssemblyConnector(newParentStructure_AssemblyConnector, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -448,7 +448,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
-				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -461,12 +461,12 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
-				if (resolve) return getRequiringChildComponentContext_CompositeAssemblyConnector();
-				return basicGetRequiringChildComponentContext_CompositeAssemblyConnector();
-			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
-				if (resolve) return getProvidingChildComponentContext_CompositeAssemblyConnector();
-				return basicGetProvidingChildComponentContext_CompositeAssemblyConnector();
+			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
+				if (resolve) return getRequiringAssemblyContext_AssemblyConnector();
+				return basicGetRequiringAssemblyContext_AssemblyConnector();
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
+				if (resolve) return getProvidingAssemblyContext_AssemblyConnector();
+				return basicGetProvidingAssemblyContext_AssemblyConnector();
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:
 				if (resolve) return getProvidedRole_CompositeAssemblyConnector();
 				return basicGetProvidedRole_CompositeAssemblyConnector();
@@ -487,11 +487,11 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
-				setRequiringChildComponentContext_CompositeAssemblyConnector((AssemblyContext)newValue);
+			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
+				setRequiringAssemblyContext_AssemblyConnector((AssemblyContext)newValue);
 				return;
-			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
-				setProvidingChildComponentContext_CompositeAssemblyConnector((AssemblyContext)newValue);
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
+				setProvidingAssemblyContext_AssemblyConnector((AssemblyContext)newValue);
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:
 				setProvidedRole_CompositeAssemblyConnector((ProvidedRole)newValue);
@@ -514,11 +514,11 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
-				setRequiringChildComponentContext_CompositeAssemblyConnector((AssemblyContext)null);
+			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
+				setRequiringAssemblyContext_AssemblyConnector((AssemblyContext)null);
 				return;
-			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
-				setProvidingChildComponentContext_CompositeAssemblyConnector((AssemblyContext)null);
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
+				setProvidingAssemblyContext_AssemblyConnector((AssemblyContext)null);
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:
 				setProvidedRole_CompositeAssemblyConnector((ProvidedRole)null);
@@ -541,10 +541,10 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
-				return requiringChildComponentContext_CompositeAssemblyConnector != null;
-			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
-				return providingChildComponentContext_CompositeAssemblyConnector != null;
+			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
+				return requiringAssemblyContext_AssemblyConnector != null;
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
+				return providingAssemblyContext_AssemblyConnector != null;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:
 				return providedRole_CompositeAssemblyConnector != null;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:

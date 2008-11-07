@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourcetype.*;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
@@ -122,6 +123,7 @@ public class ResourcetypeSwitch<T> {
 				ProcessingResourceType processingResourceType = (ProcessingResourceType)theEObject;
 				T result = caseProcessingResourceType(processingResourceType);
 				if (result == null) result = caseResourceType(processingResourceType);
+				if (result == null) result = caseInterfaceProvidingEntity(processingResourceType);
 				if (result == null) result = caseEntity(processingResourceType);
 				if (result == null) result = caseUnitCarryingElement(processingResourceType);
 				if (result == null) result = caseIdentifier(processingResourceType);
@@ -134,6 +136,7 @@ public class ResourcetypeSwitch<T> {
 				T result = caseCommunicationLinkResourceType(communicationLinkResourceType);
 				if (result == null) result = caseProcessingResourceType(communicationLinkResourceType);
 				if (result == null) result = caseResourceType(communicationLinkResourceType);
+				if (result == null) result = caseInterfaceProvidingEntity(communicationLinkResourceType);
 				if (result == null) result = caseEntity(communicationLinkResourceType);
 				if (result == null) result = caseUnitCarryingElement(communicationLinkResourceType);
 				if (result == null) result = caseIdentifier(communicationLinkResourceType);
@@ -262,6 +265,21 @@ public class ResourcetypeSwitch<T> {
 	 * @generated
 	 */
 	public T caseUnitCarryingElement(UnitCarryingElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
 		return null;
 	}
 

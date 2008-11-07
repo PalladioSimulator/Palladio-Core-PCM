@@ -24,6 +24,11 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * TODO: Section 4.1.3 Parameter Characterisation in the PCM in Heikos Diss
+ * 
+ * Include explanation of Component Parameters here, as usagemodel.UserData refers to here. 
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterFactory
  * @model kind="package"
  * @generated

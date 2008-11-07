@@ -6,8 +6,10 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.InterfaceProvidingRequiringEntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,7 +33,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class RepositoryComponentItemProvider
-	extends ItemProviderAdapter
+	extends InterfaceProvidingRequiringEntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -78,7 +80,10 @@ public class RepositoryComponentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RepositoryComponent_type");
+		String label = ((RepositoryComponent)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RepositoryComponent_type") :
+			getString("_UI_RepositoryComponent_type") + " " + label;
 	}
 
 	/**

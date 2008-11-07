@@ -12,6 +12,10 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * A representation of the model object '<em><b>Loop</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A Loop models a repeated sequence of actions in the user flow. It contains a nested ScenarioBehaviour specifying the loop body, and a RandomVariable specifying the number of iterations.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

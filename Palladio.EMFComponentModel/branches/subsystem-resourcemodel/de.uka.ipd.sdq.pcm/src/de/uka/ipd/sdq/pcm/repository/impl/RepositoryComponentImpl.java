@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -33,7 +34,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public abstract class RepositoryComponentImpl extends EObjectImpl implements RepositoryComponent {
+public abstract class RepositoryComponentImpl extends InterfaceProvidingRequiringEntityImpl implements RepositoryComponent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

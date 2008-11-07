@@ -108,7 +108,7 @@ public class ProvidedRoleItemSemanticEditPolicy extends
 		if (req.getContainmentFeature() == null) {
 			req
 					.setContainmentFeature(CompositionPackage.eINSTANCE
-							.getComposedStructure_CompositeAssemblyConnectors_ComposedStructure());
+							.getComposedStructure_AssemblyConnectors_ComposedStructure());
 		}
 		req.setParameter("PROV_CHILD_CONTEXT", ((View)getHost().getParent().getModel()).getElement());
 		return getMSLWrapper(new AssemblyConnectorTypeLinkCreateCommand(req,

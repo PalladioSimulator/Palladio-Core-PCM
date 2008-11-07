@@ -30,10 +30,10 @@ import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getAssemblyContexts_ComposedStructure <em>Assembly Contexts Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getRequiredDelegationConnectors_ComposedStructure <em>Required Delegation Connectors Composed Structure</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getAssemblyConnectors_ComposedStructure <em>Assembly Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}</li>
  * </ul>
  * </p>
@@ -49,14 +49,14 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getChildComponentContexts_ComposedStructure() <em>Child Component Contexts Composed Structure</em>}' containment reference list.
+	 * The cached value of the '{@link #getAssemblyContexts_ComposedStructure() <em>Assembly Contexts Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildComponentContexts_ComposedStructure()
+	 * @see #getAssemblyContexts_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AssemblyContext> childComponentContexts_ComposedStructure;
+	protected EList<AssemblyContext> assemblyContexts_ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getProvidedDelegationConnectors_ComposedStructure() <em>Provided Delegation Connectors Composed Structure</em>}' containment reference list.
@@ -79,14 +79,14 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	protected EList<RequiredDelegationConnector> requiredDelegationConnectors_ComposedStructure;
 
 	/**
-	 * The cached value of the '{@link #getCompositeAssemblyConnectors_ComposedStructure() <em>Composite Assembly Connectors Composed Structure</em>}' containment reference list.
+	 * The cached value of the '{@link #getAssemblyConnectors_ComposedStructure() <em>Assembly Connectors Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCompositeAssemblyConnectors_ComposedStructure()
+	 * @see #getAssemblyConnectors_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AssemblyConnector> compositeAssemblyConnectors_ComposedStructure;
+	protected EList<AssemblyConnector> assemblyConnectors_ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure() <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference list.
@@ -122,11 +122,11 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AssemblyContext> getChildComponentContexts_ComposedStructure() {
-		if (childComponentContexts_ComposedStructure == null) {
-			childComponentContexts_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyContext>(AssemblyContext.class, this, CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
+	public EList<AssemblyContext> getAssemblyContexts_ComposedStructure() {
+		if (assemblyContexts_ComposedStructure == null) {
+			assemblyContexts_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyContext>(AssemblyContext.class, this, CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
 		}
-		return childComponentContexts_ComposedStructure;
+		return assemblyContexts_ComposedStructure;
 	}
 
 	/**
@@ -158,11 +158,11 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AssemblyConnector> getCompositeAssemblyConnectors_ComposedStructure() {
-		if (compositeAssemblyConnectors_ComposedStructure == null) {
-			compositeAssemblyConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyConnector>(AssemblyConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR);
+	public EList<AssemblyConnector> getAssemblyConnectors_ComposedStructure() {
+		if (assemblyConnectors_ComposedStructure == null) {
+			assemblyConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyConnector>(AssemblyConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR);
 		}
-		return compositeAssemblyConnectors_ComposedStructure;
+		return assemblyConnectors_ComposedStructure;
 	}
 
 	/**
@@ -186,14 +186,14 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildComponentContexts_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssemblyContexts_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProvidedDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCompositeAssemblyConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssemblyConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 		}
@@ -208,14 +208,14 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				return ((InternalEList<?>)getChildComponentContexts_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getAssemblyContexts_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getProvidedDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return ((InternalEList<?>)getCompositeAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 		}
@@ -230,14 +230,14 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				return getChildComponentContexts_ComposedStructure();
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				return getAssemblyContexts_ComposedStructure();
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getProvidedDelegationConnectors_ComposedStructure();
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getRequiredDelegationConnectors_ComposedStructure();
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return getCompositeAssemblyConnectors_ComposedStructure();
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return getAssemblyConnectors_ComposedStructure();
 			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getResourceRequiredDelegationConnectors_ComposedStructure();
 		}
@@ -253,9 +253,9 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				getChildComponentContexts_ComposedStructure().clear();
-				getChildComponentContexts_ComposedStructure().addAll((Collection<? extends AssemblyContext>)newValue);
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				getAssemblyContexts_ComposedStructure().clear();
+				getAssemblyContexts_ComposedStructure().addAll((Collection<? extends AssemblyContext>)newValue);
 				return;
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getProvidedDelegationConnectors_ComposedStructure().clear();
@@ -265,9 +265,9 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 				getRequiredDelegationConnectors_ComposedStructure().clear();
 				getRequiredDelegationConnectors_ComposedStructure().addAll((Collection<? extends RequiredDelegationConnector>)newValue);
 				return;
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				getCompositeAssemblyConnectors_ComposedStructure().clear();
-				getCompositeAssemblyConnectors_ComposedStructure().addAll((Collection<? extends AssemblyConnector>)newValue);
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getAssemblyConnectors_ComposedStructure().clear();
+				getAssemblyConnectors_ComposedStructure().addAll((Collection<? extends AssemblyConnector>)newValue);
 				return;
 			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getResourceRequiredDelegationConnectors_ComposedStructure().clear();
@@ -285,8 +285,8 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				getChildComponentContexts_ComposedStructure().clear();
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				getAssemblyContexts_ComposedStructure().clear();
 				return;
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getProvidedDelegationConnectors_ComposedStructure().clear();
@@ -294,8 +294,8 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getRequiredDelegationConnectors_ComposedStructure().clear();
 				return;
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				getCompositeAssemblyConnectors_ComposedStructure().clear();
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getAssemblyConnectors_ComposedStructure().clear();
 				return;
 			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getResourceRequiredDelegationConnectors_ComposedStructure().clear();
@@ -312,14 +312,14 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-				return childComponentContexts_ComposedStructure != null && !childComponentContexts_ComposedStructure.isEmpty();
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
+				return assemblyContexts_ComposedStructure != null && !assemblyContexts_ComposedStructure.isEmpty();
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return providedDelegationConnectors_ComposedStructure != null && !providedDelegationConnectors_ComposedStructure.isEmpty();
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return requiredDelegationConnectors_ComposedStructure != null && !requiredDelegationConnectors_ComposedStructure.isEmpty();
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return compositeAssemblyConnectors_ComposedStructure != null && !compositeAssemblyConnectors_ComposedStructure.isEmpty();
+			case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return assemblyConnectors_ComposedStructure != null && !assemblyConnectors_ComposedStructure.isEmpty();
 			case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return resourceRequiredDelegationConnectors_ComposedStructure != null && !resourceRequiredDelegationConnectors_ComposedStructure.isEmpty();
 		}

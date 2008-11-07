@@ -14,6 +14,10 @@ import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
  * A representation of the model object '<em><b>Resource Interface Requiring Entity</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * TODO
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
