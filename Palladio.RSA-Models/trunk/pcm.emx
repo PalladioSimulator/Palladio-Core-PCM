@@ -1659,56 +1659,6 @@
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_EOTpa8_lEdy7P4ddzs2roQ" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_EOTpbM_lEdy7P4ddzs2roQ" points="[-14, -741, -3189, 2276]$[3161, -2329, -14, 688]"/>
         </edges>
-        <edges xmi:id="_EOTpjc_lEdy7P4ddzs2roQ" element="_Y8JmIOM0EdqaQsPH3rPnBQ" source="_6dyKPc_kEdy7P4ddzs2roQ" target="_zS3M4M_qEdy7P4ddzs2roQ">
-          <children xmi:id="_EOTpkM_lEdy7P4ddzs2roQ" type="NameLabel">
-            <children xmi:id="_EOTpks_lEdy7P4ddzs2roQ" type="Stereotype"/>
-            <children xmi:id="_EOTpk8_lEdy7P4ddzs2roQ" type="Name"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EOTpkc_lEdy7P4ddzs2roQ" y="-530"/>
-          </children>
-          <children xmi:id="_EOTplM_lEdy7P4ddzs2roQ" type="ToMultiplicityLabel" element="_Y8JmIuM0EdqaQsPH3rPnBQ">
-            <children xmi:id="_EOTpls_lEdy7P4ddzs2roQ" type="ToMultiplicity"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_EOTplc_lEdy7P4ddzs2roQ" y="396"/>
-          </children>
-          <children xmi:id="_EOTpl8_lEdy7P4ddzs2roQ" type="ToRoleLabel" element="_Y8JmIuM0EdqaQsPH3rPnBQ">
-            <children xmi:id="_EOTpmc_lEdy7P4ddzs2roQ" type="ToRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_EOTpmM_lEdy7P4ddzs2roQ" y="-397"/>
-          </children>
-          <children xmi:id="_EOTpms_lEdy7P4ddzs2roQ" type="FromMultiplicityLabel" element="_Y8JmIeM0EdqaQsPH3rPnBQ">
-            <children xmi:id="_EOTpnM_lEdy7P4ddzs2roQ" type="FromMultiplicity"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_EOTpm8_lEdy7P4ddzs2roQ" y="396"/>
-          </children>
-          <children xmi:id="_EOTpnc_lEdy7P4ddzs2roQ" type="FromRoleLabel" element="_Y8JmIeM0EdqaQsPH3rPnBQ">
-            <children xmi:id="_EOTpn8_lEdy7P4ddzs2roQ" type="FromRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_EOTpns_lEdy7P4ddzs2roQ" x="-2949" y="2728"/>
-          </children>
-          <children xmi:id="_EOTpoM_lEdy7P4ddzs2roQ" type="ToQualifierLabel" element="_Y8JmIuM0EdqaQsPH3rPnBQ">
-            <children xmi:id="_EOTpos_lEdy7P4ddzs2roQ" type="QualifierCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_EOTpo8_lEdy7P4ddzs2roQ"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_EOTpoc_lEdy7P4ddzs2roQ" y="-186"/>
-          </children>
-          <children xmi:id="_EOTppM_lEdy7P4ddzs2roQ" type="FromQualifierLabel" element="_Y8JmIeM0EdqaQsPH3rPnBQ">
-            <children xmi:id="_EOTpps_lEdy7P4ddzs2roQ" type="QualifierCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_EOTpp8_lEdy7P4ddzs2roQ"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_EOTppc_lEdy7P4ddzs2roQ" y="-186"/>
-          </children>
-          <children xmi:id="_EOTpqM_lEdy7P4ddzs2roQ" type="ToConstraintLabel" element="_Y8JmIuM0EdqaQsPH3rPnBQ">
-            <children xmi:id="_EOTpqs_lEdy7P4ddzs2roQ" type="ToConstraintCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_EOTpq8_lEdy7P4ddzs2roQ"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_EOTpqc_lEdy7P4ddzs2roQ" y="1058"/>
-          </children>
-          <children xmi:id="_EOTprM_lEdy7P4ddzs2roQ" type="FromConstraintLabel" element="_Y8JmIeM0EdqaQsPH3rPnBQ">
-            <children xmi:id="_EOTprs_lEdy7P4ddzs2roQ" type="FromConstraintCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_EOTpr8_lEdy7P4ddzs2roQ"/>
-            </children>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_EOTprc_lEdy7P4ddzs2roQ" y="1058"/>
-          </children>
-          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_EOTpjs_lEdy7P4ddzs2roQ" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_EOTpj8_lEdy7P4ddzs2roQ" points="[-14, -741, 3188, 2276]$[-3216, -2329, -14, 688]"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k4KgEM_5Edy7P4ddzs2roQ" id="(0.85264707,0.61312217)"/>
-        </edges>
         <edges xmi:id="_EOTpsM_lEdy7P4ddzs2roQ" element="_2j74cOM2EdqaQsPH3rPnBQ" source="_6dyKbc_kEdy7P4ddzs2roQ" target="_ENHWps_lEdy7P4ddzs2roQ">
           <children xmi:id="_EOTps8_lEdy7P4ddzs2roQ" type="NameLabel">
             <children xmi:id="_EOTptc_lEdy7P4ddzs2roQ" type="Stereotype"/>
@@ -20929,16 +20879,16 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             </children>
             <children xmi:id="_ufysR3lqEduf8pXqmhjnpw" type="ToMultiplicityLabel">
               <children xmi:id="_ufysSXlqEduf8pXqmhjnpw" type="ToMultiplicity">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysSHlqEduf8pXqmhjnpw" y="397"/>
             </children>
             <children xmi:id="_ufysSnlqEduf8pXqmhjnpw" type="ToRoleLabel">
               <children xmi:id="_ufysTHlqEduf8pXqmhjnpw" type="ToRole">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysS3lqEduf8pXqmhjnpw" y="-397"/>
             </children>
             <children xmi:id="_ufysTXlqEduf8pXqmhjnpw" type="FromMultiplicityLabel">
@@ -20958,9 +20908,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <children xmi:id="_ufysU3lqEduf8pXqmhjnpw" type="ToQualifierLabel">
               <children xmi:id="_ufysVXlqEduf8pXqmhjnpw" type="QualifierCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysVnlqEduf8pXqmhjnpw"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysVHlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <children xmi:id="_ufysV3lqEduf8pXqmhjnpw" type="FromQualifierLabel">
@@ -20975,7 +20925,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <children xmi:id="_Rjlb4ZZwEdyvM-KRcbKtDQ" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Rjlb4pZwEdyvM-KRcbKtDQ"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Rjlb45ZwEdyvM-KRcbKtDQ" y="1058"/>
             </children>
             <children xmi:id="_Rjlb5JZwEdyvM-KRcbKtDQ" type="FromConstraintLabel">
@@ -20989,9 +20939,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <eAnnotations xmi:id="_ufysXXlqEduf8pXqmhjnpw" source="ToConstraintLabel"/>
               <children xmi:id="_ufysXnlqEduf8pXqmhjnpw" visible="false" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysX3lqEduf8pXqmhjnpw"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysXHlqEduf8pXqmhjnpw" y="1058"/>
             </children>
             <children xmi:id="_ufysYHlqEduf8pXqmhjnpw" type="FromRoleLabel">
@@ -21448,16 +21398,16 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             </children>
             <children xmi:id="_9eFwDJGyEduVgYSffmI32A" type="ToMultiplicityLabel">
               <children xmi:id="_9eFwDpGyEduVgYSffmI32A" type="ToMultiplicity">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwDZGyEduVgYSffmI32A" x="79" y="-206"/>
             </children>
             <children xmi:id="_9eFwD5GyEduVgYSffmI32A" type="ToRoleLabel">
               <children xmi:id="_9eFwEZGyEduVgYSffmI32A" type="ToRole">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwEJGyEduVgYSffmI32A" y="-397"/>
             </children>
             <children xmi:id="_9eFwEpGyEduVgYSffmI32A" type="FromMultiplicityLabel">
@@ -21477,9 +21427,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <children xmi:id="_9eFwGJGyEduVgYSffmI32A" type="ToQualifierLabel">
               <children xmi:id="_9eFwGpGyEduVgYSffmI32A" type="QualifierCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwG5GyEduVgYSffmI32A"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwGZGyEduVgYSffmI32A" y="-185"/>
             </children>
             <children xmi:id="_9eFwHJGyEduVgYSffmI32A" type="FromQualifierLabel">
@@ -21494,7 +21444,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <children xmi:id="_Rjul0ZZwEdyvM-KRcbKtDQ" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Rjul0pZwEdyvM-KRcbKtDQ"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Rjul05ZwEdyvM-KRcbKtDQ" y="1058"/>
             </children>
             <children xmi:id="_Rjul1JZwEdyvM-KRcbKtDQ" type="FromConstraintLabel">
@@ -21508,9 +21458,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <eAnnotations xmi:id="_9eFwIpGyEduVgYSffmI32A" source="ToConstraintLabel"/>
               <children xmi:id="_9eFwI5GyEduVgYSffmI32A" visible="false" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwJJGyEduVgYSffmI32A"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwIZGyEduVgYSffmI32A" y="1058"/>
             </children>
             <children xmi:id="_9eFwJZGyEduVgYSffmI32A" type="FromRoleLabel">
