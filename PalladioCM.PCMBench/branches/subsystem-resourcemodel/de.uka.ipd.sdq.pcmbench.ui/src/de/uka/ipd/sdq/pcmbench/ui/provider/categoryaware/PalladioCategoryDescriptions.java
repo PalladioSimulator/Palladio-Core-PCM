@@ -60,9 +60,9 @@ public class PalladioCategoryDescriptions implements ICategoryDescriptions {
 			if (object instanceof CompositeComponent)
 			{
 				result.add(new CategoryDescriptor(CompositeComponent.class, AssemblyContext.class, 
-						CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_ChildComponentContext(), "Child Component Contexts" ));
+						CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_AssemblyContext(), "Assembly Contexts" ));
 				result.add(new CategoryDescriptor(CompositeComponent.class, AssemblyConnector.class, 
-						CompositionPackage.eINSTANCE.getComposedStructure_CompositeAssemblyConnectors_ComposedStructure(), "Assembly Connectors" ));
+						CompositionPackage.eINSTANCE.getComposedStructure_AssemblyConnectors_ComposedStructure(), "Assembly Connectors" ));
 			}
 			return Collections.unmodifiableCollection(result);
 		}

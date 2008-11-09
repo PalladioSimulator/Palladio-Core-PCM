@@ -4,47 +4,30 @@
 package de.uka.ipd.sdq.pcmbench.ui.provider;
 
 import java.util.Collection;
-import java.util.List;
 
-import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.edit.EMFEditPlugin;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.CreateChildCommand;
-import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.provider.PropertyDescriptor;
-import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.ui.views.properties.IPropertyDescriptor;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcmbench.ui.PCMBenchUIPlugin;
-import de.uka.ipd.sdq.stoex.RandomVariable;
-import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * @author Snowball
@@ -87,7 +70,7 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 		if (object instanceof AssemblyContext) {
 			AssemblyContext ctx = (AssemblyContext)object;
 			result = ctx.getEntityName();
-			result += ctx.getEncapsulatedComponent_ChildComponentContext() == null ? "" : " <Component: "+ctx.getEncapsulatedComponent_ChildComponentContext().getEntityName()+">";
+			result += ctx.getEncapsulatedComponent_AssemblyContext() == null ? "" : " <Component: "+ctx.getEncapsulatedComponent_AssemblyContext().getEntityName()+">";
 		} else if (object instanceof ProcessingResourceSpecification) { 
 			ProcessingResourceSpecification spec = (ProcessingResourceSpecification) object;
 			result += "Processing Resource ";
