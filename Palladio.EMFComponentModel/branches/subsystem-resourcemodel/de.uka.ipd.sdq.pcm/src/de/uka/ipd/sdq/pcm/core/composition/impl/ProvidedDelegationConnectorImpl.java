@@ -331,7 +331,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_ChildComponentContext ";
+			String body = "self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext ";
 			
 			try {
 				ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL = ExpressionsUtil.createInvariant(env, body, true);

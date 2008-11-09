@@ -160,7 +160,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_ChildComponentContext
+	 * self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
