@@ -5039,7 +5039,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           <ownedRule xmi:id="_39rnwCJHEdyhZ4cfVkGDIw" name="ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame" constrainedElement="_hElNAJJ7EdqSSImFLKDkSg">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_39rnwSJHEdyhZ4cfVkGDIw">
               <language>OCL</language>
-              <body>self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_ChildComponentContext</body>
+              <body>self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_vHOvoJQAEdqSSImFLKDkSg" general="_SdDqMJQAEdqSSImFLKDkSg"/>
@@ -5058,7 +5058,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           <ownedRule xmi:id="_DP8mMCJIEdyhZ4cfVkGDIw" name="ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame" constrainedElement="_jt-4MJJ7EdqSSImFLKDkSg">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_DP8mMSJIEdyhZ4cfVkGDIw">
               <language>OCL</language>
-              <body>self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_ChildComponentContext</body>
+              <body>self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_vcDJEJQAEdqSSImFLKDkSg" general="_SdDqMJQAEdqSSImFLKDkSg"/>
