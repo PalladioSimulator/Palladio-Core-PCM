@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<featureconfig:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:featureconfig="http://sdq.ipd.uka.de/FeatureConfig/2.0" name="RMI Config">
+  <defaultConfig>
+    <referencedObject href="Connector.featuremodel#_i-8dAEA5Ed2gRP09T9joBw"/>
+    <confignode configState="SELECTED">
+      <origin href="Connector.featuremodel#_snlyQEA5Ed2gRP09T9joBw"/>
+    </confignode>
+  </defaultConfig>
+</featureconfig:Configuration>
