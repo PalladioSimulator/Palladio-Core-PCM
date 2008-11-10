@@ -42,7 +42,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
- * Encapsulated an PCM instance.
+ * Encapsulated an PCM instance. Represents ONE candidate only and needs to be copied when changed. 
  * 
  * 	// TODO: refactor the getter names of the filenames to getOrginalFileName
 	// and getFileName? Or leave the original to get longer and longer file
@@ -84,6 +84,8 @@ public class PCMInstance {
 
 	private UsageModel usageModel;
 	private String usageModelFileName;
+	
+	private ILaunchConfiguration launchConfiguration;
 
 	public PCMInstance() {
 		super();
@@ -101,6 +103,8 @@ public class PCMInstance {
 		// this.usage = ComputedUsageFactory.eINSTANCE.createComputedUsage();
 		// this.actualAllocation =
 		// ComputedAllocationFactory.eINSTANCE.createComputedAllocation();
+		
+		this.launchConfiguration = configuration;
 
 		logger.debug("Constructor called");
 		this.setName(configuration.getAttribute(SimuComConfig.EXPERIMENT_RUN,
@@ -290,7 +294,7 @@ public boolean equals(Object o) {
 	 *            the filename specifying the file to load from
 	 * @return The EObject loaded from the file
 	 */
-	public EObject loadFromXMIFile(final String fileName) {
+	public static EObject loadFromXMIFile(final String fileName) {
 		// Create a resource set to hold the resources.
 		ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -315,7 +319,7 @@ public boolean equals(Object o) {
 		try {
 			resource = resourceSet.getResource(uri, true);
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			Logger.getLogger("de.uka.ipd.sdq.dsexplore").error(e.getMessage());
 			return null;
 		}
 
@@ -463,7 +467,7 @@ public boolean equals(Object o) {
 	 *            The resource set to register all contained model packages
 	 *            with.
 	 */
-	private void registerPackages(final ResourceSet resourceSet) {
+	private static void registerPackages(final ResourceSet resourceSet) {
 
 		resourceSet.getPackageRegistry().put(AllocationPackage.eNS_URI,
 				AllocationPackage.eINSTANCE);
@@ -521,6 +525,10 @@ public boolean equals(Object o) {
 			logger.error(e.getMessage());
 		}
 		// logger.debug("Saved " + fileURI);
+	}
+
+	public ILaunchConfiguration getLaunchConfiguration() {
+		return launchConfiguration;
 	}
 
 }

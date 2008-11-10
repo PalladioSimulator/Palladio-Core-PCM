@@ -8,8 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import net.sf.jclec.IIndividual;
-
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -34,6 +32,7 @@ import de.uka.ipd.sdq.dsexplore.analysis.AnalysisProxy;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.helper.DSEMessageBox;
+import de.uka.ipd.sdq.dsexplore.helper.DummyAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
@@ -107,7 +106,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    
 		    //analyse the initial PCMInstance
 		    //IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
-		    IAnalysisResult result = analysisTool.analyse(pcmInstance);
+		    //IAnalysisResult result = analysisTool.analyse(pcmInstance);
+		    IAnalysisResult result = new DummyAnalysisResult(pcmInstance);
 		    logger.info("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
 		    List<IAnalysisResult> currentPopulation = new ArrayList<IAnalysisResult>();
 		    allCandidates = new ArrayList<IAnalysisResult>();

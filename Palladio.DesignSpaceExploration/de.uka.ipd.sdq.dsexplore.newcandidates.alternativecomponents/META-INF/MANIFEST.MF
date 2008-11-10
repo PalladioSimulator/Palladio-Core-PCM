@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.ocl,
  de.uka.ipd.sdq.dsexplore,
  de.uka.ipd.sdq.pcm,
  org.apache.log4j,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ org.eclipse.debug.core
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.dsexplore.newcandidates.alternativecomponents

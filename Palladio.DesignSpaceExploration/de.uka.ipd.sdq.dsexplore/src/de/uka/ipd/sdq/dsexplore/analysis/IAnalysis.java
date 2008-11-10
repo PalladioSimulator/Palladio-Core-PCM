@@ -28,4 +28,5 @@ public interface IAnalysis {
 	public abstract void initialise(ILaunchConfiguration configuration, String mode, ILaunch launch,IProgressMonitor monitor);
 
 	public abstract IAnalysisResult retrieveLastResults(PCMInstance pcmInstance) throws CoreException, AnalysisFailedException;
+
 }

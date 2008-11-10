@@ -43,7 +43,7 @@ public class ConfigurationHelper {
 	 * @return a copy of configuration in which the filenames of the instance are used.
 	 * @throws CoreException if the configuration cannot be copied or the new configuration cannot be saved to the run dialogs
 	 */
-	public ILaunchConfiguration updateConfig(ILaunchConfiguration configuration,
+	public ILaunchConfiguration updateConfig(final ILaunchConfiguration configuration,
 			PCMInstance instance) throws CoreException {
 		
  		//FIXME: really append the suffixes. 
@@ -59,7 +59,7 @@ public class ConfigurationHelper {
 			
 			ILaunchConfiguration newLaunchConfig = workingCopy.doSave();
 			
-			this.rememberedLaunchConfigs .add(newLaunchConfig);
+			this.rememberedLaunchConfigs.add(newLaunchConfig);
 			
 			return newLaunchConfig;
 		

@@ -116,6 +116,8 @@ public class SimuComAnalysis implements IAnalysis {
 	private void launchSimuCom(PCMInstance pcmInstance)
 			throws CoreException, AnalysisFailedException {
 		
+		//XXX does not work if we have multiple instances running, because 
+		//then this class cannot assign the right config anymore. Use config from pcminstance. ?  
 		this.config = ConfigurationHelper.getInstance().updateConfig(config, pcmInstance);
 		pcmInstance.saveUpdatesToFile();
 		

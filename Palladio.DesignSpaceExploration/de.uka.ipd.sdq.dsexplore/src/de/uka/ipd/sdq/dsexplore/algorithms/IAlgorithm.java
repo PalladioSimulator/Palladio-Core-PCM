@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.dsexplore.algorithms;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
@@ -15,6 +16,7 @@ public interface IAlgorithm {
 	 * Initialise the algorithm with an initial population and the analysis tool to use. 
 	 * @param population
 	 * @param analysisTool
+	 * @param configuration 
 	 * @throws CoreException 
 	 */
 	public void initialise(List<PCMInstance> population, IAnalysis analysisTool) throws CoreException;
