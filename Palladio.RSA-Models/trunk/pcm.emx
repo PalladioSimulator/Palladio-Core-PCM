@@ -7997,22 +7997,21 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
         <ownedComment xmi:id="_P1uy0ITJEd2vDt35AcA8Pg" annotatedElement="_hh0OUJJJEdqSSImFLKDkSg">
           <body>This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.&#xD;
 &#xD;
-Every service of an interface has a unique signature, like void doSomething(int a). A PCM&#xD;
-signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.&#xD;
+Every service of an interface has a unique signature, like void doSomething(int a). A PCM signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.&#xD;
 &#xD;
 It contains:&#xD;
-• A type of the return value or void (no return value)&#xD;
-• An identifier naming the service&#xD;
-• An ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which&#xD;
-is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG&#xD;
-IDL semantics, cf. [22], chapter 3) can be used for parameters.&#xD;
-• An unordered set of exceptions.&#xD;
 &#xD;
-A signature has to be unique for an interface through the tupel (identifier, order of parameters). An&#xD;
-interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A&#xD;
-signature is assigned to exactly one interface. However, different interfaces can define equally named&#xD;
-signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not&#xD;
-identical in both interfaces.</body>
+* A type of the return value or void (no return value),&#xD;
+&#xD;
+* an identifier naming the service,&#xD;
+&#xD;
+* an ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG&#xD;
+IDL semantics) can be used for parameters, and&#xD;
+&#xD;
+* an unordered set of exceptions.&#xD;
+&#xD;
+A signature has to be unique for an interface through the tupel (identifier, order of parameters). An interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A&#xD;
+signature is assigned to exactly one interface. However, different interfaces can define equally named signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not identical in both interfaces.</body>
         </ownedComment>
         <ownedRule xmi:id="_YpuX0KqpEdqOOaiBCPgBBQ" name="Parameter Names Have To Be Unique For A Signature" constrainedElement="_hh0OUJJJEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_YpuX0aqpEdqOOaiBCPgBBQ">
@@ -8112,7 +8111,7 @@ identical in both interfaces.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_xtWJIJJGEdqIo-u3cE9-DA" name="ProvidesComponentType">
         <ownedComment xmi:id="_ZEQNUITIEd2vDt35AcA8Pg" annotatedElement="_xtWJIJJGEdqIo-u3cE9-DA">
-          <body>This entity represents abstraction of a component where only the provided interfaces are visible, while the required interfaces and its implementation are left open.</body>
+          <body>Provided (Component) Types abstract a component to its provided interfaces, leaving its requirements and implementation details open. So, provided types subsume components which offer the same functionality, but with different implementations. As different implementations might require different services from the environment, provided types omit required interfaces. Provided types allow software architects to focus on a component’s functionality and introduce weak substitutability to the PCM. Using provided types, software architects can draft ideas on how functionality can be partitioned among different components without worrying about their implementation. In the initial phases of architectural design, it often does not make sense to arrange all details of a component, since most of them depend on the actual implementation and thus need to be specified by component developers. As during this phase the actual implementation is unknown, also the required interfaces of a component cannot be stated. However, software architects can still pre-evaluate a software architecture containing provided-types. This gives rough estimates about the quality of the build software system and defines QoS requirements for the component implementation.</body>
         </ownedComment>
         <ownedRule xmi:id="_wi_bwKYDEdqvFod-l_9S7g" name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType" constrainedElement="_xtWJIJJGEdqIo-u3cE9-DA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_wi_bwaYDEdqvFod-l_9S7g">
@@ -8124,7 +8123,7 @@ identical in both interfaces.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_-M7kYJJIEdqSSImFLKDkSg" name="ProvidedRole">
         <ownedComment xmi:id="_zdOXEITGEd2vDt35AcA8Pg" annotatedElement="_-M7kYJJIEdqSSImFLKDkSg">
-          <body>This entity represents the provided interface.</body>
+          <body>This entity represents the provided interfaces. The PCM uses the association of an interface to a component to determine its role. Provided roles list the interfaces offered by a component.</body>
         </ownedComment>
         <generalization xmi:id="_BENTgJJJEdqSSImFLKDkSg" general="_9CubEJJIEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_4zD2gpJlEdqSSImFLKDkSg" name="providedInterface__ProvidedRole" type="_cIR90JJJEdqSSImFLKDkSg" association="_4zD2gJJlEdqSSImFLKDkSg">
@@ -8170,7 +8169,9 @@ identical in both interfaces.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_cIR90JJJEdqSSImFLKDkSg" name="Interface">
         <ownedComment xmi:id="_5CxM8H5oEd2w8a0eK9hypA" annotatedElement="_cIR90JJJEdqSSImFLKDkSg">
-          <body>This entity models the interface as a set of signatures representing services provided or required by a component.</body>
+          <body>This entity models the interface as a set of signatures representing services provided or required by a component. An interface is an abstraction of piece of software (a software entity) which should contain a sufficient amount of information for a caller to understand and finally request the realised functionality from any entity claiming to offer the specified functionality. Note that this implies, that the specification of the interface also has to contain a sufficient amount of information for the implementer to actually implement the interface. Due to the inherent need of an interface to abstract the behaviour of the software entity not in all cases there is sufficient information provided to use or implement an interface in an unambiquious way.&#xD;
+&#xD;
+Interfaces can exist on their own, i.e., without any entity requesting or implementing the specified functionality. Two roles can be identified a software entity can take relative to an interface. Any entity can either claim to implement the functionality specified in an interface or to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities, and their relationships.</body>
         </ownedComment>
         <ownedRule xmi:id="_AjZ8AJybEdqX-LqEpACX-A" name="NoProtocolTypeIDUsedTwice" constrainedElement="_cIR90JJJEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_AjZ8AZybEdqX-LqEpACX-A">
@@ -8224,7 +8225,8 @@ identical in both interfaces.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_4XfF4JJGEdqIo-u3cE9-DA" name="ImplementationComponentType" isAbstract="true">
         <ownedComment xmi:id="_HvyxAITKEd2vDt35AcA8Pg" annotatedElement="_4XfF4JJGEdqIo-u3cE9-DA">
-          <body>This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type.</body>
+          <body>This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type. The specification of&#xD;
+the internal structure depends on the way the component is realised. In general, components can either be implemented from the scratch or composed out of other components. In the first case, the implemented behaviour of each provided service needs to be specified with a service effect specification (SEFF) to describe the component’s abstract internal structure. We refer to such components as basic components, since they form the basic building blocks of a software architecture. On the other hand, developers can use existing components to assemble new, composite components.</body>
         </ownedComment>
         <ownedRule xmi:id="_Ix0IYKUhEdqWue6EZILF7w" name="RequiredInterfacesHaveToConformToCompleteType" constrainedElement="_4XfF4JJGEdqIo-u3cE9-DA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_Ix0IYaUhEdqWue6EZILF7w">
@@ -8286,7 +8288,7 @@ identical in both interfaces.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_mhK5sJJIEdqSSImFLKDkSg" name="CompositeComponent">
         <ownedComment xmi:id="_tu_S8H5lEd2w8a0eK9hypA" annotatedElement="_mhK5sJJIEdqSSImFLKDkSg">
-          <body>This entity represents a component composed of other component, i.e., the component is not directly implemented in a programming language, but it is rather implemented by a composition of other components.</body>
+          <body>Composite components are special implementation component types, which are composed from inner components. Component developers compose inner components within composite components with assembly connectors. An assembly connector binds a provided role with a required role. To access the inner components, composite components themselves provide or require interfaces. A delegation connector binds a provided (required) role of the composite component with an inner component provided (required) role. A composite component may contain other composite components, which are also themselves composed out of inner components. This enables building arbitrary hierarchies of nested components. Like a basic component, a composite component may contain a SEFF.  However, this SEFF is not specified manually by the composite component developer, but can be computed by combining the SEFFs of the inner components.</body>
         </ownedComment>
         <ownedRule xmi:id="_eTrlAKU6EdqWue6EZILF7w" name="ProvideSameInterfaces" constrainedElement="_mhK5sJJIEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_eTrlAaU6EdqWue6EZILF7w">
@@ -8305,7 +8307,7 @@ identical in both interfaces.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_0Ske8JJGEdqIo-u3cE9-DA" name="CompleteComponentType">
         <ownedComment xmi:id="_rv9CAITJEd2vDt35AcA8Pg" annotatedElement="_0Ske8JJGEdqIo-u3cE9-DA">
-          <body>This entity represents an abstraction of a component as a set provided and a set of required interfaces.</body>
+          <body>Complete (Component) types abstract from the realisation of components. They only contain provided and required roles omitting the components’ internal structure, i.e., the service effect specifications or assemblies. Thus, complete types represent a black box view on components. Leaving the implementation open allows for a higher flexibility of software architects and defines substitutability in the PCM.</body>
         </ownedComment>
         <ownedRule xmi:id="_BSRcgKYEEdqvFod-l_9S7g" name="AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType" constrainedElement="_xtWJIJJGEdqIo-u3cE9-DA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_BSRcgaYEEdqvFod-l_9S7g">
@@ -8327,7 +8329,7 @@ identical in both interfaces.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oz-CwJJIEdqSSImFLKDkSg" name="BasicComponent">
         <ownedComment xmi:id="_ElI2MH5kEd2w8a0eK9hypA" annotatedElement="_oz-CwJJIEdqSSImFLKDkSg">
-          <body>This entity represents a black-box component implementation. It is not composed of other component, but directly implemented in a programming language, e.g., Java.</body>
+          <body>This entity represents a black-box component implementation. Basic components are atomic building blocks of a software architecture. They cannot be further subdivided into smaller components and are built from scratch, i.e, not by assembling other components. Component developers specify basic components by associating interfaces to them in a providing or requiring role.</body>
         </ownedComment>
         <ownedRule xmi:id="_KU54AJyrEdqX-LqEpACX-A" name="NoSeffTypeUsedTwice" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_KU_-oJyrEdqX-LqEpACX-A">
@@ -20842,53 +20844,53 @@ Solving the stochastic expression, which can be a function involving arithmetic 
           <edges xmi:id="_to0A8XlqEduf8pXqmhjnpw" source="_oDL1MXlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
             <children xmi:id="_to0A9HlqEduf8pXqmhjnpw" type="NameLabel">
               <children xmi:id="_to0A9nlqEduf8pXqmhjnpw" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
               </children>
               <children xmi:id="_to0A93lqEduf8pXqmhjnpw" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_to0A9XlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_to0A8nlqEduf8pXqmhjnpw" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_to0A83lqEduf8pXqmhjnpw" points="[3, -22, -34, 107]$[23, -155, -14, -26]"/>
           </edges>
           <edges xmi:id="_t-RTkXlqEduf8pXqmhjnpw" source="_p9qk4XlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
             <children xmi:id="_t-RTlHlqEduf8pXqmhjnpw" type="NameLabel">
               <children xmi:id="_t-RTlnlqEduf8pXqmhjnpw" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
               </children>
               <children xmi:id="_t-RTl3lqEduf8pXqmhjnpw" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_t-RTlXlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_t-RTknlqEduf8pXqmhjnpw" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t-RTk3lqEduf8pXqmhjnpw" points="[-27, -23, 142, 106]$[-169, -155, 0, -26]"/>
           </edges>
           <edges xmi:id="_ufysQHlqEduf8pXqmhjnpw" source="_oDL1MXlqEduf8pXqmhjnpw" target="_d6r7MXlqEduf8pXqmhjnpw">
             <children xmi:id="_ufysQ3lqEduf8pXqmhjnpw" type="NameLabel">
               <children xmi:id="_ufysRXlqEduf8pXqmhjnpw" type="Stereotype">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
               </children>
               <children xmi:id="_ufysRnlqEduf8pXqmhjnpw" type="Name">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ufysRHlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <children xmi:id="_ufysR3lqEduf8pXqmhjnpw" type="ToMultiplicityLabel">
               <children xmi:id="_ufysSXlqEduf8pXqmhjnpw" type="ToMultiplicity">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysSHlqEduf8pXqmhjnpw" y="397"/>
             </children>
             <children xmi:id="_ufysSnlqEduf8pXqmhjnpw" type="ToRoleLabel">
               <children xmi:id="_ufysTHlqEduf8pXqmhjnpw" type="ToRole">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysS3lqEduf8pXqmhjnpw" y="-397"/>
             </children>
             <children xmi:id="_ufysTXlqEduf8pXqmhjnpw" type="FromMultiplicityLabel">
@@ -20908,9 +20910,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <children xmi:id="_ufysU3lqEduf8pXqmhjnpw" type="ToQualifierLabel">
               <children xmi:id="_ufysVXlqEduf8pXqmhjnpw" type="QualifierCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysVnlqEduf8pXqmhjnpw"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysVHlqEduf8pXqmhjnpw" y="-185"/>
             </children>
             <children xmi:id="_ufysV3lqEduf8pXqmhjnpw" type="FromQualifierLabel">
@@ -20925,7 +20927,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <children xmi:id="_Rjlb4ZZwEdyvM-KRcbKtDQ" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Rjlb4pZwEdyvM-KRcbKtDQ"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Rjlb45ZwEdyvM-KRcbKtDQ" y="1058"/>
             </children>
             <children xmi:id="_Rjlb5JZwEdyvM-KRcbKtDQ" type="FromConstraintLabel">
@@ -20939,9 +20941,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <eAnnotations xmi:id="_ufysXXlqEduf8pXqmhjnpw" source="ToConstraintLabel"/>
               <children xmi:id="_ufysXnlqEduf8pXqmhjnpw" visible="false" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ufysX3lqEduf8pXqmhjnpw"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysXHlqEduf8pXqmhjnpw" y="1058"/>
             </children>
             <children xmi:id="_ufysYHlqEduf8pXqmhjnpw" type="FromRoleLabel">
@@ -20954,7 +20956,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ufysYXlqEduf8pXqmhjnpw" y="1058"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_ufysQXlqEduf8pXqmhjnpw" showStereotype="Text"/>
-            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
+            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ufysQnlqEduf8pXqmhjnpw" points="[-2248, -344, -3227, 3069]$[-3227, -344, -4206, 3069]$[-3227, -3439, -4206, -26]$[-1587, -3439, -2566, -26]"/>
           </edges>
           <edges xmi:id="_-c0wsHlqEduf8pXqmhjnpw" element="_-cq_sHlqEduf8pXqmhjnpw" source="_ROlqJTywEduB5pxz2UpKVQ" target="_d6r7MXlqEduf8pXqmhjnpw">
@@ -21389,25 +21391,25 @@ Solving the stochastic expression, which can be a function involving arithmetic 
           <edges xmi:id="_9eFwBZGyEduVgYSffmI32A" source="_9d8mEJGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_9eFwCJGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_9eFwCpGyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
               </children>
               <children xmi:id="_9eFwC5GyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
+                <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9eFwCZGyEduVgYSffmI32A" y="-185"/>
             </children>
             <children xmi:id="_9eFwDJGyEduVgYSffmI32A" type="ToMultiplicityLabel">
               <children xmi:id="_9eFwDpGyEduVgYSffmI32A" type="ToMultiplicity">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwDZGyEduVgYSffmI32A" x="79" y="-206"/>
             </children>
             <children xmi:id="_9eFwD5GyEduVgYSffmI32A" type="ToRoleLabel">
               <children xmi:id="_9eFwEZGyEduVgYSffmI32A" type="ToRole">
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwEJGyEduVgYSffmI32A" y="-397"/>
             </children>
             <children xmi:id="_9eFwEpGyEduVgYSffmI32A" type="FromMultiplicityLabel">
@@ -21427,9 +21429,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <children xmi:id="_9eFwGJGyEduVgYSffmI32A" type="ToQualifierLabel">
               <children xmi:id="_9eFwGpGyEduVgYSffmI32A" type="QualifierCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwG5GyEduVgYSffmI32A"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwGZGyEduVgYSffmI32A" y="-185"/>
             </children>
             <children xmi:id="_9eFwHJGyEduVgYSffmI32A" type="FromQualifierLabel">
@@ -21444,7 +21446,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <children xmi:id="_Rjul0ZZwEdyvM-KRcbKtDQ" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Rjul0pZwEdyvM-KRcbKtDQ"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Rjul05ZwEdyvM-KRcbKtDQ" y="1058"/>
             </children>
             <children xmi:id="_Rjul1JZwEdyvM-KRcbKtDQ" type="FromConstraintLabel">
@@ -21458,9 +21460,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <eAnnotations xmi:id="_9eFwIpGyEduVgYSffmI32A" source="ToConstraintLabel"/>
               <children xmi:id="_9eFwI5GyEduVgYSffmI32A" visible="false" type="ToConstraintCompartment">
                 <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9eFwJJGyEduVgYSffmI32A"/>
-                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+                <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               </children>
-              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E/%3CEigenschaft%3E?"/>
+              <element xmi:type="uml:Property" href="stoex.emx#_ufpiUnlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E/%3CProperty%3E?"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwIZGyEduVgYSffmI32A" y="1058"/>
             </children>
             <children xmi:id="_9eFwJZGyEduVgYSffmI32A" type="FromRoleLabel">
@@ -21473,35 +21475,35 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9eFwJpGyEduVgYSffmI32A" y="1058"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9eFwBpGyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CZuordnung%3E?"/>
+            <element xmi:type="uml:Association" href="stoex.emx#_ufpiUHlqEduf8pXqmhjnpw?stoex/%3CAssociation%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9eFwB5GyEduVgYSffmI32A" points="[-317, -582, -3360, 1403]$[-317, -2117, -3360, -132]$[450, -2117, -2593, -132]"/>
           </edges>
           <edges xmi:id="_9eFwKpGyEduVgYSffmI32A" source="_9d8mEJGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_9eFwLZGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_9eFwL5GyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
               </children>
               <children xmi:id="_9eFwMJGyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9eFwLpGyEduVgYSffmI32A" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9eFwK5GyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralisierung%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_to0A8HlqEduf8pXqmhjnpw?stoex/NamespaceReference/%3CGeneralization%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9eFwLJGyEduVgYSffmI32A" points="[979, -635, -3334, 2011]$[3149, -1958, -1164, 688]"/>
           </edges>
           <edges xmi:id="_-SZh35GyEduVgYSffmI32A" source="_-SZh0JGyEduVgYSffmI32A" target="_8VOqgJGyEduVgYSffmI32A">
             <children xmi:id="_-SZh4pGyEduVgYSffmI32A" type="NameLabel">
               <children xmi:id="_-SZh5JGyEduVgYSffmI32A" type="Stereotype">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
               </children>
               <children xmi:id="_-SZh5ZGyEduVgYSffmI32A" type="Name">
-                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
+                <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-SZh45GyEduVgYSffmI32A" y="-185"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_-SZh4JGyEduVgYSffmI32A" showStereotype="Text"/>
-            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralisierung%3E?"/>
+            <element xmi:type="uml:Generalization" href="stoex.emx#_t-RTkHlqEduf8pXqmhjnpw?stoex/VariableReference/%3CGeneralization%3E?"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-SZh4ZGyEduVgYSffmI32A" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
           </edges>
         </contents>
