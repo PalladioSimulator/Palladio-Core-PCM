@@ -2,10 +2,10 @@
 <!--xtools2_universal_type_manager-->
 <?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
 <?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xsi:schemaLocation="http:///schemas/Default/1 pathmap://UML2_MSL_PROFILES/Default.epx#_IN8k8MmBEdqBcN1R6EvWUw?Default/Default? http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
   <uml:Model xmi:id="__vMF8KM3EdueS_3nHTLlag" name="SensorFactory">
     <eAnnotations xmi:id="__vMF8aM3EdueS_3nHTLlag" source="uml2.diagrams">
-      <contents xmi:type="notation:Diagram" xmi:id="_Kr_xwKM4EdueS_3nHTLlag" type="Class" name="SensorFactoryDataModel">
+      <contents xmi:type="notation:Diagram" xmi:id="_Kr_xwKM4EdueS_3nHTLlag" type="Class" name="SensorFramework">
         <children xmi:id="_MeIdwKM4EdueS_3nHTLlag" element="_Mdin4KM4EdueS_3nHTLlag">
           <children xmi:id="_MeIdw6M4EdueS_3nHTLlag" type="ImageCompartment">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_MeIdxKM4EdueS_3nHTLlag" width="1320" height="1320"/>
@@ -408,7 +408,7 @@
           </children>
           <children xmi:id="_ZzO2raM4EdueS_3nHTLlag" type="FromRoleLabel" element="_ZyeosaM4EdueS_3nHTLlag">
             <children xmi:id="_ZzO2r6M4EdueS_3nHTLlag" type="FromRole" element="_ZyeosaM4EdueS_3nHTLlag"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZzO2rqM4EdueS_3nHTLlag" x="-328" y="-439"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZzO2rqM4EdueS_3nHTLlag" x="-645" y="-413"/>
           </children>
           <children xmi:id="_ZzO2sKM4EdueS_3nHTLlag" type="ToQualifierLabel" element="_ZyeosqM4EdueS_3nHTLlag">
             <children xmi:id="_ZzO2sqM4EdueS_3nHTLlag" type="QualifierCompartment" element="_ZyeosqM4EdueS_3nHTLlag">
@@ -838,7 +838,7 @@
           </children>
           <children xmi:id="_0j6mZJs3Edy0iNuLqqrX1Q" type="FromRoleLabel" element="_0jwOUJs3Edy0iNuLqqrX1Q">
             <children xmi:id="_0j6mZps3Edy0iNuLqqrX1Q" type="FromRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_0j6mZZs3Edy0iNuLqqrX1Q" x="-234" y="-1351"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_0j6mZZs3Edy0iNuLqqrX1Q" x="782" y="1872"/>
           </children>
           <children xmi:id="_0j7NcJs3Edy0iNuLqqrX1Q" type="ToQualifierLabel" element="_0jyqkJs3Edy0iNuLqqrX1Q">
             <children xmi:id="_0j7Ncps3Edy0iNuLqqrX1Q" type="QualifierCompartment">
@@ -1010,7 +1010,7 @@
           </children>
           <children xmi:id="_Eb13CqDkEd2q0PqmwpQNMA" type="ToRoleLabel" element="_EbsGAaDkEd2q0PqmwpQNMA">
             <children xmi:id="_Eb13DKDkEd2q0PqmwpQNMA" type="ToRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_Eb13C6DkEd2q0PqmwpQNMA" y="-397"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_Eb13C6DkEd2q0PqmwpQNMA" x="681" y="-611"/>
           </children>
           <children xmi:id="_Eb13DaDkEd2q0PqmwpQNMA" type="FromMultiplicityLabel" element="_Ebi8EaDkEd2q0PqmwpQNMA">
             <children xmi:id="_Eb13D6DkEd2q0PqmwpQNMA" type="FromMultiplicity"/>
@@ -1018,7 +1018,7 @@
           </children>
           <children xmi:id="_Eb13EKDkEd2q0PqmwpQNMA" type="FromRoleLabel" element="_Ebi8EaDkEd2q0PqmwpQNMA">
             <children xmi:id="_Eb13EqDkEd2q0PqmwpQNMA" type="FromRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_Eb13EaDkEd2q0PqmwpQNMA" x="-1274" y="-23"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_Eb13EaDkEd2q0PqmwpQNMA" x="29" y="-1687"/>
           </children>
           <children xmi:id="_Eb13E6DkEd2q0PqmwpQNMA" type="ToQualifierLabel" element="_EbsGAaDkEd2q0PqmwpQNMA">
             <children xmi:id="_Eb13FaDkEd2q0PqmwpQNMA" type="QualifierCompartment">
@@ -1056,8 +1056,11 @@
     <packageImport xmi:id="_fn-ZsKUrEdu67aH61_l2Wg">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
     </packageImport>
+    <packageImport xmi:id="_82v9cK9TEd2I98zUF_oPOA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#_0"/>
+    </packageImport>
     <packagedElement xmi:type="uml:Class" xmi:id="_S4WgIJs2Edy0iNuLqqrX1Q" name="AggregatedMeasurements" isAbstract="true">
-      <ownedAttribute xmi:id="_0jwOUJs3Edy0iNuLqqrX1Q" name="sensorInstance" visibility="public" type="_BOa4wKDkEd2q0PqmwpQNMA" association="_0jvAMJs3Edy0iNuLqqrX1Q">
+      <ownedAttribute xmi:id="_0jwOUJs3Edy0iNuLqqrX1Q" name="measurementRange" visibility="public" type="_BOa4wKDkEd2q0PqmwpQNMA" association="_0jvAMJs3Edy0iNuLqqrX1Q">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0jxccJs3Edy0iNuLqqrX1Q" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0jw1YJs3Edy0iNuLqqrX1Q" value="1"/>
       </ownedAttribute>
@@ -1075,6 +1078,9 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_K8If8KUvEdu67aH61_l2Wg" name="Experiment">
       <eAnnotations xmi:id="_VgUwgFSAEdyZfZscZwjVZw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+      <ownedComment xmi:id="_e2hPkK9JEd2I98zUF_oPOA" annotatedElement="_K8If8KUvEdu67aH61_l2Wg">
+        <body>An experiment belongs to an experiment group and consists of a fixed experimental setting, meaning all variables are fixed. This includes dependent and independent variables as well as variables influencing the generation of the test data, for example the duration of a simulation run leading to the generation of the collected data. Such a set of collected data is stored as an experiment run.</body>
+      </ownedComment>
       <ownedAttribute xmi:id="_MXeckaUvEdu67aH61_l2Wg" name="sensors" visibility="public" type="_Mdin4KM4EdueS_3nHTLlag" aggregation="composite" association="_MXeckKUvEdu67aH61_l2Wg">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MXeclKUvEdu67aH61_l2Wg" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MXeck6UvEdu67aH61_l2Wg"/>
@@ -1089,7 +1095,10 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_dne0kKutEduet-kUhyCwBw" name="ExperimentRun">
       <eAnnotations xmi:id="_XrecoFSEEdy1atvQQxIQAA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
-      <ownedAttribute xmi:id="_fIfUUautEduet-kUhyCwBw" name="sensorInstances" visibility="public" type="_UAL58KM4EdueS_3nHTLlag" aggregation="composite" association="_fIfUUKutEduet-kUhyCwBw">
+      <ownedComment xmi:id="_6owSUK9HEd2I98zUF_oPOA" annotatedElement="_dne0kKutEduet-kUhyCwBw">
+        <body>Experiment runs contain the collected data for each replication of an experiment.</body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_fIfUUautEduet-kUhyCwBw" name="collectedData" visibility="public" type="_UAL58KM4EdueS_3nHTLlag" aggregation="composite" association="_fIfUUKutEduet-kUhyCwBw">
         <eAnnotations xmi:id="_jyVycJvuEdy5Gen1veJSeg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fIoeQqutEduet-kUhyCwBw" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fIoeQautEduet-kUhyCwBw"/>
@@ -1119,7 +1128,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5pv0kJszEdy0iNuLqqrX1Q" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5pvNgJszEdy0iNuLqqrX1Q"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_TYuYsJBfEd2udZpEj_wV6w" name="sensorInstance" visibility="public" type="_BOa4wKDkEd2q0PqmwpQNMA" association="_TYqHQJBfEd2udZpEj_wV6w"/>
+      <ownedAttribute xmi:id="_TYuYsJBfEd2udZpEj_wV6w" name="measurementRange" visibility="public" type="_BOa4wKDkEd2q0PqmwpQNMA" association="_TYqHQJBfEd2udZpEj_wV6w"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Mdin4KM4EdueS_3nHTLlag" name="SensorDeclaration" isAbstract="true">
       <eAnnotations xmi:id="_Yi5z4FSEEdy1atvQQxIQAA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
@@ -1128,12 +1137,12 @@
       </ownedAttribute>
       <ownedAttribute xmi:id="_MXeckqUvEdu67aH61_l2Wg" name="owningExperiment" visibility="public" type="_K8If8KUvEdu67aH61_l2Wg" association="_MXeckKUvEdu67aH61_l2Wg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_UAL58KM4EdueS_3nHTLlag" name="SensorData">
+    <packagedElement xmi:type="uml:Class" xmi:id="_UAL58KM4EdueS_3nHTLlag" name="CollectedData">
       <eAnnotations xmi:id="_YHMIQFSEEdy1atvQQxIQAA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
       <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_WTcY4Js0Edy0iNuLqqrX1Q"/>
       <ownedAttribute xmi:id="_ZyeosqM4EdueS_3nHTLlag" name="sensor" type="_Mdin4KM4EdueS_3nHTLlag" association="_ZyeosKM4EdueS_3nHTLlag"/>
       <ownedAttribute xmi:id="_fIoeQKutEduet-kUhyCwBw" name="experimentRun" visibility="public" type="_dne0kKutEduet-kUhyCwBw" association="_fIfUUKutEduet-kUhyCwBw"/>
-      <ownedAttribute xmi:id="_Ebi8EaDkEd2q0PqmwpQNMA" name="measurementrange" visibility="private" type="_BOa4wKDkEd2q0PqmwpQNMA" aggregation="composite" association="_Ebi8EKDkEd2q0PqmwpQNMA">
+      <ownedAttribute xmi:id="_Ebi8EaDkEd2q0PqmwpQNMA" name="measurementRange" visibility="public" type="_BOa4wKDkEd2q0PqmwpQNMA" aggregation="composite" association="_Ebi8EKDkEd2q0PqmwpQNMA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EbsGAKDkEd2q0PqmwpQNMA" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ebi8EqDkEd2q0PqmwpQNMA"/>
       </ownedAttribute>
@@ -1200,7 +1209,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_TYqHQJBfEd2udZpEj_wV6w" memberEnd="_TYr8cJBfEd2udZpEj_wV6w _TYuYsJBfEd2udZpEj_wV6w"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_ZyeosKM4EdueS_3nHTLlag" memberEnd="_ZyeosaM4EdueS_3nHTLlag _ZyeosqM4EdueS_3nHTLlag">
-      <ownedEnd xmi:id="_ZyeosaM4EdueS_3nHTLlag" name="instances" visibility="public" type="_UAL58KM4EdueS_3nHTLlag" association="_ZyeosKM4EdueS_3nHTLlag">
+      <ownedEnd xmi:id="_ZyeosaM4EdueS_3nHTLlag" name="collectedData" visibility="public" type="_UAL58KM4EdueS_3nHTLlag" association="_ZyeosKM4EdueS_3nHTLlag">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hYUZsJBXEd2udZpEj_wV6w" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hYTLkJBXEd2udZpEj_wV6w"/>
       </ownedEnd>
@@ -1210,6 +1219,9 @@
     <packagedElement xmi:type="uml:Association" xmi:id="_MXeckKUvEdu67aH61_l2Wg" memberEnd="_MXeckaUvEdu67aH61_l2Wg _MXeckqUvEdu67aH61_l2Wg"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_0jvAMJs3Edy0iNuLqqrX1Q" memberEnd="_0jwOUJs3Edy0iNuLqqrX1Q _0jyqkJs3Edy0iNuLqqrX1Q"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_bqBnIKDfEd2q0PqmwpQNMA" name="ExperimentGroup">
+      <ownedComment xmi:id="_nmzZcK9JEd2I98zUF_oPOA" annotatedElement="_bqBnIKDfEd2q0PqmwpQNMA">
+        <body>An experiment group contains all experiments which belong to a single analysis, for example a scalability analysis or architectural alternative comparison.</body>
+      </ownedComment>
       <ownedAttribute xmi:id="_gpJMgKDfEd2q0PqmwpQNMA" name="experiments" visibility="public" type="_K8If8KUvEdu67aH61_l2Wg" aggregation="composite" association="_go_bgKDfEd2q0PqmwpQNMA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gpJMgqDfEd2q0PqmwpQNMA" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gpJMgaDfEd2q0PqmwpQNMA"/>
@@ -1233,10 +1245,9 @@
       <ownedAttribute xmi:id="_pEQCgKDdEd2q0PqmwpQNMA" name="measurementStartTime" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_EbsGAaDkEd2q0PqmwpQNMA" name="collectedData" visibility="public" type="_UAL58KM4EdueS_3nHTLlag" association="_Ebi8EKDkEd2q0PqmwpQNMA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_Ebi8EKDkEd2q0PqmwpQNMA" memberEnd="_Ebi8EaDkEd2q0PqmwpQNMA _EbsGAaDkEd2q0PqmwpQNMA">
-      <ownedEnd xmi:id="_EbsGAaDkEd2q0PqmwpQNMA" name="" visibility="private" type="_UAL58KM4EdueS_3nHTLlag" association="_Ebi8EKDkEd2q0PqmwpQNMA"/>
-    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Ebi8EKDkEd2q0PqmwpQNMA" memberEnd="_Ebi8EaDkEd2q0PqmwpQNMA _EbsGAaDkEd2q0PqmwpQNMA"/>
     <profileApplication xmi:id="__vMF-qM3EdueS_3nHTLlag">
       <eAnnotations xmi:id="__vMF-6M3EdueS_3nHTLlag" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
@@ -1263,4 +1274,7 @@
     </profileApplication>
   </uml:Model>
   <Ecore:EPackage xmi:id="_G0tPwJBlEd2udZpEj_wV6w" base_Package="__vMF8KM3EdueS_3nHTLlag" packageName="sensorframework" nsPrefix="sensorframework" nsURI="http://sdq.ipd.uka.de/SensorFramework/2.0" basePackage="de.uka.ipd.sdq"/>
+  <Default:Documentation xmi:id="_6o5cQK9HEd2I98zUF_oPOA" base_Comment="_6owSUK9HEd2I98zUF_oPOA"/>
+  <Default:Documentation xmi:id="_e2rAkK9JEd2I98zUF_oPOA" base_Comment="_e2hPkK9JEd2I98zUF_oPOA"/>
+  <Default:Documentation xmi:id="_nm9KcK9JEd2I98zUF_oPOA" base_Comment="_nmzZcK9JEd2I98zUF_oPOA"/>
 </xmi:XMI>
