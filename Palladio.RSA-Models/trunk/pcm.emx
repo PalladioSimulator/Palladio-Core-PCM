@@ -19503,10 +19503,10 @@ Inside the ResourceDemandingBehaviour of LoopActions, it is assumed that random 
 InternalActions provide an abstraction from the complete behaviour (i.e., control and data flow) of a component service, as they can hide different possible control and data flows not affecting external service calls and express their resource demands as a single stochastic expression. This abstraction underlies the assumption that the resource demands of a number of instruction can be captured sufficiently accurate enough in one such expression</body>
         </ownedComment>
         <generalization xmi:id="_0j8F4ODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
-        <ownedAttribute xmi:id="_sbTYkODmEdq8ysXH3gTiEg" name="failureProbability" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <ownedAttribute xmi:id="_sbTYkODmEdq8ysXH3gTiEg" name="failureProbability" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkTsX_EduPJbEsMYXjUQ?Ecore/EDouble?"/>
           <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_CSKwsOfvEdu3wqV8TelBYw">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkTsX_EduPJbEsMYXjUQ?Ecore/EDouble?"/>
             <body>0</body>
           </defaultValue>
         </ownedAttribute>
@@ -21628,7 +21628,7 @@ Include explanation of Component Parameters here, as usagemodel.UserData refers 
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_Z6ggFXMkEduqAZ6idiaTjw"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Z6XWIXMkEduqAZ6idiaTjw" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z6XWInMkEduqAZ6idiaTjw" x="18703" y="12997"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z6XWInMkEduqAZ6idiaTjw" x="18703" y="13314"/>
           </children>
           <children xmi:id="_ypDA8HMlEduqAZ6idiaTjw" element="_yeKmoHMlEduqAZ6idiaTjw">
             <children xmi:id="_ypDA83MlEduqAZ6idiaTjw" type="ImageCompartment">
@@ -21672,7 +21672,7 @@ Include explanation of Component Parameters here, as usagemodel.UserData refers 
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_ebMcDnMvEduqAZ6idiaTjw"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_ebMcAXMvEduqAZ6idiaTjw" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ebMcAnMvEduqAZ6idiaTjw" x="12363" y="12997"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ebMcAnMvEduqAZ6idiaTjw" x="11412" y="13314"/>
           </children>
           <children xmi:id="_whyYgHMwEduqAZ6idiaTjw" element="_au_WlWA_EdqdHZdhXRxKVg">
             <children xmi:id="_whyYg3MwEduqAZ6idiaTjw" type="ImageCompartment">
@@ -21760,7 +21760,7 @@ Include explanation of Component Parameters here, as usagemodel.UserData refers 
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_08-t0RmqEdyaJvvdhGgDYg"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_089fsRmqEdyaJvvdhGgDYg" fontName="Segoe UI" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_089fshmqEdyaJvvdhGgDYg" x="1268" y="12363"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_089fshmqEdyaJvvdhGgDYg" x="4438" y="13314"/>
           </children>
           <children xmi:id="_BctZIL3nEdyGNbIQ-5Phlg" element="_3HyqgPF7EdqBtpnwLNXcbw">
             <children xmi:id="_BctZI73nEdyGNbIQ-5Phlg" type="ImageCompartment">
@@ -21926,7 +21926,7 @@ Include explanation of Component Parameters here, as usagemodel.UserData refers 
             </children>
             <children xmi:id="_doy1qhmqEdyaJvvdhGgDYg" type="FromRoleLabel" element="_dllwoRmqEdyaJvvdhGgDYg">
               <children xmi:id="_dozcsBmqEdyaJvvdhGgDYg" type="FromRole" element="_dllwoRmqEdyaJvvdhGgDYg"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_doy1qxmqEdyaJvvdhGgDYg" x="-6200" y="-1462"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_doy1qxmqEdyaJvvdhGgDYg" x="-1151" y="3091"/>
             </children>
             <children xmi:id="_dozcsRmqEdyaJvvdhGgDYg" type="ToQualifierLabel" element="_dllwohmqEdyaJvvdhGgDYg">
               <children xmi:id="_dozcsxmqEdyaJvvdhGgDYg" type="QualifierCompartment" element="_dllwohmqEdyaJvvdhGgDYg">
@@ -22024,7 +22024,7 @@ Include explanation of Component Parameters here, as usagemodel.UserData refers 
             </children>
             <children xmi:id="_o7EMEEo6EdyyNsXlb1tNsw" type="FromRoleLabel" element="_o6ngEUo6EdyyNsXlb1tNsw">
               <children xmi:id="_o7EMEko6EdyyNsXlb1tNsw" type="FromRole" element="_o6ngEUo6EdyyNsXlb1tNsw"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_o7EMEUo6EdyyNsXlb1tNsw" y="-397"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_o7EMEUo6EdyyNsXlb1tNsw" x="3744" y="3257"/>
             </children>
             <children xmi:id="_o7EME0o6EdyyNsXlb1tNsw" type="ToQualifierLabel" element="_o6ngEko6EdyyNsXlb1tNsw">
               <children xmi:id="_o7EMFUo6EdyyNsXlb1tNsw" type="QualifierCompartment" element="_o6ngEko6EdyyNsXlb1tNsw">
@@ -22077,7 +22077,7 @@ Include explanation of Component Parameters here, as usagemodel.UserData refers 
               <children xmi:id="_Bc3KKb3nEdyGNbIQ-5Phlg" type="ToMultiplicity"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Bc3KKL3nEdyGNbIQ-5Phlg" y="396"/>
             </children>
-            <children xmi:id="_Bc3KKr3nEdyGNbIQ-5Phlg" type="ToRoleLabel" element="_JFQ8svF8EdqBtpnwLNXcbw">
+            <children xmi:id="_Bc3KKr3nEdyGNbIQ-5Phlg" visible="false" type="ToRoleLabel" element="_JFQ8svF8EdqBtpnwLNXcbw">
               <children xmi:id="_Bc3KLL3nEdyGNbIQ-5Phlg" type="ToRole"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Bc3KK73nEdyGNbIQ-5Phlg" y="-397"/>
             </children>
@@ -22136,7 +22136,7 @@ Include explanation of Component Parameters here, as usagemodel.UserData refers 
             </children>
             <children xmi:id="_Bc3KU73nEdyGNbIQ-5Phlg" type="FromRoleLabel" element="_fIC68XMvEduqAZ6idiaTjw">
               <children xmi:id="_Bc3KVb3nEdyGNbIQ-5Phlg" type="FromRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_Bc3KVL3nEdyGNbIQ-5Phlg" y="-397"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Bc3KVL3nEdyGNbIQ-5Phlg" x="-1245" y="-1658"/>
             </children>
             <children xmi:id="_Bc3KVr3nEdyGNbIQ-5Phlg" type="ToQualifierLabel" element="_fIC68nMvEduqAZ6idiaTjw">
               <children xmi:id="_Bc3KWL3nEdyGNbIQ-5Phlg" type="QualifierCompartment">
@@ -22225,8 +22225,8 @@ Notes:&#xD;
 - How is the relation of the specified QoS to the input parameters established?&#xD;
 </body>
         </ownedComment>
-        <ownedAttribute xmi:id="_JFQ8sfF8EdqBtpnwLNXcbw" name="signature_SpecifiedTimeConsumption" type="_hh0OUJJJEdqSSImFLKDkSg" association="_JFQ8sPF8EdqBtpnwLNXcbw"/>
-        <ownedAttribute xmi:id="_fIC68XMvEduqAZ6idiaTjw" name="role_SpecifiedExecutionTime" type="_9CubEJJIEdqSSImFLKDkSg" association="_fIC68HMvEduqAZ6idiaTjw">
+        <ownedAttribute xmi:id="_JFQ8sfF8EdqBtpnwLNXcbw" name="signature_SpecifiedQoSAnnation" type="_hh0OUJJJEdqSSImFLKDkSg" association="_JFQ8sPF8EdqBtpnwLNXcbw"/>
+        <ownedAttribute xmi:id="_fIC68XMvEduqAZ6idiaTjw" name="role_SpecifiedQoSAnnotation" type="_9CubEJJIEdqSSImFLKDkSg" association="_fIC68HMvEduqAZ6idiaTjw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fIC69HMvEduqAZ6idiaTjw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fIC683MvEduqAZ6idiaTjw" value="1"/>
         </ownedAttribute>
@@ -22243,7 +22243,7 @@ Notes:&#xD;
 - Should the association of QoSAnnotations to services not be in the class QoSAnnotation instead of SpecifiedQoSAnnotation and SpecifiedOutputParameterAbstraction separately?</body>
         </ownedComment>
         <generalization xmi:id="_yFxTwHMwEduqAZ6idiaTjw" general="_au_WlWA_EdqdHZdhXRxKVg"/>
-        <ownedAttribute xmi:id="_USakQXMmEduqAZ6idiaTjw" name="specifiedExecutionTimes_QoSAnnotations" type="_3HyqgPF7EdqBtpnwLNXcbw" aggregation="composite" association="_USakQHMmEduqAZ6idiaTjw">
+        <ownedAttribute xmi:id="_USakQXMmEduqAZ6idiaTjw" name="specifiedQoSAnnotations_QoSAnnotations" type="_3HyqgPF7EdqBtpnwLNXcbw" aggregation="composite" association="_USakQHMmEduqAZ6idiaTjw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_USakRHMmEduqAZ6idiaTjw" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_USakQ3MmEduqAZ6idiaTjw"/>
         </ownedAttribute>
@@ -22255,7 +22255,7 @@ Notes:&#xD;
       <packagedElement xmi:type="uml:Association" xmi:id="_USakQHMmEduqAZ6idiaTjw" memberEnd="_USakQXMmEduqAZ6idiaTjw _USakQnMmEduqAZ6idiaTjw">
         <ownedEnd xmi:id="_USakQnMmEduqAZ6idiaTjw" visibility="private" type="_yeKmoHMlEduqAZ6idiaTjw" association="_USakQHMmEduqAZ6idiaTjw"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_81sL8BmpEdyaJvvdhGgDYg" name="SpecifiedOutputParameterAbstraction">
+      <packagedElement xmi:type="uml:Class" xmi:id="_81sL8BmpEdyaJvvdhGgDYg" name="SpecifiedOutputParameterAbstraction" isAbstract="true">
         <ownedComment xmi:id="_cFuCIIAFEd2DHtWYu7Q_tA" annotatedElement="_81sL8BmpEdyaJvvdhGgDYg">
           <body>To specify the output parameters of a service (without associated RD-SEFF), software architects can associate a SpecifiedOutputParameterAbstraction to services (signature + role). SpecifiedOutputParameterAbstractions assign a single VariableUsage to that service that determines the output parameters in depency of its input parameters. Software architects can use stochastic expressions (package StoEx) to define the dependencies.&#xD;
 &#xD;
@@ -22542,6 +22542,9 @@ Note:&#xD;
 </body>
           </ownedComment>
           <generalization xmi:id="_hN554L3nEdyGNbIQ-5Phlg" general="_3HyqgPF7EdqBtpnwLNXcbw"/>
+          <ownedAttribute xmi:id="_IIjicLAQEd2m9re50g25Zg" name="failureProbability" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkTsX_EduPJbEsMYXjUQ?Ecore/EDouble?"/>
+          </ownedAttribute>
         </packagedElement>
       </packagedElement>
     </packagedElement>
@@ -22876,4 +22879,5 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Default:Documentation xmi:id="_s6888a_0Ed2327r4hBntxA" base_Comment="_s6888K_0Ed2327r4hBntxA"/>
   <Default:Documentation xmi:id="_Dy9kka_3Ed2327r4hBntxA" base_Comment="_Dy9kkK_3Ed2327r4hBntxA"/>
   <Default:Documentation xmi:id="_yg9J4a_5Ed2327r4hBntxA" base_Comment="_yg9J4K_5Ed2327r4hBntxA"/>
+  <Ecore:EAttribute xmi:id="_cXuxgLAQEd2m9re50g25Zg" base_Property="_sbTYkODmEdq8ysXH3gTiEg"/>
 </xmi:XMI>
