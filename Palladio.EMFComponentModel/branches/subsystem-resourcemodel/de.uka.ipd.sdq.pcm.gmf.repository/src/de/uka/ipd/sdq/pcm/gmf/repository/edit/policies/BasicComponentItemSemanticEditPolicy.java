@@ -143,7 +143,7 @@ public class BasicComponentItemSemanticEditPolicy extends
 			return getGEFWrapper(new ImplementationComponentTypeParentCompleteComponentTypesCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4105 == req
+		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4106 == req
 				.getElementType()) {
 			return getGEFWrapper(new ResourceRequiredRoleCreateCommand(req, req
 					.getSource(), req.getTarget()));
@@ -168,7 +168,7 @@ public class BasicComponentItemSemanticEditPolicy extends
 				.getElementType()) {
 			return null;
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4105 == req
+		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4106 == req
 				.getElementType()) {
 			return null;
 		}

@@ -20,10 +20,8 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
@@ -36,7 +34,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class InterfaceItemProvider
-	extends EntityItemProvider
+	extends AbstractInterfaceItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -71,33 +69,10 @@ public class InterfaceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsResourceInterfacePropertyDescriptor(object);
 			addParentInterface__InterfacePropertyDescriptor(object);
 			addAncestorInterfaces_InterfacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Resource Interface feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsResourceInterfacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Interface_isResourceInterface_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_isResourceInterface_feature", "_UI_Interface_type"),
-				 RepositoryPackage.Literals.INTERFACE__IS_RESOURCE_INTERFACE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -212,9 +187,6 @@ public class InterfaceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Interface.class)) {
-			case RepositoryPackage.INTERFACE__IS_RESOURCE_INTERFACE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

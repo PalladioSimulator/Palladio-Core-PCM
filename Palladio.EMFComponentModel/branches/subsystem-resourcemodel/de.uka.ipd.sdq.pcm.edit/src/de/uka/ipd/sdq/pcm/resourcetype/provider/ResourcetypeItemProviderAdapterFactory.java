@@ -5,15 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.provider;
 
-import de.uka.ipd.sdq.pcm.resourcetype.util.ResourcetypeAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -25,6 +22,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.pcm.resourcetype.util.ResourcetypeAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -125,6 +124,121 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 		}
 
 		return communicationLinkResourceTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceInterfaceItemProvider resourceInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceInterfaceAdapter() {
+		if (resourceInterfaceItemProvider == null) {
+			resourceInterfaceItemProvider = new ResourceInterfaceItemProvider(this);
+		}
+
+		return resourceInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceServiceItemProvider resourceServiceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceServiceAdapter() {
+		if (resourceServiceItemProvider == null) {
+			resourceServiceItemProvider = new ResourceServiceItemProvider(this);
+		}
+
+		return resourceServiceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.InfrastructureComponent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InfrastructureComponentItemProvider infrastructureComponentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.InfrastructureComponent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfrastructureComponentAdapter() {
+		if (infrastructureComponentItemProvider == null) {
+			infrastructureComponentItemProvider = new InfrastructureComponentItemProvider(this);
+		}
+
+		return infrastructureComponentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceProvidedRoleItemProvider resourceProvidedRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceProvidedRoleAdapter() {
+		if (resourceProvidedRoleItemProvider == null) {
+			resourceProvidedRoleItemProvider = new ResourceProvidedRoleItemProvider(this);
+		}
+
+		return resourceProvidedRoleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceRequiredRoleItemProvider resourceRequiredRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceRequiredRoleAdapter() {
+		if (resourceRequiredRoleItemProvider == null) {
+			resourceRequiredRoleItemProvider = new ResourceRequiredRoleItemProvider(this);
+		}
+
+		return resourceRequiredRoleItemProvider;
 	}
 
 	/**
@@ -252,6 +366,11 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 		if (resourceRepositoryItemProvider != null) resourceRepositoryItemProvider.dispose();
 		if (processingResourceTypeItemProvider != null) processingResourceTypeItemProvider.dispose();
 		if (communicationLinkResourceTypeItemProvider != null) communicationLinkResourceTypeItemProvider.dispose();
+		if (resourceInterfaceItemProvider != null) resourceInterfaceItemProvider.dispose();
+		if (resourceServiceItemProvider != null) resourceServiceItemProvider.dispose();
+		if (infrastructureComponentItemProvider != null) infrastructureComponentItemProvider.dispose();
+		if (resourceProvidedRoleItemProvider != null) resourceProvidedRoleItemProvider.dispose();
+		if (resourceRequiredRoleItemProvider != null) resourceRequiredRoleItemProvider.dispose();
 	}
 
 }

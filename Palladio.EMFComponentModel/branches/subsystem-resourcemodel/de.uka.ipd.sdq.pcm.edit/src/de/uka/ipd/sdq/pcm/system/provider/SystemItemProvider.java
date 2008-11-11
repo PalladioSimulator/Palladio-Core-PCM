@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
@@ -214,7 +215,7 @@ public class SystemItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createResourceRequiredRole()));
+				 ResourcetypeFactory.eINSTANCE.createResourceRequiredRole()));
 
 		newChildDescriptors.add
 			(createChildParameter

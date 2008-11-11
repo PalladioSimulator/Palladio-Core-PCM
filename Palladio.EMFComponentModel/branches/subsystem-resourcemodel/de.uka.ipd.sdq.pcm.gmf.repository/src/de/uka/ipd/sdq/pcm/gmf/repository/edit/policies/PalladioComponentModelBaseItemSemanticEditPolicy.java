@@ -47,10 +47,12 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.PalladioComponentModelBaseEditHelper;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 
 /**
  * @generated
@@ -356,7 +358,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 * @generated
 		 */
 		public static boolean canCreateProvidedRole_4101(
-				InterfaceProvidingEntity source, Interface target) {
+				InterfaceProvidingEntity source, AbstractInterface target) {
 			return canExistProvidedRole_4101(source, target);
 		}
 
@@ -399,16 +401,17 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateResourceRequiredRole_4105(
-				ResourceInterfaceRequiringEntity source, Interface target) {
-			return canExistResourceRequiredRole_4105(source, target);
+		public static boolean canCreateResourceRequiredRole_4106(
+				ResourceInterfaceRequiringEntity source,
+				ResourceInterface target) {
+			return canExistResourceRequiredRole_4106(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
 		public static boolean canExistProvidedRole_4101(
-				InterfaceProvidingEntity source, Interface target) {
+				InterfaceProvidingEntity source, AbstractInterface target) {
 			return true;
 		}
 
@@ -439,8 +442,9 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public static boolean canExistResourceRequiredRole_4105(
-				ResourceInterfaceRequiringEntity source, Interface target) {
+		public static boolean canExistResourceRequiredRole_4106(
+				ResourceInterfaceRequiringEntity source,
+				ResourceInterface target) {
 			return true;
 		}
 

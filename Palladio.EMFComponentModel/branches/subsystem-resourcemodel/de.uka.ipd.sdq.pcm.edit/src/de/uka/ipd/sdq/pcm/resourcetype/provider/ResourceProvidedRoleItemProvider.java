@@ -3,22 +3,15 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.repository.provider;
+package de.uka.ipd.sdq.pcm.resourcetype.provider;
 
-
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,13 +20,18 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.repository.provider.RoleItemProvider;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceRequiredRoleItemProvider
+public class ResourceProvidedRoleItemProvider
 	extends RoleItemProvider
 	implements	
 		IEditingDomainItemProvider,	
@@ -54,7 +52,7 @@ public class ResourceRequiredRoleItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredRoleItemProvider(AdapterFactory adapterFactory) {
+	public ResourceProvidedRoleItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,25 +67,25 @@ public class ResourceRequiredRoleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRequiredInterface_ResourceRequiredRolePropertyDescriptor(object);
+			addProvidedResourceInterface_ResourceProvidedRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Required Interface Resource Required Role feature.
+	 * This adds a property descriptor for the Provided Resource Interface Resource Provided Role feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredInterface_ResourceRequiredRolePropertyDescriptor(Object object) {
+	protected void addProvidedResourceInterface_ResourceProvidedRolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredRole_requiredInterface_ResourceRequiredRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredRole_requiredInterface_ResourceRequiredRole_feature", "_UI_ResourceRequiredRole_type"),
-				 RepositoryPackage.Literals.RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE,
+				 getString("_UI_ResourceProvidedRole_providedResourceInterface_ResourceProvidedRole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceProvidedRole_providedResourceInterface_ResourceProvidedRole_feature", "_UI_ResourceProvidedRole_type"),
+				 ResourcetypePackage.Literals.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
 				 true,
 				 false,
 				 true,
@@ -97,14 +95,14 @@ public class ResourceRequiredRoleItemProvider
 	}
 
 	/**
-	 * This returns ResourceRequiredRole.gif.
+	 * This returns ResourceProvidedRole.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRequiredRole"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceProvidedRole"));
 	}
 
 	/**
@@ -115,10 +113,10 @@ public class ResourceRequiredRoleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceRequiredRole)object).getId();
+		String label = ((ResourceProvidedRole)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ResourceRequiredRole_type") :
-			getString("_UI_ResourceRequiredRole_type") + " " + label;
+			getString("_UI_ResourceProvidedRole_type") :
+			getString("_UI_ResourceProvidedRole_type") + " " + label;
 	}
 
 	/**

@@ -75,7 +75,7 @@ public class ProvidesComponentTypeItemSemanticEditPolicy extends
 				.getElementType()) {
 			return null;
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4105 == req
+		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4106 == req
 				.getElementType()) {
 			return getGEFWrapper(new ResourceRequiredRoleCreateCommand(req, req
 					.getSource(), req.getTarget()));
@@ -101,7 +101,7 @@ public class ProvidesComponentTypeItemSemanticEditPolicy extends
 			return getGEFWrapper(new CompleteComponentTypeParentProvidesComponentTypesCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4105 == req
+		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4106 == req
 				.getElementType()) {
 			return null;
 		}

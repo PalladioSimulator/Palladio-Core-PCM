@@ -235,7 +235,8 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 				else
 					text += " ";
 				text += "<"
-						+ demand.getResourceRequiredRole_ParametricResourceDemand()
+						+ demand
+								.getResourceRequiredRole_ParametricResourceDemand()
 								.getEntityName() + ">";
 			}
 		}

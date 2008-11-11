@@ -74,6 +74,7 @@ public class ProcessingResourceSpecificationItemProvider
 
 			addSchedulingPolicyPropertyDescriptor(object);
 			addActiveResourceType_ActiveResourceSpecificationPropertyDescriptor(object);
+			addProcessingResourceSpecification_ControllerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,6 +115,28 @@ public class ProcessingResourceSpecificationItemProvider
 				 getString("_UI_ProcessingResourceSpecification_activeResourceType_ActiveResourceSpecification_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_activeResourceType_ActiveResourceSpecification_feature", "_UI_ProcessingResourceSpecification_type"),
 				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Processing Resource Specification Controller feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProcessingResourceSpecification_ControllerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProcessingResourceSpecification_processingResourceSpecification_Controller_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_processingResourceSpecification_Controller_feature", "_UI_ProcessingResourceSpecification_type"),
+				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RESOURCE_SPECIFICATION_CONTROLLER,
 				 true,
 				 false,
 				 true,

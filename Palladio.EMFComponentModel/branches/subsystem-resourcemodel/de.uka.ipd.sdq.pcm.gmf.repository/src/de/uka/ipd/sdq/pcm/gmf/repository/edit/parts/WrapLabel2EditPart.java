@@ -60,7 +60,7 @@ public class WrapLabel2EditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 6105;
+	public static final int VISUAL_ID = 6106;
 
 	/**
 	 * @generated
@@ -304,7 +304,7 @@ public class WrapLabel2EditPart extends LabelEditPart implements
 		if (parser == null) {
 			String parserHint = CommonParserHint.DESCRIPTION;
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.ResourceRequiredRole_4105,
+					PalladioComponentModelElementTypes.ResourceRequiredRole_4106,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

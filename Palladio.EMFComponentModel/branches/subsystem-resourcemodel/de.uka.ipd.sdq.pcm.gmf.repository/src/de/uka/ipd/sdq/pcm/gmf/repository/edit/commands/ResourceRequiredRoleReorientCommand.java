@@ -13,8 +13,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
 
 /**
  * @generated
@@ -70,17 +70,17 @@ public class ResourceRequiredRoleReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof ResourceInterfaceRequiringEntity && newEnd instanceof ResourceInterfaceRequiringEntity)) {
 			return false;
 		}
-		Interface target = getLink()
-				.getRequiredInterface_ResourceRequiredRole();
+		ResourceInterface target = getLink()
+				.getRequiredResourceInterface_ResourceRequiredRole();
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistResourceRequiredRole_4105(getNewSource(), target);
+				.canExistResourceRequiredRole_4106(getNewSource(), target);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof Interface && newEnd instanceof Interface)) {
+		if (!(oldEnd instanceof ResourceInterface && newEnd instanceof ResourceInterface)) {
 			return false;
 		}
 		if (!(getLink().eContainer() instanceof ResourceInterfaceRequiringEntity)) {
@@ -89,7 +89,7 @@ public class ResourceRequiredRoleReorientCommand extends EditElementCommand {
 		ResourceInterfaceRequiringEntity source = (ResourceInterfaceRequiringEntity) getLink()
 				.eContainer();
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistResourceRequiredRole_4105(source, getNewTarget());
+				.canExistResourceRequiredRole_4106(source, getNewTarget());
 	}
 
 	/**
@@ -127,7 +127,8 @@ public class ResourceRequiredRoleReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getLink().setRequiredInterface_ResourceRequiredRole(getNewTarget());
+		getLink().setRequiredResourceInterface_ResourceRequiredRole(
+				getNewTarget());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
@@ -155,14 +156,14 @@ public class ResourceRequiredRoleReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Interface getOldTarget() {
-		return (Interface) oldEnd;
+	protected ResourceInterface getOldTarget() {
+		return (ResourceInterface) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Interface getNewTarget() {
-		return (Interface) newEnd;
+	protected ResourceInterface getNewTarget() {
+		return (ResourceInterface) newEnd;
 	}
 }

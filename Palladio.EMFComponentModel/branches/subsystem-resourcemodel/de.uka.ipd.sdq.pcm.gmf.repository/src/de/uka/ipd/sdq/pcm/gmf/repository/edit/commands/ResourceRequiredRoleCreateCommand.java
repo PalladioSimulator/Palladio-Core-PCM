@@ -16,9 +16,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 
 /**
  * @generated
@@ -62,7 +62,7 @@ public class ResourceRequiredRoleCreateCommand extends CreateElementCommand {
 				&& !(source instanceof ResourceInterfaceRequiringEntity)) {
 			return false;
 		}
-		if (target != null && !(target instanceof Interface)) {
+		if (target != null && !(target instanceof ResourceInterface)) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -70,19 +70,20 @@ public class ResourceRequiredRoleCreateCommand extends CreateElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateResourceRequiredRole_4105(getSource(), getTarget());
+				.canCreateResourceRequiredRole_4106(getSource(), getTarget());
 	}
 
 	/**
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole newElement = (de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole) super.doDefaultElementCreation();
-		ResourceRequiredRole newElement = RepositoryFactory.eINSTANCE
+		// de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole newElement = (de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole) super.doDefaultElementCreation();
+		ResourceRequiredRole newElement = ResourcetypeFactory.eINSTANCE
 				.createResourceRequiredRole();
 		getSource().getResourceRequiredRoles_ResourceInterfaceRequiringEntity()
 				.add(newElement);
-		newElement.setRequiredInterface_ResourceRequiredRole(getTarget());
+		newElement
+				.setRequiredResourceInterface_ResourceRequiredRole(getTarget());
 		return newElement;
 	}
 
@@ -132,7 +133,7 @@ public class ResourceRequiredRoleCreateCommand extends CreateElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Interface getTarget() {
-		return (Interface) target;
+	protected ResourceInterface getTarget() {
+		return (ResourceInterface) target;
 	}
 }

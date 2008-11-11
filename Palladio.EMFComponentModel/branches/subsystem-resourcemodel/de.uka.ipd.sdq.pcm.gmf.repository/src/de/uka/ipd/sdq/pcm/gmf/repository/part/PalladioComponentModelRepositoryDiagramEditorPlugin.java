@@ -136,16 +136,16 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	protected void fillItemProviderFactories(List factories) {
 		factories.add(new CoreItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
-		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());
+		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
+		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new PerformanceItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
-		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
 		factories.add(new QosannotationsItemProviderAdapterFactory());
 		factories

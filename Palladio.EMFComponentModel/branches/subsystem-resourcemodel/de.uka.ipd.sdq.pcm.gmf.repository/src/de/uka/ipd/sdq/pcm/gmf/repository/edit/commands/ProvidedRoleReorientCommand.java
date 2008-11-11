@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 
@@ -69,7 +70,8 @@ public class ProvidedRoleReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof InterfaceProvidingEntity && newEnd instanceof InterfaceProvidingEntity)) {
 			return false;
 		}
-		Interface target = getLink().getProvidedInterface__ProvidedRole();
+		AbstractInterface target = getLink()
+				.getProvidedInterface__ProvidedRole();
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
 				.canExistProvidedRole_4101(getNewSource(), target);
 	}
@@ -78,7 +80,7 @@ public class ProvidedRoleReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof Interface && newEnd instanceof Interface)) {
+		if (!(oldEnd instanceof AbstractInterface && newEnd instanceof AbstractInterface)) {
 			return false;
 		}
 		if (!(getLink().eContainer() instanceof InterfaceProvidingEntity)) {
@@ -151,14 +153,14 @@ public class ProvidedRoleReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Interface getOldTarget() {
-		return (Interface) oldEnd;
+	protected AbstractInterface getOldTarget() {
+		return (AbstractInterface) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Interface getNewTarget() {
-		return (Interface) newEnd;
+	protected AbstractInterface getNewTarget() {
+		return (AbstractInterface) newEnd;
 	}
 }

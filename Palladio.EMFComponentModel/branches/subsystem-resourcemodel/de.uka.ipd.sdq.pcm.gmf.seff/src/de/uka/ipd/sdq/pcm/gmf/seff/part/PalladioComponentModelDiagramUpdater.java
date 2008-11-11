@@ -94,6 +94,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 
 /**
  * @generated
@@ -518,7 +519,7 @@ public class PalladioComponentModelDiagramUpdater {
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getResourceDemand_Action().iterator(); it
 				.hasNext();) {
-			de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand childElement = (de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand) it
+			ParametricResourceDemand childElement = (ParametricResourceDemand) it
 					.next();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
@@ -1071,7 +1072,7 @@ public class PalladioComponentModelDiagramUpdater {
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getResourceDemand_Action().iterator(); it
 				.hasNext();) {
-			de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand childElement = (de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand) it
+			ParametricResourceDemand childElement = (ParametricResourceDemand) it
 					.next();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);

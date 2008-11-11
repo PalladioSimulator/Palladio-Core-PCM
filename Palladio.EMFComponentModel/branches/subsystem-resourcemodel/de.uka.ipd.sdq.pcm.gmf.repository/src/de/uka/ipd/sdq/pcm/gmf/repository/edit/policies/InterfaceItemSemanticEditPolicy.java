@@ -101,10 +101,6 @@ public class InterfaceItemSemanticEditPolicy extends
 				.getElementType()) {
 			return null;
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4105 == req
-				.getElementType()) {
-			return null;
-		}
 		return null;
 	}
 
@@ -123,11 +119,6 @@ public class InterfaceItemSemanticEditPolicy extends
 			return getGEFWrapper(new RequiredRoleCreateCommand(req, req
 					.getSource(), req.getTarget()));
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4105 == req
-				.getElementType()) {
-			return getGEFWrapper(new ResourceRequiredRoleCreateCommand(req, req
-					.getSource(), req.getTarget()));
-		}
 		return null;
 	}
 
@@ -144,8 +135,6 @@ public class InterfaceItemSemanticEditPolicy extends
 			return getGEFWrapper(new ProvidedRoleReorientCommand(req));
 		case RequiredRoleEditPart.VISUAL_ID:
 			return getGEFWrapper(new RequiredRoleReorientCommand(req));
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return getGEFWrapper(new ResourceRequiredRoleReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

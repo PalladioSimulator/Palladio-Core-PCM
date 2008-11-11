@@ -34,7 +34,11 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceResourceServiceListEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceServiceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
@@ -46,6 +50,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
@@ -165,6 +170,12 @@ public class PalladioComponentModelVisualIDRegistry {
 				return SignatureEditPart.VISUAL_ID;
 			}
 			break;
+		case ResourceInterfaceResourceServiceListEditPart.VISUAL_ID:
+			if (ResourcetypePackage.eINSTANCE.getResourceService()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ResourceServiceEditPart.VISUAL_ID;
+			}
+			break;
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getResourceDemandingSEFF().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -193,6 +204,10 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (RepositoryPackage.eINSTANCE.getInterface().isSuperTypeOf(
 					domainElement.eClass())) {
 				return InterfaceEditPart.VISUAL_ID;
+			}
+			if (ResourcetypePackage.eINSTANCE.getResourceInterface()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ResourceInterfaceEditPart.VISUAL_ID;
 			}
 			if (RepositoryPackage.eINSTANCE.getBasicComponent().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -248,6 +263,14 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ResourceInterfaceEditPart.VISUAL_ID:
+			if (ResourceInterfaceEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResourceInterfaceResourceServiceListEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case BasicComponentEditPart.VISUAL_ID:
 			if (BasicComponentEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -295,6 +318,11 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ResourceInterfaceResourceServiceListEditPart.VISUAL_ID:
+			if (ResourceServiceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 			if (ResourceDemandingSEFFEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -317,6 +345,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			break;
 		case RepositoryEditPart.VISUAL_ID:
 			if (InterfaceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResourceInterfaceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (BasicComponentEditPart.VISUAL_ID == nodeVisualID) {
@@ -379,7 +410,7 @@ public class PalladioComponentModelVisualIDRegistry {
 				domainElement.eClass())) {
 			return RequiredRoleEditPart.VISUAL_ID;
 		}
-		if (RepositoryPackage.eINSTANCE.getResourceRequiredRole()
+		if (ResourcetypePackage.eINSTANCE.getResourceRequiredRole()
 				.isSuperTypeOf(domainElement.eClass())) {
 			return ResourceRequiredRoleEditPart.VISUAL_ID;
 		}

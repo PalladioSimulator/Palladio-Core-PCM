@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemFactory;
 
 /**
@@ -220,6 +221,11 @@ public class RepositoryItemProvider
 			(createChildParameter
 				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
 				 RepositoryFactory.eINSTANCE.createInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+				 ResourcetypeFactory.eINSTANCE.createResourceInterface()));
 
 		newChildDescriptors.add
 			(createChildParameter

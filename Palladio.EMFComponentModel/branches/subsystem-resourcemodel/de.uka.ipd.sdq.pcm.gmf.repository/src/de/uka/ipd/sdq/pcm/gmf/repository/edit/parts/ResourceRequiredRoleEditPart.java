@@ -24,7 +24,7 @@ public class ResourceRequiredRoleEditPart extends ConnectionNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4105;
+	public static final int VISUAL_ID = 4106;
 
 	/**
 	 * @generated
