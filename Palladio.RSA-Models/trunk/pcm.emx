@@ -20350,7 +20350,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <children xmi:id="_fAFrHUJWEduifp6rT9HRSQ" visible="false" type="StructureCompartment">
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_fAFrHkJWEduifp6rT9HRSQ"/>
             </children>
-            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_fAFrEUJWEduifp6rT9HRSQ" fillColor="65535" lineColor="0" showStereotype="Label"/>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_fAFrEUJWEduifp6rT9HRSQ" lineColor="8421504" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fAFrEkJWEduifp6rT9HRSQ" x="4683" y="1561" width="3995"/>
           </children>
           <children xmi:id="_g_WNEEJWEduifp6rT9HRSQ" element="_AtO9UOMvEdqaQsPH3rPnBQ">
@@ -20372,8 +20372,8 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <children xmi:id="_g_WNHUJWEduifp6rT9HRSQ" visible="false" type="StructureCompartment">
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_g_WNHkJWEduifp6rT9HRSQ"/>
             </children>
-            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_g_WNEUJWEduifp6rT9HRSQ" fillColor="65535" lineColor="0" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g_WNEkJWEduifp6rT9HRSQ" y="-636"/>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_g_WNEUJWEduifp6rT9HRSQ" lineColor="8421504" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g_WNEkJWEduifp6rT9HRSQ" x="-1268" y="1585"/>
           </children>
           <children xmi:id="_RwJU0Gc-EduCGaQAxkcIwA" element="_n_-J0Gc6EduCGaQAxkcIwA">
             <children xmi:id="_RwJU02c-EduCGaQAxkcIwA" type="ImageCompartment">
@@ -20415,7 +20415,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_RwJU3mc-EduCGaQAxkcIwA"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_RwJU0Wc-EduCGaQAxkcIwA" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RwJU0mc-EduCGaQAxkcIwA" x="10812" y="-318"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RwJU0mc-EduCGaQAxkcIwA" x="11412" y="-317"/>
           </children>
           <children xmi:id="_qlewIHDVEdur9cZft9T4NQ" element="_devqwHDSEdur9cZft9T4NQ">
             <children xmi:id="_qlewI3DVEdur9cZft9T4NQ" type="ImageCompartment">
@@ -20437,7 +20437,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_qlewLnDVEdur9cZft9T4NQ"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_qlewIXDVEdur9cZft9T4NQ" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qlewInDVEdur9cZft9T4NQ" x="11766" y="6678"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qlewInDVEdur9cZft9T4NQ" x="10461" y="4121"/>
           </children>
           <children xmi:id="_vLzZIAHfEdy9bvYbdCHdZw" element="_ZFrPgAHfEdy9bvYbdCHdZw">
             <children xmi:id="_vLzZIwHfEdy9bvYbdCHdZw" type="ImageCompartment">
@@ -20482,7 +20482,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             </children>
             <children xmi:id="_U4OBAHPfEduxXfd-1j79QQ" type="FromRoleLabel" element="_UhRgkXPfEduxXfd-1j79QQ">
               <children xmi:id="_U4OBAnPfEduxXfd-1j79QQ" type="FromRole" element="_UhRgkXPfEduxXfd-1j79QQ"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_U4OBAXPfEduxXfd-1j79QQ" x="-645" y="984"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_U4OBAXPfEduxXfd-1j79QQ" x="-813" y="882"/>
             </children>
             <children xmi:id="_U4Xx8HPfEduxXfd-1j79QQ" type="ToQualifierLabel" element="_UhRgknPfEduxXfd-1j79QQ">
               <children xmi:id="_U4Xx8nPfEduxXfd-1j79QQ" type="QualifierCompartment" element="_UhRgknPfEduxXfd-1j79QQ">
@@ -20523,7 +20523,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <layoutConstraint xmi:type="notation:Location" xmi:id="_U4Xx_nPfEduxXfd-1j79QQ" y="1058"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_U4OA8XPfEduxXfd-1j79QQ" showStereotype="Text"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_U4OA8nPfEduxXfd-1j79QQ" points="[133, 635, -5212, -1561]$[477, 2169, -4868, -27]$[3334, 2169, -2011, -27]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_U4OA8nPfEduxXfd-1j79QQ" points="[1482, -26, -4074, 0]$[3598, -26, -1958, 0]"/>
           </edges>
           <edges xmi:id="_vMANcAHfEdy9bvYbdCHdZw" element="_iAZu0AHfEdy9bvYbdCHdZw" source="_vLzZIAHfEdy9bvYbdCHdZw" target="_qlewIHDVEdur9cZft9T4NQ">
             <children xmi:id="_vMANcwHfEdy9bvYbdCHdZw" type="NameLabel">
@@ -20573,11 +20573,16 @@ The System is inheriting from ComposedProvidingRequiringEntity to have a unique 
 &#xD;
 A system consists of an assembly and is itself referenced by an allocation (only a System can be allocated). The first specifies how the components are connected with other components, the latter specifies how the components and connectors are mapped to the resource environment (hardware and middleware). From a structural point of view, Systems can be seen as special kind of CompositeComponents. Systems are not supposed to be reused as components are. The are assumed to be coupled by using special techniques for system integration.&#xD;
 &#xD;
+A System has provided and required roles like a composite component. Only a system's provided role can be accessed from the usage profile. Only a system's required roles can have QOS annotations.&#xD;
+&#xD;
 Like SubSystems, Systems are white-box entities for the Software Architect and also for the System Deployer. Thus, a System Deployer can and must allocate inner components of a System individually.</body>
         </ownedComment>
         <generalization xmi:id="_L3ao4BG1EdukS8Awn8hWLA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <generalization xmi:id="_ymBdQAHfEdy9bvYbdCHdZw" general="_ZFrPgAHfEdy9bvYbdCHdZw"/>
         <ownedAttribute xmi:id="_5ll7UXMwEduqAZ6idiaTjw" name="qosAnnotations_System" type="_yeKmoHMlEduqAZ6idiaTjw" aggregation="composite" association="_5ll7UHMwEduqAZ6idiaTjw">
+          <ownedComment xmi:id="_yg9J4K_5Ed2327r4hBntxA" annotatedElement="_5ll7UXMwEduqAZ6idiaTjw">
+            <body>QoS Annotations allow for specifing fixed (non-parameterised) QoS properties at the system boundary level for required services. For example, for a required service it can be specified that its response time is fixed &quot;3 ms&quot;. See the QoS Annotations package for more details.</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5ll7VHMwEduqAZ6idiaTjw" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5ll7U3MwEduqAZ6idiaTjw"/>
         </ownedAttribute>
@@ -22611,7 +22616,7 @@ Note:&#xD;
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_2VOqMYYfEd2Hz8WHhMU28w"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_2VE5MYYfEd2Hz8WHhMU28w" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2VE5MoYfEd2Hz8WHhMU28w" x="4445" y="5926"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2VE5MoYfEd2Hz8WHhMU28w" x="4438" y="5072"/>
           </children>
           <children xmi:id="_Ak3uAIYgEd2Hz8WHhMU28w" element="_ZFrPgAHfEdy9bvYbdCHdZw">
             <children xmi:id="_Ak3uAYYgEd2Hz8WHhMU28w" type="ImageCompartment">
@@ -22870,4 +22875,5 @@ Example: To model a layered architecture, of which each layer is potentially spl
   <Default:Documentation xmi:id="_pgxbsazsEd29xIYaCWKJeg" base_Comment="_pgxbsKzsEd29xIYaCWKJeg"/>
   <Default:Documentation xmi:id="_s6888a_0Ed2327r4hBntxA" base_Comment="_s6888K_0Ed2327r4hBntxA"/>
   <Default:Documentation xmi:id="_Dy9kka_3Ed2327r4hBntxA" base_Comment="_Dy9kkK_3Ed2327r4hBntxA"/>
+  <Default:Documentation xmi:id="_yg9J4a_5Ed2327r4hBntxA" base_Comment="_yg9J4K_5Ed2327r4hBntxA"/>
 </xmi:XMI>
