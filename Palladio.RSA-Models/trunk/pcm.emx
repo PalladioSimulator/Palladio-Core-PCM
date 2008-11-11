@@ -20554,6 +20554,9 @@ Solving the stochastic expression, which can be a function involving arithmetic 
           </edges>
         </contents>
       </eAnnotations>
+      <ownedComment xmi:id="_s6888K_0Ed2327r4hBntxA" annotatedElement="_ezkv0Ch9Edue7oeC4NTCGg">
+        <body>The system package holds only the System meta class. A system is the most high-level and out-most compositional entity of the PCM. It defines the boundaries of a modelled application. Only systems (more precisely provided services of a system) can be accessed from usage profile. Systems also can carry QoS-Annotations, a special means to express fixed QoS properties of services that are required at the system boundary.</body>
+      </ownedComment>
       <packageImport xmi:id="_yw4M0-QWEdqeH_WIC9QRew">
         <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
       </packageImport>
@@ -20564,7 +20567,13 @@ Solving the stochastic expression, which can be a function involving arithmetic 
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_aV3r4OQVEdqeH_WIC9QRew" name="System">
         <ownedComment xmi:id="_pgxbsKzsEd29xIYaCWKJeg" annotatedElement="_aV3r4OQVEdqeH_WIC9QRew">
-          <body>A system is not composable because it has QoS annotations which are only allowed in the &quot;outer&quot; composition thing. And a UsageModel must only access systems and not inner stuff. TODO Klaus.</body>
+          <body>A System is the out-most entity of a PCM's assembly of components. It captures the modeling decision to which extend a system under investigation is modelled within the PCM.&#xD;
+A System is not composable (part of another composition) because it has QoS annotations which are only allowed in the &quot;outer&quot; composition thing. And a UsageModel must only access ProvidedRoles of a System and not of inner components.&#xD;
+The System is inheriting from ComposedProvidingRequiringEntity to have a unique means for expressing the inner composition of an entity (here: System). Also it allows using the same editor etc. being applied to ComposedProvidingRequiringEntity and thus also being useful for System.&#xD;
+&#xD;
+A system consists of an assembly and is itself referenced by an allocation (only a System can be allocated). The first specifies how the components are connected with other components, the latter specifies how the components and connectors are mapped to the resource environment (hardware and middleware). From a structural point of view, Systems can be seen as special kind of CompositeComponents. Systems are not supposed to be reused as components are. The are assumed to be coupled by using special techniques for system integration.&#xD;
+&#xD;
+Like SubSystems, Systems are white-box entities for the Software Architect and also for the System Deployer. Thus, a System Deployer can and must allocate inner components of a System individually.</body>
         </ownedComment>
         <generalization xmi:id="_L3ao4BG1EdukS8Awn8hWLA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <generalization xmi:id="_ymBdQAHfEdy9bvYbdCHdZw" general="_ZFrPgAHfEdy9bvYbdCHdZw"/>
@@ -22640,6 +22649,16 @@ Note:&#xD;
         </contents>
       </eAnnotations>
       <packagedElement xmi:type="uml:Class" xmi:id="_zDIAQIYfEd2Hz8WHhMU28w" name="SubSystem">
+        <ownedComment xmi:id="_Dy9kkK_3Ed2327r4hBntxA" annotatedElement="_zDIAQIYfEd2Hz8WHhMU28w">
+          <body>A SubSystem is structually comparable to a CompositeComponent. The major difference is the white-blox property it preserves for System Deployers. While Component Developer have a white-box view for their CompositeComponents, a System Deployer perceives a CompositeComponent like any other component as a black-box entity, which thus cannot be allocated onto different nodes in the resource environment (a CompositeComponent cannot be split up at allocation time).&#xD;
+Opposed to that, SubSystems are white-box entities for System Deployers, meaning that they can be allocated to different nodes of the resource environment, if required. They are pure logical groupings of components, which can be reused by Component Developers and System Architects like usual components.&#xD;
+&#xD;
+Remark 1: If a SubSystem is part of a CompositeComponent (inner component) is looses its white-box property, as there is a outer black-box component hiding the its and consequently the SubSytem's internals.&#xD;
+&#xD;
+Remark 2: Structurally, SubSytem can be converted into CompositeComponents and vice versa.&#xD;
+&#xD;
+Example: To model a layered architecture, of which each layer is potentially split up to run on multiple machines (in the resource environment), each layer can be represented by a subsystem, allowing to allocated each layer's components individually.</body>
+        </ownedComment>
         <generalization xmi:id="_E3Ct0IYgEd2Hz8WHhMU28w" general="_ZFrPgAHfEdy9bvYbdCHdZw"/>
         <generalization xmi:id="_L_g3gKBaEd24Bv0x9CNKpg" general="_rGa6kKBZEd24Bv0x9CNKpg"/>
       </packagedElement>
@@ -22849,4 +22868,6 @@ Note:&#xD;
   <Default:Documentation xmi:id="_R72yYKxIEd2rasp2amXCEg" base_Comment="_R2zTQKxIEd2rasp2amXCEg"/>
   <Default:Documentation xmi:id="_ebgxAKxIEd2rasp2amXCEg" base_Comment="_ebXnEKxIEd2rasp2amXCEg"/>
   <Default:Documentation xmi:id="_pgxbsazsEd29xIYaCWKJeg" base_Comment="_pgxbsKzsEd29xIYaCWKJeg"/>
+  <Default:Documentation xmi:id="_s6888a_0Ed2327r4hBntxA" base_Comment="_s6888K_0Ed2327r4hBntxA"/>
+  <Default:Documentation xmi:id="_Dy9kka_3Ed2327r4hBntxA" base_Comment="_Dy9kkK_3Ed2327r4hBntxA"/>
 </xmi:XMI>
