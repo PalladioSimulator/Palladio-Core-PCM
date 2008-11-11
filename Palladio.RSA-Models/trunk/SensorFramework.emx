@@ -756,7 +756,7 @@
           </children>
           <children xmi:id="_6TLhiq0BEdu-BsqEvw9tEg" type="ToRoleLabel" element="_6Su1kq0BEdu-BsqEvw9tEg">
             <children xmi:id="_6TLhjK0BEdu-BsqEvw9tEg" type="ToRole" element="_6Su1kq0BEdu-BsqEvw9tEg"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_6TLhi60BEdu-BsqEvw9tEg" x="299" y="281"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6TLhi60BEdu-BsqEvw9tEg" x="829" y="413"/>
           </children>
           <children xmi:id="_6TLhja0BEdu-BsqEvw9tEg" type="FromMultiplicityLabel" element="_6Su1ka0BEdu-BsqEvw9tEg">
             <children xmi:id="_6TLhj60BEdu-BsqEvw9tEg" type="FromMultiplicity" element="_6Su1ka0BEdu-BsqEvw9tEg"/>
@@ -1048,6 +1048,169 @@
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Eb13AqDkEd2q0PqmwpQNMA" points="[2619, 133, -3493, -1931]$[6271, 133, 159, -1931]$[6271, 1112, 159, -952]"/>
         </edges>
       </contents>
+      <contents xmi:type="notation:Diagram" xmi:id="_tkPzkK_eEd25v9QaQsi_LA" type="Class" name="SensorSpecifications">
+        <children xmi:id="_yn4skK_eEd25v9QaQsi_LA" element="_sw_eYKUrEdu67aH61_l2Wg">
+          <children xmi:id="_yn4ska_eEd25v9QaQsi_LA" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_yn4skq_eEd25v9QaQsi_LA" width="1296" height="1296"/>
+          </children>
+          <children xmi:id="_yn4sk6_eEd25v9QaQsi_LA" type="Stereotype"/>
+          <children xmi:id="_yn4slK_eEd25v9QaQsi_LA" type="Name"/>
+          <children xmi:id="_yn4sla_eEd25v9QaQsi_LA" type="Parent"/>
+          <children xmi:id="_yn4slq_eEd25v9QaQsi_LA" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_yn4sl6_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_yn4smK_eEd25v9QaQsi_LA" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_yn4sma_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_yn4smq_eEd25v9QaQsi_LA" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_yn4sm6_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_yn4snK_eEd25v9QaQsi_LA" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_yn4sna_eEd25v9QaQsi_LA"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_yn4snq_eEd25v9QaQsi_LA" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yn4sn6_eEd25v9QaQsi_LA" x="6023" y="4121"/>
+        </children>
+        <children xmi:id="_1oQGQK_eEd25v9QaQsi_LA" element="_sOXJUJs6Edy0iNuLqqrX1Q">
+          <children xmi:id="_1oZ3QK_eEd25v9QaQsi_LA" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_1oZ3Qa_eEd25v9QaQsi_LA" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_1oZ3Qq_eEd25v9QaQsi_LA" type="Stereotype"/>
+          <children xmi:id="_1oZ3Q6_eEd25v9QaQsi_LA" type="Name"/>
+          <children xmi:id="_1oZ3RK_eEd25v9QaQsi_LA" type="Parent"/>
+          <children xmi:id="_1oZ3Ra_eEd25v9QaQsi_LA" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_1oZ3Rq_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_1oZ3R6_eEd25v9QaQsi_LA" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_1oZ3SK_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_1oZ3Sa_eEd25v9QaQsi_LA" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_1oZ3Sq_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_1oZ3S6_eEd25v9QaQsi_LA" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_1oZ3TK_eEd25v9QaQsi_LA"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_1oQGQa_eEd25v9QaQsi_LA" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1oQGQq_eEd25v9QaQsi_LA" x="11668" y="4259"/>
+        </children>
+        <children xmi:id="_2_bUkK_eEd25v9QaQsi_LA" element="_TJ5S8KUsEdu67aH61_l2Wg">
+          <children xmi:id="_2_bUk6_eEd25v9QaQsi_LA" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_2_bUlK_eEd25v9QaQsi_LA" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_2_bUla_eEd25v9QaQsi_LA" type="Stereotype"/>
+          <children xmi:id="_2_bUlq_eEd25v9QaQsi_LA" type="Name"/>
+          <children xmi:id="_2_bUl6_eEd25v9QaQsi_LA" type="Parent"/>
+          <children xmi:id="_2_bUmK_eEd25v9QaQsi_LA" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2_bUma_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_2_bUmq_eEd25v9QaQsi_LA" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2_bUm6_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_2_bUnK_eEd25v9QaQsi_LA" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2_bUna_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_2_bUnq_eEd25v9QaQsi_LA" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_2_bUn6_eEd25v9QaQsi_LA"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_2_bUka_eEd25v9QaQsi_LA" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2_bUkq_eEd25v9QaQsi_LA" x="317" y="4121"/>
+        </children>
+        <children xmi:id="_4PcK8K_eEd25v9QaQsi_LA" element="_4PSZ8K_eEd25v9QaQsi_LA">
+          <children xmi:id="_4PcK86_eEd25v9QaQsi_LA" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_4PcK9K_eEd25v9QaQsi_LA" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_4PcK9a_eEd25v9QaQsi_LA" type="Stereotype"/>
+          <children xmi:id="_4PcK9q_eEd25v9QaQsi_LA" type="Name"/>
+          <children xmi:id="_4PcK96_eEd25v9QaQsi_LA" type="Parent"/>
+          <children xmi:id="_4PcK-K_eEd25v9QaQsi_LA" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4PcK-a_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_4PcK-q_eEd25v9QaQsi_LA" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4PcK-6_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_4PcK_K_eEd25v9QaQsi_LA" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4PcK_a_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_4PcK_q_eEd25v9QaQsi_LA" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_4PcK_6_eEd25v9QaQsi_LA"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_4PcK8a_eEd25v9QaQsi_LA" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4PcK8q_eEd25v9QaQsi_LA" x="9193" y="8902"/>
+        </children>
+        <children xmi:id="_5XHksK_eEd25v9QaQsi_LA" element="_5W9zsK_eEd25v9QaQsi_LA">
+          <children xmi:id="_5XHks6_eEd25v9QaQsi_LA" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_5XHktK_eEd25v9QaQsi_LA" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_5XHkta_eEd25v9QaQsi_LA" type="Stereotype"/>
+          <children xmi:id="_5XHktq_eEd25v9QaQsi_LA" type="Name"/>
+          <children xmi:id="_5XHkt6_eEd25v9QaQsi_LA" type="Parent"/>
+          <children xmi:id="_5XHkuK_eEd25v9QaQsi_LA" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_5XHkua_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_5XHkuq_eEd25v9QaQsi_LA" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_5XHku6_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_5XHkvK_eEd25v9QaQsi_LA" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_5XHkva_eEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_5XHkvq_eEd25v9QaQsi_LA" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_5XHkv6_eEd25v9QaQsi_LA"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_5XHksa_eEd25v9QaQsi_LA" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5XHksq_eEd25v9QaQsi_LA" x="9193" y="6974"/>
+        </children>
+        <children xmi:id="_zUQN4K_fEd25v9QaQsi_LA" element="_zUGc4K_fEd25v9QaQsi_LA">
+          <children xmi:id="_zUQN46_fEd25v9QaQsi_LA" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_zUQN5K_fEd25v9QaQsi_LA" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_zUQN5a_fEd25v9QaQsi_LA" type="Stereotype"/>
+          <children xmi:id="_zUQN5q_fEd25v9QaQsi_LA" type="Name"/>
+          <children xmi:id="_zUQN56_fEd25v9QaQsi_LA" type="Parent"/>
+          <children xmi:id="_zUQN6K_fEd25v9QaQsi_LA" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_zUQN6a_fEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_zUQN6q_fEd25v9QaQsi_LA" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_zUQN66_fEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_zUQN7K_fEd25v9QaQsi_LA" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_zUQN7a_fEd25v9QaQsi_LA"/>
+          </children>
+          <children xmi:id="_zUQN7q_fEd25v9QaQsi_LA" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_zUQN76_fEd25v9QaQsi_LA"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_zUQN4a_fEd25v9QaQsi_LA" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zUQN4q_fEd25v9QaQsi_LA" x="9193" y="10778"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_tkPzka_eEd25v9QaQsi_LA"/>
+        <element xsi:nil="true"/>
+        <edges xmi:id="_8dcccK_eEd25v9QaQsi_LA" element="_8dSrcK_eEd25v9QaQsi_LA" source="_5XHksK_eEd25v9QaQsi_LA" target="_yn4skK_eEd25v9QaQsi_LA">
+          <children xmi:id="_8dccc6_eEd25v9QaQsi_LA" type="NameLabel">
+            <children xmi:id="_8dvXYK_eEd25v9QaQsi_LA" type="Stereotype"/>
+            <children xmi:id="_8dvXYa_eEd25v9QaQsi_LA" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8dccdK_eEd25v9QaQsi_LA" y="-186"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_8dccca_eEd25v9QaQsi_LA" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8dcccq_eEd25v9QaQsi_LA" points="[-2116, -26, 1270, 2831]$[-3413, -26, -27, 2831]$[-3413, -2170, -27, 687]"/>
+        </edges>
+        <edges xmi:id="_9BWawa_eEd25v9QaQsi_LA" element="_9BWawK_eEd25v9QaQsi_LA" source="_4PcK8K_eEd25v9QaQsi_LA" target="_yn4skK_eEd25v9QaQsi_LA">
+          <children xmi:id="_9BWaxK_eEd25v9QaQsi_LA" type="NameLabel">
+            <children xmi:id="_9BWaxq_eEd25v9QaQsi_LA" type="Stereotype"/>
+            <children xmi:id="_9BWax6_eEd25v9QaQsi_LA" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9BWaxa_eEd25v9QaQsi_LA" y="-186"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_9BWawq_eEd25v9QaQsi_LA" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9BWaw6_eEd25v9QaQsi_LA" points="[-2275, 0, 1270, 4789]$[-3731, 0, -186, 4789]$[-3731, -4102, -186, 687]"/>
+        </edges>
+        <edges xmi:id="_0vvUca_fEd25v9QaQsi_LA" element="_0vvUcK_fEd25v9QaQsi_LA" source="_zUQN4K_fEd25v9QaQsi_LA" target="_yn4skK_eEd25v9QaQsi_LA">
+          <children xmi:id="_0vvUdK_fEd25v9QaQsi_LA" type="NameLabel">
+            <children xmi:id="_0vvUdq_fEd25v9QaQsi_LA" type="Stereotype"/>
+            <children xmi:id="_0v5FcK_fEd25v9QaQsi_LA" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0vvUda_fEd25v9QaQsi_LA" y="-186"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_0vvUcq_fEd25v9QaQsi_LA" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0vvUc6_fEd25v9QaQsi_LA" points="[-2116, -26, 1270, 6641]$[-3598, -26, -212, 6641]$[-3598, -5980, -212, 687]"/>
+        </edges>
+      </contents>
     </eAnnotations>
     <eAnnotations xmi:id="_VsJCsKUrEdu67aH61_l2Wg" source="uml2.ownedShortcuts"/>
     <packageImport xmi:id="__vMGA6M3EdueS_3nHTLlag">
@@ -1076,10 +1239,10 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_sOXJUJs6Edy0iNuLqqrX1Q" name="CountingSensor">
       <generalization xmi:id="_tU-zIJs6Edy0iNuLqqrX1Q" general="_Mdin4KM4EdueS_3nHTLlag"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_K8If8KUvEdu67aH61_l2Wg" name="Experiment">
+    <packagedElement xmi:type="uml:Class" xmi:id="_K8If8KUvEdu67aH61_l2Wg" name="ExperimentSetting">
       <eAnnotations xmi:id="_VgUwgFSAEdyZfZscZwjVZw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
       <ownedComment xmi:id="_e2hPkK9JEd2I98zUF_oPOA" annotatedElement="_K8If8KUvEdu67aH61_l2Wg">
-        <body>An experiment belongs to an experiment group and consists of a fixed experimental setting, meaning all variables are fixed. This includes dependent and independent variables as well as variables influencing the generation of the test data, for example the duration of a simulation run leading to the generation of the collected data. Such a set of collected data is stored as an experiment run.</body>
+        <body>An experiment setting belongs to an experiment group and consists of a fixed experimental setting, meaning all independent variables are fixed. This includes variables influencing the generation of the test data, for example the duration of a simulation run leading to the generation of the collected data (later stored in an experiment run). Such a set of collected data is stored as an experiment run. For example, an experiment setting allows repeating a single setting to study statistical significance and variance.</body>
       </ownedComment>
       <ownedAttribute xmi:id="_MXeckaUvEdu67aH61_l2Wg" name="sensors" visibility="public" type="_Mdin4KM4EdueS_3nHTLlag" aggregation="composite" association="_MXeckKUvEdu67aH61_l2Wg">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MXeclKUvEdu67aH61_l2Wg" value="*"/>
@@ -1096,8 +1259,14 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_dne0kKutEduet-kUhyCwBw" name="ExperimentRun">
       <eAnnotations xmi:id="_XrecoFSEEdy1atvQQxIQAA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
       <ownedComment xmi:id="_6owSUK9HEd2I98zUF_oPOA" annotatedElement="_dne0kKutEduet-kUhyCwBw">
-        <body>Experiment runs contain the collected data for each replication of an experiment.</body>
+        <body>Experiment runs contain the collected data (results) for each replication of an experiment. The data is collected for each sensor declared in the experiment setting. There is one instance of collected data for each declared sensor.</body>
       </ownedComment>
+      <ownedRule xmi:id="_ej4acK_YEd25v9QaQsi_LA" name="ExactlyOneDataCollectionPerSensor" constrainedElement="_dne0kKutEduet-kUhyCwBw">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_ej4aca_YEd25v9QaQsi_LA">
+          <language>OCL</language>
+          <body>self.experimentSetting.sensors->size()=collectedData->size() and &#xD;&#xA;self.experimentSetting.sensors->forAll(s|self.collectedData->collect(sensor)->select(s2|s=s2)->size()=1)</body>
+        </specification>
+      </ownedRule>
       <ownedAttribute xmi:id="_fIfUUautEduet-kUhyCwBw" name="collectedData" visibility="public" type="_UAL58KM4EdueS_3nHTLlag" aggregation="composite" association="_fIfUUKutEduet-kUhyCwBw">
         <eAnnotations xmi:id="_jyVycJvuEdy5Gen1veJSeg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fIoeQqutEduet-kUhyCwBw" value="*"/>
@@ -1108,7 +1277,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vndeUa0EEdu-BsqEvw9tEg" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vndeUK0EEdu-BsqEvw9tEg" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_6Su1kq0BEdu-BsqEvw9tEg" name="experiment" type="_K8If8KUvEdu67aH61_l2Wg" association="_6Su1kK0BEdu-BsqEvw9tEg"/>
+      <ownedAttribute xmi:id="_6Su1kq0BEdu-BsqEvw9tEg" name="experimentSetting" visibility="public" type="_K8If8KUvEdu67aH61_l2Wg" association="_6Su1kK0BEdu-BsqEvw9tEg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_67TbsJs2Edy0iNuLqqrX1Q" name="Histogram">
       <generalization xmi:id="_8XRDYJs2Edy0iNuLqqrX1Q" general="_S4WgIJs2Edy0iNuLqqrX1Q"/>
@@ -1123,7 +1292,13 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Pcv9QJBdEd2udZpEj_wV6w" name="RawMeasurements" isAbstract="true">
+      <ownedComment xmi:id="_0zyDwK_bEd25v9QaQsi_LA" annotatedElement="_Pcv9QJBdEd2udZpEj_wV6w">
+        <body>Raw measurements contains an orderered list of measurements for a sensor. For each measurement at least the time when the measurement was taken is stored. Hence, n measurements lead to an array size of event time of n. I.e. inheriting classes have to ensure the same number and ordering for additionally stored measurements.</body>
+      </ownedComment>
       <ownedAttribute xmi:id="_C_C_gKUtEdu67aH61_l2Wg" name="eventTime" isUnique="false">
+        <ownedComment xmi:id="_9Iym4K_bEd25v9QaQsi_LA" annotatedElement="_C_C_gKUtEdu67aH61_l2Wg">
+          <body>Intentionally designed as array to allow efficient persistence.</body>
+        </ownedComment>
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5pv0kJszEdy0iNuLqqrX1Q" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5pvNgJszEdy0iNuLqqrX1Q"/>
@@ -1139,6 +1314,9 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_UAL58KM4EdueS_3nHTLlag" name="CollectedData">
       <eAnnotations xmi:id="_YHMIQFSEEdy1atvQQxIQAA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+      <ownedComment xmi:id="_pl5g8K_ZEd25v9QaQsi_LA" annotatedElement="_UAL58KM4EdueS_3nHTLlag">
+        <body>There is exactly one instance of this class for each combination of experiment run and corresponding sensor declaration.</body>
+      </ownedComment>
       <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_WTcY4Js0Edy0iNuLqqrX1Q"/>
       <ownedAttribute xmi:id="_ZyeosqM4EdueS_3nHTLlag" name="sensor" type="_Mdin4KM4EdueS_3nHTLlag" association="_ZyeosKM4EdueS_3nHTLlag"/>
       <ownedAttribute xmi:id="_fIoeQKutEduet-kUhyCwBw" name="experimentRun" visibility="public" type="_dne0kKutEduet-kUhyCwBw" association="_fIfUUKutEduet-kUhyCwBw"/>
@@ -1197,8 +1375,11 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HmNIYJs0Edy0iNuLqqrX1Q"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_sw_eYKUrEdu67aH61_l2Wg" name="TimeSpanSensor">
+    <packagedElement xmi:type="uml:Class" xmi:id="_sw_eYKUrEdu67aH61_l2Wg" name="TimeSpanSensor" isAbstract="true">
       <eAnnotations xmi:id="_bG9sEFSEEdy1atvQQxIQAA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+      <ownedComment xmi:id="_qGhvgK_eEd25v9QaQsi_LA" annotatedElement="_sw_eYKUrEdu67aH61_l2Wg">
+        <body>Abstract super class of all sensors dealing with time measurements. Examples are response time, passing time.</body>
+      </ownedComment>
       <generalization xmi:id="_uGFCAKUrEdu67aH61_l2Wg" general="_Mdin4KM4EdueS_3nHTLlag"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_a6_3wKUsEdu67aH61_l2Wg" memberEnd="_a6_3waUsEdu67aH61_l2Wg _a6_3wqUsEdu67aH61_l2Wg">
@@ -1220,7 +1401,9 @@
     <packagedElement xmi:type="uml:Association" xmi:id="_0jvAMJs3Edy0iNuLqqrX1Q" memberEnd="_0jwOUJs3Edy0iNuLqqrX1Q _0jyqkJs3Edy0iNuLqqrX1Q"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_bqBnIKDfEd2q0PqmwpQNMA" name="ExperimentGroup">
       <ownedComment xmi:id="_nmzZcK9JEd2I98zUF_oPOA" annotatedElement="_bqBnIKDfEd2q0PqmwpQNMA">
-        <body>An experiment group contains all experiments which belong to a single analysis, for example a scalability analysis or architectural alternative comparison.</body>
+        <body>An experiment group contains all experiments which belong to a single analysis. An example for an experiment group is a scalability analysis or architectural alternative comparison including the corresponding set of experiments.&#xD;
+&#xD;
+Experiment groups can be either a manual or automatic analysis</body>
       </ownedComment>
       <ownedAttribute xmi:id="_gpJMgKDfEd2q0PqmwpQNMA" name="experiments" visibility="public" type="_K8If8KUvEdu67aH61_l2Wg" aggregation="composite" association="_go_bgKDfEd2q0PqmwpQNMA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gpJMgqDfEd2q0PqmwpQNMA" value="*"/>
@@ -1248,6 +1431,15 @@
       <ownedAttribute xmi:id="_EbsGAaDkEd2q0PqmwpQNMA" name="collectedData" visibility="public" type="_UAL58KM4EdueS_3nHTLlag" association="_Ebi8EKDkEd2q0PqmwpQNMA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_Ebi8EKDkEd2q0PqmwpQNMA" memberEnd="_Ebi8EaDkEd2q0PqmwpQNMA _EbsGAaDkEd2q0PqmwpQNMA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_4PSZ8K_eEd25v9QaQsi_LA" name="ResponseTimeSensor">
+      <generalization xmi:id="_9BWawK_eEd25v9QaQsi_LA" general="_sw_eYKUrEdu67aH61_l2Wg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_5W9zsK_eEd25v9QaQsi_LA" name="PassingTimeSensor">
+      <generalization xmi:id="_8dSrcK_eEd25v9QaQsi_LA" general="_sw_eYKUrEdu67aH61_l2Wg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_zUGc4K_fEd25v9QaQsi_LA" name="WaitingTimeSensor">
+      <generalization xmi:id="_0vvUcK_fEd25v9QaQsi_LA" general="_sw_eYKUrEdu67aH61_l2Wg"/>
+    </packagedElement>
     <profileApplication xmi:id="__vMF-qM3EdueS_3nHTLlag">
       <eAnnotations xmi:id="__vMF-6M3EdueS_3nHTLlag" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
@@ -1277,4 +1469,8 @@
   <Default:Documentation xmi:id="_6o5cQK9HEd2I98zUF_oPOA" base_Comment="_6owSUK9HEd2I98zUF_oPOA"/>
   <Default:Documentation xmi:id="_e2rAkK9JEd2I98zUF_oPOA" base_Comment="_e2hPkK9JEd2I98zUF_oPOA"/>
   <Default:Documentation xmi:id="_nm9KcK9JEd2I98zUF_oPOA" base_Comment="_nmzZcK9JEd2I98zUF_oPOA"/>
+  <Default:Documentation xmi:id="_pmDR8K_ZEd25v9QaQsi_LA" base_Comment="_pl5g8K_ZEd25v9QaQsi_LA"/>
+  <Default:Documentation xmi:id="_0z70wK_bEd25v9QaQsi_LA" base_Comment="_0zyDwK_bEd25v9QaQsi_LA"/>
+  <Default:Documentation xmi:id="_9I8X4K_bEd25v9QaQsi_LA" base_Comment="_9Iym4K_bEd25v9QaQsi_LA"/>
+  <Default:Documentation xmi:id="_qGhvga_eEd25v9QaQsi_LA" base_Comment="_qGhvgK_eEd25v9QaQsi_LA"/>
 </xmi:XMI>
