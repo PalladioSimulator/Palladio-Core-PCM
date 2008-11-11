@@ -58,6 +58,57 @@
   </nodes>
   <nodes>
     <containmentFeature
+        href="../../pcm.ecore#//repository/Repository/interfaces__Repository"/>
+    <childrenFeature
+        href="../../pcm.ecore#//repository/Repository/interfaces__Repository"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../pcm.ecore#//resourcetype/ResourceInterface"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          editorPattern="">
+        <diagramLabel
+            href="repository.gmfgraph#ResourceInterface_Name_Label"/>
+        <features
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.7"/>
+      <diagramNode
+          href="repository.gmfgraph#ResourceInterface"/>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../pcm.ecore#//resourcetype/ResourceInterface/resourceServices_ResourceInterface"/>
+        <childrenFeature
+            href="../../pcm.ecore#//resourcetype/ResourceInterface/resourceServices_ResourceInterface"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//resourcetype/ResourceService"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="repository.gmfgraph#ResourceServiceServiceName"/>
+            <features
+                href="../../pcm.ecore#//resourcetype/ResourceService/serviceName"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="repositoryeditor.gmftool#//@palette/@tools.1/@tools.5"/>
+          <diagramNode
+              href="repository.gmfgraph#ResourceServiceServiceName"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0">
+        <compartment
+            href="repository.gmfgraph#ResourceServiceList"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
         href="../../pcm.ecore#//repository/Repository/components__Repository"/>
     <childrenFeature
         href="../../pcm.ecore#//repository/Repository/components__Repository"/>
@@ -79,7 +130,7 @@
       <diagramNode
           href="repository.gmfgraph#BasicComponent"/>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.0">
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
         <containmentFeature
             href="../../pcm.ecore#//repository/BasicComponent/serviceEffectSpecifications__BasicComponent"/>
         <childrenFeature
@@ -107,7 +158,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.1">
+          compartment="//@nodes.2/@ownedChild/@compartments.1">
         <containmentFeature
             href="../../pcm.ecore#//repository/BasicComponent/passiveResource_BasicComponent"/>
         <childrenFeature
@@ -131,7 +182,7 @@
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.1/@ownedChild/@compartments.2">
+          compartment="//@nodes.2/@ownedChild/@compartments.2">
         <containmentFeature
             href="../../pcm.ecore#//repository/ImplementationComponentType/componentParameterUsage_ImplementationComponentType"/>
         <childrenFeature
@@ -150,7 +201,7 @@
           <diagramNode
               href="repository.gmfgraph#ComponentParameterNode"/>
           <children
-              compartment="//@nodes.1/@ownedChild/@children.2/@ownedChild/@compartments.0">
+              compartment="//@nodes.2/@ownedChild/@children.2/@ownedChild/@compartments.0">
             <containmentFeature
                 href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
             <childrenFeature
@@ -174,24 +225,24 @@
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.1/@ownedChild/@children.2/@ownedChild/@children.0">
+              children="//@nodes.2/@ownedChild/@children.2/@ownedChild/@children.0">
             <compartment
                 href="repository.gmfgraph#ComponentParameterVariableCharacterisationCompartment"/>
           </compartments>
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.0">
+          children="//@nodes.2/@ownedChild/@children.0">
         <compartment
             href="repository.gmfgraph#SEFFCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.1">
+          children="//@nodes.2/@ownedChild/@children.1">
         <compartment
             href="repository.gmfgraph#PassiveResourceCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.1/@ownedChild/@children.2">
+          children="//@nodes.2/@ownedChild/@children.2">
         <compartment
             href="repository.gmfgraph#ComponentParameterCompartment"/>
       </compartments>
@@ -359,7 +410,7 @@
   </links>
   <links>
     <domainMetaElement
-        href="../../pcm.ecore#//repository/ResourceRequiredRole"/>
+        href="../../pcm.ecore#//resourcetype/ResourceRequiredRole"/>
     <labelMappings
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
@@ -375,7 +426,7 @@
         href="repository.gmfgraph#ResourceRequiredRole"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../../pcm.ecore#//repository/ResourceRequiredRole/requiredInterface_ResourceRequiredRole"/>
+        href="../../pcm.ecore#//resourcetype/ResourceRequiredRole/requiredResourceInterface_ResourceRequiredRole"/>
   </links>
   <diagram>
     <diagramCanvas

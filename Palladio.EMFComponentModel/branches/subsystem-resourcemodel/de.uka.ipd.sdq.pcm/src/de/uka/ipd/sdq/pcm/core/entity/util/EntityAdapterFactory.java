@@ -114,6 +114,10 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 				return createComposedProvidingRequiringEntityAdapter();
 			}
 			@Override
+			public Adapter caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
+				return createResourceInterfaceProvidingEntityAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -236,6 +240,20 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComposedProvidingRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity <em>Resource Interface Providing Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity
+	 * @generated
+	 */
+	public Adapter createResourceInterfaceProvidingEntityAdapter() {
 		return null;
 	}
 

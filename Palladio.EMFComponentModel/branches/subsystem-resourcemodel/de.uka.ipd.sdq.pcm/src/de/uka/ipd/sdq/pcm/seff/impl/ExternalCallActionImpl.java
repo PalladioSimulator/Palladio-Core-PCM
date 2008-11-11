@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
@@ -84,7 +85,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * @generated
 	 * @ordered
 	 */
-	protected Role role_ExternalService;
+	protected RequiredRole role_ExternalService;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,10 +173,10 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Role getRole_ExternalService() {
+	public RequiredRole getRole_ExternalService() {
 		if (role_ExternalService != null && role_ExternalService.eIsProxy()) {
 			InternalEObject oldRole_ExternalService = (InternalEObject)role_ExternalService;
-			role_ExternalService = (Role)eResolveProxy(oldRole_ExternalService);
+			role_ExternalService = (RequiredRole)eResolveProxy(oldRole_ExternalService);
 			if (role_ExternalService != oldRole_ExternalService) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE, oldRole_ExternalService, role_ExternalService));
@@ -189,7 +190,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Role basicGetRole_ExternalService() {
+	public RequiredRole basicGetRole_ExternalService() {
 		return role_ExternalService;
 	}
 
@@ -198,8 +199,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRole_ExternalService(Role newRole_ExternalService) {
-		Role oldRole_ExternalService = role_ExternalService;
+	public void setRole_ExternalService(RequiredRole newRole_ExternalService) {
+		RequiredRole oldRole_ExternalService = role_ExternalService;
 		role_ExternalService = newRole_ExternalService;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE, oldRole_ExternalService, role_ExternalService));
@@ -264,7 +265,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 				getOutputVariableUsages_ExternalCallAction().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
-				setRole_ExternalService((Role)newValue);
+				setRole_ExternalService((RequiredRole)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -288,7 +289,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 				getOutputVariableUsages_ExternalCallAction().clear();
 				return;
 			case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
-				setRole_ExternalService((Role)null);
+				setRole_ExternalService((RequiredRole)null);
 				return;
 		}
 		super.eUnset(featureID);

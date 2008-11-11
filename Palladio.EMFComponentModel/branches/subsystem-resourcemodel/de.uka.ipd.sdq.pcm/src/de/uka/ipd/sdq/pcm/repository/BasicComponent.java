@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This entity represents a black-box component implementation. It is not composed of other component, but directly implemented in a programming language, e.g., Java.
+ * This entity represents a black-box component implementation. Basic components are atomic building blocks of a software architecture. They cannot be further subdivided into smaller components and are built from scratch, i.e, not by assembling other components. Component developers specify basic components by associating interfaces to them in a providing or requiring role.
  * <!-- end-model-doc -->
  *
  * <p>

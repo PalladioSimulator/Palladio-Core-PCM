@@ -19,18 +19,18 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This entity models the interface as a set of signatures representing services provided or required by a component.
+ * This entity models the interface as a set of signatures representing services provided or required by a component. An interface is an abstraction of piece of software (a software entity) which should contain a sufficient amount of information for a caller to understand and finally request the realised functionality from any entity claiming to offer the specified functionality. Note that this implies, that the specification of the interface also has to contain a sufficient amount of information for the implementer to actually implement the interface. Due to the inherent need of an interface to abstract the behaviour of the software entity not in all cases there is sufficient information provided to use or implement an interface in an unambiquious way.
+ * 
+ * Interfaces can exist on their own, i.e., without any entity requesting or implementing the specified functionality. Two roles can be identified a software entity can take relative to an interface. Any entity can either claim to implement the functionality specified in an interface or to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities, and their relationships.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#isIsResourceInterface <em>Is Resource Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getAncestorInterfaces_Interface <em>Ancestor Interfaces Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,39 +38,13 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  * @model
  * @generated
  */
-public interface Interface extends Entity {
+public interface Interface extends AbstractInterface {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Is Resource Interface</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Resource Interface</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Resource Interface</em>' attribute.
-	 * @see #setIsResourceInterface(boolean)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_IsResourceInterface()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	boolean isIsResourceInterface();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Interface#isIsResourceInterface <em>Is Resource Interface</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Resource Interface</em>' attribute.
-	 * @see #isIsResourceInterface()
-	 * @generated
-	 */
-	void setIsResourceInterface(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent Interface Interface</b></em>' reference list.
@@ -145,33 +119,6 @@ public interface Interface extends Entity {
 	 * @generated
 	 */
 	EList<Signature> getSignatures__Interface();
-
-	/**
-	 * Returns the value of the '<em><b>Repository Interface</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This property represents the repository where this interface is stored.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Repository Interface</em>' container reference.
-	 * @see #setRepository_Interface(Repository)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Repository_Interface()
-	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository
-	 * @model opposite="interfaces__Repository" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
-	Repository getRepository_Interface();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Repository Interface</em>' container reference.
-	 * @see #getRepository_Interface()
-	 * @generated
-	 */
-	void setRepository_Interface(Repository value);
 
 	/**
 	 * <!-- begin-user-doc -->

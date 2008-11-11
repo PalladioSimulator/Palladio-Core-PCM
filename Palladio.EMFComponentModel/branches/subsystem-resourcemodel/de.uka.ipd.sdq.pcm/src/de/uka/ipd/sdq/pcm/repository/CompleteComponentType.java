@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This entity represents an abstraction of a component as a set provided and a set of required interfaces.
+ * Complete (Component) types abstract from the realisation of components. They only contain provided and required roles omitting the components’ internal structure, i.e., the service effect specifications or assemblies. Thus, complete types represent a black box view on components. Leaving the implementation open allows for a higher flexibility of software architects and defines substitutability in the PCM.
  * <!-- end-model-doc -->
  *
  * <p>

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
@@ -86,7 +87,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Interface> interfaces__Repository;
+	protected EList<AbstractInterface> interfaces__Repository;
 
 	/**
 	 * The cached value of the '{@link #getDatatypes_Repository() <em>Datatypes Repository</em>}' containment reference list.
@@ -155,9 +156,9 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Interface> getInterfaces__Repository() {
+	public EList<AbstractInterface> getInterfaces__Repository() {
 		if (interfaces__Repository == null) {
-			interfaces__Repository = new EObjectContainmentWithInverseEList<Interface>(Interface.class, this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE);
+			interfaces__Repository = new EObjectContainmentWithInverseEList<AbstractInterface>(AbstractInterface.class, this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, RepositoryPackage.ABSTRACT_INTERFACE__REPOSITORY_ABSTRACT_INTERFACE);
 		}
 		return interfaces__Repository;
 	}
@@ -249,7 +250,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return;
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				getInterfaces__Repository().clear();
-				getInterfaces__Repository().addAll((Collection<? extends Interface>)newValue);
+				getInterfaces__Repository().addAll((Collection<? extends AbstractInterface>)newValue);
 				return;
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				getDatatypes_Repository().clear();

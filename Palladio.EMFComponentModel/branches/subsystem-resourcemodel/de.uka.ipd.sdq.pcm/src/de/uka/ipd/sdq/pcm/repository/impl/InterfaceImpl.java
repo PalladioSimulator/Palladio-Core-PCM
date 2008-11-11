@@ -47,44 +47,22 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#isIsResourceInterface <em>Is Resource Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getAncestorInterfaces_Interface <em>Ancestor Interfaces Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getSignatures__Interface <em>Signatures Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getRepository_Interface <em>Repository Interface</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class InterfaceImpl extends EntityImpl implements Interface {
+public class InterfaceImpl extends AbstractInterfaceImpl implements Interface {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The default value of the '{@link #isIsResourceInterface() <em>Is Resource Interface</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsResourceInterface()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_RESOURCE_INTERFACE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isIsResourceInterface() <em>Is Resource Interface</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsResourceInterface()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isResourceInterface = IS_RESOURCE_INTERFACE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParentInterface__Interface() <em>Parent Interface Interface</em>}' reference list.
@@ -160,27 +138,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsResourceInterface() {
-		return isResourceInterface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsResourceInterface(boolean newIsResourceInterface) {
-		boolean oldIsResourceInterface = isResourceInterface;
-		isResourceInterface = newIsResourceInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.INTERFACE__IS_RESOURCE_INTERFACE, oldIsResourceInterface, isResourceInterface));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Interface> getParentInterface__Interface() {
 		if (parentInterface__Interface == null) {
 			parentInterface__Interface = new EObjectResolvingEList<Interface>(Interface.class, this, RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE);
@@ -221,47 +178,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			signatures__Interface = new EObjectContainmentWithInverseEList<Signature>(Signature.class, this, RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE, RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE);
 		}
 		return signatures__Interface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Repository getRepository_Interface() {
-		if (eContainerFeatureID != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE) return null;
-		return (Repository)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRepository_Interface(Repository newRepository_Interface, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRepository_Interface, RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRepository_Interface(Repository newRepository_Interface) {
-		if (newRepository_Interface != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository_Interface != null)) {
-			if (EcoreUtil.isAncestor(this, newRepository_Interface))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newRepository_Interface != null)
-				msgs = ((InternalEObject)newRepository_Interface).eInverseAdd(this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, Repository.class, msgs);
-			msgs = basicSetRepository_Interface(newRepository_Interface, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE, newRepository_Interface, newRepository_Interface));
 	}
 
 	/**
@@ -353,10 +269,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 		switch (featureID) {
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSignatures__Interface()).basicAdd(otherEnd, msgs);
-			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRepository_Interface((Repository)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -373,8 +285,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return ((InternalEList<?>)getProtocols__Interface()).basicRemove(otherEnd, msgs);
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
 				return ((InternalEList<?>)getSignatures__Interface()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-				return basicSetRepository_Interface(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -385,24 +295,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-				return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, Repository.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__IS_RESOURCE_INTERFACE:
-				return isIsResourceInterface() ? Boolean.TRUE : Boolean.FALSE;
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				return getParentInterface__Interface();
 			case RepositoryPackage.INTERFACE__ANCESTOR_INTERFACES_INTERFACE:
@@ -411,8 +305,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return getProtocols__Interface();
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
 				return getSignatures__Interface();
-			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-				return getRepository_Interface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -426,9 +318,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__IS_RESOURCE_INTERFACE:
-				setIsResourceInterface(((Boolean)newValue).booleanValue());
-				return;
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				getParentInterface__Interface().clear();
 				getParentInterface__Interface().addAll((Collection<? extends Interface>)newValue);
@@ -445,9 +334,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				getSignatures__Interface().clear();
 				getSignatures__Interface().addAll((Collection<? extends Signature>)newValue);
 				return;
-			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-				setRepository_Interface((Repository)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -460,9 +346,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__IS_RESOURCE_INTERFACE:
-				setIsResourceInterface(IS_RESOURCE_INTERFACE_EDEFAULT);
-				return;
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				getParentInterface__Interface().clear();
 				return;
@@ -474,9 +357,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return;
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
 				getSignatures__Interface().clear();
-				return;
-			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-				setRepository_Interface((Repository)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -490,8 +370,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__IS_RESOURCE_INTERFACE:
-				return isResourceInterface != IS_RESOURCE_INTERFACE_EDEFAULT;
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				return parentInterface__Interface != null && !parentInterface__Interface.isEmpty();
 			case RepositoryPackage.INTERFACE__ANCESTOR_INTERFACES_INTERFACE:
@@ -500,26 +378,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return protocols__Interface != null && !protocols__Interface.isEmpty();
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
 				return signatures__Interface != null && !signatures__Interface.isEmpty();
-			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-				return getRepository_Interface() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isResourceInterface: ");
-		result.append(isResourceInterface);
-		result.append(')');
-		return result.toString();
 	}
 
 } //InterfaceImpl

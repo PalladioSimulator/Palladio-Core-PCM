@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.*;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -41,7 +42,6 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -197,19 +197,29 @@ public class RepositorySwitch<T> {
 			case RepositoryPackage.INTERFACE: {
 				Interface interface_ = (Interface)theEObject;
 				T result = caseInterface(interface_);
+				if (result == null) result = caseAbstractInterface(interface_);
 				if (result == null) result = caseEntity(interface_);
 				if (result == null) result = caseIdentifier(interface_);
 				if (result == null) result = caseNamedElement(interface_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.RESOURCE_REQUIRED_ROLE: {
-				ResourceRequiredRole resourceRequiredRole = (ResourceRequiredRole)theEObject;
-				T result = caseResourceRequiredRole(resourceRequiredRole);
-				if (result == null) result = caseRole(resourceRequiredRole);
-				if (result == null) result = caseEntity(resourceRequiredRole);
-				if (result == null) result = caseIdentifier(resourceRequiredRole);
-				if (result == null) result = caseNamedElement(resourceRequiredRole);
+			case RepositoryPackage.ABSTRACT_INTERFACE: {
+				AbstractInterface abstractInterface = (AbstractInterface)theEObject;
+				T result = caseAbstractInterface(abstractInterface);
+				if (result == null) result = caseEntity(abstractInterface);
+				if (result == null) result = caseIdentifier(abstractInterface);
+				if (result == null) result = caseNamedElement(abstractInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.DELEGATION_CONNECTOR: {
+				DelegationConnector delegationConnector = (DelegationConnector)theEObject;
+				T result = caseDelegationConnector(delegationConnector);
+				if (result == null) result = caseConnector(delegationConnector);
+				if (result == null) result = caseEntity(delegationConnector);
+				if (result == null) result = caseIdentifier(delegationConnector);
+				if (result == null) result = caseNamedElement(delegationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -258,16 +268,6 @@ public class RepositorySwitch<T> {
 				if (result == null) result = caseEntity(completeComponentType);
 				if (result == null) result = caseIdentifier(completeComponentType);
 				if (result == null) result = caseNamedElement(completeComponentType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.DELEGATION_CONNECTOR: {
-				DelegationConnector delegationConnector = (DelegationConnector)theEObject;
-				T result = caseDelegationConnector(delegationConnector);
-				if (result == null) result = caseConnector(delegationConnector);
-				if (result == null) result = caseEntity(delegationConnector);
-				if (result == null) result = caseIdentifier(delegationConnector);
-				if (result == null) result = caseNamedElement(delegationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -502,17 +502,17 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Required Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Required Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Interface</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResourceRequiredRole(ResourceRequiredRole object) {
+	public T caseAbstractInterface(AbstractInterface object) {
 		return null;
 	}
 

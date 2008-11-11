@@ -179,6 +179,13 @@
           text="&lt;...>"/>
     </descriptors>
     <descriptors
+        name="ResourceServiceServiceNameFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ResourceServiceServiceNameFigure"
+          text="&lt;...>"/>
+    </descriptors>
+    <descriptors
         name="SEFFLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
@@ -197,7 +204,7 @@
             text="&lt;&lt;conforms>>"/>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ParentProvidesTypeFigure">
@@ -211,7 +218,7 @@
             text="&lt;&lt;conforms>>"/>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="PassiveResourceLabellFigure">
@@ -232,7 +239,7 @@
             text="&lt;&lt;RequiredResource>>"/>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="SubSystemFigure">
@@ -245,7 +252,33 @@
             text="&lt;...>"/>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.19/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="InfrastructureComponentFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="InfrastructureComponentFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="InfrastructureComponent_Name_LabelFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.20/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ResourceInterfaceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ResourceInterfaceFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResourceInterface_Name_LabelFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.21/@actualFigure/@children.0"/>
     </descriptors>
   </figures>
   <nodes
@@ -274,6 +307,9 @@
     <figure
         href="../seffeditor/seffeditor.gmfgraph#ParametricParameterUsageFigure"/>
   </nodes>
+  <nodes
+      name="ResourceInterface"
+      figure="ResourceInterfaceFigure"/>
   <connections
       name="RequiredRole"
       figure="RequiredRoleFigure"/>
@@ -306,6 +342,10 @@
       figure="InterfaceFigure"
       collapsible="true"/>
   <compartments
+      name="ResourceServiceList"
+      figure="ResourceInterfaceFigure"
+      collapsible="true"/>
+  <compartments
       name="SEFFCompartment"
       figure="BasicComponentFigure"/>
   <compartments
@@ -326,6 +366,9 @@
       name="SignatureServiceName"
       figure="SignatureServiceNameFigure"/>
   <labels
+      name="ResourceServiceServiceName"
+      figure="ResourceServiceServiceNameFigure"/>
+  <labels
       name="EntityEntityName"
       figure="RequiredRoleFigure"/>
   <labels
@@ -333,13 +376,17 @@
       figure="InterfaceFigure"
       accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels
+      name="ResourceInterface_Name_Label"
+      figure="ResourceInterfaceFigure"
+      accessor="//@figures.0/@descriptors.21/@accessors.0"/>
+  <labels
       name="EntityEntityName3"
       figure="RequiredDelegationConnectorFigure"
       accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
       name="SubSystem_Name_Label"
       figure="SubSystemFigure"
-      accessor="//@figures.0/@descriptors.18/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.19/@accessors.0"/>
   <labels
       name="EntityEntityName4"
       figure="ChildComponentContextFigure"
@@ -393,7 +440,7 @@
       name="CompleteParentStereotypeLabel"
       figure="ParentCompleteTypeFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.14/@accessors.0">
+      accessor="//@figures.0/@descriptors.15/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
@@ -402,7 +449,7 @@
       name="ProvidesParentStereotypeLabel"
       figure="ParentProvidesTypeFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.15/@accessors.0">
+      accessor="//@figures.0/@descriptors.16/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
@@ -426,7 +473,7 @@
       name="ResourceRequiredRoleStereotypeLabel"
       figure="ResourceRequiredRoleFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.17/@accessors.0">
+      accessor="//@figures.0/@descriptors.18/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>

@@ -127,6 +127,8 @@ public class EntityValidator extends EObjectValidator {
 				return validateResourceInterfaceRequiringEntity((ResourceInterfaceRequiringEntity)value, diagnostics, context);
 			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY:
 				return validateComposedProvidingRequiringEntity((ComposedProvidingRequiringEntity)value, diagnostics, context);
+			case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY:
+				return validateResourceInterfaceProvidingEntity((ResourceInterfaceProvidingEntity)value, diagnostics, context);
 			default: 
 				return true;
 		}
@@ -252,6 +254,15 @@ public class EntityValidator extends EObjectValidator {
 	 */
 	public boolean validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(ComposedProvidingRequiringEntity composedProvidingRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return composedProvidingRequiringEntity.ProvidedRolesMustBeBound(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(resourceInterfaceProvidingEntity, diagnostics, context);
 	}
 
 } //EntityValidator

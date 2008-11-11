@@ -32,7 +32,6 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
@@ -92,7 +91,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.REPOSITORY: return createRepository();
 			case RepositoryPackage.REQUIRED_ROLE: return createRequiredRole();
 			case RepositoryPackage.INTERFACE: return createInterface();
-			case RepositoryPackage.RESOURCE_REQUIRED_ROLE: return createResourceRequiredRole();
 			case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return createCompleteComponentType();
@@ -210,16 +208,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	public Interface createInterface() {
 		InterfaceImpl interface_ = new InterfaceImpl();
 		return interface_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceRequiredRole createResourceRequiredRole() {
-		ResourceRequiredRoleImpl resourceRequiredRole = new ResourceRequiredRoleImpl();
-		return resourceRequiredRole;
 	}
 
 	/**

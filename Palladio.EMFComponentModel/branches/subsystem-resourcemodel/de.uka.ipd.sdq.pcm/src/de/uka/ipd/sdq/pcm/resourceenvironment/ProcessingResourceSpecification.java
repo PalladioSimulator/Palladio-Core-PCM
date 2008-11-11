@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingResourceSpecification_Controller <em>Processing Resource Specification Controller</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,5 +117,33 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @generated
 	 */
 	void setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable value);
+
+	/**
+	 * Returns the value of the '<em><b>Processing Resource Specification Controller</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Controller#getController_ProcessingResourceSpecification <em>Controller Processing Resource Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Processing Resource Specification Controller</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Processing Resource Specification Controller</em>' reference.
+	 * @see #setProcessingResourceSpecification_Controller(Controller)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ProcessingResourceSpecification_Controller()
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Controller#getController_ProcessingResourceSpecification
+	 * @model opposite="controller_ProcessingResourceSpecification" required="true" ordered="false"
+	 * @generated
+	 */
+	Controller getProcessingResourceSpecification_Controller();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingResourceSpecification_Controller <em>Processing Resource Specification Controller</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Processing Resource Specification Controller</em>' reference.
+	 * @see #getProcessingResourceSpecification_Controller()
+	 * @generated
+	 */
+	void setProcessingResourceSpecification_Controller(Controller value);
 
 } // ProcessingResourceSpecification

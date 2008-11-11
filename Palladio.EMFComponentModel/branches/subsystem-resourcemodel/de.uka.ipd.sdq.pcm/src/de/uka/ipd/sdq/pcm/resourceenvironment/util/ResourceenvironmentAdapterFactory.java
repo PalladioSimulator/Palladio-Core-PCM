@@ -101,6 +101,10 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 				return createProcessingResourceSpecificationAdapter();
 			}
 			@Override
+			public Adapter caseController(Controller object) {
+				return createControllerAdapter();
+			}
+			@Override
 			public Adapter caseResourceContainer(ResourceContainer object) {
 				return createResourceContainerAdapter();
 			}
@@ -189,6 +193,20 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProcessingResourceSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Controller <em>Controller</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Controller
+	 * @generated
+	 */
+	public Adapter createControllerAdapter() {
 		return null;
 	}
 

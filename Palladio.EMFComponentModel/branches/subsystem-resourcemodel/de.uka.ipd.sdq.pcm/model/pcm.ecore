@@ -80,8 +80,8 @@
           <details key="documentation" value="TODO"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRoles_ResourceInterfaceRequiringEntity"
-            ordered="false" upperBound="-1" eType="#//repository/ResourceRequiredRole"
-            containment="true" eOpposite="#//repository/ResourceRequiredRole/resourceRequiringEntity_ResourceRequiredRole"/>
+            ordered="false" upperBound="-1" eType="#//resourcetype/ResourceRequiredRole"
+            containment="true" eOpposite="#//resourcetype/ResourceRequiredRole/resourceRequiringEntity_ResourceRequiredRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
           abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity">
@@ -108,13 +108,11 @@
           </eParameters>
         </eOperations>
       </eClassifiers>
-    </eSubpackages>
-    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
-        nsPrefix="">
-      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO: We might want to add a constraint that both sides of the connector must be not null. Then, we don't have to specify that for example for ComposedProvidingRequiringEntities that the ProvidedDelegationConnector actually points to something inner. If you decide not to add a constraint here, then we need a constraint there and maybe at other places -- Anne"/>
-        </eAnnotations>
+      <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceProvidingEntity"
+          abstract="true">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProvidedRoles_ResourceInterfaceProvidingEntity"
+            ordered="false" upperBound="-1" eType="#//resourcetype/ResourceProvidedRole"
+            containment="true" eOpposite="#//resourcetype/ResourceProvidedRole/resourceInterfaceProvidingEntity_ResourceProvidedRole"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/1.0"
@@ -288,9 +286,9 @@
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/resourceRequiredDelegationConnectors_ComposedStructure"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="innerResourceRequiredRole_ResourceRequiredDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//repository/ResourceRequiredRole"/>
+            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="outerResourceRequiredRole_ResourceRequiredDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//repository/ResourceRequiredRole"/>
+            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true"
           eSuperTypes="#//core/entity/Entity">
@@ -312,6 +310,14 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredDelegationConnectors_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/ResourceRequiredDelegationConnector"
             containment="true" eOpposite="#//core/composition/ResourceRequiredDelegationConnector/parentStructure_ResourceRequiredDelegationConnector"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="TODO: We might want to add a constraint that both sides of the connector must be not null. Then, we don't have to specify that for example for ComposedProvidingRequiringEntities that the ProvidedDelegationConnector actually points to something inner. If you decide not to add a constraint here, then we need a constraint there and maybe at other places -- Anne"/>
+        </eAnnotations>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
@@ -355,7 +361,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Signature">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.&#xD;&#xA;&#xD;&#xA;Every service of an interface has a unique signature, like void doSomething(int a). A PCM&#xD;&#xA;signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.&#xD;&#xA;&#xD;&#xA;It contains:&#xD;&#xA;• A type of the return value or void (no return value)&#xD;&#xA;• An identifier naming the service&#xD;&#xA;• An ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which&#xD;&#xA;is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG&#xD;&#xA;IDL semantics, cf. [22], chapter 3) can be used for parameters.&#xD;&#xA;• An unordered set of exceptions.&#xD;&#xA;&#xD;&#xA;A signature has to be unique for an interface through the tupel (identifier, order of parameters). An&#xD;&#xA;interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A&#xD;&#xA;signature is assigned to exactly one interface. However, different interfaces can define equally named&#xD;&#xA;signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not&#xD;&#xA;identical in both interfaces."/>
+        <details key="documentation" value="This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.&#xD;&#xA;&#xD;&#xA;Every service of an interface has a unique signature, like void doSomething(int a). A PCM signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.&#xD;&#xA;&#xD;&#xA;It contains:&#xD;&#xA;&#xD;&#xA;* A type of the return value or void (no return value),&#xD;&#xA;&#xD;&#xA;* an identifier naming the service,&#xD;&#xA;&#xD;&#xA;* an ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG&#xD;&#xA;IDL semantics) can be used for parameters, and&#xD;&#xA;&#xD;&#xA;* an unordered set of exceptions.&#xD;&#xA;&#xD;&#xA;A signature has to be unique for an interface through the tupel (identifier, order of parameters). An interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A&#xD;&#xA;signature is assigned to exactly one interface. However, different interfaces can define equally named signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not identical in both interfaces."/>
       </eAnnotations>
       <eOperations name="ParameterNamesHaveToBeUniqueForASignature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -465,8 +471,8 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces__Repository"
-          ordered="false" upperBound="-1" eType="#//repository/Interface" containment="true"
-          eOpposite="#//repository/Interface/repository_Interface">
+          ordered="false" upperBound="-1" eType="#//repository/AbstractInterface"
+          containment="true" eOpposite="#//repository/AbstractInterface/repository_AbstractInterface">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents the interfaces stored in the repository."/>
         </eAnnotations>
@@ -511,9 +517,9 @@
         <details key="documentation" value="This entity represents an abstraction of an interface role. "/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//repository/AbstractInterface">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity models the interface as a set of signatures representing services provided or required by a component."/>
+        <details key="documentation" value="This entity models the interface as a set of signatures representing services provided or required by a component. An interface is an abstraction of piece of software (a software entity) which should contain a sufficient amount of information for a caller to understand and finally request the realised functionality from any entity claiming to offer the specified functionality. Note that this implies, that the specification of the interface also has to contain a sufficient amount of information for the implementer to actually implement the interface. Due to the inherent need of an interface to abstract the behaviour of the software entity not in all cases there is sufficient information provided to use or implement an interface in an unambiquious way.&#xD;&#xA;&#xD;&#xA;Interfaces can exist on their own, i.e., without any entity requesting or implementing the specified functionality. Two roles can be identified a software entity can take relative to an interface. Any entity can either claim to implement the functionality specified in an interface or to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities, and their relationships."/>
       </eAnnotations>
       <eOperations name="NoProtocolTypeIDUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -553,8 +559,6 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isResourceInterface"
-          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentInterface__Interface"
           ordered="false" upperBound="-1" eType="#//repository/Interface">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -581,19 +585,21 @@
           <details key="documentation" value="This property represents the set of signatures of which the interface consists."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_Interface"
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractInterface" abstract="true"
+        eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_AbstractInterface"
           ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/interfaces__Repository">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents the repository where this interface is stored."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface_ResourceRequiredRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity_ResourceRequiredRole"
-          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
-          eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+        eSuperTypes="#//core/connectors/Connector">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
+      </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -614,7 +620,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents abstraction of a component where only the provided interfaces are visible, while the required interfaces and its implementation are left open."/>
+        <details key="documentation" value="Provided (Component) Types abstract a component to its provided interfaces, leaving its requirements and implementation details open. So, provided types subsume components which offer the same functionality, but with different implementations. As different implementations might require different services from the environment, provided types omit required interfaces. Provided types allow software architects to focus on a component’s functionality and introduce weak substitutability to the PCM. Using provided types, software architects can draft ideas on how functionality can be partitioned among different components without worrying about their implementation. In the initial phases of architectural design, it often does not make sense to arrange all details of a component, since most of them depend on the actual implementation and thus need to be specified by component developers. As during this phase the actual implementation is unknown, also the required interfaces of a component cannot be stated. However, software architects can still pre-evaluate a software architecture containing provided-types. This gives rough estimates about the quality of the build software system and defines QoS requirements for the component implementation."/>
       </eAnnotations>
       <eOperations name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -640,7 +646,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" abstract="true"
         eSuperTypes="#//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type."/>
+        <details key="documentation" value="This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type. The specification of&#xD;&#xA;the internal structure depends on the way the component is realised. In general, components can either be implemented from the scratch or composed out of other components. In the first case, the implemented behaviour of each provided service needs to be specified with a service effect specification (SEFF) to describe the component’s abstract internal structure. We refer to such components as basic components, since they form the basic building blocks of a software architecture. On the other hand, developers can use existing components to assemble new, composite components."/>
       </eAnnotations>
       <eOperations name="RequiredInterfacesHaveToConformToCompleteType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -691,7 +697,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents an abstraction of a component as a set provided and a set of required interfaces."/>
+        <details key="documentation" value="Complete (Component) types abstract from the realisation of components. They only contain provided and required roles omitting the components’ internal structure, i.e., the service effect specifications or assemblies. Thus, complete types represent a black box view on components. Leaving the implementation open allows for a higher flexibility of software architects and defines substitutability in the PCM."/>
       </eAnnotations>
       <eOperations name="AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -735,15 +741,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentTypes"
           ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
-        eSuperTypes="#//core/connectors/Connector">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
-      </eAnnotations>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//repository/ImplementationComponentType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a component composed of other component, i.e., the component is not directly implemented in a programming language, but it is rather implemented by a composition of other components."/>
+        <details key="documentation" value="Composite components are special implementation component types, which are composed from inner components. Component developers compose inner components within composite components with assembly connectors. An assembly connector binds a provided role with a required role. To access the inner components, composite components themselves provide or require interfaces. A delegation connector binds a provided (required) role of the composite component with an inner component provided (required) role. A composite component may contain other composite components, which are also themselves composed out of inner components. This enables building arbitrary hierarchies of nested components. Like a basic component, a composite component may contain a SEFF.  However, this SEFF is not specified manually by the composite component developer, but can be computed by combining the SEFFs of the inner components."/>
       </eAnnotations>
       <eOperations name="ProvideSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -786,7 +786,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BasicComponent" eSuperTypes="#//repository/ImplementationComponentType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a black-box component implementation. It is not composed of other component, but directly implemented in a programming language, e.g., Java."/>
+        <details key="documentation" value="This entity represents a black-box component implementation. Basic components are atomic building blocks of a software architecture. They cannot be further subdivided into smaller components and are built from scratch, i.e, not by assembling other components. Component developers specify basic components by associating interfaces to them in a providing or requiring role."/>
       </eAnnotations>
       <eOperations name="NoSeffTypeUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -920,14 +920,10 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//repository/Role">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents the provided interface."/>
+        <details key="documentation" value="This entity represents the provided interfaces. The PCM uses the association of an interface to a component to determine its role. Provided roles list the interfaces offered by a component."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface__ProvidedRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the corresponding interface that is provided by this role."/>
-        </eAnnotations>
-      </eStructuralFeatures>
+          ordered="false" lowerBound="1" eType="#//repository/AbstractInterface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providingEntity_ProvidedRole"
           ordered="false" lowerBound="1" eType="#//core/entity/InterfaceProvidingEntity"
           eOpposite="#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity">
@@ -963,6 +959,64 @@
           <details key="documentation" value="TODO"/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType #//core/entity/InterfaceProvidingEntity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceInterface" eSuperTypes="#//repository/AbstractInterface">
+      <eOperations name="ResourceServiceNamesHaveToBeUniqueForAResourceInterface"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.resourceServices_ResourceInterface->isUnique(r : ResourceService |&#xD;&#xA;&#x9;r.serviceName)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceServices_ResourceInterface"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceService"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceService">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InfrastructureComponent" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//core/entity/ResourceInterfaceProvidingEntity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="availableInfrastructureComponents_ResourceRepository"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceRepository"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceProvidedRole" eSuperTypes="#//repository/Role">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedResourceInterface_ResourceProvidedRole"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterfaceProvidingEntity_ResourceProvidedRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceProvidingEntity"
+          eOpposite="#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRoles_ResourceInterfaceProvidingEntity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResourceInterface_ResourceRequiredRole"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity_ResourceRequiredRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
+          eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
@@ -1190,7 +1244,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExternalCallAction" eSuperTypes="#//seff/AbstractAction">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="ExternalCallAction models the invocation of a service specified in a required interface. Therefore, it references a Role, from which the providing component can be derived, and a Signature to specify the called service. ExternalCallActions model synchronous calls to required services, i.e., the caller waits until the called service finishes execution before continuing execution itself. The PCM allows modelling asynchronous calls to required services by using an ExternalCallAction inside a ForkedBehaviour.&#xD;&#xA;ExternalCallActions do not have resource demands by themselves. Component developers need to specify the resource demand of the called service in the RDSEFF of that service. The resource demand can also be calculated by analysing the providing component. This keeps the RDSEFF specification of different component developers independent from each other and makes them replaceable in an architectural model.&#xD;&#xA;ExternalCallActions may contain two sets of VariableUsages specifying input parameter characterisations and output parameter characterisations respectively. VariableUsages for input parameters may only reference IN or INOUT parameters of the call’s referenced signature. The random variable characterisation inside such a VariableUsage may be constants, probability distribution functions, or include a stochastic expression involving for example arithmetic operations. The latter models a dependency between the current service’s own input parameters and the input parameters of the required service."/>
+        <details key="documentation" value="ExternalCallAction models the invocation of a service specified in a required interface. Therefore, it references a RequiredRole, from which the providing component can be derived, and a Signature to specify the called service. ExternalCallActions model synchronous calls to required services, i.e., the caller waits until the called service finishes execution before continuing execution itself. The PCM allows modelling asynchronous calls to required services by using an ExternalCallAction inside a ForkedBehaviour.&#xD;&#xA;ExternalCallActions do not have resource demands by themselves. Component developers need to specify the resource demand of the called service in the RDSEFF of that service. The resource demand can also be calculated by analysing the providing component. This keeps the RDSEFF specification of different component developers independent from each other and makes them replaceable in an architectural model.&#xD;&#xA;ExternalCallActions may contain two sets of VariableUsages specifying input parameter characterisations and output parameter characterisations respectively. VariableUsages for input parameters may only reference IN or INOUT parameters of the call’s referenced signature. The random variable characterisation inside such a VariableUsage may be constants, probability distribution functions, or include a stochastic expression involving for example arithmetic operations. The latter models a dependency between the current service’s own input parameters and the input parameters of the required service."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
@@ -1199,7 +1253,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableUsages_ExternalCallAction"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="role_ExternalService"
-          ordered="false" lowerBound="1" eType="#//repository/Role"/>
+          ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1304,12 +1358,12 @@
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
+          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2AAA􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 AAA􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRole_ParametricResourceDemand"
-            ordered="false" lowerBound="1" eType="#//repository/ResourceRequiredRole"/>
+            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
             ordered="false" lowerBound="1" eType="#//seff/AbstractInternalControlFlowAction"
             eOpposite="#//seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
@@ -1387,27 +1441,25 @@
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingRate_ProcessingResourceSpecification"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processingResourceSpecification_Controller"
+          ordered="false" lowerBound="1" eType="#//resourceenvironment/Controller"
+          eOpposite="#//resourceenvironment/Controller/controller_ProcessingResourceSpecification"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="SchedulingPolicy">
       <eLiterals name="DELAY"/>
       <eLiterals name="PROCESSOR_SHARING" value="1"/>
       <eLiterals name="FCFS" value="2"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Controller">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controller_ProcessingResourceSpecification"
+          ordered="false" lowerBound="1" eType="#//resourceenvironment/ProcessingResourceSpecification"
+          eOpposite="#//resourceenvironment/ProcessingResourceSpecification/processingResourceSpecification_Controller"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceContainer" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"
           ordered="false" upperBound="-1" eType="#//resourceenvironment/ProcessingResourceSpecification"
           containment="true"/>
     </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"
-      nsPrefix="">
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
-          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType #//core/entity/InterfaceProvidingEntity"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
       nsPrefix="">
