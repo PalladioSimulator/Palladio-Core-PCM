@@ -11,21 +11,18 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.Role;
-import de.uka.ipd.sdq.pcm.resourcetype.*;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.units.UnitCarryingElement;
@@ -106,8 +103,8 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createProcessingResourceTypeAdapter();
 			}
 			@Override
-			public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
-				return createCommunicationLinkResourceTypeAdapter();
+			public Adapter caseResourceProvidedRole(ResourceProvidedRole object) {
+				return createResourceProvidedRoleAdapter();
 			}
 			@Override
 			public Adapter caseResourceInterface(ResourceInterface object) {
@@ -118,12 +115,8 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createResourceServiceAdapter();
 			}
 			@Override
-			public Adapter caseInfrastructureComponent(InfrastructureComponent object) {
-				return createInfrastructureComponentAdapter();
-			}
-			@Override
-			public Adapter caseResourceProvidedRole(ResourceProvidedRole object) {
-				return createResourceProvidedRoleAdapter();
+			public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
+				return createCommunicationLinkResourceTypeAdapter();
 			}
 			@Override
 			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
@@ -146,40 +139,16 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createUnitCarryingElementAdapter();
 			}
 			@Override
-			public Adapter caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
-				return createInterfaceProvidingEntityAdapter();
-			}
-			@Override
-			public Adapter caseAbstractInterface(AbstractInterface object) {
-				return createAbstractInterfaceAdapter();
-			}
-			@Override
-			public Adapter caseComposedStructure(ComposedStructure object) {
-				return createComposedStructureAdapter();
-			}
-			@Override
-			public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
-				return createInterfaceRequiringEntityAdapter();
-			}
-			@Override
-			public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
-				return createResourceInterfaceRequiringEntityAdapter();
-			}
-			@Override
-			public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
-				return createInterfaceProvidingRequiringEntityAdapter();
-			}
-			@Override
-			public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
-				return createComposedProvidingRequiringEntityAdapter();
-			}
-			@Override
 			public Adapter caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
 				return createResourceInterfaceProvidingEntityAdapter();
 			}
 			@Override
 			public Adapter caseRole(Role object) {
 				return createRoleAdapter();
+			}
+			@Override
+			public Adapter caseAbstractInterface(AbstractInterface object) {
+				return createAbstractInterfaceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -268,20 +237,6 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.InfrastructureComponent <em>Infrastructure Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.InfrastructureComponent
-	 * @generated
-	 */
-	public Adapter createInfrastructureComponentAdapter() {
 		return null;
 	}
 
@@ -384,20 +339,6 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity <em>Interface Providing Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
-	 * @generated
-	 */
-	public Adapter createInterfaceProvidingEntityAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.AbstractInterface <em>Abstract Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -408,76 +349,6 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractInterfaceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
-	 * @generated
-	 */
-	public Adapter createComposedStructureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity <em>Interface Requiring Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
-	 * @generated
-	 */
-	public Adapter createInterfaceRequiringEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity <em>Resource Interface Requiring Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
-	 * @generated
-	 */
-	public Adapter createResourceInterfaceRequiringEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity <em>Interface Providing Requiring Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity
-	 * @generated
-	 */
-	public Adapter createInterfaceProvidingRequiringEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity <em>Composed Providing Requiring Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
-	 * @generated
-	 */
-	public Adapter createComposedProvidingRequiringEntityAdapter() {
 		return null;
 	}
 

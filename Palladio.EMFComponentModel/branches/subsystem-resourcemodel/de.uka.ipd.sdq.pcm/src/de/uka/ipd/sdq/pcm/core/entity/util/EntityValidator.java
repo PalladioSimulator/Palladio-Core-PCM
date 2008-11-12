@@ -5,17 +5,22 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity.util;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
-import de.uka.ipd.sdq.pcm.core.entity.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -125,10 +130,10 @@ public class EntityValidator extends EObjectValidator {
 				return validateInterfaceRequiringEntity((InterfaceRequiringEntity)value, diagnostics, context);
 			case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY:
 				return validateResourceInterfaceRequiringEntity((ResourceInterfaceRequiringEntity)value, diagnostics, context);
-			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY:
-				return validateComposedProvidingRequiringEntity((ComposedProvidingRequiringEntity)value, diagnostics, context);
 			case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY:
 				return validateResourceInterfaceProvidingEntity((ResourceInterfaceProvidingEntity)value, diagnostics, context);
+			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY:
+				return validateComposedProvidingRequiringEntity((ComposedProvidingRequiringEntity)value, diagnostics, context);
 			default: 
 				return true;
 		}
@@ -262,7 +267,15 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(resourceInterfaceProvidingEntity, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(resourceInterfaceProvidingEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceInterfaceProvidingEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceInterfaceProvidingEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceInterfaceProvidingEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(resourceInterfaceProvidingEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceInterfaceProvidingEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceInterfaceProvidingEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceInterfaceProvidingEntity, diagnostics, context);
+		return result;
 	}
 
 } //EntityValidator

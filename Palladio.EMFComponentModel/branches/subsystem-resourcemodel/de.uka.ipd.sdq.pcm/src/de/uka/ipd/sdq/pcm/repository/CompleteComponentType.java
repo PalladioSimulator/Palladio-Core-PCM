@@ -10,8 +10,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Complete Component Type</b></em>'.

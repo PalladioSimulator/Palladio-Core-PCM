@@ -83,6 +83,12 @@
             ordered="false" upperBound="-1" eType="#//resourcetype/ResourceRequiredRole"
             containment="true" eOpposite="#//resourcetype/ResourceRequiredRole/resourceRequiringEntity_ResourceRequiredRole"/>
       </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceProvidingEntity"
+          abstract="true" eSuperTypes="#//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProvidedRoles_ResourceInterfaceProvidingEntity"
+            ordered="false" upperBound="-1" eType="#//resourcetype/ResourceProvidedRole"
+            containment="true" eOpposite="#//resourcetype/ResourceProvidedRole/resourceInterfaceProvidingEntity_ResourceProvidedRole"/>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
           abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -108,11 +114,13 @@
           </eParameters>
         </eOperations>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceProvidingEntity"
-          abstract="true">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProvidedRoles_ResourceInterfaceProvidingEntity"
-            ordered="false" upperBound="-1" eType="#//resourcetype/ResourceProvidedRole"
-            containment="true" eOpposite="#//resourcetype/ResourceProvidedRole/resourceInterfaceProvidingEntity_ResourceProvidedRole"/>
+    </eSubpackages>
+    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="TODO: We might want to add a constraint that both sides of the connector must be not null. Then, we don't have to specify that for example for ComposedProvidingRequiringEntities that the ProvidedDelegationConnector actually points to something inner. If you decide not to add a constraint here, then we need a constraint there and maybe at other places -- Anne"/>
+        </eAnnotations>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/1.0"
@@ -289,6 +297,8 @@
             ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="outerResourceRequiredRole_ResourceRequiredDelegationConnector"
             ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_ResourceRequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true"
           eSuperTypes="#//core/entity/Entity">
@@ -310,14 +320,6 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredDelegationConnectors_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/ResourceRequiredDelegationConnector"
             containment="true" eOpposite="#//core/composition/ResourceRequiredDelegationConnector/parentStructure_ResourceRequiredDelegationConnector"/>
-      </eClassifiers>
-    </eSubpackages>
-    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
-        nsPrefix="">
-      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO: We might want to add a constraint that both sides of the connector must be not null. Then, we don't have to specify that for example for ComposedProvidingRequiringEntities that the ProvidedDelegationConnector actually points to something inner. If you decide not to add a constraint here, then we need a constraint there and maybe at other places -- Anne"/>
-        </eAnnotations>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
@@ -595,12 +597,6 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
-        eSuperTypes="#//core/connectors/Connector">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
-      </eAnnotations>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents a type of an exception."/>
@@ -740,6 +736,12 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentTypes"
           ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+        eSuperTypes="#//core/connectors/Connector">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
+      </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//repository/ImplementationComponentType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -968,8 +970,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
           ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType #//core/entity/InterfaceProvidingEntity"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType #//core/entity/ResourceInterfaceProvidingEntity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceProvidedRole" eSuperTypes="#//repository/Role">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedResourceInterface_ResourceProvidedRole"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterfaceProvidingEntity_ResourceProvidedRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceProvidingEntity"
+          eOpposite="#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRoles_ResourceInterfaceProvidingEntity"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceInterface" eSuperTypes="#//repository/AbstractInterface">
       <eOperations name="ResourceServiceNamesHaveToBeUniqueForAResourceInterface"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -999,18 +1007,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InfrastructureComponent" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//core/entity/ResourceInterfaceProvidingEntity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="availableInfrastructureComponents_ResourceRepository"
-          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceRepository"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceProvidedRole" eSuperTypes="#//repository/Role">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedResourceInterface_ResourceProvidedRole"
-          ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterfaceProvidingEntity_ResourceProvidedRole"
-          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceProvidingEntity"
-          eOpposite="#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRoles_ResourceInterfaceProvidingEntity"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResourceInterface_ResourceRequiredRole"
           ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"/>
@@ -1358,7 +1355,7 @@
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2AAA􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 AAA􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
+          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
@@ -1435,25 +1432,19 @@
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="controllerSpecification"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingPolicy" ordered="false"
           lowerBound="1" eType="#//resourceenvironment/SchedulingPolicy"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingRate_ProcessingResourceSpecification"
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="processingResourceSpecification_Controller"
-          ordered="false" lowerBound="1" eType="#//resourceenvironment/Controller"
-          eOpposite="#//resourceenvironment/Controller/controller_ProcessingResourceSpecification"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="SchedulingPolicy">
       <eLiterals name="DELAY"/>
       <eLiterals name="PROCESSOR_SHARING" value="1"/>
       <eLiterals name="FCFS" value="2"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Controller">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="controller_ProcessingResourceSpecification"
-          ordered="false" lowerBound="1" eType="#//resourceenvironment/ProcessingResourceSpecification"
-          eOpposite="#//resourceenvironment/ProcessingResourceSpecification/processingResourceSpecification_Controller"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceContainer" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"

@@ -350,7 +350,53 @@ public interface EntityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getComposedProvidingRequiringEntity()
 	 * @generated
 	 */
-	int COMPOSED_PROVIDING_REQUIRING_ENTITY = 6;
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY = 7;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl <em>Resource Interface Providing Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getResourceInterfaceProvidingEntity()
+	 * @generated
+	 */
+	int RESOURCE_INTERFACE_PROVIDING_ENTITY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_INTERFACE_PROVIDING_ENTITY__ID = ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_INTERFACE_PROVIDING_ENTITY__ENTITY_NAME = ENTITY__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Resource Interface Providing Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -450,35 +496,6 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 3;
-
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl <em>Resource Interface Providing Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getResourceInterfaceProvidingEntity()
-	 * @generated
-	 */
-	int RESOURCE_INTERFACE_PROVIDING_ENTITY = 7;
-
-	/**
-	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = 0;
-
-	/**
-	 * The number of structural features of the '<em>Resource Interface Providing Entity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT = 1;
 
 
 	/**

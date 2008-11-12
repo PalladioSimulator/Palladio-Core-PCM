@@ -5,19 +5,22 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.util;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
-import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
-
-import de.uka.ipd.sdq.pcm.resourcetype.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,14 +88,6 @@ public class ResourcetypeValidator extends EObjectValidator {
 	protected IdentifierValidator identifierValidator;
 
 	/**
-	 * The cached base package validator.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EntityValidator entityValidator;
-
-	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,7 +96,6 @@ public class ResourcetypeValidator extends EObjectValidator {
 	public ResourcetypeValidator() {
 		super();
 		identifierValidator = IdentifierValidator.INSTANCE;
-		entityValidator = EntityValidator.INSTANCE;
 	}
 
 	/**
@@ -130,16 +124,14 @@ public class ResourcetypeValidator extends EObjectValidator {
 				return validateResourceRepository((ResourceRepository)value, diagnostics, context);
 			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE:
 				return validateProcessingResourceType((ProcessingResourceType)value, diagnostics, context);
-			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE:
-				return validateCommunicationLinkResourceType((CommunicationLinkResourceType)value, diagnostics, context);
+			case ResourcetypePackage.RESOURCE_PROVIDED_ROLE:
+				return validateResourceProvidedRole((ResourceProvidedRole)value, diagnostics, context);
 			case ResourcetypePackage.RESOURCE_INTERFACE:
 				return validateResourceInterface((ResourceInterface)value, diagnostics, context);
 			case ResourcetypePackage.RESOURCE_SERVICE:
 				return validateResourceService((ResourceService)value, diagnostics, context);
-			case ResourcetypePackage.INFRASTRUCTURE_COMPONENT:
-				return validateInfrastructureComponent((InfrastructureComponent)value, diagnostics, context);
-			case ResourcetypePackage.RESOURCE_PROVIDED_ROLE:
-				return validateResourceProvidedRole((ResourceProvidedRole)value, diagnostics, context);
+			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE:
+				return validateCommunicationLinkResourceType((CommunicationLinkResourceType)value, diagnostics, context);
 			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE:
 				return validateResourceRequiredRole((ResourceRequiredRole)value, diagnostics, context);
 			default: 
@@ -242,24 +234,6 @@ public class ResourcetypeValidator extends EObjectValidator {
 	 */
 	public boolean validateResourceService(ResourceService resourceService, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(resourceService, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateInfrastructureComponent(InfrastructureComponent infrastructureComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(infrastructureComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(infrastructureComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(infrastructureComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(infrastructureComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(infrastructureComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(infrastructureComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(infrastructureComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(infrastructureComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(infrastructureComponent, diagnostics, context);
-		return result;
 	}
 
 	/**

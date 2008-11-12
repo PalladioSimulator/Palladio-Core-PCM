@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype;
 
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
 
 
 /**
@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
  * @model
  * @generated
  */
-public interface ProcessingResourceType extends ResourceType, InterfaceProvidingEntity {
+public interface ProcessingResourceType extends ResourceType, ResourceInterfaceProvidingEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

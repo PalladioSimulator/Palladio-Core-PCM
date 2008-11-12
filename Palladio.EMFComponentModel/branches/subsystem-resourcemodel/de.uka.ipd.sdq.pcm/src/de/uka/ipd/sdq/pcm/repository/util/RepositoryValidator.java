@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
-import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
@@ -261,8 +260,6 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateInterface((Interface)value, diagnostics, context);
 			case RepositoryPackage.ABSTRACT_INTERFACE:
 				return validateAbstractInterface((AbstractInterface)value, diagnostics, context);
-			case RepositoryPackage.DELEGATION_CONNECTOR:
-				return validateDelegationConnector((DelegationConnector)value, diagnostics, context);
 			case RepositoryPackage.EXCEPTION_TYPE:
 				return validateExceptionType((ExceptionType)value, diagnostics, context);
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE:
@@ -271,6 +268,8 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateImplementationComponentType((ImplementationComponentType)value, diagnostics, context);
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE:
 				return validateCompleteComponentType((CompleteComponentType)value, diagnostics, context);
+			case RepositoryPackage.DELEGATION_CONNECTOR:
+				return validateDelegationConnector((DelegationConnector)value, diagnostics, context);
 			case RepositoryPackage.COMPOSITE_COMPONENT:
 				return validateCompositeComponent((CompositeComponent)value, diagnostics, context);
 			case RepositoryPackage.BASIC_COMPONENT:

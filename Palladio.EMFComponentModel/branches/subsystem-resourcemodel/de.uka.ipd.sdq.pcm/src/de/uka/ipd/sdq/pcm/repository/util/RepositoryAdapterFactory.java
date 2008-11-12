@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
@@ -149,10 +148,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractInterfaceAdapter();
 			}
 			@Override
-			public Adapter caseDelegationConnector(DelegationConnector object) {
-				return createDelegationConnectorAdapter();
-			}
-			@Override
 			public Adapter caseExceptionType(ExceptionType object) {
 				return createExceptionTypeAdapter();
 			}
@@ -167,6 +162,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCompleteComponentType(CompleteComponentType object) {
 				return createCompleteComponentTypeAdapter();
+			}
+			@Override
+			public Adapter caseDelegationConnector(DelegationConnector object) {
+				return createDelegationConnectorAdapter();
 			}
 			@Override
 			public Adapter caseCompositeComponent(CompositeComponent object) {

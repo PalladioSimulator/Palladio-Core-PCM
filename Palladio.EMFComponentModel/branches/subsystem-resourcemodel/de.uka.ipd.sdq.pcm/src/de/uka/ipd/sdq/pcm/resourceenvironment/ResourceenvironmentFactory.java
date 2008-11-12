@@ -68,15 +68,6 @@ public interface ResourceenvironmentFactory extends EFactory {
 	ProcessingResourceSpecification createProcessingResourceSpecification();
 
 	/**
-	 * Returns a new object of class '<em>Controller</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Controller</em>'.
-	 * @generated
-	 */
-	Controller createController();
-
-	/**
 	 * Returns a new object of class '<em>Resource Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

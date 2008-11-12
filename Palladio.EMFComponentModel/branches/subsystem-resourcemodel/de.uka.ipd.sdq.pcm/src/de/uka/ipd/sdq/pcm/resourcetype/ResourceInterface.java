@@ -5,12 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype;
 
-import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 
 /**
  * <!-- begin-user-doc -->

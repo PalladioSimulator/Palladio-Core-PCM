@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.entity.*;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -20,6 +19,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
@@ -110,12 +110,12 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 				return createResourceInterfaceRequiringEntityAdapter();
 			}
 			@Override
-			public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
-				return createComposedProvidingRequiringEntityAdapter();
-			}
-			@Override
 			public Adapter caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
 				return createResourceInterfaceProvidingEntityAdapter();
+			}
+			@Override
+			public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+				return createComposedProvidingRequiringEntityAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {

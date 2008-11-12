@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -77,7 +76,6 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 			case ResourceenvironmentPackage.LINKING_RESOURCE: return createLinkingResource();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return createCommunicationLinkResourceSpecification();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return createProcessingResourceSpecification();
-			case ResourceenvironmentPackage.CONTROLLER: return createController();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER: return createResourceContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -152,16 +150,6 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	public ProcessingResourceSpecification createProcessingResourceSpecification() {
 		ProcessingResourceSpecificationImpl processingResourceSpecification = new ProcessingResourceSpecificationImpl();
 		return processingResourceSpecification;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Controller createController() {
-		ControllerImpl controller = new ControllerImpl();
-		return controller;
 	}
 
 	/**

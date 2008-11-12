@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
@@ -213,16 +212,6 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.DELEGATION_CONNECTOR: {
-				DelegationConnector delegationConnector = (DelegationConnector)theEObject;
-				T result = caseDelegationConnector(delegationConnector);
-				if (result == null) result = caseConnector(delegationConnector);
-				if (result == null) result = caseEntity(delegationConnector);
-				if (result == null) result = caseIdentifier(delegationConnector);
-				if (result == null) result = caseNamedElement(delegationConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RepositoryPackage.EXCEPTION_TYPE: {
 				ExceptionType exceptionType = (ExceptionType)theEObject;
 				T result = caseExceptionType(exceptionType);
@@ -268,6 +257,16 @@ public class RepositorySwitch<T> {
 				if (result == null) result = caseEntity(completeComponentType);
 				if (result == null) result = caseIdentifier(completeComponentType);
 				if (result == null) result = caseNamedElement(completeComponentType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.DELEGATION_CONNECTOR: {
+				DelegationConnector delegationConnector = (DelegationConnector)theEObject;
+				T result = caseDelegationConnector(delegationConnector);
+				if (result == null) result = caseConnector(delegationConnector);
+				if (result == null) result = caseEntity(delegationConnector);
+				if (result == null) result = caseIdentifier(delegationConnector);
+				if (result == null) result = caseNamedElement(delegationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

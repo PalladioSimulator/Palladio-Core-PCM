@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
  * @generated
  */
 public class ResourceInterfaceProvidingEntityItemProvider
-	extends ItemProviderAdapter
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -111,7 +111,10 @@ public class ResourceInterfaceProvidingEntityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ResourceInterfaceProvidingEntity_type");
+		String label = ((ResourceInterfaceProvidingEntity)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ResourceInterfaceProvidingEntity_type") :
+			getString("_UI_ResourceInterfaceProvidingEntity_type") + " " + label;
 	}
 
 	/**

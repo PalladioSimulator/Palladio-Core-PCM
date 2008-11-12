@@ -5,11 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity;
 
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
-
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface ResourceInterfaceProvidingEntity extends EObject {
+public interface ResourceInterfaceProvidingEntity extends Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -286,67 +286,67 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResourceInterface2CreationTool_title;
+	public static String BasicComponent2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResourceInterface2CreationTool_desc;
+	public static String BasicComponent2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String BasicComponent3CreationTool_title;
+	public static String CompositeComponent3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BasicComponent3CreationTool_desc;
+	public static String CompositeComponent3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CompositeComponent4CreationTool_title;
+	public static String RequiredRole4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CompositeComponent4CreationTool_desc;
+	public static String RequiredRole4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SubSystem5CreationTool_title;
+	public static String ProvidedRole5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SubSystem5CreationTool_desc;
+	public static String ProvidedRole5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RequiredRole6CreationTool_title;
+	public static String ResourceRequiredRole6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RequiredRole6CreationTool_desc;
+	public static String SubSystem7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ProvidedRole7CreationTool_title;
+	public static String SubSystem7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ProvidedRole7CreationTool_desc;
+	public static String ResourceInterface8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResourceRequiredRole8CreationTool_title;
+	public static String ResourceInterface8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -361,52 +361,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ResourceService2CreationTool_title;
+	public static String SEFF2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ResourceService2CreationTool_desc;
+	public static String SEFF2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SEFF3CreationTool_title;
+	public static String PassiveResource3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SEFF3CreationTool_desc;
+	public static String PassiveResource3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PassiveResource4CreationTool_title;
+	public static String ComponentParameter4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PassiveResource4CreationTool_desc;
+	public static String ComponentParameter4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ComponentParameter5CreationTool_title;
+	public static String VariableCharacterisation5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ComponentParameter5CreationTool_desc;
+	public static String VariableCharacterisation5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String VariableCharacterisation6CreationTool_title;
+	public static String ResourceService6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String VariableCharacterisation6CreationTool_desc;
+	public static String ResourceService6CreationTool_desc;
 
 	/**
 	 * @generated

@@ -68,15 +68,6 @@ public interface ResourcetypeFactory extends EFactory {
 	ResourceService createResourceService();
 
 	/**
-	 * Returns a new object of class '<em>Infrastructure Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Infrastructure Component</em>'.
-	 * @generated
-	 */
-	InfrastructureComponent createInfrastructureComponent();
-
-	/**
 	 * Returns a new object of class '<em>Resource Provided Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

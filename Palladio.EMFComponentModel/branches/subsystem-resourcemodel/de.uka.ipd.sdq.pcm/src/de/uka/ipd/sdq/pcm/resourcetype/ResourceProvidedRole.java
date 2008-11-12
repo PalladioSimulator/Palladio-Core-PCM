@@ -6,7 +6,6 @@
 package de.uka.ipd.sdq.pcm.resourcetype;
 
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
-
 import de.uka.ipd.sdq.pcm.repository.Role;
 
 /**

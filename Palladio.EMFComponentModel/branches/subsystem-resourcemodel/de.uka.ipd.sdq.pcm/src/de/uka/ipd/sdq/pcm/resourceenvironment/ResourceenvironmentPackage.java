@@ -226,13 +226,22 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Controller Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION = 0;
+
+	/**
 	 * The feature id for the '<em><b>Scheduling Policy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = 0;
+	int PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference.
@@ -241,7 +250,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 1;
+	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Processing Rate Processing Resource Specification</b></em>' containment reference.
@@ -250,16 +259,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Processing Resource Specification Controller</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RESOURCE_SPECIFICATION_CONTROLLER = 3;
+	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Processing Resource Specification</em>' class.
@@ -271,34 +271,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerImpl <em>Controller</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerImpl
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getController()
-	 * @generated
-	 */
-	int CONTROLLER = 4;
-
-	/**
-	 * The feature id for the '<em><b>Controller Processing Resource Specification</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROLLER__CONTROLLER_PROCESSING_RESOURCE_SPECIFICATION = 0;
-
-	/**
-	 * The number of structural features of the '<em>Controller</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTROLLER_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -306,7 +278,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceContainer()
 	 * @generated
 	 */
-	int RESOURCE_CONTAINER = 5;
+	int RESOURCE_CONTAINER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -352,7 +324,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
 	 * @generated
 	 */
-	int SCHEDULING_POLICY = 6;
+	int SCHEDULING_POLICY = 5;
 
 
 	/**
@@ -484,6 +456,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EClass getProcessingResourceSpecification();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getControllerSpecification <em>Controller Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Controller Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getControllerSpecification()
+	 * @see #getProcessingResourceSpecification()
+	 * @generated
+	 */
+	EAttribute getProcessingResourceSpecification_ControllerSpecification();
+
+	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -515,38 +498,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingResourceSpecification_Controller <em>Processing Resource Specification Controller</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Processing Resource Specification Controller</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingResourceSpecification_Controller()
-	 * @see #getProcessingResourceSpecification()
-	 * @generated
-	 */
-	EReference getProcessingResourceSpecification_ProcessingResourceSpecification_Controller();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Controller <em>Controller</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Controller</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Controller
-	 * @generated
-	 */
-	EClass getController();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Controller#getController_ProcessingResourceSpecification <em>Controller Processing Resource Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Controller Processing Resource Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Controller#getController_ProcessingResourceSpecification()
-	 * @see #getController()
-	 * @generated
-	 */
-	EReference getController_Controller_ProcessingResourceSpecification();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer <em>Resource Container</em>}'.
@@ -706,6 +657,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EClass PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification();
 
 		/**
+		 * The meta object literal for the '<em><b>Controller Specification</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification_ControllerSpecification();
+
+		/**
 		 * The meta object literal for the '<em><b>Scheduling Policy</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -728,32 +687,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification();
-
-		/**
-		 * The meta object literal for the '<em><b>Processing Resource Specification Controller</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RESOURCE_SPECIFICATION_CONTROLLER = eINSTANCE.getProcessingResourceSpecification_ProcessingResourceSpecification_Controller();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerImpl <em>Controller</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerImpl
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getController()
-		 * @generated
-		 */
-		EClass CONTROLLER = eINSTANCE.getController();
-
-		/**
-		 * The meta object literal for the '<em><b>Controller Processing Resource Specification</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTROLLER__CONTROLLER_PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getController_Controller_ProcessingResourceSpecification();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.

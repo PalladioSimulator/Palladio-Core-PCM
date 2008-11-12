@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
@@ -99,10 +98,6 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProcessingResourceSpecification(ProcessingResourceSpecification object) {
 				return createProcessingResourceSpecificationAdapter();
-			}
-			@Override
-			public Adapter caseController(Controller object) {
-				return createControllerAdapter();
 			}
 			@Override
 			public Adapter caseResourceContainer(ResourceContainer object) {
@@ -193,20 +188,6 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProcessingResourceSpecificationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Controller <em>Controller</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Controller
-	 * @generated
-	 */
-	public Adapter createControllerAdapter() {
 		return null;
 	}
 

@@ -988,37 +988,37 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ResourceInterface"
-            description="Create a new ResourceInterface"
-            genNodes="//@diagram/@topLevelNodes.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="BasicComponent"
             description="Create new BasicComponent"
-            genNodes="//@diagram/@topLevelNodes.3"/>
+            genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="CompositeComponent"
             description="Create new CompositeComponent"
-            genLinks="//@diagram/@links.1"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="SubSystem"
-            description="Create new SubSystem"
-            genLinks="//@diagram/@links.0"/>
+            genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="RequiredRole"
             description="Create new RequiredRole"
-            genLinks="//@diagram/@links.4"/>
+            genLinks="//@diagram/@links.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ProvidedRole"
             description="Create new ProvidedRole"
-            genNodes="//@diagram/@topLevelNodes.6"/>
+            genLinks="//@diagram/@links.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ResourceRequiredRole"
+            genLinks="//@diagram/@links.4"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="SubSystem"
+            description="Create new SubSystem"
+            genNodes="//@diagram/@topLevelNodes.6"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ResourceInterface"
+            description="Create a new ResourceInterface"
             genNodes="//@diagram/@topLevelNodes.1"/>
       </groups>
       <groups
@@ -1032,28 +1032,28 @@
             genNodes="//@diagram/@childNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ResourceService"
-            description="Create new ResourceService"
-            genNodes="//@diagram/@childNodes.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="SEFF"
             description="SEFF"
-            genNodes="//@diagram/@childNodes.3"/>
+            genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Passive Resource"
             description="Create a new Passive Resource"
-            genNodes="//@diagram/@childNodes.4"/>
+            genNodes="//@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Component Parameter"
             description="Component Parameter"
-            genNodes="//@diagram/@childNodes.5"/>
+            genNodes="//@diagram/@childNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Variable Characterisation"
             description="Variable Characterisation"
+            genNodes="//@diagram/@childNodes.5"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ResourceService"
+            description="Create new ResourceService"
             genNodes="//@diagram/@childNodes.1"/>
       </groups>
       <groups

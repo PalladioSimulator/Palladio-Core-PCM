@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -37,7 +38,6 @@ import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.InfrastructureComponent;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
@@ -61,7 +61,6 @@ import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.units.UnitsPackage;
-import org.eclipse.emf.ecore.EAttribute;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,13 +110,6 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * @generated
 	 */
 	private EClass resourceServiceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass infrastructureComponentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,8 +197,8 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		// Obtain or create and register interdependencies
 		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
+		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
@@ -225,8 +217,8 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		theResourcetypePackage.createPackageContents();
 		theCorePackage.createPackageContents();
 		theEntityPackage.createPackageContents();
-		theCompositionPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
+		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
@@ -245,8 +237,8 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		theResourcetypePackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
-		theCompositionPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
+		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
@@ -353,24 +345,6 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInfrastructureComponent() {
-		return infrastructureComponentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInfrastructureComponent_AvailableInfrastructureComponents_ResourceRepository() {
-		return (EReference)infrastructureComponentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getResourceProvidedRole() {
 		return resourceProvidedRoleEClass;
 	}
@@ -464,7 +438,9 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
 		processingResourceTypeEClass = createEClass(PROCESSING_RESOURCE_TYPE);
 
-		communicationLinkResourceTypeEClass = createEClass(COMMUNICATION_LINK_RESOURCE_TYPE);
+		resourceProvidedRoleEClass = createEClass(RESOURCE_PROVIDED_ROLE);
+		createEReference(resourceProvidedRoleEClass, RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE);
+		createEReference(resourceProvidedRoleEClass, RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE);
 
 		resourceInterfaceEClass = createEClass(RESOURCE_INTERFACE);
 		createEReference(resourceInterfaceEClass, RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE);
@@ -472,12 +448,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		resourceServiceEClass = createEClass(RESOURCE_SERVICE);
 		createEAttribute(resourceServiceEClass, RESOURCE_SERVICE__SERVICE_NAME);
 
-		infrastructureComponentEClass = createEClass(INFRASTRUCTURE_COMPONENT);
-		createEReference(infrastructureComponentEClass, INFRASTRUCTURE_COMPONENT__AVAILABLE_INFRASTRUCTURE_COMPONENTS_RESOURCE_REPOSITORY);
-
-		resourceProvidedRoleEClass = createEClass(RESOURCE_PROVIDED_ROLE);
-		createEReference(resourceProvidedRoleEClass, RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE);
-		createEReference(resourceProvidedRoleEClass, RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE);
+		communicationLinkResourceTypeEClass = createEClass(COMMUNICATION_LINK_RESOURCE_TYPE);
 
 		resourceRequiredRoleEClass = createEClass(RESOURCE_REQUIRED_ROLE);
 		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE);
@@ -520,12 +491,10 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		resourceTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		resourceTypeEClass.getESuperTypes().add(theUnitsPackage.getUnitCarryingElement());
 		processingResourceTypeEClass.getESuperTypes().add(this.getResourceType());
-		processingResourceTypeEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingEntity());
-		communicationLinkResourceTypeEClass.getESuperTypes().add(this.getProcessingResourceType());
-		resourceInterfaceEClass.getESuperTypes().add(theRepositoryPackage.getAbstractInterface());
-		infrastructureComponentEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
-		infrastructureComponentEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceProvidingEntity());
+		processingResourceTypeEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceProvidingEntity());
 		resourceProvidedRoleEClass.getESuperTypes().add(theRepositoryPackage.getRole());
+		resourceInterfaceEClass.getESuperTypes().add(theRepositoryPackage.getAbstractInterface());
+		communicationLinkResourceTypeEClass.getESuperTypes().add(this.getProcessingResourceType());
 		resourceRequiredRoleEClass.getESuperTypes().add(theRepositoryPackage.getRole());
 
 		// Initialize classes and features; add operations and parameters
@@ -536,7 +505,9 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
 		initEClass(processingResourceTypeEClass, ProcessingResourceType.class, "ProcessingResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(communicationLinkResourceTypeEClass, CommunicationLinkResourceType.class, "CommunicationLinkResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(resourceProvidedRoleEClass, ResourceProvidedRole.class, "ResourceProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceProvidedRole_ProvidedResourceInterface_ResourceProvidedRole(), this.getResourceInterface(), null, "providedResourceInterface_ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole(), theEntityPackage.getResourceInterfaceProvidingEntity(), theEntityPackage.getResourceInterfaceProvidingEntity_ResourceProvidedRoles_ResourceInterfaceProvidingEntity(), "resourceInterfaceProvidingEntity_ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(resourceInterfaceEClass, ResourceInterface.class, "ResourceInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceInterface_ResourceServices_ResourceInterface(), this.getResourceService(), null, "resourceServices_ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -553,12 +524,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		initEClass(resourceServiceEClass, ResourceService.class, "ResourceService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResourceService_ServiceName(), ecorePackage.getEString(), "serviceName", null, 1, 1, ResourceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(infrastructureComponentEClass, InfrastructureComponent.class, "InfrastructureComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInfrastructureComponent_AvailableInfrastructureComponents_ResourceRepository(), this.getResourceRepository(), null, "availableInfrastructureComponents_ResourceRepository", null, 0, -1, InfrastructureComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(resourceProvidedRoleEClass, ResourceProvidedRole.class, "ResourceProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceProvidedRole_ProvidedResourceInterface_ResourceProvidedRole(), this.getResourceInterface(), null, "providedResourceInterface_ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole(), theEntityPackage.getResourceInterfaceProvidingEntity(), theEntityPackage.getResourceInterfaceProvidingEntity_ResourceProvidedRoles_ResourceInterfaceProvidingEntity(), "resourceInterfaceProvidingEntity_ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(communicationLinkResourceTypeEClass, CommunicationLinkResourceType.class, "CommunicationLinkResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceRequiredRole_RequiredResourceInterface_ResourceRequiredRole(), this.getResourceInterface(), null, "requiredResourceInterface_ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

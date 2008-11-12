@@ -20,15 +20,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ResourceInterface"
-          description="Create a new ResourceInterface">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="BasicComponent"
           description="Create new BasicComponent">
         <smallIcon
@@ -40,15 +31,6 @@
           xsi:type="gmftool:CreationTool"
           title="CompositeComponent"
           description="Create new CompositeComponent">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="SubSystem"
-          description="Create new SubSystem">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -80,6 +62,24 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="SubSystem"
+          description="Create new SubSystem">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ResourceInterface"
+          description="Create a new ResourceInterface">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
@@ -90,15 +90,6 @@
           xsi:type="gmftool:CreationTool"
           title="Signature"
           description="Create new Signature">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ResourceService"
-          description="Create new ResourceService">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -135,6 +126,15 @@
           xsi:type="gmftool:CreationTool"
           title="Variable Characterisation"
           description="Variable Characterisation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ResourceService"
+          description="Create new ResourceService">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

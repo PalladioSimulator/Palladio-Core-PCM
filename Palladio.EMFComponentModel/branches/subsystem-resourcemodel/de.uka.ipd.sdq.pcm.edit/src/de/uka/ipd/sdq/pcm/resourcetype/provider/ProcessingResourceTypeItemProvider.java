@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 /**
@@ -85,7 +86,7 @@ public class ProcessingResourceTypeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
+			childrenFeatures.add(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY);
 		}
 		return childrenFeatures;
 	}
@@ -140,7 +141,7 @@ public class ProcessingResourceTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProcessingResourceType.class)) {
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -160,8 +161,8 @@ public class ProcessingResourceTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createProvidedRole()));
+				(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+				 ResourcetypeFactory.eINSTANCE.createResourceProvidedRole()));
 	}
 
 	/**

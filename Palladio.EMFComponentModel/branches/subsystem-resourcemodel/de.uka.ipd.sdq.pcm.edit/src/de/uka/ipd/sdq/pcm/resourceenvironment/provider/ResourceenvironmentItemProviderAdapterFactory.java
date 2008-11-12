@@ -173,29 +173,6 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.Controller} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ControllerItemProvider controllerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.Controller}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createControllerAdapter() {
-		if (controllerItemProvider == null) {
-			controllerItemProvider = new ControllerItemProvider(this);
-		}
-
-		return controllerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -321,7 +298,6 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 		if (linkingResourceItemProvider != null) linkingResourceItemProvider.dispose();
 		if (communicationLinkResourceSpecificationItemProvider != null) communicationLinkResourceSpecificationItemProvider.dispose();
 		if (processingResourceSpecificationItemProvider != null) processingResourceSpecificationItemProvider.dispose();
-		if (controllerItemProvider != null) controllerItemProvider.dispose();
 		if (resourceContainerItemProvider != null) resourceContainerItemProvider.dispose();
 	}
 

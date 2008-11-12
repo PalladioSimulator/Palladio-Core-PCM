@@ -11,21 +11,18 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.Role;
-import de.uka.ipd.sdq.pcm.resourcetype.*;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.units.UnitCarryingElement;
@@ -131,7 +128,7 @@ public class ResourcetypeSwitch<T> {
 				ProcessingResourceType processingResourceType = (ProcessingResourceType)theEObject;
 				T result = caseProcessingResourceType(processingResourceType);
 				if (result == null) result = caseResourceType(processingResourceType);
-				if (result == null) result = caseInterfaceProvidingEntity(processingResourceType);
+				if (result == null) result = caseResourceInterfaceProvidingEntity(processingResourceType);
 				if (result == null) result = caseEntity(processingResourceType);
 				if (result == null) result = caseUnitCarryingElement(processingResourceType);
 				if (result == null) result = caseIdentifier(processingResourceType);
@@ -139,16 +136,13 @@ public class ResourcetypeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: {
-				CommunicationLinkResourceType communicationLinkResourceType = (CommunicationLinkResourceType)theEObject;
-				T result = caseCommunicationLinkResourceType(communicationLinkResourceType);
-				if (result == null) result = caseProcessingResourceType(communicationLinkResourceType);
-				if (result == null) result = caseResourceType(communicationLinkResourceType);
-				if (result == null) result = caseInterfaceProvidingEntity(communicationLinkResourceType);
-				if (result == null) result = caseEntity(communicationLinkResourceType);
-				if (result == null) result = caseUnitCarryingElement(communicationLinkResourceType);
-				if (result == null) result = caseIdentifier(communicationLinkResourceType);
-				if (result == null) result = caseNamedElement(communicationLinkResourceType);
+			case ResourcetypePackage.RESOURCE_PROVIDED_ROLE: {
+				ResourceProvidedRole resourceProvidedRole = (ResourceProvidedRole)theEObject;
+				T result = caseResourceProvidedRole(resourceProvidedRole);
+				if (result == null) result = caseRole(resourceProvidedRole);
+				if (result == null) result = caseEntity(resourceProvidedRole);
+				if (result == null) result = caseIdentifier(resourceProvidedRole);
+				if (result == null) result = caseNamedElement(resourceProvidedRole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -168,29 +162,16 @@ public class ResourcetypeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourcetypePackage.INFRASTRUCTURE_COMPONENT: {
-				InfrastructureComponent infrastructureComponent = (InfrastructureComponent)theEObject;
-				T result = caseInfrastructureComponent(infrastructureComponent);
-				if (result == null) result = caseComposedProvidingRequiringEntity(infrastructureComponent);
-				if (result == null) result = caseResourceInterfaceProvidingEntity(infrastructureComponent);
-				if (result == null) result = caseComposedStructure(infrastructureComponent);
-				if (result == null) result = caseInterfaceProvidingRequiringEntity(infrastructureComponent);
-				if (result == null) result = caseEntity(infrastructureComponent);
-				if (result == null) result = caseInterfaceProvidingEntity(infrastructureComponent);
-				if (result == null) result = caseInterfaceRequiringEntity(infrastructureComponent);
-				if (result == null) result = caseResourceInterfaceRequiringEntity(infrastructureComponent);
-				if (result == null) result = caseIdentifier(infrastructureComponent);
-				if (result == null) result = caseNamedElement(infrastructureComponent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ResourcetypePackage.RESOURCE_PROVIDED_ROLE: {
-				ResourceProvidedRole resourceProvidedRole = (ResourceProvidedRole)theEObject;
-				T result = caseResourceProvidedRole(resourceProvidedRole);
-				if (result == null) result = caseRole(resourceProvidedRole);
-				if (result == null) result = caseEntity(resourceProvidedRole);
-				if (result == null) result = caseIdentifier(resourceProvidedRole);
-				if (result == null) result = caseNamedElement(resourceProvidedRole);
+			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: {
+				CommunicationLinkResourceType communicationLinkResourceType = (CommunicationLinkResourceType)theEObject;
+				T result = caseCommunicationLinkResourceType(communicationLinkResourceType);
+				if (result == null) result = caseProcessingResourceType(communicationLinkResourceType);
+				if (result == null) result = caseResourceType(communicationLinkResourceType);
+				if (result == null) result = caseResourceInterfaceProvidingEntity(communicationLinkResourceType);
+				if (result == null) result = caseEntity(communicationLinkResourceType);
+				if (result == null) result = caseUnitCarryingElement(communicationLinkResourceType);
+				if (result == null) result = caseIdentifier(communicationLinkResourceType);
+				if (result == null) result = caseNamedElement(communicationLinkResourceType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -280,21 +261,6 @@ public class ResourcetypeSwitch<T> {
 	 * @generated
 	 */
 	public T caseResourceService(ResourceService object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Infrastructure Component</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInfrastructureComponent(InfrastructureComponent object) {
 		return null;
 	}
 
@@ -404,21 +370,6 @@ public class ResourcetypeSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -430,81 +381,6 @@ public class ResourcetypeSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractInterface(AbstractInterface object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComposedStructure(ComposedStructure object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
 		return null;
 	}
 

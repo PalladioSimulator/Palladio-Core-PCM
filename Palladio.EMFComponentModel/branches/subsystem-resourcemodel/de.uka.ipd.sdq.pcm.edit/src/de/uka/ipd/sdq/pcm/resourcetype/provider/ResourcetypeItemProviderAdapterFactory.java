@@ -173,29 +173,6 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.InfrastructureComponent} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InfrastructureComponentItemProvider infrastructureComponentItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.InfrastructureComponent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInfrastructureComponentAdapter() {
-		if (infrastructureComponentItemProvider == null) {
-			infrastructureComponentItemProvider = new InfrastructureComponentItemProvider(this);
-		}
-
-		return infrastructureComponentItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -365,11 +342,10 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 	public void dispose() {
 		if (resourceRepositoryItemProvider != null) resourceRepositoryItemProvider.dispose();
 		if (processingResourceTypeItemProvider != null) processingResourceTypeItemProvider.dispose();
-		if (communicationLinkResourceTypeItemProvider != null) communicationLinkResourceTypeItemProvider.dispose();
+		if (resourceProvidedRoleItemProvider != null) resourceProvidedRoleItemProvider.dispose();
 		if (resourceInterfaceItemProvider != null) resourceInterfaceItemProvider.dispose();
 		if (resourceServiceItemProvider != null) resourceServiceItemProvider.dispose();
-		if (infrastructureComponentItemProvider != null) infrastructureComponentItemProvider.dispose();
-		if (resourceProvidedRoleItemProvider != null) resourceProvidedRoleItemProvider.dispose();
+		if (communicationLinkResourceTypeItemProvider != null) communicationLinkResourceTypeItemProvider.dispose();
 		if (resourceRequiredRoleItemProvider != null) resourceRequiredRoleItemProvider.dispose();
 	}
 

@@ -5,15 +5,13 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 /**
  * <!-- begin-user-doc -->

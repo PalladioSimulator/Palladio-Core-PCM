@@ -5,25 +5,19 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity.impl;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
-
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class ResourceInterfaceProvidingEntityImpl extends EObjectImpl implements ResourceInterfaceProvidingEntity {
+public abstract class ResourceInterfaceProvidingEntityImpl extends EntityImpl implements ResourceInterfaceProvidingEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
