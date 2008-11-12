@@ -1307,6 +1307,11 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Mdin4KM4EdueS_3nHTLlag" name="SensorDeclaration" isAbstract="true">
       <eAnnotations xmi:id="_Yi5z4FSEEdy1atvQQxIQAA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+      <ownedComment xmi:id="_2EDrsLCSEd2ljKhXLYuvJQ" annotatedElement="_Mdin4KM4EdueS_3nHTLlag">
+        <body>TODO&#xD;
+&#xD;
+The abstract SensorDeclaration class needs to be subclassed to create concrete Sensors that can handle specific data. Visualisations can later use the specific subtype to know the best way how to visualise the data. </body>
+      </ownedComment>
       <ownedAttribute xmi:id="_w670MKNHEdueS_3nHTLlag" name="sensorName">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
@@ -1473,4 +1478,5 @@ Experiment groups can be either a manual or automatic analysis</body>
   <Default:Documentation xmi:id="_0z70wK_bEd25v9QaQsi_LA" base_Comment="_0zyDwK_bEd25v9QaQsi_LA"/>
   <Default:Documentation xmi:id="_9I8X4K_bEd25v9QaQsi_LA" base_Comment="_9Iym4K_bEd25v9QaQsi_LA"/>
   <Default:Documentation xmi:id="_qGhvga_eEd25v9QaQsi_LA" base_Comment="_qGhvgK_eEd25v9QaQsi_LA"/>
+  <Default:Documentation xmi:id="_2EDrsbCSEd2ljKhXLYuvJQ" base_Comment="_2EDrsLCSEd2ljKhXLYuvJQ"/>
 </xmi:XMI>
