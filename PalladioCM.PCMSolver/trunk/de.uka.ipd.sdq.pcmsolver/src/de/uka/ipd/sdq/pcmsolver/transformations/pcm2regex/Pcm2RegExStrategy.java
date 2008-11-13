@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
 import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.print.ProbFunctionCSVPrint;
 import de.uka.ipd.sdq.spa.expression.Expression;
 
 public class Pcm2RegExStrategy implements SolverStrategy {
@@ -46,6 +47,8 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 			long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
 			overallDuration += duration;
 			logger.warn("Finished Running ExprSolver:\t\t"+ duration + " ms");
+			logger.info("Resulting PDF:\t\t"+resultPDF.toString());
+			logger.info("As csv:\n\nx;probability\n"+new ProbFunctionCSVPrint().doSwitch(resultPDF.getModelBoxedPdf()));
 			
 			visualize(resultPDF.getPdfTimeDomain());
 			long timeAfterVisualisation = System.nanoTime();
@@ -87,8 +90,10 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 		try {
 			stoRegEx = (Expression)umVisit.doSwitch(us.getScenarioBehaviour_UsageScenario());
 		} catch (Exception e) {
-			logger.error("Usage Scenario caused Exception!" + e.getMessage());
+			logger.error("Transforming the PCM instance into a stochastic regular expression caused an Exception! Check your model for broken references, e.g. old, dangling Connectors." + e.getMessage());
 			e.printStackTrace();
+			
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -99,8 +104,10 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 					.getUsageScenario_UsageModel().get(0);
 			visitor.doSwitch(us.getScenarioBehaviour_UsageScenario());
 		} catch (Exception e) {
-			logger.error("Usage Scenario caused Exception!" + e.getMessage());
+			logger.error("Running the dependency solver caused an Exception! Check your model for broken references, e.g. old, dangling Connectors." + e.getMessage());
 			e.printStackTrace();
+			
+			throw new RuntimeException(e);
 		}
 	}
 	

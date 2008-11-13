@@ -269,6 +269,7 @@ public class ContextWrapper implements Cloneable{
 
 		ProvidedRole role = elsa.getProvidedRole_EntryLevelSystemCall();
 
+		try {
 		EList<ProvidedDelegationConnector> pdcList = pcmInstance.getSystem().getProvidedDelegationConnectors_ComposedStructure();
 		for (ProvidedDelegationConnector pdc : pdcList){
 			if (pdc.getOuterProvidedRole_ProvidedDelegationConnector().getId().equals(role.getId())){
@@ -276,6 +277,10 @@ public class ContextWrapper implements Cloneable{
 				return pdc.getChildComponentContext_ProvidedDelegationConnector();
 				//TODO: testen, abfrage interface?
 			}
+		}
+		//If ProvidedDelegationConnectors are not bound to outer roles (for example you changed your Systems only interface, deleting the old one, and a danglin ProvidedConnector remains), NullPointerEcxeptions can occur in the upper part.  
+		} catch (RuntimeException e){
+			throw new RuntimeException("Something is wrong with your ProvidedDelegationConnectors: Are they all bound to proper roles?",e);
 		}
 		return null;
 	}
