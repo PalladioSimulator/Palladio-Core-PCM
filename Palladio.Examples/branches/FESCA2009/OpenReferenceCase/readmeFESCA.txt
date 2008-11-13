@@ -11,4 +11,9 @@ see:
 Adaptation of ORC for FESCA 2009 Paper
 --------------------------------------------------------------------
 
-- variiere Anzahl der Items für bookSale()
+- mehr Komplexität für Application.Store.bookSale():
+  - zusätzlicher Branch innerhalb des Loop
+  - zusätzliche Faktor 0.95 für die Anzahl der Schleifendurchläufe
+- alle primitiven Operationen der Datenbank haben eine Fehlerwahrscheinlichkeit von: 0.00001
+- ändere Data.Store.queryStockItem():
+  - enthält nur noch eine Database-Query-Anfrage (Vereinfachung)
