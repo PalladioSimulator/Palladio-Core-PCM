@@ -187,9 +187,13 @@
 
 
 «DEFINE WriteDoc FOR uml::Element»
-	«FOREACH this.ownedComment.body AS s-»
-«s.toString().saveLatexString()-»
-	«ENDFOREACH»
+	«IF this.ownedComment.body.size == 0-»
+TODO: This model element is missing its documentation. Please fix the source model!
+	«ELSE»	
+		«FOREACH this.ownedComment.body AS s-»
+	«s.toString().saveLatexString()-»
+		«ENDFOREACH»
+	«ENDIF»
 «ENDDEFINE»
 
 

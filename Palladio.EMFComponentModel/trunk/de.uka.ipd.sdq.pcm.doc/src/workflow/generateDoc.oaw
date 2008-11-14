@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?> 
+<?xml version="1.0" encoding="UTF-8"?> 
 <workflow> 
 
 	<bean class="oaw.uml2.Setup" standardUML2Setup="true"/> 
@@ -18,17 +18,29 @@
 		<outputSlot value="model3"/> 
 	</component>
 
+	<component class="oaw.emf.XmiReader"> 
+		<modelFile value="model/ProbabilityFunction.uml"/> 
+		<outputSlot value="model4"/> 
+	</component>	
+
+	<component class="oaw.emf.XmiReader"> 
+		<modelFile value="model/Units.uml"/> 
+		<outputSlot value="model5"/> 
+	</component>	
+
 	<component id="dirCleaner" 
 		class="oaw.workflow.common.DirectoryCleaner" 
 		directories="src-gen"/>
 
 	<component id="generator" class="oaw.xpand2.Generator" 
 		skipOnErrors="true"> 
+		<fileEncoding value="ISO-8859-1"/>
+		
 		<metaModel class="oaw.type.emf.EmfMetaModel"> 
 			<metaModelPackage  value="org.eclipse.emf.ecore.EcorePackage"/> 
 		</metaModel> 
 		<metaModel class="oaw.uml2.UML2MetaModel"/> 
-		<expand value="template::Root::Root FOR {model1,model2,model3}"/> 
+		<expand value="template::Root::Root FOR {model1,model2,model3,model4,model5}"/> 
 		<outlet path="src-gen/" append="true" /> 
 		<outlet name='MAN' path='src-man/' overwrite='false'/>
 	</component>

@@ -11,7 +11,10 @@ String fullIndex(NamedElement e) :
 	if e.eContainer != null then ((NamedElement)e.eContainer).fullName() + "!" + e.name.toString() else e.name;
  
  String saveLatexString(String s) :
-    s.replaceAll("\\_","\\\\_").replaceAll("\\&","\\\\&").replaceAll("\\#","\\\\#");
+    if (s == null || s.trim() == "") then
+    	"TODO: This model element is missing its documentation. Please fix the source model!"
+    else
+    	s.replaceAll("\\_","\\\\_").replaceAll("\\&","\\\\&").replaceAll("\\#","\\\\#");
     
 String toString(uml::String s) :
 	s;
