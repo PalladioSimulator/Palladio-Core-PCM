@@ -67,7 +67,7 @@ public class MarkovTest05ORC {
 	/**
 	 * The PLOTPATH variable stores the name of the resulting R plot file.
 	 */
-	private static final String PLOTPATH = PATH + "Script\\plot.eps";
+	private static final String PLOTPATH = PATH + "Script\\plot.pdf";
 
 	/**
 	 * The RPATH variable stores the name of the R executable file.
@@ -77,12 +77,12 @@ public class MarkovTest05ORC {
 	/**
 	 * The lower bound of tested failure probabilities.
 	 */
-	private static final double FAILPROBLOWERBOUND = 0.000001;
+	private static final double FAILPROBLOWERBOUND = 0.0;
 
 	/**
 	 * The upper bound of tested failure probabilities.
 	 */
-	private static final double FAILPROBUPPERBOUND = 0.000003;
+	private static final double FAILPROBUPPERBOUND = 0.000002;
 
 	/**
 	 * The increment between two tested failure probabilities.
@@ -97,12 +97,12 @@ public class MarkovTest05ORC {
 	/**
 	 * The upper bound of tested item counts.
 	 */
-	private static final int ITEMCOUNTUPPERBOUND = 200;
+	private static final int ITEMCOUNTUPPERBOUND = 20;
 
 	/**
 	 * The increment between two tested item counts.
 	 */
-	private static final int ITEMCOUNTSTEP = 50;
+	private static final int ITEMCOUNTSTEP = 5;
 
 	/**
 	 * Sets up the test configuration.
@@ -214,8 +214,8 @@ public class MarkovTest05ORC {
 	 *            failure probability of Internal Action AccessData
 	 * @return resulting failure probability of bookSale call
 	 */
-	private double performAnalysis(final Integer itemCount,
-			final Double failureProbability) {
+	private double performAnalysis(final int itemCount,
+			final double failureProbability) {
 
 		// We need a MarkovTestHelper to perform an EMF model query:
 		MarkovTestHelper helper = new MarkovTestHelper();
@@ -224,10 +224,13 @@ public class MarkovTest05ORC {
 		PCMInstance temporaryModel = new PCMInstance(temporaryProps);
 
 		// Adjust the temporary PCM instance by changing the failure
-		// probability of the InternalAction "AccessData":
+		// probabilities of the InternalActions "AccessData" and "QueryData":
 		InternalAction action = (InternalAction) helper.getModelElement(
 				temporaryModel.getRepository(), "_BqnUYKapEd2aT7ee5CpgQg");
-		action.setFailureProbability(failureProbability.toString());
+		action.setFailureProbability(((Double) failureProbability).toString());
+		action = (InternalAction) helper.getModelElement(temporaryModel
+				.getRepository(), "_QyQB4KapEd2aT7ee5CpgQg");
+		action.setFailureProbability(((Double) failureProbability).toString());
 
 		// Further adjust the PCM instance by changing the number of
 		// items input into the bookSale() call:
@@ -238,7 +241,7 @@ public class MarkovTest05ORC {
 		call.getInputParameterUsages_EntryLevelSystemCall().get(0)
 				.getVariableCharacterisation_VariableUsage().get(0)
 				.getSpecification_VariableCharacterisation().setSpecification(
-						itemCount.toString());
+						((Integer) itemCount).toString());
 
 		// It is necessary to store the changes back to the model files
 		// because EMF model element proxies won't be resolved to
@@ -340,45 +343,71 @@ public class MarkovTest05ORC {
 			out.newLine();
 		}
 
-		// Generate an EPS file for the plot:
-		out.write("postscript(\"" + PLOTPATH.replace("\\", "\\\\")
-				+ "\", height = 5, width = 4, pointsize = 10)");
+		// Generate an EPS file for the plot.
+		// - height, width: size of the plot
+		// - pointsize: font size of all text in plot
+		// - mar: size of the margin around the 4 sides of the plot
+		// - bg: sets the background color to white --> assures that
+		// legend is not painted with transparent background
+		out.write("pdf(\"" + PLOTPATH.replace("\\", "\\\\")
+				+ "\", height = 3, width = 6, pointsize = 10);");
+		out.write("par(mar=c(5, 10, 1, 10), bg = \"white\")");
 		out.newLine();
 
 		// Start the new diagram plot:
 		out.write("plot.new()");
 		out.newLine();
 
-		// Set the dimensions of the plot so that all x and y values are shown:
+		// Set the ranges of the x and y axis in the plot:
 		out.write("plot.window(xlim = c(" + xValues.get(0) + ","
-				+ xValues.get(xValues.size() - 1) + "), ylim = c(0.999,1))");
+				+ xValues.get(xValues.size() - 1) + "), ylim = c(0.99995,1))");
 		out.newLine();
 
 		// Plot all functions of the y values series:
+		int[] pointtypes = new int[] { 4, 0, 1 };
 		for (int i = 0; i < yValuesSeries.size(); i++) {
-			out.write("lines(x,y" + i + ", lty = " + (i + 1) + ")");
+			out.write("lines(x,y" + i + ");");
+			out.write("points(x,y" + i + ", pch = " + pointtypes[i] + ")");
 			out.newLine();
 		}
 
-		// Plot the axes and a box around all:
-		out.write("axis(1); axis(2); box()");
+		// Plot a target line of 99.999% reliability:
+		out.write("abline(h = 0.99999, lty = 2);");
+
+		// Plot helper lines:
+		out.write("abline(h = 0.99995, lty = 3);");
+		out.write("abline(h = 0.99996, lty = 3);");
+		out.write("abline(h = 0.99997, lty = 3);");
+		out.write("abline(h = 0.99998, lty = 3);");
+		out.write("abline(h = 1, lty = 3);");
+		out.write("abline(v = 0, lty = 3);");
+		out.write("abline(v = 5, lty = 3);");
+		out.write("abline(v = 10, lty = 3);");
+		out.write("abline(v = 15, lty = 3);");
+		out.write("abline(v = 20, lty = 3)");
+		out.newLine();
+
+		// Plot the axes and a box around all.
+		// - side: which axis (bottom / left / top / right)
+		// - las: label orientation (1 - horizontal)
+		out.write("axis(side = 1, las = 1); axis(side = 2, las = 1); box()");
 		out.newLine();
 
 		// Add text to the axes:
 		out.write("mtext(\"number of items\", side = 1, line = 3);");
-		out
-				.write("mtext(\"reliability of bookSale() service\", side = 2, line = 3)");
+		out.write("mtext(\"reliability\", side = 2, line = 6)");
 		out.newLine();
 
 		// Add a legend:
-		String strLegend = "legend(x = 0, y = 0.9992, legend = c(";
+		String strLegend = "legend(x = 0, y = 0.99997, legend = c(";
 		for (int i = 0; i < legendValues.size(); i++) {
 			strLegend += "\"fp = " + legendValues.get(i) + "\"";
 			if (i < legendValues.size() - 1) {
 				strLegend += ",";
 			}
 		}
-		strLegend += "), lty = c(1,2, 3));";
+		strLegend += "), lty = c(1,1,1), pch = c(" + pointtypes[0] + ","
+				+ pointtypes[1] + "," + pointtypes[2] + "));";
 		out.write(strLegend);
 		out.newLine();
 
