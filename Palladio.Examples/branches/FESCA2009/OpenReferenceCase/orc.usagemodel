@@ -7,7 +7,7 @@
     <scenarioBehaviour_UsageScenario id="_oCoMsXk5Ed2DBfjHDxUcwg" entityName="UsageScenarioBehaviour">
       <actions_ScenarioBehaviour xsi:type="Start" id="_oCoMsnk5Ed2DBfjHDxUcwg" entityName="UsageStart" successor="_x0OCkHk5Ed2DBfjHDxUcwg"/>
       <actions_ScenarioBehaviour xsi:type="Stop" id="_oCoMs3k5Ed2DBfjHDxUcwg" entityName="UsageStop" predecessor="_x0OCkHk5Ed2DBfjHDxUcwg"/>
-      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_x0OCkHk5Ed2DBfjHDxUcwg" entityName="UsageScenarioCall" successor="_oCoMs3k5Ed2DBfjHDxUcwg" predecessor="_oCoMsnk5Ed2DBfjHDxUcwg">
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_x0OCkHk5Ed2DBfjHDxUcwg" entityName="UsageScenarioBookSaleCall" successor="_oCoMs3k5Ed2DBfjHDxUcwg" predecessor="_oCoMsnk5Ed2DBfjHDxUcwg">
         <inputParameterUsages_EntryLevelSystemCall>
           <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
             <specification_VariableCharacterisation specification="IntPMF[ (1;0.3) (8;0.1) (15;0.15) (25;0.15) (50;0.2) (75;0.1) ]"/>
