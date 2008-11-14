@@ -1,12 +1,9 @@
 package de.uka.ipd.sdq.dsexplore.launch;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
@@ -14,28 +11,19 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.progress.UIJob;
 
-import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.PCMInstance;
-import de.uka.ipd.sdq.dsexplore.algorithms.FullSearchAlgorithm;
 import de.uka.ipd.sdq.dsexplore.algorithms.HillClimbingAlgorithm;
 import de.uka.ipd.sdq.dsexplore.algorithms.IAlgorithm;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisProxy;
-import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
+import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.DSEMessageBox;
 import de.uka.ipd.sdq.dsexplore.helper.DummyAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.LoggerHelper;
-import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
-import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
  * Launches multiple simulation runs. 
@@ -106,8 +94,8 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    
 		    //analyse the initial PCMInstance
 		    //IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
-		    //IAnalysisResult result = analysisTool.analyse(pcmInstance);
-		    IAnalysisResult result = new DummyAnalysisResult(pcmInstance);
+		    IAnalysisResult result = analysisTool.analyse(pcmInstance);
+		    //IAnalysisResult result = new DummyAnalysisResult(pcmInstance);
 		    logger.info("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
 		    List<IAnalysisResult> currentPopulation = new ArrayList<IAnalysisResult>();
 		    allCandidates = new ArrayList<IAnalysisResult>();
