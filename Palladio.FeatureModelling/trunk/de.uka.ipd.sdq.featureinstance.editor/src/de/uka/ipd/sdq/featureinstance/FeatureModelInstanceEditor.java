@@ -1,10 +1,16 @@
 package de.uka.ipd.sdq.featureinstance;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -22,8 +28,15 @@ import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.graphics.Image;
@@ -36,6 +49,8 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.dialogs.SaveAsDialog;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
@@ -52,7 +67,11 @@ import de.uka.ipd.sdq.featuremodel.Node;
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
-public class FeatureModelInstanceEditor extends MultiPageEditorPart {
+public class FeatureModelInstanceEditor extends MultiPageEditorPart implements ISelectionProvider {
+	
+	protected ISelectionChangedListener selectionChangedListener;
+	
+	protected ISelection editorSelection = StructuredSelection.EMPTY;
 	
 	protected AdapterFactoryEditingDomain editingDomain;
 
@@ -71,6 +90,30 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 	
 	protected FeatureConfig defaultConfig;
 	protected FeatureConfig overridesConfig;
+	
+	
+	@Override
+	public void addSelectionChangedListener(ISelectionChangedListener listener) {
+		selectionChangedListener = listener;
+	}
+
+	@Override
+	public ISelection getSelection() {
+		return editorSelection;
+	}
+
+	@Override
+	public void removeSelectionChangedListener(
+			ISelectionChangedListener listener) {
+		selectionChangedListener = null;
+		
+	}
+
+	@Override
+	public void setSelection(ISelection selection) {
+		editorSelection = selection;
+		selectionChangedListener.selectionChanged(new SelectionChangedEvent(this, selection));	
+	}
 	
 	@Override
 	protected void firePropertyChange(int action) {
@@ -100,35 +143,59 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 	@Override
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
 		if (!(input instanceof IFileEditorInput)) {
-            throw new PartInitException("Invalid");
+            throw new PartInitException("Invalid input");
 		}
         super.init(site, input);
+	}
+	
+	protected void createResource() {
+		
+		URI resourceURI = EditUIUtil.getURI(getEditorInput());
+
+		//Try to load the resource through the editing domain.
+		resource = null;
+		try {
+			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+		}
+		catch (Exception e) {
+			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+			if (resource == null) {
+				throw new NullPointerException("No Resource found!");
+			}
+		}
+
+	}
+	
+	protected Resource getResource() {
+		return resource;
 	}
 	
 	@Override
 	protected void createPages() {
 		
-		URI resourceURI = EditUIUtil.getURI(getEditorInput());
-		resource = null;
-		try {
-			// Load the resource through the editing domain.
-			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-		}
-		catch (Exception e) {
-			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
-		}
+		createResource();
+		
+		String fileName = resource.getURI().trimFileExtension().lastSegment();
 
 		FeatureDiagram newDiagram = null;
-		Object newResource = null;
+		EObject newResource = null;
 
-		//TODO Returns empty List for *.featureconfig
+		//Get first Resource in returned Resources
 		EList<EObject> tempList = resource.getContents();
 		Iterator<EObject> tempIterator = tempList.iterator();
 		if (tempIterator.hasNext()) {
 			newResource = tempIterator.next();
 		}
 		
+		//Cases of possibly loaded content
 		if (newResource instanceof FeatureDiagram) {
+			// There's no config, so a Wizard is opened to generate a new one
+			ResourceWizard myWiz = new ResourceWizard(newResource, fileName, resource);
+			myWiz.init(getEditorSite().getWorkbenchWindow().getWorkbench(), (IStructuredSelection)getSelection());
+			WizardDialog dialog = new WizardDialog(null, myWiz);
+			dialog.create();
+			dialog.open();
+			
 			//TODO create new Configuration
 			newDiagram = (FeatureDiagram) newResource;
 		}
@@ -157,6 +224,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 					}
 					newDiagram = (FeatureDiagram)current;
 				}
+			}
+			else if (overridesConfig == null) {
+				//Wizard: load other config or duplicate file and generate new overrides
 			}
 			else {
 				Iterator<ConfigNode> tempIter = defaultConfig.getConfignode().iterator();
@@ -458,7 +528,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 					//
 					boolean first = true;
 					for (Resource resource : editingDomain.getResourceSet().getResources()) {
-						if ((first || !resource.getContents().isEmpty()) && !editingDomain.isReadOnly(resource)) {
+						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
 							try {
 								resource.save(saveOptions);
 							}
@@ -484,10 +554,55 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart {
 		catch (Exception exception) {
 		}
 	}
+	
+	/**
+	 * This returns whether something has been persisted to the URI of the specified resource.
+	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream. 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected boolean isPersisted(Resource resource) {
+		boolean result = false;
+		try {
+			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
+			if (stream != null) {
+				result = true;
+				stream.close();
+			}
+		}
+		catch (IOException e) {
+			// Ignore
+		}
+		return result;
+	}
 
 	@Override
 	public void doSaveAs() {
+		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
+		saveAsDialog.open();
+		IPath path = saveAsDialog.getResult();
+		if (path != null) {
+			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
+			if (file != null) {
+				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
+			}
+		}
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void doSaveAs(URI uri, IEditorInput editorInput) {
+		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
+		setInputWithNotify(editorInput);
+		setPartName(editorInput.getName());
+		IProgressMonitor progressMonitor = new NullProgressMonitor();
+		doSave(progressMonitor);
+	}
+
 
 	@Override
 	public boolean isSaveAsAllowed() {
@@ -598,5 +713,3 @@ class TreeContentProvider implements ITreeContentProvider {
 	}
 	
 }
-
-
