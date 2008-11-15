@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_OQjf0I4AEd2gLOE4VNvlmQ" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_ORcQoI4AEd2gLOE4VNvlmQ" type="2001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ORcQoY4AEd2gLOE4VNvlmQ" fontName="Segoe UI"/>
+    <element xmi:type="StartAction" href="simple.repository#_pt7QYo3_Ed2gLOE4VNvlmQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ORcQoo4AEd2gLOE4VNvlmQ" x="156" y="12"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_ORcQo44AEd2gLOE4VNvlmQ" type="2002">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ORcQpI4AEd2gLOE4VNvlmQ" fontName="Segoe UI"/>
+    <element xmi:type="StopAction" href="simple.repository#_pt7QY43_Ed2gLOE4VNvlmQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ORcQpY4AEd2gLOE4VNvlmQ" x="144" y="252"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_SrO7YY4AEd2gLOE4VNvlmQ" type="2006">
+    <children xmi:type="notation:Node" xmi:id="_SrO7ZI4AEd2gLOE4VNvlmQ" type="5012"/>
+    <children xmi:type="notation:Node" xmi:id="_SrO7ZY4AEd2gLOE4VNvlmQ" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_Wgt_MI4AEd2gLOE4VNvlmQ" type="3008">
+        <element xmi:type="ParametricResourceDemand" href="simple.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Wgt_MY4AEd2gLOE4VNvlmQ"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_SrO7Zo4AEd2gLOE4VNvlmQ"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_SrO7Z44AEd2gLOE4VNvlmQ" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_SrO7aI4AEd2gLOE4VNvlmQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_SrO7aY4AEd2gLOE4VNvlmQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_SrO7Yo4AEd2gLOE4VNvlmQ" fontName="Segoe UI"/>
+    <element xmi:type="InternalAction" href="simple.repository#_SrO7YI4AEd2gLOE4VNvlmQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SrO7Y44AEd2gLOE4VNvlmQ" x="24" y="68" width="289" height="145"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_OQjf0Y4AEd2gLOE4VNvlmQ"/>
+  <element xmi:type="ResourceDemandingSEFF" href="simple.repository#_pt7QYY3_Ed2gLOE4VNvlmQ"/>
+  <edges xmi:type="notation:Edge" xmi:id="_ORcQpo4AEd2gLOE4VNvlmQ" type="4001" source="_ORcQoI4AEd2gLOE4VNvlmQ" target="_SrO7YY4AEd2gLOE4VNvlmQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_ORcQp44AEd2gLOE4VNvlmQ" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ORcQqI4AEd2gLOE4VNvlmQ" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ORcQqY4AEd2gLOE4VNvlmQ" points="[-1, 10, -16, -55]$[-1, 58, -16, -7]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZDCK8I4AEd2gLOE4VNvlmQ" id="(0.5432526,0.048275862)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Zyyz8I4AEd2gLOE4VNvlmQ" type="4001" source="_SrO7YY4AEd2gLOE4VNvlmQ" target="_ORcQo44AEd2gLOE4VNvlmQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Zyyz8Y4AEd2gLOE4VNvlmQ" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Zyyz8o4AEd2gLOE4VNvlmQ" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Zyyz844AEd2gLOE4VNvlmQ" points="[-11, 122, -1, -67]$[-11, 185, -1, -4]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Zy794I4AEd2gLOE4VNvlmQ" id="(0.5051903,0.15862069)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Zy794Y4AEd2gLOE4VNvlmQ" id="(0.53333336,0.13333334)"/>
+  </edges>
+</notation:Diagram>

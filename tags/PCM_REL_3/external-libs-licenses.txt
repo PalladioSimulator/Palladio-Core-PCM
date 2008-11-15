@@ -1,0 +1,10 @@
+antlr		BSD (ok)
+hibernate	LGPL (ok)
+SSJ		Free non-com (ok)
+DESMO-J		Apache (ok)
+JFreeChart	LGPL (ok)
+Flanagan	Free non-com (ok)
+DB4O		GPL (critical, unclear as source is free for PCM tools as well)
+Eclipse 	EPL
+Plugins		EPL
+

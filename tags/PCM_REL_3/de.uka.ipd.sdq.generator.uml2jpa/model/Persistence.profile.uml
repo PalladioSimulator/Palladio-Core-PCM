@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_XjNpuJ00EdykjcGLOLlIsA" name="Persistence" metamodelReference="_XjNp0p00EdykjcGLOLlIsA">
+  <eAnnotations xmi:id="_XjNpuZ00EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_XjNpup00EdykjcGLOLlIsA" name="Persistence" nsURI="http:///schemas/Persistence/_8nJzEJvyEdy5Gen1veJSeg/2" nsPrefix="Persistence">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_XjNpu500EdykjcGLOLlIsA" name="Key">
+        <eAnnotations xmi:id="_XjNpvJ00EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XjNp0500EdykjcGLOLlIsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_XjNpvZ00EdykjcGLOLlIsA" name="base_Property" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_XjNpvp00EdykjcGLOLlIsA" name="Findable">
+        <eAnnotations xmi:id="_XjNpv500EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XjNp1500EdykjcGLOLlIsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_XjNpwJ00EdykjcGLOLlIsA" name="base_Property" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_XjNpwZ00EdykjcGLOLlIsA" name="Entity">
+        <eAnnotations xmi:id="_XjNpwp00EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XjNp2500EdykjcGLOLlIsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_XjNpw500EdykjcGLOLlIsA" name="base_Classifier" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Classifier"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_XjNpxJ00EdykjcGLOLlIsA" name="Large">
+        <eAnnotations xmi:id="_XjNpxZ00EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XjNp3500EdykjcGLOLlIsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_XjNpxp00EdykjcGLOLlIsA" name="base_Property" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_XjNpx500EdykjcGLOLlIsA" name="Persistence" nsURI="http:///schemas/Persistence/_3mri0JvyEdy5Gen1veJSeg/1" nsPrefix="Persistence">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_XjNpyJ00EdykjcGLOLlIsA" name="Key">
+        <eAnnotations xmi:id="_XjNpyZ00EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XjNp0500EdykjcGLOLlIsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_XjNpyp00EdykjcGLOLlIsA" name="base_Property" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_XjNpy500EdykjcGLOLlIsA" name="Findable">
+        <eAnnotations xmi:id="_XjNpzJ00EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XjNp1500EdykjcGLOLlIsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_XjNpzZ00EdykjcGLOLlIsA" name="base_Property" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_XjNpzp00EdykjcGLOLlIsA" name="Entity">
+        <eAnnotations xmi:id="_XjNpz500EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_XjNp2500EdykjcGLOLlIsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_XjNp0J00EdykjcGLOLlIsA" name="base_Classifier" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Classifier"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <packageImport xmi:id="_XjNp0Z00EdykjcGLOLlIsA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_XjNp0p00EdykjcGLOLlIsA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_XjNp0500EdykjcGLOLlIsA" name="Key">
+    <ownedAttribute xmi:id="_XjNp1J00EdykjcGLOLlIsA" name="base_Property" association="_XjNp1Z00EdykjcGLOLlIsA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_XjNp1Z00EdykjcGLOLlIsA" name="Property_Key" memberEnd="_XjNp1p00EdykjcGLOLlIsA _XjNp1J00EdykjcGLOLlIsA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_XjNp1p00EdykjcGLOLlIsA" name="extension_Key" type="_XjNp0500EdykjcGLOLlIsA" aggregation="composite" association="_XjNp1Z00EdykjcGLOLlIsA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_XjNp1500EdykjcGLOLlIsA" name="Findable">
+    <ownedAttribute xmi:id="_XjNp2J00EdykjcGLOLlIsA" name="base_Property" association="_XjNp2Z00EdykjcGLOLlIsA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_XjNp2Z00EdykjcGLOLlIsA" name="Property_Stereotyp1" memberEnd="_XjNp2p00EdykjcGLOLlIsA _XjNp2J00EdykjcGLOLlIsA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_XjNp2p00EdykjcGLOLlIsA" name="extension_Stereotyp1" type="_XjNp1500EdykjcGLOLlIsA" aggregation="composite" association="_XjNp2Z00EdykjcGLOLlIsA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_XjNp2500EdykjcGLOLlIsA" name="Entity">
+    <ownedAttribute xmi:id="_XjNp3J00EdykjcGLOLlIsA" name="base_Classifier" association="_XjNp3Z00EdykjcGLOLlIsA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Classifier"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_XjNp3Z00EdykjcGLOLlIsA" name="Classifier_Entity" memberEnd="_XjNp3p00EdykjcGLOLlIsA _XjNp3J00EdykjcGLOLlIsA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_XjNp3p00EdykjcGLOLlIsA" name="extension_Entity" type="_XjNp2500EdykjcGLOLlIsA" aggregation="composite" association="_XjNp3Z00EdykjcGLOLlIsA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_XjNp3500EdykjcGLOLlIsA" name="Large">
+    <ownedAttribute xmi:id="_XjNp4J00EdykjcGLOLlIsA" name="base_Property" association="_XjNp4Z00EdykjcGLOLlIsA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_XjNp4Z00EdykjcGLOLlIsA" name="Property_Large" memberEnd="_XjNp4p00EdykjcGLOLlIsA _XjNp4J00EdykjcGLOLlIsA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_XjNp4p00EdykjcGLOLlIsA" name="extension_Large" type="_XjNp3500EdykjcGLOLlIsA" aggregation="composite" association="_XjNp4Z00EdykjcGLOLlIsA"/>
+  </packagedElement>
+  <profileApplication xmi:id="_XjNp4500EdykjcGLOLlIsA">
+    <eAnnotations xmi:id="_XjNp5J00EdykjcGLOLlIsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="ProfileBase.profile.uml#_XjPe_500EdykjcGLOLlIsA"/>
+    </eAnnotations>
+    <appliedProfile href="ProfileBase.profile.uml#_XjPe_Z00EdykjcGLOLlIsA"/>
+  </profileApplication>
+</uml:Profile>
