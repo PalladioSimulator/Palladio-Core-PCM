@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#/ file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#/"
+    outputs="LqnCore.ecore#/" topToBottom="true">
+  <nested inputs="bundleentry://817/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=7"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SciNotation;XSDSimpleTypeDefinition=4"
+      outputs="LqnCore.ecore#//SciNotation"/>
+  <nested inputs="bundleentry://817/cache/www.w3.org/2001/XMLSchema.xsd#//decimal;XSDSimpleTypeDefinition=11"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Decimal"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SrvnFloat;XSDSimpleTypeDefinition=5"
+      outputs="LqnCore.ecore#//SrvnFloat"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=12"
+      outputs="LqnCore.ecore#//ResultConf95Type1/openWaitTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=8"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase1ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=14"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase1ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=18"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase1ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase1Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=9"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase2ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=15"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase2ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=19"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase2ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase2Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=10"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase3ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=16"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase3ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=20"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase3ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
+      outputs="LqnCore.ecore#//ResultConf95Type1/phase3Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=21"
+      outputs="LqnCore.ecore#//ResultConf95Type1/probExceedMaxServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=6"
+      outputs="LqnCore.ecore#//ResultConf95Type1/procUtilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=7"
+      outputs="LqnCore.ecore#//ResultConf95Type1/procWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=13"
+      outputs="LqnCore.ecore#//ResultConf95Type1/serviceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=17"
+      outputs="LqnCore.ecore#//ResultConf95Type1/serviceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=11"
+      outputs="LqnCore.ecore#//ResultConf95Type1/squaredCoeffVariation"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
+      outputs="LqnCore.ecore#//ResultConf95Type1/throughput"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=5"
+      outputs="LqnCore.ecore#//ResultConf95Type1/throughputBound"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse"
+      outputs="LqnCore.ecore#//ResultConf95Type1/utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=22"
+      outputs="LqnCore.ecore#//ResultConf95Type1/waiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=23"
+      outputs="LqnCore.ecore#//ResultConf95Type1/waitingVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultType;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle/result-conf-95;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ResultConf95Type1"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=12"
+      outputs="LqnCore.ecore#//ResultConf99Type1/openWaitTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=8"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase1ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=14"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase1ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=18"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase1ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase1Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=9"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase2ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=15"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase2ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=19"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase2ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase2Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=10"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase3ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=16"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase3ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=20"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase3ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
+      outputs="LqnCore.ecore#//ResultConf99Type1/phase3Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=21"
+      outputs="LqnCore.ecore#//ResultConf99Type1/probExceedMaxServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=6"
+      outputs="LqnCore.ecore#//ResultConf99Type1/procUtilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=7"
+      outputs="LqnCore.ecore#//ResultConf99Type1/procWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=13"
+      outputs="LqnCore.ecore#//ResultConf99Type1/serviceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=17"
+      outputs="LqnCore.ecore#//ResultConf99Type1/serviceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=11"
+      outputs="LqnCore.ecore#//ResultConf99Type1/squaredCoeffVariation"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
+      outputs="LqnCore.ecore#//ResultConf99Type1/throughput"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=5"
+      outputs="LqnCore.ecore#//ResultConf99Type1/throughputBound"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse"
+      outputs="LqnCore.ecore#//ResultConf99Type1/utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=22"
+      outputs="LqnCore.ecore#//ResultConf99Type1/waiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=23"
+      outputs="LqnCore.ecore#//ResultConf99Type1/waitingVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultType;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle=1/result-conf-99;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ResultConf99Type1"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=12"
+      outputs="LqnCore.ecore#//OutputResultType/openWaitTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=8"
+      outputs="LqnCore.ecore#//OutputResultType/phase1ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=14"
+      outputs="LqnCore.ecore#//OutputResultType/phase1ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=18"
+      outputs="LqnCore.ecore#//OutputResultType/phase1ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=2"
+      outputs="LqnCore.ecore#//OutputResultType/phase1Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=9"
+      outputs="LqnCore.ecore#//OutputResultType/phase2ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=15"
+      outputs="LqnCore.ecore#//OutputResultType/phase2ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=19"
+      outputs="LqnCore.ecore#//OutputResultType/phase2ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=3"
+      outputs="LqnCore.ecore#//OutputResultType/phase2Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=10"
+      outputs="LqnCore.ecore#//OutputResultType/phase3ProcWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=16"
+      outputs="LqnCore.ecore#//OutputResultType/phase3ServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=20"
+      outputs="LqnCore.ecore#//OutputResultType/phase3ServiceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=4"
+      outputs="LqnCore.ecore#//OutputResultType/phase3Utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=21"
+      outputs="LqnCore.ecore#//OutputResultType/probExceedMaxServiceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=6"
+      outputs="LqnCore.ecore#//OutputResultType/procUtilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=7"
+      outputs="LqnCore.ecore#//OutputResultType/procWaiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=13"
+      outputs="LqnCore.ecore#//OutputResultType/serviceTime"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=17"
+      outputs="LqnCore.ecore#//OutputResultType/serviceTimeVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=11"
+      outputs="LqnCore.ecore#//OutputResultType/squaredCoeffVariation"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=1"
+      outputs="LqnCore.ecore#//OutputResultType/throughput"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=5"
+      outputs="LqnCore.ecore#//OutputResultType/throughputBound"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse"
+      outputs="LqnCore.ecore#//OutputResultType/utilization"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=22"
+      outputs="LqnCore.ecore#//OutputResultType/waiting"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ResultContentType;XSDAttributeGroupDefinition=2/XSDAttributeUse=23"
+      outputs="LqnCore.ecore#//OutputResultType/waitingVariance"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultType;XSDComplexTypeDefinition=27"
+      outputs="LqnCore.ecore#//OutputResultType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultType;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//OutputResultType/resultConf95"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultType;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//OutputResultType/resultConf99"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//HistogramBinType;XSDComplexTypeDefinition=31"
+      outputs="LqnCore.ecore#//HistogramBinType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//HistogramBinType;XSDComplexTypeDefinition=31/XSDAttributeUse"
+        outputs="LqnCore.ecore#//HistogramBinType/begin"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//HistogramBinType;XSDComplexTypeDefinition=31/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//HistogramBinType/conf95"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//HistogramBinType;XSDComplexTypeDefinition=31/XSDAttributeUse=4"
+        outputs="LqnCore.ecore#//HistogramBinType/conf99"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//HistogramBinType;XSDComplexTypeDefinition=31/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//HistogramBinType/end"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//HistogramBinType;XSDComplexTypeDefinition=31/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//HistogramBinType/prob"/>
+  </nested>
+  <nested inputs="bundleentry://817/cache/www.w3.org/2001/XMLSchema.xsd#//nonNegativeInteger;XSDSimpleTypeDefinition=45"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//AxisType;XSDSimpleTypeDefinition=7"
+      outputs="LqnCore.ecore#//AxisType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//AxisType;XSDSimpleTypeDefinition=7/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//AxisType/linear"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//AxisType;XSDSimpleTypeDefinition=7/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//AxisType/log"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29"
+      outputs="LqnCore.ecore#//OutputDistributionType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//OutputDistributionType/underflowBin"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//OutputDistributionType/histogramBin"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//OutputDistributionType/overflowBin"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//OutputDistributionType/binSize"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=9"
+        outputs="LqnCore.ecore#//OutputDistributionType/kurtosis"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//OutputDistributionType/max"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=6"
+        outputs="LqnCore.ecore#//OutputDistributionType/mean"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//OutputDistributionType/midPoint"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse"
+        outputs="LqnCore.ecore#//OutputDistributionType/min"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=4"
+        outputs="LqnCore.ecore#//OutputDistributionType/numberBins"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=8"
+        outputs="LqnCore.ecore#//OutputDistributionType/skew"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=7"
+        outputs="LqnCore.ecore#//OutputDistributionType/stdDev"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputDistributionType;XSDComplexTypeDefinition=29/XSDAttributeUse=5"
+        outputs="LqnCore.ecore#//OutputDistributionType/xSamples"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputEntryDistributionType;XSDComplexTypeDefinition=30"
+      outputs="LqnCore.ecore#//OutputEntryDistributionType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputEntryDistributionType;XSDComplexTypeDefinition=30/XSDAttributeUse"
+        outputs="LqnCore.ecore#//OutputEntryDistributionType/phase"/>
+  </nested>
+  <nested inputs="bundleentry://817/cache/www.w3.org/2001/XMLSchema.xsd#//int;XSDSimpleTypeDefinition=42"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//MakingCallType;XSDComplexTypeDefinition=24"
+      outputs="LqnCore.ecore#//MakingCallType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//MakingCallType;XSDComplexTypeDefinition=24/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//MakingCallType/resultCall"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//MakingCallType;XSDComplexTypeDefinition=24/XSDAttributeUse"
+        outputs="LqnCore.ecore#//MakingCallType/dest"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//MakingCallType;XSDComplexTypeDefinition=24/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//MakingCallType/fanin"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//MakingCallType;XSDComplexTypeDefinition=24/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//MakingCallType/fanout"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryMakingCallType;XSDComplexTypeDefinition=26"
+      outputs="LqnCore.ecore#//EntryMakingCallType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryMakingCallType;XSDComplexTypeDefinition=26/XSDAttributeUse"
+        outputs="LqnCore.ecore#//EntryMakingCallType/prob"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle/result-conf-95;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ResultConf95Type">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle/result-conf-95;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//ResultConf95Type/joinVariance"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle/result-conf-95;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//ResultConf95Type/joinWaiting"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle/result-conf-95;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ResultConf95Type/waiting"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle=1/result-conf-99;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ResultConf99Type">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle=1/result-conf-99;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//ResultConf99Type/joinVariance"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle=1/result-conf-99;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//ResultConf99Type/joinWaiting"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle=1/result-conf-99;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ResultConf99Type/waiting"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28"
+      outputs="LqnCore.ecore#//OutputResultForwardingANDJoinDelay">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//OutputResultForwardingANDJoinDelay/resultConf95"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//OutputResultForwardingANDJoinDelay/resultConf99"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDAttributeUse"
+        outputs="LqnCore.ecore#//OutputResultForwardingANDJoinDelay/dest"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//OutputResultForwardingANDJoinDelay/joinVariance"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//OutputResultForwardingANDJoinDelay/joinWaiting"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OutputResultForwardingANDJoinDelay;XSDComplexTypeDefinition=28/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//OutputResultForwardingANDJoinDelay/waiting"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallOrderType;XSDSimpleTypeDefinition=3"
+      outputs="LqnCore.ecore#//CallOrderType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallOrderType;XSDSimpleTypeDefinition=3/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//CallOrderType/STOCHASTIC"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallOrderType;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//CallOrderType/DETERMINISTIC"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallOrderType;XSDSimpleTypeDefinition=3/XSDEnumerationFacet=2"
+        outputs="LqnCore.ecore#//CallOrderType/LIST"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7"
+      outputs="LqnCore.ecore#//ActivityDefBase">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//ActivityDefBase/resultJoinDelay"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//ActivityDefBase/resultForwarding"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//ActivityDefBase/serviceTimeDistribution"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="LqnCore.ecore#//ActivityDefBase/resultActivity"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDAttributeUse=5"
+        outputs="LqnCore.ecore#//ActivityDefBase/callOrder"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//ActivityDefBase/hostDemandCvsq"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//ActivityDefBase/hostDemandMean"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDAttributeUse=4"
+        outputs="LqnCore.ecore#//ActivityDefBase/maxServiceTime"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ActivityDefBase/name"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefBase;XSDComplexTypeDefinition=7/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//ActivityDefBase/thinkTime"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallListType;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="LqnCore.ecore#//SynchCallType/dest"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallListType;XSDAttributeGroupDefinition=1/XSDAttributeUse=2"
+      outputs="LqnCore.ecore#//SynchCallType/fanin"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallListType;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="LqnCore.ecore#//SynchCallType/fanout"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Call-List-Group;XSDModelGroupDefinition=2/XSDModelGroup/XSDParticle/call-list;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/synch-call;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//SynchCallType"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallListType;XSDAttributeGroupDefinition=1/XSDAttributeUse"
+      outputs="LqnCore.ecore#//AsynchCallType/dest"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallListType;XSDAttributeGroupDefinition=1/XSDAttributeUse=2"
+      outputs="LqnCore.ecore#//AsynchCallType/fanin"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//CallListType;XSDAttributeGroupDefinition=1/XSDAttributeUse=1"
+      outputs="LqnCore.ecore#//AsynchCallType/fanout"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Call-List-Group;XSDModelGroupDefinition=2/XSDModelGroup/XSDParticle/call-list;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/asynch-call;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//AsynchCallType"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Call-List-Group;XSDModelGroupDefinition=2/XSDModelGroup/XSDParticle/call-list;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//CallListType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Call-List-Group;XSDModelGroupDefinition=2/XSDModelGroup/XSDParticle/call-list;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//CallListType/synchCall"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Call-List-Group;XSDModelGroupDefinition=2/XSDModelGroup/XSDParticle/call-list;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//CallListType/asynchCall"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Call-List-Group;XSDModelGroupDefinition=2/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//ActivityDefType/callList"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//ActivityDefType/group"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityMakingCallType;XSDComplexTypeDefinition=25"
+      outputs="LqnCore.ecore#//ActivityMakingCallType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityMakingCallType;XSDComplexTypeDefinition=25/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ActivityMakingCallType/callsMean"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//ActivityDefType/synchCall"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=1"
+      outputs="LqnCore.ecore#//ActivityDefType/asynchCall"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefType;XSDComplexTypeDefinition=8"
+      outputs="LqnCore.ecore#//ActivityDefType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityDefType;XSDComplexTypeDefinition=8/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ActivityDefType/boundToEntry"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityType;XSDComplexTypeDefinition=12"
+      outputs="LqnCore.ecore#//ActivityType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityType;XSDComplexTypeDefinition=12/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ActivityType/name"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SingleActivityListType;XSDComplexTypeDefinition=15"
+      outputs="LqnCore.ecore#//SingleActivityListType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SingleActivityListType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//SingleActivityListType/activity"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityListType;XSDComplexTypeDefinition=17"
+      outputs="LqnCore.ecore#//ActivityListType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityListType;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//ActivityListType/activity"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//AndJoinListType;XSDComplexTypeDefinition=18"
+      outputs="LqnCore.ecore#//AndJoinListType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//AndJoinListType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//AndJoinListType/activity"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//AndJoinListType;XSDComplexTypeDefinition=18/XSDAttributeUse"
+        outputs="LqnCore.ecore#//AndJoinListType/quorum"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityOrType;XSDComplexTypeDefinition=14"
+      outputs="LqnCore.ecore#//ActivityOrType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityOrType;XSDComplexTypeDefinition=14/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ActivityOrType/prob"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OrListType;XSDComplexTypeDefinition=16"
+      outputs="LqnCore.ecore#//OrListType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//OrListType;XSDComplexTypeDefinition=16/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//OrListType/activity"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityLoopType;XSDComplexTypeDefinition=13"
+      outputs="LqnCore.ecore#//ActivityLoopType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityLoopType;XSDComplexTypeDefinition=13/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ActivityLoopType/count"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityLoopListType;XSDComplexTypeDefinition=19"
+      outputs="LqnCore.ecore#//ActivityLoopListType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityLoopListType;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//ActivityLoopListType/activity"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityLoopListType;XSDComplexTypeDefinition=19/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ActivityLoopListType/end"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PrecedenceType;XSDComplexTypeDefinition=11"
+      outputs="LqnCore.ecore#//PrecedenceType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PrecedenceType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//PrecedenceType/pre"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PrecedenceType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//PrecedenceType/preOR"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PrecedenceType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//PrecedenceType/preAND"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PrecedenceType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//PrecedenceType/post"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PrecedenceType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//PrecedenceType/postOR"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PrecedenceType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//PrecedenceType/postAND"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PrecedenceType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle=3"
+        outputs="LqnCore.ecore#//PrecedenceType/postLOOP"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityGraphBase;XSDComplexTypeDefinition=6"
+      outputs="LqnCore.ecore#//ActivityGraphBase">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityGraphBase;XSDComplexTypeDefinition=6/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//ActivityGraphBase/activity"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityGraphBase;XSDComplexTypeDefinition=6/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//ActivityGraphBase/precedence"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ReplyActivity;XSDModelGroupDefinition/XSDModelGroup/XSDParticle/reply-activity;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ReplyActivityType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ReplyActivity;XSDModelGroupDefinition/XSDModelGroup/XSDParticle/reply-activity;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ReplyActivityType/name"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ReplyActivity;XSDModelGroupDefinition/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//EntryActivityGraph/replyActivity"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryActivityGraph;XSDComplexTypeDefinition=21"
+      outputs="LqnCore.ecore#//EntryActivityGraph"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Call-List-Group;XSDModelGroupDefinition=2/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//ActivityPhasesType/callList"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//ActivityPhasesType/group"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//ActivityPhasesType/synchCall"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=1"
+      outputs="LqnCore.ecore#//ActivityPhasesType/asynchCall"/>
+  <nested inputs="bundleentry://817/cache/www.w3.org/2001/XMLSchema.xsd#//positiveInteger;XSDSimpleTypeDefinition=50"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//PositiveInteger"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityPhasesType;XSDComplexTypeDefinition=10/XSDAttributeUse/phase;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="LqnCore.ecore#//PhaseType"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityPhasesType;XSDComplexTypeDefinition=10"
+      outputs="LqnCore.ecore#//ActivityPhasesType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ActivityPhasesType;XSDComplexTypeDefinition=10/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ActivityPhasesType/phase"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PhaseActivities;XSDComplexTypeDefinition=22"
+      outputs="LqnCore.ecore#//PhaseActivities">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//PhaseActivities;XSDComplexTypeDefinition=22/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//PhaseActivities/activity"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SemaphoreType;XSDSimpleTypeDefinition=6"
+      outputs="LqnCore.ecore#//SemaphoreType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SemaphoreType;XSDSimpleTypeDefinition=6/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//SemaphoreType/signal"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SemaphoreType;XSDSimpleTypeDefinition=6/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//SemaphoreType/wait"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse/type;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="LqnCore.ecore#//TypeType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse/type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//TypeType/PH1PH2"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse/type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//TypeType/GRAPH"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse/type;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="LqnCore.ecore#//TypeType/NONE"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5"
+      outputs="LqnCore.ecore#//EntryType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//EntryType/resultEntry"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//EntryType/serviceTimeDistribution"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//EntryType/forwarding"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//EntryType/entryActivityGraph"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//EntryType/entryPhaseActivities"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//EntryType/name"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//EntryType/openArrivalRate"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//EntryType/priority"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse=4"
+        outputs="LqnCore.ecore#//EntryType/semaphore"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryType;XSDComplexTypeDefinition=5/XSDAttributeUse"
+        outputs="LqnCore.ecore#//EntryType/type"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ServiceType;XSDComplexTypeDefinition=23"
+      outputs="LqnCore.ecore#//ServiceType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ServiceType;XSDComplexTypeDefinition=23/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ServiceType/name"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ReplyActivity;XSDModelGroupDefinition/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//ReplyEntryType/replyActivity"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskActivityGraph;XSDComplexTypeDefinition=20/XSDParticle/XSDModelGroup/XSDParticle/reply-entry;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ReplyEntryType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskActivityGraph;XSDComplexTypeDefinition=20/XSDParticle/XSDModelGroup/XSDParticle/reply-entry;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ReplyEntryType/name"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskActivityGraph;XSDComplexTypeDefinition=20"
+      outputs="LqnCore.ecore#//TaskActivityGraph">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskActivityGraph;XSDComplexTypeDefinition=20/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//TaskActivityGraph/replyEntry"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskOptionType;XSDSimpleTypeDefinition=2"
+      outputs="LqnCore.ecore#//TaskOptionType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskOptionType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//TaskOptionType/YES"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskOptionType;XSDSimpleTypeDefinition=2/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//TaskOptionType/NO"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1"
+      outputs="LqnCore.ecore#//TaskSchedulingType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//TaskSchedulingType/ref"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//TaskSchedulingType/fcfs"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=2"
+        outputs="LqnCore.ecore#//TaskSchedulingType/pri"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=3"
+        outputs="LqnCore.ecore#//TaskSchedulingType/hol"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=4"
+        outputs="LqnCore.ecore#//TaskSchedulingType/burst"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=5"
+        outputs="LqnCore.ecore#//TaskSchedulingType/poll"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=6"
+        outputs="LqnCore.ecore#//TaskSchedulingType/inf"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskSchedulingType;XSDSimpleTypeDefinition=1/XSDEnumerationFacet=7"
+        outputs="LqnCore.ecore#//TaskSchedulingType/semaphore"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4"
+      outputs="LqnCore.ecore#//TaskType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//TaskType/resultTask"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//TaskType/entry"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//TaskType/service"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="LqnCore.ecore#//TaskType/taskActivities"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDAttributeUse=7"
+        outputs="LqnCore.ecore#//TaskType/activityGraph"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//TaskType/multiplicity"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDAttributeUse"
+        outputs="LqnCore.ecore#//TaskType/name"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDAttributeUse=5"
+        outputs="LqnCore.ecore#//TaskType/priority"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDAttributeUse=6"
+        outputs="LqnCore.ecore#//TaskType/queueLength"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//TaskType/replication"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//TaskType/scheduling"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//TaskType;XSDComplexTypeDefinition=4/XSDAttributeUse=4"
+        outputs="LqnCore.ecore#//TaskType/thinkTime"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SchedulingType;XSDSimpleTypeDefinition"
+      outputs="LqnCore.ecore#//SchedulingType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SchedulingType;XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//SchedulingType/fcfs"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SchedulingType;XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//SchedulingType/ps"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SchedulingType;XSDSimpleTypeDefinition/XSDEnumerationFacet=2"
+        outputs="LqnCore.ecore#//SchedulingType/pp"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SchedulingType;XSDSimpleTypeDefinition/XSDEnumerationFacet=3"
+        outputs="LqnCore.ecore#//SchedulingType/rand"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SchedulingType;XSDSimpleTypeDefinition/XSDEnumerationFacet=4"
+        outputs="LqnCore.ecore#//SchedulingType/hol"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SchedulingType;XSDSimpleTypeDefinition/XSDEnumerationFacet=5"
+        outputs="LqnCore.ecore#//SchedulingType/psHol"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SchedulingType;XSDSimpleTypeDefinition/XSDEnumerationFacet=6"
+        outputs="LqnCore.ecore#//SchedulingType/psPp"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3"
+      outputs="LqnCore.ecore#//ProcessorType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//ProcessorType/resultProcessor"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//ProcessorType/task"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ProcessorType/multiplicity"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3/XSDAttributeUse=5"
+        outputs="LqnCore.ecore#//ProcessorType/name"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3/XSDAttributeUse=4"
+        outputs="LqnCore.ecore#//ProcessorType/quantum"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//ProcessorType/replication"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//ProcessorType/scheduling"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//ProcessorType;XSDComplexTypeDefinition=3/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//ProcessorType/speedFactor"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/in-port;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/connect-from;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="LqnCore.ecore#//ConnectFromType"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/in-port;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//InPortType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/in-port;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//InPortType/connectFrom"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/in-port;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//InPortType/description"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/in-port;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//InPortType/name"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/out-port;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/connect-to;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="LqnCore.ecore#//ConnectToType"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/out-port;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//OutPortType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/out-port;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//OutPortType/connectTo"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/out-port;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//OutPortType/description"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/out-port;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//OutPortType/name"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//InterfaceType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//InterfaceType/inPort"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle/Interface;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//InterfaceType/outPort"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle/parameter;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ParameterType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle/parameter;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ParameterType/name"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle/parameter;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//ParameterType/value"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1/processor-binding;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ProcessorBindingType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1/processor-binding;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ProcessorBindingType/source"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1/processor-binding;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//ProcessorBindingType/target"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=2/port-binding;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//PortBindingType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=2/port-binding;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//PortBindingType/source"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=2/port-binding;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//PortBindingType/target"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2"
+      outputs="LqnCore.ecore#//BindType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//BindType/parameter"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//BindType/processorBinding"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//BindType;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//BindType/portBinding"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1"
+      outputs="LqnCore.ecore#//SlotType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//SlotType/interface"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//SlotType/binding"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDAttributeUse"
+        outputs="LqnCore.ecore#//SlotType/bindTarget"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//SlotType/id"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//SlotType;XSDComplexTypeDefinition=1/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//SlotType/replicNum"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Lqn-CoreType;XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//LqnCoreType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Lqn-CoreType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//LqnCoreType/processor"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Lqn-CoreType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//LqnCoreType/slot"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//lqn-core;XSDElementDeclaration"
+      outputs="LqnCore.ecore#//DocumentRoot/lqnCore"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/run-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/para;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ParaType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/run-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/para;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//ParaType/startValue"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/run-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/para;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//ParaType/endValue"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/run-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/para;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//ParaType/stepValue"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/run-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/para;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//ParaType/value"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/run-control;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//RunControlType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/run-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//RunControlType/para"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/first-plot;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//FirstPlotType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/first-plot;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//FirstPlotType/variable"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//PlotType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//PlotType/variable"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot-control;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//PlotControlType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//PlotControlType/firstPlot"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/plot-control;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//PlotControlType/plot"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/valid;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="LqnCore.ecore#//ValidType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/valid;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//ValidType/YES"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1/valid;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//ValidType/NO"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//ResultGeneralType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//ResultGeneralType/convVal"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//ResultGeneralType/elapsedTime"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//ResultGeneralType/iterations"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=6"
+        outputs="LqnCore.ecore#//ResultGeneralType/platformInfo"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=7"
+        outputs="LqnCore.ecore#//ResultGeneralType/solverInfo"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="LqnCore.ecore#//ResultGeneralType/systemCpuTime"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=5"
+        outputs="LqnCore.ecore#//ResultGeneralType/userCpuTime"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/result-general;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//ResultGeneralType/valid"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/pragma;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//PragmaType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/pragma;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//PragmaType/param"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/pragma;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//PragmaType/value"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//SolverParamsType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//SolverParamsType/resultGeneral"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//SolverParamsType/pragma"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//SolverParamsType/comment"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//SolverParamsType/convVal"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//SolverParamsType/itLimit"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//SolverParamsType/printInt"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2/solver-params;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=4"
+        outputs="LqnCore.ecore#//SolverParamsType/underrelaxCoeff"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//LQNCoreVersion;XSDAttributeGroupDefinition/XSDAttributeUse"
+      outputs="LqnCore.ecore#//LqnModelType/lqncoreSchemaVersion"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDAttributeUse=3/xml-debug;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="LqnCore.ecore#//XmlDebugType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDAttributeUse=3/xml-debug;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="LqnCore.ecore#//XmlDebugType/true"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDAttributeUse=3/xml-debug;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="LqnCore.ecore#//XmlDebugType/false"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition"
+      outputs="LqnCore.ecore#//LqnModelType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="LqnCore.ecore#//LqnModelType/runControl"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="LqnCore.ecore#//LqnModelType/plotControl"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="LqnCore.ecore#//LqnModelType/solverParams"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="LqnCore.ecore#//LqnModelType/processor"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="LqnCore.ecore#//LqnModelType/slot"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="LqnCore.ecore#//LqnModelType/description"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="LqnCore.ecore#//LqnModelType/lqnSchemaVersion"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="LqnCore.ecore#//LqnModelType/name"/>
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//LqnModelType;XSDComplexTypeDefinition/XSDAttributeUse=3"
+        outputs="LqnCore.ecore#//LqnModelType/xmlDebug"/>
+  </nested>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn.xsd#//lqn-model;XSDElementDeclaration"
+      outputs="LqnCore.ecore#//DocumentRoot/lqnModel"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Call-List-Group;XSDModelGroupDefinition=2/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//EntryActivityDefType/callList"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//EntryActivityDefType/group"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle"
+      outputs="LqnCore.ecore#//EntryActivityDefType/synchCall"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//Activity-CallGroup;XSDModelGroupDefinition=1/XSDModelGroup/XSDParticle/XSDModelGroup/XSDParticle=1"
+      outputs="LqnCore.ecore#//EntryActivityDefType/asynchCall"/>
+  <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryActivityDefType;XSDComplexTypeDefinition=9"
+      outputs="LqnCore.ecore#//EntryActivityDefType">
+    <nested inputs="file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd#//EntryActivityDefType;XSDComplexTypeDefinition=9/XSDAttributeUse"
+        outputs="LqnCore.ecore#//EntryActivityDefType/firstActivity"/>
+  </nested>
+</xsd2ecore:XSD2EcoreMappingRoot>

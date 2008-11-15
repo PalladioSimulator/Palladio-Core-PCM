@@ -1,0 +1,15 @@
+<contexts>
+	<context id="stoexdialog">
+		<description>This is the StoEx Edit Dialog. This dialog is used to edit expressions which have a stochastic nature like loop iterations, parameter values, etc.</description>
+		<topic
+			label="Editing Stochastic Expressions"
+			href="html/samples/stoex.html" />
+		<topic
+			href="html/reference/PCM/node35.html"
+			label="Modelling using Random Variables" />
+		<topic
+			href="html/reference/PCM/node45.html"
+			label="Stochastic Expressions (as taken from the PCM TechReport)" />
+	</context>
+</contexts>
+			

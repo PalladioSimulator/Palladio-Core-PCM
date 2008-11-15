@@ -1,0 +1,1281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm"
+    nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/1.0" nsPrefix="pcm">
+  <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+      <eOperations name="SpecificationMustNotBeNULL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.specification.oclIsUndefined() and self.specification &lt;> ''"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement"/>
+      <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="entityName" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+            defaultValueLiteral="aName"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingEntity" abstract="true"
+          eSuperTypes="#//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles_InterfaceProvidingEntity"
+            ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
+            eOpposite="#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
+          abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity"/>
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceRequiringEntity" abstract="true"
+          eSuperTypes="#//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_InterfaceRequiringEntity"
+            ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"
+            eOpposite="#//repository/RequiredRole/requiringEntity_RequiredRole"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
+          abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity"/>
+    </eSubpackages>
+    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity"/>
+    </eSubpackages>
+    <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0"
+        nsPrefix="">
+      <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
+        <eOperations name="ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector.parentStructure_AssemblyContext"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eOperations name="ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_ChildComponentContext"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="innerProvidedRole_ProvidedDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="outerProvidedRole_ProvidedDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_ProvidedDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_ProvidedDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
+            eOpposite="#//core/composition/ComposedStructure/providedDelegationConnectors_ComposedStructure"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext" eSuperTypes="#//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent_ChildComponentContext"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidesComponentType"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_AssemblyContext"
+            ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
+            eOpposite="#//core/composition/ComposedStructure/childComponentContexts_ComposedStructure"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="configParameterUsages_AssemblyContext"
+            ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="RequiredDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
+        <eOperations name="RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector.parentStructure_AssemblyContext"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eOperations name="ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_ChildComponentContext"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="innerRequiredRole_RequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="outerRequiredRole_RequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_RequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_RequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
+            eOpposite="#//core/composition/ComposedStructure/requiredDelegationConnectors_ComposedStructure"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector #//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiringChildComponentContext_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providingChildComponentContext_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_AssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
+            eOpposite="#//core/composition/ComposedStructure/compositeAssemblyConnectors_ComposedStructure"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true"
+          eSuperTypes="#//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContexts_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyContext"
+            containment="true" eOpposite="#//core/composition/AssemblyContext/parentStructure_AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/ProvidedDelegationConnector"
+            containment="true" eOpposite="#//core/composition/ProvidedDelegationConnector/parentStructure_ProvidedDelegationConnector"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/RequiredDelegationConnector"
+            containment="true" eOpposite="#//core/composition/RequiredDelegationConnector/parentStructure_RequiredDelegationConnector"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="compositeAssemblyConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyConnector"
+            containment="true" eOpposite="#//core/composition/AssemblyConnector/parentStructure_AssemblyConnector"/>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="PassiveResource" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="capacity_PassiveResource"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ParameterModifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Parameter modifiers like known from C#."/>
+      </eAnnotations>
+      <eLiterals name="none">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Use this value if no parameter modifier shall be applied."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="in" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&quot;in&quot; according to C# semantics"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="out" value="2">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&quot;out&quot; according to C# semantics"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="inout" value="3">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="ref&quot; according to C# semantics"/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Signature">
+      <eOperations name="ParameterNamesHaveToBeUniqueForASignature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.parameters__Signature->isUnique(p : Parameter |&#xD;&#xA;&#x9;p.parameterName&#xD;&#xA;)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters__Signature"
+          upperBound="-1" eType="#//repository/Parameter" containment="true" eOpposite="#//repository/Parameter/signature_Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interface_Signature"
+          ordered="false" lowerBound="1" eType="#//repository/Interface" eOpposite="#//repository/Interface/signatures__Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returntype__Signature"
+          ordered="false" eType="#//repository/DataType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions__Signature"
+          ordered="false" upperBound="-1" eType="#//repository/ExceptionType" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="datatype__Parameter"
+          ordered="false" lowerBound="1" eType="#//repository/DataType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier__Parameter"
+          ordered="false" lowerBound="1" eType="#//repository/ParameterModifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature_Parameter"
+          ordered="false" lowerBound="1" eType="#//repository/Signature" eOpposite="#//repository/Signature/parameters__Signature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_DataType"
+          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/datatypes_Repository"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDescription"
+          ordered="false" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="components__Repository"
+          ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"
+          containment="true" eOpposite="#//repository/ProvidesComponentType/repository_ProvidesComponentType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces__Repository"
+          ordered="false" upperBound="-1" eType="#//repository/Interface" containment="true"
+          eOpposite="#//repository/Interface/repository_Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="datatypes_Repository"
+          ordered="false" upperBound="-1" eType="#//repository/DataType" containment="true"
+          eOpposite="#//repository/DataType/repository_DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/Entity #//core/entity/InterfaceProvidingRequiringEntity">
+      <eOperations name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.oclIsTypeOf(ProvidesComponentType)&#xD;&#xA;implies&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->size() >= 1"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_ProvidesComponentType"
+          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/components__Repository"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//repository/Role">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface__RequiredRole"
+          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringEntity_RequiredRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/InterfaceRequiringEntity"
+          eOpposite="#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//core/entity/Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//core/entity/Entity">
+      <eOperations name="NoProtocolTypeIDUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.protocols__Interface->forAll(p1, p2 |&#xD;&#xA;p1.protocolTypeID &lt;> p2.protocolTypeID)&#xD;&#xA;"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="SignaturesHaveToBeUniqueForAnInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__Signature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.serviceName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentInterface__Interface"
+          ordered="false" upperBound="-1" eType="#//repository/Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="anchestorInterfaces_Interface"
+          ordered="false" upperBound="-1" eType="#//repository/Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="protocols__Interface"
+          ordered="false" upperBound="-1" eType="#//protocol/Protocol" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__Interface"
+          ordered="false" upperBound="-1" eType="#//repository/Signature" containment="true"
+          eOpposite="#//repository/Signature/interface_Signature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_Interface"
+          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/interfaces__Repository"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptionName" ordered="false"
+          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptionMessage" ordered="false"
+          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" abstract="true"
+        eSuperTypes="#//repository/CompleteComponentType">
+      <eOperations name="RequiredInterfacesHaveToConformToCompleteType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- ImplementationTypes required Interfaces have to be a subset&#xD;&#xA;-- of CompleteComponentType required Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;&#x9;))&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #&#xD;&#xA;--anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;self.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc7->union(p.requiredInterface.identifier.id->asBag())&#xD;&#xA;--&#x9;)&#x9;&#xD;&#xA;--)&#xD;&#xA;true"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="providedInterfacesHaveToConformToCompleteType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- ### EXACT COPY FROM ABOVE ###&#xD;&#xA;-- ImplementationComponentTypes provided Interfaces have to be a superset&#xD;&#xA;-- of CompleteComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompleteComponentTypes"
+          ordered="false" upperBound="-1" eType="#//repository/CompleteComponentType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="componentParameterUsage_ImplementationComponentType"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//repository/ProvidesComponentType">
+      <eOperations name="AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="(&#xD;&#xA;&#x9;self.oclIsTypeOf(CompleteComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(ImplementationComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(CompositeComponent)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(BasicComponent)&#xD;&#xA;)&#xD;&#xA;implies&#xD;&#xA;(&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->size() >= 1&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.requiredRoles_InterfaceRequiringEntity->size() >= 1&#xD;&#xA;)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="providedInterfacesHaveToConformToProvidedType2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- CompleteTypes provided Interfaces have to be a superset&#xD;&#xA;-- of ProvidesComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;--&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentTypes"
+          ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+        eSuperTypes="#//core/connectors/Connector"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//repository/ImplementationComponentType #//core/entity/ComposedProvidingRequiringEntity">
+      <eOperations name="ProvideSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="RequireSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implementationComponentType"
+          ordered="false" eType="#//repository/ImplementationComponentType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BasicComponent" eSuperTypes="#//repository/ImplementationComponentType">
+      <eOperations name="NoSeffTypeUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="ProvideSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="RequireSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implementationComponentType"
+          ordered="false" eType="#//repository/ImplementationComponentType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecifications__BasicComponent"
+          ordered="false" upperBound="-1" eType="#//seff/ServiceEffectSpecification"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource_BasicComponent"
+          ordered="false" upperBound="-1" eType="#//repository/PassiveResource" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//repository/DataType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
+          lowerBound="1" eType="#//repository/PrimitiveTypeEnum"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveTypeEnum">
+      <eLiterals name="INT"/>
+      <eLiterals name="STRING" value="1"/>
+      <eLiterals name="BOOL" value="2"/>
+      <eLiterals name="DOUBLE" value="3"/>
+      <eLiterals name="CHAR" value="4"/>
+      <eLiterals name="BYTE" value="5"/>
+      <eLiterals name="LONG" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CollectionDataType" eSuperTypes="#//core/entity/Entity #//repository/DataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerType_CollectionDataType"
+          ordered="false" lowerBound="1" eType="#//repository/DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeDataType" eSuperTypes="#//core/entity/Entity #//repository/DataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentType_CompositeDataType"
+          ordered="false" upperBound="-1" eType="#//repository/CompositeDataType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerDeclaration_CompositeDataType"
+          ordered="false" upperBound="-1" eType="#//repository/InnerDeclaration" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InnerDeclaration" eSuperTypes="#//core/entity/NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="datatype_InnerDeclaration"
+          ordered="false" lowerBound="1" eType="#//repository/DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//repository/Role">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface__ProvidedRole"
+          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providingEntity_ProvidedRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/InterfaceProvidingEntity"
+          eOpposite="#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceCall" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature__ServiceCall"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Protocol" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolTypeID" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
+      <eLiterals name="STRUCTURE"/>
+      <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
+      <eLiterals name="VALUE" value="2"/>
+      <eLiterals name="BYTESIZE" value="3"/>
+      <eLiterals name="TYPE" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
+          lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specification_VariableCharacterisation"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="characterisationType"
+          ordered="false" lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation_VariableUsage"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisation"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference_VariableUsage"
+          ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eOperations name="StopActionSuccessorMustNotBeDefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.successor_AbstractAction.oclIsUndefined()"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractResourceDemandingAction" abstract="true"
+        eSuperTypes="#//seff/AbstractAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_Action"
+          ordered="false" upperBound="-1" eType="#//seff/ParametricResourceDemand"
+          containment="true" eOpposite="#//seff/ParametricResourceDemand/action_ParametricResourceDemand"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor_AbstractAction"
+          ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/successor_AbstractAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="successor_AbstractAction"
+          ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/predecessor_AbstractAction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource_ParametricResourceDemand"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
+          ordered="false" lowerBound="1" eType="#//seff/AbstractResourceDemandingAction"
+          eOpposite="#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StartAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eOperations name="StartActionPredecessorMustNotBeDefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.predecessor_AbstractAction.oclIsUndefined()"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour">
+      <eOperations name="ExactlyOneStopAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="ExactlyOneStartAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="steps_Behaviour" ordered="false"
+          upperBound="-1" eType="#//seff/AbstractAction" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReleaseAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource_ReleaseAction"
+          ordered="false" lowerBound="1" eType="#//repository/PassiveResource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LoopAction" eSuperTypes="#//seff/AbstractLoopAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iterationCount_LoopAction"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractLoopAction" abstract="true"
+        eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
+          lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ForkAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="asynchronousForkedBehaviours_ForkAction"
+          ordered="false" upperBound="-1" eType="#//seff/ForkedBehaviour" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="synchronisingBehaviours_ForkAction"
+          ordered="false" eType="#//seff/SynchronisationPoint" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ForkedBehaviour" eSuperTypes="#//seff/ResourceDemandingBehaviour"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SynchronisationPoint">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="synchronousForkedBehaviours_SynchronisationPoint"
+          ordered="false" lowerBound="1" upperBound="-1" eType="#//seff/ForkedBehaviour"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameterUsage_SynchronisationPoint"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalCallAction" eSuperTypes="#//seff/AbstractAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_ExternalCallAction"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableUsages_ExternalCallAction"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role_ExternalService"
+          ordered="false" lowerBound="1" eType="#//repository/Role"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractBranchTransition" abstract="true"
+        eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
+          ordered="false" lowerBound="1" eType="#//seff/ResourceDemandingBehaviour"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eOperations name="EitherGuardedBranchesOrProbabilisiticBranchTransitions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="AllProbabilisticBranchProbabilitiesMustSumUpTo1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() &lt; 1.001 else true endif"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branches_Branch" ordered="false"
+          upperBound="-1" eType="#//seff/AbstractBranchTransition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AcquireAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="passiveresource_AcquireAction"
+          ordered="false" lowerBound="1" eType="#//repository/PassiveResource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CollectionIteratorAction" eSuperTypes="#//seff/AbstractLoopAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_CollectionIteratorAction"
+          ordered="false" lowerBound="1" eType="#//repository/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GuardedBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchCondition_GuardedBranchTransition"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetVariableAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localVariableUsages_SetVariableAction"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="describedService__SEFF"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
+  </eSubpackages>
+  <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="AllocationContext" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_AllocationContext"
+          ordered="false" lowerBound="1" eType="#//resourceenvironment/ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_AllocationContext"
+          ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="#//core/entity/Entity">
+      <eOperations name="EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.system_Allocation.childComponentContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContexts_Allocation"
+          ordered="false" upperBound="-1" eType="#//allocation/AllocationContext"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetResourceEnvironment_Allocation"
+          ordered="false" eType="#//resourceenvironment/ResourceEnvironment"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="system_Allocation" ordered="false"
+          lowerBound="1" eType="#//system/System"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironment">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" ordered="false"
+          upperBound="-1" eType="#//resourceenvironment/LinkingResource" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_ResourceEnvironment"
+          ordered="false" upperBound="-1" eType="#//resourceenvironment/ResourceContainer"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LinkingResource" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toResourceContainer_LinkingResource"
+          ordered="false" upperBound="-1" eType="#//resourceenvironment/ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fromResourceContainer_LinkingResource"
+          ordered="false" upperBound="-1" eType="#//resourceenvironment/ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="communicationLinkResourceSpecifications_LinkingResource"
+          ordered="false" lowerBound="1" eType="#//resourceenvironment/CommunicationLinkResourceSpecification"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceSpecification">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="communicationLinkResourceType_CommunicationLinkResourceSpecification"
+          ordered="false" lowerBound="1" eType="#//resourcetype/CommunicationLinkResourceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="latency_CommunicationLinkResourceSpecification"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="throughput_CommunicationLinkResourceSpecification"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingPolicy" ordered="false"
+          lowerBound="1" eType="#//resourceenvironment/SchedulingPolicy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processingRate_ProcessingResourceSpecification"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="SchedulingPolicy">
+      <eLiterals name="DELAY"/>
+      <eLiterals name="PROCESSOR_SHARING" value="1"/>
+      <eLiterals name="FCFS" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceContainer" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"
+          ordered="false" upperBound="-1" eType="#//resourceenvironment/ProcessingResourceSpecification"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/entity/Entity #//core/entity/ComposedProvidingRequiringEntity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="qosAnnotations_System"
+          ordered="false" upperBound="-1" eType="#//qosannotations/QoSAnnotations"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="SpecifiedExecutionTime" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature_SpecifiedTimeConsumption"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role_SpecifiedExecutionTime"
+          ordered="false" lowerBound="1" eType="#//repository/Role"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specification_SpecifiedExecutionTime"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecifiedFailureProbability"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SystemSpecifiedExecutionTime" eSuperTypes="#//qosannotations/SpecifiedExecutionTime"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentSpecifiedExecutionTime" eSuperTypes="#//qosannotations/SpecifiedExecutionTime">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_ComponentSpecifiedExecutionTime"
+          ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SpecifiedOutputParameterAbstraction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature_SpecifiedOutputParameterAbstraction"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role_SpecifiedOutputParameterAbstraction"
+          ordered="false" lowerBound="1" eType="#//repository/Role"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expectedExternalOutputs_SpecifiedOutputParameterAbstraction"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QoSAnnotations" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedExecutionTimes_QoSAnnotations"
+          ordered="false" upperBound="-1" eType="#//qosannotations/SpecifiedExecutionTime"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedOutputParameterAbstractions_QoSAnnotations"
+          ordered="false" upperBound="-1" eType="#//qosannotations/SpecifiedOutputParameterAbstraction"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0"
+      nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="Workload" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UsageScenario" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="workload_UsageScenario"
+          ordered="false" lowerBound="1" eType="#//usagemodel/Workload" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioBehaviour_UsageScenario"
+          ordered="false" lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ScenarioBehaviour" eSuperTypes="#//core/entity/Entity">
+      <eOperations name="Exactlyonestart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="Exactlyonestop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actions_ScenarioBehaviour"
+          ordered="false" upperBound="-1" eType="#//usagemodel/AbstractUserAction"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractUserAction" abstract="true"
+        eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="successor" ordered="false"
+          eType="#//usagemodel/AbstractUserAction" eOpposite="#//usagemodel/AbstractUserAction/predecessor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" ordered="false"
+          eType="#//usagemodel/AbstractUserAction" eOpposite="#//usagemodel/AbstractUserAction/successor"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UsageModel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usageScenario_UsageModel"
+          ordered="false" upperBound="-1" eType="#//usagemodel/UsageScenario" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="userData_UsageModel"
+          ordered="false" upperBound="-1" eType="#//usagemodel/UserData" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UserData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="userDataParameterUsages_UserData"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_userData"
+          ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Stop" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eOperations name="StopHasNoSuccessor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.successor.oclIsUndefined()"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eOperations name="StartHasNoPredecessor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.predecessor.oclIsUndefined()"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OpenWorkload" eSuperTypes="#//usagemodel/Workload">
+      <eOperations name="InterArrivalTimeInOpenWorkloadNeedsToBeSpecified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification &lt;> ''"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interArrivalTime_OpenWorkload"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
+          lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="loopIteration_Loop" ordered="false"
+          lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EntryLevelSystemCall" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_EntryLevelSystemCall"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_EntryLevelSystemCall"
+          ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature_EntryLevelSystemCall"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameterUsages_EntryLevelSystemCall"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ClosedWorkload" eSuperTypes="#//usagemodel/Workload">
+      <eOperations name="PopulationInClosedWorkloadNeedsToBeSpecified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.population.oclIsUndefined() and self.population &lt;> ''"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="ThinkTimeInClosedWorkloadNeedsToBeSpecified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification &lt;> ''"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="population" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="thinkTime_ClosedWorkload"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eOperations name="AllBranchProbabilitiesMustSumUpTo1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() &lt;1.001"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchTransitions_Branch"
+          ordered="false" upperBound="-1" eType="#//usagemodel/BranchTransition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchTransition">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchedBehaviour_BranchTransition"
+          ordered="false" lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Delay" eSuperTypes="#//usagemodel/AbstractUserAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeSpecification_Delay"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>
