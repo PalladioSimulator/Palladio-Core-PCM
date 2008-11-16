@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 
 /**
@@ -65,6 +66,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand <em>Specification Parameteric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getResourceRequiredRole_ParametricResourceDemand <em>Resource Required Role Parametric Resource Demand</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getCalledResourceService_ParametricResourceDemand <em>Called Resource Service Parametric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
  * </p>
@@ -132,6 +134,32 @@ public interface ParametricResourceDemand extends EObject {
 	 * @generated
 	 */
 	void setResourceRequiredRole_ParametricResourceDemand(ResourceRequiredRole value);
+
+	/**
+	 * Returns the value of the '<em><b>Called Resource Service Parametric Resource Demand</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Called Resource Service Parametric Resource Demand</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Called Resource Service Parametric Resource Demand</em>' reference.
+	 * @see #setCalledResourceService_ParametricResourceDemand(ResourceService)
+	 * @see de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage#getParametricResourceDemand_CalledResourceService_ParametricResourceDemand()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	ResourceService getCalledResourceService_ParametricResourceDemand();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand#getCalledResourceService_ParametricResourceDemand <em>Called Resource Service Parametric Resource Demand</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Called Resource Service Parametric Resource Demand</em>' reference.
+	 * @see #getCalledResourceService_ParametricResourceDemand()
+	 * @generated
+	 */
+	void setCalledResourceService_ParametricResourceDemand(ResourceService value);
 
 	/**
 	 * Returns the value of the '<em><b>Action Parametric Resource Demand</b></em>' container reference.

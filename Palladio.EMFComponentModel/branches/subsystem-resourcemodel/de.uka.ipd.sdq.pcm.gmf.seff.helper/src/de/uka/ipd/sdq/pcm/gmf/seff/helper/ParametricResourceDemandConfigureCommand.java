@@ -1,11 +1,8 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.helper;
 
-import java.util.ArrayList;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
@@ -15,25 +12,28 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
-import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
-/** @author roman */
+/** @author roman, hauck */
 public class ParametricResourceDemandConfigureCommand extends
 		ConfigureElementCommand {
 
 	private ConfigureRequest request = null;
+	private ResourceService resourceService = null;
+	private ResourceRequiredRole resourceRequiredRole = null;
 	
-	public ParametricResourceDemandConfigureCommand(ConfigureRequest request){
+	public ParametricResourceDemandConfigureCommand(ConfigureRequest request, ResourceService resourceService, ResourceRequiredRole resourceRequiredRole){
 		super(request);
 		this.request = request;
+		this.resourceService = resourceService;
+		this.resourceRequiredRole = resourceRequiredRole;
 	}
 
 	/* (non-Javadoc)
@@ -49,54 +49,45 @@ public class ParametricResourceDemandConfigureCommand extends
 			return CommandResult
 					.newErrorCommandResult("Set RequiredResource for the ParametricResourceDemand failed!");
 		}
+		commandResult = setResourceService_ParametricResourceDemand(monitor, info);
+		if (!isOK(commandResult)) {
+			return CommandResult
+					.newErrorCommandResult("Set ResourceService for the ParametricResourceDemand failed!");
+		}
 		commandResult = setSpecification_ParametricResourceDemand(monitor, info);
 		if (!isOK(commandResult)) {
 			return CommandResult
 					.newErrorCommandResult("Set Action for the ParametricResourceDemand failed!");
 		}
 		return CommandResult.newOKCommandResult();
+		
 	}
 
 	private CommandResult setRequiredResource_ParametricResourceDemand(
 			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 
-		EObject resource = null;
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Repository.class);
-		filterList.add(ResourceInterfaceRequiringEntity.class);
-		filterList.add(ResourceRequiredRole.class);
+		ICommand cmd = new SetValueCommand(new SetRequest(request
+				.getElementToConfigure(), PerformancePackage.eINSTANCE
+				.getParametricResourceDemand_ResourceRequiredRole_ParametricResourceDemand(),
+				resourceRequiredRole));
 
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, getResourceInterfaceRequiringEntity(request.getElementToConfigure()));
-		dialog.setProvidedService(ResourceRequiredRole.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return CommandResult.newCancelledCommandResult();
-		if (!(dialog.getResult() instanceof ResourceRequiredRole))
-			return CommandResult.newCancelledCommandResult();
-		resource = (ResourceRequiredRole) dialog.getResult();
-		
-		ICommand cmd = new SetValueCommand(
-				new SetRequest(
-						request.getElementToConfigure(),
-						PerformancePackage.eINSTANCE
-								.getParametricResourceDemand_ResourceRequiredRole_ParametricResourceDemand(),
-						resource));
 		cmd.execute(monitor, info);
 
 		return cmd.getCommandResult();
 	}
+	
+	private CommandResult setResourceService_ParametricResourceDemand(
+			IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 
-	private Object getResourceInterfaceRequiringEntity(
-			EObject elementToConfigure) {
-		EObject result = elementToConfigure;
-		while (!(result instanceof ResourceInterfaceRequiringEntity)) {
-			result = result.eContainer();
-		}
-		return result;
+		ICommand cmd = new SetValueCommand(new SetRequest(request
+				.getElementToConfigure(), PerformancePackage.eINSTANCE
+				.getParametricResourceDemand_CalledResourceService_ParametricResourceDemand(), resourceService));
+
+		cmd.execute(monitor, info);
+
+		return cmd.getCommandResult();
 	}
 
 	private CommandResult setSpecification_ParametricResourceDemand(

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.performance.util;
 
+import de.uka.ipd.sdq.pcm.seff.performance.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;

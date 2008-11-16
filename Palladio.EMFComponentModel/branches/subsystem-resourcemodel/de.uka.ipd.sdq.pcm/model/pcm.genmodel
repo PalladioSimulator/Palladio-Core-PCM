@@ -22,11 +22,11 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/2008.09.19/2008.11.12/identifier.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.12/pcm.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.12/ProbabilityFunction.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.12/stoex.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.12/Units.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.14/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.14/stoex.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.14/Units.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.14/identifier.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.14/pcm.uml</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -478,6 +478,8 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/performance/ParametricResourceDemand/specification_ParametericResourceDemand"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//seff/performance/ParametricResourceDemand/resourceRequiredRole_ParametricResourceDemand"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//seff/performance/ParametricResourceDemand/calledResourceService_ParametricResourceDemand"/>
           <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//seff/performance/ParametricResourceDemand/action_ParametricResourceDemand"/>
         </genClasses>
       </nestedGenPackages>

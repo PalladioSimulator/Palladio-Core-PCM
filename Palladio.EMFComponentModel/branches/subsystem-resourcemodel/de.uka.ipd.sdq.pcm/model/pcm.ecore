@@ -1361,6 +1361,8 @@
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRole_ParametricResourceDemand"
             ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="calledResourceService_ParametricResourceDemand"
+            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceService"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
             ordered="false" lowerBound="1" eType="#//seff/AbstractInternalControlFlowAction"
             eOpposite="#//seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
