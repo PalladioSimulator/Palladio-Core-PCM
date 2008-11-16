@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.featureinstance;
 
-import java.util.HashMap;
-
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
@@ -74,10 +72,9 @@ class ResourceWizardPage extends WizardNewFileCreationPage {
 
 public class ResourceWizard extends Wizard implements INewWizard {
 	
+	protected URI resourceURI;
 	protected IWorkbench workbench;
 	protected IStructuredSelection selection;
-	protected EObject diagram;
-	protected Resource resource;
 	protected ResourceWizardPage page;
 	protected String fileName;
 
@@ -87,12 +84,15 @@ public class ResourceWizard extends Wizard implements INewWizard {
 		addPage(page);
 		super.addPages();
 	}
+	
+	public URI getNewResource () {
+		return resourceURI;
+	}
 
 	@Override
 	public boolean performFinish() {
 		try {
-			resource.setURI(page.getURI());
-			resource.save(new HashMap<String, String>());
+			resourceURI = page.getURI();
 		}
 		catch (Exception e) {
 			return false;
@@ -100,10 +100,8 @@ public class ResourceWizard extends Wizard implements INewWizard {
 		return true;
 	}
 	
-	public ResourceWizard (EObject diagram, String fileName, Resource resource) {
-		this.diagram = diagram;
+	public ResourceWizard (String fileName) {
 		this.fileName = fileName;
-		this.resource = resource;
 	}
 
 	@Override
