@@ -1,9 +1,12 @@
 package de.uka.ipd.sdq.featureinstance;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -11,6 +14,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -20,7 +24,9 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.CheckStateChangedEvent;
@@ -54,6 +60,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
+import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
 import de.uka.ipd.sdq.featureconfig.ConfigState;
 import de.uka.ipd.sdq.featureconfig.Configuration;
@@ -152,7 +159,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
 
-		//Try to load the resource through the editing domain.
+		//Try to load the resource through the editingDomain.
 		resource = null;
 		try {
 			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
@@ -170,94 +177,196 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		return resource;
 	}
 	
+	//starts a new file creation wizard
+	protected URI startFileWizard (String fileName) {
+		ResourceWizard myWiz = new ResourceWizard(fileName);
+		myWiz.init(getEditorSite().getWorkbenchWindow().getWorkbench(), (IStructuredSelection)getSelection());
+		WizardDialog dialog = new WizardDialog(null, myWiz);
+		dialog.create();
+		dialog.open();
+		
+		//get the location for the featureconfig
+		return myWiz.getNewResource();
+	}
+	
+	//starts an load resource dialog
+	protected URI startOpenDialog (String fileName, String extension) {
+		
+		LoadResourceDialog myDialog = new LoadResourceDialog(getContainer().getShell(), editingDomain);
+		myDialog.open();
+		
+		if (myDialog.getReturnCode() == 1) {
+			return null;
+		}
+		else {
+			List<URI> uriList = myDialog.getURIs();
+			if (uriList.isEmpty()) {
+				return null;
+			}
+			else {
+				return uriList.get(0);
+			}
+		}
+	}
+	
+	//creates the new resource with Configuration included and overwrites resource object with the newly generated one
+	protected void createNewConfigResource (URI newResourceURI, FeatureDiagram featureDiagram) {
+		if (newResourceURI == null) {
+			throw new NullPointerException ("No Config file stored!");
+		}
+		else {
+			//Create new featureconfig-resource and change current resource
+			resource = resource.getResourceSet().createResource(newResourceURI);
+
+			featureconfigFactoryImpl factory = new featureconfigFactoryImpl();
+			Configuration newConfig = factory.createConfiguration();
+			FeatureConfig newOverrides = factory.createFeatureConfig();
+			newConfig.setConfigOverrides(newOverrides);
+			
+			ConfigNode rootConfigNode = factory.createConfigNode();
+			rootConfigNode.setConfigState(ConfigState.ELIMINATED);
+			rootConfigNode.setOrigin((Feature)(featureDiagram).getRootFeature());
+			
+			newOverrides.getConfignode().add(rootConfigNode);
+			
+			resource.getContents().add(newConfig);
+			
+			overridesConfig = newOverrides;
+			
+			try {
+				resource.load(Collections.EMPTY_MAP);
+				resource.save(Collections.EMPTY_MAP);
+			}
+			catch (Exception e) {
+				throw new NullPointerException("BLA!");
+			}
+		}
+	}
+	
+	//check if the FeatureDiagram object can be accessed in the loaded resource
+	protected FeatureDiagram getFeatureDiagram () {
+		EList<EObject> tempList = resource.getContents();
+		Iterator<EObject> tempIterator = tempList.iterator();
+		EObject newResource;
+		if (tempIterator.hasNext()) {
+			newResource = tempIterator.next();
+		}
+		else {
+			return null;
+		}
+		
+		if (!(newResource instanceof FeatureDiagram)) {
+			return null;
+		}
+		return (FeatureDiagram)newResource;
+	}
+	
 	@Override
 	protected void createPages() {
 		
 		createResource();
 		
+		//get the file extension, file name and the full path to the resource
+		String fileExtension = resource.getURI().fileExtension();
 		String fileName = resource.getURI().trimFileExtension().lastSegment();
-
-		FeatureDiagram newDiagram = null;
-		EObject newResource = null;
-
-		//Get first Resource in returned Resources
-		EList<EObject> tempList = resource.getContents();
-		Iterator<EObject> tempIterator = tempList.iterator();
-		if (tempIterator.hasNext()) {
-			newResource = tempIterator.next();
-		}
+		String path = Platform.getLocation() + resource.getURI().trimFileExtension().toPlatformString(true);
+		int fileNameLocation = path.lastIndexOf(fileName);
+		path = path.substring(0, fileNameLocation);
 		
-		//Cases of possibly loaded content
-		if (newResource instanceof FeatureDiagram) {
-			// There's no config, so a Wizard is opened to generate a new one
-			ResourceWizard myWiz = new ResourceWizard(newResource, fileName, resource);
-			myWiz.init(getEditorSite().getWorkbenchWindow().getWorkbench(), (IStructuredSelection)getSelection());
-			WizardDialog dialog = new WizardDialog(null, myWiz);
-			dialog.create();
-			dialog.open();
-			
-			//TODO create new Configuration
-			newDiagram = (FeatureDiagram) newResource;
-		}
-		else if (newResource instanceof Configuration) {
-			Configuration config = (Configuration) newResource;
-			defaultConfig = config.getDefaultConfig();
-			overridesConfig = config.getConfigOverrides();
-			
-			//TODO Open a file dialog for a *.featuremodel file
-			if (defaultConfig == null && overridesConfig == null) {
-				throw new NullPointerException("No Configuration found!");
-				//ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("No Config found!"));
-				//errord.open();
+
+		FeatureDiagram featureDiagram = null;
+		
+		//featuremodel file present
+		if (fileExtension.equals("featuremodel")) {
+			//Check if featuremodel file is valid (FeatureDiagram obejct can be referenced)
+			featureDiagram = getFeatureDiagram();
+			if (featureDiagram == null) {
+				ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Loaded *.featuremodel file is not valid! The FeatureDiagram object cannot be accessed."));
+				errord.open();
+				
+				//TODO Null Pointer Exception needs to be prevented here (e.g. load resource dialog)
 			}
 			
-			if (defaultConfig == null) {
-				Iterator<ConfigNode> tempIter = overridesConfig.getConfignode().iterator();
-				if (tempIter.hasNext()) {
-					Object current = tempIter.next().getOrigin();
+			//Check if the equivalent featureconfig-file already exists
+			File myFile = new File(path + fileName + ".featureconfig");
+			System.out.println(myFile.getPath());
+			
+			if (myFile.exists()) {
+				//ask if existing file should be used
+				boolean answer = MessageDialog.openQuestion(null, "Load FeatureConfig ?", "A file named \""+ fileName + ".featureconfig\" was found. Should it be loaded?");
+				
+				//use existing file
+				if (answer) {
 					
-					while (!(current instanceof FeatureDiagram)) {
-						current = editingDomain.getParent(current);
-						if(current==null) {
-							throw new NullPointerException("No FeatureDiagram found!");
-						}
+					//load existing featureconfig file
+					Resource existingResource = resource.getResourceSet().createResource(URI.createFileURI(myFile.getPath()));
+					
+					try {
+						existingResource.load(Collections.EMPTY_MAP);
 					}
-					newDiagram = (FeatureDiagram)current;
+					catch (Exception e) {
+						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Existing featureconfig file couldn't be loaded!"));
+						errord.open();
+					}
+					
+					//Check if *.featureconfig references right FeatureDiagram
+					if (isFeatureDiagramReferenceCorrect()) {
+						//set overridesConfig, overwrite resource
+					}
+					else {
+						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("The selected *.featureconfig file references the wrong FeatureDiagram! A new FileWizard will be started."));
+						errord.open();
+						URI newResourceURI = startFileWizard(fileName);
+						createNewConfigResource(newResourceURI, featureDiagram);
+					}
+					
 				}
-			}
-			else if (overridesConfig == null) {
-				//Wizard: load other config or duplicate file and generate new overrides
+				else {
+					URI newResourceURI = startFileWizard(fileName);
+					createNewConfigResource(newResourceURI, featureDiagram);
+				}
 			}
 			else {
-				Iterator<ConfigNode> tempIter = defaultConfig.getConfignode().iterator();
-				if (tempIter.hasNext()) {
-					Object current = tempIter.next().getOrigin();
-					
-					while (!(current instanceof FeatureDiagram)) {
-						current = editingDomain.getParent(current);
-						if(current==null) {
-							throw new NullPointerException("No FeatureDiagram found!");
-						}
+				URI configPath = startOpenDialog(fileName, "featureconfig");
+				
+				if (configPath == null) {
+					//File selection Dialog has been canceled, call new file wizard
+					ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("No file has been selected! A new file wizard will be started."));
+					errord.open();
+					URI newResourceURI = startFileWizard(fileName);
+					createNewConfigResource(newResourceURI, featureDiagram);
+				} 
+				else {
+					//Check if *.featureconfig references right FeatureDiagram
+					if (isFeatureDiagramReferenceCorrect()) {
+						//set overridesConfig, overwrite resource
 					}
-					newDiagram = (FeatureDiagram)current;
+					else {
+						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("The selected *.featureconfig file references the wrong FeatureDiagram! A new FileWizard will be started."));
+						errord.open();
+						URI newResourceURI = startFileWizard(fileName);
+						createNewConfigResource(newResourceURI, featureDiagram);
+					}
 				}
 			}
 			
-
-			if (newDiagram == null) {
-				throw new NullPointerException("No FeatureDiagram found!");
-			}
-			
 		}
-		else if (newResource instanceof FeatureConfig) {
-			//TODO kA!
-			newDiagram = (FeatureDiagram)((FeatureConfig)newResource).getReferencedObject();
+		//featureconfig file present
+		else if (fileExtension.equals("featureconfig")){
+			System.out.println("Featureconfig-File present!");
+			//TODO Check cases
+		}
+		//no featureconfig or featuremodel file present
+		else {
+			System.out.println("Other file extension!");
+			//TODO Handle Errors etc.
 		}
 
+		//Create the Viewer
 		comp = new Composite(getContainer(), SWT.NONE);
 		comp.setLayout(new FillLayout());
 
-		createViewer(newDiagram);
+		createViewer(featureDiagram);
 
 		int index = addPage(comp);
 		setPageText(index, "");
@@ -268,6 +377,12 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y + 6);
 		}
+		
+	}
+	
+	//Checks if a selected featureconfig file references the opened FeatureDiagram resource
+	public boolean isFeatureDiagramReferenceCorrect () {
+		return true;
 	}
 	
 	public void createViewer (FeatureDiagram root) {
