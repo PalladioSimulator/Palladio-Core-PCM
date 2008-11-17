@@ -120,7 +120,7 @@
 	«IF hasConnector(s,ctx,this)»
 		«LET getConnector(s,ctx,this) AS connector»
 			/* From Connector «connector.id» */
-			my«connector.providingChildComponentContext_CompositeAssemblyConnector.javaName()».«connector.providedRole_CompositeAssemblyConnector.portGetter()»()
+			my«connector.providingAssemblyContext_AssemblyConnector.javaName()».«connector.providedRole_CompositeAssemblyConnector.portGetter()»()
 	   	«ENDLET»
 	«ELSE» 
 		«IF hasRequiredDelegationConnector(s,ctx,this)»
