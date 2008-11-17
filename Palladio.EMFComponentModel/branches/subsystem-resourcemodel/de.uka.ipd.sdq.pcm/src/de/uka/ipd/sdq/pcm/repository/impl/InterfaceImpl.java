@@ -68,7 +68,17 @@ public class InterfaceImpl extends AbstractInterfaceImpl implements Interface {
 	 * @ordered
 	 */
 	protected EList<Interface> parentInterface__Interface;
-
+	
+	/**
+	 * The cached value of the '{@link #getAncestorInterfaces_Interface() <em>Ancestor Interfaces Interface</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAncestorInterfaces_Interface()
+	 * @generated not
+	 * @ordered
+	 */
+	protected EList<Interface> ancestorInterfaces_Interface;
+	
 	/**
 	 * The cached value of the '{@link #getProtocols__Interface() <em>Protocols Interface</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -143,12 +153,13 @@ public class InterfaceImpl extends AbstractInterfaceImpl implements Interface {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public EList<Interface> getAncestorInterfaces_Interface() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (ancestorInterfaces_Interface == null) {
+			ancestorInterfaces_Interface = new EObjectResolvingEList<Interface>(Interface.class, this, RepositoryPackage.INTERFACE__ANCESTOR_INTERFACES_INTERFACE);
+		}
+		return ancestorInterfaces_Interface;
 	}
 
 	/**
