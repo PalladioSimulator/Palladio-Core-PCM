@@ -6097,7 +6097,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
         <ownedRule xmi:id="_3KNIsCokEdyENO6Lndj6uA" name="EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce" constrainedElement="_AtO9UOMvEdqaQsPH3rPnBQ">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_3KOW0CokEdyENO6Lndj6uA">
             <language>OCL</language>
-            <body>self.system_Allocation.childComponentContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)</body>
+            <body>self.system_Allocation.assemblyContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_YyuowBG1EdukS8Awn8hWLA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
