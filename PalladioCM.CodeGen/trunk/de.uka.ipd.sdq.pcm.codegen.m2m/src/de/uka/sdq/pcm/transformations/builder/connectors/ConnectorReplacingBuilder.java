@@ -58,7 +58,7 @@ public class ConnectorReplacingBuilder implements IBuilder {
 			connectConnectorCompletionWithMiddleware(componentBuilder);
 		
 			// Finally, remove the connector from the architecture
-			parent.getCompositeAssemblyConnectors_ComposedStructure().remove(connector);
+			parent.getAssemblyConnectors_ComposedStructure().remove(connector);
 		}
 	}
 
