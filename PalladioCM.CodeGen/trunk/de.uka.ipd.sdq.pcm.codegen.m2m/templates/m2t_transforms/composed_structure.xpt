@@ -26,7 +26,7 @@
 «DEFINE Constructor FOR ComposedProvidingRequiringEntity»
 	public «this.className()»() {
 		logger.info("Creating composed structure «this.entityName»");
-		«EXPAND ChildMemberVarInit FOREACH this.childComponentContexts_ComposedStructure»
+		«EXPAND ChildMemberVarInit FOREACH this.assemblyContexts_ComposedStructure»
 	      
 		«IF InterfaceProvidingEntity.isInstance(this)»
 			/* And finally, my ports */
@@ -54,18 +54,18 @@
 //--------------------------------------
 «DEFINE ChildMemberVar FOR AssemblyContext»
    protected 
-      «this.encapsulatedComponent_ChildComponentContext.fqn()» 
+      «this.encapsulatedComponent_AssemblyContext.fqn()» 
          my«this.javaName()» = null;
 «ENDDEFINE»
 
 «DEFINE ChildMemberVarInit FOR AssemblyContext»
-   my«this.javaName()» = new «this.encapsulatedComponent_ChildComponentContext.fqn()»
+   my«this.javaName()» = new «this.encapsulatedComponent_AssemblyContext.fqn()»
          	(«EXPAND ComponentConstructorParametersTM FOR this»);
 «ENDDEFINE»
 
 «DEFINE InnerImplementation FOR ComposedStructure»
       // Composed child components member variables
-      «EXPAND ChildMemberVar FOREACH this.childComponentContexts_ComposedStructure»
+      «EXPAND ChildMemberVar FOREACH this.assemblyContexts_ComposedStructure»
             
       /**
       * Inner Structure initialisation
@@ -73,16 +73,16 @@
       private void initInnerComponents() {
 
 		  /* First, initialise composite child structures */
-		  «FOREACH this.childComponentContexts_ComposedStructure.select(c|ComposedStructure.isInstance(c.encapsulatedComponent_ChildComponentContext)) AS child»
+		  «FOREACH this.assemblyContexts_ComposedStructure.select(c|ComposedStructure.isInstance(c.encapsulatedComponent_AssemblyContext)) AS child»
 			  init«child.javaName()»();
 		  «ENDFOREACH»
 		  /* Then initialise basic components */
-		  «FOREACH this.childComponentContexts_ComposedStructure.select(c|!ComposedStructure.isInstance(c.encapsulatedComponent_ChildComponentContext)) AS child»
+		  «FOREACH this.assemblyContexts_ComposedStructure.select(c|!ComposedStructure.isInstance(c.encapsulatedComponent_AssemblyContext)) AS child»
 			  init«child.javaName()»();
 		  «ENDFOREACH»
       }
 
-      «EXPAND Init(this) FOREACH this.childComponentContexts_ComposedStructure»
+      «EXPAND Init(this) FOREACH this.assemblyContexts_ComposedStructure»
       /**
       * Inner Structure initialisation end
       */
@@ -101,8 +101,8 @@
 
 «DEFINE Init(ComposedStructure s) FOR AssemblyContext»
    private void init«this.javaName()»() {
-      «this.encapsulatedComponent_ChildComponentContext.fqnContext()» context = new «this.encapsulatedComponent_ChildComponentContext.fqnContext()»(
-         «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
+      «this.encapsulatedComponent_AssemblyContext.fqnContext()» context = new «this.encapsulatedComponent_AssemblyContext.fqnContext()»(
+         «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
       );
       my«this.javaName()».setContext(context);
       «EXPAND ChildInitTM(s) FOR this»

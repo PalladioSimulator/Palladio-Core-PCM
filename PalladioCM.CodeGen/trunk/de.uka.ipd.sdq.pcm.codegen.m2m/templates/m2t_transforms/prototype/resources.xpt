@@ -1,5 +1,5 @@
 «IMPORT repository»
-«IMPORT seff»
+«IMPORT seff::performance»
 «IMPORT resourcetype»
 «IMPORT resourceenvironment»
 «EXTENSION m2t_transforms::java_names»

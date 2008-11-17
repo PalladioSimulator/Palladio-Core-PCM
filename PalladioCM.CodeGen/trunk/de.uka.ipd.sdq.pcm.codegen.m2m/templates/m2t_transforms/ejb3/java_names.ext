@@ -25,10 +25,10 @@ fqnBean(ProvidesComponentType c) :
   c.beanPackage()+"."+c.javaName()+'Bean';
 	
 implementationSessionBeanName(AssemblyContext ac) :
-  ac.encapsulatedComponent_ChildComponentContext.javaName()+"_Impl_"+ac.id;
+  ac.encapsulatedComponent_AssemblyContext.javaName()+"_Impl_"+ac.id;
   
 portSessionBeanName(AssemblyContext ac, ProvidedRole p) :
-  ac.encapsulatedComponent_ChildComponentContext.javaName()+"_"+p.providedInterface__ProvidedRole.javaName()+"_"+ac.id;
+  ac.encapsulatedComponent_AssemblyContext.javaName()+"_"+p.providedInterface__ProvidedRole.javaName()+"_"+ac.id;
   
 contextSessionBeanName(AssemblyContext ac) :
-  ac.encapsulatedComponent_ChildComponentContext.entityName+"_Context_"+ac.id;
+  ac.encapsulatedComponent_AssemblyContext.entityName+"_Context_"+ac.id;

@@ -1,12 +1,13 @@
 «IMPORT repository»
 «IMPORT seff»
+«IMPORT seff::performance»
 «IMPORT resourcetype»
 «IMPORT resourceenvironment»
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
 
 // For each resource demand load a resource
-«DEFINE ResourceDemands FOR AbstractResourceDemandingAction»
+«DEFINE ResourceDemands FOR AbstractInternalControlFlowAction»
 	«EXPAND ResourceDemandTM FOREACH this.resourceDemand_Action»
 «ENDDEFINE»
 

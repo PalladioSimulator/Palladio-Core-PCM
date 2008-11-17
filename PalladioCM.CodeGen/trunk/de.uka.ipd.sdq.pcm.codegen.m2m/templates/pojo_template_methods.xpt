@@ -6,6 +6,7 @@
 «IMPORT entity»
 «IMPORT repository»
 «IMPORT seff»
+«IMPORT seff::performance»
 «IMPORT resourcetype»
 «IMPORT allocation»
 «IMPORT parameter»

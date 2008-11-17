@@ -41,7 +41,7 @@ context BasicComponent ERROR this.entityName +': basic component must have at le
 	this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface.forAll(s|s.hasSEFF(this));
 	
 context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All assembly contexts of a composite structure must have unique names':
-	this.childComponentContexts_ComposedStructure.forAll(ctx1|!this.childComponentContexts_ComposedStructure.exists(ctx2|ctx1 != ctx2 && ctx1.entityName == ctx2.entityName));
+	this.assemblyContexts_ComposedStructure.forAll(ctx1|!this.assemblyContexts_ComposedStructure.exists(ctx2|ctx1 != ctx2 && ctx1.entityName == ctx2.entityName));
 
 context ComposedProvidingRequiringEntity WARNING 'Composed Structure ' + this.entityName +': All provided roles of the composed structure must be bound to an inner provided role using a delegation connector':
 	this.providedRoles_InterfaceProvidingEntity.forAll(role|this.providedDelegationConnectors_ComposedStructure.exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector == role));
@@ -53,10 +53,10 @@ context System ERROR 'System ' + this.entityName +': A system must contain at le
 	this.entityName != this.entityName.toLowerCase();
 	
 context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced ProvidedRole is not provided by the referenced AssemblyContext. Please fix either reference in the EMF editor. Note that the error is not necessarily visible in the system diagram or composite diagram':
-    this.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity.contains(this.providedRole_CompositeAssemblyConnector);
+    this.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity.contains(this.providedRole_CompositeAssemblyConnector);
     
 context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced RequiredRole is not required by the referenced AssemblyContext. Please fix either reference in the EMF editor. Note that the error is not necessarily visible in the system diagram or composite diagram':
-    this.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceRequiringEntity.contains(this.requiredRole_CompositeAssemblyConnector);  
+    this.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity.contains(this.requiredRole_CompositeAssemblyConnector);  
 
 context UsageScenario ERROR 'System ' + this.entityName +': A usage scenario must contain at least one uppercase letter':
 	this.entityName != this.entityName.toLowerCase();

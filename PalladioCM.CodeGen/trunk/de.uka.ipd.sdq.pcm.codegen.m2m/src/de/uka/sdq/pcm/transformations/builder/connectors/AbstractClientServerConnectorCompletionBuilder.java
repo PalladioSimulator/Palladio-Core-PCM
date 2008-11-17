@@ -63,15 +63,15 @@ implements IClientServerConnectorCompletionComponentBuilder {
 		this.serverBuilder = createServerSideBuilder();
 		
 		innerBuilder.build();
-		getComposedStructure().getChildComponentContexts_ComposedStructure().add(innerBuilder.getAssemblyContext());
+		getComposedStructure().getAssemblyContexts_ComposedStructure().add(innerBuilder.getAssemblyContext());
 		
 		myClientRole = addRequiredRole(middlewareInterface,"ClientMiddleware");
 		myServerRole = addRequiredRole(middlewareInterface,"ServerMiddleware");
 		
 		getClientSideBuilder().build();
-		this.getComposedStructure().getChildComponentContexts_ComposedStructure().add(getClientSideBuilder().getAssemblyContext());
+		this.getComposedStructure().getAssemblyContexts_ComposedStructure().add(getClientSideBuilder().getAssemblyContext());
 		getServerSideBuilder().build();
-		this.getComposedStructure().getChildComponentContexts_ComposedStructure().add(getServerSideBuilder().getAssemblyContext());
+		this.getComposedStructure().getAssemblyContexts_ComposedStructure().add(getServerSideBuilder().getAssemblyContext());
 				
 		addProvidedDelegationConnector(getClientSideBuilder().getProvidedRole(), getClientSideBuilder().getAssemblyContext(), myComponent.getProvidedRoles_InterfaceProvidingEntity().get(0));
 		addRequiredDelegationConnector(getServerSideBuilder().getRequiredRole(),getServerSideBuilder().getAssemblyContext(),myComponent.getRequiredRoles_InterfaceRequiringEntity().get(0));

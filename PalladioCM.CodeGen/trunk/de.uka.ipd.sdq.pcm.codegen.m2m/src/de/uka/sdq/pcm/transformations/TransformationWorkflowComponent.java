@@ -91,10 +91,10 @@ public class TransformationWorkflowComponent
 	private void addMiddleware(ResourceContainer resContainer) {
 		AssemblyContext ctx = CompositionFactory.eINSTANCE.createAssemblyContext();
 		ctx.setEntityName("AssCtx Middleware "+resContainer.getEntityName());
-		ctx.setEncapsulatedComponent_ChildComponentContext(models.getMiddlewareRepository().getComponents__Repository().get(0)); // TODO: Parameterise me!
-		models.getSystem().getChildComponentContexts_ComposedStructure().add(ctx);
+		ctx.setEncapsulatedComponent_AssemblyContext(models.getMiddlewareRepository().getComponents__Repository().get(0)); // TODO: Parameterise me!
+		models.getSystem().getAssemblyContexts_ComposedStructure().add(ctx);
 		
-		models.getSystem().getChildComponentContexts_ComposedStructure().add(ctx);
+		models.getSystem().getAssemblyContexts_ComposedStructure().add(ctx);
 		AllocationContext allocCtx = AllocationFactory.eINSTANCE.createAllocationContext();
 		allocCtx.setEntityName("AllocCtx Middleware "+resContainer.getEntityName());
 		allocCtx.setAssemblyContext_AllocationContext(ctx);

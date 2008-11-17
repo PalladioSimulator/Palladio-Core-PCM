@@ -52,7 +52,7 @@ public class ConnectorReplacingBuilder implements IBuilder {
 			componentBuilder.build();
 		
 			// Then integrate the component in the structure instead of the AssemblyConnector
-			parent.getChildComponentContexts_ComposedStructure().add(componentBuilder.getAssemblyContext());
+			parent.getAssemblyContexts_ComposedStructure().add(componentBuilder.getAssemblyContext());
 			
 			embeddConnectorCompletionInApplication(componentBuilder);
 			connectConnectorCompletionWithMiddleware(componentBuilder);
@@ -73,7 +73,7 @@ public class ConnectorReplacingBuilder implements IBuilder {
 			serverContainer = linkingRes.getToResourceContainer_LinkingResource().get(0);
 			builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
 		} else {
-			clientContainer = findContainer(this.connector.getRequiringChildComponentContext_CompositeAssemblyConnector());
+			clientContainer = findContainer(this.connector.getRequiringAssemblyContext_AssemblyConnector());
 			serverContainer = clientContainer;
 			builder = new LocalCommunicationComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole());
 		}
@@ -92,41 +92,41 @@ public class ConnectorReplacingBuilder implements IBuilder {
 		// Only support point-to-point connections
 		AllocationContext clientMWContext = findClientSideMiddlewareAllocationContext();
 		addAssemblyConnector(componentBuilder.getClientSideMiddlewareRole(), componentBuilder.getAssemblyContext(),
-				clientMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
+				clientMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
 				clientMWContext.getAssemblyContext_AllocationContext());
 		AllocationContext serverMWContext = findServerSideMiddlewareAllocationContext();
 		addAssemblyConnector(componentBuilder.getServerSideMiddlewareRole(), componentBuilder.getAssemblyContext(),
-				serverMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
+				serverMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
 				serverMWContext.getAssemblyContext_AllocationContext());
 	}
 
 	private void embeddConnectorCompletionInApplication(IClientServerConnectorCompletionComponentBuilder componentBuilder) {
 		addAssemblyConnector(connector.getRequiredRole_CompositeAssemblyConnector(), 
-					connector.getRequiringChildComponentContext_CompositeAssemblyConnector(),
+					connector.getRequiringAssemblyContext_AssemblyConnector(),
 					componentBuilder.getProvidedRole(), 
 					componentBuilder.getAssemblyContext());
 		addAssemblyConnector(componentBuilder.getRequiredRole(), 
 					componentBuilder.getAssemblyContext(), 
 					connector.getProvidedRole_CompositeAssemblyConnector(), 
-					connector.getProvidingChildComponentContext_CompositeAssemblyConnector());
+					connector.getProvidingAssemblyContext_AssemblyConnector());
 	}
 
 	private void addAssemblyConnector(RequiredRole from, AssemblyContext fromContext, ProvidedRole to, AssemblyContext toContext){
 		AssemblyConnector acon = CompositionFactory.eINSTANCE.createAssemblyConnector();
 		acon.setParentStructure_AssemblyConnector(parent);
 		acon.setRequiredRole_CompositeAssemblyConnector(from);
-		acon.setRequiringChildComponentContext_CompositeAssemblyConnector(fromContext);
+		acon.setRequiringAssemblyContext_AssemblyConnector(fromContext);
 		acon.setProvidedRole_CompositeAssemblyConnector(to);
-		acon.setProvidingChildComponentContext_CompositeAssemblyConnector(toContext);
+		acon.setProvidingAssemblyContext_AssemblyConnector(toContext);
 	}	
 
 	private AllocationContext findClientSideMiddlewareAllocationContext() {
-		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringChildComponentContext_CompositeAssemblyConnector()) : linkingRes.getFromResourceContainer_LinkingResource().get(0) ;
+		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringAssemblyContext_AssemblyConnector()) : linkingRes.getFromResourceContainer_LinkingResource().get(0) ;
 		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 	
 	private AllocationContext findServerSideMiddlewareAllocationContext(){
-		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringChildComponentContext_CompositeAssemblyConnector()) : linkingRes.getToResourceContainer_LinkingResource().get(0) ;
+		ResourceContainer container = linkingRes == null ? findContainer(connector.getRequiringAssemblyContext_AssemblyConnector()) : linkingRes.getToResourceContainer_LinkingResource().get(0) ;
 		return findAllocationContext(container,models.getMiddlewareRepository().getInterfaces__Repository().get(0));
 	}
 
@@ -143,8 +143,8 @@ public class ConnectorReplacingBuilder implements IBuilder {
 			ResourceContainer resourceContainer, Interface interfaceToSearch) {
 		for (AllocationContext context : models.getAllocation().getAllocationContexts_Allocation())
 			if (context.getResourceContainer_AllocationContext() == resourceContainer && 
-					context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().size() > 0 &&
-				    context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_ChildComponentContext().getProvidedRoles_InterfaceProvidingEntity().get(0).getProvidedInterface__ProvidedRole() == interfaceToSearch)
+					context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().size() > 0 &&
+				    context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0).getProvidedInterface__ProvidedRole() == interfaceToSearch)
 				return context;
 		throw new RuntimeException("Model invalid, unable to find middleware component for resource container "+resourceContainer.getEntityName());
 	}	
@@ -156,13 +156,13 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	 */
 	private LinkingResource findLinkingResource(AssemblyConnector con) {
 		for (LinkingResource lr : models.getAllocation().getTargetResourceEnvironment_Allocation().getLinkingresource()){
-			if ((lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector())) &&
-					lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getProvidingChildComponentContext_CompositeAssemblyConnector()))) || // Respect bidirectional links 
-				(lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector())) && 
-						lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getProvidingChildComponentContext_CompositeAssemblyConnector()))))
+			if ((lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getRequiringAssemblyContext_AssemblyConnector())) &&
+					lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getProvidingAssemblyContext_AssemblyConnector()))) || // Respect bidirectional links 
+				(lr.getToResourceContainer_LinkingResource().contains(findContainer(con.getRequiringAssemblyContext_AssemblyConnector())) && 
+						lr.getFromResourceContainer_LinkingResource().contains(findContainer(con.getProvidingAssemblyContext_AssemblyConnector()))))
 				return lr;
 		}
-		if (findContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector()) != findContainer(con.getProvidingChildComponentContext_CompositeAssemblyConnector()))
+		if (findContainer(con.getRequiringAssemblyContext_AssemblyConnector()) != findContainer(con.getProvidingAssemblyContext_AssemblyConnector()))
 			throw new RuntimeException("AssemblyConnector "+con.getEntityName()+" links different ResourceContainer, but there is no linking resource between the containers!");
 		return null;
 	}

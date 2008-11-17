@@ -36,7 +36,7 @@ extends AbstractCompositeStructureBuilder {
 		myAssemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext(); 
 		myAssemblyContext.setEntityName("CompletionComponentContext"+contextID);
 		contextID++;
-		myAssemblyContext.setEncapsulatedComponent_ChildComponentContext(myComponent);
+		myAssemblyContext.setEncapsulatedComponent_AssemblyContext(myComponent);
 	}
 	
 }

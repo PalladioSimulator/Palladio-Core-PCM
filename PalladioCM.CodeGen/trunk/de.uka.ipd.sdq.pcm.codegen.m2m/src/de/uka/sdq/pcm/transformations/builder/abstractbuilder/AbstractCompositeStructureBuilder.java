@@ -44,9 +44,9 @@ extends AbstractComponentBuilder {
 		AssemblyConnector acon = CompositionFactory.eINSTANCE.createAssemblyConnector();
 		acon.setParentStructure_AssemblyConnector(getComposedStructure());
 		acon.setRequiredRole_CompositeAssemblyConnector(from);
-		acon.setRequiringChildComponentContext_CompositeAssemblyConnector(fromContext);
+		acon.setRequiringAssemblyContext_AssemblyConnector(fromContext);
 		acon.setProvidedRole_CompositeAssemblyConnector(to);
-		acon.setProvidingChildComponentContext_CompositeAssemblyConnector(toContext);
+		acon.setProvidingAssemblyContext_AssemblyConnector(toContext);
 	}
 	
 	

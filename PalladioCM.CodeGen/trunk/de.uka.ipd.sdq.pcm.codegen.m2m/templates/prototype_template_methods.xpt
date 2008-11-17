@@ -6,6 +6,7 @@
 «IMPORT core::entity»
 «IMPORT repository»
 «IMPORT seff»
+«IMPORT seff::performance»
 «IMPORT resourcetype»
 «IMPORT allocation»
 «IMPORT parameter»
@@ -30,7 +31,7 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::ChildInitTM(ComposedStructure s) FOR AssemblyContext»
-	«IF BasicComponent.isInstance(this.encapsulatedComponent_ChildComponentContext)»
+	«IF BasicComponent.isInstance(this.encapsulatedComponent_AssemblyContext)»
 		«EXPAND m2t_transforms::sim::composed_structure::ChildInitTM(s) FOR this»
 	«ENDIF»
 «ENDAROUND»

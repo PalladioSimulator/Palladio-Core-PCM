@@ -37,14 +37,14 @@
 // assembly context!
 «DEFINE AssemblyContextLink FOR AllocationContext»
 	linkAssemblyContextAndResourceContainer("«this.assemblyContext_AllocationContext.id»","«this.resourceContainer_AllocationContext.id»");
-	«IF CompositeComponent.isInstance(this.assemblyContext_AllocationContext.encapsulatedComponent_ChildComponentContext)»
-		«EXPAND CompositeAllocation(this) FOREACH ((CompositeComponent)this.assemblyContext_AllocationContext.encapsulatedComponent_ChildComponentContext).childComponentContexts_ComposedStructure»
+	«IF CompositeComponent.isInstance(this.assemblyContext_AllocationContext.encapsulatedComponent_AssemblyContext)»
+		«EXPAND CompositeAllocation(this) FOREACH ((CompositeComponent)this.assemblyContext_AllocationContext.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
 	«ENDIF»
 «ENDDEFINE»
 
 «DEFINE CompositeAllocation(AllocationContext allocCxt) FOR AssemblyContext»
 	linkAssemblyContextAndResourceContainer("«this.id»","«allocCxt.resourceContainer_AllocationContext.id»");
-	«IF CompositeComponent.isInstance(this.encapsulatedComponent_ChildComponentContext)»
-		«EXPAND CompositeAllocation(allocCxt) FOREACH ((CompositeComponent)this.encapsulatedComponent_ChildComponentContext).childComponentContexts_ComposedStructure»
+	«IF CompositeComponent.isInstance(this.encapsulatedComponent_AssemblyContext)»
+		«EXPAND CompositeAllocation(allocCxt) FOREACH ((CompositeComponent)this.encapsulatedComponent_AssemblyContext).assemblyContexts_ComposedStructure»
 	«ENDIF»
 «ENDDEFINE»

@@ -59,7 +59,7 @@ extends AbstractComponentBuilder {
 		
 		this.myAssemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext();
 		this.myAssemblyContext.setEntityName("BCAssembly "+myComponent.getEntityName());
-		this.myAssemblyContext.setEncapsulatedComponent_ChildComponentContext(myComponent);
+		this.myAssemblyContext.setEncapsulatedComponent_AssemblyContext(myComponent);
 
 		this.myAllocationContext = AllocationFactory.eINSTANCE.createAllocationContext();
 		myAllocationContext.setAssemblyContext_AllocationContext(myAssemblyContext);
