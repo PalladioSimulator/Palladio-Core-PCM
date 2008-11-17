@@ -65,7 +65,7 @@ implementationPackage(Entity e) :
 
 // Base package of the implementation of an interface
 implementationPackage(Interface i) :
-   i.repository_AbstractInterface.basePackageName();
+   i.repository_Interface.basePackageName();
    
 // Base package of the implementation of a system
 implementationPackage(System s) :

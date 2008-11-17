@@ -77,10 +77,10 @@ collectRepositories(System s):
   	union(s.requiredRoles_InterfaceRequiringEntity.collectRepositories()).toSet();
   
 collectRepositories(ProvidedRole pr):
-	pr.providedInterface__ProvidedRole.repository_AbstractInterface;
+	pr.providedInterface__ProvidedRole.repository_Interface;
 	
 collectRepositories(RequiredRole rr):
-	rr.requiredInterface__RequiredRole.repository_AbstractInterface;
+	rr.requiredInterface__RequiredRole.repository_Interface;
 	
 collectRepositories(ProvidesComponentType pct):
 	pct.repository_RepositoryComponent;
