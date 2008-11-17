@@ -22,11 +22,11 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/2008.09.19/2008.11.14/ProbabilityFunction.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.14/stoex.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.14/Units.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.14/identifier.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.14/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.17/identifier.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.17/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.17/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.17/stoex.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.11.17/Units.uml</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
