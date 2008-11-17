@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -77,7 +78,11 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 	}
 
 	private Expression getEntryExpression(EntryLevelSystemCall object) {
-		Signature signature = object.getSignature_EntryLevelSystemCall();
+		if (contextWrapper == null)
+			contextWrapper = new ContextWrapper(object, pcmInstance);
+		else
+			contextWrapper = contextWrapper.getContextWrapperFor(object);
+		
 		ProvidedRole role = object.getProvidedRole_EntryLevelSystemCall();
 		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
 		ProvidesComponentType offeringComponent = delegationConnector
@@ -85,19 +90,15 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 				.getEncapsulatedComponent_ChildComponentContext();
 	
 		Expression expr = null;
-		if (offeringComponent instanceof BasicComponent){
-			ServiceEffectSpecification seff = getSeff(signature, (BasicComponent)offeringComponent);
-			TransformSeffVisitor seffVisitor = new TransformSeffVisitor(contextWrapper);
-			try {
-				expr = (Expression)seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
-			} catch (Exception e) {
-				logger.error("Error while visiting RDSEFF");
-				e.printStackTrace();
-			}
-		} else {
-			logger.error("Composite Component type not yet supported.");
-			return null;
+		ServiceEffectSpecification seff = contextWrapper.getNextSEFF(object);
+		TransformSeffVisitor seffVisitor = new TransformSeffVisitor(contextWrapper);
+		try {
+			expr = (Expression)seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
+		} catch (Exception e) {
+			logger.error("Error while visiting RDSEFF");
+			e.printStackTrace();
 		}
+		
 		return expr;
 	}
 

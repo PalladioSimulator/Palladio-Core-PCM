@@ -227,7 +227,15 @@ public class ContextWrapper implements Cloneable{
 				}
 			}
 		} else if (pct instanceof CompositeComponent){ 
-			// TODO: support other component types
+			CompositeComponent cc = (CompositeComponent)pct;
+			EList<AssemblyContext> inner = cc.getChildComponentContexts_ComposedStructure();
+			if (inner.size() == 0){
+				logger.error("Empty CompositeComponent "+cc.getEntityName());
+				throw new RuntimeException("Empty CompositeComponent "+cc.getEntityName());
+			}
+			logger.debug("Retrieving inner SEFF of CompositeComponent "+cc.getEntityName());
+			//recursive call of this method for the internals of the CompositeComponent
+			return getSeff(inner.get(0),sig);
 		}
 		return null;
 	}
