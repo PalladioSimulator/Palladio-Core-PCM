@@ -86,7 +86,6 @@ import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -95,6 +94,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 
 /**
  * @generated
@@ -1266,7 +1266,7 @@ public class PalladioComponentModelDiagramUpdater {
 		case InternalActionEditPart.VISUAL_ID:
 			return getInternalAction_3007ContainedLinks(view);
 		case ParametricResourceDemandEditPart.VISUAL_ID:
-			return getParametricResourceDemand_3008ContainedLinks(view);
+			return getParametricResourceDemand_3031ContainedLinks(view);
 		case BranchActionEditPart.VISUAL_ID:
 			return getBranchAction_3009ContainedLinks(view);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
@@ -1347,7 +1347,7 @@ public class PalladioComponentModelDiagramUpdater {
 		case InternalActionEditPart.VISUAL_ID:
 			return getInternalAction_3007IncomingLinks(view);
 		case ParametricResourceDemandEditPart.VISUAL_ID:
-			return getParametricResourceDemand_3008IncomingLinks(view);
+			return getParametricResourceDemand_3031IncomingLinks(view);
 		case BranchActionEditPart.VISUAL_ID:
 			return getBranchAction_3009IncomingLinks(view);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
@@ -1428,7 +1428,7 @@ public class PalladioComponentModelDiagramUpdater {
 		case InternalActionEditPart.VISUAL_ID:
 			return getInternalAction_3007OutgoingLinks(view);
 		case ParametricResourceDemandEditPart.VISUAL_ID:
-			return getParametricResourceDemand_3008OutgoingLinks(view);
+			return getParametricResourceDemand_3031OutgoingLinks(view);
 		case BranchActionEditPart.VISUAL_ID:
 			return getBranchAction_3009OutgoingLinks(view);
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
@@ -1676,7 +1676,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getParametricResourceDemand_3008ContainedLinks(View view) {
+	public static List getParametricResourceDemand_3031ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -2069,7 +2069,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getParametricResourceDemand_3008IncomingLinks(View view) {
+	public static List getParametricResourceDemand_3031IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -2435,7 +2435,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getParametricResourceDemand_3008OutgoingLinks(View view) {
+	public static List getParametricResourceDemand_3031OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

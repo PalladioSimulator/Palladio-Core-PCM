@@ -53,7 +53,7 @@
                class="de.uka.ipd.sdq.pcm.gmf.seff.helper.ParametricResourceDemandEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemandAdvice"
                inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_3008">
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_3031">
          </adviceBinding>
           <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourceDemandingBehaviourEditHelperAdvice"

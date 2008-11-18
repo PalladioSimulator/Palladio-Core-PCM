@@ -3,73 +3,26 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.providers;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramEditorUtil;
-import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
-import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
-
-import de.uka.ipd.sdq.pcm.gmf.repository.part.ValidateAction;
-import java.lang.reflect.InvocationTargetException;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import org.eclipse.core.resources.IFile;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
-
-import org.eclipse.emf.common.util.Diagnostic;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.util.Diagnostician;
-
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-
 import org.eclipse.emf.transaction.util.TransactionUtil;
-
-import org.eclipse.emf.validation.model.EvaluationMode;
-
-import org.eclipse.emf.validation.model.IConstraintStatus;
 import org.eclipse.emf.validation.service.IBatchValidator;
 import org.eclipse.emf.validation.service.ITraversalStrategy;
-import org.eclipse.emf.validation.service.ModelValidationService;
-
-import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
-
 import org.eclipse.gmf.runtime.common.ui.services.action.contributionitem.AbstractContributionItemProvider;
-
 import org.eclipse.gmf.runtime.common.ui.util.IWorkbenchPartDescriptor;
-
-import org.eclipse.gmf.runtime.diagram.ui.OffscreenEditPartFactory;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
-
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
-
-import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
-
 import org.eclipse.gmf.runtime.notation.View;
-
-import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 
-import org.eclipse.jface.operation.IRunnableWithProgress;
-
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
-
-import org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.ValidateAction;
 
 /**
  * @generated

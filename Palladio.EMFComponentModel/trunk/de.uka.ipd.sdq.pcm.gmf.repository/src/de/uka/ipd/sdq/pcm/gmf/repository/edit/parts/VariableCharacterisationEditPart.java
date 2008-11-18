@@ -37,6 +37,7 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
@@ -218,7 +219,8 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 		String text = null;
 		VariableCharacterisation vc = (VariableCharacterisation) this
 				.resolveSemanticElement();
-		if (vc != null && vc.getSpecification_VariableCharacterisation() != null) {
+		if (vc != null
+				&& vc.getSpecification_VariableCharacterisation() != null) {
 			text = vc.getType().getLiteral() + " = ";
 			Expression expression = vc
 					.getSpecification_VariableCharacterisation()

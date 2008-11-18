@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -65,7 +64,9 @@ import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -106,7 +107,6 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
-import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
@@ -126,21 +126,26 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.core.entity.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
+import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.provider.ReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.performance.provider.PerformanceItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.propertytabs.PalladioAdapterFactoryContentProvider;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
+import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 
 
 /**
@@ -171,7 +176,7 @@ public class ResourceenvironmentEditor
 	 * This is the one adapter factory used for providing views of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated not
 	 */
 	protected AdapterFactory adapterFactory;
 
@@ -661,44 +666,59 @@ public class ResourceenvironmentEditor
 	 * This creates a model editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public ResourceenvironmentEditor() {
 		super();
+		initializeEditingDomain();
+	}
 
+	/**
+	 * This sets up the editing domain for the model editor.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
 		//
-		List<AdapterFactory> factories = new ArrayList<AdapterFactory>();
-		factories.add(new ResourceItemProviderAdapterFactory());
-		factories.add(new EntityItemProviderAdapterFactory());
-		factories.add(new ConnectorsItemProviderAdapterFactory());
-		factories.add(new CompositionItemProviderAdapterFactory());
-		factories.add(new RepositoryItemProviderAdapterFactory());
-		factories.add(new ProtocolItemProviderAdapterFactory());
-		factories.add(new ParameterItemProviderAdapterFactory());
-		factories.add(new SeffItemProviderAdapterFactory());
-		factories.add(new ResourcetypeItemProviderAdapterFactory());
-		factories.add(new AllocationItemProviderAdapterFactory());
-		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
-		factories.add(new SystemItemProviderAdapterFactory());
-		factories.add(new QosannotationsItemProviderAdapterFactory());
-		factories.add(new UsagemodelItemProviderAdapterFactory());
-		factories.add(new IdentifierItemProviderAdapterFactory());
-		factories.add(new ProbfunctionItemProviderAdapterFactory());
-		factories.add(new StoexItemProviderAdapterFactory());
-		factories.add(new ReflectiveItemProviderAdapterFactory());
-
-		ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
-
+		ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
 			@Override
 			public ComposeableAdapterFactory getRootAdapterFactory() {
 				// TODO Auto-generated method stub
 				return (PalladioItemProviderAdapterFactory)adapterFactory;
 			}
-			
 		};
-		adapterFactory = new PalladioItemProviderAdapterFactory(caf);
 
+
+		compAdapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ConnectorsItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new PerformanceItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new de.uka.ipd.sdq.pcm.qosannotations.performance.provider.PerformanceItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
+		compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
+		adapterFactory = new PalladioItemProviderAdapterFactory(compAdapterFactory);
+
+		
 		// Create the command stack that will notify this editor as commands are executed.
 		//
 		BasicCommandStack commandStack = new BasicCommandStack();
@@ -738,7 +758,7 @@ public class ResourceenvironmentEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+			@Override
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
 	}
@@ -791,25 +811,54 @@ public class ResourceenvironmentEditor
 	 * @generated
 	 */
 	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
 		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
 			super(adapterFactory);
 		}
 
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
 		public Object [] getElements(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
 
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
 		public Object [] getChildren(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
 
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
 		public boolean hasChildren(Object object) {
 			Object parent = super.getParent(object);
 			return parent != null;
 		}
 
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
 		public Object getParent(Object object) {
 			return null;
 		}
@@ -899,7 +948,7 @@ public class ResourceenvironmentEditor
 		contextMenu.addMenuListener(this);
 		Menu menu= contextMenu.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(contextMenu, viewer);
+		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
 		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
@@ -914,10 +963,7 @@ public class ResourceenvironmentEditor
 	 * @generated
 	 */
 	public void createModel() {
-		// Assumes that the input is a file object.
-		//
-		IFileEditorInput modelFile = (IFileEditorInput)getEditorInput();
-		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
+		URI resourceURI = EditUIUtil.getURI(getEditorInput());
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -935,16 +981,10 @@ public class ResourceenvironmentEditor
 			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
-
-		Resource extraResource = editingDomain.getResourceSet().getResource(URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype"), true);
-		try {
-			extraResource.load(new HashMap<Object, Object>());
-		} catch (IOException e) {
-		}
 	}
 
 	/**
-	 * Returns a dignostic describing the errors and warnings listed in the resource
+	 * Returns a diagnostic describing the errors and warnings listed in the resource
 	 * and the specified exception (if any).
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1193,7 +1233,12 @@ public class ResourceenvironmentEditor
 				setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
 			}
 
-			setActivePage(0);
+			getSite().getShell().getDisplay().asyncExec
+				(new Runnable() {
+					 public void run() {
+						 setActivePage(0);
+					 }
+				 });
 		}
 
 		// Ensures that this editor will only display the page's tab
@@ -1212,7 +1257,12 @@ public class ResourceenvironmentEditor
 				}
 			 });
 
-		updateProblemIndication();
+		getSite().getShell().getDisplay().asyncExec
+			(new Runnable() {
+				 public void run() {
+					 updateProblemIndication();
+				 }
+			 });
 	}
 
 	/**
@@ -1273,7 +1323,7 @@ public class ResourceenvironmentEditor
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-		@Override
+	@Override
 	public Object getAdapter(Class key) {
 		if (key.equals(IContentOutlinePage.class)) {
 			return showOutlineView() ? getContentOutlinePage() : null;
@@ -1357,7 +1407,7 @@ public class ResourceenvironmentEditor
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated not
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		if (propertySheetPage == null) {
@@ -1439,6 +1489,11 @@ public class ResourceenvironmentEditor
 	 */
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
+		// Save only resources that have actually changed.
+		//
+		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
 		WorkspaceModifyOperation operation =
@@ -1454,7 +1509,7 @@ public class ResourceenvironmentEditor
 						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
 							try {
 								savedResources.add(resource);
-								resource.save(Collections.EMPTY_MAP);
+								resource.save(saveOptions);
 							}
 							catch (Exception exception) {
 								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
@@ -1486,7 +1541,7 @@ public class ResourceenvironmentEditor
 	}
 
 	/**
-	 * This returns wether something has been persisted to the URI of the specified resource.
+	 * This returns whether something has been persisted to the URI of the specified resource.
 	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream. 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1747,7 +1802,7 @@ public class ResourceenvironmentEditor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated not
 	 */
 	@Override
 	public void dispose() {

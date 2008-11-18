@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
  * @generated
  */
 public class StopActionItemProvider
-	extends AbstractResourceDemandingActionItemProvider
+	extends AbstractInternalControlFlowActionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

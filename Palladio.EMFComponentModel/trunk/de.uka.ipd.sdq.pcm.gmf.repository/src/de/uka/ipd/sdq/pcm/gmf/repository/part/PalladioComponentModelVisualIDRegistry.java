@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.part;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
@@ -18,7 +17,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmen
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEntityNameEditPart;
@@ -26,7 +24,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeP
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.LabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
@@ -37,26 +34,25 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceResourceServiceListEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceServiceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
-import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -174,6 +170,12 @@ public class PalladioComponentModelVisualIDRegistry {
 				return SignatureEditPart.VISUAL_ID;
 			}
 			break;
+		case ResourceInterfaceResourceServiceListEditPart.VISUAL_ID:
+			if (ResourcetypePackage.eINSTANCE.getResourceService()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ResourceServiceEditPart.VISUAL_ID;
+			}
+			break;
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 			if (SeffPackage.eINSTANCE.getResourceDemandingSEFF().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -203,6 +205,10 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return InterfaceEditPart.VISUAL_ID;
 			}
+			if (ResourcetypePackage.eINSTANCE.getResourceInterface()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ResourceInterfaceEditPart.VISUAL_ID;
+			}
 			if (RepositoryPackage.eINSTANCE.getBasicComponent().isSuperTypeOf(
 					domainElement.eClass())) {
 				return BasicComponentEditPart.VISUAL_ID;
@@ -218,6 +224,10 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (RepositoryPackage.eINSTANCE.getProvidesComponentType()
 					.isSuperTypeOf(domainElement.eClass())) {
 				return ProvidesComponentTypeEditPart.VISUAL_ID;
+			}
+			if (SubsystemPackage.eINSTANCE.getSubSystem().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SubSystemEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -253,6 +263,14 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ResourceInterfaceEditPart.VISUAL_ID:
+			if (ResourceInterfaceEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ResourceInterfaceResourceServiceListEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case BasicComponentEditPart.VISUAL_ID:
 			if (BasicComponentEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -282,6 +300,11 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case SubSystemEditPart.VISUAL_ID:
+			if (SubSystemEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case VariableUsageEditPart.VISUAL_ID:
 			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -292,6 +315,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			break;
 		case InterfaceSignatureListEditPart.VISUAL_ID:
 			if (SignatureEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ResourceInterfaceResourceServiceListEditPart.VISUAL_ID:
+			if (ResourceServiceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -319,6 +347,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (InterfaceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ResourceInterfaceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (BasicComponentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -329,6 +360,9 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			if (ProvidesComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SubSystemEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -352,6 +386,11 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case ResourceRequiredRoleEditPart.VISUAL_ID:
+			if (WrapLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		}
 		return false;
 	}
@@ -370,6 +409,10 @@ public class PalladioComponentModelVisualIDRegistry {
 		if (RepositoryPackage.eINSTANCE.getRequiredRole().isSuperTypeOf(
 				domainElement.eClass())) {
 			return RequiredRoleEditPart.VISUAL_ID;
+		}
+		if (ResourcetypePackage.eINSTANCE.getResourceRequiredRole()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return ResourceRequiredRoleEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

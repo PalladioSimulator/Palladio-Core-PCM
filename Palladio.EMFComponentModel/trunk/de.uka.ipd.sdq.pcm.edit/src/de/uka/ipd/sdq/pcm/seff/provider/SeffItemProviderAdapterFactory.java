@@ -5,15 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.seff.provider;
 
-import de.uka.ipd.sdq.pcm.seff.util.SeffAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -25,6 +22,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.pcm.seff.util.SeffAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -102,29 +101,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		}
 
 		return stopActionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParametricResourceDemandItemProvider parametricResourceDemandItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParametricResourceDemandAdapter() {
-		if (parametricResourceDemandItemProvider == null) {
-			parametricResourceDemandItemProvider = new ParametricResourceDemandItemProvider(this);
-		}
-
-		return parametricResourceDemandItemProvider;
 	}
 
 	/**
@@ -595,7 +571,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 */
 	public void dispose() {
 		if (stopActionItemProvider != null) stopActionItemProvider.dispose();
-		if (parametricResourceDemandItemProvider != null) parametricResourceDemandItemProvider.dispose();
 		if (startActionItemProvider != null) startActionItemProvider.dispose();
 		if (resourceDemandingSEFFItemProvider != null) resourceDemandingSEFFItemProvider.dispose();
 		if (resourceDemandingBehaviourItemProvider != null) resourceDemandingBehaviourItemProvider.dispose();

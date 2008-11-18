@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * @generated
  */
 public class InternalActionItemProvider
-	extends AbstractResourceDemandingActionItemProvider
+	extends AbstractInternalControlFlowActionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

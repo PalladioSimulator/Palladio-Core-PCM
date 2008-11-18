@@ -6,24 +6,13 @@
 package de.uka.ipd.sdq.pcm.core.entity.provider;
 
 
-import de.uka.ipd.sdq.pcm.core.composition.provider.ComposedStructureItemProvider;
-
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -31,6 +20,13 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.pcm.core.composition.provider.ComposedStructureItemProvider;
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity} object.
@@ -92,6 +88,7 @@ public class ComposedProvidingRequiringEntityItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
 			childrenFeatures.add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
+			childrenFeatures.add(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY);
 		}
 		return childrenFeatures;
 	}
@@ -137,6 +134,7 @@ public class ComposedProvidingRequiringEntityItemProvider
 		switch (notification.getFeatureID(ComposedProvidingRequiringEntity.class)) {
 			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,6 +161,11 @@ public class ComposedProvidingRequiringEntityItemProvider
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
 				 RepositoryFactory.eINSTANCE.createRequiredRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
+				 ResourcetypeFactory.eINSTANCE.createResourceRequiredRole()));
 	}
 
 	/**

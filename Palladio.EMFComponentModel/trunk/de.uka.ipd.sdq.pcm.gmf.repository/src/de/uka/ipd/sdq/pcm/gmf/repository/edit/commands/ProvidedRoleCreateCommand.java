@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
@@ -61,7 +62,7 @@ public class ProvidedRoleCreateCommand extends CreateElementCommand {
 		if (source != null && !(source instanceof InterfaceProvidingEntity)) {
 			return false;
 		}
-		if (target != null && !(target instanceof Interface)) {
+		if (target != null && !(target instanceof AbstractInterface)) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -130,7 +131,7 @@ public class ProvidedRoleCreateCommand extends CreateElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Interface getTarget() {
-		return (Interface) target;
+	protected AbstractInterface getTarget() {
+		return (AbstractInterface) target;
 	}
 }

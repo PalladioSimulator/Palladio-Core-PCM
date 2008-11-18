@@ -54,12 +54,19 @@ public class ComposedProvidingRequiringEntity2EditPart extends
 	 * @generated
 	 */
 	protected IFigure primaryShape;
+	
+	/**
+	 * @generated not
+	 */
+	// remove @generated not?
+	protected View view;
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
-	public ComposedProvidingRequiringEntity2EditPart(View view) {
-		super(view);
+	public ComposedProvidingRequiringEntity2EditPart(View v) {
+		super(v);
+		view = v;
 	}
 
 	/**
@@ -286,13 +293,15 @@ public class ComposedProvidingRequiringEntity2EditPart extends
 		}
 
 		/**
-		 * @generated
+		 * @generated not
 		 */
 		private void createContents() {
 
 			WrapLabel compositeStructureStereotypeLabelFigure0 = new WrapLabel();
+			// Do not set the label to "<<CompositeStructure>>", but to the 
+			// name of the actual instance type, e. g. CompositeComponent or SubSystem
 			compositeStructureStereotypeLabelFigure0
-					.setText("<<CompositeStructure>>");
+					.setText("<<" + view.getElement().eClass().getInstanceClass().getSimpleName() +">>");
 
 			this.add(compositeStructureStereotypeLabelFigure0);
 

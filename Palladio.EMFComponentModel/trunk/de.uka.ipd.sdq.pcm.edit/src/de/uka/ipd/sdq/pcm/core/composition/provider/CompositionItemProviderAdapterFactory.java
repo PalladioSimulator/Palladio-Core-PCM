@@ -5,15 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.provider;
 
-import de.uka.ipd.sdq.pcm.core.composition.util.CompositionAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -25,6 +22,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.pcm.core.composition.util.CompositionAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -174,6 +173,29 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceRequiredDelegationConnectorItemProvider resourceRequiredDelegationConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceRequiredDelegationConnectorAdapter() {
+		if (resourceRequiredDelegationConnectorItemProvider == null) {
+			resourceRequiredDelegationConnectorItemProvider = new ResourceRequiredDelegationConnectorItemProvider(this);
+		}
+
+		return resourceRequiredDelegationConnectorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +298,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 		if (assemblyContextItemProvider != null) assemblyContextItemProvider.dispose();
 		if (requiredDelegationConnectorItemProvider != null) requiredDelegationConnectorItemProvider.dispose();
 		if (assemblyConnectorItemProvider != null) assemblyConnectorItemProvider.dispose();
+		if (resourceRequiredDelegationConnectorItemProvider != null) resourceRequiredDelegationConnectorItemProvider.dispose();
 	}
 
 }

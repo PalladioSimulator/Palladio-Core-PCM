@@ -26,6 +26,8 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.performance.PerformanceFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations} object.
@@ -163,12 +165,17 @@ public class QoSAnnotationsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS,
-				 QosannotationsFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
+				 PerformanceFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS,
-				 QosannotationsFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
+				 PerformanceFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS,
+				 ReliabilityFactory.eINSTANCE.createSpecifiedFailureProbability()));
 
 		newChildDescriptors.add
 			(createChildParameter

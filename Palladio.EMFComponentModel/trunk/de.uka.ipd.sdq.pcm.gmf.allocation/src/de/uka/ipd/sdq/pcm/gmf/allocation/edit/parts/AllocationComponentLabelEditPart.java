@@ -210,10 +210,10 @@ public class AllocationComponentLabelEditPart extends CompartmentEditPart
 		AllocationContext ctx = (AllocationContext) resolveSemanticElement();
 		if (ctx.getAssemblyContext_AllocationContext() != null) {
 			if (ctx.getAssemblyContext_AllocationContext()
-					.getEncapsulatedComponent_ChildComponentContext() != null) {
+					.getEncapsulatedComponent_AssemblyContext() != null) {
 				return PalladioComponentModelElementTypes.getImage(ctx
 						.getAssemblyContext_AllocationContext()
-						.getEncapsulatedComponent_ChildComponentContext()
+						.getEncapsulatedComponent_AssemblyContext()
 						.eClass());
 			}
 		}
@@ -232,9 +232,9 @@ public class AllocationComponentLabelEditPart extends CompartmentEditPart
 					+ ctx.getAssemblyContext_AllocationContext()
 							.getEntityName() + ">";
 			if (ctx.getAssemblyContext_AllocationContext()
-					.getEncapsulatedComponent_ChildComponentContext() != null) {
+					.getEncapsulatedComponent_AssemblyContext() != null) {
 				text = ctx.getAssemblyContext_AllocationContext()
-						.getEncapsulatedComponent_ChildComponentContext()
+						.getEncapsulatedComponent_AssemblyContext()
 						.getEntityName()
 						+ " " + text;
 			}

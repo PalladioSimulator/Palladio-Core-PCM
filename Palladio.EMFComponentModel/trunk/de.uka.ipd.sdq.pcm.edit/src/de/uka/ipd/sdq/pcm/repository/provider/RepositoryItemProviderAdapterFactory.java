@@ -5,15 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.repository.provider;
 
-import de.uka.ipd.sdq.pcm.repository.util.RepositoryAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -25,6 +22,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.pcm.repository.util.RepositoryAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -552,10 +551,10 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		if (signatureItemProvider != null) signatureItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
-		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
 		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
 		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
 		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
+		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
 		if (completeComponentTypeItemProvider != null) completeComponentTypeItemProvider.dispose();
 		if (compositeComponentItemProvider != null) compositeComponentItemProvider.dispose();
 		if (basicComponentItemProvider != null) basicComponentItemProvider.dispose();

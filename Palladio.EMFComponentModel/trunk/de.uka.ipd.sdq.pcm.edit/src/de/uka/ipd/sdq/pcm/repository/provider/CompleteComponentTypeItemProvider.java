@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class CompleteComponentTypeItemProvider
-	extends ProvidesComponentTypeItemProvider
+	extends RepositoryComponentItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

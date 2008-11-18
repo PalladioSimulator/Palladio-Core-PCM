@@ -326,6 +326,31 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ResourceRequiredRole6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SubSystem7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SubSystem7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ResourceInterface8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResourceInterface8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String Signature1CreationTool_title;
 
 	/**
@@ -376,6 +401,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ResourceService6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResourceService6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ProvidesComponentType1CreationTool_title;
 
 	/**
@@ -421,6 +456,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ResourceInterfaceResourceServiceListEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String BasicComponentSEFFCompartmentEditPart_title;
 
 	/**
@@ -456,12 +496,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_BasicComponent_2102_outgoinglinks;
+	public static String NavigatorGroupName_ResourceInterface_2107_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_BasicComponent_2102_incominglinks;
+	public static String NavigatorGroupName_BasicComponent_2102_outgoinglinks;
 
 	/**
 	 * @generated
@@ -486,12 +526,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_CompositeComponent_2105_outgoinglinks;
+	public static String NavigatorGroupName_SubSystem_2106_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_CompositeComponent_2105_incominglinks;
+	public static String NavigatorGroupName_CompositeComponent_2105_outgoinglinks;
 
 	/**
 	 * @generated
@@ -532,6 +572,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CompleteComponentTypeParentProvidesComponentTypes_4104_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ResourceRequiredRole_4106_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ResourceRequiredRole_4106_source;
 
 	/**
 	 * @generated

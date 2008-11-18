@@ -22,9 +22,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class CompositeComponentItemProvider
-	extends ImplementationComponentTypeItemProvider
+	extends ComposedProvidingRequiringEntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -70,25 +70,25 @@ public class CompositeComponentItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addImplementationComponentTypePropertyDescriptor(object);
+			addParentCompleteComponentTypesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Implementation Component Type feature.
+	 * This adds a property descriptor for the Parent Complete Component Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addImplementationComponentTypePropertyDescriptor(Object object) {
+	protected void addParentCompleteComponentTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompositeComponent_implementationComponentType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompositeComponent_implementationComponentType_feature", "_UI_CompositeComponent_type"),
-				 RepositoryPackage.Literals.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE,
+				 getString("_UI_ImplementationComponentType_parentCompleteComponentTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationComponentType_parentCompleteComponentTypes_feature", "_UI_ImplementationComponentType_type"),
+				 RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES,
 				 true,
 				 false,
 				 true,
@@ -109,10 +109,7 @@ public class CompositeComponentItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE);
-			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
-			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
-			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE);
+			childrenFeatures.add(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
 		}
 		return childrenFeatures;
 	}
@@ -167,10 +164,7 @@ public class CompositeComponentItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CompositeComponent.class)) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,23 +184,8 @@ public class CompositeComponentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createAssemblyContext()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createProvidedDelegationConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createRequiredDelegationConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createAssemblyConnector()));
+				(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
+				 ParameterFactory.eINSTANCE.createVariableUsage()));
 	}
 
 	/**

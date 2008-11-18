@@ -41,6 +41,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case InterfaceEntityNameEditPart.VISUAL_ID:
 				return new InterfaceEntityNameEditPart(view);
 
+			case ResourceInterfaceEditPart.VISUAL_ID:
+				return new ResourceInterfaceEditPart(view);
+
+			case ResourceInterfaceEntityNameEditPart.VISUAL_ID:
+				return new ResourceInterfaceEntityNameEditPart(view);
+
 			case BasicComponentEditPart.VISUAL_ID:
 				return new BasicComponentEditPart(view);
 
@@ -65,8 +71,17 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
 				return new ProvidesComponentTypeEntityNameEditPart(view);
 
+			case SubSystemEditPart.VISUAL_ID:
+				return new SubSystemEditPart(view);
+
+			case SubSystemEntityNameEditPart.VISUAL_ID:
+				return new SubSystemEntityNameEditPart(view);
+
 			case SignatureEditPart.VISUAL_ID:
 				return new SignatureEditPart(view);
+
+			case ResourceServiceEditPart.VISUAL_ID:
+				return new ResourceServiceEditPart(view);
 
 			case ResourceDemandingSEFFEditPart.VISUAL_ID:
 				return new ResourceDemandingSEFFEditPart(view);
@@ -85,6 +100,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case InterfaceSignatureListEditPart.VISUAL_ID:
 				return new InterfaceSignatureListEditPart(view);
+
+			case ResourceInterfaceResourceServiceListEditPart.VISUAL_ID:
+				return new ResourceInterfaceResourceServiceListEditPart(view);
 
 			case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 				return new BasicComponentSEFFCompartmentEditPart(view);
@@ -126,6 +144,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case ProvidesParentStereotypeLabelEditPart.VISUAL_ID:
 				return new ProvidesParentStereotypeLabelEditPart(view);
+
+			case ResourceRequiredRoleEditPart.VISUAL_ID:
+				return new ResourceRequiredRoleEditPart(view);
+
+			case WrapLabel2EditPart.VISUAL_ID:
+				return new WrapLabel2EditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

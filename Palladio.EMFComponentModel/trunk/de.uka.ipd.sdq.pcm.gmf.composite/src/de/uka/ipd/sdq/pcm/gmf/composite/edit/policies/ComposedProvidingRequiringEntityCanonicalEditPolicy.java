@@ -312,8 +312,8 @@ private EditPart getDiagramEditPart() {
 			
 			if (nextLinkDescriptor.getLinkElement() instanceof AssemblyConnector) {
 				AssemblyConnector ctx = (AssemblyConnector) nextLinkDescriptor.getLinkElement();
-				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),ctx.getRequiringChildComponentContext_CompositeAssemblyConnector());
-				targetEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getDestination(),ctx.getProvidingChildComponentContext_CompositeAssemblyConnector());
+				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),ctx.getRequiringAssemblyContext_AssemblyConnector());
+				targetEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getDestination(),ctx.getProvidingAssemblyContext_AssemblyConnector());
 			} else if (nextLinkDescriptor.getLinkElement() instanceof ProvidedDelegationConnector) {
 				ProvidedDelegationConnector ctx = (ProvidedDelegationConnector) nextLinkDescriptor.getLinkElement();
 				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),null);
@@ -424,7 +424,7 @@ private void storeTypeModelFacetLinks(EObject container, EClass containerMetacla
  */
 private void storeTypeModelFacetLinks_AssemblyConnector_4001(EObject container, EClass containerMetaclass) {
 	if (CompositionPackage.eINSTANCE.getComposedStructure().isSuperTypeOf(containerMetaclass)) {		
-		for (Iterator values = ((ComposedStructure)container).getCompositeAssemblyConnectors_ComposedStructure().iterator(); values.hasNext();) {
+		for (Iterator values = ((ComposedStructure)container).getAssemblyConnectors_ComposedStructure().iterator(); values.hasNext();) {
 			EObject nextValue = ((EObject) values.next());
 		int linkVID = PalladioComponentModelVisualIDRegistry.getLinkWithClassVisualID(nextValue);
 		if (AssemblyConnectorEditPart.VISUAL_ID == linkVID) {

@@ -25,7 +25,7 @@ public class InternalActionEditHelperAdvice extends AbstractEditHelperAdvice
 	 */
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		IElementType elementType = PalladioComponentModelElementTypes.ParametricResourceDemand_3008;
+		IElementType elementType = PalladioComponentModelElementTypes.ParametricResourceDemand_3031;
 
 		CreateElementRequest createElementRequest = new CreateElementRequest(
 				request.getElementToConfigure(), elementType);

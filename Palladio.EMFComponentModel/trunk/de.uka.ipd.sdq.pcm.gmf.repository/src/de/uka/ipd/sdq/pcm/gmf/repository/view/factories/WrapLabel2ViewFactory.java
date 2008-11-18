@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractLabelViewFactor
 import org.eclipse.gmf.runtime.draw2d.ui.mapmode.IMapMode;
 import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -41,6 +42,7 @@ public class WrapLabel2ViewFactory extends AbstractLabelViewFactory {
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
+		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		return styles;
 	}
 }

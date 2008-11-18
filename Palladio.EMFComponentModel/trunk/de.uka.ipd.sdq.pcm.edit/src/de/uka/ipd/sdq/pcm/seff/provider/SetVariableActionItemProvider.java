@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
  * @generated
  */
 public class SetVariableActionItemProvider
-	extends AbstractResourceDemandingActionItemProvider
+	extends AbstractInternalControlFlowActionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

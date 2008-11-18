@@ -33,7 +33,7 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
 		EObject nextValue;
 		int nodeVID;
 		for (Iterator values = ((ComposedStructure) modelObject)
-				.getChildComponentContexts_ComposedStructure().iterator(); values
+				.getAssemblyContexts_ComposedStructure().iterator(); values
 				.hasNext();) {
 			nextValue = (EObject) values.next();
 			nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(

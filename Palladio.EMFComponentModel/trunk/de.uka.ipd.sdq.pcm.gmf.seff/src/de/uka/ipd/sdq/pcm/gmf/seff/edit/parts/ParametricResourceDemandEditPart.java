@@ -56,8 +56,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelec
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ParametricResourceDemandItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
@@ -69,7 +69,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3008;
+	public static final int VISUAL_ID = 3031;
 
 	/**
 	 * @generated
@@ -125,7 +125,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		installEditPolicy(
 				EditPolicyRoles.OPEN_ROLE,
 				new OpenStoExDialog(
-						SeffPackage.eINSTANCE
+						PerformancePackage.eINSTANCE
 								.getParametricResourceDemand_Specification_ParametericResourceDemand()));
 	}
 
@@ -226,7 +226,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		String text = null;
 		if (resolveSemanticElement() instanceof ParametricResourceDemand) {
 			ParametricResourceDemand demand = (ParametricResourceDemand) resolveSemanticElement();
-			if (demand.getRequiredResource_ParametricResourceDemand() != null) {
+			if (demand.getResourceRequiredRole_ParametricResourceDemand() != null) {
 				text = new PCMStoExPrettyPrintVisitor().prettyPrint(demand
 						.getSpecification_ParametericResourceDemand()
 						.getExpression());
@@ -235,7 +235,8 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 				else
 					text += " ";
 				text += "<"
-						+ demand.getRequiredResource_ParametricResourceDemand()
+						+ demand
+								.getResourceRequiredRole_ParametricResourceDemand()
 								.getEntityName() + ">";
 			}
 		}
@@ -334,7 +335,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-					PalladioComponentModelElementTypes.ParametricResourceDemand_3008,
+					PalladioComponentModelElementTypes.ParametricResourceDemand_3031,
 					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}

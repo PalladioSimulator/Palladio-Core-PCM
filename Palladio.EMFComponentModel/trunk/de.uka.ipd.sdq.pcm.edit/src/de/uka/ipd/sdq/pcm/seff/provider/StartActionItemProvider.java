@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.seff.StartAction;
  * @generated
  */
 public class StartActionItemProvider
-	extends AbstractResourceDemandingActionItemProvider
+	extends AbstractInternalControlFlowActionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

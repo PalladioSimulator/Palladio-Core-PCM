@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 
 /**
  * @generated not
@@ -29,11 +30,12 @@ public class AssemblyContextEditHelper extends
 	
 	@Override
 	protected ICommand getConfigureCommand(ConfigureRequest request) {
-		ProvidesComponentType resource = null;
+		RepositoryComponent resource = null;
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(Repository.class);
-		filterList.add(ProvidesComponentType.class);
+		//filterList.add(ProvidesComponentType.class);
+		filterList.add(RepositoryComponent.class);
 
 		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
@@ -41,18 +43,18 @@ public class AssemblyContextEditHelper extends
 				filterList, 
 				additionalReferences,
 				request.getElementToConfigure().eResource().getResourceSet());
-		dialog.setProvidedService(ProvidesComponentType.class);
+		dialog.setProvidedService(RepositoryComponent.class);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof ProvidesComponentType))
+		if (!(dialog.getResult() instanceof RepositoryComponent))
 			return new CanceledCommand();
-		resource = (ProvidesComponentType) dialog.getResult();
+		resource = (RepositoryComponent) dialog.getResult();
 		
 		ICommand cmd = new SetValueCommand(
 				new SetRequest(
 						request.getElementToConfigure(), 
-						CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_ChildComponentContext(),
+						CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_AssemblyContext(),
 						resource));
 		
 		String allocationName = "Assembly_"+resource.getEntityName();

@@ -51,14 +51,12 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenCapacityDialog;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PassiveResourceItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
@@ -606,6 +604,20 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new Label();
+		return new PassiveResourceLabellFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class PassiveResourceLabellFigure extends WrapLabel {
+
+		/**
+		 * @generated
+		 */
+		public PassiveResourceLabellFigure() {
+			this.setText("PassiveResource");
+		}
+
 	}
 }

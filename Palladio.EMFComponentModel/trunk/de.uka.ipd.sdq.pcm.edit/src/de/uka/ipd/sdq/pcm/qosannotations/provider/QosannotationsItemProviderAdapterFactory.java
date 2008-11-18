@@ -5,15 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.provider;
 
-import de.uka.ipd.sdq.pcm.qosannotations.util.QosannotationsAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -25,6 +22,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.pcm.qosannotations.util.QosannotationsAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -79,75 +78,6 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SpecifiedFailureProbabilityItemProvider specifiedFailureProbabilityItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSpecifiedFailureProbabilityAdapter() {
-		if (specifiedFailureProbabilityItemProvider == null) {
-			specifiedFailureProbabilityItemProvider = new SpecifiedFailureProbabilityItemProvider(this);
-		}
-
-		return specifiedFailureProbabilityItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SystemSpecifiedExecutionTimeItemProvider systemSpecifiedExecutionTimeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSystemSpecifiedExecutionTimeAdapter() {
-		if (systemSpecifiedExecutionTimeItemProvider == null) {
-			systemSpecifiedExecutionTimeItemProvider = new SystemSpecifiedExecutionTimeItemProvider(this);
-		}
-
-		return systemSpecifiedExecutionTimeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ComponentSpecifiedExecutionTimeItemProvider componentSpecifiedExecutionTimeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createComponentSpecifiedExecutionTimeAdapter() {
-		if (componentSpecifiedExecutionTimeItemProvider == null) {
-			componentSpecifiedExecutionTimeItemProvider = new ComponentSpecifiedExecutionTimeItemProvider(this);
-		}
-
-		return componentSpecifiedExecutionTimeItemProvider;
 	}
 
 	/**
@@ -295,9 +225,6 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 	 * @generated
 	 */
 	public void dispose() {
-		if (specifiedFailureProbabilityItemProvider != null) specifiedFailureProbabilityItemProvider.dispose();
-		if (systemSpecifiedExecutionTimeItemProvider != null) systemSpecifiedExecutionTimeItemProvider.dispose();
-		if (componentSpecifiedExecutionTimeItemProvider != null) componentSpecifiedExecutionTimeItemProvider.dispose();
 		if (specifiedOutputParameterAbstractionItemProvider != null) specifiedOutputParameterAbstractionItemProvider.dispose();
 		if (qoSAnnotationsItemProvider != null) qoSAnnotationsItemProvider.dispose();
 	}

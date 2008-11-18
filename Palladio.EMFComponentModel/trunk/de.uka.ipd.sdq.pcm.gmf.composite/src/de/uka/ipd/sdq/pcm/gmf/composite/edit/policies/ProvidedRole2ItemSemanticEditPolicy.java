@@ -103,7 +103,7 @@ public class ProvidedRole2ItemSemanticEditPolicy extends
 		if (req.getContainmentFeature() == null) {
 			req
 					.setContainmentFeature(CompositionPackage.eINSTANCE
-							.getComposedStructure_CompositeAssemblyConnectors_ComposedStructure());
+							.getComposedStructure_AssemblyConnectors_ComposedStructure());
 		}
 		return getMSLWrapper(new AssemblyConnectorTypeLinkCreateCommand(req,
 				container, source, target));

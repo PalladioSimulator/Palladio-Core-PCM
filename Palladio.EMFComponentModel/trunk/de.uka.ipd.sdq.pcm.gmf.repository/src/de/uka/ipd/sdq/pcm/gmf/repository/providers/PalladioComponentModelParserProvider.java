@@ -23,12 +23,16 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceServiceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
@@ -56,6 +60,31 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createInterfaceEntityName_5101Parser() {
+		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+				.getNamedElement_EntityName(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser resourceInterfaceEntityName_5108Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResourceInterfaceEntityName_5108Parser() {
+		if (resourceInterfaceEntityName_5108Parser == null) {
+			resourceInterfaceEntityName_5108Parser = createResourceInterfaceEntityName_5108Parser();
+		}
+		return resourceInterfaceEntityName_5108Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createResourceInterfaceEntityName_5108Parser() {
 		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -140,6 +169,31 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser subSystemEntityName_5107Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSubSystemEntityName_5107Parser() {
+		if (subSystemEntityName_5107Parser == null) {
+			subSystemEntityName_5107Parser = createSubSystemEntityName_5107Parser();
+		}
+		return subSystemEntityName_5107Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createSubSystemEntityName_5107Parser() {
+		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+				.getNamedElement_EntityName(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser compositeComponentEntityName_5105Parser;
 
 	/**
@@ -183,6 +237,31 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createSignature_3101Parser() {
 		EAttribute[] features = new EAttribute[] { RepositoryPackage.eINSTANCE
 				.getSignature_ServiceName(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser resourceService_3106Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getResourceService_3106Parser() {
+		if (resourceService_3106Parser == null) {
+			resourceService_3106Parser = createResourceService_3106Parser();
+		}
+		return resourceService_3106Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createResourceService_3106Parser() {
+		EAttribute[] features = new EAttribute[] { ResourcetypePackage.eINSTANCE
+				.getResourceService_ServiceName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
 		return parser;
 	}
@@ -269,6 +348,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		switch (visualID) {
 		case InterfaceEntityNameEditPart.VISUAL_ID:
 			return getInterfaceEntityName_5101Parser();
+		case ResourceInterfaceEntityNameEditPart.VISUAL_ID:
+			return getResourceInterfaceEntityName_5108Parser();
 		case BasicComponentEntityNameEditPart.VISUAL_ID:
 			return getBasicComponentEntityName_5102Parser();
 		case CompositeComponentEntityNameEditPart.VISUAL_ID:
@@ -277,8 +358,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getCompleteComponentTypeEntityName_5103Parser();
 		case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
 			return getProvidesComponentTypeEntityName_5104Parser();
+		case SubSystemEntityNameEditPart.VISUAL_ID:
+			return getSubSystemEntityName_5107Parser();
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101Parser();
+		case ResourceServiceEditPart.VISUAL_ID:
+			return getResourceService_3106Parser();
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_3102Parser();
 		case PassiveResourceEditPart.VISUAL_ID:

@@ -67,8 +67,8 @@ public class AssemblyConnectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRequiringChildComponentContext_CompositeAssemblyConnectorPropertyDescriptor(object);
-			addProvidingChildComponentContext_CompositeAssemblyConnectorPropertyDescriptor(object);
+			addRequiringAssemblyContext_AssemblyConnectorPropertyDescriptor(object);
+			addProvidingAssemblyContext_AssemblyConnectorPropertyDescriptor(object);
 			addProvidedRole_CompositeAssemblyConnectorPropertyDescriptor(object);
 			addRequiredRole_CompositeAssemblyConnectorPropertyDescriptor(object);
 		}
@@ -76,19 +76,19 @@ public class AssemblyConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Requiring Child Component Context Composite Assembly Connector feature.
+	 * This adds a property descriptor for the Requiring Assembly Context Assembly Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiringChildComponentContext_CompositeAssemblyConnectorPropertyDescriptor(Object object) {
+	protected void addRequiringAssemblyContext_AssemblyConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyConnector_requiringChildComponentContext_CompositeAssemblyConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_requiringChildComponentContext_CompositeAssemblyConnector_feature", "_UI_AssemblyConnector_type"),
-				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR,
+				 getString("_UI_AssemblyConnector_requiringAssemblyContext_AssemblyConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_requiringAssemblyContext_AssemblyConnector_feature", "_UI_AssemblyConnector_type"),
+				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -98,19 +98,19 @@ public class AssemblyConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Providing Child Component Context Composite Assembly Connector feature.
+	 * This adds a property descriptor for the Providing Assembly Context Assembly Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProvidingChildComponentContext_CompositeAssemblyConnectorPropertyDescriptor(Object object) {
+	protected void addProvidingAssemblyContext_AssemblyConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyConnector_providingChildComponentContext_CompositeAssemblyConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_providingChildComponentContext_CompositeAssemblyConnector_feature", "_UI_AssemblyConnector_type"),
-				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR,
+				 getString("_UI_AssemblyConnector_providingAssemblyContext_AssemblyConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_providingAssemblyContext_AssemblyConnector_feature", "_UI_AssemblyConnector_type"),
+				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR,
 				 true,
 				 false,
 				 true,

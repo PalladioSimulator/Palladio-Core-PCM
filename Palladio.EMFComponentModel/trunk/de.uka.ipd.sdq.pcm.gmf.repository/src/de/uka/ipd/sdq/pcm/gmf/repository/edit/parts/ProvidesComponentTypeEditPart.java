@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
-import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
@@ -57,7 +56,6 @@ public class ProvidesComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ProvidesComponentTypeItemSemanticEditPolicy());

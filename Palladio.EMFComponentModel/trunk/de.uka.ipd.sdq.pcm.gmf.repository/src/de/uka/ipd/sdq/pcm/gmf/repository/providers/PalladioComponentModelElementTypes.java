@@ -22,7 +22,9 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * @generated
@@ -63,6 +65,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ResourceInterface_2107 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ResourceInterface_2107"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType BasicComponent_2102 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.BasicComponent_2102"); //$NON-NLS-1$
 
 	/**
@@ -78,12 +85,22 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType SubSystem_2106 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.SubSystem_2106"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType CompositeComponent_2105 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
 	public static final IElementType Signature_3101 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.Signature_3101"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ResourceService_3106 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ResourceService_3106"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -124,6 +141,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType CompleteComponentTypeParentProvidesComponentTypes_4104 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentTypeParentProvidesComponentTypes_4104"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ResourceRequiredRole_4106 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ResourceRequiredRole_4106"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -242,6 +264,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(Interface_2101, RepositoryPackage.eINSTANCE
 					.getInterface());
 
+			elements.put(ResourceInterface_2107, ResourcetypePackage.eINSTANCE
+					.getResourceInterface());
+
 			elements.put(BasicComponent_2102, RepositoryPackage.eINSTANCE
 					.getBasicComponent());
 
@@ -254,8 +279,14 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(ProvidesComponentType_2104,
 					RepositoryPackage.eINSTANCE.getProvidesComponentType());
 
+			elements.put(SubSystem_2106, SubsystemPackage.eINSTANCE
+					.getSubSystem());
+
 			elements.put(Signature_3101, RepositoryPackage.eINSTANCE
 					.getSignature());
+
+			elements.put(ResourceService_3106, ResourcetypePackage.eINSTANCE
+					.getResourceService());
 
 			elements.put(ResourceDemandingSEFF_3102, SeffPackage.eINSTANCE
 					.getResourceDemandingSEFF());
@@ -286,6 +317,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 							CompleteComponentTypeParentProvidesComponentTypes_4104,
 							RepositoryPackage.eINSTANCE
 									.getCompleteComponentType_ParentProvidesComponentTypes());
+
+			elements.put(ResourceRequiredRole_4106,
+					ResourcetypePackage.eINSTANCE.getResourceRequiredRole());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -305,11 +339,14 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(Repository_1000);
 			KNOWN_ELEMENT_TYPES.add(Interface_2101);
+			KNOWN_ELEMENT_TYPES.add(ResourceInterface_2107);
 			KNOWN_ELEMENT_TYPES.add(BasicComponent_2102);
 			KNOWN_ELEMENT_TYPES.add(CompositeComponent_2105);
 			KNOWN_ELEMENT_TYPES.add(CompleteComponentType_2103);
 			KNOWN_ELEMENT_TYPES.add(ProvidesComponentType_2104);
+			KNOWN_ELEMENT_TYPES.add(SubSystem_2106);
 			KNOWN_ELEMENT_TYPES.add(Signature_3101);
+			KNOWN_ELEMENT_TYPES.add(ResourceService_3106);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_3102);
 			KNOWN_ELEMENT_TYPES.add(PassiveResource_3103);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3104);
@@ -320,6 +357,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 					.add(ImplementationComponentTypeParentCompleteComponentTypes_4103);
 			KNOWN_ELEMENT_TYPES
 					.add(CompleteComponentTypeParentProvidesComponentTypes_4104);
+			KNOWN_ELEMENT_TYPES.add(ResourceRequiredRole_4106);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

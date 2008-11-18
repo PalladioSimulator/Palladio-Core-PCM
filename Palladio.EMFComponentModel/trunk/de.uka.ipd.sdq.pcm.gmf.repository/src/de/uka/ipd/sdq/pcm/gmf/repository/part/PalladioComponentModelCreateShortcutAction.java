@@ -3,43 +3,28 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.part;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.PalladioComponentModelCreateShortcutDecorationsCommand;
-
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
-
 import org.eclipse.core.commands.ExecutionException;
-
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
-
 import org.eclipse.core.runtime.NullProgressMonitor;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
-
 import org.eclipse.gmf.runtime.diagram.ui.commands.CreateCommand;
-
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
-
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.jface.action.IAction;
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-
 import org.eclipse.jface.window.Window;
-
 import org.eclipse.swt.widgets.Shell;
-
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.PalladioComponentModelCreateShortcutDecorationsCommand;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 
 /**
  * @generated
