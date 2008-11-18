@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -16,7 +15,6 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
@@ -30,7 +28,6 @@ import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
@@ -43,7 +40,6 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getImplementationComponentType <em>Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}</li>
  * </ul>
@@ -58,16 +54,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The cached value of the '{@link #getImplementationComponentType() <em>Implementation Component Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImplementationComponentType()
-	 * @generated
-	 * @ordered
-	 */
-	protected ImplementationComponentType implementationComponentType;
 
 	/**
 	 * The cached value of the '{@link #getServiceEffectSpecifications__BasicComponent() <em>Service Effect Specifications Basic Component</em>}' containment reference list.
@@ -135,44 +121,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	@Override
 	protected EClass eStaticClass() {
 		return RepositoryPackage.Literals.BASIC_COMPONENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationComponentType getImplementationComponentType() {
-		if (implementationComponentType != null && implementationComponentType.eIsProxy()) {
-			InternalEObject oldImplementationComponentType = (InternalEObject)implementationComponentType;
-			implementationComponentType = (ImplementationComponentType)eResolveProxy(oldImplementationComponentType);
-			if (implementationComponentType != oldImplementationComponentType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepositoryPackage.BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE, oldImplementationComponentType, implementationComponentType));
-			}
-		}
-		return implementationComponentType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ImplementationComponentType basicGetImplementationComponentType() {
-		return implementationComponentType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setImplementationComponentType(ImplementationComponentType newImplementationComponentType) {
-		ImplementationComponentType oldImplementationComponentType = implementationComponentType;
-		implementationComponentType = newImplementationComponentType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE, oldImplementationComponentType, implementationComponentType));
 	}
 
 	/**
@@ -340,9 +288,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RepositoryPackage.BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
-				if (resolve) return getImplementationComponentType();
-				return basicGetImplementationComponentType();
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				return getServiceEffectSpecifications__BasicComponent();
 			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
@@ -360,9 +305,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RepositoryPackage.BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
-				setImplementationComponentType((ImplementationComponentType)newValue);
-				return;
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				getServiceEffectSpecifications__BasicComponent().clear();
 				getServiceEffectSpecifications__BasicComponent().addAll((Collection<? extends ServiceEffectSpecification>)newValue);
@@ -383,9 +325,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
-				setImplementationComponentType((ImplementationComponentType)null);
-				return;
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				getServiceEffectSpecifications__BasicComponent().clear();
 				return;
@@ -404,8 +343,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
-				return implementationComponentType != null;
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				return serviceEffectSpecifications__BasicComponent != null && !serviceEffectSpecifications__BasicComponent.isEmpty();
 			case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:

@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  *
  * @generated
  */
-public class ReleaseActionImpl extends AbstractResourceDemandingActionImpl implements ReleaseAction {
+public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl implements ReleaseAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

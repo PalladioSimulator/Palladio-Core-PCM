@@ -25,14 +25,13 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
-import de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
-import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.impl.ReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -41,6 +40,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
+import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
+import de.uka.ipd.sdq.pcm.seff.performance.impl.PerformancePackageImpl;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
+import de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -68,28 +71,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass specifiedExecutionTimeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass specifiedFailureProbabilityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass systemSpecifiedExecutionTimeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass componentSpecifiedExecutionTimeEClass = null;
+	private EClass specifiedQoSAnnotationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,13 +156,17 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
+		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
+		PerformancePackageImpl thePerformancePackage = (PerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PerformancePackage.eNS_URI) instanceof PerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PerformancePackage.eNS_URI) : PerformancePackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+		de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl thePerformancePackage_1 = (de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eNS_URI) instanceof de.uka.ipd.sdq.pcm.qosannotations.performance.impl.PerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eNS_URI) : de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eINSTANCE);
+		ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
 		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
+		SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theQosannotationsPackage.createPackageContents();
@@ -190,13 +176,17 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		theCompositionPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
+		theResourcetypePackage.createPackageContents();
 		theParameterPackage.createPackageContents();
 		theSeffPackage.createPackageContents();
-		theResourcetypePackage.createPackageContents();
+		thePerformancePackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
+		thePerformancePackage_1.createPackageContents();
+		theReliabilityPackage.createPackageContents();
 		theUsagemodelPackage.createPackageContents();
+		theSubsystemPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theQosannotationsPackage.initializePackageContents();
@@ -206,13 +196,17 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		theCompositionPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
+		theResourcetypePackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
 		theSeffPackage.initializePackageContents();
-		theResourcetypePackage.initializePackageContents();
+		thePerformancePackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
+		thePerformancePackage_1.initializePackageContents();
+		theReliabilityPackage.initializePackageContents();
 		theUsagemodelPackage.initializePackageContents();
+		theSubsystemPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theQosannotationsPackage.freeze();
@@ -225,8 +219,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSpecifiedExecutionTime() {
-		return specifiedExecutionTimeEClass;
+	public EClass getSpecifiedQoSAnnotation() {
+		return specifiedQoSAnnotationEClass;
 	}
 
 	/**
@@ -234,8 +228,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecifiedExecutionTime_Signature_SpecifiedTimeConsumption() {
-		return (EReference)specifiedExecutionTimeEClass.getEStructuralFeatures().get(0);
+	public EReference getSpecifiedQoSAnnotation_Signature_SpecifiedTimeConsumption() {
+		return (EReference)specifiedQoSAnnotationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -243,8 +237,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecifiedExecutionTime_Role_SpecifiedExecutionTime() {
-		return (EReference)specifiedExecutionTimeEClass.getEStructuralFeatures().get(1);
+	public EReference getSpecifiedQoSAnnotation_Role_SpecifiedExecutionTime() {
+		return (EReference)specifiedQoSAnnotationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -252,44 +246,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime() {
-		return (EReference)specifiedExecutionTimeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSpecifiedFailureProbability() {
-		return specifiedFailureProbabilityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSystemSpecifiedExecutionTime() {
-		return systemSpecifiedExecutionTimeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getComponentSpecifiedExecutionTime() {
-		return componentSpecifiedExecutionTimeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime() {
-		return (EReference)componentSpecifiedExecutionTimeEClass.getEStructuralFeatures().get(0);
+	public EReference getSpecifiedQoSAnnotation_Specification_SpecifiedExecutionTime() {
+		return (EReference)specifiedQoSAnnotationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -383,17 +341,10 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		isCreated = true;
 
 		// Create classes and their features
-		specifiedExecutionTimeEClass = createEClass(SPECIFIED_EXECUTION_TIME);
-		createEReference(specifiedExecutionTimeEClass, SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION);
-		createEReference(specifiedExecutionTimeEClass, SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME);
-		createEReference(specifiedExecutionTimeEClass, SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME);
-
-		specifiedFailureProbabilityEClass = createEClass(SPECIFIED_FAILURE_PROBABILITY);
-
-		systemSpecifiedExecutionTimeEClass = createEClass(SYSTEM_SPECIFIED_EXECUTION_TIME);
-
-		componentSpecifiedExecutionTimeEClass = createEClass(COMPONENT_SPECIFIED_EXECUTION_TIME);
-		createEReference(componentSpecifiedExecutionTimeEClass, COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME);
+		specifiedQoSAnnotationEClass = createEClass(SPECIFIED_QO_SANNOTATION);
+		createEReference(specifiedQoSAnnotationEClass, SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION);
+		createEReference(specifiedQoSAnnotationEClass, SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME);
+		createEReference(specifiedQoSAnnotationEClass, SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME);
 
 		specifiedOutputParameterAbstractionEClass = createEClass(SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
 		createEReference(specifiedOutputParameterAbstractionEClass, SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
@@ -429,33 +380,29 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage thePerformancePackage_1 = (de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage)EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.qosannotations.performance.PerformancePackage.eNS_URI);
+		ReliabilityPackage theReliabilityPackage = (ReliabilityPackage)EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(thePerformancePackage_1);
+		getESubpackages().add(theReliabilityPackage);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		systemSpecifiedExecutionTimeEClass.getESuperTypes().add(this.getSpecifiedExecutionTime());
-		componentSpecifiedExecutionTimeEClass.getESuperTypes().add(this.getSpecifiedExecutionTime());
 		qoSAnnotationsEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(specifiedExecutionTimeEClass, SpecifiedExecutionTime.class, "SpecifiedExecutionTime", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecifiedExecutionTime_Signature_SpecifiedTimeConsumption(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedTimeConsumption", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecifiedExecutionTime_Role_SpecifiedExecutionTime(), theRepositoryPackage.getRole(), null, "role_SpecifiedExecutionTime", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime(), theCorePackage.getPCMRandomVariable(), null, "specification_SpecifiedExecutionTime", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(specifiedFailureProbabilityEClass, SpecifiedFailureProbability.class, "SpecifiedFailureProbability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(systemSpecifiedExecutionTimeEClass, SystemSpecifiedExecutionTime.class, "SystemSpecifiedExecutionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(componentSpecifiedExecutionTimeEClass, ComponentSpecifiedExecutionTime.class, "ComponentSpecifiedExecutionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime(), theCompositionPackage.getAssemblyContext(), null, "assemblyContext_ComponentSpecifiedExecutionTime", null, 1, 1, ComponentSpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(specifiedQoSAnnotationEClass, SpecifiedQoSAnnotation.class, "SpecifiedQoSAnnotation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpecifiedQoSAnnotation_Signature_SpecifiedTimeConsumption(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedTimeConsumption", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecifiedQoSAnnotation_Role_SpecifiedExecutionTime(), theRepositoryPackage.getRole(), null, "role_SpecifiedExecutionTime", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecifiedQoSAnnotation_Specification_SpecifiedExecutionTime(), theCorePackage.getPCMRandomVariable(), null, "specification_SpecifiedExecutionTime", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(specifiedOutputParameterAbstractionEClass, SpecifiedOutputParameterAbstraction.class, "SpecifiedOutputParameterAbstraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpecifiedOutputParameterAbstraction_Signature_SpecifiedOutputParameterAbstraction(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedOutputParameterAbstraction", null, 1, 1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -463,7 +410,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		initEReference(getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction(), theParameterPackage.getVariableUsage(), null, "expectedExternalOutputs_SpecifiedOutputParameterAbstraction", null, 0, -1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(qoSAnnotationsEClass, QoSAnnotations.class, "QoSAnnotations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations(), this.getSpecifiedExecutionTime(), null, "specifiedExecutionTimes_QoSAnnotations", null, 0, -1, QoSAnnotations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations(), this.getSpecifiedQoSAnnotation(), null, "specifiedExecutionTimes_QoSAnnotations", null, 0, -1, QoSAnnotations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations(), this.getSpecifiedOutputParameterAbstraction(), null, "specifiedOutputParameterAbstractions_QoSAnnotations", null, 0, -1, QoSAnnotations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource

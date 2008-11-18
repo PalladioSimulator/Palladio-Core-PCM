@@ -14,6 +14,10 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * A representation of the model object '<em><b>Repository</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * The repository entity allows storing components, data types, and interfaces to be fetched and reused for construction of component instances as well as new component types.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -44,6 +48,9 @@ public interface Repository extends Entity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents a description of the repository.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Repository Description</em>' attribute.
 	 * @see #setRepositoryDescription(String)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_RepositoryDescription()
@@ -64,39 +71,45 @@ public interface Repository extends Entity {
 
 	/**
 	 * Returns the value of the '<em><b>Components Repository</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRepository_ProvidesComponentType <em>Repository Provides Component Type</em>}'.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository_RepositoryComponent <em>Repository Repository Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Components Repository</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the provides component types stored in the repository.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Components Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Components__Repository()
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRepository_ProvidesComponentType
-	 * @model opposite="repository_ProvidesComponentType" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository_RepositoryComponent
+	 * @model opposite="repository_RepositoryComponent" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<ProvidesComponentType> getComponents__Repository();
+	EList<RepositoryComponent> getComponents__Repository();
 
 	/**
 	 * Returns the value of the '<em><b>Interfaces Repository</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}'.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.AbstractInterface}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.AbstractInterface#getRepository_AbstractInterface <em>Repository Abstract Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Interfaces Repository</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the interfaces stored in the repository.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interfaces Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Interfaces__Repository()
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface
-	 * @model opposite="repository_Interface" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.repository.AbstractInterface#getRepository_AbstractInterface
+	 * @model opposite="repository_AbstractInterface" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Interface> getInterfaces__Repository();
+	EList<AbstractInterface> getInterfaces__Repository();
 
 	/**
 	 * Returns the value of the '<em><b>Datatypes Repository</b></em>' containment reference list.
@@ -108,6 +121,9 @@ public interface Repository extends Entity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the data types stored in the repository.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Datatypes Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Datatypes_Repository()
 	 * @see de.uka.ipd.sdq.pcm.repository.DataType#getRepository_DataType

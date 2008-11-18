@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
  *
  * @generated
  */
-public class SetVariableActionImpl extends AbstractResourceDemandingActionImpl implements SetVariableAction {
+public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl implements SetVariableAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

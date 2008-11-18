@@ -12,6 +12,17 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * A representation of the model object '<em><b>Abstract User Action</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * See the AbstractAction documentation for why it is advantageous
+ * to model control flow in this way, as the same principle is used in the RDSEFF language. 
+ * 
+ * Concrete user actions of the usage model are:
+ * - Branch
+ * - Loop
+ * - EntryLevelSystemCall
+ * - Delay
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

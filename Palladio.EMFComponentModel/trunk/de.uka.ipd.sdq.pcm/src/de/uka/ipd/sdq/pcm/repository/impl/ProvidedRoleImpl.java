@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
@@ -48,7 +48,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @generated
 	 * @ordered
 	 */
-	protected Interface providedInterface__ProvidedRole;
+	protected AbstractInterface providedInterface__ProvidedRole;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,10 +74,10 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Interface getProvidedInterface__ProvidedRole() {
+	public AbstractInterface getProvidedInterface__ProvidedRole() {
 		if (providedInterface__ProvidedRole != null && providedInterface__ProvidedRole.eIsProxy()) {
 			InternalEObject oldProvidedInterface__ProvidedRole = (InternalEObject)providedInterface__ProvidedRole;
-			providedInterface__ProvidedRole = (Interface)eResolveProxy(oldProvidedInterface__ProvidedRole);
+			providedInterface__ProvidedRole = (AbstractInterface)eResolveProxy(oldProvidedInterface__ProvidedRole);
 			if (providedInterface__ProvidedRole != oldProvidedInterface__ProvidedRole) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE, oldProvidedInterface__ProvidedRole, providedInterface__ProvidedRole));
@@ -91,7 +91,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Interface basicGetProvidedInterface__ProvidedRole() {
+	public AbstractInterface basicGetProvidedInterface__ProvidedRole() {
 		return providedInterface__ProvidedRole;
 	}
 
@@ -100,8 +100,8 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProvidedInterface__ProvidedRole(Interface newProvidedInterface__ProvidedRole) {
-		Interface oldProvidedInterface__ProvidedRole = providedInterface__ProvidedRole;
+	public void setProvidedInterface__ProvidedRole(AbstractInterface newProvidedInterface__ProvidedRole) {
+		AbstractInterface oldProvidedInterface__ProvidedRole = providedInterface__ProvidedRole;
 		providedInterface__ProvidedRole = newProvidedInterface__ProvidedRole;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE, oldProvidedInterface__ProvidedRole, providedInterface__ProvidedRole));
@@ -218,7 +218,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE:
-				setProvidedInterface__ProvidedRole((Interface)newValue);
+				setProvidedInterface__ProvidedRole((AbstractInterface)newValue);
 				return;
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
 				setProvidingEntity_ProvidedRole((InterfaceProvidingEntity)newValue);
@@ -236,7 +236,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE:
-				setProvidedInterface__ProvidedRole((Interface)null);
+				setProvidedInterface__ProvidedRole((AbstractInterface)null);
 				return;
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
 				setProvidingEntity_ProvidedRole((InterfaceProvidingEntity)null);

@@ -16,50 +16,22 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
  * A representation of the model object '<em><b>Composite Component</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getImplementationComponentType <em>Implementation Component Type</em>}</li>
- * </ul>
- * </p>
+ * <!-- begin-model-doc -->
+ * Composite components are special implementation component types, which are composed from inner components. Component developers compose inner components within composite components with assembly connectors. An assembly connector binds a provided role with a required role. To access the inner components, composite components themselves provide or require interfaces. A delegation connector binds a provided (required) role of the composite component with an inner component provided (required) role. A composite component may contain other composite components, which are also themselves composed out of inner components. This enables building arbitrary hierarchies of nested components. Like a basic component, a composite component may contain a SEFF.  However, this SEFF is not specified manually by the composite component developer, but can be computed by combining the SEFFs of the inner components.
+ * <!-- end-model-doc -->
+ *
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeComponent()
  * @model
  * @generated
  */
-public interface CompositeComponent extends ImplementationComponentType, ComposedProvidingRequiringEntity {
+public interface CompositeComponent extends ComposedProvidingRequiringEntity, ImplementationComponentType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Implementation Component Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Implementation Component Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Implementation Component Type</em>' reference.
-	 * @see #setImplementationComponentType(ImplementationComponentType)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeComponent_ImplementationComponentType()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	ImplementationComponentType getImplementationComponentType();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getImplementationComponentType <em>Implementation Component Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Implementation Component Type</em>' reference.
-	 * @see #getImplementationComponentType()
-	 * @generated
-	 */
-	void setImplementationComponentType(ImplementationComponentType value);
 
 	/**
 	 * <!-- begin-user-doc -->

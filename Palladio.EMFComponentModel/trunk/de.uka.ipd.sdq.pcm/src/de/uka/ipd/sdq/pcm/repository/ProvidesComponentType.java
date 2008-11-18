@@ -9,60 +9,27 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Provides Component Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRepository_ProvidesComponentType <em>Repository Provides Component Type</em>}</li>
- * </ul>
- * </p>
+ * <!-- begin-model-doc -->
+ * Provided (Component) Types abstract a component to its provided interfaces, leaving its requirements and implementation details open. So, provided types subsume components which offer the same functionality, but with different implementations. As different implementations might require different services from the environment, provided types omit required interfaces. Provided types allow software architects to focus on a component’s functionality and introduce weak substitutability to the PCM. Using provided types, software architects can draft ideas on how functionality can be partitioned among different components without worrying about their implementation. In the initial phases of architectural design, it often does not make sense to arrange all details of a component, since most of them depend on the actual implementation and thus need to be specified by component developers. As during this phase the actual implementation is unknown, also the required interfaces of a component cannot be stated. However, software architects can still pre-evaluate a software architecture containing provided-types. This gives rough estimates about the quality of the build software system and defines QoS requirements for the component implementation.
+ * <!-- end-model-doc -->
+ *
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidesComponentType()
  * @model
  * @generated
  */
-public interface ProvidesComponentType extends Entity, InterfaceProvidingRequiringEntity {
+public interface ProvidesComponentType extends RepositoryComponent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Repository Provides Component Type</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository Provides Component Type</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Repository Provides Component Type</em>' container reference.
-	 * @see #setRepository_ProvidesComponentType(Repository)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidesComponentType_Repository_ProvidesComponentType()
-	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository
-	 * @model opposite="components__Repository" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
-	Repository getRepository_ProvidesComponentType();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRepository_ProvidesComponentType <em>Repository Provides Component Type</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Repository Provides Component Type</em>' container reference.
-	 * @see #getRepository_ProvidesComponentType()
-	 * @generated
-	 */
-	void setRepository_ProvidesComponentType(Repository value);
 
 	/**
 	 * <!-- begin-user-doc -->

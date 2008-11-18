@@ -13,13 +13,11 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.*;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
-import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,20 +83,8 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 	protected QosannotationsSwitch<Adapter> modelSwitch =
 		new QosannotationsSwitch<Adapter>() {
 			@Override
-			public Adapter caseSpecifiedExecutionTime(SpecifiedExecutionTime object) {
-				return createSpecifiedExecutionTimeAdapter();
-			}
-			@Override
-			public Adapter caseSpecifiedFailureProbability(SpecifiedFailureProbability object) {
-				return createSpecifiedFailureProbabilityAdapter();
-			}
-			@Override
-			public Adapter caseSystemSpecifiedExecutionTime(SystemSpecifiedExecutionTime object) {
-				return createSystemSpecifiedExecutionTimeAdapter();
-			}
-			@Override
-			public Adapter caseComponentSpecifiedExecutionTime(ComponentSpecifiedExecutionTime object) {
-				return createComponentSpecifiedExecutionTimeAdapter();
+			public Adapter caseSpecifiedQoSAnnotation(SpecifiedQoSAnnotation object) {
+				return createSpecifiedQoSAnnotationAdapter();
 			}
 			@Override
 			public Adapter caseSpecifiedOutputParameterAbstraction(SpecifiedOutputParameterAbstraction object) {
@@ -141,58 +127,16 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime <em>Specified Execution Time</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation <em>Specified Qo SAnnotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation
 	 * @generated
 	 */
-	public Adapter createSpecifiedExecutionTimeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability <em>Specified Failure Probability</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability
-	 * @generated
-	 */
-	public Adapter createSpecifiedFailureProbabilityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime <em>System Specified Execution Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime
-	 * @generated
-	 */
-	public Adapter createSystemSpecifiedExecutionTimeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime <em>Component Specified Execution Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime
-	 * @generated
-	 */
-	public Adapter createComponentSpecifiedExecutionTimeAdapter() {
+	public Adapter createSpecifiedQoSAnnotationAdapter() {
 		return null;
 	}
 

@@ -45,7 +45,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  *
  * @generated
  */
-public class BranchActionImpl extends AbstractResourceDemandingActionImpl implements BranchAction {
+public class BranchActionImpl extends AbstractInternalControlFlowActionImpl implements BranchAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -11,6 +11,10 @@ package de.uka.ipd.sdq.pcm.repository;
  * A representation of the model object '<em><b>Primitive Data Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a primitive data type such as integer, string, and double.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -39,6 +43,9 @@ public interface PrimitiveDataType extends DataType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represent the base type of this type, e.g., if this type represents the integer interval (1..5), the base type will be INT.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
 	 * @see #setType(PrimitiveTypeEnum)

@@ -19,6 +19,9 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.repository.*;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -36,6 +39,7 @@ import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
@@ -125,8 +129,8 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createRepositoryAdapter();
 			}
 			@Override
-			public Adapter caseProvidesComponentType(ProvidesComponentType object) {
-				return createProvidesComponentTypeAdapter();
+			public Adapter caseRepositoryComponent(RepositoryComponent object) {
+				return createRepositoryComponentAdapter();
 			}
 			@Override
 			public Adapter caseRequiredRole(RequiredRole object) {
@@ -141,8 +145,16 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createInterfaceAdapter();
 			}
 			@Override
+			public Adapter caseAbstractInterface(AbstractInterface object) {
+				return createAbstractInterfaceAdapter();
+			}
+			@Override
 			public Adapter caseExceptionType(ExceptionType object) {
 				return createExceptionTypeAdapter();
+			}
+			@Override
+			public Adapter caseProvidesComponentType(ProvidesComponentType object) {
+				return createProvidesComponentTypeAdapter();
 			}
 			@Override
 			public Adapter caseImplementationComponentType(ImplementationComponentType object) {
@@ -203,6 +215,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
 				return createInterfaceRequiringEntityAdapter();
+			}
+			@Override
+			public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+				return createResourceInterfaceRequiringEntityAdapter();
 			}
 			@Override
 			public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
@@ -311,6 +327,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+	 * @generated
+	 */
+	public Adapter createRepositoryComponentAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -363,6 +393,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.AbstractInterface <em>Abstract Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.AbstractInterface
+	 * @generated
+	 */
+	public Adapter createAbstractInterfaceAdapter() {
 		return null;
 	}
 
@@ -587,6 +631,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInterfaceRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity <em>Resource Interface Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
+	 * @generated
+	 */
+	public Adapter createResourceInterfaceRequiringEntityAdapter() {
 		return null;
 	}
 

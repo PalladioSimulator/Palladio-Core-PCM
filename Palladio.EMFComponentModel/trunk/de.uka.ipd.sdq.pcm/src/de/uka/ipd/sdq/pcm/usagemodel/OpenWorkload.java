@@ -16,6 +16,14 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * A representation of the model object '<em><b>Open Workload</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * OpenWorkload specifies usage intensity with an inter-arrival time (i.e., the time between two
+ * user arrivals at the system) as a RandomVariable with an arbitrary probability distribution. It
+ * models that an infinite stream of users arrives at a system. The users execute their scenario, and then
+ * leave the system. The user population (i.e., the number of users concurrently present in a system) is
+ * not fixed in an OpenWorkload.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

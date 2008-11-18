@@ -14,26 +14,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Specified Execution Time</b></em>'.
+ * An implementation of the model object '<em><b>Specified Qo SAnnotation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedExecutionTimeImpl#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedExecutionTimeImpl#getRole_SpecifiedExecutionTime <em>Role Specified Execution Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedExecutionTimeImpl#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getRole_SpecifiedExecutionTime <em>Role Specified Execution Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements SpecifiedExecutionTime {
+public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements SpecifiedQoSAnnotation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,7 +76,7 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SpecifiedExecutionTimeImpl() {
+	protected SpecifiedQoSAnnotationImpl() {
 		super();
 	}
 
@@ -87,7 +87,7 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QosannotationsPackage.Literals.SPECIFIED_EXECUTION_TIME;
+		return QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION;
 	}
 
 	/**
@@ -101,7 +101,7 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 			signature_SpecifiedTimeConsumption = (Signature)eResolveProxy(oldSignature_SpecifiedTimeConsumption);
 			if (signature_SpecifiedTimeConsumption != oldSignature_SpecifiedTimeConsumption) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
 			}
 		}
 		return signature_SpecifiedTimeConsumption;
@@ -125,7 +125,7 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 		Signature oldSignature_SpecifiedTimeConsumption = signature_SpecifiedTimeConsumption;
 		signature_SpecifiedTimeConsumption = newSignature_SpecifiedTimeConsumption;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
+			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
 	}
 
 	/**
@@ -139,7 +139,7 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 			role_SpecifiedExecutionTime = (Role)eResolveProxy(oldRole_SpecifiedExecutionTime);
 			if (role_SpecifiedExecutionTime != oldRole_SpecifiedExecutionTime) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME, oldRole_SpecifiedExecutionTime, role_SpecifiedExecutionTime));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME, oldRole_SpecifiedExecutionTime, role_SpecifiedExecutionTime));
 			}
 		}
 		return role_SpecifiedExecutionTime;
@@ -163,7 +163,7 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 		Role oldRole_SpecifiedExecutionTime = role_SpecifiedExecutionTime;
 		role_SpecifiedExecutionTime = newRole_SpecifiedExecutionTime;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME, oldRole_SpecifiedExecutionTime, role_SpecifiedExecutionTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME, oldRole_SpecifiedExecutionTime, role_SpecifiedExecutionTime));
 	}
 
 	/**
@@ -184,7 +184,7 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 		PCMRandomVariable oldSpecification_SpecifiedExecutionTime = specification_SpecifiedExecutionTime;
 		specification_SpecifiedExecutionTime = newSpecification_SpecifiedExecutionTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, oldSpecification_SpecifiedExecutionTime, newSpecification_SpecifiedExecutionTime);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME, oldSpecification_SpecifiedExecutionTime, newSpecification_SpecifiedExecutionTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -199,14 +199,14 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 		if (newSpecification_SpecifiedExecutionTime != specification_SpecifiedExecutionTime) {
 			NotificationChain msgs = null;
 			if (specification_SpecifiedExecutionTime != null)
-				msgs = ((InternalEObject)specification_SpecifiedExecutionTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, null, msgs);
+				msgs = ((InternalEObject)specification_SpecifiedExecutionTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME, null, msgs);
 			if (newSpecification_SpecifiedExecutionTime != null)
-				msgs = ((InternalEObject)newSpecification_SpecifiedExecutionTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, null, msgs);
+				msgs = ((InternalEObject)newSpecification_SpecifiedExecutionTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME, null, msgs);
 			msgs = basicSetSpecification_SpecifiedExecutionTime(newSpecification_SpecifiedExecutionTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, newSpecification_SpecifiedExecutionTime, newSpecification_SpecifiedExecutionTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME, newSpecification_SpecifiedExecutionTime, newSpecification_SpecifiedExecutionTime));
 	}
 
 	/**
@@ -217,7 +217,7 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				return basicSetSpecification_SpecifiedExecutionTime(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -231,13 +231,13 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
 				if (resolve) return getSignature_SpecifiedTimeConsumption();
 				return basicGetSignature_SpecifiedTimeConsumption();
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME:
 				if (resolve) return getRole_SpecifiedExecutionTime();
 				return basicGetRole_SpecifiedExecutionTime();
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				return getSpecification_SpecifiedExecutionTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -251,13 +251,13 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
 				setSignature_SpecifiedTimeConsumption((Signature)newValue);
 				return;
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME:
 				setRole_SpecifiedExecutionTime((Role)newValue);
 				return;
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				setSpecification_SpecifiedExecutionTime((PCMRandomVariable)newValue);
 				return;
 		}
@@ -272,13 +272,13 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
 				setSignature_SpecifiedTimeConsumption((Signature)null);
 				return;
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME:
 				setRole_SpecifiedExecutionTime((Role)null);
 				return;
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				setSpecification_SpecifiedExecutionTime((PCMRandomVariable)null);
 				return;
 		}
@@ -293,14 +293,14 @@ public abstract class SpecifiedExecutionTimeImpl extends EObjectImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
 				return signature_SpecifiedTimeConsumption != null;
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME:
 				return role_SpecifiedExecutionTime != null;
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				return specification_SpecifiedExecutionTime != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //SpecifiedExecutionTimeImpl
+} //SpecifiedQoSAnnotationImpl

@@ -48,7 +48,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  *
  * @generated
  */
-public abstract class ImplementationComponentTypeImpl extends CompleteComponentTypeImpl implements ImplementationComponentType {
+public abstract class ImplementationComponentTypeImpl extends RepositoryComponentImpl implements ImplementationComponentType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

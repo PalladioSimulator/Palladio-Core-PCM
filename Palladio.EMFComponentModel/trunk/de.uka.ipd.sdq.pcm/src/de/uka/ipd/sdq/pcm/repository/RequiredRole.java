@@ -12,6 +12,10 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
  * A representation of the model object '<em><b>Required Role</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a required interface.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -40,6 +44,9 @@ public interface RequiredRole extends Role {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the interfaces that is required by this role.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Required Interface Required Role</em>' reference.
 	 * @see #setRequiredInterface__RequiredRole(Interface)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRequiredRole_RequiredInterface__RequiredRole()
@@ -67,6 +74,9 @@ public interface RequiredRole extends Role {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the interface requiring entity that requires this interface.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Requiring Entity Required Role</em>' container reference.
 	 * @see #setRequiringEntity_RequiredRole(InterfaceRequiringEntity)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRequiredRole_RequiringEntity_RequiredRole()

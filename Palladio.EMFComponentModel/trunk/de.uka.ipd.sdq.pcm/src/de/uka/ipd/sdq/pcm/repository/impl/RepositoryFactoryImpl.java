@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import de.uka.ipd.sdq.pcm.repository.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -88,10 +89,10 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.SIGNATURE: return createSignature();
 			case RepositoryPackage.PARAMETER: return createParameter();
 			case RepositoryPackage.REPOSITORY: return createRepository();
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
 			case RepositoryPackage.REQUIRED_ROLE: return createRequiredRole();
 			case RepositoryPackage.INTERFACE: return createInterface();
 			case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return createCompleteComponentType();
 			case RepositoryPackage.COMPOSITE_COMPONENT: return createCompositeComponent();
 			case RepositoryPackage.BASIC_COMPONENT: return createBasicComponent();

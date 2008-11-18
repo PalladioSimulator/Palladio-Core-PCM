@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  *
  * @generated
  */
-public abstract class AbstractLoopActionImpl extends AbstractResourceDemandingActionImpl implements AbstractLoopAction {
+public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlowActionImpl implements AbstractLoopAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

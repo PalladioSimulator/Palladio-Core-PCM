@@ -14,12 +14,16 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * A representation of the model object '<em><b>Stop Action</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * StopActions end a scenario behaviour and contain only a predecessor.
+ * <!-- end-model-doc -->
+ *
  *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getStopAction()
  * @model
  * @generated
  */
-public interface StopAction extends AbstractResourceDemandingAction {
+public interface StopAction extends AbstractInternalControlFlowAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

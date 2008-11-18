@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SpecifiedExecutionTime> specifiedExecutionTimes_QoSAnnotations;
+	protected EList<SpecifiedQoSAnnotation> specifiedExecutionTimes_QoSAnnotations;
 
 	/**
 	 * The cached value of the '{@link #getSpecifiedOutputParameterAbstractions_QoSAnnotations() <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}' containment reference list.
@@ -86,9 +86,9 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SpecifiedExecutionTime> getSpecifiedExecutionTimes_QoSAnnotations() {
+	public EList<SpecifiedQoSAnnotation> getSpecifiedExecutionTimes_QoSAnnotations() {
 		if (specifiedExecutionTimes_QoSAnnotations == null) {
-			specifiedExecutionTimes_QoSAnnotations = new EObjectContainmentEList<SpecifiedExecutionTime>(SpecifiedExecutionTime.class, this, QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS);
+			specifiedExecutionTimes_QoSAnnotations = new EObjectContainmentEList<SpecifiedQoSAnnotation>(SpecifiedQoSAnnotation.class, this, QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS);
 		}
 		return specifiedExecutionTimes_QoSAnnotations;
 	}
@@ -148,7 +148,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 		switch (featureID) {
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
 				getSpecifiedExecutionTimes_QoSAnnotations().clear();
-				getSpecifiedExecutionTimes_QoSAnnotations().addAll((Collection<? extends SpecifiedExecutionTime>)newValue);
+				getSpecifiedExecutionTimes_QoSAnnotations().addAll((Collection<? extends SpecifiedQoSAnnotation>)newValue);
 				return;
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
 				getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();

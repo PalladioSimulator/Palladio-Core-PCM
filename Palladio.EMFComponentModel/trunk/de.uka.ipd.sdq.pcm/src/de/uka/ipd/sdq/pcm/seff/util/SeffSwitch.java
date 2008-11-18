@@ -13,10 +13,11 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
-import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
@@ -26,7 +27,6 @@ import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -122,7 +122,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.STOP_ACTION: {
 				StopAction stopAction = (StopAction)theEObject;
 				T result = caseStopAction(stopAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(stopAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(stopAction);
 				if (result == null) result = caseAbstractAction(stopAction);
 				if (result == null) result = caseEntity(stopAction);
 				if (result == null) result = caseIdentifier(stopAction);
@@ -130,13 +130,13 @@ public class SeffSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION: {
-				AbstractResourceDemandingAction abstractResourceDemandingAction = (AbstractResourceDemandingAction)theEObject;
-				T result = caseAbstractResourceDemandingAction(abstractResourceDemandingAction);
-				if (result == null) result = caseAbstractAction(abstractResourceDemandingAction);
-				if (result == null) result = caseEntity(abstractResourceDemandingAction);
-				if (result == null) result = caseIdentifier(abstractResourceDemandingAction);
-				if (result == null) result = caseNamedElement(abstractResourceDemandingAction);
+			case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION: {
+				AbstractInternalControlFlowAction abstractInternalControlFlowAction = (AbstractInternalControlFlowAction)theEObject;
+				T result = caseAbstractInternalControlFlowAction(abstractInternalControlFlowAction);
+				if (result == null) result = caseAbstractAction(abstractInternalControlFlowAction);
+				if (result == null) result = caseEntity(abstractInternalControlFlowAction);
+				if (result == null) result = caseIdentifier(abstractInternalControlFlowAction);
+				if (result == null) result = caseNamedElement(abstractInternalControlFlowAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,16 +149,10 @@ public class SeffSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND: {
-				ParametricResourceDemand parametricResourceDemand = (ParametricResourceDemand)theEObject;
-				T result = caseParametricResourceDemand(parametricResourceDemand);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SeffPackage.START_ACTION: {
 				StartAction startAction = (StartAction)theEObject;
 				T result = caseStartAction(startAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(startAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(startAction);
 				if (result == null) result = caseAbstractAction(startAction);
 				if (result == null) result = caseEntity(startAction);
 				if (result == null) result = caseIdentifier(startAction);
@@ -184,7 +178,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.RELEASE_ACTION: {
 				ReleaseAction releaseAction = (ReleaseAction)theEObject;
 				T result = caseReleaseAction(releaseAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(releaseAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(releaseAction);
 				if (result == null) result = caseAbstractAction(releaseAction);
 				if (result == null) result = caseEntity(releaseAction);
 				if (result == null) result = caseIdentifier(releaseAction);
@@ -196,7 +190,7 @@ public class SeffSwitch<T> {
 				LoopAction loopAction = (LoopAction)theEObject;
 				T result = caseLoopAction(loopAction);
 				if (result == null) result = caseAbstractLoopAction(loopAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(loopAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(loopAction);
 				if (result == null) result = caseAbstractAction(loopAction);
 				if (result == null) result = caseEntity(loopAction);
 				if (result == null) result = caseIdentifier(loopAction);
@@ -207,7 +201,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.ABSTRACT_LOOP_ACTION: {
 				AbstractLoopAction abstractLoopAction = (AbstractLoopAction)theEObject;
 				T result = caseAbstractLoopAction(abstractLoopAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(abstractLoopAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(abstractLoopAction);
 				if (result == null) result = caseAbstractAction(abstractLoopAction);
 				if (result == null) result = caseEntity(abstractLoopAction);
 				if (result == null) result = caseIdentifier(abstractLoopAction);
@@ -218,7 +212,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.INTERNAL_ACTION: {
 				InternalAction internalAction = (InternalAction)theEObject;
 				T result = caseInternalAction(internalAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(internalAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(internalAction);
 				if (result == null) result = caseAbstractAction(internalAction);
 				if (result == null) result = caseEntity(internalAction);
 				if (result == null) result = caseIdentifier(internalAction);
@@ -229,7 +223,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.FORK_ACTION: {
 				ForkAction forkAction = (ForkAction)theEObject;
 				T result = caseForkAction(forkAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(forkAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(forkAction);
 				if (result == null) result = caseAbstractAction(forkAction);
 				if (result == null) result = caseEntity(forkAction);
 				if (result == null) result = caseIdentifier(forkAction);
@@ -278,7 +272,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.BRANCH_ACTION: {
 				BranchAction branchAction = (BranchAction)theEObject;
 				T result = caseBranchAction(branchAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(branchAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(branchAction);
 				if (result == null) result = caseAbstractAction(branchAction);
 				if (result == null) result = caseEntity(branchAction);
 				if (result == null) result = caseIdentifier(branchAction);
@@ -289,7 +283,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.ACQUIRE_ACTION: {
 				AcquireAction acquireAction = (AcquireAction)theEObject;
 				T result = caseAcquireAction(acquireAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(acquireAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(acquireAction);
 				if (result == null) result = caseAbstractAction(acquireAction);
 				if (result == null) result = caseEntity(acquireAction);
 				if (result == null) result = caseIdentifier(acquireAction);
@@ -301,7 +295,7 @@ public class SeffSwitch<T> {
 				CollectionIteratorAction collectionIteratorAction = (CollectionIteratorAction)theEObject;
 				T result = caseCollectionIteratorAction(collectionIteratorAction);
 				if (result == null) result = caseAbstractLoopAction(collectionIteratorAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(collectionIteratorAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(collectionIteratorAction);
 				if (result == null) result = caseAbstractAction(collectionIteratorAction);
 				if (result == null) result = caseEntity(collectionIteratorAction);
 				if (result == null) result = caseIdentifier(collectionIteratorAction);
@@ -320,7 +314,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.SET_VARIABLE_ACTION: {
 				SetVariableAction setVariableAction = (SetVariableAction)theEObject;
 				T result = caseSetVariableAction(setVariableAction);
-				if (result == null) result = caseAbstractResourceDemandingAction(setVariableAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(setVariableAction);
 				if (result == null) result = caseAbstractAction(setVariableAction);
 				if (result == null) result = caseEntity(setVariableAction);
 				if (result == null) result = caseIdentifier(setVariableAction);
@@ -354,17 +348,17 @@ public class SeffSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Resource Demanding Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Internal Control Flow Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Resource Demanding Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Internal Control Flow Action</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAbstractResourceDemandingAction(AbstractResourceDemandingAction object) {
+	public T caseAbstractInternalControlFlowAction(AbstractInternalControlFlowAction object) {
 		return null;
 	}
 
@@ -380,21 +374,6 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractAction(AbstractAction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parametric Resource Demand</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parametric Resource Demand</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParametricResourceDemand(ParametricResourceDemand object) {
 		return null;
 	}
 

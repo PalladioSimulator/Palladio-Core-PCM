@@ -68,6 +68,15 @@ public interface CompositionFactory extends EFactory {
 	AssemblyConnector createAssemblyConnector();
 
 	/**
+	 * Returns a new object of class '<em>Resource Required Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Required Delegation Connector</em>'.
+	 * @generated
+	 */
+	ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

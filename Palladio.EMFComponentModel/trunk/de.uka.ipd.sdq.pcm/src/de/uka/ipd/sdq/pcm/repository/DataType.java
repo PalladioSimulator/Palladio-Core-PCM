@@ -12,6 +12,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Data Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a data type that can be stored in a repository and used for specification and modeling of interface signatures.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -35,11 +39,10 @@ public interface DataType extends EObject {
 	 * Returns the value of the '<em><b>Repository Data Type</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository <em>Datatypes Repository</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository Data Type</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property specifies the repository to which this data type belongs.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Repository Data Type</em>' container reference.
 	 * @see #setRepository_DataType(Repository)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getDataType_Repository_DataType()

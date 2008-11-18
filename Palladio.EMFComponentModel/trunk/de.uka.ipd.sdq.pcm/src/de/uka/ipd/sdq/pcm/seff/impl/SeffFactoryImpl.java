@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.seff.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -20,7 +21,6 @@ import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -84,7 +84,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case SeffPackage.STOP_ACTION: return createStopAction();
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND: return createParametricResourceDemand();
 			case SeffPackage.START_ACTION: return createStartAction();
 			case SeffPackage.RESOURCE_DEMANDING_SEFF: return createResourceDemandingSEFF();
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: return createResourceDemandingBehaviour();
@@ -114,16 +113,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public StopAction createStopAction() {
 		StopActionImpl stopAction = new StopActionImpl();
 		return stopAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParametricResourceDemand createParametricResourceDemand() {
-		ParametricResourceDemandImpl parametricResourceDemand = new ParametricResourceDemandImpl();
-		return parametricResourceDemand;
 	}
 
 	/**

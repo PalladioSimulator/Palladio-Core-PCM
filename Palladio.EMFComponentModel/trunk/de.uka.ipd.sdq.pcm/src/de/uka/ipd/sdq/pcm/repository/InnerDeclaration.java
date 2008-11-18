@@ -12,6 +12,10 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  * A representation of the model object '<em><b>Inner Declaration</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represent a declaration of a data type inside of a composite data type. It enriches the data type it declares with a name to allow multiple declarations of the same type within a composite data type.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -39,6 +43,9 @@ public interface InnerDeclaration extends NamedElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the data type that the inner declaration declares.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Datatype Inner Declaration</em>' reference.
 	 * @see #setDatatype_InnerDeclaration(DataType)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInnerDeclaration_Datatype_InnerDeclaration()

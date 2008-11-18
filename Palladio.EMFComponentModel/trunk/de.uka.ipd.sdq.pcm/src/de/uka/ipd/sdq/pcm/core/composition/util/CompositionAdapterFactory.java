@@ -11,12 +11,14 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.composition.*;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
@@ -100,6 +102,10 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAssemblyConnector(AssemblyConnector object) {
 				return createAssemblyConnectorAdapter();
+			}
+			@Override
+			public Adapter caseResourceRequiredDelegationConnector(ResourceRequiredDelegationConnector object) {
+				return createResourceRequiredDelegationConnectorAdapter();
 			}
 			@Override
 			public Adapter caseComposedStructure(ComposedStructure object) {
@@ -198,6 +204,20 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssemblyConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector <em>Resource Required Delegation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector
+	 * @generated
+	 */
+	public Adapter createResourceRequiredDelegationConnectorAdapter() {
 		return null;
 	}
 

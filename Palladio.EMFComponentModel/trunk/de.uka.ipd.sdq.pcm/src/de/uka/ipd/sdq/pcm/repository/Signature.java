@@ -16,6 +16,26 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Signature</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.
+ * 
+ * Every service of an interface has a unique signature, like void doSomething(int a). A PCM signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.
+ * 
+ * It contains:
+ * 
+ * * A type of the return value or void (no return value),
+ * 
+ * * an identifier naming the service,
+ * 
+ * * an ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG
+ * IDL semantics) can be used for parameters, and
+ * 
+ * * an unordered set of exceptions.
+ * 
+ * A signature has to be unique for an interface through the tupel (identifier, order of parameters). An interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A
+ * signature is assigned to exactly one interface. However, different interfaces can define equally named signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not identical in both interfaces.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -47,6 +67,9 @@ public interface Signature extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the service name realized by this method.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service Name</em>' attribute.
 	 * @see #setServiceName(String)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_ServiceName()
@@ -75,6 +98,9 @@ public interface Signature extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the list of parameters of the corresponding method.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Parameters Signature</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Parameters__Signature()
 	 * @see de.uka.ipd.sdq.pcm.repository.Parameter#getSignature_Parameter
@@ -92,6 +118,9 @@ public interface Signature extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the interface that contains the method with this signature.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Interface Signature</em>' container reference.
 	 * @see #setInterface_Signature(Interface)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Interface_Signature()
@@ -119,6 +148,9 @@ public interface Signature extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the return type of the corresponding method.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Returntype Signature</em>' reference.
 	 * @see #setReturntype__Signature(DataType)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Returntype__Signature()
@@ -146,6 +178,9 @@ public interface Signature extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the list of exceptions declared by this signature.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exceptions Signature</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Exceptions__Signature()
 	 * @model containment="true" ordered="false"

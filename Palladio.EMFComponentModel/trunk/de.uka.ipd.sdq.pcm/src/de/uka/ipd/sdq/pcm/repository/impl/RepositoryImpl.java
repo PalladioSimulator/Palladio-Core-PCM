@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
@@ -75,7 +75,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProvidesComponentType> components__Repository;
+	protected EList<RepositoryComponent> components__Repository;
 
 	/**
 	 * The cached value of the '{@link #getInterfaces__Repository() <em>Interfaces Repository</em>}' containment reference list.
@@ -85,7 +85,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Interface> interfaces__Repository;
+	protected EList<AbstractInterface> interfaces__Repository;
 
 	/**
 	 * The cached value of the '{@link #getDatatypes_Repository() <em>Datatypes Repository</em>}' containment reference list.
@@ -142,9 +142,9 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ProvidesComponentType> getComponents__Repository() {
+	public EList<RepositoryComponent> getComponents__Repository() {
 		if (components__Repository == null) {
-			components__Repository = new EObjectContainmentWithInverseEList<ProvidesComponentType>(ProvidesComponentType.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE);
+			components__Repository = new EObjectContainmentWithInverseEList<RepositoryComponent>(RepositoryComponent.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT);
 		}
 		return components__Repository;
 	}
@@ -154,9 +154,9 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Interface> getInterfaces__Repository() {
+	public EList<AbstractInterface> getInterfaces__Repository() {
 		if (interfaces__Repository == null) {
-			interfaces__Repository = new EObjectContainmentWithInverseEList<Interface>(Interface.class, this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE);
+			interfaces__Repository = new EObjectContainmentWithInverseEList<AbstractInterface>(AbstractInterface.class, this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, RepositoryPackage.ABSTRACT_INTERFACE__REPOSITORY_ABSTRACT_INTERFACE);
 		}
 		return interfaces__Repository;
 	}
@@ -244,11 +244,11 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return;
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				getComponents__Repository().clear();
-				getComponents__Repository().addAll((Collection<? extends ProvidesComponentType>)newValue);
+				getComponents__Repository().addAll((Collection<? extends RepositoryComponent>)newValue);
 				return;
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				getInterfaces__Repository().clear();
-				getInterfaces__Repository().addAll((Collection<? extends Interface>)newValue);
+				getInterfaces__Repository().addAll((Collection<? extends AbstractInterface>)newValue);
 				return;
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				getDatatypes_Repository().clear();

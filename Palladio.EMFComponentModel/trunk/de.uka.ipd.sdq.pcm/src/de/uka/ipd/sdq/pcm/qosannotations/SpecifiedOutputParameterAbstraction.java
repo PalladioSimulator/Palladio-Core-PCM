@@ -17,6 +17,15 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * A representation of the model object '<em><b>Specified Output Parameter Abstraction</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * To specify the output parameters of a service (without associated RD-SEFF), software architects can associate a SpecifiedOutputParameterAbstraction to services (signature + role). SpecifiedOutputParameterAbstractions assign a single VariableUsage to that service that determines the output parameters in depency of its input parameters. Software architects can use stochastic expressions (package StoEx) to define the dependencies.
+ * 
+ * Note:
+ * - Is it actually possible to define the output in dependency on the input parameters?
+ * 
+ * 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

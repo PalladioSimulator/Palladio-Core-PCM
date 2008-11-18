@@ -14,6 +14,10 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * A representation of the model object '<em><b>Composite Data Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a complex data type containing other data types. This construct is common in higher programming languages as record, struct, or class.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -43,6 +47,9 @@ public interface CompositeDataType extends Entity, DataType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the parent type in the inheritance hierarchy. Null if there is no parent.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Parent Type Composite Data Type</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeDataType_ParentType_CompositeDataType()
 	 * @model ordered="false"
@@ -59,6 +66,9 @@ public interface CompositeDataType extends Entity, DataType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the internals, i.e., named items, each of a data type, forming this composite data type.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Inner Declaration Composite Data Type</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeDataType_InnerDeclaration_CompositeDataType()
 	 * @model containment="true" ordered="false"

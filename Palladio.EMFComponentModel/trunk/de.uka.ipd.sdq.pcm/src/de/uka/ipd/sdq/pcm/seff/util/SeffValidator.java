@@ -12,10 +12,11 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
-import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
@@ -25,7 +26,6 @@ import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -183,12 +183,10 @@ public class SeffValidator extends EObjectValidator {
 		switch (classifierID) {
 			case SeffPackage.STOP_ACTION:
 				return validateStopAction((StopAction)value, diagnostics, context);
-			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION:
-				return validateAbstractResourceDemandingAction((AbstractResourceDemandingAction)value, diagnostics, context);
+			case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION:
+				return validateAbstractInternalControlFlowAction((AbstractInternalControlFlowAction)value, diagnostics, context);
 			case SeffPackage.ABSTRACT_ACTION:
 				return validateAbstractAction((AbstractAction)value, diagnostics, context);
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND:
-				return validateParametricResourceDemand((ParametricResourceDemand)value, diagnostics, context);
 			case SeffPackage.START_ACTION:
 				return validateStartAction((StartAction)value, diagnostics, context);
 			case SeffPackage.RESOURCE_DEMANDING_SEFF:
@@ -265,15 +263,15 @@ public class SeffValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAbstractResourceDemandingAction(AbstractResourceDemandingAction abstractResourceDemandingAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(abstractResourceDemandingAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractResourceDemandingAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractResourceDemandingAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractResourceDemandingAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(abstractResourceDemandingAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractResourceDemandingAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractResourceDemandingAction, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(abstractResourceDemandingAction, diagnostics, context);
+	public boolean validateAbstractInternalControlFlowAction(AbstractInternalControlFlowAction abstractInternalControlFlowAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(abstractInternalControlFlowAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractInternalControlFlowAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractInternalControlFlowAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractInternalControlFlowAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractInternalControlFlowAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractInternalControlFlowAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractInternalControlFlowAction, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(abstractInternalControlFlowAction, diagnostics, context);
 		return result;
 	}
 
@@ -292,15 +290,6 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractAction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(abstractAction, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateParametricResourceDemand(ParametricResourceDemand parametricResourceDemand, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(parametricResourceDemand, diagnostics, context);
 	}
 
 	/**

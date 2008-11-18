@@ -11,6 +11,10 @@ package de.uka.ipd.sdq.pcm.seff;
  * A representation of the model object '<em><b>Forked Behaviour</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A ForkedBehaviour can be considered as a program thread. All parameter characterisations from the surrounding RDSEFF are also valid inside the ForkedBehaviours and can be used to parameterise resource demands or control flow constructs. The parameter characterisations are the same in each ForkedBehaviour.
+ * <!-- end-model-doc -->
+ *
  *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkedBehaviour()
  * @model

@@ -12,6 +12,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Parameter</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a parameter within a signature. The parameter has a name and it is of a data type.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -42,6 +46,9 @@ public interface Parameter extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the data type of the parameter.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Datatype Parameter</em>' reference.
 	 * @see #setDatatype__Parameter(DataType)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_Datatype__Parameter()
@@ -68,6 +75,9 @@ public interface Parameter extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property holds the name of the parameter.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Parameter Name</em>' attribute.
 	 * @see #setParameterName(String)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_ParameterName()
@@ -95,6 +105,9 @@ public interface Parameter extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the modifier of the parameter like known from C#.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modifier Parameter</em>' attribute.
 	 * @see de.uka.ipd.sdq.pcm.repository.ParameterModifier
 	 * @see #setModifier__Parameter(ParameterModifier)
@@ -124,6 +137,9 @@ public interface Parameter extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property navigates to the signature this parameter is a part of.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Signature Parameter</em>' container reference.
 	 * @see #setSignature_Parameter(Signature)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_Signature_Parameter()

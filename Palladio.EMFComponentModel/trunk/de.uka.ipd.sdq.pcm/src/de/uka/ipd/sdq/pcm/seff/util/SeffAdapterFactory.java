@@ -13,10 +13,11 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
-import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
@@ -26,7 +27,6 @@ import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -106,16 +106,12 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createStopActionAdapter();
 			}
 			@Override
-			public Adapter caseAbstractResourceDemandingAction(AbstractResourceDemandingAction object) {
-				return createAbstractResourceDemandingActionAdapter();
+			public Adapter caseAbstractInternalControlFlowAction(AbstractInternalControlFlowAction object) {
+				return createAbstractInternalControlFlowActionAdapter();
 			}
 			@Override
 			public Adapter caseAbstractAction(AbstractAction object) {
 				return createAbstractActionAdapter();
-			}
-			@Override
-			public Adapter caseParametricResourceDemand(ParametricResourceDemand object) {
-				return createParametricResourceDemandAdapter();
 			}
 			@Override
 			public Adapter caseStartAction(StartAction object) {
@@ -240,16 +236,16 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction <em>Abstract Resource Demanding Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction <em>Abstract Internal Control Flow Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction
 	 * @generated
 	 */
-	public Adapter createAbstractResourceDemandingActionAdapter() {
+	public Adapter createAbstractInternalControlFlowActionAdapter() {
 		return null;
 	}
 
@@ -264,20 +260,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand <em>Parametric Resource Demand</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand
-	 * @generated
-	 */
-	public Adapter createParametricResourceDemandAdapter() {
 		return null;
 	}
 

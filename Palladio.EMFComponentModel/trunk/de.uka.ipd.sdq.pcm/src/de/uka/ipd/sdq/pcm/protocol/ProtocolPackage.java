@@ -21,6 +21,9 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * TODO
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.protocol.ProtocolFactory
  * @model kind="package"
  * @generated

@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
@@ -112,6 +113,7 @@ public class SystemSwitch<T> {
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(system);
 				if (result == null) result = caseInterfaceProvidingEntity(system);
 				if (result == null) result = caseInterfaceRequiringEntity(system);
+				if (result == null) result = caseResourceInterfaceRequiringEntity(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -221,6 +223,21 @@ public class SystemSwitch<T> {
 	 * @generated
 	 */
 	public T caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
 		return null;
 	}
 

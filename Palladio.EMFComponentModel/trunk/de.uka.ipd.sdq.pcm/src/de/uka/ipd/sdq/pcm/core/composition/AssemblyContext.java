@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getEncapsulatedComponent_ChildComponentContext <em>Encapsulated Component Child Component Context</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getEncapsulatedComponent_AssemblyContext <em>Encapsulated Component Assembly Context</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getConfigParameterUsages_AssemblyContext <em>Config Parameter Usages Assembly Context</em>}</li>
  * </ul>
@@ -38,34 +38,34 @@ public interface AssemblyContext extends Entity {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Encapsulated Component Child Component Context</b></em>' reference.
+	 * Returns the value of the '<em><b>Encapsulated Component Assembly Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Encapsulated Component Child Component Context</em>' reference isn't clear,
+	 * If the meaning of the '<em>Encapsulated Component Assembly Context</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Encapsulated Component Child Component Context</em>' reference.
-	 * @see #setEncapsulatedComponent_ChildComponentContext(ProvidesComponentType)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_EncapsulatedComponent_ChildComponentContext()
+	 * @return the value of the '<em>Encapsulated Component Assembly Context</em>' reference.
+	 * @see #setEncapsulatedComponent_AssemblyContext(RepositoryComponent)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_EncapsulatedComponent_AssemblyContext()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ProvidesComponentType getEncapsulatedComponent_ChildComponentContext();
+	RepositoryComponent getEncapsulatedComponent_AssemblyContext();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getEncapsulatedComponent_ChildComponentContext <em>Encapsulated Component Child Component Context</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getEncapsulatedComponent_AssemblyContext <em>Encapsulated Component Assembly Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Encapsulated Component Child Component Context</em>' reference.
-	 * @see #getEncapsulatedComponent_ChildComponentContext()
+	 * @param value the new value of the '<em>Encapsulated Component Assembly Context</em>' reference.
+	 * @see #getEncapsulatedComponent_AssemblyContext()
 	 * @generated
 	 */
-	void setEncapsulatedComponent_ChildComponentContext(ProvidesComponentType value);
+	void setEncapsulatedComponent_AssemblyContext(RepositoryComponent value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent Structure Assembly Context</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getAssemblyContexts_ComposedStructure <em>Assembly Contexts Composed Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent Structure Assembly Context</em>' container reference isn't clear,
@@ -75,8 +75,8 @@ public interface AssemblyContext extends Entity {
 	 * @return the value of the '<em>Parent Structure Assembly Context</em>' container reference.
 	 * @see #setParentStructure_AssemblyContext(ComposedStructure)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ParentStructure_AssemblyContext()
-	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getChildComponentContexts_ComposedStructure
-	 * @model opposite="childComponentContexts_ComposedStructure" required="true" transient="false" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getAssemblyContexts_ComposedStructure
+	 * @model opposite="assemblyContexts_ComposedStructure" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	ComposedStructure getParentStructure_AssemblyContext();

@@ -14,24 +14,25 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.performance.PerformancePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Resource Demanding Action</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Internal Control Flow Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractResourceDemandingActionImpl#getResourceDemand_Action <em>Resource Demand Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractInternalControlFlowActionImpl#getResourceDemand_Action <em>Resource Demand Action</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class AbstractResourceDemandingActionImpl extends AbstractActionImpl implements AbstractResourceDemandingAction {
+public abstract class AbstractInternalControlFlowActionImpl extends AbstractActionImpl implements AbstractInternalControlFlowAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,7 +55,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AbstractResourceDemandingActionImpl() {
+	protected AbstractInternalControlFlowActionImpl() {
 		super();
 	}
 
@@ -65,7 +66,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SeffPackage.Literals.ABSTRACT_RESOURCE_DEMANDING_ACTION;
+		return SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION;
 	}
 
 	/**
@@ -75,7 +76,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	 */
 	public EList<ParametricResourceDemand> getResourceDemand_Action() {
 		if (resourceDemand_Action == null) {
-			resourceDemand_Action = new EObjectContainmentWithInverseEList<ParametricResourceDemand>(ParametricResourceDemand.class, this, SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
+			resourceDemand_Action = new EObjectContainmentWithInverseEList<ParametricResourceDemand>(ParametricResourceDemand.class, this, SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION, PerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
 		}
 		return resourceDemand_Action;
 	}
@@ -89,7 +90,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION:
+			case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceDemand_Action()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -103,7 +104,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION:
+			case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
 				return ((InternalEList<?>)getResourceDemand_Action()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -117,7 +118,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION:
+			case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
 				return getResourceDemand_Action();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -132,7 +133,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION:
+			case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
 				getResourceDemand_Action().clear();
 				getResourceDemand_Action().addAll((Collection<? extends ParametricResourceDemand>)newValue);
 				return;
@@ -148,7 +149,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION:
+			case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
 				getResourceDemand_Action().clear();
 				return;
 		}
@@ -163,10 +164,10 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION:
+			case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
 				return resourceDemand_Action != null && !resourceDemand_Action.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //AbstractResourceDemandingActionImpl
+} //AbstractInternalControlFlowActionImpl

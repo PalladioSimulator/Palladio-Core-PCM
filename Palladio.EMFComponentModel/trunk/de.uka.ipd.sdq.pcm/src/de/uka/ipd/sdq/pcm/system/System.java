@@ -16,6 +16,10 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
  * A representation of the model object '<em><b>System</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A system is not composable because it has QoS annotations which are only allowed in the "outer" composition thing. And a UsageModel must only access systems and not inner stuff. TODO Klaus.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

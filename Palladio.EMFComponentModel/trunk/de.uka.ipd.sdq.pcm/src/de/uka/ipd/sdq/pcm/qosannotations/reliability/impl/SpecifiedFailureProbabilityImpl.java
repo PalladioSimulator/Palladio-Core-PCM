@@ -3,23 +3,25 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.qosannotations.impl;
+package de.uka.ipd.sdq.pcm.qosannotations.reliability.impl;
+
 
 import org.eclipse.emf.ecore.EClass;
 
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>System Specified Execution Time</b></em>'.
+ * An implementation of the model object '<em><b>Specified Failure Probability</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl implements SystemSpecifiedExecutionTime {
+public class SpecifiedFailureProbabilityImpl extends SpecifiedQoSAnnotationImpl implements SpecifiedFailureProbability {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32,7 +34,7 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SystemSpecifiedExecutionTimeImpl() {
+	protected SpecifiedFailureProbabilityImpl() {
 		super();
 	}
 
@@ -43,7 +45,7 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QosannotationsPackage.Literals.SYSTEM_SPECIFIED_EXECUTION_TIME;
+		return ReliabilityPackage.Literals.SPECIFIED_FAILURE_PROBABILITY;
 	}
 
-} //SystemSpecifiedExecutionTimeImpl
+} //SpecifiedFailureProbabilityImpl

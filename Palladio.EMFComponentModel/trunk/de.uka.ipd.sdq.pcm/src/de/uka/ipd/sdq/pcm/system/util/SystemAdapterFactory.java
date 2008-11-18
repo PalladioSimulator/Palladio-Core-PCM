@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
@@ -110,6 +111,10 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
 				return createInterfaceRequiringEntityAdapter();
+			}
+			@Override
+			public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+				return createResourceInterfaceRequiringEntityAdapter();
 			}
 			@Override
 			public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
@@ -234,6 +239,20 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInterfaceRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity <em>Resource Interface Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
+	 * @generated
+	 */
+	public Adapter createResourceInterfaceRequiringEntityAdapter() {
 		return null;
 	}
 

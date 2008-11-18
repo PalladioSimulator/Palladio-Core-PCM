@@ -42,7 +42,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  *
  * @generated
  */
-public class CompleteComponentTypeImpl extends ProvidesComponentTypeImpl implements CompleteComponentType {
+public class CompleteComponentTypeImpl extends RepositoryComponentImpl implements CompleteComponentType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

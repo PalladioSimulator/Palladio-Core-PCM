@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.entity.*;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -19,6 +20,8 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -129,6 +132,7 @@ public class EntitySwitch<T> {
 				T result = caseInterfaceProvidingRequiringEntity(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceProvidingEntity(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceRequiringEntity(interfaceProvidingRequiringEntity);
+				if (result == null) result = caseResourceInterfaceRequiringEntity(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseEntity(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseIdentifier(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseNamedElement(interfaceProvidingRequiringEntity);
@@ -144,6 +148,24 @@ public class EntitySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY: {
+				ResourceInterfaceRequiringEntity resourceInterfaceRequiringEntity = (ResourceInterfaceRequiringEntity)theEObject;
+				T result = caseResourceInterfaceRequiringEntity(resourceInterfaceRequiringEntity);
+				if (result == null) result = caseEntity(resourceInterfaceRequiringEntity);
+				if (result == null) result = caseIdentifier(resourceInterfaceRequiringEntity);
+				if (result == null) result = caseNamedElement(resourceInterfaceRequiringEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY: {
+				ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity = (ResourceInterfaceProvidingEntity)theEObject;
+				T result = caseResourceInterfaceProvidingEntity(resourceInterfaceProvidingEntity);
+				if (result == null) result = caseEntity(resourceInterfaceProvidingEntity);
+				if (result == null) result = caseIdentifier(resourceInterfaceProvidingEntity);
+				if (result == null) result = caseNamedElement(resourceInterfaceProvidingEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY: {
 				ComposedProvidingRequiringEntity composedProvidingRequiringEntity = (ComposedProvidingRequiringEntity)theEObject;
 				T result = caseComposedProvidingRequiringEntity(composedProvidingRequiringEntity);
@@ -152,6 +174,7 @@ public class EntitySwitch<T> {
 				if (result == null) result = caseEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceProvidingEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceRequiringEntity(composedProvidingRequiringEntity);
+				if (result == null) result = caseResourceInterfaceRequiringEntity(composedProvidingRequiringEntity);
 				if (result == null) result = caseIdentifier(composedProvidingRequiringEntity);
 				if (result == null) result = caseNamedElement(composedProvidingRequiringEntity);
 				if (result == null) result = defaultCase(theEObject);
@@ -237,6 +260,21 @@ public class EntitySwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -248,6 +286,21 @@ public class EntitySwitch<T> {
 	 * @generated
 	 */
 	public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface Providing Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Interface Providing Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
 		return null;
 	}
 

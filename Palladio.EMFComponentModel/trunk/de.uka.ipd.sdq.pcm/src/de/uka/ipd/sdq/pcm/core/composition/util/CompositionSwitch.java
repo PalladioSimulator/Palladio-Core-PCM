@@ -11,12 +11,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.composition.*;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
@@ -144,6 +146,12 @@ public class CompositionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR: {
+				ResourceRequiredDelegationConnector resourceRequiredDelegationConnector = (ResourceRequiredDelegationConnector)theEObject;
+				T result = caseResourceRequiredDelegationConnector(resourceRequiredDelegationConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CompositionPackage.COMPOSED_STRUCTURE: {
 				ComposedStructure composedStructure = (ComposedStructure)theEObject;
 				T result = caseComposedStructure(composedStructure);
@@ -214,6 +222,21 @@ public class CompositionSwitch<T> {
 	 * @generated
 	 */
 	public T caseAssemblyConnector(AssemblyConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Required Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Required Delegation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceRequiredDelegationConnector(ResourceRequiredDelegationConnector object) {
 		return null;
 	}
 

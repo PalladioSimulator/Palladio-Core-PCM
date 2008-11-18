@@ -439,8 +439,6 @@
       name="ParametricParameterUsageSpecificationDiagramLabel"
       figure="ParametricParameterUsageSpecificationLabel"/>
   <labels
-      name="EntityEntityNameLabel"/>
-  <labels
       name="ParameterStereotypeStereotypeLabel"
       figure="CallParameterUsage_ActionFigure"
       accessor="//@figures.0/@descriptors.10/@accessors.0">

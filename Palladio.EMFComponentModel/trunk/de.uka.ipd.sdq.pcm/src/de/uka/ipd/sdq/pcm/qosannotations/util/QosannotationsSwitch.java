@@ -13,13 +13,11 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.*;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
-import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,29 +100,9 @@ public class QosannotationsSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case QosannotationsPackage.SPECIFIED_EXECUTION_TIME: {
-				SpecifiedExecutionTime specifiedExecutionTime = (SpecifiedExecutionTime)theEObject;
-				T result = caseSpecifiedExecutionTime(specifiedExecutionTime);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QosannotationsPackage.SPECIFIED_FAILURE_PROBABILITY: {
-				SpecifiedFailureProbability specifiedFailureProbability = (SpecifiedFailureProbability)theEObject;
-				T result = caseSpecifiedFailureProbability(specifiedFailureProbability);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QosannotationsPackage.SYSTEM_SPECIFIED_EXECUTION_TIME: {
-				SystemSpecifiedExecutionTime systemSpecifiedExecutionTime = (SystemSpecifiedExecutionTime)theEObject;
-				T result = caseSystemSpecifiedExecutionTime(systemSpecifiedExecutionTime);
-				if (result == null) result = caseSpecifiedExecutionTime(systemSpecifiedExecutionTime);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QosannotationsPackage.COMPONENT_SPECIFIED_EXECUTION_TIME: {
-				ComponentSpecifiedExecutionTime componentSpecifiedExecutionTime = (ComponentSpecifiedExecutionTime)theEObject;
-				T result = caseComponentSpecifiedExecutionTime(componentSpecifiedExecutionTime);
-				if (result == null) result = caseSpecifiedExecutionTime(componentSpecifiedExecutionTime);
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION: {
+				SpecifiedQoSAnnotation specifiedQoSAnnotation = (SpecifiedQoSAnnotation)theEObject;
+				T result = caseSpecifiedQoSAnnotation(specifiedQoSAnnotation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,62 +126,17 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Specified Execution Time</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Specified Qo SAnnotation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Specified Execution Time</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Specified Qo SAnnotation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSpecifiedExecutionTime(SpecifiedExecutionTime object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Specified Failure Probability</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Specified Failure Probability</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSpecifiedFailureProbability(SpecifiedFailureProbability object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>System Specified Execution Time</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>System Specified Execution Time</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSystemSpecifiedExecutionTime(SystemSpecifiedExecutionTime object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component Specified Execution Time</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component Specified Execution Time</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComponentSpecifiedExecutionTime(ComponentSpecifiedExecutionTime object) {
+	public T caseSpecifiedQoSAnnotation(SpecifiedQoSAnnotation object) {
 		return null;
 	}
 

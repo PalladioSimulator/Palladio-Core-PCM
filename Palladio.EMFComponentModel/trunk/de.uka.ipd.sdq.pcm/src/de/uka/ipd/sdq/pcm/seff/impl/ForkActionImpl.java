@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
  *
  * @generated
  */
-public class ForkActionImpl extends AbstractResourceDemandingActionImpl implements ForkAction {
+public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implements ForkAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

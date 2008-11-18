@@ -41,15 +41,6 @@ public interface SeffFactory extends EFactory {
 	StopAction createStopAction();
 
 	/**
-	 * Returns a new object of class '<em>Parametric Resource Demand</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parametric Resource Demand</em>'.
-	 * @generated
-	 */
-	ParametricResourceDemand createParametricResourceDemand();
-
-	/**
 	 * Returns a new object of class '<em>Start Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

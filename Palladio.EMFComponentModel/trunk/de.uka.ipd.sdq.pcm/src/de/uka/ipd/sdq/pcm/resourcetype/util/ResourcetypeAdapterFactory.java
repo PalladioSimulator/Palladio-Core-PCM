@@ -13,9 +13,17 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
+import de.uka.ipd.sdq.pcm.repository.Role;
+import de.uka.ipd.sdq.pcm.resourcetype.*;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.units.UnitCarryingElement;
@@ -92,12 +100,28 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createResourceRepositoryAdapter();
 			}
 			@Override
+			public Adapter caseProcessingResourceType(ProcessingResourceType object) {
+				return createProcessingResourceTypeAdapter();
+			}
+			@Override
+			public Adapter caseResourceProvidedRole(ResourceProvidedRole object) {
+				return createResourceProvidedRoleAdapter();
+			}
+			@Override
+			public Adapter caseResourceInterface(ResourceInterface object) {
+				return createResourceInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseResourceService(ResourceService object) {
+				return createResourceServiceAdapter();
+			}
+			@Override
 			public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
 				return createCommunicationLinkResourceTypeAdapter();
 			}
 			@Override
-			public Adapter caseProcessingResourceType(ProcessingResourceType object) {
-				return createProcessingResourceTypeAdapter();
+			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
+				return createResourceRequiredRoleAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -114,6 +138,18 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
 				return createUnitCarryingElementAdapter();
+			}
+			@Override
+			public Adapter caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
+				return createResourceInterfaceProvidingEntityAdapter();
+			}
+			@Override
+			public Adapter caseRole(Role object) {
+				return createRoleAdapter();
+			}
+			@Override
+			public Adapter caseAbstractInterface(AbstractInterface object) {
+				return createAbstractInterfaceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -174,6 +210,62 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCommunicationLinkResourceTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface <em>Resource Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface
+	 * @generated
+	 */
+	public Adapter createResourceInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService <em>Resource Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceService
+	 * @generated
+	 */
+	public Adapter createResourceServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole <em>Resource Provided Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole
+	 * @generated
+	 */
+	public Adapter createResourceProvidedRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole <em>Resource Required Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole
+	 * @generated
+	 */
+	public Adapter createResourceRequiredRoleAdapter() {
 		return null;
 	}
 
@@ -244,6 +336,48 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnitCarryingElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.AbstractInterface <em>Abstract Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.AbstractInterface
+	 * @generated
+	 */
+	public Adapter createAbstractInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity <em>Resource Interface Providing Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity
+	 * @generated
+	 */
+	public Adapter createResourceInterfaceProvidingEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Role <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.Role
+	 * @generated
+	 */
+	public Adapter createRoleAdapter() {
 		return null;
 	}
 

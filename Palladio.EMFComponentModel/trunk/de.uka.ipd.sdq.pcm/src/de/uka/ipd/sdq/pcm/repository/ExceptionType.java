@@ -12,6 +12,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Exception Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a type of an exception.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -40,6 +44,9 @@ public interface ExceptionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property denotes the name of the exception. In addition to the exception message, this is another piece of information that can be used for identification of the exception that has appeared.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exception Name</em>' attribute.
 	 * @see #setExceptionName(String)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getExceptionType_ExceptionName()
@@ -66,6 +73,9 @@ public interface ExceptionType extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property holds the text message of the exception.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Exception Message</em>' attribute.
 	 * @see #setExceptionMessage(String)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getExceptionType_ExceptionMessage()

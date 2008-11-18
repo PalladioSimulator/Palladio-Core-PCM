@@ -16,6 +16,25 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * A representation of the model object '<em><b>Entry Level System Call</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * An EntryLevelSystemCall models the call to a service provided by a system. Therefore, an
+ * EntryLevelSystemCall references a ProvidedRole of a PCM System, from which the
+ * called interface and the providing component within the system can be derived, and a Signature
+ * specifying the called service. Notice, that the usage model does not permit the domain expert to
+ * model calls directly to components, but only to system roles. (TODO: Add such a constraint.) This decouples the System structure
+ * (i.e., the component-based software architecture model and its allocation) from the UsageModel
+ * and the software architect can change the System (e.g., include new components, remove existing
+ * components, or change their wiring or allocation) independently from the domain expert, if
+ * the system provided roles are not affected. EntryLevelSystemCalls may include a set of
+ * input parameter characterisations and a set of output parameter characterisations (as described in
+ * the pcm::parameters package). However, the random variables characterising the input parameters
+ * like NUMBER_OF_ELEMENTS can not depend on other variables in the usage model. They have
+ * to be composed from literals only including literals describing random variables having a
+ * certain fixed distribution.
+ * 
+ * TODO Anne: Constraint that ensures that the referred signature is contained in the interface referenced by the ProvidedRole (see Diagram)
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

@@ -17,10 +17,13 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  * A representation of the model object '<em><b>Basic Component</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a black-box component implementation. Basic components are atomic building blocks of a software architecture. They cannot be further subdivided into smaller components and are built from scratch, i.e, not by assembling other components. Component developers specify basic components by associating interfaces to them in a providing or requiring role.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getImplementationComponentType <em>Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}</li>
  * </ul>
@@ -39,32 +42,6 @@ public interface BasicComponent extends ImplementationComponentType {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Implementation Component Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Implementation Component Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Implementation Component Type</em>' reference.
-	 * @see #setImplementationComponentType(ImplementationComponentType)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_ImplementationComponentType()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	ImplementationComponentType getImplementationComponentType();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getImplementationComponentType <em>Implementation Component Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Implementation Component Type</em>' reference.
-	 * @see #getImplementationComponentType()
-	 * @generated
-	 */
-	void setImplementationComponentType(ImplementationComponentType value);
-
-	/**
 	 * Returns the value of the '<em><b>Service Effect Specifications Basic Component</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification}.
 	 * <!-- begin-user-doc -->
@@ -73,6 +50,9 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property contains the service effect specification for services provided by this basic component.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Service Effect Specifications Basic Component</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_ServiceEffectSpecifications__BasicComponent()
 	 * @model containment="true" ordered="false"
@@ -89,6 +69,9 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the passive resources, e.g., semaphores, that are owned by this basic component.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Passive Resource Basic Component</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_PassiveResource_BasicComponent()
 	 * @model containment="true" ordered="false"

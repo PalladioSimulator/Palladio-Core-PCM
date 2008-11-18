@@ -438,7 +438,7 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3008"
+        visualID="3031"
         editPartClassName="ParametricResourceDemandEditPart"
         itemSemanticEditPolicyClassName="ParametricResourceDemandItemSemanticEditPolicy"
         notationViewFactoryClassName="ParametricResourceDemandViewFactory"
@@ -466,11 +466,11 @@
           editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/seff/ParametricResourceDemand"/>
+            href="../../pcm.genmodel#//pcm/seff/performance/ParametricResourceDemand"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+            href="../../pcm.genmodel#//pcm/seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+            href="../../pcm.genmodel#//pcm/seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
       </modelFacet>
     </childNodes>
     <childNodes

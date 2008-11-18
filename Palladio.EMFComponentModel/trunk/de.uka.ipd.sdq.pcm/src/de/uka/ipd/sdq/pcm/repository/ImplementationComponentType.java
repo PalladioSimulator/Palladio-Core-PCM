@@ -17,6 +17,11 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * A representation of the model object '<em><b>Implementation Component Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type. The specification of
+ * the internal structure depends on the way the component is realised. In general, components can either be implemented from the scratch or composed out of other components. In the first case, the implemented behaviour of each provided service needs to be specified with a service effect specification (SEFF) to describe the component’s abstract internal structure. We refer to such components as basic components, since they form the basic building blocks of a software architecture. On the other hand, developers can use existing components to assemble new, composite components.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -29,7 +34,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * @model abstract="true"
  * @generated
  */
-public interface ImplementationComponentType extends CompleteComponentType {
+public interface ImplementationComponentType extends RepositoryComponent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,6 +67,9 @@ public interface ImplementationComponentType extends CompleteComponentType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property specified the variables of the component that are to be initialized using the assembly context to parametrize the component.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Component Parameter Usage Implementation Component Type</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType()
 	 * @model containment="true" ordered="false"

@@ -13,6 +13,10 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * A representation of the model object '<em><b>Passive Resource</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a passive resource, e.g., a semaphore.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -40,6 +44,9 @@ public interface PassiveResource extends Entity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property holds the capacity of this passive resource.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Capacity Passive Resource</em>' containment reference.
 	 * @see #setCapacity_PassiveResource(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getPassiveResource_Capacity_PassiveResource()

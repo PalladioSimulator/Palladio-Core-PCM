@@ -331,7 +331,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_ChildComponentContext ";
+			String body = "self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext ";
 			
 			try {
 				ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSameInvOCL = ExpressionsUtil.createInvariant(env, body, true);

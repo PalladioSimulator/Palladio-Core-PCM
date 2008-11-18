@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
+import de.uka.ipd.sdq.pcm.core.composition.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -17,6 +18,7 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +42,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	 */
 	public static CompositionFactory init() {
 		try {
-			CompositionFactory theCompositionFactory = (CompositionFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0"); 
+			CompositionFactory theCompositionFactory = (CompositionFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/1.0"); 
 			if (theCompositionFactory != null) {
 				return theCompositionFactory;
 			}
@@ -73,6 +75,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 			case CompositionPackage.ASSEMBLY_CONTEXT: return createAssemblyContext();
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR: return createRequiredDelegationConnector();
 			case CompositionPackage.ASSEMBLY_CONNECTOR: return createAssemblyConnector();
+			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR: return createResourceRequiredDelegationConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -116,6 +119,16 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	public AssemblyConnector createAssemblyConnector() {
 		AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
 		return assemblyConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector() {
+		ResourceRequiredDelegationConnectorImpl resourceRequiredDelegationConnector = new ResourceRequiredDelegationConnectorImpl();
+		return resourceRequiredDelegationConnector;
 	}
 
 	/**

@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  *
  * @generated
  */
-public class StartActionImpl extends AbstractResourceDemandingActionImpl implements StartAction {
+public class StartActionImpl extends AbstractInternalControlFlowActionImpl implements StartAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
