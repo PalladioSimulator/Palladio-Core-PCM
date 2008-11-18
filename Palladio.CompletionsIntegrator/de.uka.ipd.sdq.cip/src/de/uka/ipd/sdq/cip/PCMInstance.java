@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.URI;
