@@ -21,7 +21,7 @@ fqnBeanInterface(InterfaceRequiringEntity e) :
 beanPackage(InterfaceRequiringEntity c) :
 	c.implementationPackage() + ".bean";
 	
-fqnBean(ProvidesComponentType c) :
+fqnBean(RepositoryComponent c) :
   c.beanPackage()+"."+c.javaName()+'Bean';
 	
 implementationSessionBeanName(AssemblyContext ac) :

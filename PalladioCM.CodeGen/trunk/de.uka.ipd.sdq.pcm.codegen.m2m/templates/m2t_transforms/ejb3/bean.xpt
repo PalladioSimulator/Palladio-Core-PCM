@@ -12,7 +12,7 @@
 «IMPORT parameter»
 «IMPORT qosannotations»
 
-«DEFINE Bean FOR ProvidesComponentType»
+«DEFINE Bean FOR RepositoryComponent»
 	«EXPAND BeanInterface FOR this»
 	«FILE this.fqnBean().fqnToDirectoryPath()+".java"»
 		package «this.beanPackage()»;
@@ -30,7 +30,7 @@
 	«ENDFILE»	
 «ENDDEFINE»
  
-«DEFINE BeanInterface FOR ProvidesComponentType»
+«DEFINE BeanInterface FOR RepositoryComponent»
 	«FILE this.fqnBeanInterface().fqnToDirectoryPath()+".java"»
 		package «this.beanPackage()»;
 		
@@ -44,12 +44,12 @@
 	«ENDFILE»	
 «ENDDEFINE»
 
-«DEFINE Constructor FOR ProvidesComponentType»
+«DEFINE Constructor FOR RepositoryComponent»
 	public «this.beanName()»() {
 	}
 «ENDDEFINE»
 
-«DEFINE DependencyInjection FOR ProvidesComponentType»
+«DEFINE DependencyInjection FOR RepositoryComponent»
    // Called by the Container to inject a reference to the local interface of this components
    // context class
    @javax.ejb.EJB(name="«this.contextDependencyJNDIName()»",beanInterface=«this.fqnContextInterface()».class)

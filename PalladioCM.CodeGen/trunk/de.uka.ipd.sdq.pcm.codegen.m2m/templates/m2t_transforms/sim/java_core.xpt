@@ -5,7 +5,7 @@
 «IMPORT system»
 «IMPORT core::entity»
 
-«DEFINE SpecificImplementationPartTM FOR ProvidesComponentType»
+«DEFINE SpecificImplementationPartTM FOR RepositoryComponent»
 	// Component Parameter Defaults
 	protected de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myDefaultComponentStackFrame = null;
 
@@ -27,7 +27,7 @@
 	}
 «ENDDEFINE»
 
-«DEFINE ComponentConstructor FOR ProvidesComponentType»
+«DEFINE ComponentConstructor FOR RepositoryComponent»
 	private String assemblyContextID = null;
 	«EXPAND PassiveResourceDecls FOR this»
 	
@@ -36,7 +36,7 @@
 	}
 «ENDDEFINE»
 
-«DEFINE PassiveResourceDecls FOR ProvidesComponentType»
+«DEFINE PassiveResourceDecls FOR RepositoryComponent»
 «ENDDEFINE»
 
 «DEFINE PassiveResourceDecls FOR BasicComponent»

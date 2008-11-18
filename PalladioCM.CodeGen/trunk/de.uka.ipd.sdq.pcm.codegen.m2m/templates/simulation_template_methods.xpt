@@ -13,7 +13,7 @@
 «IMPORT qosannotations»
 «IMPORT completions»
 
-«AROUND m2t_transforms::java_core::ComponentConstructorTM FOR ProvidesComponentType»
+«AROUND m2t_transforms::java_core::ComponentConstructorTM FOR RepositoryComponent»
 	«EXPAND m2t_transforms::sim::java_core::ComponentConstructor FOR this»
 «ENDAROUND»
 
@@ -29,7 +29,7 @@
 	«ENDIF»
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR ProvidesComponentType»
+«AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR RepositoryComponent»
 	«EXPAND m2t_transforms::sim::java_core::SpecificImplementationPartTM FOR this»
 «ENDAROUND»
 

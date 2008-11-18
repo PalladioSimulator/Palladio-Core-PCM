@@ -25,7 +25,7 @@
    «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE ComponentRoot FOR ProvidesComponentType»
+«DEFINE ComponentRoot FOR RepositoryComponent»
    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
 «ENDDEFINE»
 

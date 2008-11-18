@@ -21,10 +21,10 @@
 		«EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
 		«EXPAND m2t_transforms::composed_structure::ComposedStructureEnd FOR this»
 	«ENDFILE»
-	«EXPAND InnerCompletionComponent FOREACH this.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext»
+	«EXPAND InnerCompletionComponent FOREACH this.childComponentContexts_ComposedStructure.encapsulatedComponent_AssemblyContext»
 «ENDDEFINE»
 
-«DEFINE InnerCompletionComponent FOR ProvidesComponentType»
+«DEFINE InnerCompletionComponent FOR RepositoryComponent»
 	«EXPAND m2t_transforms::repository::ComponentRoot FOR this»
 «ENDDEFINE»
 

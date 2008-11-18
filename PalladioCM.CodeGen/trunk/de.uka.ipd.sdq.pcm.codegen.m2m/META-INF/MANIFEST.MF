@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: de.uka.ipd.sdq.pcm.codegen.m2m
-Bundle-SymbolicName: de.uka.ipd.sdq.pcm.codegen.m2m; singleton:=true
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.codegen.m2m;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.openarchitectureware.base,
  org.openarchitectureware.core.emftools,

@@ -6,7 +6,7 @@
 «IMPORT core::entity»
 «IMPORT completions»
 
-«DEFINE ClassHeader FOR ProvidesComponentType»
+«DEFINE ClassHeader FOR RepositoryComponent»
 public class «this.javaName()»
 «ENDDEFINE»
 
@@ -61,7 +61,7 @@ public class «this.javaName()»
          («EXPAND ParameterListTM FOR this»)
 «ENDDEFINE»
 
-«DEFINE ComponentService(ProvidesComponentType component) FOR Signature»
+«DEFINE ComponentService(RepositoryComponent component) FOR Signature»
    public «EXPAND ComponentServiceSignature FOR this»
    { 
       «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface_Signature.id DISABLE»
@@ -85,7 +85,7 @@ public class «this.javaName()»
 //-----
 // Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
 // ComposedStructure
-«DEFINE ComponentImplementation FOR ProvidesComponentType»
+«DEFINE ComponentImplementation FOR RepositoryComponent»
 «ENDDEFINE»
 
 «DEFINE ComponentImplementation FOR ImplementationComponentType»
@@ -118,16 +118,16 @@ public class «this.javaName()»
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE ComponentImplementationChildClassTM FOR ProvidesComponentType»
+«DEFINE ComponentImplementationChildClassTM FOR RepositoryComponent»
 «ENDDEFINE»
 
-«DEFINE SpecificImplementationPartTM FOR ProvidesComponentType»
+«DEFINE SpecificImplementationPartTM FOR RepositoryComponent»
 «ENDDEFINE»
 
-«DEFINE SuperClassesTM FOR ProvidesComponentType»
+«DEFINE SuperClassesTM FOR RepositoryComponent»
 «ENDDEFINE»
 
-«DEFINE InnerImplementation FOR ProvidesComponentType»
+«DEFINE InnerImplementation FOR RepositoryComponent»
 «ENDDEFINE»
 
 «DEFINE InnerImplementation FOR BasicComponent»
@@ -138,5 +138,5 @@ public class «this.javaName()»
 «ENDDEFINE»
 ///-----
 
-«DEFINE ComponentConstructorTM FOR ProvidesComponentType»
+«DEFINE ComponentConstructorTM FOR RepositoryComponent»
 «ENDDEFINE»

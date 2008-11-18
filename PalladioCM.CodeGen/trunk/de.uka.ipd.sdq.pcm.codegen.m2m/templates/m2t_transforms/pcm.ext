@@ -82,17 +82,20 @@ collectRepositories(ProvidedRole pr):
 collectRepositories(RequiredRole rr):
 	rr.requiredInterface__RequiredRole.repository_Interface;
 	
-collectRepositories(ProvidesComponentType pct):
+collectRepositories(RepositoryComponent pct):
 	pct.repository_RepositoryComponent;
 	
 collectRepositories(CompositeComponent cc):
-	cc.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext.collectRepositories().addAll(
-		{cc.repository_ProvidesComponentType});
+	cc.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContext.collectRepositories().addAll(
+		{cc.repository_RepositoryComponent});
 		
-hasSEFF(Signature service, ProvidesComponentType c):
+collectRepositories(InterfaceProvidingRequiringEntity pct):
+	null;
+		
+hasSEFF(Signature service, RepositoryComponent c):
 	!BasicComponent.isInstance(c) ? false : ((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).size > 0;
 	
-getSEFF(Signature service, ProvidesComponentType c):
+getSEFF(Signature service, RepositoryComponent c):
 	((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).get(0);
 	
 getAllCompletions(ComposedStructure s):

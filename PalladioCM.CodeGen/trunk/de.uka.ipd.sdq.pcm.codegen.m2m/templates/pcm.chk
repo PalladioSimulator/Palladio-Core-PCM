@@ -46,7 +46,7 @@ context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All 
 context ComposedProvidingRequiringEntity WARNING 'Composed Structure ' + this.entityName +': All provided roles of the composed structure must be bound to an inner provided role using a delegation connector':
 	this.providedRoles_InterfaceProvidingEntity.forAll(role|this.providedDelegationConnectors_ComposedStructure.exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector == role));
 	
-context ProvidesComponentType ERROR 'Component ' + this.entityName +': All required roles of a component must have unique names':
+context InterfaceProvidingRequiringEntity ERROR 'Component ' + this.entityName +': All required roles of a component must have unique names':
 	this.requiredRoles_InterfaceRequiringEntity.forAll(r1|this.requiredRoles_InterfaceRequiringEntity.forAll(r2 | r1 == r2 || r1.entityName != r2.entityName));
 	
 context System ERROR 'System ' + this.entityName +': A system must contain at least one uppercase letter':
@@ -82,7 +82,7 @@ context ExternalCallAction ERROR 'Role of ExternalCallAction must be a required 
 context ExternalCallAction ERROR 'Called Signature must be part of the called Required Interface':
 	((RequiredRole)this.role_ExternalService).requiredInterface__RequiredRole.signatures__Interface.contains(this.calledService_ExternalService);
 	
-context ProvidesComponentType ERROR 'Required Roles must have unique names for Code Generation':
+context InterfaceProvidingRequiringEntity ERROR 'Required Roles must have unique names for Code Generation':
 	this.requiredRoles_InterfaceRequiringEntity.forAll(rr| ! this.requiredRoles_InterfaceRequiringEntity.exists(rr2|rr2 != rr && rr2.entityName == rr.entityName));
 	
 context RandomVariable ERROR 'Random variable without specification is invalid':

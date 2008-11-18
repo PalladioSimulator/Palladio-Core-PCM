@@ -80,8 +80,8 @@ implementationPackage(UsageScenario u) :
    u.basePackageName()+".impl";
       
 // Package name of the implementation classes implementing a component     
-implementationPackage(ProvidesComponentType c) :
-   c.repository_ProvidesComponentType.basePackageName()+".impl";
+implementationPackage(RepositoryComponent c) :
+   c.repository_RepositoryComponent.basePackageName()+".impl";
 
 // Name of the main class implementing a system
 className(ComposedStructure s) :
@@ -103,13 +103,13 @@ fqn(Entity e) :
 fqn(Interface i) :
   i.implementationPackage()+"."+i.javaName();
      
-fqn(ProvidesComponentType c) :
+fqn(RepositoryComponent c) :
   c.implementationPackage()+"."+c.javaName();
 
 fqn(System s) :
   s.implementationPackage()+"."+s.javaName();
 
-// Completion should be matched by ProvidesComponentType
+// Completion should be matched by RepositoryComponent
 //fqn(Completion s) :
 //  s.implementationPackage()+"."+s.javaName();
 
@@ -131,7 +131,7 @@ fqnPortPackage(ProvidedRole pr) :
 fqnPort(ProvidedRole pr) :
   pr.providingEntity_ProvidedRole.implementationPackage()+".ports."+pr.portClassName();
 
-beanName(ProvidesComponentType c) :
+beanName(RepositoryComponent c) :
   c.javaName()+'Bean';
 
 fqnInterface(InterfaceProvidingEntity c) :

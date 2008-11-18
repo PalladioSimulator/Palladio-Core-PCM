@@ -16,7 +16,7 @@
 	«EXPAND m2t_transforms::ejb3::system::DeploymentDescriptor FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR ProvidesComponentType»
+«AROUND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR RepositoryComponent»
 	«EXPAND m2t_transforms::ejb3::bean::Bean FOR this» 
 «ENDAROUND»
 

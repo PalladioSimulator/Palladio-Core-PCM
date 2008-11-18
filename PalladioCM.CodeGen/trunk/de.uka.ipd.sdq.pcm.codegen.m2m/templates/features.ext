@@ -7,8 +7,8 @@ Configuration getConfiguration() : GLOBALVAR Features;
 FeatureConfig getDefaultFeatureConfig() : getConfiguration().defaultConfig;
 
 FeatureConfig getFeatureConfig(Object o) : 
-	getConfiguration().configOverrides.select(conf|conf.referencedObject == o).size > 0 ?
-		getConfiguration().configOverrides.select(conf|conf.referencedObject == o).first()
+	getConfiguration().configOverrides != null && getConfiguration().configOverrides.referencedObject == o ?
+		getConfiguration().configOverrides
 	:
 		null;
 
