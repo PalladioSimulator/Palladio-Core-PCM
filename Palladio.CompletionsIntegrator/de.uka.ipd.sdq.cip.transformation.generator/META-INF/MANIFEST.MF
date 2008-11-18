@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Generator Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.cip.transformation.generator; singleton:=true
-Bundle-Version: 1.0.0
-Bundle-Activator: de.uka.ipd.sdq.cip.transformation.generator.Activator
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
-Eclipse-LazyStart: true
