@@ -127,98 +127,6 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceInterfaceItemProvider resourceInterfaceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceInterfaceAdapter() {
-		if (resourceInterfaceItemProvider == null) {
-			resourceInterfaceItemProvider = new ResourceInterfaceItemProvider(this);
-		}
-
-		return resourceInterfaceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceServiceItemProvider resourceServiceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceServiceAdapter() {
-		if (resourceServiceItemProvider == null) {
-			resourceServiceItemProvider = new ResourceServiceItemProvider(this);
-		}
-
-		return resourceServiceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceProvidedRoleItemProvider resourceProvidedRoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceProvidedRoleAdapter() {
-		if (resourceProvidedRoleItemProvider == null) {
-			resourceProvidedRoleItemProvider = new ResourceProvidedRoleItemProvider(this);
-		}
-
-		return resourceProvidedRoleItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceRequiredRoleItemProvider resourceRequiredRoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceRequiredRoleAdapter() {
-		if (resourceRequiredRoleItemProvider == null) {
-			resourceRequiredRoleItemProvider = new ResourceRequiredRoleItemProvider(this);
-		}
-
-		return resourceRequiredRoleItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -341,12 +249,8 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 	 */
 	public void dispose() {
 		if (resourceRepositoryItemProvider != null) resourceRepositoryItemProvider.dispose();
-		if (processingResourceTypeItemProvider != null) processingResourceTypeItemProvider.dispose();
-		if (resourceProvidedRoleItemProvider != null) resourceProvidedRoleItemProvider.dispose();
-		if (resourceInterfaceItemProvider != null) resourceInterfaceItemProvider.dispose();
-		if (resourceServiceItemProvider != null) resourceServiceItemProvider.dispose();
 		if (communicationLinkResourceTypeItemProvider != null) communicationLinkResourceTypeItemProvider.dispose();
-		if (resourceRequiredRoleItemProvider != null) resourceRequiredRoleItemProvider.dispose();
+		if (processingResourceTypeItemProvider != null) processingResourceTypeItemProvider.dispose();
 	}
 
 }

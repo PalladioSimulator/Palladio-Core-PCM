@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
@@ -157,15 +156,6 @@ public class EntitySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY: {
-				ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity = (ResourceInterfaceProvidingEntity)theEObject;
-				T result = caseResourceInterfaceProvidingEntity(resourceInterfaceProvidingEntity);
-				if (result == null) result = caseEntity(resourceInterfaceProvidingEntity);
-				if (result == null) result = caseIdentifier(resourceInterfaceProvidingEntity);
-				if (result == null) result = caseNamedElement(resourceInterfaceProvidingEntity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY: {
 				ComposedProvidingRequiringEntity composedProvidingRequiringEntity = (ComposedProvidingRequiringEntity)theEObject;
 				T result = caseComposedProvidingRequiringEntity(composedProvidingRequiringEntity);
@@ -286,21 +276,6 @@ public class EntitySwitch<T> {
 	 * @generated
 	 */
 	public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface Providing Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Interface Providing Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
 		return null;
 	}
 

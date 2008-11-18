@@ -50,42 +50,6 @@ public interface ResourcetypeFactory extends EFactory {
 	CommunicationLinkResourceType createCommunicationLinkResourceType();
 
 	/**
-	 * Returns a new object of class '<em>Resource Interface</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Interface</em>'.
-	 * @generated
-	 */
-	ResourceInterface createResourceInterface();
-
-	/**
-	 * Returns a new object of class '<em>Resource Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Service</em>'.
-	 * @generated
-	 */
-	ResourceService createResourceService();
-
-	/**
-	 * Returns a new object of class '<em>Resource Provided Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Provided Role</em>'.
-	 * @generated
-	 */
-	ResourceProvidedRole createResourceProvidedRole();
-
-	/**
-	 * Returns a new object of class '<em>Resource Required Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Required Role</em>'.
-	 * @generated
-	 */
-	ResourceRequiredRole createResourceRequiredRole();
-
-	/**
 	 * Returns a new object of class '<em>Processing Resource Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

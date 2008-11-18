@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.pcmbench.ui;
 
 import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.EMFPlugin.EclipsePlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**

@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * </p>
  *
  * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface SpecifiedOutputParameterAbstraction extends EObject {

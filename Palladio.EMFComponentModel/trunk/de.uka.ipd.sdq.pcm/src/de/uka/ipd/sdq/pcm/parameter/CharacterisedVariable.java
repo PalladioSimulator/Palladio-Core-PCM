@@ -12,6 +12,10 @@ import de.uka.ipd.sdq.stoex.Variable;
  * A representation of the model object '<em><b>Characterised Variable</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A characterised variable is a special variable which contains a performance abstraction of a data type. It can be transformed in a named reference and a variable characterisation. It has to end always with a variable characterisation type. Examples are "a.NUMBER_OF_ELEMENTS" or "array.STRUCTURE".
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -40,6 +44,9 @@ public interface CharacterisedVariable extends Variable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of the characterisation of the characterised variable. The type can be any of the varibale characterisation types, i.e., STRUCTURE, NUMBER_OF_ELEMENTS, TYPE, VALUE, or BYTESIZE.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Characterisation Type</em>' attribute.
 	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
 	 * @see #setCharacterisationType(VariableCharacterisationType)

@@ -56,25 +56,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ResourceRequiredRole">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="SubSystem"
           description="Create new SubSystem">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ResourceInterface"
-          description="Create a new ResourceInterface">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -126,15 +109,6 @@
           xsi:type="gmftool:CreationTool"
           title="Variable Characterisation"
           description="Variable Characterisation">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ResourceService"
-          description="Create new ResourceService">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

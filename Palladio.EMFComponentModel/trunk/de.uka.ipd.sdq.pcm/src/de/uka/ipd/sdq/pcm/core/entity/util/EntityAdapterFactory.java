@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
@@ -109,10 +108,6 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
 				return createResourceInterfaceRequiringEntityAdapter();
-			}
-			@Override
-			public Adapter caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
-				return createResourceInterfaceProvidingEntityAdapter();
 			}
 			@Override
 			public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
@@ -241,20 +236,6 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComposedProvidingRequiringEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity <em>Resource Interface Providing Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity
-	 * @generated
-	 */
-	public Adapter createResourceInterfaceProvidingEntityAdapter() {
 		return null;
 	}
 

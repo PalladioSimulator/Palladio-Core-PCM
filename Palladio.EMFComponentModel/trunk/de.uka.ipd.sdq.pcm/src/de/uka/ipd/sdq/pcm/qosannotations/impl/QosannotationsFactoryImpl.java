@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,21 +67,10 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION: return createSpecifiedOutputParameterAbstraction();
 			case QosannotationsPackage.QO_SANNOTATIONS: return createQoSAnnotations();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SpecifiedOutputParameterAbstraction createSpecifiedOutputParameterAbstraction() {
-		SpecifiedOutputParameterAbstractionImpl specifiedOutputParameterAbstraction = new SpecifiedOutputParameterAbstractionImpl();
-		return specifiedOutputParameterAbstraction;
 	}
 
 	/**

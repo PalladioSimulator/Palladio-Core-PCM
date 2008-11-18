@@ -165,7 +165,7 @@ public class ComposedProvidingRequiringEntityItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
-				 ResourcetypeFactory.eINSTANCE.createResourceRequiredRole()));
+				 RepositoryFactory.eINSTANCE.createResourceRequiredRole()));
 	}
 
 	/**

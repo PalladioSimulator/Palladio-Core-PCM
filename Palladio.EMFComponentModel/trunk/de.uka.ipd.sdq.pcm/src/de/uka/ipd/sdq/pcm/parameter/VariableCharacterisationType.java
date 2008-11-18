@@ -16,6 +16,9 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Variable Characterisation Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * The variable characterisation types determine the set of available meta-informations on variables. Possible values are STRUCTURE, NUMBER_OF_ELEMENTS, VALUE, BYTESIZE, and TYPE.
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisationType()
  * @model
  * @generated
@@ -86,6 +89,9 @@ public enum VariableCharacterisationType implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The structure characterisation type is used to describe the structure of the data. With structure we refer to performance relevant properties of data like for example whether an array is sorted, a tree is balanced, a collection is indexed, and so on.... The allowed set of value of the structure characterisation has to be specified by the component developer for a particular component.
+	 * <!-- end-model-doc -->
 	 * @see #STRUCTURE
 	 * @model
 	 * @generated
@@ -101,6 +107,9 @@ public enum VariableCharacterisationType implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The number of elements of a collection data type describe the amount of data objects contained in the collection.
+	 * <!-- end-model-doc -->
 	 * @see #NUMBER_OF_ELEMENTS
 	 * @model
 	 * @generated
@@ -116,6 +125,9 @@ public enum VariableCharacterisationType implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The value characterisation can be used to specify the actual value of a parameter. It is only available for parameters having a primitive type. The value characterisation should be used with care as it increased the complexity of the resulting analysis model significantly. It should be only used in performance-critical cases.
+	 * <!-- end-model-doc -->
 	 * @see #VALUE
 	 * @model
 	 * @generated
@@ -131,6 +143,9 @@ public enum VariableCharacterisationType implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The bytesize characterisation specifies the memory footprint of a data object.
+	 * <!-- end-model-doc -->
 	 * @see #BYTESIZE
 	 * @model
 	 * @generated
@@ -146,6 +161,9 @@ public enum VariableCharacterisationType implements Enumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type characterisation specifies the actual data type of polymorphic data objects in cases where the actual type has an impact on performance. For example in a shape drawing application the actual shape of a geometric object has an impact on the performance as drawing a circle is much more time consuming than drawing a simple line.
+	 * <!-- end-model-doc -->
 	 * @see #TYPE
 	 * @model
 	 * @generated

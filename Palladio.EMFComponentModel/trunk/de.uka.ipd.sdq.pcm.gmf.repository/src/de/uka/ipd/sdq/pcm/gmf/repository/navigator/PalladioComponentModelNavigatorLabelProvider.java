@@ -38,10 +38,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityN
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceServiceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
@@ -53,7 +49,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegi
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 
 /**
  * @generated
@@ -123,9 +118,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case InterfaceEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Interface", PalladioComponentModelElementTypes.Interface_2101); //$NON-NLS-1$
-		case ResourceInterfaceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0?ResourceInterface", PalladioComponentModelElementTypes.ResourceInterface_2107); //$NON-NLS-1$
 		case BasicComponentEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?BasicComponent", PalladioComponentModelElementTypes.BasicComponent_2102); //$NON-NLS-1$
@@ -144,9 +136,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case SignatureEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Signature", PalladioComponentModelElementTypes.Signature_3101); //$NON-NLS-1$
-		case ResourceServiceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0?ResourceService", PalladioComponentModelElementTypes.ResourceService_3106); //$NON-NLS-1$
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ResourceDemandingSEFF", PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102); //$NON-NLS-1$
@@ -171,9 +160,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompleteComponentType?parentProvidesComponentTypes", PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104); //$NON-NLS-1$
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0?ResourceRequiredRole", PalladioComponentModelElementTypes.ResourceRequiredRole_4106); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -232,8 +218,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getRepository_1000Text(view);
 		case InterfaceEditPart.VISUAL_ID:
 			return getInterface_2101Text(view);
-		case ResourceInterfaceEditPart.VISUAL_ID:
-			return getResourceInterface_2107Text(view);
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102Text(view);
 		case CompositeComponentEditPart.VISUAL_ID:
@@ -246,8 +230,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getSubSystem_2106Text(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101Text(view);
-		case ResourceServiceEditPart.VISUAL_ID:
-			return getResourceService_3106Text(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_3102Text(view);
 		case PassiveResourceEditPart.VISUAL_ID:
@@ -264,8 +246,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getImplementationComponentTypeParentCompleteComponentTypes_4103Text(view);
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
 			return getCompleteComponentTypeParentProvidesComponentTypes_4104Text(view);
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return getResourceRequiredRole_4106Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -303,28 +283,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 5101); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getResourceInterface_2107Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.ResourceInterface_2107,
-				(view.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(ResourceInterfaceEntityNameEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
-		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5108); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 
@@ -457,27 +415,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 3101); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getResourceService_3106Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.ResourceService_3106, (view
-						.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(ResourceServiceEditPart.VISUAL_ID));
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
-		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3106); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -646,27 +583,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 6104); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getResourceRequiredRole_4106Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.ResourceRequiredRole_4106,
-				(view.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
-		if (parser != null) {
-			return parser.getPrintString(hintAdapter, ParserOptions.NONE
-					.intValue());
-		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6106); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 

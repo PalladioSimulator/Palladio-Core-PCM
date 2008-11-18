@@ -25,8 +25,8 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getRole_SpecifiedExecutionTime <em>Role Specified Execution Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getSignature_SpecifiedQoSAnnation <em>Signature Specified Qo SAnnation</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getRole_SpecifiedQoSAnnotation <em>Role Specified Qo SAnnotation</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}</li>
  * </ul>
  * </p>
@@ -42,24 +42,24 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getSignature_SpecifiedTimeConsumption() <em>Signature Specified Time Consumption</em>}' reference.
+	 * The cached value of the '{@link #getSignature_SpecifiedQoSAnnation() <em>Signature Specified Qo SAnnation</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSignature_SpecifiedTimeConsumption()
+	 * @see #getSignature_SpecifiedQoSAnnation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature signature_SpecifiedTimeConsumption;
+	protected Signature signature_SpecifiedQoSAnnation;
 
 	/**
-	 * The cached value of the '{@link #getRole_SpecifiedExecutionTime() <em>Role Specified Execution Time</em>}' reference.
+	 * The cached value of the '{@link #getRole_SpecifiedQoSAnnotation() <em>Role Specified Qo SAnnotation</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRole_SpecifiedExecutionTime()
+	 * @see #getRole_SpecifiedQoSAnnotation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Role role_SpecifiedExecutionTime;
+	protected Role role_SpecifiedQoSAnnotation;
 
 	/**
 	 * The cached value of the '{@link #getSpecification_SpecifiedExecutionTime() <em>Specification Specified Execution Time</em>}' containment reference.
@@ -95,16 +95,16 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature getSignature_SpecifiedTimeConsumption() {
-		if (signature_SpecifiedTimeConsumption != null && signature_SpecifiedTimeConsumption.eIsProxy()) {
-			InternalEObject oldSignature_SpecifiedTimeConsumption = (InternalEObject)signature_SpecifiedTimeConsumption;
-			signature_SpecifiedTimeConsumption = (Signature)eResolveProxy(oldSignature_SpecifiedTimeConsumption);
-			if (signature_SpecifiedTimeConsumption != oldSignature_SpecifiedTimeConsumption) {
+	public Signature getSignature_SpecifiedQoSAnnation() {
+		if (signature_SpecifiedQoSAnnation != null && signature_SpecifiedQoSAnnation.eIsProxy()) {
+			InternalEObject oldSignature_SpecifiedQoSAnnation = (InternalEObject)signature_SpecifiedQoSAnnation;
+			signature_SpecifiedQoSAnnation = (Signature)eResolveProxy(oldSignature_SpecifiedQoSAnnation);
+			if (signature_SpecifiedQoSAnnation != oldSignature_SpecifiedQoSAnnation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION, oldSignature_SpecifiedQoSAnnation, signature_SpecifiedQoSAnnation));
 			}
 		}
-		return signature_SpecifiedTimeConsumption;
+		return signature_SpecifiedQoSAnnation;
 	}
 
 	/**
@@ -112,8 +112,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature basicGetSignature_SpecifiedTimeConsumption() {
-		return signature_SpecifiedTimeConsumption;
+	public Signature basicGetSignature_SpecifiedQoSAnnation() {
+		return signature_SpecifiedQoSAnnation;
 	}
 
 	/**
@@ -121,11 +121,11 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSignature_SpecifiedTimeConsumption(Signature newSignature_SpecifiedTimeConsumption) {
-		Signature oldSignature_SpecifiedTimeConsumption = signature_SpecifiedTimeConsumption;
-		signature_SpecifiedTimeConsumption = newSignature_SpecifiedTimeConsumption;
+	public void setSignature_SpecifiedQoSAnnation(Signature newSignature_SpecifiedQoSAnnation) {
+		Signature oldSignature_SpecifiedQoSAnnation = signature_SpecifiedQoSAnnation;
+		signature_SpecifiedQoSAnnation = newSignature_SpecifiedQoSAnnation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
+			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION, oldSignature_SpecifiedQoSAnnation, signature_SpecifiedQoSAnnation));
 	}
 
 	/**
@@ -133,16 +133,16 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Role getRole_SpecifiedExecutionTime() {
-		if (role_SpecifiedExecutionTime != null && role_SpecifiedExecutionTime.eIsProxy()) {
-			InternalEObject oldRole_SpecifiedExecutionTime = (InternalEObject)role_SpecifiedExecutionTime;
-			role_SpecifiedExecutionTime = (Role)eResolveProxy(oldRole_SpecifiedExecutionTime);
-			if (role_SpecifiedExecutionTime != oldRole_SpecifiedExecutionTime) {
+	public Role getRole_SpecifiedQoSAnnotation() {
+		if (role_SpecifiedQoSAnnotation != null && role_SpecifiedQoSAnnotation.eIsProxy()) {
+			InternalEObject oldRole_SpecifiedQoSAnnotation = (InternalEObject)role_SpecifiedQoSAnnotation;
+			role_SpecifiedQoSAnnotation = (Role)eResolveProxy(oldRole_SpecifiedQoSAnnotation);
+			if (role_SpecifiedQoSAnnotation != oldRole_SpecifiedQoSAnnotation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME, oldRole_SpecifiedExecutionTime, role_SpecifiedExecutionTime));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION, oldRole_SpecifiedQoSAnnotation, role_SpecifiedQoSAnnotation));
 			}
 		}
-		return role_SpecifiedExecutionTime;
+		return role_SpecifiedQoSAnnotation;
 	}
 
 	/**
@@ -150,8 +150,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Role basicGetRole_SpecifiedExecutionTime() {
-		return role_SpecifiedExecutionTime;
+	public Role basicGetRole_SpecifiedQoSAnnotation() {
+		return role_SpecifiedQoSAnnotation;
 	}
 
 	/**
@@ -159,11 +159,11 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRole_SpecifiedExecutionTime(Role newRole_SpecifiedExecutionTime) {
-		Role oldRole_SpecifiedExecutionTime = role_SpecifiedExecutionTime;
-		role_SpecifiedExecutionTime = newRole_SpecifiedExecutionTime;
+	public void setRole_SpecifiedQoSAnnotation(Role newRole_SpecifiedQoSAnnotation) {
+		Role oldRole_SpecifiedQoSAnnotation = role_SpecifiedQoSAnnotation;
+		role_SpecifiedQoSAnnotation = newRole_SpecifiedQoSAnnotation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME, oldRole_SpecifiedExecutionTime, role_SpecifiedExecutionTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION, oldRole_SpecifiedQoSAnnotation, role_SpecifiedQoSAnnotation));
 	}
 
 	/**
@@ -231,12 +231,12 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
-				if (resolve) return getSignature_SpecifiedTimeConsumption();
-				return basicGetSignature_SpecifiedTimeConsumption();
-			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME:
-				if (resolve) return getRole_SpecifiedExecutionTime();
-				return basicGetRole_SpecifiedExecutionTime();
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
+				if (resolve) return getSignature_SpecifiedQoSAnnation();
+				return basicGetSignature_SpecifiedQoSAnnation();
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
+				if (resolve) return getRole_SpecifiedQoSAnnotation();
+				return basicGetRole_SpecifiedQoSAnnotation();
 			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				return getSpecification_SpecifiedExecutionTime();
 		}
@@ -251,11 +251,11 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
-				setSignature_SpecifiedTimeConsumption((Signature)newValue);
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
+				setSignature_SpecifiedQoSAnnation((Signature)newValue);
 				return;
-			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME:
-				setRole_SpecifiedExecutionTime((Role)newValue);
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
+				setRole_SpecifiedQoSAnnotation((Role)newValue);
 				return;
 			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				setSpecification_SpecifiedExecutionTime((PCMRandomVariable)newValue);
@@ -272,11 +272,11 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
-				setSignature_SpecifiedTimeConsumption((Signature)null);
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
+				setSignature_SpecifiedQoSAnnation((Signature)null);
 				return;
-			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME:
-				setRole_SpecifiedExecutionTime((Role)null);
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
+				setRole_SpecifiedQoSAnnotation((Role)null);
 				return;
 			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				setSpecification_SpecifiedExecutionTime((PCMRandomVariable)null);
@@ -293,10 +293,10 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
-				return signature_SpecifiedTimeConsumption != null;
-			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME:
-				return role_SpecifiedExecutionTime != null;
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
+				return signature_SpecifiedQoSAnnation != null;
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
+				return role_SpecifiedQoSAnnotation != null;
 			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				return specification_SpecifiedExecutionTime != null;
 		}

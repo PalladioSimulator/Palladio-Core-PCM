@@ -217,7 +217,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.system_Allocation.assemblyContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1) ";
+			String body = "self.system_Allocation.childComponentContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1) ";
 			
 			try {
 				EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnceInvOCL = ExpressionsUtil.createInvariant(env, body, true);

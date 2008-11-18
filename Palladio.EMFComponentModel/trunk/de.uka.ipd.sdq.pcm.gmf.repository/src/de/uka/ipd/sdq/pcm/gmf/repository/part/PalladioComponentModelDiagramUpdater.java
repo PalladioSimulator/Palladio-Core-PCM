@@ -16,7 +16,6 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentPassiveResourceCompartmentEditPart;
@@ -33,10 +32,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPar
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceResourceServiceListEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceServiceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
@@ -45,7 +40,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
@@ -59,10 +53,6 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
 
@@ -86,14 +76,12 @@ public class PalladioComponentModelDiagramUpdater {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case InterfaceSignatureListEditPart.VISUAL_ID:
 			return getInterfaceSignatureList_7101SemanticChildren(view);
-		case ResourceInterfaceResourceServiceListEditPart.VISUAL_ID:
-			return getResourceInterfaceResourceServiceList_7106SemanticChildren(view);
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 			return getBasicComponentSEFFCompartment_7102SemanticChildren(view);
 		case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
 			return getBasicComponentPassiveResourceCompartment_7103SemanticChildren(view);
 		case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
-			return getBasicComponentComponentParameterCompartment_7104SemanticChildren(view);
+			return getCompositeComponentComponentParameterCompartment_7104SemanticChildren(view);
 		case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
 			return getVariableUsageComponentParameterVariableCharacterisationCompartment_7105SemanticChildren(view);
 		case RepositoryEditPart.VISUAL_ID:
@@ -121,35 +109,6 @@ public class PalladioComponentModelDiagramUpdater {
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
 			if (visualID == SignatureEditPart.VISUAL_ID) {
-				result.add(new PalladioComponentModelNodeDescriptor(
-						childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResourceInterfaceResourceServiceList_7106SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.EMPTY_LIST;
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.EMPTY_LIST;
-		}
-		ResourceInterface modelElement = (ResourceInterface) containerView
-				.getElement();
-		List result = new LinkedList();
-		for (Iterator it = modelElement.getResourceServices_ResourceInterface()
-				.iterator(); it.hasNext();) {
-			ResourceService childElement = (ResourceService) it.next();
-			int visualID = PalladioComponentModelVisualIDRegistry
-					.getNodeVisualID(view, childElement);
-			if (visualID == ResourceServiceEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -221,7 +180,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getBasicComponentComponentParameterCompartment_7104SemanticChildren(
+	public static List getCompositeComponentComponentParameterCompartment_7104SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -230,7 +189,7 @@ public class PalladioComponentModelDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		BasicComponent modelElement = (BasicComponent) containerView
+		CompositeComponent modelElement = (CompositeComponent) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement
@@ -289,15 +248,10 @@ public class PalladioComponentModelDiagramUpdater {
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getInterfaces__Repository().iterator(); it
 				.hasNext();) {
-			AbstractInterface childElement = (AbstractInterface) it.next();
+			Interface childElement = (Interface) it.next();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
 			if (visualID == InterfaceEditPart.VISUAL_ID) {
-				result.add(new PalladioComponentModelNodeDescriptor(
-						childElement, visualID));
-				continue;
-			}
-			if (visualID == ResourceInterfaceEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -346,8 +300,6 @@ public class PalladioComponentModelDiagramUpdater {
 			return getRepository_1000ContainedLinks(view);
 		case InterfaceEditPart.VISUAL_ID:
 			return getInterface_2101ContainedLinks(view);
-		case ResourceInterfaceEditPart.VISUAL_ID:
-			return getResourceInterface_2107ContainedLinks(view);
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102ContainedLinks(view);
 		case CompositeComponentEditPart.VISUAL_ID:
@@ -360,8 +312,6 @@ public class PalladioComponentModelDiagramUpdater {
 			return getSubSystem_2106ContainedLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101ContainedLinks(view);
-		case ResourceServiceEditPart.VISUAL_ID:
-			return getResourceService_3106ContainedLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_3102ContainedLinks(view);
 		case PassiveResourceEditPart.VISUAL_ID:
@@ -374,8 +324,6 @@ public class PalladioComponentModelDiagramUpdater {
 			return getProvidedRole_4101ContainedLinks(view);
 		case RequiredRoleEditPart.VISUAL_ID:
 			return getRequiredRole_4102ContainedLinks(view);
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return getResourceRequiredRole_4106ContainedLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -387,8 +335,6 @@ public class PalladioComponentModelDiagramUpdater {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case InterfaceEditPart.VISUAL_ID:
 			return getInterface_2101IncomingLinks(view);
-		case ResourceInterfaceEditPart.VISUAL_ID:
-			return getResourceInterface_2107IncomingLinks(view);
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102IncomingLinks(view);
 		case CompositeComponentEditPart.VISUAL_ID:
@@ -401,8 +347,6 @@ public class PalladioComponentModelDiagramUpdater {
 			return getSubSystem_2106IncomingLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101IncomingLinks(view);
-		case ResourceServiceEditPart.VISUAL_ID:
-			return getResourceService_3106IncomingLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_3102IncomingLinks(view);
 		case PassiveResourceEditPart.VISUAL_ID:
@@ -415,8 +359,6 @@ public class PalladioComponentModelDiagramUpdater {
 			return getProvidedRole_4101IncomingLinks(view);
 		case RequiredRoleEditPart.VISUAL_ID:
 			return getRequiredRole_4102IncomingLinks(view);
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return getResourceRequiredRole_4106IncomingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -428,8 +370,6 @@ public class PalladioComponentModelDiagramUpdater {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case InterfaceEditPart.VISUAL_ID:
 			return getInterface_2101OutgoingLinks(view);
-		case ResourceInterfaceEditPart.VISUAL_ID:
-			return getResourceInterface_2107OutgoingLinks(view);
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102OutgoingLinks(view);
 		case CompositeComponentEditPart.VISUAL_ID:
@@ -442,8 +382,6 @@ public class PalladioComponentModelDiagramUpdater {
 			return getSubSystem_2106OutgoingLinks(view);
 		case SignatureEditPart.VISUAL_ID:
 			return getSignature_3101OutgoingLinks(view);
-		case ResourceServiceEditPart.VISUAL_ID:
-			return getResourceService_3106OutgoingLinks(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_3102OutgoingLinks(view);
 		case PassiveResourceEditPart.VISUAL_ID:
@@ -456,8 +394,6 @@ public class PalladioComponentModelDiagramUpdater {
 			return getProvidedRole_4101OutgoingLinks(view);
 		case RequiredRoleEditPart.VISUAL_ID:
 			return getRequiredRole_4102OutgoingLinks(view);
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return getResourceRequiredRole_4106OutgoingLinks(view);
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -479,13 +415,6 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceInterface_2107ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List getBasicComponent_2102ContainedLinks(View view) {
 		BasicComponent modelElement = (BasicComponent) view.getElement();
 		List result = new LinkedList();
@@ -495,8 +424,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -513,8 +440,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_CompleteComponentType_ParentProvidesComponentTypes_4104(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -529,8 +454,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
 		result
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -544,8 +467,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
 		result
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -562,8 +483,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -571,13 +490,6 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getSignature_3101ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResourceService_3106ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -626,13 +538,6 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceRequiredRole_4106ContainedLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List getInterface_2101IncomingLinks(View view) {
 		Interface modelElement = (Interface) view.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
@@ -641,21 +546,6 @@ public class PalladioComponentModelDiagramUpdater {
 		result.addAll(getIncomingTypeModelFacetLinks_ProvidedRole_4101(
 				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_RequiredRole_4102(
-				modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResourceInterface_2107IncomingLinks(View view) {
-		ResourceInterface modelElement = (ResourceInterface) view.getElement();
-		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
-				.getResourceSet().getResources());
-		List result = new LinkedList();
-		result.addAll(getIncomingTypeModelFacetLinks_ProvidedRole_4101(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_ResourceRequiredRole_4106(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -721,13 +611,6 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceService_3106IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List getResourceDemandingSEFF_3102IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -770,21 +653,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceRequiredRole_4106IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List getInterface_2101OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResourceInterface_2107OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -800,8 +669,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -818,8 +685,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_CompleteComponentType_ParentProvidesComponentTypes_4104(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -834,8 +699,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
 		result
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -849,8 +712,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
 		result
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -867,8 +728,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(modelElement));
 		return result;
 	}
 
@@ -876,13 +735,6 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getSignature_3101OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getResourceService_3106OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -931,13 +783,6 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getResourceRequiredRole_4106OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
 	private static Collection getContainedTypeModelFacetLinks_ProvidedRole_4101(
 			InterfaceProvidingEntity container) {
 		Collection result = new LinkedList();
@@ -953,7 +798,7 @@ public class PalladioComponentModelDiagramUpdater {
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			AbstractInterface dst = link.getProvidedInterface__ProvidedRole();
+			Interface dst = link.getProvidedInterface__ProvidedRole();
 			result.add(new PalladioComponentModelLinkDescriptor(container, dst,
 					link, PalladioComponentModelElementTypes.ProvidedRole_4101,
 					ProvidedRoleEditPart.VISUAL_ID));
@@ -990,39 +835,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getContainedTypeModelFacetLinks_ResourceRequiredRole_4106(
-			ResourceInterfaceRequiringEntity container) {
-		Collection result = new LinkedList();
-		for (Iterator links = container
-				.getResourceRequiredRoles_ResourceInterfaceRequiringEntity()
-				.iterator(); links.hasNext();) {
-			Object linkObject = links.next();
-			if (false == linkObject instanceof ResourceRequiredRole) {
-				continue;
-			}
-			ResourceRequiredRole link = (ResourceRequiredRole) linkObject;
-			if (ResourceRequiredRoleEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			ResourceInterface dst = link
-					.getRequiredResourceInterface_ResourceRequiredRole();
-			result
-					.add(new PalladioComponentModelLinkDescriptor(
-							container,
-							dst,
-							link,
-							PalladioComponentModelElementTypes.ResourceRequiredRole_4106,
-							ResourceRequiredRoleEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	private static Collection getIncomingTypeModelFacetLinks_ProvidedRole_4101(
-			AbstractInterface target, Map crossReferences) {
+			Interface target, Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
 		for (Iterator it = settings.iterator(); it.hasNext();) {
@@ -1128,44 +942,6 @@ public class PalladioComponentModelDiagramUpdater {
 								PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104,
 								CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID));
 			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection getIncomingTypeModelFacetLinks_ResourceRequiredRole_4106(
-			ResourceInterface target, Map crossReferences) {
-		Collection result = new LinkedList();
-		Collection settings = (Collection) crossReferences.get(target);
-		for (Iterator it = settings.iterator(); it.hasNext();) {
-			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
-					.next();
-			if (setting.getEStructuralFeature() != ResourcetypePackage.eINSTANCE
-					.getResourceRequiredRole_RequiredResourceInterface_ResourceRequiredRole()
-					|| false == setting.getEObject() instanceof ResourceRequiredRole) {
-				continue;
-			}
-			ResourceRequiredRole link = (ResourceRequiredRole) setting
-					.getEObject();
-			if (ResourceRequiredRoleEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			if (false == link.eContainer() instanceof ResourceInterfaceRequiringEntity) {
-				continue;
-			}
-			ResourceInterfaceRequiringEntity container = (ResourceInterfaceRequiringEntity) link
-					.eContainer();
-			result
-					.add(new PalladioComponentModelLinkDescriptor(
-							container,
-							target,
-							link,
-							PalladioComponentModelElementTypes.ResourceRequiredRole_4106,
-							ResourceRequiredRoleEditPart.VISUAL_ID));
-
 		}
 		return result;
 	}

@@ -172,11 +172,6 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
-         </popupContribution>
       </contributionItemProvider>
    </extension>
 
@@ -358,16 +353,6 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2101"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.repository.ResourceInterface_2107"
-               name="%metatype.name.ResourceInterface_2107"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ResourceInterface"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.ResourceInterfaceEditHelper">
-            <param name="semanticHint" value="2107"/>
-         </metamodelType>
-      </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.BasicComponent_2102"
@@ -426,16 +411,6 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
                eclass="Signature"
                edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.SignatureEditHelper">
             <param name="semanticHint" value="3101"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.repository.ResourceService_3106"
-               name="%metatype.name.ResourceService_3106"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ResourceService"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.ResourceServiceEditHelper">
-            <param name="semanticHint" value="3106"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
@@ -518,16 +493,6 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="4104"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.repository.ResourceRequiredRole_4106"
-               name="%metatype.name.ResourceRequiredRole_4106"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ResourceRequiredRole"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.ResourceRequiredRoleEditHelper">
-            <param name="semanticHint" value="4106"/>
-         </metamodelType>
-      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
@@ -542,14 +507,12 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
       <binding context="PCM Repository ModelClientContext">
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Repository_1000"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Interface_2101"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ResourceInterface_2107"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.BasicComponent_2102"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2103"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_2104"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.SubSystem_2106"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Signature_3101"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ResourceService_3106"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFF_3102"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.PassiveResource_3103"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.VariableUsage_3104"/>
@@ -558,7 +521,6 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.RequiredRole_4102"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ImplementationComponentTypeParentCompleteComponentTypes_4103"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentTypeParentProvidesComponentTypes_4104"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ResourceRequiredRole_4106"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

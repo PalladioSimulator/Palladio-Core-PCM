@@ -25,9 +25,11 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  * </ul>
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * TODO: Section 4.1.3 Parameter Characterisation in the PCM in Heikos Diss
+ * The parameter package allows to model data dependent performance characteristics of software systems. It is mainly used to specify performance dependencies on input and output parameters of single service calls. It can also be used to describe dependencies on the state of components by the use of component parameters. The latter describe stochastically a component state which does not change over time. 
  * 
- * Include explanation of Component Parameters here, as usagemodel.UserData refers to here. 
+ * Parameters are described by the use of variable usages which on the one side contain a performance abstraction of the variable's value and on the other side the name of the variable for refering to the variable. Characterisations available include Structure (information on the data's internal structure like "sorted" or "unsorted" for an array), Number of Elements (size of a collection), Value (the actuall variable value), Bytesize (the variable's memory footprint), or type (the type of the variable in polymorphic cases).
+ * 
+ * Example for variable usages may be a.NUMBER_OF_ELEMENTS = 10 (array "a" contains 10 elements), tree.STRUCTURE = "balanced" (tree "tree" is a balanced tree), and so on.
  * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterFactory
  * @model kind="package"

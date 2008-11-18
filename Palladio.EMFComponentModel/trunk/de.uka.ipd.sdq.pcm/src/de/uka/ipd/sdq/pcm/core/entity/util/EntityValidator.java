@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 
 /**
@@ -131,8 +130,6 @@ public class EntityValidator extends EObjectValidator {
 				return validateInterfaceRequiringEntity((InterfaceRequiringEntity)value, diagnostics, context);
 			case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY:
 				return validateResourceInterfaceRequiringEntity((ResourceInterfaceRequiringEntity)value, diagnostics, context);
-			case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY:
-				return validateResourceInterfaceProvidingEntity((ResourceInterfaceProvidingEntity)value, diagnostics, context);
 			case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY:
 				return validateComposedProvidingRequiringEntity((ComposedProvidingRequiringEntity)value, diagnostics, context);
 			default: 
@@ -260,23 +257,6 @@ public class EntityValidator extends EObjectValidator {
 	 */
 	public boolean validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(ComposedProvidingRequiringEntity composedProvidingRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return composedProvidingRequiringEntity.ProvidedRolesMustBeBound(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(resourceInterfaceProvidingEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceInterfaceProvidingEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceInterfaceProvidingEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceInterfaceProvidingEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(resourceInterfaceProvidingEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceInterfaceProvidingEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceInterfaceProvidingEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceInterfaceProvidingEntity, diagnostics, context);
-		return result;
 	}
 
 } //EntityValidator

@@ -70,48 +70,25 @@ public class ParametricResourceDemandItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addResourceRequiredRole_ParametricResourceDemandPropertyDescriptor(object);
-			addCalledResourceService_ParametricResourceDemandPropertyDescriptor(object);
+			addRequiredResource_ParametricResourceDemandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Resource Required Role Parametric Resource Demand feature.
+	 * This adds a property descriptor for the Required Resource Parametric Resource Demand feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResourceRequiredRole_ParametricResourceDemandPropertyDescriptor(Object object) {
+	protected void addRequiredResource_ParametricResourceDemandPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParametricResourceDemand_resourceRequiredRole_ParametricResourceDemand_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParametricResourceDemand_resourceRequiredRole_ParametricResourceDemand_feature", "_UI_ParametricResourceDemand_type"),
-				 PerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_REQUIRED_ROLE_PARAMETRIC_RESOURCE_DEMAND,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Called Resource Service Parametric Resource Demand feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCalledResourceService_ParametricResourceDemandPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ParametricResourceDemand_calledResourceService_ParametricResourceDemand_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParametricResourceDemand_calledResourceService_ParametricResourceDemand_feature", "_UI_ParametricResourceDemand_type"),
-				 PerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__CALLED_RESOURCE_SERVICE_PARAMETRIC_RESOURCE_DEMAND,
+				 getString("_UI_ParametricResourceDemand_requiredResource_ParametricResourceDemand_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParametricResourceDemand_requiredResource_ParametricResourceDemand_feature", "_UI_ParametricResourceDemand_type"),
+				 PerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
 				 true,
 				 false,
 				 true,

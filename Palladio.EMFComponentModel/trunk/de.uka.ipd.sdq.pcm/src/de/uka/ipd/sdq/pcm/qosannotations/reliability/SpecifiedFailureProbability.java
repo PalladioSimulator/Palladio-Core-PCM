@@ -18,6 +18,12 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
  * 
  * <!-- end-model-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability#getFailureProbability <em>Failure Probability</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage#getSpecifiedFailureProbability()
  * @model
@@ -30,5 +36,31 @@ public interface SpecifiedFailureProbability extends SpecifiedQoSAnnotation {
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Failure Probability</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Failure Probability</em>' attribute.
+	 * @see #setFailureProbability(double)
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage#getSpecifiedFailureProbability_FailureProbability()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	double getFailureProbability();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability#getFailureProbability <em>Failure Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Failure Probability</em>' attribute.
+	 * @see #getFailureProbability()
+	 * @generated
+	 */
+	void setFailureProbability(double value);
 
 } // SpecifiedFailureProbability

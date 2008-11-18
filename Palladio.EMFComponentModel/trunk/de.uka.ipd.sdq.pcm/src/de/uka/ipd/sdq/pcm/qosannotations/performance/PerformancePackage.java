@@ -77,22 +77,22 @@ public interface PerformancePackage extends EPackage {
 	int SYSTEM_SPECIFIED_EXECUTION_TIME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
+	 * The feature id for the '<em><b>Signature Specified Qo SAnnation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION;
+	int SYSTEM_SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_QO_SANNATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION;
 
 	/**
-	 * The feature id for the '<em><b>Role Specified Execution Time</b></em>' reference.
+	 * The feature id for the '<em><b>Role Specified Qo SAnnotation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME;
+	int SYSTEM_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION;
 
 	/**
 	 * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
@@ -123,22 +123,22 @@ public interface PerformancePackage extends EPackage {
 	int COMPONENT_SPECIFIED_EXECUTION_TIME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
+	 * The feature id for the '<em><b>Signature Specified Qo SAnnation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION;
+	int COMPONENT_SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_QO_SANNATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION;
 
 	/**
-	 * The feature id for the '<em><b>Role Specified Execution Time</b></em>' reference.
+	 * The feature id for the '<em><b>Role Specified Qo SAnnotation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME;
+	int COMPONENT_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION;
 
 	/**
 	 * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.

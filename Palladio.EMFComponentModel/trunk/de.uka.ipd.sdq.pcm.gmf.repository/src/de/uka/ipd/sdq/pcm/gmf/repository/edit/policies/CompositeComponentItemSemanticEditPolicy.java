@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
+import java.util.Iterator;
+
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
@@ -10,23 +13,21 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.CompleteComponentTypeParentProvidesComponentTypesCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.CompleteComponentTypeParentProvidesComponentTypesReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ImplementationComponentTypeParentCompleteComponentTypesCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ImplementationComponentTypeParentCompleteComponentTypesReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleReorientCommand;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ResourceRequiredRoleCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ResourceRequiredRoleReorientCommand;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 
 /**
@@ -40,6 +41,7 @@ public class CompositeComponentItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		CompoundCommand cc = getDestroyEdgesCommand();
+		addDestroyChildNodesCommand(cc);
 		addDestroyShortcutsCommand(cc);
 		View view = (View) getHost().getModel();
 		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
@@ -47,6 +49,34 @@ public class CompositeComponentItemSemanticEditPolicy extends
 		}
 		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
 		return cc.unwrap();
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addDestroyChildNodesCommand(CompoundCommand cmd) {
+		View view = (View) getHost().getModel();
+		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+		if (annotation != null) {
+			return;
+		}
+		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
+			Node node = (Node) it.next();
+			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
+			case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (PalladioComponentModelVisualIDRegistry
+							.getVisualID(cnode)) {
+					case VariableUsageEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					}
+				}
+				break;
+			}
+		}
 	}
 
 	/**
@@ -79,11 +109,6 @@ public class CompositeComponentItemSemanticEditPolicy extends
 			return getGEFWrapper(new ImplementationComponentTypeParentCompleteComponentTypesCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4106 == req
-				.getElementType()) {
-			return getGEFWrapper(new ResourceRequiredRoleCreateCommand(req, req
-					.getSource(), req.getTarget()));
-		}
 		return null;
 	}
 
@@ -104,10 +129,6 @@ public class CompositeComponentItemSemanticEditPolicy extends
 				.getElementType()) {
 			return null;
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4106 == req
-				.getElementType()) {
-			return null;
-		}
 		return null;
 	}
 
@@ -124,8 +145,6 @@ public class CompositeComponentItemSemanticEditPolicy extends
 			return getGEFWrapper(new ProvidedRoleReorientCommand(req));
 		case RequiredRoleEditPart.VISUAL_ID:
 			return getGEFWrapper(new RequiredRoleReorientCommand(req));
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return getGEFWrapper(new ResourceRequiredRoleReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

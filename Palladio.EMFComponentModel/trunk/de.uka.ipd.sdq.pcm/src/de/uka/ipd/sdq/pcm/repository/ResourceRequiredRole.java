@@ -3,10 +3,9 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.resourcetype;
+package de.uka.ipd.sdq.pcm.repository;
 
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.Role;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,12 +15,12 @@ import de.uka.ipd.sdq.pcm.repository.Role;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole#getRequiredResourceInterface_ResourceRequiredRole <em>Required Resource Interface Resource Required Role</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getRequiredInterface_ResourceRequiredRole <em>Required Interface Resource Required Role</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceRequiredRole()
+ * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getResourceRequiredRole()
  * @model
  * @generated
  */
@@ -34,30 +33,30 @@ public interface ResourceRequiredRole extends Role {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Required Resource Interface Resource Required Role</b></em>' reference.
+	 * Returns the value of the '<em><b>Required Interface Resource Required Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Resource Interface Resource Required Role</em>' reference isn't clear,
+	 * If the meaning of the '<em>Required Interface Resource Required Role</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Resource Interface Resource Required Role</em>' reference.
-	 * @see #setRequiredResourceInterface_ResourceRequiredRole(ResourceInterface)
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceRequiredRole_RequiredResourceInterface_ResourceRequiredRole()
+	 * @return the value of the '<em>Required Interface Resource Required Role</em>' reference.
+	 * @see #setRequiredInterface_ResourceRequiredRole(Interface)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getResourceRequiredRole_RequiredInterface_ResourceRequiredRole()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ResourceInterface getRequiredResourceInterface_ResourceRequiredRole();
+	Interface getRequiredInterface_ResourceRequiredRole();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole#getRequiredResourceInterface_ResourceRequiredRole <em>Required Resource Interface Resource Required Role</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getRequiredInterface_ResourceRequiredRole <em>Required Interface Resource Required Role</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Required Resource Interface Resource Required Role</em>' reference.
-	 * @see #getRequiredResourceInterface_ResourceRequiredRole()
+	 * @param value the new value of the '<em>Required Interface Resource Required Role</em>' reference.
+	 * @see #getRequiredInterface_ResourceRequiredRole()
 	 * @generated
 	 */
-	void setRequiredResourceInterface_ResourceRequiredRole(ResourceInterface value);
+	void setRequiredInterface_ResourceRequiredRole(Interface value);
 
 	/**
 	 * Returns the value of the '<em><b>Resource Requiring Entity Resource Required Role</b></em>' container reference.
@@ -70,7 +69,7 @@ public interface ResourceRequiredRole extends Role {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource Requiring Entity Resource Required Role</em>' container reference.
 	 * @see #setResourceRequiringEntity_ResourceRequiredRole(ResourceInterfaceRequiringEntity)
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole()
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole()
 	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity#getResourceRequiredRoles_ResourceInterfaceRequiringEntity
 	 * @model opposite="resourceRequiredRoles_ResourceInterfaceRequiringEntity" required="true" transient="false" ordered="false"
 	 * @generated
@@ -78,7 +77,7 @@ public interface ResourceRequiredRole extends Role {
 	ResourceInterfaceRequiringEntity getResourceRequiringEntity_ResourceRequiredRole();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Resource Requiring Entity Resource Required Role</em>' container reference.

@@ -21,7 +21,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.*;
-import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -42,6 +41,7 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -145,8 +145,8 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createInterfaceAdapter();
 			}
 			@Override
-			public Adapter caseAbstractInterface(AbstractInterface object) {
-				return createAbstractInterfaceAdapter();
+			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
+				return createResourceRequiredRoleAdapter();
 			}
 			@Override
 			public Adapter caseExceptionType(ExceptionType object) {
@@ -397,16 +397,16 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.AbstractInterface <em>Abstract Interface</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole <em>Resource Required Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.AbstractInterface
+	 * @see de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole
 	 * @generated
 	 */
-	public Adapter createAbstractInterfaceAdapter() {
+	public Adapter createResourceRequiredRoleAdapter() {
 		return null;
 	}
 

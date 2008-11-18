@@ -21,7 +21,6 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.PalladioComponentModelCreateShortcutDecorationsCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.RepositoryCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.RepositoryCreationEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.RepositoryItemSemanticEditPolicy;
 
 /**

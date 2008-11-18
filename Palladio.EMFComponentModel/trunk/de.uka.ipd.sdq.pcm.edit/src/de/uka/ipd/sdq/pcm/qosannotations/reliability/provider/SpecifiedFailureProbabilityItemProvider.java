@@ -12,6 +12,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -19,8 +20,12 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability} object.
@@ -64,8 +69,31 @@ public class SpecifiedFailureProbabilityItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFailureProbabilityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Failure Probability feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFailureProbabilityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SpecifiedFailureProbability_failureProbability_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecifiedFailureProbability_failureProbability_feature", "_UI_SpecifiedFailureProbability_type"),
+				 ReliabilityPackage.Literals.SPECIFIED_FAILURE_PROBABILITY__FAILURE_PROBABILITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -87,7 +115,8 @@ public class SpecifiedFailureProbabilityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SpecifiedFailureProbability_type");
+		SpecifiedFailureProbability specifiedFailureProbability = (SpecifiedFailureProbability)object;
+		return getString("_UI_SpecifiedFailureProbability_type") + " " + specifiedFailureProbability.getFailureProbability();
 	}
 
 	/**
@@ -100,6 +129,12 @@ public class SpecifiedFailureProbabilityItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(SpecifiedFailureProbability.class)) {
+			case ReliabilityPackage.SPECIFIED_FAILURE_PROBABILITY__FAILURE_PROBABILITY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

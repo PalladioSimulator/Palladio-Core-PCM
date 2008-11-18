@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
 import de.uka.ipd.sdq.pcm.repository.*;
-import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -37,6 +36,7 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -259,8 +259,8 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateRole((Role)value, diagnostics, context);
 			case RepositoryPackage.INTERFACE:
 				return validateInterface((Interface)value, diagnostics, context);
-			case RepositoryPackage.ABSTRACT_INTERFACE:
-				return validateAbstractInterface((AbstractInterface)value, diagnostics, context);
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE:
+				return validateResourceRequiredRole((ResourceRequiredRole)value, diagnostics, context);
 			case RepositoryPackage.EXCEPTION_TYPE:
 				return validateExceptionType((ExceptionType)value, diagnostics, context);
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE:
@@ -496,15 +496,15 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAbstractInterface(AbstractInterface abstractInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(abstractInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(abstractInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(abstractInterface, diagnostics, context);
+	public boolean validateResourceRequiredRole(ResourceRequiredRole resourceRequiredRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(resourceRequiredRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceRequiredRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceRequiredRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceRequiredRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(resourceRequiredRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceRequiredRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceRequiredRole, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceRequiredRole, diagnostics, context);
 		return result;
 	}
 

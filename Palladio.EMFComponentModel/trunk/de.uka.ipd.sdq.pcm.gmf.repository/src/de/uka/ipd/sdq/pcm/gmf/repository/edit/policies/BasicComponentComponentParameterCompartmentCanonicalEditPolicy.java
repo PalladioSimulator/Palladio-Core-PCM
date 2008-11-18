@@ -37,7 +37,7 @@ public class BasicComponentComponentParameterCompartmentCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getBasicComponentComponentParameterCompartment_7104SemanticChildren(
+				.getCompositeComponentComponentParameterCompartment_7104SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((PalladioComponentModelNodeDescriptor) it.next())
 					.getModelElement());

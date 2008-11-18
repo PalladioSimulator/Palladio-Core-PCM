@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSpecifiedExecutionTimes_QoSAnnotations <em>Specified Execution Times Qo SAnnotations</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSpecifiedQoSAnnotations_QoSAnnotations <em>Specified Qo SAnnotations Qo SAnnotations</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSpecifiedOutputParameterAbstractions_QoSAnnotations <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}</li>
  * </ul>
  * </p>
@@ -43,14 +43,14 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getSpecifiedExecutionTimes_QoSAnnotations() <em>Specified Execution Times Qo SAnnotations</em>}' containment reference list.
+	 * The cached value of the '{@link #getSpecifiedQoSAnnotations_QoSAnnotations() <em>Specified Qo SAnnotations Qo SAnnotations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecifiedExecutionTimes_QoSAnnotations()
+	 * @see #getSpecifiedQoSAnnotations_QoSAnnotations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SpecifiedQoSAnnotation> specifiedExecutionTimes_QoSAnnotations;
+	protected EList<SpecifiedQoSAnnotation> specifiedQoSAnnotations_QoSAnnotations;
 
 	/**
 	 * The cached value of the '{@link #getSpecifiedOutputParameterAbstractions_QoSAnnotations() <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}' containment reference list.
@@ -86,11 +86,11 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SpecifiedQoSAnnotation> getSpecifiedExecutionTimes_QoSAnnotations() {
-		if (specifiedExecutionTimes_QoSAnnotations == null) {
-			specifiedExecutionTimes_QoSAnnotations = new EObjectContainmentEList<SpecifiedQoSAnnotation>(SpecifiedQoSAnnotation.class, this, QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS);
+	public EList<SpecifiedQoSAnnotation> getSpecifiedQoSAnnotations_QoSAnnotations() {
+		if (specifiedQoSAnnotations_QoSAnnotations == null) {
+			specifiedQoSAnnotations_QoSAnnotations = new EObjectContainmentEList<SpecifiedQoSAnnotation>(SpecifiedQoSAnnotation.class, this, QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS);
 		}
-		return specifiedExecutionTimes_QoSAnnotations;
+		return specifiedQoSAnnotations_QoSAnnotations;
 	}
 
 	/**
@@ -113,8 +113,8 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
-				return ((InternalEList<?>)getSpecifiedExecutionTimes_QoSAnnotations()).basicRemove(otherEnd, msgs);
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
+				return ((InternalEList<?>)getSpecifiedQoSAnnotations_QoSAnnotations()).basicRemove(otherEnd, msgs);
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
 				return ((InternalEList<?>)getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicRemove(otherEnd, msgs);
 		}
@@ -129,8 +129,8 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
-				return getSpecifiedExecutionTimes_QoSAnnotations();
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
+				return getSpecifiedQoSAnnotations_QoSAnnotations();
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
 				return getSpecifiedOutputParameterAbstractions_QoSAnnotations();
 		}
@@ -146,9 +146,9 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
-				getSpecifiedExecutionTimes_QoSAnnotations().clear();
-				getSpecifiedExecutionTimes_QoSAnnotations().addAll((Collection<? extends SpecifiedQoSAnnotation>)newValue);
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
+				getSpecifiedQoSAnnotations_QoSAnnotations().clear();
+				getSpecifiedQoSAnnotations_QoSAnnotations().addAll((Collection<? extends SpecifiedQoSAnnotation>)newValue);
 				return;
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
 				getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();
@@ -166,8 +166,8 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
-				getSpecifiedExecutionTimes_QoSAnnotations().clear();
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
+				getSpecifiedQoSAnnotations_QoSAnnotations().clear();
 				return;
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
 				getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();
@@ -184,8 +184,8 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
-				return specifiedExecutionTimes_QoSAnnotations != null && !specifiedExecutionTimes_QoSAnnotations.isEmpty();
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
+				return specifiedQoSAnnotations_QoSAnnotations != null && !specifiedQoSAnnotations_QoSAnnotations.isEmpty();
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
 				return specifiedOutputParameterAbstractions_QoSAnnotations != null && !specifiedOutputParameterAbstractions_QoSAnnotations.isEmpty();
 		}

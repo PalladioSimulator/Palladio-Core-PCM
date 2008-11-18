@@ -561,23 +561,13 @@ public interface RepositoryPackage extends EPackage {
 	int REQUIRED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.AbstractInterfaceImpl <em>Abstract Interface</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.AbstractInterfaceImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getAbstractInterface()
-	 * @generated
-	 */
-	int ABSTRACT_INTERFACE = 9;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_INTERFACE__ID = EntityPackage.ENTITY__ID;
+	int INTERFACE__ID = EntityPackage.ENTITY__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -586,52 +576,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_INTERFACE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Repository Abstract Interface</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_INTERFACE__REPOSITORY_ABSTRACT_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Interface</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__ID = ABSTRACT_INTERFACE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__ENTITY_NAME = ABSTRACT_INTERFACE__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Repository Abstract Interface</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__REPOSITORY_ABSTRACT_INTERFACE = ABSTRACT_INTERFACE__REPOSITORY_ABSTRACT_INTERFACE;
+	int INTERFACE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parent Interface Interface</b></em>' reference list.
@@ -640,7 +585,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__PARENT_INTERFACE_INTERFACE = ABSTRACT_INTERFACE_FEATURE_COUNT + 0;
+	int INTERFACE__PARENT_INTERFACE_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ancestor Interfaces Interface</b></em>' reference list.
@@ -649,7 +594,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__ANCESTOR_INTERFACES_INTERFACE = ABSTRACT_INTERFACE_FEATURE_COUNT + 1;
+	int INTERFACE__ANCESTOR_INTERFACES_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Protocols Interface</b></em>' containment reference list.
@@ -658,7 +603,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__PROTOCOLS_INTERFACE = ABSTRACT_INTERFACE_FEATURE_COUNT + 2;
+	int INTERFACE__PROTOCOLS_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Signatures Interface</b></em>' containment reference list.
@@ -667,7 +612,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__SIGNATURES_INTERFACE = ABSTRACT_INTERFACE_FEATURE_COUNT + 3;
+	int INTERFACE__SIGNATURES_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Repository Interface</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__REPOSITORY_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Interface</em>' class.
@@ -676,7 +630,62 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE_FEATURE_COUNT = ABSTRACT_INTERFACE_FEATURE_COUNT + 4;
+	int INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getResourceRequiredRole()
+	 * @generated
+	 */
+	int RESOURCE_REQUIRED_ROLE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REQUIRED_ROLE__ID = ROLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REQUIRED_ROLE__ENTITY_NAME = ROLE__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Required Interface Resource Required Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE = ROLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Resource Requiring Entity Resource Required Role</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = ROLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Resource Required Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REQUIRED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Exception Name</b></em>' attribute.
@@ -1805,25 +1814,47 @@ public interface RepositoryPackage extends EPackage {
 	EReference getInterface_Signatures__Interface();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.AbstractInterface <em>Abstract Interface</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.AbstractInterface
+	 * @return the meta object for the container reference '<em>Repository Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface()
+	 * @see #getInterface()
 	 * @generated
 	 */
-	EClass getAbstractInterface();
+	EReference getInterface_Repository_Interface();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.AbstractInterface#getRepository_AbstractInterface <em>Repository Abstract Interface</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole <em>Resource Required Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Repository Abstract Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.AbstractInterface#getRepository_AbstractInterface()
-	 * @see #getAbstractInterface()
+	 * @return the meta object for class '<em>Resource Required Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole
 	 * @generated
 	 */
-	EReference getAbstractInterface_Repository_AbstractInterface();
+	EClass getResourceRequiredRole();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getRequiredInterface_ResourceRequiredRole <em>Required Interface Resource Required Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Required Interface Resource Required Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getRequiredInterface_ResourceRequiredRole()
+	 * @see #getResourceRequiredRole()
+	 * @generated
+	 */
+	EReference getResourceRequiredRole_RequiredInterface_ResourceRequiredRole();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Resource Requiring Entity Resource Required Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole()
+	 * @see #getResourceRequiredRole()
+	 * @generated
+	 */
+	EReference getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType <em>Exception Type</em>}'.
@@ -2408,22 +2439,38 @@ public interface RepositoryPackage extends EPackage {
 		EReference INTERFACE__SIGNATURES_INTERFACE = eINSTANCE.getInterface_Signatures__Interface();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.AbstractInterfaceImpl <em>Abstract Interface</em>}' class.
+		 * The meta object literal for the '<em><b>Repository Interface</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.AbstractInterfaceImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getAbstractInterface()
 		 * @generated
 		 */
-		EClass ABSTRACT_INTERFACE = eINSTANCE.getAbstractInterface();
+		EReference INTERFACE__REPOSITORY_INTERFACE = eINSTANCE.getInterface_Repository_Interface();
 
 		/**
-		 * The meta object literal for the '<em><b>Repository Abstract Interface</b></em>' container reference feature.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getResourceRequiredRole()
+		 * @generated
+		 */
+		EClass RESOURCE_REQUIRED_ROLE = eINSTANCE.getResourceRequiredRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Interface Resource Required Role</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ABSTRACT_INTERFACE__REPOSITORY_ABSTRACT_INTERFACE = eINSTANCE.getAbstractInterface_Repository_AbstractInterface();
+		EReference RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE = eINSTANCE.getResourceRequiredRole_RequiredInterface_ResourceRequiredRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Requiring Entity Resource Required Role</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = eINSTANCE.getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.

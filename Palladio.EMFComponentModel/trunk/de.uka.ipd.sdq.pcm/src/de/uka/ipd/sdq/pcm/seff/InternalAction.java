@@ -45,12 +45,12 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Failure Probability</em>' attribute.
-	 * @see #setFailureProbability(String)
+	 * @see #setFailureProbability(double)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalAction_FailureProbability()
 	 * @model default="0" required="true" ordered="false"
 	 * @generated
 	 */
-	String getFailureProbability();
+	double getFailureProbability();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.InternalAction#getFailureProbability <em>Failure Probability</em>}' attribute.
@@ -60,6 +60,6 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
 	 * @see #getFailureProbability()
 	 * @generated
 	 */
-	void setFailureProbability(String value);
+	void setFailureProbability(double value);
 
 } // InternalAction

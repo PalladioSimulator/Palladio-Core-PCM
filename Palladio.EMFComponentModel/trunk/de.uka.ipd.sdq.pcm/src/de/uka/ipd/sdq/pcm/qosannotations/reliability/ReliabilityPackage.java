@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.reliability;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -76,22 +77,22 @@ public interface ReliabilityPackage extends EPackage {
 	int SPECIFIED_FAILURE_PROBABILITY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
+	 * The feature id for the '<em><b>Signature Specified Qo SAnnation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_FAILURE_PROBABILITY__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION;
+	int SPECIFIED_FAILURE_PROBABILITY__SIGNATURE_SPECIFIED_QO_SANNATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION;
 
 	/**
-	 * The feature id for the '<em><b>Role Specified Execution Time</b></em>' reference.
+	 * The feature id for the '<em><b>Role Specified Qo SAnnotation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_FAILURE_PROBABILITY__ROLE_SPECIFIED_EXECUTION_TIME = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME;
+	int SPECIFIED_FAILURE_PROBABILITY__ROLE_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION;
 
 	/**
 	 * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
@@ -103,13 +104,22 @@ public interface ReliabilityPackage extends EPackage {
 	int SPECIFIED_FAILURE_PROBABILITY__SPECIFICATION_SPECIFIED_EXECUTION_TIME = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME;
 
 	/**
+	 * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIED_FAILURE_PROBABILITY__FAILURE_PROBABILITY = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Specified Failure Probability</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_FAILURE_PROBABILITY_FEATURE_COUNT = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 0;
+	int SPECIFIED_FAILURE_PROBABILITY_FEATURE_COUNT = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 1;
 
 
 	/**
@@ -121,6 +131,17 @@ public interface ReliabilityPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSpecifiedFailureProbability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability#getFailureProbability <em>Failure Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Failure Probability</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability#getFailureProbability()
+	 * @see #getSpecifiedFailureProbability()
+	 * @generated
+	 */
+	EAttribute getSpecifiedFailureProbability_FailureProbability();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -153,6 +174,13 @@ public interface ReliabilityPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SPECIFIED_FAILURE_PROBABILITY = eINSTANCE.getSpecifiedFailureProbability();
+		/**
+		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIFIED_FAILURE_PROBABILITY__FAILURE_PROBABILITY = eINSTANCE.getSpecifiedFailureProbability_FailureProbability();
 
 	}
 

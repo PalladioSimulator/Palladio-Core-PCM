@@ -72,33 +72,10 @@ public class ProcessingResourceSpecificationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addControllerSpecificationPropertyDescriptor(object);
 			addSchedulingPolicyPropertyDescriptor(object);
 			addActiveResourceType_ActiveResourceSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Controller Specification feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addControllerSpecificationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ProcessingResourceSpecification_controllerSpecification_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_controllerSpecification_feature", "_UI_ProcessingResourceSpecification_type"),
-				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -194,7 +171,8 @@ public class ProcessingResourceSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProcessingResourceSpecification)object).getControllerSpecification();
+		SchedulingPolicy labelValue = ((ProcessingResourceSpecification)object).getSchedulingPolicy();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ProcessingResourceSpecification_type") :
 			getString("_UI_ProcessingResourceSpecification_type") + " " + label;
@@ -212,7 +190,6 @@ public class ProcessingResourceSpecificationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProcessingResourceSpecification.class)) {
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

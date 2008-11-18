@@ -14,6 +14,12 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * A representation of the model object '<em><b>Variable Characterisation</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Variable characterisations store performance critical meta-information on a variable. For example, if a variable's value is used in a long running loop, the value of the variable is performance critical. Or as an other example, for Q-Sort it is performancewise important to know how much elements are in a given array and whether the array is sorted or not. Variable characterisations contain a type which tells what kind of meta-information is stored (STRUCTURE, NUMBER_OF_ELEMENTS, ...) and a PCMRandomVariable for storing the value of the characterisation.
+ * 
+ * For example, in "a.NUMBER_OF_ELEMENTS=10" the a is the name of the variable, NUMBER_OF_ELEMENTS is the characterisation type and "10" would be the specification (as PCMRandomVariable) of the characterisation's value.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -43,6 +49,9 @@ public interface VariableCharacterisation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type specifies the kind of the variable characterisation. There are 5 types available: STRUCTURE, NUMBER_OF_ELEMENTS, VALUE, BYTESIZE, and TYPE.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
 	 * @see #setType(VariableCharacterisationType)
@@ -71,6 +80,9 @@ public interface VariableCharacterisation extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The specification contains the value of a variable characterisation. It is a stoachastic expression which may also contain references to other variable characterisations (that is the reason why it is a PCMRandomVariable). 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Specification Variable Characterisation</em>' containment reference.
 	 * @see #setSpecification_VariableCharacterisation(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation_Specification_VariableCharacterisation()

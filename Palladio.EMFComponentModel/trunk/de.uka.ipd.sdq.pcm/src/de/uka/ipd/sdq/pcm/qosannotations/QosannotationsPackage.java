@@ -77,22 +77,22 @@ public interface QosannotationsPackage extends EPackage {
 	int SPECIFIED_QO_SANNOTATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
+	 * The feature id for the '<em><b>Signature Specified Qo SAnnation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = 0;
+	int SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Role Specified Execution Time</b></em>' reference.
+	 * The feature id for the '<em><b>Role Specified Qo SAnnotation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME = 1;
+	int SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
@@ -187,13 +187,13 @@ public interface QosannotationsPackage extends EPackage {
 	int QO_SANNOTATIONS__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Specified Execution Times Qo SAnnotations</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+	int QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment reference list.
@@ -225,26 +225,26 @@ public interface QosannotationsPackage extends EPackage {
 	EClass getSpecifiedQoSAnnotation();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation <em>Signature Specified Qo SAnnation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Signature Specified Time Consumption</em>'.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedTimeConsumption()
+	 * @return the meta object for the reference '<em>Signature Specified Qo SAnnation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation()
 	 * @see #getSpecifiedQoSAnnotation()
 	 * @generated
 	 */
-	EReference getSpecifiedQoSAnnotation_Signature_SpecifiedTimeConsumption();
+	EReference getSpecifiedQoSAnnotation_Signature_SpecifiedQoSAnnation();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getRole_SpecifiedExecutionTime <em>Role Specified Execution Time</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getRole_SpecifiedQoSAnnotation <em>Role Specified Qo SAnnotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Role Specified Execution Time</em>'.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getRole_SpecifiedExecutionTime()
+	 * @return the meta object for the reference '<em>Role Specified Qo SAnnotation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getRole_SpecifiedQoSAnnotation()
 	 * @see #getSpecifiedQoSAnnotation()
 	 * @generated
 	 */
-	EReference getSpecifiedQoSAnnotation_Role_SpecifiedExecutionTime();
+	EReference getSpecifiedQoSAnnotation_Role_SpecifiedQoSAnnotation();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}'.
@@ -311,15 +311,15 @@ public interface QosannotationsPackage extends EPackage {
 	EClass getQoSAnnotations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedExecutionTimes_QoSAnnotations <em>Specified Execution Times Qo SAnnotations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations <em>Specified Qo SAnnotations Qo SAnnotations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Specified Execution Times Qo SAnnotations</em>'.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedExecutionTimes_QoSAnnotations()
+	 * @return the meta object for the containment reference list '<em>Specified Qo SAnnotations Qo SAnnotations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations()
 	 * @see #getQoSAnnotations()
 	 * @generated
 	 */
-	EReference getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations();
+	EReference getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}'.
@@ -365,20 +365,20 @@ public interface QosannotationsPackage extends EPackage {
 		EClass SPECIFIED_QO_SANNOTATION = eINSTANCE.getSpecifiedQoSAnnotation();
 
 		/**
-		 * The meta object literal for the '<em><b>Signature Specified Time Consumption</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Signature Specified Qo SAnnation</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = eINSTANCE.getSpecifiedQoSAnnotation_Signature_SpecifiedTimeConsumption();
+		EReference SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION = eINSTANCE.getSpecifiedQoSAnnotation_Signature_SpecifiedQoSAnnation();
 
 		/**
-		 * The meta object literal for the '<em><b>Role Specified Execution Time</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Role Specified Qo SAnnotation</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME = eINSTANCE.getSpecifiedQoSAnnotation_Role_SpecifiedExecutionTime();
+		EReference SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION = eINSTANCE.getSpecifiedQoSAnnotation_Role_SpecifiedQoSAnnotation();
 
 		/**
 		 * The meta object literal for the '<em><b>Specification Specified Execution Time</b></em>' containment reference feature.
@@ -433,12 +433,12 @@ public interface QosannotationsPackage extends EPackage {
 		EClass QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations();
 
 		/**
-		 * The meta object literal for the '<em><b>Specified Execution Times Qo SAnnotations</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations();
+		EReference QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations();
 
 		/**
 		 * The meta object literal for the '<em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment reference list feature.

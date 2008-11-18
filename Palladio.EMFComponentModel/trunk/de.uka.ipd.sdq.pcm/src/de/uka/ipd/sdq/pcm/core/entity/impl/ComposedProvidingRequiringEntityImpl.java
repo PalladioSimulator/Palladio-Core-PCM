@@ -38,8 +38,7 @@ import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 
 /**
  * <!-- begin-user-doc -->
@@ -155,7 +154,7 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
 	 */
 	public EList<ResourceRequiredRole> getResourceRequiredRoles_ResourceInterfaceRequiringEntity() {
 		if (resourceRequiredRoles_ResourceInterfaceRequiringEntity == null) {
-			resourceRequiredRoles_ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(ResourceRequiredRole.class, this, EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY, ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
+			resourceRequiredRoles_ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(ResourceRequiredRole.class, this, EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY, RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
 		}
 		return resourceRequiredRoles_ResourceInterfaceRequiringEntity;
 	}

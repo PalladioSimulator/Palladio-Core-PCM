@@ -95,6 +95,15 @@ public interface RepositoryFactory extends EFactory {
 	Interface createInterface();
 
 	/**
+	 * Returns a new object of class '<em>Resource Required Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Required Role</em>'.
+	 * @generated
+	 */
+	ResourceRequiredRole createResourceRequiredRole();
+
+	/**
 	 * Returns a new object of class '<em>Exception Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

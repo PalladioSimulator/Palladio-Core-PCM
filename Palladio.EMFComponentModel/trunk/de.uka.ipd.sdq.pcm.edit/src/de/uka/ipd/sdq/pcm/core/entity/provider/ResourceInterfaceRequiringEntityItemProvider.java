@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 
 /**
@@ -149,7 +150,7 @@ public class ResourceInterfaceRequiringEntityItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
-				 ResourcetypeFactory.eINSTANCE.createResourceRequiredRole()));
+				 RepositoryFactory.eINSTANCE.createResourceRequiredRole()));
 	}
 
 	/**

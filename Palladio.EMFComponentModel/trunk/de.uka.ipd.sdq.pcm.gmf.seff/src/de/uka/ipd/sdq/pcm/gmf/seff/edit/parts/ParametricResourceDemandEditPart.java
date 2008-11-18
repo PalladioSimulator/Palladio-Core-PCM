@@ -226,7 +226,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		String text = null;
 		if (resolveSemanticElement() instanceof ParametricResourceDemand) {
 			ParametricResourceDemand demand = (ParametricResourceDemand) resolveSemanticElement();
-			if (demand.getResourceRequiredRole_ParametricResourceDemand() != null) {
+			if (demand.getRequiredResource_ParametricResourceDemand() != null) {
 				text = new PCMStoExPrettyPrintVisitor().prettyPrint(demand
 						.getSpecification_ParametericResourceDemand()
 						.getExpression());
@@ -236,7 +236,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 					text += " ";
 				text += "<"
 						+ demand
-								.getResourceRequiredRole_ParametricResourceDemand()
+								.getRequiredResource_ParametricResourceDemand()
 								.getEntityName() + ">";
 			}
 		}

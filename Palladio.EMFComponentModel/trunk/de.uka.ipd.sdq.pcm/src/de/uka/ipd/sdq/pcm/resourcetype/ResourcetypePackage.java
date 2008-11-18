@@ -5,13 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -159,7 +157,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getProcessingResourceType()
 	 * @generated
 	 */
-	int PROCESSING_RESOURCE_TYPE = 2;
+	int PROCESSING_RESOURCE_TYPE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -198,22 +196,13 @@ public interface ResourcetypePackage extends EPackage {
 	int PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION = RESOURCE_TYPE__UNIT_SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Processing Resource Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 1;
+	int PROCESSING_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl <em>Communication Link Resource Type</em>}' class.
@@ -223,145 +212,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getCommunicationLinkResourceType()
 	 * @generated
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE = 6;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl <em>Resource Interface</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceInterface()
-	 * @generated
-	 */
-	int RESOURCE_INTERFACE = 4;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceServiceImpl <em>Resource Service</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceServiceImpl
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceService()
-	 * @generated
-	 */
-	int RESOURCE_SERVICE = 5;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceProvidedRoleImpl <em>Resource Provided Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceProvidedRoleImpl
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceProvidedRole()
-	 * @generated
-	 */
-	int RESOURCE_PROVIDED_ROLE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_PROVIDED_ROLE__ID = RepositoryPackage.ROLE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_PROVIDED_ROLE__ENTITY_NAME = RepositoryPackage.ROLE__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Provided Resource Interface Resource Provided Role</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Resource Interface Providing Entity Resource Provided Role</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Resource Provided Role</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_PROVIDED_ROLE_FEATURE_COUNT = RepositoryPackage.ROLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE__ID = RepositoryPackage.ABSTRACT_INTERFACE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE__ENTITY_NAME = RepositoryPackage.ABSTRACT_INTERFACE__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Repository Abstract Interface</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE__REPOSITORY_ABSTRACT_INTERFACE = RepositoryPackage.ABSTRACT_INTERFACE__REPOSITORY_ABSTRACT_INTERFACE;
-
-	/**
-	 * The feature id for the '<em><b>Resource Services Resource Interface</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE = RepositoryPackage.ABSTRACT_INTERFACE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Resource Interface</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE_FEATURE_COUNT = RepositoryPackage.ABSTRACT_INTERFACE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Service Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_SERVICE__SERVICE_NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Resource Service</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_SERVICE_FEATURE_COUNT = 1;
+	int COMMUNICATION_LINK_RESOURCE_TYPE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -400,15 +251,6 @@ public interface ResourcetypePackage extends EPackage {
 	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT_SPECIFICATION = PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
-
-	/**
 	 * The number of structural features of the '<em>Communication Link Resource Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,62 +258,6 @@ public interface ResourcetypePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMUNICATION_LINK_RESOURCE_TYPE_FEATURE_COUNT = PROCESSING_RESOURCE_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRequiredRoleImpl
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceRequiredRole()
-	 * @generated
-	 */
-	int RESOURCE_REQUIRED_ROLE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REQUIRED_ROLE__ID = RepositoryPackage.ROLE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REQUIRED_ROLE__ENTITY_NAME = RepositoryPackage.ROLE__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Required Resource Interface Resource Required Role</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Resource Requiring Entity Resource Required Role</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Resource Required Role</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_REQUIRED_ROLE_FEATURE_COUNT = RepositoryPackage.ROLE_FEATURE_COUNT + 2;
-
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType <em>Resource Type</em>}'.
@@ -513,112 +299,6 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCommunicationLinkResourceType();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface <em>Resource Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface
-	 * @generated
-	 */
-	EClass getResourceInterface();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getResourceServices_ResourceInterface <em>Resource Services Resource Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Resource Services Resource Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getResourceServices_ResourceInterface()
-	 * @see #getResourceInterface()
-	 * @generated
-	 */
-	EReference getResourceInterface_ResourceServices_ResourceInterface();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService <em>Resource Service</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Service</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceService
-	 * @generated
-	 */
-	EClass getResourceService();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getServiceName <em>Service Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Service Name</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getServiceName()
-	 * @see #getResourceService()
-	 * @generated
-	 */
-	EAttribute getResourceService_ServiceName();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole <em>Resource Provided Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Provided Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole
-	 * @generated
-	 */
-	EClass getResourceProvidedRole();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole#getProvidedResourceInterface_ResourceProvidedRole <em>Provided Resource Interface Resource Provided Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Provided Resource Interface Resource Provided Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole#getProvidedResourceInterface_ResourceProvidedRole()
-	 * @see #getResourceProvidedRole()
-	 * @generated
-	 */
-	EReference getResourceProvidedRole_ProvidedResourceInterface_ResourceProvidedRole();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole#getResourceInterfaceProvidingEntity_ResourceProvidedRole <em>Resource Interface Providing Entity Resource Provided Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Resource Interface Providing Entity Resource Provided Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole#getResourceInterfaceProvidingEntity_ResourceProvidedRole()
-	 * @see #getResourceProvidedRole()
-	 * @generated
-	 */
-	EReference getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole <em>Resource Required Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Required Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole
-	 * @generated
-	 */
-	EClass getResourceRequiredRole();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole#getRequiredResourceInterface_ResourceRequiredRole <em>Required Resource Interface Resource Required Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Required Resource Interface Resource Required Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole#getRequiredResourceInterface_ResourceRequiredRole()
-	 * @see #getResourceRequiredRole()
-	 * @generated
-	 */
-	EReference getResourceRequiredRole_RequiredResourceInterface_ResourceRequiredRole();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Resource Requiring Entity Resource Required Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole()
-	 * @see #getResourceRequiredRole()
-	 * @generated
-	 */
-	EReference getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType <em>Processing Resource Type</em>}'.
@@ -689,94 +369,6 @@ public interface ResourcetypePackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMMUNICATION_LINK_RESOURCE_TYPE = eINSTANCE.getCommunicationLinkResourceType();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl <em>Resource Interface</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceInterface()
-		 * @generated
-		 */
-		EClass RESOURCE_INTERFACE = eINSTANCE.getResourceInterface();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Services Resource Interface</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE = eINSTANCE.getResourceInterface_ResourceServices_ResourceInterface();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceServiceImpl <em>Resource Service</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceServiceImpl
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceService()
-		 * @generated
-		 */
-		EClass RESOURCE_SERVICE = eINSTANCE.getResourceService();
-
-		/**
-		 * The meta object literal for the '<em><b>Service Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RESOURCE_SERVICE__SERVICE_NAME = eINSTANCE.getResourceService_ServiceName();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceProvidedRoleImpl <em>Resource Provided Role</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceProvidedRoleImpl
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceProvidedRole()
-		 * @generated
-		 */
-		EClass RESOURCE_PROVIDED_ROLE = eINSTANCE.getResourceProvidedRole();
-
-		/**
-		 * The meta object literal for the '<em><b>Provided Resource Interface Resource Provided Role</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE = eINSTANCE.getResourceProvidedRole_ProvidedResourceInterface_ResourceProvidedRole();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Interface Providing Entity Resource Provided Role</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE = eINSTANCE.getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRequiredRoleImpl
-		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceRequiredRole()
-		 * @generated
-		 */
-		EClass RESOURCE_REQUIRED_ROLE = eINSTANCE.getResourceRequiredRole();
-
-		/**
-		 * The meta object literal for the '<em><b>Required Resource Interface Resource Required Role</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE = eINSTANCE.getResourceRequiredRole_RequiredResourceInterface_ResourceRequiredRole();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Requiring Entity Resource Required Role</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = eINSTANCE.getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl <em>Processing Resource Type</em>}' class.

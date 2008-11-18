@@ -1,9 +1,7 @@
 package de.uka.ipd.sdq.pcmbench.ui.provider;
 
-import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.util.RepositorySwitch;
 
 public class RepositoryPrinter extends RepositorySwitch {

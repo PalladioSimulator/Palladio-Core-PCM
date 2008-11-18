@@ -14,11 +14,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
@@ -74,12 +70,8 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY: return createResourceRepository();
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
-			case ResourcetypePackage.RESOURCE_PROVIDED_ROLE: return createResourceProvidedRole();
-			case ResourcetypePackage.RESOURCE_INTERFACE: return createResourceInterface();
-			case ResourcetypePackage.RESOURCE_SERVICE: return createResourceService();
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: return createCommunicationLinkResourceType();
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE: return createResourceRequiredRole();
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -103,46 +95,6 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	public CommunicationLinkResourceType createCommunicationLinkResourceType() {
 		CommunicationLinkResourceTypeImpl communicationLinkResourceType = new CommunicationLinkResourceTypeImpl();
 		return communicationLinkResourceType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceInterface createResourceInterface() {
-		ResourceInterfaceImpl resourceInterface = new ResourceInterfaceImpl();
-		return resourceInterface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceService createResourceService() {
-		ResourceServiceImpl resourceService = new ResourceServiceImpl();
-		return resourceService;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceProvidedRole createResourceProvidedRole() {
-		ResourceProvidedRoleImpl resourceProvidedRole = new ResourceProvidedRoleImpl();
-		return resourceProvidedRole;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceRequiredRole createResourceRequiredRole() {
-		ResourceRequiredRoleImpl resourceRequiredRole = new ResourceRequiredRoleImpl();
-		return resourceRequiredRole;
 	}
 
 	/**

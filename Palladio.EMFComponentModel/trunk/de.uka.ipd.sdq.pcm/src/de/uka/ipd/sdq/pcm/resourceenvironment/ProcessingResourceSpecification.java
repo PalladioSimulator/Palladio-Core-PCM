@@ -18,7 +18,6 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getControllerSpecification <em>Controller Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
@@ -36,32 +35,6 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Controller Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Controller Specification</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Controller Specification</em>' attribute.
-	 * @see #setControllerSpecification(String)
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ControllerSpecification()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	String getControllerSpecification();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getControllerSpecification <em>Controller Specification</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Controller Specification</em>' attribute.
-	 * @see #getControllerSpecification()
-	 * @generated
-	 */
-	void setControllerSpecification(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Scheduling Policy</b></em>' attribute.

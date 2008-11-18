@@ -41,7 +41,7 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FAILURE_PROBABILITY_EDEFAULT = "0";
+	protected static final double FAILURE_PROBABILITY_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.
@@ -51,7 +51,7 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected String failureProbability = FAILURE_PROBABILITY_EDEFAULT;
+	protected double failureProbability = FAILURE_PROBABILITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFailureProbability() {
+	public double getFailureProbability() {
 		return failureProbability;
 	}
 
@@ -86,8 +86,8 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFailureProbability(String newFailureProbability) {
-		String oldFailureProbability = failureProbability;
+	public void setFailureProbability(double newFailureProbability) {
+		double oldFailureProbability = failureProbability;
 		failureProbability = newFailureProbability;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.INTERNAL_ACTION__FAILURE_PROBABILITY, oldFailureProbability, failureProbability));
@@ -102,7 +102,7 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SeffPackage.INTERNAL_ACTION__FAILURE_PROBABILITY:
-				return getFailureProbability();
+				return new Double(getFailureProbability());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,7 +116,7 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SeffPackage.INTERNAL_ACTION__FAILURE_PROBABILITY:
-				setFailureProbability((String)newValue);
+				setFailureProbability(((Double)newValue).doubleValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,7 +146,7 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SeffPackage.INTERNAL_ACTION__FAILURE_PROBABILITY:
-				return FAILURE_PROBABILITY_EDEFAULT == null ? failureProbability != null : !FAILURE_PROBABILITY_EDEFAULT.equals(failureProbability);
+				return failureProbability != FAILURE_PROBABILITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

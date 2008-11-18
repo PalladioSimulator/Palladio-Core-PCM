@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedExecutionTimes_QoSAnnotations <em>Specified Execution Times Qo SAnnotations</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations <em>Specified Qo SAnnotations Qo SAnnotations</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}</li>
  * </ul>
  * </p>
@@ -42,20 +42,20 @@ public interface QoSAnnotations extends Entity {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Specified Execution Times Qo SAnnotations</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Specified Execution Times Qo SAnnotations</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specified Execution Times Qo SAnnotations</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations()
+	 * @return the value of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<SpecifiedQoSAnnotation> getSpecifiedExecutionTimes_QoSAnnotations();
+	EList<SpecifiedQoSAnnotation> getSpecifiedQoSAnnotations_QoSAnnotations();
 
 	/**
 	 * Returns the value of the '<em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment reference list.

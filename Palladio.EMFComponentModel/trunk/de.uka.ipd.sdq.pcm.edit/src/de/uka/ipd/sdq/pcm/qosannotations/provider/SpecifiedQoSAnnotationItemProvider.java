@@ -70,26 +70,26 @@ public class SpecifiedQoSAnnotationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSignature_SpecifiedTimeConsumptionPropertyDescriptor(object);
-			addRole_SpecifiedExecutionTimePropertyDescriptor(object);
+			addSignature_SpecifiedQoSAnnationPropertyDescriptor(object);
+			addRole_SpecifiedQoSAnnotationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Signature Specified Time Consumption feature.
+	 * This adds a property descriptor for the Signature Specified Qo SAnnation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSignature_SpecifiedTimeConsumptionPropertyDescriptor(Object object) {
+	protected void addSignature_SpecifiedQoSAnnationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SpecifiedQoSAnnotation_signature_SpecifiedTimeConsumption_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecifiedQoSAnnotation_signature_SpecifiedTimeConsumption_feature", "_UI_SpecifiedQoSAnnotation_type"),
-				 QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION,
+				 getString("_UI_SpecifiedQoSAnnotation_signature_SpecifiedQoSAnnation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecifiedQoSAnnotation_signature_SpecifiedQoSAnnation_feature", "_UI_SpecifiedQoSAnnotation_type"),
+				 QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
 				 true,
 				 false,
 				 true,
@@ -99,19 +99,19 @@ public class SpecifiedQoSAnnotationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Role Specified Execution Time feature.
+	 * This adds a property descriptor for the Role Specified Qo SAnnotation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRole_SpecifiedExecutionTimePropertyDescriptor(Object object) {
+	protected void addRole_SpecifiedQoSAnnotationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SpecifiedQoSAnnotation_role_SpecifiedExecutionTime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecifiedQoSAnnotation_role_SpecifiedExecutionTime_feature", "_UI_SpecifiedQoSAnnotation_type"),
-				 QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_EXECUTION_TIME,
+				 getString("_UI_SpecifiedQoSAnnotation_role_SpecifiedQoSAnnotation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SpecifiedQoSAnnotation_role_SpecifiedQoSAnnotation_feature", "_UI_SpecifiedQoSAnnotation_type"),
+				 QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
 				 true,
 				 false,
 				 true,

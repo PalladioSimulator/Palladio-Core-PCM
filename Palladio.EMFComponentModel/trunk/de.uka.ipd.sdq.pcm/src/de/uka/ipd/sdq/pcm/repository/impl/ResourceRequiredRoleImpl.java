@@ -3,7 +3,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.resourcetype.impl;
+package de.uka.ipd.sdq.pcm.repository.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,10 +14,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.impl.RoleImpl;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +25,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRequiredRoleImpl#getRequiredResourceInterface_ResourceRequiredRole <em>Required Resource Interface Resource Required Role</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRequiredRoleImpl#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl#getRequiredInterface_ResourceRequiredRole <em>Required Interface Resource Required Role</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ResourceRequiredRoleImpl#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,14 +41,14 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getRequiredResourceInterface_ResourceRequiredRole() <em>Required Resource Interface Resource Required Role</em>}' reference.
+	 * The cached value of the '{@link #getRequiredInterface_ResourceRequiredRole() <em>Required Interface Resource Required Role</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequiredResourceInterface_ResourceRequiredRole()
+	 * @see #getRequiredInterface_ResourceRequiredRole()
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceInterface requiredResourceInterface_ResourceRequiredRole;
+	protected Interface requiredInterface_ResourceRequiredRole;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,7 +66,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ResourcetypePackage.Literals.RESOURCE_REQUIRED_ROLE;
+		return RepositoryPackage.Literals.RESOURCE_REQUIRED_ROLE;
 	}
 
 	/**
@@ -75,16 +74,16 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceInterface getRequiredResourceInterface_ResourceRequiredRole() {
-		if (requiredResourceInterface_ResourceRequiredRole != null && requiredResourceInterface_ResourceRequiredRole.eIsProxy()) {
-			InternalEObject oldRequiredResourceInterface_ResourceRequiredRole = (InternalEObject)requiredResourceInterface_ResourceRequiredRole;
-			requiredResourceInterface_ResourceRequiredRole = (ResourceInterface)eResolveProxy(oldRequiredResourceInterface_ResourceRequiredRole);
-			if (requiredResourceInterface_ResourceRequiredRole != oldRequiredResourceInterface_ResourceRequiredRole) {
+	public Interface getRequiredInterface_ResourceRequiredRole() {
+		if (requiredInterface_ResourceRequiredRole != null && requiredInterface_ResourceRequiredRole.eIsProxy()) {
+			InternalEObject oldRequiredInterface_ResourceRequiredRole = (InternalEObject)requiredInterface_ResourceRequiredRole;
+			requiredInterface_ResourceRequiredRole = (Interface)eResolveProxy(oldRequiredInterface_ResourceRequiredRole);
+			if (requiredInterface_ResourceRequiredRole != oldRequiredInterface_ResourceRequiredRole) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourcetypePackage.RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE, oldRequiredResourceInterface_ResourceRequiredRole, requiredResourceInterface_ResourceRequiredRole));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepositoryPackage.RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE, oldRequiredInterface_ResourceRequiredRole, requiredInterface_ResourceRequiredRole));
 			}
 		}
-		return requiredResourceInterface_ResourceRequiredRole;
+		return requiredInterface_ResourceRequiredRole;
 	}
 
 	/**
@@ -92,8 +91,8 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceInterface basicGetRequiredResourceInterface_ResourceRequiredRole() {
-		return requiredResourceInterface_ResourceRequiredRole;
+	public Interface basicGetRequiredInterface_ResourceRequiredRole() {
+		return requiredInterface_ResourceRequiredRole;
 	}
 
 	/**
@@ -101,11 +100,11 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequiredResourceInterface_ResourceRequiredRole(ResourceInterface newRequiredResourceInterface_ResourceRequiredRole) {
-		ResourceInterface oldRequiredResourceInterface_ResourceRequiredRole = requiredResourceInterface_ResourceRequiredRole;
-		requiredResourceInterface_ResourceRequiredRole = newRequiredResourceInterface_ResourceRequiredRole;
+	public void setRequiredInterface_ResourceRequiredRole(Interface newRequiredInterface_ResourceRequiredRole) {
+		Interface oldRequiredInterface_ResourceRequiredRole = requiredInterface_ResourceRequiredRole;
+		requiredInterface_ResourceRequiredRole = newRequiredInterface_ResourceRequiredRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourcetypePackage.RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE, oldRequiredResourceInterface_ResourceRequiredRole, requiredResourceInterface_ResourceRequiredRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE, oldRequiredInterface_ResourceRequiredRole, requiredInterface_ResourceRequiredRole));
 	}
 
 	/**
@@ -114,7 +113,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * @generated
 	 */
 	public ResourceInterfaceRequiringEntity getResourceRequiringEntity_ResourceRequiredRole() {
-		if (eContainerFeatureID != ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE) return null;
+		if (eContainerFeatureID != RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE) return null;
 		return (ResourceInterfaceRequiringEntity)eContainer();
 	}
 
@@ -124,7 +123,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * @generated
 	 */
 	public NotificationChain basicSetResourceRequiringEntity_ResourceRequiredRole(ResourceInterfaceRequiringEntity newResourceRequiringEntity_ResourceRequiredRole, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newResourceRequiringEntity_ResourceRequiredRole, ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newResourceRequiringEntity_ResourceRequiredRole, RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE, msgs);
 		return msgs;
 	}
 
@@ -134,7 +133,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * @generated
 	 */
 	public void setResourceRequiringEntity_ResourceRequiredRole(ResourceInterfaceRequiringEntity newResourceRequiringEntity_ResourceRequiredRole) {
-		if (newResourceRequiringEntity_ResourceRequiredRole != eInternalContainer() || (eContainerFeatureID != ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE && newResourceRequiringEntity_ResourceRequiredRole != null)) {
+		if (newResourceRequiringEntity_ResourceRequiredRole != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE && newResourceRequiringEntity_ResourceRequiredRole != null)) {
 			if (EcoreUtil.isAncestor(this, newResourceRequiringEntity_ResourceRequiredRole))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -146,7 +145,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE, newResourceRequiringEntity_ResourceRequiredRole, newResourceRequiringEntity_ResourceRequiredRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE, newResourceRequiringEntity_ResourceRequiredRole, newResourceRequiringEntity_ResourceRequiredRole));
 	}
 
 	/**
@@ -157,7 +156,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetResourceRequiringEntity_ResourceRequiredRole((ResourceInterfaceRequiringEntity)otherEnd, msgs);
@@ -173,7 +172,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
 				return basicSetResourceRequiringEntity_ResourceRequiredRole(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -187,7 +186,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID) {
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
 				return eInternalContainer().eInverseRemove(this, EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY, ResourceInterfaceRequiringEntity.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -201,10 +200,10 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE:
-				if (resolve) return getRequiredResourceInterface_ResourceRequiredRole();
-				return basicGetRequiredResourceInterface_ResourceRequiredRole();
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE:
+				if (resolve) return getRequiredInterface_ResourceRequiredRole();
+				return basicGetRequiredInterface_ResourceRequiredRole();
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
 				return getResourceRequiringEntity_ResourceRequiredRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -218,10 +217,10 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE:
-				setRequiredResourceInterface_ResourceRequiredRole((ResourceInterface)newValue);
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE:
+				setRequiredInterface_ResourceRequiredRole((Interface)newValue);
 				return;
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
 				setResourceRequiringEntity_ResourceRequiredRole((ResourceInterfaceRequiringEntity)newValue);
 				return;
 		}
@@ -236,10 +235,10 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE:
-				setRequiredResourceInterface_ResourceRequiredRole((ResourceInterface)null);
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE:
+				setRequiredInterface_ResourceRequiredRole((Interface)null);
 				return;
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
 				setResourceRequiringEntity_ResourceRequiredRole((ResourceInterfaceRequiringEntity)null);
 				return;
 		}
@@ -254,9 +253,9 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE:
-				return requiredResourceInterface_ResourceRequiredRole != null;
-			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE:
+				return requiredInterface_ResourceRequiredRole != null;
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE:
 				return getResourceRequiringEntity_ResourceRequiredRole() != null;
 		}
 		return super.eIsSet(featureID);

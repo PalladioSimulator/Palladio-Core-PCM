@@ -44,13 +44,16 @@ public interface ProvidedRole extends Role {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property represents the corresponding interface that is provided by this role.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Provided Interface Provided Role</em>' reference.
-	 * @see #setProvidedInterface__ProvidedRole(AbstractInterface)
+	 * @see #setProvidedInterface__ProvidedRole(Interface)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidedRole_ProvidedInterface__ProvidedRole()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	AbstractInterface getProvidedInterface__ProvidedRole();
+	Interface getProvidedInterface__ProvidedRole();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidedInterface__ProvidedRole <em>Provided Interface Provided Role</em>}' reference.
@@ -60,7 +63,7 @@ public interface ProvidedRole extends Role {
 	 * @see #getProvidedInterface__ProvidedRole()
 	 * @generated
 	 */
-	void setProvidedInterface__ProvidedRole(AbstractInterface value);
+	void setProvidedInterface__ProvidedRole(Interface value);
 
 	/**
 	 * Returns the value of the '<em><b>Providing Entity Provided Role</b></em>' container reference.

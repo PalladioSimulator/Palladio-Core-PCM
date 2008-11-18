@@ -22,6 +22,9 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * The system package holds only the System meta class. A system is the most high-level and out-most compositional entity of the PCM. It defines the boundaries of a modelled application. Only systems (more precisely provided services of a system) can be accessed from usage profile. Systems also can carry QoS-Annotations, a special means to express fixed QoS properties of services that are required at the system boundary.
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.system.SystemFactory
  * @model kind="package"
  * @generated

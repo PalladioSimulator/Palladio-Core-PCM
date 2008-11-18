@@ -224,11 +224,6 @@ public class RepositoryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
-				 ResourcetypeFactory.eINSTANCE.createResourceInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY,
 				 RepositoryFactory.eINSTANCE.createPrimitiveDataType()));
 

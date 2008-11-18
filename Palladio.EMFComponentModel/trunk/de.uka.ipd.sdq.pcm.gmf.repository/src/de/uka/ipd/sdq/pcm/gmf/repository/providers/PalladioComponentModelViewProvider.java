@@ -35,18 +35,12 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceInterfaceResourceServiceListEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceServiceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SubSystemEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentComponentParameterCompartmentViewFactory;
@@ -74,18 +68,12 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RepositoryViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiredRoleViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiresStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceDemandingSEFFViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceInterfaceEntityNameViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceInterfaceResourceServiceListViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceInterfaceViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceRequiredRoleViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ResourceServiceViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.SignatureViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.SubSystemEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.SubSystemViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableCharacterisationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageComponentParameterVariableCharacterisationCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabelViewFactory;
 
 /**
@@ -162,14 +150,12 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				}
 				switch (visualID) {
 				case InterfaceEditPart.VISUAL_ID:
-				case ResourceInterfaceEditPart.VISUAL_ID:
 				case BasicComponentEditPart.VISUAL_ID:
 				case CompositeComponentEditPart.VISUAL_ID:
 				case CompleteComponentTypeEditPart.VISUAL_ID:
 				case ProvidesComponentTypeEditPart.VISUAL_ID:
 				case SubSystemEditPart.VISUAL_ID:
 				case SignatureEditPart.VISUAL_ID:
-				case ResourceServiceEditPart.VISUAL_ID:
 				case ResourceDemandingSEFFEditPart.VISUAL_ID:
 				case PassiveResourceEditPart.VISUAL_ID:
 				case VariableUsageEditPart.VISUAL_ID:
@@ -189,18 +175,9 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case ResourceInterfaceEntityNameEditPart.VISUAL_ID:
-				case ResourceInterfaceResourceServiceListEditPart.VISUAL_ID:
-					if (ResourceInterfaceEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
 				case BasicComponentEntityNameEditPart.VISUAL_ID:
 				case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 				case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
-				case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
 					if (BasicComponentEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -208,6 +185,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case CompositeComponentEntityNameEditPart.VISUAL_ID:
+				case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
 					if (CompositeComponentEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -271,13 +249,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case WrapLabel2EditPart.VISUAL_ID:
-					if (ResourceRequiredRoleEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
-							.getVisualID(containerView)
-							|| containerView.getElement() != domainElement) {
-						return null; // wrong container
-					}
-					break;
 				default:
 					return null;
 				}
@@ -300,10 +271,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return InterfaceViewFactory.class;
 		case InterfaceEntityNameEditPart.VISUAL_ID:
 			return InterfaceEntityNameViewFactory.class;
-		case ResourceInterfaceEditPart.VISUAL_ID:
-			return ResourceInterfaceViewFactory.class;
-		case ResourceInterfaceEntityNameEditPart.VISUAL_ID:
-			return ResourceInterfaceEntityNameViewFactory.class;
 		case BasicComponentEditPart.VISUAL_ID:
 			return BasicComponentViewFactory.class;
 		case BasicComponentEntityNameEditPart.VISUAL_ID:
@@ -326,8 +293,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return SubSystemEntityNameViewFactory.class;
 		case SignatureEditPart.VISUAL_ID:
 			return SignatureViewFactory.class;
-		case ResourceServiceEditPart.VISUAL_ID:
-			return ResourceServiceViewFactory.class;
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return ResourceDemandingSEFFViewFactory.class;
 		case PassiveResourceEditPart.VISUAL_ID:
@@ -340,8 +305,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return VariableCharacterisationViewFactory.class;
 		case InterfaceSignatureListEditPart.VISUAL_ID:
 			return InterfaceSignatureListViewFactory.class;
-		case ResourceInterfaceResourceServiceListEditPart.VISUAL_ID:
-			return ResourceInterfaceResourceServiceListViewFactory.class;
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 			return BasicComponentSEFFCompartmentViewFactory.class;
 		case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
@@ -358,8 +321,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return CompleteParentStereotypeLabelViewFactory.class;
 		case ProvidesParentStereotypeLabelEditPart.VISUAL_ID:
 			return ProvidesParentStereotypeLabelViewFactory.class;
-		case WrapLabel2EditPart.VISUAL_ID:
-			return WrapLabel2ViewFactory.class;
 		}
 		return null;
 	}
@@ -405,8 +366,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ImplementationComponentTypeParentCompleteComponentTypesViewFactory.class;
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
 			return CompleteComponentTypeParentProvidesComponentTypesViewFactory.class;
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return ResourceRequiredRoleViewFactory.class;
 		}
 		return null;
 	}

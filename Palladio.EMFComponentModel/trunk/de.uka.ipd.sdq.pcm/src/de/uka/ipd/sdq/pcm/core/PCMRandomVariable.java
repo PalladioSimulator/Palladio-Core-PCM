@@ -25,6 +25,8 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * - Think Time: Describes how much time passes between the execution of a user scenario and the start of the next execution of this scenario.
  * - Loop Iteration Count: Describes the number of repetitions of a loop.
  * - Guarded Branch Transitions: Used to determine whether to conditionally execute a certain behaviour.
+ * 
+ * PCMRandomVariable extends RandomVariable in a way, that the only type of variables available in the PCMRandomVariable are references to variable characterisations like a.NUMBER_OF_ELEMENTS. The corresponding editors ensure that the user can enter only valid expressions.
  * <!-- end-model-doc -->
  *
  *

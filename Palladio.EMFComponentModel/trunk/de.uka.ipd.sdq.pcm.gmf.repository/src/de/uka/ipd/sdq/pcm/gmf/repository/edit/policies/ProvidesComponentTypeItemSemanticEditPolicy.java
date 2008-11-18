@@ -18,12 +18,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleCreateCommand
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleReorientCommand;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ResourceRequiredRoleCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ResourceRequiredRoleReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 
 /**
@@ -75,11 +72,6 @@ public class ProvidesComponentTypeItemSemanticEditPolicy extends
 				.getElementType()) {
 			return null;
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4106 == req
-				.getElementType()) {
-			return getGEFWrapper(new ResourceRequiredRoleCreateCommand(req, req
-					.getSource(), req.getTarget()));
-		}
 		return null;
 	}
 
@@ -101,10 +93,6 @@ public class ProvidesComponentTypeItemSemanticEditPolicy extends
 			return getGEFWrapper(new CompleteComponentTypeParentProvidesComponentTypesCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
-		if (PalladioComponentModelElementTypes.ResourceRequiredRole_4106 == req
-				.getElementType()) {
-			return null;
-		}
 		return null;
 	}
 
@@ -121,8 +109,6 @@ public class ProvidesComponentTypeItemSemanticEditPolicy extends
 			return getGEFWrapper(new ProvidedRoleReorientCommand(req));
 		case RequiredRoleEditPart.VISUAL_ID:
 			return getGEFWrapper(new RequiredRoleReorientCommand(req));
-		case ResourceRequiredRoleEditPart.VISUAL_ID:
-			return getGEFWrapper(new ResourceRequiredRoleReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

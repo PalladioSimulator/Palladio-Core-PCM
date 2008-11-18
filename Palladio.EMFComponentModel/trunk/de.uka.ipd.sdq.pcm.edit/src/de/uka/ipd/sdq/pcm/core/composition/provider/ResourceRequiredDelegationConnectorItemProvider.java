@@ -68,7 +68,6 @@ public class ResourceRequiredDelegationConnectorItemProvider
 
 			addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
 			addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
-			addChildComponentContext_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,28 +108,6 @@ public class ResourceRequiredDelegationConnectorItemProvider
 				 getString("_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature", "_UI_ResourceRequiredDelegationConnector_type"),
 				 CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Child Component Context Resource Required Delegation Connector feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addChildComponentContext_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredDelegationConnector_childComponentContext_ResourceRequiredDelegationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredDelegationConnector_childComponentContext_ResourceRequiredDelegationConnector_feature", "_UI_ResourceRequiredDelegationConnector_type"),
-				 CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
 				 true,
 				 false,
 				 true,

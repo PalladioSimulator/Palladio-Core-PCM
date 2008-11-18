@@ -87,7 +87,7 @@ public class QoSAnnotationsItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS);
+			childrenFeatures.add(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS);
 			childrenFeatures.add(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS);
 		}
 		return childrenFeatures;
@@ -143,7 +143,7 @@ public class QoSAnnotationsItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(QoSAnnotations.class)) {
-			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -164,23 +164,18 @@ public class QoSAnnotationsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS,
+				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
 				 PerformanceFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS,
+				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
 				 PerformanceFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS,
+				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
 				 ReliabilityFactory.eINSTANCE.createSpecifiedFailureProbability()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS,
-				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**

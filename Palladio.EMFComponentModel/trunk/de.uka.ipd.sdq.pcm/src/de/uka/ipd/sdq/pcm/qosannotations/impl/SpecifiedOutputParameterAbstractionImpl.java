@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @generated
  */
-public class SpecifiedOutputParameterAbstractionImpl extends EObjectImpl implements SpecifiedOutputParameterAbstraction {
+public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImpl implements SpecifiedOutputParameterAbstraction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

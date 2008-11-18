@@ -15,7 +15,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.CompleteComponentTypeCrea
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.CompositeComponentCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.InterfaceCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidesComponentTypeCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ResourceInterfaceCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.SubSystemCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -37,14 +36,6 @@ public class RepositoryItemSemanticEditPolicy extends
 						.getRepository_Interfaces__Repository());
 			}
 			return getGEFWrapper(new InterfaceCreateCommand(req));
-		}
-		if (PalladioComponentModelElementTypes.ResourceInterface_2107 == req
-				.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(RepositoryPackage.eINSTANCE
-						.getRepository_Interfaces__Repository());
-			}
-			return getGEFWrapper(new ResourceInterfaceCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.BasicComponent_2102 == req
 				.getElementType()) {

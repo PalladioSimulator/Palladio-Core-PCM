@@ -350,53 +350,7 @@ public interface EntityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getComposedProvidingRequiringEntity()
 	 * @generated
 	 */
-	int COMPOSED_PROVIDING_REQUIRING_ENTITY = 7;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl <em>Resource Interface Providing Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getResourceInterfaceProvidingEntity()
-	 * @generated
-	 */
-	int RESOURCE_INTERFACE_PROVIDING_ENTITY = 6;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE_PROVIDING_ENTITY__ID = ENTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE_PROVIDING_ENTITY__ENTITY_NAME = ENTITY__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Resource Interface Providing Entity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -613,27 +567,6 @@ public interface EntityPackage extends EPackage {
 	EClass getComposedProvidingRequiringEntity();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity <em>Resource Interface Providing Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Interface Providing Entity</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity
-	 * @generated
-	 */
-	EClass getResourceInterfaceProvidingEntity();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles_ResourceInterfaceProvidingEntity <em>Resource Provided Roles Resource Interface Providing Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Resource Provided Roles Resource Interface Providing Entity</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles_ResourceInterfaceProvidingEntity()
-	 * @see #getResourceInterfaceProvidingEntity()
-	 * @generated
-	 */
-	EReference getResourceInterfaceProvidingEntity_ResourceProvidedRoles_ResourceInterfaceProvidingEntity();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -756,24 +689,6 @@ public interface EntityPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPOSED_PROVIDING_REQUIRING_ENTITY = eINSTANCE.getComposedProvidingRequiringEntity();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl <em>Resource Interface Providing Entity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl
-		 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getResourceInterfaceProvidingEntity()
-		 * @generated
-		 */
-		EClass RESOURCE_INTERFACE_PROVIDING_ENTITY = eINSTANCE.getResourceInterfaceProvidingEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = eINSTANCE.getResourceInterfaceProvidingEntity_ResourceProvidedRoles_ResourceInterfaceProvidingEntity();
 
 	}
 

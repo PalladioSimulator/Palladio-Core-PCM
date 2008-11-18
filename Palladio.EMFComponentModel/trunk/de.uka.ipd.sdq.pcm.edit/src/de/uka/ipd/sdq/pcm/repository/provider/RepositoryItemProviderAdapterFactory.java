@@ -242,6 +242,29 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceRequiredRoleItemProvider resourceRequiredRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceRequiredRoleAdapter() {
+		if (resourceRequiredRoleItemProvider == null) {
+			resourceRequiredRoleItemProvider = new ResourceRequiredRoleItemProvider(this);
+		}
+
+		return resourceRequiredRoleItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ExceptionType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -553,6 +576,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
 		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
 		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
+		if (resourceRequiredRoleItemProvider != null) resourceRequiredRoleItemProvider.dispose();
 		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
 		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
 		if (completeComponentTypeItemProvider != null) completeComponentTypeItemProvider.dispose();
