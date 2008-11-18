@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Completions Integrator Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.cip; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: de.uka.ipd.sdq.cip.Activator
+Bundle-Vendor: Lucka
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.pcm
+Eclipse-LazyStart: true
+Export-Package: de.uka.ipd.sdq.cip
