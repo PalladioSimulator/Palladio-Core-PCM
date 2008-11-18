@@ -3,9 +3,12 @@ package de.uka.sdq.pcm.transformations.builder.abstractbuilder;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBuilder;
@@ -73,7 +76,7 @@ extends AbstractComponentBuilder {
 	}
 
 	@Override
-	protected ProvidesComponentType createComponent() {
+	protected RepositoryComponent createComponent() {
 		BasicComponent bc = RepositoryFactory.eINSTANCE.createBasicComponent();
 		bc.setEntityName("InnerBasicComponent"+getNextCounter());
 		return bc;

@@ -1,9 +1,11 @@
 package de.uka.sdq.pcm.transformations.builder.abstractbuilder;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
@@ -20,7 +22,7 @@ implements IComponentBuilder {
 	
 	/**
 	 */
-	protected ProvidesComponentType myComponent;
+	protected RepositoryComponent myComponent;
 	protected ProvidedRole myProvidedRole;
 	protected RequiredRole myRequiredRole;
 	protected AssemblyContext myAssemblyContext;
@@ -32,7 +34,7 @@ implements IComponentBuilder {
 		this.myModels = models;
 	}
 	
-	protected abstract ProvidesComponentType createComponent();
+	protected abstract RepositoryComponent createComponent();
 	
 	public AssemblyContext getAssemblyContext() {
 		return myAssemblyContext;
@@ -67,7 +69,7 @@ implements IComponentBuilder {
 		return counter;
 	}
 
-	public ProvidesComponentType getComponent() {
+	public RepositoryComponent getComponent() {
 		return myComponent;
 	}
 

@@ -11,6 +11,6 @@
 
 // Generate a hint, which resource is loaded with which load
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
-	// Hint: Here should be an action which has a ResourceDemand of type «this.resourceRequiredRole_ParametricResourceDemand.entityName»
+	// Hint: Here should be an action which has a ResourceDemand of type «this.requiredResource_ParametricResourceDemand.entityName»
 	//       => «this.specification_ParametericResourceDemand.specification»
 «ENDDEFINE»
