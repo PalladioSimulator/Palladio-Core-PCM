@@ -11,6 +11,9 @@ import java.util.List;
 public class Histogram {
 	/** The default width for histogram classes */
 	public static final double DEFAULT_BUCKET_WIDTH = 1.0;
+
+	/** The maximum number of buckets to show when initialising the diagram. The user can decide to show more. */
+	public static final double MAXIMUM_NUMBER_OF_BUCKETS = 100;
 	
 	/** List of the entities, that describe the probability for each of the buckets 
 	 * @see HistogramBucketInformation

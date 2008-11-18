@@ -43,11 +43,25 @@ public class TimeSpanToHistogramAdapter extends DataAdapter {
 					? maxValue : timeSpanMeasurement.getTimeSpan();  
 		}
 		if (maxValue - minValue < Histogram.DEFAULT_BUCKET_WIDTH) {
+			//whole histogram would be in one bucket, thus set bucket width to 1/2 of total width.  
 			this.adapterProperties.put(HISTOGRAM_WIDTH, 
-					(maxValue - minValue) / 2);
+					(maxValue - minValue) / 2.0);
 		} else {
-			this.adapterProperties.put(HISTOGRAM_WIDTH, 
+			double currentNumberOfBuckets = (maxValue - minValue)/Histogram.DEFAULT_BUCKET_WIDTH;
+			if (currentNumberOfBuckets > Histogram.MAXIMUM_NUMBER_OF_BUCKETS){
+				//do not show too many buckets (not more than Histogram.MAXIMUM_NUMBER_OF_BUCKETS)
+				//Divide by max number to get the factor to make the buckets larger by. 
+				double widthFactor = currentNumberOfBuckets / Histogram.MAXIMUM_NUMBER_OF_BUCKETS;
+				
+				//Also, only use whole numbers for bucket width. Thus, round up after applying the factor. 
+				//TODO: Only round up if the number is larger than 1
+				double newNumberOfBuckets = Math.ceil(Histogram.DEFAULT_BUCKET_WIDTH * widthFactor); 
+				this.adapterProperties.put(HISTOGRAM_WIDTH, 
+					newNumberOfBuckets);
+			} else {
+				this.adapterProperties.put(HISTOGRAM_WIDTH, 
 					Histogram.DEFAULT_BUCKET_WIDTH);
+			}
 		}
 		
 //		this.properties.put(ACTIVEDE_FILTERS, false);
