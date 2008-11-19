@@ -31,7 +31,7 @@ public class ParameterContentProvider implements IStructuredContentProvider {
 					.getConfigParameterUsages_AssemblyContext();
 			
 			EList<VariableUsage> componentParameters = ((BasicComponent) context
-					.getEncapsulatedComponent_ChildComponentContext())
+					.getEncapsulatedComponent_AssemblyContext())
 					.getComponentParameterUsage_ImplementationComponentType();
 			return meargeParameter(contextParametrs, componentParameters);
 

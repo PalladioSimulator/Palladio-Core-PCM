@@ -59,7 +59,7 @@ public abstract class AbstractMain {
 		stop();
 
 		System.out.println("Storing results...");
-		datasource.createExperimentDAO().store(exp);
+		datasource.createExperimentDAO().storeAll();
 		datasource.finalizeAndClose();
 		System.out.println("...Done!");
 	}
