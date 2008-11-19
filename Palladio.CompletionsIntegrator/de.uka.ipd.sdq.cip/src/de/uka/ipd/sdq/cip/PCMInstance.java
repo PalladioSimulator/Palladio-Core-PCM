@@ -40,8 +40,8 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 public class PCMInstance {
 	
 	/** Logger for log4j. */
-	//private static Logger logger = 
-	//	Logger.getLogger(PCMInstance.class.getName());
+	private static Logger logger = 
+		Logger.getLogger(PCMInstance.class.getName());
 
 	
     private Repository repository;
@@ -132,7 +132,7 @@ public class PCMInstance {
 		try {
 			resource = resourceSet.getResource(uri, true);
 		} catch (Exception e) {
-		//	logger.error(e.getMessage());
+			logger.error(e.getMessage());
 			return null;
 		}
 
