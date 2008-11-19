@@ -19509,9 +19509,9 @@ InternalActions provide an abstraction from the complete behaviour (i.e., contro
         </ownedComment>
         <generalization xmi:id="_0j8F4ODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="_sbTYkODmEdq8ysXH3gTiEg" name="failureProbability" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkTsX_EduPJbEsMYXjUQ?Ecore/EDouble?"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
           <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_CSKwsOfvEdu3wqV8TelBYw">
-            <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkTsX_EduPJbEsMYXjUQ?Ecore/EDouble?"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
             <body>0</body>
           </defaultValue>
         </ownedAttribute>
@@ -22118,7 +22118,7 @@ Note:&#xD;
           </ownedComment>
           <generalization xmi:id="_hN554L3nEdyGNbIQ-5Phlg" general="_3HyqgPF7EdqBtpnwLNXcbw"/>
           <ownedAttribute xmi:id="_IIjicLAQEd2m9re50g25Zg" name="failureProbability" visibility="public">
-            <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkTsX_EduPJbEsMYXjUQ?Ecore/EDouble?"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
           </ownedAttribute>
         </packagedElement>
       </packagedElement>
