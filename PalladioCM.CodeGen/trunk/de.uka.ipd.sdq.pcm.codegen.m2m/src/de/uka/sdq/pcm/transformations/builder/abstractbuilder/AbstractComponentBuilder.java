@@ -1,10 +1,8 @@
 package de.uka.sdq.pcm.transformations.builder.abstractbuilder;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;

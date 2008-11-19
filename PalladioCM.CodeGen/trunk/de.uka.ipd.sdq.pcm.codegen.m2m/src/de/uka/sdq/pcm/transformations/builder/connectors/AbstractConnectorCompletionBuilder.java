@@ -4,7 +4,6 @@ import de.uka.ipd.sdq.completions.Completion;
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.sdq.pcm.transformations.builder.abstractbuilder.AbstractCompositeStructureBuilder;
 import de.uka.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
