@@ -118,7 +118,9 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 	 * @see ILaunchConfigurationTab#dispose()
 	 */
 	public void dispose() {
-		icon.dispose();
+		if (icon != null){
+			icon.dispose();
+		}
 	}
 
 }
