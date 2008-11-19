@@ -37,6 +37,7 @@
   </linkingresource>
   <linkingresource id="_JS9w4KpOEd2NxbWj7fSz6Q" entityName="ServicesAndLegacyComponents_VM-Database_VM" toResourceContainer_LinkingResource="_9iZF0apNEd2NxbWj7fSz6Q" fromResourceContainer_LinkingResource="_TdHB8apUEd2NxbWj7fSz6Q">
     <communicationLinkResourceSpecifications_LinkingResource>
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
       <latency_CommunicationLinkResourceSpecification specification="0.0"/>
       <throughput_CommunicationLinkResourceSpecification specification="1000000.0"/>
     </communicationLinkResourceSpecifications_LinkingResource>
@@ -91,6 +92,7 @@
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_TdHB8apUEd2NxbWj7fSz6Q" entityName="ServicesAndLegacyComponents_VM">
     <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+      <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
       <processingRate_ProcessingResourceSpecification specification="1.0"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>

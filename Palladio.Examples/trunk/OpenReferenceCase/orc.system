@@ -51,9 +51,6 @@
   <providedDelegationConnectors_ComposedStructure id="_nVt8IHe0Ed2mk8dKi3ngUA" entityName="OrderServiceIf" outerProvidedRole_ProvidedDelegationConnector="_iDOHwHe0Ed2mk8dKi3ngUA" childComponentContext_ProvidedDelegationConnector="_IrwGAHewEd2mk8dKi3ngUA">
     <innerProvidedRole_ProvidedDelegationConnector href="orc.repository#_-I--cHQYEd2J8bFb9TfSEQ"/>
   </providedDelegationConnectors_ComposedStructure>
-  <requiredDelegationConnectors_ComposedStructure id="_pTresFcoEd23wcZsd06DZg" entityName="SaleRegisteredEvent" outerRequiredRole_RequiredDelegationConnector="_TWiHYFcnEd23wcZsd06DZg" childComponentContext_RequiredDelegationConnector="_3AwvMFcnEd23wcZsd06DZg">
-    <innerRequiredRole_RequiredDelegationConnector href="orc.repository#_aa6McdCwEduW_YoCCnq0vw"/>
-  </requiredDelegationConnectors_ComposedStructure>
   <requiredDelegationConnectors_ComposedStructure id="_x2XQYHe0Ed2mk8dKi3ngUA" entityName="BankIf" outerRequiredRole_RequiredDelegationConnector="_tFlpAHe0Ed2mk8dKi3ngUA" childComponentContext_RequiredDelegationConnector="_jtQ2cHeuEd2mk8dKi3ngUA">
     <innerRequiredRole_RequiredDelegationConnector href="orc.repository#_cLcgQHetEd2mk8dKi3ngUA"/>
   </requiredDelegationConnectors_ComposedStructure>
@@ -143,9 +140,6 @@
   <providedRoles_InterfaceProvidingEntity id="_iDOHwHe0Ed2mk8dKi3ngUA" entityName="OrderServiceIf">
     <providedInterface__ProvidedRole href="orc.repository#_2exEwHQYEd2J8bFb9TfSEQ"/>
   </providedRoles_InterfaceProvidingEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_TWiHYFcnEd23wcZsd06DZg" entityName="SaleRegisteredEvent">
-    <requiredInterface__RequiredRole href="orc.repository#_RQoSZNCpEduC9O_qbthgAg"/>
-  </requiredRoles_InterfaceRequiringEntity>
   <requiredRoles_InterfaceRequiringEntity id="_tFlpAHe0Ed2mk8dKi3ngUA" entityName="BankIf">
     <requiredInterface__RequiredRole href="orc.repository#_Yh_GQHetEd2mk8dKi3ngUA"/>
   </requiredRoles_InterfaceRequiringEntity>
