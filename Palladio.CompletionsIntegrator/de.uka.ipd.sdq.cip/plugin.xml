@@ -6,7 +6,7 @@
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
             delegate="de.uka.ipd.sdq.cip.launch.CIPLaunch"
-            id="de.uka.ipd.sdq.cip.launch.CIPLauch"
+            id="de.uka.ipd.sdq.cip.lauchCIP"
             modes="run"
             name="PCM Completion Integrator"
             public="true">
@@ -15,7 +15,7 @@
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
       <launchConfigurationTypeImage
-            configTypeID="de.uka.ipd.sdq.dsexplore.launchCIP"
+            configTypeID="de.uka.ipd.sdq.cip.launchCIP"
             icon="icons/completion.gif"
             id="de.uka.ipd.sdq.cip.CIPIcon">
       </launchConfigurationTypeImage>
