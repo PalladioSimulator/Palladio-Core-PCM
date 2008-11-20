@@ -1,9 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.core.presentation;
+package de.uka.ipd.sdq.pcm.core.provider;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
@@ -15,32 +16,23 @@ import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
 
-import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the PalladioComponentModel editor plugin.
+ * This is the central singleton for the Pcm edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-	
+public final class PcmEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final PalladioComponentModelEditorPlugin INSTANCE = new PalladioComponentModelEditorPlugin();
-	
+	public static final PcmEditPlugin INSTANCE = new PcmEditPlugin();
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -55,14 +47,14 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PalladioComponentModelEditorPlugin() {
+	public PcmEditPlugin() {
 		super
-			(new ResourceLocator [] {
-				IdentifierEditPlugin.INSTANCE,
-				StoexEditPlugin.INSTANCE,
-				UnitsEditPlugin.INSTANCE,
-				ProbabilityFunctionEditPlugin.INSTANCE,
-			});
+		  (new ResourceLocator [] {
+		     IdentifierEditPlugin.INSTANCE,
+		     ProbabilityFunctionEditPlugin.INSTANCE,
+		     StoexEditPlugin.INSTANCE,
+		     UnitsEditPlugin.INSTANCE,
+		   });
 	}
 
 	/**
@@ -76,7 +68,7 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
-	
+
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
@@ -87,14 +79,14 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-	
+
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static class Implementation extends EclipseUIPlugin {
+	public static class Implementation extends EclipsePlugin {
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->
@@ -103,7 +95,7 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-	
+
 			// Remember the static instance.
 			//
 			plugin = this;

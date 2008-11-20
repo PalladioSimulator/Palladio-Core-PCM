@@ -1,40 +1,40 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.core.provider;
-
-import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.util.ResourceLocator;
+package de.uka.ipd.sdq.pcm.core.presentation;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+
 import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
+
 import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
+import org.eclipse.emf.common.EMFPlugin;
+
+import org.eclipse.emf.common.ui.EclipseUIPlugin;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
 /**
- * This is the central singleton for the PalladioComponentModel edit plugin.
+ * This is the central singleton for the Pcm editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class PalladioComponentModelEditPlugin extends EMFPlugin {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
+public final class PcmEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final PalladioComponentModelEditPlugin INSTANCE = new PalladioComponentModelEditPlugin();
-
+	public static final PcmEditorPlugin INSTANCE = new PcmEditorPlugin();
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -49,14 +49,14 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PalladioComponentModelEditPlugin() {
+	public PcmEditorPlugin() {
 		super
-		  (new ResourceLocator [] {
-		     IdentifierEditPlugin.INSTANCE,
-		     StoexEditPlugin.INSTANCE,
-		     UnitsEditPlugin.INSTANCE,
-		     ProbabilityFunctionEditPlugin.INSTANCE,
-		   });
+			(new ResourceLocator [] {
+				IdentifierEditPlugin.INSTANCE,
+				ProbabilityFunctionEditPlugin.INSTANCE,
+				StoexEditPlugin.INSTANCE,
+				UnitsEditPlugin.INSTANCE,
+			});
 	}
 
 	/**
@@ -70,7 +70,7 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
-
+	
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
@@ -81,14 +81,14 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-
+	
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static class Implementation extends EclipsePlugin {
+	public static class Implementation extends EclipseUIPlugin {
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->
@@ -97,7 +97,7 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;
