@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
@@ -85,9 +86,9 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 		
 		ProvidedRole role = object.getProvidedRole_EntryLevelSystemCall();
 		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
-		ProvidesComponentType offeringComponent = delegationConnector
+		RepositoryComponent offeringComponent = delegationConnector
 				.getChildComponentContext_ProvidedDelegationConnector()
-				.getEncapsulatedComponent_ChildComponentContext();
+				.getEncapsulatedComponent_AssemblyContext();
 	
 		Expression expr = null;
 		ServiceEffectSpecification seff = contextWrapper.getNextSEFF(object);

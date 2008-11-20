@@ -8,17 +8,14 @@ import org.eclipse.emf.common.util.EList;
 
 import LqnCore.ActivityDefType;
 import LqnCore.ActivityMakingCallType;
-import LqnCore.ActivityOrType;
-import LqnCore.ActivityType;
 import LqnCore.EntryType;
 import LqnCore.PrecedenceType;
 import LqnCore.ProcessorType;
 import LqnCore.TaskSchedulingType;
 import LqnCore.TaskType;
-import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
@@ -167,8 +164,8 @@ public class UsageModel2Lqn extends UsagemodelSwitch {
 		
 		contextWrapper = contextWrapper.getContextWrapperFor(object);
 
-		ProvidesComponentType offeringComponent = contextWrapper.getAssCtx()
-				.getEncapsulatedComponent_ChildComponentContext();
+		RepositoryComponent offeringComponent = contextWrapper.getAssCtx()
+				.getEncapsulatedComponent_AssemblyContext();
 
 		String entryId = "";
 		if (offeringComponent instanceof BasicComponent) {

@@ -227,10 +227,10 @@ public class MarkovTest05ORC {
 		// probabilities of the InternalActions "AccessData" and "QueryData":
 		InternalAction action = (InternalAction) helper.getModelElement(
 				temporaryModel.getRepository(), "_BqnUYKapEd2aT7ee5CpgQg");
-		action.setFailureProbability(((Double) failureProbability).toString());
+		action.setFailureProbability(failureProbability);
 		action = (InternalAction) helper.getModelElement(temporaryModel
 				.getRepository(), "_QyQB4KapEd2aT7ee5CpgQg");
-		action.setFailureProbability(((Double) failureProbability).toString());
+		action.setFailureProbability(failureProbability);
 
 		// Further adjust the PCM instance by changing the number of
 		// items input into the bookSale() call:

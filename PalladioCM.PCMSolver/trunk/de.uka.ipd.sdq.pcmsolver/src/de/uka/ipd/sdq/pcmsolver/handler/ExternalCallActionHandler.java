@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
@@ -26,10 +26,11 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.performance.PerformanceFactory;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
@@ -43,6 +44,8 @@ public class ExternalCallActionHandler {
 	private ComputedAllocationFactory compAllocationFactory = ComputedAllocationFactory.eINSTANCE;
 	
 	private SeffFactory seffFactory = SeffFactory.eINSTANCE;
+	
+	private PerformanceFactory performanceFactory = PerformanceFactory.eINSTANCE;
 	
 	private static Logger logger = Logger.getLogger(ExternalCallActionHandler.class.getName());
 	
@@ -80,7 +83,7 @@ public class ExternalCallActionHandler {
 		PCMRandomVariable rv= CoreFactory.eINSTANCE.createPCMRandomVariable();
 		rv.setSpecification(timeSpecification);
 		
-		ParametricResourceDemand demand = seffFactory.createParametricResourceDemand();
+		ParametricResourceDemand demand = performanceFactory.createParametricResourceDemand();
 		
 		demand.setSpecification_ParametericResourceDemand(rv);
 		demand.setRequiredResource_ParametricResourceDemand(getProcessingResourceType());
@@ -134,15 +137,14 @@ public class ExternalCallActionHandler {
 		
 		EList<QoSAnnotations> annList = visitor.getContextWrapper().getPcmInstance().getSystem().getQosAnnotations_System();
 		for (QoSAnnotations ann : annList){
-			EList<SpecifiedExecutionTime> timeList = 
-				ann.getSpecifiedExecutionTimes_QoSAnnotations();
-			for (SpecifiedExecutionTime time : timeList){
-				Role role = time.getRole_SpecifiedExecutionTime();
+			EList<SpecifiedQoSAnnotation> timeList = ann.getSpecifiedQoSAnnotations_QoSAnnotations();
+			for (SpecifiedQoSAnnotation time : timeList){
+				Role role = time.getRole_SpecifiedQoSAnnotation();
 				if (role instanceof RequiredRole){
 					RequiredRole reqRole = (RequiredRole)role;
 					String reqIntName = reqRole.getRequiredInterface__RequiredRole().getEntityName();
 					if (reqName.equals(reqIntName)){
-						String serviceName = time.getSignature_SpecifiedTimeConsumption().getServiceName();
+						String serviceName = time.getSignature_SpecifiedQoSAnnation().getServiceName();
 						if (serviceToBeCalled.getServiceName().equals(serviceName)){
 							return time.getSpecification_SpecifiedExecutionTime().getSpecification();
 						}

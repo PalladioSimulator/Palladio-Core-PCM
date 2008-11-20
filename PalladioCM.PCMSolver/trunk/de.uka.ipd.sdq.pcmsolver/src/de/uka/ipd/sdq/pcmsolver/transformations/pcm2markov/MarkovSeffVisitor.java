@@ -195,7 +195,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 				+ "]");
 
 		return markovBuilder.initInternalMarkovChain(internalAction
-				.getEntityName(), internalAction.getFailureProbability());
+				.getEntityName(), ((Double)internalAction.getFailureProbability()).toString());
 	}
 
 	/**

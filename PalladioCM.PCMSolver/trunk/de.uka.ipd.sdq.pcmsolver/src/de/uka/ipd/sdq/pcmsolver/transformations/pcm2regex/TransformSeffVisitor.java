@@ -6,14 +6,15 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
+import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
@@ -172,7 +173,7 @@ public class TransformSeffVisitor extends SeffSwitch{
 		return seq;
 	}
 
-	private Object handleSymbol(AbstractResourceDemandingAction object){
+	private Object handleSymbol(AbstractInternalControlFlowAction object){
 		Symbol sym = expFactory.createSymbol();
 		sym.setName(object.getEntityName());
 		

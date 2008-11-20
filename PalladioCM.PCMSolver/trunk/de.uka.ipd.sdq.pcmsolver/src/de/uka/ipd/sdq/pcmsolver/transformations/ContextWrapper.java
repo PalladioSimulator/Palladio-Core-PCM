@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
@@ -38,7 +39,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
@@ -213,11 +214,11 @@ public class ContextWrapper implements Cloneable{
 	}
 
 	private ServiceEffectSpecification getSeff(AssemblyContext ac, Signature sig) {
-		ProvidesComponentType pct = ac.getEncapsulatedComponent_ChildComponentContext();
+		RepositoryComponent rc = ac.getEncapsulatedComponent_AssemblyContext();
 		
-		if (pct instanceof BasicComponent){
+		if (rc instanceof BasicComponent){
 			String serviceName = sig.getServiceName();
-			BasicComponent bc = (BasicComponent) pct;
+			BasicComponent bc = (BasicComponent) rc;
 			EList<ServiceEffectSpecification> seffList = bc
 					.getServiceEffectSpecifications__BasicComponent();
 			for (ServiceEffectSpecification seff : seffList) {
@@ -226,9 +227,9 @@ public class ContextWrapper implements Cloneable{
 					return seff;
 				}
 			}
-		} else if (pct instanceof CompositeComponent){ 
-			CompositeComponent cc = (CompositeComponent)pct;
-			EList<AssemblyContext> inner = cc.getChildComponentContexts_ComposedStructure();
+		} else if (rc instanceof CompositeComponent){ 
+			CompositeComponent cc = (CompositeComponent)rc;
+			EList<AssemblyContext> inner = cc.getAssemblyContexts_ComposedStructure();
 			if (inner.size() == 0){
 				logger.error("Empty CompositeComponent "+cc.getEntityName());
 				throw new RuntimeException("Empty CompositeComponent "+cc.getEntityName());
@@ -604,16 +605,16 @@ public class ContextWrapper implements Cloneable{
 
 		AssemblyConnector matchingAssConn = null;
 		EList<AssemblyConnector> assConnList = pcmInstance.getSystem()
-				.getCompositeAssemblyConnectors_ComposedStructure();
+				.getAssemblyConnectors_ComposedStructure();
 		for (AssemblyConnector assConn : assConnList) {
 			String myAssId = assCtx.getId();
-			String assId = assConn.getRequiringChildComponentContext_CompositeAssemblyConnector().getId();
+			String assId = assConn.getRequiringAssemblyContext_AssemblyConnector().getId();
 			
 			String myIfId = requiredInterface.getId();
 			String ifId = assConn.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole().getId();
 			
 			if (assConn
-					.getRequiringChildComponentContext_CompositeAssemblyConnector()
+					.getRequiringAssemblyContext_AssemblyConnector()
 					.getId().equals(assCtx.getId())
 			 && assConn
 			 		.getRequiredRole_CompositeAssemblyConnector()
@@ -625,7 +626,7 @@ public class ContextWrapper implements Cloneable{
 
 		if (matchingAssConn != null){
 			return matchingAssConn
-			.getProvidingChildComponentContext_CompositeAssemblyConnector();
+			.getProvidingAssemblyContext_AssemblyConnector();
 		} else 
 			return null;
 	}

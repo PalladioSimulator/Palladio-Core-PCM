@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
@@ -161,9 +162,9 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 		}
 
 		// Get the component that provides the service:
-		ProvidesComponentType offeringComponent = delegationConnector
+		RepositoryComponent offeringComponent = delegationConnector
 				.getChildComponentContext_ProvidedDelegationConnector()
-				.getEncapsulatedComponent_ChildComponentContext();
+				.getEncapsulatedComponent_AssemblyContext();
 
 		// Is it a basic component?
 		if (offeringComponent instanceof BasicComponent) {
