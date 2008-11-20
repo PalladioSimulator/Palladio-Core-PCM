@@ -5038,38 +5038,38 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           <ownedRule xmi:id="_wkJLAKVCEdqWue6EZILF7w" name="ProvidedDelegationConnector and the connected Component must be part of the same composite structure" constrainedElement="_hElNAJJ7EdqSSImFLKDkSg">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_wkJLAaVCEdqWue6EZILF7w">
               <language>OCL</language>
-              <body>self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector.parentStructure_AssemblyContext</body>
+              <body>self.parentStructure_ProvidedDelegationConnector = self.assemblyContext_ProvidedDelegationConnector.parentStructure_AssemblyContext</body>
             </specification>
           </ownedRule>
-          <ownedRule xmi:id="_39rnwCJHEdyhZ4cfVkGDIw" name="ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame" constrainedElement="_hElNAJJ7EdqSSImFLKDkSg">
+          <ownedRule xmi:id="_39rnwCJHEdyhZ4cfVkGDIw" name="ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame" constrainedElement="_hElNAJJ7EdqSSImFLKDkSg">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_39rnwSJHEdyhZ4cfVkGDIw">
               <language>OCL</language>
-              <body>self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext</body>
+              <body>self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_vHOvoJQAEdqSSImFLKDkSg" general="_SdDqMJQAEdqSSImFLKDkSg"/>
           <ownedAttribute xmi:id="_jVZnAeM2EdqaQsPH3rPnBQ" name="innerProvidedRole_ProvidedDelegationConnector" type="_-M7kYJJIEdqSSImFLKDkSg" association="_jVZnAOM2EdqaQsPH3rPnBQ"/>
           <ownedAttribute xmi:id="_ojVrgeM2EdqaQsPH3rPnBQ" name="outerProvidedRole_ProvidedDelegationConnector" type="_-M7kYJJIEdqSSImFLKDkSg" association="_ojVrgOM2EdqaQsPH3rPnBQ"/>
-          <ownedAttribute xmi:id="_jTyoAeM3EdqaQsPH3rPnBQ" name="childComponentContext_ProvidedDelegationConnector" type="_EfLuYOJSEdqxcra4qpeplw" association="_jTyoAOM3EdqaQsPH3rPnBQ"/>
+          <ownedAttribute xmi:id="_jTyoAeM3EdqaQsPH3rPnBQ" name="assemblyContext_ProvidedDelegationConnector" type="_EfLuYOJSEdqxcra4qpeplw" association="_jTyoAOM3EdqaQsPH3rPnBQ"/>
           <ownedAttribute xmi:id="_GK5a4mc8EduCGaQAxkcIwA" name="parentStructure_ProvidedDelegationConnector" type="_n_-J0Gc6EduCGaQAxkcIwA" association="_GK5a4Gc8EduCGaQAxkcIwA"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_jt-4MJJ7EdqSSImFLKDkSg" name="RequiredDelegationConnector">
           <ownedRule xmi:id="_PJ6HgKVQEdqWue6EZILF7w" name="RequiredDelegationConnector and the connected Component must be part of the same composite structure" constrainedElement="_jt-4MJJ7EdqSSImFLKDkSg">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_PJ6HgaVQEdqWue6EZILF7w">
               <language>OCL</language>
-              <body>self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector.parentStructure_AssemblyContext</body>
+              <body>self.parentStructure_RequiredDelegationConnector = self.assemblyContext_RequiredDelegationConnector.parentStructure_AssemblyContext</body>
             </specification>
           </ownedRule>
-          <ownedRule xmi:id="_DP8mMCJIEdyhZ4cfVkGDIw" name="ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame" constrainedElement="_jt-4MJJ7EdqSSImFLKDkSg">
+          <ownedRule xmi:id="_DP8mMCJIEdyhZ4cfVkGDIw" name="ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame" constrainedElement="_jt-4MJJ7EdqSSImFLKDkSg">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_DP8mMSJIEdyhZ4cfVkGDIw">
               <language>OCL</language>
-              <body>self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext</body>
+              <body>self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_vcDJEJQAEdqSSImFLKDkSg" general="_SdDqMJQAEdqSSImFLKDkSg"/>
           <ownedAttribute xmi:id="_x-rkkeM2EdqaQsPH3rPnBQ" name="innerRequiredRole_RequiredDelegationConnector" type="__o_5wJJIEdqSSImFLKDkSg" association="_x-rkkOM2EdqaQsPH3rPnBQ"/>
           <ownedAttribute xmi:id="_2j74ceM2EdqaQsPH3rPnBQ" name="outerRequiredRole_RequiredDelegationConnector" type="__o_5wJJIEdqSSImFLKDkSg" association="_2j74cOM2EdqaQsPH3rPnBQ"/>
-          <ownedAttribute xmi:id="_bHRSgeM3EdqaQsPH3rPnBQ" name="childComponentContext_RequiredDelegationConnector" type="_EfLuYOJSEdqxcra4qpeplw" association="_bHRSgOM3EdqaQsPH3rPnBQ"/>
+          <ownedAttribute xmi:id="_bHRSgeM3EdqaQsPH3rPnBQ" name="assemblyContext_RequiredDelegationConnector" type="_EfLuYOJSEdqxcra4qpeplw" association="_bHRSgOM3EdqaQsPH3rPnBQ"/>
           <ownedAttribute xmi:id="_GjL_Emc8EduCGaQAxkcIwA" name="parentStructure_RequiredDelegationConnector" type="_n_-J0Gc6EduCGaQAxkcIwA" association="_GjL_EGc8EduCGaQAxkcIwA"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_4foMIOJREdqxcra4qpeplw" name="AssemblyConnector">
@@ -5078,7 +5078,8 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               <body>An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. </body>
             </ownedComment>
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_eQjAQapdEd26O59kvcjv0A">
-              <body>self.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)&#xD;&#xA;</body>
+              <language>OCL</language>
+              <body>self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;</body>
             </specification>
           </ownedRule>
           <ownedRule xmi:id="_4tSk0KpdEd26O59kvcjv0A" name="AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch" constrainedElement="_4foMIOJREdqxcra4qpeplw">
@@ -5086,15 +5087,16 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               <body>An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. </body>
             </ownedComment>
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_4tSk0apdEd26O59kvcjv0A">
-              <body>self.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceProvidingEntity->includes(self.requiredRole_CompositeAssemblyConnector)</body>
+              <language>OCL</language>
+              <body>self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_6xzqIOJREdqxcra4qpeplw" general="_UkxkoJQAEdqSSImFLKDkSg"/>
           <generalization xmi:id="_Fn1AUOM1EdqaQsPH3rPnBQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
           <ownedAttribute xmi:id="_vUZ9QeJSEdqxcra4qpeplw" name="requiringAssemblyContext_AssemblyConnector" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" association="_vUZ9QOJSEdqxcra4qpeplw"/>
           <ownedAttribute xmi:id="_w13I8eJSEdqxcra4qpeplw" name="providingAssemblyContext_AssemblyConnector" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" association="_w13I8OJSEdqxcra4qpeplw"/>
-          <ownedAttribute xmi:id="_02TfkeJSEdqxcra4qpeplw" name="providedRole_CompositeAssemblyConnector" type="_-M7kYJJIEdqSSImFLKDkSg" association="_02TfkOJSEdqxcra4qpeplw"/>
-          <ownedAttribute xmi:id="_3NG-4eJSEdqxcra4qpeplw" name="requiredRole_CompositeAssemblyConnector" type="__o_5wJJIEdqSSImFLKDkSg" association="_3NG-4OJSEdqxcra4qpeplw"/>
+          <ownedAttribute xmi:id="_02TfkeJSEdqxcra4qpeplw" name="providedRole_AssemblyConnector" type="_-M7kYJJIEdqSSImFLKDkSg" association="_02TfkOJSEdqxcra4qpeplw"/>
+          <ownedAttribute xmi:id="_3NG-4eJSEdqxcra4qpeplw" name="requiredRole_AssemblyConnector" type="__o_5wJJIEdqSSImFLKDkSg" association="_3NG-4OJSEdqxcra4qpeplw"/>
           <ownedAttribute xmi:id="_IqT5Emc7EduCGaQAxkcIwA" name="parentStructure_AssemblyConnector" type="_n_-J0Gc6EduCGaQAxkcIwA" association="_IqT5EGc7EduCGaQAxkcIwA"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_EfLuYOJSEdqxcra4qpeplw" name="AssemblyContext">
@@ -5138,13 +5140,13 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_vb6W8Gc6EduCGaQAxkcIwA" memberEnd="_vb6W8Wc6EduCGaQAxkcIwA _vb6W8mc6EduCGaQAxkcIwA"/>
         <packagedElement xmi:type="uml:Association" xmi:id="_3NG-4OJSEdqxcra4qpeplw" memberEnd="_3NG-4eJSEdqxcra4qpeplw _3NG-4uJSEdqxcra4qpeplw">
-          <ownedEnd xmi:id="_3NG-4uJSEdqxcra4qpeplw" name="compositeassemblyconnector" visibility="private" type="_4foMIOJREdqxcra4qpeplw" association="_3NG-4OJSEdqxcra4qpeplw"/>
+          <ownedEnd xmi:id="_3NG-4uJSEdqxcra4qpeplw" name="assemblyconnector" visibility="private" type="_4foMIOJREdqxcra4qpeplw" association="_3NG-4OJSEdqxcra4qpeplw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_w13I8OJSEdqxcra4qpeplw" name="to" memberEnd="_w13I8eJSEdqxcra4qpeplw _w13I8uJSEdqxcra4qpeplw">
           <ownedEnd xmi:id="_w13I8uJSEdqxcra4qpeplw" visibility="private" type="_4foMIOJREdqxcra4qpeplw" association="_w13I8OJSEdqxcra4qpeplw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_02TfkOJSEdqxcra4qpeplw" memberEnd="_02TfkeJSEdqxcra4qpeplw _02TfkuJSEdqxcra4qpeplw">
-          <ownedEnd xmi:id="_02TfkuJSEdqxcra4qpeplw" name="compositeassemblyconnector" visibility="private" type="_4foMIOJREdqxcra4qpeplw" association="_02TfkOJSEdqxcra4qpeplw"/>
+          <ownedEnd xmi:id="_02TfkuJSEdqxcra4qpeplw" name="assemblyconnector" visibility="private" type="_4foMIOJREdqxcra4qpeplw" association="_02TfkOJSEdqxcra4qpeplw"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_vUZ9QOJSEdqxcra4qpeplw" name="from" memberEnd="_vUZ9QeJSEdqxcra4qpeplw _vUZ9QuJSEdqxcra4qpeplw">
           <ownedEnd xmi:id="_vUZ9QuJSEdqxcra4qpeplw" visibility="private" type="_4foMIOJREdqxcra4qpeplw" association="_vUZ9QOJSEdqxcra4qpeplw"/>
@@ -5532,7 +5534,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
         <ownedRule xmi:id="_3KNIsCokEdyENO6Lndj6uA" name="EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce" constrainedElement="_AtO9UOMvEdqaQsPH3rPnBQ">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_3KOW0CokEdyENO6Lndj6uA">
             <language>OCL</language>
-            <body>self.system_Allocation.childComponentContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)</body>
+            <body>self.system_Allocation.assemblyContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_YyuowBG1EdukS8Awn8hWLA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
