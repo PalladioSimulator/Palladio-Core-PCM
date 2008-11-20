@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.context.computed_allocation.impl;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationPackage;
 import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
 
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.performance.ParametricResourceDemand;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
