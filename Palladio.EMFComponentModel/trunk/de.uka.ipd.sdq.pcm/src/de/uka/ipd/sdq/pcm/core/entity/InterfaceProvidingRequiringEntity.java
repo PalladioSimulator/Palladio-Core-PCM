@@ -24,11 +24,12 @@ package de.uka.ipd.sdq.pcm.core.entity;
  * @generated
  */
 public interface InterfaceProvidingRequiringEntity extends InterfaceProvidingEntity, InterfaceRequiringEntity, ResourceInterfaceRequiringEntity {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // InterfaceProvidingRequiringEntity

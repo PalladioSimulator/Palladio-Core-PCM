@@ -46,7 +46,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getAssemblyContexts_ComposedStructure() <em>Assembly Contexts Composed Structure</em>}' containment reference list.

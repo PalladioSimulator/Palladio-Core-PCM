@@ -40,7 +40,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Parent Complete Component Types</b></em>' reference list.
@@ -113,6 +113,8 @@ public interface ImplementationComponentType extends RepositoryComponent {
 	 * --	)	
 	 * --)
 	 * true
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -152,6 +154,8 @@ public interface ImplementationComponentType extends RepositoryComponent {
 	 * --		)
 	 * --	)
 	 * true
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

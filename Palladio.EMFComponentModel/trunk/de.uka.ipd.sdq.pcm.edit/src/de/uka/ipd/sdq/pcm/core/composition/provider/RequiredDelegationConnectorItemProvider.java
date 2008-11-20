@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.provider.DelegationConnectorItemProvider;
 
@@ -39,13 +40,6 @@ public class RequiredDelegationConnectorItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -69,7 +63,7 @@ public class RequiredDelegationConnectorItemProvider
 
 			addInnerRequiredRole_RequiredDelegationConnectorPropertyDescriptor(object);
 			addOuterRequiredRole_RequiredDelegationConnectorPropertyDescriptor(object);
-			addChildComponentContext_RequiredDelegationConnectorPropertyDescriptor(object);
+			addAssemblyContext_RequiredDelegationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,19 +113,19 @@ public class RequiredDelegationConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Child Component Context Required Delegation Connector feature.
+	 * This adds a property descriptor for the Assembly Context Required Delegation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addChildComponentContext_RequiredDelegationConnectorPropertyDescriptor(Object object) {
+	protected void addAssemblyContext_RequiredDelegationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RequiredDelegationConnector_childComponentContext_RequiredDelegationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RequiredDelegationConnector_childComponentContext_RequiredDelegationConnector_feature", "_UI_RequiredDelegationConnector_type"),
-				 CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR,
+				 getString("_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature", "_UI_RequiredDelegationConnector_type"),
+				 CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -198,7 +192,7 @@ public class RequiredDelegationConnectorItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return PalladioComponentModelEditPlugin.INSTANCE;
+		return PcmEditPlugin.INSTANCE;
 	}
 
 }

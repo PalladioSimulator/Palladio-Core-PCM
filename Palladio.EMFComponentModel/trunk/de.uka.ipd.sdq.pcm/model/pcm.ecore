@@ -126,7 +126,7 @@
         <eOperations name="ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector.parentStructure_AssemblyContext"/>
+            <details key="documentation" value="self.parentStructure_ProvidedDelegationConnector = self.assemblyContext_ProvidedDelegationConnector.parentStructure_AssemblyContext"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -143,10 +143,10 @@
             </eGenericType>
           </eParameters>
         </eOperations>
-        <eOperations name="ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame"
+        <eOperations name="ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext"/>
+            <details key="documentation" value="self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -167,7 +167,7 @@
             ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="outerProvidedRole_ProvidedDelegationConnector"
             ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_ProvidedDelegationConnector"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_ProvidedDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_ProvidedDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
@@ -186,7 +186,7 @@
         <eOperations name="RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector.parentStructure_AssemblyContext"/>
+            <details key="documentation" value="self.parentStructure_RequiredDelegationConnector = self.assemblyContext_RequiredDelegationConnector.parentStructure_AssemblyContext"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -203,10 +203,10 @@
             </eGenericType>
           </eParameters>
         </eOperations>
-        <eOperations name="ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame"
+        <eOperations name="ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext"/>
+            <details key="documentation" value="self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -227,7 +227,7 @@
             ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="outerRequiredRole_RequiredDelegationConnector"
             ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_RequiredDelegationConnector"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_RequiredDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_RequiredDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
@@ -237,7 +237,7 @@
         <eOperations name="AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xD;&#xA;self.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)&#xD;&#xA;"/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xD;&#xA;self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -257,7 +257,7 @@
         <eOperations name="AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xD;&#xA;self.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceProvidingEntity->includes(self.requiredRole_CompositeAssemblyConnector)"/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xD;&#xA;self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -278,9 +278,9 @@
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providingAssemblyContext_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_CompositeAssemblyConnector"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_CompositeAssemblyConnector"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
@@ -1117,7 +1117,7 @@
         </eParameters>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="#//seff/ServiceEffectSpecification platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ResourceDemandingBehaviour">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A resource demanding service effect specification (RDSEFF) is a special type of SEFF designed for performance and reliability predictions. Besides dependencies between provided and required services of a component, it additionally includes notions of resource usage, data flow, and parametric dependencies for more accurate predictions. Its control flow is hierarchically structured and can be enhanced with transition probabilities on branches and numbers of iterations on loops.&#xD;&#xA;A ResourceDemandingSEFF is a ServiceEffectSpecification and a Resource-DemandingBehaviour at the same time inheriting from both classes. The reason for this construct lies in the fact, that ResourceDemandingBehaviours can be used recursively inside themselves to describe loop bodies or branched behaviours (explained later), and these inner behaviours should not be RDSEFFs themselves"/>
       </eAnnotations>
@@ -1357,7 +1357,7 @@
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2A􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 A􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
+          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
@@ -1391,7 +1391,7 @@
       <eOperations name="EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.system_Allocation.childComponentContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
+          <details key="documentation" value="self.system_Allocation.assemblyContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1467,7 +1467,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The system package holds only the System meta class. A system is the most high-level and out-most compositional entity of the PCM. It defines the boundaries of a modelled application. Only systems (more precisely provided services of a system) can be accessed from usage profile. Systems also can carry QoS-Annotations, a special means to express fixed QoS properties of services that are required at the system boundary."/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/entity/Entity #//core/entity/ComposedProvidingRequiringEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A System is the out-most entity of a PCM's assembly of components. It captures the modeling decision to which extend a system under investigation is modelled within the PCM.&#xD;&#xA;A System is not composable (part of another composition) because it has QoS annotations which are only allowed in the &quot;outer&quot; composition thing. And a UsageModel must only access ProvidedRoles of a System and not of inner components.&#xD;&#xA;The System is inheriting from ComposedProvidingRequiringEntity to have a unique means for expressing the inner composition of an entity (here: System). Also it allows using the same editor etc. being applied to ComposedProvidingRequiringEntity and thus also being useful for System.&#xD;&#xA;&#xD;&#xA;A system consists of an assembly and is itself referenced by an allocation (only a System can be allocated). The first specifies how the components are connected with other components, the latter specifies how the components and connectors are mapped to the resource environment (hardware and middleware). From a structural point of view, Systems can be seen as special kind of CompositeComponents. Systems are not supposed to be reused as components are. The are assumed to be coupled by using special techniques for system integration.&#xD;&#xA;&#xD;&#xA;A System has provided and required roles like a composite component. Only a system's provided role can be accessed from the usage profile. Only a system's required roles can have QOS annotations.&#xD;&#xA;&#xD;&#xA;Like SubSystems, Systems are white-box entities for the Software Architect and also for the System Deployer. Thus, a System Deployer can and must allocate inner components of a System individually."/>
       </eAnnotations>

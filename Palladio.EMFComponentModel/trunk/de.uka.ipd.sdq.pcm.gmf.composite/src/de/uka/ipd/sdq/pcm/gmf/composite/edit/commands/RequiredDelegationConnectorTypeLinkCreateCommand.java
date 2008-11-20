@@ -98,7 +98,7 @@ public class RequiredDelegationConnectorTypeLinkCreateCommand extends
 			newElement
 					.setInnerRequiredRole_RequiredDelegationConnector(mySource);
 			CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-			newElement.setChildComponentContext_RequiredDelegationConnector((AssemblyContext) req.getParameter("CHILD_CONTEXT"));
+			newElement.setAssemblyContext_RequiredDelegationConnector((AssemblyContext) req.getParameter("CHILD_CONTEXT"));
 		}
 		return newElement;
 	}

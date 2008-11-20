@@ -163,7 +163,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 
 		// Get the component that provides the service:
 		RepositoryComponent offeringComponent = delegationConnector
-				.getChildComponentContext_ProvidedDelegationConnector()
+				.getAssemblyContext_ProvidedDelegationConnector()
 				.getEncapsulatedComponent_AssemblyContext();
 
 		// Is it a basic component?

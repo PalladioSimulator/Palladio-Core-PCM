@@ -34,8 +34,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached value of the '{@link #getDatatype_InnerDeclaration() <em>Datatype Inner Declaration</em>}' reference.
 	 * <!-- begin-user-doc -->

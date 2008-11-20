@@ -50,7 +50,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getPopulation() <em>Population</em>}' attribute.
@@ -82,24 +82,6 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 */
 	protected PCMRandomVariable thinkTime_ClosedWorkload;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #PopulationInClosedWorkloadNeedsToBeSpecified <em>Population In Closed Workload Needs To Be Specified</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PopulationInClosedWorkloadNeedsToBeSpecified
-	 * @generated
-	 */
-	private static OCLExpression PopulationInClosedWorkloadNeedsToBeSpecifiedInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ThinkTimeInClosedWorkloadNeedsToBeSpecified <em>Think Time In Closed Workload Needs To Be Specified</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ThinkTimeInClosedWorkloadNeedsToBeSpecified
-	 * @generated
-	 */
-	private static OCLExpression ThinkTimeInClosedWorkloadNeedsToBeSpecifiedInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -191,24 +173,11 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * @generated
 	 */
 	public boolean PopulationInClosedWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (PopulationInClosedWorkloadNeedsToBeSpecifiedInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "not self.population.oclIsUndefined() and self.population <> '' ";
-			
-			try {
-				PopulationInClosedWorkloadNeedsToBeSpecifiedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(PopulationInClosedWorkloadNeedsToBeSpecifiedInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -221,7 +190,6 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -230,24 +198,11 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * @generated
 	 */
 	public boolean ThinkTimeInClosedWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ThinkTimeInClosedWorkloadNeedsToBeSpecifiedInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification <> '' ";
-			
-			try {
-				ThinkTimeInClosedWorkloadNeedsToBeSpecifiedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ThinkTimeInClosedWorkloadNeedsToBeSpecifiedInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -260,7 +215,6 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

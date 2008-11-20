@@ -31,7 +31,7 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.

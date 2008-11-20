@@ -52,7 +52,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getActions_ScenarioBehaviour() <em>Actions Scenario Behaviour</em>}' containment reference list.
@@ -64,33 +64,6 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 */
 	protected EList<AbstractUserAction> actions_ScenarioBehaviour;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #Exactlyonestart <em>Exactlyonestart</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #Exactlyonestart
-	 * @generated
-	 */
-	private static OCLExpression ExactlyonestartInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #Exactlyonestop <em>Exactlyonestop</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #Exactlyonestop
-	 * @generated
-	 */
-	private static OCLExpression ExactlyonestopInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor <em>Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor
-	 * @generated
-	 */
-	private static OCLExpression EachuseractionexceptStartandStopmusthaveapredecessorandsuccessorInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -130,24 +103,11 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 * @generated
 	 */
 	public boolean Exactlyonestart(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ExactlyonestartInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1 ";
-			
-			try {
-				ExactlyonestartInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyonestartInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -160,7 +120,6 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -169,24 +128,11 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 * @generated
 	 */
 	public boolean Exactlyonestop(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ExactlyonestopInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1 ";
-			
-			try {
-				ExactlyonestopInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyonestopInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -199,7 +145,6 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -208,24 +153,11 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 * @generated
 	 */
 	public boolean EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (EachuseractionexceptStartandStopmusthaveapredecessorandsuccessorInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined()) ";
-			
-			try {
-				EachuseractionexceptStartandStopmusthaveapredecessorandsuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(EachuseractionexceptStartandStopmusthaveapredecessorandsuccessorInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -238,7 +170,6 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

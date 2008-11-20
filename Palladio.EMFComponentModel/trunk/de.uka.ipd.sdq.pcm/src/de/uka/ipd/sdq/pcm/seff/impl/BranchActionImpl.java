@@ -51,7 +51,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getBranches_Branch() <em>Branches Branch</em>}' containment reference list.
@@ -63,24 +63,6 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 	 */
 	protected EList<AbstractBranchTransition> branches_Branch;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #EitherGuardedBranchesOrProbabilisiticBranchTransitions <em>Either Guarded Branches Or Probabilisitic Branch Transitions</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EitherGuardedBranchesOrProbabilisiticBranchTransitions
-	 * @generated
-	 */
-	private static OCLExpression EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #AllProbabilisticBranchProbabilitiesMustSumUpTo1 <em>All Probabilistic Branch Probabilities Must Sum Up To1</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AllProbabilisticBranchProbabilitiesMustSumUpTo1
-	 * @generated
-	 */
-	private static OCLExpression AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -120,24 +102,11 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 	 * @generated
 	 */
 	public boolean EitherGuardedBranchesOrProbabilisiticBranchTransitions(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition)) ";
-			
-			try {
-				EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -150,7 +119,6 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -159,24 +127,11 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 	 * @generated
 	 */
 	public boolean AllProbabilisticBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.001 else true endif ";
-			
-			try {
-				AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -189,7 +144,6 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

@@ -94,8 +94,8 @@ public class AssemblyConnectorTypeLinkCreateCommand extends
 		AssemblyConnector newElement = (AssemblyConnector) super
 				.doDefaultElementCreation();
 		if (newElement != null) {
-			newElement.setProvidedRole_CompositeAssemblyConnector(myTarget);
-			newElement.setRequiredRole_CompositeAssemblyConnector(mySource);
+			newElement.setProvidedRole_AssemblyConnector(myTarget);
+			newElement.setRequiredRole_AssemblyConnector(mySource);
 			CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
 			newElement.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) req.getParameter("REQ_CHILD_CONTEXT"));
 			newElement.setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) req.getParameter("PROV_CHILD_CONTEXT"));

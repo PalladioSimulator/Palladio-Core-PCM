@@ -71,11 +71,11 @@ public class ConnectorReplacingBuilder implements IBuilder {
 		if (linkingRes  != null) {
 			clientContainer = linkingRes.getFromResourceContainer_LinkingResource().get(0);
 			serverContainer = linkingRes.getToResourceContainer_LinkingResource().get(0);
-			builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
+			builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
 		} else {
 			clientContainer = findContainer(this.connector.getRequiringAssemblyContext_AssemblyConnector());
 			serverContainer = clientContainer;
-			builder = new LocalCommunicationComponentBuilder(models, connector.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole());
+			builder = new LocalCommunicationComponentBuilder(models, connector.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole());
 		}
 		
 		if (FeatureUtils.hasFeature(featureConfig,"Encryption"))
@@ -101,22 +101,22 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	}
 
 	private void embeddConnectorCompletionInApplication(IClientServerConnectorCompletionComponentBuilder componentBuilder) {
-		addAssemblyConnector(connector.getRequiredRole_CompositeAssemblyConnector(), 
+		addAssemblyConnector(connector.getRequiredRole_AssemblyConnector(), 
 					connector.getRequiringAssemblyContext_AssemblyConnector(),
 					componentBuilder.getProvidedRole(), 
 					componentBuilder.getAssemblyContext());
 		addAssemblyConnector(componentBuilder.getRequiredRole(), 
 					componentBuilder.getAssemblyContext(), 
-					connector.getProvidedRole_CompositeAssemblyConnector(), 
+					connector.getProvidedRole_AssemblyConnector(), 
 					connector.getProvidingAssemblyContext_AssemblyConnector());
 	}
 
 	private void addAssemblyConnector(RequiredRole from, AssemblyContext fromContext, ProvidedRole to, AssemblyContext toContext){
 		AssemblyConnector acon = CompositionFactory.eINSTANCE.createAssemblyConnector();
 		acon.setParentStructure_AssemblyConnector(parent);
-		acon.setRequiredRole_CompositeAssemblyConnector(from);
+		acon.setRequiredRole_AssemblyConnector(from);
 		acon.setRequiringAssemblyContext_AssemblyConnector(fromContext);
-		acon.setProvidedRole_CompositeAssemblyConnector(to);
+		acon.setProvidedRole_AssemblyConnector(to);
 		acon.setProvidingAssemblyContext_AssemblyConnector(toContext);
 	}	
 
@@ -168,9 +168,9 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	}
 
 	private ResourceContainer findContainer(
-			AssemblyContext requiringChildComponentContext_CompositeAssemblyConnector) {
+			AssemblyContext requiringAssemblyContext_AssemblyConnector) {
 		for(AllocationContext ac : this.models.getAllocation().getAllocationContexts_Allocation()) {
-			if (ac.getAssemblyContext_AllocationContext().getId().equals(requiringChildComponentContext_CompositeAssemblyConnector.getId()))
+			if (ac.getAssemblyContext_AllocationContext().getId().equals(requiringAssemblyContext_AssemblyConnector.getId()))
 				return ac.getResourceContainer_AllocationContext();
 		}
 		return null;

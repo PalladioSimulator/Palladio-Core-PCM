@@ -32,7 +32,7 @@ public interface AllocationPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The package name.

@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector <em>Inner Provided Role Provided Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector <em>Outer Provided Role Provided Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getChildComponentContext_ProvidedDelegationConnector <em>Child Component Context Provided Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector <em>Assembly Context Provided Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getParentStructure_ProvidedDelegationConnector <em>Parent Structure Provided Delegation Connector</em>}</li>
  * </ul>
  * </p>
@@ -37,7 +37,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Inner Provided Role Provided Delegation Connector</b></em>' reference.
@@ -92,30 +92,30 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	void setOuterProvidedRole_ProvidedDelegationConnector(ProvidedRole value);
 
 	/**
-	 * Returns the value of the '<em><b>Child Component Context Provided Delegation Connector</b></em>' reference.
+	 * Returns the value of the '<em><b>Assembly Context Provided Delegation Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Child Component Context Provided Delegation Connector</em>' reference isn't clear,
+	 * If the meaning of the '<em>Assembly Context Provided Delegation Connector</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child Component Context Provided Delegation Connector</em>' reference.
-	 * @see #setChildComponentContext_ProvidedDelegationConnector(AssemblyContext)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_ChildComponentContext_ProvidedDelegationConnector()
+	 * @return the value of the '<em>Assembly Context Provided Delegation Connector</em>' reference.
+	 * @see #setAssemblyContext_ProvidedDelegationConnector(AssemblyContext)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	AssemblyContext getChildComponentContext_ProvidedDelegationConnector();
+	AssemblyContext getAssemblyContext_ProvidedDelegationConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getChildComponentContext_ProvidedDelegationConnector <em>Child Component Context Provided Delegation Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector <em>Assembly Context Provided Delegation Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Child Component Context Provided Delegation Connector</em>' reference.
-	 * @see #getChildComponentContext_ProvidedDelegationConnector()
+	 * @param value the new value of the '<em>Assembly Context Provided Delegation Connector</em>' reference.
+	 * @see #getAssemblyContext_ProvidedDelegationConnector()
 	 * @generated
 	 */
-	void setChildComponentContext_ProvidedDelegationConnector(AssemblyContext value);
+	void setAssemblyContext_ProvidedDelegationConnector(AssemblyContext value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent Structure Provided Delegation Connector</b></em>' container reference.
@@ -149,7 +149,9 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector.parentStructure_AssemblyContext
+	 * self.parentStructure_ProvidedDelegationConnector = self.assemblyContext_ProvidedDelegationConnector.parentStructure_AssemblyContext
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -160,11 +162,13 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext
+	 * self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ProvidedDelegationConnector

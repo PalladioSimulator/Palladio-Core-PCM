@@ -63,7 +63,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.
@@ -115,15 +115,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 */
 	protected EList<ExceptionType> exceptions__Signature;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ParameterNamesHaveToBeUniqueForASignature <em>Parameter Names Have To Be Unique For ASignature</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ParameterNamesHaveToBeUniqueForASignature
-	 * @generated
-	 */
-	private static OCLExpression ParameterNamesHaveToBeUniqueForASignatureInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -275,24 +266,11 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @generated
 	 */
 	public boolean ParameterNamesHaveToBeUniqueForASignature(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ParameterNamesHaveToBeUniqueForASignatureInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.parameters__Signature->isUnique(p : Parameter |  	p.parameterName  ) ";
-			
-			try {
-				ParameterNamesHaveToBeUniqueForASignatureInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ParameterNamesHaveToBeUniqueForASignatureInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -305,7 +283,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

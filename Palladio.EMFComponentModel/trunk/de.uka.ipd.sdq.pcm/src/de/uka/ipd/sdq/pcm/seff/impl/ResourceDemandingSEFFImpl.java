@@ -5,6 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 import java.util.Collection;
 import java.util.Map;
 
@@ -45,51 +48,40 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl#getSeffTypeID <em>Seff Type ID</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl#getDescribedService__SEFF <em>Described Service SEFF</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl#getSteps_Behaviour <em>Steps Behaviour</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ResourceDemandingSEFFImpl extends IdentifierImpl implements ResourceDemandingSEFF {
+public class ResourceDemandingSEFFImpl extends ServiceEffectSpecificationImpl implements ResourceDemandingSEFF {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The default value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSeffTypeID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SEFF_TYPE_ID_EDEFAULT = "1";
+	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSeffTypeID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected String seffTypeID = SEFF_TYPE_ID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDescribedService__SEFF() <em>Described Service SEFF</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescribedService__SEFF()
-	 * @generated
-	 * @ordered
-	 */
-	protected Signature describedService__SEFF;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSteps_Behaviour() <em>Steps Behaviour</em>}' containment reference list.
@@ -101,33 +93,6 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 */
 	protected EList<AbstractAction> steps_Behaviour;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStopAction <em>Exactly One Stop Action</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ExactlyOneStopAction
-	 * @generated
-	 */
-	private static OCLExpression ExactlyOneStopActionInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStartAction <em>Exactly One Start Action</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ExactlyOneStartAction
-	 * @generated
-	 */
-	private static OCLExpression ExactlyOneStartActionInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor
-	 * @generated
-	 */
-	private static OCLExpression EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -154,8 +119,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSeffTypeID() {
-		return seffTypeID;
+	public String getId() {
+		return id;
 	}
 
 	/**
@@ -163,49 +128,11 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSeffTypeID(String newSeffTypeID) {
-		String oldSeffTypeID = seffTypeID;
-		seffTypeID = newSeffTypeID;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID, oldSeffTypeID, seffTypeID));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Signature getDescribedService__SEFF() {
-		if (describedService__SEFF != null && describedService__SEFF.eIsProxy()) {
-			InternalEObject oldDescribedService__SEFF = (InternalEObject)describedService__SEFF;
-			describedService__SEFF = (Signature)eResolveProxy(oldDescribedService__SEFF);
-			if (describedService__SEFF != oldDescribedService__SEFF) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF, oldDescribedService__SEFF, describedService__SEFF));
-			}
-		}
-		return describedService__SEFF;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Signature basicGetDescribedService__SEFF() {
-		return describedService__SEFF;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescribedService__SEFF(Signature newDescribedService__SEFF) {
-		Signature oldDescribedService__SEFF = describedService__SEFF;
-		describedService__SEFF = newDescribedService__SEFF;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF, oldDescribedService__SEFF, describedService__SEFF));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.RESOURCE_DEMANDING_SEFF__ID, oldId, id));
 	}
 
 	/**
@@ -226,24 +153,11 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * @generated
 	 */
 	public boolean ExactlyOneStopAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ExactlyOneStopActionInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1 ";
-			
-			try {
-				ExactlyOneStopActionInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyOneStopActionInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -256,7 +170,6 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -265,24 +178,11 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * @generated
 	 */
 	public boolean ExactlyOneStartAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ExactlyOneStartActionInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1 ";
-			
-			try {
-				ExactlyOneStartActionInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyOneStartActionInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -295,7 +195,6 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -304,24 +203,11 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 * @generated
 	 */
 	public boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined()) ";
-			
-			try {
-				EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -334,7 +220,31 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 			return false;
 		}
 		return true;
-		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean idHasToBeUnique(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 IdentifierValidator.DIAGNOSTIC_SOURCE,
+						 IdentifierValidator.IDENTIFIER__ID_HAS_TO_BE_UNIQUE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "idHasToBeUnique", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -359,11 +269,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
-				return getSeffTypeID();
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF:
-				if (resolve) return getDescribedService__SEFF();
-				return basicGetDescribedService__SEFF();
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__ID:
+				return getId();
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
 				return getSteps_Behaviour();
 		}
@@ -379,11 +286,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
-				setSeffTypeID((String)newValue);
-				return;
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF:
-				setDescribedService__SEFF((Signature)newValue);
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__ID:
+				setId((String)newValue);
 				return;
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
 				getSteps_Behaviour().clear();
@@ -401,11 +305,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
-				setSeffTypeID(SEFF_TYPE_ID_EDEFAULT);
-				return;
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF:
-				setDescribedService__SEFF((Signature)null);
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__ID:
+				setId(ID_EDEFAULT);
 				return;
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
 				getSteps_Behaviour().clear();
@@ -422,10 +323,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
-				return SEFF_TYPE_ID_EDEFAULT == null ? seffTypeID != null : !SEFF_TYPE_ID_EDEFAULT.equals(seffTypeID);
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF:
-				return describedService__SEFF != null;
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
 				return steps_Behaviour != null && !steps_Behaviour.isEmpty();
 		}
@@ -439,10 +338,9 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ServiceEffectSpecification.class) {
+		if (baseClass == Identifier.class) {
 			switch (derivedFeatureID) {
-				case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID: return SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID;
-				case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF: return SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF;
+				case SeffPackage.RESOURCE_DEMANDING_SEFF__ID: return IdentifierPackage.IDENTIFIER__ID;
 				default: return -1;
 			}
 		}
@@ -462,10 +360,9 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ServiceEffectSpecification.class) {
+		if (baseClass == Identifier.class) {
 			switch (baseFeatureID) {
-				case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID: return SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID;
-				case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF: return SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF;
+				case IdentifierPackage.IDENTIFIER__ID: return SeffPackage.RESOURCE_DEMANDING_SEFF__ID;
 				default: return -1;
 			}
 		}
@@ -488,8 +385,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (seffTypeID: ");
-		result.append(seffTypeID);
+		result.append(" (id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

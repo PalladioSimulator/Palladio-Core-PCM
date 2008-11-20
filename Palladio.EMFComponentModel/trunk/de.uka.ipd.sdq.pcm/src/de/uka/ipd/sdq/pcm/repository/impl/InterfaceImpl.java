@@ -63,7 +63,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getParentInterface__Interface() <em>Parent Interface Interface</em>}' reference list.
@@ -105,24 +105,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	protected EList<Signature> signatures__Interface;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #NoProtocolTypeIDUsedTwice <em>No Protocol Type ID Used Twice</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NoProtocolTypeIDUsedTwice
-	 * @generated
-	 */
-	private static OCLExpression NoProtocolTypeIDUsedTwiceInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #SignaturesHaveToBeUniqueForAnInterface <em>Signatures Have To Be Unique For An Interface</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SignaturesHaveToBeUniqueForAnInterface
-	 * @generated
-	 */
-	private static OCLExpression SignaturesHaveToBeUniqueForAnInterfaceInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -239,24 +221,11 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 */
 	public boolean NoProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (NoProtocolTypeIDUsedTwiceInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.protocols__Interface->forAll(p1, p2 |  p1.protocolTypeID <> p2.protocolTypeID)  ";
-			
-			try {
-				NoProtocolTypeIDUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(NoProtocolTypeIDUsedTwiceInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -269,7 +238,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -278,24 +246,11 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 */
 	public boolean SignaturesHaveToBeUniqueForAnInterface(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (SignaturesHaveToBeUniqueForAnInterfaceInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "  let sigs : Bag(  	 	 	Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) )   ) =   self.signatures__Interface->collect(sig : Signature |  	Tuple{  		returnType : DataType = sig.returntype__Signature,  		serviceName : String = sig.serviceName,  		parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter  	}  )  in  sigs->isUnique(s|s) ";
-			
-			try {
-				SignaturesHaveToBeUniqueForAnInterfaceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(SignaturesHaveToBeUniqueForAnInterfaceInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -308,7 +263,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

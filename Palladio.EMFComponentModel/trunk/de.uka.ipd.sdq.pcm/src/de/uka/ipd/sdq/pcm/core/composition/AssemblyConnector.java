@@ -24,8 +24,8 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector <em>Requiring Assembly Context Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector <em>Providing Assembly Context Assembly Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_CompositeAssemblyConnector <em>Provided Role Composite Assembly Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_CompositeAssemblyConnector <em>Required Role Composite Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector <em>Provided Role Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector <em>Required Role Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}</li>
  * </ul>
  * </p>
@@ -40,7 +40,7 @@ public interface AssemblyConnector extends Connector, Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Requiring Assembly Context Assembly Connector</b></em>' reference.
@@ -95,56 +95,56 @@ public interface AssemblyConnector extends Connector, Entity {
 	void setProvidingAssemblyContext_AssemblyConnector(AssemblyContext value);
 
 	/**
-	 * Returns the value of the '<em><b>Provided Role Composite Assembly Connector</b></em>' reference.
+	 * Returns the value of the '<em><b>Provided Role Assembly Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Provided Role Composite Assembly Connector</em>' reference isn't clear,
+	 * If the meaning of the '<em>Provided Role Assembly Connector</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provided Role Composite Assembly Connector</em>' reference.
-	 * @see #setProvidedRole_CompositeAssemblyConnector(ProvidedRole)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ProvidedRole_CompositeAssemblyConnector()
+	 * @return the value of the '<em>Provided Role Assembly Connector</em>' reference.
+	 * @see #setProvidedRole_AssemblyConnector(ProvidedRole)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ProvidedRole_AssemblyConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ProvidedRole getProvidedRole_CompositeAssemblyConnector();
+	ProvidedRole getProvidedRole_AssemblyConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_CompositeAssemblyConnector <em>Provided Role Composite Assembly Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector <em>Provided Role Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provided Role Composite Assembly Connector</em>' reference.
-	 * @see #getProvidedRole_CompositeAssemblyConnector()
+	 * @param value the new value of the '<em>Provided Role Assembly Connector</em>' reference.
+	 * @see #getProvidedRole_AssemblyConnector()
 	 * @generated
 	 */
-	void setProvidedRole_CompositeAssemblyConnector(ProvidedRole value);
+	void setProvidedRole_AssemblyConnector(ProvidedRole value);
 
 	/**
-	 * Returns the value of the '<em><b>Required Role Composite Assembly Connector</b></em>' reference.
+	 * Returns the value of the '<em><b>Required Role Assembly Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Role Composite Assembly Connector</em>' reference isn't clear,
+	 * If the meaning of the '<em>Required Role Assembly Connector</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Role Composite Assembly Connector</em>' reference.
-	 * @see #setRequiredRole_CompositeAssemblyConnector(RequiredRole)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_RequiredRole_CompositeAssemblyConnector()
+	 * @return the value of the '<em>Required Role Assembly Connector</em>' reference.
+	 * @see #setRequiredRole_AssemblyConnector(RequiredRole)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_RequiredRole_AssemblyConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	RequiredRole getRequiredRole_CompositeAssemblyConnector();
+	RequiredRole getRequiredRole_AssemblyConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_CompositeAssemblyConnector <em>Required Role Composite Assembly Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector <em>Required Role Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Required Role Composite Assembly Connector</em>' reference.
-	 * @see #getRequiredRole_CompositeAssemblyConnector()
+	 * @param value the new value of the '<em>Required Role Assembly Connector</em>' reference.
+	 * @see #getRequiredRole_AssemblyConnector()
 	 * @generated
 	 */
-	void setRequiredRole_CompositeAssemblyConnector(RequiredRole value);
+	void setRequiredRole_AssemblyConnector(RequiredRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent Structure Assembly Connector</b></em>' container reference.
@@ -179,8 +179,10 @@ public interface AssemblyConnector extends Connector, Entity {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. 
-	 * self.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)
+	 * self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)
 	 * 
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -192,7 +194,11 @@ public interface AssemblyConnector extends Connector, Entity {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. 
-	 * self.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceProvidingEntity->includes(self.requiredRole_CompositeAssemblyConnector)
+	 * self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)
+	 * 
+	 * 
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

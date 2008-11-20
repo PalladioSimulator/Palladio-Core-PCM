@@ -98,7 +98,7 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends
 			newElement
 					.setOuterProvidedRole_ProvidedDelegationConnector(mySource);
 			CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-			newElement.setChildComponentContext_ProvidedDelegationConnector((AssemblyContext) req.getParameter("CHILD_CONTEXT"));
+			newElement.setAssemblyContext_ProvidedDelegationConnector((AssemblyContext) req.getParameter("CHILD_CONTEXT"));
 		}
 		return newElement;
 	}

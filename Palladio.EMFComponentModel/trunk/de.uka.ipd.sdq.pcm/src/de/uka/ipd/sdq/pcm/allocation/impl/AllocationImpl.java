@@ -57,7 +57,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getAllocationContexts_Allocation() <em>Allocation Contexts Allocation</em>}' containment reference list.
@@ -89,15 +89,6 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 */
 	protected de.uka.ipd.sdq.pcm.system.System system_Allocation;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce
-	 * @generated
-	 */
-	private static OCLExpression EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnceInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -213,24 +204,11 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @generated
 	 */
 	public boolean EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnceInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.system_Allocation.childComponentContexts_ComposedStructure->forAll(assemblyCtx|self.allocationContexts_Allocation->select(allocationCtx|allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1) ";
-			
-			try {
-				EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnceInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -243,7 +221,6 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

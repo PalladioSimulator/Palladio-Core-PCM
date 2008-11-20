@@ -43,7 +43,7 @@ import de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getInnerProvidedRole_ProvidedDelegationConnector <em>Inner Provided Role Provided Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getOuterProvidedRole_ProvidedDelegationConnector <em>Outer Provided Role Provided Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getChildComponentContext_ProvidedDelegationConnector <em>Child Component Context Provided Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getAssemblyContext_ProvidedDelegationConnector <em>Assembly Context Provided Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getParentStructure_ProvidedDelegationConnector <em>Parent Structure Provided Delegation Connector</em>}</li>
  * </ul>
  * </p>
@@ -56,7 +56,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getInnerProvidedRole_ProvidedDelegationConnector() <em>Inner Provided Role Provided Delegation Connector</em>}' reference.
@@ -79,33 +79,15 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	protected ProvidedRole outerProvidedRole_ProvidedDelegationConnector;
 
 	/**
-	 * The cached value of the '{@link #getChildComponentContext_ProvidedDelegationConnector() <em>Child Component Context Provided Delegation Connector</em>}' reference.
+	 * The cached value of the '{@link #getAssemblyContext_ProvidedDelegationConnector() <em>Assembly Context Provided Delegation Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildComponentContext_ProvidedDelegationConnector()
+	 * @see #getAssemblyContext_ProvidedDelegationConnector()
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext childComponentContext_ProvidedDelegationConnector;
+	protected AssemblyContext assemblyContext_ProvidedDelegationConnector;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure
-	 * @generated
-	 */
-	private static OCLExpression ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame <em>Component Of Child Component Context And Inner Role Providing Component Need To Be The Same</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame
-	 * @generated
-	 */
-	private static OCLExpression ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -208,16 +190,16 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext getChildComponentContext_ProvidedDelegationConnector() {
-		if (childComponentContext_ProvidedDelegationConnector != null && childComponentContext_ProvidedDelegationConnector.eIsProxy()) {
-			InternalEObject oldChildComponentContext_ProvidedDelegationConnector = (InternalEObject)childComponentContext_ProvidedDelegationConnector;
-			childComponentContext_ProvidedDelegationConnector = (AssemblyContext)eResolveProxy(oldChildComponentContext_ProvidedDelegationConnector);
-			if (childComponentContext_ProvidedDelegationConnector != oldChildComponentContext_ProvidedDelegationConnector) {
+	public AssemblyContext getAssemblyContext_ProvidedDelegationConnector() {
+		if (assemblyContext_ProvidedDelegationConnector != null && assemblyContext_ProvidedDelegationConnector.eIsProxy()) {
+			InternalEObject oldAssemblyContext_ProvidedDelegationConnector = (InternalEObject)assemblyContext_ProvidedDelegationConnector;
+			assemblyContext_ProvidedDelegationConnector = (AssemblyContext)eResolveProxy(oldAssemblyContext_ProvidedDelegationConnector);
+			if (assemblyContext_ProvidedDelegationConnector != oldAssemblyContext_ProvidedDelegationConnector) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR, oldChildComponentContext_ProvidedDelegationConnector, childComponentContext_ProvidedDelegationConnector));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR, oldAssemblyContext_ProvidedDelegationConnector, assemblyContext_ProvidedDelegationConnector));
 			}
 		}
-		return childComponentContext_ProvidedDelegationConnector;
+		return assemblyContext_ProvidedDelegationConnector;
 	}
 
 	/**
@@ -225,8 +207,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext basicGetChildComponentContext_ProvidedDelegationConnector() {
-		return childComponentContext_ProvidedDelegationConnector;
+	public AssemblyContext basicGetAssemblyContext_ProvidedDelegationConnector() {
+		return assemblyContext_ProvidedDelegationConnector;
 	}
 
 	/**
@@ -234,11 +216,11 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setChildComponentContext_ProvidedDelegationConnector(AssemblyContext newChildComponentContext_ProvidedDelegationConnector) {
-		AssemblyContext oldChildComponentContext_ProvidedDelegationConnector = childComponentContext_ProvidedDelegationConnector;
-		childComponentContext_ProvidedDelegationConnector = newChildComponentContext_ProvidedDelegationConnector;
+	public void setAssemblyContext_ProvidedDelegationConnector(AssemblyContext newAssemblyContext_ProvidedDelegationConnector) {
+		AssemblyContext oldAssemblyContext_ProvidedDelegationConnector = assemblyContext_ProvidedDelegationConnector;
+		assemblyContext_ProvidedDelegationConnector = newAssemblyContext_ProvidedDelegationConnector;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR, oldChildComponentContext_ProvidedDelegationConnector, childComponentContext_ProvidedDelegationConnector));
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR, oldAssemblyContext_ProvidedDelegationConnector, assemblyContext_ProvidedDelegationConnector));
 	}
 
 	/**
@@ -288,24 +270,11 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 */
 	public boolean ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector.parentStructure_AssemblyContext ";
-			
-			try {
-				ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -318,7 +287,6 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -326,38 +294,24 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext ";
-			
-			try {
-				ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+	public boolean ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CompositionValidator.DIAGNOSTIC_SOURCE,
-						 CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__COMPONENT_OF_CHILD_COMPONENT_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame", EObjectValidator.getObjectLabel(this, context) }),
+						 CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -418,9 +372,9 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
 				if (resolve) return getOuterProvidedRole_ProvidedDelegationConnector();
 				return basicGetOuterProvidedRole_ProvidedDelegationConnector();
-			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
-				if (resolve) return getChildComponentContext_ProvidedDelegationConnector();
-				return basicGetChildComponentContext_ProvidedDelegationConnector();
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
+				if (resolve) return getAssemblyContext_ProvidedDelegationConnector();
+				return basicGetAssemblyContext_ProvidedDelegationConnector();
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
 				return getParentStructure_ProvidedDelegationConnector();
 		}
@@ -441,8 +395,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
 				setOuterProvidedRole_ProvidedDelegationConnector((ProvidedRole)newValue);
 				return;
-			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
-				setChildComponentContext_ProvidedDelegationConnector((AssemblyContext)newValue);
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
+				setAssemblyContext_ProvidedDelegationConnector((AssemblyContext)newValue);
 				return;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
 				setParentStructure_ProvidedDelegationConnector((ComposedStructure)newValue);
@@ -465,8 +419,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
 				setOuterProvidedRole_ProvidedDelegationConnector((ProvidedRole)null);
 				return;
-			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
-				setChildComponentContext_ProvidedDelegationConnector((AssemblyContext)null);
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
+				setAssemblyContext_ProvidedDelegationConnector((AssemblyContext)null);
 				return;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
 				setParentStructure_ProvidedDelegationConnector((ComposedStructure)null);
@@ -487,8 +441,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 				return innerProvidedRole_ProvidedDelegationConnector != null;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
 				return outerProvidedRole_ProvidedDelegationConnector != null;
-			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
-				return childComponentContext_ProvidedDelegationConnector != null;
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
+				return assemblyContext_ProvidedDelegationConnector != null;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
 				return getParentStructure_ProvidedDelegationConnector() != null;
 		}

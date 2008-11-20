@@ -52,7 +52,7 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getSteps_Behaviour() <em>Steps Behaviour</em>}' containment reference list.
@@ -64,33 +64,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 */
 	protected EList<AbstractAction> steps_Behaviour;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStopAction <em>Exactly One Stop Action</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ExactlyOneStopAction
-	 * @generated
-	 */
-	private static OCLExpression ExactlyOneStopActionInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStartAction <em>Exactly One Start Action</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ExactlyOneStartAction
-	 * @generated
-	 */
-	private static OCLExpression ExactlyOneStartActionInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor
-	 * @generated
-	 */
-	private static OCLExpression EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -130,24 +103,11 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * @generated
 	 */
 	public boolean ExactlyOneStopAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ExactlyOneStopActionInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1 ";
-			
-			try {
-				ExactlyOneStopActionInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyOneStopActionInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -160,7 +120,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -169,24 +128,11 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * @generated
 	 */
 	public boolean ExactlyOneStartAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ExactlyOneStartActionInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1 ";
-			
-			try {
-				ExactlyOneStartActionInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyOneStartActionInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -199,7 +145,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -208,24 +153,11 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * @generated
 	 */
 	public boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined()) ";
-			
-			try {
-				EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -238,7 +170,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

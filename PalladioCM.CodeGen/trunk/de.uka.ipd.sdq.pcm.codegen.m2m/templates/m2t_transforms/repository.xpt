@@ -38,6 +38,6 @@
 	«ENDFILE»
 	«REM»
 	I guess this line is generating additional overhead, the components inside a CC should be generated already
-	«EXPAND m2t_transforms::repository::ComponentRoot FOREACH this.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext»
+	«EXPAND m2t_transforms::repository::ComponentRoot FOREACH this.assemblyContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext»
 	«ENDREM»
 «ENDDEFINE»

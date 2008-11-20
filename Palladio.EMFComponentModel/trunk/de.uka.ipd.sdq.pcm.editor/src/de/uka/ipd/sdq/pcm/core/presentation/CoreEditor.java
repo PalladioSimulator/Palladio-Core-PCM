@@ -211,13 +211,6 @@ public class CoreEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -573,7 +566,7 @@ public class CoreEditor
 						}
 					}
 					catch (CoreException exception) {
-						PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+						PcmEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -683,7 +676,7 @@ public class CoreEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+					PcmEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -694,7 +687,7 @@ public class CoreEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+						PcmEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -757,9 +750,9 @@ public class CoreEditor
 		adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -1577,7 +1570,7 @@ public class CoreEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+			PcmEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1670,7 +1663,7 @@ public class CoreEditor
 			}
 		}
 		catch (CoreException exception) {
-			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+			PcmEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1792,7 +1785,7 @@ public class CoreEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key);
+		return PcmEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1802,7 +1795,7 @@ public class CoreEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return PcmEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

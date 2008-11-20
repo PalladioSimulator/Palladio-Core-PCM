@@ -45,7 +45,7 @@ public interface Interface extends Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Parent Interface Interface</b></em>' reference list.
@@ -155,6 +155,8 @@ public interface Interface extends Entity {
 	 * self.protocols__Interface->forAll(p1, p2 |
 	 * p1.protocolTypeID <> p2.protocolTypeID)
 	 * 
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -181,6 +183,8 @@ public interface Interface extends Entity {
 	 * )
 	 * in
 	 * sigs->isUnique(s|s)
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

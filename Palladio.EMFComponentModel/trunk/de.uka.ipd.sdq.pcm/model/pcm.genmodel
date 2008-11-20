@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany"
-    modelDirectory="/de.uka.ipd.sdq.pcm/src" modelPluginID="de.uka.ipd.sdq.pcm" templateDirectory="/de.uka.ipd.sdq.pcm/templates"
-    dynamicTemplates="true" modelName="PalladioComponentModel" modelPluginClass=""
-    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany"
+    modelDirectory="/de.uka.ipd.sdq.pcm/src" modelPluginID="de.uka.ipd.sdq.pcm" modelName="Pcm"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
-    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
-    <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
-    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_FEATURES" value="DISCARD"/>
-    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
-    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
-    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
-    <details key="DERIVED_FEATURES" value="PROCESS"/>
-    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
-    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
-    <details key="SUPER_CLASS_ORDER" value="REPORT"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
     <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
   </genAnnotations>
-  <foreignModel>file:/C:/2008.09.19/Trunk%20Exports/2008.11.18/identifier.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/Trunk%20Exports/2008.11.18/pcm.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/Trunk%20Exports/2008.11.18/ProbabilityFunction.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/Trunk%20Exports/2008.11.18/stoex.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/Trunk%20Exports/2008.11.18/Units.uml</foreignModel>
-  <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
-  <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
+  <foreignModel>../../RSA-Models/RSA%20Exports/pcm.uml</foreignModel>
+  <genPackages prefix="" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
     <nestedGenPackages prefix="Core" basePackage="de.uka.ipd.sdq.pcm" resource="XML"
         disposableProviderFactory="true" ecorePackage="pcm.ecore#//core">
@@ -73,15 +67,15 @@
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/outerProvidedRole_ProvidedDelegationConnector"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/childComponentContext_ProvidedDelegationConnector"/>
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/assemblyContext_ProvidedDelegationConnector"/>
           <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/parentStructure_ProvidedDelegationConnector"/>
           <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure">
             <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/diagnostics"/>
             <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/context"/>
           </genOperations>
-          <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame">
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame/diagnostics"/>
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame/context"/>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame/context"/>
           </genOperations>
         </genClasses>
         <genClasses ecoreClass="pcm.ecore#//core/composition/AssemblyContext">
@@ -96,15 +90,15 @@
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/outerRequiredRole_RequiredDelegationConnector"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/childComponentContext_RequiredDelegationConnector"/>
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/assemblyContext_RequiredDelegationConnector"/>
           <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/parentStructure_RequiredDelegationConnector"/>
           <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure">
             <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/diagnostics"/>
             <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/context"/>
           </genOperations>
-          <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame">
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame/diagnostics"/>
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame/context"/>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame/context"/>
           </genOperations>
         </genClasses>
         <genClasses ecoreClass="pcm.ecore#//core/composition/AssemblyConnector">
@@ -113,9 +107,9 @@
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/providingAssemblyContext_AssemblyConnector"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/providedRole_CompositeAssemblyConnector"/>
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/providedRole_AssemblyConnector"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/requiredRole_CompositeAssemblyConnector"/>
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/requiredRole_AssemblyConnector"/>
           <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/parentStructure_AssemblyConnector"/>
           <genOperations ecoreOperation="pcm.ecore#//core/composition/AssemblyConnector/AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch">
             <genParameters ecoreParameter="pcm.ecore#//core/composition/AssemblyConnector/AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch/diagnostics"/>
@@ -441,8 +435,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ServiceEffectSpecification/describedService__SEFF"/>
       </genClasses>
-      <nestedGenPackages prefix="Performance" basePackage="de.uka.ipd.sdq.pcm.seff"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//seff/performance">
+      <nestedGenPackages prefix="Performance" resource="XML" disposableProviderFactory="true"
+          ecorePackage="pcm.ecore#//seff/performance">
         <genClasses ecoreClass="pcm.ecore#//seff/performance/ParametricResourceDemand">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/performance/ParametricResourceDemand/specification_ParametericResourceDemand"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -529,7 +523,7 @@
             ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedQoSAnnotation/role_SpecifiedQoSAnnotation"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedQoSAnnotation/specification_SpecifiedExecutionTime"/>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction">
+      <genClasses image="false" ecoreClass="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction/signature_SpecifiedOutputParameterAbstraction"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -548,8 +542,8 @@
               ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/performance/ComponentSpecifiedExecutionTime/assemblyContext_ComponentSpecifiedExecutionTime"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="Reliability" basePackage="de.uka.ipd.sdq.pcm.qosannotations"
-          resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations/reliability">
+      <nestedGenPackages prefix="Reliability" resource="XML" disposableProviderFactory="true"
+          ecorePackage="pcm.ecore#//qosannotations/reliability">
         <genClasses ecoreClass="pcm.ecore#//qosannotations/reliability/SpecifiedFailureProbability">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//qosannotations/reliability/SpecifiedFailureProbability/failureProbability"/>
         </genClasses>
@@ -650,8 +644,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/Delay/timeSpecification_Delay"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Subsystem" basePackage="de.uka.ipd.sdq.pcm" resource="XML"
-        disposableProviderFactory="true" ecorePackage="pcm.ecore#//subsystem">
+    <nestedGenPackages prefix="Subsystem" resource="XML" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//subsystem">
       <genClasses ecoreClass="pcm.ecore#//subsystem/SubSystem"/>
     </nestedGenPackages>
   </genPackages>

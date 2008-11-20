@@ -45,7 +45,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The default value of the '{@link #getRepositoryDescription() <em>Repository Description</em>}' attribute.

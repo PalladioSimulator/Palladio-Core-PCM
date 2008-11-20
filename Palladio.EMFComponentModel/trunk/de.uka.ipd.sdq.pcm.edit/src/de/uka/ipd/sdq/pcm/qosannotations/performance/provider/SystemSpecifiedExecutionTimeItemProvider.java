@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.qosannotations.performance.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -36,13 +37,6 @@ public class SystemSpecifiedExecutionTimeItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -123,7 +117,7 @@ public class SystemSpecifiedExecutionTimeItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return PalladioComponentModelEditPlugin.INSTANCE;
+		return PcmEditPlugin.INSTANCE;
 	}
 
 }

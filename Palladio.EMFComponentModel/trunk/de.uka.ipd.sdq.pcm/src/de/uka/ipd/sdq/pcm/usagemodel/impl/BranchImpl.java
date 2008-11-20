@@ -51,7 +51,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getBranchTransitions_Branch() <em>Branch Transitions Branch</em>}' containment reference list.
@@ -63,15 +63,6 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 */
 	protected EList<BranchTransition> branchTransitions_Branch;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #AllBranchProbabilitiesMustSumUpTo1 <em>All Branch Probabilities Must Sum Up To1</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AllBranchProbabilitiesMustSumUpTo1
-	 * @generated
-	 */
-	private static OCLExpression AllBranchProbabilitiesMustSumUpTo1InvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -111,24 +102,11 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 * @generated
 	 */
 	public boolean AllBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (AllBranchProbabilitiesMustSumUpTo1InvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001 ";
-			
-			try {
-				AllBranchProbabilitiesMustSumUpTo1InvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(AllBranchProbabilitiesMustSumUpTo1InvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -141,7 +119,6 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

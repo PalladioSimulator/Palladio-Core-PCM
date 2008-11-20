@@ -89,7 +89,7 @@ output=output
 	    <ejb-ref-type>Session</ejb-ref-type> 
 	    <remote>«this.providedInterface__ProvidedRole.fqn()»</remote>
 	    «LET ((System)this.providingEntity_ProvidedRole).providedDelegationConnectors_ComposedStructure.select(pdc|pdc.outerProvidedRole_ProvidedDelegationConnector==this).get(0) AS delegationConnector»
-			«LET delegationConnector.childComponentContext_ProvidedDelegationConnector AS componentContext»
+			«LET delegationConnector.assemblyContext_ProvidedDelegationConnector AS componentContext»
 			    <ejb-link>«componentContext.encapsulatedComponent_AssemblyContext.javaName()»_«this.providedInterface__ProvidedRole.javaName()»_«componentContext.id»</ejb-link> 
 			«ENDLET»
 	    «ENDLET»

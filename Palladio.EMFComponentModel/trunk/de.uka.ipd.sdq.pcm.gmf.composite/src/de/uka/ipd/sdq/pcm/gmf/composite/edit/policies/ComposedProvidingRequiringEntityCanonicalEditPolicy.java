@@ -317,10 +317,10 @@ private EditPart getDiagramEditPart() {
 			} else if (nextLinkDescriptor.getLinkElement() instanceof ProvidedDelegationConnector) {
 				ProvidedDelegationConnector ctx = (ProvidedDelegationConnector) nextLinkDescriptor.getLinkElement();
 				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),null);
-				targetEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getDestination(),ctx.getChildComponentContext_ProvidedDelegationConnector());
+				targetEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getDestination(),ctx.getAssemblyContext_ProvidedDelegationConnector());
 			} else {
 				RequiredDelegationConnector ctx = (RequiredDelegationConnector) nextLinkDescriptor.getLinkElement();
-				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),ctx.getChildComponentContext_RequiredDelegationConnector());
+				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),ctx.getAssemblyContext_RequiredDelegationConnector());
 				targetEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getDestination(),null);
 			}
 			if (sourceEditPart == null || targetEditPart == null) {
@@ -428,10 +428,10 @@ private void storeTypeModelFacetLinks_AssemblyConnector_4001(EObject container, 
 			EObject nextValue = ((EObject) values.next());
 		int linkVID = PalladioComponentModelVisualIDRegistry.getLinkWithClassVisualID(nextValue);
 		if (AssemblyConnectorEditPart.VISUAL_ID == linkVID) {
-			Object structuralFeatureResult = ((AssemblyConnector)nextValue).getRequiredRole_CompositeAssemblyConnector();				
+			Object structuralFeatureResult = ((AssemblyConnector)nextValue).getRequiredRole_AssemblyConnector();				
 			if (structuralFeatureResult instanceof EObject) {
 				EObject dst = (EObject) structuralFeatureResult;
-				structuralFeatureResult = ((AssemblyConnector)nextValue).getProvidedRole_CompositeAssemblyConnector();				
+				structuralFeatureResult = ((AssemblyConnector)nextValue).getProvidedRole_AssemblyConnector();				
 				if (structuralFeatureResult instanceof EObject) {
 					EObject src = (EObject) structuralFeatureResult;
 					myLinkDescriptors.add(new LinkDescriptor(dst, src, nextValue, de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes.AssemblyConnector_4001, linkVID));

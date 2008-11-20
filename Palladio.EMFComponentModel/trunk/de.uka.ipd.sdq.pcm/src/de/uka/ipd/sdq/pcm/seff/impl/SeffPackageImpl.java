@@ -88,7 +88,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -302,9 +302,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 		UnitsPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
@@ -944,8 +944,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		abstractInternalControlFlowActionEClass.getESuperTypes().add(this.getAbstractAction());
 		abstractActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		startActionEClass.getESuperTypes().add(this.getAbstractInternalControlFlowAction());
-		resourceDemandingSEFFEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getServiceEffectSpecification());
+		resourceDemandingSEFFEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getResourceDemandingBehaviour());
 		releaseActionEClass.getESuperTypes().add(this.getAbstractInternalControlFlowAction());
 		loopActionEClass.getESuperTypes().add(this.getAbstractLoopAction());

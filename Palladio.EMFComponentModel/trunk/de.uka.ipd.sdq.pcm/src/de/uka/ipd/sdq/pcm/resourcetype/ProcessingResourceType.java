@@ -18,11 +18,12 @@ package de.uka.ipd.sdq.pcm.resourcetype;
  * @generated
  */
 public interface ProcessingResourceType extends ResourceType {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // ProcessingResourceType

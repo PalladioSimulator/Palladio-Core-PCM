@@ -128,6 +128,7 @@ import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.presentation.PcmEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
@@ -158,13 +159,6 @@ import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 public class RepositoryEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -521,7 +515,7 @@ public class RepositoryEditor
 						}
 					}
 					catch (CoreException exception) {
-						PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+						PcmEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -631,7 +625,7 @@ public class RepositoryEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+					PcmEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -642,7 +636,7 @@ public class RepositoryEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+						PcmEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -1550,7 +1544,7 @@ public class RepositoryEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+			PcmEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1643,7 +1637,7 @@ public class RepositoryEditor
 			}
 		}
 		catch (CoreException exception) {
-			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+			PcmEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1765,7 +1759,7 @@ public class RepositoryEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key);
+		return PcmEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1775,7 +1769,7 @@ public class RepositoryEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return PcmEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

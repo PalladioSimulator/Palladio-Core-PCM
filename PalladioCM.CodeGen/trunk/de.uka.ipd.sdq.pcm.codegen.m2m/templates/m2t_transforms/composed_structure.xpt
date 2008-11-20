@@ -91,7 +91,7 @@
 «DEFINE PortInit(ComposedStructure cs) FOR ProvidedRole»
 «this.portMemberVar()» = new «this.fqnPort()»(
 		«IF cs.hasProvidedDelegationConnector(this)»
-			my«cs.getProvidedDelegationConnector(this).childComponentContext_ProvidedDelegationConnector.javaName()».
+			my«cs.getProvidedDelegationConnector(this).assemblyContext_ProvidedDelegationConnector.javaName()».
 			«cs.getProvidedDelegationConnector(this).innerProvidedRole_ProvidedDelegationConnector.portGetter()»()
 		«ELSE»
 		   null
@@ -120,7 +120,7 @@
 	«IF hasConnector(s,ctx,this)»
 		«LET getConnector(s,ctx,this) AS connector»
 			/* From Connector «connector.id» */
-			my«connector.providingAssemblyContext_AssemblyConnector.javaName()».«connector.providedRole_CompositeAssemblyConnector.portGetter()»()
+			my«connector.providingAssemblyContext_AssemblyConnector.javaName()».«connector.providedRole_AssemblyConnector.portGetter()»()
 	   	«ENDLET»
 	«ELSE» 
 		«IF hasRequiredDelegationConnector(s,ctx,this)»

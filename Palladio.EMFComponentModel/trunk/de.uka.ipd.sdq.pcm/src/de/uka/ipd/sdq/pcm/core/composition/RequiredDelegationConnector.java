@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector <em>Inner Required Role Required Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector <em>Outer Required Role Required Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getChildComponentContext_RequiredDelegationConnector <em>Child Component Context Required Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector <em>Assembly Context Required Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getParentStructure_RequiredDelegationConnector <em>Parent Structure Required Delegation Connector</em>}</li>
  * </ul>
  * </p>
@@ -37,7 +37,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Inner Required Role Required Delegation Connector</b></em>' reference.
@@ -92,30 +92,30 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	void setOuterRequiredRole_RequiredDelegationConnector(RequiredRole value);
 
 	/**
-	 * Returns the value of the '<em><b>Child Component Context Required Delegation Connector</b></em>' reference.
+	 * Returns the value of the '<em><b>Assembly Context Required Delegation Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Child Component Context Required Delegation Connector</em>' reference isn't clear,
+	 * If the meaning of the '<em>Assembly Context Required Delegation Connector</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child Component Context Required Delegation Connector</em>' reference.
-	 * @see #setChildComponentContext_RequiredDelegationConnector(AssemblyContext)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector()
+	 * @return the value of the '<em>Assembly Context Required Delegation Connector</em>' reference.
+	 * @see #setAssemblyContext_RequiredDelegationConnector(AssemblyContext)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	AssemblyContext getChildComponentContext_RequiredDelegationConnector();
+	AssemblyContext getAssemblyContext_RequiredDelegationConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getChildComponentContext_RequiredDelegationConnector <em>Child Component Context Required Delegation Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector <em>Assembly Context Required Delegation Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Child Component Context Required Delegation Connector</em>' reference.
-	 * @see #getChildComponentContext_RequiredDelegationConnector()
+	 * @param value the new value of the '<em>Assembly Context Required Delegation Connector</em>' reference.
+	 * @see #getAssemblyContext_RequiredDelegationConnector()
 	 * @generated
 	 */
-	void setChildComponentContext_RequiredDelegationConnector(AssemblyContext value);
+	void setAssemblyContext_RequiredDelegationConnector(AssemblyContext value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent Structure Required Delegation Connector</b></em>' container reference.
@@ -149,7 +149,9 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector.parentStructure_AssemblyContext
+	 * self.parentStructure_RequiredDelegationConnector = self.assemblyContext_RequiredDelegationConnector.parentStructure_AssemblyContext
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -160,11 +162,13 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext
+	 * self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // RequiredDelegationConnector

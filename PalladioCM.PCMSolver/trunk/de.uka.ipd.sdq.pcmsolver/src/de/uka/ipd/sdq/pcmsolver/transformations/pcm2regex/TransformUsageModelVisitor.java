@@ -87,7 +87,7 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 		ProvidedRole role = object.getProvidedRole_EntryLevelSystemCall();
 		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
 		RepositoryComponent offeringComponent = delegationConnector
-				.getChildComponentContext_ProvidedDelegationConnector()
+				.getAssemblyContext_ProvidedDelegationConnector()
 				.getEncapsulatedComponent_AssemblyContext();
 	
 		Expression expr = null;

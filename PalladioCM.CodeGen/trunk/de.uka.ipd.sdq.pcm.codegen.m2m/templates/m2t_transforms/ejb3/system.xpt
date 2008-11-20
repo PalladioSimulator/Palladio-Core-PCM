@@ -88,7 +88,7 @@
 	<ejb-ref-type>Session</ejb-ref-type>
 	<remote>«this.requiredInterface__RequiredRole.fqn()»</remote>
 	«IF s.hasConnector(a,this)»
-		<ejb-link>«s.getConnector(a,this).providingAssemblyContext_AssemblyConnector.portSessionBeanName(s.getConnector(a,this).providedRole_CompositeAssemblyConnector)»</ejb-link>
+		<ejb-link>«s.getConnector(a,this).providingAssemblyContext_AssemblyConnector.portSessionBeanName(s.getConnector(a,this).providedRole_AssemblyConnector)»</ejb-link>
 		<injection-target>
 			<injection-target-class>
 				«a.encapsulatedComponent_AssemblyContext.fqnContext()»

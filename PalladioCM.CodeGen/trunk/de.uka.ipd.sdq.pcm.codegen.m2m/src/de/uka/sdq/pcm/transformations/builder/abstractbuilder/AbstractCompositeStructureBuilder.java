@@ -22,7 +22,7 @@ extends AbstractComponentBuilder {
 		if (innerRole == null || innerContext == null || outerRole == null)
 			throw new IllegalArgumentException("At least on argument is null in delegation connector creation.");
 		RequiredDelegationConnector reqDelCon = CompositionFactory.eINSTANCE.createRequiredDelegationConnector();
-		reqDelCon.setChildComponentContext_RequiredDelegationConnector(innerContext);
+		reqDelCon.setAssemblyContext_RequiredDelegationConnector(innerContext);
 		reqDelCon.setInnerRequiredRole_RequiredDelegationConnector(innerRole);
 		reqDelCon.setOuterRequiredRole_RequiredDelegationConnector(outerRole);
 		
@@ -33,7 +33,7 @@ extends AbstractComponentBuilder {
 		if (innerRole == null || innerContext == null || outerRole == null)
 			throw new IllegalArgumentException("At least on argument is null in delegation connector creation.");
 		ProvidedDelegationConnector delCon = CompositionFactory.eINSTANCE.createProvidedDelegationConnector();
-		delCon.setChildComponentContext_ProvidedDelegationConnector(innerContext);
+		delCon.setAssemblyContext_ProvidedDelegationConnector(innerContext);
 		delCon.setInnerProvidedRole_ProvidedDelegationConnector(innerRole);
 		delCon.setOuterProvidedRole_ProvidedDelegationConnector(outerRole);
 		
@@ -43,9 +43,9 @@ extends AbstractComponentBuilder {
 	protected void addAssemblyConnector(RequiredRole from, AssemblyContext fromContext, ProvidedRole to, AssemblyContext toContext){
 		AssemblyConnector acon = CompositionFactory.eINSTANCE.createAssemblyConnector();
 		acon.setParentStructure_AssemblyConnector(getComposedStructure());
-		acon.setRequiredRole_CompositeAssemblyConnector(from);
+		acon.setRequiredRole_AssemblyConnector(from);
 		acon.setRequiringAssemblyContext_AssemblyConnector(fromContext);
-		acon.setProvidedRole_CompositeAssemblyConnector(to);
+		acon.setProvidedRole_AssemblyConnector(to);
 		acon.setProvidingAssemblyContext_AssemblyConnector(toContext);
 	}
 	

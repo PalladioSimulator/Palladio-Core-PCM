@@ -61,7 +61,7 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
@@ -92,15 +92,6 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
 	 * @ordered
 	 */
 	protected EList<ResourceRequiredRole> resourceRequiredRoles_ResourceInterfaceRequiringEntity;
-
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ProvidedRolesMustBeBound <em>Provided Roles Must Be Bound</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ProvidedRolesMustBeBound
-	 * @generated
-	 */
-	private static OCLExpression ProvidedRolesMustBeBoundInvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
@@ -165,24 +156,11 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
 	 * @generated
 	 */
 	public boolean ProvidedRolesMustBeBound(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ProvidedRolesMustBeBoundInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).  self.providedRoles_InterfaceProvidingEntity->forAll(role|self.providedDelegationConnectors_ComposedStructure->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))  ";
-			
-			try {
-				ProvidedRolesMustBeBoundInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ProvidedRolesMustBeBoundInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -195,7 +173,6 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

@@ -41,7 +41,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getAsynchronousForkedBehaviours_ForkAction() <em>Asynchronous Forked Behaviours Fork Action</em>}' containment reference list.

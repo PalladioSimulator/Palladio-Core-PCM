@@ -48,7 +48,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getParentProvidesComponentTypes() <em>Parent Provides Component Types</em>}' reference list.
@@ -60,24 +60,6 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 	 */
 	protected EList<ProvidesComponentType> parentProvidesComponentTypes;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType
-	 * @generated
-	 */
-	private static OCLExpression AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #providedInterfacesHaveToConformToProvidedType2 <em>Provided Interfaces Have To Conform To Provided Type2</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #providedInterfacesHaveToConformToProvidedType2
-	 * @generated
-	 */
-	private static OCLExpression providedInterfacesHaveToConformToProvidedType2InvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -117,24 +99,11 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 	 * @generated
 	 */
 	public boolean AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "(  	self.oclIsTypeOf(CompleteComponentType)  	or  	self.oclIsTypeOf(ImplementationComponentType)  	or  	self.oclIsTypeOf(CompositeComponent)  	or  	self.oclIsTypeOf(BasicComponent)  )  implies  (  	self.providedRoles_InterfaceProvidingEntity->size() >= 1  	or  	self.requiredRoles_InterfaceRequiringEntity->size() >= 1  ) ";
-			
-			try {
-				AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -147,7 +116,6 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -156,24 +124,11 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 	 * @generated
 	 */
 	public boolean providedInterfacesHaveToConformToProvidedType2(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (providedInterfacesHaveToConformToProvidedType2InvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "                           true ";
-			
-			try {
-				providedInterfacesHaveToConformToProvidedType2InvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(providedInterfacesHaveToConformToProvidedType2InvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -186,7 +141,6 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

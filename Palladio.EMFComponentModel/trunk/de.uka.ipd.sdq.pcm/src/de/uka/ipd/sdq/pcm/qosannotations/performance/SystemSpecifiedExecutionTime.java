@@ -25,11 +25,12 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
  * @generated
  */
 public interface SystemSpecifiedExecutionTime extends SpecifiedQoSAnnotation {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // SystemSpecifiedExecutionTime

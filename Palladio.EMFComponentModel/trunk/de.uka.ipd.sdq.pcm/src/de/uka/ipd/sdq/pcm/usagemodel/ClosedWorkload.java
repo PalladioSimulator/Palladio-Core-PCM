@@ -42,7 +42,7 @@ public interface ClosedWorkload extends Workload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Population</b></em>' attribute.
@@ -101,6 +101,8 @@ public interface ClosedWorkload extends Workload {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * not self.population.oclIsUndefined() and self.population <> ''
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -112,6 +114,8 @@ public interface ClosedWorkload extends Workload {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification <> ''
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

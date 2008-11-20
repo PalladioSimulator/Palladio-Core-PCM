@@ -73,6 +73,8 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.presentation.PcmEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 
@@ -96,13 +98,6 @@ import org.eclipse.ui.PartInitException;
  * @generated
  */
 public class AllocationModelWizard extends Wizard implements INewWizard {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 	/**
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc -->
@@ -168,8 +163,8 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(PalladioComponentModelEditorPlugin.INSTANCE.getImage("full/wizban/NewAllocation")));
+		setWindowTitle(PcmEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(PcmEditorPlugin.INSTANCE.getImage("full/wizban/NewAllocation")));
 	}
 
 	/**
@@ -252,7 +247,7 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+							PcmEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -285,14 +280,14 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), PcmEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+			PcmEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -325,10 +320,10 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 			if (super.validatePage()) {
 				// Make sure the file ends in ".allocation".
 				//
-				String requiredExt = PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension");
+				String requiredExt = PcmEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension");
 				String enteredExt = new Path(getFileName()).getFileExtension();
 				if (enteredExt == null || !enteredExt.equals(requiredExt)) {
-					setErrorMessage(PalladioComponentModelEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
+					setErrorMessage(PcmEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
 					return false;
 				}
 				else {
@@ -409,7 +404,7 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(PcmEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -435,7 +430,7 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(PcmEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -534,10 +529,10 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return PalladioComponentModelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return PcmEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				PalladioComponentModelEditorPlugin.INSTANCE.log(mre);
+				PcmEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -550,7 +545,7 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(PcmEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -569,9 +564,9 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new AllocationModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_label"));
-		newFileCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_description"));
-		newFileCreationPage.setFileName(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameDefaultBase") + "." + PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension"));
+		newFileCreationPage.setTitle(PcmEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_label"));
+		newFileCreationPage.setDescription(PcmEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_description"));
+		newFileCreationPage.setFileName(PcmEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameDefaultBase") + "." + PcmEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension"));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -597,8 +592,8 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension");
+					String defaultModelBaseFilename = PcmEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = PcmEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension");
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
@@ -608,8 +603,8 @@ public class AllocationModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new AllocationModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_label"));
-		initialObjectCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(PcmEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_label"));
+		initialObjectCreationPage.setDescription(PcmEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

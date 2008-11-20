@@ -283,7 +283,7 @@ public class ContextWrapper implements Cloneable{
 		for (ProvidedDelegationConnector pdc : pdcList){
 			if (pdc.getOuterProvidedRole_ProvidedDelegationConnector().getId().equals(role.getId())){
 				//pdc.getChildComponentContext_ProvidedDelegationConnector();
-				return pdc.getChildComponentContext_ProvidedDelegationConnector();
+				return pdc.getAssemblyContext_ProvidedDelegationConnector();
 				//TODO: testen, abfrage interface?
 			}
 		}
@@ -611,13 +611,13 @@ public class ContextWrapper implements Cloneable{
 			String assId = assConn.getRequiringAssemblyContext_AssemblyConnector().getId();
 			
 			String myIfId = requiredInterface.getId();
-			String ifId = assConn.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole().getId();
+			String ifId = assConn.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole().getId();
 			
 			if (assConn
 					.getRequiringAssemblyContext_AssemblyConnector()
 					.getId().equals(assCtx.getId())
 			 && assConn
-			 		.getRequiredRole_CompositeAssemblyConnector()
+			 		.getRequiredRole_AssemblyConnector()
 					.getRequiredInterface__RequiredRole().getId()
 					.equals(requiredInterface.getId())) {
 				matchingAssConn = assConn;

@@ -71,7 +71,7 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 			return false;
 		}
 		ProvidedRole target = getLink()
-				.getProvidedRole_CompositeAssemblyConnector();
+				.getProvidedRole_AssemblyConnector();
 		if (!(getLink().eContainer() instanceof ComposedStructure)) {
 			return false;
 		}
@@ -90,7 +90,7 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 			return false;
 		}
 		RequiredRole source = getLink()
-				.getRequiredRole_CompositeAssemblyConnector();
+				.getRequiredRole_AssemblyConnector();
 		if (!(getLink().eContainer() instanceof ComposedStructure)) {
 			return false;
 		}
@@ -123,7 +123,7 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getLink().setRequiredRole_CompositeAssemblyConnector(getNewSource());
+		getLink().setRequiredRole_AssemblyConnector(getNewSource());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
@@ -131,7 +131,7 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getLink().setProvidedRole_CompositeAssemblyConnector(getNewTarget());
+		getLink().setProvidedRole_AssemblyConnector(getNewTarget());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 

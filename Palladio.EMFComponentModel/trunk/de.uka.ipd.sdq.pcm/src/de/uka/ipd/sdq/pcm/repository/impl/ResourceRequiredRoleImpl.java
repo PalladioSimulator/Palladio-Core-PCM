@@ -38,8 +38,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 	/**
 	 * The cached value of the '{@link #getRequiredInterface_ResourceRequiredRole() <em>Required Interface Resource Required Role</em>}' reference.
 	 * <!-- begin-user-doc -->

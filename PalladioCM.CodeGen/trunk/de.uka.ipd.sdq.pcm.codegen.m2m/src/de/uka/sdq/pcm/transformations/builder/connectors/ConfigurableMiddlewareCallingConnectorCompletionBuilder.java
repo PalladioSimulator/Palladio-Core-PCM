@@ -33,8 +33,8 @@ public class ConfigurableMiddlewareCallingConnectorCompletionBuilder extends
 	protected IMiddlewareInteractingComponentBuilder createClientSideBuilder() {
 		MiddlewareCallingComponentBuilder builder = new MiddlewareCallingComponentBuilder
 				(myModels, 
-				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
+				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
+				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
 				this.fromResourceContainer,
 				clientSideBeforeCall,
@@ -46,8 +46,8 @@ public class ConfigurableMiddlewareCallingConnectorCompletionBuilder extends
 	protected IMiddlewareInteractingComponentBuilder createServerSideBuilder() {
 		MiddlewareCallingComponentBuilder builder = new MiddlewareCallingComponentBuilder
 				(myModels, 
-				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),
+				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
+				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
 				this.middlewareInterface,
 				this.toResourceContainer,
 				serverSideBeforeCall,

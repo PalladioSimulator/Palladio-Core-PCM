@@ -62,7 +62,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getParentCompleteComponentTypes() <em>Parent Complete Component Types</em>}' reference list.
@@ -83,42 +83,6 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @ordered
 	 */
 	protected EList<VariableUsage> componentParameterUsage_ImplementationComponentType;
-
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ProvideSameInterfaces <em>Provide Same Interfaces</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ProvideSameInterfaces
-	 * @generated
-	 */
-	private static OCLExpression ProvideSameInterfacesInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #RequireSameInterfaces <em>Require Same Interfaces</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #RequireSameInterfaces
-	 * @generated
-	 */
-	private static OCLExpression RequireSameInterfacesInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #RequiredInterfacesHaveToConformToCompleteType <em>Required Interfaces Have To Conform To Complete Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #RequiredInterfacesHaveToConformToCompleteType
-	 * @generated
-	 */
-	private static OCLExpression RequiredInterfacesHaveToConformToCompleteTypeInvOCL;
-
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #providedInterfacesHaveToConformToCompleteType <em>Provided Interfaces Have To Conform To Complete Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #providedInterfacesHaveToConformToCompleteType
-	 * @generated
-	 */
-	private static OCLExpression providedInterfacesHaveToConformToCompleteTypeInvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
@@ -212,24 +176,11 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @generated
 	 */
 	public boolean ProvideSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ProvideSameInterfacesInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = " self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |  	acc1->union(pr.providedInterface__ProvidedRole.id->asBag())  )  =  if  	  	self.implementationComponentType->notEmpty()  then  	self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |  		acc2->union(pr.providedInterface__ProvidedRole.id->asBag())  	)  else  	Bag{}  endif ";
-			
-			try {
-				ProvideSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ProvideSameInterfacesInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -242,7 +193,6 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -251,24 +201,11 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @generated
 	 */
 	public boolean RequireSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (RequireSameInterfacesInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = " self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |  	acc1->union(pr.requiredInterface__RequiredRole.id->asBag())  )  =  if  	  	self.implementationComponentType->notEmpty()  then  	self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |  		acc2->union(pr.requiredInterface__RequiredRole.id->asBag())  	)  else  	Bag{}  endif ";
-			
-			try {
-				RequireSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(RequireSameInterfacesInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -281,7 +218,6 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -290,24 +226,11 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @generated
 	 */
 	public boolean RequiredInterfacesHaveToConformToCompleteType(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (RequiredInterfacesHaveToConformToCompleteTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "                               true ";
-			
-			try {
-				RequiredInterfacesHaveToConformToCompleteTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(RequiredInterfacesHaveToConformToCompleteTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -320,7 +243,6 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -329,24 +251,11 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @generated
 	 */
 	public boolean providedInterfacesHaveToConformToCompleteType(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (providedInterfacesHaveToConformToCompleteTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "                    	        true ";
-			
-			try {
-				providedInterfacesHaveToConformToCompleteTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(providedInterfacesHaveToConformToCompleteTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -359,7 +268,6 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

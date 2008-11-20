@@ -42,7 +42,7 @@ public interface Branch extends AbstractUserAction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Branch Transitions Branch</b></em>' containment reference list.
@@ -65,6 +65,8 @@ public interface Branch extends AbstractUserAction {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

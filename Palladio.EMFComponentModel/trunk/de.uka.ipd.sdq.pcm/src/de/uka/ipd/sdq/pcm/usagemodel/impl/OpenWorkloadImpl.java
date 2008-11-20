@@ -49,7 +49,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getInterArrivalTime_OpenWorkload() <em>Inter Arrival Time Open Workload</em>}' containment reference.
@@ -61,15 +61,6 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 */
 	protected PCMRandomVariable interArrivalTime_OpenWorkload;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified <em>Inter Arrival Time In Open Workload Needs To Be Specified</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified
-	 * @generated
-	 */
-	private static OCLExpression InterArrivalTimeInOpenWorkloadNeedsToBeSpecifiedInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -140,24 +131,11 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * @generated
 	 */
 	public boolean InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (InterArrivalTimeInOpenWorkloadNeedsToBeSpecifiedInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification <> '' ";
-			
-			try {
-				InterArrivalTimeInOpenWorkloadNeedsToBeSpecifiedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(InterArrivalTimeInOpenWorkloadNeedsToBeSpecifiedInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -170,7 +148,6 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

@@ -40,17 +40,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #StopHasNoSuccessor <em>Stop Has No Successor</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #StopHasNoSuccessor
-	 * @generated
-	 */
-	private static OCLExpression StopHasNoSuccessorInvOCL;
-	
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -78,24 +68,11 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 	 * @generated
 	 */
 	public boolean StopHasNoSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (StopHasNoSuccessorInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.successor.oclIsUndefined() ";
-			
-			try {
-				StopHasNoSuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(StopHasNoSuccessorInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -108,7 +85,6 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 			return false;
 		}
 		return true;
-		
 	}
 
 } //StopImpl

@@ -30,11 +30,12 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
  * @generated
  */
 public interface SubSystem extends ComposedProvidingRequiringEntity, RepositoryComponent {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // SubSystem

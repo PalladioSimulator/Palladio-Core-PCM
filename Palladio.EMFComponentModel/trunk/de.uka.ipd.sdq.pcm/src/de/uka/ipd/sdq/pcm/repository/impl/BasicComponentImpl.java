@@ -53,7 +53,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The cached value of the '{@link #getServiceEffectSpecifications__BasicComponent() <em>Service Effect Specifications Basic Component</em>}' containment reference list.
@@ -75,33 +75,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 */
 	protected EList<PassiveResource> passiveResource_BasicComponent;
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #NoSeffTypeUsedTwice <em>No Seff Type Used Twice</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NoSeffTypeUsedTwice
-	 * @generated
-	 */
-	private static OCLExpression NoSeffTypeUsedTwiceInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #ProvideSameInterfacesAsImplementationType <em>Provide Same Interfaces As Implementation Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ProvideSameInterfacesAsImplementationType
-	 * @generated
-	 */
-	private static OCLExpression ProvideSameInterfacesAsImplementationTypeInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #RequireSameInterfacesAsImplementationType <em>Require Same Interfaces As Implementation Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #RequireSameInterfacesAsImplementationType
-	 * @generated
-	 */
-	private static OCLExpression RequireSameInterfacesAsImplementationTypeInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -153,24 +126,11 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 */
 	public boolean NoSeffTypeUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (NoSeffTypeUsedTwiceInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |    p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID)) ";
-			
-			try {
-				NoSeffTypeUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(NoSeffTypeUsedTwiceInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -183,7 +143,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -192,24 +151,11 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 */
 	public boolean ProvideSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ProvideSameInterfacesAsImplementationTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = " if  	  	self.parentCompleteComponentTypes->notEmpty()  then  	     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()      =           self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()  else  	true  endif ";
-			
-			try {
-				ProvideSameInterfacesAsImplementationTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(ProvideSameInterfacesAsImplementationTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -222,7 +168,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**
@@ -231,24 +176,11 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 */
 	public boolean RequireSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (RequireSameInterfacesAsImplementationTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = " if  	  	self.parentCompleteComponentTypes->notEmpty()  then  	     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()      =           self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()  else  	true  endif ";
-			
-			try {
-				RequireSameInterfacesAsImplementationTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(RequireSameInterfacesAsImplementationTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -261,7 +193,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			return false;
 		}
 		return true;
-		
 	}
 
 	/**

@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorItemProvider;
+import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 /**
@@ -39,13 +40,6 @@ public class AssemblyConnectorItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -69,8 +63,8 @@ public class AssemblyConnectorItemProvider
 
 			addRequiringAssemblyContext_AssemblyConnectorPropertyDescriptor(object);
 			addProvidingAssemblyContext_AssemblyConnectorPropertyDescriptor(object);
-			addProvidedRole_CompositeAssemblyConnectorPropertyDescriptor(object);
-			addRequiredRole_CompositeAssemblyConnectorPropertyDescriptor(object);
+			addProvidedRole_AssemblyConnectorPropertyDescriptor(object);
+			addRequiredRole_AssemblyConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -120,19 +114,19 @@ public class AssemblyConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Provided Role Composite Assembly Connector feature.
+	 * This adds a property descriptor for the Provided Role Assembly Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProvidedRole_CompositeAssemblyConnectorPropertyDescriptor(Object object) {
+	protected void addProvidedRole_AssemblyConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyConnector_providedRole_CompositeAssemblyConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_providedRole_CompositeAssemblyConnector_feature", "_UI_AssemblyConnector_type"),
-				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR,
+				 getString("_UI_AssemblyConnector_providedRole_AssemblyConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_providedRole_AssemblyConnector_feature", "_UI_AssemblyConnector_type"),
+				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -142,19 +136,19 @@ public class AssemblyConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Required Role Composite Assembly Connector feature.
+	 * This adds a property descriptor for the Required Role Assembly Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredRole_CompositeAssemblyConnectorPropertyDescriptor(Object object) {
+	protected void addRequiredRole_AssemblyConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyConnector_requiredRole_CompositeAssemblyConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_requiredRole_CompositeAssemblyConnector_feature", "_UI_AssemblyConnector_type"),
-				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR,
+				 getString("_UI_AssemblyConnector_requiredRole_AssemblyConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_requiredRole_AssemblyConnector_feature", "_UI_AssemblyConnector_type"),
+				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -221,7 +215,7 @@ public class AssemblyConnectorItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return PalladioComponentModelEditPlugin.INSTANCE;
+		return PcmEditPlugin.INSTANCE;
 	}
 
 }

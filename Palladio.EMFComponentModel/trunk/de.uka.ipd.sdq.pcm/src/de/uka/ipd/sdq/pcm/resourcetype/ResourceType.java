@@ -19,11 +19,12 @@ import de.uka.ipd.sdq.units.UnitCarryingElement;
  * @generated
  */
 public interface ResourceType extends Entity, UnitCarryingElement {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // ResourceType

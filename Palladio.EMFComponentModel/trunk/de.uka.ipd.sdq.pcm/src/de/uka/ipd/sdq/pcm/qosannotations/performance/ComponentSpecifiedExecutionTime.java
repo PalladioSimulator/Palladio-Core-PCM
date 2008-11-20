@@ -41,7 +41,7 @@ public interface ComponentSpecifiedExecutionTime extends SpecifiedQoSAnnotation 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Assembly Context Component Specified Execution Time</b></em>' reference.

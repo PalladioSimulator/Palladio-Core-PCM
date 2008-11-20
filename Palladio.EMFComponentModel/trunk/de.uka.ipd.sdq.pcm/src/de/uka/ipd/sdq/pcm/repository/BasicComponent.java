@@ -39,7 +39,7 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * Returns the value of the '<em><b>Service Effect Specifications Basic Component</b></em>' containment reference list.
@@ -85,6 +85,8 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- begin-model-doc -->
 	 * self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |
 	 *   p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -108,6 +110,8 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * else
 	 * 	true
 	 * endif
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -131,6 +135,8 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * else
 	 * 	true
 	 * endif
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

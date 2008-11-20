@@ -34,7 +34,7 @@ public interface CompositionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+	String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
 	 * The package name.
@@ -115,13 +115,13 @@ public interface CompositionPackage extends EPackage {
 	int PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = RepositoryPackage.DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Child Component Context Provided Delegation Connector</b></em>' reference.
+	 * The feature id for the '<em><b>Assembly Context Provided Delegation Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = RepositoryPackage.DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
+	int PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = RepositoryPackage.DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Parent Structure Provided Delegation Connector</b></em>' container reference.
@@ -252,13 +252,13 @@ public interface CompositionPackage extends EPackage {
 	int REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = RepositoryPackage.DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Child Component Context Required Delegation Connector</b></em>' reference.
+	 * The feature id for the '<em><b>Assembly Context Required Delegation Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = RepositoryPackage.DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
+	int REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = RepositoryPackage.DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Parent Structure Required Delegation Connector</b></em>' container reference.
@@ -325,22 +325,22 @@ public interface CompositionPackage extends EPackage {
 	int ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Provided Role Composite Assembly Connector</b></em>' reference.
+	 * The feature id for the '<em><b>Provided Role Assembly Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 2;
+	int ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Required Role Composite Assembly Connector</b></em>' reference.
+	 * The feature id for the '<em><b>Required Role Assembly Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 3;
+	int ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Parent Structure Assembly Connector</b></em>' container reference.
@@ -522,15 +522,15 @@ public interface CompositionPackage extends EPackage {
 	EReference getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getChildComponentContext_ProvidedDelegationConnector <em>Child Component Context Provided Delegation Connector</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector <em>Assembly Context Provided Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Child Component Context Provided Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getChildComponentContext_ProvidedDelegationConnector()
+	 * @return the meta object for the reference '<em>Assembly Context Provided Delegation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector()
 	 * @see #getProvidedDelegationConnector()
 	 * @generated
 	 */
-	EReference getProvidedDelegationConnector_ChildComponentContext_ProvidedDelegationConnector();
+	EReference getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getParentStructure_ProvidedDelegationConnector <em>Parent Structure Provided Delegation Connector</em>}'.
@@ -619,15 +619,15 @@ public interface CompositionPackage extends EPackage {
 	EReference getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getChildComponentContext_RequiredDelegationConnector <em>Child Component Context Required Delegation Connector</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector <em>Assembly Context Required Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Child Component Context Required Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getChildComponentContext_RequiredDelegationConnector()
+	 * @return the meta object for the reference '<em>Assembly Context Required Delegation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector()
 	 * @see #getRequiredDelegationConnector()
 	 * @generated
 	 */
-	EReference getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector();
+	EReference getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getParentStructure_RequiredDelegationConnector <em>Parent Structure Required Delegation Connector</em>}'.
@@ -673,26 +673,26 @@ public interface CompositionPackage extends EPackage {
 	EReference getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_CompositeAssemblyConnector <em>Provided Role Composite Assembly Connector</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector <em>Provided Role Assembly Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Provided Role Composite Assembly Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_CompositeAssemblyConnector()
+	 * @return the meta object for the reference '<em>Provided Role Assembly Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector()
 	 * @see #getAssemblyConnector()
 	 * @generated
 	 */
-	EReference getAssemblyConnector_ProvidedRole_CompositeAssemblyConnector();
+	EReference getAssemblyConnector_ProvidedRole_AssemblyConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_CompositeAssemblyConnector <em>Required Role Composite Assembly Connector</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector <em>Required Role Assembly Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Required Role Composite Assembly Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_CompositeAssemblyConnector()
+	 * @return the meta object for the reference '<em>Required Role Assembly Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector()
 	 * @see #getAssemblyConnector()
 	 * @generated
 	 */
-	EReference getAssemblyConnector_RequiredRole_CompositeAssemblyConnector();
+	EReference getAssemblyConnector_RequiredRole_AssemblyConnector();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}'.
@@ -862,12 +862,12 @@ public interface CompositionPackage extends EPackage {
 		EReference PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = eINSTANCE.getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Child Component Context Provided Delegation Connector</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Assembly Context Provided Delegation Connector</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = eINSTANCE.getProvidedDelegationConnector_ChildComponentContext_ProvidedDelegationConnector();
+		EReference PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = eINSTANCE.getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent Structure Provided Delegation Connector</b></em>' container reference feature.
@@ -938,12 +938,12 @@ public interface CompositionPackage extends EPackage {
 		EReference REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Child Component Context Required Delegation Connector</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Assembly Context Required Delegation Connector</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector();
+		EReference REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent Structure Required Delegation Connector</b></em>' container reference feature.
@@ -980,20 +980,20 @@ public interface CompositionPackage extends EPackage {
 		EReference ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR = eINSTANCE.getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Role Composite Assembly Connector</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Provided Role Assembly Connector</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR = eINSTANCE.getAssemblyConnector_ProvidedRole_CompositeAssemblyConnector();
+		EReference ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR = eINSTANCE.getAssemblyConnector_ProvidedRole_AssemblyConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Role Composite Assembly Connector</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Required Role Assembly Connector</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR = eINSTANCE.getAssemblyConnector_RequiredRole_CompositeAssemblyConnector();
+		EReference ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR = eINSTANCE.getAssemblyConnector_RequiredRole_AssemblyConnector();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent Structure Assembly Connector</b></em>' container reference feature.

@@ -30,8 +30,8 @@ extends AbstractCompositeStructureBuilder {
 	@Override
 	public void build() {
 		super.build();
-		myProvidedRole = addProvidedRole(connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),"ProvidedRole");
-		myRequiredRole = addRequiredRole(connectorToReplace.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole(),"RequiredRole");
+		myProvidedRole = addProvidedRole(connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),"ProvidedRole");
+		myRequiredRole = addRequiredRole(connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),"RequiredRole");
 
 		myAssemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext(); 
 		myAssemblyContext.setEntityName("CompletionComponentContext"+contextID);
