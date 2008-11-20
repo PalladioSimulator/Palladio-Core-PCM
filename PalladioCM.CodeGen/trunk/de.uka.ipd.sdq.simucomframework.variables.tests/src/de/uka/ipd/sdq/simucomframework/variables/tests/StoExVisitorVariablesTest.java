@@ -51,6 +51,11 @@ public class StoExVisitorVariablesTest extends TestCase {
 		Assert.fail("Parser error expected, but did not occur");
 	}
 
+	public void testPowVar() {
+		double result3 = (Double)StackContext.evaluateStatic("10^(anInt.BYTESIZE)",stackFrame);
+		Assert.assertEquals(Math.pow(10, 10), result3);
+	}
+	
 	public void testReturnDefault() {
 		int bs = (Integer)StackContext.evaluateStatic("a.BYTESIZE", stackFrame, VariableMode.RETURN_DEFAULT_ON_NOT_FOUND);
 		Assert.assertEquals(bs, 0);
