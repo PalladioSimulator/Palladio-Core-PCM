@@ -12,8 +12,8 @@ Adaptation of ORC for FESCA 2009 Paper
 --------------------------------------------------------------------
 
 - mehr Komplexität für Application.Store.bookSale():
-  - zusätzlicher Branch innerhalb des Loop
-  - zusätzliche Faktor 0.95 für die Anzahl der Schleifendurchläufe
+  - zusätzlicher Branch innerhalb des Loop mit zwei Verzweigungen
+  - zusätzliche Faktor für die Anzahl der Schleifendurchläufe 
 - begin / commit transaction hat eine Fehlerwahrscheinlichkeit von: 0.000001
 - ändere Data.Store.queryStockItem():
   - enthält nur noch eine Database-Query-Anfrage (Vereinfachung)
@@ -23,5 +23,5 @@ Adaptation of ORC for FESCA 2009 Paper
 Lessons learned
 --------------------------------------------------------------------
 
-- Ein Integer kann in einer StochasticExpression nicht mit einem Double multipliziert werden!
+- Ein Integer kann in einer StochasticExpression nicht mit einem Double multpliziert werden!
 - Der DependencySolver kann nur mit ganzzahligen LoopIteration-Counts arbeiten!  

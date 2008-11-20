@@ -12,6 +12,12 @@
           <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
             <specification_VariableCharacterisation specification="IntPMF[ (1;0.3) (8;0.1) (15;0.15) (25;0.15) (50;0.2) (75;0.1) ]"/>
           </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage>
+            <specification_VariableCharacterisation specification="EnumPMF[ (&quot;STANDARD&quot;;0.95) (&quot;SMALL&quot;;0.05) ]"/>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="EnumPMF[ (&quot;NUMBER&quot;;0.8) (&quot;NAME&quot;;0.2) ]"/>
+          </variableCharacterisation_VariableUsage>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="saleTO"/>
         </inputParameterUsages_EntryLevelSystemCall>
         <providedRole_EntryLevelSystemCall href="orc.system#_g52lkHesEd2mk8dKi3ngUA"/>

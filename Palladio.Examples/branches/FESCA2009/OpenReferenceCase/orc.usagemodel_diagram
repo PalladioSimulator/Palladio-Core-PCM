@@ -5,12 +5,12 @@
       <children xmi:type="notation:Node" xmi:id="_oDOClnk5Ed2DBfjHDxUcwg" type="3001">
         <styles xmi:type="notation:ShapeStyle" xmi:id="_oDOCl3k5Ed2DBfjHDxUcwg" fontName="Segoe UI"/>
         <element xmi:type="Start" href="orc.usagemodel#_oCoMsnk5Ed2DBfjHDxUcwg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oDOCmHk5Ed2DBfjHDxUcwg" x="187" y="6"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oDOCmHk5Ed2DBfjHDxUcwg" x="247" y="6"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_oDOCmXk5Ed2DBfjHDxUcwg" type="3002">
         <styles xmi:type="notation:ShapeStyle" xmi:id="_oDOCmnk5Ed2DBfjHDxUcwg" fontName="Segoe UI"/>
         <element xmi:type="Stop" href="orc.usagemodel#_oCoMs3k5Ed2DBfjHDxUcwg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oDOCm3k5Ed2DBfjHDxUcwg" x="187" y="270"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oDOCm3k5Ed2DBfjHDxUcwg" x="247" y="270"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_0jxZEHk5Ed2DBfjHDxUcwg" type="3003">
         <children xmi:type="notation:Node" xmi:id="_0jxZE3k5Ed2DBfjHDxUcwg" type="5004"/>
@@ -21,6 +21,14 @@
               <children xmi:type="notation:Node" xmi:id="_4b7WYHk5Ed2DBfjHDxUcwg" type="3006">
                 <element xmi:type="_1:VariableCharacterisation" href="orc.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_4b7WYXk5Ed2DBfjHDxUcwg"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_V8bOgLcBEd2_BPc0Bq_KAQ" type="3006">
+                <element xmi:type="_1:VariableCharacterisation" href="orc.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.1"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_V8bOgbcBEd2_BPc0Bq_KAQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_bymXsLcBEd2_BPc0Bq_KAQ" type="3006">
+                <element xmi:type="_1:VariableCharacterisation" href="orc.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.2"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_bymXsbcBEd2_BPc0Bq_KAQ"/>
               </children>
               <styles xmi:type="notation:DrawerStyle" xmi:id="_4HPf1Xk5Ed2DBfjHDxUcwg"/>
               <styles xmi:type="notation:TitleStyle" xmi:id="_4HPf1nk5Ed2DBfjHDxUcwg" showTitle="true"/>
@@ -36,20 +44,20 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_0jxZEXk5Ed2DBfjHDxUcwg" fontName="Segoe UI"/>
         <element xmi:type="EntryLevelSystemCall" href="orc.usagemodel#_x0OCkHk5Ed2DBfjHDxUcwg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0jxZEnk5Ed2DBfjHDxUcwg" x="19" y="90" width="361" height="109"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0jxZEnk5Ed2DBfjHDxUcwg" x="19" y="66" width="481" height="145"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_oDOClHk5Ed2DBfjHDxUcwg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_oDOClXk5Ed2DBfjHDxUcwg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_oDOCkXk5Ed2DBfjHDxUcwg" fontName="Segoe UI"/>
     <element xmi:type="ScenarioBehaviour" href="orc.usagemodel#_oCoMsXk5Ed2DBfjHDxUcwg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oDOCknk5Ed2DBfjHDxUcwg" x="84" y="72" width="409" height="325"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oDOCknk5Ed2DBfjHDxUcwg" x="24" y="76" width="529" height="325"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_rsDKcHk5Ed2DBfjHDxUcwg" type="2003">
     <children xmi:type="notation:Node" xmi:id="_rsDKc3k5Ed2DBfjHDxUcwg" type="5010"/>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_rsDKcXk5Ed2DBfjHDxUcwg" fontName="Segoe UI"/>
     <element xmi:type="OpenWorkload" href="orc.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rsDKcnk5Ed2DBfjHDxUcwg" x="84" y="20" width="409"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rsDKcnk5Ed2DBfjHDxUcwg" x="24" y="24" width="529"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_oCoMtXk5Ed2DBfjHDxUcwg"/>
   <element xmi:type="UsageScenario" href="orc.usagemodel#_oCoMsHk5Ed2DBfjHDxUcwg"/>

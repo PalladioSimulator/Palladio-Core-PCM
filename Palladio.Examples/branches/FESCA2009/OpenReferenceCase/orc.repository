@@ -175,30 +175,33 @@
       <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_qPZWwNJOEduQ7qbNANXHPw" entityName="StoreGetPCCall" predecessor_AbstractAction="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_03Mn4KaKEd2HMpb_upR7QA" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0" role_ExternalService="_0k7YYdCnEduC9O_qbthgAg"/>
       <steps_Behaviour xsi:type="_1:LoopAction" id="_wAfysNJOEduQ7qbNANXHPw" entityName="IterateItems" predecessor_AbstractAction="_7oumEKaKEd2HMpb_upR7QA" successor_AbstractAction="_NCw0AKaLEd2HMpb_upR7QA">
         <bodyBehaviour_Loop>
-          <steps_Behaviour xsi:type="_1:BranchAction" id="_kEwuMLCKEd2Ig-ttUDaMDg" entityName="IterateItemsBranch" predecessor_AbstractAction="__GuXcLGBEd2AvvAQJslFkg" successor_AbstractAction="__xt1MLGBEd2AvvAQJslFkg">
-            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_0CCqQLCKEd2Ig-ttUDaMDg" branchProbability="0.76">
+          <steps_Behaviour xsi:type="_1:StartAction" id="__GuXcLGBEd2AvvAQJslFkg" entityName="IterateItemsStart" successor_AbstractAction="__A-7kLcCEd2_BPc0Bq_KAQ"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="__xt1MLGBEd2AvvAQJslFkg" entityName="IterateItemsStop" predecessor_AbstractAction="__A-7kLcCEd2_BPc0Bq_KAQ"/>
+          <steps_Behaviour xsi:type="_1:BranchAction" id="__A-7kLcCEd2_BPc0Bq_KAQ" entityName="IterateItemsBranch" predecessor_AbstractAction="__GuXcLGBEd2AvvAQJslFkg" successor_AbstractAction="__xt1MLGBEd2AvvAQJslFkg">
+            <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_FVgNoLcDEd2_BPc0Bq_KAQ">
               <branchBehaviour_BranchTransition>
-                <steps_Behaviour xsi:type="_1:StartAction" id="_0CCqQbCKEd2Ig-ttUDaMDg" entityName="IdQueryStart" successor_AbstractAction="_J48sILCLEd2Ig-ttUDaMDg"/>
-                <steps_Behaviour xsi:type="_1:StopAction" id="_0CCqQrCKEd2Ig-ttUDaMDg" entityName="IdQueryStop" predecessor_AbstractAction="_J48sILCLEd2Ig-ttUDaMDg"/>
-                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_J48sILCLEd2Ig-ttUDaMDg" entityName="IdQueryCall" predecessor_AbstractAction="_0CCqQbCKEd2Ig-ttUDaMDg" successor_AbstractAction="_0CCqQrCKEd2Ig-ttUDaMDg" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.6" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_FVgNobcDEd2_BPc0Bq_KAQ" entityName="IdQueryStart" successor_AbstractAction="__1ly4LcDEd2_BPc0Bq_KAQ"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_FVgNorcDEd2_BPc0Bq_KAQ" entityName="IdQueryStop" predecessor_AbstractAction="__1ly4LcDEd2_BPc0Bq_KAQ"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="__1ly4LcDEd2_BPc0Bq_KAQ" entityName="IdQueryCall" predecessor_AbstractAction="_FVgNobcDEd2_BPc0Bq_KAQ" successor_AbstractAction="_FVgNorcDEd2_BPc0Bq_KAQ" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.6" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
               </branchBehaviour_BranchTransition>
+              <branchCondition_GuardedBranchTransition specification="(saleTO.STRUCTURE == &quot;STANDARD&quot;) AND (saleTO.VALUE == &quot;NUMBER&quot;)"/>
             </branches_Branch>
-            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_9x_hYLCKEd2Ig-ttUDaMDg" branchProbability="0.19">
+            <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_ezz0ALcDEd2_BPc0Bq_KAQ">
               <branchBehaviour_BranchTransition>
-                <steps_Behaviour xsi:type="_1:StartAction" id="_9x_hYbCKEd2Ig-ttUDaMDg" entityName="NameQueryStart" successor_AbstractAction="_pYYugLCLEd2Ig-ttUDaMDg"/>
-                <steps_Behaviour xsi:type="_1:StopAction" id="_9x_hYrCKEd2Ig-ttUDaMDg" entityName="NameQueryStop" predecessor_AbstractAction="_pYYugLCLEd2Ig-ttUDaMDg"/>
-                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_pYYugLCLEd2Ig-ttUDaMDg" entityName="NameQueryCall" predecessor_AbstractAction="_9x_hYbCKEd2Ig-ttUDaMDg" successor_AbstractAction="_9x_hYrCKEd2Ig-ttUDaMDg" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.5" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_ezz0AbcDEd2_BPc0Bq_KAQ" entityName="NameQueryStart" successor_AbstractAction="_Ekxe0LcEEd2_BPc0Bq_KAQ"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_ezz0ArcDEd2_BPc0Bq_KAQ" entityName="NameQueryStop" predecessor_AbstractAction="_Ekxe0LcEEd2_BPc0Bq_KAQ"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_Ekxe0LcEEd2_BPc0Bq_KAQ" entityName="NameQueryCall" predecessor_AbstractAction="_ezz0AbcDEd2_BPc0Bq_KAQ" successor_AbstractAction="_ezz0ArcDEd2_BPc0Bq_KAQ" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.5" role_ExternalService="_4OSEsdCnEduC9O_qbthgAg"/>
               </branchBehaviour_BranchTransition>
+              <branchCondition_GuardedBranchTransition specification="(saleTO.STRUCTURE == &quot;STANDARD&quot;) AND (saleTO.VALUE == &quot;NAME&quot;)"/>
             </branches_Branch>
-            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_USrT0LGuEd2AvvAQJslFkg" branchProbability="0.05">
+            <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_oF31QLcDEd2_BPc0Bq_KAQ">
               <branchBehaviour_BranchTransition>
-                <steps_Behaviour xsi:type="_1:StartAction" id="_US1E0LGuEd2AvvAQJslFkg" successor_AbstractAction="_US1E0bGuEd2AvvAQJslFkg"/>
-                <steps_Behaviour xsi:type="_1:StopAction" id="_US1E0bGuEd2AvvAQJslFkg" predecessor_AbstractAction="_US1E0LGuEd2AvvAQJslFkg"/>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_oF31QbcDEd2_BPc0Bq_KAQ" entityName="SmallGoodStart" successor_AbstractAction="_oF31QrcDEd2_BPc0Bq_KAQ"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_oF31QrcDEd2_BPc0Bq_KAQ" entityName="SmallGoodStop" predecessor_AbstractAction="_oF31QbcDEd2_BPc0Bq_KAQ"/>
               </branchBehaviour_BranchTransition>
+              <branchCondition_GuardedBranchTransition specification="saleTO.STRUCTURE == &quot;SMALL&quot;"/>
             </branches_Branch>
           </steps_Behaviour>
-          <steps_Behaviour xsi:type="_1:StartAction" id="__GuXcLGBEd2AvvAQJslFkg" entityName="IterateItemsStart" successor_AbstractAction="_kEwuMLCKEd2Ig-ttUDaMDg"/>
-          <steps_Behaviour xsi:type="_1:StopAction" id="__xt1MLGBEd2AvvAQJslFkg" entityName="IterateItemsStop" predecessor_AbstractAction="_kEwuMLCKEd2Ig-ttUDaMDg"/>
         </bodyBehaviour_Loop>
         <iterationCount_LoopAction specification="saleTO.NUMBER_OF_ELEMENTS"/>
       </steps_Behaviour>
@@ -419,6 +422,12 @@
         <inputParameterUsages_ExternalCallAction>
           <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
             <specification_VariableCharacterisation specification="saleTO.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage>
+            <specification_VariableCharacterisation specification="saleTO.STRUCTURE"/>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="saleTO.VALUE"/>
           </variableCharacterisation_VariableUsage>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="saleTO"/>
         </inputParameterUsages_ExternalCallAction>
