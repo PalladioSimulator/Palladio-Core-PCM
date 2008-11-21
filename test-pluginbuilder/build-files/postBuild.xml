@@ -97,7 +97,7 @@
     	defaultexcludes="yes" 
     	use="true" 
     	version="true" 
-    	windowtitle="${project.name}"> -->
+    	windowtitle="${project.name}">
 <!--
     	source="${buildDirectory}"  
     	excludepackagenames="${build.src.excludes}" 
