@@ -166,7 +166,7 @@
 	<!-- ===================================================================== -->
 	<!-- Steps to do after the build is done. -->
 	<!-- ===================================================================== -->
-	<property name="buildResultsDirectory" value="${buildDirectory}/results" />
+	<property name="buildResultsDirectory" value="${buildDirectory}/results" />		
 	<target name="postBuild" depends="-prepareBuildResultsDirectory" unless="no.postBuild">
 		<antcall target="runTests"/>
 		<copy todir="${buildResultsDirectory}" flatten="true">
@@ -176,6 +176,36 @@
 			<available file="${buildHome}/build-files/postBuild.xml"/>
 		</condition>
 		<antcall target="callExternalPostBuild"/>
+		
+	    <!-- ================================================= -->
+	    <!-- Added by kelsaka: Creates javadoc for the project -->
+		<!-- ================================================= -->	
+			<!-- <mkdir dir="${basedir}/results/javadoc/"/> -->
+			<mkdir dir="${buildDirectory}}/results/javadoc/"/>
+		    <javadoc 
+	        	destdir="${buildDirectory}/results/javadoc/"
+	        	author="true" 
+	        	defaultexcludes="yes" 
+	        	use="true" 
+	        	version="true" 
+	        	windowtitle="${project.name}"> -->
+	<!--
+		    	source="${buildDirectory}"  
+		    	excludepackagenames="${build.src.excludes}" 
+	        	packagenames="${build.doc.packages}"
+	        	public="true"
+	        	sourcepathref="project.source"
+	-->
+	            <!-- <classpath refid="de.uka.ipd.sdq.classpath"/> -->
+	            <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
+	            <link href="http://java.sun.com/j2se/1.6.0/docs/api/"/>
+				<taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
+					path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/>	
+		    	<fileset dir="${buildDirectory}/plugins/" includes="**/*.java"/>
+	        </javadoc>
+
+	    <!-- ======================================== -->
+		
 	</target>
 	<!-- ===================================================================== -->
 	<!-- Run tests. -->
