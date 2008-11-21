@@ -229,6 +229,13 @@
 		<fail message="Tests failed" if="is.tests.failed" status="2"/>
 	</target>
 	
+	<!-- by kelsaka: -->
+	<target name="javadoc" description="Run JavaDoc generation.">
+		<property name="buildTarget" value="javadoc"/>
+		<antcall target="javadoc"/>
+	</target>
+	
+	
 	<target name="buildProperties" description="Print out derived properties for the current build." depends="-properties">
 		<fail message="You have to set the property 'buildPropertiesFile' if calling buildProperties" unless="buildPropertiesFile"/>
 		<condition property="subdir" value="nightly" else="releases">
