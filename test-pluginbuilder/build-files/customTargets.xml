@@ -180,6 +180,7 @@
 	    <!-- ================================================= -->
 	    <!-- Added by kelsaka: Creates javadoc for the project -->
 		<!-- ================================================= -->	
+			<echo>starting to create JavaDoc...</echo>
 			<!-- <mkdir dir="${basedir}/results/javadoc/"/> -->
 			<mkdir dir="${buildDirectory}}/results/javadoc/"/>
 		    <javadoc 
