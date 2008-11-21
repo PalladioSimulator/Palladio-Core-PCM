@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_EwcIwKQrEd2i16fz80HrHw" type="PCM SEFF Model" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_EwcIwKQrEd2i16fz80HrHw" type="PCM SEFF Model" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_Xe69ILCMEd2Ig-ttUDaMDg" type="2001">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_Xe69IbCMEd2Ig-ttUDaMDg" fontName="Segoe UI"/>
     <element xmi:type="StartAction" href="orc.repository#_OgwFAHRDEd2J8bFb9TfSEQ"/>
@@ -8,35 +8,11 @@
   <children xmi:type="notation:Node" xmi:id="_Xe69I7CMEd2Ig-ttUDaMDg" type="2002">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_Xe69JLCMEd2Ig-ttUDaMDg" fontName="Segoe UI"/>
     <element xmi:type="StopAction" href="orc.repository#_OgwFAXRDEd2J8bFb9TfSEQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xe69JbCMEd2Ig-ttUDaMDg" x="164" y="396"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xe69JbCMEd2Ig-ttUDaMDg" x="161" y="271"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_Xe69JrCMEd2Ig-ttUDaMDg" type="2003">
     <children xmi:type="notation:Node" xmi:id="_Xe69KbCMEd2Ig-ttUDaMDg" type="5002"/>
     <children xmi:type="notation:Node" xmi:id="_Xe69KrCMEd2Ig-ttUDaMDg" type="7001">
-      <children xmi:type="notation:Node" xmi:id="_2iFDULcHEd2-DuUGGHGkNQ" type="3028">
-        <children xmi:type="notation:Node" xmi:id="_2iFDU7cHEd2-DuUGGHGkNQ" type="5030"/>
-        <children xmi:type="notation:Node" xmi:id="_2iONQLcHEd2-DuUGGHGkNQ" type="7027">
-          <children xmi:type="notation:Node" xmi:id="_2iX-QLcHEd2-DuUGGHGkNQ" type="3002">
-            <element xmi:type="_1:VariableCharacterisation" href="orc.repository#//@components__Repository.7/@serviceEffectSpecifications__BasicComponent.4/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0/@variableCharacterisation_VariableUsage.0"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_2iX-QbcHEd2-DuUGGHGkNQ"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_4LtTkLcHEd2-DuUGGHGkNQ" type="3002">
-            <element xmi:type="_1:VariableCharacterisation" href="orc.repository#//@components__Repository.7/@serviceEffectSpecifications__BasicComponent.4/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0/@variableCharacterisation_VariableUsage.1"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_4LtTkbcHEd2-DuUGGHGkNQ"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_6kDrALcHEd2-DuUGGHGkNQ" type="3002">
-            <element xmi:type="_1:VariableCharacterisation" href="orc.repository#//@components__Repository.7/@serviceEffectSpecifications__BasicComponent.4/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0/@variableCharacterisation_VariableUsage.2"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_6kDrAbcHEd2-DuUGGHGkNQ"/>
-          </children>
-          <styles xmi:type="notation:DrawerStyle" xmi:id="_2iONQbcHEd2-DuUGGHGkNQ"/>
-          <styles xmi:type="notation:TitleStyle" xmi:id="_2iONQrcHEd2-DuUGGHGkNQ" showTitle="true"/>
-          <styles xmi:type="notation:SortingStyle" xmi:id="_2iONQ7cHEd2-DuUGGHGkNQ"/>
-          <styles xmi:type="notation:FilteringStyle" xmi:id="_2iONRLcHEd2-DuUGGHGkNQ"/>
-        </children>
-        <styles xmi:type="notation:ShapeStyle" xmi:id="_2iFDUbcHEd2-DuUGGHGkNQ" fontName="Segoe UI"/>
-        <element xmi:type="_1:VariableUsage" href="orc.repository#//@components__Repository.7/@serviceEffectSpecifications__BasicComponent.4/@steps_Behaviour.2/@inputParameterUsages_ExternalCallAction.0"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2iFDUrcHEd2-DuUGGHGkNQ"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Xe69K7CMEd2Ig-ttUDaMDg"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_Xe69LLCMEd2Ig-ttUDaMDg" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Xe69LbCMEd2Ig-ttUDaMDg"/>
@@ -50,7 +26,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_Xe69J7CMEd2Ig-ttUDaMDg" fontName="Segoe UI"/>
     <element xmi:type="ExternalCallAction" href="orc.repository#_GmevsIZjEd2eieMgJajFZw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xe69KLCMEd2Ig-ttUDaMDg" y="80" height="269"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xe69KLCMEd2Ig-ttUDaMDg" y="80"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_EwcIwaQrEd2i16fz80HrHw"/>
   <element xmi:type="ResourceDemandingSEFF" href="orc.repository#_N5xkkHRDEd2J8bFb9TfSEQ"/>
