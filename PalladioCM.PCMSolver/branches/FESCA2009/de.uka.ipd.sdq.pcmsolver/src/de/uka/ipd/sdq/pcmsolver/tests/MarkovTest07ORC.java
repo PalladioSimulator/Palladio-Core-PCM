@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcmsolver.transformations.pcm2markov.Pcm2MarkovStrategy;
  * @author brosch
  * 
  */
-public class MarkovTest05ORC {
+public class MarkovTest07ORC {
 
 	/**
 	 * The Properties instance holds the references to the base PCM instance
@@ -227,7 +227,7 @@ public class MarkovTest05ORC {
 		// probabilities of the InternalActions "AccessData" and "QueryData":
 		InternalAction action = (InternalAction) helper.getModelElement(
 				temporaryModel.getRepository(), "_BqnUYKapEd2aT7ee5CpgQg");
-		action.setFailureProbability(((Double) failureProbability).toString());
+//		action.setFailureProbability(((Double) failureProbability).toString());
 		action = (InternalAction) helper.getModelElement(temporaryModel
 				.getRepository(), "_QyQB4KapEd2aT7ee5CpgQg");
 		action.setFailureProbability(((Double) failureProbability).toString());
