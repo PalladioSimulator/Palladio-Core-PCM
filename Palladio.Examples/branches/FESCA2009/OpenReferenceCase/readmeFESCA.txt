@@ -24,4 +24,5 @@ Lessons learned
 --------------------------------------------------------------------
 
 - Ein Integer kann in einer StochasticExpression nicht mit einem Double multipliziert werden!
-- Der DependencySolver kann nur mit ganzzahligen LoopIteration-Counts arbeiten!  
+- Der DependencySolver kann nur mit ganzzahligen LoopIteration-Counts arbeiten!
+- Boolsche Ausdrücke mit AND können momentan vom D-Solver nicht berarbeitet werden!  

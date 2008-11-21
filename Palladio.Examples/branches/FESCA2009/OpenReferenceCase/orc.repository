@@ -192,8 +192,9 @@
             </branches_Branch>
             <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_USrT0LGuEd2AvvAQJslFkg" branchProbability="0.05">
               <branchBehaviour_BranchTransition>
-                <steps_Behaviour xsi:type="_1:StartAction" id="_US1E0LGuEd2AvvAQJslFkg" successor_AbstractAction="_US1E0bGuEd2AvvAQJslFkg"/>
-                <steps_Behaviour xsi:type="_1:StopAction" id="_US1E0bGuEd2AvvAQJslFkg" predecessor_AbstractAction="_US1E0LGuEd2AvvAQJslFkg"/>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_US1E0LGuEd2AvvAQJslFkg" successor_AbstractAction="_qYzmgLfaEd2YQ6vdlG8e4A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_US1E0bGuEd2AvvAQJslFkg" predecessor_AbstractAction="_qYzmgLfaEd2YQ6vdlG8e4A"/>
+                <steps_Behaviour xsi:type="_1:InternalAction" id="_qYzmgLfaEd2YQ6vdlG8e4A" entityName="CalcAction" predecessor_AbstractAction="_US1E0LGuEd2AvvAQJslFkg" successor_AbstractAction="_US1E0bGuEd2AvvAQJslFkg" failureProbability="0.000001"/>
               </branchBehaviour_BranchTransition>
             </branches_Branch>
           </steps_Behaviour>
@@ -357,12 +358,12 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_cIIC4KaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.5">
       <steps_Behaviour xsi:type="_1:StartAction" id="_cnXjoKaGEd2HMpb_upR7QA" entityName="DatabaseQueryStart" successor_AbstractAction="_QyQB4KapEd2aT7ee5CpgQg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_cnXjoaaGEd2HMpb_upR7QA" entityName="DatabaseQueryStop" predecessor_AbstractAction="_QyQB4KapEd2aT7ee5CpgQg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_QyQB4KapEd2aT7ee5CpgQg" entityName="QueryData" predecessor_AbstractAction="_cnXjoKaGEd2HMpb_upR7QA" successor_AbstractAction="_cnXjoaaGEd2HMpb_upR7QA" failureProbability="0.0"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_QyQB4KapEd2aT7ee5CpgQg" entityName="QueryData" predecessor_AbstractAction="_cnXjoKaGEd2HMpb_upR7QA" successor_AbstractAction="_cnXjoaaGEd2HMpb_upR7QA" failureProbability="0.000001"/>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_dHf1MKaGEd2HMpb_upR7QA" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.6">
       <steps_Behaviour xsi:type="_1:StartAction" id="_dZzGIKaGEd2HMpb_upR7QA" entityName="DatabaseReferenceStart" successor_AbstractAction="_BqnUYKapEd2aT7ee5CpgQg"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_dZzGIaaGEd2HMpb_upR7QA" entityName="DataReferenceStop" predecessor_AbstractAction="_BqnUYKapEd2aT7ee5CpgQg"/>
-      <steps_Behaviour xsi:type="_1:InternalAction" id="_BqnUYKapEd2aT7ee5CpgQg" entityName="AccessData" predecessor_AbstractAction="_dZzGIKaGEd2HMpb_upR7QA" successor_AbstractAction="_dZzGIaaGEd2HMpb_upR7QA" failureProbability="0.0">
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_BqnUYKapEd2aT7ee5CpgQg" entityName="AccessData" predecessor_AbstractAction="_dZzGIKaGEd2HMpb_upR7QA" successor_AbstractAction="_dZzGIaaGEd2HMpb_upR7QA" failureProbability="0.000001">
         <resourceDemand_Action>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
           <specification_ParametericResourceDemand specification="DoublePDF[(8;0.0)(10;0.1)(20;0.8)(100;0.1)]"/>

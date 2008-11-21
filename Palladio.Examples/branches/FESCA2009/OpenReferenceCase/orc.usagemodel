@@ -10,7 +10,7 @@
       <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_x0OCkHk5Ed2DBfjHDxUcwg" entityName="UsageScenarioBookSaleCall" successor="_oCoMs3k5Ed2DBfjHDxUcwg" predecessor="_oCoMsnk5Ed2DBfjHDxUcwg">
         <inputParameterUsages_EntryLevelSystemCall>
           <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
-            <specification_VariableCharacterisation specification="IntPMF[ (1;0.3) (8;0.1) (15;0.15) (25;0.15) (50;0.2) (75;0.1) ]"/>
+            <specification_VariableCharacterisation specification="100"/>
           </variableCharacterisation_VariableUsage>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="saleTO"/>
         </inputParameterUsages_EntryLevelSystemCall>
