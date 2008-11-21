@@ -7,7 +7,7 @@
 
     	<property name="UpdateSiteStagingLocation" value="${buildDirectory}/tmpUpdateSite/updateSite"/>
     	<property name="UpdateSiteFinalLocation" value="${buildResultsDirectory}/../updateSite"/>
-    	<property name="siteXmlFile" value="${UpdateSiteStagingLocation}/site.xml"/>
+    	<property name="siteXmlFile" value="${UpdateSiteStagingLocation}/site.xml"/>   	    	
     	
         <antcall target="-generateUpdateSite"/>
     	<antcall target="-createNightlyBuildSiteXml"/>
@@ -17,6 +17,8 @@
     		<fileset dir="${UpdateSiteStagingLocation}" includes="**"/>
     	</copy>
     	<delete dir="${UpdateSiteStagingLocation}/../.." includes="tmpUpdateSite/**" includeemptydirs="true"/>
+    	
+    	<antcall target="javadoc"/> <!-- by kelsaka -->
     </target>
 	
 	<target name="deleteSiteXml" unless="isNightlyBuild">
@@ -77,6 +79,42 @@
 		version=&quot;${realFeatureVersion}&quot;&gt; 
     	&lt;category name=&quot;${updateSiteCategoryName}&quot;/&gt; 
 		&lt;/feature&gt;
-</echo>    	
+		</echo>    	
     </target>
+	
+	
+		
+		
+	    <!-- ================================================= -->
+	    <!-- Added by kelsaka: Creates javadoc for the project -->
+		<!-- ================================================= -->	
+	    <target name="javadoc" description="Creates Javadoc">
+			<mkdir dir="${basedir}/results/javadoc/"/>
+		    <javadoc 
+	        	destdir="${buildDirectory}/results/javadoc/"
+	        	author="true" 
+	        	defaultexcludes="yes" 
+	        	use="true" 
+	        	version="true" 
+	        	windowtitle="${project.name}"> -->
+	<!--
+		    	source="${buildDirectory}"  
+		    	excludepackagenames="${build.src.excludes}" 
+	        	packagenames="${build.doc.packages}"
+	        	public="true"
+	        	sourcepathref="project.source"
+	-->
+
+	            <!-- <classpath refid="de.uka.ipd.sdq.classpath"/> -->
+	            <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
+	            <link href="http://java.sun.com/j2se/1.6.0/docs/api/"/>
+				<taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
+					path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/>	
+		    	<fileset dir="${buildDirectory}/" includes="**/*.java"/>
+	        </javadoc>
+	    </target>
+	    <!-- ======================================== -->
+	
+	
+	
 </project>
