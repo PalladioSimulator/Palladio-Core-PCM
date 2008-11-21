@@ -11,9 +11,9 @@ import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-//import org.eclipse.jface.resource.ImageDescriptor;
-//import org.eclipse.ui.plugin.AbstractUIPlugin;
-//import org.osgi.framework.BundleContext;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle
