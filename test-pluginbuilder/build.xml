@@ -126,6 +126,11 @@
 			<arg value="-data" />
 			<arg value="${buildDirectory}/workspace" />
 			<arg value="${verboseAnt}" />
+			<!-- <arg value="-verbose" /> --> <!-- added for debugging -->
+			<!-- <arg value="-init" /> --> <!-- added for debugging -->
+			<arg value="-clean" /> <!-- added for debugging -->
+			<!-- <arg value="-debug" /> --> <!-- added for debugging -->
+			<arg value="-consoleLog" /> <!-- added for debugging -->			
 			<jvmarg value="-Dbasews=${ws}" />
 			<jvmarg value="-Dbaseos=${os}" />
 			<jvmarg value="-Dbasearch=${arch}" />
