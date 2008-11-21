@@ -125,7 +125,7 @@
 			<arg value="${buildTarget}" />
 			<arg value="-data" />
 			<arg value="${buildDirectory}/workspace" />
-			<arg value="${verboseAnt}"/>
+			<arg value="${verboseAnt}" />
 			<!-- <arg value="-verbose" /> --> <!-- added by kelsaka for debugging -->
 			<!-- <arg value="-init" /> --> <!-- added by kelsaka for debugging -->
 			<!-- <arg value="-clean" /> --> <!-- added by kelsaka for debugging -->
