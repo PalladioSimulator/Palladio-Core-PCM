@@ -5,7 +5,7 @@
 <project name="Build Facade" default="main">
 	<taskdef resource="org/pluginbuilder/anttasks/pluginbuildertasks.properties" classpath="build-files/pluginbuilder-anttasks.jar" />
 	
-	<!-- <GetHostName /> -->
+	<GetHostName />
 	<property file="build_${hostname}.properties" />
 	<property file="build_local.properties" />
 	<property name="eclipse.installation.dir" value="${eclipseDir}"/>
