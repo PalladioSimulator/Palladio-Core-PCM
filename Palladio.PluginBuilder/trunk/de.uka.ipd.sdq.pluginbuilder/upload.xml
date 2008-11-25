@@ -46,7 +46,7 @@
 				passphrase="" 
 				trust="true">
 			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite">
-				<include name="javadoc/**.*" />
+				<include name="/javadoc/**.*" />
 			</fileset>
 	  	</scp>	
 		
