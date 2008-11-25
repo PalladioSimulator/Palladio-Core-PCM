@@ -125,7 +125,7 @@
 	-->
 	        <!-- <classpath refid="de.uka.ipd.sdq.classpath"/> -->
 	        <doctitle><![CDATA[<h1>${project.name}</h1]]></doctitle>
-	        <link href="http://java.sun.com/j2se/1.6.0/docs/api/"/>
+	        <link href="http://java.sun.com/javase/6/docs/api/"/>
 			<!-- <taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
 				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/> -->	
 	    	<fileset dir="${buildDirectory}/plugins/"> <!-- <includes="**/*.java"/> -->	    		

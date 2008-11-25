@@ -39,8 +39,18 @@
 				trust="true">
 			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder">
 				<include name="*.txt" />
+				<include name="javadoc/**.*" />
+			</fileset>
+	  	</scp>
+		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true">
+			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite">
+				<include name="javadoc/**.*" />
 			</fileset>
 	  	</scp>	
+		
 	</target>
 
 </project>
