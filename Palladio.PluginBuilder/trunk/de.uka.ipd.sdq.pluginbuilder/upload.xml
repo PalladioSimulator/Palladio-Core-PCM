@@ -38,8 +38,7 @@
 				passphrase="" 
 				trust="true">
 			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder">
-				<include name="*.txt" />
-				<include name="javadoc/**.*" />
+				<include name="*.txt" />				
 			</fileset>
 	  	</scp>
 		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
