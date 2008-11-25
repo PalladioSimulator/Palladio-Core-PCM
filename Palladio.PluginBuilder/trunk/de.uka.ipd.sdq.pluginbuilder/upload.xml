@@ -47,15 +47,15 @@
 				passphrase="" 
 				trust="true" 
 				command="cd /var/www/eclipse/PCM_nightly/; 
-					mkdir javadoc;"
-		/>
+					mkdir javadoc;
+			" />
 		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/javadoc"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true"
 				verbose="true">
 			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc">
-				<include name="**/*.*"/>
+				<include name="**/*.*" />
 			</fileset>
 	  	</scp>	
 		
