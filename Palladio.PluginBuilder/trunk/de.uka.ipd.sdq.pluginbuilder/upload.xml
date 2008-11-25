@@ -41,13 +41,19 @@
 				<include name="*.txt" />				
 			</fileset>
 	  	</scp>
-		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
+		<sshexec host="i43pc12.ipd.uka.de"
+				username="ccontrol"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true" 
+				command="cd /var/www/eclipse/PCM_nightly/; 
+				mkdir javadoc; 
+			"/>
+		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/javadoc"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true">
-			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite">
-				<include name="/javadoc/**.*" />
-			</fileset>
+			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc"/>
 	  	</scp>	
 		
 	</target>
