@@ -202,6 +202,13 @@
 		<antcall target="-build"/>
 	</target>
 	
+	<!-- by kelsaka: start -->
+	<target name="javadoc" description="Run JavaDoc generation.">
+		<property name="buildTarget" value="javadoc"/>
+		<antcall target="javadoc"/>
+	</target>
+	<!-- by kelsaka: end -->	
+	
 	<target name="buildProperties" description="Print out derived properties for the current build." depends="-properties">
 		<fail message="You have to set the property 'buildPropertiesFile' if calling buildProperties" unless="buildPropertiesFile"/>
 		<condition property="subdir" value="nightly" else="releases">
