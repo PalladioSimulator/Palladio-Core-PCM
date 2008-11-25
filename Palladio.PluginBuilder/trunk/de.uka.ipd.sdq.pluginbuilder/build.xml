@@ -195,14 +195,7 @@
 	<target name="assemble" description="Run the assemble target of customTargets.xml.">
 		<property name="buildTarget" value="assemble"/>
 		<antcall target="-build"/>
-	</target>
-	
-	<!-- by kelsaka: start -->
-	<!-- <target name="javadoc" description="Run JavaDoc generation.">
-		<property name="buildTarget" value="javadoc"/>
-		<antcall target="javadoc"/>
-	</target> -->
-	<!-- by kelsaka: end -->		
+	</target>	
 	
 	<target name="postBuild" description="Run the postBuild target of customTargets.xml.">
 		<property name="buildTarget" value="postBuild"/>
