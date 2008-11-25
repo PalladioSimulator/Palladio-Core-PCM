@@ -230,10 +230,10 @@
 	</target>
 	
 	<!-- by kelsaka: start -->
-	<target name="javadoc" description="Run JavaDoc generation.">
+	<!-- <target name="javadoc" description="Run JavaDoc generation.">
 		<property name="buildTarget" value="javadoc"/>
 		<antcall target="javadoc"/>
-	</target>
+	</target> -->
 	<!-- by kelsaka: end -->
 	
 	<target name="buildProperties" description="Print out derived properties for the current build." depends="-properties">

@@ -18,7 +18,7 @@
     	</copy>
     	<delete dir="${UpdateSiteStagingLocation}/../.." includes="tmpUpdateSite/**" includeemptydirs="true"/>
     	
-    	<antcall target="javadoc"/>
+    	<antcall target="javadoc"/> <!-- by kelsaka -->
     </target>
 	
 	<target name="deleteSiteXml" unless="isNightlyBuild">
