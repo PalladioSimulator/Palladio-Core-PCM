@@ -49,7 +49,7 @@
 				command="cd /var/www/eclipse/PCM_nightly/; 
 					mkdir javadoc;
 			" /> -->
-		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/javadoc"
+		<!-- <scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/javadoc"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true"
@@ -57,7 +57,7 @@
 			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc">
 				<include name="**/*.*" />
 			</fileset>
-	  	</scp>	
+	  	</scp>	-->
 		
 	</target>
 
