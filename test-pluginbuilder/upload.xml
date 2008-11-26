@@ -1,6 +1,5 @@
 <project name="UpdateSite">
 
-	<!-- 
 	<target name="clean_remote">
 		<sshexec host="i43pc12.ipd.uka.de"
 				username="ccontrol"
@@ -39,10 +38,11 @@
 				passphrase="" 
 				trust="true">
 			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder">
-				<include name="*.txt" />
+				<include name="*.txt" />				
 			</fileset>
-	  	</scp>	
+	  	</scp>
+
+		
 	</target>
 
-	-->
 </project>
