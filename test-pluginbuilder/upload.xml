@@ -1,5 +1,6 @@
-<project name="UpdateSite">
 
+<project name="UpdateSite" default="upload">
+	
 	<target name="clean_remote">
 		<sshexec host="i43pc12.ipd.uka.de"
 				username="ccontrol"
