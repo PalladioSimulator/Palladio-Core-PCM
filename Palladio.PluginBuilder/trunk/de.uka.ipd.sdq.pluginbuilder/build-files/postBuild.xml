@@ -131,7 +131,8 @@
 			<!-- <taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
 				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/> -->	
 	    	<fileset dir="${buildDirectory}/plugins/"> <!-- <includes="**/*.java"/> -->	    		
-	    		<include name="**/*.java" /> 
+	    		<include name="**/de.uka.ipd.sdq.pcm**/*.java" /> 
+	    		<!-- <exclude name="" /> -->
 	    		<!-- <include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" /> -->
 	    	</fileset>
 	    	
