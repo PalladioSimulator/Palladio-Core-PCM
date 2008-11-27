@@ -1,5 +1,5 @@
-<project name="UpdateSite">
-
+<project name="UpdateSite" default="upload">
+	
 	<target name="clean_remote">
 		<sshexec host="i43pc12.ipd.uka.de"
 				username="ccontrol"
@@ -10,7 +10,6 @@
 			rm -rf *; 
 			"/>
 	</target>
-
 
 	<target name="upload" depends="clean_remote">
 		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
@@ -41,24 +40,6 @@
 				<include name="*.txt" />				
 			</fileset>
 	  	</scp>
-		<!-- <sshexec host="i43pc12.ipd.uka.de"
-				username="ccontrol"
-				keyfile="/home/ccontrol/.ssh/id_rsa" 
-				passphrase="" 
-				trust="true" 
-				command="cd /var/www/eclipse/PCM_nightly/; 
-					mkdir javadoc;
-			" /> -->
-		<!-- <scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/javadoc"
-				keyfile="/home/ccontrol/.ssh/id_rsa" 
-				passphrase="" 
-				trust="true"
-				verbose="true">
-			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc">
-				<include name="**/*.*" />
-			</fileset>
-	  	</scp>	-->
-		
 	</target>
-
+	
 </project>
