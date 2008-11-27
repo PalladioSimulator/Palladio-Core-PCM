@@ -115,8 +115,9 @@
 	    	defaultexcludes="yes" 
 	    	use="true" 
 	    	version="true" 
-	    	windowtitle="${project.name}"
-	    	maxmemory="256m">
+	    	windowtitle="Palladio Component Model (PCM)"
+	    	linkoffline="http://www.palladio-approach.net"
+	    	maxmemory="512m">
 	<!--
 	    	source="${buildDirectory}"  
 	    	excludepackagenames="${build.src.excludes}" 
@@ -130,8 +131,8 @@
 			<!-- <taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
 				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/> -->	
 	    	<fileset dir="${buildDirectory}/plugins/"> <!-- <includes="**/*.java"/> -->	    		
-	    		<!-- <include name="**/*.java" /> -->
-	    		<include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" />
+	    		<include name="**/*.java" /> 
+	    		<!-- <include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" /> -->
 	    	</fileset>
 	    	
 	    </javadoc>
