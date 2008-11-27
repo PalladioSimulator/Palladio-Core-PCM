@@ -68,6 +68,14 @@ public class FilteringItemProvider extends ItemProviderDecorator implements ITre
 		ArrayList filteredResult = new ArrayList();
 		for (Iterator i = unfilteredResult.iterator(); i.hasNext(); ) {
 			Object o = i.next();
+			// Hauck 2008.11.27
+			// If a signature contains a parameter whose datatype has not been set,
+			// a NullPointerException would occur here (maybe other scenarios where this
+			// can happen exist as well)
+			// Do not use this null reference, but go on with next object.
+			if (o == null) {
+				continue;
+			}
 			for (Class c : (List<Class>)filterList)
 			{
 				if (c.isAssignableFrom(o.getClass()))
