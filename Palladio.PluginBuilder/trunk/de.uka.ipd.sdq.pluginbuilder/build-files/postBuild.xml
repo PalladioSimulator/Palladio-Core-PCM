@@ -108,7 +108,7 @@
 	<!-- ================================================= -->
 	<target name="javadoc" description="Generate JavaDoc for the project">	
 		<echo>starting to create JavaDoc...</echo>		
-		<mkdir dir="${buildDirectory}/updateSite/javadoc/"/>
+		<mkdir dir="${buildDirectory}/updateSite/javadoc/" />
 	    <javadoc 
 	    	destdir="${buildDirectory}/updateSite/javadoc/"
 	    	author="true" 
@@ -119,7 +119,7 @@
 	    	verbose="true"			
 	    	windowtitle="Palladio Component Model (PCM)"
 	    	linkoffline="http://www.palladio-approach.net"
-	    	maxmemory="256m">
+	    	maxmemory="512m">
 	<!--
 	    	source="${buildDirectory}"  
 	    	excludepackagenames="${build.src.excludes}" 
