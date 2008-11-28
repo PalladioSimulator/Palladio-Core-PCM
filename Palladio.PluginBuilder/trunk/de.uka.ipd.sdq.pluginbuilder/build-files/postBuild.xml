@@ -119,9 +119,9 @@
 	    	verbose="true"			
 	    	windowtitle="Palladio Component Model (PCM)"
 	    	linkoffline="http://www.palladio-approach.net"
-	    	>
+	    	maxmemory="256m">
 	<!--
-			maxmemory="512m"
+			
 	    	source="${buildDirectory}"  
 	    	excludepackagenames="${build.src.excludes}" 
 	    	packagenames="${build.doc.packages}"
