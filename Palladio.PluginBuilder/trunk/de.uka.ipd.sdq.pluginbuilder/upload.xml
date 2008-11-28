@@ -12,14 +12,6 @@
 	</target>
 
 	<target name="upload" depends="clean_remote">
-		<sshexec host="i43pc12.ipd.uka.de"
-				username="ccontrol"
-				keyfile="/home/ccontrol/.ssh/id_rsa" 
-				passphrase="" 
-				trust="true" 
-				command="cd /var/www/eclipse/PCM_nightly/; 
-			mv test*.html testresults.html; 
-			"/>
 		<scp todir="ccontrol@i43pc12.ipd.uka.de:/var/www/eclipse/PCM_nightly/"
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
@@ -39,7 +31,15 @@
 				passphrase="" 
 				trust="true">
 		    <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html"/>
-	  	</scp> -->	
+	  	</scp>
+	  	<sshexec host="i43pc12.ipd.uka.de"
+				username="ccontrol"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true" 
+				command="cd /var/www/eclipse/PCM_nightly/; 
+			mv test*.html testresults.html; 
+			"/> -->	
 	</target>
 	
 </project>
