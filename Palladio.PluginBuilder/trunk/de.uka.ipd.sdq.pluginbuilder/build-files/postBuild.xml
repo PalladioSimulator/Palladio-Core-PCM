@@ -4,7 +4,7 @@
         <property name="UpdateSiteStagingLocation" value="${buildResultsDirectory}/../updateSite"/>
         <antcall target="-generateUpdateSite"/>
     	
-    	<antcall target="javadoc" /> <!-- by kelsaka -->
+    	<!-- <antcall target="javadoc" /> --> <!-- by kelsaka -->
     </target>
     
     <!--======================================================-->
@@ -118,10 +118,11 @@
 	    	version="true" 
 	    	verbose="true"			
 	    	windowtitle="Palladio Component Model (PCM)"
-	    	linkoffline="http://www.palladio-approach.net"
-	    	maxmemory="256m">
+	    	linkoffline="http://www.palladio-approach.net"	    	
+	    	failonerror="false"
+	    	>
 	<!--
-			
+			maxmemory="256m"
 	    	source="${buildDirectory}"  
 	    	excludepackagenames="${build.src.excludes}" 
 	    	packagenames="${build.doc.packages}"
