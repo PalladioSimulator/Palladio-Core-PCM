@@ -112,9 +112,11 @@
 	    <javadoc 
 	    	destdir="${buildDirectory}/updateSite/javadoc/"
 	    	author="true" 
-	    	defaultexcludes="yes" 
+	    	defaultexcludes="yes"
+	    	public="true"
 	    	use="true" 
 	    	version="true" 
+	    	verbose="true"			
 	    	windowtitle="Palladio Component Model (PCM)"
 	    	linkoffline="http://www.palladio-approach.net"
 	    	maxmemory="256m">
