@@ -9360,7 +9360,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             <children xmi:id="_oSbjzTyxEduB5pxz2UpKVQ" visible="false" type="StructureCompartment">
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_oSbjzjyxEduB5pxz2UpKVQ"/>
             </children>
-            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_oSbjwTyxEduB5pxz2UpKVQ" fillColor="65535" lineColor="0" showStereotype="Label"/>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_oSbjwTyxEduB5pxz2UpKVQ" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oSbjwjyxEduB5pxz2UpKVQ" x="3816" y="318"/>
           </children>
           <children xmi:id="_oSlUwDyxEduB5pxz2UpKVQ" element="_9nOFcOD7Edq8ysXH3gTiEg">
@@ -9382,7 +9382,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             <children xmi:id="_oSlUzTyxEduB5pxz2UpKVQ" visible="false" type="StructureCompartment">
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_oSlUzjyxEduB5pxz2UpKVQ"/>
             </children>
-            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_oSlUwTyxEduB5pxz2UpKVQ" fillColor="65535" lineColor="0" showStereotype="Label"/>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_oSlUwTyxEduB5pxz2UpKVQ" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oSlUwjyxEduB5pxz2UpKVQ" x="3180" y="4770"/>
           </children>
           <children xmi:id="_wAs3ADyxEduB5pxz2UpKVQ" element="_qdz5sOD9Edq8ysXH3gTiEg">
@@ -9409,7 +9409,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               </children>
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_wAs3DjyxEduB5pxz2UpKVQ"/>
             </children>
-            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_wAs3ATyxEduB5pxz2UpKVQ" fillColor="65535" lineColor="0" showStereotype="Label"/>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_wAs3ATyxEduB5pxz2UpKVQ" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wAs3AjyxEduB5pxz2UpKVQ" x="15900" y="4770"/>
           </children>
           <children xmi:id="_979twGc_EduCGaQAxkcIwA" element="_EfLuYOJSEdqxcra4qpeplw">
@@ -9498,7 +9498,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_8H9jfLZnEd2w14sx0UoE9Q"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_8HzycbZnEd2w14sx0UoE9Q" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8HzycrZnEd2w14sx0UoE9Q" x="32017" y="4755"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8HzycrZnEd2w14sx0UoE9Q" x="40893" y="4438"/>
           </children>
           <children xmi:id="_VH_LALZrEd2w14sx0UoE9Q" element="_O5r1sLZrEd2w14sx0UoE9Q">
             <children xmi:id="_VH_LA7ZrEd2w14sx0UoE9Q" type="ImageCompartment">
@@ -9870,7 +9870,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             </children>
             <children xmi:id="_Gdr2oLZnEd2w14sx0UoE9Q" type="FromRoleLabel" element="_GdisoLZnEd2w14sx0UoE9Q">
               <children xmi:id="_Gdr2orZnEd2w14sx0UoE9Q" type="FromRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_Gdr2obZnEd2w14sx0UoE9Q" x="3046" y="-2140"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_Gdr2obZnEd2w14sx0UoE9Q" x="-243" y="-3931"/>
             </children>
             <children xmi:id="_Gdr2o7ZnEd2w14sx0UoE9Q" type="ToQualifierLabel" element="_Gdiso7ZnEd2w14sx0UoE9Q">
               <children xmi:id="_Gdr2pbZnEd2w14sx0UoE9Q" type="QualifierCompartment">
@@ -9970,7 +9970,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             </children>
             <children xmi:id="_8H9jjbZnEd2w14sx0UoE9Q" type="FromRoleLabel" element="_-zhHMeEAEdq8ysXH3gTiEg">
               <children xmi:id="_8H9jj7ZnEd2w14sx0UoE9Q" type="FromRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_8H9jjrZnEd2w14sx0UoE9Q" x="-337" y="1540"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8H9jjrZnEd2w14sx0UoE9Q" x="-167" y="1221"/>
             </children>
             <children xmi:id="_8H9jkLZnEd2w14sx0UoE9Q" type="ToQualifierLabel" element="_-zhHMuEAEdq8ysXH3gTiEg">
               <children xmi:id="_8H9jkrZnEd2w14sx0UoE9Q" type="QualifierCompartment">
@@ -9996,8 +9996,8 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               </children>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_8H9jnbZnEd2w14sx0UoE9Q" y="1058"/>
             </children>
-            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_8H9jfrZnEd2w14sx0UoE9Q" showStereotype="Text"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8H9jf7ZnEd2w14sx0UoE9Q" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_8H9jfrZnEd2w14sx0UoE9Q" routing="Rectilinear" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8H9jf7ZnEd2w14sx0UoE9Q" points="[2196, 26, -4604, 52]$[4816, 26, -1984, 52]"/>
           </edges>
           <edges xmi:id="_hlplkbZrEd2w14sx0UoE9Q" element="_hlplkLZrEd2w14sx0UoE9Q" source="_xYzkALZlEd2w14sx0UoE9Q" target="_VH_LALZrEd2w14sx0UoE9Q">
             <children xmi:id="_hlpllLZrEd2w14sx0UoE9Q" type="NameLabel">
@@ -10074,7 +10074,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             </children>
             <children xmi:id="_F0SRxLe7Ed2Kwrdvx9q52w" type="ToMultiplicityLabel" element="_Fz_W1Le7Ed2Kwrdvx9q52w">
               <children xmi:id="_F0SRxre7Ed2Kwrdvx9q52w" type="ToMultiplicity"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_F0SRxbe7Ed2Kwrdvx9q52w" y="396"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_F0SRxbe7Ed2Kwrdvx9q52w" x="-1604" y="-404"/>
             </children>
             <children xmi:id="_F0SRx7e7Ed2Kwrdvx9q52w" type="ToRoleLabel" element="_Fz_W1Le7Ed2Kwrdvx9q52w">
               <children xmi:id="_F0SRybe7Ed2Kwrdvx9q52w" type="ToRole"/>
@@ -10082,11 +10082,11 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             </children>
             <children xmi:id="_F0SRyre7Ed2Kwrdvx9q52w" type="FromMultiplicityLabel" element="_Fz_W0be7Ed2Kwrdvx9q52w">
               <children xmi:id="_F0SRzLe7Ed2Kwrdvx9q52w" type="FromMultiplicity"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_F0SRy7e7Ed2Kwrdvx9q52w" y="396"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_F0SRy7e7Ed2Kwrdvx9q52w" x="1576" y="-404"/>
             </children>
             <children xmi:id="_F0SRzbe7Ed2Kwrdvx9q52w" type="FromRoleLabel" element="_Fz_W0be7Ed2Kwrdvx9q52w">
               <children xmi:id="_F0SRz7e7Ed2Kwrdvx9q52w" type="FromRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_F0SRzre7Ed2Kwrdvx9q52w" x="2535" y="1311"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_F0SRzre7Ed2Kwrdvx9q52w" x="-1957" y="587"/>
             </children>
             <children xmi:id="_F0SR0Le7Ed2Kwrdvx9q52w" type="ToQualifierLabel" element="_Fz_W1Le7Ed2Kwrdvx9q52w">
               <children xmi:id="_F0SR0re7Ed2Kwrdvx9q52w" type="QualifierCompartment">
@@ -10112,7 +10112,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               </children>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_F0SR3be7Ed2Kwrdvx9q52w" y="1058"/>
             </children>
-            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_F0Igwbe7Ed2Kwrdvx9q52w" showStereotype="Text"/>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_F0Igwbe7Ed2Kwrdvx9q52w" routing="Rectilinear" showStereotype="Text"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_F0Igwre7Ed2Kwrdvx9q52w" points="[52, -25, -171, 81]$[144, -70, -79, 36]"/>
           </edges>
           <edges xmi:id="_Vx6MELe7Ed2Kwrdvx9q52w" element="_VxwbELe7Ed2Kwrdvx9q52w" source="_xYzkALZlEd2w14sx0UoE9Q" target="_VLBLMLe7Ed2Kwrdvx9q52w">
