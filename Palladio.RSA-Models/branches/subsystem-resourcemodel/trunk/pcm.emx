@@ -9410,7 +9410,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_wAs3DjyxEduB5pxz2UpKVQ"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_wAs3ATyxEduB5pxz2UpKVQ" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wAs3AjyxEduB5pxz2UpKVQ" x="15900" y="4770"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wAs3AjyxEduB5pxz2UpKVQ" x="14265" y="4755"/>
           </children>
           <children xmi:id="_979twGc_EduCGaQAxkcIwA" element="_EfLuYOJSEdqxcra4qpeplw">
             <children xmi:id="_979tw2c_EduCGaQAxkcIwA" type="ImageCompartment">
@@ -9962,7 +9962,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             </children>
             <children xmi:id="_8H9jh7ZnEd2w14sx0UoE9Q" type="ToRoleLabel" element="_-zhHMuEAEdq8ysXH3gTiEg">
               <children xmi:id="_8H9jibZnEd2w14sx0UoE9Q" type="ToRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_8H9jiLZnEd2w14sx0UoE9Q" y="-397"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8H9jiLZnEd2w14sx0UoE9Q" x="-514" y="-734"/>
             </children>
             <children xmi:id="_8H9jirZnEd2w14sx0UoE9Q" type="FromMultiplicityLabel" element="_-zhHMeEAEdq8ysXH3gTiEg">
               <children xmi:id="_8H9jjLZnEd2w14sx0UoE9Q" type="FromMultiplicity"/>
@@ -9970,7 +9970,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             </children>
             <children xmi:id="_8H9jjbZnEd2w14sx0UoE9Q" type="FromRoleLabel" element="_-zhHMeEAEdq8ysXH3gTiEg">
               <children xmi:id="_8H9jj7ZnEd2w14sx0UoE9Q" type="FromRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_8H9jjrZnEd2w14sx0UoE9Q" x="-167" y="1221"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8H9jjrZnEd2w14sx0UoE9Q" x="1343" y="1168"/>
             </children>
             <children xmi:id="_8H9jkLZnEd2w14sx0UoE9Q" type="ToQualifierLabel" element="_-zhHMuEAEdq8ysXH3gTiEg">
               <children xmi:id="_8H9jkrZnEd2w14sx0UoE9Q" type="QualifierCompartment">
@@ -10172,6 +10172,18 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
       <packageImport xmi:id="_arQ9cDRAEdun4NCFPwZksA" importedPackage="_LaA6ICh9Edue7oeC4NTCGg"/>
       <packageImport xmi:id="_UeII8DREEdun4NCFPwZksA" importedPackage="_LaA6ICh9Edue7oeC4NTCGg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_sJFW0LZlEd2w14sx0UoE9Q" name="ResourceAllocationConnector">
+        <ownedRule xmi:id="_jwxtwL7ZEd2DDvVYr2uOqA" name="ResourceContextHasToBelongToTheResourceContainerOfTheOwnAllocationContext" constrainedElement="_sJFW0LZlEd2w14sx0UoE9Q">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_jwxtwb7ZEd2DDvVYr2uOqA">
+            <language>OCL</language>
+            <body>self.allocationContext_AllocationConnector.resourceContainer_AllocationContext = self.resourceContext_ResourceAssemblyConnector.resourceContainer_ResourceContext</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_979oQL7ZEd2DDvVYr2uOqA" name="ResourceProvidedRoleHasToBeEqualToTheResourceProvidedRoleOfTheReferencedProcessingResourceType" constrainedElement="_sJFW0LZlEd2w14sx0UoE9Q">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_979oQb7ZEd2DDvVYr2uOqA">
+            <language>OCL</language>
+            <body>self.resourceProvidedRole_ResourceAllocationConnector = self.resourceContext_ResourceAssemblyConnector.processingResourceSpecification_ResourceContext.activeResourceType_ActiveResourceSpecification.resourceProvidedRole_ResourceInterfaceProvidingEntity</body>
+          </specification>
+        </ownedRule>
         <generalization xmi:id="_hlplkLZrEd2w14sx0UoE9Q" general="_O5r1sLZrEd2w14sx0UoE9Q"/>
         <ownedAttribute xmi:id="_GdisoLZnEd2w14sx0UoE9Q" name="resourceContext_ResourceAssemblyConnector" visibility="public" type="_CocA0Le7Ed2Kwrdvx9q52w" association="_GdY7oLZnEd2w14sx0UoE9Q">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GdisorZnEd2w14sx0UoE9Q" value="1"/>
@@ -10259,6 +10271,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Fz_W07e7Ed2Kwrdvx9q52w" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Fz_W0re7Ed2Kwrdvx9q52w" value="1"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_-zhHMuEAEdq8ysXH3gTiEg" name="resourceContainer_ResourceContext" visibility="public" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_-zhHMOEAEdq8ysXH3gTiEg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_Fz_W0Le7Ed2Kwrdvx9q52w" memberEnd="_Fz_W0be7Ed2Kwrdvx9q52w _Fz_W1Le7Ed2Kwrdvx9q52w">
         <ownedEnd xmi:id="_Fz_W1Le7Ed2Kwrdvx9q52w" name="" visibility="private" type="_CocA0Le7Ed2Kwrdvx9q52w" association="_Fz_W0Le7Ed2Kwrdvx9q52w">
@@ -15263,9 +15276,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_akqjcOMxEdqaQsPH3rPnBQ"/>
         </ownedEnd>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_-zhHMOEAEdq8ysXH3gTiEg" name="contains1" memberEnd="_-zhHMeEAEdq8ysXH3gTiEg _-zhHMuEAEdq8ysXH3gTiEg">
-        <ownedEnd xmi:id="_-zhHMuEAEdq8ysXH3gTiEg" name="resourcecontainer" visibility="private" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_-zhHMOEAEdq8ysXH3gTiEg"/>
-      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_-zhHMOEAEdq8ysXH3gTiEg" name="contains1" memberEnd="_-zhHMeEAEdq8ysXH3gTiEg _-zhHMuEAEdq8ysXH3gTiEg"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_bh_sUOQLEdqeH_WIC9QRew" memberEnd="_bh_sUeQLEdqeH_WIC9QRew _biJdUOQLEdqeH_WIC9QRew">
         <ownedEnd xmi:id="_biJdUOQLEdqeH_WIC9QRew" visibility="private" type="_MrdV4OQLEdqeH_WIC9QRew" association="_bh_sUOQLEdqeH_WIC9QRew"/>
       </packagedElement>
