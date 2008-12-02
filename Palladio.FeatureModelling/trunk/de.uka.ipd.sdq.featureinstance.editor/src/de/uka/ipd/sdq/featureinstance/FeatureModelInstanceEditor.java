@@ -74,6 +74,10 @@ import de.uka.ipd.sdq.featuremodel.Node;
 import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
+/**
+ * @author fish
+ *
+ */
 public class FeatureModelInstanceEditor extends MultiPageEditorPart implements ISelectionProvider {
 	
 	protected ISelectionChangedListener selectionChangedListener;
@@ -90,6 +94,8 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	protected ICheckStateListener listener;
 	
 	protected Resource resource;
+	
+	protected FeatureDiagram featureDiagram;
 	
 	protected Object root;
 	
@@ -127,6 +133,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		super.firePropertyChange(action);
 	}
 
+	/**
+	 * Initializes the adapterFactory, the commandStack and with these objects the editingDomain
+	 */
 	protected void initializeEditingDomain () {
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
@@ -155,6 +164,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
         super.init(site, input);
 	}
 	
+	/**
+	 * Loads the resource-object through the editingDomain
+	 */
 	protected void createResource() {
 		
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
@@ -173,26 +185,40 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 	}
 	
+	/**
+	 * @return Returns the resource-object
+	 */
 	protected Resource getResource() {
 		return resource;
 	}
 	
-	//starts a new file creation wizard
+	/**
+	 * Starts a ResourceWizard to create a new File
+	 * 
+	 * @param fileName The default filename
+	 * @return Returns the URI of the new file or null, if dialog was cancelled
+	 */
 	protected URI startFileWizard (String fileName) {
 		ResourceWizard myWiz = new ResourceWizard(fileName);
 		myWiz.init(getEditorSite().getWorkbenchWindow().getWorkbench(), (IStructuredSelection)getSelection());
 		WizardDialog dialog = new WizardDialog(null, myWiz);
 		dialog.create();
 		dialog.open();
-		
+
 		//get the location for the featureconfig
 		return myWiz.getNewResource();
 	}
 	
-	//starts an load resource dialog
-	protected URI startOpenDialog (String fileName, String extension) {
+	/**
+	 * Starts a LoadResourceDialog
+	 * 
+	 * @param fileName The default filename
+	 * @return Returns the URI selected by the user in the dialog or null if no file was selected or the dialog cancelled
+	 */
+	protected URI startOpenDialog (String fileName) {
 		
 		LoadResourceDialog myDialog = new LoadResourceDialog(getContainer().getShell(), editingDomain);
+		myDialog.setBlockOnOpen(true);
 		myDialog.open();
 		
 		if (myDialog.getReturnCode() == 1) {
@@ -209,8 +235,15 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		}
 	}
 	
-	//creates the new resource with Configuration included and overwrites resource object with the newly generated one
-	protected void createNewConfigResource (URI newResourceURI, FeatureDiagram featureDiagram) {
+	/**
+	 * Creates a new Configuration-Resource with the given newResourceURI corresponding to the given featureDiagram
+	 * Overrides the old (*.featuremodel) resource-object 
+	 * 
+	 * @param newResourceURI The URI for the new Resource
+	 * @param featureDiagram A FeatureDiagram-object to which the new Configuration should reference
+	 * @param defaultRef A reference to the defaultConfig object or null, if none exists
+	 */
+	protected void createNewConfigResource (URI newResourceURI, FeatureDiagram featureDiagram, FeatureConfig defaultRef) {
 		if (newResourceURI == null) {
 			throw new NullPointerException ("No Config file stored!");
 		}
@@ -223,6 +256,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			FeatureConfig newOverrides = factory.createFeatureConfig();
 			newConfig.setConfigOverrides(newOverrides);
 			
+			//set reference to default if existing
+			newConfig.setDefaultConfig(defaultRef);
+			
 			ConfigNode rootConfigNode = factory.createConfigNode();
 			rootConfigNode.setConfigState(ConfigState.ELIMINATED);
 			rootConfigNode.setOrigin((Feature)(featureDiagram).getRootFeature());
@@ -231,8 +267,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			
 			resource.getContents().add(newConfig);
 			
+			defaultConfig = defaultRef;
 			overridesConfig = newOverrides;
-			
+
 			try {
 				resource.load(Collections.EMPTY_MAP);
 				resource.save(Collections.EMPTY_MAP);
@@ -243,8 +280,13 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		}
 	}
 	
-	//check if the FeatureDiagram object can be accessed in the loaded resource
-	protected FeatureDiagram getFeatureDiagram () {
+	/**
+	 * Checks if the FeatureDiagram object can be accessed in the loaded resource and returns it if possible
+	 * 
+	 * @param resource The resource from which the FeatureDiagram-object can be accessed (a *.featuremodel-file)
+	 * @return Returns a FeatureDiagram-object or null, if it can be accessed (e.g. no *.featuremodel-file)
+	 */
+	protected FeatureDiagram getFeatureDiagram (Resource resource) {
 		EList<EObject> tempList = resource.getContents();
 		Iterator<EObject> tempIterator = tempList.iterator();
 		EObject newResource;
@@ -261,6 +303,106 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		return (FeatureDiagram)newResource;
 	}
 	
+	/**
+	 * Checks if the Configuration object can be accessed in the loaded resource and returns it if possible
+	 * 
+	 * @param resource The resource from which the Configuration-object can be accessed (a *.featureconfig-file)
+	 * @return Returns a Configuration-object or null, if it can be accessed (e.g. no *.featureconfig-file)
+	 */
+	protected Configuration getConfiguration (Resource resource) {
+		EList<EObject> tempList = resource.getContents();
+		Iterator<EObject> tempIterator = tempList.iterator();
+		EObject newResource;
+		if (tempIterator.hasNext()) {
+			newResource = tempIterator.next();
+		}
+		else {
+			return null;
+		}
+		
+		if (!(newResource instanceof Configuration)) {
+			return null;
+		}
+		return (Configuration)newResource;
+	}
+	
+	/**
+	 * Handles the different cases for a loaded *.featuremodel-resource
+	 * 
+	 * @param resource The resource in which the configuration object should be stored
+	 * @return The resource object which stores the (prop. new) overrides config object
+	 */
+	protected Resource handleConfigCases(Resource resource) {
+		//Check if featureconfig file is valid (Configuration object can be referenced)
+		Configuration configuration = getConfiguration(resource);
+		
+		FeatureConfig tempOverrides = configuration.getConfigOverrides();
+		FeatureConfig tempDefault = configuration.getDefaultConfig();
+		
+		//Both FeatureConfigs are null
+		if (tempOverrides == null && tempDefault == null) {
+			//TODO needs to be checked if its really necessary to ask for BOTH locations:
+			//file selection wizard asking for featuremodel and configmodel location
+			//instanciate a overrides config
+		}
+		else if (tempOverrides == null && tempDefault != null) {
+			EList<ConfigNode> configList = tempDefault.getConfignode();
+			
+			if (configList.isEmpty()) {
+				//TODO needs to be checked if its really necessary to ask for BOTH locations:
+				//file selection wizard asking for featuremodel and configmodel location
+				//instanciate a overrides config
+			}
+			else {
+				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+				String fileName = resource.getURI().trimFileExtension().lastSegment();
+				URI newResourceURI = startFileWizard(fileName);
+				createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
+			}
+		}
+		else if (tempOverrides != null && tempDefault == null) {
+			EList<ConfigNode> configList = tempOverrides.getConfignode();
+			
+			if (configList.isEmpty()) {
+				//TODO needs to be checked if its really necessary to ask for BOTH locations:
+				//file selection wizard asking for featuremodel and configmodel location
+				//instanciate a overrides config
+			}
+			else {
+				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+				overridesConfig = tempOverrides;
+			}
+		}
+		else {
+			boolean configPresent = false;
+			
+			//Check for OverridesConfig
+			EList<ConfigNode> configList = tempOverrides.getConfignode();
+			
+			if (!(configList.isEmpty())) {
+				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+				overridesConfig = tempOverrides;
+				configPresent = true;
+			}
+			
+			//Check for DefaultConfig
+			configList = tempDefault.getConfignode();
+			
+			if (!(configList.isEmpty())) {
+				if (configPresent) {
+					defaultConfig = tempDefault;
+				}
+				else {
+					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+					String fileName = resource.getURI().trimFileExtension().lastSegment();
+					URI newResourceURI = startFileWizard(fileName);
+					createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
+				}
+			}
+		}
+		return resource;
+	}
+	
 	@Override
 	protected void createPages() {
 		
@@ -273,13 +415,10 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		int fileNameLocation = path.lastIndexOf(fileName);
 		path = path.substring(0, fileNameLocation);
 		
-
-		FeatureDiagram featureDiagram = null;
-		
 		//featuremodel file present
 		if (fileExtension.equals("featuremodel")) {
-			//Check if featuremodel file is valid (FeatureDiagram obejct can be referenced)
-			featureDiagram = getFeatureDiagram();
+			//Check if featuremodel file is valid (FeatureDiagram object can be referenced)
+			featureDiagram = getFeatureDiagram(resource);
 			if (featureDiagram == null) {
 				ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Loaded *.featuremodel file is not valid! The FeatureDiagram object cannot be accessed."));
 				errord.open();
@@ -289,7 +428,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 			
 			//Check if the equivalent featureconfig-file already exists
 			File myFile = new File(path + fileName + ".featureconfig");
-			System.out.println(myFile.getPath());
 			
 			if (myFile.exists()) {
 				//ask if existing file should be used
@@ -307,59 +445,89 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 					catch (Exception e) {
 						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Existing featureconfig file couldn't be loaded!"));
 						errord.open();
+						//TODO what to do after errorDialog ?
 					}
 					
 					//Check if *.featureconfig references right FeatureDiagram
-					if (isFeatureDiagramReferenceCorrect()) {
-						//set overridesConfig, overwrite resource
+					if (isFeatureDiagramReferenceCorrect(existingResource)) {
+						existingResource = handleConfigCases(existingResource);
+						try {
+							resource = existingResource;
+							resource.load(Collections.EMPTY_MAP);
+							resource.save(Collections.EMPTY_MAP);
+						}
+						catch (Exception e) {
+							throw new NullPointerException("BLA!");
+						}
 					}
 					else {
 						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("The selected *.featureconfig file references the wrong FeatureDiagram! A new FileWizard will be started."));
 						errord.open();
 						URI newResourceURI = startFileWizard(fileName);
-						createNewConfigResource(newResourceURI, featureDiagram);
+						createNewConfigResource(newResourceURI, featureDiagram, null);
 					}
 					
 				}
 				else {
 					URI newResourceURI = startFileWizard(fileName);
-					createNewConfigResource(newResourceURI, featureDiagram);
+					createNewConfigResource(newResourceURI, featureDiagram, null);
 				}
 			}
 			else {
-				URI configPath = startOpenDialog(fileName, "featureconfig");
+				URI configPath = startOpenDialog(fileName);
 				
 				if (configPath == null) {
 					//File selection Dialog has been canceled, call new file wizard
 					ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("No file has been selected! A new file wizard will be started."));
 					errord.open();
 					URI newResourceURI = startFileWizard(fileName);
-					createNewConfigResource(newResourceURI, featureDiagram);
+					createNewConfigResource(newResourceURI, featureDiagram, null);
 				} 
 				else {
+					Resource existingResource = resource.getResourceSet().createResource(configPath);
+					
+					try {
+						existingResource.load(Collections.EMPTY_MAP);
+					}
+					catch (Exception e) {
+						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Existing featureconfig file couldn't be loaded!"));
+						errord.open();
+						//TODO what to do after errorDialog ?
+					}
+					
 					//Check if *.featureconfig references right FeatureDiagram
-					if (isFeatureDiagramReferenceCorrect()) {
-						//set overridesConfig, overwrite resource
+					if (isFeatureDiagramReferenceCorrect(existingResource)) {
+						existingResource = handleConfigCases(existingResource);
+						try {
+							resource = existingResource;
+							resource.load(Collections.EMPTY_MAP);
+							resource.save(Collections.EMPTY_MAP);
+						}
+						catch (Exception e) {
+							throw new NullPointerException("BLA!");
+						}
 					}
 					else {
 						ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("The selected *.featureconfig file references the wrong FeatureDiagram! A new FileWizard will be started."));
 						errord.open();
 						URI newResourceURI = startFileWizard(fileName);
-						createNewConfigResource(newResourceURI, featureDiagram);
+						createNewConfigResource(newResourceURI, featureDiagram, null);
 					}
 				}
 			}
-			
 		}
 		//featureconfig file present
 		else if (fileExtension.equals("featureconfig")){
-			System.out.println("Featureconfig-File present!");
-			//TODO Check cases
+			handleConfigCases(resource);
 		}
 		//no featureconfig or featuremodel file present
 		else {
-			System.out.println("Other file extension!");
-			//TODO Handle Errors etc.
+			
+		}
+		
+		if (featureDiagram == null || overridesConfig == null) {
+			ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Something went wrong during the resource loading process. Please restart the Editor with a correct *.featureconfig or *.featuremodel file!"));
+			errord.open();
 		}
 
 		//Create the Viewer
@@ -380,11 +548,73 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		
 	}
 	
-	//Checks if a selected featureconfig file references the opened FeatureDiagram resource
-	public boolean isFeatureDiagramReferenceCorrect () {
-		return true;
+	/**
+	 * Navigates to the FeatureDiagram from a given Feature-object
+	 * 
+	 * @param feature A Feature-object
+	 * @return the parent FeatureDiagram to the given Feature-object
+	 */
+	public FeatureDiagram navigateToFeatureDiagram (Feature feature) {
+		Object parent = editingDomain.getParent(feature);
+		
+		while (parent != null && !(parent instanceof FeatureDiagram)) {
+			parent = editingDomain.getParent(parent);
+		}
+		
+		return (FeatureDiagram)parent;
 	}
 	
+	/**
+	 * Checks if a newly loaded featureconfig-file references the opened FeatureDiagram resource
+	 * 
+	 * @param existingResource Newly loaded Resource-object (should be a featureconfig-file)
+	 * @return <code>false</code>, if existingResource doesn't include a Configuration-object or if no ConifgNode references to the opened model
+	 * 		   <code>true</code> otherwise
+	 */
+	public boolean isFeatureDiagramReferenceCorrect (Resource existingResource) {
+		Configuration configuration = getConfiguration(existingResource);
+		
+		boolean correct = false;
+		
+		if (configuration == null) {
+			return correct;
+		}
+		else {
+			FeatureConfig tempOverrides = configuration.getConfigOverrides();
+			FeatureConfig tempDefault = configuration.getDefaultConfig();
+			
+			if (tempOverrides != null) {
+				EList <ConfigNode> configList = tempOverrides.getConfignode();
+				if (!(configList.isEmpty())) {
+					Iterator<ConfigNode> configIterator = configList.iterator();
+					while (configIterator.hasNext()) {
+						if (configIterator.next().getOrigin() != null) {
+							correct = true;
+						}
+					}
+				}
+			}
+			
+			if (!correct && tempDefault != null) {
+				EList <ConfigNode> configList = tempDefault.getConfignode();
+				if (!(configList.isEmpty())) {
+					Iterator<ConfigNode> configIterator = configList.iterator();
+					while (configIterator.hasNext()) {
+						if (configIterator.next().getOrigin() != null) {
+							correct = true;
+						}
+					}
+				}
+			}
+		}
+		return correct;
+	}
+	
+	/**
+	 * Creates a treeViewer of the given FeatureDiagram
+	 * 
+	 * @param root The FeatureDiagram-object which shall be displayed
+	 */
 	public void createViewer (FeatureDiagram root) {
 		treeViewer = new CheckboxTreeViewer(comp);
 		
@@ -447,7 +677,12 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 
 	}
 	
-	//registers changes in the Resource object
+	/**
+	 * Registers changes made in the TreeViewer to the resource
+	 * 
+	 * @param element The changed Feature
+	 * @param state The checked/unchecked state
+	 */
 	public void uncheckInModel (Feature element, boolean state) {
 		dirtyFlag = true;
 		firePropertyChange(IEditorPart.PROP_DIRTY);
@@ -456,7 +691,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		Iterator<ConfigNode> tempIter = overridesConfig.getConfignode().iterator();
 		
 		//search for existing ConfigNodes in the overridesConfig and register changes
-		loop: while (tempIter.hasNext()) {
+		while (tempIter.hasNext()) {
 			ConfigNode next = tempIter.next(); 
 			if (next.getOrigin().hashCode() == hash) {
 				found = true;
@@ -466,7 +701,6 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				else {
 					next.setConfigState(ConfigState.ELIMINATED);
 				}
-				break loop;
 			}
 		}
 		
@@ -486,6 +720,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		}
 	}
 	
+	/**
+	 * Checks/unchecks the defaultConfiguration in the Viewer
+	 */
 	public void markDefaultConfig () {
 		//mark all default configNodes
 		EList<ConfigNode> defaultNodes = defaultConfig.getConfignode();
@@ -507,6 +744,9 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		}
 	}
 	
+	/**
+	 * Checks/unchecks the configurationOverrides in the Viewer
+	 */
 	public void markOverridesConfig () {
 		//mark all overrides configNodes
 		EList<ConfigNode> overridesNodes = overridesConfig.getConfignode();
@@ -530,7 +770,11 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		}
 	}
 	
-	//Unchecks recursively parent nodes, if no children nodes are checked
+	/**
+	 * Unchecks recursively parent nodes, if no children nodes are checked
+	 * 
+	 * @param current The unchecked Feature
+	 */
 	public void uncheckParents (Object current) {
 		boolean checked = getAnyChecked(current);
 
@@ -548,7 +792,30 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		}
 	}
 	
-	//returns true, if there are any siblings of current checked, else false
+	/**
+	 * Checks recursively parent nodes, if a Node is checked
+	 * 
+	 * @param current The checked Feature
+	 */
+	public void checkParents (Object current) {
+		Object parent = editingDomain.getParent(current);
+		if (parent != null) {
+			if (!(treeViewer.getChecked(parent))) {
+				treeViewer.setChecked(parent, true);
+				
+				if (parent instanceof Feature) {
+					uncheckInModel((Feature)parent,true);
+				}
+				checkParents(parent);
+			}
+		}
+	}
+	
+	/**
+	 * @param current
+	 * @return <code>true</code> if there are any siblings of current checked
+	 * 		   <code>false</code> otherwise
+	 */
 	public boolean getAnyChecked (Object current) {
 		Object parent = editingDomain.getParent(current);
 
@@ -582,21 +849,13 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		return checked;
 	}
 	
-	//checks recursively parent nodes
-	public void checkParents (Object current) {
-		Object parent = editingDomain.getParent(current);
-		if (parent != null) {
-			if (!(treeViewer.getChecked(parent))) {
-				treeViewer.setChecked(parent, true);
-				
-				if (parent instanceof Feature) {
-					uncheckInModel((Feature)parent,true);
-				}
-				checkParents(parent);
-			}
-		}
-	}
 	
+	/**
+	 * Grays out the FeatureGroups in the treeViewer
+	 * 
+	 * @param curRoot The root Node, where the graying should be started
+	 * @deprecated not necessary any more after the model changes (no FeatureGroups)
+	 */
 	public void grayFeatureGroups (Node curRoot) {
 		if (curRoot != null) {
 			if (curRoot instanceof FeatureGroup) {
@@ -752,26 +1011,21 @@ class TreeLabelProvider implements ILabelProvider {
 	}
 
 	@Override
-	public void addListener(ILabelProviderListener listener) {
-		// TODO Auto-generated method stub
-		
+	public void addListener(ILabelProviderListener listener) {		
 	}
 
 	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-		
+	public void dispose() {		
+		//TODO Disposing TreeLabelProvider/TreeViewer
 	}
 
 	@Override
 	public boolean isLabelProperty(Object element, String property) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void removeListener(ILabelProviderListener listener) {
-		// TODO Auto-generated method stub
 		
 	}
 	
