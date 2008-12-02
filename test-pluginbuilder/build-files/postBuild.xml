@@ -145,7 +145,7 @@
 
 		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/">
 		    		<!-- <include name="**/*.java"/> -->
-		    		<include name="**/de.uka.ipd.sdq**/*.java" /> 
+		    		<include name="de.uka.ipd.sdq.**/*.java" /> 
 		    		<!-- <exclude name="" /> -->
 		    		<!-- <include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" /> -->
 				</fileset>
