@@ -119,17 +119,16 @@
 	<!-- ================================================= -->
 	<!-- Added by kelsaka: Creates javadoc for the project -->
 	<!-- ================================================= -->
-	<target name="javadoc-pcm" description="Generate JavaDoc for the project">
-		<property name="buildDirectory" value="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/" />
+	<target name="javadoc-pcm" description="Generate JavaDoc for the project">		
 			<echo>starting to create JavaDoc PCM...</echo>		
-			<mkdir dir="${buildDirectory}/updateSite/javadoc/"/>
+			<mkdir dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc/"/>
 		    <javadoc 
-		    	destdir="${buildDirectory}/updateSite/javadoc/"
+		    	destdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/updateSite/javadoc/"
 		    	author="true" 
 		    	defaultexcludes="yes" 
 		    	use="true" 
 		    	version="true" 
-		    	windowtitle="${project.name}"
+		    	windowtitle="${project.name} - PCM"
 		    	maxmemory="256m">
 		<!--
 		    	source="${buildDirectory}"  
@@ -143,7 +142,7 @@
 		        <link href="http://java.sun.com/javase/6/docs/api/"/>
 			<!-- <taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
 				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/> -->	
-	    	<fileset dir="${buildDirectory}/plugins/" includes="**/*.java"/>
+	    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/>
 	    </javadoc>
 	</target>
 	<!-- ======================================== -->
