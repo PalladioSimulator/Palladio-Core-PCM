@@ -179,7 +179,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		catch (Exception e) {
 			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 			if (resource == null) {
-				throw new NullPointerException("No Resource found!");
+				e.printStackTrace();
 			}
 		}
 
@@ -245,7 +245,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 	 */
 	protected void createNewConfigResource (URI newResourceURI, FeatureDiagram featureDiagram, FeatureConfig defaultRef) {
 		if (newResourceURI == null) {
-			throw new NullPointerException ("No Config file stored!");
+			throw new NullPointerException ("No Config file stored in resource!");
 		}
 		else {
 			//Create new featureconfig-resource and change current resource
@@ -275,7 +275,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 				resource.save(Collections.EMPTY_MAP);
 			}
 			catch (Exception e) {
-				throw new NullPointerException("BLA!");
+				e.printStackTrace();
 			}
 		}
 	}
@@ -457,7 +457,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 							resource.save(Collections.EMPTY_MAP);
 						}
 						catch (Exception e) {
-							throw new NullPointerException("BLA!");
+							e.printStackTrace();
 						}
 					}
 					else {
@@ -504,7 +504,7 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 							resource.save(Collections.EMPTY_MAP);
 						}
 						catch (Exception e) {
-							throw new NullPointerException("BLA!");
+							e.printStackTrace();
 						}
 					}
 					else {
