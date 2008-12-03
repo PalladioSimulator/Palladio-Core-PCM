@@ -646,5 +646,5 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_Gx1qYFSiEdywv4JH0AaZwg" base_Package="_zWMAsFYOEduVzvtHWuORYA" nsPrefix="probfunction" nsURI="http://sdq.ipd.uka.de/ProbFunction/1.0" basePackage="de.uka.ipd.sdq"/>
+  <Ecore:EPackage xmi:id="_Gx1qYFSiEdywv4JH0AaZwg" base_Package="_zWMAsFYOEduVzvtHWuORYA" packageName="probfunction" nsPrefix="probfunction" nsURI="http://sdq.ipd.uka.de/ProbFunction/1.0" basePackage="de.uka.ipd.sdq" prefix="ProbFunction"/>
 </xmi:XMI>
