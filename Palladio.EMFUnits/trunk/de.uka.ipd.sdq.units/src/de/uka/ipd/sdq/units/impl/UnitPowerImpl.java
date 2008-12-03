@@ -34,6 +34,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class UnitPowerImpl extends UnitImpl implements UnitPower {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

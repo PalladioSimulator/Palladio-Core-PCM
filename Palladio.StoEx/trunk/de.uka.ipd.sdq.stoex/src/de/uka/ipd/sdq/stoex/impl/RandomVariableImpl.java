@@ -32,6 +32,13 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  */
 public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The default value of the '{@link #getSpecification() <em>Specification</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,6 +140,28 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void unsetExpression() {
+		// TODO: implement this method to unset the 'Expression' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetExpression() {
+		// TODO: implement this method to return whether the 'Expression' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -175,7 +204,7 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 				setSpecification(SPECIFICATION_EDEFAULT);
 				return;
 			case StoexPackage.RANDOM_VARIABLE__EXPRESSION:
-				setExpression((Expression)null);
+				unsetExpression();
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,7 +221,7 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				return SPECIFICATION_EDEFAULT == null ? specification != null : !SPECIFICATION_EDEFAULT.equals(specification);
 			case StoexPackage.RANDOM_VARIABLE__EXPRESSION:
-				return basicGetExpression() != null;
+				return isSetExpression();
 		}
 		return super.eIsSet(featureID);
 	}

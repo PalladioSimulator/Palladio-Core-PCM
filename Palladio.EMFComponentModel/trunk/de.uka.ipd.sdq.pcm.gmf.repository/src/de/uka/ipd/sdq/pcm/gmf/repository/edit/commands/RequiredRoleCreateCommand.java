@@ -58,10 +58,11 @@ public class RequiredRoleCreateCommand extends CreateElementCommand {
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && !(source instanceof InterfaceRequiringEntity)) {
+		if (source != null
+				&& false == source instanceof InterfaceRequiringEntity) {
 			return false;
 		}
-		if (target != null && !(target instanceof Interface)) {
+		if (target != null && false == target instanceof Interface) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -76,7 +77,6 @@ public class RequiredRoleCreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// de.uka.ipd.sdq.pcm.repository.RequiredRole newElement = (de.uka.ipd.sdq.pcm.repository.RequiredRole) super.doDefaultElementCreation();
 		RequiredRole newElement = RepositoryFactory.eINSTANCE
 				.createRequiredRole();
 		getSource().getRequiredRoles_InterfaceRequiringEntity().add(newElement);

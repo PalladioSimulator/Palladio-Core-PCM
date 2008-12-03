@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -221,7 +222,7 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureSubSystem_Name_LabelFigure;
+		private WrappingLabel fFigureSubSystem_Name_LabelFigure;
 
 		/**
 		 * @generated
@@ -235,7 +236,7 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureSubSystem_Name_LabelFigure = new WrapLabel();
+			fFigureSubSystem_Name_LabelFigure = new WrappingLabel();
 			fFigureSubSystem_Name_LabelFigure.setText("<...>");
 
 			this.add(fFigureSubSystem_Name_LabelFigure);
@@ -264,7 +265,7 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureSubSystem_Name_LabelFigure() {
+		public WrappingLabel getFigureSubSystem_Name_LabelFigure() {
 			return fFigureSubSystem_Name_LabelFigure;
 		}
 

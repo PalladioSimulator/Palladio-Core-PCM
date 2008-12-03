@@ -56,15 +56,17 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 		if (request.getElementToConfigure().eContainer() instanceof ExternalCallAction) {
 			// TODO: Check this as the ElementIDs changed!!!!! And I only guessed the new ones
-			if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3028){
-				// 3001 = VariableUsage for input variables
-				return caseExternalCallActionInputParameter(request);
-			} else if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3029){
-				// 3022 = VariableUsage for output variables
-				return caseExternalCallActionOutputParameter(request);
-			} else {
-				return null;
-			}
+			// TODO: Check GMF2.1 IDs
+//			if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3028){
+//				// 3001 = VariableUsage for input variables
+//				return caseExternalCallActionInputParameter(request);
+//			} else if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3029){
+//				// 3022 = VariableUsage for output variables
+//				return caseExternalCallActionOutputParameter(request);
+//			} else {
+//				return null;
+//			}
+			return null;
 		} else if (request.getElementToConfigure().eContainer() instanceof SetVariableAction) {
 			return caseSetVariableAction(request);
 		} else

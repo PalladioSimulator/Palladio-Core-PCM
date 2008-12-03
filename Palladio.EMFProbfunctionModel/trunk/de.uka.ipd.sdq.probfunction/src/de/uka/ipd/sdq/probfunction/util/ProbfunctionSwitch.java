@@ -6,19 +6,25 @@
  */
 package de.uka.ipd.sdq.probfunction.util;
 
+import de.uka.ipd.sdq.probfunction.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.Complex;
+import de.uka.ipd.sdq.probfunction.ContinuousPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.NormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +39,13 @@ import de.uka.ipd.sdq.probfunction.SamplePDF;
  * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage
  * @generated
  */
-public class ProbfunctionSwitch<T> {
+public class ProbfunctionSwitch<T1> {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -61,7 +73,7 @@ public class ProbfunctionSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject) {
+	public T1 doSwitch(EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -72,7 +84,7 @@ public class ProbfunctionSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
+	protected T1 doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
@@ -92,53 +104,93 @@ public class ProbfunctionSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case ProbfunctionPackage.BOXED_PDF: {
 				BoxedPDF boxedPDF = (BoxedPDF)theEObject;
-				T result = caseBoxedPDF(boxedPDF);
+				T1 result = caseBoxedPDF(boxedPDF);
 				if (result == null) result = caseProbabilityDensityFunction(boxedPDF);
 				if (result == null) result = caseProbabilityFunction(boxedPDF);
+				if (result == null) result = caseUnitCarryingElement(boxedPDF);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ProbfunctionPackage.PROBABILITY_DENSITY_FUNCTION: {
 				ProbabilityDensityFunction probabilityDensityFunction = (ProbabilityDensityFunction)theEObject;
-				T result = caseProbabilityDensityFunction(probabilityDensityFunction);
+				T1 result = caseProbabilityDensityFunction(probabilityDensityFunction);
 				if (result == null) result = caseProbabilityFunction(probabilityDensityFunction);
+				if (result == null) result = caseUnitCarryingElement(probabilityDensityFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ProbfunctionPackage.PROBABILITY_FUNCTION: {
 				ProbabilityFunction probabilityFunction = (ProbabilityFunction)theEObject;
-				T result = caseProbabilityFunction(probabilityFunction);
+				T1 result = caseProbabilityFunction(probabilityFunction);
+				if (result == null) result = caseUnitCarryingElement(probabilityFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ProbfunctionPackage.CONTINUOUS_SAMPLE: {
 				ContinuousSample continuousSample = (ContinuousSample)theEObject;
-				T result = caseContinuousSample(continuousSample);
+				T1 result = caseContinuousSample(continuousSample);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ProbfunctionPackage.PROBABILITY_MASS_FUNCTION: {
 				ProbabilityMassFunction probabilityMassFunction = (ProbabilityMassFunction)theEObject;
-				T result = caseProbabilityMassFunction(probabilityMassFunction);
+				T1 result = caseProbabilityMassFunction(probabilityMassFunction);
 				if (result == null) result = caseProbabilityFunction(probabilityMassFunction);
+				if (result == null) result = caseUnitCarryingElement(probabilityMassFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ProbfunctionPackage.SAMPLE: {
-				Sample sample = (Sample)theEObject;
-				T result = caseSample(sample);
+				Sample<?> sample = (Sample<?>)theEObject;
+				T1 result = caseSample(sample);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ProbfunctionPackage.SAMPLE_PDF: {
 				SamplePDF samplePDF = (SamplePDF)theEObject;
-				T result = caseSamplePDF(samplePDF);
+				T1 result = caseSamplePDF(samplePDF);
 				if (result == null) result = caseProbabilityDensityFunction(samplePDF);
 				if (result == null) result = caseProbabilityFunction(samplePDF);
+				if (result == null) result = caseUnitCarryingElement(samplePDF);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ProbfunctionPackage.COMPLEX: {
+				Complex complex = (Complex)theEObject;
+				T1 result = caseComplex(complex);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ProbfunctionPackage.CONTINUOUS_PDF: {
+				ContinuousPDF continuousPDF = (ContinuousPDF)theEObject;
+				T1 result = caseContinuousPDF(continuousPDF);
+				if (result == null) result = caseProbabilityDensityFunction(continuousPDF);
+				if (result == null) result = caseProbabilityFunction(continuousPDF);
+				if (result == null) result = caseUnitCarryingElement(continuousPDF);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ProbfunctionPackage.EXPONENTIAL_DISTRIBUTION: {
+				ExponentialDistribution exponentialDistribution = (ExponentialDistribution)theEObject;
+				T1 result = caseExponentialDistribution(exponentialDistribution);
+				if (result == null) result = caseContinuousPDF(exponentialDistribution);
+				if (result == null) result = caseProbabilityDensityFunction(exponentialDistribution);
+				if (result == null) result = caseProbabilityFunction(exponentialDistribution);
+				if (result == null) result = caseUnitCarryingElement(exponentialDistribution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ProbfunctionPackage.NORMAL_DISTRIBUTION: {
+				NormalDistribution normalDistribution = (NormalDistribution)theEObject;
+				T1 result = caseNormalDistribution(normalDistribution);
+				if (result == null) result = caseContinuousPDF(normalDistribution);
+				if (result == null) result = caseProbabilityDensityFunction(normalDistribution);
+				if (result == null) result = caseProbabilityFunction(normalDistribution);
+				if (result == null) result = caseUnitCarryingElement(normalDistribution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,7 +209,7 @@ public class ProbfunctionSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBoxedPDF(BoxedPDF object) {
+	public T1 caseBoxedPDF(BoxedPDF object) {
 		return null;
 	}
 
@@ -172,7 +224,7 @@ public class ProbfunctionSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProbabilityDensityFunction(ProbabilityDensityFunction object) {
+	public T1 caseProbabilityDensityFunction(ProbabilityDensityFunction object) {
 		return null;
 	}
 
@@ -187,7 +239,7 @@ public class ProbfunctionSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProbabilityFunction(ProbabilityFunction object) {
+	public T1 caseProbabilityFunction(ProbabilityFunction object) {
 		return null;
 	}
 
@@ -202,7 +254,7 @@ public class ProbfunctionSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContinuousSample(ContinuousSample object) {
+	public T1 caseContinuousSample(ContinuousSample object) {
 		return null;
 	}
 
@@ -217,7 +269,7 @@ public class ProbfunctionSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProbabilityMassFunction(ProbabilityMassFunction object) {
+	public T1 caseProbabilityMassFunction(ProbabilityMassFunction object) {
 		return null;
 	}
 
@@ -232,7 +284,7 @@ public class ProbfunctionSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSample(Sample object) {
+	public <T> T1 caseSample(Sample<T> object) {
 		return null;
 	}
 
@@ -247,7 +299,82 @@ public class ProbfunctionSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSamplePDF(SamplePDF object) {
+	public T1 caseSamplePDF(SamplePDF object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Complex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Complex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseComplex(Complex object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Continuous PDF</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Continuous PDF</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseContinuousPDF(ContinuousPDF object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Exponential Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Exponential Distribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseExponentialDistribution(ExponentialDistribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Distribution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseNormalDistribution(NormalDistribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Carrying Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseUnitCarryingElement(UnitCarryingElement object) {
 		return null;
 	}
 
@@ -262,7 +389,7 @@ public class ProbfunctionSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 

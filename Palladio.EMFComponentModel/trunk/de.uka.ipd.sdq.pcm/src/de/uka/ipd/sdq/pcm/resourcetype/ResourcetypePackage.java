@@ -48,7 +48,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0";
 
 	/**
 	 * The package namespace name.

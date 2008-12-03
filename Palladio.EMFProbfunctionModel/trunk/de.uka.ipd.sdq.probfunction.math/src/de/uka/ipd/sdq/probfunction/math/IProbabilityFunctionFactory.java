@@ -13,7 +13,6 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainExcepti
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.units.Unit;
 import flanagan.complex.Complex;
 
 /**

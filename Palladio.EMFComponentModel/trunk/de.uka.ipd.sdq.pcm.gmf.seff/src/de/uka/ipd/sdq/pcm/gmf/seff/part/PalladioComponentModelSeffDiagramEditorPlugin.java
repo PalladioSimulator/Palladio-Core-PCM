@@ -11,7 +11,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -24,41 +23,27 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.provider.ReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.seff.performance.provider.PerformanceItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 
@@ -152,14 +137,14 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 	protected void fillItemProviderFactories(List factories) {
 		factories.add(new CoreItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
-		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
+		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
-		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new PerformanceItemProviderAdapterFactory());
+		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
@@ -170,9 +155,9 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new SubsystemItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
+		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new UnitsItemProviderAdapterFactory());
-		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

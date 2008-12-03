@@ -23,7 +23,7 @@ public class EntryLevelSystemCallParameterUsageItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableUsage_3011 == req
+		if (PalladioComponentModelElementTypes.VariableUsage_3012 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

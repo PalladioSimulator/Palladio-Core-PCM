@@ -34,6 +34,12 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
  */
 public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl implements BoxedPDF {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
 	 * The cached value of the '{@link #getSamples() <em>Samples</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

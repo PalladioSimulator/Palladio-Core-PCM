@@ -51,15 +51,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof EntryLevelSystemCallEditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3011);
-			return types;
-		}
 		if (editPart instanceof VariableUsageEditPart) {
 			List types = new ArrayList();
 			types
-					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3006);
+					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3013);
 			return types;
 		}
 		if (editPart instanceof LoopEditPart) {
@@ -82,6 +77,11 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
 			types.add(PalladioComponentModelElementTypes.Loop_3005);
 			types.add(PalladioComponentModelElementTypes.Branch_3008);
+			return types;
+		}
+		if (editPart instanceof EntryLevelSystemCallParameterUsageEditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3012);
 			return types;
 		}
 		if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart) {

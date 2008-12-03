@@ -7,17 +7,11 @@
 package de.uka.ipd.sdq.probfunction.provider;
 
 
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-import de.uka.ipd.sdq.probfunction.SamplePDF;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,6 +21,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.probfunction.SamplePDF;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.SamplePDF} object.
@@ -42,6 +39,13 @@ public class SamplePDFItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -108,7 +112,7 @@ public class SamplePDFItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -132,8 +136,10 @@ public class SamplePDFItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SamplePDF samplePDF = (SamplePDF)object;
-		return getString("_UI_SamplePDF_type") + " " + samplePDF.getDistance();
+		String label = ((SamplePDF)object).getUnitSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SamplePDF_type") :
+			getString("_UI_SamplePDF_type") + " " + label;
 	}
 
 	/**
@@ -166,17 +172,6 @@ public class SamplePDFItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ProbabilityFunctionEditPlugin.INSTANCE;
 	}
 
 }

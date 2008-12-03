@@ -54,7 +54,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 */
 	public static SeffFactory init() {
 		try {
-			SeffFactory theSeffFactory = (SeffFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"); 
+			SeffFactory theSeffFactory = (SeffFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0"); 
 			if (theSeffFactory != null) {
 				return theSeffFactory;
 			}

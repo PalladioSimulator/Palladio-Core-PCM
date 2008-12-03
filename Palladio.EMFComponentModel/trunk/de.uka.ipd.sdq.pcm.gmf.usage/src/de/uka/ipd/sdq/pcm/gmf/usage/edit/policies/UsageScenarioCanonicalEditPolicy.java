@@ -112,10 +112,9 @@ public class UsageScenarioCanonicalEditPolicy extends
 		case ScenarioBehaviourEditPart.VISUAL_ID:
 		case ClosedWorkloadEditPart.VISUAL_ID:
 		case OpenWorkloadEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -202,11 +201,18 @@ public class UsageScenarioCanonicalEditPolicy extends
 		for (Iterator linksIterator = existingLinks.iterator(); linksIterator
 				.hasNext();) {
 			Edge nextDiagramLink = (Edge) linksIterator.next();
+			int diagramLinkVisualID = PalladioComponentModelVisualIDRegistry
+					.getVisualID(nextDiagramLink);
+			if (diagramLinkVisualID == -1) {
+				if (nextDiagramLink.getSource() != null
+						&& nextDiagramLink.getTarget() != null) {
+					linksIterator.remove();
+				}
+				continue;
+			}
 			EObject diagramLinkObject = nextDiagramLink.getElement();
 			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
 			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
-			int diagramLinkVisualID = PalladioComponentModelVisualIDRegistry
-					.getVisualID(nextDiagramLink);
 			for (Iterator LinkDescriptorsIterator = linkDescriptors.iterator(); LinkDescriptorsIterator
 					.hasNext();) {
 				PalladioComponentModelLinkDescriptor nextLinkDescriptor = (PalladioComponentModelLinkDescriptor) LinkDescriptorsIterator
@@ -237,87 +243,146 @@ public class UsageScenarioCanonicalEditPolicy extends
 		Collection result = new LinkedList();
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case UsageScenarioEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getUsageScenario_1000ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getUsageScenario_1000ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case ScenarioBehaviourEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getScenarioBehaviour_2001ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getScenarioBehaviour_2001ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case ClosedWorkloadEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getClosedWorkload_2002ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getClosedWorkload_2002ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case OpenWorkloadEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getOpenWorkload_2003ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getOpenWorkload_2003ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case StartEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getStart_3001ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getStart_3001ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case StopEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getStop_3002ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getStop_3002ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case EntryLevelSystemCallEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getEntryLevelSystemCall_3003ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getEntryLevelSystemCall_3003ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case VariableUsageEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getVariableUsage_3011ContainedLinks(view));
-			break;
-		}
-		case VariableCharacterisationEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getVariableCharacterisation_3006ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getVariableUsage_3012ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case LoopEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getLoop_3005ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getLoop_3005ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case ScenarioBehaviour2EditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getScenarioBehaviour_3007ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getScenarioBehaviour_3007ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case BranchEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getBranch_3008ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getBranch_3008ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case BranchTransitionEditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getBranchTransition_3009ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getBranchTransition_3009ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		case ScenarioBehaviour3EditPart.VISUAL_ID: {
-			domain2NotationMap.put(view.getElement(), view);
-			result.addAll(PalladioComponentModelDiagramUpdater
-					.getScenarioBehaviour_3010ContainedLinks(view));
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getScenarioBehaviour_3010ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
 			break;
 		}
 		}

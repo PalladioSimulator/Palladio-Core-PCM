@@ -10,7 +10,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
@@ -34,7 +33,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * @model
  * @generated
  */
-public interface AssemblyConnector extends Connector, Entity {
+public interface AssemblyConnector extends Connector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

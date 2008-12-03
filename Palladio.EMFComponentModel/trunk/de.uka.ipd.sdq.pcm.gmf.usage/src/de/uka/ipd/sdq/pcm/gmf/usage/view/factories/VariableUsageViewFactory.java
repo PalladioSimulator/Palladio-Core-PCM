@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageVariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrapLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 import java.util.ArrayList;
@@ -62,8 +63,8 @@ public class VariableUsageViewFactory extends AbstractShapeViewFactory {
 				eObjectAdapter,
 				view,
 				PalladioComponentModelVisualIDRegistry
-						.getType(WrapLabelEditPart.VISUAL_ID), ViewUtil.APPEND,
-				true, getPreferencesHint());
+						.getType(WrappingLabelEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService()
 				.createNode(
 						eObjectAdapter,

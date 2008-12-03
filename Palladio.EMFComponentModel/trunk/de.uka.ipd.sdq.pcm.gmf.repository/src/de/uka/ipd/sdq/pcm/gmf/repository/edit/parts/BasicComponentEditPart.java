@@ -21,6 +21,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -82,6 +83,13 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 								if (type == PalladioComponentModelElementTypes.PassiveResource_3103) {
 									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
 											.getType(BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == PalladioComponentModelElementTypes.VariableUsage_3104) {
+									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+											.getType(BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);
@@ -258,7 +266,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureBasicComponent_Name_LabelFigure;
+		private WrappingLabel fFigureBasicComponent_Name_LabelFigure;
 
 		/**
 		 * @generated
@@ -272,7 +280,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureBasicComponent_Name_LabelFigure = new WrapLabel();
+			fFigureBasicComponent_Name_LabelFigure = new WrappingLabel();
 			fFigureBasicComponent_Name_LabelFigure.setText("<...>");
 
 			this.add(fFigureBasicComponent_Name_LabelFigure);
@@ -282,7 +290,7 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureBasicComponent_Name_LabelFigure() {
+		public WrappingLabel getFigureBasicComponent_Name_LabelFigure() {
 			return fFigureBasicComponent_Name_LabelFigure;
 		}
 

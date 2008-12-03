@@ -7,25 +7,21 @@
 package de.uka.ipd.sdq.probfunction.provider;
 
 
-import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
-
-import de.uka.ipd.sdq.units.provider.UnitCarryingElementItemProvider;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
+import de.uka.ipd.sdq.units.provider.UnitCarryingElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.ProbabilityFunction} object.
@@ -34,13 +30,20 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class ProbabilityFunctionItemProvider
-	extends ItemProviderAdapter
+	extends UnitCarryingElementItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -74,7 +77,10 @@ public class ProbabilityFunctionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ProbabilityFunction_type");
+		String label = ((ProbabilityFunction)object).getUnitSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ProbabilityFunction_type") :
+			getString("_UI_ProbabilityFunction_type") + " " + label;
 	}
 
 	/**

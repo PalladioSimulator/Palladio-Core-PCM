@@ -47,7 +47,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String UNIT_SPECIFICATION_EDEFAULT = "";
+	protected static final String UNIT_SPECIFICATION_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUnitSpecification() <em>Unit Specification</em>}' attribute.

@@ -15,4 +15,5 @@ Require-Bundle: uc.ac.ucl.ee.flanagan,
  org.junit4,
  de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.stoex
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

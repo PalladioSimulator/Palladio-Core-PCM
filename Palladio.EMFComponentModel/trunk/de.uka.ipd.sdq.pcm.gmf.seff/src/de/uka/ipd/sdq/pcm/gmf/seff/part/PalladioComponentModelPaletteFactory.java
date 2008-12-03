@@ -308,15 +308,15 @@ public class PalladioComponentModelPaletteFactory {
 	 */
 	private ToolEntry createVariableUsage3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
-		types.add(PalladioComponentModelElementTypes.VariableUsage_3028);
-		types.add(PalladioComponentModelElementTypes.VariableUsage_3029);
-		types.add(PalladioComponentModelElementTypes.VariableUsage_3030);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3032);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3034);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3036);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.VariableUsage3CreationTool_title,
 				Messages.VariableUsage3CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3028));
+						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3032));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -327,17 +327,17 @@ public class PalladioComponentModelPaletteFactory {
 	private ToolEntry createVariableCharacterisation4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
 		types
-				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3002);
+				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3033);
 		types
-				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3016);
+				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3035);
 		types
-				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3025);
+				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3037);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.VariableCharacterisation4CreationTool_title,
 				Messages.VariableCharacterisation4CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.VariableCharacterisation_3002));
+						.getImageDescriptor(PalladioComponentModelElementTypes.VariableCharacterisation_3033));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

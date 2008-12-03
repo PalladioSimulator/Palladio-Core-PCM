@@ -94,10 +94,9 @@ public class RepositoryCanonicalEditPolicy extends
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 		case SubSystemEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -261,7 +260,7 @@ public class RepositoryCanonicalEditPolicy extends
 		case CompositeComponentEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
-						.getCompositeComponent_2105ContainedLinks(view));
+						.getCompositeComponent_2103ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -272,7 +271,7 @@ public class RepositoryCanonicalEditPolicy extends
 		case CompleteComponentTypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
-						.getCompleteComponentType_2103ContainedLinks(view));
+						.getCompleteComponentType_2104ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -283,7 +282,7 @@ public class RepositoryCanonicalEditPolicy extends
 		case ProvidesComponentTypeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
-						.getProvidesComponentType_2104ContainedLinks(view));
+						.getProvidesComponentType_2105ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

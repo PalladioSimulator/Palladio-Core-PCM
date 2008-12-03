@@ -8,6 +8,8 @@ package de.uka.ipd.sdq.probfunction.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -28,26 +30,23 @@ import de.uka.ipd.sdq.probfunction.Sample;
  *
  * @generated
  */
-public class SampleImpl extends EObjectImpl implements Sample {
+public class SampleImpl<T> extends EObjectImpl implements Sample<T> {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
 	 * @generated
-	 * @ordered
 	 */
-	protected static final Object VALUE_EDEFAULT = null;
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected Object value = VALUE_EDEFAULT;
+	protected T value;
 
 	/**
 	 * The default value of the '{@link #getProbability() <em>Probability</em>}' attribute.
@@ -93,7 +92,16 @@ public class SampleImpl extends EObjectImpl implements Sample {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getValue() {
+	@SuppressWarnings("unchecked")
+	public T getValue() {
+		if (value != null && ((EObject)value).eIsProxy()) {
+			InternalEObject oldValue = (InternalEObject)value;
+			value = (T)eResolveProxy(oldValue);
+			if (value != oldValue) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProbfunctionPackage.SAMPLE__VALUE, oldValue, value));
+			}
+		}
 		return value;
 	}
 
@@ -102,8 +110,17 @@ public class SampleImpl extends EObjectImpl implements Sample {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Object newValue) {
-		Object oldValue = value;
+	public T basicGetValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(T newValue) {
+		T oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ProbfunctionPackage.SAMPLE__VALUE, oldValue, value));
@@ -139,7 +156,8 @@ public class SampleImpl extends EObjectImpl implements Sample {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ProbfunctionPackage.SAMPLE__VALUE:
-				return getValue();
+				if (resolve) return getValue();
+				return basicGetValue();
 			case ProbfunctionPackage.SAMPLE__PROBABILITY:
 				return new Double(getProbability());
 		}
@@ -151,11 +169,12 @@ public class SampleImpl extends EObjectImpl implements Sample {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ProbfunctionPackage.SAMPLE__VALUE:
-				setValue(newValue);
+				setValue((T)newValue);
 				return;
 			case ProbfunctionPackage.SAMPLE__PROBABILITY:
 				setProbability(((Double)newValue).doubleValue());
@@ -173,7 +192,7 @@ public class SampleImpl extends EObjectImpl implements Sample {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ProbfunctionPackage.SAMPLE__VALUE:
-				setValue(VALUE_EDEFAULT);
+				setValue((T)null);
 				return;
 			case ProbfunctionPackage.SAMPLE__PROBABILITY:
 				setProbability(PROBABILITY_EDEFAULT);
@@ -191,7 +210,7 @@ public class SampleImpl extends EObjectImpl implements Sample {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ProbfunctionPackage.SAMPLE__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+				return value != null;
 			case ProbfunctionPackage.SAMPLE__PROBABILITY:
 				return probability != PROBABILITY_EDEFAULT;
 		}
@@ -208,9 +227,7 @@ public class SampleImpl extends EObjectImpl implements Sample {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(", probability: ");
+		result.append(" (probability: ");
 		result.append(probability);
 		result.append(')');
 		return result.toString();

@@ -39,7 +39,7 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 	 */
 	public static AllocationFactory init() {
 		try {
-			AllocationFactory theAllocationFactory = (AllocationFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0"); 
+			AllocationFactory theAllocationFactory = (AllocationFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0"); 
 			if (theAllocationFactory != null) {
 				return theAllocationFactory;
 			}

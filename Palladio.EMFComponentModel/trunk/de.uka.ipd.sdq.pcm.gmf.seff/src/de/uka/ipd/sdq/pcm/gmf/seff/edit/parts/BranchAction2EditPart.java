@@ -18,7 +18,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -221,7 +221,7 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureBranchNameLabelFigure;
+		private WrappingLabel fFigureBranchNameLabelFigure;
 
 		/**
 		 * @generated
@@ -237,12 +237,12 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel branchStereotype0 = new WrapLabel();
+			WrappingLabel branchStereotype0 = new WrappingLabel();
 			branchStereotype0.setText("<<BranchAction>>");
 
 			this.add(branchStereotype0);
 
-			fFigureBranchNameLabelFigure = new WrapLabel();
+			fFigureBranchNameLabelFigure = new WrappingLabel();
 			fFigureBranchNameLabelFigure.setText("myBranch");
 
 			this.add(fFigureBranchNameLabelFigure);
@@ -252,7 +252,7 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureBranchNameLabelFigure() {
+		public WrappingLabel getFigureBranchNameLabelFigure() {
 			return fFigureBranchNameLabelFigure;
 		}
 

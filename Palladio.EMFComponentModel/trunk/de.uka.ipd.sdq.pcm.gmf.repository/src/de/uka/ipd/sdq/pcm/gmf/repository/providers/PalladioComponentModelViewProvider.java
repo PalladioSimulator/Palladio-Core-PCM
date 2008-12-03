@@ -42,6 +42,11 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentComponentParameterCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentEntityNameViewFactory;
@@ -75,6 +80,11 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableCharacterisation
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageComponentParameterVariableCharacterisationCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.VariableUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrapLabelViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrappingLabel2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrappingLabel3ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrappingLabel4ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrappingLabel5ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.WrappingLabelViewFactory;
 
 /**
  * @generated
@@ -178,6 +188,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case BasicComponentEntityNameEditPart.VISUAL_ID:
 				case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
 				case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
+				case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
 					if (BasicComponentEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -185,7 +196,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 					}
 					break;
 				case CompositeComponentEntityNameEditPart.VISUAL_ID:
-				case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
 					if (CompositeComponentEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -213,7 +223,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case WrapLabelEditPart.VISUAL_ID:
+				case WrappingLabelEditPart.VISUAL_ID:
 				case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
 					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -221,28 +231,28 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case ProvidesStereotypeLabelEditPart.VISUAL_ID:
+				case WrappingLabel2EditPart.VISUAL_ID:
 					if (ProvidedRoleEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case RequiresStereotypeLabelEditPart.VISUAL_ID:
+				case WrappingLabel3EditPart.VISUAL_ID:
 					if (RequiredRoleEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case CompleteParentStereotypeLabelEditPart.VISUAL_ID:
+				case WrappingLabel4EditPart.VISUAL_ID:
 					if (ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
 						return null; // wrong container
 					}
 					break;
-				case ProvidesParentStereotypeLabelEditPart.VISUAL_ID:
+				case WrappingLabel5EditPart.VISUAL_ID:
 					if (CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
 							|| containerView.getElement() != domainElement) {
@@ -299,8 +309,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return PassiveResourceViewFactory.class;
 		case VariableUsageEditPart.VISUAL_ID:
 			return VariableUsageViewFactory.class;
-		case WrapLabelEditPart.VISUAL_ID:
-			return WrapLabelViewFactory.class;
+		case WrappingLabelEditPart.VISUAL_ID:
+			return WrappingLabelViewFactory.class;
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return VariableCharacterisationViewFactory.class;
 		case InterfaceSignatureListEditPart.VISUAL_ID:
@@ -313,14 +323,14 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return BasicComponentComponentParameterCompartmentViewFactory.class;
 		case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
 			return VariableUsageComponentParameterVariableCharacterisationCompartmentViewFactory.class;
-		case ProvidesStereotypeLabelEditPart.VISUAL_ID:
-			return ProvidesStereotypeLabelViewFactory.class;
-		case RequiresStereotypeLabelEditPart.VISUAL_ID:
-			return RequiresStereotypeLabelViewFactory.class;
-		case CompleteParentStereotypeLabelEditPart.VISUAL_ID:
-			return CompleteParentStereotypeLabelViewFactory.class;
-		case ProvidesParentStereotypeLabelEditPart.VISUAL_ID:
-			return ProvidesParentStereotypeLabelViewFactory.class;
+		case WrappingLabel2EditPart.VISUAL_ID:
+			return WrappingLabel2ViewFactory.class;
+		case WrappingLabel3EditPart.VISUAL_ID:
+			return WrappingLabel3ViewFactory.class;
+		case WrappingLabel4EditPart.VISUAL_ID:
+			return WrappingLabel4ViewFactory.class;
+		case WrappingLabel5EditPart.VISUAL_ID:
+			return WrappingLabel5ViewFactory.class;
 		}
 		return null;
 	}

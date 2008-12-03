@@ -27,6 +27,13 @@ package de.uka.ipd.sdq.stoex;
  */
 public interface IfElseExpression extends IfElse {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>If Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

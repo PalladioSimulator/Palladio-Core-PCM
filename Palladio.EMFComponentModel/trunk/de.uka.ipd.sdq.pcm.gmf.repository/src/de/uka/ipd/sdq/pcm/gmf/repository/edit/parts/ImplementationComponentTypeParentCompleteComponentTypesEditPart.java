@@ -9,9 +9,11 @@ import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ImplementationComponentTypeParentCompleteComponentTypesItemSemanticEditPolicy;
@@ -20,7 +22,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ImplementationComponentTy
  * @generated
  */
 public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
-		extends ConnectionNodeEditPart {
+		extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -49,10 +51,9 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CompleteParentStereotypeLabelEditPart) {
-			((CompleteParentStereotypeLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureCompleteParentStereotypeLabelFigure());
+		if (childEditPart instanceof WrappingLabel4EditPart) {
+			((WrappingLabel4EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureCompleteParentStereotypeLabelFigure());
 			return true;
 		}
 		return false;
@@ -95,7 +96,7 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureCompleteParentStereotypeLabelFigure;
+		private WrappingLabel fFigureCompleteParentStereotypeLabelFigure;
 
 		/**
 		 * @generated
@@ -111,7 +112,7 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 		 */
 		private void createContents() {
 
-			fFigureCompleteParentStereotypeLabelFigure = new WrapLabel();
+			fFigureCompleteParentStereotypeLabelFigure = new WrappingLabel();
 			fFigureCompleteParentStereotypeLabelFigure.setText("<<conforms>>");
 
 			this.add(fFigureCompleteParentStereotypeLabelFigure);
@@ -135,7 +136,7 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureCompleteParentStereotypeLabelFigure() {
+		public WrappingLabel getFigureCompleteParentStereotypeLabelFigure() {
 			return fFigureCompleteParentStereotypeLabelFigure;
 		}
 

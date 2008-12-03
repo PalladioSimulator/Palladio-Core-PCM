@@ -461,6 +461,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String VariableUsageVariableCharacterisation2EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String ResourceDemandingBehaviourLoopCompartmentEditPart_title;
 
 	/**
@@ -527,11 +532,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String VariableUsageVariableCharacterisation3EditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String VariableUsageVariableCharacterisation2EditPart_title;
 
 	/**
 	 * @generated
@@ -817,6 +817,10 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_AbstractActionSuccessor_AbstractAction_4001_target;
+
+	public static String ExternalCallActionInputVariableUsage3EditPart_title;
+
+	public static String ExternalCallActionOutputVariableUsage3EditPart_title;
 
 	//TODO: put accessor fields manually	
 }

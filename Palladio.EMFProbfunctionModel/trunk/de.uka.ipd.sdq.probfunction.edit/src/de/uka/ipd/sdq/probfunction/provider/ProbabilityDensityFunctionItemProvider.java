@@ -7,22 +7,19 @@
 package de.uka.ipd.sdq.probfunction.provider;
 
 
-import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction} object.
@@ -38,6 +35,13 @@ public class ProbabilityDensityFunctionItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -71,7 +75,10 @@ public class ProbabilityDensityFunctionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ProbabilityDensityFunction_type");
+		String label = ((ProbabilityDensityFunction)object).getUnitSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ProbabilityDensityFunction_type") :
+			getString("_UI_ProbabilityDensityFunction_type") + " " + label;
 	}
 
 	/**
@@ -97,17 +104,6 @@ public class ProbabilityDensityFunctionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ProbabilityFunctionEditPlugin.INSTANCE;
 	}
 
 }

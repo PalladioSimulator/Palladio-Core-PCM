@@ -8,6 +8,7 @@ import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
@@ -18,7 +19,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.AbstractActionSuccessor_Abstrac
  * @generated
  */
 public class AbstractActionSuccessor_AbstractActionEditPart extends
-		ConnectionNodeEditPart {
+		ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated

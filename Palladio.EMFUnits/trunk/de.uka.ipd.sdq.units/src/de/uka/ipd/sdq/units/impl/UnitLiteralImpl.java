@@ -32,6 +32,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class UnitLiteralImpl extends UnitImpl implements UnitLiteral {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
 	 * The cached value of the '{@link #getBaseUnit() <em>Base Unit</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.probfunction.impl;
 
+import de.uka.ipd.sdq.probfunction.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -13,7 +14,10 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.Complex;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.NormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
@@ -27,6 +31,13 @@ import de.uka.ipd.sdq.probfunction.SamplePDF;
  * @generated
  */
 public class ProbfunctionFactoryImpl extends EFactoryImpl implements ProbfunctionFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -69,6 +80,9 @@ public class ProbfunctionFactoryImpl extends EFactoryImpl implements Probfunctio
 			case ProbfunctionPackage.PROBABILITY_MASS_FUNCTION: return createProbabilityMassFunction();
 			case ProbfunctionPackage.SAMPLE: return createSample();
 			case ProbfunctionPackage.SAMPLE_PDF: return createSamplePDF();
+			case ProbfunctionPackage.COMPLEX: return createComplex();
+			case ProbfunctionPackage.EXPONENTIAL_DISTRIBUTION: return createExponentialDistribution();
+			case ProbfunctionPackage.NORMAL_DISTRIBUTION: return createNormalDistribution();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -109,8 +123,8 @@ public class ProbfunctionFactoryImpl extends EFactoryImpl implements Probfunctio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sample createSample() {
-		SampleImpl sample = new SampleImpl();
+	public <T> Sample<T> createSample() {
+		SampleImpl<T> sample = new SampleImpl<T>();
 		return sample;
 	}
 
@@ -122,6 +136,36 @@ public class ProbfunctionFactoryImpl extends EFactoryImpl implements Probfunctio
 	public SamplePDF createSamplePDF() {
 		SamplePDFImpl samplePDF = new SamplePDFImpl();
 		return samplePDF;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Complex createComplex() {
+		ComplexImpl complex = new ComplexImpl();
+		return complex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExponentialDistribution createExponentialDistribution() {
+		ExponentialDistributionImpl exponentialDistribution = new ExponentialDistributionImpl();
+		return exponentialDistribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NormalDistribution createNormalDistribution() {
+		NormalDistributionImpl normalDistribution = new NormalDistributionImpl();
+		return normalDistribution;
 	}
 
 	/**

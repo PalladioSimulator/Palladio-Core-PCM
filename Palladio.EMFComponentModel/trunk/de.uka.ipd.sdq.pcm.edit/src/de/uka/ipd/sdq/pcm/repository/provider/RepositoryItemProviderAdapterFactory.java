@@ -36,6 +36,13 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryAdapterFactory;
  */
 public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

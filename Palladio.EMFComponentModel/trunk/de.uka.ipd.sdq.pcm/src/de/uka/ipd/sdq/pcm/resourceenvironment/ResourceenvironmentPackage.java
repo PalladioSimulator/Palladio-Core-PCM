@@ -50,7 +50,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0";
 
 	/**
 	 * The package namespace name.

@@ -58,7 +58,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesReorientCommand
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (!(referenceOwner instanceof CompleteComponentType)) {
+		if (false == referenceOwner instanceof CompleteComponentType) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {

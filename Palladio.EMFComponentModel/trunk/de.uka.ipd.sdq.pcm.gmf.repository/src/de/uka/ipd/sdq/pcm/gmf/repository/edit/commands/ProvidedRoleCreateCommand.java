@@ -58,10 +58,11 @@ public class ProvidedRoleCreateCommand extends CreateElementCommand {
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && !(source instanceof InterfaceProvidingEntity)) {
+		if (source != null
+				&& false == source instanceof InterfaceProvidingEntity) {
 			return false;
 		}
-		if (target != null && !(target instanceof Interface)) {
+		if (target != null && false == target instanceof Interface) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -76,7 +77,6 @@ public class ProvidedRoleCreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EObject doDefaultElementCreation() {
-		// de.uka.ipd.sdq.pcm.repository.ProvidedRole newElement = (de.uka.ipd.sdq.pcm.repository.ProvidedRole) super.doDefaultElementCreation();
 		ProvidedRole newElement = RepositoryFactory.eINSTANCE
 				.createProvidedRole();
 		getSource().getProvidedRoles_InterfaceProvidingEntity().add(newElement);

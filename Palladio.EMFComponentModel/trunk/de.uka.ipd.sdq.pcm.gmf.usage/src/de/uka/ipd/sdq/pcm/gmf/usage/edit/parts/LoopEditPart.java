@@ -22,6 +22,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -63,7 +64,6 @@ public class LoopEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new LoopItemSemanticEditPolicy());
@@ -232,7 +232,7 @@ public class LoopEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureUsageLoopIterationsLabelFigure;
+		private WrappingLabel fFigureUsageLoopIterationsLabelFigure;
 
 		/**
 		 * @generated
@@ -248,12 +248,12 @@ public class LoopEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel usageLoopStereotypeLabelFigure0 = new WrapLabel();
+			WrappingLabel usageLoopStereotypeLabelFigure0 = new WrappingLabel();
 			usageLoopStereotypeLabelFigure0.setText("<<Loop>>");
 
 			this.add(usageLoopStereotypeLabelFigure0);
 
-			fFigureUsageLoopIterationsLabelFigure = new WrapLabel();
+			fFigureUsageLoopIterationsLabelFigure = new WrappingLabel();
 			fFigureUsageLoopIterationsLabelFigure.setText("");
 
 			this.add(fFigureUsageLoopIterationsLabelFigure);
@@ -263,7 +263,7 @@ public class LoopEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureUsageLoopIterationsLabelFigure() {
+		public WrappingLabel getFigureUsageLoopIterationsLabelFigure() {
 			return fFigureUsageLoopIterationsLabelFigure;
 		}
 

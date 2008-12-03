@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.repository.util;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -289,7 +290,7 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateParameterModifier((ParameterModifier)value, diagnostics, context);
 			case RepositoryPackage.PRIMITIVE_TYPE_ENUM:
 				return validatePrimitiveTypeEnum((PrimitiveTypeEnum)value, diagnostics, context);
-			default: 
+			default:
 				return true;
 		}
 	}
@@ -791,6 +792,20 @@ public class RepositoryValidator extends EObjectValidator {
 	 */
 	public boolean validatePrimitiveTypeEnum(PrimitiveTypeEnum primitiveTypeEnum, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
+	}
+
+	/**
+	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		// TODO
+		// Specialize this to return a resource locator for messages specific to this validator.
+		// Ensure that you remove @generated or mark it @generated NOT
+		return super.getResourceLocator();
 	}
 
 } //RepositoryValidator

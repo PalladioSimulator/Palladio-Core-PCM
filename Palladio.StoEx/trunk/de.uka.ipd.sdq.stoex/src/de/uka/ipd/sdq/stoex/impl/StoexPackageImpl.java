@@ -64,6 +64,13 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass variableReferenceEClass = null;
 
 	/**
@@ -355,7 +362,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		// Initialize simple dependencies
 		ProbfunctionPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theStoexPackage.createPackageContents();
@@ -1242,7 +1248,7 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		initEClass(randomVariableEClass, RandomVariable.class, "RandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRandomVariable_Specification(), ecorePackage.getEString(), "specification", null, 1, 1, RandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRandomVariable_Expression(), this.getExpression(), null, "expression", null, 1, 1, RandomVariable.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRandomVariable_Expression(), this.getExpression(), null, "expression", null, 1, 1, RandomVariable.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(termOperationsEEnum, TermOperations.class, "TermOperations");
@@ -1269,6 +1275,27 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		addAnnotation
+		  (getRandomVariable_Expression(), 
+		   source, 
+		   new String[] {
+			 "name", "",
+			 "namespace", ""
+		   });	
 	}
 
 } //StoexPackageImpl

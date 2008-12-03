@@ -57,7 +57,7 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (!(referenceOwner instanceof AbstractAction)) {
+		if (false == referenceOwner instanceof AbstractAction) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {

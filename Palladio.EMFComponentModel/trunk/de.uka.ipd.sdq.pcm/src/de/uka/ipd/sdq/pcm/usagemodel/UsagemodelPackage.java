@@ -128,7 +128,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0";
 
 	/**
 	 * The package namespace name.

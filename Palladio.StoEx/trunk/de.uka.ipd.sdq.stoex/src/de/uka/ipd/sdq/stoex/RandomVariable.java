@@ -27,6 +27,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface RandomVariable extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Specification</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -61,21 +68,11 @@ public interface RandomVariable extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expression</em>' reference.
-	 * @see #setExpression(Expression)
 	 * @see de.uka.ipd.sdq.stoex.StoexPackage#getRandomVariable_Expression()
-	 * @model required="true" transient="true" volatile="true" ordered="false"
+	 * @model unsettable="true" required="true" transient="true" volatile="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 *        extendedMetaData="name='' namespace=''"
 	 * @generated
 	 */
 	Expression getExpression();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.stoex.RandomVariable#getExpression <em>Expression</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Expression</em>' reference.
-	 * @see #getExpression()
-	 * @generated
-	 */
-	void setExpression(Expression value);
 
 } // RandomVariable

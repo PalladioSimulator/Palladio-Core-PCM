@@ -71,13 +71,6 @@ public class CompositeComponentViewFactory extends AbstractShapeViewFactory {
 						PalladioComponentModelVisualIDRegistry
 								.getType(CompositeComponentEntityNameEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						PalladioComponentModelVisualIDRegistry
-								.getType(BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }

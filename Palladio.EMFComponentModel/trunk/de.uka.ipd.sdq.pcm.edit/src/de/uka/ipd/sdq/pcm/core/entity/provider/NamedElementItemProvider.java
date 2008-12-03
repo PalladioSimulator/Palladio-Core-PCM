@@ -26,7 +26,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.entity.NamedElement} object.
@@ -42,6 +41,13 @@ public class NamedElementItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

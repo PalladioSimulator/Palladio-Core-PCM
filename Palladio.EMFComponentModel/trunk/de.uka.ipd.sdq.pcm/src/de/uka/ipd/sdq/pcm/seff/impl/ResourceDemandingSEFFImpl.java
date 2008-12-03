@@ -5,9 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 import java.util.Collection;
 import java.util.Map;
 
@@ -24,21 +21,14 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ocl.expressions.OCLExpression;
-import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
-import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
-import org.eclipse.emf.ocl.parser.Environment;
-import org.eclipse.emf.ocl.parser.ParserException;
-import org.eclipse.emf.ocl.query.Query;
-import org.eclipse.emf.ocl.query.QueryFactory;
 
-import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**

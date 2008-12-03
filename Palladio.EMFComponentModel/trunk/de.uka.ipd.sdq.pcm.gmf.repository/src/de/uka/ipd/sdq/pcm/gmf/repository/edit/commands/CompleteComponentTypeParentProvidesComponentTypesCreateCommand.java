@@ -48,10 +48,10 @@ public class CompleteComponentTypeParentProvidesComponentTypesCreateCommand
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && !(source instanceof CompleteComponentType)) {
+		if (source != null && false == source instanceof CompleteComponentType) {
 			return false;
 		}
-		if (target != null && !(target instanceof ProvidesComponentType)) {
+		if (target != null && false == target instanceof ProvidesComponentType) {
 			return false;
 		}
 		if (getSource() == null) {

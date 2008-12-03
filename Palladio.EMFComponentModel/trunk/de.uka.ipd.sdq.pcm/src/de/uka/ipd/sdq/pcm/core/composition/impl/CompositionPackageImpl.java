@@ -55,9 +55,7 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
-import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -173,9 +171,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
@@ -624,7 +620,6 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 		assemblyContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		requiredDelegationConnectorEClass.getESuperTypes().add(theRepositoryPackage.getDelegationConnector());
 		assemblyConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
-		assemblyConnectorEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		composedStructureEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters

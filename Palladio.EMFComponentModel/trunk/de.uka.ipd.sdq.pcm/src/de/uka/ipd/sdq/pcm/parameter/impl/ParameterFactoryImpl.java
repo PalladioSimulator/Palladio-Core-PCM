@@ -42,7 +42,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public static ParameterFactory init() {
 		try {
-			ParameterFactory theParameterFactory = (ParameterFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"); 
+			ParameterFactory theParameterFactory = (ParameterFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0"); 
 			if (theParameterFactory != null) {
 				return theParameterFactory;
 			}

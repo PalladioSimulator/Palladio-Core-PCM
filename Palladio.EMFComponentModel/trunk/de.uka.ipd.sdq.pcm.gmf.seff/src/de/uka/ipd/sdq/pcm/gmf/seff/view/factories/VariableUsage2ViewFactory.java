@@ -16,7 +16,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -55,7 +55,7 @@ public class VariableUsage2ViewFactory extends AbstractShapeViewFactory {
 				eObjectAdapter,
 				view,
 				PalladioComponentModelVisualIDRegistry
-						.getType(WrapLabel2EditPart.VISUAL_ID),
+						.getType(WrappingLabel2EditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService()
 				.createNode(

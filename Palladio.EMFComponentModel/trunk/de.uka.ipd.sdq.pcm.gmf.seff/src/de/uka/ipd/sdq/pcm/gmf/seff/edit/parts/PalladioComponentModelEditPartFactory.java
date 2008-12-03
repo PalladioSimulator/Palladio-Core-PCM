@@ -11,7 +11,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartFactory;
 import org.eclipse.gef.tools.CellEditorLocator;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.SWT;
@@ -104,8 +104,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
 
-			case WrapLabelEditPart.VISUAL_ID:
-				return new WrapLabelEditPart(view);
+			case WrappingLabelEditPart.VISUAL_ID:
+				return new WrappingLabelEditPart(view);
 
 			case VariableCharacterisationEditPart.VISUAL_ID:
 				return new VariableCharacterisationEditPart(view);
@@ -113,8 +113,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsage2EditPart.VISUAL_ID:
 				return new VariableUsage2EditPart(view);
 
-			case WrapLabel2EditPart.VISUAL_ID:
-				return new WrapLabel2EditPart(view);
+			case WrappingLabel2EditPart.VISUAL_ID:
+				return new WrappingLabel2EditPart(view);
 
 			case VariableCharacterisation2EditPart.VISUAL_ID:
 				return new VariableCharacterisation2EditPart(view);
@@ -210,8 +210,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsage3EditPart.VISUAL_ID:
 				return new VariableUsage3EditPart(view);
 
-			case WrapLabel3EditPart.VISUAL_ID:
-				return new WrapLabel3EditPart(view);
+			case WrappingLabel3EditPart.VISUAL_ID:
+				return new WrappingLabel3EditPart(view);
 
 			case VariableCharacterisation3EditPart.VISUAL_ID:
 				return new VariableCharacterisation3EditPart(view);
@@ -310,8 +310,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 	 */
 	public static CellEditorLocator getTextCellEditorLocator(
 			ITextAwareEditPart source) {
-		if (source.getFigure() instanceof WrapLabel)
-			return new TextCellEditorLocator((WrapLabel) source.getFigure());
+		if (source.getFigure() instanceof WrappingLabel)
+			return new TextCellEditorLocator((WrappingLabel) source.getFigure());
 		else {
 			return new LabelCellEditorLocator((Label) source.getFigure());
 		}
@@ -325,19 +325,19 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 		/**
 		 * @generated
 		 */
-		private WrapLabel wrapLabel;
+		private WrappingLabel wrapLabel;
 
 		/**
 		 * @generated
 		 */
-		public TextCellEditorLocator(WrapLabel wrapLabel) {
+		public TextCellEditorLocator(WrappingLabel wrapLabel) {
 			this.wrapLabel = wrapLabel;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getWrapLabel() {
+		public WrappingLabel getWrapLabel() {
 			return wrapLabel;
 		}
 
@@ -348,7 +348,7 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			Text text = (Text) celleditor.getControl();
 			Rectangle rect = getWrapLabel().getTextBounds().getCopy();
 			getWrapLabel().translateToAbsolute(rect);
-			if (getWrapLabel().isTextWrapped()
+			if (getWrapLabel().isTextWrapOn()
 					&& getWrapLabel().getText().length() > 0) {
 				rect.setSize(new Dimension(text.computeSize(rect.width,
 						SWT.DEFAULT)));

@@ -27,6 +27,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ProbabilityMassFunction extends ProbabilityFunction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Samples</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.probfunction.Sample}.
 	 * <!-- begin-user-doc -->

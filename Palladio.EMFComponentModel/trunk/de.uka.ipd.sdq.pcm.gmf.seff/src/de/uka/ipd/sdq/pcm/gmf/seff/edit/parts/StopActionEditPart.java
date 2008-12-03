@@ -180,7 +180,6 @@ public class StopActionEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public StopFigure() {
-
 			this.setLayoutManager(new StackLayout());
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(30),
 					getMapMode().DPtoLP(30)));

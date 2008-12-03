@@ -37,6 +37,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageVariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrapLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
@@ -74,9 +75,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final String DEBUG_KEY = PalladioComponentModelUsageDiagramEditorPlugin
-			.getInstance().getBundle().getSymbolicName()
-			+ "/debug/visualID"; //$NON-NLS-1$
+	private static final String DEBUG_KEY = "de.uka.ipd.sdq.pcm.gmf.usage/debug/visualID"; //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -337,7 +336,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsageEditPart.VISUAL_ID:
-			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisationEditPart.VISUAL_ID == nodeVisualID) {

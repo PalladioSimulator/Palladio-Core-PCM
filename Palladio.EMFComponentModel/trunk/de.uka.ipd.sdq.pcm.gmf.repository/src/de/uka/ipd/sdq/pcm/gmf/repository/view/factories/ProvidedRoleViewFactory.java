@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesStereotypeLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -55,7 +56,7 @@ public class ProvidedRoleViewFactory extends ConnectionViewFactory {
 				eObjectAdapter,
 				view,
 				PalladioComponentModelVisualIDRegistry
-						.getType(ProvidesStereotypeLabelEditPart.VISUAL_ID),
+						.getType(WrappingLabel2EditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.allocation.util;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -117,7 +118,7 @@ public class AllocationValidator extends EObjectValidator {
 				return validateAllocationContext((AllocationContext)value, diagnostics, context);
 			case AllocationPackage.ALLOCATION:
 				return validateAllocation((Allocation)value, diagnostics, context);
-			default: 
+			default:
 				return true;
 		}
 	}
@@ -165,6 +166,20 @@ public class AllocationValidator extends EObjectValidator {
 	 */
 	public boolean validateAllocation_EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(Allocation allocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return allocation.EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(diagnostics, context);
+	}
+
+	/**
+	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		// TODO
+		// Specialize this to return a resource locator for messages specific to this validator.
+		// Ensure that you remove @generated or mark it @generated NOT
+		return super.getResourceLocator();
 	}
 
 } //AllocationValidator

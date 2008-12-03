@@ -26,6 +26,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface UnitMultiplication extends Unit {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Units</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.units.Unit}.
 	 * <!-- begin-user-doc -->
@@ -36,7 +43,7 @@ public interface UnitMultiplication extends Unit {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Units</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.units.UnitsPackage#getUnitMultiplication_Units()
-	 * @model containment="true" required="true"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<Unit> getUnits();

@@ -7,10 +7,10 @@
 package de.uka.ipd.sdq.probfunction.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.units.impl.UnitCarryingElementImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +21,14 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
  *
  * @generated
  */
-public abstract class ProbabilityFunctionImpl extends EObjectImpl implements ProbabilityFunction {
+public abstract class ProbabilityFunctionImpl extends UnitCarryingElementImpl implements ProbabilityFunction {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -31,6 +31,12 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  */
 public class NamespaceReferenceImpl extends AbstractNamedReferenceImpl implements NamespaceReference {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
 	 * The cached value of the '{@link #getInnerReference_NamespaceReference() <em>Inner Reference Namespace Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

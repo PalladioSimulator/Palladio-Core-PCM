@@ -21,7 +21,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -249,7 +249,7 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureInternalActionFigureNameLabel;
+		private WrappingLabel fFigureInternalActionFigureNameLabel;
 
 		/**
 		 * @generated
@@ -265,12 +265,12 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel internalActionStereotypeLabelFigure0 = new WrapLabel();
+			WrappingLabel internalActionStereotypeLabelFigure0 = new WrappingLabel();
 			internalActionStereotypeLabelFigure0.setText("<<InternalAction>>");
 
 			this.add(internalActionStereotypeLabelFigure0);
 
-			fFigureInternalActionFigureNameLabel = new WrapLabel();
+			fFigureInternalActionFigureNameLabel = new WrappingLabel();
 			fFigureInternalActionFigureNameLabel.setText("<myName>");
 
 			this.add(fFigureInternalActionFigureNameLabel);
@@ -280,7 +280,7 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureInternalActionFigureNameLabel() {
+		public WrappingLabel getFigureInternalActionFigureNameLabel() {
 			return fFigureInternalActionFigureNameLabel;
 		}
 

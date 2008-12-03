@@ -43,6 +43,13 @@ public enum TermOperations implements Enumerator {
 	SUB(1, "SUB", "SUB");
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The '<em><b>ADD</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>

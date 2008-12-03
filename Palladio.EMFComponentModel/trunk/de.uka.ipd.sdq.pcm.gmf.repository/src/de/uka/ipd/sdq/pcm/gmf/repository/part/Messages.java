@@ -471,32 +471,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_CompleteComponentType_2103_outgoinglinks;
+	public static String NavigatorGroupName_CompositeComponent_2103_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_CompleteComponentType_2103_incominglinks;
+	public static String NavigatorGroupName_CompleteComponentType_2104_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ProvidesComponentType_2104_outgoinglinks;
+	public static String NavigatorGroupName_CompleteComponentType_2104_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ProvidesComponentType_2104_incominglinks;
+	public static String NavigatorGroupName_ProvidesComponentType_2105_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ProvidesComponentType_2105_incominglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_SubSystem_2106_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_CompositeComponent_2105_outgoinglinks;
 
 	/**
 	 * @generated

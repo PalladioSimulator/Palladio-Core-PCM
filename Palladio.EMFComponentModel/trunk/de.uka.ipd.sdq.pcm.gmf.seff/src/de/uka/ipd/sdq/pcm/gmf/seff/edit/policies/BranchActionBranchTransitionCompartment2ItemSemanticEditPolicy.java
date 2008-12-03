@@ -3,16 +3,13 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.GuardedBranchTransitionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ProbabilisticBranchTransitionCreateCommand;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import org.eclipse.gef.commands.Command;
-
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 /**
  * @generated

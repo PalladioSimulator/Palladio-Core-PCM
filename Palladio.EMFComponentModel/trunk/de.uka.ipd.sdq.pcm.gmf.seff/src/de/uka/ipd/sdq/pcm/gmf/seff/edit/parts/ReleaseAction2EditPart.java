@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -220,7 +220,7 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureReleaseNameLabelFigure;
+		private WrappingLabel fFigureReleaseNameLabelFigure;
 
 		/**
 		 * @generated
@@ -234,17 +234,17 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel releaseStereotypeLabel0 = new WrapLabel();
+			WrappingLabel releaseStereotypeLabel0 = new WrappingLabel();
 			releaseStereotypeLabel0.setText("<<ReleaseAction>>");
 
 			this.add(releaseStereotypeLabel0);
 
-			fFigureReleaseNameLabelFigure = new WrapLabel();
+			fFigureReleaseNameLabelFigure = new WrappingLabel();
 			fFigureReleaseNameLabelFigure.setText("<...>");
 
 			this.add(fFigureReleaseNameLabelFigure);
 
-			WrapLabel releaseResourceLabelFigure0 = new WrapLabel();
+			WrappingLabel releaseResourceLabelFigure0 = new WrappingLabel();
 			releaseResourceLabelFigure0.setText("");
 
 			this.add(releaseResourceLabelFigure0);
@@ -254,7 +254,7 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureReleaseNameLabelFigure() {
+		public WrappingLabel getFigureReleaseNameLabelFigure() {
 			return fFigureReleaseNameLabelFigure;
 		}
 

@@ -54,10 +54,9 @@ public class BranchActionBranchTransitionCompartmentCanonicalEditPolicy extends
 		switch (visualID) {
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}

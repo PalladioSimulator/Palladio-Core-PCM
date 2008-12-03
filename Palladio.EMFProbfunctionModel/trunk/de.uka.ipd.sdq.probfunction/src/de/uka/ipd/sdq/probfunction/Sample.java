@@ -25,32 +25,39 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Sample extends EObject {
+public interface Sample<T> extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
+	 * @return the value of the '<em>Value</em>' reference.
 	 * @see #setValue(Object)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getSample_Value()
-	 * @model unique="false" ordered="false"
+	 * @model kind="reference" required="true" ordered="false"
 	 * @generated
 	 */
-	Object getValue();
+	T getValue();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.probfunction.Sample#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.probfunction.Sample#getValue <em>Value</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @param value the new value of the '<em>Value</em>' reference.
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(Object value);
+	void setValue(T value);
 
 	/**
 	 * Returns the value of the '<em><b>Probability</b></em>' attribute.

@@ -24,6 +24,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class UnitsFactoryImpl extends EFactoryImpl implements UnitsFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

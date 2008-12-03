@@ -17,7 +17,7 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.NonResizableEditPolicyEx;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 
 /**
  * @generated
@@ -39,9 +39,9 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends
 	 * @generated
 	 */
 	protected void showPrimarySelection() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setSelected(true);
-			((WrapLabel) getHostFigure()).setFocus(true);
+		if (getHostFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getHostFigure()).setSelected(true);
+			((WrappingLabel) getHostFigure()).setFocus(true);
 		} else {
 			showSelection();
 			showFocus();
@@ -52,9 +52,9 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends
 	 * @generated
 	 */
 	protected void showSelection() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setSelected(true);
-			((WrapLabel) getHostFigure()).setFocus(false);
+		if (getHostFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getHostFigure()).setSelected(true);
+			((WrappingLabel) getHostFigure()).setFocus(false);
 		} else {
 			hideSelection();
 			addFeedback(selectionFeedbackFigure = createSelectionFeedbackFigure());
@@ -67,9 +67,9 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends
 	 * @generated
 	 */
 	protected void hideSelection() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setSelected(false);
-			((WrapLabel) getHostFigure()).setFocus(false);
+		if (getHostFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getHostFigure()).setSelected(false);
+			((WrappingLabel) getHostFigure()).setFocus(false);
 		} else {
 			if (selectionFeedbackFigure != null) {
 				removeFeedback(selectionFeedbackFigure);
@@ -83,8 +83,8 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends
 	 * @generated
 	 */
 	protected void showFocus() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setFocus(true);
+		if (getHostFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getHostFigure()).setFocus(true);
 		} else {
 			hideFocus();
 			addFeedback(focusFeedbackFigure = createFocusFeedbackFigure());
@@ -96,8 +96,8 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends
 	 * @generated
 	 */
 	protected void hideFocus() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setFocus(false);
+		if (getHostFigure() instanceof WrappingLabel) {
+			((WrappingLabel) getHostFigure()).setFocus(false);
 		} else {
 			if (focusFeedbackFigure != null) {
 				removeFeedback(focusFeedbackFigure);

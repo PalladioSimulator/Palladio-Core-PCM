@@ -3,15 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableUsage3CreateCommand;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableUsage3CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
@@ -23,7 +20,7 @@ public class SetVariableActionVariableSetter2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableUsage_3030 == req
+		if (PalladioComponentModelElementTypes.VariableUsage_3036 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

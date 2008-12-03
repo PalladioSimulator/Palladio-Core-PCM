@@ -359,7 +359,7 @@
   </links>
   <diagram>
     <diagramCanvas
-        href="repository.gmfgraph#pcm"/>
+        href="repository.gmfgraph#PalladioComponentModel"/>
     <domainModel
         href="../../pcm.ecore#//repository"/>
     <domainMetaElement

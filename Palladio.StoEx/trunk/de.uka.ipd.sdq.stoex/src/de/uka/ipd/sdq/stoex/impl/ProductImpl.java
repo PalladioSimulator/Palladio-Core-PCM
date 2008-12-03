@@ -26,6 +26,13 @@ public abstract class ProductImpl extends TermImpl implements Product {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected ProductImpl() {
 		super();
 	}

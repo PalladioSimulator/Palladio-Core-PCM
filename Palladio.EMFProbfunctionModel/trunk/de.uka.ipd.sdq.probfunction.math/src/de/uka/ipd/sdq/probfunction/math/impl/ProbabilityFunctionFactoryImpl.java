@@ -67,7 +67,6 @@ public class ProbabilityFunctionFactoryImpl implements
 		return createBoxedPDF(samples, /* TODO:Unit */null);
 	}
 
-	@SuppressWarnings("unchecked")
 	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction epdf)
 			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
 			DoubleSampleException {
@@ -76,8 +75,10 @@ public class ProbabilityFunctionFactoryImpl implements
 			double distance = spdf.getDistance();
 			// TODO: Unit IUnit unit =
 			// transformToUnit(spdf.getUnitSpecification());
-			List<Double> values = new ArrayList<Double>((List<Double>) spdf
-					.getValues());
+			// TODO: Fix this after PCM4 migration
+			//List<Double> values = new ArrayList<Double>((List<Double>) spdf
+			//		.getValues());
+			List<Double> values = new ArrayList<Double>();
 			return createSamplePDFFromDouble(distance, values, /* TODO:Unit */
 					null);
 		} else {

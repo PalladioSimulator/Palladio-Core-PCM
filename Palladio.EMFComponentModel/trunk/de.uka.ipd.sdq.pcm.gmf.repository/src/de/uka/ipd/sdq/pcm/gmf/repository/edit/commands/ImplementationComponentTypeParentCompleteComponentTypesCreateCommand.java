@@ -48,10 +48,11 @@ public class ImplementationComponentTypeParentCompleteComponentTypesCreateComman
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && !(source instanceof ImplementationComponentType)) {
+		if (source != null
+				&& false == source instanceof ImplementationComponentType) {
 			return false;
 		}
-		if (target != null && !(target instanceof CompleteComponentType)) {
+		if (target != null && false == target instanceof CompleteComponentType) {
 			return false;
 		}
 		if (getSource() == null) {

@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -236,11 +236,11 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureCollectionIteratorNameLabelFigure;
+		private WrappingLabel fFigureCollectionIteratorNameLabelFigure;
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureCollectionIteratorParameterLabelFigure;
+		private WrappingLabel fFigureCollectionIteratorParameterLabelFigure;
 
 		/**
 		 * @generated
@@ -256,18 +256,18 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel collectionIteratorStereotype0 = new WrapLabel();
+			WrappingLabel collectionIteratorStereotype0 = new WrappingLabel();
 			collectionIteratorStereotype0
 					.setText("<<CollectionIteratorAction>>");
 
 			this.add(collectionIteratorStereotype0);
 
-			fFigureCollectionIteratorNameLabelFigure = new WrapLabel();
+			fFigureCollectionIteratorNameLabelFigure = new WrappingLabel();
 			fFigureCollectionIteratorNameLabelFigure.setText("myLoop");
 
 			this.add(fFigureCollectionIteratorNameLabelFigure);
 
-			fFigureCollectionIteratorParameterLabelFigure = new WrapLabel();
+			fFigureCollectionIteratorParameterLabelFigure = new WrappingLabel();
 			fFigureCollectionIteratorParameterLabelFigure.setText("");
 
 			this.add(fFigureCollectionIteratorParameterLabelFigure);
@@ -277,14 +277,14 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureCollectionIteratorNameLabelFigure() {
+		public WrappingLabel getFigureCollectionIteratorNameLabelFigure() {
 			return fFigureCollectionIteratorNameLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureCollectionIteratorParameterLabelFigure() {
+		public WrappingLabel getFigureCollectionIteratorParameterLabelFigure() {
 			return fFigureCollectionIteratorParameterLabelFigure;
 		}
 

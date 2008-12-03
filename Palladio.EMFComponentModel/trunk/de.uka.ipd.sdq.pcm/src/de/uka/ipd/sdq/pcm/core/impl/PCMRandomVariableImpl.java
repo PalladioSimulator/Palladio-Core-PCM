@@ -16,13 +16,6 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ocl.expressions.OCLExpression;
-import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
-import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
-import org.eclipse.emf.ocl.parser.Environment;
-import org.eclipse.emf.ocl.parser.ParserException;
-import org.eclipse.emf.ocl.query.Query;
-import org.eclipse.emf.ocl.query.QueryFactory;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;

@@ -50,7 +50,7 @@ public class RequiredRoleReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (!(getElementToEdit() instanceof RequiredRole)) {
+		if (false == getElementToEdit() instanceof RequiredRole) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {

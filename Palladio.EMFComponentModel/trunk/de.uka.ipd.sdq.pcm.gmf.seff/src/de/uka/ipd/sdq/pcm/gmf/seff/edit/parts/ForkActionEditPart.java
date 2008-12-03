@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -220,7 +220,7 @@ public class ForkActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureForkFigureNameLabelFigure;
+		private WrappingLabel fFigureForkFigureNameLabelFigure;
 
 		/**
 		 * @generated
@@ -234,12 +234,12 @@ public class ForkActionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel stereotypeLabelFigure0 = new WrapLabel();
+			WrappingLabel stereotypeLabelFigure0 = new WrappingLabel();
 			stereotypeLabelFigure0.setText("<<Fork>>");
 
 			this.add(stereotypeLabelFigure0);
 
-			fFigureForkFigureNameLabelFigure = new WrapLabel();
+			fFigureForkFigureNameLabelFigure = new WrappingLabel();
 			fFigureForkFigureNameLabelFigure.setText("");
 
 			this.add(fFigureForkFigureNameLabelFigure);
@@ -249,7 +249,7 @@ public class ForkActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureForkFigureNameLabelFigure() {
+		public WrappingLabel getFigureForkFigureNameLabelFigure() {
 			return fFigureForkFigureNameLabelFigure;
 		}
 

@@ -53,6 +53,13 @@ public enum ProductOperations implements Enumerator {
 	MOD(2, "MOD", "MOD");
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The '<em><b>MULT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>

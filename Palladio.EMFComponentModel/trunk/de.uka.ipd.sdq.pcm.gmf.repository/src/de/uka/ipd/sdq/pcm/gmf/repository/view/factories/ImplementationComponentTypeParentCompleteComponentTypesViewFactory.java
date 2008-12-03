@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -46,13 +47,12 @@ public class ImplementationComponentTypeParentCompleteComponentTypesViewFactory
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
 				index, persisted);
 		IAdaptable eObjectAdapter = null;
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						PalladioComponentModelVisualIDRegistry
-								.getType(CompleteParentStereotypeLabelEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				eObjectAdapter,
+				view,
+				PalladioComponentModelVisualIDRegistry
+						.getType(WrappingLabel4EditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }

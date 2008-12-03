@@ -106,16 +106,22 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableUsage_3028 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3028"); //$NON-NLS-1$
+	public static final IElementType VariableUsage_3032 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3032"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableCharacterisation_3002 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3002"); //$NON-NLS-1$
+	public static final IElementType VariableCharacterisation_3033 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3033"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableUsage_3029 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3029"); //$NON-NLS-1$
+	public static final IElementType VariableUsage_3034 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3034"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType VariableCharacterisation_3035 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3035"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -206,17 +212,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableUsage_3030 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3030"); //$NON-NLS-1$
+	public static final IElementType VariableUsage_3036 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3036"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableCharacterisation_3025 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3025"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType VariableCharacterisation_3016 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3016"); //$NON-NLS-1$
+	public static final IElementType VariableCharacterisation_3037 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3037"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -370,16 +371,16 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements
 					.put(ForkAction_2011, SeffPackage.eINSTANCE.getForkAction());
 
-			elements.put(VariableUsage_3028, ParameterPackage.eINSTANCE
+			elements.put(VariableUsage_3032, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
-			elements.put(VariableCharacterisation_3002,
+			elements.put(VariableCharacterisation_3033,
 					ParameterPackage.eINSTANCE.getVariableCharacterisation());
 
-			elements.put(VariableUsage_3029, ParameterPackage.eINSTANCE
+			elements.put(VariableUsage_3034, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
-			elements.put(VariableCharacterisation_3016,
+			elements.put(VariableCharacterisation_3035,
 					ParameterPackage.eINSTANCE.getVariableCharacterisation());
 
 			elements.put(ResourceDemandingBehaviour_3003, SeffPackage.eINSTANCE
@@ -433,10 +434,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(SetVariableAction_3024, SeffPackage.eINSTANCE
 					.getSetVariableAction());
 
-			elements.put(VariableUsage_3030, ParameterPackage.eINSTANCE
+			elements.put(VariableUsage_3036, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
-			elements.put(VariableCharacterisation_3025,
+			elements.put(VariableCharacterisation_3037,
 					ParameterPackage.eINSTANCE.getVariableCharacterisation());
 
 			elements.put(GuardedBranchTransition_3017, SeffPackage.eINSTANCE
@@ -477,10 +478,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(AcquireAction_2012);
 			KNOWN_ELEMENT_TYPES.add(ReleaseAction_2010);
 			KNOWN_ELEMENT_TYPES.add(ForkAction_2011);
-			KNOWN_ELEMENT_TYPES.add(VariableUsage_3028);
-			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3002);
-			KNOWN_ELEMENT_TYPES.add(VariableUsage_3029);
-			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3016);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_3032);
+			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3033);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_3034);
+			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3035);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3003);
 			KNOWN_ELEMENT_TYPES.add(StartAction_3004);
 			KNOWN_ELEMENT_TYPES.add(StopAction_3005);
@@ -498,8 +499,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_3013);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3014);
 			KNOWN_ELEMENT_TYPES.add(SetVariableAction_3024);
-			KNOWN_ELEMENT_TYPES.add(VariableUsage_3030);
-			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3025);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_3036);
+			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3037);
 			KNOWN_ELEMENT_TYPES.add(GuardedBranchTransition_3017);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3018);
 			KNOWN_ELEMENT_TYPES

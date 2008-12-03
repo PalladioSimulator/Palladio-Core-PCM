@@ -41,7 +41,6 @@ public class CompositeComponentItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		CompoundCommand cc = getDestroyEdgesCommand();
-		addDestroyChildNodesCommand(cc);
 		addDestroyShortcutsCommand(cc);
 		View view = (View) getHost().getModel();
 		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
@@ -49,34 +48,6 @@ public class CompositeComponentItemSemanticEditPolicy extends
 		}
 		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
 		return cc.unwrap();
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addDestroyChildNodesCommand(CompoundCommand cmd) {
-		View view = (View) getHost().getModel();
-		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-		if (annotation != null) {
-			return;
-		}
-		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
-			Node node = (Node) it.next();
-			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-			case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (PalladioComponentModelVisualIDRegistry
-							.getVisualID(cnode)) {
-					case VariableUsageEditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
-						break;
-					}
-				}
-				break;
-			}
-		}
 	}
 
 	/**

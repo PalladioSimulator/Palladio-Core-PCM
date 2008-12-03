@@ -21,6 +21,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -248,7 +249,7 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureInterface_Name_LabelFigure;
+		private WrappingLabel fFigureInterface_Name_LabelFigure;
 
 		/**
 		 * @generated
@@ -262,7 +263,7 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureInterface_Name_LabelFigure = new WrapLabel();
+			fFigureInterface_Name_LabelFigure = new WrappingLabel();
 			fFigureInterface_Name_LabelFigure.setText("<...>");
 
 			this.add(fFigureInterface_Name_LabelFigure);
@@ -272,7 +273,7 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureInterface_Name_LabelFigure() {
+		public WrappingLabel getFigureInterface_Name_LabelFigure() {
 			return fFigureInterface_Name_LabelFigure;
 		}
 

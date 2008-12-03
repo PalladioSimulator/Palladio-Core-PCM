@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import de.uka.ipd.sdq.units.UnitsPackage;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Package</b> for the model.
@@ -27,6 +29,13 @@ import org.eclipse.emf.ecore.EReference;
  * @generated
  */
 public interface ProbfunctionPackage extends EPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -70,13 +79,31 @@ public interface ProbfunctionPackage extends EPackage {
 	int PROBABILITY_FUNCTION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_FUNCTION__UNIT = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_FUNCTION__UNIT_SPECIFICATION = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT_SPECIFICATION;
+
+	/**
 	 * The number of structural features of the '<em>Probability Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROBABILITY_FUNCTION_FEATURE_COUNT = 0;
+	int PROBABILITY_FUNCTION_FEATURE_COUNT = UnitsPackage.UNIT_CARRYING_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.ProbabilityDensityFunctionImpl <em>Probability Density Function</em>}' class.
@@ -87,6 +114,24 @@ public interface ProbfunctionPackage extends EPackage {
 	 * @generated
 	 */
 	int PROBABILITY_DENSITY_FUNCTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_DENSITY_FUNCTION__UNIT = PROBABILITY_FUNCTION__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_DENSITY_FUNCTION__UNIT_SPECIFICATION = PROBABILITY_FUNCTION__UNIT_SPECIFICATION;
 
 	/**
 	 * The number of structural features of the '<em>Probability Density Function</em>' class.
@@ -106,6 +151,24 @@ public interface ProbfunctionPackage extends EPackage {
 	 * @generated
 	 */
 	int BOXED_PDF = 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOXED_PDF__UNIT = PROBABILITY_DENSITY_FUNCTION__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOXED_PDF__UNIT_SPECIFICATION = PROBABILITY_DENSITY_FUNCTION__UNIT_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Samples</b></em>' containment reference list.
@@ -173,6 +236,24 @@ public interface ProbfunctionPackage extends EPackage {
 	int PROBABILITY_MASS_FUNCTION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_MASS_FUNCTION__UNIT = PROBABILITY_FUNCTION__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_MASS_FUNCTION__UNIT_SPECIFICATION = PROBABILITY_FUNCTION__UNIT_SPECIFICATION;
+
+	/**
 	 * The feature id for the '<em><b>Samples</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,7 +291,7 @@ public interface ProbfunctionPackage extends EPackage {
 	int SAMPLE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -247,6 +328,24 @@ public interface ProbfunctionPackage extends EPackage {
 	int SAMPLE_PDF = 6;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAMPLE_PDF__UNIT = PROBABILITY_DENSITY_FUNCTION__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAMPLE_PDF__UNIT_SPECIFICATION = PROBABILITY_DENSITY_FUNCTION__UNIT_SPECIFICATION;
+
+	/**
 	 * The feature id for the '<em><b>Distance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -256,7 +355,7 @@ public interface ProbfunctionPackage extends EPackage {
 	int SAMPLE_PDF__DISTANCE = PROBABILITY_DENSITY_FUNCTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Values</b></em>' attribute list.
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -272,6 +371,182 @@ public interface ProbfunctionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SAMPLE_PDF_FEATURE_COUNT = PROBABILITY_DENSITY_FUNCTION_FEATURE_COUNT + 2;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.ComplexImpl <em>Complex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.probfunction.impl.ComplexImpl
+	 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getComplex()
+	 * @generated
+	 */
+	int COMPLEX = 7;
+
+	/**
+	 * The feature id for the '<em><b>Real</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX__REAL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Imaginary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX__IMAGINARY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Complex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.ContinuousPDFImpl <em>Continuous PDF</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.probfunction.impl.ContinuousPDFImpl
+	 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getContinuousPDF()
+	 * @generated
+	 */
+	int CONTINUOUS_PDF = 8;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUOUS_PDF__UNIT = PROBABILITY_DENSITY_FUNCTION__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUOUS_PDF__UNIT_SPECIFICATION = PROBABILITY_DENSITY_FUNCTION__UNIT_SPECIFICATION;
+
+	/**
+	 * The number of structural features of the '<em>Continuous PDF</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUOUS_PDF_FEATURE_COUNT = PROBABILITY_DENSITY_FUNCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.ExponentialDistributionImpl <em>Exponential Distribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.probfunction.impl.ExponentialDistributionImpl
+	 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getExponentialDistribution()
+	 * @generated
+	 */
+	int EXPONENTIAL_DISTRIBUTION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIAL_DISTRIBUTION__UNIT = CONTINUOUS_PDF__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIAL_DISTRIBUTION__UNIT_SPECIFICATION = CONTINUOUS_PDF__UNIT_SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIAL_DISTRIBUTION__RATE = CONTINUOUS_PDF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Exponential Distribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPONENTIAL_DISTRIBUTION_FEATURE_COUNT = CONTINUOUS_PDF_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.NormalDistributionImpl <em>Normal Distribution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.probfunction.impl.NormalDistributionImpl
+	 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getNormalDistribution()
+	 * @generated
+	 */
+	int NORMAL_DISTRIBUTION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_DISTRIBUTION__UNIT = CONTINUOUS_PDF__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_DISTRIBUTION__UNIT_SPECIFICATION = CONTINUOUS_PDF__UNIT_SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Mu</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_DISTRIBUTION__MU = CONTINUOUS_PDF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sigma</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_DISTRIBUTION__SIGMA = CONTINUOUS_PDF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Normal Distribution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NORMAL_DISTRIBUTION_FEATURE_COUNT = CONTINUOUS_PDF_FEATURE_COUNT + 2;
 
 
 	/**
@@ -390,15 +665,15 @@ public interface ProbfunctionPackage extends EPackage {
 	EClass getSample();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.Sample#getValue <em>Value</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.probfunction.Sample#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @return the meta object for the reference '<em>Value</em>'.
 	 * @see de.uka.ipd.sdq.probfunction.Sample#getValue()
 	 * @see #getSample()
 	 * @generated
 	 */
-	EAttribute getSample_Value();
+	EReference getSample_Value();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.Sample#getProbability <em>Probability</em>}'.
@@ -433,15 +708,110 @@ public interface ProbfunctionPackage extends EPackage {
 	EAttribute getSamplePDF_Distance();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link de.uka.ipd.sdq.probfunction.SamplePDF#getValues <em>Values</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.probfunction.SamplePDF#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
 	 * @see de.uka.ipd.sdq.probfunction.SamplePDF#getValues()
 	 * @see #getSamplePDF()
 	 * @generated
 	 */
-	EAttribute getSamplePDF_Values();
+	EReference getSamplePDF_Values();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.probfunction.Complex <em>Complex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Complex</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.Complex
+	 * @generated
+	 */
+	EClass getComplex();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.Complex#getReal <em>Real</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Real</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.Complex#getReal()
+	 * @see #getComplex()
+	 * @generated
+	 */
+	EAttribute getComplex_Real();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.Complex#getImaginary <em>Imaginary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Imaginary</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.Complex#getImaginary()
+	 * @see #getComplex()
+	 * @generated
+	 */
+	EAttribute getComplex_Imaginary();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.probfunction.ContinuousPDF <em>Continuous PDF</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Continuous PDF</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.ContinuousPDF
+	 * @generated
+	 */
+	EClass getContinuousPDF();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.probfunction.ExponentialDistribution <em>Exponential Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exponential Distribution</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.ExponentialDistribution
+	 * @generated
+	 */
+	EClass getExponentialDistribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.ExponentialDistribution#getRate <em>Rate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rate</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.ExponentialDistribution#getRate()
+	 * @see #getExponentialDistribution()
+	 * @generated
+	 */
+	EAttribute getExponentialDistribution_Rate();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.probfunction.NormalDistribution <em>Normal Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Normal Distribution</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.NormalDistribution
+	 * @generated
+	 */
+	EClass getNormalDistribution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.NormalDistribution#getMu <em>Mu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mu</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.NormalDistribution#getMu()
+	 * @see #getNormalDistribution()
+	 * @generated
+	 */
+	EAttribute getNormalDistribution_Mu();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.NormalDistribution#getSigma <em>Sigma</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sigma</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.NormalDistribution#getSigma()
+	 * @see #getNormalDistribution()
+	 * @generated
+	 */
+	EAttribute getNormalDistribution_Sigma();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -566,12 +936,12 @@ public interface ProbfunctionPackage extends EPackage {
 		EClass SAMPLE = eINSTANCE.getSample();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SAMPLE__VALUE = eINSTANCE.getSample_Value();
+		EReference SAMPLE__VALUE = eINSTANCE.getSample_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Probability</b></em>' attribute feature.
@@ -600,12 +970,92 @@ public interface ProbfunctionPackage extends EPackage {
 		EAttribute SAMPLE_PDF__DISTANCE = eINSTANCE.getSamplePDF_Distance();
 
 		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SAMPLE_PDF__VALUES = eINSTANCE.getSamplePDF_Values();
+		EReference SAMPLE_PDF__VALUES = eINSTANCE.getSamplePDF_Values();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.probfunction.impl.ComplexImpl <em>Complex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.probfunction.impl.ComplexImpl
+		 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getComplex()
+		 * @generated
+		 */
+		EClass COMPLEX = eINSTANCE.getComplex();
+
+		/**
+		 * The meta object literal for the '<em><b>Real</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLEX__REAL = eINSTANCE.getComplex_Real();
+
+		/**
+		 * The meta object literal for the '<em><b>Imaginary</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLEX__IMAGINARY = eINSTANCE.getComplex_Imaginary();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.probfunction.impl.ContinuousPDFImpl <em>Continuous PDF</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.probfunction.impl.ContinuousPDFImpl
+		 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getContinuousPDF()
+		 * @generated
+		 */
+		EClass CONTINUOUS_PDF = eINSTANCE.getContinuousPDF();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.probfunction.impl.ExponentialDistributionImpl <em>Exponential Distribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.probfunction.impl.ExponentialDistributionImpl
+		 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getExponentialDistribution()
+		 * @generated
+		 */
+		EClass EXPONENTIAL_DISTRIBUTION = eINSTANCE.getExponentialDistribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Rate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPONENTIAL_DISTRIBUTION__RATE = eINSTANCE.getExponentialDistribution_Rate();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.probfunction.impl.NormalDistributionImpl <em>Normal Distribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.probfunction.impl.NormalDistributionImpl
+		 * @see de.uka.ipd.sdq.probfunction.impl.ProbfunctionPackageImpl#getNormalDistribution()
+		 * @generated
+		 */
+		EClass NORMAL_DISTRIBUTION = eINSTANCE.getNormalDistribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Mu</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NORMAL_DISTRIBUTION__MU = eINSTANCE.getNormalDistribution_Mu();
+
+		/**
+		 * The meta object literal for the '<em><b>Sigma</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NORMAL_DISTRIBUTION__SIGMA = eINSTANCE.getNormalDistribution_Sigma();
 
 	}
 

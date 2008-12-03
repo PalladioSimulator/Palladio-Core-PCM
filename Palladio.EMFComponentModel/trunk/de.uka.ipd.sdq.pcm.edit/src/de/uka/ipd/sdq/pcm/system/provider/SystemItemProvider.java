@@ -5,8 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.system.provider;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
-import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -22,14 +20,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
+import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
@@ -46,6 +39,13 @@ public class SystemItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

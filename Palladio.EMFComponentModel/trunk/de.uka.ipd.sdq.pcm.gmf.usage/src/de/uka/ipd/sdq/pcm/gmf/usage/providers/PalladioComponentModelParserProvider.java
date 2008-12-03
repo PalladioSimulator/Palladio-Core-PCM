@@ -70,22 +70,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser variableCharacterisation_3006Parser;
+	private IParser variableCharacterisation_3013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariableCharacterisation_3006Parser() {
-		if (variableCharacterisation_3006Parser == null) {
-			variableCharacterisation_3006Parser = createVariableCharacterisation_3006Parser();
+	private IParser getVariableCharacterisation_3013Parser() {
+		if (variableCharacterisation_3013Parser == null) {
+			variableCharacterisation_3013Parser = createVariableCharacterisation_3013Parser();
 		}
-		return variableCharacterisation_3006Parser;
+		return variableCharacterisation_3013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createVariableCharacterisation_3006Parser() {
+	protected IParser createVariableCharacterisation_3013Parser() {
 		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
 				.getVariableCharacterisation_Type(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -128,7 +128,7 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		case ClosedWorkloadTitleLabelEditPart.VISUAL_ID:
 			return getClosedWorkloadPopulation_5002Parser();
 		case VariableCharacterisationEditPart.VISUAL_ID:
-			return getVariableCharacterisation_3006Parser();
+			return getVariableCharacterisation_3013Parser();
 		case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
 			return getBranchTransitionBranchProbability_5007Parser();
 		}

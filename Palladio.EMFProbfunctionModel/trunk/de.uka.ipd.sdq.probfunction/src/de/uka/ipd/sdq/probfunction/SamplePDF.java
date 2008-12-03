@@ -27,6 +27,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SamplePDF extends ProbabilityDensityFunction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Distance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -53,19 +60,19 @@ public interface SamplePDF extends ProbabilityDensityFunction {
 	void setDistance(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Double}.
+	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.probfunction.Complex}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Values</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Values</em>' attribute list.
+	 * @return the value of the '<em>Values</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getSamplePDF_Values()
-	 * @model unique="false" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Double> getValues();
+	EList<Complex> getValues();
 
 } // SamplePDF

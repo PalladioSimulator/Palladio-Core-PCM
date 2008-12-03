@@ -25,6 +25,13 @@ package de.uka.ipd.sdq.units;
  */
 public interface UnitLiteral extends Unit {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Base Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -35,7 +42,7 @@ public interface UnitLiteral extends Unit {
 	 * @return the value of the '<em>Base Unit</em>' reference.
 	 * @see #setBaseUnit(BaseUnit)
 	 * @see de.uka.ipd.sdq.units.UnitsPackage#getUnitLiteral_BaseUnit()
-	 * @model required="true"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	BaseUnit getBaseUnit();

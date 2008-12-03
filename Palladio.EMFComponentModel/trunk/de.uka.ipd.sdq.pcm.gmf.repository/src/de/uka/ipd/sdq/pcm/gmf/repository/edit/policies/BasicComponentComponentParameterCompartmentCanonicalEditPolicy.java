@@ -37,7 +37,7 @@ public class BasicComponentComponentParameterCompartmentCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getCompositeComponentComponentParameterCompartment_7104SemanticChildren(
+				.getBasicComponentComponentParameterCompartment_7104SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((PalladioComponentModelNodeDescriptor) it.next())
 					.getModelElement());
@@ -52,10 +52,9 @@ public class BasicComponentComponentParameterCompartmentCanonicalEditPolicy
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case VariableUsageEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}

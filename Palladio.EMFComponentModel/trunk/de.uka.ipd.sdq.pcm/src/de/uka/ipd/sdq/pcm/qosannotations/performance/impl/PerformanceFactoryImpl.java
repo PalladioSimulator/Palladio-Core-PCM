@@ -39,7 +39,7 @@ public class PerformanceFactoryImpl extends EFactoryImpl implements PerformanceF
 	 */
 	public static PerformanceFactory init() {
 		try {
-			PerformanceFactory thePerformanceFactory = (PerformanceFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Performance/1.0"); 
+			PerformanceFactory thePerformanceFactory = (PerformanceFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Performance/4.0"); 
 			if (thePerformanceFactory != null) {
 				return thePerformanceFactory;
 			}

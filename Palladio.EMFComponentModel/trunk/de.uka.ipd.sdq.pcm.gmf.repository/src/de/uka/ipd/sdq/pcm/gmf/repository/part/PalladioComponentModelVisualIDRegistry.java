@@ -41,6 +41,11 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrapLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -59,9 +64,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final String DEBUG_KEY = PalladioComponentModelRepositoryDiagramEditorPlugin
-			.getInstance().getBundle().getSymbolicName()
-			+ "/debug/visualID"; //$NON-NLS-1$
+	private static final String DEBUG_KEY = "de.uka.ipd.sdq.pcm.gmf.repository/debug/visualID"; //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -256,12 +259,12 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case CompositeComponentEditPart.VISUAL_ID:
 			if (CompositeComponentEntityNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -281,7 +284,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsageEditPart.VISUAL_ID:
-			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID == nodeVisualID) {
@@ -334,22 +337,22 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case ProvidedRoleEditPart.VISUAL_ID:
-			if (ProvidesStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case RequiredRoleEditPart.VISUAL_ID:
-			if (RequiresStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
-			if (CompleteParentStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
-			if (ProvidesParentStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel5EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

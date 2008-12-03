@@ -9,9 +9,11 @@ import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.RequiredRoleItemSemanticEditPolicy;
@@ -19,7 +21,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.RequiredRoleItemSemanticE
 /**
  * @generated
  */
-public class RequiredRoleEditPart extends ConnectionNodeEditPart {
+public class RequiredRoleEditPart extends ConnectionNodeEditPart implements
+		ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -46,10 +49,9 @@ public class RequiredRoleEditPart extends ConnectionNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof RequiresStereotypeLabelEditPart) {
-			((RequiresStereotypeLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureRequiresStereotypeLabelFigure());
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureRequiresStereotypeLabelFigure());
 			return true;
 		}
 		return false;
@@ -92,7 +94,7 @@ public class RequiredRoleEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureRequiresStereotypeLabelFigure;
+		private WrappingLabel fFigureRequiresStereotypeLabelFigure;
 
 		/**
 		 * @generated
@@ -108,7 +110,7 @@ public class RequiredRoleEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureRequiresStereotypeLabelFigure = new WrapLabel();
+			fFigureRequiresStereotypeLabelFigure = new WrappingLabel();
 			fFigureRequiresStereotypeLabelFigure.setText("<<Requires>>");
 
 			this.add(fFigureRequiresStereotypeLabelFigure);
@@ -132,7 +134,7 @@ public class RequiredRoleEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureRequiresStereotypeLabelFigure() {
+		public WrappingLabel getFigureRequiresStereotypeLabelFigure() {
 			return fFigureRequiresStereotypeLabelFigure;
 		}
 

@@ -30,6 +30,12 @@ import de.uka.ipd.sdq.stoex.Variable;
  */
 public class VariableImpl extends AtomImpl implements Variable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
 	 * The cached value of the '{@link #getId_Variable() <em>Id Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -33,6 +33,13 @@ import de.uka.ipd.sdq.stoex.Unary;
  */
 public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The cached value of the '{@link #getBase() <em>Base</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

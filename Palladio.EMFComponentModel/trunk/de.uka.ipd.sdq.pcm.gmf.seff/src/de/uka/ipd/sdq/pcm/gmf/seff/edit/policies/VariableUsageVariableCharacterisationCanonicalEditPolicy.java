@@ -37,7 +37,7 @@ public class VariableUsageVariableCharacterisationCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getVariableUsageVariableCharacterisation_7027SemanticChildren(
+				.getVariableUsageVariableCharacterisation_7030SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((PalladioComponentModelNodeDescriptor) it.next())
 					.getModelElement());
@@ -52,10 +52,9 @@ public class VariableUsageVariableCharacterisationCanonicalEditPolicy extends
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case VariableCharacterisationEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}

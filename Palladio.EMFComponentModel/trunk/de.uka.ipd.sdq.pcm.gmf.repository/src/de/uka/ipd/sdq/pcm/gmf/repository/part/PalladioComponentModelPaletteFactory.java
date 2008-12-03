@@ -115,13 +115,13 @@ public class PalladioComponentModelPaletteFactory {
 	 */
 	private ToolEntry createCompositeComponent3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.CompositeComponent_2105);
+		types.add(PalladioComponentModelElementTypes.CompositeComponent_2103);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CompositeComponent3CreationTool_title,
 				Messages.CompositeComponent3CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.CompositeComponent_2105));
+						.getImageDescriptor(PalladioComponentModelElementTypes.CompositeComponent_2103));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -262,13 +262,13 @@ public class PalladioComponentModelPaletteFactory {
 	private ToolEntry createProvidesComponentType1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(PalladioComponentModelElementTypes.ProvidesComponentType_2104);
+				.add(PalladioComponentModelElementTypes.ProvidesComponentType_2105);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ProvidesComponentType1CreationTool_title,
 				Messages.ProvidesComponentType1CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidesComponentType_2104));
+						.getImageDescriptor(PalladioComponentModelElementTypes.ProvidesComponentType_2105));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -279,13 +279,13 @@ public class PalladioComponentModelPaletteFactory {
 	private ToolEntry createCompleteComponentType2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(PalladioComponentModelElementTypes.CompleteComponentType_2103);
+				.add(PalladioComponentModelElementTypes.CompleteComponentType_2104);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.CompleteComponentType2CreationTool_title,
 				Messages.CompleteComponentType2CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentType_2103));
+						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentType_2104));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

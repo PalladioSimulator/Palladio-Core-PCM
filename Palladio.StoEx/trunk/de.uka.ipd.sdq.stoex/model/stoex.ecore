@@ -60,14 +60,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunctionLiteral" eSuperTypes="#//Atom">
     <eStructuralFeatures xsi:type="ecore:EReference" name="function_ProbabilityFunctionLiteral"
-        ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityFunction"
+        ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityFunction"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parenthesis" eSuperTypes="#//Atom">
     <eStructuralFeatures xsi:type="ecore:EReference" name="innerExpression" ordered="false"
         lowerBound="1" eType="#//Expression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement #//Atom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement #//Atom"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//NumericLiteral">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -137,6 +137,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="specification" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" ordered="false"
-        lowerBound="1" eType="#//Expression" volatile="true" transient="true"/>
+        lowerBound="1" eType="#//Expression" volatile="true" transient="true" unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value=""/>
+        <details key="namespace" value=""/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

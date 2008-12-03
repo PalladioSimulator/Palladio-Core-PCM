@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
@@ -81,7 +82,7 @@ public class PalladioComponentModelDiagramUpdater {
 		case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
 			return getBasicComponentPassiveResourceCompartment_7103SemanticChildren(view);
 		case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
-			return getCompositeComponentComponentParameterCompartment_7104SemanticChildren(view);
+			return getBasicComponentComponentParameterCompartment_7104SemanticChildren(view);
 		case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
 			return getVariableUsageComponentParameterVariableCharacterisationCompartment_7105SemanticChildren(view);
 		case RepositoryEditPart.VISUAL_ID:
@@ -180,7 +181,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompositeComponentComponentParameterCompartment_7104SemanticChildren(
+	public static List getBasicComponentComponentParameterCompartment_7104SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -189,7 +190,7 @@ public class PalladioComponentModelDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		CompositeComponent modelElement = (CompositeComponent) containerView
+		BasicComponent modelElement = (BasicComponent) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement
@@ -303,11 +304,11 @@ public class PalladioComponentModelDiagramUpdater {
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102ContainedLinks(view);
 		case CompositeComponentEditPart.VISUAL_ID:
-			return getCompositeComponent_2105ContainedLinks(view);
+			return getCompositeComponent_2103ContainedLinks(view);
 		case CompleteComponentTypeEditPart.VISUAL_ID:
-			return getCompleteComponentType_2103ContainedLinks(view);
+			return getCompleteComponentType_2104ContainedLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
-			return getProvidesComponentType_2104ContainedLinks(view);
+			return getProvidesComponentType_2105ContainedLinks(view);
 		case SubSystemEditPart.VISUAL_ID:
 			return getSubSystem_2106ContainedLinks(view);
 		case SignatureEditPart.VISUAL_ID:
@@ -338,11 +339,11 @@ public class PalladioComponentModelDiagramUpdater {
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102IncomingLinks(view);
 		case CompositeComponentEditPart.VISUAL_ID:
-			return getCompositeComponent_2105IncomingLinks(view);
+			return getCompositeComponent_2103IncomingLinks(view);
 		case CompleteComponentTypeEditPart.VISUAL_ID:
-			return getCompleteComponentType_2103IncomingLinks(view);
+			return getCompleteComponentType_2104IncomingLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
-			return getProvidesComponentType_2104IncomingLinks(view);
+			return getProvidesComponentType_2105IncomingLinks(view);
 		case SubSystemEditPart.VISUAL_ID:
 			return getSubSystem_2106IncomingLinks(view);
 		case SignatureEditPart.VISUAL_ID:
@@ -373,11 +374,11 @@ public class PalladioComponentModelDiagramUpdater {
 		case BasicComponentEditPart.VISUAL_ID:
 			return getBasicComponent_2102OutgoingLinks(view);
 		case CompositeComponentEditPart.VISUAL_ID:
-			return getCompositeComponent_2105OutgoingLinks(view);
+			return getCompositeComponent_2103OutgoingLinks(view);
 		case CompleteComponentTypeEditPart.VISUAL_ID:
-			return getCompleteComponentType_2103OutgoingLinks(view);
+			return getCompleteComponentType_2104OutgoingLinks(view);
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
-			return getProvidesComponentType_2104OutgoingLinks(view);
+			return getProvidesComponentType_2105OutgoingLinks(view);
 		case SubSystemEditPart.VISUAL_ID:
 			return getSubSystem_2106OutgoingLinks(view);
 		case SignatureEditPart.VISUAL_ID:
@@ -430,7 +431,23 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompleteComponentType_2103ContainedLinks(View view) {
+	public static List getCompositeComponent_2103ContainedLinks(View view) {
+		CompositeComponent modelElement = (CompositeComponent) view
+				.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
+		result
+				.addAll(getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompleteComponentType_2104ContainedLinks(View view) {
 		CompleteComponentType modelElement = (CompleteComponentType) view
 				.getElement();
 		List result = new LinkedList();
@@ -446,7 +463,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getProvidesComponentType_2104ContainedLinks(View view) {
+	public static List getProvidesComponentType_2105ContainedLinks(View view) {
 		ProvidesComponentType modelElement = (ProvidesComponentType) view
 				.getElement();
 		List result = new LinkedList();
@@ -467,22 +484,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
 		result
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCompositeComponent_2105ContainedLinks(View view) {
-		CompositeComponent modelElement = (CompositeComponent) view
-				.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
-		result
-				.addAll(getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(modelElement));
 		return result;
 	}
 
@@ -560,7 +561,14 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompleteComponentType_2103IncomingLinks(View view) {
+	public static List getCompositeComponent_2103IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompleteComponentType_2104IncomingLinks(View view) {
 		CompleteComponentType modelElement = (CompleteComponentType) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
@@ -575,7 +583,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getProvidesComponentType_2104IncomingLinks(View view) {
+	public static List getProvidesComponentType_2105IncomingLinks(View view) {
 		ProvidesComponentType modelElement = (ProvidesComponentType) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
@@ -591,13 +599,6 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getSubSystem_2106IncomingLinks(View view) {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCompositeComponent_2105IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -675,7 +676,23 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getCompleteComponentType_2103OutgoingLinks(View view) {
+	public static List getCompositeComponent_2103OutgoingLinks(View view) {
+		CompositeComponent modelElement = (CompositeComponent) view
+				.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
+		result
+				.addAll(getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getCompleteComponentType_2104OutgoingLinks(View view) {
 		CompleteComponentType modelElement = (CompleteComponentType) view
 				.getElement();
 		List result = new LinkedList();
@@ -691,7 +708,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getProvidesComponentType_2104OutgoingLinks(View view) {
+	public static List getProvidesComponentType_2105OutgoingLinks(View view) {
 		ProvidesComponentType modelElement = (ProvidesComponentType) view
 				.getElement();
 		List result = new LinkedList();
@@ -712,22 +729,6 @@ public class PalladioComponentModelDiagramUpdater {
 				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
 		result
 				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getCompositeComponent_2105OutgoingLinks(View view) {
-		CompositeComponent modelElement = (CompositeComponent) view
-				.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getContainedTypeModelFacetLinks_ProvidedRole_4101(modelElement));
-		result
-				.addAll(getContainedTypeModelFacetLinks_RequiredRole_4102(modelElement));
-		result
-				.addAll(getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(modelElement));
 		return result;
 	}
 
@@ -789,7 +790,7 @@ public class PalladioComponentModelDiagramUpdater {
 		for (Iterator links = container
 				.getProvidedRoles_InterfaceProvidingEntity().iterator(); links
 				.hasNext();) {
-			Object linkObject = links.next();
+			EObject linkObject = (EObject) links.next();
 			if (false == linkObject instanceof ProvidedRole) {
 				continue;
 			}
@@ -815,7 +816,7 @@ public class PalladioComponentModelDiagramUpdater {
 		for (Iterator links = container
 				.getRequiredRoles_InterfaceRequiringEntity().iterator(); links
 				.hasNext();) {
-			Object linkObject = links.next();
+			EObject linkObject = (EObject) links.next();
 			if (false == linkObject instanceof RequiredRole) {
 				continue;
 			}

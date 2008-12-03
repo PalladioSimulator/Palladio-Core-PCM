@@ -24,6 +24,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentPassiveResourceCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
@@ -331,6 +332,13 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					PassiveResourceEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					VariableUsageEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view), ProvidedRoleEditPart.VISUAL_ID);
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
@@ -353,7 +361,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 		case CompositeComponentEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_CompositeComponent_2105_outgoinglinks,
+					Messages.NavigatorGroupName_CompositeComponent_2103_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getOutgoingLinksByType(Collections
 					.singleton(view), ProvidedRoleEditPart.VISUAL_ID);
@@ -377,10 +385,10 @@ public class PalladioComponentModelNavigatorContentProvider implements
 		case CompleteComponentTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_CompleteComponentType_2103_outgoinglinks,
+					Messages.NavigatorGroupName_CompleteComponentType_2104_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_CompleteComponentType_2103_incominglinks,
+					Messages.NavigatorGroupName_CompleteComponentType_2104_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getOutgoingLinksByType(Collections
 					.singleton(view), ProvidedRoleEditPart.VISUAL_ID);
@@ -412,10 +420,10 @@ public class PalladioComponentModelNavigatorContentProvider implements
 		case ProvidesComponentTypeEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_ProvidesComponentType_2104_outgoinglinks,
+					Messages.NavigatorGroupName_ProvidesComponentType_2105_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_ProvidesComponentType_2104_incominglinks,
+					Messages.NavigatorGroupName_ProvidesComponentType_2105_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getOutgoingLinksByType(Collections
 					.singleton(view), ProvidedRoleEditPart.VISUAL_ID);

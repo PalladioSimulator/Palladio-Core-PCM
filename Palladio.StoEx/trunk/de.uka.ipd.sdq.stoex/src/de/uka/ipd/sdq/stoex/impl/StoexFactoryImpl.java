@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.stoex.impl;
 
+import de.uka.ipd.sdq.stoex.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -46,6 +47,13 @@ import de.uka.ipd.sdq.stoex.VariableReference;
  * @generated
  */
 public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->

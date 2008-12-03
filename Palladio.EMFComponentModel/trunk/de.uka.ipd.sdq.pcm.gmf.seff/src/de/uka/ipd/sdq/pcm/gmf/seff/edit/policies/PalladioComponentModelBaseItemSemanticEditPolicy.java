@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -119,22 +118,23 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 			elementType = null;
 		}
 		Command semanticCommand = getSemanticCommandSwitch(completedRequest);
-		if (semanticCommand != null) {
-			ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
-					.getICommand()
-					: new CommandProxy(semanticCommand);
-			completedRequest.setParameter(
-					PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND,
-					command);
-		}
 		if (elementType != null) {
+			if (semanticCommand != null) {
+				ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
+						.getICommand()
+						: new CommandProxy(semanticCommand);
+				completedRequest
+						.setParameter(
+								PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND,
+								command);
+			}
 			ICommand command = elementType.getEditCommand(completedRequest);
 			if (command != null) {
 				if (!(command instanceof CompositeTransactionalCommand)) {
 					TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
 							.getEditingDomain();
 					command = new CompositeTransactionalCommand(editingDomain,
-							null).compose(command);
+							command.getLabel()).compose(command);
 				}
 				semanticCommand = new ICommandProxy(command);
 			}
@@ -359,37 +359,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		private static final PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_SourceExpression;
+		private static PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_SourceExpression;
 		/**
 		 * @generated
 		 */
-		private static final PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_TargetExpression;
-
-		/**
-		 * @generated
-		 */
-		static {
-			Map env = new HashMap(3);
-			env
-					.put(OPPOSITE_END_VAR, SeffPackage.eINSTANCE
-							.getAbstractAction());
-			AbstractActionSuccessor_AbstractAction_4001_SourceExpression = PalladioComponentModelOCLFactory
-					.getExpression(
-							"not self.oclIsTypeOf(StopAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
-		}
-
-		/**
-		 * @generated
-		 */
-		static {
-			Map env = new HashMap(3);
-			env
-					.put(OPPOSITE_END_VAR, SeffPackage.eINSTANCE
-							.getAbstractAction());
-			AbstractActionSuccessor_AbstractAction_4001_TargetExpression = PalladioComponentModelOCLFactory
-					.getExpression(
-							"self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
-		}
+		private static PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_TargetExpression;
 
 		/**
 		 * @generated
@@ -410,34 +384,42 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistAbstractActionSuccessor_AbstractAction_4001(
 				AbstractAction source, AbstractAction target) {
-			if (!evaluate(
-					AbstractActionSuccessor_AbstractAction_4001_SourceExpression,
-					source, target, false)) {
-				return false;
-			}
-			if (!evaluate(
-					AbstractActionSuccessor_AbstractAction_4001_TargetExpression,
-					target, source, true)) {
-				return false;
-			}
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		private static boolean evaluate(
-				PalladioComponentModelAbstractExpression constraint,
-				Object sourceEnd, Object oppositeEnd, boolean clearEnv) {
-			if (sourceEnd == null) {
-				return true;
-			}
-			Map evalEnv = Collections.singletonMap(OPPOSITE_END_VAR,
-					oppositeEnd);
 			try {
-				Object val = constraint.evaluate(sourceEnd, evalEnv);
-				return (val instanceof Boolean) ? ((Boolean) val)
-						.booleanValue() : false;
+				if (source == null) {
+					return true;
+				}
+				if (AbstractActionSuccessor_AbstractAction_4001_SourceExpression == null) {
+					Map env = Collections.singletonMap(OPPOSITE_END_VAR,
+							SeffPackage.eINSTANCE.getAbstractAction());
+					AbstractActionSuccessor_AbstractAction_4001_SourceExpression = PalladioComponentModelOCLFactory
+							.getExpression(
+									"not self.oclIsTypeOf(StopAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
+				}
+				Object sourceVal = AbstractActionSuccessor_AbstractAction_4001_SourceExpression
+						.evaluate(source, Collections.singletonMap(
+								OPPOSITE_END_VAR, target));
+				if (false == sourceVal instanceof Boolean
+						|| !((Boolean) sourceVal).booleanValue()) {
+					return false;
+				} // else fall-through
+				if (target == null) {
+					return true;
+				}
+				if (AbstractActionSuccessor_AbstractAction_4001_TargetExpression == null) {
+					Map env = Collections.singletonMap(OPPOSITE_END_VAR,
+							SeffPackage.eINSTANCE.getAbstractAction());
+					AbstractActionSuccessor_AbstractAction_4001_TargetExpression = PalladioComponentModelOCLFactory
+							.getExpression(
+									"self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
+				}
+				Object targetVal = AbstractActionSuccessor_AbstractAction_4001_TargetExpression
+						.evaluate(target, Collections.singletonMap(
+								OPPOSITE_END_VAR, source));
+				if (false == targetVal instanceof Boolean
+						|| !((Boolean) targetVal).booleanValue()) {
+					return false;
+				} // else fall-through
+				return true;
 			} catch (Exception e) {
 				PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
 						.logError("Link constraint evaluation error", e); //$NON-NLS-1$

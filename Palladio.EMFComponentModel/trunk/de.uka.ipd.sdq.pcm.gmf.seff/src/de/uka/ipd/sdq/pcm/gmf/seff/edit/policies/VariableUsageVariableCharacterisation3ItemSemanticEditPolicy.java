@@ -3,15 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableCharacterisation3CreateCommand;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableCharacterisation3CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 /**
  * @generated
@@ -23,7 +20,7 @@ public class VariableUsageVariableCharacterisation3ItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableCharacterisation_3025 == req
+		if (PalladioComponentModelElementTypes.VariableCharacterisation_3037 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

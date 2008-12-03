@@ -58,7 +58,7 @@ public class ImplementationComponentTypeParentCompleteComponentTypesReorientComm
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (!(referenceOwner instanceof ImplementationComponentType)) {
+		if (false == referenceOwner instanceof ImplementationComponentType) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {

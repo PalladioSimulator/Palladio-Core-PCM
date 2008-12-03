@@ -32,7 +32,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
@@ -45,7 +44,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * @generated
@@ -284,22 +282,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser variableCharacterisation_3002Parser;
+	private IParser variableCharacterisation_3033Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariableCharacterisation_3002Parser() {
-		if (variableCharacterisation_3002Parser == null) {
-			variableCharacterisation_3002Parser = createVariableCharacterisation_3002Parser();
+	private IParser getVariableCharacterisation_3033Parser() {
+		if (variableCharacterisation_3033Parser == null) {
+			variableCharacterisation_3033Parser = createVariableCharacterisation_3033Parser();
 		}
-		return variableCharacterisation_3002Parser;
+		return variableCharacterisation_3033Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createVariableCharacterisation_3002Parser() {
+	protected IParser createVariableCharacterisation_3033Parser() {
 		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
 				.getVariableCharacterisation_Type(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -312,22 +310,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser variableCharacterisation_3016Parser;
+	private IParser variableCharacterisation_3035Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariableCharacterisation_3016Parser() {
-		if (variableCharacterisation_3016Parser == null) {
-			variableCharacterisation_3016Parser = createVariableCharacterisation_3016Parser();
+	private IParser getVariableCharacterisation_3035Parser() {
+		if (variableCharacterisation_3035Parser == null) {
+			variableCharacterisation_3035Parser = createVariableCharacterisation_3035Parser();
 		}
-		return variableCharacterisation_3016Parser;
+		return variableCharacterisation_3035Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createVariableCharacterisation_3016Parser() {
+	protected IParser createVariableCharacterisation_3035Parser() {
 		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
 				.getVariableCharacterisation_Type(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -596,22 +594,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser variableCharacterisation_3025Parser;
+	private IParser variableCharacterisation_3037Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getVariableCharacterisation_3025Parser() {
-		if (variableCharacterisation_3025Parser == null) {
-			variableCharacterisation_3025Parser = createVariableCharacterisation_3025Parser();
+	private IParser getVariableCharacterisation_3037Parser() {
+		if (variableCharacterisation_3037Parser == null) {
+			variableCharacterisation_3037Parser = createVariableCharacterisation_3037Parser();
 		}
-		return variableCharacterisation_3025Parser;
+		return variableCharacterisation_3037Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createVariableCharacterisation_3025Parser() {
+	protected IParser createVariableCharacterisation_3037Parser() {
 		EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
 				.getVariableCharacterisation_Type(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -670,9 +668,9 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		case ForkActionEntityName2EditPart.VISUAL_ID:
 			return getForkActionEntityName_5024Parser();
 		case VariableCharacterisationEditPart.VISUAL_ID:
-			return getVariableCharacterisation_3002Parser();
+			return getVariableCharacterisation_3033Parser();
 		case VariableCharacterisation2EditPart.VISUAL_ID:
-			return getVariableCharacterisation_3016Parser();
+			return getVariableCharacterisation_3035Parser();
 		case LoopActionEntityNameEditPart.VISUAL_ID:
 			return getLoopActionEntityName_5003Parser();
 		case InternalActionEntityNameEditPart.VISUAL_ID:
@@ -694,7 +692,7 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		case SetVariableActionEntityNameEditPart.VISUAL_ID:
 			return getSetVariableActionEntityName_5027Parser();
 		case VariableCharacterisation3EditPart.VISUAL_ID:
-			return getVariableCharacterisation_3025Parser();
+			return getVariableCharacterisation_3037Parser();
 		case GuardedBranchTransitionIdEditPart.VISUAL_ID:
 			return getGuardedBranchTransitionId_5018Parser();
 		}

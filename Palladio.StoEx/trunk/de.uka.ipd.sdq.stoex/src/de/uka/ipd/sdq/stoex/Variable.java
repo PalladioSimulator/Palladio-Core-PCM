@@ -25,6 +25,13 @@ package de.uka.ipd.sdq.stoex;
  */
 public interface Variable extends Atom {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Id Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

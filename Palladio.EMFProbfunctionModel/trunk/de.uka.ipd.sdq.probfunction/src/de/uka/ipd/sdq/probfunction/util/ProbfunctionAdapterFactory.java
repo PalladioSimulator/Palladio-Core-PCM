@@ -6,19 +6,25 @@
  */
 package de.uka.ipd.sdq.probfunction.util;
 
+import de.uka.ipd.sdq.probfunction.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.Complex;
+import de.uka.ipd.sdq.probfunction.ContinuousPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.NormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +35,12 @@ import de.uka.ipd.sdq.probfunction.SamplePDF;
  * @generated
  */
 public class ProbfunctionAdapterFactory extends AdapterFactoryImpl {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -69,7 +81,7 @@ public class ProbfunctionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * The switch the delegates to the <code>createXXX</code> methods.
+	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -97,12 +109,32 @@ public class ProbfunctionAdapterFactory extends AdapterFactoryImpl {
 				return createProbabilityMassFunctionAdapter();
 			}
 			@Override
-			public Adapter caseSample(Sample object) {
+			public <T> Adapter caseSample(Sample<T> object) {
 				return createSampleAdapter();
 			}
 			@Override
 			public Adapter caseSamplePDF(SamplePDF object) {
 				return createSamplePDFAdapter();
+			}
+			@Override
+			public Adapter caseComplex(Complex object) {
+				return createComplexAdapter();
+			}
+			@Override
+			public Adapter caseContinuousPDF(ContinuousPDF object) {
+				return createContinuousPDFAdapter();
+			}
+			@Override
+			public Adapter caseExponentialDistribution(ExponentialDistribution object) {
+				return createExponentialDistributionAdapter();
+			}
+			@Override
+			public Adapter caseNormalDistribution(NormalDistribution object) {
+				return createNormalDistributionAdapter();
+			}
+			@Override
+			public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
+				return createUnitCarryingElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -219,6 +251,76 @@ public class ProbfunctionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSamplePDFAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.probfunction.Complex <em>Complex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.probfunction.Complex
+	 * @generated
+	 */
+	public Adapter createComplexAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.probfunction.ContinuousPDF <em>Continuous PDF</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.probfunction.ContinuousPDF
+	 * @generated
+	 */
+	public Adapter createContinuousPDFAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.probfunction.ExponentialDistribution <em>Exponential Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.probfunction.ExponentialDistribution
+	 * @generated
+	 */
+	public Adapter createExponentialDistributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.probfunction.NormalDistribution <em>Normal Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.probfunction.NormalDistribution
+	 * @generated
+	 */
+	public Adapter createNormalDistributionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.units.UnitCarryingElement <em>Unit Carrying Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.units.UnitCarryingElement
+	 * @generated
+	 */
+	public Adapter createUnitCarryingElementAdapter() {
 		return null;
 	}
 

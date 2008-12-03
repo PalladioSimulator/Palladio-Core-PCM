@@ -26,6 +26,13 @@ package de.uka.ipd.sdq.units;
  */
 public interface UnitPower extends Unit {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -36,7 +43,7 @@ public interface UnitPower extends Unit {
 	 * @return the value of the '<em>Unit</em>' containment reference.
 	 * @see #setUnit(Unit)
 	 * @see de.uka.ipd.sdq.units.UnitsPackage#getUnitPower_Unit()
-	 * @model containment="true" required="true"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	Unit getUnit();
@@ -62,7 +69,7 @@ public interface UnitPower extends Unit {
 	 * @return the value of the '<em>Exponent</em>' attribute.
 	 * @see #setExponent(int)
 	 * @see de.uka.ipd.sdq.units.UnitsPackage#getUnitPower_Exponent()
-	 * @model required="true"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	int getExponent();

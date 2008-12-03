@@ -6,7 +6,7 @@
  */
 package de.uka.ipd.sdq.probfunction;
 
-import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.units.UnitCarryingElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,5 +18,12 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface ProbabilityFunction extends EObject {
+public interface ProbabilityFunction extends UnitCarryingElement {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
 } // ProbabilityFunction

@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel.util;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -220,7 +221,7 @@ public class UsagemodelValidator extends EObjectValidator {
 				return validateBranchTransition((BranchTransition)value, diagnostics, context);
 			case UsagemodelPackage.DELAY:
 				return validateDelay((Delay)value, diagnostics, context);
-			default: 
+			default:
 				return true;
 		}
 	}
@@ -543,6 +544,20 @@ public class UsagemodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(delay, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(delay, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		// TODO
+		// Specialize this to return a resource locator for messages specific to this validator.
+		// Ensure that you remove @generated or mark it @generated NOT
+		return super.getResourceLocator();
 	}
 
 } //UsagemodelValidator

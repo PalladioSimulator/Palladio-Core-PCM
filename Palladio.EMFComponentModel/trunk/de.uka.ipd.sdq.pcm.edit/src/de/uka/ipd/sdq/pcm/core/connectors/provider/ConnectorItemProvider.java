@@ -22,7 +22,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.connectors.Connector} object.
@@ -38,6 +37,13 @@ public class ConnectorItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2008 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

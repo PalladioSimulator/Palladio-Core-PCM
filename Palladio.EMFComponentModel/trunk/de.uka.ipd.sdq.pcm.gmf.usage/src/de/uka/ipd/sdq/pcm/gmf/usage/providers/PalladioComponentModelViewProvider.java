@@ -45,6 +45,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageVariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrapLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.AbstractUserActionSuccessorViewFactory;
@@ -82,6 +83,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageReferenceLabelVi
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageVariableCharacterisationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.VariableUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.WrapLabelViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.WrappingLabelViewFactory;
 
 /**
  * @generated
@@ -207,7 +209,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 						return null; // wrong container
 					}
 					break;
-				case WrapLabelEditPart.VISUAL_ID:
+				case WrappingLabelEditPart.VISUAL_ID:
 				case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
 							.getVisualID(containerView)
@@ -293,8 +295,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ComponentExternalCallNameLabelViewFactory.class;
 		case VariableUsageEditPart.VISUAL_ID:
 			return VariableUsageViewFactory.class;
-		case WrapLabelEditPart.VISUAL_ID:
-			return WrapLabelViewFactory.class;
+		case WrappingLabelEditPart.VISUAL_ID:
+			return WrappingLabelViewFactory.class;
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return VariableCharacterisationViewFactory.class;
 		case LoopEditPart.VISUAL_ID:

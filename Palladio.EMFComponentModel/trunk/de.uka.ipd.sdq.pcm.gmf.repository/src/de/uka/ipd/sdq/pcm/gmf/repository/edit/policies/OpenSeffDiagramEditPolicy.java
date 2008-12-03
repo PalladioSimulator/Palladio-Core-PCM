@@ -137,6 +137,11 @@ public class OpenSeffDiagramEditPolicy extends OpenEditPolicy {
 			diagramFacet.setDiagramLink(d);
 			assert diagramFacet.eResource() != null;
 			diagramFacet.eResource().getContents().add(d);
+			EObject container = diagramFacet.eContainer();
+			while (container instanceof View) {
+				((View) container).persist();
+				container = container.eContainer();
+			}
 			try {
 				new WorkspaceModifyOperation() {
 					protected void execute(IProgressMonitor monitor)

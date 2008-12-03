@@ -45,7 +45,7 @@ public class RepositoryItemSemanticEditPolicy extends
 			}
 			return getGEFWrapper(new BasicComponentCreateCommand(req));
 		}
-		if (PalladioComponentModelElementTypes.CompositeComponent_2105 == req
+		if (PalladioComponentModelElementTypes.CompositeComponent_2103 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE
@@ -53,7 +53,7 @@ public class RepositoryItemSemanticEditPolicy extends
 			}
 			return getGEFWrapper(new CompositeComponentCreateCommand(req));
 		}
-		if (PalladioComponentModelElementTypes.CompleteComponentType_2103 == req
+		if (PalladioComponentModelElementTypes.CompleteComponentType_2104 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE
@@ -61,7 +61,7 @@ public class RepositoryItemSemanticEditPolicy extends
 			}
 			return getGEFWrapper(new CompleteComponentTypeCreateCommand(req));
 		}
-		if (PalladioComponentModelElementTypes.ProvidesComponentType_2104 == req
+		if (PalladioComponentModelElementTypes.ProvidesComponentType_2105 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE

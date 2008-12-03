@@ -84,12 +84,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableUsage_3011 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.VariableUsage_3011"); //$NON-NLS-1$
+	public static final IElementType VariableUsage_3012 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.VariableUsage_3012"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType VariableCharacterisation_3006 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.VariableCharacterisation_3006"); //$NON-NLS-1$
+	public static final IElementType VariableCharacterisation_3013 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.VariableCharacterisation_3013"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -251,10 +251,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(EntryLevelSystemCall_3003, UsagemodelPackage.eINSTANCE
 					.getEntryLevelSystemCall());
 
-			elements.put(VariableUsage_3011, ParameterPackage.eINSTANCE
+			elements.put(VariableUsage_3012, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
-			elements.put(VariableCharacterisation_3006,
+			elements.put(VariableCharacterisation_3013,
 					ParameterPackage.eINSTANCE.getVariableCharacterisation());
 
 			elements.put(Loop_3005, UsagemodelPackage.eINSTANCE.getLoop());
@@ -297,8 +297,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(Start_3001);
 			KNOWN_ELEMENT_TYPES.add(Stop_3002);
 			KNOWN_ELEMENT_TYPES.add(EntryLevelSystemCall_3003);
-			KNOWN_ELEMENT_TYPES.add(VariableUsage_3011);
-			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3006);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_3012);
+			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3013);
 			KNOWN_ELEMENT_TYPES.add(Loop_3005);
 			KNOWN_ELEMENT_TYPES.add(ScenarioBehaviour_3007);
 			KNOWN_ELEMENT_TYPES.add(Branch_3008);

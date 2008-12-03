@@ -114,7 +114,20 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new PalladioComponentModelCreationWizardPage(
-				"DomainModelFile", getSelection(), "usagemodel"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DomainModelFile", getSelection(), "usagemodel") { //$NON-NLS-1$ //$NON-NLS-2$
+
+			public void setVisible(boolean visible) {
+				if (visible) {
+					String fileName = diagramModelFilePage.getFileName();
+					fileName = fileName.substring(0, fileName.length()
+							- ".usagemodel_diagram".length()); //$NON-NLS-1$
+					setFileName(PalladioComponentModelDiagramEditorUtil
+							.getUniqueFileName(getContainerFullPath(),
+									fileName, "usagemodel")); //$NON-NLS-1$
+				}
+				super.setVisible(visible);
+			}
+		};
 		domainModelFilePage
 				.setTitle(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageTitle);
 		domainModelFilePage

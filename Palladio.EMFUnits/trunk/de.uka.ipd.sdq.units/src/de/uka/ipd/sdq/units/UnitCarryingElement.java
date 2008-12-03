@@ -27,6 +27,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UnitCarryingElement extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -35,26 +42,15 @@ public interface UnitCarryingElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Unit</em>' reference.
-	 * @see #setUnit(Unit)
 	 * @see de.uka.ipd.sdq.units.UnitsPackage#getUnitCarryingElement_Unit()
-	 * @model transient="true" volatile="true"
+	 * @model required="true" transient="true" volatile="true" ordered="false" suppressedSetVisibility="true"
+	 *        extendedMetaData="name='' namespace=''"
 	 * @generated
 	 */
 	Unit getUnit();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.units.UnitCarryingElement#getUnit <em>Unit</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unit</em>' reference.
-	 * @see #getUnit()
-	 * @generated
-	 */
-	void setUnit(Unit value);
-
-	/**
 	 * Returns the value of the '<em><b>Unit Specification</b></em>' attribute.
-	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Unit Specification</em>' attribute isn't clear,
@@ -64,7 +60,7 @@ public interface UnitCarryingElement extends EObject {
 	 * @return the value of the '<em>Unit Specification</em>' attribute.
 	 * @see #setUnitSpecification(String)
 	 * @see de.uka.ipd.sdq.units.UnitsPackage#getUnitCarryingElement_UnitSpecification()
-	 * @model default="" required="true"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	String getUnitSpecification();

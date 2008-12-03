@@ -17,6 +17,8 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.emf.validation.model.EvaluationMode;
 import org.eclipse.emf.validation.model.IConstraintStatus;
 import org.eclipse.emf.validation.service.IBatchValidator;
@@ -127,7 +129,9 @@ public class ValidateAction extends Action {
 	public static void runValidation(DiagramEditPart diagramEditPart, View view) {
 		final DiagramEditPart fpart = diagramEditPart;
 		final View fview = view;
-		PalladioComponentModelValidationProvider.runWithConstraints(view,
+		TransactionalEditingDomain txDomain = TransactionUtil
+				.getEditingDomain(view);
+		PalladioComponentModelValidationProvider.runWithConstraints(txDomain,
 				new Runnable() {
 
 					public void run() {

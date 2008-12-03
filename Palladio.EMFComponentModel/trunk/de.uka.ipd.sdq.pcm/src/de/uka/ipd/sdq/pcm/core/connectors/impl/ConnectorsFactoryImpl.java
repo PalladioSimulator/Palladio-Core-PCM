@@ -37,7 +37,7 @@ public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFac
 	 */
 	public static ConnectorsFactory init() {
 		try {
-			ConnectorsFactory theConnectorsFactory = (ConnectorsFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"); 
+			ConnectorsFactory theConnectorsFactory = (ConnectorsFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/4.0"); 
 			if (theConnectorsFactory != null) {
 				return theConnectorsFactory;
 			}

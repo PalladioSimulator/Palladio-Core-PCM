@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -58,7 +59,6 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new OpenWorkloadItemSemanticEditPolicy());
@@ -223,7 +223,7 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureOpenWorkloadSpecLabelFigure;
+		private WrappingLabel fFigureOpenWorkloadSpecLabelFigure;
 
 		/**
 		 * @generated
@@ -238,12 +238,12 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel openWorkloadStereotypeLabelFigure0 = new WrapLabel();
+			WrappingLabel openWorkloadStereotypeLabelFigure0 = new WrappingLabel();
 			openWorkloadStereotypeLabelFigure0.setText("<<Open Workload>>");
 
 			this.add(openWorkloadStereotypeLabelFigure0);
 
-			fFigureOpenWorkloadSpecLabelFigure = new WrapLabel();
+			fFigureOpenWorkloadSpecLabelFigure = new WrappingLabel();
 			fFigureOpenWorkloadSpecLabelFigure.setText("<spec>");
 
 			this.add(fFigureOpenWorkloadSpecLabelFigure);
@@ -253,7 +253,7 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureOpenWorkloadSpecLabelFigure() {
+		public WrappingLabel getFigureOpenWorkloadSpecLabelFigure() {
 			return fFigureOpenWorkloadSpecLabelFigure;
 		}
 

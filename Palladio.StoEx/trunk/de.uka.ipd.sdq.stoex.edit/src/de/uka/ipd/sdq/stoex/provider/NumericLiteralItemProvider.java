@@ -7,8 +7,6 @@
 package de.uka.ipd.sdq.stoex.provider;
 
 
-import de.uka.ipd.sdq.stoex.NumericLiteral;
-import de.uka.ipd.sdq.units.provider.UnitCarryingElementItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -21,6 +19,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import de.uka.ipd.sdq.stoex.NumericLiteral;
+import de.uka.ipd.sdq.units.provider.UnitCarryingElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.stoex.NumericLiteral} object.
@@ -36,6 +37,13 @@ public class NumericLiteralItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

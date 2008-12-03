@@ -154,9 +154,9 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new SubsystemItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
+		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new UnitsItemProviderAdapterFactory());
-		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

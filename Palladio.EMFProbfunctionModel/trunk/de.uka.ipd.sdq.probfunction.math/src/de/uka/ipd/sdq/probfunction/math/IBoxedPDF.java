@@ -2,8 +2,6 @@ package de.uka.ipd.sdq.probfunction.math;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
-
 /**
  * 
  * A BoxedPDF is an approximation of an actual probability density function. It

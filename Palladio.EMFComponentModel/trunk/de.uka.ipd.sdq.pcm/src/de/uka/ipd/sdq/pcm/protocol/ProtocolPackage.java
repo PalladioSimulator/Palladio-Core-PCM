@@ -50,7 +50,7 @@ public interface ProtocolPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/4.0";
 
 	/**
 	 * The package namespace name.

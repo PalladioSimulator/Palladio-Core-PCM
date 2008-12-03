@@ -69,7 +69,7 @@ public class PalladioComponentModelDiagramUpdater {
 		case EntryLevelSystemCallParameterUsageEditPart.VISUAL_ID:
 			return getEntryLevelSystemCallSystemCallVariableUsageCompartment_7002SemanticChildren(view);
 		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
-			return getVariableUsageVariableCharacterisation_7010SemanticChildren(view);
+			return getVariableUsageVariableCharacterisation_7011SemanticChildren(view);
 		case ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart.VISUAL_ID:
 			return getScenarioBehaviourScenarioBehaviourStepsCompartment_7005SemanticChildren(view);
 		case BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID:
@@ -208,7 +208,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getVariableUsageVariableCharacterisation_7010SemanticChildren(
+	public static List getVariableUsageVariableCharacterisation_7011SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -416,9 +416,9 @@ public class PalladioComponentModelDiagramUpdater {
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 			return getEntryLevelSystemCall_3003ContainedLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
-			return getVariableUsage_3011ContainedLinks(view);
+			return getVariableUsage_3012ContainedLinks(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
-			return getVariableCharacterisation_3006ContainedLinks(view);
+			return getVariableCharacterisation_3013ContainedLinks(view);
 		case LoopEditPart.VISUAL_ID:
 			return getLoop_3005ContainedLinks(view);
 		case ScenarioBehaviour2EditPart.VISUAL_ID:
@@ -451,9 +451,9 @@ public class PalladioComponentModelDiagramUpdater {
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 			return getEntryLevelSystemCall_3003IncomingLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
-			return getVariableUsage_3011IncomingLinks(view);
+			return getVariableUsage_3012IncomingLinks(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
-			return getVariableCharacterisation_3006IncomingLinks(view);
+			return getVariableCharacterisation_3013IncomingLinks(view);
 		case LoopEditPart.VISUAL_ID:
 			return getLoop_3005IncomingLinks(view);
 		case ScenarioBehaviour2EditPart.VISUAL_ID:
@@ -486,9 +486,9 @@ public class PalladioComponentModelDiagramUpdater {
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 			return getEntryLevelSystemCall_3003OutgoingLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
-			return getVariableUsage_3011OutgoingLinks(view);
+			return getVariableUsage_3012OutgoingLinks(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
-			return getVariableCharacterisation_3006OutgoingLinks(view);
+			return getVariableCharacterisation_3013OutgoingLinks(view);
 		case LoopEditPart.VISUAL_ID:
 			return getLoop_3005OutgoingLinks(view);
 		case ScenarioBehaviour2EditPart.VISUAL_ID:
@@ -568,14 +568,14 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getVariableUsage_3011ContainedLinks(View view) {
+	public static List getVariableUsage_3012ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariableCharacterisation_3006ContainedLinks(View view) {
+	public static List getVariableCharacterisation_3013ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -689,14 +689,14 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getVariableUsage_3011IncomingLinks(View view) {
+	public static List getVariableUsage_3012IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariableCharacterisation_3006IncomingLinks(View view) {
+	public static List getVariableCharacterisation_3013IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -807,14 +807,14 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getVariableUsage_3011OutgoingLinks(View view) {
+	public static List getVariableUsage_3012OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List getVariableCharacterisation_3006OutgoingLinks(View view) {
+	public static List getVariableCharacterisation_3013OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 
@@ -891,6 +891,9 @@ public class PalladioComponentModelDiagramUpdater {
 			AbstractUserAction source) {
 		Collection result = new LinkedList();
 		AbstractUserAction destination = source.getSuccessor();
+		if (destination == null) {
+			return result;
+		}
 		result
 				.add(new PalladioComponentModelLinkDescriptor(
 						source,

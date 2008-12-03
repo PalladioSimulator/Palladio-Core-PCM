@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.identifier.util;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -97,7 +98,7 @@ public class IdentifierValidator extends EObjectValidator {
 		switch (classifierID) {
 			case IdentifierPackage.IDENTIFIER:
 				return validateIdentifier((Identifier)value, diagnostics, context);
-			default: 
+			default:
 				return true;
 		}
 	}
@@ -127,6 +128,20 @@ public class IdentifierValidator extends EObjectValidator {
 	 */
 	public boolean validateIdentifier_idHasToBeUnique(Identifier identifier, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return identifier.idHasToBeUnique(diagnostics, context);
+	}
+
+	/**
+	 * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		// TODO
+		// Specialize this to return a resource locator for messages specific to this validator.
+		// Ensure that you remove @generated or mark it @generated NOT
+		return super.getResourceLocator();
 	}
 
 } //IdentifierValidator

@@ -56,10 +56,6 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
 			types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
-			return types;
-		}
-		if (editPart instanceof CompositeComponentEditPart) {
-			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3104);
 			return types;
 		}
@@ -74,11 +70,11 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.Interface_2101);
 			types.add(PalladioComponentModelElementTypes.BasicComponent_2102);
 			types
-					.add(PalladioComponentModelElementTypes.CompositeComponent_2105);
+					.add(PalladioComponentModelElementTypes.CompositeComponent_2103);
 			types
-					.add(PalladioComponentModelElementTypes.CompleteComponentType_2103);
+					.add(PalladioComponentModelElementTypes.CompleteComponentType_2104);
 			types
-					.add(PalladioComponentModelElementTypes.ProvidesComponentType_2104);
+					.add(PalladioComponentModelElementTypes.ProvidesComponentType_2105);
 			types.add(PalladioComponentModelElementTypes.SubSystem_2106);
 			return types;
 		}
@@ -166,7 +162,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			if (relationshipType == PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104) {
 				types
-						.add(PalladioComponentModelElementTypes.CompleteComponentType_2103);
+						.add(PalladioComponentModelElementTypes.CompleteComponentType_2104);
 			}
 			return types;
 		}
@@ -184,7 +180,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			if (relationshipType == PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104) {
 				types
-						.add(PalladioComponentModelElementTypes.ProvidesComponentType_2104);
+						.add(PalladioComponentModelElementTypes.ProvidesComponentType_2105);
 			}
 			return types;
 		}

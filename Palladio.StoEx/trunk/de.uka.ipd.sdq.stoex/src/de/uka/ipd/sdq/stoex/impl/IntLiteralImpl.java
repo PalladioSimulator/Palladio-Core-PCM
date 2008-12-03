@@ -28,6 +28,13 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  */
 public class IntLiteralImpl extends NumericLiteralImpl implements IntLiteral {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

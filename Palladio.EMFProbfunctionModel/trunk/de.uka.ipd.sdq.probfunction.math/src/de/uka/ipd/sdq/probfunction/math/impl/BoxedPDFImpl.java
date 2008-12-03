@@ -30,7 +30,6 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 import de.uka.ipd.sdq.probfunction.math.util.Line;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import flanagan.complex.Complex;
 
 /**
  * @author Ihssane

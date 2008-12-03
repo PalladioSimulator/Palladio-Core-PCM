@@ -21,7 +21,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -30,8 +30,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsage3ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -41,7 +39,7 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3030;
+	public static final int VISUAL_ID = 3036;
 
 	/**
 	 * @generated
@@ -74,7 +72,7 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == PalladioComponentModelElementTypes.VariableCharacterisation_3025) {
+								if (type == PalladioComponentModelElementTypes.VariableCharacterisation_3037) {
 									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
 											.getType(VariableUsageVariableCharacterisation3EditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
@@ -140,8 +138,8 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabel3EditPart) {
-			((WrapLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureVariableUsageReferenceLabelFigure());
 			return true;
 		}
@@ -240,17 +238,18 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(WrapLabel3EditPart.VISUAL_ID));
+				.getType(WrappingLabel3EditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
 	public class ParametricParameterUsageFigure extends RectangleFigure {
+
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureVariableUsageReferenceLabelFigure;
+		private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
 
 		/**
 		 * @generated
@@ -261,25 +260,15 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated not
+		 * @generated
 		 */
 		private void createContents() {
 
-			fFigureVariableUsageReferenceLabelFigure = new WrapLabel();
-			fFigureVariableUsageReferenceLabelFigure
-					.setText(new PCMStoExPrettyPrintVisitor()
-							.prettyPrint(((VariableUsage) resolveSemanticElement())
-									.getNamedReference_VariableUsage()));
+			fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
+			fFigureVariableUsageReferenceLabelFigure.setText("<?>");
 
 			this.add(fFigureVariableUsageReferenceLabelFigure);
 
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureVariableUsageReferenceLabelFigure() {
-			return fFigureVariableUsageReferenceLabelFigure;
 		}
 
 		/**
@@ -299,6 +288,13 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
+			return fFigureVariableUsageReferenceLabelFigure;
 		}
 
 	}

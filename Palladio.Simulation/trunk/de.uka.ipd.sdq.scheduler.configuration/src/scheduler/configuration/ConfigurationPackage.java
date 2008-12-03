@@ -81,7 +81,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_VALUE__UNIT = UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT;
+	int TIME_VALUE__UNIT = UnitsPackage.UNIT_CARRYING_ELEMENT;
 
 	/**
 	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.

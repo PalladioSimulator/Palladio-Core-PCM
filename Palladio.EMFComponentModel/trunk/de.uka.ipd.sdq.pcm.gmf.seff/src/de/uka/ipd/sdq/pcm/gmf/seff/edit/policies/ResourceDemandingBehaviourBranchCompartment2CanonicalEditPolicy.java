@@ -72,10 +72,9 @@ public class ResourceDemandingBehaviourBranchCompartment2CanonicalEditPolicy
 		case ForkActionEditPart.VISUAL_ID:
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 		case SetVariableActionEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}

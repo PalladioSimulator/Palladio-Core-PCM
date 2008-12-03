@@ -90,10 +90,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabel3EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrapLabelEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelAbstractExpression;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -111,9 +110,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static final String DEBUG_KEY = PalladioComponentModelSeffDiagramEditorPlugin
-			.getInstance().getBundle().getSymbolicName()
-			+ "/debug/visualID"; //$NON-NLS-1$
+	private static final String DEBUG_KEY = "de.uka.ipd.sdq.pcm.gmf.seff/debug/visualID"; //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -712,7 +709,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsageEditPart.VISUAL_ID:
-			if (WrapLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisationEditPart.VISUAL_ID == nodeVisualID) {
@@ -720,7 +717,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsage2EditPart.VISUAL_ID:
-			if (WrapLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisation2EditPart.VISUAL_ID == nodeVisualID) {
@@ -831,7 +828,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case VariableUsage3EditPart.VISUAL_ID:
-			if (WrapLabel3EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (VariableUsageVariableCharacterisation3EditPart.VISUAL_ID == nodeVisualID) {
@@ -1158,14 +1155,5 @@ public class PalladioComponentModelVisualIDRegistry {
 	 */
 	private static boolean isDiagram(ResourceDemandingSEFF element) {
 		return true;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static boolean evaluate(
-			PalladioComponentModelAbstractExpression expression, Object element) {
-		Object result = expression.evaluate(element);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 }

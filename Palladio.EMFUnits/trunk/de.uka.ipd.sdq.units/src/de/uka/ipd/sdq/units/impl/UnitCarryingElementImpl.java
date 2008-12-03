@@ -34,6 +34,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class UnitCarryingElementImpl extends EObjectImpl implements UnitCarryingElement {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The default value of the '{@link #getUnitSpecification() <em>Unit Specification</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,7 +48,7 @@ public abstract class UnitCarryingElementImpl extends EObjectImpl implements Uni
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String UNIT_SPECIFICATION_EDEFAULT = "";
+	protected static final String UNIT_SPECIFICATION_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUnitSpecification() <em>Unit Specification</em>}' attribute.
@@ -100,17 +107,6 @@ public abstract class UnitCarryingElementImpl extends EObjectImpl implements Uni
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUnit(Unit newUnit) {
-		// TODO: implement this method to set the 'Unit' reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getUnitSpecification() {
 		return unitSpecification;
 	}
@@ -152,9 +148,6 @@ public abstract class UnitCarryingElementImpl extends EObjectImpl implements Uni
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT:
-				setUnit((Unit)newValue);
-				return;
 			case UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT_SPECIFICATION:
 				setUnitSpecification((String)newValue);
 				return;
@@ -170,9 +163,6 @@ public abstract class UnitCarryingElementImpl extends EObjectImpl implements Uni
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT:
-				setUnit((Unit)null);
-				return;
 			case UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT_SPECIFICATION:
 				setUnitSpecification(UNIT_SPECIFICATION_EDEFAULT);
 				return;

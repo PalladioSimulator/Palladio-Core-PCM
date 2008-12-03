@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
@@ -28,7 +29,7 @@ public class ResourceDemandingBehaviour3CreateCommand extends
 	 * @generated
 	 */
 	protected EClass getEClassToEdit() {
-		return SeffPackage.eINSTANCE.getForkAction();
+		return SeffPackage.eINSTANCE.getAbstractBranchTransition();
 	}
 
 	/**
@@ -41,6 +42,17 @@ public class ResourceDemandingBehaviour3CreateCommand extends
 			container = ((View) container).getElement();
 		}
 		return container;
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean canExecute() {
+		AbstractBranchTransition container = (AbstractBranchTransition) getElementToEdit();
+		if (container.getBranchBehaviour_BranchTransition() != null) {
+			return false;
+		}
+		return true;
 	}
 
 }

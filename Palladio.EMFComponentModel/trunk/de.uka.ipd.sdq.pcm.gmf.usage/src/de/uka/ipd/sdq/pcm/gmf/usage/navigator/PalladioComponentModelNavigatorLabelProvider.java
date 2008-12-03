@@ -42,6 +42,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrapLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
@@ -115,49 +116,49 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case UsageScenarioEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?UsageScenario", PalladioComponentModelElementTypes.UsageScenario_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?UsageScenario", PalladioComponentModelElementTypes.UsageScenario_1000); //$NON-NLS-1$
 		case ScenarioBehaviourEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_2001); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_2001); //$NON-NLS-1$
 		case ClosedWorkloadEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?ClosedWorkload", PalladioComponentModelElementTypes.ClosedWorkload_2002); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?ClosedWorkload", PalladioComponentModelElementTypes.ClosedWorkload_2002); //$NON-NLS-1$
 		case OpenWorkloadEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?OpenWorkload", PalladioComponentModelElementTypes.OpenWorkload_2003); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?OpenWorkload", PalladioComponentModelElementTypes.OpenWorkload_2003); //$NON-NLS-1$
 		case StartEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?Start", PalladioComponentModelElementTypes.Start_3001); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?Start", PalladioComponentModelElementTypes.Start_3001); //$NON-NLS-1$
 		case StopEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?Stop", PalladioComponentModelElementTypes.Stop_3002); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?Stop", PalladioComponentModelElementTypes.Stop_3002); //$NON-NLS-1$
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?EntryLevelSystemCall", PalladioComponentModelElementTypes.EntryLevelSystemCall_3003); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?EntryLevelSystemCall", PalladioComponentModelElementTypes.EntryLevelSystemCall_3003); //$NON-NLS-1$
 		case VariableUsageEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3011); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3012); //$NON-NLS-1$
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3006); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3013); //$NON-NLS-1$
 		case LoopEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?Loop", PalladioComponentModelElementTypes.Loop_3005); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?Loop", PalladioComponentModelElementTypes.Loop_3005); //$NON-NLS-1$
 		case ScenarioBehaviour2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3007); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3007); //$NON-NLS-1$
 		case BranchEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?Branch", PalladioComponentModelElementTypes.Branch_3008); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?Branch", PalladioComponentModelElementTypes.Branch_3008); //$NON-NLS-1$
 		case BranchTransitionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?BranchTransition", PalladioComponentModelElementTypes.BranchTransition_3009); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?BranchTransition", PalladioComponentModelElementTypes.BranchTransition_3009); //$NON-NLS-1$
 		case ScenarioBehaviour3EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3010); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3010); //$NON-NLS-1$
 		case AbstractUserActionSuccessorEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0?AbstractUserAction?successor", PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0?AbstractUserAction?successor", PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -227,9 +228,9 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 			return getEntryLevelSystemCall_3003Text(view);
 		case VariableUsageEditPart.VISUAL_ID:
-			return getVariableUsage_3011Text(view);
+			return getVariableUsage_3012Text(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
-			return getVariableCharacterisation_3006Text(view);
+			return getVariableCharacterisation_3013Text(view);
 		case LoopEditPart.VISUAL_ID:
 			return getLoop_3005Text(view);
 		case ScenarioBehaviour2EditPart.VISUAL_ID:
@@ -376,13 +377,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getVariableUsage_3011Text(View view) {
+	private String getVariableUsage_3012Text(View view) {
 
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableUsage_3011, (view
+				PalladioComponentModelElementTypes.VariableUsage_3012, (view
 						.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
-						.getType(WrapLabelEditPart.VISUAL_ID));
+						.getType(WrappingLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
@@ -396,9 +397,9 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getVariableCharacterisation_3006Text(View view) {
+	private String getVariableCharacterisation_3013Text(View view) {
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableCharacterisation_3006,
+				PalladioComponentModelElementTypes.VariableCharacterisation_3013,
 				(view.getElement() != null ? view.getElement() : view),
 				PalladioComponentModelVisualIDRegistry
 						.getType(VariableCharacterisationEditPart.VISUAL_ID));
@@ -409,7 +410,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3006); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 3013); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

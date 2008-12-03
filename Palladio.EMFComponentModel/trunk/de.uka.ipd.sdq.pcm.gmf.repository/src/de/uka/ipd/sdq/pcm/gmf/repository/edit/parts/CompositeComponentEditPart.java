@@ -21,6 +21,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -38,7 +39,7 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2105;
+	public static final int VISUAL_ID = 2103;
 
 	/**
 	 * @generated
@@ -61,29 +62,6 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == PalladioComponentModelElementTypes.VariableUsage_3104) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new CompositeComponentItemSemanticEditPolicy());
@@ -248,7 +226,7 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureCompositeComponent_Name_LabelFigure;
+		private WrappingLabel fFigureCompositeComponent_Name_LabelFigure;
 
 		/**
 		 * @generated
@@ -262,7 +240,7 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureCompositeComponent_Name_LabelFigure = new WrapLabel();
+			fFigureCompositeComponent_Name_LabelFigure = new WrappingLabel();
 			fFigureCompositeComponent_Name_LabelFigure.setText("<...>");
 
 			this.add(fFigureCompositeComponent_Name_LabelFigure);
@@ -291,7 +269,7 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureCompositeComponent_Name_LabelFigure() {
+		public WrappingLabel getFigureCompositeComponent_Name_LabelFigure() {
 			return fFigureCompositeComponent_Name_LabelFigure;
 		}
 

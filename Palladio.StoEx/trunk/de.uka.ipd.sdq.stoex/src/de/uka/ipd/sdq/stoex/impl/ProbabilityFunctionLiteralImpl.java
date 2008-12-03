@@ -31,6 +31,12 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  */
 public class ProbabilityFunctionLiteralImpl extends AtomImpl implements ProbabilityFunctionLiteral {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
 	 * The cached value of the '{@link #getFunction_ProbabilityFunctionLiteral() <em>Function Probability Function Literal</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -6,12 +6,11 @@
  */
 package de.uka.ipd.sdq.stoex.provider;
 
-import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
-
-import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 
 /**
  * This is the central singleton for the Stoex edit plugin.
@@ -20,6 +19,13 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * @generated
  */
 public final class StoexEditPlugin extends EMFPlugin {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->

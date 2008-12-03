@@ -23,7 +23,7 @@ public class VariableUsageVariableCharacterisationItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableCharacterisation_3006 == req
+		if (PalladioComponentModelElementTypes.VariableCharacterisation_3013 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

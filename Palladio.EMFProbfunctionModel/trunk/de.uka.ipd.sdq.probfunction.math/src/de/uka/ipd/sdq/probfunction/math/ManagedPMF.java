@@ -1,20 +1,16 @@
 package de.uka.ipd.sdq.probfunction.math;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
-import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
-import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
-import de.uka.ipd.sdq.stoex.impl.IntLiteralImpl;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 

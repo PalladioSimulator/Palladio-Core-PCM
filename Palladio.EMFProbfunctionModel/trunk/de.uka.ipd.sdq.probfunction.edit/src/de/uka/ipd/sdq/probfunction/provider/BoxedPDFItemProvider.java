@@ -7,20 +7,12 @@
 package de.uka.ipd.sdq.probfunction.provider;
 
 
-import de.uka.ipd.sdq.probfunction.BoxedPDF;
-import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -28,6 +20,10 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.BoxedPDF} object.
@@ -43,6 +39,13 @@ public class BoxedPDFItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -117,7 +120,10 @@ public class BoxedPDFItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BoxedPDF_type");
+		String label = ((BoxedPDF)object).getUnitSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BoxedPDF_type") :
+			getString("_UI_BoxedPDF_type") + " " + label;
 	}
 
 	/**
@@ -154,17 +160,6 @@ public class BoxedPDFItemProvider
 			(createChildParameter
 				(ProbfunctionPackage.Literals.BOXED_PDF__SAMPLES,
 				 ProbfunctionFactory.eINSTANCE.createContinuousSample()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ProbabilityFunctionEditPlugin.INSTANCE;
 	}
 
 }

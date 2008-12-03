@@ -47,10 +47,10 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && !(source instanceof AbstractAction)) {
+		if (source != null && false == source instanceof AbstractAction) {
 			return false;
 		}
-		if (target != null && !(target instanceof AbstractAction)) {
+		if (target != null && false == target instanceof AbstractAction) {
 			return false;
 		}
 		if (getSource() == null) {

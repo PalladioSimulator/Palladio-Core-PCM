@@ -59,7 +59,6 @@ public class StopEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new StopItemSemanticEditPolicy());
@@ -175,7 +174,6 @@ public class StopEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public StopFigure() {
-
 			this.setLayoutManager(new StackLayout());
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(30),
 					getMapMode().DPtoLP(30)));

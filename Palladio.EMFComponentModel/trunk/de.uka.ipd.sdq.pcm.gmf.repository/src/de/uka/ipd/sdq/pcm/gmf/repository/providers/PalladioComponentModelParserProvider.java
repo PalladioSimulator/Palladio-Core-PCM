@@ -91,22 +91,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser completeComponentTypeEntityName_5103Parser;
+	private IParser compositeComponentEntityName_5103Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCompleteComponentTypeEntityName_5103Parser() {
-		if (completeComponentTypeEntityName_5103Parser == null) {
-			completeComponentTypeEntityName_5103Parser = createCompleteComponentTypeEntityName_5103Parser();
+	private IParser getCompositeComponentEntityName_5103Parser() {
+		if (compositeComponentEntityName_5103Parser == null) {
+			compositeComponentEntityName_5103Parser = createCompositeComponentEntityName_5103Parser();
 		}
-		return completeComponentTypeEntityName_5103Parser;
+		return compositeComponentEntityName_5103Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCompleteComponentTypeEntityName_5103Parser() {
+	protected IParser createCompositeComponentEntityName_5103Parser() {
 		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -116,22 +116,47 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser providesComponentTypeEntityName_5104Parser;
+	private IParser completeComponentTypeEntityName_5104Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getProvidesComponentTypeEntityName_5104Parser() {
-		if (providesComponentTypeEntityName_5104Parser == null) {
-			providesComponentTypeEntityName_5104Parser = createProvidesComponentTypeEntityName_5104Parser();
+	private IParser getCompleteComponentTypeEntityName_5104Parser() {
+		if (completeComponentTypeEntityName_5104Parser == null) {
+			completeComponentTypeEntityName_5104Parser = createCompleteComponentTypeEntityName_5104Parser();
 		}
-		return providesComponentTypeEntityName_5104Parser;
+		return completeComponentTypeEntityName_5104Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createProvidesComponentTypeEntityName_5104Parser() {
+	protected IParser createCompleteComponentTypeEntityName_5104Parser() {
+		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+				.getNamedElement_EntityName(), };
+		MessageFormatParser parser = new MessageFormatParser(features);
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser providesComponentTypeEntityName_5105Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getProvidesComponentTypeEntityName_5105Parser() {
+		if (providesComponentTypeEntityName_5105Parser == null) {
+			providesComponentTypeEntityName_5105Parser = createProvidesComponentTypeEntityName_5105Parser();
+		}
+		return providesComponentTypeEntityName_5105Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createProvidesComponentTypeEntityName_5105Parser() {
 		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -157,31 +182,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @generated
 	 */
 	protected IParser createSubSystemEntityName_5107Parser() {
-		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), };
-		MessageFormatParser parser = new MessageFormatParser(features);
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser compositeComponentEntityName_5105Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getCompositeComponentEntityName_5105Parser() {
-		if (compositeComponentEntityName_5105Parser == null) {
-			compositeComponentEntityName_5105Parser = createCompositeComponentEntityName_5105Parser();
-		}
-		return compositeComponentEntityName_5105Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createCompositeComponentEntityName_5105Parser() {
 		EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), };
 		MessageFormatParser parser = new MessageFormatParser(features);
@@ -298,11 +298,11 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		case BasicComponentEntityNameEditPart.VISUAL_ID:
 			return getBasicComponentEntityName_5102Parser();
 		case CompositeComponentEntityNameEditPart.VISUAL_ID:
-			return getCompositeComponentEntityName_5105Parser();
+			return getCompositeComponentEntityName_5103Parser();
 		case CompleteComponentTypeEntityNameEditPart.VISUAL_ID:
-			return getCompleteComponentTypeEntityName_5103Parser();
+			return getCompleteComponentTypeEntityName_5104Parser();
 		case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
-			return getProvidesComponentTypeEntityName_5104Parser();
+			return getProvidesComponentTypeEntityName_5105Parser();
 		case SubSystemEntityNameEditPart.VISUAL_ID:
 			return getSubSystemEntityName_5107Parser();
 		case SignatureEditPart.VISUAL_ID:

@@ -22,6 +22,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -61,7 +62,6 @@ public class BranchEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new BranchItemSemanticEditPolicy());
@@ -226,7 +226,7 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureUsageBranchStereotypeLabelFigure;
+		private WrappingLabel fFigureUsageBranchStereotypeLabelFigure;
 
 		/**
 		 * @generated
@@ -242,7 +242,7 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureUsageBranchStereotypeLabelFigure = new WrapLabel();
+			fFigureUsageBranchStereotypeLabelFigure = new WrappingLabel();
 			fFigureUsageBranchStereotypeLabelFigure.setText("<<Branch>>");
 
 			this.add(fFigureUsageBranchStereotypeLabelFigure);
@@ -252,7 +252,7 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureUsageBranchStereotypeLabelFigure() {
+		public WrappingLabel getFigureUsageBranchStereotypeLabelFigure() {
 			return fFigureUsageBranchStereotypeLabelFigure;
 		}
 

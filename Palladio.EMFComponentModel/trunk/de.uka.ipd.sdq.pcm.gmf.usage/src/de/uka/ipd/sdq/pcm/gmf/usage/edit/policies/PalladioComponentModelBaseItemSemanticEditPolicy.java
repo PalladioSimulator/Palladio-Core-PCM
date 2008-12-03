@@ -114,22 +114,23 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 			elementType = null;
 		}
 		Command semanticCommand = getSemanticCommandSwitch(completedRequest);
-		if (semanticCommand != null) {
-			ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
-					.getICommand()
-					: new CommandProxy(semanticCommand);
-			completedRequest.setParameter(
-					PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND,
-					command);
-		}
 		if (elementType != null) {
+			if (semanticCommand != null) {
+				ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
+						.getICommand()
+						: new CommandProxy(semanticCommand);
+				completedRequest
+						.setParameter(
+								PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND,
+								command);
+			}
 			ICommand command = elementType.getEditCommand(completedRequest);
 			if (command != null) {
 				if (!(command instanceof CompositeTransactionalCommand)) {
 					TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
 							.getEditingDomain();
 					command = new CompositeTransactionalCommand(editingDomain,
-							null).compose(command);
+							command.getLabel()).compose(command);
 				}
 				semanticCommand = new ICommandProxy(command);
 			}
@@ -365,6 +366,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistAbstractUserActionSuccessor_4002(
 				AbstractUserAction source, AbstractUserAction target) {
+
 			return true;
 		}
 

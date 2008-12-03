@@ -18,6 +18,12 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface ProbfunctionFactory extends EFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,7 +65,7 @@ public interface ProbfunctionFactory extends EFactory {
 	 * @return a new object of class '<em>Sample</em>'.
 	 * @generated
 	 */
-	Sample createSample();
+	<T> Sample<T> createSample();
 
 	/**
 	 * Returns a new object of class '<em>Sample PDF</em>'.
@@ -69,6 +75,33 @@ public interface ProbfunctionFactory extends EFactory {
 	 * @generated
 	 */
 	SamplePDF createSamplePDF();
+
+	/**
+	 * Returns a new object of class '<em>Complex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Complex</em>'.
+	 * @generated
+	 */
+	Complex createComplex();
+
+	/**
+	 * Returns a new object of class '<em>Exponential Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Exponential Distribution</em>'.
+	 * @generated
+	 */
+	ExponentialDistribution createExponentialDistribution();
+
+	/**
+	 * Returns a new object of class '<em>Normal Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Normal Distribution</em>'.
+	 * @generated
+	 */
+	NormalDistribution createNormalDistribution();
 
 	/**
 	 * Returns the package supported by this factory.

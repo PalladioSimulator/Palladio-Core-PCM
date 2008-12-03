@@ -44,7 +44,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 */
 	public static ResourceenvironmentFactory init() {
 		try {
-			ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0"); 
+			ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0"); 
 			if (theResourceenvironmentFactory != null) {
 				return theResourceenvironmentFactory;
 			}

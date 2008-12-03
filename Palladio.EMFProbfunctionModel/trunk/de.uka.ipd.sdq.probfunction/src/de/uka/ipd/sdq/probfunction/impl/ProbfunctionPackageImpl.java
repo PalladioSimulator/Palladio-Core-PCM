@@ -8,12 +8,18 @@ package de.uka.ipd.sdq.probfunction.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.Complex;
+import de.uka.ipd.sdq.probfunction.ContinuousPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.NormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
@@ -21,6 +27,7 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
+import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +36,13 @@ import de.uka.ipd.sdq.probfunction.SamplePDF;
  * @generated
  */
 public class ProbfunctionPackageImpl extends EPackageImpl implements ProbfunctionPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,6 +91,34 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 	 * @generated
 	 */
 	private EClass samplePDFEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass complexEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass continuousPDFEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass exponentialDistributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass normalDistributionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -133,6 +175,9 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 		ProbfunctionPackageImpl theProbfunctionPackage = (ProbfunctionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof ProbfunctionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new ProbfunctionPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theProbfunctionPackage.createPackageContents();
@@ -250,8 +295,8 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSample_Value() {
-		return (EAttribute)sampleEClass.getEStructuralFeatures().get(0);
+	public EReference getSample_Value() {
+		return (EReference)sampleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -286,8 +331,89 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSamplePDF_Values() {
-		return (EAttribute)samplePDFEClass.getEStructuralFeatures().get(1);
+	public EReference getSamplePDF_Values() {
+		return (EReference)samplePDFEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComplex() {
+		return complexEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComplex_Real() {
+		return (EAttribute)complexEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComplex_Imaginary() {
+		return (EAttribute)complexEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContinuousPDF() {
+		return continuousPDFEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExponentialDistribution() {
+		return exponentialDistributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExponentialDistribution_Rate() {
+		return (EAttribute)exponentialDistributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNormalDistribution() {
+		return normalDistributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNormalDistribution_Mu() {
+		return (EAttribute)normalDistributionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNormalDistribution_Sigma() {
+		return (EAttribute)normalDistributionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -334,12 +460,25 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 		createEAttribute(probabilityMassFunctionEClass, PROBABILITY_MASS_FUNCTION__ORDERED_DOMAIN);
 
 		sampleEClass = createEClass(SAMPLE);
-		createEAttribute(sampleEClass, SAMPLE__VALUE);
+		createEReference(sampleEClass, SAMPLE__VALUE);
 		createEAttribute(sampleEClass, SAMPLE__PROBABILITY);
 
 		samplePDFEClass = createEClass(SAMPLE_PDF);
 		createEAttribute(samplePDFEClass, SAMPLE_PDF__DISTANCE);
-		createEAttribute(samplePDFEClass, SAMPLE_PDF__VALUES);
+		createEReference(samplePDFEClass, SAMPLE_PDF__VALUES);
+
+		complexEClass = createEClass(COMPLEX);
+		createEAttribute(complexEClass, COMPLEX__REAL);
+		createEAttribute(complexEClass, COMPLEX__IMAGINARY);
+
+		continuousPDFEClass = createEClass(CONTINUOUS_PDF);
+
+		exponentialDistributionEClass = createEClass(EXPONENTIAL_DISTRIBUTION);
+		createEAttribute(exponentialDistributionEClass, EXPONENTIAL_DISTRIBUTION__RATE);
+
+		normalDistributionEClass = createEClass(NORMAL_DISTRIBUTION);
+		createEAttribute(normalDistributionEClass, NORMAL_DISTRIBUTION__MU);
+		createEAttribute(normalDistributionEClass, NORMAL_DISTRIBUTION__SIGMA);
 	}
 
 	/**
@@ -365,15 +504,23 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		UnitsPackage theUnitsPackage = (UnitsPackage)EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
+
 		// Create type parameters
+		ETypeParameter sampleEClass_T = addETypeParameter(sampleEClass, "T");
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
 		boxedPDFEClass.getESuperTypes().add(this.getProbabilityDensityFunction());
 		probabilityDensityFunctionEClass.getESuperTypes().add(this.getProbabilityFunction());
+		probabilityFunctionEClass.getESuperTypes().add(theUnitsPackage.getUnitCarryingElement());
 		probabilityMassFunctionEClass.getESuperTypes().add(this.getProbabilityFunction());
 		samplePDFEClass.getESuperTypes().add(this.getProbabilityDensityFunction());
+		continuousPDFEClass.getESuperTypes().add(this.getProbabilityDensityFunction());
+		exponentialDistributionEClass.getESuperTypes().add(this.getContinuousPDF());
+		normalDistributionEClass.getESuperTypes().add(this.getContinuousPDF());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(boxedPDFEClass, BoxedPDF.class, "BoxedPDF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -392,12 +539,26 @@ public class ProbfunctionPackageImpl extends EPackageImpl implements Probfunctio
 		initEAttribute(getProbabilityMassFunction_OrderedDomain(), ecorePackage.getEBoolean(), "orderedDomain", null, 1, 1, ProbabilityMassFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(sampleEClass, Sample.class, "Sample", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSample_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, Sample.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		EGenericType g1 = createEGenericType(sampleEClass_T);
+		initEReference(getSample_Value(), g1, null, "value", null, 1, 1, Sample.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSample_Probability(), ecorePackage.getEDouble(), "probability", null, 0, 1, Sample.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(samplePDFEClass, SamplePDF.class, "SamplePDF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSamplePDF_Distance(), ecorePackage.getEDouble(), "distance", null, 0, 1, SamplePDF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getSamplePDF_Values(), ecorePackage.getEDouble(), "values", null, 0, -1, SamplePDF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSamplePDF_Values(), this.getComplex(), null, "values", null, 0, -1, SamplePDF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(complexEClass, Complex.class, "Complex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComplex_Real(), ecorePackage.getEDouble(), "real", null, 1, 1, Complex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getComplex_Imaginary(), ecorePackage.getEDouble(), "imaginary", null, 1, 1, Complex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(continuousPDFEClass, ContinuousPDF.class, "ContinuousPDF", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(exponentialDistributionEClass, ExponentialDistribution.class, "ExponentialDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExponentialDistribution_Rate(), ecorePackage.getEDouble(), "rate", null, 1, 1, ExponentialDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(normalDistributionEClass, NormalDistribution.class, "NormalDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNormalDistribution_Mu(), ecorePackage.getEDouble(), "mu", null, 1, 1, NormalDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getNormalDistribution_Sigma(), ecorePackage.getEDouble(), "sigma", null, 1, 1, NormalDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

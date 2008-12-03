@@ -22,6 +22,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -41,7 +42,7 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3029;
+	public static final int VISUAL_ID = 3034;
 
 	/**
 	 * @generated
@@ -74,7 +75,7 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == PalladioComponentModelElementTypes.VariableCharacterisation_3016) {
+								if (type == PalladioComponentModelElementTypes.VariableCharacterisation_3035) {
 									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
 											.getType(VariableUsageVariableCharacterisation2EditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
@@ -140,8 +141,8 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrapLabel2EditPart) {
-			((WrapLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+		if (childEditPart instanceof WrappingLabel2EditPart) {
+			((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
 					.getFigureVariableUsageReferenceLabelFigure());
 			return true;
 		}
@@ -240,7 +241,7 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(WrapLabel2EditPart.VISUAL_ID));
+				.getType(WrappingLabel2EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -250,7 +251,7 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureVariableUsageReferenceLabelFigure;
+		private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
 
 		/**
 		 * @generated
@@ -278,7 +279,7 @@ public class VariableUsage2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureVariableUsageReferenceLabelFigure() {
+		public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
 			return fFigureVariableUsageReferenceLabelFigure;
 		}
 

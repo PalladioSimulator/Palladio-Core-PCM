@@ -118,22 +118,23 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 			elementType = null;
 		}
 		Command semanticCommand = getSemanticCommandSwitch(completedRequest);
-		if (semanticCommand != null) {
-			ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
-					.getICommand()
-					: new CommandProxy(semanticCommand);
-			completedRequest.setParameter(
-					PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND,
-					command);
-		}
 		if (elementType != null) {
+			if (semanticCommand != null) {
+				ICommand command = semanticCommand instanceof ICommandProxy ? ((ICommandProxy) semanticCommand)
+						.getICommand()
+						: new CommandProxy(semanticCommand);
+				completedRequest
+						.setParameter(
+								PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND,
+								command);
+			}
 			ICommand command = elementType.getEditCommand(completedRequest);
 			if (command != null) {
 				if (!(command instanceof CompositeTransactionalCommand)) {
 					TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
 							.getEditingDomain();
 					command = new CompositeTransactionalCommand(editingDomain,
-							null).compose(command);
+							command.getLabel()).compose(command);
 				}
 				semanticCommand = new ICommandProxy(command);
 			}
@@ -400,6 +401,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistProvidedRole_4101(
 				InterfaceProvidingEntity source, Interface target) {
+
 			return true;
 		}
 
@@ -408,6 +410,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistRequiredRole_4102(
 				InterfaceRequiringEntity source, Interface target) {
+
 			return true;
 		}
 
@@ -416,6 +419,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistImplementationComponentTypeParentCompleteComponentTypes_4103(
 				ImplementationComponentType source, CompleteComponentType target) {
+
 			return true;
 		}
 
@@ -424,6 +428,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistCompleteComponentTypeParentProvidesComponentTypes_4104(
 				CompleteComponentType source, ProvidesComponentType target) {
+
 			return true;
 		}
 

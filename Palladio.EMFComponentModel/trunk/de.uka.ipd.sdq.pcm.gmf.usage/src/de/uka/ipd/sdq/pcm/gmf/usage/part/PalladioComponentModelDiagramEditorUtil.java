@@ -169,8 +169,7 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 */
 	public static Resource createDiagram(URI diagramURI, URI modelURI,
 
-
-			IProgressMonitor progressMonitor) {
+	IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
 		progressMonitor
@@ -250,7 +249,7 @@ public class PalladioComponentModelDiagramEditorUtil {
 		return diagramResource;
 	}
 
-	 /* Store model element in the resource.
+	/* Store model element in the resource.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated not
@@ -259,7 +258,7 @@ public class PalladioComponentModelDiagramEditorUtil {
 			Resource resource) {
 		resource.getContents().add(model);
 	}
-	 
+
 	/**
 	 * Create a new instance of domain element associated with canvas.
 	 * <!-- begin-user-doc -->

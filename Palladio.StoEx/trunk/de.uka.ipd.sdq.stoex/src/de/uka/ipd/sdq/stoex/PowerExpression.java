@@ -26,6 +26,13 @@ package de.uka.ipd.sdq.stoex;
  */
 public interface PowerExpression extends Power {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Base</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

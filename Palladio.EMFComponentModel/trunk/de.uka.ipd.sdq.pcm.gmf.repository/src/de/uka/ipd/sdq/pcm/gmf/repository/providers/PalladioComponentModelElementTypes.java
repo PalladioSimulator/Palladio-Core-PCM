@@ -69,22 +69,22 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType CompleteComponentType_2103 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2103"); //$NON-NLS-1$
+	public static final IElementType CompositeComponent_2103 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2103"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ProvidesComponentType_2104 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_2104"); //$NON-NLS-1$
+	public static final IElementType CompleteComponentType_2104 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2104"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ProvidesComponentType_2105 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_2105"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
 	public static final IElementType SubSystem_2106 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.SubSystem_2106"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType CompositeComponent_2105 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2105"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -251,13 +251,13 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(BasicComponent_2102, RepositoryPackage.eINSTANCE
 					.getBasicComponent());
 
-			elements.put(CompositeComponent_2105, RepositoryPackage.eINSTANCE
+			elements.put(CompositeComponent_2103, RepositoryPackage.eINSTANCE
 					.getCompositeComponent());
 
-			elements.put(CompleteComponentType_2103,
+			elements.put(CompleteComponentType_2104,
 					RepositoryPackage.eINSTANCE.getCompleteComponentType());
 
-			elements.put(ProvidesComponentType_2104,
+			elements.put(ProvidesComponentType_2105,
 					RepositoryPackage.eINSTANCE.getProvidesComponentType());
 
 			elements.put(SubSystem_2106, SubsystemPackage.eINSTANCE
@@ -315,9 +315,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(Repository_1000);
 			KNOWN_ELEMENT_TYPES.add(Interface_2101);
 			KNOWN_ELEMENT_TYPES.add(BasicComponent_2102);
-			KNOWN_ELEMENT_TYPES.add(CompositeComponent_2105);
-			KNOWN_ELEMENT_TYPES.add(CompleteComponentType_2103);
-			KNOWN_ELEMENT_TYPES.add(ProvidesComponentType_2104);
+			KNOWN_ELEMENT_TYPES.add(CompositeComponent_2103);
+			KNOWN_ELEMENT_TYPES.add(CompleteComponentType_2104);
+			KNOWN_ELEMENT_TYPES.add(ProvidesComponentType_2105);
 			KNOWN_ELEMENT_TYPES.add(SubSystem_2106);
 			KNOWN_ELEMENT_TYPES.add(Signature_3101);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_3102);

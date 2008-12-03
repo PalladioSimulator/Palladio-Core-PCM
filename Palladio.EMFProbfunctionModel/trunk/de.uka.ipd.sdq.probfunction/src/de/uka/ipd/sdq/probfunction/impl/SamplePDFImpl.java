@@ -9,11 +9,15 @@ package de.uka.ipd.sdq.probfunction.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import de.uka.ipd.sdq.probfunction.Complex;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 
@@ -32,6 +36,13 @@ import de.uka.ipd.sdq.probfunction.SamplePDF;
  * @generated
  */
 public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements SamplePDF {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * The default value of the '{@link #getDistance() <em>Distance</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,14 +64,14 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 	protected double distance = DISTANCE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
+	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValues()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Double> values;
+	protected EList<Complex> values;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,11 +118,25 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Double> getValues() {
+	public EList<Complex> getValues() {
 		if (values == null) {
-			values = new EDataTypeEList<Double>(Double.class, this, ProbfunctionPackage.SAMPLE_PDF__VALUES);
+			values = new EObjectContainmentEList<Complex>(Complex.class, this, ProbfunctionPackage.SAMPLE_PDF__VALUES);
 		}
 		return values;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ProbfunctionPackage.SAMPLE_PDF__VALUES:
+				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -144,7 +169,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 				return;
 			case ProbfunctionPackage.SAMPLE_PDF__VALUES:
 				getValues().clear();
-				getValues().addAll((Collection<? extends Double>)newValue);
+				getValues().addAll((Collection<? extends Complex>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,8 +221,6 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (distance: ");
 		result.append(distance);
-		result.append(", values: ");
-		result.append(values);
 		result.append(')');
 		return result.toString();
 	}

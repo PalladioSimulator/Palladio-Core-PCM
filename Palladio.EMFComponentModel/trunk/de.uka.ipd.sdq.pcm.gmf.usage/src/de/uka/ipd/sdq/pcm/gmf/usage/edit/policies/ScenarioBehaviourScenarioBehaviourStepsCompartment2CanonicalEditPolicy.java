@@ -64,10 +64,9 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment2CanonicalEditPol
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 		case LoopEditPart.VISUAL_ID:
 		case BranchEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
 		}
 		return false;
 	}

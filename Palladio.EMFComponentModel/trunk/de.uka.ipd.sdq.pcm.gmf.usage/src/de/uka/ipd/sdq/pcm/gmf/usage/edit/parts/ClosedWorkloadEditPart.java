@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -58,7 +59,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ClosedWorkloadItemSemanticEditPolicy());
@@ -235,15 +235,15 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureClosedWorkloadTitleLabelFigure;
+		private WrappingLabel fFigureClosedWorkloadTitleLabelFigure;
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureClosedWorkloadPopulationFigure;
+		private WrappingLabel fFigureClosedWorkloadPopulationFigure;
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureClosedWorkloadThinkTimeLabelFigure;
+		private WrappingLabel fFigureClosedWorkloadThinkTimeLabelFigure;
 
 		/**
 		 * @generated
@@ -258,17 +258,17 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureClosedWorkloadTitleLabelFigure = new WrapLabel();
+			fFigureClosedWorkloadTitleLabelFigure = new WrappingLabel();
 			fFigureClosedWorkloadTitleLabelFigure.setText("<<ClosedWorkload>>");
 
 			this.add(fFigureClosedWorkloadTitleLabelFigure);
 
-			fFigureClosedWorkloadPopulationFigure = new WrapLabel();
+			fFigureClosedWorkloadPopulationFigure = new WrappingLabel();
 			fFigureClosedWorkloadPopulationFigure.setText("<...>");
 
 			this.add(fFigureClosedWorkloadPopulationFigure);
 
-			fFigureClosedWorkloadThinkTimeLabelFigure = new WrapLabel();
+			fFigureClosedWorkloadThinkTimeLabelFigure = new WrappingLabel();
 			fFigureClosedWorkloadThinkTimeLabelFigure.setText("");
 
 			this.add(fFigureClosedWorkloadThinkTimeLabelFigure);
@@ -278,21 +278,21 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureClosedWorkloadPopulationFigure() {
+		public WrappingLabel getFigureClosedWorkloadPopulationFigure() {
 			return fFigureClosedWorkloadPopulationFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureClosedWorkloadThinkTimeLabelFigure() {
+		public WrappingLabel getFigureClosedWorkloadThinkTimeLabelFigure() {
 			return fFigureClosedWorkloadThinkTimeLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureClosedWorkloadTitleLabelFigure() {
+		public WrappingLabel getFigureClosedWorkloadTitleLabelFigure() {
 			return fFigureClosedWorkloadTitleLabelFigure;
 		}
 

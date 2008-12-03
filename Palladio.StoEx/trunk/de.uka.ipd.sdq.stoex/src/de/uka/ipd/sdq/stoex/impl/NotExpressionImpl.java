@@ -31,6 +31,12 @@ import de.uka.ipd.sdq.stoex.Unary;
  */
 public class NotExpressionImpl extends UnaryImpl implements NotExpression {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
 	 * The cached value of the '{@link #getInner() <em>Inner</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

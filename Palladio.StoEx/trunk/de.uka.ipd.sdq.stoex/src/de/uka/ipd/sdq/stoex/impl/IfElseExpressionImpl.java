@@ -33,6 +33,13 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  */
 public class IfElseExpressionImpl extends IfElseImpl implements IfElseExpression {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The cached value of the '{@link #getIfExpression() <em>If Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

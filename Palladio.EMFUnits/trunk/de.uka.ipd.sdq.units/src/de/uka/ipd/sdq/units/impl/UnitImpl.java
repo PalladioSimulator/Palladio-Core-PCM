@@ -28,6 +28,13 @@ public abstract class UnitImpl extends EObjectImpl implements Unit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected UnitImpl() {
 		super();
 	}

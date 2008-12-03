@@ -57,7 +57,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 */
 	public static RepositoryFactory init() {
 		try {
-			RepositoryFactory theRepositoryFactory = (RepositoryFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"); 
+			RepositoryFactory theRepositoryFactory = (RepositoryFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0"); 
 			if (theRepositoryFactory != null) {
 				return theRepositoryFactory;
 			}

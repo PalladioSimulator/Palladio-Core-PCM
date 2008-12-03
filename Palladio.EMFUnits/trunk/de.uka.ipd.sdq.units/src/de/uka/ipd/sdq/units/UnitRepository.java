@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UnitRepository extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * Returns the value of the '<em><b>Units</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.units.BaseUnit}.
 	 * <!-- begin-user-doc -->
@@ -38,7 +45,7 @@ public interface UnitRepository extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Units</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.units.UnitsPackage#getUnitRepository_Units()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<BaseUnit> getUnits();

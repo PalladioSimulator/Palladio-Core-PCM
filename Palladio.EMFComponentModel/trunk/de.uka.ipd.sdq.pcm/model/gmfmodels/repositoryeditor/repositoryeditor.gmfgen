@@ -14,40 +14,9 @@
       itemSemanticEditPolicyClassName="RepositoryItemSemanticEditPolicy"
       notationViewFactoryClassName="RepositoryViewFactory"
       canonicalEditPolicyClassName="RepositoryCanonicalEditPolicy"
-      elementTypesClassName="PalladioComponentModelElementTypes"
-      notationViewProviderClassName="PalladioComponentModelViewProvider"
-      editPartProviderClassName="PalladioComponentModelEditPartProvider"
-      modelingAssistantProviderClassName="PalladioComponentModelModelingAssistantProvider"
-      iconProviderClassName="PalladioComponentModelIconProvider"
       iconProviderPriority="Low"
-      parserProviderClassName="PalladioComponentModelParserProvider"
-      contributionItemProviderClassName="PalladioComponentModelContributionItemProvider"
-      reorientConnectionViewCommandClassName="PalladioComponentModelReorientConnectionViewCommand"
-      baseEditHelperClassName="PalladioComponentModelBaseEditHelper"
-      editPartFactoryClassName="PalladioComponentModelEditPartFactory"
-      baseExternalNodeLabelEditPartClassName="PalladioComponentModelExtNodeLabelEditPart"
-      baseItemSemanticEditPolicyClassName="PalladioComponentModelBaseItemSemanticEditPolicy"
-      baseGraphicalNodeEditPolicyClassName="PalladioComponentModelGraphicalNodeEditPolicy"
-      textSelectionEditPolicyClassName="PalladioComponentModelTextSelectionEditPolicy"
-      textNonResizableEditPolicyClassName="PalladioComponentModelTextNonResizableEditPolicy"
-      creationWizardClassName="PalladioComponentModelCreationWizard"
-      creationWizardPageClassName="PalladioComponentModelCreationWizardPage"
-      diagramEditorUtilClassName="PalladioComponentModelDiagramEditorUtil"
-      documentProviderClassName="PalladioComponentModelDocumentProvider"
-      initDiagramFileActionClassName="PalladioComponentModelInitDiagramFileAction"
-      newDiagramFileWizardClassName="PalladioComponentModelNewDiagramFileWizard"
-      diagramContentInitializerClassName="PalladioComponentModelDiagramContentInitializer"
-      matchingStrategyClassName="PalladioComponentModelMatchingStrategy"
-      visualIDRegistryClassName="PalladioComponentModelVisualIDRegistry"
-      elementChooserClassName="PalladioComponentModelElementChooserDialog"
-      loadResourceActionClassName="PalladioComponentModelLoadResourceAction"
-      shortcutsDecoratorProviderClassName="PalladioComponentModelShortcutsDecoratorProvider"
-      createShortcutActionClassName="PalladioComponentModelCreateShortcutAction"
-      createShortcutDecorationsCommandClassName="PalladioComponentModelCreateShortcutDecorationsCommand"
-      shortcutPropertyTesterClassName="PalladioComponentModelShortcutPropertyTester"
       validationProviderClassName="PalladioComponentModelValidationProvider"
       validationProviderPriority="Low"
-      markerNavigationProviderClassName="PalladioComponentModelMarkerNavigationProvider"
       validationEnabled="true"
       metricProviderClassName="PalladioComponentModelMetricProvider"
       validationDecoratorProviderClassName="PalladioComponentModelValidationDecoratorProvider"
@@ -816,7 +785,8 @@
         canonicalEditPolicyClassName="BasicComponentComponentParameterCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.3"
         title="ComponentParameterCompartment"
-        node="//@diagram/@topLevelNodes.1">
+        node="//@diagram/@topLevelNodes.1"
+        listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -851,8 +821,7 @@
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
     </compartments>
-    <palette
-        factoryClassName="PalladioComponentModelPaletteFactory">
+    <palette>
       <groups
           title="Basic Model Elements"
           description="Basic Component Modelling Elements"
@@ -983,7 +952,6 @@
       printingEnabled="true"
       activatorClassName="PalladioComponentModelRepositoryDiagramEditorPlugin"/>
   <editor
-      actionBarContributorClassName="PalladioComponentModelDiagramActionBarContributor"
       className="PalladioComponentModelRepositoryDiagramEditor"/>
   <navigator
       domainContentProviderClassName="PalladioComponentModelDomainNavigatorContentProvider"
@@ -1259,11 +1227,7 @@
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
   </navigator>
-  <diagramUpdater
-      diagramUpdaterClassName="PalladioComponentModelDiagramUpdater"
-      nodeDescriptorClassName="PalladioComponentModelNodeDescriptor"
-      linkDescriptorClassName="PalladioComponentModelLinkDescriptor"
-      updateCommandClassName="PalladioComponentModelDiagramUpdateCommand"/>
+  <diagramUpdater/>
   <propertySheet
       labelProviderClassName="PalladioComponentModelSheetLabelProvider">
     <tabs

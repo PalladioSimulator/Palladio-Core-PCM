@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -221,7 +221,7 @@ public class AcquireAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureAquireNameLabelFigure;
+		private WrappingLabel fFigureAquireNameLabelFigure;
 
 		/**
 		 * @generated
@@ -235,17 +235,17 @@ public class AcquireAction2EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel aquireStereotypeLabel0 = new WrapLabel();
+			WrappingLabel aquireStereotypeLabel0 = new WrappingLabel();
 			aquireStereotypeLabel0.setText("<<AcquireAction>>");
 
 			this.add(aquireStereotypeLabel0);
 
-			fFigureAquireNameLabelFigure = new WrapLabel();
+			fFigureAquireNameLabelFigure = new WrappingLabel();
 			fFigureAquireNameLabelFigure.setText("<...>");
 
 			this.add(fFigureAquireNameLabelFigure);
 
-			WrapLabel aquireResourceLabelFigure0 = new WrapLabel();
+			WrappingLabel aquireResourceLabelFigure0 = new WrappingLabel();
 			aquireResourceLabelFigure0.setText("");
 
 			this.add(aquireResourceLabelFigure0);
@@ -274,7 +274,7 @@ public class AcquireAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureAquireNameLabelFigure() {
+		public WrappingLabel getFigureAquireNameLabelFigure() {
 			return fFigureAquireNameLabelFigure;
 		}
 

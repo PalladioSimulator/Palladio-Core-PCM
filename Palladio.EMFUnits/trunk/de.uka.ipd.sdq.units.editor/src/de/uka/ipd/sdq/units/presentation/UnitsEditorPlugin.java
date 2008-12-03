@@ -7,9 +7,7 @@
 package de.uka.ipd.sdq.units.presentation;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
@@ -19,6 +17,13 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * @generated
  */
 public final class UnitsEditorPlugin extends EMFPlugin {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->

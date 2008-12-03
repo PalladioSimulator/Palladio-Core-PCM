@@ -9,7 +9,6 @@ Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.logging,
  org.junit4,
- com.db4o,
  org.hibernate,
  ca.umontreal.iro.lecuyer.ssj,
  de.uka.ipd.sdq.sensorframework.storage

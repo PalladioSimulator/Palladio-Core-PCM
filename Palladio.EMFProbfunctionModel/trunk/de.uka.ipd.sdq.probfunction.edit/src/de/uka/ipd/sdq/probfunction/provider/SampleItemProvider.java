@@ -7,17 +7,12 @@
 package de.uka.ipd.sdq.probfunction.provider;
 
 
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-import de.uka.ipd.sdq.probfunction.Sample;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,6 +23,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.probfunction.Sample;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.Sample} object.
@@ -43,6 +41,13 @@ public class SampleItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -87,7 +92,7 @@ public class SampleItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -133,11 +138,8 @@ public class SampleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Sample)object).getValue();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Sample_type") :
-			getString("_UI_Sample_type") + " " + label;
+		Sample<?> sample = (Sample<?>)object;
+		return getString("_UI_Sample_type") + " " + sample.getProbability();
 	}
 
 	/**

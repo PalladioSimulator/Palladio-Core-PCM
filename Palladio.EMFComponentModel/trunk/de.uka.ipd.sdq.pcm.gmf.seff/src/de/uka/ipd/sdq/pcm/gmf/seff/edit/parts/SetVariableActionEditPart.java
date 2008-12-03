@@ -18,7 +18,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -221,7 +221,7 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureSetVariableNameLabelFigure;
+		private WrappingLabel fFigureSetVariableNameLabelFigure;
 
 		/**
 		 * @generated
@@ -237,13 +237,13 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel setVariableActionStereotypeLabelFigure0 = new WrapLabel();
+			WrappingLabel setVariableActionStereotypeLabelFigure0 = new WrappingLabel();
 			setVariableActionStereotypeLabelFigure0
 					.setText("<<SetVariableAction>>");
 
 			this.add(setVariableActionStereotypeLabelFigure0);
 
-			fFigureSetVariableNameLabelFigure = new WrapLabel();
+			fFigureSetVariableNameLabelFigure = new WrappingLabel();
 			fFigureSetVariableNameLabelFigure.setText("");
 
 			this.add(fFigureSetVariableNameLabelFigure);
@@ -253,7 +253,7 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureSetVariableNameLabelFigure() {
+		public WrappingLabel getFigureSetVariableNameLabelFigure() {
 			return fFigureSetVariableNameLabelFigure;
 		}
 

@@ -47,10 +47,10 @@ public class AbstractUserActionSuccessorCreateCommand extends
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && !(source instanceof AbstractUserAction)) {
+		if (source != null && false == source instanceof AbstractUserAction) {
 			return false;
 		}
-		if (target != null && !(target instanceof AbstractUserAction)) {
+		if (target != null && false == target instanceof AbstractUserAction) {
 			return false;
 		}
 		if (getSource() == null) {

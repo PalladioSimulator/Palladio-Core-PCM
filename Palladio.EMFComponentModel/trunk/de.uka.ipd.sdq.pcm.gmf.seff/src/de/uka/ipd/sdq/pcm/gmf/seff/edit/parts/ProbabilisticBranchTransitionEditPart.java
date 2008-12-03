@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -230,7 +230,7 @@ public class ProbabilisticBranchTransitionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureBranchTransitionProbabilityLabel;
+		private WrappingLabel fFigureBranchTransitionProbabilityLabel;
 
 		/**
 		 * @generated
@@ -246,7 +246,7 @@ public class ProbabilisticBranchTransitionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureBranchTransitionProbabilityLabel = new WrapLabel();
+			fFigureBranchTransitionProbabilityLabel = new WrappingLabel();
 			fFigureBranchTransitionProbabilityLabel.setText("0.0");
 
 			this.add(fFigureBranchTransitionProbabilityLabel);
@@ -256,7 +256,7 @@ public class ProbabilisticBranchTransitionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureBranchTransitionProbabilityLabel() {
+		public WrappingLabel getFigureBranchTransitionProbabilityLabel() {
 			return fFigureBranchTransitionProbabilityLabel;
 		}
 

@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -33,7 +34,7 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2103;
+	public static final int VISUAL_ID = 2104;
 
 	/**
 	 * @generated
@@ -220,7 +221,7 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureCompleteComponentTypeLabelFigure;
+		private WrappingLabel fFigureCompleteComponentTypeLabelFigure;
 
 		/**
 		 * @generated
@@ -234,7 +235,7 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureCompleteComponentTypeLabelFigure = new WrapLabel();
+			fFigureCompleteComponentTypeLabelFigure = new WrappingLabel();
 			fFigureCompleteComponentTypeLabelFigure.setText("<...>");
 
 			this.add(fFigureCompleteComponentTypeLabelFigure);
@@ -244,7 +245,7 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureCompleteComponentTypeLabelFigure() {
+		public WrappingLabel getFigureCompleteComponentTypeLabelFigure() {
 			return fFigureCompleteComponentTypeLabelFigure;
 		}
 

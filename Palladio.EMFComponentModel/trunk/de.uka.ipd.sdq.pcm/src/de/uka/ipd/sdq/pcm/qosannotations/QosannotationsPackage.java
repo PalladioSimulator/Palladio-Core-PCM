@@ -48,7 +48,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0";
 
 	/**
 	 * The package namespace name.

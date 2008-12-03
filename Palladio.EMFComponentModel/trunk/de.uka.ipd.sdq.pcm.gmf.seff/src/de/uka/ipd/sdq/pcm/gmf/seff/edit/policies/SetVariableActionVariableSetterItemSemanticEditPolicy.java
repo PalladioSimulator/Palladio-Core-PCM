@@ -20,7 +20,7 @@ public class SetVariableActionVariableSetterItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableUsage_3030 == req
+		if (PalladioComponentModelElementTypes.VariableUsage_3036 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req

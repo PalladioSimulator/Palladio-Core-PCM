@@ -3,9 +3,9 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.navigator;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-
 import org.eclipse.jface.viewers.ViewerSorter;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -15,7 +15,7 @@ public class PalladioComponentModelNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 7031;
+	private static final int GROUP_CATEGORY = 7034;
 
 	/**
 	 * @generated

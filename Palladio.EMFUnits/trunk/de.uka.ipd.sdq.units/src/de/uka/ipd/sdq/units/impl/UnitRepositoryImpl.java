@@ -39,6 +39,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class UnitRepositoryImpl extends EObjectImpl implements UnitRepository {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+	/**
 	 * The cached value of the '{@link #getUnits() <em>Units</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

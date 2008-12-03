@@ -83,6 +83,13 @@ public enum CompareOperations implements Enumerator {
 	GREATEREQUAL(5, "GREATEREQUAL", "GREATEREQUAL");
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007-2009, SDQ, IPD, U Karlsruhe";
+
+	/**
 	 * The '<em><b>GREATER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>

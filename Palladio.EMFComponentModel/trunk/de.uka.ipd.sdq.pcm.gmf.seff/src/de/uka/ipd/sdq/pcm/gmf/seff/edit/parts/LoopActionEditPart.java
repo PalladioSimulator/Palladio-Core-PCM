@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -238,11 +238,11 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureLoopNameLabelFigure;
+		private WrappingLabel fFigureLoopNameLabelFigure;
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureLoopIterationsLabelFigure;
+		private WrappingLabel fFigureLoopIterationsLabelFigure;
 
 		/**
 		 * @generated
@@ -258,17 +258,17 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel loopStereotype0 = new WrapLabel();
+			WrappingLabel loopStereotype0 = new WrappingLabel();
 			loopStereotype0.setText("<<LoopAction>>");
 
 			this.add(loopStereotype0);
 
-			fFigureLoopNameLabelFigure = new WrapLabel();
+			fFigureLoopNameLabelFigure = new WrappingLabel();
 			fFigureLoopNameLabelFigure.setText("myLoop");
 
 			this.add(fFigureLoopNameLabelFigure);
 
-			fFigureLoopIterationsLabelFigure = new WrapLabel();
+			fFigureLoopIterationsLabelFigure = new WrappingLabel();
 			fFigureLoopIterationsLabelFigure.setText("");
 
 			this.add(fFigureLoopIterationsLabelFigure);
@@ -278,14 +278,14 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureLoopNameLabelFigure() {
+		public WrappingLabel getFigureLoopNameLabelFigure() {
 			return fFigureLoopNameLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureLoopIterationsLabelFigure() {
+		public WrappingLabel getFigureLoopIterationsLabelFigure() {
 			return fFigureLoopIterationsLabelFigure;
 		}
 

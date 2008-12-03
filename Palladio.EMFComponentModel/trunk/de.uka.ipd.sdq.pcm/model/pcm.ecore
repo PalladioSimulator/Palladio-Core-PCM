@@ -2,11 +2,11 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm"
-    nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/1.0" nsPrefix="pcm">
+    nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/4.0" nsPrefix="pcm">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="This package is the root package of all packages of the Palladio Component Model (PCM)."/>
   </eAnnotations>
-  <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0"
+  <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0"
       nsPrefix="">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities."/>
@@ -35,7 +35,7 @@
         </eParameters>
       </eOperations>
     </eClassifiers>
-    <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
+    <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/4.0"
         nsPrefix="">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This  set of abstract meta-classes gives a conceptual view on interfaces, entities and their relationships: Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. &#xD;&#xA;&#xD;&#xA;Base of the inheritance hierarchy are Identifier and NamedElement, both of which Entity and all inheriting classes are derived from. &#xD;&#xA;&#xD;&#xA;The relationship of Entities and Interfaces is described with the three meta classes InterfaceProvidingEntity, InterfaceRequiringEntity, and InterfaceProvidingRequiringEntity. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offer by entities providing this functionality. InterfaceProvidingRequiringEntity inherits from both of them and thus combines their properties. "/>
@@ -112,7 +112,7 @@
         </eOperations>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
+    <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/4.0"
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -120,7 +120,7 @@
         </eAnnotations>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/1.0"
+    <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0"
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
         <eOperations name="ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"
@@ -233,7 +233,7 @@
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/requiredDelegationConnectors_ComposedStructure"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector #//core/entity/Entity">
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector">
         <eOperations name="AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -318,7 +318,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
+  <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0"
       nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="PassiveResource" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -938,7 +938,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"
+  <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/4.0"
       nsPrefix="">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="TODO"/>
@@ -966,7 +966,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
+  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0"
       nsPrefix="">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The parameter package allows to model data dependent performance characteristics of software systems. It is mainly used to specify performance dependencies on input and output parameters of single service calls. It can also be used to describe dependencies on the state of components by the use of component parameters. The latter describe stochastically a component state which does not change over time. &#xD;&#xA;&#xD;&#xA;Parameters are described by the use of variable usages which on the one side contain a performance abstraction of the variable's value and on the other side the name of the variable for refering to the variable. Characterisations available include Structure (information on the data's internal structure like &quot;sorted&quot; or &quot;unsorted&quot; for an array), Number of Elements (size of a collection), Value (the actuall variable value), Bytesize (the variable's memory footprint), or type (the type of the variable in polymorphic cases).&#xD;&#xA;&#xD;&#xA;Example for variable usages may be a.NUMBER_OF_ELEMENTS = 10 (array &quot;a&quot; contains 10 elements), tree.STRUCTURE = &quot;balanced&quot; (tree &quot;tree&quot; is a balanced tree), and so on."/>
@@ -1049,7 +1049,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
+  <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0"
       nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1357,7 +1357,7 @@
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
+          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2AA􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 AA􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
@@ -1369,7 +1369,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"
+  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0"
       nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
@@ -1379,7 +1379,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
   </eSubpackages>
-  <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0"
+  <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0"
       nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="AllocationContext" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_AllocationContext"
@@ -1417,7 +1417,7 @@
           lowerBound="1" eType="#//system/System"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0"
+  <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0"
       nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironment">
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" ordered="false"
@@ -1462,7 +1462,7 @@
           containment="true"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
+  <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0"
       nsPrefix="">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The system package holds only the System meta class. A system is the most high-level and out-most compositional entity of the PCM. It defines the boundaries of a modelled application. Only systems (more precisely provided services of a system) can be accessed from usage profile. Systems also can carry QoS-Annotations, a special means to express fixed QoS properties of services that are required at the system boundary."/>
@@ -1480,7 +1480,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0"
+  <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0"
       nsPrefix="">
     <eClassifiers xsi:type="ecore:EClass" name="SpecifiedQoSAnnotation" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1516,7 +1516,7 @@
           ordered="false" upperBound="-1" eType="#//qosannotations/SpecifiedOutputParameterAbstraction"
           containment="true"/>
     </eClassifiers>
-    <eSubpackages name="performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Performance/1.0"
+    <eSubpackages name="performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Performance/4.0"
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="SystemSpecifiedExecutionTime" eSuperTypes="#//qosannotations/SpecifiedQoSAnnotation">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1532,7 +1532,7 @@
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Reliability/1.0"
+    <eSubpackages name="reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Reliability/4.0"
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="SpecifiedFailureProbability" eSuperTypes="#//qosannotations/SpecifiedQoSAnnotation">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1543,7 +1543,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0"
+  <eSubpackages name="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0"
       nsPrefix="">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="TODO: Put the 3.2.2 Context Model chapter of Steffens Diss somewhere so that it can be referred to here. It provides an important overview on why we have the usage model. &#xD;&#xA;&#xD;&#xA;TODO: Include the example from Heiko's dissertation here? But how to include the picture?&#xD;&#xA;&#xD;&#xA;The usage of a software system by external clients has to be captured in models to enable model-driven&#xD;&#xA;performance predictions. Here, the term usage refers to workload (i.e., the number of users concurrently&#xD;&#xA;present in the system), usage scenarios (i.e., possible sequences of invoking services at system provided&#xD;&#xA;roles), waiting delays between service invocations, and values for parameters and component configurations.&#xD;&#xA;&#xD;&#xA;This package contains the usage specification language, which (i) provides more expressiveness for&#xD;&#xA;characterising parameter instances than previous models, but (ii) at the same time is restricted to concepts&#xD;&#xA;familiar to domain experts to create a domain specific language. The language is called PCM usage&#xD;&#xA;model.&#xD;&#xA;&#xD;&#xA;The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. The concepts are explained for the single meta classes included in this package. &#xD;&#xA;&#xD;&#xA;Note that UsageModels are completely decoupled from the inner contents of a system, which consists of an assembly and a connected resource environment. The UsageModel only refers to services of system provided roles. It regards the component&#xD;&#xA;architecture (i.e., the assembly) as well as used resources (i.e., hardware devices such as CPUs&#xD;&#xA;and harddisks or software entities such as threads, semaphores) as hidden in the system. Thus, the UsageModel only captures information that is available to domain experts and can be changed by them. Resource&#xD;&#xA;environment and component architecture may be changed independently from the UsageModel &#xD;&#xA;by system architects, if the system's ProvidedRoles remain unchanged.&#xD;&#xA;&#xD;&#xA;Discussion: &#xD;&#xA;Notice, that unlike other behavioural description languages for performance prediction (e.g., [162, 187,&#xD;&#xA;78]), the PCM usage model specifically models user behaviour and for example does not refer to resources.&#xD;&#xA;Other performance meta-models mix up the specification of user behaviour, component behaviour, and&#xD;&#xA;resources, so that a single developer role (i.e., a performance analyst) needs to specify the performance&#xD;&#xA;model. Opposed to this, the PCM targets a division of work for multiple developer roles (cf. Section 3.1 of Heiko Koziolek's dissertation).&#xD;&#xA;&#xD;&#xA;Furthermore, none of the other performance meta-models support explicit service parameter modelling.&#xD;&#xA;While CSM [162] includes a meta-class Message to specify the amount of data transferred between&#xD;&#xA;two steps in the performance model, and KLAPER [78] allows the specification of parameter values&#xD;&#xA;in principle, none of these language uses the information to parameterise resource demands or component&#xD;&#xA;behaviour. Additionally, they do not provide the information readily analysable by MDSD tools.&#xD;&#xA;&#xD;&#xA;The PCM usage model has been designed based on meta models such as the performance domain model&#xD;&#xA;of the UML SPT profile [31], the Core Scenario Model (CSM) [162], and KLAPER [78]. It is furthermore&#xD;&#xA;related to usage models used in statistical testing [34]. Although the concepts included in the PCM usage&#xD;&#xA;model are quite similar to the modelling capabilities of the UML SPT profile, there are some subtle&#xD;&#xA;differences:&#xD;&#xA;• The usage model is aligned with the role of the domain expert, and uses only concepts known to&#xD;&#xA;this role. It is a domain specific language, whereas the UML SPT performance domain model is&#xD;&#xA;a general purpose language that includes information, which is usually spread over multiple developer&#xD;&#xA;roles such as the component assembler and the system deployer, so that a domain expert without a technical background could not specify an instance of it. Nevertheless, domain experts&#xD;&#xA;should be able to create PCM usage models with appropriate tools independently from other developer&#xD;&#xA;roles, because such models only contain concepts known to them.&#xD;&#xA;• The number of loop iterations is not bound to a constant value, but can be specified as a random&#xD;&#xA;variable.&#xD;&#xA;• The control flow constructs are arranged in a hierarchical fashion to enable easy analyses.&#xD;&#xA;• Users are restricted to non-concurrent behaviour, as it is assumed, that users only execute the&#xD;&#xA;services of a system one at a time.&#xD;&#xA;• System service invocations can be enhanced with characterisations of parameters values.&#xD;&#xA;&#xD;&#xA;[31] Object Management Group (OMG), “UML Profile for Schedulability, Performance and Time,”&#xD;&#xA;http://www.omg.org/cgi-bin/doc?formal/2005-01-02, January 2005.&#xD;&#xA;&#xD;&#xA;[34] James A. Whittaker and Michael G. Thomason, “A Markov chain model for statistical software&#xD;&#xA;testing,” IEEE Transactions on Software Engineering, vol. 20, no. 10, pp. 812–824, Oct. 1994.&#xD;&#xA;&#xD;&#xA;[78] V. Grassi, R. Mirandola, and A. Sabetta, “From design to analysis models: a kernel language&#xD;&#xA;for performance and reliability analysis of component-based systems,” in Proc. 5th International&#xD;&#xA;Workshop on Software and Performance (WOSP ’05). New York, NY, USA: ACM Press, 2005,&#xD;&#xA;pp. 25–36.&#xD;&#xA;&#xD;&#xA;[162] D. B. Petriu and M. Woodside, “A metamodel for generating performance models from UML designs,”&#xD;&#xA;in UML 2004 - The Unified Modeling Language. Model Languages and Applications. 7th&#xD;&#xA;International Conference, Lisbon, Portugal, October 11-15, 2004, Proceedings, ser. LNCS, T. Baar,&#xD;&#xA;A. Strohmeier, A. Moreira, and S. J. Mellor, Eds., vol. 3273. Springer, 2004, pp. 41–53.&#xD;&#xA;&#xD;&#xA;[187] C. U. Smith, C. M. Llado, V. Cortellessa, A. D. Marco, and L. G. Williams, “From UML models&#xD;&#xA;to software performance results: an SPE process based on XML interchange formats,” in Proc. 5th&#xD;&#xA;international workshop on Software and performance (WOSP’05). New York, NY, USA: ACM&#xD;&#xA;Press, 2005, pp. 87–98.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
@@ -1842,7 +1842,7 @@
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/1.0"
+  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0"
       nsPrefix="pcm.subsystem">
     <eClassifiers xsi:type="ecore:EClass" name="SubSystem" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
