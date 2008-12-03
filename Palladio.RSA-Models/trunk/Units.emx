@@ -512,7 +512,7 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_4AyJkDaUEdypU_bkgRAm2w" name="UnitCarryingElement" isAbstract="true">
       <ownedAttribute xmi:id="_J8G_UTaYEdypU_bkgRAm2w" name="unit" type="_L4VUEDabEdypU_bkgRAm2w" association="_J8G_UDaYEdypU_bkgRAm2w">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J8G_VDaYEdypU_bkgRAm2w" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J8G_UzaYEdypU_bkgRAm2w"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J8G_UzaYEdypU_bkgRAm2w" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_6zypcDakEdypU_bkgRAm2w" name="unitSpecification">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -595,6 +595,6 @@
     </profileApplication>
   </uml:Model>
   <Ecore:EPackage xmi:id="_Twaf0JZwEdyvM-KRcbKtDQ" base_Package="_28FLUDaUEdypU_bkgRAm2w" packageName="units" nsPrefix="units" nsURI="http://sdq.ipd.uka.de/Units/1.0" basePackage="de.uka.ipd.sdq" prefix="units"/>
-  <Ecore:EReference xmi:id="_Twbt8JZwEdyvM-KRcbKtDQ" xmlName="" isTransient="true" isVolatile="true" xmlNamespace="" base_Property="_J8G_UTaYEdypU_bkgRAm2w" referenceName=""/>
-  <Ecore:EAttribute xmi:id="_TwcVAJZwEdyvM-KRcbKtDQ" xmlName="" xmlNamespace="" base_Property="_k9ZbYDaYEdypU_bkgRAm2w" attributeName="" isID="true"/>
+  <Ecore:EReference xmi:id="_Twbt8JZwEdyvM-KRcbKtDQ" xmlName="" isTransient="true" isVolatile="true" xmlNamespace="" visibility="ReadOnly" base_Property="_J8G_UTaYEdypU_bkgRAm2w" referenceName="unit"/>
+  <Ecore:EAttribute xmi:id="_TwcVAJZwEdyvM-KRcbKtDQ" xmlName="" xmlNamespace="" base_Property="_k9ZbYDaYEdypU_bkgRAm2w" attributeName="name" isID="true"/>
 </xmi:XMI>
