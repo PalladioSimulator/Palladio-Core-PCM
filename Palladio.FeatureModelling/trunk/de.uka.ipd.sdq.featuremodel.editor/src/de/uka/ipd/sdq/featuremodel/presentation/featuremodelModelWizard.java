@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.featuremodel.presentation;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -100,6 +101,24 @@ public class featuremodelModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+
+	/**
+	 * The supported extensions for created files.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final List<String> FILE_EXTENSIONS =
+		Collections.unmodifiableList(Arrays.asList(FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelEditorFilenameExtensions").split("\\s*,\\s*")));
+
+	/**
+	 * A formatted list of supported file extensions, suitable for display.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String FORMATTED_FILE_EXTENSIONS =
+		FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -321,21 +340,15 @@ public class featuremodelModelWizard extends Wizard implements INewWizard {
 	@Override
 		protected boolean validatePage() {
 			if (super.validatePage()) {
-				// Make sure the file ends in ".featuremodel".
-				//
-				String requiredExt = FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelEditorFilenameExtension");
-				String enteredExt = new Path(getFileName()).getFileExtension();
-				if (enteredExt == null || !enteredExt.equals(requiredExt)) {
-					setErrorMessage(FeaturemodelEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
+				String extension = new Path(getFileName()).getFileExtension();
+				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+					setErrorMessage(FeaturemodelEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
-				else {
-					return true;
-				}
+				return true;
 			}
-			else {
-				return false;
-			}
+			return false;
 		}
 
 		/**
@@ -392,8 +405,7 @@ public class featuremodelModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -570,7 +582,7 @@ public class featuremodelModelWizard extends Wizard implements INewWizard {
 		newFileCreationPage = new featuremodelModelWizardNewFileCreationPage("Whatever", selection);
 		newFileCreationPage.setTitle(FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelModelWizard_label"));
 		newFileCreationPage.setDescription(FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelModelWizard_description"));
-		newFileCreationPage.setFileName(FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelEditorFilenameDefaultBase") + "." + FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelEditorFilenameExtension"));
+		newFileCreationPage.setFileName(FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -597,7 +609,7 @@ public class featuremodelModelWizard extends Wizard implements INewWizard {
 					// Make up a unique new name here.
 					//
 					String defaultModelBaseFilename = FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FeaturemodelEditorPlugin.INSTANCE.getString("_UI_featuremodelEditorFilenameExtension");
+					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
