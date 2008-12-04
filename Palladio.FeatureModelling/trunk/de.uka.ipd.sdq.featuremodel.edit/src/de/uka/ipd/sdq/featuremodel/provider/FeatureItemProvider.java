@@ -177,15 +177,4 @@ public class FeatureItemProvider
 				 featuremodelFactory.eINSTANCE.createSimple()));
 	}
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return FeaturemodelEditPlugin.INSTANCE;
-	}
-
 }
