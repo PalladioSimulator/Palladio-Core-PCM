@@ -8,7 +8,6 @@ Bundle-Activator: de.uka.ipd.sdq.featureconfig.provider.FeatureconfigEditPlugin$
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: de.uka.ipd.sdq.featureconfig.provider
 Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.featureconfig;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
