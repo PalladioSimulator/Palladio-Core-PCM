@@ -1,44 +1,48 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
+import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
+
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
-
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.FeatureGroup;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,13 +59,14 @@ import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
  *
  * @generated
  */
-public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
+public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+
 	/**
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,6 +76,7 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @ordered
 	 */
 	protected static final int MIN_EDEFAULT = 1;
+
 	/**
 	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -80,6 +86,7 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @ordered
 	 */
 	protected int min = MIN_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,6 +96,7 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @ordered
 	 */
 	protected static final int MAX_EDEFAULT = 1;
+
 	/**
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -98,6 +106,7 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @ordered
 	 */
 	protected int max = MAX_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -108,8 +117,44 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 */
 	protected EList<Feature> children;
 
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #XORorORImpliesChildrenAreMandatory <em>XO Ror OR Implies Children Are Mandatory</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #XORorORImpliesChildrenAreMandatory
+	 * @generated
+	 */
+	private static OCLExpression XORorORImpliesChildrenAreMandatoryInvOCL;
+	
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ALLImpliesCardinalitiesToBeMinusOne <em>ALL Implies Cardinalities To Be Minus One</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ALLImpliesCardinalitiesToBeMinusOne
+	 * @generated
+	 */
+	private static OCLExpression ALLImpliesCardinalitiesToBeMinusOneInvOCL;
+	
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne <em>OR Implies Cardinalities Min To Be One And Max To Be Minus One</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne
+	 * @generated
+	 */
+	private static OCLExpression ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOneInvOCL;
+	
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #XORImpliesCardinalitiesToBeOne <em>XOR Implies Cardinalities To Be One</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #XORImpliesCardinalitiesToBeOne
+	 * @generated
+	 */
+	private static OCLExpression XORImpliesCardinalitiesToBeOneInvOCL;
+	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,11 +234,24 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @generated
 	 */
 	public boolean XORorORImpliesChildrenAreMandatory(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (XORorORImpliesChildrenAreMandatoryInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "(self.groupType = GroupTypes::OR or self.groupType = GroupTypes::XOR) implies self.children->forAll(c|c.isMandatory)  ";
+			
+			try {
+				XORorORImpliesChildrenAreMandatoryInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(XORorORImpliesChildrenAreMandatoryInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -206,6 +264,7 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 			return false;
 		}
 		return true;
+		
 	}
 
 	/**
@@ -214,11 +273,24 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @generated
 	 */
 	public boolean ALLImpliesCardinalitiesToBeMinusOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (ALLImpliesCardinalitiesToBeMinusOneInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.groupType = GroupTypes::ALL implies (self.min = -1 and self.max = -1) ";
+			
+			try {
+				ALLImpliesCardinalitiesToBeMinusOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ALLImpliesCardinalitiesToBeMinusOneInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -231,6 +303,7 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 			return false;
 		}
 		return true;
+		
 	}
 
 	/**
@@ -239,11 +312,24 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @generated
 	 */
 	public boolean ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOneInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.groupType = GroupTypes::OR implies (self.min = 1  and self.max = -1) ";
+			
+			try {
+				ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOneInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -256,6 +342,7 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 			return false;
 		}
 		return true;
+		
 	}
 
 	/**
@@ -264,11 +351,24 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 	 * @generated
 	 */
 	public boolean XORImpliesCardinalitiesToBeOne(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (XORImpliesCardinalitiesToBeOneInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.groupType = GroupTypes::XOR implies (self.min = 1 and self.max = 1)  ";
+			
+			try {
+				XORImpliesCardinalitiesToBeOneInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(XORImpliesCardinalitiesToBeOneInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -281,6 +381,7 @@ public class FeatureGroupImpl extends NodeImpl implements FeatureGroup {
 			return false;
 		}
 		return true;
+		
 	}
 
 	/**

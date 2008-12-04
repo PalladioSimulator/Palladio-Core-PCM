@@ -1,26 +1,27 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
+import de.uka.ipd.sdq.featuremodel.ChildRelation;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
-import de.uka.ipd.sdq.featuremodel.Node;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Node</b></em>'.
+ * An implementation of the model object '<em><b>Child Relation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class NodeImpl extends NamedElementImpl implements Node {
+public abstract class ChildRelationImpl extends EObjectImpl implements ChildRelation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33,7 +34,7 @@ public abstract class NodeImpl extends NamedElementImpl implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NodeImpl() {
+	protected ChildRelationImpl() {
 		super();
 	}
 
@@ -44,7 +45,7 @@ public abstract class NodeImpl extends NamedElementImpl implements Node {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return featuremodelPackage.Literals.NODE;
+		return featuremodelPackage.Literals.CHILD_RELATION;
 	}
 
-} //NodeImpl
+} //ChildRelationImpl

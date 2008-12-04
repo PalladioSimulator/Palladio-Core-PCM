@@ -5,10 +5,10 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

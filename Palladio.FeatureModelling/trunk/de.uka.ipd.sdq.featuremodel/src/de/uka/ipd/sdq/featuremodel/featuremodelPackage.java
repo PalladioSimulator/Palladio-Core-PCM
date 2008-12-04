@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,8 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,7 +48,7 @@ public interface featuremodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/FeatureModel/3.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/FeatureModel/2.0";
 
 	/**
 	 * The package namespace name.
@@ -98,34 +95,6 @@ public interface featuremodelPackage extends EPackage {
 	int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.NodeImpl <em>Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.featuremodel.impl.NodeImpl
-	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getNode()
-	 * @generated
-	 */
-	int NODE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__NAME = NAMED_ELEMENT__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl <em>Feature</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,7 +102,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getFeature()
 	 * @generated
 	 */
-	int FEATURE = 2;
+	int FEATURE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -142,7 +111,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__NAME = NODE__NAME;
+	int FEATURE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -151,25 +120,16 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__ATTRIBUTES = NODE_FEATURE_COUNT + 0;
+	int FEATURE__ATTRIBUTES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Is Mandatory</b></em>' attribute.
+	 * The feature id for the '<em><b>Childrelation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__IS_MANDATORY = NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__CHILDREN = NODE_FEATURE_COUNT + 2;
+	int FEATURE__CHILDRELATION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Feature</em>' class.
@@ -178,7 +138,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+	int FEATURE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -188,7 +148,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 3;
+	int ATTRIBUTE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -218,6 +178,25 @@ public interface featuremodelPackage extends EPackage {
 	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.ChildRelationImpl <em>Child Relation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featuremodel.impl.ChildRelationImpl
+	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getChildRelation()
+	 * @generated
+	 */
+	int CHILD_RELATION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Child Relation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_RELATION_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureGroupImpl <em>Feature Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,22 +207,13 @@ public interface featuremodelPackage extends EPackage {
 	int FEATURE_GROUP = 4;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_GROUP__NAME = NODE__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__MIN = NODE_FEATURE_COUNT + 0;
+	int FEATURE_GROUP__MIN = CHILD_RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Max</b></em>' attribute.
@@ -252,7 +222,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__MAX = NODE_FEATURE_COUNT + 1;
+	int FEATURE_GROUP__MAX = CHILD_RELATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -261,7 +231,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP__CHILDREN = NODE_FEATURE_COUNT + 2;
+	int FEATURE_GROUP__CHILDREN = CHILD_RELATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Feature Group</em>' class.
@@ -270,7 +240,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_GROUP_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
+	int FEATURE_GROUP_FEATURE_COUNT = CHILD_RELATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureDiagramImpl <em>Feature Diagram</em>}' class.
@@ -310,14 +280,22 @@ public interface featuremodelPackage extends EPackage {
 	int FEATURE_DIAGRAM__CONSTRAINTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Annotatable Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Feature Diagram</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_DIAGRAM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
+	int FEATURE_DIAGRAM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.ConstraintImpl <em>Constraint</em>}' class.
@@ -485,6 +463,43 @@ public interface featuremodelPackage extends EPackage {
 	int PROHIBITS_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.SimpleImpl <em>Simple</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featuremodel.impl.SimpleImpl
+	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getSimple()
+	 * @generated
+	 */
+	int SIMPLE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Mandatory Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE__MANDATORY_CHILDREN = CHILD_RELATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Optional Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE__OPTIONAL_CHILDREN = CHILD_RELATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Simple</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FEATURE_COUNT = CHILD_RELATION_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.AttributeTypes <em>Attribute Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -492,39 +507,8 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getAttributeTypes()
 	 * @generated
 	 */
-	int ATTRIBUTE_TYPES = 9;
+	int ATTRIBUTE_TYPES = 10;
 
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.Node <em>Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Node</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.Node
-	 * @generated
-	 */
-	EClass getNode();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.NamedElement <em>Named Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Named Element</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.NamedElement
-	 * @generated
-	 */
-	EClass getNamedElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.NamedElement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.NamedElement#getName()
-	 * @see #getNamedElement()
-	 * @generated
-	 */
-	EAttribute getNamedElement_Name();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.Feature <em>Feature</em>}'.
@@ -548,26 +532,36 @@ public interface featuremodelPackage extends EPackage {
 	EReference getFeature_Attributes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.Feature#isIsMandatory <em>Is Mandatory</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featuremodel.Feature#getChildrelation <em>Childrelation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Mandatory</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.Feature#isIsMandatory()
+	 * @return the meta object for the containment reference '<em>Childrelation</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.Feature#getChildrelation()
 	 * @see #getFeature()
 	 * @generated
 	 */
-	EAttribute getFeature_IsMandatory();
+	EReference getFeature_Childrelation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.featuremodel.Feature#getChildren <em>Children</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Children</em>'.
-	 * @see de.uka.ipd.sdq.featuremodel.Feature#getChildren()
-	 * @see #getFeature()
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.NamedElement
 	 * @generated
 	 */
-	EReference getFeature_Children();
+	EClass getNamedElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.NamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.NamedElement#getName()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Name();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.Attribute <em>Attribute</em>}'.
@@ -589,6 +583,16 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAttribute_Type();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.ChildRelation <em>Child Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Child Relation</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.ChildRelation
+	 * @generated
+	 */
+	EClass getChildRelation();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.FeatureGroup <em>Feature Group</em>}'.
@@ -666,6 +670,17 @@ public interface featuremodelPackage extends EPackage {
 	EReference getFeatureDiagram_Constraints();
 
 	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.featuremodel.FeatureDiagram#getAnnotatableElement <em>Annotatable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Annotatable Element</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.FeatureDiagram#getAnnotatableElement()
+	 * @see #getFeatureDiagram()
+	 * @generated
+	 */
+	EReference getFeatureDiagram_AnnotatableElement();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.Constraint <em>Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -729,6 +744,38 @@ public interface featuremodelPackage extends EPackage {
 	EClass getProhibitsConstraint();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.Simple <em>Simple</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simple</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.Simple
+	 * @generated
+	 */
+	EClass getSimple();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.featuremodel.Simple#getMandatoryChildren <em>Mandatory Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mandatory Children</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.Simple#getMandatoryChildren()
+	 * @see #getSimple()
+	 * @generated
+	 */
+	EReference getSimple_MandatoryChildren();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.featuremodel.Simple#getOptionalChildren <em>Optional Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Optional Children</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.Simple#getOptionalChildren()
+	 * @see #getSimple()
+	 * @generated
+	 */
+	EReference getSimple_OptionalChildren();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.featuremodel.AttributeTypes <em>Attribute Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -761,14 +808,30 @@ public interface featuremodelPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.NodeImpl <em>Node</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl <em>Feature</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.featuremodel.impl.NodeImpl
-		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getNode()
+		 * @see de.uka.ipd.sdq.featuremodel.impl.FeatureImpl
+		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getFeature()
 		 * @generated
 		 */
-		EClass NODE = eINSTANCE.getNode();
+		EClass FEATURE = eINSTANCE.getFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE__ATTRIBUTES = eINSTANCE.getFeature_Attributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Childrelation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE__CHILDRELATION = eINSTANCE.getFeature_Childrelation();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -789,40 +852,6 @@ public interface featuremodelPackage extends EPackage {
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl <em>Feature</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.featuremodel.impl.FeatureImpl
-		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getFeature()
-		 * @generated
-		 */
-		EClass FEATURE = eINSTANCE.getFeature();
-
-		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE__ATTRIBUTES = eINSTANCE.getFeature_Attributes();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Mandatory</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FEATURE__IS_MANDATORY = eINSTANCE.getFeature_IsMandatory();
-
-		/**
-		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE__CHILDREN = eINSTANCE.getFeature_Children();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.AttributeImpl <em>Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -839,6 +868,16 @@ public interface featuremodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.ChildRelationImpl <em>Child Relation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featuremodel.impl.ChildRelationImpl
+		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getChildRelation()
+		 * @generated
+		 */
+		EClass CHILD_RELATION = eINSTANCE.getChildRelation();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.FeatureGroupImpl <em>Feature Group</em>}' class.
@@ -901,6 +940,14 @@ public interface featuremodelPackage extends EPackage {
 		EReference FEATURE_DIAGRAM__CONSTRAINTS = eINSTANCE.getFeatureDiagram_Constraints();
 
 		/**
+		 * The meta object literal for the '<em><b>Annotatable Element</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT = eINSTANCE.getFeatureDiagram_AnnotatableElement();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.ConstraintImpl <em>Constraint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -953,6 +1000,32 @@ public interface featuremodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROHIBITS_CONSTRAINT = eINSTANCE.getProhibitsConstraint();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.SimpleImpl <em>Simple</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featuremodel.impl.SimpleImpl
+		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getSimple()
+		 * @generated
+		 */
+		EClass SIMPLE = eINSTANCE.getSimple();
+
+		/**
+		 * The meta object literal for the '<em><b>Mandatory Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIMPLE__MANDATORY_CHILDREN = eINSTANCE.getSimple_MandatoryChildren();
+
+		/**
+		 * The meta object literal for the '<em><b>Optional Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIMPLE__OPTIONAL_CHILDREN = eINSTANCE.getSimple_OptionalChildren();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.AttributeTypes <em>Attribute Types</em>}' enum.

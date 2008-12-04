@@ -42,12 +42,12 @@ public interface Constraint extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Node)
+	 * @see #setSource(Feature)
 	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getConstraint_Source()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Node getSource();
+	Feature getSource();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.featuremodel.Constraint#getSource <em>Source</em>}' reference.
@@ -57,11 +57,11 @@ public interface Constraint extends NamedElement {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(Node value);
+	void setSource(Feature value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.featuremodel.Node}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.featuremodel.Feature}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target</em>' reference list isn't clear,
@@ -73,7 +73,7 @@ public interface Constraint extends NamedElement {
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	EList<Node> getTarget();
+	EList<Feature> getTarget();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

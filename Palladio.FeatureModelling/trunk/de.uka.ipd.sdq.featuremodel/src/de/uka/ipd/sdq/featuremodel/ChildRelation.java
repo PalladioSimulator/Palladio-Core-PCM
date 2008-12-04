@@ -1,23 +1,23 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Node</b></em>'.
+ * A representation of the model object '<em><b>Child Relation</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getNode()
+ * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getChildRelation()
  * @model abstract="true"
  * @generated
  */
-public interface Node extends NamedElement {
+public interface ChildRelation extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25,4 +25,4 @@ public interface Node extends NamedElement {
 	 */
 	String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
 
-} // Node
+} // ChildRelation

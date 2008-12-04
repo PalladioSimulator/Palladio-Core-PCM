@@ -1,6 +1,5 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,7 +9,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -30,8 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface FeatureGroup extends Node {
-
+public interface FeatureGroup extends ChildRelation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,8 +112,6 @@ public interface FeatureGroup extends Node {
 	 * <!-- begin-model-doc -->
 	 * (self.groupType = GroupTypes::OR or self.groupType = GroupTypes::XOR) implies self.children->forAll(c|c.isMandatory)
 	 * 
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -128,8 +123,6 @@ public interface FeatureGroup extends Node {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * self.groupType = GroupTypes::ALL implies (self.min = -1 and self.max = -1)
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -141,8 +134,6 @@ public interface FeatureGroup extends Node {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * self.groupType = GroupTypes::OR implies (self.min = 1  and self.max = -1)
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
@@ -155,11 +146,10 @@ public interface FeatureGroup extends Node {
 	 * <!-- begin-model-doc -->
 	 * self.groupType = GroupTypes::XOR implies (self.min = 1 and self.max = 1)
 	 * 
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
 	boolean XORImpliesCardinalitiesToBeOne(DiagnosticChain diagnostics, Map<Object, Object> context);
+
 } // FeatureGroup

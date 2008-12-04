@@ -1,26 +1,29 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
+import de.uka.ipd.sdq.featuremodel.Attribute;
+import de.uka.ipd.sdq.featuremodel.ChildRelation;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import de.uka.ipd.sdq.featuremodel.Attribute;
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.Node;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,20 +33,20 @@ import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl#isIsMandatory <em>Is Mandatory</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl#getChildrelation <em>Childrelation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FeatureImpl extends NodeImpl implements Feature {
+public class FeatureImpl extends NamedElementImpl implements Feature {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+
 	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -53,33 +56,16 @@ public class FeatureImpl extends NodeImpl implements Feature {
 	 * @ordered
 	 */
 	protected EList<Attribute> attributes;
+
 	/**
-	 * The default value of the '{@link #isIsMandatory() <em>Is Mandatory</em>}' attribute.
+	 * The cached value of the '{@link #getChildrelation() <em>Childrelation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsMandatory()
+	 * @see #getChildrelation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_MANDATORY_EDEFAULT = false;
-	/**
-	 * The cached value of the '{@link #isIsMandatory() <em>Is Mandatory</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsMandatory()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isMandatory = IS_MANDATORY_EDEFAULT;
-	/**
-	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChildren()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Node> children;
+	protected ChildRelation childrelation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,8 +103,8 @@ public class FeatureImpl extends NodeImpl implements Feature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsMandatory() {
-		return isMandatory;
+	public ChildRelation getChildrelation() {
+		return childrelation;
 	}
 
 	/**
@@ -126,23 +112,33 @@ public class FeatureImpl extends NodeImpl implements Feature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIsMandatory(boolean newIsMandatory) {
-		boolean oldIsMandatory = isMandatory;
-		isMandatory = newIsMandatory;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, featuremodelPackage.FEATURE__IS_MANDATORY, oldIsMandatory, isMandatory));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Node> getChildren() {
-		if (children == null) {
-			children = new EObjectContainmentEList<Node>(Node.class, this, featuremodelPackage.FEATURE__CHILDREN);
+	public NotificationChain basicSetChildrelation(ChildRelation newChildrelation, NotificationChain msgs) {
+		ChildRelation oldChildrelation = childrelation;
+		childrelation = newChildrelation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, featuremodelPackage.FEATURE__CHILDRELATION, oldChildrelation, newChildrelation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return children;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setChildrelation(ChildRelation newChildrelation) {
+		if (newChildrelation != childrelation) {
+			NotificationChain msgs = null;
+			if (childrelation != null)
+				msgs = ((InternalEObject)childrelation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - featuremodelPackage.FEATURE__CHILDRELATION, null, msgs);
+			if (newChildrelation != null)
+				msgs = ((InternalEObject)newChildrelation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - featuremodelPackage.FEATURE__CHILDRELATION, null, msgs);
+			msgs = basicSetChildrelation(newChildrelation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, featuremodelPackage.FEATURE__CHILDRELATION, newChildrelation, newChildrelation));
 	}
 
 	/**
@@ -155,8 +151,8 @@ public class FeatureImpl extends NodeImpl implements Feature {
 		switch (featureID) {
 			case featuremodelPackage.FEATURE__ATTRIBUTES:
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-			case featuremodelPackage.FEATURE__CHILDREN:
-				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+			case featuremodelPackage.FEATURE__CHILDRELATION:
+				return basicSetChildrelation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -171,10 +167,8 @@ public class FeatureImpl extends NodeImpl implements Feature {
 		switch (featureID) {
 			case featuremodelPackage.FEATURE__ATTRIBUTES:
 				return getAttributes();
-			case featuremodelPackage.FEATURE__IS_MANDATORY:
-				return isIsMandatory() ? Boolean.TRUE : Boolean.FALSE;
-			case featuremodelPackage.FEATURE__CHILDREN:
-				return getChildren();
+			case featuremodelPackage.FEATURE__CHILDRELATION:
+				return getChildrelation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -192,12 +186,8 @@ public class FeatureImpl extends NodeImpl implements Feature {
 				getAttributes().clear();
 				getAttributes().addAll((Collection<? extends Attribute>)newValue);
 				return;
-			case featuremodelPackage.FEATURE__IS_MANDATORY:
-				setIsMandatory(((Boolean)newValue).booleanValue());
-				return;
-			case featuremodelPackage.FEATURE__CHILDREN:
-				getChildren().clear();
-				getChildren().addAll((Collection<? extends Node>)newValue);
+			case featuremodelPackage.FEATURE__CHILDRELATION:
+				setChildrelation((ChildRelation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -214,11 +204,8 @@ public class FeatureImpl extends NodeImpl implements Feature {
 			case featuremodelPackage.FEATURE__ATTRIBUTES:
 				getAttributes().clear();
 				return;
-			case featuremodelPackage.FEATURE__IS_MANDATORY:
-				setIsMandatory(IS_MANDATORY_EDEFAULT);
-				return;
-			case featuremodelPackage.FEATURE__CHILDREN:
-				getChildren().clear();
+			case featuremodelPackage.FEATURE__CHILDRELATION:
+				setChildrelation((ChildRelation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -234,28 +221,10 @@ public class FeatureImpl extends NodeImpl implements Feature {
 		switch (featureID) {
 			case featuremodelPackage.FEATURE__ATTRIBUTES:
 				return attributes != null && !attributes.isEmpty();
-			case featuremodelPackage.FEATURE__IS_MANDATORY:
-				return isMandatory != IS_MANDATORY_EDEFAULT;
-			case featuremodelPackage.FEATURE__CHILDREN:
-				return children != null && !children.isEmpty();
+			case featuremodelPackage.FEATURE__CHILDRELATION:
+				return childrelation != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isMandatory: ");
-		result.append(isMandatory);
-		result.append(')');
-		return result.toString();
 	}
 
 } //FeatureImpl

@@ -1,13 +1,11 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel;
 
 import org.eclipse.emf.common.util.EList;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -18,8 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.Feature#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featuremodel.Feature#isIsMandatory <em>Is Mandatory</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.featuremodel.Feature#getChildren <em>Children</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featuremodel.Feature#getChildrelation <em>Childrelation</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,8 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Feature extends Node {
-
+public interface Feature extends NamedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,44 +49,29 @@ public interface Feature extends Node {
 	EList<Attribute> getAttributes();
 
 	/**
-	 * Returns the value of the '<em><b>Is Mandatory</b></em>' attribute.
+	 * Returns the value of the '<em><b>Childrelation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Is Mandatory</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Childrelation</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Mandatory</em>' attribute.
-	 * @see #setIsMandatory(boolean)
-	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getFeature_IsMandatory()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	boolean isIsMandatory();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.featuremodel.Feature#isIsMandatory <em>Is Mandatory</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Mandatory</em>' attribute.
-	 * @see #isIsMandatory()
-	 * @generated
-	 */
-	void setIsMandatory(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.featuremodel.Node}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Children</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getFeature_Children()
+	 * @return the value of the '<em>Childrelation</em>' containment reference.
+	 * @see #setChildrelation(ChildRelation)
+	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getFeature_Childrelation()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<Node> getChildren();
+	ChildRelation getChildrelation();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.featuremodel.Feature#getChildrelation <em>Childrelation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Childrelation</em>' containment reference.
+	 * @see #getChildrelation()
+	 * @generated
+	 */
+	void setChildrelation(ChildRelation value);
+
 } // Feature

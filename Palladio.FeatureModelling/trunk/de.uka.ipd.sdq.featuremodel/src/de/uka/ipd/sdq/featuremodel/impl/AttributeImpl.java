@@ -5,13 +5,15 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import de.uka.ipd.sdq.featuremodel.Attribute;
 import de.uka.ipd.sdq.featuremodel.AttributeTypes;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

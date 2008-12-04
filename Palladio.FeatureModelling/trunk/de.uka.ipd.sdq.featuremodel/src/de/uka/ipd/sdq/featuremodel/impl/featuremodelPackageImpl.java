@@ -1,10 +1,25 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.impl;
+
+import de.uka.ipd.sdq.featuremodel.Attribute;
+import de.uka.ipd.sdq.featuremodel.AttributeTypes;
+import de.uka.ipd.sdq.featuremodel.ChildRelation;
+import de.uka.ipd.sdq.featuremodel.Constraint;
+import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
+import de.uka.ipd.sdq.featuremodel.FeatureGroup;
+import de.uka.ipd.sdq.featuremodel.NamedElement;
+import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
+import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
+import de.uka.ipd.sdq.featuremodel.Simple;
+import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
+import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
+
+import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -14,22 +29,8 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import de.uka.ipd.sdq.featuremodel.Attribute;
-import de.uka.ipd.sdq.featuremodel.AttributeTypes;
-import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
-import de.uka.ipd.sdq.featuremodel.FeatureGroup;
-import de.uka.ipd.sdq.featuremodel.NamedElement;
-import de.uka.ipd.sdq.featuremodel.Node;
-import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
-import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
-import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +51,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass nodeEClass = null;
+	private EClass featureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,14 +65,14 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass featureEClass = null;
+	private EClass attributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass attributeEClass = null;
+	private EClass childRelationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,6 +108,13 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * @generated
 	 */
 	private EClass prohibitsConstraintEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass simpleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,8 +205,26 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNode() {
-		return nodeEClass;
+	public EClass getFeature() {
+		return featureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeature_Attributes() {
+		return (EReference)featureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeature_Childrelation() {
+		return (EReference)featureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -224,42 +250,6 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFeature() {
-		return featureEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFeature_Attributes() {
-		return (EReference)featureEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFeature_IsMandatory() {
-		return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFeature_Children() {
-		return (EReference)featureEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAttribute() {
 		return attributeEClass;
 	}
@@ -271,6 +261,15 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 */
 	public EAttribute getAttribute_Type() {
 		return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChildRelation() {
+		return childRelationEClass;
 	}
 
 	/**
@@ -341,6 +340,15 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFeatureDiagram_AnnotatableElement() {
+		return (EReference)featureDiagramEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConstraint() {
 		return constraintEClass;
 	}
@@ -395,6 +403,33 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSimple() {
+		return simpleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSimple_MandatoryChildren() {
+		return (EReference)simpleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSimple_OptionalChildren() {
+		return (EReference)simpleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAttributeTypes() {
 		return attributeTypesEEnum;
 	}
@@ -427,18 +462,17 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		isCreated = true;
 
 		// Create classes and their features
-		nodeEClass = createEClass(NODE);
+		featureEClass = createEClass(FEATURE);
+		createEReference(featureEClass, FEATURE__ATTRIBUTES);
+		createEReference(featureEClass, FEATURE__CHILDRELATION);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
-		featureEClass = createEClass(FEATURE);
-		createEReference(featureEClass, FEATURE__ATTRIBUTES);
-		createEAttribute(featureEClass, FEATURE__IS_MANDATORY);
-		createEReference(featureEClass, FEATURE__CHILDREN);
-
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__TYPE);
+
+		childRelationEClass = createEClass(CHILD_RELATION);
 
 		featureGroupEClass = createEClass(FEATURE_GROUP);
 		createEAttribute(featureGroupEClass, FEATURE_GROUP__MIN);
@@ -448,6 +482,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		featureDiagramEClass = createEClass(FEATURE_DIAGRAM);
 		createEReference(featureDiagramEClass, FEATURE_DIAGRAM__ROOT_FEATURE);
 		createEReference(featureDiagramEClass, FEATURE_DIAGRAM__CONSTRAINTS);
+		createEReference(featureDiagramEClass, FEATURE_DIAGRAM__ANNOTATABLE_ELEMENT);
 
 		constraintEClass = createEClass(CONSTRAINT);
 		createEReference(constraintEClass, CONSTRAINT__SOURCE);
@@ -457,6 +492,10 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		requiredConstraintEClass = createEClass(REQUIRED_CONSTRAINT);
 
 		prohibitsConstraintEClass = createEClass(PROHIBITS_CONSTRAINT);
+
+		simpleEClass = createEClass(SIMPLE);
+		createEReference(simpleEClass, SIMPLE__MANDATORY_CHILDREN);
+		createEReference(simpleEClass, SIMPLE__OPTIONAL_CHILDREN);
 
 		// Create enums
 		attributeTypesEEnum = createEEnum(ATTRIBUTE_TYPES);
@@ -490,28 +529,27 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		nodeEClass.getESuperTypes().add(this.getNamedElement());
-		featureEClass.getESuperTypes().add(this.getNode());
+		featureEClass.getESuperTypes().add(this.getNamedElement());
 		attributeEClass.getESuperTypes().add(this.getNamedElement());
-		featureGroupEClass.getESuperTypes().add(this.getNode());
+		featureGroupEClass.getESuperTypes().add(this.getChildRelation());
 		featureDiagramEClass.getESuperTypes().add(this.getNamedElement());
 		constraintEClass.getESuperTypes().add(this.getNamedElement());
 		requiredConstraintEClass.getESuperTypes().add(this.getConstraint());
 		prohibitsConstraintEClass.getESuperTypes().add(this.getConstraint());
+		simpleEClass.getESuperTypes().add(this.getChildRelation());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFeature_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeature_Childrelation(), this.getChildRelation(), null, "childrelation", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFeature_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getFeature_IsMandatory(), ecorePackage.getEBoolean(), "isMandatory", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getFeature_Children(), this.getNode(), null, "children", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Type(), this.getAttributeTypes(), "type", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(childRelationEClass, ChildRelation.class, "ChildRelation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(featureGroupEClass, FeatureGroup.class, "FeatureGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFeatureGroup_Min(), ecorePackage.getEInt(), "min", "1", 1, 1, FeatureGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -555,17 +593,31 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(featureDiagramEClass, FeatureDiagram.class, "FeatureDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFeatureDiagram_RootFeature(), this.getNode(), null, "rootFeature", null, 1, 1, FeatureDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeatureDiagram_RootFeature(), this.getFeature(), null, "rootFeature", null, 1, 1, FeatureDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeatureDiagram_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, FeatureDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeatureDiagram_AnnotatableElement(), ecorePackage.getEObject(), null, "annotatableElement", null, 0, -1, FeatureDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(constraintEClass, Constraint.class, "Constraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConstraint_Source(), this.getNode(), null, "source", null, 1, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getConstraint_Target(), this.getNode(), null, "target", null, 1, -1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConstraint_Source(), this.getFeature(), null, "source", null, 1, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getConstraint_Target(), this.getFeature(), null, "target", null, 1, -1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getConstraint_Description(), ecorePackage.getEString(), "description", null, 1, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(requiredConstraintEClass, RequiredConstraint.class, "RequiredConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(prohibitsConstraintEClass, ProhibitsConstraint.class, "ProhibitsConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(simpleEClass, Simple.class, "Simple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSimple_MandatoryChildren(), this.getFeature(), null, "mandatoryChildren", null, 0, -1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSimple_OptionalChildren(), this.getFeature(), null, "optionalChildren", null, 0, -1, Simple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(simpleEClass, ecorePackage.getEBoolean(), "atLeastOneChild", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(attributeTypesEEnum, AttributeTypes.class, "AttributeTypes");

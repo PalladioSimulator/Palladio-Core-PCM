@@ -1,28 +1,16 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.featuremodel.util;
 
 import de.uka.ipd.sdq.featuremodel.*;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import de.uka.ipd.sdq.featuremodel.Attribute;
-import de.uka.ipd.sdq.featuremodel.Constraint;
-import de.uka.ipd.sdq.featuremodel.Feature;
-import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
-import de.uka.ipd.sdq.featuremodel.FeatureGroup;
-import de.uka.ipd.sdq.featuremodel.NamedElement;
-import de.uka.ipd.sdq.featuremodel.Node;
-import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
-import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
-import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
-import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,6 +32,7 @@ public class featuremodelSwitch<T> {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007-2008, SDQ, IPD, U Karlsruhe, Germany";
+
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -104,24 +93,16 @@ public class featuremodelSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case featuremodelPackage.NODE: {
-				Node node = (Node)theEObject;
-				T result = caseNode(node);
-				if (result == null) result = caseNamedElement(node);
+			case featuremodelPackage.FEATURE: {
+				Feature feature = (Feature)theEObject;
+				T result = caseFeature(feature);
+				if (result == null) result = caseNamedElement(feature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case featuremodelPackage.NAMED_ELEMENT: {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case featuremodelPackage.FEATURE: {
-				Feature feature = (Feature)theEObject;
-				T result = caseFeature(feature);
-				if (result == null) result = caseNode(feature);
-				if (result == null) result = caseNamedElement(feature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,11 +113,16 @@ public class featuremodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case featuremodelPackage.CHILD_RELATION: {
+				ChildRelation childRelation = (ChildRelation)theEObject;
+				T result = caseChildRelation(childRelation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case featuremodelPackage.FEATURE_GROUP: {
 				FeatureGroup featureGroup = (FeatureGroup)theEObject;
 				T result = caseFeatureGroup(featureGroup);
-				if (result == null) result = caseNode(featureGroup);
-				if (result == null) result = caseNamedElement(featureGroup);
+				if (result == null) result = caseChildRelation(featureGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -170,22 +156,29 @@ public class featuremodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case featuremodelPackage.SIMPLE: {
+				Simple simple = (Simple)theEObject;
+				T result = caseSimple(simple);
+				if (result == null) result = caseChildRelation(simple);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Node</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNode(Node object) {
+	public T caseFeature(Feature object) {
 		return null;
 	}
 
@@ -205,21 +198,6 @@ public class featuremodelSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFeature(Feature object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -231,6 +209,21 @@ public class featuremodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseAttribute(Attribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Child Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Child Relation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChildRelation(ChildRelation object) {
 		return null;
 	}
 
@@ -306,6 +299,21 @@ public class featuremodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseProhibitsConstraint(ProhibitsConstraint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSimple(Simple object) {
 		return null;
 	}
 
