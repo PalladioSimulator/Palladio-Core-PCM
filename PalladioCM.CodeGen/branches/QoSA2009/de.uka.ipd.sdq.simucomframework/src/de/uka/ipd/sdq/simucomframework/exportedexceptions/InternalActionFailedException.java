@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework.exceptions;
+package de.uka.ipd.sdq.simucomframework.exportedexceptions;
 
 /**
  * This exception indicates that a failure has occurred during execution of an
