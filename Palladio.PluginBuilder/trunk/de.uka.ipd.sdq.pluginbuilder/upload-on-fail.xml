@@ -7,8 +7,8 @@
 				keyfile="/home/ccontrol/.ssh/id_rsa" 
 				passphrase="" 
 				trust="true" 
-		command="cd /var/www/eclipse/PCM_nightly/; 
-			rm ./*.txt; 
+				command="cd /var/www/eclipse/PCM_nightly/; 
+				rm ./*.txt; 
 			"/>
 	</target>
 
