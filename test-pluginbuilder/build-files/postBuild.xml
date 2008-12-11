@@ -132,7 +132,8 @@
 		    	maxmemory="256m">
 		<!--
 		    	source="${buildDirectory}"  
-		    	excludepackagenames="${build.src.excludes}" 
+		    	excludepackagenames="${build.src.excludes}"
+		    	excludepackagenames="com.*" 
 		    	packagenames="${build.doc.packages}"
 		    	public="true"
 		    	sourcepathref="project.source"
@@ -143,9 +144,12 @@
 			<!-- <taglet name="org.apache.commons.attributes.javadoc.CATaglet" 
 				path="${ant.home}/lib/commons-attributes-compiler-2.2.jar"/> -->	
 
-		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/">
-		    		<!-- <include name="**/*.java"/> -->
-		    		<include name="de.uka.ipd.sdq.**/*.java" /> 
+		    	<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" defaultexcludes="yes">
+		    		<include name="de/uka/ipd/sdq/**/*.java"/>
+		    		<exclude name="com/**" />
+		    		<exclude name="org/**" />
+		    		<exclude name="net/**" />
+		    		<!-- <include name="de.uka.ipd.sdq.**/*.java" /> --> 
 		    		<!-- <exclude name="" /> -->
 		    		<!-- <include name="de.uka.ipd.sdq.codegen.simucontroller/**/*.java" /> -->
 				</fileset>
