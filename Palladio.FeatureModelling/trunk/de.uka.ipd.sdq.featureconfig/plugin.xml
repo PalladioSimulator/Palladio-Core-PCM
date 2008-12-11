@@ -2,19 +2,18 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
+ (c) 2008 SDQ, Universität Karlsruhe (TH), Germany
 
  $Id$
 -->
 
 <plugin>
 
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <package 
-       uri = "http://sdq.ipd.uka.de/FeatureConfig/3.0" 
-       class = "de.uka.ipd.sdq.featureconfig.featureconfigPackage"
-       genModel = "model/FeatureConfig.genmodel" /> 
-  </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://sdq.ipd.uka.de/FeatureConfig/2.0"
+            class="de.uka.ipd.sdq.featureconfig.FeatureconfigPackage"
+            genModel="model/featureconfig.genmodel"/>
+   </extension>
 
 </plugin>
