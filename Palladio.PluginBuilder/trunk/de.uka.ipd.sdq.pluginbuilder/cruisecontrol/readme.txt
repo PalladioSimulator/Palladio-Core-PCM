@@ -1,0 +1,1 @@
+This is just a drop of the cruisecontrol config files. They are not a part of pluginbuiler scripts.
