@@ -1,0 +1,21 @@
+!SESSION 2008-12-11 11:16:35.728 -----------------------------------------------
+eclipse.buildId=unknown
+java.fullversion=J2RE 1.5.0 IBM J9 2.3 Windows Server 2003 x86-32 j9vmwi3223ifx-20080303 (JIT enabled)
+J9VM - 20080228_17641_lHdSMR
+JIT  - 20070820_1846ifx1_r8
+GC   - 200802_28
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Framework arguments:  -product com.ibm.rational.rsa.product.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ibm.rational.rsa.product.ide
+
+!ENTRY org.eclipse.emf.ecore 2 0 2008-12-11 11:20:13.145
+!MESSAGE Both 'org.eclipse.datatools.modelbase.sql' and 'com.ibm.datatools.core' register a package for 'http:///org/eclipse/datatools/modelbase/sql/tables.ecore'
+
+!ENTRY org.eclipse.emf.ecore 2 0 2008-12-11 11:20:13.145
+!MESSAGE Both 'org.eclipse.datatools.modelbase.sql' and 'com.ibm.datatools.core' register a package for 'http:///org/eclipse/datatools/modelbase/sql/schema.ecore'
+
+!ENTRY org.eclipse.emf.ecore 2 0 2008-12-11 11:20:13.145
+!MESSAGE Both 'org.eclipse.datatools.modelbase.sql' and 'com.ibm.datatools.core' register a package for 'http:///org/eclipse/datatools/modelbase/sql/constraints.ecore'
+
+!ENTRY org.eclipse.emf.ecore 2 0 2008-12-11 11:20:13.145
+!MESSAGE Both 'org.eclipse.datatools.modelbase.sql' and 'com.ibm.datatools.core' register a package for 'http:///org/eclipse/datatools/modelbase/sql/datatypes.ecore'
