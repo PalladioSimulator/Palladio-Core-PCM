@@ -2,40 +2,37 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
+ (c) 2008 SDQ, Universität Karlsruhe (TH), Germany
 
  $Id$
 -->
 
 <plugin>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uka.ipd.sdq.featuremodel.presentation.FeaturemodelModelWizardID"
+            name="%_UI_FeaturemodelModelWizard_label"
+            class="de.uka.ipd.sdq.featuremodel.presentation.FeaturemodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FeaturemodelModelFile.gif">
+         <description>%_UI_FeaturemodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
 
-  <extension
-    point = "org.eclipse.ui.newWizards">
-    <category
-      id = "org.eclipse.emf.ecore.Wizard.category.ID"
-      name="%_UI_Wizard_category">
-    </category>
-    <wizard
-      id = "de.uka.ipd.sdq.featuremodel.presentation.featuremodelModelWizardID"
-      name = "%_UI_featuremodelModelWizard_label"
-      class = "de.uka.ipd.sdq.featuremodel.presentation.featuremodelModelWizard"
-      category = "org.eclipse.emf.ecore.Wizard.category.ID"
-      icon = "icons/full/obj16/featuremodelModelFile.gif">
-      <description>%_UI_featuremodelModelWizard_description</description>
-      <selection class = "org.eclipse.core.resources.IResource" />
-    </wizard>
-  </extension>
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.uka.ipd.sdq.featuremodel.presentation.FeaturemodelEditorID"
+            name="%_UI_FeaturemodelEditor_label"
+            icon="icons/full/obj16/FeaturemodelModelFile.gif"
+            extensions="featuremodel"
+            class="de.uka.ipd.sdq.featuremodel.presentation.FeaturemodelEditor"
+            contributorClass="de.uka.ipd.sdq.featuremodel.presentation.FeaturemodelActionBarContributor">
+      </editor>
+   </extension>
 
-  <extension point = "org.eclipse.ui.editors">
-    <editor
-        id = "de.uka.ipd.sdq.featuremodel.presentation.featuremodelEditorID"
-        name = "%_UI_featuremodelEditor_label"
-        icon = "icons/full/obj16/featuremodelModelFile.gif"
-        extensions = "featuremodel"
-        class = "de.uka.ipd.sdq.featuremodel.presentation.featuremodelEditor" 
-        contributorClass="de.uka.ipd.sdq.featuremodel.presentation.featuremodelActionBarContributor" >
-    </editor>
-  </extension>    
 </plugin>
