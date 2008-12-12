@@ -176,6 +176,20 @@
 				</fileset>
 		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/> -->
 	    </javadoc>
+		
+		
+		<!-- SSH test -->		    	
+		<target name="clean_remote">
+			<sshexec host="i43pc12.ipd.uka.de"
+					username="ccontrol"
+					keyfile="/home/ccontrol/.ssh/id_rsa" 
+					passphrase="" 
+					trust="true" 
+			command="cd /var/www/eclipse/PCM_nightly/; 
+				"/>
+		</target>		    	
+		
+		
 	</target>
 	<!-- ======================================== -->
 
