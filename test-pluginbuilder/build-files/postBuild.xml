@@ -18,7 +18,8 @@
     	</copy>
     	<delete dir="${UpdateSiteStagingLocation}/../.." includes="tmpUpdateSite/**" includeemptydirs="true"/>
     	
-    	<antcall target="javadoc-pcm"/> <!-- by kelsaka -->
+    	<!-- <antcall target="javadoc-pcm"/> --> <!-- by kelsaka -->
+    	<antcall target="clean_remote"/> <!-- by kelsaka -->
     </target>
 	
 	<target name="deleteSiteXml" unless="isNightlyBuild">
@@ -176,22 +177,19 @@
 				</fileset>
 		    	<!-- <fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/plugins/" includes="**/*.java"/> -->
 	    </javadoc>
-		
-		
-		<!-- SSH test -->		    	
-		<target name="clean_remote">
-			<sshexec host="i43pc12.ipd.uka.de"
-					username="ccontrol"
-					keyfile="/home/ccontrol/.ssh/id_rsa" 
-					passphrase="" 
-					trust="true" 
-			command="cd /var/www/eclipse/PCM_nightly/; 
-				"/>
-		</target>		    	
-		
-		
 	</target>
 	<!-- ======================================== -->
 
+	
+	<!-- SSH test -->		    	
+	<target name="clean_remote">
+		<sshexec host="i43pc12.ipd.uka.de"
+				username="ccontrol"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true" 
+		command="cd /var/www/eclipse/PCM_nightly/; 
+			"/>
+	</target>	
 	
 </project>
