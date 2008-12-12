@@ -12,6 +12,9 @@ public class ClosedWorkload implements IWorkloadDriver {
 	private int population;
 	private IUserFactory userFactory;
 
+	private int runCount = 0;
+	private int failureCount = 0;
+
 	/**
 	 * Constructor of the closed workload driver
 	 * @param userFactory Factory used to create the users 

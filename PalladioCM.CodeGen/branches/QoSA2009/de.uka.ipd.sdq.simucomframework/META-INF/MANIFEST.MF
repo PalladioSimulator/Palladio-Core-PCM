@@ -5,7 +5,6 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Export-Package: de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.simucomframework.abstractSimEngine,
- de.uka.ipd.sdq.simucomframework.exportedexceptions,
  de.uka.ipd.sdq.simucomframework.fork,
  de.uka.ipd.sdq.simucomframework.model,
  de.uka.ipd.sdq.simucomframework.resources,

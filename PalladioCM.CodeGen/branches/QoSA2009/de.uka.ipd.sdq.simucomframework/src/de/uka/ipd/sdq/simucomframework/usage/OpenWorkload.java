@@ -57,6 +57,7 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 
 	private void generateUser() {
 		logger.info("Spawning New User...");
-		userFactory.createUser().startUserLife();
+		IUser newUser = userFactory.createUser();
+		newUser.startUserLife();
 	}	
 }
