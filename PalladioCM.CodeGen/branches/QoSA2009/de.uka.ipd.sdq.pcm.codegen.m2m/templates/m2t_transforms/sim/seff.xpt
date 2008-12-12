@@ -25,8 +25,25 @@
    } 
 «ENDDEFINE»
 
+«REM» (fb) For reliability simulation, no resource demands have to be generated
 «DEFINE Action FOR InternalAction»
 	«EXPAND m2t_transforms::resources::ResourceDemands FOR this»
+«ENDDEFINE»
+«ENDREM»
+
+«DEFINE Action FOR InternalAction»
+    // Simulate a failure that occurs with a predefined probability:
+    {
+        double failureProbability;
+        try {
+		    failureProbability = Double.parseDouble("«this.failureProbability»");
+		} catch (NumberFormatException excepion) {
+		    failureProbability = 0.0;
+		}
+  		if ((Math.random() < failureProbability)) {
+    	    throw new java.lang.RuntimeException("Internal Action Failed");
+  		}
+    }
 «ENDDEFINE»
 
 «DEFINE Action FOR BranchAction»
