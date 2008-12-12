@@ -89,18 +89,33 @@ public class TransferSimulationBundleToDock implements IJob {
 						}
 					}
 					configureLogger();
+					int openRunCount = OpenWorkloadUser.getRunCount();
+					int openFailureCount = OpenWorkloadUser.getFailureCount();
+					double openFailureRate = (openRunCount == 0) ? 0
+							: ((double) openFailureCount / (double) openRunCount);
+					int closedRunCount = ClosedWorkloadUser.getRunCount();
+					int closedFailureCount = ClosedWorkloadUser
+							.getFailureCount();
+					double closedFailureRate = (closedRunCount == 0) ? 0
+							: ((double) closedFailureCount / (double) closedRunCount);
 					logger
 							.info("Simulation results: OpenWorkloadUser.runCount = "
-									+ OpenWorkloadUser.getRunCount());
+									+ openRunCount);
 					logger
 							.info("Simulation results: OpenWorkloadUser.failureCount = "
-									+ OpenWorkloadUser.getFailureCount());
+									+ openFailureCount);
+					logger
+							.info("Simulation results: OpenWorkloadUser.failureRate = "
+									+ openFailureRate);
 					logger
 							.info("Simulation results: ClosedWorkloadUser.runCount = "
-									+ ClosedWorkloadUser.getRunCount());
+									+ closedRunCount);
 					logger
 							.info("Simulation results: ClosedWorkloadUser.failureCount = "
-									+ ClosedWorkloadUser.getFailureCount());
+									+ closedFailureCount);
+					logger
+							.info("Simulation results: ClosedWorkloadUser.failureRate = "
+									+ closedFailureRate);
 					target.dispose();
 					launch.removeDebugTarget(target);
 				}
