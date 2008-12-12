@@ -1,4 +1,4 @@
-#Tue Nov 04 10:00:38 CET 2008
+#Fri Dec 12 13:33:00 CET 2008
 eclipse.preferences.version=1
 encoding/TradingSystem.Database.beginTransaction.seff_diagram=UTF-8
 encoding/TradingSystem.Database.closePersistenceContext.seff_diagram=UTF-8
@@ -24,5 +24,7 @@ encoding/TradingSystem.Inventory.Data.Store.queryStockItemById.seff_diagram=UTF-
 encoding/TradingSystem.Inventory.Data.Store.queryStoreById.seff_diagram=UTF-8
 encoding/Tradingsystem.Webservices.InventoryService.bookSale.seff_diagram=UTF-8
 encoding/Tradingsystem.Webservices.InventoryService.changePrice.seff_diagram=UTF-8
+encoding/orc_closed.usagemodel=UTF-8
+encoding/orc_closed.usagemodel_diagram=UTF-8
 encoding/orc_distributed.allocation=UTF-8
 encoding/orc_distributed.allocation_diagram=UTF-8
