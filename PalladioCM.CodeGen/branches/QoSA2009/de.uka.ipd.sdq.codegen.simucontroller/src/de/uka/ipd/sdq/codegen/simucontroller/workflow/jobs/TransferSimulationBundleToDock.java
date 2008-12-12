@@ -116,6 +116,8 @@ public class TransferSimulationBundleToDock implements IJob {
 					logger
 							.info("Simulation results: ClosedWorkloadUser.failureRate = "
 									+ closedFailureRate);
+					OpenWorkloadUser.resetCounters();
+					ClosedWorkloadUser.resetCounters();
 					target.dispose();
 					launch.removeDebugTarget(target);
 				}
