@@ -60,6 +60,8 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
+import com.sun.org.apache.bcel.internal.generic.GOTO;
+
 import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
 import de.uka.ipd.sdq.featureconfig.ConfigNode;
 import de.uka.ipd.sdq.featureconfig.ConfigState;
@@ -326,95 +328,15 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		return (Configuration)newResource;
 	}
 	
-	/**
-	 * Handles the different cases for a loaded *.featuremodel-resource
-	 * 
-	 * @param resource The resource in which the configuration object should be stored
-	 * @return The resource object which stores the (prop. new) overrides config object
-	 */
-	protected Resource handleConfigCases(Resource resource) {
-		//Check if featureconfig file is valid (Configuration object can be referenced)
-		Configuration configuration = getConfiguration(resource);
-		
-		FeatureConfig tempOverrides = configuration.getConfigOverrides();
-		FeatureConfig tempDefault = configuration.getDefaultConfig();
-		
-		//Both FeatureConfigs are null
-		if (tempOverrides == null && tempDefault == null) {
-			//TODO needs to be checked if its really necessary to ask for BOTH locations:
-			//file selection wizard asking for featuremodel and configmodel location
-			//instanciate a overrides config
-		}
-		else if (tempOverrides == null && tempDefault != null) {
-			EList<ConfigNode> configList = tempDefault.getConfignode();
-			
-			if (configList.isEmpty()) {
-				//TODO needs to be checked if its really necessary to ask for BOTH locations:
-				//file selection wizard asking for featuremodel and configmodel location
-				//instanciate a overrides config
-			}
-			else {
-				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
-				String fileName = resource.getURI().trimFileExtension().lastSegment();
-				URI newResourceURI = startFileWizard(fileName);
-				createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
-			}
-		}
-		else if (tempOverrides != null && tempDefault == null) {
-			EList<ConfigNode> configList = tempOverrides.getConfignode();
-			
-			if (configList.isEmpty()) {
-				//TODO needs to be checked if its really necessary to ask for BOTH locations:
-				//file selection wizard asking for featuremodel and configmodel location
-				//instanciate a overrides config
-			}
-			else {
-				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
-				overridesConfig = tempOverrides;
-			}
-		}
-		else {
-			boolean configPresent = false;
-			
-			//Check for OverridesConfig
-			EList<ConfigNode> configList = tempOverrides.getConfignode();
-			
-			if (!(configList.isEmpty())) {
-				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
-				overridesConfig = tempOverrides;
-				configPresent = true;
-			}
-			
-			//Check for DefaultConfig
-			configList = tempDefault.getConfignode();
-			
-			if (!(configList.isEmpty())) {
-				if (configPresent) {
-					defaultConfig = tempDefault;
-				}
-				else {
-					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
-					String fileName = resource.getURI().trimFileExtension().lastSegment();
-					URI newResourceURI = startFileWizard(fileName);
-					createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
-				}
-			}
-		}
-		return resource;
-	}
 	
-	@Override
-	protected void createPages() {
-		
-		createResource();
-		
-		//get the file extension, file name and the full path to the resource
-		String fileExtension = resource.getURI().fileExtension();
-		String fileName = resource.getURI().trimFileExtension().lastSegment();
-		String path = Platform.getLocation() + resource.getURI().trimFileExtension().toPlatformString(true);
-		int fileNameLocation = path.lastIndexOf(fileName);
-		path = path.substring(0, fileNameLocation);
-		
+	/**
+	 * Handles the different file types for the loaded resource.
+	 * 
+	 * @param fileExtension The file extension of the loaded resource
+	 * @param path The complete path to the file
+	 * @param fileName The filename
+	 */
+	protected void handleFileCases(String fileExtension, String path, String fileName) {
 		//featuremodel file present
 		if (fileExtension.equals("featuremodel")) {
 			//Check if featuremodel file is valid (FeatureDiagram object can be referenced)
@@ -524,6 +446,99 @@ public class FeatureModelInstanceEditor extends MultiPageEditorPart implements I
 		else {
 			
 		}
+	}
+	
+	/**
+	 * Handles the different cases for a loaded *.featuremodel-resource
+	 * 
+	 * @param resource The resource in which the configuration object should be stored
+	 * @return The resource object which stores the (prop. new) overrides config object
+	 */
+	protected Resource handleConfigCases(Resource resource) {
+		//Check if featureconfig file is valid (Configuration object can be referenced)
+		Configuration configuration = getConfiguration(resource);
+		
+		FeatureConfig tempOverrides = configuration.getConfigOverrides();
+		FeatureConfig tempDefault = configuration.getDefaultConfig();
+		
+		//Both FeatureConfigs are null
+		if (tempOverrides == null && tempDefault == null) {
+			//TODO needs to be checked if its really necessary to ask for BOTH locations:
+			//file selection wizard asking for featuremodel and configmodel location
+			//instanciate a overrides config
+		}
+		else if (tempOverrides == null && tempDefault != null) {
+			EList<ConfigNode> configList = tempDefault.getConfignode();
+			
+			if (configList.isEmpty()) {
+				//TODO needs to be checked if its really necessary to ask for BOTH locations:
+				//file selection wizard asking for featuremodel and configmodel location
+				//instanciate a overrides config
+			}
+			else {
+				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+				String fileName = resource.getURI().trimFileExtension().lastSegment();
+				URI newResourceURI = startFileWizard(fileName);
+				createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
+			}
+		}
+		else if (tempOverrides != null && tempDefault == null) {
+			EList<ConfigNode> configList = tempOverrides.getConfignode();
+			
+			if (configList.isEmpty()) {
+				//TODO needs to be checked if its really necessary to ask for BOTH locations:
+				//file selection wizard asking for featuremodel and configmodel location
+				//instanciate a overrides config
+			}
+			else {
+				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+				overridesConfig = tempOverrides;
+			}
+		}
+		else {
+			boolean configPresent = false;
+			
+			//Check for OverridesConfig
+			EList<ConfigNode> configList = tempOverrides.getConfignode();
+			
+			if (!(configList.isEmpty())) {
+				featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+				overridesConfig = tempOverrides;
+				configPresent = true;
+			}
+			
+			//Check for DefaultConfig
+			configList = tempDefault.getConfignode();
+			
+			if (!(configList.isEmpty())) {
+				if (configPresent) {
+					defaultConfig = tempDefault;
+				}
+				else {
+					featureDiagram = navigateToFeatureDiagram((Feature)configList.iterator().next().getOrigin());
+					String fileName = resource.getURI().trimFileExtension().lastSegment();
+					URI newResourceURI = startFileWizard(fileName);
+					createNewConfigResource(newResourceURI, featureDiagram, tempDefault);
+				}
+			}
+		}
+		return resource;
+	}
+	
+	@Override
+	protected void createPages() {
+		
+		createResource();
+		
+		//get the file extension, file name and the full path to the resource
+		String fileExtension = resource.getURI().fileExtension();
+		String fileName = resource.getURI().trimFileExtension().lastSegment();
+		String path = Platform.getLocation() + resource.getURI().trimFileExtension().toPlatformString(true);
+		int fileNameLocation = path.lastIndexOf(fileName);
+		path = path.substring(0, fileNameLocation);
+		
+		//handles the different cases of opened files and model/configuration cases
+		handleFileCases(fileExtension, path, fileName);
 		
 		if (featureDiagram == null || overridesConfig == null) {
 			ErrorDisplayDialog errord = new ErrorDisplayDialog(getContainer().getShell(),new Throwable("Something went wrong during the resource loading process. Please restart the Editor with a correct *.featureconfig or *.featuremodel file!"));
