@@ -65,23 +65,23 @@ public abstract class AbstractScheduledResource extends Entity {
 		// this.busyState =
 		// createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Busy");
 
-		this.stateSensor = SensorHelper.createOrReuseStateSensor(myModel
-				.getDAOFactory(), myModel.getExperimentDatastore(), myModel
-				.getExperimentDatastore().getExperimentName()
-				+ ": Utilisation of " + description, this.idleState);
-		if (!this.stateSensor.getSensorStates().contains(idleState))
-			this.stateSensor.addSensorState(idleState);
+//		this.stateSensor = SensorHelper.createOrReuseStateSensor(myModel
+//				.getDAOFactory(), myModel.getExperimentDatastore(), myModel
+//				.getExperimentDatastore().getExperimentName()
+//				+ ": Utilisation of " + description, this.idleState);
+//		if (!this.stateSensor.getSensorStates().contains(idleState))
+//			this.stateSensor.addSensorState(idleState);
 		// this.stateSensor.addSensorState(busyState);
-		this.waitTimeSensor = SensorHelper.createOrReuseTimeSensor(myModel
-				.getDAOFactory(), myModel.getExperimentDatastore(), myModel
-				.getExperimentDatastore().getExperimentName()
-				+ ": Wait time at " + description);
+//		this.waitTimeSensor = SensorHelper.createOrReuseTimeSensor(myModel
+//				.getDAOFactory(), myModel.getExperimentDatastore(), myModel
+//				.getExperimentDatastore().getExperimentName()
+//				+ ": Wait time at " + description);
 
 		// used to log requested resource demands
-		this.demandTimeSensor = SensorHelper.createOrReuseTimeSensor(myModel
-				.getDAOFactory(), myModel.getExperimentDatastore(), myModel
-				.getExperimentDatastore().getExperimentName()
-				+ ": Demanded time at " + description);
+//		this.demandTimeSensor = SensorHelper.createOrReuseTimeSensor(myModel
+//				.getDAOFactory(), myModel.getExperimentDatastore(), myModel
+//				.getExperimentDatastore().getExperimentName()
+//				+ ": Demanded time at " + description);
 
 		this.experimentRun = myModel.getCurrentExperimentRun();
 
@@ -164,9 +164,9 @@ public abstract class AbstractScheduledResource extends Entity {
 			if (calculatedDemand < 0)
 				throw new NegativeDemandIssuedException(
 						"A negative demand occured. Demand was " + demand);
-			experimentRun.addTimeSpanMeasurement(demandTimeSensor, this
-					.getModel().getSimulationControl()
-					.getCurrentSimulationTime(), demand);
+//			experimentRun.addTimeSpanMeasurement(demandTimeSensor, this
+//					.getModel().getSimulationControl()
+//					.getCurrentSimulationTime(), demand);
 			JobAndDemandStruct job = new JobAndDemandStruct(thread,
 					calculatedDemand, this, this.getModel()
 							.getSimulationControl().getCurrentSimulationTime());
@@ -215,11 +215,11 @@ public abstract class AbstractScheduledResource extends Entity {
 	public JobAndDemandStruct removeFinishedJob() {
 		JobAndDemandStruct job = myStrategy.removeFinishedJob();
 		if (this.getModel().getSimulationControl().isRunning()) {
-			experimentRun.addTimeSpanMeasurement(waitTimeSensor, this
-					.getModel().getSimulationControl()
-					.getCurrentSimulationTime(), job.getWaitTime(this
-					.getModel().getSimulationControl()
-					.getCurrentSimulationTime()));
+//			experimentRun.addTimeSpanMeasurement(waitTimeSensor, this
+//					.getModel().getSimulationControl()
+//					.getCurrentSimulationTime(), job.getWaitTime(this
+//					.getModel().getSimulationControl()
+//					.getCurrentSimulationTime()));
 		}
 		return job;
 	}
@@ -249,9 +249,9 @@ public abstract class AbstractScheduledResource extends Entity {
 	public void setIdle(boolean b) {
 		if (this.idle != b || lastCount != myStrategy.getTotalJobCount()) {
 			if (b) {
-				experimentRun.addStateMeasurement(stateSensor, idleState, this
-						.getModel().getSimulationControl()
-						.getCurrentSimulationTime());
+//				experimentRun.addStateMeasurement(stateSensor, idleState, this
+//						.getModel().getSimulationControl()
+//						.getCurrentSimulationTime());
 			} else {
 				String stateLiteral = "Busy "
 						+ Integer.toString(myStrategy.getTotalJobCount())
@@ -262,13 +262,13 @@ public abstract class AbstractScheduledResource extends Entity {
 							((SimuComModel) this.getModel()).getDAOFactory(),
 							stateLiteral);
 					statesCache.put(stateLiteral, newState);
-					if (!stateSensor.getSensorStates().contains(newState))
-						stateSensor.addSensorState(newState);
+//					if (!stateSensor.getSensorStates().contains(newState))
+//						stateSensor.addSensorState(newState);
 				}
 				State nrState = statesCache.get(stateLiteral);
-				experimentRun.addStateMeasurement(stateSensor, nrState, this
-						.getModel().getSimulationControl()
-						.getCurrentSimulationTime());
+//				experimentRun.addStateMeasurement(stateSensor, nrState, this
+//						.getModel().getSimulationControl()
+//						.getCurrentSimulationTime());
 			}
 		}
 		this.idle = b;
@@ -303,8 +303,8 @@ public abstract class AbstractScheduledResource extends Entity {
 		if (!this.isStopped ){
 			logger.debug("Stopping Resource " + this.getName());
 			this.isStopped = true;
-			experimentRun.addStateMeasurement(stateSensor, idleState, getModel()
-					.getSimulationControl().getCurrentSimulationTime());
+//			experimentRun.addStateMeasurement(stateSensor, idleState, getModel()
+//					.getSimulationControl().getCurrentSimulationTime());
 			this.getModel().getSimulationStatus().getResourceStatus()
 					.getActiveResources().remove(myResourceStatus);
 		}
