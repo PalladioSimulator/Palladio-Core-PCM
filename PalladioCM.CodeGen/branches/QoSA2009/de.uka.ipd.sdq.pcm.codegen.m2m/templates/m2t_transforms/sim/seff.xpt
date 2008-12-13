@@ -44,6 +44,7 @@
     	    throw new java.lang.RuntimeException("Internal Action Failed");
   		}
     }
+	«EXPAND m2t_transforms::resources::ResourceDemands FOR this»
 «ENDDEFINE»
 
 «DEFINE Action FOR BranchAction»

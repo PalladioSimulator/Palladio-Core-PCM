@@ -12,8 +12,8 @@
 // Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
    {
-      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
-      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
+      // double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
+      // ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
    }
 «ENDDEFINE»
 
