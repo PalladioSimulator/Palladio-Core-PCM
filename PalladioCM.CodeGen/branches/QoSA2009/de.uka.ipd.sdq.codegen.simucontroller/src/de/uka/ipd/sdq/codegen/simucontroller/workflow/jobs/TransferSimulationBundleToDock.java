@@ -80,6 +80,7 @@ public class TransferSimulationBundleToDock implements IJob {
 		} finally {
 			if (isDebug) {
 				if (target != null) {
+					
 					// Wait for termination, needed as termination is reported
 					// via async events by the dock
 					while (!target.isTerminated()) {
@@ -88,6 +89,8 @@ public class TransferSimulationBundleToDock implements IJob {
 						} catch (InterruptedException e) {
 						}
 					}
+					
+					// Do the reliability simulation logging:
 					configureLogger();
 					int openRunCount = OpenWorkloadUser.getRunCount();
 					int openFailureCount = OpenWorkloadUser.getFailureCount();
@@ -118,6 +121,8 @@ public class TransferSimulationBundleToDock implements IJob {
 									+ closedFailureRate);
 					OpenWorkloadUser.resetCounters();
 					ClosedWorkloadUser.resetCounters();
+					
+					// Finish:
 					target.dispose();
 					launch.removeDebugTarget(target);
 				}
