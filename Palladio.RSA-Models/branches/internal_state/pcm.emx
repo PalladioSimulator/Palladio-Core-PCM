@@ -8418,7 +8418,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_RARgD8eIEd2Gx_XsNuwS4w"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_RARgAceIEd2Gx_XsNuwS4w" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RARgAseIEd2Gx_XsNuwS4w" x="7291" y="951"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RARgAseIEd2Gx_XsNuwS4w" x="6974" y="951"/>
           </children>
           <children xmi:id="_WH8kcceIEd2Gx_XsNuwS4w" element="_WH8kcMeIEd2Gx_XsNuwS4w">
             <children xmi:id="_WH8kdMeIEd2Gx_XsNuwS4w" type="ImageCompartment">
@@ -8440,7 +8440,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_WH8kgMeIEd2Gx_XsNuwS4w"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_WH8kcseIEd2Gx_XsNuwS4w" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WH8kc8eIEd2Gx_XsNuwS4w" x="6340" y="3170"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WH8kc8eIEd2Gx_XsNuwS4w" x="6023" y="3170"/>
           </children>
           <children xmi:id="_U16vUMedEd2Kz4IReC2sQA" element="_GmAWYOQSEdqeH_WIC9QRew">
             <children xmi:id="_U16vU8edEd2Kz4IReC2sQA" type="ImageCompartment">
@@ -8495,7 +8495,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             </children>
             <children xmi:id="_FnjM8MeLEd2Gx_XsNuwS4w" type="FromRoleLabel" element="_FnZb4ceLEd2Gx_XsNuwS4w">
               <children xmi:id="_FnjM8seLEd2Gx_XsNuwS4w" type="FromRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_FnjM8ceLEd2Gx_XsNuwS4w" x="-748" y="-3241"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_FnjM8ceLEd2Gx_XsNuwS4w" x="-114" y="-3414"/>
             </children>
             <children xmi:id="_FnjM88eLEd2Gx_XsNuwS4w" type="ToQualifierLabel" element="_FnZb5MeLEd2Gx_XsNuwS4w">
               <children xmi:id="_FnjM9ceLEd2Gx_XsNuwS4w" type="QualifierCompartment">
@@ -8947,7 +8947,7 @@ the internal structure depends on the way the component is realised. In general,
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lJPgATj-Edy2j_4z2PHNJQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lJPgADj-Edy2j_4z2PHNJQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_wtY8kceJEd2Gx_XsNuwS4w" name="state_BasicComponent" visibility="private" type="_LpHK4MeEEd2Gx_XsNuwS4w" association="_wtY8kMeJEd2Gx_XsNuwS4w">
+        <ownedAttribute xmi:id="_wtY8kceJEd2Gx_XsNuwS4w" name="state_BasicComponent" visibility="private" type="_LpHK4MeEEd2Gx_XsNuwS4w" aggregation="composite" association="_wtY8kMeJEd2Gx_XsNuwS4w">
           <ownedComment xmi:id="_toLCoMeKEd2Gx_XsNuwS4w" annotatedElement="_wtY8kceJEd2Gx_XsNuwS4w">
             <body>This property represents the internal state (e.g., persistent, the values of stete attributes),  that are hold by this basic component.</body>
           </ownedComment>
