@@ -18,7 +18,7 @@
 		«IF annotations.size == 1»
 			double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«annotations.get(0).specification_SpecifiedExecutionTime.specification.specificationString()»"));
 			logger.info("SystemExternalCall «annotations.get(0).signature_SpecifiedQoSAnnation.serviceName» delaying execution for "+delay);
-			ctx.getThread().hold(new desmoj.core.simulator.SimTime(delay));
+			ctx.getThread().hold(delay);
 		«ENDIF»
 	«ENDLET»
 	return resultStackFrame;
