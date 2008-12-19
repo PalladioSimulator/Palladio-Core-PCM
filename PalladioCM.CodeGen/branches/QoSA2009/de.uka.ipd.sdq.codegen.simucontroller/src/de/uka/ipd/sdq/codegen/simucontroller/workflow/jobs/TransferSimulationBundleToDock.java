@@ -1,9 +1,5 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.PartInitException;
@@ -18,9 +14,8 @@ import de.uka.ipd.sdq.codegen.workflow.IJobWithResult;
 import de.uka.ipd.sdq.codegen.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.workflow.RollbackFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
-import de.uka.ipd.sdq.simucomframework.usage.ClosedWorkloadUser;
-import de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUser;
 
 /**
  * Installs a Plug-In from the specified location string with use a bundeles
@@ -30,13 +25,12 @@ import de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUser;
 public class TransferSimulationBundleToDock implements IJob {
 
 	/**
-	 * This job's parent job which creates a JAR archive of the simulation
-	 * bundle
+	 * This job's parent job which creates a JAR archive of the simulation bundle 
 	 */
 	private IJobWithResult<byte[]> myCreatePluginProjectJob;
-
+	
 	/**
-	 * Configuration object for the simulation
+	 * Configuration object for the simulation 
 	 */
 	private SimuComConfig myConfig;
 
@@ -44,16 +38,13 @@ public class TransferSimulationBundleToDock implements IJob {
 
 	private boolean isDebug;
 
-	private static Logger logger = Logger
-			.getLogger(TransferSimulationBundleToDock.class.getName());
-
 	public TransferSimulationBundleToDock(
 			IJobWithResult<byte[]> createPluginJarJob,
 			SimuComConfig simuConfig, ILaunch launch) {
 		myCreatePluginProjectJob = createPluginJarJob;
 		myConfig = simuConfig;
 		this.launch = launch;
-		this.isDebug = true;// simuConfig.isDebug();
+		this.isDebug = simuConfig.isDebug();
 	}
 
 	public void execute() throws JobFailedException {
@@ -62,67 +53,32 @@ public class TransferSimulationBundleToDock implements IJob {
 
 		showSimuDockView();
 		try {
-			DockModel dock = SimuControllerPlugin.getDockModel()
-					.getBestFreeDock();
+			DockModel dock = SimuControllerPlugin.getDockModel().getBestFreeDock();
 			SimulationDockService simService = dock.getService();
 			if (isDebug) {
-				target = new SimulationDebugTarget(launch, dock);
+				target  = new SimulationDebugTarget(launch,dock);
 				launch.addDebugTarget(target);
 			}
-			simService.simulate(myConfig, myCreatePluginProjectJob.getResult(),
+			simService.simulate(
+					myConfig,
+					myCreatePluginProjectJob.getResult(),
 					dock.isRemote());
 		} catch (InterruptedException e) {
-			throw new JobFailedException(
-					"Job failed while waiting for a dock to become available",
-					e);
-		} catch (Exception e) {
-			throw new JobFailedException("Job failed.", e);
-		} finally {
+			throw new JobFailedException("Job failed while waiting for a dock to become available",e);
+		}
+		catch (Exception e) {
+			throw new JobFailedException("Job failed.",e);
+		}
+		finally {
 			if (isDebug) {
 				if (target != null) {
-					
-					// Wait for termination, needed as termination is reported
-					// via async events by the dock
+					// Wait for termination, needed as termination is reported via async events by the dock
 					while (!target.isTerminated()) {
 						try {
 							Thread.sleep(100);
 						} catch (InterruptedException e) {
 						}
 					}
-					
-					// Do the reliability simulation logging:
-					configureLogger();
-					int openRunCount = OpenWorkloadUser.getRunCount();
-					int openFailureCount = OpenWorkloadUser.getFailureCount();
-					double openFailureRate = (openRunCount == 0) ? 0
-							: ((double) openFailureCount / (double) openRunCount);
-					int closedRunCount = ClosedWorkloadUser.getRunCount();
-					int closedFailureCount = ClosedWorkloadUser
-							.getFailureCount();
-					double closedFailureRate = (closedRunCount == 0) ? 0
-							: ((double) closedFailureCount / (double) closedRunCount);
-					logger
-							.info("Simulation results: OpenWorkloadUser.runCount = "
-									+ openRunCount);
-					logger
-							.info("Simulation results: OpenWorkloadUser.failureCount = "
-									+ openFailureCount);
-					logger
-							.info("Simulation results: OpenWorkloadUser.failureRate = "
-									+ openFailureRate);
-					logger
-							.info("Simulation results: ClosedWorkloadUser.runCount = "
-									+ closedRunCount);
-					logger
-							.info("Simulation results: ClosedWorkloadUser.failureCount = "
-									+ closedFailureCount);
-					logger
-							.info("Simulation results: ClosedWorkloadUser.failureRate = "
-									+ closedFailureRate);
-					OpenWorkloadUser.resetCounters();
-					ClosedWorkloadUser.resetCounters();
-					
-					// Finish:
 					target.dispose();
 					launch.removeDebugTarget(target);
 				}
@@ -131,23 +87,20 @@ public class TransferSimulationBundleToDock implements IJob {
 	}
 
 	private void showSimuDockView() {
-		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable(){
 
 			public void run() {
 				IViewPart viewer;
 				try {
-					viewer = PlatformUI.getWorkbench()
-							.getActiveWorkbenchWindow().getActivePage()
-							.showView(DockStatusViewPart.ID);
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-							.getActivePage().bringToTop(viewer);
+					viewer = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView(DockStatusViewPart.ID);
+					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().bringToTop(viewer);
 					viewer.setFocus();
 				} catch (PartInitException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-
+			
 		});
 	}
 
@@ -156,12 +109,5 @@ public class TransferSimulationBundleToDock implements IJob {
 	}
 
 	public void rollback() throws RollbackFailedException {
-	}
-
-	private void configureLogger() {
-		PatternLayout myLayout = new PatternLayout(
-				"%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
-		ConsoleAppender myAppender = new ConsoleAppender(myLayout);
-		BasicConfigurator.configure(myAppender);
 	}
 }
