@@ -22,34 +22,41 @@ import de.uka.ipd.sdq.codegen.workflow.UserCanceledException;
 public class MultipleSimulationRunsCompositeJob extends
 		OrderPreservingCompositeJob {
 
-
 	private ExecutorService executorService;
 	private ExecutorCompletionService<Boolean> executorCompletionService;
 	private ArrayList<Future<Boolean>> oawGeneratorFutures = new ArrayList<Future<Boolean>>();
 
-	public MultipleSimulationRunsCompositeJob(SimuAttributesGetMethods attributes) throws JobFailedException, CoreException {
+	public MultipleSimulationRunsCompositeJob(
+			SimuAttributesGetMethods attributes) throws JobFailedException,
+			CoreException {
 		setupExecutor();
 
 		Map<String, String> p = attributes.getOAWWorkflowProperties(1);
-		double current = Double.parseDouble(p.get(ConstantsContainer.MINIMUM_TEXT));
-		double step = Double.parseDouble(p.get(ConstantsContainer.STEP_WIDTH_TEXT));
+		double current = Double.parseDouble(p
+				.get(ConstantsContainer.MINIMUM_TEXT));
+		double step = Double.parseDouble(p
+				.get(ConstantsContainer.STEP_WIDTH_TEXT));
 		double max = Double.parseDouble(p.get(ConstantsContainer.MAXIMUM_TEXT));
 		int i = 1;
 		for (; current <= max; current += step) {
-			this.addJob(new SimulationRunCompositeJob(attributes,i,false,null));
+			this.addJob(new SimulationRunCompositeJob(attributes, i, false,
+					null));
 			i++;
 		}
 	}
 
 	private void setupExecutor() {
-		executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-		executorCompletionService = new ExecutorCompletionService<Boolean>(executorService);
+		// executorService =
+		// Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+		executorService = Executors.newFixedThreadPool(1);
+		executorCompletionService = new ExecutorCompletionService<Boolean>(
+				executorService);
 	}
 
 	public void execute() throws JobFailedException, UserCanceledException {
-		
+
 		for (final IJob job : myJobs) {
-			Callable<Boolean> task = new Callable<Boolean>(){
+			Callable<Boolean> task = new Callable<Boolean>() {
 
 				public Boolean call() throws Exception {
 					job.execute();
@@ -57,17 +64,19 @@ public class MultipleSimulationRunsCompositeJob extends
 					try {
 						job.rollback();
 					} catch (RollbackFailedException e) {
-						throw new JobFailedException("Automated simulation run failed",e);
+						throw new JobFailedException(
+								"Automated simulation run failed", e);
 					}
 					return true;
 				}
-				
+
 			};
 			oawGeneratorFutures.add(executorCompletionService.submit(task));
 		}
 		while (oawGeneratorFutures.size() > 0) {
 			try {
-				Future<Boolean> completedTask = executorCompletionService.take();
+				Future<Boolean> completedTask = executorCompletionService
+						.take();
 				Boolean result = completedTask.get();
 				oawGeneratorFutures.remove(completedTask);
 			} catch (InterruptedException e) {
