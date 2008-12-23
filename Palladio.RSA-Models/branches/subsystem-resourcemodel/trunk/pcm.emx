@@ -12098,24 +12098,11 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
       <packageImport xmi:id="_arQ9cDRAEdun4NCFPwZksA" importedPackage="_LaA6ICh9Edue7oeC4NTCGg"/>
       <packageImport xmi:id="_UeII8DREEdun4NCFPwZksA" importedPackage="_LaA6ICh9Edue7oeC4NTCGg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_9nOFcOD7Edq8ysXH3gTiEg" name="AllocationContext">
-        <ownedRule xmi:id="_lRvw8MePEd2TNKuW7xAQHw" name="AnAllocationConnectorConnectsToAComponentDeployedInAScopeOfTheAllocationConext" constrainedElement="_9nOFcOD7Edq8ysXH3gTiEg">
-          <ownedComment xmi:id="_OysCkMeSEd2TNKuW7xAQHw" annotatedElement="_lRvw8MePEd2TNKuW7xAQHw">
-            <body>An AllocationConnector has to refer to a ProvidedRole which belongs to a AssemblyContext of one of the InfrastructureScopes of the AllocationContext.</body>
-          </ownedComment>
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_lRvw8cePEd2TNKuW7xAQHw">
-            <language>OCL</language>
-            <body>self.allocationConnectors_AllocationContext->forAll(connector|self.infrastructureComponentScope_AllocationContext->exists(scope|scope.assemblyContext_InfrastructureComponentScope = connector.assemblyContext_AllocationConnector))</body>
-          </specification>
-        </ownedRule>
         <generalization xmi:id="_Yyn7QGdNEduCGaQAxkcIwA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_0tQB0eEAEdq8ysXH3gTiEg" name="resourceContainer_AllocationContext" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_0tQB0OEAEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="__Tb3AWc_EduCGaQAxkcIwA" name="assemblyContext_AllocationContext" type="_EfLuYOJSEdqxcra4qpeplw" association="__Tb3AGc_EduCGaQAxkcIwA">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__TloAGc_EduCGaQAxkcIwA" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__Tb3A2c_EduCGaQAxkcIwA" value="1"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_cyNE8cIBEd2S28mvKHDQFQ" name="controllerAllocationConnector_AllocationContext" visibility="public" aggregation="composite" association="_cyNE8MIBEd2S28mvKHDQFQ">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cyNE88IBEd2S28mvKHDQFQ" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cyNE8sIBEd2S28mvKHDQFQ"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_AtO9UOMvEdqaQsPH3rPnBQ" name="Allocation">
@@ -12178,9 +12165,6 @@ If no AllocationConnector is specified for an ResourceRequiredRole, before analy
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xRPUtrZrEd2w14sx0UoE9Q" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xRPUtbZrEd2w14sx0UoE9Q"/>
         </ownedEnd>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_cyNE8MIBEd2S28mvKHDQFQ" memberEnd="_cyNE8cIBEd2S28mvKHDQFQ _cyNE9MIBEd2S28mvKHDQFQ">
-        <ownedEnd xmi:id="_cyNE9MIBEd2S28mvKHDQFQ" name="" visibility="private" type="_9nOFcOD7Edq8ysXH3gTiEg" association="_cyNE8MIBEd2S28mvKHDQFQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_z-uYMMeOEd2TNKuW7xAQHw" name="InfrastructureComponentScope">
         <ownedAttribute xmi:id="_xRPUsbZrEd2w14sx0UoE9Q" name="assemblyContext_InfrastructureComponentScope" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" association="_xRPUsLZrEd2w14sx0UoE9Q">
@@ -17048,6 +17032,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wru2gODnEdq8ysXH3gTiEg" name="ProcessingResourceSpecification">
+        <ownedAttribute xmi:id="_sBZfcNEJEd2kwZiQCoYARg" name="schedulingPolicy" visibility="private" type="_wuNVYBmsEdyaJvvdhGgDYg"/>
         <ownedAttribute xmi:id="_CPbWweDoEdq8ysXH3gTiEg" name="activeResourceType_ActiveResourceSpecification" type="_n2nAMOD4Edq8ysXH3gTiEg" association="_CPbWwODoEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lbQGIeD6Edq8ysXH3gTiEg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lbQGIOD6Edq8ysXH3gTiEg" value="1"/>
@@ -30383,5 +30368,4 @@ Note:&#xD;
   <Default:Documentation xmi:id="__TOk0MIIEd2S28mvKHDQFQ" base_Comment="__TEz0MIIEd2S28mvKHDQFQ"/>
   <Default:Documentation xmi:id="_fF-kwcIJEd2S28mvKHDQFQ" base_Comment="_fF-kwMIJEd2S28mvKHDQFQ"/>
   <Default:Documentation xmi:id="_zxM2ocIJEd2S28mvKHDQFQ" base_Comment="_zxM2oMIJEd2S28mvKHDQFQ"/>
-  <Default:Documentation xmi:id="_Oy1MgMeSEd2TNKuW7xAQHw" base_Comment="_OysCkMeSEd2TNKuW7xAQHw"/>
 </xmi:XMI>
