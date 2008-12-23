@@ -12,6 +12,11 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * A representation of the model object '<em><b>Abstract Interface</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity is an abstract entity from which Interface and ResourceInterface inherit from. Since a Component may provide services of Interfaces or ResourceServices, its ProvidedRole may reference either an
+ * Interface or an ResourceInterface and thus only references an AbstractInterface.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

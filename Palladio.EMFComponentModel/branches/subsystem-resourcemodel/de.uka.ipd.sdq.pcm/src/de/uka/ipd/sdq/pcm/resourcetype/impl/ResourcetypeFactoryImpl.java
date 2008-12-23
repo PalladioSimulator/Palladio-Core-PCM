@@ -74,10 +74,13 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY: return createResourceRepository();
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
+			case ResourcetypePackage.CONTROLLER_STACK: return createControllerStack();
+			case ResourcetypePackage.CONTROLLER_LAYER: return createControllerLayer();
+			case ResourcetypePackage.CONTROLLER_TYPE: return createControllerType();
 			case ResourcetypePackage.RESOURCE_PROVIDED_ROLE: return createResourceProvidedRole();
 			case ResourcetypePackage.RESOURCE_INTERFACE: return createResourceInterface();
 			case ResourcetypePackage.RESOURCE_SERVICE: return createResourceService();
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: return createCommunicationLinkResourceType();
 			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE: return createResourceRequiredRole();
 			default:
@@ -93,6 +96,36 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	public ResourceRepository createResourceRepository() {
 		ResourceRepositoryImpl resourceRepository = new ResourceRepositoryImpl();
 		return resourceRepository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ControllerStack createControllerStack() {
+		ControllerStackImpl controllerStack = new ControllerStackImpl();
+		return controllerStack;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ControllerLayer createControllerLayer() {
+		ControllerLayerImpl controllerLayer = new ControllerLayerImpl();
+		return controllerLayer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ControllerType createControllerType() {
+		ControllerTypeImpl controllerType = new ControllerTypeImpl();
+		return controllerType;
 	}
 
 	/**

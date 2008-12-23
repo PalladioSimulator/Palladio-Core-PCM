@@ -131,7 +131,7 @@ public interface SystemPackage extends EPackage {
 	int SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

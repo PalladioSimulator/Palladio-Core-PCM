@@ -59,12 +59,20 @@ public class AllocationValidator extends EObjectValidator {
 	public static final int ALLOCATION__EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE = 1;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Assembly Connectors Referenced Provided Roles And Child Context Must Match' of 'Infrastructure Component Allocation Connector'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH = 2;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -115,8 +123,14 @@ public class AllocationValidator extends EObjectValidator {
 		switch (classifierID) {
 			case AllocationPackage.ALLOCATION_CONTEXT:
 				return validateAllocationContext((AllocationContext)value, diagnostics, context);
+			case AllocationPackage.ALLOCATION_CONNECTOR:
+				return validateAllocationConnector((AllocationConnector)value, diagnostics, context);
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE:
+				return validateInfrastructureComponentScope((InfrastructureComponentScope)value, diagnostics, context);
 			case AllocationPackage.ALLOCATION:
 				return validateAllocation((Allocation)value, diagnostics, context);
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR:
+				return validateInfrastructureComponentAllocationConnector((InfrastructureComponentAllocationConnector)value, diagnostics, context);
 			default: 
 				return true;
 		}
@@ -137,6 +151,24 @@ public class AllocationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(allocationContext, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(allocationContext, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAllocationConnector(AllocationConnector allocationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(allocationConnector, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInfrastructureComponentScope(InfrastructureComponentScope infrastructureComponentScope, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(infrastructureComponentScope, diagnostics, context);
 	}
 
 	/**
@@ -165,6 +197,34 @@ public class AllocationValidator extends EObjectValidator {
 	 */
 	public boolean validateAllocation_EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(Allocation allocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return allocation.EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInfrastructureComponentAllocationConnector(InfrastructureComponentAllocationConnector infrastructureComponentAllocationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(infrastructureComponentAllocationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInfrastructureComponentAllocationConnector_AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(infrastructureComponentAllocationConnector, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch constraint of '<em>Infrastructure Component Allocation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInfrastructureComponentAllocationConnector_AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(InfrastructureComponentAllocationConnector infrastructureComponentAllocationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return infrastructureComponentAllocationConnector.AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(diagnostics, context);
 	}
 
 } //AllocationValidator

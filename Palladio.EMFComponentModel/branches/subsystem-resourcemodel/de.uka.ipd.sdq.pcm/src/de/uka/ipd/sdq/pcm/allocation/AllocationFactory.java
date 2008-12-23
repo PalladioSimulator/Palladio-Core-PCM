@@ -41,6 +41,15 @@ public interface AllocationFactory extends EFactory {
 	AllocationContext createAllocationContext();
 
 	/**
+	 * Returns a new object of class '<em>Infrastructure Component Scope</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Infrastructure Component Scope</em>'.
+	 * @generated
+	 */
+	InfrastructureComponentScope createInfrastructureComponentScope();
+
+	/**
 	 * Returns a new object of class '<em>Allocation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,6 +57,15 @@ public interface AllocationFactory extends EFactory {
 	 * @generated
 	 */
 	Allocation createAllocation();
+
+	/**
+	 * Returns a new object of class '<em>Infrastructure Component Allocation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Infrastructure Component Allocation Connector</em>'.
+	 * @generated
+	 */
+	InfrastructureComponentAllocationConnector createInfrastructureComponentAllocationConnector();
 
 	/**
 	 * Returns the package supported by this factory.

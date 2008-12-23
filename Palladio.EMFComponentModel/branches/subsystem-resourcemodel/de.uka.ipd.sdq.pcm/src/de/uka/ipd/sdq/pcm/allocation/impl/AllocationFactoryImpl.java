@@ -69,7 +69,9 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case AllocationPackage.ALLOCATION_CONTEXT: return createAllocationContext();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE: return createInfrastructureComponentScope();
 			case AllocationPackage.ALLOCATION: return createAllocation();
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR: return createInfrastructureComponentAllocationConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -90,9 +92,29 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public InfrastructureComponentScope createInfrastructureComponentScope() {
+		InfrastructureComponentScopeImpl infrastructureComponentScope = new InfrastructureComponentScopeImpl();
+		return infrastructureComponentScope;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Allocation createAllocation() {
 		AllocationImpl allocation = new AllocationImpl();
 		return allocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InfrastructureComponentAllocationConnector createInfrastructureComponentAllocationConnector() {
+		InfrastructureComponentAllocationConnectorImpl infrastructureComponentAllocationConnector = new InfrastructureComponentAllocationConnectorImpl();
+		return infrastructureComponentAllocationConnector;
 	}
 
 	/**

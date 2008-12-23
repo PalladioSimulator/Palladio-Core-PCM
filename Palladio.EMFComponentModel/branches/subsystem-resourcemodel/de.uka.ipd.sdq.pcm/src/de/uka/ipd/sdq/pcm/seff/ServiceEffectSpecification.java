@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.pcm.repository.AbstractService;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -75,12 +76,12 @@ public interface ServiceEffectSpecification extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Described Service SEFF</em>' reference.
-	 * @see #setDescribedService__SEFF(Signature)
+	 * @see #setDescribedService__SEFF(AbstractService)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_DescribedService__SEFF()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Signature getDescribedService__SEFF();
+	AbstractService getDescribedService__SEFF();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>Described Service SEFF</em>}' reference.
@@ -90,6 +91,6 @@ public interface ServiceEffectSpecification extends EObject {
 	 * @see #getDescribedService__SEFF()
 	 * @generated
 	 */
-	void setDescribedService__SEFF(Signature value);
+	void setDescribedService__SEFF(AbstractService value);
 
 } // ServiceEffectSpecification

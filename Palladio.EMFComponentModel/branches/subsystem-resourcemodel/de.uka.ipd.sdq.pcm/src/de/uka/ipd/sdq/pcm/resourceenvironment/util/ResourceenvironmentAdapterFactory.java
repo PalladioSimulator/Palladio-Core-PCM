@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.allocation.AllocationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
@@ -85,6 +86,18 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	protected ResourceenvironmentSwitch<Adapter> modelSwitch =
 		new ResourceenvironmentSwitch<Adapter>() {
 			@Override
+			public Adapter caseControllerAllocationConnector(ControllerAllocationConnector object) {
+				return createControllerAllocationConnectorAdapter();
+			}
+			@Override
+			public Adapter caseResourceProvidedRoleConnector(ResourceProvidedRoleConnector object) {
+				return createResourceProvidedRoleConnectorAdapter();
+			}
+			@Override
+			public Adapter caseControllerInstance(ControllerInstance object) {
+				return createControllerInstanceAdapter();
+			}
+			@Override
 			public Adapter caseResourceEnvironment(ResourceEnvironment object) {
 				return createResourceEnvironmentAdapter();
 			}
@@ -101,8 +114,16 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 				return createProcessingResourceSpecificationAdapter();
 			}
 			@Override
+			public Adapter caseResourceAllocationConnector(ResourceAllocationConnector object) {
+				return createResourceAllocationConnectorAdapter();
+			}
+			@Override
 			public Adapter caseResourceContainer(ResourceContainer object) {
 				return createResourceContainerAdapter();
+			}
+			@Override
+			public Adapter caseAllocationConnector(AllocationConnector object) {
+				return createAllocationConnectorAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -135,6 +156,48 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector <em>Controller Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector
+	 * @generated
+	 */
+	public Adapter createControllerAllocationConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector <em>Resource Provided Role Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector
+	 * @generated
+	 */
+	public Adapter createResourceProvidedRoleConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance <em>Controller Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance
+	 * @generated
+	 */
+	public Adapter createControllerInstanceAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment <em>Resource Environment</em>}'.
@@ -193,6 +256,20 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector <em>Resource Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector
+	 * @generated
+	 */
+	public Adapter createResourceAllocationConnectorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer <em>Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -203,6 +280,20 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.allocation.AllocationConnector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationConnector
+	 * @generated
+	 */
+	public Adapter createAllocationConnectorAdapter() {
 		return null;
 	}
 

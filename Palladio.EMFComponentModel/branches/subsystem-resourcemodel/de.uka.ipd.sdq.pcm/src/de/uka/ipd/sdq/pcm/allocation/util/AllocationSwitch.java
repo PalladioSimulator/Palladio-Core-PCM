@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.*;
+import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
@@ -108,12 +109,35 @@ public class AllocationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AllocationPackage.ALLOCATION_CONNECTOR: {
+				AllocationConnector allocationConnector = (AllocationConnector)theEObject;
+				T result = caseAllocationConnector(allocationConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_SCOPE: {
+				InfrastructureComponentScope infrastructureComponentScope = (InfrastructureComponentScope)theEObject;
+				T result = caseInfrastructureComponentScope(infrastructureComponentScope);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AllocationPackage.ALLOCATION: {
 				Allocation allocation = (Allocation)theEObject;
 				T result = caseAllocation(allocation);
 				if (result == null) result = caseEntity(allocation);
 				if (result == null) result = caseIdentifier(allocation);
 				if (result == null) result = caseNamedElement(allocation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AllocationPackage.INFRASTRUCTURE_COMPONENT_ALLOCATION_CONNECTOR: {
+				InfrastructureComponentAllocationConnector infrastructureComponentAllocationConnector = (InfrastructureComponentAllocationConnector)theEObject;
+				T result = caseInfrastructureComponentAllocationConnector(infrastructureComponentAllocationConnector);
+				if (result == null) result = caseConnector(infrastructureComponentAllocationConnector);
+				if (result == null) result = caseAllocationConnector(infrastructureComponentAllocationConnector);
+				if (result == null) result = caseEntity(infrastructureComponentAllocationConnector);
+				if (result == null) result = caseIdentifier(infrastructureComponentAllocationConnector);
+				if (result == null) result = caseNamedElement(infrastructureComponentAllocationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,6 +161,36 @@ public class AllocationSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAllocationConnector(AllocationConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure Component Scope</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Infrastructure Component Scope</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInfrastructureComponentScope(InfrastructureComponentScope object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Allocation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -148,6 +202,21 @@ public class AllocationSwitch<T> {
 	 * @generated
 	 */
 	public T caseAllocation(Allocation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure Component Allocation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Infrastructure Component Allocation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInfrastructureComponentAllocationConnector(InfrastructureComponentAllocationConnector object) {
 		return null;
 	}
 
@@ -193,6 +262,21 @@ public class AllocationSwitch<T> {
 	 * @generated
 	 */
 	public T caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConnector(Connector object) {
 		return null;
 	}
 

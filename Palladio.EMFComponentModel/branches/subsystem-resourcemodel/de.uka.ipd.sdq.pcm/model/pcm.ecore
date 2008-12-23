@@ -77,7 +77,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceRequiringEntity"
           abstract="true" eSuperTypes="#//core/entity/Entity">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO"/>
+          <details key="documentation" value="All Entities that require a ResourceInterface are represented by this class. Inheriting classes are all component types, but also Controllers which access resources or other controllers.&#xD;&#xA;&#xD;&#xA;See also:&#xD;&#xA;ResourceInterface, InterfaceRequiringEntity, ResourceRequiredRole"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRoles_ResourceInterfaceRequiringEntity"
             ordered="false" upperBound="-1" eType="#//resourcetype/ResourceRequiredRole"
@@ -85,8 +85,11 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceProvidingEntity"
           abstract="true" eSuperTypes="#//core/entity/Entity">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProvidedRoles_ResourceInterfaceProvidingEntity"
-            ordered="false" upperBound="-1" eType="#//resourcetype/ResourceProvidedRole"
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="All Entities that provide a ResourceInterface are represented by this class. Inheriting classes are Controllers which manage resource access and ProcessingResourceTypes.&#xD;&#xA;&#xD;&#xA;See also:&#xD;&#xA;ResourceInterface, InterfaceProvidingEntity, ResourceProvidedRole"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProvidedRole_ResourceInterfaceProvidingEntity"
+            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceProvidedRole"
             containment="true" eOpposite="#//resourcetype/ResourceProvidedRole/resourceInterfaceProvidingEntity_ResourceProvidedRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
@@ -236,7 +239,7 @@
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/requiredDelegationConnectors_ComposedStructure"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector #//core/entity/Entity">
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector">
         <eOperations name="AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -289,16 +292,23 @@
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/assemblyConnectors_ComposedStructure"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredDelegationConnector">
+      <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredDelegationConnector"
+          eSuperTypes="#//repository/DelegationConnector">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This entity is used to specify how the required resource interfaces of encapsulated components are being conneced to required resource interfaces of an outer component, which is a CompositeComponent."/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_ResourceRequiredDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
-            eOpposite="#//core/composition/ComposedStructure/resourceRequiredDelegationConnectors_ComposedStructure"/>
+            volatile="true" derived="true" eOpposite="#//core/composition/ComposedStructure/resourceRequiredDelegationConnectors_ComposedStructure"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="innerResourceRequiredRole_ResourceRequiredDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"/>
+            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"
+            volatile="true" derived="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="outerResourceRequiredRole_ResourceRequiredDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_ResourceRequiredDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+            ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"
+            volatile="true" derived="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_ResourceRequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"
+            volatile="true" derived="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true"
           eSuperTypes="#//core/entity/Entity">
@@ -319,7 +329,7 @@
             containment="true" eOpposite="#//core/composition/AssemblyConnector/parentStructure_AssemblyConnector"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredDelegationConnectors_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/ResourceRequiredDelegationConnector"
-            containment="true" eOpposite="#//core/composition/ResourceRequiredDelegationConnector/parentStructure_ResourceRequiredDelegationConnector"/>
+            volatile="true" derived="true" eOpposite="#//core/composition/ResourceRequiredDelegationConnector/parentStructure_ResourceRequiredDelegationConnector"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
@@ -361,7 +371,7 @@
         </eAnnotations>
       </eLiterals>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Signature">
+    <eClassifiers xsi:type="ecore:EClass" name="Signature" eSuperTypes="#//repository/AbstractService">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents the signature of a method, i.e., its parameters, exception declarations, return type, etc.&#xD;&#xA;&#xD;&#xA;Every service of an interface has a unique signature, like void doSomething(int a). A PCM signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL.&#xD;&#xA;&#xD;&#xA;It contains:&#xD;&#xA;&#xD;&#xA;* A type of the return value or void (no return value),&#xD;&#xA;&#xD;&#xA;* an identifier naming the service,&#xD;&#xA;&#xD;&#xA;* an ordered set of parameters (0..*).Each parameter is a tuple of a datatype and an identifier (which is unique across the parameters). Additionally, the modifiers in, out, and inout (with its OMG&#xD;&#xA;IDL semantics) can be used for parameters, and&#xD;&#xA;&#xD;&#xA;* an unordered set of exceptions.&#xD;&#xA;&#xD;&#xA;A signature has to be unique for an interface through the tupel (identifier, order of parameters). An interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A&#xD;&#xA;signature is assigned to exactly one interface. However, different interfaces can define equally named signatures. If, for example, void doIt() is defined for interface A and B, void doIt() is not identical in both interfaces."/>
       </eAnnotations>
@@ -384,12 +394,6 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the service name realized by this method."/>
-        </eAnnotations>
-      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters__Signature"
           upperBound="-1" eType="#//repository/Parameter" containment="true" eOpposite="#//repository/Parameter/signature_Parameter">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -414,6 +418,13 @@
           <details key="documentation" value="This property represents the list of exceptions declared by this signature."/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractService" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity is an abstract entity from which ResourceService and Signature inherit from.&#xD;&#xA;It provides the name of the service."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Parameter">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -590,6 +601,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractInterface" abstract="true"
         eSuperTypes="#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity is an abstract entity from which Interface and ResourceInterface inherit from. Since a Component may provide services of Interfaces or ResourceServices, its ProvidedRole may reference either an&#xD;&#xA;Interface or an ResourceInterface and thus only references an AbstractInterface."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repository_AbstractInterface"
           ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/interfaces__Repository">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -969,16 +983,47 @@
     <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
       <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
           ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="availableControllerStacks_ResourceRepository"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ControllerStack"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="availableControllerTypes_ResourceRepository"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ControllerType" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType #//core/entity/ResourceInterfaceProvidingEntity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ControllerStack">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controllerLayers_ControllerStack"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ControllerLayer"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControllerLayer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity is used for stacking Controllers. A ControllerScope is deployed on a ResourceContainer. Any resource access on this ResourceContainer first has to go through the &#xD;&#xA;ControllerScope before it is issued to resources: If a Component specifies a ResourceDemand, it has to specify the ResourceService of the corresponding ResourceInterface.&#xD;&#xA;Then, the outest ControllerScope is being checked if its ControllerType provides the same ResourceInterface. If it provides the ResourceInterface, the resource demand is being issued &#xD;&#xA;to the Controller. Otherwise, the search is being repeated for the next ControllerScope (innerScope). The last ControllerScope does not have a further innerScope reference. Instead, the &#xD;&#xA;ProcessingResourceType is being accessed."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="upperLayer" ordered="false"
+          eType="#//resourcetype/ControllerLayer" eOpposite="#//resourcetype/ControllerLayer/lowerLayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lowerLayer" ordered="false"
+          eType="#//resourcetype/ControllerLayer" eOpposite="#//resourcetype/ControllerLayer/upperLayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controllerType_ControllerScope"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ControllerType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControllerType" eSuperTypes="#//core/entity/ResourceInterfaceRequiringEntity #//core/entity/ResourceInterfaceProvidingEntity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The ControllerType specifies different types of controllers. A Controller type provides ResourceInterfaces which are used for controller access.&#xD;&#xA;It also requires ResourceInterfaces which are used for accessing another controller or a processing resource."/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceProvidedRole" eSuperTypes="#//repository/Role">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents the provided resource interfaces. Provided esource roles list the interfaces offered by a Controller or a ProcessingResourceType."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedResourceInterface_ResourceProvidedRole"
           ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterfaceProvidingEntity_ResourceProvidedRole"
           ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceProvidingEntity"
-          eOpposite="#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRoles_ResourceInterfaceProvidingEntity"/>
+          eOpposite="#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRole_ResourceInterfaceProvidingEntity"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceInterface" eSuperTypes="#//repository/AbstractInterface">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A ResourceInterface represents an interface which is used for resource access. It is similar to the traditional Interface, but it contains &#xD;&#xA;special ResourceServices instead of Signatures.&#xD;&#xA;A ResourceInterface is referenced by ResourceRequiredRoles and ResourceProvidedRoles. Any entity can either claim to implement the functionality specified in an ResourceInterface or to request that functionality."/>
+      </eAnnotations>
       <eOperations name="ResourceServiceNamesHaveToBeUniqueForAResourceInterface"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1001,14 +1046,26 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceServices_ResourceInterface"
           ordered="false" upperBound="-1" eType="#//resourcetype/ResourceService"
-          containment="true"/>
+          containment="true" eOpposite="#//resourcetype/ResourceService/resourceInterface_ResourceService"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ancestorResourceInterfaces_ResourceInterface"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentResourceInterface__ResourceInterface"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceInterface"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceService">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceService" eSuperTypes="#//repository/AbstractService">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents a single service of a ResourceInterface.&#xD;&#xA;In contrast to signatures of interfaces, a ResourceService does not provide different parameters, but just one implicit demand parameter. It also does not support return types or modifiers."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterface_ResourceService"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"
+          eOpposite="#//resourcetype/ResourceInterface/resourceServices_ResourceInterface"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType #//core/entity/ResourceInterfaceProvidingEntity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents a required resource interface."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResourceInterface_ResourceRequiredRole"
           ordered="false" lowerBound="1" eType="#//resourcetype/ResourceInterface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity_ResourceRequiredRole"
@@ -1349,13 +1406,13 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="describedService__SEFF"
-          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+          ordered="false" lowerBound="1" eType="#//repository/AbstractService"/>
     </eClassifiers>
     <eSubpackages name="performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0"
         nsPrefix="">
       <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;&#xA;MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;&#xA;use this timing value for example as the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
+          <details key="documentation" value="TODO (Überarbeitung durch MH)&#xD;&#xA;Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. &#xD;&#xA;It assigns the demand specified as a Random-Variable to a ResourceService, which is part of a ResourceInterface (e.g. ICpuInterface, IHddInterface) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;&#xA;The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;&#xA;the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;&#xA;for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;&#xA;Specification is being accessed by a Controller which manages resource access. The controller specifies a &#xD;&#xA;processing rate for demands (e.g., 1000 WorkUnits/s, 20 MB/s), which is used in analysis to &#xD;&#xA;compute an actual timing value in seconds. This timing value for example can be the service demand on a service center in a queueing&#xD;&#xA;network or the firing delay of a transition in a Petri net. As multiple component services&#xD;&#xA;might request processing on the same resource, these analytical or simulation models&#xD;&#xA;allow determining the waiting delay induced by this contention effect.&#xD;&#xA;Besides this parameterisation over different resource environments, Parametric-&#xD;&#xA;ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;&#xA;specifying the resource demand can contain references to the service’s input&#xD;&#xA;parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;&#xA;tools use the current characterisation of the referenced input or component parameter&#xD;&#xA;and substitute the reference with this characterisation in the stochastic expression.&#xD;&#xA;Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;&#xA;(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;&#xA;As an example for solving the parameterisation over resource environment and usage&#xD;&#xA;profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;&#xA;might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;&#xA;theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;&#xA;the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;&#xA;characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;&#xA;derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;&#xA;profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;&#xA;126&#xD;&#xA;4.3. Resource Demanding Service Effect Specification&#xD;&#xA;component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;&#xA;tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;&#xA;specification, thus resolving the resource environment dependency.&#xD;&#xA;The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;&#xA;of the service. Component developers can specify it using complexity theory,&#xD;&#xA;estimations, or measurements. However, how to get data to define such expressions&#xD;&#xA;accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;&#xA;[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;&#xA;Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;&#xA;establish resource demands independent from concrete resources. For the scope of this&#xD;&#xA;thesis, it is assumed that these methods have been applied and an accurate specification&#xD;&#xA;of the ParametricResourceDemand is available."/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
@@ -1376,6 +1433,25 @@
           ordered="false" lowerBound="1" eType="#//resourceenvironment/ResourceContainer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_AllocationContext"
           ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AllocationConnector" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRole_AllocationConnector"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRequiredRole"
+          volatile="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_AllocationConnector"
+          ordered="false" lowerBound="1" eType="#//resourceenvironment/ResourceContainer"
+          volatile="true" derived="true" eOpposite="#//resourceenvironment/ResourceContainer/allocationConnectors_ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_AllocationConnector"
+          ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"
+          volatile="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InfrastructureComponentScope">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_InfrastructureComponentScope"
+          ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lowerLayer" ordered="false"
+          eType="#//allocation/InfrastructureComponentScope" eOpposite="#//allocation/InfrastructureComponentScope/upperLayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="upperLayer" ordered="false"
+          eType="#//allocation/InfrastructureComponentScope" eOpposite="#//allocation/InfrastructureComponentScope/lowerLayer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="#//core/entity/Entity">
       <eOperations name="EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce"
@@ -1406,9 +1482,65 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="system_Allocation" ordered="false"
           lowerBound="1" eType="#//system/System"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InfrastructureComponentAllocationConnector"
+        eSuperTypes="#//core/connectors/Connector #//allocation/AllocationConnector">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An AllocationConnector is being used to explicitly connect the ResourceRequiredRole of an allocated component to another allocated component, which serves as an infrastructure component, such as middleware.&#xD;&#xA;If no AllocationConnector is specified for an ResourceRequiredRole, before analysis the connectors have to be created automatically. This means that deployed infrastructure components or controllers are being checked if a corresponding ResourceInterface is provided."/>
+      </eAnnotations>
+      <eOperations name="AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.assemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AllocationConnector)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_AllocationConnector"
+          ordered="false" lowerBound="1" eType="#//repository/ProvidedRole" volatile="true"
+          derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureComponentScope_InfrastructureComponentAllocationConnector"
+          ordered="false" lowerBound="1" eType="#//allocation/InfrastructureComponentScope"
+          volatile="true" derived="true"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0"
       nsPrefix="">
+    <eClassifiers xsi:type="ecore:EClass" name="ControllerAllocationConnector" eSuperTypes="#//resourceenvironment/ResourceProvidedRoleConnector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providingControllerInstance_ControllerAllocationConnector"
+          ordered="false" eType="#//resourceenvironment/ControllerInstance" volatile="true"
+          derived="true" eOpposite="#//resourceenvironment/ControllerInstance/upperControllerAllocationConnectors_ControllerInstance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceProvidedRoleConnector" abstract="true"
+        eSuperTypes="#//allocation/AllocationConnector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceProvidedRole_ResourceProvidedRoleAllocationConnector"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ResourceProvidedRole"
+          volatile="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringControllerInstance_ControllerAllocationConnector"
+          ordered="false" eType="#//resourceenvironment/ControllerInstance" volatile="true"
+          derived="true" eOpposite="#//resourceenvironment/ControllerInstance/lowerControllerAllocationConnectors_ControllerInstance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControllerInstance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controllerScope_ResourceContainer"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ControllerLayer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="upperControllerAllocationConnectors_ControllerInstance"
+          ordered="false" upperBound="-1" eType="#//resourceenvironment/ControllerAllocationConnector"
+          volatile="true" derived="true" eOpposite="#//resourceenvironment/ControllerAllocationConnector/providingControllerInstance_ControllerAllocationConnector"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lowerControllerAllocationConnectors_ControllerInstance"
+          ordered="false" upperBound="-1" eType="#//resourceenvironment/ResourceProvidedRoleConnector"
+          volatile="true" derived="true" eOpposite="#//resourceenvironment/ResourceProvidedRoleConnector/requiringControllerInstance_ControllerAllocationConnector"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironment">
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" ordered="false"
           upperBound="-1" eType="#//resourceenvironment/LinkingResource" containment="true"/>
@@ -1434,8 +1566,6 @@
           ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="controllerSpecification"
-          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingPolicy" ordered="false"
           lowerBound="1" eType="#//resourceenvironment/SchedulingPolicy"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
@@ -1448,10 +1578,26 @@
       <eLiterals name="PROCESSOR_SHARING" value="1"/>
       <eLiterals name="FCFS" value="2"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceAllocationConnector" eSuperTypes="#//resourceenvironment/ResourceProvidedRoleConnector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processingResourceSpecification_ResourceAllocationConnector"
+          ordered="false" lowerBound="1" eType="#//resourceenvironment/ProcessingResourceSpecification"
+          volatile="true" derived="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceContainer" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationConnectors_ResourceContainer"
+          ordered="false" upperBound="-1" eType="#//allocation/AllocationConnector"
+          volatile="true" derived="true" eOpposite="#//allocation/AllocationConnector/resourceContainer_AllocationConnector"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"
           ordered="false" upperBound="-1" eType="#//resourceenvironment/ProcessingResourceSpecification"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureComponentScope_ResourceContainer"
+          ordered="false" upperBound="-1" eType="#//allocation/InfrastructureComponentScope"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controllerInstance_ResourceContainer"
+          ordered="false" upperBound="-1" eType="#//resourceenvironment/ControllerInstance"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controllerStack_ResourceContainer"
+          ordered="false" eType="#//resourcetype/ControllerStack"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.*;
+import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
@@ -86,8 +87,20 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 				return createAllocationContextAdapter();
 			}
 			@Override
+			public Adapter caseAllocationConnector(AllocationConnector object) {
+				return createAllocationConnectorAdapter();
+			}
+			@Override
+			public Adapter caseInfrastructureComponentScope(InfrastructureComponentScope object) {
+				return createInfrastructureComponentScopeAdapter();
+			}
+			@Override
 			public Adapter caseAllocation(Allocation object) {
 				return createAllocationAdapter();
+			}
+			@Override
+			public Adapter caseInfrastructureComponentAllocationConnector(InfrastructureComponentAllocationConnector object) {
+				return createInfrastructureComponentAllocationConnectorAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -100,6 +113,10 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
+			}
+			@Override
+			public Adapter caseConnector(Connector object) {
+				return createConnectorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -136,6 +153,34 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.allocation.AllocationConnector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationConnector
+	 * @generated
+	 */
+	public Adapter createAllocationConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope <em>Infrastructure Component Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope
+	 * @generated
+	 */
+	public Adapter createInfrastructureComponentScopeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.allocation.Allocation <em>Allocation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -146,6 +191,20 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAllocationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector <em>Infrastructure Component Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector
+	 * @generated
+	 */
+	public Adapter createInfrastructureComponentAllocationConnectorAdapter() {
 		return null;
 	}
 
@@ -188,6 +247,20 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.connectors.Connector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.connectors.Connector
+	 * @generated
+	 */
+	public Adapter createConnectorAdapter() {
 		return null;
 	}
 

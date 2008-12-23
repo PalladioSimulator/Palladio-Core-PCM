@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.repository.AbstractService;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -65,7 +66,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature describedService__SEFF;
+	protected AbstractService describedService__SEFF;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,10 +113,10 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature getDescribedService__SEFF() {
+	public AbstractService getDescribedService__SEFF() {
 		if (describedService__SEFF != null && describedService__SEFF.eIsProxy()) {
 			InternalEObject oldDescribedService__SEFF = (InternalEObject)describedService__SEFF;
-			describedService__SEFF = (Signature)eResolveProxy(oldDescribedService__SEFF);
+			describedService__SEFF = (AbstractService)eResolveProxy(oldDescribedService__SEFF);
 			if (describedService__SEFF != oldDescribedService__SEFF) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, oldDescribedService__SEFF, describedService__SEFF));
@@ -129,7 +130,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature basicGetDescribedService__SEFF() {
+	public AbstractService basicGetDescribedService__SEFF() {
 		return describedService__SEFF;
 	}
 
@@ -138,8 +139,8 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescribedService__SEFF(Signature newDescribedService__SEFF) {
-		Signature oldDescribedService__SEFF = describedService__SEFF;
+	public void setDescribedService__SEFF(AbstractService newDescribedService__SEFF) {
+		AbstractService oldDescribedService__SEFF = describedService__SEFF;
 		describedService__SEFF = newDescribedService__SEFF;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, oldDescribedService__SEFF, describedService__SEFF));
@@ -174,7 +175,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 				setSeffTypeID((String)newValue);
 				return;
 			case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
-				setDescribedService__SEFF((Signature)newValue);
+				setDescribedService__SEFF((AbstractService)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,7 +193,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 				setSeffTypeID(SEFF_TYPE_ID_EDEFAULT);
 				return;
 			case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
-				setDescribedService__SEFF((Signature)null);
+				setDescribedService__SEFF((AbstractService)null);
 				return;
 		}
 		super.eUnset(featureID);

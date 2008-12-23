@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition;
 
+import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
@@ -14,13 +15,17 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
  * A representation of the model object '<em><b>Resource Required Delegation Connector</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity is used to specify how the required resource interfaces of encapsulated components are being conneced to required resource interfaces of an outer component, which is a CompositeComponent.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector <em>Inner Resource Required Role Resource Required Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector <em>Outer Resource Required Role Resource Required Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getChildComponentContext_ResourceRequiredDelegationConnector <em>Child Component Context Resource Required Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getAssemblyContext_ResourceRequiredDelegationConnector <em>Assembly Context Resource Required Delegation Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,7 +33,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
  * @model
  * @generated
  */
-public interface ResourceRequiredDelegationConnector extends EObject {
+public interface ResourceRequiredDelegationConnector extends DelegationConnector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -37,7 +42,7 @@ public interface ResourceRequiredDelegationConnector extends EObject {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Parent Structure Resource Required Delegation Connector</b></em>' container reference.
+	 * Returns the value of the '<em><b>Parent Structure Resource Required Delegation Connector</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -45,20 +50,20 @@ public interface ResourceRequiredDelegationConnector extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent Structure Resource Required Delegation Connector</em>' container reference.
+	 * @return the value of the '<em>Parent Structure Resource Required Delegation Connector</em>' reference.
 	 * @see #setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
-	 * @model opposite="resourceRequiredDelegationConnectors_ComposedStructure" required="true" transient="false" ordered="false"
+	 * @model opposite="resourceRequiredDelegationConnectors_ComposedStructure" required="true" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	ComposedStructure getParentStructure_ResourceRequiredDelegationConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}' container reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent Structure Resource Required Delegation Connector</em>' container reference.
+	 * @param value the new value of the '<em>Parent Structure Resource Required Delegation Connector</em>' reference.
 	 * @see #getParentStructure_ResourceRequiredDelegationConnector()
 	 * @generated
 	 */
@@ -75,7 +80,7 @@ public interface ResourceRequiredDelegationConnector extends EObject {
 	 * @return the value of the '<em>Inner Resource Required Role Resource Required Delegation Connector</em>' reference.
 	 * @see #setInnerResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_InnerResourceRequiredRole_ResourceRequiredDelegationConnector()
-	 * @model required="true" ordered="false"
+	 * @model required="true" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector();
@@ -101,7 +106,7 @@ public interface ResourceRequiredDelegationConnector extends EObject {
 	 * @return the value of the '<em>Outer Resource Required Role Resource Required Delegation Connector</em>' reference.
 	 * @see #setOuterResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector()
-	 * @model required="true" ordered="false"
+	 * @model required="true" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector();
@@ -117,29 +122,29 @@ public interface ResourceRequiredDelegationConnector extends EObject {
 	void setOuterResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole value);
 
 	/**
-	 * Returns the value of the '<em><b>Child Component Context Resource Required Delegation Connector</b></em>' reference.
+	 * Returns the value of the '<em><b>Assembly Context Resource Required Delegation Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Child Component Context Resource Required Delegation Connector</em>' reference isn't clear,
+	 * If the meaning of the '<em>Assembly Context Resource Required Delegation Connector</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child Component Context Resource Required Delegation Connector</em>' reference.
-	 * @see #setChildComponentContext_ResourceRequiredDelegationConnector(AssemblyContext)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_ChildComponentContext_ResourceRequiredDelegationConnector()
-	 * @model required="true" ordered="false"
+	 * @return the value of the '<em>Assembly Context Resource Required Delegation Connector</em>' reference.
+	 * @see #setAssemblyContext_ResourceRequiredDelegationConnector(AssemblyContext)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_AssemblyContext_ResourceRequiredDelegationConnector()
+	 * @model required="true" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
-	AssemblyContext getChildComponentContext_ResourceRequiredDelegationConnector();
+	AssemblyContext getAssemblyContext_ResourceRequiredDelegationConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getChildComponentContext_ResourceRequiredDelegationConnector <em>Child Component Context Resource Required Delegation Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getAssemblyContext_ResourceRequiredDelegationConnector <em>Assembly Context Resource Required Delegation Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Child Component Context Resource Required Delegation Connector</em>' reference.
-	 * @see #getChildComponentContext_ResourceRequiredDelegationConnector()
+	 * @param value the new value of the '<em>Assembly Context Resource Required Delegation Connector</em>' reference.
+	 * @see #getAssemblyContext_ResourceRequiredDelegationConnector()
 	 * @generated
 	 */
-	void setChildComponentContext_ResourceRequiredDelegationConnector(AssemblyContext value);
+	void setAssemblyContext_ResourceRequiredDelegationConnector(AssemblyContext value);
 
 } // ResourceRequiredDelegationConnector

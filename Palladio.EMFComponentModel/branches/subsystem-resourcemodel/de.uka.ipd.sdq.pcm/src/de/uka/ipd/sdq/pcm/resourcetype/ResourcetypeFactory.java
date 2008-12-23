@@ -41,6 +41,33 @@ public interface ResourcetypeFactory extends EFactory {
 	ResourceRepository createResourceRepository();
 
 	/**
+	 * Returns a new object of class '<em>Controller Stack</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Controller Stack</em>'.
+	 * @generated
+	 */
+	ControllerStack createControllerStack();
+
+	/**
+	 * Returns a new object of class '<em>Controller Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Controller Layer</em>'.
+	 * @generated
+	 */
+	ControllerLayer createControllerLayer();
+
+	/**
+	 * Returns a new object of class '<em>Controller Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Controller Type</em>'.
+	 * @generated
+	 */
+	ControllerType createControllerType();
+
+	/**
 	 * Returns a new object of class '<em>Communication Link Resource Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

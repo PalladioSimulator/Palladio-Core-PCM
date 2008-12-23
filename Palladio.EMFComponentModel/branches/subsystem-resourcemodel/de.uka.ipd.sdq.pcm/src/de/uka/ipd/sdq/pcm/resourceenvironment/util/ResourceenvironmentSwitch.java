@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.allocation.AllocationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
@@ -102,6 +103,27 @@ public class ResourceenvironmentSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ResourceenvironmentPackage.CONTROLLER_ALLOCATION_CONNECTOR: {
+				ControllerAllocationConnector controllerAllocationConnector = (ControllerAllocationConnector)theEObject;
+				T result = caseControllerAllocationConnector(controllerAllocationConnector);
+				if (result == null) result = caseResourceProvidedRoleConnector(controllerAllocationConnector);
+				if (result == null) result = caseAllocationConnector(controllerAllocationConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResourceenvironmentPackage.RESOURCE_PROVIDED_ROLE_CONNECTOR: {
+				ResourceProvidedRoleConnector resourceProvidedRoleConnector = (ResourceProvidedRoleConnector)theEObject;
+				T result = caseResourceProvidedRoleConnector(resourceProvidedRoleConnector);
+				if (result == null) result = caseAllocationConnector(resourceProvidedRoleConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE: {
+				ControllerInstance controllerInstance = (ControllerInstance)theEObject;
+				T result = caseControllerInstance(controllerInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: {
 				ResourceEnvironment resourceEnvironment = (ResourceEnvironment)theEObject;
 				T result = caseResourceEnvironment(resourceEnvironment);
@@ -129,6 +151,14 @@ public class ResourceenvironmentSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR: {
+				ResourceAllocationConnector resourceAllocationConnector = (ResourceAllocationConnector)theEObject;
+				T result = caseResourceAllocationConnector(resourceAllocationConnector);
+				if (result == null) result = caseResourceProvidedRoleConnector(resourceAllocationConnector);
+				if (result == null) result = caseAllocationConnector(resourceAllocationConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER: {
 				ResourceContainer resourceContainer = (ResourceContainer)theEObject;
 				T result = caseResourceContainer(resourceContainer);
@@ -140,6 +170,51 @@ public class ResourceenvironmentSwitch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Controller Allocation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Controller Allocation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControllerAllocationConnector(ControllerAllocationConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Provided Role Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Provided Role Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceProvidedRoleConnector(ResourceProvidedRoleConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Controller Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Controller Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControllerInstance(ControllerInstance object) {
+		return null;
 	}
 
 	/**
@@ -203,6 +278,21 @@ public class ResourceenvironmentSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Allocation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Allocation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceAllocationConnector(ResourceAllocationConnector object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Resource Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -214,6 +304,21 @@ public class ResourceenvironmentSwitch<T> {
 	 * @generated
 	 */
 	public T caseResourceContainer(ResourceContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAllocationConnector(AllocationConnector object) {
 		return null;
 	}
 

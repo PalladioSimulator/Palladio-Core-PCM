@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype;
 
+import de.uka.ipd.sdq.pcm.repository.AbstractService;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,10 +13,15 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Resource Service</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This entity represents a single service of a ResourceInterface.
+ * In contrast to signatures of interfaces, a ResourceService does not provide different parameters, but just one implicit demand parameter. It also does not support return types or modifiers.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getServiceName <em>Service Name</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getResourceInterface_ResourceService <em>Resource Interface Resource Service</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ResourceService extends EObject {
+public interface ResourceService extends AbstractService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32,29 +38,31 @@ public interface ResourceService extends EObject {
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Service Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Resource Interface Resource Service</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getResourceServices_ResourceInterface <em>Resource Services Resource Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Service Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Resource Interface Resource Service</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Name</em>' attribute.
-	 * @see #setServiceName(String)
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceService_ServiceName()
-	 * @model required="true" ordered="false"
+	 * @return the value of the '<em>Resource Interface Resource Service</em>' container reference.
+	 * @see #setResourceInterface_ResourceService(ResourceInterface)
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceService_ResourceInterface_ResourceService()
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getResourceServices_ResourceInterface
+	 * @model opposite="resourceServices_ResourceInterface" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
-	String getServiceName();
+	ResourceInterface getResourceInterface_ResourceService();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getServiceName <em>Service Name</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getResourceInterface_ResourceService <em>Resource Interface Resource Service</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Name</em>' attribute.
-	 * @see #getServiceName()
+	 * @param value the new value of the '<em>Resource Interface Resource Service</em>' container reference.
+	 * @see #getResourceInterface_ResourceService()
 	 * @generated
 	 */
-	void setServiceName(String value);
+	void setResourceInterface_ResourceService(ResourceInterface value);
 
 } // ResourceService

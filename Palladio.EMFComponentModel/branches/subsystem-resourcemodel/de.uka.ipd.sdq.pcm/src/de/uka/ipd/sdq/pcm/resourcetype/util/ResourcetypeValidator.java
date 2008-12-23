@@ -123,14 +123,20 @@ public class ResourcetypeValidator extends EObjectValidator {
 				return validateResourceType((ResourceType)value, diagnostics, context);
 			case ResourcetypePackage.RESOURCE_REPOSITORY:
 				return validateResourceRepository((ResourceRepository)value, diagnostics, context);
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE:
-				return validateProcessingResourceType((ProcessingResourceType)value, diagnostics, context);
+			case ResourcetypePackage.CONTROLLER_STACK:
+				return validateControllerStack((ControllerStack)value, diagnostics, context);
+			case ResourcetypePackage.CONTROLLER_LAYER:
+				return validateControllerLayer((ControllerLayer)value, diagnostics, context);
+			case ResourcetypePackage.CONTROLLER_TYPE:
+				return validateControllerType((ControllerType)value, diagnostics, context);
 			case ResourcetypePackage.RESOURCE_PROVIDED_ROLE:
 				return validateResourceProvidedRole((ResourceProvidedRole)value, diagnostics, context);
 			case ResourcetypePackage.RESOURCE_INTERFACE:
 				return validateResourceInterface((ResourceInterface)value, diagnostics, context);
 			case ResourcetypePackage.RESOURCE_SERVICE:
 				return validateResourceService((ResourceService)value, diagnostics, context);
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE:
+				return validateProcessingResourceType((ProcessingResourceType)value, diagnostics, context);
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE:
 				return validateCommunicationLinkResourceType((CommunicationLinkResourceType)value, diagnostics, context);
 			case ResourcetypePackage.RESOURCE_REQUIRED_ROLE:
@@ -164,6 +170,41 @@ public class ResourcetypeValidator extends EObjectValidator {
 	 */
 	public boolean validateResourceRepository(ResourceRepository resourceRepository, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(resourceRepository, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateControllerStack(ControllerStack controllerStack, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(controllerStack, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateControllerLayer(ControllerLayer controllerLayer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(controllerLayer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateControllerType(ControllerType controllerType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(controllerType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(controllerType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(controllerType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(controllerType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(controllerType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(controllerType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(controllerType, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(controllerType, diagnostics, context);
+		return result;
 	}
 
 	/**

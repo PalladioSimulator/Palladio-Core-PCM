@@ -38,6 +38,9 @@ import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer;
+import de.uka.ipd.sdq.pcm.resourcetype.ControllerStack;
+import de.uka.ipd.sdq.pcm.resourcetype.ControllerType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole;
@@ -89,6 +92,27 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * @generated
 	 */
 	private EClass resourceRepositoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass controllerStackEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass controllerLayerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass controllerTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,6 +324,87 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getResourceRepository_AvailableControllerStacks_ResourceRepository() {
+		return (EReference)resourceRepositoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResourceRepository_AvailableControllerTypes_ResourceRepository() {
+		return (EReference)resourceRepositoryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getControllerStack() {
+		return controllerStackEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControllerStack_ControllerLayers_ControllerStack() {
+		return (EReference)controllerStackEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getControllerLayer() {
+		return controllerLayerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControllerLayer_UpperLayer() {
+		return (EReference)controllerLayerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControllerLayer_LowerLayer() {
+		return (EReference)controllerLayerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControllerLayer_ControllerType_ControllerScope() {
+		return (EReference)controllerLayerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getControllerType() {
+		return controllerTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCommunicationLinkResourceType() {
 		return communicationLinkResourceTypeEClass;
 	}
@@ -327,6 +432,24 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getResourceInterface_AncestorResourceInterfaces_ResourceInterface() {
+		return (EReference)resourceInterfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResourceInterface_ParentResourceInterface__ResourceInterface() {
+		return (EReference)resourceInterfaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getResourceService() {
 		return resourceServiceEClass;
 	}
@@ -336,8 +459,8 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceService_ServiceName() {
-		return (EAttribute)resourceServiceEClass.getEStructuralFeatures().get(0);
+	public EReference getResourceService_ResourceInterface_ResourceService() {
+		return (EReference)resourceServiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -435,8 +558,18 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
 		resourceRepositoryEClass = createEClass(RESOURCE_REPOSITORY);
 		createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY);
+		createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_STACKS_RESOURCE_REPOSITORY);
+		createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_TYPES_RESOURCE_REPOSITORY);
 
-		processingResourceTypeEClass = createEClass(PROCESSING_RESOURCE_TYPE);
+		controllerStackEClass = createEClass(CONTROLLER_STACK);
+		createEReference(controllerStackEClass, CONTROLLER_STACK__CONTROLLER_LAYERS_CONTROLLER_STACK);
+
+		controllerLayerEClass = createEClass(CONTROLLER_LAYER);
+		createEReference(controllerLayerEClass, CONTROLLER_LAYER__UPPER_LAYER);
+		createEReference(controllerLayerEClass, CONTROLLER_LAYER__LOWER_LAYER);
+		createEReference(controllerLayerEClass, CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE);
+
+		controllerTypeEClass = createEClass(CONTROLLER_TYPE);
 
 		resourceProvidedRoleEClass = createEClass(RESOURCE_PROVIDED_ROLE);
 		createEReference(resourceProvidedRoleEClass, RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE);
@@ -444,9 +577,13 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
 		resourceInterfaceEClass = createEClass(RESOURCE_INTERFACE);
 		createEReference(resourceInterfaceEClass, RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE);
+		createEReference(resourceInterfaceEClass, RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE);
+		createEReference(resourceInterfaceEClass, RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE);
 
 		resourceServiceEClass = createEClass(RESOURCE_SERVICE);
-		createEAttribute(resourceServiceEClass, RESOURCE_SERVICE__SERVICE_NAME);
+		createEReference(resourceServiceEClass, RESOURCE_SERVICE__RESOURCE_INTERFACE_RESOURCE_SERVICE);
+
+		processingResourceTypeEClass = createEClass(PROCESSING_RESOURCE_TYPE);
 
 		communicationLinkResourceTypeEClass = createEClass(COMMUNICATION_LINK_RESOURCE_TYPE);
 
@@ -490,11 +627,14 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		// Add supertypes to classes
 		resourceTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		resourceTypeEClass.getESuperTypes().add(theUnitsPackage.getUnitCarryingElement());
-		processingResourceTypeEClass.getESuperTypes().add(this.getResourceType());
-		processingResourceTypeEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceProvidingEntity());
+		controllerTypeEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceRequiringEntity());
+		controllerTypeEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceProvidingEntity());
 		resourceProvidedRoleEClass.getESuperTypes().add(theRepositoryPackage.getRole());
 		resourceInterfaceEClass.getESuperTypes().add(theRepositoryPackage.getAbstractInterface());
-		communicationLinkResourceTypeEClass.getESuperTypes().add(this.getProcessingResourceType());
+		resourceServiceEClass.getESuperTypes().add(theRepositoryPackage.getAbstractService());
+		processingResourceTypeEClass.getESuperTypes().add(this.getResourceType());
+		processingResourceTypeEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceProvidingEntity());
+		communicationLinkResourceTypeEClass.getESuperTypes().add(this.getResourceType());
 		resourceRequiredRoleEClass.getESuperTypes().add(theRepositoryPackage.getRole());
 
 		// Initialize classes and features; add operations and parameters
@@ -502,15 +642,27 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
 		initEClass(resourceRepositoryEClass, ResourceRepository.class, "ResourceRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceRepository_AvailableResourceTypes_ResourceRepository(), this.getResourceType(), null, "availableResourceTypes_ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceRepository_AvailableControllerStacks_ResourceRepository(), this.getControllerStack(), null, "availableControllerStacks_ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceRepository_AvailableControllerTypes_ResourceRepository(), this.getControllerType(), null, "availableControllerTypes_ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(processingResourceTypeEClass, ProcessingResourceType.class, "ProcessingResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(controllerStackEClass, ControllerStack.class, "ControllerStack", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getControllerStack_ControllerLayers_ControllerStack(), this.getControllerLayer(), null, "controllerLayers_ControllerStack", null, 0, -1, ControllerStack.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(controllerLayerEClass, ControllerLayer.class, "ControllerLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getControllerLayer_UpperLayer(), this.getControllerLayer(), this.getControllerLayer_LowerLayer(), "upperLayer", null, 0, 1, ControllerLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getControllerLayer_LowerLayer(), this.getControllerLayer(), this.getControllerLayer_UpperLayer(), "lowerLayer", null, 0, 1, ControllerLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getControllerLayer_ControllerType_ControllerScope(), this.getControllerType(), null, "controllerType_ControllerScope", null, 1, 1, ControllerLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(controllerTypeEClass, ControllerType.class, "ControllerType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(resourceProvidedRoleEClass, ResourceProvidedRole.class, "ResourceProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceProvidedRole_ProvidedResourceInterface_ResourceProvidedRole(), this.getResourceInterface(), null, "providedResourceInterface_ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole(), theEntityPackage.getResourceInterfaceProvidingEntity(), theEntityPackage.getResourceInterfaceProvidingEntity_ResourceProvidedRoles_ResourceInterfaceProvidingEntity(), "resourceInterfaceProvidingEntity_ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceProvidedRole_ResourceInterfaceProvidingEntity_ResourceProvidedRole(), theEntityPackage.getResourceInterfaceProvidingEntity(), theEntityPackage.getResourceInterfaceProvidingEntity_ResourceProvidedRole_ResourceInterfaceProvidingEntity(), "resourceInterfaceProvidingEntity_ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(resourceInterfaceEClass, ResourceInterface.class, "ResourceInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceInterface_ResourceServices_ResourceInterface(), this.getResourceService(), null, "resourceServices_ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceInterface_ResourceServices_ResourceInterface(), this.getResourceService(), this.getResourceService_ResourceInterface_ResourceService(), "resourceServices_ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceInterface_AncestorResourceInterfaces_ResourceInterface(), this.getResourceInterface(), null, "ancestorResourceInterfaces_ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceInterface_ParentResourceInterface__ResourceInterface(), this.getResourceInterface(), null, "parentResourceInterface__ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		EOperation op = addEOperation(resourceInterfaceEClass, ecorePackage.getEBoolean(), "ResourceServiceNamesHaveToBeUniqueForAResourceInterface", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -522,7 +674,9 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(resourceServiceEClass, ResourceService.class, "ResourceService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResourceService_ServiceName(), ecorePackage.getEString(), "serviceName", null, 1, 1, ResourceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceService_ResourceInterface_ResourceService(), this.getResourceInterface(), this.getResourceInterface_ResourceServices_ResourceInterface(), "resourceInterface_ResourceService", null, 1, 1, ResourceService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(processingResourceTypeEClass, ProcessingResourceType.class, "ProcessingResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(communicationLinkResourceTypeEClass, CommunicationLinkResourceType.class, "CommunicationLinkResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

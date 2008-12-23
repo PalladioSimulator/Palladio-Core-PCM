@@ -117,6 +117,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createSignatureAdapter();
 			}
 			@Override
+			public Adapter caseAbstractService(AbstractService object) {
+				return createAbstractServiceAdapter();
+			}
+			@Override
 			public Adapter caseParameter(Parameter object) {
 				return createParameterAdapter();
 			}
@@ -281,6 +285,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSignatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.AbstractService <em>Abstract Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.AbstractService
+	 * @generated
+	 */
+	public Adapter createAbstractServiceAdapter() {
 		return null;
 	}
 

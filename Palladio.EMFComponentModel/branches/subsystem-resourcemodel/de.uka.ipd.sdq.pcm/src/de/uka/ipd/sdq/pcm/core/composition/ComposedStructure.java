@@ -115,7 +115,7 @@ public interface ComposedStructure extends Entity {
 	EList<AssemblyConnector> getAssemblyConnectors_ComposedStructure();
 
 	/**
-	 * Returns the value of the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
@@ -124,10 +124,10 @@ public interface ComposedStructure extends Entity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource Required Delegation Connectors Composed Structure</em>' containment reference list.
+	 * @return the value of the '<em>Resource Required Delegation Connectors Composed Structure</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
-	 * @model opposite="parentStructure_ResourceRequiredDelegationConnector" containment="true" ordered="false"
+	 * @model opposite="parentStructure_ResourceRequiredDelegationConnector" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure();

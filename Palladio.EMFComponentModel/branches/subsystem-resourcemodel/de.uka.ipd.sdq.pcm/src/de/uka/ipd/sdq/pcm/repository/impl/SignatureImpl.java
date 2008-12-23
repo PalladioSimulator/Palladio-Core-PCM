@@ -47,7 +47,6 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getServiceName <em>Service Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getParameters__Signature <em>Parameters Signature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getInterface_Signature <em>Interface Signature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getReturntype__Signature <em>Returntype Signature</em>}</li>
@@ -57,33 +56,13 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  *
  * @generated
  */
-public class SignatureImpl extends EObjectImpl implements Signature {
+public class SignatureImpl extends AbstractServiceImpl implements Signature {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The default value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SERVICE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServiceName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String serviceName = SERVICE_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParameters__Signature() <em>Parameters Signature</em>}' containment reference list.
@@ -143,27 +122,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	@Override
 	protected EClass eStaticClass() {
 		return RepositoryPackage.Literals.SIGNATURE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getServiceName() {
-		return serviceName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setServiceName(String newServiceName) {
-		String oldServiceName = serviceName;
-		serviceName = newServiceName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.SIGNATURE__SERVICE_NAME, oldServiceName, serviceName));
 	}
 
 	/**
@@ -367,8 +325,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RepositoryPackage.SIGNATURE__SERVICE_NAME:
-				return getServiceName();
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				return getParameters__Signature();
 			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
@@ -391,9 +347,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RepositoryPackage.SIGNATURE__SERVICE_NAME:
-				setServiceName((String)newValue);
-				return;
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				getParameters__Signature().clear();
 				getParameters__Signature().addAll((Collection<? extends Parameter>)newValue);
@@ -420,9 +373,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.SIGNATURE__SERVICE_NAME:
-				setServiceName(SERVICE_NAME_EDEFAULT);
-				return;
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				getParameters__Signature().clear();
 				return;
@@ -447,8 +397,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.SIGNATURE__SERVICE_NAME:
-				return SERVICE_NAME_EDEFAULT == null ? serviceName != null : !SERVICE_NAME_EDEFAULT.equals(serviceName);
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				return parameters__Signature != null && !parameters__Signature.isEmpty();
 			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
@@ -459,22 +407,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 				return exceptions__Signature != null && !exceptions__Signature.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (serviceName: ");
-		result.append(serviceName);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SignatureImpl

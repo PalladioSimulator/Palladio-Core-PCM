@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -41,6 +43,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.util.ResourcetypeValidator;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl#getResourceServices_ResourceInterface <em>Resource Services Resource Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl#getAncestorResourceInterfaces_ResourceInterface <em>Ancestor Resource Interfaces Resource Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl#getParentResourceInterface__ResourceInterface <em>Parent Resource Interface Resource Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +67,26 @@ public class ResourceInterfaceImpl extends AbstractInterfaceImpl implements Reso
 	 * @ordered
 	 */
 	protected EList<ResourceService> resourceServices_ResourceInterface;
+
+	/**
+	 * The cached value of the '{@link #getAncestorResourceInterfaces_ResourceInterface() <em>Ancestor Resource Interfaces Resource Interface</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAncestorResourceInterfaces_ResourceInterface()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceInterface> ancestorResourceInterfaces_ResourceInterface;
+
+	/**
+	 * The cached value of the '{@link #getParentResourceInterface__ResourceInterface() <em>Parent Resource Interface Resource Interface</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParentResourceInterface__ResourceInterface()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceInterface> parentResourceInterface__ResourceInterface;
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ResourceServiceNamesHaveToBeUniqueForAResourceInterface <em>Resource Service Names Have To Be Unique For AResource Interface</em>}' invariant constraint.
@@ -101,9 +125,33 @@ public class ResourceInterfaceImpl extends AbstractInterfaceImpl implements Reso
 	 */
 	public EList<ResourceService> getResourceServices_ResourceInterface() {
 		if (resourceServices_ResourceInterface == null) {
-			resourceServices_ResourceInterface = new EObjectContainmentEList<ResourceService>(ResourceService.class, this, ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE);
+			resourceServices_ResourceInterface = new EObjectContainmentWithInverseEList<ResourceService>(ResourceService.class, this, ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE, ResourcetypePackage.RESOURCE_SERVICE__RESOURCE_INTERFACE_RESOURCE_SERVICE);
 		}
 		return resourceServices_ResourceInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ResourceInterface> getAncestorResourceInterfaces_ResourceInterface() {
+		if (ancestorResourceInterfaces_ResourceInterface == null) {
+			ancestorResourceInterfaces_ResourceInterface = new EObjectResolvingEList<ResourceInterface>(ResourceInterface.class, this, ResourcetypePackage.RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE);
+		}
+		return ancestorResourceInterfaces_ResourceInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ResourceInterface> getParentResourceInterface__ResourceInterface() {
+		if (parentResourceInterface__ResourceInterface == null) {
+			parentResourceInterface__ResourceInterface = new EObjectResolvingEList<ResourceInterface>(ResourceInterface.class, this, ResourcetypePackage.RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE);
+		}
+		return parentResourceInterface__ResourceInterface;
 	}
 
 	/**
@@ -150,6 +198,21 @@ public class ResourceInterfaceImpl extends AbstractInterfaceImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceServices_ResourceInterface()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -169,6 +232,10 @@ public class ResourceInterfaceImpl extends AbstractInterfaceImpl implements Reso
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE:
 				return getResourceServices_ResourceInterface();
+			case ResourcetypePackage.RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE:
+				return getAncestorResourceInterfaces_ResourceInterface();
+			case ResourcetypePackage.RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE:
+				return getParentResourceInterface__ResourceInterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,6 +253,14 @@ public class ResourceInterfaceImpl extends AbstractInterfaceImpl implements Reso
 				getResourceServices_ResourceInterface().clear();
 				getResourceServices_ResourceInterface().addAll((Collection<? extends ResourceService>)newValue);
 				return;
+			case ResourcetypePackage.RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE:
+				getAncestorResourceInterfaces_ResourceInterface().clear();
+				getAncestorResourceInterfaces_ResourceInterface().addAll((Collection<? extends ResourceInterface>)newValue);
+				return;
+			case ResourcetypePackage.RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE:
+				getParentResourceInterface__ResourceInterface().clear();
+				getParentResourceInterface__ResourceInterface().addAll((Collection<? extends ResourceInterface>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +276,12 @@ public class ResourceInterfaceImpl extends AbstractInterfaceImpl implements Reso
 			case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE:
 				getResourceServices_ResourceInterface().clear();
 				return;
+			case ResourcetypePackage.RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE:
+				getAncestorResourceInterfaces_ResourceInterface().clear();
+				return;
+			case ResourcetypePackage.RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE:
+				getParentResourceInterface__ResourceInterface().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -215,6 +296,10 @@ public class ResourceInterfaceImpl extends AbstractInterfaceImpl implements Reso
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE:
 				return resourceServices_ResourceInterface != null && !resourceServices_ResourceInterface.isEmpty();
+			case ResourcetypePackage.RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE:
+				return ancestorResourceInterfaces_ResourceInterface != null && !ancestorResourceInterfaces_ResourceInterface.isEmpty();
+			case ResourcetypePackage.RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE:
+				return parentResourceInterface__ResourceInterface != null && !parentResourceInterface__ResourceInterface.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository <em>Available Resource Types Resource Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableControllerStacks_ResourceRepository <em>Available Controller Stacks Resource Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableControllerTypes_ResourceRepository <em>Available Controller Types Resource Repository</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,5 +49,37 @@ public interface ResourceRepository extends EObject {
 	 * @generated
 	 */
 	EList<ResourceType> getAvailableResourceTypes_ResourceRepository();
+
+	/**
+	 * Returns the value of the '<em><b>Available Controller Stacks Resource Repository</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerStack}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Available Controller Stacks Resource Repository</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Available Controller Stacks Resource Repository</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceRepository_AvailableControllerStacks_ResourceRepository()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<ControllerStack> getAvailableControllerStacks_ResourceRepository();
+
+	/**
+	 * Returns the value of the '<em><b>Available Controller Types Resource Repository</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Available Controller Types Resource Repository</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Available Controller Types Resource Repository</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceRepository_AvailableControllerTypes_ResourceRepository()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<ControllerType> getAvailableControllerTypes_ResourceRepository();
 
 } // ResourceRepository

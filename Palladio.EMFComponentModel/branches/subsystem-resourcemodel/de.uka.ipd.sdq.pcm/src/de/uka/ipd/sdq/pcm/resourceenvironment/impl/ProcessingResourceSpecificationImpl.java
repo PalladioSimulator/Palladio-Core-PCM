@@ -25,7 +25,6 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getControllerSpecification <em>Controller Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
@@ -41,26 +40,6 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The default value of the '{@link #getControllerSpecification() <em>Controller Specification</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getControllerSpecification()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CONTROLLER_SPECIFICATION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getControllerSpecification() <em>Controller Specification</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getControllerSpecification()
-	 * @generated
-	 * @ordered
-	 */
-	protected String controllerSpecification = CONTROLLER_SPECIFICATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.
@@ -121,27 +100,6 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getControllerSpecification() {
-		return controllerSpecification;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setControllerSpecification(String newControllerSpecification) {
-		String oldControllerSpecification = controllerSpecification;
-		controllerSpecification = newControllerSpecification;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION, oldControllerSpecification, controllerSpecification));
 	}
 
 	/**
@@ -268,8 +226,6 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION:
-				return getControllerSpecification();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				return getSchedulingPolicy();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
@@ -289,9 +245,6 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION:
-				setControllerSpecification((String)newValue);
-				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				setSchedulingPolicy((SchedulingPolicy)newValue);
 				return;
@@ -313,9 +266,6 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION:
-				setControllerSpecification(CONTROLLER_SPECIFICATION_EDEFAULT);
-				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				setSchedulingPolicy(SCHEDULING_POLICY_EDEFAULT);
 				return;
@@ -337,8 +287,6 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION:
-				return CONTROLLER_SPECIFICATION_EDEFAULT == null ? controllerSpecification != null : !CONTROLLER_SPECIFICATION_EDEFAULT.equals(controllerSpecification);
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				return schedulingPolicy != SCHEDULING_POLICY_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
@@ -359,9 +307,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (controllerSpecification: ");
-		result.append(controllerSpecification);
-		result.append(", schedulingPolicy: ");
+		result.append(" (schedulingPolicy: ");
 		result.append(schedulingPolicy);
 		result.append(')');
 		return result.toString();

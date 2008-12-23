@@ -314,7 +314,15 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceRequiredDelegationConnector(ResourceRequiredDelegationConnector resourceRequiredDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(resourceRequiredDelegationConnector, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceRequiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceRequiredDelegationConnector, diagnostics, context);
+		return result;
 	}
 
 	/**

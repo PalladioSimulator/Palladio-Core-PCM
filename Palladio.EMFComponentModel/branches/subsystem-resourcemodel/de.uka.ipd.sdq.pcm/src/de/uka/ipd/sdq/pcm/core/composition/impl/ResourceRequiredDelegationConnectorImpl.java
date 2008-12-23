@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
 
 /**
@@ -29,49 +30,19 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector <em>Inner Resource Required Role Resource Required Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector <em>Outer Resource Required Role Resource Required Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getChildComponentContext_ResourceRequiredDelegationConnector <em>Child Component Context Resource Required Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getAssemblyContext_ResourceRequiredDelegationConnector <em>Assembly Context Resource Required Delegation Connector</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl implements ResourceRequiredDelegationConnector {
+public class ResourceRequiredDelegationConnectorImpl extends DelegationConnectorImpl implements ResourceRequiredDelegationConnector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The cached value of the '{@link #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() <em>Inner Resource Required Role Resource Required Delegation Connector</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
-	 * @generated
-	 * @ordered
-	 */
-	protected ResourceRequiredRole innerResourceRequiredRole_ResourceRequiredDelegationConnector;
-
-	/**
-	 * The cached value of the '{@link #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector() <em>Outer Resource Required Role Resource Required Delegation Connector</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
-	 * @generated
-	 * @ordered
-	 */
-	protected ResourceRequiredRole outerResourceRequiredRole_ResourceRequiredDelegationConnector;
-
-	/**
-	 * The cached value of the '{@link #getChildComponentContext_ResourceRequiredDelegationConnector() <em>Child Component Context Resource Required Delegation Connector</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChildComponentContext_ResourceRequiredDelegationConnector()
-	 * @generated
-	 * @ordered
-	 */
-	protected AssemblyContext childComponentContext_ResourceRequiredDelegationConnector;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,8 +69,8 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public ComposedStructure getParentStructure_ResourceRequiredDelegationConnector() {
-		if (eContainerFeatureID != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR) return null;
-		return (ComposedStructure)eContainer();
+		ComposedStructure parentStructure_ResourceRequiredDelegationConnector = basicGetParentStructure_ResourceRequiredDelegationConnector();
+		return parentStructure_ResourceRequiredDelegationConnector != null && parentStructure_ResourceRequiredDelegationConnector.eIsProxy() ? (ComposedStructure)eResolveProxy((InternalEObject)parentStructure_ResourceRequiredDelegationConnector) : parentStructure_ResourceRequiredDelegationConnector;
 	}
 
 	/**
@@ -107,9 +78,10 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParentStructure_ResourceRequiredDelegationConnector(ComposedStructure newParentStructure_ResourceRequiredDelegationConnector, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParentStructure_ResourceRequiredDelegationConnector, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, msgs);
-		return msgs;
+	public ComposedStructure basicGetParentStructure_ResourceRequiredDelegationConnector() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -118,19 +90,9 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public void setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure newParentStructure_ResourceRequiredDelegationConnector) {
-		if (newParentStructure_ResourceRequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_ResourceRequiredDelegationConnector != null)) {
-			if (EcoreUtil.isAncestor(this, newParentStructure_ResourceRequiredDelegationConnector))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParentStructure_ResourceRequiredDelegationConnector != null)
-				msgs = ((InternalEObject)newParentStructure_ResourceRequiredDelegationConnector).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
-			msgs = basicSetParentStructure_ResourceRequiredDelegationConnector(newParentStructure_ResourceRequiredDelegationConnector, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, newParentStructure_ResourceRequiredDelegationConnector, newParentStructure_ResourceRequiredDelegationConnector));
+		// TODO: implement this method to set the 'Parent Structure Resource Required Delegation Connector' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -139,15 +101,8 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
-		if (innerResourceRequiredRole_ResourceRequiredDelegationConnector != null && innerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
-			InternalEObject oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject)innerResourceRequiredRole_ResourceRequiredDelegationConnector;
-			innerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole)eResolveProxy(oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector);
-			if (innerResourceRequiredRole_ResourceRequiredDelegationConnector != oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector, innerResourceRequiredRole_ResourceRequiredDelegationConnector));
-			}
-		}
-		return innerResourceRequiredRole_ResourceRequiredDelegationConnector;
+		ResourceRequiredRole innerResourceRequiredRole_ResourceRequiredDelegationConnector = basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector();
+		return innerResourceRequiredRole_ResourceRequiredDelegationConnector != null && innerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy() ? (ResourceRequiredRole)eResolveProxy((InternalEObject)innerResourceRequiredRole_ResourceRequiredDelegationConnector) : innerResourceRequiredRole_ResourceRequiredDelegationConnector;
 	}
 
 	/**
@@ -156,7 +111,9 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public ResourceRequiredRole basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
-		return innerResourceRequiredRole_ResourceRequiredDelegationConnector;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -165,10 +122,9 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public void setInnerResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole newInnerResourceRequiredRole_ResourceRequiredDelegationConnector) {
-		ResourceRequiredRole oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector = innerResourceRequiredRole_ResourceRequiredDelegationConnector;
-		innerResourceRequiredRole_ResourceRequiredDelegationConnector = newInnerResourceRequiredRole_ResourceRequiredDelegationConnector;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector, innerResourceRequiredRole_ResourceRequiredDelegationConnector));
+		// TODO: implement this method to set the 'Inner Resource Required Role Resource Required Delegation Connector' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -177,15 +133,8 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
-		if (outerResourceRequiredRole_ResourceRequiredDelegationConnector != null && outerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
-			InternalEObject oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject)outerResourceRequiredRole_ResourceRequiredDelegationConnector;
-			outerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole)eResolveProxy(oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector);
-			if (outerResourceRequiredRole_ResourceRequiredDelegationConnector != oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector, outerResourceRequiredRole_ResourceRequiredDelegationConnector));
-			}
-		}
-		return outerResourceRequiredRole_ResourceRequiredDelegationConnector;
+		ResourceRequiredRole outerResourceRequiredRole_ResourceRequiredDelegationConnector = basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector();
+		return outerResourceRequiredRole_ResourceRequiredDelegationConnector != null && outerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy() ? (ResourceRequiredRole)eResolveProxy((InternalEObject)outerResourceRequiredRole_ResourceRequiredDelegationConnector) : outerResourceRequiredRole_ResourceRequiredDelegationConnector;
 	}
 
 	/**
@@ -194,7 +143,9 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public ResourceRequiredRole basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
-		return outerResourceRequiredRole_ResourceRequiredDelegationConnector;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -203,10 +154,9 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * @generated
 	 */
 	public void setOuterResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole newOuterResourceRequiredRole_ResourceRequiredDelegationConnector) {
-		ResourceRequiredRole oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector = outerResourceRequiredRole_ResourceRequiredDelegationConnector;
-		outerResourceRequiredRole_ResourceRequiredDelegationConnector = newOuterResourceRequiredRole_ResourceRequiredDelegationConnector;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector, outerResourceRequiredRole_ResourceRequiredDelegationConnector));
+		// TODO: implement this method to set the 'Outer Resource Required Role Resource Required Delegation Connector' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -214,16 +164,9 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext getChildComponentContext_ResourceRequiredDelegationConnector() {
-		if (childComponentContext_ResourceRequiredDelegationConnector != null && childComponentContext_ResourceRequiredDelegationConnector.eIsProxy()) {
-			InternalEObject oldChildComponentContext_ResourceRequiredDelegationConnector = (InternalEObject)childComponentContext_ResourceRequiredDelegationConnector;
-			childComponentContext_ResourceRequiredDelegationConnector = (AssemblyContext)eResolveProxy(oldChildComponentContext_ResourceRequiredDelegationConnector);
-			if (childComponentContext_ResourceRequiredDelegationConnector != oldChildComponentContext_ResourceRequiredDelegationConnector) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, oldChildComponentContext_ResourceRequiredDelegationConnector, childComponentContext_ResourceRequiredDelegationConnector));
-			}
-		}
-		return childComponentContext_ResourceRequiredDelegationConnector;
+	public AssemblyContext getAssemblyContext_ResourceRequiredDelegationConnector() {
+		AssemblyContext assemblyContext_ResourceRequiredDelegationConnector = basicGetAssemblyContext_ResourceRequiredDelegationConnector();
+		return assemblyContext_ResourceRequiredDelegationConnector != null && assemblyContext_ResourceRequiredDelegationConnector.eIsProxy() ? (AssemblyContext)eResolveProxy((InternalEObject)assemblyContext_ResourceRequiredDelegationConnector) : assemblyContext_ResourceRequiredDelegationConnector;
 	}
 
 	/**
@@ -231,8 +174,10 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext basicGetChildComponentContext_ResourceRequiredDelegationConnector() {
-		return childComponentContext_ResourceRequiredDelegationConnector;
+	public AssemblyContext basicGetAssemblyContext_ResourceRequiredDelegationConnector() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -240,55 +185,10 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setChildComponentContext_ResourceRequiredDelegationConnector(AssemblyContext newChildComponentContext_ResourceRequiredDelegationConnector) {
-		AssemblyContext oldChildComponentContext_ResourceRequiredDelegationConnector = childComponentContext_ResourceRequiredDelegationConnector;
-		childComponentContext_ResourceRequiredDelegationConnector = newChildComponentContext_ResourceRequiredDelegationConnector;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, oldChildComponentContext_ResourceRequiredDelegationConnector, childComponentContext_ResourceRequiredDelegationConnector));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParentStructure_ResourceRequiredDelegationConnector((ComposedStructure)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				return basicSetParentStructure_ResourceRequiredDelegationConnector(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
+	public void setAssemblyContext_ResourceRequiredDelegationConnector(AssemblyContext newAssemblyContext_ResourceRequiredDelegationConnector) {
+		// TODO: implement this method to set the 'Assembly Context Resource Required Delegation Connector' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -300,16 +200,17 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				return getParentStructure_ResourceRequiredDelegationConnector();
+				if (resolve) return getParentStructure_ResourceRequiredDelegationConnector();
+				return basicGetParentStructure_ResourceRequiredDelegationConnector();
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
 				if (resolve) return getInnerResourceRequiredRole_ResourceRequiredDelegationConnector();
 				return basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector();
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
 				if (resolve) return getOuterResourceRequiredRole_ResourceRequiredDelegationConnector();
 				return basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector();
-			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				if (resolve) return getChildComponentContext_ResourceRequiredDelegationConnector();
-				return basicGetChildComponentContext_ResourceRequiredDelegationConnector();
+			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
+				if (resolve) return getAssemblyContext_ResourceRequiredDelegationConnector();
+				return basicGetAssemblyContext_ResourceRequiredDelegationConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -331,8 +232,8 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
 				setOuterResourceRequiredRole_ResourceRequiredDelegationConnector((ResourceRequiredRole)newValue);
 				return;
-			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				setChildComponentContext_ResourceRequiredDelegationConnector((AssemblyContext)newValue);
+			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
+				setAssemblyContext_ResourceRequiredDelegationConnector((AssemblyContext)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -355,8 +256,8 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
 				setOuterResourceRequiredRole_ResourceRequiredDelegationConnector((ResourceRequiredRole)null);
 				return;
-			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				setChildComponentContext_ResourceRequiredDelegationConnector((AssemblyContext)null);
+			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
+				setAssemblyContext_ResourceRequiredDelegationConnector((AssemblyContext)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -371,13 +272,13 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				return getParentStructure_ResourceRequiredDelegationConnector() != null;
+				return basicGetParentStructure_ResourceRequiredDelegationConnector() != null;
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				return innerResourceRequiredRole_ResourceRequiredDelegationConnector != null;
+				return basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector() != null;
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				return outerResourceRequiredRole_ResourceRequiredDelegationConnector != null;
-			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-				return childComponentContext_ResourceRequiredDelegationConnector != null;
+				return basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector() != null;
+			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
+				return basicGetAssemblyContext_ResourceRequiredDelegationConnector() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -138,6 +138,13 @@ public class RepositorySwitch<T> {
 			case RepositoryPackage.SIGNATURE: {
 				Signature signature = (Signature)theEObject;
 				T result = caseSignature(signature);
+				if (result == null) result = caseAbstractService(signature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.ABSTRACT_SERVICE: {
+				AbstractService abstractService = (AbstractService)theEObject;
+				T result = caseAbstractService(abstractService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -378,6 +385,21 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseSignature(Signature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractService(AbstractService object) {
 		return null;
 	}
 

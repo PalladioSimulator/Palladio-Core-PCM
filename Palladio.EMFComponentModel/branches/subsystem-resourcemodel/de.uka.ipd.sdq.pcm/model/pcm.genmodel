@@ -22,11 +22,11 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/2008.09.19/2008.11.17/identifier.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.17/pcm.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.17/ProbabilityFunction.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.17/stoex.uml</foreignModel>
-  <foreignModel>file:/C:/2008.09.19/2008.11.17/Units.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.12.23/identifier.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.12.23/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.12.23/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.12.23/stoex.uml</foreignModel>
+  <foreignModel>file:/C:/2008.09.19/2008.12.23/Units.uml</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -55,7 +55,7 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
         </genClasses>
         <genClasses image="false" ecoreClass="pcm.ecore#//core/entity/ResourceInterfaceProvidingEntity">
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRoles_ResourceInterfaceProvidingEntity"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/entity/ResourceInterfaceProvidingEntity/resourceProvidedRole_ResourceInterfaceProvidingEntity"/>
         </genClasses>
         <genClasses image="false" ecoreClass="pcm.ecore#//core/entity/ComposedProvidingRequiringEntity">
           <genOperations ecoreOperation="pcm.ecore#//core/entity/ComposedProvidingRequiringEntity/ProvidedRolesMustBeBound">
@@ -136,7 +136,7 @@
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ResourceRequiredDelegationConnector/outerResourceRequiredRole_ResourceRequiredDelegationConnector"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
-              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ResourceRequiredDelegationConnector/childComponentContext_ResourceRequiredDelegationConnector"/>
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ResourceRequiredDelegationConnector/assemblyContext_ResourceRequiredDelegationConnector"/>
         </genClasses>
         <genClasses image="false" ecoreClass="pcm.ecore#//core/composition/ComposedStructure">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/assemblyContexts_ComposedStructure"/>
@@ -168,7 +168,6 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/PassiveResource/capacity_PassiveResource"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/Signature">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Signature/serviceName"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/parameters__Signature"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/interface_Signature"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -178,6 +177,9 @@
           <genParameters ecoreParameter="pcm.ecore#//repository/Signature/ParameterNamesHaveToBeUniqueForASignature/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/Signature/ParameterNamesHaveToBeUniqueForASignature/context"/>
         </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="pcm.ecore#//repository/AbstractService">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/AbstractService/serviceName"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/Parameter">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -322,8 +324,21 @@
       <genClasses image="false" ecoreClass="pcm.ecore#//resourcetype/ResourceType"/>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/ResourceRepository">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceRepository/availableResourceTypes_ResourceRepository"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceRepository/availableControllerStacks_ResourceRepository"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceRepository/availableControllerTypes_ResourceRepository"/>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//resourcetype/ProcessingResourceType"/>
+      <genClasses ecoreClass="pcm.ecore#//resourcetype/ControllerStack">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ControllerStack/controllerLayers_ControllerStack"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//resourcetype/ControllerLayer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ControllerLayer/upperLayer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ControllerLayer/lowerLayer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ControllerLayer/controllerType_ControllerScope"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//resourcetype/ControllerType"/>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/ResourceProvidedRole">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceProvidedRole/providedResourceInterface_ResourceProvidedRole"/>
@@ -331,14 +346,19 @@
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/ResourceInterface">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceInterface/resourceServices_ResourceInterface"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceInterface/ancestorResourceInterfaces_ResourceInterface"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceInterface/parentResourceInterface__ResourceInterface"/>
         <genOperations ecoreOperation="pcm.ecore#//resourcetype/ResourceInterface/ResourceServiceNamesHaveToBeUniqueForAResourceInterface">
           <genParameters ecoreParameter="pcm.ecore#//resourcetype/ResourceInterface/ResourceServiceNamesHaveToBeUniqueForAResourceInterface/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//resourcetype/ResourceInterface/ResourceServiceNamesHaveToBeUniqueForAResourceInterface/context"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/ResourceService">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourcetype/ResourceService/serviceName"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceService/resourceInterface_ResourceService"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//resourcetype/ProcessingResourceType"/>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/CommunicationLinkResourceType"/>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/ResourceRequiredRole">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -492,6 +512,22 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationContext/assemblyContext_AllocationContext"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="pcm.ecore#//allocation/AllocationConnector">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationConnector/resourceRequiredRole_AllocationConnector"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationConnector/resourceContainer_AllocationConnector"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationConnector/assemblyContext_AllocationConnector"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//allocation/InfrastructureComponentScope">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/InfrastructureComponentScope/assemblyContext_InfrastructureComponentScope"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/InfrastructureComponentScope/lowerLayer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/InfrastructureComponentScope/upperLayer"/>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//allocation/Allocation">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//allocation/Allocation/allocationContexts_Allocation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -503,6 +539,16 @@
           <genParameters ecoreParameter="pcm.ecore#//allocation/Allocation/EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce/context"/>
         </genOperations>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//allocation/InfrastructureComponentAllocationConnector">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/InfrastructureComponentAllocationConnector/providedRole_AllocationConnector"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/InfrastructureComponentAllocationConnector/infrastructureComponentScope_InfrastructureComponentAllocationConnector"/>
+        <genOperations ecoreOperation="pcm.ecore#//allocation/InfrastructureComponentAllocationConnector/AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch">
+          <genParameters ecoreParameter="pcm.ecore#//allocation/InfrastructureComponentAllocationConnector/AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//allocation/InfrastructureComponentAllocationConnector/AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch/context"/>
+        </genOperations>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Resourceenvironment" basePackage="de.uka.ipd.sdq.pcm"
         resource="XML" disposableProviderFactory="true" ecorePackage="pcm.ecore#//resourceenvironment">
@@ -511,6 +557,24 @@
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//resourceenvironment/SchedulingPolicy/PROCESSOR_SHARING"/>
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//resourceenvironment/SchedulingPolicy/FCFS"/>
       </genEnums>
+      <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ControllerAllocationConnector">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ControllerAllocationConnector/providingControllerInstance_ControllerAllocationConnector"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="pcm.ecore#//resourceenvironment/ResourceProvidedRoleConnector">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceProvidedRoleConnector/resourceProvidedRole_ResourceProvidedRoleAllocationConnector"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceProvidedRoleConnector/requiringControllerInstance_ControllerAllocationConnector"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ControllerInstance">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ControllerInstance/controllerScope_ResourceContainer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ControllerInstance/upperControllerAllocationConnectors_ControllerInstance"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ControllerInstance/lowerControllerAllocationConnectors_ControllerInstance"/>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ResourceEnvironment">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceEnvironment/linkingresource"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceEnvironment/resourceContainer_ResourceEnvironment"/>
@@ -529,14 +593,23 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/throughput_CommunicationLinkResourceSpecification"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/controllerSpecification"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/activeResourceType_ActiveResourceSpecification"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/processingRate_ProcessingResourceSpecification"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ResourceAllocationConnector">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceAllocationConnector/processingResourceSpecification_ResourceAllocationConnector"/>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ResourceContainer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/allocationConnectors_ResourceContainer"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/infrastructureComponentScope_ResourceContainer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/controllerInstance_ResourceContainer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/controllerStack_ResourceContainer"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="System" basePackage="de.uka.ipd.sdq.pcm" resource="XML"

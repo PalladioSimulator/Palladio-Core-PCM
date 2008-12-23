@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -69,6 +70,189 @@ public interface ResourceenvironmentPackage extends EPackage {
 	ResourceenvironmentPackage eINSTANCE = de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceProvidedRoleConnectorImpl <em>Resource Provided Role Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceProvidedRoleConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceProvidedRoleConnector()
+	 * @generated
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR = AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resource Container Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR = AllocationPackage.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Context Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = AllocationPackage.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resource Provided Role Resource Provided Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR = AllocationPackage.ALLOCATION_CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Requiring Controller Instance Controller Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR__REQUIRING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR = AllocationPackage.ALLOCATION_CONNECTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Resource Provided Role Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_PROVIDED_ROLE_CONNECTOR_FEATURE_COUNT = AllocationPackage.ALLOCATION_CONNECTOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerAllocationConnectorImpl <em>Controller Allocation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerAllocationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getControllerAllocationConnector()
+	 * @generated
+	 */
+	int CONTROLLER_ALLOCATION_CONNECTOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resource Container Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Context Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resource Provided Role Resource Provided Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_ALLOCATION_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Requiring Controller Instance Controller Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_ALLOCATION_CONNECTOR__REQUIRING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__REQUIRING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Providing Controller Instance Controller Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_ALLOCATION_CONNECTOR__PROVIDING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Controller Allocation Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_ALLOCATION_CONNECTOR_FEATURE_COUNT = RESOURCE_PROVIDED_ROLE_CONNECTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerInstanceImpl <em>Controller Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerInstanceImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getControllerInstance()
+	 * @generated
+	 */
+	int CONTROLLER_INSTANCE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Controller Scope Resource Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Upper Controller Allocation Connectors Controller Instance</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Lower Controller Allocation Connectors Controller Instance</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Controller Instance</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_INSTANCE_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceEnvironmentImpl <em>Resource Environment</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,7 +260,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceEnvironment()
 	 * @generated
 	 */
-	int RESOURCE_ENVIRONMENT = 0;
+	int RESOURCE_ENVIRONMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Linkingresource</b></em>' containment reference list.
@@ -113,7 +297,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getLinkingResource()
 	 * @generated
 	 */
-	int LINKING_RESOURCE = 1;
+	int LINKING_RESOURCE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -177,7 +361,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getCommunicationLinkResourceSpecification()
 	 * @generated
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 2;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference.
@@ -223,16 +407,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getProcessingResourceSpecification()
 	 * @generated
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Controller Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION = 0;
+	int PROCESSING_RESOURCE_SPECIFICATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Scheduling Policy</b></em>' attribute.
@@ -241,7 +416,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = 1;
+	int PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference.
@@ -250,7 +425,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 2;
+	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Processing Rate Processing Resource Specification</b></em>' containment reference.
@@ -259,7 +434,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = 3;
+	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Processing Resource Specification</em>' class.
@@ -268,7 +443,80 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
+	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceAllocationConnectorImpl <em>Resource Allocation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceAllocationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceAllocationConnector()
+	 * @generated
+	 */
+	int RESOURCE_ALLOCATION_CONNECTOR = 7;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resource Container Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Context Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Resource Provided Role Resource Provided Role Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Requiring Controller Instance Controller Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_CONNECTOR__REQUIRING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR__REQUIRING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Processing Resource Specification Resource Allocation Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_CONNECTOR__PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR = RESOURCE_PROVIDED_ROLE_CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Resource Allocation Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_CONNECTOR_FEATURE_COUNT = RESOURCE_PROVIDED_ROLE_CONNECTOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
@@ -278,7 +526,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceContainer()
 	 * @generated
 	 */
-	int RESOURCE_CONTAINER = 4;
+	int RESOURCE_CONTAINER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -299,13 +547,49 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int RESOURCE_CONTAINER__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Allocation Connectors Resource Container</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER__ALLOCATION_CONNECTORS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Active Resource Specifications Resource Container</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+	int RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Infrastructure Component Scope Resource Container</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Controller Instance Resource Container</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Controller Stack Resource Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Resource Container</em>' class.
@@ -314,7 +598,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_CONTAINER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int RESOURCE_CONTAINER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
@@ -324,8 +608,104 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
 	 * @generated
 	 */
-	int SCHEDULING_POLICY = 5;
+	int SCHEDULING_POLICY = 9;
 
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector <em>Controller Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Controller Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector
+	 * @generated
+	 */
+	EClass getControllerAllocationConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector#getProvidingControllerInstance_ControllerAllocationConnector <em>Providing Controller Instance Controller Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Providing Controller Instance Controller Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector#getProvidingControllerInstance_ControllerAllocationConnector()
+	 * @see #getControllerAllocationConnector()
+	 * @generated
+	 */
+	EReference getControllerAllocationConnector_ProvidingControllerInstance_ControllerAllocationConnector();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector <em>Resource Provided Role Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Provided Role Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector
+	 * @generated
+	 */
+	EClass getResourceProvidedRoleConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector#getResourceProvidedRole_ResourceProvidedRoleAllocationConnector <em>Resource Provided Role Resource Provided Role Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource Provided Role Resource Provided Role Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector#getResourceProvidedRole_ResourceProvidedRoleAllocationConnector()
+	 * @see #getResourceProvidedRoleConnector()
+	 * @generated
+	 */
+	EReference getResourceProvidedRoleConnector_ResourceProvidedRole_ResourceProvidedRoleAllocationConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector#getRequiringControllerInstance_ControllerAllocationConnector <em>Requiring Controller Instance Controller Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Requiring Controller Instance Controller Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceProvidedRoleConnector#getRequiringControllerInstance_ControllerAllocationConnector()
+	 * @see #getResourceProvidedRoleConnector()
+	 * @generated
+	 */
+	EReference getResourceProvidedRoleConnector_RequiringControllerInstance_ControllerAllocationConnector();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance <em>Controller Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Controller Instance</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance
+	 * @generated
+	 */
+	EClass getControllerInstance();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance#getControllerScope_ResourceContainer <em>Controller Scope Resource Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Controller Scope Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance#getControllerScope_ResourceContainer()
+	 * @see #getControllerInstance()
+	 * @generated
+	 */
+	EReference getControllerInstance_ControllerScope_ResourceContainer();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance#getUpperControllerAllocationConnectors_ControllerInstance <em>Upper Controller Allocation Connectors Controller Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Upper Controller Allocation Connectors Controller Instance</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance#getUpperControllerAllocationConnectors_ControllerInstance()
+	 * @see #getControllerInstance()
+	 * @generated
+	 */
+	EReference getControllerInstance_UpperControllerAllocationConnectors_ControllerInstance();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance#getLowerControllerAllocationConnectors_ControllerInstance <em>Lower Controller Allocation Connectors Controller Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Lower Controller Allocation Connectors Controller Instance</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance#getLowerControllerAllocationConnectors_ControllerInstance()
+	 * @see #getControllerInstance()
+	 * @generated
+	 */
+	EReference getControllerInstance_LowerControllerAllocationConnectors_ControllerInstance();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment <em>Resource Environment</em>}'.
@@ -456,17 +836,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EClass getProcessingResourceSpecification();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getControllerSpecification <em>Controller Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Controller Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getControllerSpecification()
-	 * @see #getProcessingResourceSpecification()
-	 * @generated
-	 */
-	EAttribute getProcessingResourceSpecification_ControllerSpecification();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -500,6 +869,27 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector <em>Resource Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector
+	 * @generated
+	 */
+	EClass getResourceAllocationConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector#getProcessingResourceSpecification_ResourceAllocationConnector <em>Processing Resource Specification Resource Allocation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Processing Resource Specification Resource Allocation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector#getProcessingResourceSpecification_ResourceAllocationConnector()
+	 * @see #getResourceAllocationConnector()
+	 * @generated
+	 */
+	EReference getResourceAllocationConnector_ProcessingResourceSpecification_ResourceAllocationConnector();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer <em>Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -508,6 +898,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getResourceContainer();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getAllocationConnectors_ResourceContainer <em>Allocation Connectors Resource Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Allocation Connectors Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getAllocationConnectors_ResourceContainer()
+	 * @see #getResourceContainer()
+	 * @generated
+	 */
+	EReference getResourceContainer_AllocationConnectors_ResourceContainer();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}'.
@@ -519,6 +920,39 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getInfrastructureComponentScope_ResourceContainer <em>Infrastructure Component Scope Resource Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Infrastructure Component Scope Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getInfrastructureComponentScope_ResourceContainer()
+	 * @see #getResourceContainer()
+	 * @generated
+	 */
+	EReference getResourceContainer_InfrastructureComponentScope_ResourceContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getControllerInstance_ResourceContainer <em>Controller Instance Resource Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Controller Instance Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getControllerInstance_ResourceContainer()
+	 * @see #getResourceContainer()
+	 * @generated
+	 */
+	EReference getResourceContainer_ControllerInstance_ResourceContainer();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getControllerStack_ResourceContainer <em>Controller Stack Resource Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Controller Stack Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getControllerStack_ResourceContainer()
+	 * @see #getResourceContainer()
+	 * @generated
+	 */
+	EReference getResourceContainer_ControllerStack_ResourceContainer();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}'.
@@ -552,6 +986,84 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerAllocationConnectorImpl <em>Controller Allocation Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerAllocationConnectorImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getControllerAllocationConnector()
+		 * @generated
+		 */
+		EClass CONTROLLER_ALLOCATION_CONNECTOR = eINSTANCE.getControllerAllocationConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Providing Controller Instance Controller Allocation Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_ALLOCATION_CONNECTOR__PROVIDING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR = eINSTANCE.getControllerAllocationConnector_ProvidingControllerInstance_ControllerAllocationConnector();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceProvidedRoleConnectorImpl <em>Resource Provided Role Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceProvidedRoleConnectorImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceProvidedRoleConnector()
+		 * @generated
+		 */
+		EClass RESOURCE_PROVIDED_ROLE_CONNECTOR = eINSTANCE.getResourceProvidedRoleConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Provided Role Resource Provided Role Allocation Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_PROVIDED_ROLE_CONNECTOR__RESOURCE_PROVIDED_ROLE_RESOURCE_PROVIDED_ROLE_ALLOCATION_CONNECTOR = eINSTANCE.getResourceProvidedRoleConnector_ResourceProvidedRole_ResourceProvidedRoleAllocationConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Requiring Controller Instance Controller Allocation Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_PROVIDED_ROLE_CONNECTOR__REQUIRING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR = eINSTANCE.getResourceProvidedRoleConnector_RequiringControllerInstance_ControllerAllocationConnector();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerInstanceImpl <em>Controller Instance</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ControllerInstanceImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getControllerInstance()
+		 * @generated
+		 */
+		EClass CONTROLLER_INSTANCE = eINSTANCE.getControllerInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Controller Scope Resource Container</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER = eINSTANCE.getControllerInstance_ControllerScope_ResourceContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper Controller Allocation Connectors Controller Instance</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE = eINSTANCE.getControllerInstance_UpperControllerAllocationConnectors_ControllerInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Lower Controller Allocation Connectors Controller Instance</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE = eINSTANCE.getControllerInstance_LowerControllerAllocationConnectors_ControllerInstance();
+
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceEnvironmentImpl <em>Resource Environment</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -657,14 +1169,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EClass PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification();
 
 		/**
-		 * The meta object literal for the '<em><b>Controller Specification</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROCESSING_RESOURCE_SPECIFICATION__CONTROLLER_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification_ControllerSpecification();
-
-		/**
 		 * The meta object literal for the '<em><b>Scheduling Policy</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -689,6 +1193,24 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EReference PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceAllocationConnectorImpl <em>Resource Allocation Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceAllocationConnectorImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceAllocationConnector()
+		 * @generated
+		 */
+		EClass RESOURCE_ALLOCATION_CONNECTOR = eINSTANCE.getResourceAllocationConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Processing Resource Specification Resource Allocation Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_ALLOCATION_CONNECTOR__PROCESSING_RESOURCE_SPECIFICATION_RESOURCE_ALLOCATION_CONNECTOR = eINSTANCE.getResourceAllocationConnector_ProcessingResourceSpecification_ResourceAllocationConnector();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -699,12 +1221,44 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EClass RESOURCE_CONTAINER = eINSTANCE.getResourceContainer();
 
 		/**
+		 * The meta object literal for the '<em><b>Allocation Connectors Resource Container</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_CONTAINER__ALLOCATION_CONNECTORS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_AllocationConnectors_ResourceContainer();
+
+		/**
 		 * The meta object literal for the '<em><b>Active Resource Specifications Resource Container</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Infrastructure Component Scope Resource Container</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_InfrastructureComponentScope_ResourceContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Controller Instance Resource Container</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ControllerInstance_ResourceContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Controller Stack Resource Container</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ControllerStack_ResourceContainer();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.

@@ -19,13 +19,14 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  *
  * <!-- begin-model-doc -->
  * TODO (Überarbeitung durch MH)
- * Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.
+ * Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. 
+ * It assigns the demand specified as a Random-Variable to a ResourceService, which is part of a ResourceInterface (e.g. ICpuInterface, IHddInterface) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.
  * The demand’s unit is equal for all ProcessingResourceSpecifications referencing
  * the same ProcessingResourceType. It can for example be ”WorkUnits”
  * for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-
- * Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20
- * MB/s), which analysis tools use to compute an actual timing value in seconds. They
- * use this timing value for example as the service demand on a service center in a queueing
+ * Specification is being accessed by a Controller which manages resource access. The controller specifies a 
+ * processing rate for demands (e.g., 1000 WorkUnits/s, 20 MB/s), which is used in analysis to 
+ * compute an actual timing value in seconds. This timing value for example can be the service demand on a service center in a queueing
  * network or the firing delay of a transition in a Petri net. As multiple component services
  * might request processing on the same resource, these analytical or simulation models
  * allow determining the waiting delay induced by this contention effect.

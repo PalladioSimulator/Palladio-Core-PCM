@@ -149,6 +149,11 @@ public class CompositionSwitch<T> {
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR: {
 				ResourceRequiredDelegationConnector resourceRequiredDelegationConnector = (ResourceRequiredDelegationConnector)theEObject;
 				T result = caseResourceRequiredDelegationConnector(resourceRequiredDelegationConnector);
+				if (result == null) result = caseDelegationConnector(resourceRequiredDelegationConnector);
+				if (result == null) result = caseConnector(resourceRequiredDelegationConnector);
+				if (result == null) result = caseEntity(resourceRequiredDelegationConnector);
+				if (result == null) result = caseIdentifier(resourceRequiredDelegationConnector);
+				if (result == null) result = caseNamedElement(resourceRequiredDelegationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

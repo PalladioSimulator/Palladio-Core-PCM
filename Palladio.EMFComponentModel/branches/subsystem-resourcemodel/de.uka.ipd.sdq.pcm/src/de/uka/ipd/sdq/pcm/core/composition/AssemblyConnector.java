@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * @model
  * @generated
  */
-public interface AssemblyConnector extends Connector, Entity {
+public interface AssemblyConnector extends Connector {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

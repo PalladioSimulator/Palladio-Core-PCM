@@ -39,7 +39,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getServiceName <em>Service Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getParameters__Signature <em>Parameters Signature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature <em>Interface Signature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getReturntype__Signature <em>Returntype Signature</em>}</li>
@@ -51,42 +50,13 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Signature extends EObject {
+public interface Signature extends AbstractService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Service Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Service Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This property represents the service name realized by this method.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Name</em>' attribute.
-	 * @see #setServiceName(String)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_ServiceName()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	String getServiceName();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Signature#getServiceName <em>Service Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service Name</em>' attribute.
-	 * @see #getServiceName()
-	 * @generated
-	 */
-	void setServiceName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameters Signature</b></em>' containment reference list.

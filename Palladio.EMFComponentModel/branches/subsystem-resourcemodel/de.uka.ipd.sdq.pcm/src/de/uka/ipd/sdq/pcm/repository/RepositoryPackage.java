@@ -116,6 +116,34 @@ public interface RepositoryPackage extends EPackage {
 	int PASSIVE_RESOURCE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.AbstractServiceImpl <em>Abstract Service</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.AbstractServiceImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getAbstractService()
+	 * @generated
+	 */
+	int ABSTRACT_SERVICE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Service Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_SERVICE__SERVICE_NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_SERVICE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl <em>Signature</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,7 +160,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE__SERVICE_NAME = 0;
+	int SIGNATURE__SERVICE_NAME = ABSTRACT_SERVICE__SERVICE_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parameters Signature</b></em>' containment reference list.
@@ -141,7 +169,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE__PARAMETERS_SIGNATURE = 1;
+	int SIGNATURE__PARAMETERS_SIGNATURE = ABSTRACT_SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Interface Signature</b></em>' container reference.
@@ -150,7 +178,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE__INTERFACE_SIGNATURE = 2;
+	int SIGNATURE__INTERFACE_SIGNATURE = ABSTRACT_SERVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Returntype Signature</b></em>' reference.
@@ -159,7 +187,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE__RETURNTYPE_SIGNATURE = 3;
+	int SIGNATURE__RETURNTYPE_SIGNATURE = ABSTRACT_SERVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Exceptions Signature</b></em>' containment reference list.
@@ -168,7 +196,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE__EXCEPTIONS_SIGNATURE = 4;
+	int SIGNATURE__EXCEPTIONS_SIGNATURE = ABSTRACT_SERVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Signature</em>' class.
@@ -177,7 +205,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE_FEATURE_COUNT = 5;
+	int SIGNATURE_FEATURE_COUNT = ABSTRACT_SERVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -187,7 +215,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 2;
+	int PARAMETER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Datatype Parameter</b></em>' reference.
@@ -242,7 +270,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 3;
+	int DATA_TYPE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Repository Data Type</b></em>' container reference.
@@ -270,7 +298,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRepository()
 	 * @generated
 	 */
-	int REPOSITORY = 4;
+	int REPOSITORY = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
@@ -280,7 +308,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
 	 * @generated
 	 */
-	int PROVIDES_COMPONENT_TYPE = 11;
+	int PROVIDES_COMPONENT_TYPE = 12;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.
@@ -290,7 +318,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 7;
+	int ROLE = 8;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}' class.
@@ -300,7 +328,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
 	 * @generated
 	 */
-	int REQUIRED_ROLE = 6;
+	int REQUIRED_ROLE = 7;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -310,7 +338,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 8;
+	int INTERFACE = 9;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
@@ -320,7 +348,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
 	 * @generated
 	 */
-	int EXCEPTION_TYPE = 10;
+	int EXCEPTION_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -393,7 +421,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRepositoryComponent()
 	 * @generated
 	 */
-	int REPOSITORY_COMPONENT = 5;
+	int REPOSITORY_COMPONENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -466,7 +494,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
 	 * @generated
 	 */
-	int COMPLETE_COMPONENT_TYPE = 13;
+	int COMPLETE_COMPONENT_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl <em>Implementation Component Type</em>}' class.
@@ -476,7 +504,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getImplementationComponentType()
 	 * @generated
 	 */
-	int IMPLEMENTATION_COMPONENT_TYPE = 12;
+	int IMPLEMENTATION_COMPONENT_TYPE = 13;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
@@ -486,7 +514,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
 	 * @generated
 	 */
-	int DELEGATION_CONNECTOR = 14;
+	int DELEGATION_CONNECTOR = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -568,7 +596,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getAbstractInterface()
 	 * @generated
 	 */
-	int ABSTRACT_INTERFACE = 9;
+	int ABSTRACT_INTERFACE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -956,7 +984,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeComponent()
 	 * @generated
 	 */
-	int COMPOSITE_COMPONENT = 15;
+	int COMPOSITE_COMPONENT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1013,7 +1041,7 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 
 	/**
-	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1092,7 +1120,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
 	 * @generated
 	 */
-	int BASIC_COMPONENT = 16;
+	int BASIC_COMPONENT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1201,7 +1229,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveDataType()
 	 * @generated
 	 */
-	int PRIMITIVE_DATA_TYPE = 17;
+	int PRIMITIVE_DATA_TYPE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Repository Data Type</b></em>' container reference.
@@ -1238,7 +1266,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCollectionDataType()
 	 * @generated
 	 */
-	int COLLECTION_DATA_TYPE = 18;
+	int COLLECTION_DATA_TYPE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1293,7 +1321,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeDataType()
 	 * @generated
 	 */
-	int COMPOSITE_DATA_TYPE = 19;
+	int COMPOSITE_DATA_TYPE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1357,7 +1385,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInnerDeclaration()
 	 * @generated
 	 */
-	int INNER_DECLARATION = 20;
+	int INNER_DECLARATION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -1394,7 +1422,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
 	 * @generated
 	 */
-	int PROVIDED_ROLE = 21;
+	int PROVIDED_ROLE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1449,7 +1477,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameterModifier()
 	 * @generated
 	 */
-	int PARAMETER_MODIFIER = 22;
+	int PARAMETER_MODIFIER = 23;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.
@@ -1459,7 +1487,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveTypeEnum()
 	 * @generated
 	 */
-	int PRIMITIVE_TYPE_ENUM = 23;
+	int PRIMITIVE_TYPE_ENUM = 24;
 
 
 	/**
@@ -1492,17 +1520,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSignature();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.Signature#getServiceName <em>Service Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Service Name</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Signature#getServiceName()
-	 * @see #getSignature()
-	 * @generated
-	 */
-	EAttribute getSignature_ServiceName();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Signature#getParameters__Signature <em>Parameters Signature</em>}'.
@@ -1547,6 +1564,27 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSignature_Exceptions__Signature();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.AbstractService <em>Abstract Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Service</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.AbstractService
+	 * @generated
+	 */
+	EClass getAbstractService();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.AbstractService#getServiceName <em>Service Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Service Name</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.AbstractService#getServiceName()
+	 * @see #getAbstractService()
+	 * @generated
+	 */
+	EAttribute getAbstractService_ServiceName();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Parameter <em>Parameter</em>}'.
@@ -2160,14 +2198,6 @@ public interface RepositoryPackage extends EPackage {
 		EClass SIGNATURE = eINSTANCE.getSignature();
 
 		/**
-		 * The meta object literal for the '<em><b>Service Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SIGNATURE__SERVICE_NAME = eINSTANCE.getSignature_ServiceName();
-
-		/**
 		 * The meta object literal for the '<em><b>Parameters Signature</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2198,6 +2228,24 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SIGNATURE__EXCEPTIONS_SIGNATURE = eINSTANCE.getSignature_Exceptions__Signature();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.AbstractServiceImpl <em>Abstract Service</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.AbstractServiceImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getAbstractService()
+		 * @generated
+		 */
+		EClass ABSTRACT_SERVICE = eINSTANCE.getAbstractService();
+
+		/**
+		 * The meta object literal for the '<em><b>Service Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_SERVICE__SERVICE_NAME = eINSTANCE.getAbstractService_ServiceName();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl <em>Parameter</em>}' class.

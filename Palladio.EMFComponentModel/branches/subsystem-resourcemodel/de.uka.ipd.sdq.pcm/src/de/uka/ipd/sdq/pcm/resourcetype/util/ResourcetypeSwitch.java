@@ -14,7 +14,9 @@ import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
+import de.uka.ipd.sdq.pcm.repository.AbstractService;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.resourcetype.*;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
@@ -125,15 +127,26 @@ public class ResourcetypeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: {
-				ProcessingResourceType processingResourceType = (ProcessingResourceType)theEObject;
-				T result = caseProcessingResourceType(processingResourceType);
-				if (result == null) result = caseResourceType(processingResourceType);
-				if (result == null) result = caseResourceInterfaceProvidingEntity(processingResourceType);
-				if (result == null) result = caseEntity(processingResourceType);
-				if (result == null) result = caseUnitCarryingElement(processingResourceType);
-				if (result == null) result = caseIdentifier(processingResourceType);
-				if (result == null) result = caseNamedElement(processingResourceType);
+			case ResourcetypePackage.CONTROLLER_STACK: {
+				ControllerStack controllerStack = (ControllerStack)theEObject;
+				T result = caseControllerStack(controllerStack);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResourcetypePackage.CONTROLLER_LAYER: {
+				ControllerLayer controllerLayer = (ControllerLayer)theEObject;
+				T result = caseControllerLayer(controllerLayer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResourcetypePackage.CONTROLLER_TYPE: {
+				ControllerType controllerType = (ControllerType)theEObject;
+				T result = caseControllerType(controllerType);
+				if (result == null) result = caseResourceInterfaceRequiringEntity(controllerType);
+				if (result == null) result = caseResourceInterfaceProvidingEntity(controllerType);
+				if (result == null) result = caseEntity(controllerType);
+				if (result == null) result = caseIdentifier(controllerType);
+				if (result == null) result = caseNamedElement(controllerType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -160,15 +173,26 @@ public class ResourcetypeSwitch<T> {
 			case ResourcetypePackage.RESOURCE_SERVICE: {
 				ResourceService resourceService = (ResourceService)theEObject;
 				T result = caseResourceService(resourceService);
+				if (result == null) result = caseAbstractService(resourceService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: {
+				ProcessingResourceType processingResourceType = (ProcessingResourceType)theEObject;
+				T result = caseProcessingResourceType(processingResourceType);
+				if (result == null) result = caseResourceType(processingResourceType);
+				if (result == null) result = caseResourceInterfaceProvidingEntity(processingResourceType);
+				if (result == null) result = caseEntity(processingResourceType);
+				if (result == null) result = caseUnitCarryingElement(processingResourceType);
+				if (result == null) result = caseIdentifier(processingResourceType);
+				if (result == null) result = caseNamedElement(processingResourceType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: {
 				CommunicationLinkResourceType communicationLinkResourceType = (CommunicationLinkResourceType)theEObject;
 				T result = caseCommunicationLinkResourceType(communicationLinkResourceType);
-				if (result == null) result = caseProcessingResourceType(communicationLinkResourceType);
 				if (result == null) result = caseResourceType(communicationLinkResourceType);
-				if (result == null) result = caseResourceInterfaceProvidingEntity(communicationLinkResourceType);
 				if (result == null) result = caseEntity(communicationLinkResourceType);
 				if (result == null) result = caseUnitCarryingElement(communicationLinkResourceType);
 				if (result == null) result = caseIdentifier(communicationLinkResourceType);
@@ -217,6 +241,51 @@ public class ResourcetypeSwitch<T> {
 	 * @generated
 	 */
 	public T caseResourceRepository(ResourceRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Controller Stack</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Controller Stack</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControllerStack(ControllerStack object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Controller Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Controller Layer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControllerLayer(ControllerLayer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Controller Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Controller Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControllerType(ControllerType object) {
 		return null;
 	}
 
@@ -371,6 +440,21 @@ public class ResourcetypeSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -382,6 +466,21 @@ public class ResourcetypeSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractInterface(AbstractInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractService(AbstractService object) {
 		return null;
 	}
 

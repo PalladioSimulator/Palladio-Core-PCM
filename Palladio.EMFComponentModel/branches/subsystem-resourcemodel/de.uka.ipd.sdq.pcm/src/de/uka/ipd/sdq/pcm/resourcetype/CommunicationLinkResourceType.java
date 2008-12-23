@@ -16,7 +16,7 @@ package de.uka.ipd.sdq.pcm.resourcetype;
  * @model
  * @generated
  */
-public interface CommunicationLinkResourceType extends ProcessingResourceType {
+public interface CommunicationLinkResourceType extends ResourceType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

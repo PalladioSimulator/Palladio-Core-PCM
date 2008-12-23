@@ -32,6 +32,24 @@ public interface ResourceenvironmentFactory extends EFactory {
 	ResourceenvironmentFactory eINSTANCE = de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Controller Allocation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Controller Allocation Connector</em>'.
+	 * @generated
+	 */
+	ControllerAllocationConnector createControllerAllocationConnector();
+
+	/**
+	 * Returns a new object of class '<em>Controller Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Controller Instance</em>'.
+	 * @generated
+	 */
+	ControllerInstance createControllerInstance();
+
+	/**
 	 * Returns a new object of class '<em>Resource Environment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,6 +84,15 @@ public interface ResourceenvironmentFactory extends EFactory {
 	 * @generated
 	 */
 	ProcessingResourceSpecification createProcessingResourceSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Resource Allocation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Allocation Connector</em>'.
+	 * @generated
+	 */
+	ResourceAllocationConnector createResourceAllocationConnector();
 
 	/**
 	 * Returns a new object of class '<em>Resource Container</em>'.

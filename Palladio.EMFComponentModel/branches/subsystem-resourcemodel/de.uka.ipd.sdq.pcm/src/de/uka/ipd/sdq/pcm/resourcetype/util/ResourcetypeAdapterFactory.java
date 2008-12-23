@@ -14,7 +14,9 @@ import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
+import de.uka.ipd.sdq.pcm.repository.AbstractService;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.resourcetype.*;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
@@ -100,8 +102,16 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createResourceRepositoryAdapter();
 			}
 			@Override
-			public Adapter caseProcessingResourceType(ProcessingResourceType object) {
-				return createProcessingResourceTypeAdapter();
+			public Adapter caseControllerStack(ControllerStack object) {
+				return createControllerStackAdapter();
+			}
+			@Override
+			public Adapter caseControllerLayer(ControllerLayer object) {
+				return createControllerLayerAdapter();
+			}
+			@Override
+			public Adapter caseControllerType(ControllerType object) {
+				return createControllerTypeAdapter();
 			}
 			@Override
 			public Adapter caseResourceProvidedRole(ResourceProvidedRole object) {
@@ -114,6 +124,10 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseResourceService(ResourceService object) {
 				return createResourceServiceAdapter();
+			}
+			@Override
+			public Adapter caseProcessingResourceType(ProcessingResourceType object) {
+				return createProcessingResourceTypeAdapter();
 			}
 			@Override
 			public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
@@ -140,6 +154,10 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createUnitCarryingElementAdapter();
 			}
 			@Override
+			public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+				return createResourceInterfaceRequiringEntityAdapter();
+			}
+			@Override
 			public Adapter caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
 				return createResourceInterfaceProvidingEntityAdapter();
 			}
@@ -150,6 +168,10 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAbstractInterface(AbstractInterface object) {
 				return createAbstractInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseAbstractService(AbstractService object) {
+				return createAbstractServiceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -196,6 +218,48 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerStack <em>Controller Stack</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerStack
+	 * @generated
+	 */
+	public Adapter createControllerStackAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer <em>Controller Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer
+	 * @generated
+	 */
+	public Adapter createControllerLayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerType <em>Controller Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerType
+	 * @generated
+	 */
+	public Adapter createControllerTypeAdapter() {
 		return null;
 	}
 
@@ -340,6 +404,20 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity <em>Resource Interface Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
+	 * @generated
+	 */
+	public Adapter createResourceInterfaceRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.AbstractInterface <em>Abstract Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -350,6 +428,20 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.AbstractService <em>Abstract Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.AbstractService
+	 * @generated
+	 */
+	public Adapter createAbstractServiceAdapter() {
 		return null;
 	}
 

@@ -73,10 +73,13 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ResourceenvironmentPackage.CONTROLLER_ALLOCATION_CONNECTOR: return createControllerAllocationConnector();
+			case ResourceenvironmentPackage.CONTROLLER_INSTANCE: return createControllerInstance();
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: return createResourceEnvironment();
 			case ResourceenvironmentPackage.LINKING_RESOURCE: return createLinkingResource();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return createCommunicationLinkResourceSpecification();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return createProcessingResourceSpecification();
+			case ResourceenvironmentPackage.RESOURCE_ALLOCATION_CONNECTOR: return createResourceAllocationConnector();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER: return createResourceContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -118,6 +121,26 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ControllerAllocationConnector createControllerAllocationConnector() {
+		ControllerAllocationConnectorImpl controllerAllocationConnector = new ControllerAllocationConnectorImpl();
+		return controllerAllocationConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ControllerInstance createControllerInstance() {
+		ControllerInstanceImpl controllerInstance = new ControllerInstanceImpl();
+		return controllerInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResourceEnvironment createResourceEnvironment() {
 		ResourceEnvironmentImpl resourceEnvironment = new ResourceEnvironmentImpl();
 		return resourceEnvironment;
@@ -151,6 +174,16 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	public ProcessingResourceSpecification createProcessingResourceSpecification() {
 		ProcessingResourceSpecificationImpl processingResourceSpecification = new ProcessingResourceSpecificationImpl();
 		return processingResourceSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceAllocationConnector createResourceAllocationConnector() {
+		ResourceAllocationConnectorImpl resourceAllocationConnector = new ResourceAllocationConnectorImpl();
+		return resourceAllocationConnector;
 	}
 
 	/**

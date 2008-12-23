@@ -15,7 +15,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceRequiredRole;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO
+ * All Entities that require a ResourceInterface are represented by this class. Inheriting classes are all component types, but also Controllers which access resources or other controllers.
+ * 
+ * See also:
+ * ResourceInterface, InterfaceRequiringEntity, ResourceRequiredRole
  * <!-- end-model-doc -->
  *
  * <p>

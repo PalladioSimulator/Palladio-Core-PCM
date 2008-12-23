@@ -35,6 +35,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.impl.ReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.repository.AbstractInterface;
+import de.uka.ipd.sdq.pcm.repository.AbstractService;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -106,6 +107,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	private EClass signatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractServiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -429,17 +437,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSignature_ServiceName() {
-		return (EAttribute)signatureEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getSignature_Parameters__Signature() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(1);
+		return (EReference)signatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -448,7 +447,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	public EReference getSignature_Interface_Signature() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(2);
+		return (EReference)signatureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -457,7 +456,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	public EReference getSignature_Returntype__Signature() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(3);
+		return (EReference)signatureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -466,7 +465,25 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	public EReference getSignature_Exceptions__Signature() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(4);
+		return (EReference)signatureEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractService() {
+		return abstractServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractService_ServiceName() {
+		return (EAttribute)abstractServiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -978,11 +995,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		createEReference(passiveResourceEClass, PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE);
 
 		signatureEClass = createEClass(SIGNATURE);
-		createEAttribute(signatureEClass, SIGNATURE__SERVICE_NAME);
 		createEReference(signatureEClass, SIGNATURE__PARAMETERS_SIGNATURE);
 		createEReference(signatureEClass, SIGNATURE__INTERFACE_SIGNATURE);
 		createEReference(signatureEClass, SIGNATURE__RETURNTYPE_SIGNATURE);
 		createEReference(signatureEClass, SIGNATURE__EXCEPTIONS_SIGNATURE);
+
+		abstractServiceEClass = createEClass(ABSTRACT_SERVICE);
+		createEAttribute(abstractServiceEClass, ABSTRACT_SERVICE__SERVICE_NAME);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEReference(parameterEClass, PARAMETER__DATATYPE_PARAMETER);
@@ -1097,6 +1116,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		// Add supertypes to classes
 		passiveResourceEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		signatureEClass.getESuperTypes().add(this.getAbstractService());
 		repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		repositoryComponentEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
 		requiredRoleEClass.getESuperTypes().add(this.getRole());
@@ -1123,7 +1143,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEReference(getPassiveResource_Capacity_PassiveResource(), theCorePackage.getPCMRandomVariable(), null, "capacity_PassiveResource", null, 1, 1, PassiveResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(signatureEClass, Signature.class, "Signature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSignature_ServiceName(), ecorePackage.getEString(), "serviceName", null, 1, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSignature_Parameters__Signature(), this.getParameter(), this.getParameter_Signature_Parameter(), "parameters__Signature", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSignature_Interface_Signature(), this.getInterface(), this.getInterface_Signatures__Interface(), "interface_Signature", null, 1, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSignature_Returntype__Signature(), this.getDataType(), null, "returntype__Signature", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1137,6 +1156,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(abstractServiceEClass, AbstractService.class, "AbstractService", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbstractService_ServiceName(), ecorePackage.getEString(), "serviceName", null, 1, 1, AbstractService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameter_Datatype__Parameter(), this.getDataType(), null, "datatype__Parameter", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

@@ -245,6 +245,8 @@ public class RepositoryValidator extends EObjectValidator {
 				return validatePassiveResource((PassiveResource)value, diagnostics, context);
 			case RepositoryPackage.SIGNATURE:
 				return validateSignature((Signature)value, diagnostics, context);
+			case RepositoryPackage.ABSTRACT_SERVICE:
+				return validateAbstractService((AbstractService)value, diagnostics, context);
 			case RepositoryPackage.PARAMETER:
 				return validateParameter((Parameter)value, diagnostics, context);
 			case RepositoryPackage.DATA_TYPE:
@@ -336,6 +338,15 @@ public class RepositoryValidator extends EObjectValidator {
 	 */
 	public boolean validateSignature_ParameterNamesHaveToBeUniqueForASignature(Signature signature, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return signature.ParameterNamesHaveToBeUniqueForASignature(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractService(AbstractService abstractService, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractService, diagnostics, context);
 	}
 
 	/**

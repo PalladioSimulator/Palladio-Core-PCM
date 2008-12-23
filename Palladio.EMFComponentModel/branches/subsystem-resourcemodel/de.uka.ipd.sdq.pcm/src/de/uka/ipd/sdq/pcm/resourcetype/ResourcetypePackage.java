@@ -143,13 +143,160 @@ public interface ResourcetypePackage extends EPackage {
 	int RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY = 0;
 
 	/**
+	 * The feature id for the '<em><b>Available Controller Stacks Resource Repository</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_STACKS_RESOURCE_REPOSITORY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Available Controller Types Resource Repository</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_TYPES_RESOURCE_REPOSITORY = 2;
+
+	/**
 	 * The number of structural features of the '<em>Resource Repository</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_REPOSITORY_FEATURE_COUNT = 1;
+	int RESOURCE_REPOSITORY_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerStackImpl <em>Controller Stack</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerStackImpl
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getControllerStack()
+	 * @generated
+	 */
+	int CONTROLLER_STACK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Controller Layers Controller Stack</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_STACK__CONTROLLER_LAYERS_CONTROLLER_STACK = 0;
+
+	/**
+	 * The number of structural features of the '<em>Controller Stack</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_STACK_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl <em>Controller Layer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getControllerLayer()
+	 * @generated
+	 */
+	int CONTROLLER_LAYER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Upper Layer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_LAYER__UPPER_LAYER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Lower Layer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_LAYER__LOWER_LAYER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Controller Type Controller Scope</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Controller Layer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_LAYER_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerTypeImpl <em>Controller Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getControllerType()
+	 * @generated
+	 */
+	int CONTROLLER_TYPE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_TYPE__ID = EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_TYPE__ENTITY_NAME = EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_TYPE__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Resource Provided Role Resource Interface Providing Entity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY = EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Controller Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER_TYPE_FEATURE_COUNT = EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl <em>Processing Resource Type</em>}' class.
@@ -159,61 +306,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getProcessingResourceType()
 	 * @generated
 	 */
-	int PROCESSING_RESOURCE_TYPE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_TYPE__ID = RESOURCE_TYPE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_TYPE__ENTITY_NAME = RESOURCE_TYPE__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_TYPE__UNIT = RESOURCE_TYPE__UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION = RESOURCE_TYPE__UNIT_SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Processing Resource Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESSING_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 1;
+	int PROCESSING_RESOURCE_TYPE = 8;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl <em>Communication Link Resource Type</em>}' class.
@@ -223,7 +316,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getCommunicationLinkResourceType()
 	 * @generated
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE = 6;
+	int COMMUNICATION_LINK_RESOURCE_TYPE = 9;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl <em>Resource Interface</em>}' class.
@@ -233,7 +326,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceInterface()
 	 * @generated
 	 */
-	int RESOURCE_INTERFACE = 4;
+	int RESOURCE_INTERFACE = 6;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceServiceImpl <em>Resource Service</em>}' class.
@@ -243,7 +336,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceService()
 	 * @generated
 	 */
-	int RESOURCE_SERVICE = 5;
+	int RESOURCE_SERVICE = 7;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceProvidedRoleImpl <em>Resource Provided Role</em>}' class.
@@ -253,7 +346,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceProvidedRole()
 	 * @generated
 	 */
-	int RESOURCE_PROVIDED_ROLE = 3;
+	int RESOURCE_PROVIDED_ROLE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -337,13 +430,31 @@ public interface ResourcetypePackage extends EPackage {
 	int RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE = RepositoryPackage.ABSTRACT_INTERFACE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ancestor Resource Interfaces Resource Interface</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE = RepositoryPackage.ABSTRACT_INTERFACE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent Resource Interface Resource Interface</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE = RepositoryPackage.ABSTRACT_INTERFACE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Resource Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_INTERFACE_FEATURE_COUNT = RepositoryPackage.ABSTRACT_INTERFACE_FEATURE_COUNT + 1;
+	int RESOURCE_INTERFACE_FEATURE_COUNT = RepositoryPackage.ABSTRACT_INTERFACE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Service Name</b></em>' attribute.
@@ -352,7 +463,16 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_SERVICE__SERVICE_NAME = 0;
+	int RESOURCE_SERVICE__SERVICE_NAME = RepositoryPackage.ABSTRACT_SERVICE__SERVICE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Resource Interface Resource Service</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_SERVICE__RESOURCE_INTERFACE_RESOURCE_SERVICE = RepositoryPackage.ABSTRACT_SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Resource Service</em>' class.
@@ -361,7 +481,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_SERVICE_FEATURE_COUNT = 1;
+	int RESOURCE_SERVICE_FEATURE_COUNT = RepositoryPackage.ABSTRACT_SERVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -370,7 +490,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__ID = PROCESSING_RESOURCE_TYPE__ID;
+	int PROCESSING_RESOURCE_TYPE__ID = RESOURCE_TYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -379,7 +499,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__ENTITY_NAME = PROCESSING_RESOURCE_TYPE__ENTITY_NAME;
+	int PROCESSING_RESOURCE_TYPE__ENTITY_NAME = RESOURCE_TYPE__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' reference.
@@ -388,7 +508,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT = PROCESSING_RESOURCE_TYPE__UNIT;
+	int PROCESSING_RESOURCE_TYPE__UNIT = RESOURCE_TYPE__UNIT;
 
 	/**
 	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
@@ -397,16 +517,61 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT_SPECIFICATION = PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION;
+	int PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION = RESOURCE_TYPE__UNIT_SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Resource Provided Role Resource Interface Providing Entity</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
+	int PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Processing Resource Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_TYPE__ID = RESOURCE_TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_TYPE__ENTITY_NAME = RESOURCE_TYPE__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT = RESOURCE_TYPE__UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT_SPECIFICATION = RESOURCE_TYPE__UNIT_SPECIFICATION;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Type</em>' class.
@@ -415,7 +580,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE_FEATURE_COUNT = PROCESSING_RESOURCE_TYPE_FEATURE_COUNT + 0;
+	int COMMUNICATION_LINK_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRequiredRoleImpl <em>Resource Required Role</em>}' class.
@@ -425,7 +590,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceRequiredRole()
 	 * @generated
 	 */
-	int RESOURCE_REQUIRED_ROLE = 7;
+	int RESOURCE_REQUIRED_ROLE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -505,6 +670,102 @@ public interface ResourcetypePackage extends EPackage {
 	EReference getResourceRepository_AvailableResourceTypes_ResourceRepository();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableControllerStacks_ResourceRepository <em>Available Controller Stacks Resource Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Available Controller Stacks Resource Repository</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableControllerStacks_ResourceRepository()
+	 * @see #getResourceRepository()
+	 * @generated
+	 */
+	EReference getResourceRepository_AvailableControllerStacks_ResourceRepository();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableControllerTypes_ResourceRepository <em>Available Controller Types Resource Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Available Controller Types Resource Repository</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableControllerTypes_ResourceRepository()
+	 * @see #getResourceRepository()
+	 * @generated
+	 */
+	EReference getResourceRepository_AvailableControllerTypes_ResourceRepository();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerStack <em>Controller Stack</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Controller Stack</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerStack
+	 * @generated
+	 */
+	EClass getControllerStack();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerStack#getControllerLayers_ControllerStack <em>Controller Layers Controller Stack</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Controller Layers Controller Stack</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerStack#getControllerLayers_ControllerStack()
+	 * @see #getControllerStack()
+	 * @generated
+	 */
+	EReference getControllerStack_ControllerLayers_ControllerStack();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer <em>Controller Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Controller Layer</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer
+	 * @generated
+	 */
+	EClass getControllerLayer();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getUpperLayer <em>Upper Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Upper Layer</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getUpperLayer()
+	 * @see #getControllerLayer()
+	 * @generated
+	 */
+	EReference getControllerLayer_UpperLayer();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getLowerLayer <em>Lower Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Lower Layer</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getLowerLayer()
+	 * @see #getControllerLayer()
+	 * @generated
+	 */
+	EReference getControllerLayer_LowerLayer();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerScope <em>Controller Type Controller Scope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Controller Type Controller Scope</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer#getControllerType_ControllerScope()
+	 * @see #getControllerLayer()
+	 * @generated
+	 */
+	EReference getControllerLayer_ControllerType_ControllerScope();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ControllerType <em>Controller Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Controller Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ControllerType
+	 * @generated
+	 */
+	EClass getControllerType();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType <em>Communication Link Resource Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -536,6 +797,28 @@ public interface ResourcetypePackage extends EPackage {
 	EReference getResourceInterface_ResourceServices_ResourceInterface();
 
 	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getAncestorResourceInterfaces_ResourceInterface <em>Ancestor Resource Interfaces Resource Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Ancestor Resource Interfaces Resource Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getAncestorResourceInterfaces_ResourceInterface()
+	 * @see #getResourceInterface()
+	 * @generated
+	 */
+	EReference getResourceInterface_AncestorResourceInterfaces_ResourceInterface();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getParentResourceInterface__ResourceInterface <em>Parent Resource Interface Resource Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parent Resource Interface Resource Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getParentResourceInterface__ResourceInterface()
+	 * @see #getResourceInterface()
+	 * @generated
+	 */
+	EReference getResourceInterface_ParentResourceInterface__ResourceInterface();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService <em>Resource Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -546,15 +829,15 @@ public interface ResourcetypePackage extends EPackage {
 	EClass getResourceService();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getServiceName <em>Service Name</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getResourceInterface_ResourceService <em>Resource Interface Resource Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Service Name</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getServiceName()
+	 * @return the meta object for the container reference '<em>Resource Interface Resource Service</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceService#getResourceInterface_ResourceService()
 	 * @see #getResourceService()
 	 * @generated
 	 */
-	EAttribute getResourceService_ServiceName();
+	EReference getResourceService_ResourceInterface_ResourceService();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceProvidedRole <em>Resource Provided Role</em>}'.
@@ -681,6 +964,84 @@ public interface ResourcetypePackage extends EPackage {
 		EReference RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY = eINSTANCE.getResourceRepository_AvailableResourceTypes_ResourceRepository();
 
 		/**
+		 * The meta object literal for the '<em><b>Available Controller Stacks Resource Repository</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_STACKS_RESOURCE_REPOSITORY = eINSTANCE.getResourceRepository_AvailableControllerStacks_ResourceRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Available Controller Types Resource Repository</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_TYPES_RESOURCE_REPOSITORY = eINSTANCE.getResourceRepository_AvailableControllerTypes_ResourceRepository();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerStackImpl <em>Controller Stack</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerStackImpl
+		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getControllerStack()
+		 * @generated
+		 */
+		EClass CONTROLLER_STACK = eINSTANCE.getControllerStack();
+
+		/**
+		 * The meta object literal for the '<em><b>Controller Layers Controller Stack</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_STACK__CONTROLLER_LAYERS_CONTROLLER_STACK = eINSTANCE.getControllerStack_ControllerLayers_ControllerStack();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl <em>Controller Layer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerLayerImpl
+		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getControllerLayer()
+		 * @generated
+		 */
+		EClass CONTROLLER_LAYER = eINSTANCE.getControllerLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper Layer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_LAYER__UPPER_LAYER = eINSTANCE.getControllerLayer_UpperLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Lower Layer</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_LAYER__LOWER_LAYER = eINSTANCE.getControllerLayer_LowerLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Controller Type Controller Scope</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE = eINSTANCE.getControllerLayer_ControllerType_ControllerScope();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerTypeImpl <em>Controller Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ControllerTypeImpl
+		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getControllerType()
+		 * @generated
+		 */
+		EClass CONTROLLER_TYPE = eINSTANCE.getControllerType();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl <em>Communication Link Resource Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -709,6 +1070,22 @@ public interface ResourcetypePackage extends EPackage {
 		EReference RESOURCE_INTERFACE__RESOURCE_SERVICES_RESOURCE_INTERFACE = eINSTANCE.getResourceInterface_ResourceServices_ResourceInterface();
 
 		/**
+		 * The meta object literal for the '<em><b>Ancestor Resource Interfaces Resource Interface</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE = eINSTANCE.getResourceInterface_AncestorResourceInterfaces_ResourceInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Resource Interface Resource Interface</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE = eINSTANCE.getResourceInterface_ParentResourceInterface__ResourceInterface();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceServiceImpl <em>Resource Service</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -719,12 +1096,12 @@ public interface ResourcetypePackage extends EPackage {
 		EClass RESOURCE_SERVICE = eINSTANCE.getResourceService();
 
 		/**
-		 * The meta object literal for the '<em><b>Service Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Resource Interface Resource Service</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESOURCE_SERVICE__SERVICE_NAME = eINSTANCE.getResourceService_ServiceName();
+		EReference RESOURCE_SERVICE__RESOURCE_INTERFACE_RESOURCE_SERVICE = eINSTANCE.getResourceService_ResourceInterface_ResourceService();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceProvidedRoleImpl <em>Resource Provided Role</em>}' class.
