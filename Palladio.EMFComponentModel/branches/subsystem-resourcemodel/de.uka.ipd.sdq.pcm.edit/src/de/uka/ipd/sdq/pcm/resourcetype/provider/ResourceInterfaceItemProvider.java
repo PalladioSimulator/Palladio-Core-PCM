@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -69,8 +70,54 @@ public class ResourceInterfaceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addAncestorResourceInterfaces_ResourceInterfacePropertyDescriptor(object);
+			addParentResourceInterface__ResourceInterfacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Ancestor Resource Interfaces Resource Interface feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAncestorResourceInterfaces_ResourceInterfacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ResourceInterface_ancestorResourceInterfaces_ResourceInterface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceInterface_ancestorResourceInterfaces_ResourceInterface_feature", "_UI_ResourceInterface_type"),
+				 ResourcetypePackage.Literals.RESOURCE_INTERFACE__ANCESTOR_RESOURCE_INTERFACES_RESOURCE_INTERFACE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parent Resource Interface Resource Interface feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParentResourceInterface__ResourceInterfacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ResourceInterface_parentResourceInterface__ResourceInterface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceInterface_parentResourceInterface__ResourceInterface_feature", "_UI_ResourceInterface_type"),
+				 ResourcetypePackage.Literals.RESOURCE_INTERFACE__PARENT_RESOURCE_INTERFACE_RESOURCE_INTERFACE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

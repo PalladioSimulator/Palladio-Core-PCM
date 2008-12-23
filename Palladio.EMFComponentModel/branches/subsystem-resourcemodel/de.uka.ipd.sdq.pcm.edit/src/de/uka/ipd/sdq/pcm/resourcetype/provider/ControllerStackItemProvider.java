@@ -3,40 +3,41 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
+package de.uka.ipd.sdq.pcm.resourcetype.provider;
 
+
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.resourcetype.ControllerStack;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerStack} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProcessingResourceSpecificationItemProvider
+public class ControllerStackItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -57,7 +58,7 @@ public class ProcessingResourceSpecificationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingResourceSpecificationItemProvider(AdapterFactory adapterFactory) {
+	public ControllerStackItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,54 +73,8 @@ public class ProcessingResourceSpecificationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSchedulingPolicyPropertyDescriptor(object);
-			addActiveResourceType_ActiveResourceSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Scheduling Policy feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSchedulingPolicyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ProcessingResourceSpecification_schedulingPolicy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_schedulingPolicy_feature", "_UI_ProcessingResourceSpecification_type"),
-				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Active Resource Type Active Resource Specification feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addActiveResourceType_ActiveResourceSpecificationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ProcessingResourceSpecification_activeResourceType_ActiveResourceSpecification_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_activeResourceType_ActiveResourceSpecification_feature", "_UI_ProcessingResourceSpecification_type"),
-				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -134,7 +89,7 @@ public class ProcessingResourceSpecificationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION);
+			childrenFeatures.add(ResourcetypePackage.Literals.CONTROLLER_STACK__CONTROLLER_LAYERS_CONTROLLER_STACK);
 		}
 		return childrenFeatures;
 	}
@@ -153,14 +108,14 @@ public class ProcessingResourceSpecificationItemProvider
 	}
 
 	/**
-	 * This returns ProcessingResourceSpecification.gif.
+	 * This returns ControllerStack.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProcessingResourceSpecification"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ControllerStack"));
 	}
 
 	/**
@@ -171,11 +126,7 @@ public class ProcessingResourceSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SchedulingPolicy labelValue = ((ProcessingResourceSpecification)object).getSchedulingPolicy();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ProcessingResourceSpecification_type") :
-			getString("_UI_ProcessingResourceSpecification_type") + " " + label;
+		return getString("_UI_ControllerStack_type");
 	}
 
 	/**
@@ -189,11 +140,8 @@ public class ProcessingResourceSpecificationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProcessingResourceSpecification.class)) {
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
+		switch (notification.getFeatureID(ControllerStack.class)) {
+			case ResourcetypePackage.CONTROLLER_STACK__CONTROLLER_LAYERS_CONTROLLER_STACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -213,8 +161,8 @@ public class ProcessingResourceSpecificationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-				 CoreFactory.eINSTANCE.createPCMRandomVariable()));
+				(ResourcetypePackage.Literals.CONTROLLER_STACK__CONTROLLER_LAYERS_CONTROLLER_STACK,
+				 ResourcetypeFactory.eINSTANCE.createControllerLayer()));
 	}
 
 	/**

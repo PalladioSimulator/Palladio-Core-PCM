@@ -3,15 +3,21 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.core.composition.provider;
+package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
+
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,19 +27,14 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.provider.DelegationConnectorItemProvider;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceRequiredDelegationConnectorItemProvider
-	extends DelegationConnectorItemProvider
+public class ControllerInstanceItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -53,7 +54,7 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredDelegationConnectorItemProvider(AdapterFactory adapterFactory) {
+	public ControllerInstanceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,27 +69,27 @@ public class ResourceRequiredDelegationConnectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
-			addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
-			addAssemblyContext_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
+			addControllerScope_ResourceContainerPropertyDescriptor(object);
+			addUpperControllerAllocationConnectors_ControllerInstancePropertyDescriptor(object);
+			addLowerControllerAllocationConnectors_ControllerInstancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Inner Resource Required Role Resource Required Delegation Connector feature.
+	 * This adds a property descriptor for the Controller Scope Resource Container feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
+	protected void addControllerScope_ResourceContainerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredDelegationConnector_innerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredDelegationConnector_innerResourceRequiredRole_ResourceRequiredDelegationConnector_feature", "_UI_ResourceRequiredDelegationConnector_type"),
-				 CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+				 getString("_UI_ControllerInstance_controllerScope_ResourceContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerInstance_controllerScope_ResourceContainer_feature", "_UI_ControllerInstance_type"),
+				 ResourceenvironmentPackage.Literals.CONTROLLER_INSTANCE__CONTROLLER_SCOPE_RESOURCE_CONTAINER,
 				 true,
 				 false,
 				 true,
@@ -98,19 +99,19 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Outer Resource Required Role Resource Required Delegation Connector feature.
+	 * This adds a property descriptor for the Upper Controller Allocation Connectors Controller Instance feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
+	protected void addUpperControllerAllocationConnectors_ControllerInstancePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature", "_UI_ResourceRequiredDelegationConnector_type"),
-				 CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+				 getString("_UI_ControllerInstance_upperControllerAllocationConnectors_ControllerInstance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerInstance_upperControllerAllocationConnectors_ControllerInstance_feature", "_UI_ControllerInstance_type"),
+				 ResourceenvironmentPackage.Literals.CONTROLLER_INSTANCE__UPPER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE,
 				 true,
 				 false,
 				 true,
@@ -120,19 +121,19 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Assembly Context Resource Required Delegation Connector feature.
+	 * This adds a property descriptor for the Lower Controller Allocation Connectors Controller Instance feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAssemblyContext_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
+	protected void addLowerControllerAllocationConnectors_ControllerInstancePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredDelegationConnector_assemblyContext_ResourceRequiredDelegationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredDelegationConnector_assemblyContext_ResourceRequiredDelegationConnector_feature", "_UI_ResourceRequiredDelegationConnector_type"),
-				 CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+				 getString("_UI_ControllerInstance_lowerControllerAllocationConnectors_ControllerInstance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerInstance_lowerControllerAllocationConnectors_ControllerInstance_feature", "_UI_ControllerInstance_type"),
+				 ResourceenvironmentPackage.Literals.CONTROLLER_INSTANCE__LOWER_CONTROLLER_ALLOCATION_CONNECTORS_CONTROLLER_INSTANCE,
 				 true,
 				 false,
 				 true,
@@ -142,14 +143,14 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	}
 
 	/**
-	 * This returns ResourceRequiredDelegationConnector.gif.
+	 * This returns ControllerInstance.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRequiredDelegationConnector"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ControllerInstance"));
 	}
 
 	/**
@@ -160,10 +161,7 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceRequiredDelegationConnector)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ResourceRequiredDelegationConnector_type") :
-			getString("_UI_ResourceRequiredDelegationConnector_type") + " " + label;
+		return getString("_UI_ControllerInstance_type");
 	}
 
 	/**

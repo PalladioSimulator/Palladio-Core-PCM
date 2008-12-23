@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
 
+import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -69,8 +71,54 @@ public class ResourceContainerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addAllocationConnectors_ResourceContainerPropertyDescriptor(object);
+			addControllerStack_ResourceContainerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Allocation Connectors Resource Container feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllocationConnectors_ResourceContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ResourceContainer_allocationConnectors_ResourceContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceContainer_allocationConnectors_ResourceContainer_feature", "_UI_ResourceContainer_type"),
+				 ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ALLOCATION_CONNECTORS_RESOURCE_CONTAINER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Controller Stack Resource Container feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addControllerStack_ResourceContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ResourceContainer_controllerStack_ResourceContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceContainer_controllerStack_ResourceContainer_feature", "_UI_ResourceContainer_type"),
+				 ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__CONTROLLER_STACK_RESOURCE_CONTAINER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -86,6 +134,8 @@ public class ResourceContainerItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
+			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER);
+			childrenFeatures.add(ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -141,6 +191,8 @@ public class ResourceContainerItemProvider
 
 		switch (notification.getFeatureID(ResourceContainer.class)) {
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER:
+			case ResourceenvironmentPackage.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,6 +214,16 @@ public class ResourceContainerItemProvider
 			(createChildParameter
 				(ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
 				 ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__INFRASTRUCTURE_COMPONENT_SCOPE_RESOURCE_CONTAINER,
+				 AllocationFactory.eINSTANCE.createInfrastructureComponentScope()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__CONTROLLER_INSTANCE_RESOURCE_CONTAINER,
+				 ResourceenvironmentFactory.eINSTANCE.createControllerInstance()));
 	}
 
 	/**

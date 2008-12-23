@@ -81,6 +81,52 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ControllerAllocationConnectorItemProvider controllerAllocationConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createControllerAllocationConnectorAdapter() {
+		if (controllerAllocationConnectorItemProvider == null) {
+			controllerAllocationConnectorItemProvider = new ControllerAllocationConnectorItemProvider(this);
+		}
+
+		return controllerAllocationConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ControllerInstanceItemProvider controllerInstanceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerInstance}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createControllerInstanceAdapter() {
+		if (controllerInstanceItemProvider == null) {
+			controllerInstanceItemProvider = new ControllerInstanceItemProvider(this);
+		}
+
+		return controllerInstanceItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +216,29 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 		}
 
 		return processingResourceSpecificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceAllocationConnectorItemProvider resourceAllocationConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceAllocationConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceAllocationConnectorAdapter() {
+		if (resourceAllocationConnectorItemProvider == null) {
+			resourceAllocationConnectorItemProvider = new ResourceAllocationConnectorItemProvider(this);
+		}
+
+		return resourceAllocationConnectorItemProvider;
 	}
 
 	/**
@@ -294,10 +363,13 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * @generated
 	 */
 	public void dispose() {
+		if (controllerAllocationConnectorItemProvider != null) controllerAllocationConnectorItemProvider.dispose();
+		if (controllerInstanceItemProvider != null) controllerInstanceItemProvider.dispose();
 		if (resourceEnvironmentItemProvider != null) resourceEnvironmentItemProvider.dispose();
 		if (linkingResourceItemProvider != null) linkingResourceItemProvider.dispose();
 		if (communicationLinkResourceSpecificationItemProvider != null) communicationLinkResourceSpecificationItemProvider.dispose();
 		if (processingResourceSpecificationItemProvider != null) processingResourceSpecificationItemProvider.dispose();
+		if (resourceAllocationConnectorItemProvider != null) resourceAllocationConnectorItemProvider.dispose();
 		if (resourceContainerItemProvider != null) resourceContainerItemProvider.dispose();
 	}
 

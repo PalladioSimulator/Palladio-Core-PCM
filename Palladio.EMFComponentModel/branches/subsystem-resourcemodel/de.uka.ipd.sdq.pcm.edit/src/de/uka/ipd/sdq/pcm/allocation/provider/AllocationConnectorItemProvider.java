@@ -3,15 +3,21 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.core.composition.provider;
+package de.uka.ipd.sdq.pcm.allocation.provider;
 
+
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,19 +27,14 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.provider.DelegationConnectorItemProvider;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.allocation.AllocationConnector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceRequiredDelegationConnectorItemProvider
-	extends DelegationConnectorItemProvider
+public class AllocationConnectorItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -53,7 +54,7 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredDelegationConnectorItemProvider(AdapterFactory adapterFactory) {
+	public AllocationConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,27 +69,27 @@ public class ResourceRequiredDelegationConnectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
-			addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
-			addAssemblyContext_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
+			addResourceRequiredRole_AllocationConnectorPropertyDescriptor(object);
+			addResourceContainer_AllocationConnectorPropertyDescriptor(object);
+			addAssemblyContext_AllocationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Inner Resource Required Role Resource Required Delegation Connector feature.
+	 * This adds a property descriptor for the Resource Required Role Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
+	protected void addResourceRequiredRole_AllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredDelegationConnector_innerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredDelegationConnector_innerResourceRequiredRole_ResourceRequiredDelegationConnector_feature", "_UI_ResourceRequiredDelegationConnector_type"),
-				 CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+				 getString("_UI_AllocationConnector_resourceRequiredRole_AllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_resourceRequiredRole_AllocationConnector_feature", "_UI_AllocationConnector_type"),
+				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__RESOURCE_REQUIRED_ROLE_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -98,19 +99,19 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Outer Resource Required Role Resource Required Delegation Connector feature.
+	 * This adds a property descriptor for the Resource Container Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
+	protected void addResourceContainer_AllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature", "_UI_ResourceRequiredDelegationConnector_type"),
-				 CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+				 getString("_UI_AllocationConnector_resourceContainer_AllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_resourceContainer_AllocationConnector_feature", "_UI_AllocationConnector_type"),
+				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__RESOURCE_CONTAINER_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -120,36 +121,25 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Assembly Context Resource Required Delegation Connector feature.
+	 * This adds a property descriptor for the Assembly Context Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAssemblyContext_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
+	protected void addAssemblyContext_AllocationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredDelegationConnector_assemblyContext_ResourceRequiredDelegationConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredDelegationConnector_assemblyContext_ResourceRequiredDelegationConnector_feature", "_UI_ResourceRequiredDelegationConnector_type"),
-				 CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+				 getString("_UI_AllocationConnector_assemblyContext_AllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationConnector_assemblyContext_AllocationConnector_feature", "_UI_AllocationConnector_type"),
+				 AllocationPackage.Literals.ALLOCATION_CONNECTOR__ASSEMBLY_CONTEXT_ALLOCATION_CONNECTOR,
 				 true,
 				 false,
 				 true,
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This returns ResourceRequiredDelegationConnector.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRequiredDelegationConnector"));
 	}
 
 	/**
@@ -160,10 +150,7 @@ public class ResourceRequiredDelegationConnectorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceRequiredDelegationConnector)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ResourceRequiredDelegationConnector_type") :
-			getString("_UI_ResourceRequiredDelegationConnector_type") + " " + label;
+		return getString("_UI_AllocationConnector_type");
 	}
 
 	/**

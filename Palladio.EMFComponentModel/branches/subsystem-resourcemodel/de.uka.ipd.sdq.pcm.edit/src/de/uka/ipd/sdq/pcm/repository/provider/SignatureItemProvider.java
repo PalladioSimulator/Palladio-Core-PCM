@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * @generated
  */
 public class SignatureItemProvider
-	extends ItemProviderAdapter
+	extends AbstractServiceItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -71,32 +71,9 @@ public class SignatureItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addServiceNamePropertyDescriptor(object);
 			addReturntype__SignaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Service Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addServiceNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Signature_serviceName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Signature_serviceName_feature", "_UI_Signature_type"),
-				 RepositoryPackage.Literals.SIGNATURE__SERVICE_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -189,9 +166,6 @@ public class SignatureItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Signature.class)) {
-			case RepositoryPackage.SIGNATURE__SERVICE_NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 			case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

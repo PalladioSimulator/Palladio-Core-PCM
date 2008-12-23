@@ -104,6 +104,29 @@ public class AllocationItemProviderAdapterFactory extends AllocationAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InfrastructureComponentScopeItemProvider infrastructureComponentScopeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentScope}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfrastructureComponentScopeAdapter() {
+		if (infrastructureComponentScopeItemProvider == null) {
+			infrastructureComponentScopeItemProvider = new InfrastructureComponentScopeItemProvider(this);
+		}
+
+		return infrastructureComponentScopeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.allocation.Allocation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,6 +147,29 @@ public class AllocationItemProviderAdapterFactory extends AllocationAdapterFacto
 		}
 
 		return allocationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InfrastructureComponentAllocationConnectorItemProvider infrastructureComponentAllocationConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.allocation.InfrastructureComponentAllocationConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfrastructureComponentAllocationConnectorAdapter() {
+		if (infrastructureComponentAllocationConnectorItemProvider == null) {
+			infrastructureComponentAllocationConnectorItemProvider = new InfrastructureComponentAllocationConnectorItemProvider(this);
+		}
+
+		return infrastructureComponentAllocationConnectorItemProvider;
 	}
 
 	/**
@@ -226,7 +272,9 @@ public class AllocationItemProviderAdapterFactory extends AllocationAdapterFacto
 	 */
 	public void dispose() {
 		if (allocationContextItemProvider != null) allocationContextItemProvider.dispose();
+		if (infrastructureComponentScopeItemProvider != null) infrastructureComponentScopeItemProvider.dispose();
 		if (allocationItemProvider != null) allocationItemProvider.dispose();
+		if (infrastructureComponentAllocationConnectorItemProvider != null) infrastructureComponentAllocationConnectorItemProvider.dispose();
 	}
 
 }

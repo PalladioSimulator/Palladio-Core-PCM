@@ -6,13 +6,19 @@
 package de.uka.ipd.sdq.pcm.resourcetype.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -20,20 +26,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceRepositoryItemProvider
+public class ControllerLayerItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -54,7 +54,7 @@ public class ResourceRepositoryItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRepositoryItemProvider(AdapterFactory adapterFactory) {
+	public ControllerLayerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,51 +69,88 @@ public class ResourceRepositoryItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addUpperLayerPropertyDescriptor(object);
+			addLowerLayerPropertyDescriptor(object);
+			addControllerType_ControllerScopePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Upper Layer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY);
-			childrenFeatures.add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_STACKS_RESOURCE_REPOSITORY);
-			childrenFeatures.add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_TYPES_RESOURCE_REPOSITORY);
-		}
-		return childrenFeatures;
+	protected void addUpperLayerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControllerLayer_upperLayer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerLayer_upperLayer_feature", "_UI_ControllerLayer_type"),
+				 ResourcetypePackage.Literals.CONTROLLER_LAYER__UPPER_LAYER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Lower Layer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addLowerLayerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControllerLayer_lowerLayer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerLayer_lowerLayer_feature", "_UI_ControllerLayer_type"),
+				 ResourcetypePackage.Literals.CONTROLLER_LAYER__LOWER_LAYER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns ResourceRepository.gif.
+	 * This adds a property descriptor for the Controller Type Controller Scope feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addControllerType_ControllerScopePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControllerLayer_controllerType_ControllerScope_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerLayer_controllerType_ControllerScope_feature", "_UI_ControllerLayer_type"),
+				 ResourcetypePackage.Literals.CONTROLLER_LAYER__CONTROLLER_TYPE_CONTROLLER_SCOPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns ControllerLayer.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRepository"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ControllerLayer"));
 	}
 
 	/**
@@ -124,7 +161,7 @@ public class ResourceRepositoryItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ResourceRepository_type");
+		return getString("_UI_ControllerLayer_type");
 	}
 
 	/**
@@ -137,14 +174,6 @@ public class ResourceRepositoryItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ResourceRepository.class)) {
-			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_STACKS_RESOURCE_REPOSITORY:
-			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_TYPES_RESOURCE_REPOSITORY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -158,26 +187,6 @@ public class ResourceRepositoryItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
-				 ResourcetypeFactory.eINSTANCE.createProcessingResourceType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
-				 ResourcetypeFactory.eINSTANCE.createCommunicationLinkResourceType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_STACKS_RESOURCE_REPOSITORY,
-				 ResourcetypeFactory.eINSTANCE.createControllerStack()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_CONTROLLER_TYPES_RESOURCE_REPOSITORY,
-				 ResourcetypeFactory.eINSTANCE.createControllerType()));
 	}
 
 	/**

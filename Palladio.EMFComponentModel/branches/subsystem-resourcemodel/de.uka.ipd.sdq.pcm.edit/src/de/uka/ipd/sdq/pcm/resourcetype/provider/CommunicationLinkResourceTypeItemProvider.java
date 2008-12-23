@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * @generated
  */
 public class CommunicationLinkResourceTypeItemProvider
-	extends ProcessingResourceTypeItemProvider
+	extends ResourceTypeItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

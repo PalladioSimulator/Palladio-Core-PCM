@@ -3,39 +3,37 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.resourcetype.provider;
+package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
+
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ControllerAllocationConnector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProcessingResourceTypeItemProvider
-	extends ResourceTypeItemProvider
+public class ControllerAllocationConnectorItemProvider
+	extends ResourceProvidedRoleConnectorItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -55,7 +53,7 @@ public class ProcessingResourceTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessingResourceTypeItemProvider(AdapterFactory adapterFactory) {
+	public ControllerAllocationConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,49 +68,42 @@ public class ProcessingResourceTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addProvidingControllerInstance_ControllerAllocationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Providing Controller Instance Controller Allocation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY);
-		}
-		return childrenFeatures;
+	protected void addProvidingControllerInstance_ControllerAllocationConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ControllerAllocationConnector_providingControllerInstance_ControllerAllocationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ControllerAllocationConnector_providingControllerInstance_ControllerAllocationConnector_feature", "_UI_ControllerAllocationConnector_type"),
+				 ResourceenvironmentPackage.Literals.CONTROLLER_ALLOCATION_CONNECTOR__PROVIDING_CONTROLLER_INSTANCE_CONTROLLER_ALLOCATION_CONNECTOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns ProcessingResourceType.gif.
+	 * This returns ControllerAllocationConnector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProcessingResourceType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ControllerAllocationConnector"));
 	}
 
 	/**
@@ -123,10 +114,7 @@ public class ProcessingResourceTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProcessingResourceType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ProcessingResourceType_type") :
-			getString("_UI_ProcessingResourceType_type") + " " + label;
+		return getString("_UI_ControllerAllocationConnector_type");
 	}
 
 	/**
@@ -139,12 +127,6 @@ public class ProcessingResourceTypeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ProcessingResourceType.class)) {
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -158,11 +140,6 @@ public class ProcessingResourceTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLE_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-				 ResourcetypeFactory.eINSTANCE.createResourceProvidedRole()));
 	}
 
 	/**

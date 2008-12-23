@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.repository.provider.AbstractServiceItemProvider;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceService;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
@@ -34,7 +35,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  * @generated
  */
 public class ResourceServiceItemProvider
-	extends ItemProviderAdapter
+	extends AbstractServiceItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -69,31 +70,8 @@ public class ResourceServiceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addServiceNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Service Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addServiceNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ResourceService_serviceName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceService_serviceName_feature", "_UI_ResourceService_type"),
-				 ResourcetypePackage.Literals.RESOURCE_SERVICE__SERVICE_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -131,12 +109,6 @@ public class ResourceServiceItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ResourceService.class)) {
-			case ResourcetypePackage.RESOURCE_SERVICE__SERVICE_NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

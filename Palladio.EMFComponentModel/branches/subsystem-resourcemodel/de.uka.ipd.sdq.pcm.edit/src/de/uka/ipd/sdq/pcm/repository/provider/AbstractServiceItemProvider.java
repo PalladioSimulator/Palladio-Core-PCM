@@ -3,32 +3,40 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.qosannotations.provider;
+package de.uka.ipd.sdq.pcm.repository.provider;
 
+
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+
+import de.uka.ipd.sdq.pcm.repository.AbstractService;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.AbstractService} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpecifiedFailureProbabilityItemProvider
+public class AbstractServiceItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -49,7 +57,7 @@ public class SpecifiedFailureProbabilityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpecifiedFailureProbabilityItemProvider(AdapterFactory adapterFactory) {
+	public AbstractServiceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,19 +72,31 @@ public class SpecifiedFailureProbabilityItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addServiceNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns SpecifiedFailureProbability.gif.
+	 * This adds a property descriptor for the Service Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecifiedFailureProbability"));
+	protected void addServiceNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractService_serviceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractService_serviceName_feature", "_UI_AbstractService_type"),
+				 RepositoryPackage.Literals.ABSTRACT_SERVICE__SERVICE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -87,7 +107,10 @@ public class SpecifiedFailureProbabilityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SpecifiedFailureProbability_type");
+		String label = ((AbstractService)object).getServiceName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AbstractService_type") :
+			getString("_UI_AbstractService_type") + " " + label;
 	}
 
 	/**
@@ -100,6 +123,12 @@ public class SpecifiedFailureProbabilityItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(AbstractService.class)) {
+			case RepositoryPackage.ABSTRACT_SERVICE__SERVICE_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

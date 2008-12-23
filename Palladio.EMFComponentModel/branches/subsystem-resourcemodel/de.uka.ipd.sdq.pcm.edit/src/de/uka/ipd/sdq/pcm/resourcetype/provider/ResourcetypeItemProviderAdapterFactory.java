@@ -104,6 +104,75 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerStack} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ControllerStackItemProvider controllerStackItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerStack}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createControllerStackAdapter() {
+		if (controllerStackItemProvider == null) {
+			controllerStackItemProvider = new ControllerStackItemProvider(this);
+		}
+
+		return controllerStackItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ControllerLayerItemProvider controllerLayerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerLayer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createControllerLayerAdapter() {
+		if (controllerLayerItemProvider == null) {
+			controllerLayerItemProvider = new ControllerLayerItemProvider(this);
+		}
+
+		return controllerLayerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ControllerTypeItemProvider controllerTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ControllerType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createControllerTypeAdapter() {
+		if (controllerTypeItemProvider == null) {
+			controllerTypeItemProvider = new ControllerTypeItemProvider(this);
+		}
+
+		return controllerTypeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -341,10 +410,13 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 	 */
 	public void dispose() {
 		if (resourceRepositoryItemProvider != null) resourceRepositoryItemProvider.dispose();
-		if (processingResourceTypeItemProvider != null) processingResourceTypeItemProvider.dispose();
+		if (controllerStackItemProvider != null) controllerStackItemProvider.dispose();
+		if (controllerLayerItemProvider != null) controllerLayerItemProvider.dispose();
+		if (controllerTypeItemProvider != null) controllerTypeItemProvider.dispose();
 		if (resourceProvidedRoleItemProvider != null) resourceProvidedRoleItemProvider.dispose();
 		if (resourceInterfaceItemProvider != null) resourceInterfaceItemProvider.dispose();
 		if (resourceServiceItemProvider != null) resourceServiceItemProvider.dispose();
+		if (processingResourceTypeItemProvider != null) processingResourceTypeItemProvider.dispose();
 		if (communicationLinkResourceTypeItemProvider != null) communicationLinkResourceTypeItemProvider.dispose();
 		if (resourceRequiredRoleItemProvider != null) resourceRequiredRoleItemProvider.dispose();
 	}
