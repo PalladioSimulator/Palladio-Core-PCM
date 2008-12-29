@@ -12254,7 +12254,7 @@ If no AllocationConnector is specified for an ResourceRequiredRole, before analy
         <ownedRule xmi:id="_h2A2gMknEd2cNoMFPnHcQA" name="ChildContextContainsRoleWithReferencedInterface" constrainedElement="_LI4dkLZrEd2w14sx0UoE9Q">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_h2A2gcknEd2cNoMFPnHcQA">
             <language>OCL</language>
-            <body>self.assemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity->exists(role|role.requiredResourceInterface_ResourceRequiredRole = self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole)</body>
+            <body>self.fromAsssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity->exists(role|role.requiredResourceInterface_ResourceRequiredRole = self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_JEnBMMrOEd2UAtuiYRGpfQ" general="_UkxkoJQAEdqSSImFLKDkSg"/>
