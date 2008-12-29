@@ -303,7 +303,7 @@
           <children xmi:id="_6dyKM8_kEdy7P4ddzs2roQ" type="Name"/>
           <children xmi:id="_6dyKNM_kEdy7P4ddzs2roQ" type="Parent"/>
           <children xmi:id="_6dyKNc_kEdy7P4ddzs2roQ" type="AttributeCompartment">
-            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_6dyKNs_kEdy7P4ddzs2roQ"/>
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_6dyKNs_kEdy7P4ddzs2roQ" collapsed="true"/>
           </children>
           <children xmi:id="_6dyKN8_kEdy7P4ddzs2roQ" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_6dyKOM_kEdy7P4ddzs2roQ"/>
@@ -5259,7 +5259,7 @@
           </children>
           <children xmi:id="_7cmfCseOEd2TNKuW7xAQHw" type="ToRoleLabel" element="_7cApI8eOEd2TNKuW7xAQHw">
             <children xmi:id="_7cmfDMeOEd2TNKuW7xAQHw" type="ToRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_7cmfC8eOEd2TNKuW7xAQHw" y="-397"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7cmfC8eOEd2TNKuW7xAQHw" x="1917" y="4049"/>
           </children>
           <children xmi:id="_7cmfDceOEd2TNKuW7xAQHw" type="FromMultiplicityLabel" element="_7cApIMeOEd2TNKuW7xAQHw">
             <children xmi:id="_7cmfD8eOEd2TNKuW7xAQHw" type="FromMultiplicity"/>
@@ -5444,6 +5444,55 @@
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_62IYEceSEd2TNKuW7xAQHw" routing="Rectilinear" lineColor="16711680" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_62IYEseSEd2TNKuW7xAQHw" points="[3254, -635, 3254, -635]$[3597, -635, 3597, -635]$[3597, -2514, 3597, -2514]$[-582, -2514, -582, -2514]$[-582, -662, -582, -662]"/>
+        </edges>
+        <edges xmi:id="_OeLAANXIEd2OZ4WawgDLNg" element="_Od4FENXIEd2OZ4WawgDLNg" source="_kf6UwLowEd2F1_xZ_pPGCg" target="_4ruS0MeOEd2TNKuW7xAQHw">
+          <children xmi:id="_OeLAA9XIEd2OZ4WawgDLNg" type="NameLabel">
+            <children xmi:id="_OeLABdXIEd2OZ4WawgDLNg" type="Stereotype"/>
+            <children xmi:id="_OeLABtXIEd2OZ4WawgDLNg" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OeLABNXIEd2OZ4WawgDLNg" y="-186"/>
+          </children>
+          <children xmi:id="_OeLAB9XIEd2OZ4WawgDLNg" type="ToMultiplicityLabel" element="_OeBPANXIEd2OZ4WawgDLNg">
+            <children xmi:id="_OeLACdXIEd2OZ4WawgDLNg" type="ToMultiplicity"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OeLACNXIEd2OZ4WawgDLNg" x="-2095" y="402"/>
+          </children>
+          <children xmi:id="_OeLACtXIEd2OZ4WawgDLNg" type="ToRoleLabel" element="_OeBPANXIEd2OZ4WawgDLNg">
+            <children xmi:id="_OeLADNXIEd2OZ4WawgDLNg" type="ToRole"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OeLAC9XIEd2OZ4WawgDLNg" y="-397"/>
+          </children>
+          <children xmi:id="_OeLADdXIEd2OZ4WawgDLNg" type="FromMultiplicityLabel" element="_Od4FEdXIEd2OZ4WawgDLNg">
+            <children xmi:id="_OeLAD9XIEd2OZ4WawgDLNg" type="FromMultiplicity"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OeLADtXIEd2OZ4WawgDLNg" y="396"/>
+          </children>
+          <children xmi:id="_OeLAENXIEd2OZ4WawgDLNg" type="FromRoleLabel" element="_Od4FEdXIEd2OZ4WawgDLNg">
+            <children xmi:id="_OeLAEtXIEd2OZ4WawgDLNg" type="FromRole"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OeLAEdXIEd2OZ4WawgDLNg" y="-397"/>
+          </children>
+          <children xmi:id="_OeLAE9XIEd2OZ4WawgDLNg" type="ToQualifierLabel" element="_OeBPANXIEd2OZ4WawgDLNg">
+            <children xmi:id="_OeLAFdXIEd2OZ4WawgDLNg" type="QualifierCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_OeLAFtXIEd2OZ4WawgDLNg"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OeLAFNXIEd2OZ4WawgDLNg" y="-186"/>
+          </children>
+          <children xmi:id="_OeLAF9XIEd2OZ4WawgDLNg" type="FromQualifierLabel" element="_Od4FEdXIEd2OZ4WawgDLNg">
+            <children xmi:id="_OeLAGdXIEd2OZ4WawgDLNg" type="QualifierCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_OeLAGtXIEd2OZ4WawgDLNg"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OeLAGNXIEd2OZ4WawgDLNg" y="-186"/>
+          </children>
+          <children xmi:id="_OeLAG9XIEd2OZ4WawgDLNg" type="ToConstraintLabel" element="_OeBPANXIEd2OZ4WawgDLNg">
+            <children xmi:id="_OeLAHdXIEd2OZ4WawgDLNg" type="ToConstraintCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_OeLAHtXIEd2OZ4WawgDLNg"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OeLAHNXIEd2OZ4WawgDLNg" y="1058"/>
+          </children>
+          <children xmi:id="_OeLAH9XIEd2OZ4WawgDLNg" type="FromConstraintLabel" element="_Od4FEdXIEd2OZ4WawgDLNg">
+            <children xmi:id="_OeLAIdXIEd2OZ4WawgDLNg" type="FromConstraintCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_OeLAItXIEd2OZ4WawgDLNg"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OeLAINXIEd2OZ4WawgDLNg" y="1058"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_OeLAAdXIEd2OZ4WawgDLNg" lineColor="16711680" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OeLAAtXIEd2OZ4WawgDLNg" points="[-27, -635, -15161, 6958]$[-27, -7593, -15161, 0]$[11959, -7593, -3175, 0]"/>
         </edges>
       </contents>
       <contents xmi:type="notation:Diagram" xmi:id="_v8cpIME5Ed2h7aoy3YfQBA" type="Class" element="_LaA6ICh9Edue7oeC4NTCGg" name="Review_ResourceEnvironment">
@@ -7827,28 +7876,6 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_NTKRscxBEd2WY7Axv1JJtQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NTKRssxBEd2WY7Axv1JJtQ" x="34818" y="13624"/>
         </children>
-        <children xmi:id="_bA2JsMxBEd2WY7Axv1JJtQ" element="_qdz5sOD9Edq8ysXH3gTiEg">
-          <children xmi:id="_bA2Js8xBEd2WY7Axv1JJtQ" type="ImageCompartment">
-            <layoutConstraint xmi:type="notation:Size" xmi:id="_bA2JtMxBEd2WY7Axv1JJtQ" width="1320" height="1320"/>
-          </children>
-          <children xmi:id="_bA2JtcxBEd2WY7Axv1JJtQ" type="Stereotype"/>
-          <children xmi:id="_bA2JtsxBEd2WY7Axv1JJtQ" type="Name"/>
-          <children xmi:id="_bA2Jt8xBEd2WY7Axv1JJtQ" type="Parent"/>
-          <children xmi:id="_bA2JuMxBEd2WY7Axv1JJtQ" type="AttributeCompartment">
-            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_bA2JucxBEd2WY7Axv1JJtQ"/>
-          </children>
-          <children xmi:id="_bA_ToMxBEd2WY7Axv1JJtQ" type="OperationCompartment">
-            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_bA_TocxBEd2WY7Axv1JJtQ"/>
-          </children>
-          <children xmi:id="_bA_TosxBEd2WY7Axv1JJtQ" visible="false" type="SignalCompartment">
-            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_bA_To8xBEd2WY7Axv1JJtQ"/>
-          </children>
-          <children xmi:id="_bA_TpMxBEd2WY7Axv1JJtQ" visible="false" type="StructureCompartment">
-            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_bA_TpcxBEd2WY7Axv1JJtQ"/>
-          </children>
-          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_bA2JscxBEd2WY7Axv1JJtQ" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bA2JssxBEd2WY7Axv1JJtQ" x="3145" y="10634"/>
-        </children>
         <children xmi:id="_OttcwMxEEd2WY7Axv1JJtQ" element="_NcpdgMxEEd2WY7Axv1JJtQ">
           <children xmi:id="_Ottcw8xEEd2WY7Axv1JJtQ" type="ImageCompartment">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_OttcxMxEEd2WY7Axv1JJtQ" width="1320" height="1320"/>
@@ -7891,7 +7918,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_7qE-X8xEEd2WY7Axv1JJtQ"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_7qE-UcxEEd2WY7Axv1JJtQ" lineColor="16711680" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7qE-UsxEEd2WY7Axv1JJtQ" x="-3044" y="13437"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7qE-UsxEEd2WY7Axv1JJtQ" x="-2621" y="13542"/>
         </children>
         <children xmi:id="_mXm-4MxHEd2WY7Axv1JJtQ" element="_hs_p4MxHEd2WY7Axv1JJtQ">
           <children xmi:id="_mXm-48xHEd2WY7Axv1JJtQ" type="ImageCompartment">
@@ -8002,6 +8029,28 @@
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_G8tSscxREd2WY7Axv1JJtQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_G8tSssxREd2WY7Axv1JJtQ" x="2380" y="395"/>
+        </children>
+        <children xmi:id="_ZQ_pYNXIEd2OZ4WawgDLNg" element="_AtO9UOMvEdqaQsPH3rPnBQ">
+          <children xmi:id="_ZQ_pY9XIEd2OZ4WawgDLNg" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_ZQ_pZNXIEd2OZ4WawgDLNg" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_ZQ_pZdXIEd2OZ4WawgDLNg" type="Stereotype"/>
+          <children xmi:id="_ZQ_pZtXIEd2OZ4WawgDLNg" type="Name"/>
+          <children xmi:id="_ZQ_pZ9XIEd2OZ4WawgDLNg" type="Parent"/>
+          <children xmi:id="_ZQ_paNXIEd2OZ4WawgDLNg" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ZQ_padXIEd2OZ4WawgDLNg"/>
+          </children>
+          <children xmi:id="_ZQ_patXIEd2OZ4WawgDLNg" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ZQ_pa9XIEd2OZ4WawgDLNg"/>
+          </children>
+          <children xmi:id="_ZQ_pbNXIEd2OZ4WawgDLNg" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ZQ_pbdXIEd2OZ4WawgDLNg"/>
+          </children>
+          <children xmi:id="_ZQ_pbtXIEd2OZ4WawgDLNg" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_ZQ_pb9XIEd2OZ4WawgDLNg"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_ZQ_pYdXIEd2OZ4WawgDLNg" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZQ_pYtXIEd2OZ4WawgDLNg" x="3624" y="9260"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_p8mJkcw8Ed2WY7Axv1JJtQ"/>
         <element xsi:nil="true"/>
@@ -8633,7 +8682,7 @@
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_MYjJ8cxJEd2WY7Axv1JJtQ" lineColor="16711680" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MYjJ8sxJEd2WY7Axv1JJtQ" points="[4, -25, 6, 135]$[114, -161, 116, -1]"/>
         </edges>
-        <edges xmi:id="_P_Si8MxQEd2WY7Axv1JJtQ" element="_P_JZAMxQEd2WY7Axv1JJtQ" source="_bA2JsMxBEd2WY7Axv1JJtQ" target="_OttcwMxEEd2WY7Axv1JJtQ">
+        <edges xmi:id="_P_Si8MxQEd2WY7Axv1JJtQ" element="_P_JZAMxQEd2WY7Axv1JJtQ" source="_ZQ_pYNXIEd2OZ4WawgDLNg" target="_OttcwMxEEd2WY7Axv1JJtQ">
           <children xmi:id="_P_Si88xQEd2WY7Axv1JJtQ" type="NameLabel">
             <children xmi:id="_P_Si9cxQEd2WY7Axv1JJtQ" type="Stereotype"/>
             <children xmi:id="_P_Si9sxQEd2WY7Axv1JJtQ" type="Name"/>
@@ -8643,7 +8692,7 @@
             <children xmi:id="_P_Si-cxQEd2WY7Axv1JJtQ" type="ToMultiplicity"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_P_Si-MxQEd2WY7Axv1JJtQ" x="-1482" y="369"/>
           </children>
-          <children xmi:id="_P_Si-sxQEd2WY7Axv1JJtQ" type="ToRoleLabel" element="_P_JZBMxQEd2WY7Axv1JJtQ">
+          <children xmi:id="_P_Si-sxQEd2WY7Axv1JJtQ" visible="false" type="ToRoleLabel" element="_P_JZBMxQEd2WY7Axv1JJtQ">
             <children xmi:id="_P_Si_MxQEd2WY7Axv1JJtQ" type="ToRole"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_P_Si-8xQEd2WY7Axv1JJtQ" x="1217" y="-503"/>
           </children>
@@ -8680,7 +8729,8 @@
             <layoutConstraint xmi:type="notation:Location" xmi:id="_P_SjEMxQEd2WY7Axv1JJtQ" y="1058"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_P_Si8cxQEd2WY7Axv1JJtQ" routing="Rectilinear" lineColor="16711680" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P_Si8sxQEd2WY7Axv1JJtQ" points="[2196, -53, -11272, 4181]$[12039, -53, -1429, 4181]$[12039, -3546, -1429, 688]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P_Si8sxQEd2WY7Axv1JJtQ" points="[529, 159, -12251, 2990]$[11298, 159, -1482, 2990]$[11298, -2143, -1482, 688]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_aYhSINXIEd2OZ4WawgDLNg" id="(0.84284216,0.47888386)"/>
         </edges>
         <edges xmi:id="_9lPNEMxQEd2WY7Axv1JJtQ" element="_FoEo4MrOEd2UAtuiYRGpfQ" source="_iGdeUMw9Ed2WY7Axv1JJtQ" target="_9lPNAMxQEd2WY7Axv1JJtQ">
           <children xmi:id="_9lPNE8xQEd2WY7Axv1JJtQ" type="NameLabel">
@@ -8739,6 +8789,55 @@
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_G8tSwcxREd2WY7Axv1JJtQ" lineColor="16711680" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_G8tSwsxREd2WY7Axv1JJtQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+        </edges>
+        <edges xmi:id="_ZRJaYNXIEd2OZ4WawgDLNg" element="_Od4FENXIEd2OZ4WawgDLNg" source="_ZQ_pYNXIEd2OZ4WawgDLNg" target="_7qE-UMxEEd2WY7Axv1JJtQ">
+          <children xmi:id="_ZRJaY9XIEd2OZ4WawgDLNg" type="NameLabel">
+            <children xmi:id="_ZRJaZdXIEd2OZ4WawgDLNg" type="Stereotype"/>
+            <children xmi:id="_ZRJaZtXIEd2OZ4WawgDLNg" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZRJaZNXIEd2OZ4WawgDLNg" y="-186"/>
+          </children>
+          <children xmi:id="_ZRJaZ9XIEd2OZ4WawgDLNg" type="ToMultiplicityLabel" element="_OeBPANXIEd2OZ4WawgDLNg">
+            <children xmi:id="_ZRJaadXIEd2OZ4WawgDLNg" type="ToMultiplicity"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZRJaaNXIEd2OZ4WawgDLNg" y="396"/>
+          </children>
+          <children xmi:id="_ZRJaatXIEd2OZ4WawgDLNg" type="ToRoleLabel" element="_OeBPANXIEd2OZ4WawgDLNg">
+            <children xmi:id="_ZRJabNXIEd2OZ4WawgDLNg" type="ToRole"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZRJaa9XIEd2OZ4WawgDLNg" y="-397"/>
+          </children>
+          <children xmi:id="_ZRJabdXIEd2OZ4WawgDLNg" type="FromMultiplicityLabel" element="_Od4FEdXIEd2OZ4WawgDLNg">
+            <children xmi:id="_ZRJab9XIEd2OZ4WawgDLNg" type="FromMultiplicity"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZRJabtXIEd2OZ4WawgDLNg" y="396"/>
+          </children>
+          <children xmi:id="_ZRJacNXIEd2OZ4WawgDLNg" type="FromRoleLabel" element="_Od4FEdXIEd2OZ4WawgDLNg">
+            <children xmi:id="_ZRJactXIEd2OZ4WawgDLNg" type="FromRole"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZRJacdXIEd2OZ4WawgDLNg" x="-2980" y="-2529"/>
+          </children>
+          <children xmi:id="_ZRJac9XIEd2OZ4WawgDLNg" type="ToQualifierLabel" element="_OeBPANXIEd2OZ4WawgDLNg">
+            <children xmi:id="_ZRJaddXIEd2OZ4WawgDLNg" type="QualifierCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ZRJadtXIEd2OZ4WawgDLNg"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZRJadNXIEd2OZ4WawgDLNg" y="-186"/>
+          </children>
+          <children xmi:id="_ZRJad9XIEd2OZ4WawgDLNg" type="FromQualifierLabel" element="_Od4FEdXIEd2OZ4WawgDLNg">
+            <children xmi:id="_ZRJaedXIEd2OZ4WawgDLNg" type="QualifierCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ZRJaetXIEd2OZ4WawgDLNg"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZRJaeNXIEd2OZ4WawgDLNg" y="-186"/>
+          </children>
+          <children xmi:id="_ZRJae9XIEd2OZ4WawgDLNg" type="ToConstraintLabel" element="_OeBPANXIEd2OZ4WawgDLNg">
+            <children xmi:id="_ZRJafdXIEd2OZ4WawgDLNg" type="ToConstraintCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ZRJaftXIEd2OZ4WawgDLNg"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZRJafNXIEd2OZ4WawgDLNg" y="1058"/>
+          </children>
+          <children xmi:id="_ZRJaf9XIEd2OZ4WawgDLNg" type="FromConstraintLabel" element="_Od4FEdXIEd2OZ4WawgDLNg">
+            <children xmi:id="_ZRJagdXIEd2OZ4WawgDLNg" type="FromConstraintCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_ZRJagtXIEd2OZ4WawgDLNg"/>
+            </children>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZRJagNXIEd2OZ4WawgDLNg" y="1058"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_ZRJaYdXIEd2OZ4WawgDLNg" lineColor="16711680" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZRJaYtXIEd2OZ4WawgDLNg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
         </edges>
       </contents>
     </eAnnotations>
@@ -11585,12 +11684,12 @@ ResourceInterface, InterfaceProvidingEntity, ResourceProvidedRole</body>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_4foMIOJREdqxcra4qpeplw" name="AssemblyConnector">
           <ownedRule xmi:id="_eQjAQKpdEd26O59kvcjv0A" name="AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch" constrainedElement="_4foMIOJREdqxcra4qpeplw">
-            <ownedComment xmi:id="_wkhowKpvEd26O59kvcjv0A" annotatedElement="_eQjAQKpdEd26O59kvcjv0A">
-              <body>An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. </body>
+            <ownedComment xmi:id="_ovgJkNK5Ed2wyvCqAnXjig" annotatedElement="_eQjAQKpdEd26O59kvcjv0A">
+              <body>An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context.</body>
             </ownedComment>
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_eQjAQapdEd26O59kvcjv0A">
               <language>OCL</language>
-              <body>self.providingChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)&#xD;&#xA;</body>
+              <body>self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_CompositeAssemblyConnector)</body>
             </specification>
           </ownedRule>
           <ownedRule xmi:id="_4tSk0KpdEd26O59kvcjv0A" name="AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch" constrainedElement="_4foMIOJREdqxcra4qpeplw">
@@ -11598,7 +11697,8 @@ ResourceInterface, InterfaceProvidingEntity, ResourceProvidedRole</body>
               <body>An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. </body>
             </ownedComment>
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_4tSk0apdEd26O59kvcjv0A">
-              <body>self.requiringChildComponentContext_CompositeAssemblyConnector.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceProvidingEntity->includes(self.requiredRole_CompositeAssemblyConnector)</body>
+              <language>OCL</language>
+              <body>self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_CompositeAssemblyConnector)</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_6xzqIOJREdqxcra4qpeplw" general="_UkxkoJQAEdqSSImFLKDkSg"/>
@@ -11642,7 +11742,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GjL_FGc8EduCGaQAxkcIwA" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GjL_E2c8EduCGaQAxkcIwA"/>
           </ownedAttribute>
-          <ownedAttribute xmi:id="_uojnIJR9Ed27_9sKGvEc-Q" name="resourceRequiredDelegationConnectors_ComposedStructure" visibility="public" type="__MS7sJR8Ed27_9sKGvEc-Q" isDerived="true" aggregation="composite" association="_uoZ2IJR9Ed27_9sKGvEc-Q">
+          <ownedAttribute xmi:id="_uojnIJR9Ed27_9sKGvEc-Q" name="resourceRequiredDelegationConnectors_ComposedStructure" visibility="public" type="__MS7sJR8Ed27_9sKGvEc-Q" aggregation="composite" association="_uoZ2IJR9Ed27_9sKGvEc-Q">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uojnIpR9Ed27_9sKGvEc-Q" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uojnIZR9Ed27_9sKGvEc-Q"/>
           </ownedAttribute>
@@ -11686,16 +11786,16 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             <body>This entity is used to specify how the required resource interfaces of encapsulated components are being conneced to required resource interfaces of an outer component, which is a CompositeComponent.</body>
           </ownedComment>
           <generalization xmi:id="_FoEo4MrOEd2UAtuiYRGpfQ" general="_SdDqMJQAEdqSSImFLKDkSg"/>
-          <ownedAttribute xmi:id="_uojnI5R9Ed27_9sKGvEc-Q" name="parentStructure_ResourceRequiredDelegationConnector" visibility="public" type="_n_-J0Gc6EduCGaQAxkcIwA" isDerived="true" association="_uoZ2IJR9Ed27_9sKGvEc-Q"/>
-          <ownedAttribute xmi:id="_dI8qwZR_Ed27_9sKGvEc-Q" name="innerResourceRequiredRole_ResourceRequiredDelegationConnector" visibility="public" type="_XT0qcJR_Ed27_9sKGvEc-Q" isDerived="true" association="_dI8qwJR_Ed27_9sKGvEc-Q">
+          <ownedAttribute xmi:id="_uojnI5R9Ed27_9sKGvEc-Q" name="parentStructure_ResourceRequiredDelegationConnector" visibility="public" type="_n_-J0Gc6EduCGaQAxkcIwA" association="_uoZ2IJR9Ed27_9sKGvEc-Q"/>
+          <ownedAttribute xmi:id="_dI8qwZR_Ed27_9sKGvEc-Q" name="innerResourceRequiredRole_ResourceRequiredDelegationConnector" visibility="public" type="_XT0qcJR_Ed27_9sKGvEc-Q" association="_dI8qwJR_Ed27_9sKGvEc-Q">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dI8qw5R_Ed27_9sKGvEc-Q" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dI8qwpR_Ed27_9sKGvEc-Q" value="1"/>
           </ownedAttribute>
-          <ownedAttribute xmi:id="_krJQ4ZR_Ed27_9sKGvEc-Q" name="outerResourceRequiredRole_ResourceRequiredDelegationConnector" visibility="public" type="_XT0qcJR_Ed27_9sKGvEc-Q" isDerived="true" association="_krJQ4JR_Ed27_9sKGvEc-Q">
+          <ownedAttribute xmi:id="_krJQ4ZR_Ed27_9sKGvEc-Q" name="outerResourceRequiredRole_ResourceRequiredDelegationConnector" visibility="public" type="_XT0qcJR_Ed27_9sKGvEc-Q" association="_krJQ4JR_Ed27_9sKGvEc-Q">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_krJQ45R_Ed27_9sKGvEc-Q" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_krJQ4pR_Ed27_9sKGvEc-Q" value="1"/>
           </ownedAttribute>
-          <ownedAttribute xmi:id="_XCks0bDjEd2ZBeKSfuIBRg" name="assemblyContext_ResourceRequiredDelegationConnector" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" isDerived="true" association="_XCks0LDjEd2ZBeKSfuIBRg">
+          <ownedAttribute xmi:id="_XCks0bDjEd2ZBeKSfuIBRg" name="assemblyContext_ResourceRequiredDelegationConnector" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" association="_XCks0LDjEd2ZBeKSfuIBRg">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XCks07DjEd2ZBeKSfuIBRg" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XCks0rDjEd2ZBeKSfuIBRg" value="1"/>
           </ownedAttribute>
@@ -12125,6 +12225,14 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UhaqgXPfEduxXfd-1j79QQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UhaqgHPfEduxXfd-1j79QQ" value="1"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_Od4FEdXIEd2OZ4WawgDLNg" name="infrastructureComponentScopes_Allocation" visibility="public" type="_z-uYMMeOEd2TNKuW7xAQHw" aggregation="composite" association="_Od4FENXIEd2OZ4WawgDLNg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Od4FE9XIEd2OZ4WawgDLNg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Od4FEtXIEd2OZ4WawgDLNg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_P_JZAcxQEd2WY7Axv1JJtQ" name="allocationConnectors_Allocation" visibility="public" type="_NcpdgMxEEd2WY7Axv1JJtQ" aggregation="composite" association="_P_JZAMxQEd2WY7Axv1JJtQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P_JZA8xQEd2WY7Axv1JJtQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P_JZAsxQEd2WY7Axv1JJtQ"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_CO_D8OMvEdqaQsPH3rPnBQ" memberEnd="_CO_D8eMvEdqaQsPH3rPnBQ _CO_D8uMvEdqaQsPH3rPnBQ">
         <ownedEnd xmi:id="_CO_D8uMvEdqaQsPH3rPnBQ" visibility="private" type="_AtO9UOMvEdqaQsPH3rPnBQ" association="_CO_D8OMvEdqaQsPH3rPnBQ"/>
@@ -12143,19 +12251,19 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           <body>An AllocationConnector is being used to explicitly connect the ResourceRequiredRole of an allocated component to another allocated component, which serves as an infrastructure component, such as middleware.&#xD;
 If no AllocationConnector is specified for an ResourceRequiredRole, before analysis the connectors have to be created automatically. This means that deployed infrastructure components or controllers are being checked if a corresponding ResourceInterface is provided.</body>
         </ownedComment>
-        <ownedRule xmi:id="_h2A2gMknEd2cNoMFPnHcQA" name="AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch" constrainedElement="_LI4dkLZrEd2w14sx0UoE9Q">
+        <ownedRule xmi:id="_h2A2gMknEd2cNoMFPnHcQA" name="ChildContextContainsRoleWithReferencedInterface" constrainedElement="_LI4dkLZrEd2w14sx0UoE9Q">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_h2A2gcknEd2cNoMFPnHcQA">
             <language>OCL</language>
-            <body>self.assemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AllocationConnector)</body>
+            <body>self.assemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity->exists(role|role.requiredResourceInterface_ResourceRequiredRole = self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_JEnBMMrOEd2UAtuiYRGpfQ" general="_UkxkoJQAEdqSSImFLKDkSg"/>
         <generalization xmi:id="_egmtwMxEEd2WY7Axv1JJtQ" general="_NcpdgMxEEd2WY7Axv1JJtQ"/>
-        <ownedAttribute xmi:id="_CCmiocePEd2TNKuW7xAQHw" name="providedRole_AllocationConnector" visibility="public" type="_-M7kYJJIEdqSSImFLKDkSg" isDerived="true" association="_CCmioMePEd2TNKuW7xAQHw">
+        <ownedAttribute xmi:id="_CCmiocePEd2TNKuW7xAQHw" name="providedRole_AllocationConnector" visibility="public" type="_-M7kYJJIEdqSSImFLKDkSg" association="_CCmioMePEd2TNKuW7xAQHw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CCmio8ePEd2TNKuW7xAQHw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CCmiosePEd2TNKuW7xAQHw" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_HdRfkcxFEd2WY7Axv1JJtQ" name="infrastructureComponentScope_InfrastructureComponentAllocationConnector" visibility="public" type="_z-uYMMeOEd2TNKuW7xAQHw" isDerived="true" association="_HdRfkMxFEd2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_HdRfkcxFEd2WY7Axv1JJtQ" name="infrastructureComponentScope_InfrastructureComponentAllocationConnector" visibility="public" type="_z-uYMMeOEd2TNKuW7xAQHw" association="_HdRfkMxFEd2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_I17UkcxFEd2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I17UkMxFEd2WY7Axv1JJtQ" value="1"/>
         </ownedAttribute>
@@ -12179,9 +12287,13 @@ If no AllocationConnector is specified for an ResourceRequiredRole, before analy
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CAMyEceTEd2TNKuW7xAQHw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CAMyEMeTEd2TNKuW7xAQHw"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_7cApI8eOEd2TNKuW7xAQHw" name="resourceContainer_InfrastructureComponentScope" visibility="public" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_7b24IMeOEd2TNKuW7xAQHw"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_7b24IMeOEd2TNKuW7xAQHw" memberEnd="_7cApIMeOEd2TNKuW7xAQHw _7cApI8eOEd2TNKuW7xAQHw">
-        <ownedEnd xmi:id="_7cApI8eOEd2TNKuW7xAQHw" name="" visibility="private" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_7b24IMeOEd2TNKuW7xAQHw"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_7b24IMeOEd2TNKuW7xAQHw" name="deloyedOn" memberEnd="_7cApIMeOEd2TNKuW7xAQHw _7cApI8eOEd2TNKuW7xAQHw">
+        <ownedEnd xmi:id="_7cApIMeOEd2TNKuW7xAQHw" name="infrastructureComponentScope_ResourceContainer" visibility="public" type="_z-uYMMeOEd2TNKuW7xAQHw" association="_7b24IMeOEd2TNKuW7xAQHw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7cApIseOEd2TNKuW7xAQHw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7cApIceOEd2TNKuW7xAQHw"/>
+        </ownedEnd>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_CCmioMePEd2TNKuW7xAQHw" name="to1" memberEnd="_CCmiocePEd2TNKuW7xAQHw _CCmipMePEd2TNKuW7xAQHw">
         <ownedEnd xmi:id="_CCmipMePEd2TNKuW7xAQHw" name="" visibility="private" type="_LI4dkLZrEd2w14sx0UoE9Q" association="_CCmioMePEd2TNKuW7xAQHw">
@@ -12204,12 +12316,11 @@ If no AllocationConnector is specified for an ResourceRequiredRole, before analy
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_jKcOYMw-Ed2WY7Axv1JJtQ" name="" memberEnd="_jKcOYcw-Ed2WY7Axv1JJtQ _jKcOZMw-Ed2WY7Axv1JJtQ"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_NcpdgMxEEd2WY7Axv1JJtQ" name="AllocationConnector" isAbstract="true">
-        <ownedAttribute xmi:id="_G7740bZnEd2w14sx0UoE9Q" name="resourceRequiredRole_AllocationConnector" visibility="public" type="_XT0qcJR_Ed27_9sKGvEc-Q" isDerived="true" association="_G7740LZnEd2w14sx0UoE9Q">
+        <ownedAttribute xmi:id="_G7740bZnEd2w14sx0UoE9Q" name="resourceRequiredRole_AllocationConnector" visibility="public" type="_XT0qcJR_Ed27_9sKGvEc-Q" association="_G7740LZnEd2w14sx0UoE9Q">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G77407ZnEd2w14sx0UoE9Q" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G7740rZnEd2w14sx0UoE9Q" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_P_JZBMxQEd2WY7Axv1JJtQ" name="resourceContainer_AllocationConnector" visibility="public" type="_qdz5sOD9Edq8ysXH3gTiEg" isDerived="true" association="_P_JZAMxQEd2WY7Axv1JJtQ"/>
-        <ownedAttribute xmi:id="_-b0EMcklEd2cNoMFPnHcQA" name="assemblyContext_AllocationConnector" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" isDerived="true" association="_-b0EMMklEd2cNoMFPnHcQA">
+        <ownedAttribute xmi:id="_-b0EMcklEd2cNoMFPnHcQA" name="fromAssemblyContext_AllocationConnector" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" association="_-b0EMMklEd2cNoMFPnHcQA">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-b91MMklEd2cNoMFPnHcQA" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-b0EMsklEd2cNoMFPnHcQA" value="1"/>
         </ownedAttribute>
@@ -12219,6 +12330,9 @@ If no AllocationConnector is specified for an ResourceRequiredRole, before analy
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LjiKUcxFEd2WY7Axv1JJtQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LjiKUMxFEd2WY7Axv1JJtQ"/>
         </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Od4FENXIEd2OZ4WawgDLNg" memberEnd="_Od4FEdXIEd2OZ4WawgDLNg _OeBPANXIEd2OZ4WawgDLNg">
+        <ownedEnd xmi:id="_OeBPANXIEd2OZ4WawgDLNg" name="" visibility="private" type="_AtO9UOMvEdqaQsPH3rPnBQ" association="_Od4FENXIEd2OZ4WawgDLNg"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_BdlGMCh9Edue7oeC4NTCGg" name="repository">
@@ -15019,13 +15133,13 @@ the internal structure depends on the way the component is realised. In general,
         <ownedRule xmi:id="_eTrlAKU6EdqWue6EZILF7w" name="ProvideSameInterfaces" constrainedElement="_mhK5sJJIEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_eTrlAaU6EdqWue6EZILF7w">
             <language>OCL</language>
-            <body>-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif</body>
+            <body>-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif</body>
           </specification>
         </ownedRule>
         <ownedRule xmi:id="_nGrEoKU6EdqWue6EZILF7w" name="RequireSameInterfaces" constrainedElement="_mhK5sJJIEdqSSImFLKDkSg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_nGrEoaU6EdqWue6EZILF7w">
             <language>OCL</language>
-            <body>-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif</body>
+            <body>-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_q7ASUAHfEdy9bvYbdCHdZw" general="_ZFrPgAHfEdy9bvYbdCHdZw"/>
@@ -16976,7 +17090,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       <packageImport xmi:id="_VGNcoDREEdun4NCFPwZksA" importedPackage="_bpEisCh9Edue7oeC4NTCGg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_1JMk4Mw8Ed2WY7Axv1JJtQ" name="ControllerAllocationConnector">
         <generalization xmi:id="_YJrygMxFEd2WY7Axv1JJtQ" general="_hs_p4MxHEd2WY7Axv1JJtQ"/>
-        <ownedAttribute xmi:id="_W6jfMcxAEd2WY7Axv1JJtQ" name="providingControllerInstance_ControllerAllocationConnector" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" isDerived="true" association="_W6jfMMxAEd2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_W6jfMcxAEd2WY7Axv1JJtQ" name="providingControllerInstance_ControllerAllocationConnector" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" association="_W6jfMMxAEd2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ev-jUcxAEd2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ev-jUMxAEd2WY7Axv1JJtQ"/>
         </ownedAttribute>
@@ -16986,11 +17100,11 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_T2Ur88E5Ed2h7aoy3YfQBA" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_T2Ur8sE5Ed2h7aoy3YfQBA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_jKcOZMw-Ed2WY7Axv1JJtQ" name="lowerControllerAllocationConnectors_ControllerInstance" visibility="public" type="_hs_p4MxHEd2WY7Axv1JJtQ" isDerived="true" association="_jKcOYMw-Ed2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_jKcOZMw-Ed2WY7Axv1JJtQ" name="lowerControllerAllocationConnectors_ControllerInstance" visibility="public" type="_hs_p4MxHEd2WY7Axv1JJtQ" association="_jKcOYMw-Ed2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jKcOZsw-Ed2WY7Axv1JJtQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jKcOZcw-Ed2WY7Axv1JJtQ"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_W6jfMsxAEd2WY7Axv1JJtQ" name="upperControllerAllocationConnectors_ControllerInstance" visibility="public" type="_1JMk4Mw8Ed2WY7Axv1JJtQ" isDerived="true" association="_W6jfMMxAEd2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_W6jfMsxAEd2WY7Axv1JJtQ" name="upperControllerAllocationConnectors_ControllerInstance" visibility="public" type="_1JMk4Mw8Ed2WY7Axv1JJtQ" association="_W6jfMMxAEd2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fns1gcxAEd2WY7Axv1JJtQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fns1gMxAEd2WY7Axv1JJtQ"/>
         </ownedAttribute>
@@ -17014,10 +17128,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eLEPA8E1Ed2h7aoy3YfQBA" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eLEPAsE1Ed2h7aoy3YfQBA"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_7cApIMeOEd2TNKuW7xAQHw" name="infrastructureComponentScope_ResourceContainer" visibility="public" type="_z-uYMMeOEd2TNKuW7xAQHw" aggregation="composite" association="_7b24IMeOEd2TNKuW7xAQHw">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7cApIseOEd2TNKuW7xAQHw" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7cApIceOEd2TNKuW7xAQHw"/>
-        </ownedAttribute>
         <ownedAttribute xmi:id="_MCzr0cw7Ed2WY7Axv1JJtQ" name="controllerInstance_ResourceContainer" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" aggregation="composite" association="_MCzr0Mw7Ed2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MCzr08w7Ed2WY7Axv1JJtQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MCzr0sw7Ed2WY7Axv1JJtQ"/>
@@ -17025,10 +17135,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <ownedAttribute xmi:id="_IdXZscw8Ed2WY7Axv1JJtQ" name="controllerStack_ResourceContainer" visibility="public" type="_1ZaAkMw7Ed2WY7Axv1JJtQ" association="_IdXZsMw8Ed2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IdXZs8w8Ed2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IdXZssw8Ed2WY7Axv1JJtQ"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_P_JZAcxQEd2WY7Axv1JJtQ" name="allocationConnectors_ResourceContainer" visibility="public" type="_NcpdgMxEEd2WY7Axv1JJtQ" isDerived="true" aggregation="composite" association="_P_JZAMxQEd2WY7Axv1JJtQ">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P_JZA8xQEd2WY7Axv1JJtQ" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P_JZAsxQEd2WY7Axv1JJtQ"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wru2gODnEdq8ysXH3gTiEg" name="ProcessingResourceSpecification">
@@ -17131,19 +17237,25 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         </ownedEnd>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_hs_p4MxHEd2WY7Axv1JJtQ" name="ResourceProvidedRoleConnector" isAbstract="true">
+        <ownedRule xmi:id="_16uwQNQjEd28Rqg_jh31VA" name="ReferencedResourceRequiredRoleRoleAndResourceProvidedRoleMustMatch" constrainedElement="_hs_p4MxHEd2WY7Axv1JJtQ">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_16uwQdQjEd28Rqg_jh31VA">
+            <language>OCL</language>
+            <body>self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole = self.resourceProvidedRole_ResourceProvidedRoleAllocationConnector.providedResourceInterface_ResourceProvidedRole</body>
+          </specification>
+        </ownedRule>
         <generalization xmi:id="__6S5gMxIEd2WY7Axv1JJtQ" general="_NcpdgMxEEd2WY7Axv1JJtQ"/>
-        <ownedAttribute xmi:id="_Sav98cw-Ed2WY7Axv1JJtQ" name="resourceProvidedRole_ResourceProvidedRoleAllocationConnector" visibility="public" type="_UFq48K9FEd2ryon4ZsxEcA" isDerived="true" association="_Sav98Mw-Ed2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_Sav98cw-Ed2WY7Axv1JJtQ" name="resourceProvidedRole_ResourceProvidedRoleAllocationConnector" visibility="public" type="_UFq48K9FEd2ryon4ZsxEcA" association="_Sav98Mw-Ed2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sav988w-Ed2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sav98sw-Ed2WY7Axv1JJtQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_jKcOYcw-Ed2WY7Axv1JJtQ" name="requiringControllerInstance_ControllerAllocationConnector" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" isDerived="true" association="_jKcOYMw-Ed2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_jKcOYcw-Ed2WY7Axv1JJtQ" name="requiringControllerInstance_ControllerAllocationConnector" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" association="_jKcOYMw-Ed2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jKcOY8w-Ed2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jKcOYsw-Ed2WY7Axv1JJtQ"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_DhaxMMxJEd2WY7Axv1JJtQ" name="ResourceAllocationConnector">
         <generalization xmi:id="_FjpusMxJEd2WY7Axv1JJtQ" general="_hs_p4MxHEd2WY7Axv1JJtQ"/>
-        <ownedAttribute xmi:id="_MYaAAsxJEd2WY7Axv1JJtQ" name="processingResourceSpecification_ResourceAllocationConnector" visibility="public" type="_wru2gODnEdq8ysXH3gTiEg" isDerived="true" association="_MYaAAMxJEd2WY7Axv1JJtQ"/>
+        <ownedAttribute xmi:id="_MYaAAsxJEd2WY7Axv1JJtQ" name="processingResourceSpecification_ResourceAllocationConnector" visibility="public" type="_wru2gODnEdq8ysXH3gTiEg" association="_MYaAAMxJEd2WY7Axv1JJtQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_MYaAAMxJEd2WY7Axv1JJtQ" memberEnd="_MYaAAcxJEd2WY7Axv1JJtQ _MYaAAsxJEd2WY7Axv1JJtQ">
         <ownedEnd xmi:id="_MYaAAcxJEd2WY7Axv1JJtQ" name="resourceAllocationConnector" visibility="private" type="_DhaxMMxJEd2WY7Axv1JJtQ" association="_MYaAAMxJEd2WY7Axv1JJtQ">
@@ -17151,7 +17263,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PUdhcMxJEd2WY7Axv1JJtQ"/>
         </ownedEnd>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_P_JZAMxQEd2WY7Axv1JJtQ" memberEnd="_P_JZAcxQEd2WY7Axv1JJtQ _P_JZBMxQEd2WY7Axv1JJtQ"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_P_JZAMxQEd2WY7Axv1JJtQ" memberEnd="_P_JZAcxQEd2WY7Axv1JJtQ _P_JZBMxQEd2WY7Axv1JJtQ">
+        <ownedEnd xmi:id="_P_JZBMxQEd2WY7Axv1JJtQ" name="allocar_AllocationConnector" visibility="public" type="_AtO9UOMvEdqaQsPH3rPnBQ" association="_P_JZAMxQEd2WY7Axv1JJtQ"/>
+      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_W6jfMMxAEd2WY7Axv1JJtQ" name="" memberEnd="_W6jfMcxAEd2WY7Axv1JJtQ _W6jfMsxAEd2WY7Axv1JJtQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_V8vSACh9Edue7oeC4NTCGg" name="usagemodel">
@@ -30306,7 +30420,6 @@ Note:&#xD;
   <Default:Documentation xmi:id="_NWSGgadHEd2mBdDaN9hoZQ" base_Comment="_NWSGgKdHEd2mBdDaN9hoZQ"/>
   <Default:Documentation xmi:id="_PEQEMadHEd2mBdDaN9hoZQ" base_Comment="_PEQEMKdHEd2mBdDaN9hoZQ"/>
   <Default:Documentation xmi:id="_ZzWEIadHEd2mBdDaN9hoZQ" base_Comment="_ZzWEIKdHEd2mBdDaN9hoZQ"/>
-  <Default:Documentation xmi:id="_wkhowapvEd26O59kvcjv0A" base_Comment="_wkhowKpvEd26O59kvcjv0A"/>
   <Default:Documentation xmi:id="_an4V0apwEd26O59kvcjv0A" base_Comment="_an4V0KpwEd26O59kvcjv0A"/>
   <Default:Documentation xmi:id="_yK-MsapwEd26O59kvcjv0A" base_Comment="_yK-MsKpwEd26O59kvcjv0A"/>
   <Default:Documentation xmi:id="_RO7-sKtbEd2iPq4SbQh7ig" base_Comment="_ROfSwKtbEd2iPq4SbQh7ig"/>
@@ -30368,4 +30481,5 @@ Note:&#xD;
   <Default:Documentation xmi:id="__TOk0MIIEd2S28mvKHDQFQ" base_Comment="__TEz0MIIEd2S28mvKHDQFQ"/>
   <Default:Documentation xmi:id="_fF-kwcIJEd2S28mvKHDQFQ" base_Comment="_fF-kwMIJEd2S28mvKHDQFQ"/>
   <Default:Documentation xmi:id="_zxM2ocIJEd2S28mvKHDQFQ" base_Comment="_zxM2oMIJEd2S28mvKHDQFQ"/>
+  <Default:Documentation xmi:id="_ovgJkdK5Ed2wyvCqAnXjig" base_Comment="_ovgJkNK5Ed2wyvCqAnXjig"/>
 </xmi:XMI>
