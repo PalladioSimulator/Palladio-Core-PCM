@@ -8371,7 +8371,7 @@
           </children>
           <children xmi:id="_jKlYYMw-Ed2WY7Axv1JJtQ" type="FromRoleLabel" element="_jKcOYcw-Ed2WY7Axv1JJtQ">
             <children xmi:id="_jKlYYsw-Ed2WY7Axv1JJtQ" type="FromRole"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_jKlYYcw-Ed2WY7Axv1JJtQ" x="-4337" y="872"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_jKlYYcw-Ed2WY7Axv1JJtQ" x="5506" y="-371"/>
           </children>
           <children xmi:id="_jKlYY8w-Ed2WY7Axv1JJtQ" type="ToQualifierLabel" element="_jKcOZMw-Ed2WY7Axv1JJtQ">
             <children xmi:id="_jKlYZcw-Ed2WY7Axv1JJtQ" type="QualifierCompartment">
@@ -12254,7 +12254,7 @@ If no AllocationConnector is specified for an ResourceRequiredRole, before analy
         <ownedRule xmi:id="_h2A2gMknEd2cNoMFPnHcQA" name="ChildContextContainsRoleWithReferencedInterface" constrainedElement="_LI4dkLZrEd2w14sx0UoE9Q">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_h2A2gcknEd2cNoMFPnHcQA">
             <language>OCL</language>
-            <body>self.fromAsssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity->exists(role|role.requiredResourceInterface_ResourceRequiredRole = self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole)</body>
+            <body>self.fromAssemblyContext_AllocationConnector.encapsulatedComponent_AssemblyContext.resourceRequiredRoles_ResourceInterfaceRequiringEntity->exists(role|role.requiredResourceInterface_ResourceRequiredRole = self.resourceRequiredRole_AllocationConnector.requiredResourceInterface_ResourceRequiredRole)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_JEnBMMrOEd2UAtuiYRGpfQ" general="_UkxkoJQAEdqSSImFLKDkSg"/>
@@ -12263,7 +12263,7 @@ If no AllocationConnector is specified for an ResourceRequiredRole, before analy
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CCmio8ePEd2TNKuW7xAQHw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CCmiosePEd2TNKuW7xAQHw" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_HdRfkcxFEd2WY7Axv1JJtQ" name="infrastructureComponentScope_InfrastructureComponentAllocationConnector" visibility="public" type="_z-uYMMeOEd2TNKuW7xAQHw" association="_HdRfkMxFEd2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_HdRfkcxFEd2WY7Axv1JJtQ" name="toInfrastructureComponentScope_InfrastructureComponentAllocationConnector" visibility="public" type="_z-uYMMeOEd2TNKuW7xAQHw" association="_HdRfkMxFEd2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_I17UkcxFEd2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_I17UkMxFEd2WY7Axv1JJtQ" value="1"/>
         </ownedAttribute>
@@ -17090,7 +17090,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       <packageImport xmi:id="_VGNcoDREEdun4NCFPwZksA" importedPackage="_bpEisCh9Edue7oeC4NTCGg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_1JMk4Mw8Ed2WY7Axv1JJtQ" name="ControllerAllocationConnector">
         <generalization xmi:id="_YJrygMxFEd2WY7Axv1JJtQ" general="_hs_p4MxHEd2WY7Axv1JJtQ"/>
-        <ownedAttribute xmi:id="_W6jfMcxAEd2WY7Axv1JJtQ" name="providingControllerInstance_ControllerAllocationConnector" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" association="_W6jfMMxAEd2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_W6jfMcxAEd2WY7Axv1JJtQ" name="toControllerInstance_ControllerAllocationConnector" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" association="_W6jfMMxAEd2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ev-jUcxAEd2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ev-jUMxAEd2WY7Axv1JJtQ"/>
         </ownedAttribute>
@@ -17248,14 +17248,14 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sav988w-Ed2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sav98sw-Ed2WY7Axv1JJtQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_jKcOYcw-Ed2WY7Axv1JJtQ" name="requiringControllerInstance_ControllerAllocationConnector" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" association="_jKcOYMw-Ed2WY7Axv1JJtQ">
+        <ownedAttribute xmi:id="_jKcOYcw-Ed2WY7Axv1JJtQ" name="fromControllerInstance_ControllerAllocationConnector" visibility="public" type="_EZTj0Mw7Ed2WY7Axv1JJtQ" association="_jKcOYMw-Ed2WY7Axv1JJtQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jKcOY8w-Ed2WY7Axv1JJtQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jKcOYsw-Ed2WY7Axv1JJtQ"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_DhaxMMxJEd2WY7Axv1JJtQ" name="ResourceAllocationConnector">
         <generalization xmi:id="_FjpusMxJEd2WY7Axv1JJtQ" general="_hs_p4MxHEd2WY7Axv1JJtQ"/>
-        <ownedAttribute xmi:id="_MYaAAsxJEd2WY7Axv1JJtQ" name="processingResourceSpecification_ResourceAllocationConnector" visibility="public" type="_wru2gODnEdq8ysXH3gTiEg" association="_MYaAAMxJEd2WY7Axv1JJtQ"/>
+        <ownedAttribute xmi:id="_MYaAAsxJEd2WY7Axv1JJtQ" name="toProcessingResourceSpecification_ResourceAllocationConnector" visibility="public" type="_wru2gODnEdq8ysXH3gTiEg" association="_MYaAAMxJEd2WY7Axv1JJtQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_MYaAAMxJEd2WY7Axv1JJtQ" memberEnd="_MYaAAcxJEd2WY7Axv1JJtQ _MYaAAsxJEd2WY7Axv1JJtQ">
         <ownedEnd xmi:id="_MYaAAcxJEd2WY7Axv1JJtQ" name="resourceAllocationConnector" visibility="private" type="_DhaxMMxJEd2WY7Axv1JJtQ" association="_MYaAAMxJEd2WY7Axv1JJtQ">
