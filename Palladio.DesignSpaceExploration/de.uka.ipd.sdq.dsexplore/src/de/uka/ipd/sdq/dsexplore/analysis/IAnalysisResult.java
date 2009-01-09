@@ -55,6 +55,8 @@ public interface IAnalysisResult extends Comparable<IAnalysisResult>{
 	 * @return a doubke between 0 and 1 that describes the utilisation. 
 	 */
 	public double getUtilisationOfResource(ResourceContainer container, ProcessingResourceSpecification resource) throws AnalysisFailedException;
+
+	public double getMedianValue() throws AnalysisFailedException;
 	
 	//public double getUtilisationOfResource(PassiveResourceSpecification resource);
 

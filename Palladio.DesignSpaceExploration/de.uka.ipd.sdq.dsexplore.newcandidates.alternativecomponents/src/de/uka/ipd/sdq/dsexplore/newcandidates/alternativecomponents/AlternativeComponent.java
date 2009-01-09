@@ -61,8 +61,8 @@ public class AlternativeComponent implements INewCandidates {
 		Repository r = currentPCMInstance.getRepository();
 		
 		//only if this is called for the first time on a given repository, find alternatives again. 
-		if (lastRepository == null || !checkIdentity(r, lastRepository) || alternativeMap == null || rootNode == null){
-			lastRepository = r;
+		//if (lastRepository == null || !checkIdentity(r, lastRepository) || alternativeMap == null || rootNode == null){
+			//lastRepository = r;
 		
 			System s = currentPCMInstance.getSystem();
 
@@ -81,17 +81,16 @@ public class AlternativeComponent implements INewCandidates {
 			logger.debug("I have a mapping for " + alternativeMap.size()
 					+ " AssemblyContexts with the following alternatives:");
 			
-			rootNode = createEvolutionGraph(currentPCMInstance, alternativeMap);
-			logger.debug(rootNode.toString());
-		}
+			//rootNode = createEvolutionGraph(currentPCMInstance, alternativeMap);
+			//logger.debug(rootNode.toString());
+		//}
 
 		//Create a new PCM instance for each alternative found
 		//Only change one component at a time. 
 		//Generate alternatives with one component different each
-		List<PCMInstance> l = rootNode.getChildrenOf(currentPCMInstance);
-
+		//List<PCMInstance> l = rootNode.getChildrenOf(currentPCMInstance);
 		
-		return l;
+		return createAlternativePCMInstances(currentSolution.getPCMInstance(), alternativeMap);
 	}
 
 	/**
@@ -100,12 +99,17 @@ public class AlternativeComponent implements INewCandidates {
 	 * alternative components, it might work. As this only looks at alternative 
 	 * components in the current repository, it might not be too bad...
 	 * 
+	 * XXX: Check that we can evolve back to previous version, because other 
+	 * things might have changed (combination) that we want to visit an 
+	 * alternative component again. Probably cut away this whole graph thing. 
+	 * 
 	 * @param currentSolution
 	 * @param alternativeMap2
 	 * @return
 	 */
 	private EvolutionGraphNode createEvolutionGraph(
 			PCMInstance currentSolution, Map<AssemblyContext, Map<BasicComponent, ProvidedAndRequiredRoleMapping>> alternativeMap2) {
+		
 		EvolutionGraphNode root = new EvolutionGraphNode(currentSolution);
 		
 		Vector<EvolutionGraphNode> allNodes = new Vector<EvolutionGraphNode>();
@@ -117,6 +121,17 @@ public class AlternativeComponent implements INewCandidates {
 				.entrySet()) {
 			logger.debug("Assembly context " + e.getKey().getEntityName()
 					+ " has " + e.getValue().size() + " alternatives:");
+			
+			/*
+			 * Do not all the new nodes right away to the set of allNodes, but
+			 * wait until we handled the alternatives of one assemblyContext.
+			 * The reason is that we do not want the alternatives of one
+			 * assemblyContext to be alternatives to each other. Example:
+			 * Assembly Context A has alternatives B and C. Then, replacing B
+			 * with C in a second step is not a new alternative, but already
+			 * covered by the node that replaced A with C directly.
+			 */ 
+			Vector<EvolutionGraphNode> newCommonAlternativeNodes = new Vector<EvolutionGraphNode>();
 			
 			for (Map.Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry : e.getValue().entrySet()) {
 				
@@ -131,10 +146,12 @@ public class AlternativeComponent implements INewCandidates {
 					evolutionGraphNode.addChild(newNode);
 					newNodes.add(newNode);
 				}
-				allNodes.addAll(newNodes);
+				//Only add to the temporary list (see explanation at declaration of this list above).
+				newCommonAlternativeNodes.addAll(newNodes);
 				counter++;
 				
 			}
+			allNodes.addAll(newCommonAlternativeNodes);
 		}
 		
 		return root;
@@ -171,7 +188,16 @@ public class AlternativeComponent implements INewCandidates {
 		}
 		return l;
 	}
-
+	
+	
+	/**
+	 * 
+	 * @param currentSolution
+	 * @param assemblyContext
+	 * @param basicComponentEntry
+	 * @param counter
+	 * @return
+	 */
 	private PCMInstance createNewPCMInstance(PCMInstance currentSolution,
 			AssemblyContext assemblyContext, Entry<BasicComponent, ProvidedAndRequiredRoleMapping> basicComponentEntry, int counter) {
 
@@ -209,7 +235,7 @@ public class AlternativeComponent implements INewCandidates {
 		//fix the required and provided roles
 		fixReferencesToAssemblyContext(newSystem, changedAssemblyContext, basicComponentEntry.getValue());
 		
-		//I do not have to fox the allocation because I updated the assembly 
+		//I do not have to fix the allocation because I updated the assembly 
 		//context, which is just referenced by the allocation. 
 		//fixAllocation(changedAssemblyContext);
 		
@@ -529,6 +555,12 @@ public class AlternativeComponent implements INewCandidates {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public void setConfiguration(ILaunchConfiguration conf) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

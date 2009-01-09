@@ -17,5 +17,7 @@ public interface INewCandidates {
 	 * @throws CoreException 
 	 */
 	public abstract List<PCMInstance> generateNewCandidates(IAnalysisResult currentSolution) throws CoreException;
+	
+	public abstract void setConfiguration(ILaunchConfiguration conf);
 
 }

@@ -8,6 +8,8 @@ import de.uka.ipd.sdq.codegen.runconfig.tabs.FeatureOptionsTab;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.FileNamesInputTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComConfigurationTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuConfigurationTab;
+import de.uka.ipd.sdq.pcmsolver.runconfig.CommonTab;
+import de.uka.ipd.sdq.pcmsolver.runconfig.MainConfigTab;
 
 /**
  * Creates a Tab Group for the launch configuration.
@@ -30,7 +32,9 @@ public class DSETabGroup extends AbstractLaunchConfigurationTabGroup {
 				new SimuComConfigurationTab(),
 				new SimuConfigurationTab(),
 				new FeatureOptionsTab(),
-				new DSEOptionsTab()
+				new DSEOptionsTab(),
+				new MainConfigTab(), 
+				new CommonTab()
 		};
 		setTabs(tabs);
 

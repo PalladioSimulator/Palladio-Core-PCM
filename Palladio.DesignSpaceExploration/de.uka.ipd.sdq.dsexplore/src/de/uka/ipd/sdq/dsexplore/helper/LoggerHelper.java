@@ -37,7 +37,7 @@ public class LoggerHelper {
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure();
 		//BasicConfigurator.configure(myAppender);
-		logger.debug("Logging enabled!");
+		logger.debug("Verbose logging enabled!");
 	}
 	
 }

@@ -67,6 +67,7 @@ public class SimuComAnalysis implements IAnalysis {
 		IAnalysisResult result = retrieveSimuComResults(pcmInstance);
 		
 		logger.debug("The mean value of instance "+pcmInstance.getName()+": "+result.getMeanValue());
+		logger.debug("The median value of instance "+pcmInstance.getName()+": "+result.getMedianValue());
 		return result;
 		
 	}
@@ -121,7 +122,7 @@ public class SimuComAnalysis implements IAnalysis {
 		this.config = ConfigurationHelper.getInstance().updateConfig(config, pcmInstance);
 		pcmInstance.saveUpdatesToFile();
 		
-		logger.debug("Starting analysis");
+		logger.debug("Starting analysis of "+pcmInstance.getName());
 		
 		SimuLaunchConfigurationDelegate simuCom = new SimuLaunchConfigurationDelegate();
 		

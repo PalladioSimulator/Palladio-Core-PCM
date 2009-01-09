@@ -21,11 +21,18 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	protected boolean terminated = false;
 	List<INewCandidates> newCands;
 	
+	List<IAnalysisResult> allResults = new ArrayList<IAnalysisResult>();
+	
 	int generation = 0;
+	private double meanResponseTimeRequirement;
 	
 	/** Logger for log4j. */
 	protected static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
+	
+	public HillClimbingAlgorithm(double requirement){
+		this.meanResponseTimeRequirement = requirement;
+	}
 
 	/**
 	 * For a given List of {@link PCMInstance}s, finds the neighbours in terms of alternative components. 
@@ -55,10 +62,12 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	 * @see de.uka.ipd.sdq.dsexplore.algorithms.IAlgorithm#initialise(java.util.List, de.uka.ipd.sdq.dsexplore.analysis.IAnalysis)
 	 */
 	@Override
-	public void initialise(List<PCMInstance> population, IAnalysis analysisTool) throws CoreException {
+	public void initialise(List<PCMInstance> population, IAnalysis analysisTool, ILaunchConfiguration conf) throws CoreException {
 		this.analysisTool = analysisTool;
 		this.newCands = NewCandidateFactory.getInstance().getAllNewCandidateExtensions();
-		
+		for (INewCandidates cand : this.newCands) {
+			cand.setConfiguration(conf);
+		}
 	}
 
 	/**
@@ -83,21 +92,35 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 			//2) evaluate neighbors
 			List<IAnalysisResult> results = this.evaluate(neighbours);
 			
+			//Keep all for later
+			this.allResults.addAll(results);
+			
 			//3) choose best neighbor, if better than current.
 			IAnalysisResult best = this.selectBest(results);
+			
+			//Check whether requirements are fulfilled
+			if (best != null && best.getMeanValue() <= this.meanResponseTimeRequirement){
+				logger.info("Found a candidate that fulfills the response time requirements.");
+				newGeneration.add(best);
+				terminated = true;
+				break;
+			}
 			
 			//Then create a new generation out of these.
 			if (best != null && best.getMeanValue() < currentResult.getMeanValue()){
 				improved = true;
+				logger.debug("Selected steepest ascent "+best.getPCMInstance().getName()+", continuing with that one.");
 				newGeneration.add(best);
-			} else{
+			} /*else{
 				newGeneration.add(currentResult);
-			}
+			}*/
 			
 		}
 		//if no new neighbors are found, set terminated to true.
-		if (!improved)
+		if (!improved) {
 			terminated = true;
+			logger.info("No better candidate found, terminating the search.");
+		}
 		return newGeneration;
 	}
 
@@ -115,7 +138,7 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 		IAnalysisResult best = iterator.next();
 		for (; iterator.hasNext();) {
 			IAnalysisResult analysisResult = iterator.next();
-			if (best.getMeanValue() > analysisResult.getMeanValue()){
+			if (best.compareTo(analysisResult)>0){
 				best = analysisResult;
 			}
 			
@@ -158,6 +181,10 @@ public class HillClimbingAlgorithm implements IAlgorithm {
 	@Override
 	public boolean terminated() {
 		return this.terminated ;
+	}
+
+	public List<IAnalysisResult> getAllResults() {
+		return allResults;
 	}
 
 }

@@ -19,7 +19,7 @@ public interface IAlgorithm {
 	 * @param configuration 
 	 * @throws CoreException 
 	 */
-	public void initialise(List<PCMInstance> population, IAnalysis analysisTool) throws CoreException;
+	public void initialise(List<PCMInstance> population, IAnalysis analysisTool, ILaunchConfiguration conf) throws CoreException;
 
 	/**
 	 * True if the heuristic terminated.

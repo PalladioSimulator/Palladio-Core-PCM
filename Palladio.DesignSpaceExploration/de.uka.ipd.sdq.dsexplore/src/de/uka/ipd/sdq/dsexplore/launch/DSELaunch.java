@@ -37,6 +37,7 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 	 * A default to be overridden by the settings in the run dialog.
 	 */
 	private int maxIterations = Integer.MAX_VALUE;
+	private double mrtRequirements = 0;
 	
 	/** Logger for log4j. */
 	private static Logger logger = 
@@ -71,13 +72,27 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 				this.maxIterations = Integer.parseInt(maxIterationsString);
 				} catch (Exception e){
 					//ok, it was worth a try, so just keep the old value. 
+					logger.debug("Could not parse "+DSEConstantsContainer.MAX_ITERATIONS+" information: "+maxIterationsString);
 				}
 			} else {
 				maxIterations = Integer.MAX_VALUE;
 			}
 			
+			String mrtReqString = configuration.getAttribute(DSEConstantsContainer.MRT_REQUIREMENTS, "");
+			if (!mrtReqString.equals("")){
+				try{
+				this.mrtRequirements = Double.parseDouble(mrtReqString);
+				} catch (Exception e){
+					//ok, it was worth a try, so just keep the old value. 
+					logger.debug("Could not parse "+DSEConstantsContainer.MRT_REQUIREMENTS+" information: "+mrtReqString);
+				}
+			} else {
+				this.mrtRequirements = 0;
+			}
+			
 			
 			List<IAnalysisResult> allCandidates = null;
+			List<IAnalysisResult> allResults = null;
 			
 			try {
 				
@@ -87,10 +102,10 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    instances.add(pcmInstance);
 		    
 		    //initialise the algorithm and analysis
-		    IAlgorithm algorithm = new HillClimbingAlgorithm();
+		    HillClimbingAlgorithm algorithm = new HillClimbingAlgorithm(mrtRequirements);
 		    //IAlgorithm algorithm = new FullSearchAlgorithm();
 			IAnalysis analysisTool = new AnalysisProxy(configuration, mode, launch, monitor);
-		    algorithm.initialise(instances, analysisTool);
+		    algorithm.initialise(instances, analysisTool,configuration);
 		    
 		    //analyse the initial PCMInstance
 		    //IAnalysisResult result = analysisTool.retrieveLastResults(pcmInstance);
@@ -102,16 +117,16 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 		    currentPopulation.add(result);
 		    allCandidates.add(result);
 		    
-		    int noOfIterations = 0;
+		    int noOfIterations = 1;
 		    while(!algorithm.terminated() && noOfIterations <= this.maxIterations){
 		    	currentPopulation = algorithm.iterate(currentPopulation);
 		    	allCandidates.addAll(currentPopulation);
 		    	noOfIterations++;
 		    }
 		    
-
+		    allResults = algorithm.getAllResults();
 		    
-		    logger.info("Best candidate: "+currentPopulation.get(0).getPCMInstance().getName());
+		    //logger.info("Best candidate: "+currentPopulation.get(0).getPCMInstance().getName());
 		    
 
 				
@@ -121,23 +136,27 @@ public class DSELaunch implements ILaunchConfigurationDelegate {
 				throw new CoreException(new Status(Status.ERROR, "de.uka.ipd.sdq.dsexplore", 0, e.getMessage(), e));
 			} finally {
 				//try to save the results as far as it got. 
-				if (allCandidates != null){
+				if (allCandidates != null && allResults != null){
 				    long duration = System.currentTimeMillis() - timestampMillis;
 				    Collections.sort(allCandidates);
+				    Collections.sort(allResults);
 			        try {
-						DSEMessageBox
-							.showMessage(
-									"DSE results",
-									"Here are the results, sorted by response time: \n\n"
-											+ resultsToString(allCandidates)
-											+ "\n You find the corresponding run configuration in your "
-											+ "run dialog, they show you all details on the candidates.\n\n "
-											+ "The search took "
-											+ duration / 1000.0 + " seconds. "
-											+ allCandidates.size() + " candidates were analysed.",
-									MessageDialog.INFORMATION);
+			        	String message = 
+						"Here are the steepest-ascent results, sorted by response time: \n\n"
+						+ resultsToString(allCandidates)
+						+ "\n You find the corresponding run configuration in your "
+						+ "run dialog, they show you all details on the candidates.\n\n "
+						+ "The search took "
+						+ duration / 1000.0 + " seconds. "
+						+ allResults.size() + " candidates were analysed.\n\n" 
+						+ "All candidates, sorted by response time: \n" 
+						+ resultsToString(allResults);
+				
+						DSEMessageBox.showMessage("DSE results",message,MessageDialog.INFORMATION);
+			        	logger.info(message);
 					} catch (AnalysisFailedException e) {
 						e.printStackTrace();
+						logger.error("Could not print result dialog, analysis failed.");
 					}
 				}
 

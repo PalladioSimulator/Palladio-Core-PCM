@@ -18,8 +18,8 @@ public class FullSearchAlgorithm extends HillClimbingAlgorithm {
 	
 	
 	
-	public FullSearchAlgorithm() {
-		super();
+	public FullSearchAlgorithm(double requirement) {
+		super(requirement);
 		this.analysedCandidates = new ArrayList<PCMInstance>();
 		this.analysisResults = new ArrayList<IAnalysisResult>();
 	}

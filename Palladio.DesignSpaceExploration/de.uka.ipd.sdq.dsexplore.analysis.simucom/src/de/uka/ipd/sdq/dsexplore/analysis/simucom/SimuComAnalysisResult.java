@@ -36,7 +36,9 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 
 	private Experiment experiment;
 
-	private PCMInstance pcm; 
+	private PCMInstance pcm;
+
+	private double medianValueCache; 
 	
 	private static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
@@ -50,26 +52,40 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 	@Override
 	public double getMeanValue() throws AnalysisFailedException {
 		if (meanValueCache == 0){
-			//Get usage scenario sensor. 
-			UsageScenario us = pcm.getUsageModel().getUsageScenario_UsageModel().get(0);
-			Sensor respTimeSensor = getSensorForUsageScenario(experiment, us);
-			if (respTimeSensor != null){
-				SensorAndMeasurements sam = run.getMeasurementsOfSensor(respTimeSensor);
-				meanValueCache = calculateMeanValue(sam);
-			} else 
-				throw new AnalysisFailedException("Could not find sensor for usage scenario "+us.getEntityName());
+			SensorAndMeasurements sam = getUsageScenarioMeasurements();
+			meanValueCache = calculateValue(sam,"mean");
 		}
 		return meanValueCache;
 	}
+	
+	private SensorAndMeasurements getUsageScenarioMeasurements() throws AnalysisFailedException{
+		//Get usage scenario sensor. 
+		UsageScenario us = pcm.getUsageModel().getUsageScenario_UsageModel().get(0);
+		Sensor respTimeSensor = getSensorForUsageScenario(experiment, us);
+		if (respTimeSensor != null){
+			return run.getMeasurementsOfSensor(respTimeSensor);
+			
+		} else 
+			throw new AnalysisFailedException("Could not find sensor for usage scenario "+us.getEntityName());
+	}
+	
+	public double getMedianValue() throws AnalysisFailedException {
+		if (this.medianValueCache == 0){
+			SensorAndMeasurements sam = getUsageScenarioMeasurements();
+			medianValueCache = calculateValue(sam,"median");
+		}
+		return medianValueCache;
+	}
 
-	private double calculateMeanValue(SensorAndMeasurements sam) throws AnalysisFailedException {
+
+	private double calculateValue(SensorAndMeasurements sam, String command) throws AnalysisFailedException {
 		AnalysisFailedException error = null;
 		try {
 		if (RConnection.isEngineAvailable()){
 
 			RConnection rConnection = RConnection.getRConnection();
 			String sensorName = storeMeasurementsInRVector(sam, sam.getSensor().getSensorID(), TimeseriesData.TIMESPAN, rConnection);
-			Vector<REXP> rResult = rConnection.execute("mean(" + sensorName + ")\n");
+			Vector<REXP> rResult = rConnection.execute(command+"(" + sensorName + ")\n");
 			if (rResult.size() > 0) {
 				if (rResult.get(0).rtype == REXP.REALSXP){
 					return rResult.get(0).asDouble();
@@ -98,7 +114,8 @@ public class SimuComAnalysisResult implements IAnalysisResult {
 		for (Iterator<Sensor> iterator = sensors.iterator(); iterator.hasNext();) {
 			Sensor sensor = iterator.next();
 			//logger.debug("Experiment has a sensor with ID "+sensor.getSensorID()+" and name "+sensor.getSensorName()+".");
-			if (sensor.getSensorName().contains(us.getEntityName())){
+			//TODO: repeat the java name adjustment heare (parentheses etc.)
+			if (sensor.getSensorName().contains(us.getEntityName().replaceAll(" ", "_"))){
 				logger.debug("Found sensor for usage scenario "+us.getEntityName());
 				return sensor;
 			}

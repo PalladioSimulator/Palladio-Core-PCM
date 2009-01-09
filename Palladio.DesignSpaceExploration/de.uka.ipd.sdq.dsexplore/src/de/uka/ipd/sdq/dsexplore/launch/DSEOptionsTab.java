@@ -14,6 +14,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.codegen.runconfig.RunConfigPlugin;
@@ -24,6 +25,12 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 	private Text maximumIterations; 
 	
 	private Image icon;
+
+	private Text meanResponseTimeRequirement;
+
+	private Text threshold;
+
+	private Text increaseFactor;
 
 	@Override
 	public void createControl(Composite parent) {
@@ -41,17 +48,39 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 		
 		final Group maximumIterationsGroup = new Group(container, SWT.NONE);
 		final GridLayout glmaximumIterationsGroup = new GridLayout();
-		glmaximumIterationsGroup.numColumns = 3;
+		glmaximumIterationsGroup.numColumns = 2;
 		maximumIterationsGroup.setLayout(glmaximumIterationsGroup);
-		maximumIterationsGroup.setText("Maximum iterations: ");
+		maximumIterationsGroup.setText("Stop criteria");
 		maximumIterationsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				true, false));
 
+		final Label maxIterationLabel = new Label(maximumIterationsGroup, SWT.NONE);
+		maxIterationLabel.setText("Maximum number of iterations:");
 		
 		maximumIterations = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
 		maximumIterations.setEnabled(true);
 		maximumIterations.addModifyListener(modifyListener);
+		
+		final Label meanRespTimeLabel = new Label(maximumIterationsGroup, SWT.NONE);
+		meanRespTimeLabel.setText("Mean response time requirements:");
 
+		meanResponseTimeRequirement = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
+		meanResponseTimeRequirement.setEnabled(true);
+		meanResponseTimeRequirement.addModifyListener(modifyListener);
+		
+		final Label thresholdLabel = new Label(maximumIterationsGroup, SWT.NONE);
+		thresholdLabel.setText("Threshold for strengthen resource:");
+
+		threshold = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
+		threshold.setEnabled(true);
+		threshold.addModifyListener(modifyListener);
+		
+		final Label increaseFactorLabel = new Label(maximumIterationsGroup, SWT.NONE);
+		increaseFactorLabel.setText("Increase factor for strengthen resource:");
+
+		increaseFactor = new Text(maximumIterationsGroup, SWT.SINGLE	| SWT.BORDER);
+		increaseFactor.setEnabled(true);
+		increaseFactor.addModifyListener(modifyListener);
 	}
 
 	@Override
@@ -77,6 +106,24 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 			RunConfigPlugin.errorLogger(getName(),"maximum iterations", e.getMessage());
 		}
+		try {
+			meanResponseTimeRequirement.setText(configuration.getAttribute(
+					DSEConstantsContainer.MRT_REQUIREMENTS, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),"mean response time", e.getMessage());
+		}
+		try {
+			this.threshold.setText(configuration.getAttribute(
+					DSEConstantsContainer.THRESHOLD, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),DSEConstantsContainer.THRESHOLD, e.getMessage());
+		}
+		try {
+			this.increaseFactor.setText(configuration.getAttribute(
+					DSEConstantsContainer.INCR_FACTOR, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),DSEConstantsContainer.INCR_FACTOR, e.getMessage());
+		}
 
 	}
 
@@ -85,12 +132,26 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(
 				DSEConstantsContainer.MAX_ITERATIONS,
 				maximumIterations.getText());
+		configuration.setAttribute(
+				DSEConstantsContainer.MRT_REQUIREMENTS, 
+				meanResponseTimeRequirement.getText());
+		configuration.setAttribute(
+				DSEConstantsContainer.THRESHOLD,
+				threshold.getText());
+		configuration.setAttribute(
+				DSEConstantsContainer.INCR_FACTOR, 
+				increaseFactor.getText());
 
 	}
 
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-
+		configuration.setAttribute(
+				DSEConstantsContainer.THRESHOLD,
+				"0.7");
+		configuration.setAttribute(
+				DSEConstantsContainer.INCR_FACTOR, 
+				"1.1");
 	}
 	
 	/* (non-Javadoc)
@@ -109,6 +170,29 @@ public class DSEOptionsTab extends AbstractLaunchConfigurationTab {
 				return false;
 			}
 		}
+		
+		if (this.meanResponseTimeRequirement.getText().length() != 0) {
+			try {
+				Double.parseDouble(this.meanResponseTimeRequirement.getText());
+			} catch (NumberFormatException e) {
+				setErrorMessage("Mean response time requirement must be a double value or empty.");
+				return false;
+			}
+		}
+			try {
+				Double.parseDouble(this.threshold.getText());
+			} catch (NumberFormatException e) {
+				setErrorMessage("Threshold must be a double value.");
+				return false;
+			}
+		
+			try {
+				Double.parseDouble(this.increaseFactor.getText());
+			} catch (NumberFormatException e) {
+				setErrorMessage("InreaseFactor must be a double value.");
+				return false;
+			}
+
 		return true;
 	}
 	

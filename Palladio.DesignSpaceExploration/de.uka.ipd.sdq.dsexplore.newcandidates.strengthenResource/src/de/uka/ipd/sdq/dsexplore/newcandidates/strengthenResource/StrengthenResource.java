@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.sun.org.apache.bcel.internal.classfile.CodeException;
@@ -21,6 +22,7 @@ import de.uka.ipd.sdq.dsexplore.PCMInstance;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.helper.Triple;
+import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.newcandidates.INewCandidates;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -36,15 +38,13 @@ public class StrengthenResource implements INewCandidates {
 	protected static Logger logger = 
 		Logger.getLogger("de.uka.ipd.sdq.dsexplore");
 
-	private double threshold;
+	private double threshold = 0.70;
 	//strengthen the processing rate or capacity of each resource by this amount. 
-	private double increaseFactor;
+	private double increaseFactor = 1.1;
 
 	public StrengthenResource() {
-		threshold = 0;
-		increaseFactor = 1.1;
 	}
-
+	
 	@Override
 	public List<PCMInstance> generateNewCandidates(IAnalysisResult currentSolution) throws CoreException {
 		
@@ -52,7 +52,7 @@ public class StrengthenResource implements INewCandidates {
 	
 		try {
 			
-		// Find highly utilised resources (i.e. > 90 % utilisation
+		// Find highly utilised resources (i.e. > 90 % utilisation, here > threshold)
 		List<ContainerResourceUtilADT> utilisedResourcesResults = getResourceUtilisation(currentSolution);
 		
 		// TODO: Generate new candidates that have increased processing rates / capacity
@@ -85,7 +85,7 @@ public class StrengthenResource implements INewCandidates {
 		
 		PCMInstance newPCM = instance.shallowCopy();
 		
-		String suffix = "-incr"+cru.getFirst().getEntityName().charAt(0)+cru.getSecond().getActiveResourceType_ActiveResourceSpecification().getEntityName();
+		String suffix = "-incr"+cru.getSecond().getActiveResourceType_ActiveResourceSpecification().getEntityName()+cru.getFirst().getEntityName().charAt(cru.getFirst().getEntityName().length()-1);
 		
 		newPCM.setName(newPCM.getName()+suffix);
 		
@@ -99,22 +99,11 @@ public class StrengthenResource implements INewCandidates {
 		
 		alloc.setTargetResourceEnvironment_Allocation(re);
 		
-		//Th eURI must additionally be set for all allocation contexts. If not, they still reference the old resource environment.
-		List<AllocationContext> contexts = alloc.getAllocationContexts_Allocation();
-		//URI rightURI = re.eResource().getURI();
-		URI fileURI = URI.createFileURI(new File(newPCM.getResEnvFileName()).getAbsolutePath());
-		for (Iterator<AllocationContext> iterator = contexts.iterator(); iterator
-				.hasNext();) {
-			AllocationContext allocationContext = iterator.next();
-			allocationContext.getResourceContainer_AllocationContext().eResource().setURI(fileURI);
-		}
-		
-		
 		ProcessingResourceSpecification r = findResourceIn(cru, newPCM);
 		
 		increaseProcessingRate(r);
 		
-		newPCM.saveUpdatesToFile();
+		//newPCM.saveUpdatesToFile();
 		
 		return newPCM;
 	}
@@ -219,6 +208,21 @@ public class StrengthenResource implements INewCandidates {
 					+" utilisation:  "+c.getThird());
 		}
 		return results;
+	}
+
+	@Override
+	public void setConfiguration(ILaunchConfiguration conf) {
+		try {
+			this.increaseFactor = Double.parseDouble(conf.getAttribute(DSEConstantsContainer.INCR_FACTOR, "1.1"));
+			this.threshold = Double.parseDouble(conf.getAttribute(DSEConstantsContainer.THRESHOLD, "0.7"));
+		} catch (NumberFormatException e) {
+			logger.error("Could not parse configuration in strengthen resource: NumberFormatException");
+			e.printStackTrace();
+		} catch (CoreException e) {
+			logger.error("Could not parse configuration in strengthen resource: CoreException");
+			e.printStackTrace();
+		}
+
 	}
 
 }

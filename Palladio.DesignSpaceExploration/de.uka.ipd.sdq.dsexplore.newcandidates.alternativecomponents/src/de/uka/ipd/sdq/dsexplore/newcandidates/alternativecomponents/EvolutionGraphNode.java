@@ -95,21 +95,24 @@ public class EvolutionGraphNode {
 	 * @return A list of children of the passed {@link PCMInstance}, which might be empty if no matching node was found. 
 	 */
 	public List<PCMInstance> getChildrenOf(PCMInstance currentSolution) {
-		EvolutionGraphNode node = this.getDescendant(currentSolution);
+		logger.debug("Retrieving alternative component candidates for PCM instance "+currentSolution.getName());
+		EvolutionGraphNode node = this.getMatchingNode(currentSolution);
 		List<PCMInstance> result = new ArrayList<PCMInstance>();
 		if (node == null)
 			return result;
+		//If there is a node in the tree with this PCM instance, return all its children. 
 		Vector<EvolutionGraphNode> children = node.getChildren();
 		for (Iterator<EvolutionGraphNode> iterator = children.iterator(); iterator
 				.hasNext();) {
 			EvolutionGraphNode child = iterator.next();
 			result.add(child.getNode());
+			logger.debug("Found alternative candidate "+child.getNode().getName());
 		}
 		return result;
 	}
 	
-	public boolean hasDescendant(PCMInstance instance){
-		return this.getDescendant(instance)!= null;
+	public boolean hasMatchingNode(PCMInstance instance){
+		return this.getMatchingNode(instance)!= null;
 	}
 	
 	/**
@@ -118,7 +121,7 @@ public class EvolutionGraphNode {
 	 * @param instance
 	 * @return
 	 */
-	private EvolutionGraphNode getDescendant(PCMInstance instance){
+	private EvolutionGraphNode getMatchingNode(PCMInstance instance){
 		//FIXME: This can throw a NullPointerException. 
 		if (this.node.getSystemFileName().equals(instance.getSystemFileName())){
 			return this;
@@ -127,7 +130,7 @@ public class EvolutionGraphNode {
 			for (Iterator<EvolutionGraphNode> iterator = children.iterator(); iterator
 					.hasNext();) {
 				EvolutionGraphNode child = iterator.next();
-				EvolutionGraphNode result = child.getDescendant(instance);
+				EvolutionGraphNode result = child.getMatchingNode(instance);
 				if (result != null){
 					return result;
 				}

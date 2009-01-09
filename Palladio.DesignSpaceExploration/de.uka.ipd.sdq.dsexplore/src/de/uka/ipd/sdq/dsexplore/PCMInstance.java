@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import de.uka.ipd.sdq.codegen.runconfig.tabs.ConstantsContainer;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
@@ -49,7 +50,7 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 	// names... no.
  * 
  * TODO: change the file naming as it becomes too long... Or just increase the strengthen resource value?
- * TODO: repair the naming of instances: Using altcomponents seems to delete the strengthen part. See textfile on desktop with a previous run. 
+ * TODO: repair the naming of instances: Using altcomponents seems to delete the strengthen part. See textfile on desktop with a previous run.
  * 
  * @author Anne
  * 
@@ -194,7 +195,7 @@ public class PCMInstance {
 	}
 
 	public void appendToAllocationFileName(String allocationFileNameSuffix) {
-		this.allocationFileName = appendToFilename(allocationFileNameSuffix, allocationFileName);
+		this.allocationFileName = appendToFilename(allocationFileNameSuffix, this.allocationFileName);
 	}
 
 	public void appendToResEnvFileName(String resEnvFileNameSuffix) {
@@ -381,6 +382,23 @@ public boolean equals(Object o) {
 		// more here.
 		saveSystemToFile();
 		saveResEnvToFile();
+		
+		//The URI must additionally be set for all allocation contexts. If not, they still reference the old resource environment.
+		List<AllocationContext> contexts = this.getAllocation().getAllocationContexts_Allocation();
+		//URI rightURI = re.eResource().getURI();
+		URI fileURI = URI.createFileURI(new File(this.getResEnvFileName()).getAbsolutePath());
+		for (Iterator<AllocationContext> iterator = contexts.iterator(); iterator
+				.hasNext();) {
+			AllocationContext allocationContext = iterator.next();
+			//try to adjust the URI in the Resource, if there is any
+			Resource resource = allocationContext.getResourceContainer_AllocationContext().eResource();
+			if (resource != null){
+				resource.setURI(fileURI);
+			} else {
+				logger.warn("Resource of allocation context "+allocationContext.getEntityName()+" has a null eResource!");
+			}
+		}
+		
 		saveAllocationToFile();
 	}
 
@@ -441,7 +459,8 @@ public boolean equals(Object o) {
 	 * Checks for two PCM model elements whether they are the same, i.e. whether
 	 * they have the same ID. The model elements have to be derived from
 	 * Identifier. Note that two systems might use the same assembly contexts
-	 * and components, but still are two different systems.
+	 * and components, but still are two different systems. If one of the 
+	 * Identifiers in null, false is returned. 
 	 * 
 	 * @param i1
 	 *            One Identifier
