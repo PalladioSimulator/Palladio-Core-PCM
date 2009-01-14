@@ -143,7 +143,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_edDCPqUsEdu67aH61_l2Wg"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_edDCMaUsEdu67aH61_l2Wg" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_edDCMqUsEdu67aH61_l2Wg" x="13016" y="15335"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_edDCMqUsEdu67aH61_l2Wg" x="7291" y="15216"/>
         </children>
         <children xmi:id="_K8Rp4KUvEdu67aH61_l2Wg" element="_K8If8KUvEdu67aH61_l2Wg">
           <children xmi:id="_K8Rp46UvEdu67aH61_l2Wg" type="ImageCompartment">
@@ -407,7 +407,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_htplz-DCEd2Q1KQpMeXmHw"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_htplweDCEd2Q1KQpMeXmHw" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htplwuDCEd2Q1KQpMeXmHw" x="8231" y="13660"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_htplwuDCEd2Q1KQpMeXmHw" x="12046" y="15216"/>
         </children>
         <children xmi:id="_FPi6gODPEd2Q1KQpMeXmHw" element="_FPZJgODPEd2Q1KQpMeXmHw">
           <children xmi:id="_FPi6g-DPEd2Q1KQpMeXmHw" type="ImageCompartment">
@@ -607,6 +607,26 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Z102cuDZEd2Q1KQpMeXmHw" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z102c-DZEd2Q1KQpMeXmHw" x="31706" y="15190"/>
         </children>
+        <children xmi:id="_uYDmEOImEd2IQKiNSbYcaw" element="_uM4Q0OImEd2IQKiNSbYcaw">
+          <children xmi:id="_uYDmE-ImEd2IQKiNSbYcaw" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_uYDmFOImEd2IQKiNSbYcaw" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_uYDmFeImEd2IQKiNSbYcaw" type="Stereotype"/>
+          <children xmi:id="_uYDmFuImEd2IQKiNSbYcaw" type="Kind"/>
+          <children xmi:id="_uYMwAOImEd2IQKiNSbYcaw" type="Name"/>
+          <children xmi:id="_uYMwAeImEd2IQKiNSbYcaw" type="Parent"/>
+          <children xmi:id="_uYMwAuImEd2IQKiNSbYcaw" type="EnumerationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_uYMwA-ImEd2IQKiNSbYcaw"/>
+          </children>
+          <children xmi:id="_uYMwBOImEd2IQKiNSbYcaw" visible="false" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_uYMwBeImEd2IQKiNSbYcaw"/>
+          </children>
+          <children xmi:id="_uYMwBuImEd2IQKiNSbYcaw" visible="false" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_uYMwB-ImEd2IQKiNSbYcaw"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_uYDmEeImEd2IQKiNSbYcaw" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uYDmEuImEd2IQKiNSbYcaw" x="-6340" y="4438"/>
+        </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_Kr_xwaM4EdueS_3nHTLlag"/>
         <edges xmi:id="_ZzFFoKM4EdueS_3nHTLlag" element="_ZyeosKM4EdueS_3nHTLlag" source="_MeIdwKM4EdueS_3nHTLlag" target="_UAVq8KM4EdueS_3nHTLlag">
           <children xmi:id="_ZzO2oKM4EdueS_3nHTLlag" type="NameLabel">
@@ -764,7 +784,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kPC2BaUsEdu67aH61_l2Wg" y="-185"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_kPC2AqUsEdu67aH61_l2Wg" routing="Rectilinear" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kPC2A6UsEdu67aH61_l2Wg" points="[-26, -847, 0, 4974]$[-26, -5663, 0, 158]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kPC2A6UsEdu67aH61_l2Wg" points="[53, -635, -8704, 4392]$[53, -2170, -8704, 2857]$[8784, -2170, 27, 2857]$[8784, -4339, 27, 688]"/>
         </edges>
         <edges xmi:id="_mZCBUKUsEdu67aH61_l2Wg" element="_mY4QUKUsEdu67aH61_l2Wg" source="_edDCMKUsEdu67aH61_l2Wg" target="_W2YLwaUsEdu67aH61_l2Wg">
           <children xmi:id="_mZCBU6UsEdu67aH61_l2Wg" type="NameLabel">
@@ -782,11 +802,11 @@
           </children>
           <children xmi:id="_mZCBXaUsEdu67aH61_l2Wg" type="FromMultiplicityLabel" element="_mY4QUaUsEdu67aH61_l2Wg">
             <children xmi:id="_mZCBX6UsEdu67aH61_l2Wg" type="FromMultiplicity" element="_mY4QUaUsEdu67aH61_l2Wg"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_mZCBXqUsEdu67aH61_l2Wg" x="842" y="150"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_mZCBXqUsEdu67aH61_l2Wg" x="440" y="447"/>
           </children>
           <children xmi:id="_mZLyUKUsEdu67aH61_l2Wg" type="FromRoleLabel" element="_mY4QUaUsEdu67aH61_l2Wg">
             <children xmi:id="_mZLyUqUsEdu67aH61_l2Wg" type="FromRole" element="_mY4QUaUsEdu67aH61_l2Wg"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_mZLyUaUsEdu67aH61_l2Wg" x="127" y="-524"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_mZLyUaUsEdu67aH61_l2Wg" x="-791" y="-544"/>
           </children>
           <children xmi:id="_mZLyU6UsEdu67aH61_l2Wg" type="ToQualifierLabel" element="_mY4QUqUsEdu67aH61_l2Wg">
             <children xmi:id="_mZLyVaUsEdu67aH61_l2Wg" type="QualifierCompartment" element="_mY4QUqUsEdu67aH61_l2Wg">
@@ -1332,7 +1352,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mnebdeDCEd2Q1KQpMeXmHw" y="-186"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_mnebcuDCEd2Q1KQpMeXmHw" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mnebc-DCEd2Q1KQpMeXmHw" points="[32, -25, -101, 76]$[64, -52, -69, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mnebc-DCEd2Q1KQpMeXmHw" points="[133, -714, -3333, 4392]$[133, -1508, -3333, 3598]$[3440, -1508, -26, 3598]$[3440, -4418, -26, 688]"/>
         </edges>
         <edges xmi:id="_8pZWUODJEd2Q1KQpMeXmHw" element="_8pPlUODJEd2Q1KQpMeXmHw" source="_UAVq8KM4EdueS_3nHTLlag" target="_hDQTAN5TEd2J5pVxpSl5YA">
           <children xmi:id="_8pZWU-DJEd2Q1KQpMeXmHw" type="NameLabel">
@@ -2061,6 +2081,7 @@ The abstract SensorDeclaration class needs to be subclassed to create concrete S
       </ownedAttribute>
       <ownedAttribute xmi:id="_MXeckqUvEdu67aH61_l2Wg" name="owningExperiment" visibility="public" type="_K8If8KUvEdu67aH61_l2Wg" association="_MXeckKUvEdu67aH61_l2Wg"/>
       <ownedAttribute xmi:id="_NpAJgOCzEd2Q1KQpMeXmHw" name="measureCharacterization" visibility="public" type="_aApYcOCvEd2Q1KQpMeXmHw" aggregation="composite" association="_No2YgOCzEd2Q1KQpMeXmHw"/>
+      <ownedAttribute xmi:id="_65l0AOImEd2IQKiNSbYcaw" name="persistencyKind" visibility="public" type="_uM4Q0OImEd2IQKiNSbYcaw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_UAL58KM4EdueS_3nHTLlag" name="CollectedData">
       <eAnnotations xmi:id="_YHMIQFSEEdy1atvQQxIQAA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
@@ -2095,6 +2116,12 @@ The abstract SensorDeclaration class needs to be subclassed to create concrete S
       <ownedComment xmi:id="_RC-CEN5aEd2J5pVxpSl5YA" annotatedElement="_TJ5S8KUsEdu67aH61_l2Wg">
         <body>Sensor which allows to store predescribed state(s).</body>
       </ownedComment>
+      <ownedRule xmi:id="_4W4KMOInEd2IQKiNSbYcaw" name="PersistenceKindOnlyEmfAllowed" constrainedElement="_TJ5S8KUsEdu67aH61_l2Wg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_4W4KMeInEd2IQKiNSbYcaw">
+          <language>OCL</language>
+          <body>self.persistencyKind = PersistenceKindOptions::Emf</body>
+        </specification>
+      </ownedRule>
       <generalization xmi:id="_U7l6EKUsEdu67aH61_l2Wg" general="_Mdin4KM4EdueS_3nHTLlag"/>
       <ownedAttribute xmi:id="_a6_3waUsEdu67aH61_l2Wg" name="definedSensorStates" visibility="public" type="_W2YLwKUsEdu67aH61_l2Wg" aggregation="composite" association="_a6_3wKUsEdu67aH61_l2Wg">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a6_3xKUsEdu67aH61_l2Wg" value="*"/>
@@ -2233,10 +2260,16 @@ For example measuring the response time of a request to a system in milliseconds
       <ownedComment xmi:id="_YQ_ooODDEd2Q1KQpMeXmHw" annotatedElement="_kOGlwODBEd2Q1KQpMeXmHw">
         <body>Sensor which stores any measurable or quantifyable value. The values have to be described using the JScience framework.</body>
       </ownedComment>
+      <ownedRule xmi:id="_t2s6kOIoEd2IQKiNSbYcaw" name="PersistencyKindNotEmf" constrainedElement="_kOGlwODBEd2Q1KQpMeXmHw">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_t2s6keIoEd2IQKiNSbYcaw">
+          <language>OCL</language>
+          <body>self.persistencyKind != PersistenceKindOptions::Emf</body>
+        </specification>
+      </ownedRule>
       <generalization xmi:id="_mtGXwODBEd2Q1KQpMeXmHw" general="_Mdin4KM4EdueS_3nHTLlag"/>
       <ownedAttribute xmi:id="_x8CakOCvEd2Q1KQpMeXmHw" name="unitOfMeasurements" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_htgb0ODCEd2Q1KQpMeXmHw" name="JScience XML Representation" isAbstract="true">
+    <packagedElement xmi:type="uml:Class" xmi:id="_htgb0ODCEd2Q1KQpMeXmHw" name="JScienceXmlMeasurements" isAbstract="true">
       <ownedComment xmi:id="_vAsTsODDEd2Q1KQpMeXmHw" annotatedElement="_htgb0ODCEd2Q1KQpMeXmHw">
         <body>Stores the JScience types for which no fast background storage facility is available.</body>
       </ownedComment>
@@ -2323,6 +2356,12 @@ An example is a histogram. The encountered values are summed up by intervals wit
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_KE5e4ODaEd2Q1KQpMeXmHw" memberEnd="_KE5e4eDaEd2Q1KQpMeXmHw _KE5e5ODaEd2Q1KQpMeXmHw">
       <ownedEnd xmi:id="_KE5e5ODaEd2Q1KQpMeXmHw" name="" visibility="private" type="_Pcv9QJBdEd2udZpEj_wV6w" association="_KE5e4ODaEd2Q1KQpMeXmHw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_uM4Q0OImEd2IQKiNSbYcaw" name="PersistenceKindOptions">
+      <ownedLiteral xmi:id="_0IHgMOImEd2IQKiNSbYcaw" name="BinaryLong"/>
+      <ownedLiteral xmi:id="_3T9xIOImEd2IQKiNSbYcaw" name="BinaryDouble"/>
+      <ownedLiteral xmi:id="_4DV_oOImEd2IQKiNSbYcaw" name="XmlJScience"/>
+      <ownedLiteral xmi:id="_lXGtgOInEd2IQKiNSbYcaw" name="Emf"/>
     </packagedElement>
     <profileApplication xmi:id="__vMF-qM3EdueS_3nHTLlag">
       <eAnnotations xmi:id="__vMF-6M3EdueS_3nHTLlag" source="http://www.eclipse.org/uml2/2.0.0/UML">
