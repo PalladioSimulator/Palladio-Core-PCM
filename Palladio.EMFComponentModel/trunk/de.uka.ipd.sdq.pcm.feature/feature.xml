@@ -105,6 +105,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <url>
       <update label="Palladio Component Model Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
+      <discovery label="Official PCM website" url="http://www.palladio-approach.net"/>
    </url>
 
    <includes
