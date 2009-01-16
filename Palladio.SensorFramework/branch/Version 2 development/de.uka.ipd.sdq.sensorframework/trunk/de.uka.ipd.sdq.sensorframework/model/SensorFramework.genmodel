@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.sensorframework/src"
+    modelPluginID="de.uka.ipd.sdq.sensorframework" modelName="SensorFramework" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>SensorFramework.ecore</foreignModel>
+  <genPackages prefix="sensorframework" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
+      ecorePackage="SensorFramework.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="SensorFramework.ecore#//PersistenceKindOptions">
+      <genEnumLiterals ecoreEnumLiteral="SensorFramework.ecore#//PersistenceKindOptions/BinaryLong"/>
+      <genEnumLiterals ecoreEnumLiteral="SensorFramework.ecore#//PersistenceKindOptions/BinaryDouble"/>
+      <genEnumLiterals ecoreEnumLiteral="SensorFramework.ecore#//PersistenceKindOptions/XmlJScience"/>
+      <genEnumLiterals ecoreEnumLiteral="SensorFramework.ecore#//PersistenceKindOptions/Emf"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="SensorFramework.ecore#//EJSMeasure"/>
+    <genDataTypes ecoreDataType="SensorFramework.ecore#//EJSDurationMeasure"/>
+    <genDataTypes ecoreDataType="SensorFramework.ecore#//EJSUnit"/>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//AggregatedMeasurements">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SensorFramework.ecore#//AggregatedMeasurements/measurementRange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//AggregatedMeasurements/distinctValuesBeforeAggregation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//AggregatedMeasurements/distinctValuesAfterAggregation"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//MeasurementRange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//MeasurementRange/rawMeasurements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//MeasurementRange/endTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//MeasurementRange/startTime"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SensorFramework.ecore#//MeasurementRange/collectedData"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//MeasurementRange/aggregatedMeasurements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//RawMeasurements">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//RawMeasurements/rawXValues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//RawMeasurements/rawYValues"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SensorFramework.ecore#//RawMeasurements/measurementRange"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//RawXValues"/>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//RawYValues">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//RawYValues/statistics"/>
+      <genOperations ecoreOperation="SensorFramework.ecore#//RawYValues/Statisticsonlyformeasurablevalues">
+        <genParameters ecoreParameter="SensorFramework.ecore#//RawYValues/Statisticsonlyformeasurablevalues/diagnostics"/>
+        <genParameters ecoreParameter="SensorFramework.ecore#//RawYValues/Statisticsonlyformeasurablevalues/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//Statistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//Statistics/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//Statistics/mean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//Statistics/maximum"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//CollectedData">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//CollectedData/sensor"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SensorFramework.ecore#//CollectedData/experimentRun"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//CollectedData/measurementRange"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//Propertyable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//Propertyable/additionalInformation"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//EStringtoEObjectMapEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//EStringtoEObjectMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//EStringtoEObjectMapEntry/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//SensorDeclaration">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SensorFramework.ecore#//SensorDeclaration/owningExperiment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//SensorDeclaration/measureCharacterization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//SensorDeclaration/persistencyKind"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//ExperimentSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//ExperimentSetting/experimentName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//ExperimentSetting/experimentRuns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//ExperimentSetting/sensors"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//ExperimentRun">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//ExperimentRun/collectedData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//ExperimentRun/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//ExperimentRun/duration"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SensorFramework.ecore#//ExperimentRun/experimentSetting"/>
+      <genOperations ecoreOperation="SensorFramework.ecore#//ExperimentRun/ExactlyOneDataCollectionPerSensor">
+        <genParameters ecoreParameter="SensorFramework.ecore#//ExperimentRun/ExactlyOneDataCollectionPerSensor/diagnostics"/>
+        <genParameters ecoreParameter="SensorFramework.ecore#//ExperimentRun/ExactlyOneDataCollectionPerSensor/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//MeasureCharacterization">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//MeasureCharacterization/measuredObject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//MeasureCharacterization/metric"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SensorFramework.ecore#//MeasureCharacterization/sensorDeclaration"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//LongMeasurements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//LongMeasurements/value"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//State/stateLiteral"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//StateMeasurements">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//StateMeasurements/observedStates"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//StateSensor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//StateSensor/definedSensorStates"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//StateSensor/initialState"/>
+      <genOperations ecoreOperation="SensorFramework.ecore#//StateSensor/PersistenceKindOnlyEmfAllowed">
+        <genParameters ecoreParameter="SensorFramework.ecore#//StateSensor/PersistenceKindOnlyEmfAllowed/diagnostics"/>
+        <genParameters ecoreParameter="SensorFramework.ecore#//StateSensor/PersistenceKindOnlyEmfAllowed/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//DoubleMeasurements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//DoubleMeasurements/value"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//ExperimentGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//ExperimentGroup/experiments"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//MeasurableSensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//MeasurableSensor/unitOfMeasurements"/>
+      <genOperations ecoreOperation="SensorFramework.ecore#//MeasurableSensor/PersistencyKindNotEmf">
+        <genParameters ecoreParameter="SensorFramework.ecore#//MeasurableSensor/PersistencyKindNotEmf/diagnostics"/>
+        <genParameters ecoreParameter="SensorFramework.ecore#//MeasurableSensor/PersistencyKindNotEmf/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//JSXmlMeasurements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//JSXmlMeasurements/value"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//EventTimeAggregation"/>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//FixedWidthAggregation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//FixedWidthAggregation/rawYValues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SensorFramework.ecore#//FixedWidthAggregation/rawXValues"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//Intervals">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//Intervals/offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//Intervals/intervalWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//Intervals/numberOfIntervals"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//ValueAggregation"/>
+    <genClasses ecoreClass="SensorFramework.ecore#//IncreasingMeasurableSensor"/>
+    <genClasses ecoreClass="SensorFramework.ecore#//AdvancedStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//AdvancedStatistics/median"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//AdvancedStatistics/variance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//AdvancedStatistics/standardDeviation"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//JSXmlEventTimes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//JSXmlEventTimes/measurementTime"/>
+    </genClasses>
+    <genClasses ecoreClass="SensorFramework.ecore#//DoubleEventTimes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SensorFramework.ecore#//DoubleEventTimes/measurementTime"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//IJSDuration"/>
+    <genClasses image="false" ecoreClass="SensorFramework.ecore#//IJSQuantity"/>
+  </genPackages>
+</genmodel:GenModel>
