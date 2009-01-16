@@ -1,0 +1,17 @@
+These are precaptured changed templates for the JScience wrapping classes "EJSMEasure" 
+and "EJSDurationMeasure".
+They are necessary as RAS is not capable of handling parameterized/template data types 
+and javax.measure.Measure has two parameters. 
+
+  <eClassifiers xsi:type="ecore:EDataType" name="EJSMeasure" instanceClassName="javax.measure.Measure">
+    <eTypeParameters name="V"/>
+    <eTypeParameters name="Q">
+      <eBounds eClassifier="#//IJSQuantity"/>
+    </eTypeParameters>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EJSDurationMeasure" instanceClassName="javax.measure.Measure">
+    <eTypeParameters name="V"/>
+    <eTypeParameters name="Q">
+      <eBounds eClassifier="#//IJSDuration"/>
+    </eTypeParameters>
+  </eClassifiers>
