@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jscience Plug-in
-Bundle-SymbolicName: org.jscience_src
+Bundle-SymbolicName: org.jscience
 Bundle-Version: 4.1.3
 Bundle-Vendor: jscience.org
 Export-Package: javax.measure,
