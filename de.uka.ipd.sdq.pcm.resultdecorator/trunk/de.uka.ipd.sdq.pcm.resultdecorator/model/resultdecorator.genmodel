@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.pcm.resultdecorator/src"
+    modelPluginID="de.uka.ipd.sdq.pcm.resultdecorator" modelName="Resultdecorator"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+  <foreignModel>resultdecorator.ecore</foreignModel>
+  <genPackages prefix="Resultdecorator" basePackage="de.uka.ipd.sdq.pcm" resource="XML"
+      disposableProviderFactory="true" ecorePackage="resultdecorator.ecore#/">
+    <genClasses ecoreClass="resultdecorator.ecore#//ResultDecoratorRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//ResultDecoratorRepository/interfaceprovidingrequiringentityresults"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//ResultDecoratorRepository/utilisationresult"/>
+    </genClasses>
+    <nestedGenPackages prefix="repositorydecorator" basePackage="de.uka.ipd.sdq.pcm.resultdecorator"
+        resource="XML" disposableProviderFactory="true" ecorePackage="resultdecorator.ecore#//repository">
+      <genClasses ecoreClass="resultdecorator.ecore#//repository/InterfaceProvidingRequiringEntityResults">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference resultdecorator.ecore#//repository/InterfaceProvidingRequiringEntityResults/interfaceprovidingrequiringentity"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repository/InterfaceProvidingRequiringEntityResults/normalisedResourceDemand"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repository/InterfaceProvidingRequiringEntityResults/normalisedResponseTime"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="resourceenvironmentdecorator" basePackage="de.uka.ipd.sdq.pcm.resultdecorator"
+        resource="XML" disposableProviderFactory="true" ecorePackage="resultdecorator.ecore#//resourceenvironment">
+      <genClasses ecoreClass="resultdecorator.ecore#//resourceenvironment/LinkingResourceResults">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference resultdecorator.ecore#//resourceenvironment/LinkingResourceResults/linkingresource"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="resultdecorator.ecore#//resourceenvironment/UtilisationResult">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironment/UtilisationResult/normalisedResourceUtilisation"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironment/UtilisationResult/normalisedDemandedTime"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironment/UtilisationResult/normalisedWaitTime"/>
+      </genClasses>
+      <genClasses ecoreClass="resultdecorator.ecore#//resourceenvironment/ResourceContainerResults">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference resultdecorator.ecore#//resourceenvironment/ResourceContainerResults/resourcecontainer"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
