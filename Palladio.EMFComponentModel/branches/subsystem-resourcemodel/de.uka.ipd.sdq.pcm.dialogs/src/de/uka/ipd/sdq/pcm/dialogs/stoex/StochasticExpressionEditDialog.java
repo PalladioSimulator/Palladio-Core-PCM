@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
@@ -152,17 +153,25 @@ public class StochasticExpressionEditDialog extends
 		ResourceDemandingSEFF seff = getSEFF(
 				rv);
 
-		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null) {
-			parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
-			ExternalCallAction eca = getParentCallAction(rv);
-			if (eca != null && isOutputCharacterisation(eca,rv) && eca.getCalledService_ExternalService() != null &&
-					eca.getCalledService_ExternalService().getReturntype__Signature() != null) {
-				Parameter[] parametersWithReturn = new Parameter[parameters.length+1];
-				System.arraycopy(parameters,0,parametersWithReturn,0,parameters.length);
-				parametersWithReturn[parameters.length] = RepositoryFactory.eINSTANCE.createParameter();
-				parametersWithReturn[parameters.length].setDatatype__Parameter(eca.getCalledService_ExternalService().getReturntype__Signature());
-				parametersWithReturn[parameters.length].setParameterName("RETURN");
-				parameters = parametersWithReturn;
+		// Hauck 2008.11.19: Test first if Seff has a Signature. It could also be a ResourceService!
+		// TODO: return demand parameter if Seff has a ResourceService
+		if (seff != null && seff.getDescribedService__SEFF() != null) {
+			if (seff.getDescribedService__SEFF() instanceof Signature) {
+				Signature sig = (Signature)seff.getDescribedService__SEFF();
+				if (sig.getParameters__Signature() != null) {
+					parameters = (Parameter[]) sig.getParameters__Signature().toArray();
+					ExternalCallAction eca = getParentCallAction(rv);
+					if (eca != null && isOutputCharacterisation(eca,rv) && eca.getCalledService_ExternalService() != null &&
+							eca.getCalledService_ExternalService().getReturntype__Signature() != null) {
+						Parameter[] parametersWithReturn = new Parameter[parameters.length+1];
+						System.arraycopy(parameters,0,parametersWithReturn,0,parameters.length);
+						parametersWithReturn[parameters.length] = RepositoryFactory.eINSTANCE.createParameter();
+						parametersWithReturn[parameters.length].setDatatype__Parameter(eca.getCalledService_ExternalService().getReturntype__Signature());
+						parametersWithReturn[parameters.length].setParameterName("RETURN");
+						parameters = parametersWithReturn;
+				}
+			}
+			
 			}
 		}
 		return parameters;
